@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="mod4j project site">
+  <skin>
+    <groupId>nl.ordina.smartjava.skins</groupId>
+    <artifactId>smartjava-skin</artifactId>
+    <version>1.6.2</version>
+  </skin>
+
+  <bannerLeft>
+    <name>company-logo</name>
+    <!-- Vervang dit logo voor de site door het project of klantlogo -->
+    <!-- Notice: make sure the image background is transparent -->
+    <src>http://www.j-technologies.nl/images/logo.gif</src>
+    <href>http://www.j-technologies.nl</href>
+  </bannerLeft>
+  <bannerRight>
+    <name>mod4j</name>
+  </bannerRight>
+
+  <publishDate position="bottom" format="dd MMM yyyy - HH:mm" />
+
+  <body>
+    <menu name="Metrieken" inherit="top">
+      <item name="Voortgang" href="voortgang.html" />
+      <item name="Dashboard" href="dashboard.html" />
+    </menu>
+    <menu ref="parent" inherit="top" />
+    <menu ref="modules" inherit="top" />
+    <menu ref="reports" inherit="bottom" />
+    <menu name="Project" inherit="bottom">
+      <item name="Richtlijnen" href="programmeerrichtlijnen.html" />
+      <item name="Ontwikkelomgeving" href="ontwikkelomgeving.html" />
+      <item name="Docs" href="https://mod4j.smart-java.nl/docs" />
+      <item name="Project admin portal" href="https://smart-java.nl/projects/mod4j" />
+      <item name="Maven project repo" href="https://mod4j.smart-java.nl/repo" />
+      <item name="Maven smartjava repo" href="https://repo.smart-java.nl/repo" />
+    </menu>
+    <menu name="Ordina" inherit="bottom">
+      <item name="Software Factory" href="http://www.ordinasoftwarefactory.nl/" />
+      <item name="RUP op maat" href="http://www.rupopmaat.nl/" />
+      <item name="J-Technologies" href="http://www.j-technologies.nl" />
+      <item name="Ordina" href="http://www.ordina.nl" />
+    </menu>
+  </body>
+</project>

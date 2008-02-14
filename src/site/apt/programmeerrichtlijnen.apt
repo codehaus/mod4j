@@ -1,0 +1,688 @@
+                                ------
+                          Programmeerrichtlijnen
+                                ------
+                                ------
+
+Inleiding
+~~~~~~~~~
+
+    Dit document beschrijft de programmeerrichtlijnen die door alle
+    ontwikkelaars in het projectteam moeten worden gevolgd. Het doel van dit
+    document is <niet> dat iedere ontwikkelaar in een keurslijf wordt
+    gedwongen, maar dat het team als geheel - door duidelijke afspraken te
+    maken - kwalitatief betere software oplevert. Dat kan alleen als ieder
+    teamlid het eens is met de richtlijnen in dit document. Daarom is dit ook
+    een levend document: gezamenlijk stellen we, in de loop van het project,
+    de richtlijnen bij. Dus <door> het team, <voor> het team.
+
+    Ons uitgangspunt is dat de broncode een gedeelde eigenaar heeft: het hele
+    team. Er is geen broncode specifiek van een persoon; iedereen mag overal
+    bij. Wel is het zo dat de code verdeeld is in natuurlijke onderdelen
+    (bijvoorbeeld modules, of gebruikte technieken), en dat er per onderdeel
+    ten minste 1 persoon het aanspreekpunt moet zijn. De onderdelen en de
+    bijbehorende aanspreekpunten zullen in de loop van het project vanzelf
+    duidelijk worden.
+
+Ontwikkelomgeving (IDE)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+    Het hele team werkt in ieder geval met de IDE zoals die door het
+    Smart-Java team is uitgerold. Dit betekent:
+
+        * IDE: <<Eclipse Europa>>
+
+        * Plugin: <<Mylyn JIRA connector>>
+
+        * Plugin: <<Subclipse>>
+
+        * Plugin: <<Maven>>
+
+        * Plugin: <<GlassFish>>
+
+    Volg de instructies voor het inrichten van de ontwikkelomgeving om de
+    IDE correct te installeren en te configureren.
+
+    Indien gewenst is het toegestaan om ook met een afwijkende IDE te werken.
+    Maar dan geldt wel:
+
+        * De rest van het team mag hier <<geen enkele>> hinder van
+          ondervinden.
+
+        * Opgeleverde code moet voldoen aan <<exact dezelfde>> eisen en
+          kwaliteitscriteria.
+
+        * Er is <<geen support>> vanuit Smart-Java of het team.
+
+        * Indien nodig kan <<direct en probleemloos>> worden overgeschakeld
+          naar de team IDE.
+
+
+Code standaarden
+~~~~~~~~~~~~~~~~
+
+* Conventies
+~~~~~~~~~~~~
+
+** Formattering
+~~~~~~~~~~~~~~~
+
+    Uitgangspunt: stel de <<<smartjava_eclipse_formatter.xml>>> in binnen je
+    (op Eclipse gebaseerde) IDE en zorg ervoor dat een bestand altijd goed
+    geformatteerd is, alvorens het in versiebeheer in te checken.
+
+** Naamgeving
+~~~~~~~~~~~~~
+
+    * Afkortingen zijn <<verboden>>.
+
+      Redenen:
+
+        * Code wordt vaker gelezen dan geschreven. Afkortingen zijn niet
+          leesbaar.
+
+        * Iedere IDE heeft <name completion>. Lange namen typen niet sneller
+          dan korte.
+
+    * Uitzonderingen:
+
+        * Standaard technische afkortingen: <<<xml>>>, <<<http>>>.
+
+        * Standaard afkortingen uit het domein: <<<brr>>>, <<<orra>>>. Maar
+          beperk dit tot het minimum.
+
+    * In het geval van een afkorting in de naam van een klasse of interface:
+      gebruik alleen hoofdletters voor de eerste letter in de afkorting:
+      <<<XmlRpcRequest>>> en <<geen>> <<<XMLRPCRequest>>>.
+
+      Redenen:
+
+        * Leesbaarheid (zie bovenstaand voorbeeld)
+
+        * Sneller navigeren door code met CamelCase (<XRR> in plaats van
+          <XMLRPCR>).
+
+    * Om een blok wordt <<altijd>> accolades geplaatst, ook als het blok maar
+      1 statement bevat.
+
+      Redenen:
+
+        * Leesbaarheid
+
+        * Regelmatig is het nodig extra statements aan een blok toe te voegen.
+
+* Commentaar
+~~~~~~~~~~~~
+
+    * Het 'tijdelijk' in commentaar zetten van code is <<verboden>>. Over een
+      jaar staat het er nog, en weet niemand meer waarom. Verwijder de bewuste
+      code gewoon. We hebben versiebeheer.
+
+    * Commentaar is in het Nederlands. Engels is niet toegestaan.
+
+    * Let op schrijffouten en grammatica en maak geen grappen. Schrijf alsof
+      de klant het zal lezen. Uiteindelijk krijgt de klant alles opgeleverd,
+      inclusief de code.
+
+    * Verwijs zoveel mogelijk naar de functionele documentatie waar de code
+      bijhoort (Use Cases).
+
+    * Werk bij wijzigingen in code <<altijd>> het commentaar bij.
+
+    * Maak gebruik van JavaDoc macro's: <<<\{@inheritDoc\}>>>,
+      <<<\{@link\}>>>, <<<\{@code\}>>>, etc.
+
+    * Iedere klasse (en interface) heeft commentaar.
+
+        * Eerste regel: gebiedende wijs; 1 zin die het doel van de klasse
+          beschrijft.
+
+        * Overige regels (indien nodig): hoe het doel bereikt wordt.
+
+        * <<<@author>>> tags gebruiken we <<niet.>> Een auteur suggereert een
+          eigenaar, en die er is niet. Want de code is van het team.
+
+        * <<<@version>>> tags gebruiken we <<niet>>. Zie Subversion.
+
+        * <<<@see>>> tags gebruiken we <<wel>>. Dit vergemakkelijkt het
+          navigeren door (gerelateerde) JavaDoc.
+
+        * We nemen geen logmeldingen uit Subversion automatisch op in de
+          code. Dat geeft alleen maar problemen met branching.
+
+        Voorbeeld:
+
+~~TODO: Beter voorbeeld
++---
+/**
+ * Implementeert de {@link ReisdocumentDao} voor Hibernate.
+ * <p/>
+ * De Hibernate {@link SessionFactory} moet worden meegegeven aan
+ * de constructor. Alle acties maken vervolgens gebruik van de
+ * huidige sessie. Deze wordt door Spring automatisch geinitialiseerd
+ * aan het begin van iedere database transactie.
+ */
+public class HibernateReisdocumentDao implements ReisdocumentDao {
+    // ...
+}
++---
+
+    * Iedere methode heeft commentaar.
+
+        * Eerste regel: gebiedende wijs; 1 zin die het doel van de klasse
+          beschrijft.
+
+        * Overige regels (indien nodig): hoe het doel bereikt wordt.
+
+        * Alle parameters zijn beschreven.
+
+        * Het eventuele resultaat is beschreven.
+
+        Voorbeeld:
+
++---
+/**
+ * Zoekt een reisdocument op sleutel.
+ *
+ * @param id De sleutel van het reisdocument,
+ *           mag niet {@code null} zijn.
+ * @return Het reisdocument behorend bij de sleutel,
+ *         of {@code null} als het niet bestaat.
+ */
+public Reisdocument findReisdocument(String id) {
+    // ...
+}
++---
+
+Principes
+~~~~~~~~~
+
+    Naast richtlijnen over code standaarden en commentaar, zijn er
+    richtlijnen over <principes>. Hier staan er een aantal, verdeeld over
+    verschillende onderwerpen:
+
+        * Algemeen
+
+        * OOP
+
+        * Logging
+
+        * Excepties
+
+        * <<<null>>>
+
+* Algemeen
+~~~~~~~~~~
+
+    Om met wat afkortingen te beginnen:
+
+        [DRY] <Don't Repeat Yourself>. Doe je iets herhaaldelijk, refactor
+            dan je code en hergebruik.
+
+        [KISS] <Keep It Simple, Stupid>. Doe niet moeilijk als het makkelijk
+            kan. En het kan altijd makkelijk. <Do The Simplest Thing That
+            Could Possibly Work>.
+
+        [YAGNI] <You Ain't Gonna Need It>. Implementeer geen dingen die 'in
+            de toekomst mogelijk handig zijn'. Niemand kan de toekomst
+            voorspellen. Tegen die tijd ziet het systeem er toch al weer
+            anders uit.
+
+    Dan nog wat overige algemene principes:
+
+        * Een klasse heeft beperkte verantwoordelijkheden: 1 taak.
+
+        * Een methode past op het scherm: een regel of 40, inclusief
+          commentaar.
+
+        * <Premature optimization is the root of all evil>. Ga niet
+          voortijdig code optimaliseren als je niet zeker weet of die code
+          niet goed performt. Gebruik eerst een profiler.
+
+        * Als commentaar binnen een methode nodig is om de code duidelijk te
+          maken, overweeg dan de methode op te knippen. Zet dan het
+          commentaar boven de nieuwe methode.
+
+        * Als commentaar nodig is om de werking van de code uit te leggen,
+          herschrijf dan de code.
+
+        * Gebruik geen taalconstructies die bijna niemand kent om te laten
+          zien hoe goed je bent. Ga geen bits shiften om met 2 te
+          vermenigvuldigen.
+
+        * Het gebruik van <<<import package.*>>> is <<niet toegestaan>>. Het
+          doel is afhankelijkheden te beperken, en deze expliciet te benoemen.
+          Met <<<*>>> introduceer je afhankelijkheden die je niet nodig hebt.
+
+        * Voorkom cyclische afhankelijkheden tussen klassen, packages en
+          modules. Cyclische afhankelijkheden maken code breekbaar.
+
+        * Het hebben van meerdere <exit points> in een methode wordt
+          aanbevolen. Het verhoogt de leesbaarheid, voornamelijk omdat je
+          minder diep hoeft te nesten. Verlaat een methode zodra je niet
+          verder kunt. Zie <Refactoring, Improving the Design of Existing
+          Code> van Martin Fowler voor een motivatie.
+          
+          Herschrijf bijvoorbeeld:
+
+~~TODO: Beter voorbeeld
++--
+public String translateToDutch(String englishText) {
+    if (englishText != null)
+    {
+        String lineToTranslate = englishText.trim();
+        if (!lineToTranslate.isEmpty())
+        {
+            // Splits de regel in woorden in vertaal ieder woord.
+            // ...
+        }
+    }
+}
++--
+
+          Naar dit:
+
++--
+public String translateToDutch(String englishText) {
+    if (englishText == null)
+    {
+        return null;
+    }
+    String lineToTranslate = englishText.trim();
+    if (lineToTranslate.isEmpty())
+    {
+        return null;
+    }
+    // Splits de regel in woorden in vertaal ieder woord.
+    // ...
+}
++--
+
+* OOP
+~~~~~
+
+** Design Patterns
+~~~~~~~~~~~~~~~~~~
+
+    De <Gang of Four> hebben ons met het boek <Design Patterns, Elements of
+    Reusable Object-Oriented Software> al lang geleden een aantal dingen
+    geleerd:
+
+    * <Program to an interface, not an implementation>
+
+    * <Favor object composition over class inheritance>
+
+    * <Encapsulation> en <Data hiding>
+
+    * Gebruik een pattern niet omdat je het kent. Gebruik het omdat het van
+      toepassing is voor je probleem.
+
+~~TODO: er valt veel meer te vertellen!
+
+** Design by Contract
+~~~~~~~~~~~~~~~~~~~~~
+
+    Ieder object heeft een <contract>: dit zijn de methoden die je op het
+    object kunt aanroepen (een combinatie van 1 of meer types: interfaces en
+    (super)klassen). Het contract beschrijft per methode welke argumenten het
+    heeft, en wat het type van het eventuele resultaat is.
+
+    De taal Java is niet krachtig genoeg om een strikt contract in vast te
+    leggen. (En dat is misschien maar goed ook, want het is behoorlijk complex.
+    Zie ook de taal Eiffel van Bertrand Meyer.)
+
+    In Java is het bijvoorbeeld niet mogelijk om <precondities>,
+    <postcondities> en <invarianten> (predicaatlogica) op te stellen:
+
+        [Preconditie] Een conditie die moet gelden <<voor>> de uitvoer van een
+            methode.
+
+        [Postconditie] Een conditie die moet gelden <<na>> de uitvoer van een
+            methode.
+
+        [Invariant] Een conditie die altijd moet gelden, dus <<voor en na>>
+            de uitvoer van een methode.
+
+    Een simpele oplossing is het zo volledig mogelijk vastleggen van het
+    contract in JavaDoc. Een duidelijk contract scheelt code. Neem
+    bijvoorbeeld de methode <<<translateToDutch>>> in het vorige voorbeeld.
+    Door in het contract op te nemen dat de parameter niet <<<null>>> mag
+    zijn, kan de implementatie als volgt worden geschreven:
+
++--
+/**
+ * Vertaalt een Engelse tekst woord voor woord naar het Nederlands.
+ *
+ * @param englishText De Engelse tekst die vertaald moet worden,
+ *         mag niet {@code null} zijn.
+ * @return De naar het Nederlands vertaalde tekst;
+ *         is nooit {@code null}.
+ */
+public String translateToDutch(String englishText) {
+    // Splits de regel in woorden in vertaal ieder woord.
+    // ...
+}
++--
+
+    Omdat het contract tevens stelt dat het resultaat van de methode geen
+    <<<null>>> kan opleveren, hoeft aanroepende code daar ook nooit meer op
+    te controleren.
+
+*** Gebruik van <<<assert>>>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Het Java keyword <<<assert>>> biedt beperkte mogelijkheden voor Design
+    by Contract. Het is voornamelijk geschikt voor het controleren van
+    precondities.
+
+    <Assertions> staan standaard uit; de JVM stapt over deze statements in de
+    code heen. Op de ontwikkelomgevingen en op de testomgevingen zetten we ze
+    expliciet <<aan>>.
+
+    Een voorbeeld van een <<<assert>>> voor het testen van een preconditie:
+    
++--
+/**
+ * Vertaalt een Engelse tekst woord voor woord naar het Nederlands.
+ *
+ * @param englishText De Engelse tekst die vertaald moet worden,
+ *         mag niet {@code null} zijn.
+ * @return De naar het Nederlands vertaalde tekst;
+ *         is nooit {@code null}.
+ */
+public String translateToDutch(String englishText) {
+    assert englishText != null;
+    // Splits de regel in woorden in vertaal ieder woord.
+    // ...
+}
++--
+
+** Member variabelen / Immutable objecten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    * Maak member variabelen zoveel mogelijk <<<final>>>, en initialiseer
+      ze in de constructor.
+
+    * <<Alle>> member variabelen zijn per definitie <<<private>>>. Andere
+      opties zijn <<niet>> toegestaan.
+
+~~TODO: toelichten.
+    * <<<List>>>, <<<Set>>> en <<<Map>>>: <<<Collections.unmodifiable...>>>.
+
+** Getters en Setters
+~~~~~~~~~~~~~~~~~~~~~
+
+    * Getters en setters geven details vrij over de implementatie van een
+      type. Dat breekt encapsulatie en dus moet je het voorkomen.
+
+    * Schrijf alleen die getters en setters die je echt nodig hebt. Zo min
+      mogelijk dus.
+
+    * Alleen JavaBeans vereisen voor elke member variabele een getter en
+      een setter (en een constructor zonder argumenten).
+
+* <<<null>>>
+~~~~~~~~~~~~
+
+    De meeste code is bezaaid met controles of objecten (on)gelijk aan
+    <<<null>>> zijn. En toch knalt diezelfde code er (op productie) nog
+    regelmatig uit met <<<NullPointerException>>>s. Dat geeft te denken.
+
+    Het is ook mogelijk om code te schrijven zonder de vele controles op
+    <<<null>>>, zonder dat er excepties optreden. 
+
+~~TODO: uitwerken
+
+    * Schrijf contracten en hou je er aan.
+
+    * Test niet ieder object op <<<null>>>. Zie de contracten.
+
+    * Gebruik <<<assert>>> voor precondities.
+
+    * Gooi uit eigen beweging <<<NullPointerException>>>s.
+
+    * Overweeg het gebruik van het <Null Object Pattern>.
+
+* Logging
+~~~~~~~~~
+
+~~TODO: invullen
+
+* Excepties
+~~~~~~~~~~~
+
+~~TODO: invullen
+
+Vertaalbundels
+~~~~~~~~~~~~~~
+
+    * Teksten die aan gebruikers worden getoond komen <<altijd>> uit
+      vertaalbundels.
+
+    * Voor de vertalingen in de bundels hanteren we de volgende
+      naamgevingsconventies:
+
+        * Sleutels bestaan alleen uit kleine letters.
+
+        * Sleutels zijn gecategoriseerd door de naam van de categorie
+          vooraan de sleutel te zetten, gevolgd door een punt.
+
+        * Iedere categorie wordt voorafgegaan van een commentaarblok,
+          enerzijds om een duidelijke scheiding aan te brengen, anderzijds om
+          de categorie te beschrijven.
+
+    * We onderkennen de volgende groepen:
+
+        * <<<message>>>: algemene meldingen.
+
+        * <<<error>>>: algemene foutmeldingen.
+
+        * <<<menu>>>: menuonderdelen.
+        
+        * <<<page>>>: paginaonderdelen
+
+    ~~TODO: verder aanvullen.
+
+Standaardcomponenten
+~~~~~~~~~~~~~~~~~~~~
+
+    Binnen het project gebruiken we verschillende (OpenSource)
+    standaardcomponenten. Per component is een aantal richtlijnen opgesteld.
+
+* Spring Container
+~~~~~~~~~~~~~~~~~~
+
+    * In de Spring Container maken we zoveel mogelijk gebruik van <constructor
+      injection>. Injectie van objecten via setters doen we alleen als het
+      niet anders kan.
+
+    * Elk component heeft een eigen Spring context. Componenten die gebruik
+      maken van andere componenten importeren in hun context de context van
+      die componenten.
+
+    ~~TODO: verder aanvullen.
+
+* Acegi Security
+~~~~~~~~~~~~~~~~
+
+    ~~TODO: verder aanvullen.
+
+* Hibernate
+~~~~~~~~~~~
+
+    * Configuratie van Hibernate verloopt via annotaties in de domeinobjecten.
+      Gevolgen:
+
+        * Middels <Configuration by Exception> hoeft alleen geconfigureerd te
+          worden wat niet standaard is. In de XML configuratie staat alles.
+
+        * Code generatie is niet nodig. Eerst de XML configuratie schrijven
+          en hieruit code genereren (met alle bijbehorende gevolgen) duurt
+          naar verwachting langer dan alllen de code schrijven (er is namelijk
+          minder code dan XML nodig).
+
+        * De annotaties zijn niet specifiek voor Hibernate, maar generiek
+          voor EJB3 (JPA). Dit in tegenstelling tot de XML configuratie. Het
+          is geen doel van het project om te kunnen overgaan naar een andere
+          ORM bibliotheek, maar onderhoudbaarheid is wel belangrijk. 
+
+    * We gebruiken de Hibernate <EntityManager>, en voldoen daarmee aan de
+      EJB3 specificatie. Hierdoor is de <<<hibernate.cfg.xml>>> configuratie
+      niet meer nodig.
+
+    * Hibernate mag <<nooit>> de getters en setters gebruiken (ook al gebeurt
+      dit standaard via de XML configuratie). Hibernate dient <<altijd>>
+      rechtstreeks de private member variabelen te lezen en te schrijven. Zie
+      ook het artikel van Martin Fowler over <Anemic Domain Models>.
+
+    * Alle domeinobjecten zitten in package
+      <<<nl.org.myapp.domain>>>. Per component met een domeinmodel is er
+      een aparte subpackage waarin de domeinobjecten zitten:
+
+        * <<<nl.org.myapp.domain.basis>>>
+
+        * <<<nl.org.myapp.domain.autorisatie>>>
+
+        * <<<nl.org.myapp.domain.logging>>>
+        
+        * etc.
+
+    * Toegang naar de database verloopt via Data Access Objects (DAO's). Deze
+      staan in package <<<nl.org.myapp.persist>>>.  Per component is er
+      weer een subpackage.
+
+    * Voor de DAO's gebruiken we <<niet>> de klasse <<<HibernateDaoSupport>>>
+      of <<JpaDaoSupport> van Spring als basis. Deze klassen bieden
+      ondersteuning voor templates (<<<HibernateTemplate>>>,
+      <<<JpaTemplate>>>). Met Spring 2.0 zijn die niet meer nodig.
+
+* Wicket
+~~~~~~~~
+
+    * Alle Wicket pagina's staan in subpackages van de package
+      <<<nl.org.myapp.interact.webui.page>>>
+
+    * De HTML behorende bij een pagina staat in dezelfde package als de
+      broncode, maar <<niet>> in de <<<src/main/java>>> directory. In plaats
+      daarvan staat de HTML in <<<src/main/resources>>>.
+
+    ~~TODO: verder aanvullen.
+
+* Quartz
+~~~~~~~~
+
+    ~~TODO: verder aanvullen.
+
+* Dozer
+~~~~~~~
+
+    ~~TODO: verder aanvullen.
+
+* Log4J
+~~~~~~~
+
+    ~~TODO: verder aanvullen.
+
+* Maven2
+~~~~~~~~
+
+    De volledige build van de applicatie(s) verloopt via Maven2. Daarnaast
+    ontwikkelen we natuurlijk met een IDE. Zie voor een de configuratie van
+    de IDE bovenop Maven2 de handleiding voor het inrichten van de
+    ontwikkelomgeving.
+
+    Deze sectie bevat richtlijnen voor het gebruik van Maven2 zelf, los van
+    de IDE.
+
+    * Voeg nooit zomaar een afhankelijkheid toe. Bespreek dit eerst.
+
+    * Elke module werkt met een minmale lijst van afhankelijkheden. Dus geen
+      afhankelijk op <<<spring>>>, maar alleen op <<<spring-core>>>, 
+      <<<spring-beans>>> en <<<spring-aop>>>.
+
+    ~~TODO: verder aanvullen.
+
+* LiquiBase
+~~~~~~~~~~~
+
+    LiquiBase gebruiken we om de database te onderhouden. De wijzigingen in
+    de database staan in een verzameling XML bestanden. Op basis hiervan kan
+    LiquiBase zelf de database bijwerken. Het is daarmee niet nodig dat
+    ontwikkelaars elkaar er op wijzen dat er een databasewijziging is geweest;
+    de wijzigingen worden automatisch verwerkt.
+
+
+
+
+Testen
+~~~~~~
+
+    * JUnit
+
+    * EasyMock
+
+    * DbUnit met H2
+    
+~~TODO: uitwerken op basis van het document van Roy.
+
+* Interactielaag
+~~~~~~~~~~~~~~~~~
+
+** User interface: Wicket
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+** Webservices: CXF
+~~~~~~~~~~~~~~~~~~~
+
+** Scheduler: Quartz
+~~~~~~~~~~~~~~~~~~~~
+
+* Proceslaag
+~~~~~~~~~~~~
+
+* Persistentielaag
+~~~~~~~~~~~~~~~~~~~
+
+Versiebeheer
+~~~~~~~~~~~~
+
+    Voor versiebeheer maakt het project gebruik van Subversion. Hieronder
+    staan de richtlijnen voor het gebruik ervan.
+
+    * Gegeneerde code wordt <<niet>> opgeslagen in Subversion. In geen enkele
+      vorm.
+
+    * Externe componenten (libraries) worden <<niet>> opgeslagen in
+      Subversion.
+
+    * De procedure voor het inchecken van code is als volgt:
+
+        [[1]] Draai alle unit tests. Slagen ze allemaal? Ga verder. Anders:
+            stop.
+
+        [[2]] Doe een update vanuit Subversion.
+
+        [[3]] Voeg code samen, los conflicten op en corrigeer falende unit
+            tests.
+
+        [[4]] Draai alle unit tests. Slagen ze allemaal? Ga verder. Anders:
+            ga terug naar de vorige stap.
+
+        [[5]] Hebben stap 3. en 4. lang geduurd? Ga dan naar stap 2. Anders:
+            ga verder.
+
+        [[6]] Check je wijzigingen in.
+
+    * Voorzie <<iedere>> commit van commentaar. Vermeld <<altijd>> de
+      bevinding in JIRA waaraan je hebt gewerkt.
+
+    * Check alle wijzigingen van een taak atomisch in. Dus alles tegelijk.
+
+    * Werk <<nooit>> aan meerdere taken tegelijkertijd.
+
+    * Check <<nooit>> je wijzigingen van verschillende taken tegelijkertijd 
+      in. Groepeer commits per taak, en check ze atomisch in (we hebben
+      Subversion).
+
+    * Doe <<regelmatig>> een update vanuit Subversion. Tip: draai eerst
+      alle unit tests, en doe dan pas een update. Zo weet je zeker dat het
+      eventuele falen van tests na de update aan je eigen code ligt.

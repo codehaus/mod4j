@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nl.mycompany.mod4j</groupId>
+  <artifactId>mod4j-ear</artifactId>
+  <packaging>ear</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>mod4j-ear</name>
+
+  <parent>
+    <groupId>nl.mycompany.mod4j</groupId>
+    <artifactId>mod4j</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <repositories>
+    <repository>
+      <id>project-repo</id>
+      <url>https://mod4j.smart-java.nl/repo</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>nl.mycompany.mod4j</groupId>
+      <artifactId>mod4j-ejb</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>nl.mycompany.mod4j</groupId>
+      <artifactId>mod4j-webModule</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <!-- Build profile for the local dev environment. -->
+    <profile>
+      <id>dev-environment</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <finalName>mod4j-ear</finalName>
+        <plugins>
+          <plugin>
+            <artifactId>maven-ear-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifest>
+                  <addClasspath>true</addClasspath>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>jboss-local-deploy</id>
+                <!-- Ideally this would be bound to some integration-test-prepare phase but
+                  that do not exist yet. See http://jira.codehaus.org/browse/MNG-1628 -->
+                <phase>integration-test</phase>
+                <!--  Switched off 
+                  <goals>
+                  <goal>start</goal>
+                  </goals>
+                -->
+                <configuration>
+                  <wait>false</wait>
+                  <container>
+                    <containerId>jboss4x</containerId>
+                    <home>${appserver.home}</home>
+                    <type></type>
+                    <timeout>60000</timeout>
+                    <log>${project.build.directory}/cargo-maven2-plugin.log</log>
+                  </container>
+                  <configuration>
+                    <type>existing</type>
+                    <home>${appserver.home}/server/default</home>
+                  </configuration>
+                  <deployables>
+                    <deployable>
+                      <location>$\{project.build.directory\}/$\{project.build.finalName\}.$\{project.packaging\}</location>
+                      <!--  <pingURL>http://localhost:8080/webModule</pingURL> -->
+                    </deployable>
+                  </deployables>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!-- Build profile for the test environment. -->
+    <profile>
+      <id>integration-test-environment</id>
+      <activation>
+        <property>
+          <name>env</name>
+          <value>it</value>
+        </property>
+      </activation>
+      <build>
+        <finalName>mod4j-ear</finalName>
+        <plugins>
+          <plugin>
+            <artifactId>maven-ear-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifest>
+                  <addClasspath>true</addClasspath>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.0</version>
+            <executions>
+              <execution>
+                <!-- Redeploy to a already running JBoss container -->
+                <id>jboss-remote-hotdeploy</id>
+                <!-- Ideally this would be bound to some integration-test-prepare phase but
+                  that do not exist yet. See http://jira.codehaus.org/browse/MNG-1628 -->
+                <phase>integration-test</phase>
+                <goals>
+                  <!-- TODO: Tijdelijk uitgeschakelt totdat integration test host is ingericht. 
+                    <goal>run</goal>
+                  -->
+                </goals>
+                <configuration>
+                  <tasks>
+                    <scp trust="true" file="${project.build.directory}/${project.build.finalName}.${project.packaging}"
+                      todir="${appserver.remote.username}@${appserver.hostname}:${appserver.deploydir}" password="${appserver.remote.password}" />
+                  </tasks>
+                </configuration>
+              </execution>
+            </executions>
+            <dependencies>
+              <dependency>
+                <groupId>ant</groupId>
+                <artifactId>ant-optional</artifactId>
+                <version>1.5.3-1</version>
+              </dependency>
+              <dependency>
+                <groupId>ant</groupId>
+                <artifactId>ant-jsch</artifactId>
+                <version>1.6.5</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
