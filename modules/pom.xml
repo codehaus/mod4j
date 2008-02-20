@@ -17,8 +17,8 @@
   </properties>
 
   <scm>
-    <connection>scm:svn:https://svn.${centralhost}/mod4j/trunk</connection>
-    <developerConnection>scm:svn:https://svn.${centralhost}/mod4j/trunk</developerConnection>
+    <connection>scm:svn:https://svn.${centralhost}/mod4j/trunk/modules</connection>
+    <developerConnection>scm:svn:https://svn.${centralhost}/mod4j/trunk/modules</developerConnection>
   </scm>
 
   <profiles>
