@@ -21,6 +21,14 @@
     <developerConnection>scm:svn:https://svn.${centralhost}/mod4j/trunk/modules</developerConnection>
   </scm>
 
+  <mailingLists>
+    <mailingList>
+      <archive>http://smart-java.nl/mailman/private/mod4j-team</archive>
+      <name>mod4j-team</name>
+      <post>mod4j-team@${centralhost}</post>
+    </mailingList>
+  </mailingLists>
+
   <profiles>
     <profile>
       <id>dev-environment</id>
