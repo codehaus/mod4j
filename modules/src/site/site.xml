@@ -10,7 +10,7 @@
     <name>company-logo</name>
     <!-- Vervang dit logo voor de site door het project of klantlogo -->
     <!-- Notice: make sure the image background is transparent -->
-    <src></src>
+    <src>images/j-tech-logo.png</src>
     <href>http://www.j-technologies.nl</href>
   </bannerLeft>
   <bannerRight>
