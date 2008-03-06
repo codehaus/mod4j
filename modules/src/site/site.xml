@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="mod4j project site">
+  
   <skin>
-    <groupId>nl.ordina.smartjava.skins</groupId>
-    <artifactId>smartjava-skin</artifactId>
-    <version>1.6.2</version>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-stylus-skin</artifactId>
+    <version>1.0.1</version>
   </skin>
-
+    
   <bannerLeft>
     <name>company-logo</name>
     <!-- Vervang dit logo voor de site door het project of klantlogo -->
@@ -14,14 +15,14 @@
     <href>http://www.j-technologies.nl</href>
   </bannerLeft>
   <bannerRight>
-    <name>mod4j</name>
+    <name></name>
   </bannerRight>
 
   <publishDate position="bottom" format="dd MMM yyyy - HH:mm" />
 
   <body>
-    <menu name="Metrieken" inherit="top">
-      <item name="Voortgang" href="voortgang.html" />
+    <menu name="Main" inherit="top">
+      <item name="Home" href="index.html" />
       <item name="Dashboard" href="dashboard.html" />
     </menu>
     <menu ref="parent" inherit="top" />

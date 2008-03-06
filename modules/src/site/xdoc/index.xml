@@ -6,39 +6,12 @@
   </properties>
   <body>
     <section name="Welcome to Mod4j">
-      <div id="downloadbox">
-        <h5>Get Mod4j 0.1</h5>
-        <p>
-          <a href="download.html">
-            <img valign="top" src="http://maven.apache.org/images/folder-open.gif" border="0" alt="" title="download"/>
-            Download
-          </a>
-          Mod4j
-          <small>(Comming soon)</small>
-        </p>
-        <ul>
-          <li>
-            <a href="documentation/1_1/installation/requirements.html">System Requirements</a>
-          </li>
-          <li>
-            <a href="documentation/1_1/installation/index.html">Installation Instructions</a>
-          </li>
-          <li>
-            <a href="documentation/1_1/installation/release-notes.html">Release Notes</a>
-          </li>
-          <li>
-            <a href="documentation/1_1/getting-started.html">Getting Started</a>
-          </li>
-          <li>
-            <a href="documentation/1_1/index.html">Documentation</a>
-          </li>          
-        </ul>
-      </div>
-
       <p>
         Mod4j is a project that focuses on Model Driven Software Development. 
-        It's goal is to improve the productivity of Java software development by the use of Domain Specific Languages.
-        TODO: Add more context (target architecture). 
+        It's goal is to improve the productivity of Java software development by the use of Domain Specific Languages. 
+      </p>
+      <p>
+        TODO: Add more context (target architecture).
       </p>
             
       <subsection name="About Mod4j">
