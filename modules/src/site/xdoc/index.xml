@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<document>
+  <properties>
+    <title>Welcome to Mod4j</title>
+  </properties>
+  <body>
+    <section name="Welcome to Mod4j">
+      <div id="downloadbox">
+        <h5>Get Mod4j 0.1</h5>
+        <p>
+          <a href="download.html">
+            <img valign="top" src="http://maven.apache.org/images/folder-open.gif" border="0" alt="" title="download"/>
+            Download
+          </a>
+          Mod4j
+          <small>(Comming soon)</small>
+        </p>
+        <ul>
+          <li>
+            <a href="documentation/1_1/installation/requirements.html">System Requirements</a>
+          </li>
+          <li>
+            <a href="documentation/1_1/installation/index.html">Installation Instructions</a>
+          </li>
+          <li>
+            <a href="documentation/1_1/installation/release-notes.html">Release Notes</a>
+          </li>
+          <li>
+            <a href="documentation/1_1/getting-started.html">Getting Started</a>
+          </li>
+          <li>
+            <a href="documentation/1_1/index.html">Documentation</a>
+          </li>          
+        </ul>
+      </div>
+
+      <p>
+        Mod4j is a project that focuses on Model Driven Software Development. 
+        It's goal is to improve the productivity of Java software development by the use of Domain Specific Languages.
+        TODO: Add more context (target architecture). 
+      </p>
+            
+      <subsection name="About Mod4j">
+        <p>
+          <ul>
+            <li>
+              <a href="features.html">What are the features of Mod4j?</a>
+            </li>
+            <li>
+              <a href="guide-helping.html">Can I get involved?</a>
+            </li>
+            <li>
+              <a href="getting-help.html">Where do I get help with Mod4j?</a>
+            </li>
+          </ul>
+        </p>
+      </subsection>
+      
+      <subsection name="Getting started">
+        <p>
+          <ul>
+              TODO: Describe howto get started for dsl-developers (jdk 1.5 , Eclipse IDE, etc).
+              TODO: Describe howto get started for application-developers.
+          </ul>
+        </p>
+      </subsection>
+      
+    </section>
+    <section name="Latest News">
+      <p>
+        <ul>
+          <li>Mod4j development team started. - March 2008</li>
+        </ul>
+      </p>
+    </section>
+  </body>
+</document>
