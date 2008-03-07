@@ -8,7 +8,7 @@
     <section name="Welcome to Mod4j">
       <p>
         Mod4j is a project that focuses on Model Driven Software Development. 
-        It's goal is to improve the productivity of Java software development by the using Domain Specific Languages. 
+        It's goal is to improve the productivity of Java software development by using Domain Specific Languages. 
       </p>
       <p>
         TODO: Add more context (target architecture).
