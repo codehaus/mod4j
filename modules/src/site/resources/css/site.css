@@ -2,3 +2,8 @@
    na de mvn site build zie je de css styles 
    van de skin in je target dir.
 */
+
+#banner {
+  height: 73px;
+  background: url(../images/huisstijl_bg.gif);
+}
