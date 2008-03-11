@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>nl.mycompany.mod4j</groupId>
+  <groupId>org.mod4j</groupId>
   <!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
   <artifactId>mod4j</artifactId>
   <packaging>pom</packaging>
@@ -131,7 +131,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <dependencies>
           <dependency>
-            <groupId>nl.mycompany.mod4j</groupId>
+            <groupId>org.mod4j</groupId>
             <artifactId>mod4j-build-tools</artifactId>
             <version>1.0-SNAPSHOT</version>
           </dependency>
