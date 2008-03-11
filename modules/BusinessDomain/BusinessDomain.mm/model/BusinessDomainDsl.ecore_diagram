@@ -580,10 +580,10 @@
   <element xmi:type="ecore:EPackage" href="BusinessDomainDsl.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_-ziiwO9PEdyXXp6e1opTJg" type="4003" source="_-xbp8O9PEdyXXp6e1opTJg" target="_-xc4GO9PEdyXXp6e1opTJg">
     <children xmi:type="notation:Node" xmi:id="_-ziixO9PEdyXXp6e1opTJg" type="6002">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_-ziixe9PEdyXXp6e1opTJg" x="-22" y="-60"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-ziixe9PEdyXXp6e1opTJg" x="72" y="-16"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_-zjJ0O9PEdyXXp6e1opTJg" type="6004">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_-zjJ0e9PEdyXXp6e1opTJg" x="-7" y="26"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-zjJ0e9PEdyXXp6e1opTJg" y="14"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_-ziiwe9PEdyXXp6e1opTJg" routing="Rectilinear" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_-ziiwu9PEdyXXp6e1opTJg" fontName="Segoe UI"/>
@@ -604,15 +604,15 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_-zrFoO9PEdyXXp6e1opTJg" type="4003" source="_-xbp8O9PEdyXXp6e1opTJg" target="_-xoeRO9PEdyXXp6e1opTJg">
     <children xmi:type="notation:Node" xmi:id="_-zrFpO9PEdyXXp6e1opTJg" type="6002">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_-zrFpe9PEdyXXp6e1opTJg" x="251" y="-19"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-zrFpe9PEdyXXp6e1opTJg" x="371" y="-19"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_-zrFpu9PEdyXXp6e1opTJg" type="6004">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_-zrFp-9PEdyXXp6e1opTJg" x="-17" y="26"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-zrFp-9PEdyXXp6e1opTJg" x="63" y="11"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_-zrFoe9PEdyXXp6e1opTJg" routing="Rectilinear" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_-zrFou9PEdyXXp6e1opTJg" fontName="Segoe UI"/>
     <element xmi:type="ecore:EReference" href="BusinessDomainDsl.ecore#//BusinessClassModel/propertyContainer"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-zrFo-9PEdyXXp6e1opTJg" points="[-33, 84, -755, -251]$[-33, 351, -755, 16]$[653, 351, -69, 16]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-zrFo-9PEdyXXp6e1opTJg" points="[-33, 84, -755, -251]$[-33, 336, -755, 1]$[653, 336, -69, 1]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_-zs60O9PEdyXXp6e1opTJg" type="4004" source="_-xbp8O9PEdyXXp6e1opTJg" target="_-xab2e9PEdyXXp6e1opTJg">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_-zs60e9PEdyXXp6e1opTJg" routing="Rectilinear" lineColor="255"/>
@@ -867,8 +867,8 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_2DA-8e9oEdyXXp6e1opTJg" routing="Rectilinear" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_2DA-8u9oEdyXXp6e1opTJg" fontName="Segoe UI"/>
-    <element xmi:type="ecore:EReference" href="BusinessDomainDsl.ecore#//BusinessClassModel/@eStructuralFeatures.9"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2DA-8-9oEdyXXp6e1opTJg" points="[-64, 42, -900, 1]$[-64, 191, -900, 150]$[787, 191, -49, 150]"/>
+    <element xmi:type="ecore:EReference" href="BusinessDomainDsl.ecore#//BusinessClassModel/associations"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2DA-8-9oEdyXXp6e1opTJg" points="[-64, 42, -900, 1]$[-64, 179, -900, 138]$[787, 179, -49, 138]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2DDbMO9oEdyXXp6e1opTJg" id="(0.8917526,0.74850297)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2DDbMe9oEdyXXp6e1opTJg" id="(0.14244185,0.0855615)"/>
   </edges>
