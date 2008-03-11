@@ -34,19 +34,12 @@
       <id>dev-environment</id>
       <modules>
         <module>mod4j-build-tools</module>
-        <module>mod4j-ejb</module>
-        <module>mod4j-jarModule</module>
-        <module>mod4j-webModule</module>
-        <module>mod4j-ear</module>
       </modules>
     </profile>
     <profile>
       <id>ci</id>
       <modules>
         <module>mod4j-build-tools</module>
-        <module>mod4j-ejb</module>
-        <module>mod4j-jarModule</module>
-        <module>mod4j-webModule</module>
       </modules>
       <build>
         <plugins>
