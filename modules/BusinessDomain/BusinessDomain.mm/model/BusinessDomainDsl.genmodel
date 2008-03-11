@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/BusinessDomain.mm/src"
+    modelPluginID="BusinessDomain.mm" modelName="BusinessDomainDsl" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>BusinessDomainDsl.ecore</foreignModel>
+  <genPackages prefix="BusinessDomainDsl" disposableProviderFactory="true" ecorePackage="BusinessDomainDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//AccessModifier">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//AccessModifier/Public"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//AccessModifier/Assembly"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//AccessModifier/Private"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//AccessModifier/Family"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//AccessModifier/FamilyOrAssembly"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//AccessModifier/FamilyAndAssembly"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//TypeAccessModifier">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//TypeAccessModifier/Public"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//TypeAccessModifier/Private"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//InheritanceModifier">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//InheritanceModifier/None"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//InheritanceModifier/Abstract"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//InheritanceModifier/Sealed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//Multiplicity">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//Multiplicity/ZeroMany"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//Multiplicity/One"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//Multiplicity/ZeroOne"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//Multiplicity/OneMany"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//OperationConcurrency">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//OperationConcurrency/Sequential"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//OperationConcurrency/Guarded"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//OperationConcurrency/Concurrent"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//DateTimeAccuracy">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Millisecond"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Second"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Minute"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Hour"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/ShortTime"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Time"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Day"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Month"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Year"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/DateTime"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//PersistencyMode">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//PersistencyMode/ReadWrite"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//PersistencyMode/Read"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//PersistencyMode/None"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//DatabaseType">
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/SQLServer_2000"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/Oracle_Any_Version"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/MySql_3_or_4"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/MySql_5"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/Oracle_9_to_10g"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/SQLServer_2005"/>
+      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DatabaseType/SQLServer_7"/>
+    </genEnums>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessClassModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClassModel/autoGenerate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClassModel/businessProcessProject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClassModel/businessProcessDirectory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClassModel/serviceHostProject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClassModel/databaseType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClassModel/databaseName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClassModel/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClassModel/enumeration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClassModel/propertyContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClassModel/associations"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClass/inheritanceModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BusinessClass/autoGenerateMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/businessRule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/compositionTarget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/baseClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/constraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/associationTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/associationFrom"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Comment/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Comment/commentableElement"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/useAsLogicalId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/persistency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/description"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//Enumeration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Enumeration/persistAsString"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Enumeration/enumerationLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//EnumerationLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationLiteral/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationLiteral/persistedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//CommentableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//CommentableElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessRule"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BoolProperty"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//DateTimeProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DateTimeProperty/accuracy"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//CustomProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//CustomProperty/customDataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//CustomProperty/enumeration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//CustomProperty/namespace"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//NumberProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/minInclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/maxInclusive"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//StringProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//StringProperty/regularExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//StringProperty/minLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//StringProperty/maxLength"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//CustomDataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//CustomDataType/autoGenerate"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//PropertyContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//PropertyContainer/property"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BlobBinaryProperty"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BlobTextProperty"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Constraint/databaseConstraint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Constraint/resourceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Constraint/validationMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//association_R">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//association_R/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//association_R/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/sourceRoleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/sourceMultiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/targetNavigability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/sourceNavigability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/targetRoleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/targetMultiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//association_R/isComposite"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
