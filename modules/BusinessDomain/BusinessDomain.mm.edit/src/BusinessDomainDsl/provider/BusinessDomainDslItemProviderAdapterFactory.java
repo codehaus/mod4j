@@ -99,26 +99,26 @@ public class BusinessDomainDslItemProviderAdapterFactory extends BusinessDomainD
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link BusinessDomainDsl.BusinessClassModel} instances.
+	 * This keeps track of the one adapter used for all {@link BusinessDomainDsl.BusinessDomainModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BusinessClassModelItemProvider businessClassModelItemProvider;
+	protected BusinessDomainModelItemProvider businessDomainModelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link BusinessDomainDsl.BusinessClassModel}.
+	 * This creates an adapter for a {@link BusinessDomainDsl.BusinessDomainModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBusinessClassModelAdapter() {
-		if (businessClassModelItemProvider == null) {
-			businessClassModelItemProvider = new BusinessClassModelItemProvider(this);
+	public Adapter createBusinessDomainModelAdapter() {
+		if (businessDomainModelItemProvider == null) {
+			businessDomainModelItemProvider = new BusinessDomainModelItemProvider(this);
 		}
 
-		return businessClassModelItemProvider;
+		return businessDomainModelItemProvider;
 	}
 
 	/**
@@ -513,26 +513,26 @@ public class BusinessDomainDslItemProviderAdapterFactory extends BusinessDomainD
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link BusinessDomainDsl.association_R} instances.
+	 * This keeps track of the one adapter used for all {@link BusinessDomainDsl.association} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected association_RItemProvider association_RItemProvider;
+	protected associationItemProvider associationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link BusinessDomainDsl.association_R}.
+	 * This creates an adapter for a {@link BusinessDomainDsl.association}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createassociation_RAdapter() {
-		if (association_RItemProvider == null) {
-			association_RItemProvider = new association_RItemProvider(this);
+	public Adapter createassociationAdapter() {
+		if (associationItemProvider == null) {
+			associationItemProvider = new associationItemProvider(this);
 		}
 
-		return association_RItemProvider;
+		return associationItemProvider;
 	}
 
 	/**
@@ -635,7 +635,7 @@ public class BusinessDomainDslItemProviderAdapterFactory extends BusinessDomainD
 	 */
 	public void dispose() {
 		if (namedElementItemProvider != null) namedElementItemProvider.dispose();
-		if (businessClassModelItemProvider != null) businessClassModelItemProvider.dispose();
+		if (businessDomainModelItemProvider != null) businessDomainModelItemProvider.dispose();
 		if (businessClassItemProvider != null) businessClassItemProvider.dispose();
 		if (commentItemProvider != null) commentItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
@@ -653,7 +653,7 @@ public class BusinessDomainDslItemProviderAdapterFactory extends BusinessDomainD
 		if (blobBinaryPropertyItemProvider != null) blobBinaryPropertyItemProvider.dispose();
 		if (blobTextPropertyItemProvider != null) blobTextPropertyItemProvider.dispose();
 		if (constraintItemProvider != null) constraintItemProvider.dispose();
-		if (association_RItemProvider != null) association_RItemProvider.dispose();
+		if (associationItemProvider != null) associationItemProvider.dispose();
 	}
 
 }
