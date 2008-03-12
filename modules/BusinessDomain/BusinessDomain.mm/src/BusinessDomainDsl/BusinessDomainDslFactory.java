@@ -35,13 +35,13 @@ public interface BusinessDomainDslFactory extends EFactory {
 	NamedElement createNamedElement();
 
 	/**
-	 * Returns a new object of class '<em>Business Class Model</em>'.
+	 * Returns a new object of class '<em>Business Domain Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Business Class Model</em>'.
+	 * @return a new object of class '<em>Business Domain Model</em>'.
 	 * @generated
 	 */
-	BusinessClassModel createBusinessClassModel();
+	BusinessDomainModel createBusinessDomainModel();
 
 	/**
 	 * Returns a new object of class '<em>Business Class</em>'.
@@ -197,13 +197,13 @@ public interface BusinessDomainDslFactory extends EFactory {
 	Constraint createConstraint();
 
 	/**
-	 * Returns a new object of class '<em>association R</em>'.
+	 * Returns a new object of class '<em>association</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>association R</em>'.
+	 * @return a new object of class '<em>association</em>'.
 	 * @generated
 	 */
-	association_R createassociation_R();
+	association createassociation();
 
 	/**
 	 * Returns the package supported by this factory.

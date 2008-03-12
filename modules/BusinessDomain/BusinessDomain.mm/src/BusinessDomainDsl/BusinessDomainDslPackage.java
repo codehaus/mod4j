@@ -89,14 +89,14 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link BusinessDomainDsl.impl.BusinessClassModelImpl <em>Business Class Model</em>}' class.
+	 * The meta object id for the '{@link BusinessDomainDsl.impl.BusinessDomainModelImpl <em>Business Domain Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see BusinessDomainDsl.impl.BusinessClassModelImpl
-	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getBusinessClassModel()
+	 * @see BusinessDomainDsl.impl.BusinessDomainModelImpl
+	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getBusinessDomainModel()
 	 * @generated
 	 */
-	int BUSINESS_CLASS_MODEL = 1;
+	int BUSINESS_DOMAIN_MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -105,7 +105,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__NAME = NAMED_ELEMENT__NAME;
+	int BUSINESS_DOMAIN_MODEL__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Auto Generate</b></em>' attribute.
@@ -114,7 +114,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__AUTO_GENERATE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int BUSINESS_DOMAIN_MODEL__AUTO_GENERATE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Business Process Project</b></em>' attribute.
@@ -123,7 +123,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__BUSINESS_PROCESS_PROJECT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int BUSINESS_DOMAIN_MODEL__BUSINESS_PROCESS_PROJECT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Business Process Directory</b></em>' attribute.
@@ -132,7 +132,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__BUSINESS_PROCESS_DIRECTORY = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int BUSINESS_DOMAIN_MODEL__BUSINESS_PROCESS_DIRECTORY = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Service Host Project</b></em>' attribute.
@@ -141,7 +141,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__SERVICE_HOST_PROJECT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int BUSINESS_DOMAIN_MODEL__SERVICE_HOST_PROJECT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Database Type</b></em>' attribute.
@@ -150,7 +150,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__DATABASE_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int BUSINESS_DOMAIN_MODEL__DATABASE_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Database Name</b></em>' attribute.
@@ -159,7 +159,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__DATABASE_NAME = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int BUSINESS_DOMAIN_MODEL__DATABASE_NAME = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
@@ -168,7 +168,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__COMMENT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int BUSINESS_DOMAIN_MODEL__COMMENT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Enumeration</b></em>' containment reference list.
@@ -177,7 +177,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__ENUMERATION = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int BUSINESS_DOMAIN_MODEL__ENUMERATION = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Property Container</b></em>' containment reference list.
@@ -186,7 +186,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__PROPERTY_CONTAINER = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int BUSINESS_DOMAIN_MODEL__PROPERTY_CONTAINER = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Associations</b></em>' containment reference list.
@@ -195,16 +195,16 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL__ASSOCIATIONS = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int BUSINESS_DOMAIN_MODEL__ASSOCIATIONS = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of structural features of the '<em>Business Class Model</em>' class.
+	 * The number of structural features of the '<em>Business Domain Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int BUSINESS_DOMAIN_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.impl.CommentableElementImpl <em>Commentable Element</em>}' class.
@@ -1448,14 +1448,14 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int CONSTRAINT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link BusinessDomainDsl.impl.association_RImpl <em>association R</em>}' class.
+	 * The meta object id for the '{@link BusinessDomainDsl.impl.associationImpl <em>association</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see BusinessDomainDsl.impl.association_RImpl
-	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getassociation_R()
+	 * @see BusinessDomainDsl.impl.associationImpl
+	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getassociation()
 	 * @generated
 	 */
-	int ASSOCIATION_R = 19;
+	int ASSOCIATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1464,7 +1464,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__SOURCE = 0;
+	int ASSOCIATION__SOURCE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1473,7 +1473,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__TARGET = 1;
+	int ASSOCIATION__TARGET = 1;
 
 	/**
 	 * The feature id for the '<em><b>Source Role Name</b></em>' attribute.
@@ -1482,7 +1482,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__SOURCE_ROLE_NAME = 2;
+	int ASSOCIATION__SOURCE_ROLE_NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Source Multiplicity</b></em>' attribute.
@@ -1491,7 +1491,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__SOURCE_MULTIPLICITY = 3;
+	int ASSOCIATION__SOURCE_MULTIPLICITY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Target Navigability</b></em>' attribute.
@@ -1500,7 +1500,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__TARGET_NAVIGABILITY = 4;
+	int ASSOCIATION__TARGET_NAVIGABILITY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Source Navigability</b></em>' attribute.
@@ -1509,7 +1509,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__SOURCE_NAVIGABILITY = 5;
+	int ASSOCIATION__SOURCE_NAVIGABILITY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Target Role Name</b></em>' attribute.
@@ -1518,7 +1518,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__TARGET_ROLE_NAME = 6;
+	int ASSOCIATION__TARGET_ROLE_NAME = 6;
 
 	/**
 	 * The feature id for the '<em><b>Target Multiplicity</b></em>' attribute.
@@ -1527,7 +1527,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__TARGET_MULTIPLICITY = 7;
+	int ASSOCIATION__TARGET_MULTIPLICITY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Is Composite</b></em>' attribute.
@@ -1536,16 +1536,16 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R__IS_COMPOSITE = 8;
+	int ASSOCIATION__IS_COMPOSITE = 8;
 
 	/**
-	 * The number of structural features of the '<em>association R</em>' class.
+	 * The number of structural features of the '<em>association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_R_FEATURE_COUNT = 9;
+	int ASSOCIATION_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.AccessModifier <em>Access Modifier</em>}' enum.
@@ -1650,124 +1650,124 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
-	 * Returns the meta object for class '{@link BusinessDomainDsl.BusinessClassModel <em>Business Class Model</em>}'.
+	 * Returns the meta object for class '{@link BusinessDomainDsl.BusinessDomainModel <em>Business Domain Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Business Class Model</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel
+	 * @return the meta object for class '<em>Business Domain Model</em>'.
+	 * @see BusinessDomainDsl.BusinessDomainModel
 	 * @generated
 	 */
-	EClass getBusinessClassModel();
+	EClass getBusinessDomainModel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassModel#isAutoGenerate <em>Auto Generate</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessDomainModel#isAutoGenerate <em>Auto Generate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Auto Generate</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#isAutoGenerate()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#isAutoGenerate()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EAttribute getBusinessClassModel_AutoGenerate();
+	EAttribute getBusinessDomainModel_AutoGenerate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassModel#getBusinessProcessProject <em>Business Process Project</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessDomainModel#getBusinessProcessProject <em>Business Process Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Business Process Project</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getBusinessProcessProject()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getBusinessProcessProject()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EAttribute getBusinessClassModel_BusinessProcessProject();
+	EAttribute getBusinessDomainModel_BusinessProcessProject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassModel#getBusinessProcessDirectory <em>Business Process Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessDomainModel#getBusinessProcessDirectory <em>Business Process Directory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Business Process Directory</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getBusinessProcessDirectory()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getBusinessProcessDirectory()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EAttribute getBusinessClassModel_BusinessProcessDirectory();
+	EAttribute getBusinessDomainModel_BusinessProcessDirectory();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassModel#getServiceHostProject <em>Service Host Project</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessDomainModel#getServiceHostProject <em>Service Host Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Service Host Project</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getServiceHostProject()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getServiceHostProject()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EAttribute getBusinessClassModel_ServiceHostProject();
+	EAttribute getBusinessDomainModel_ServiceHostProject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassModel#getDatabaseType <em>Database Type</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessDomainModel#getDatabaseType <em>Database Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Database Type</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getDatabaseType()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getDatabaseType()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EAttribute getBusinessClassModel_DatabaseType();
+	EAttribute getBusinessDomainModel_DatabaseType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassModel#getDatabaseName <em>Database Name</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessDomainModel#getDatabaseName <em>Database Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Database Name</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getDatabaseName()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getDatabaseName()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EAttribute getBusinessClassModel_DatabaseName();
+	EAttribute getBusinessDomainModel_DatabaseName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessClassModel#getComment <em>Comment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessDomainModel#getComment <em>Comment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Comment</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getComment()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getComment()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EReference getBusinessClassModel_Comment();
+	EReference getBusinessDomainModel_Comment();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessClassModel#getEnumeration <em>Enumeration</em>}'.
+	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessDomainModel#getEnumeration <em>Enumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Enumeration</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getEnumeration()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getEnumeration()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EReference getBusinessClassModel_Enumeration();
+	EReference getBusinessDomainModel_Enumeration();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessClassModel#getPropertyContainer <em>Property Container</em>}'.
+	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessDomainModel#getPropertyContainer <em>Property Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Property Container</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getPropertyContainer()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getPropertyContainer()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EReference getBusinessClassModel_PropertyContainer();
+	EReference getBusinessDomainModel_PropertyContainer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessClassModel#getAssociations <em>Associations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessDomainModel#getAssociations <em>Associations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Associations</em>'.
-	 * @see BusinessDomainDsl.BusinessClassModel#getAssociations()
-	 * @see #getBusinessClassModel()
+	 * @see BusinessDomainDsl.BusinessDomainModel#getAssociations()
+	 * @see #getBusinessDomainModel()
 	 * @generated
 	 */
-	EReference getBusinessClassModel_Associations();
+	EReference getBusinessDomainModel_Associations();
 
 	/**
 	 * Returns the meta object for class '{@link BusinessDomainDsl.BusinessClass <em>Business Class</em>}'.
@@ -2347,113 +2347,113 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EAttribute getConstraint_ValidationMessage();
 
 	/**
-	 * Returns the meta object for class '{@link BusinessDomainDsl.association_R <em>association R</em>}'.
+	 * Returns the meta object for class '{@link BusinessDomainDsl.association <em>association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>association R</em>'.
-	 * @see BusinessDomainDsl.association_R
+	 * @return the meta object for class '<em>association</em>'.
+	 * @see BusinessDomainDsl.association
 	 * @generated
 	 */
-	EClass getassociation_R();
+	EClass getassociation();
 
 	/**
-	 * Returns the meta object for the reference '{@link BusinessDomainDsl.association_R#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link BusinessDomainDsl.association#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see BusinessDomainDsl.association_R#getSource()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#getSource()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EReference getassociation_R_Source();
+	EReference getassociation_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link BusinessDomainDsl.association_R#getTarget <em>Target</em>}'.
+	 * Returns the meta object for the reference '{@link BusinessDomainDsl.association#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see BusinessDomainDsl.association_R#getTarget()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#getTarget()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EReference getassociation_R_Target();
+	EReference getassociation_Target();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#getSourceRoleName <em>Source Role Name</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#getSourceRoleName <em>Source Role Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Source Role Name</em>'.
-	 * @see BusinessDomainDsl.association_R#getSourceRoleName()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#getSourceRoleName()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_SourceRoleName();
+	EAttribute getassociation_SourceRoleName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#getSourceMultiplicity <em>Source Multiplicity</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#getSourceMultiplicity <em>Source Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Source Multiplicity</em>'.
-	 * @see BusinessDomainDsl.association_R#getSourceMultiplicity()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#getSourceMultiplicity()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_SourceMultiplicity();
+	EAttribute getassociation_SourceMultiplicity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#isTargetNavigability <em>Target Navigability</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#isTargetNavigability <em>Target Navigability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Target Navigability</em>'.
-	 * @see BusinessDomainDsl.association_R#isTargetNavigability()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#isTargetNavigability()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_TargetNavigability();
+	EAttribute getassociation_TargetNavigability();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#isSourceNavigability <em>Source Navigability</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#isSourceNavigability <em>Source Navigability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Source Navigability</em>'.
-	 * @see BusinessDomainDsl.association_R#isSourceNavigability()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#isSourceNavigability()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_SourceNavigability();
+	EAttribute getassociation_SourceNavigability();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#getTargetRoleName <em>Target Role Name</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#getTargetRoleName <em>Target Role Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Target Role Name</em>'.
-	 * @see BusinessDomainDsl.association_R#getTargetRoleName()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#getTargetRoleName()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_TargetRoleName();
+	EAttribute getassociation_TargetRoleName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#getTargetMultiplicity <em>Target Multiplicity</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#getTargetMultiplicity <em>Target Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Target Multiplicity</em>'.
-	 * @see BusinessDomainDsl.association_R#getTargetMultiplicity()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#getTargetMultiplicity()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_TargetMultiplicity();
+	EAttribute getassociation_TargetMultiplicity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association_R#isIsComposite <em>Is Composite</em>}'.
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.association#isIsComposite <em>Is Composite</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Is Composite</em>'.
-	 * @see BusinessDomainDsl.association_R#isIsComposite()
-	 * @see #getassociation_R()
+	 * @see BusinessDomainDsl.association#isIsComposite()
+	 * @see #getassociation()
 	 * @generated
 	 */
-	EAttribute getassociation_R_IsComposite();
+	EAttribute getassociation_IsComposite();
 
 	/**
 	 * Returns the meta object for enum '{@link BusinessDomainDsl.AccessModifier <em>Access Modifier</em>}'.
@@ -2576,14 +2576,14 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '{@link BusinessDomainDsl.impl.BusinessClassModelImpl <em>Business Class Model</em>}' class.
+		 * The meta object literal for the '{@link BusinessDomainDsl.impl.BusinessDomainModelImpl <em>Business Domain Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see BusinessDomainDsl.impl.BusinessClassModelImpl
-		 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getBusinessClassModel()
+		 * @see BusinessDomainDsl.impl.BusinessDomainModelImpl
+		 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getBusinessDomainModel()
 		 * @generated
 		 */
-		EClass BUSINESS_CLASS_MODEL = eINSTANCE.getBusinessClassModel();
+		EClass BUSINESS_DOMAIN_MODEL = eINSTANCE.getBusinessDomainModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Auto Generate</b></em>' attribute feature.
@@ -2591,7 +2591,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUSINESS_CLASS_MODEL__AUTO_GENERATE = eINSTANCE.getBusinessClassModel_AutoGenerate();
+		EAttribute BUSINESS_DOMAIN_MODEL__AUTO_GENERATE = eINSTANCE.getBusinessDomainModel_AutoGenerate();
 
 		/**
 		 * The meta object literal for the '<em><b>Business Process Project</b></em>' attribute feature.
@@ -2599,7 +2599,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUSINESS_CLASS_MODEL__BUSINESS_PROCESS_PROJECT = eINSTANCE.getBusinessClassModel_BusinessProcessProject();
+		EAttribute BUSINESS_DOMAIN_MODEL__BUSINESS_PROCESS_PROJECT = eINSTANCE.getBusinessDomainModel_BusinessProcessProject();
 
 		/**
 		 * The meta object literal for the '<em><b>Business Process Directory</b></em>' attribute feature.
@@ -2607,7 +2607,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUSINESS_CLASS_MODEL__BUSINESS_PROCESS_DIRECTORY = eINSTANCE.getBusinessClassModel_BusinessProcessDirectory();
+		EAttribute BUSINESS_DOMAIN_MODEL__BUSINESS_PROCESS_DIRECTORY = eINSTANCE.getBusinessDomainModel_BusinessProcessDirectory();
 
 		/**
 		 * The meta object literal for the '<em><b>Service Host Project</b></em>' attribute feature.
@@ -2615,7 +2615,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUSINESS_CLASS_MODEL__SERVICE_HOST_PROJECT = eINSTANCE.getBusinessClassModel_ServiceHostProject();
+		EAttribute BUSINESS_DOMAIN_MODEL__SERVICE_HOST_PROJECT = eINSTANCE.getBusinessDomainModel_ServiceHostProject();
 
 		/**
 		 * The meta object literal for the '<em><b>Database Type</b></em>' attribute feature.
@@ -2623,7 +2623,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUSINESS_CLASS_MODEL__DATABASE_TYPE = eINSTANCE.getBusinessClassModel_DatabaseType();
+		EAttribute BUSINESS_DOMAIN_MODEL__DATABASE_TYPE = eINSTANCE.getBusinessDomainModel_DatabaseType();
 
 		/**
 		 * The meta object literal for the '<em><b>Database Name</b></em>' attribute feature.
@@ -2631,7 +2631,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUSINESS_CLASS_MODEL__DATABASE_NAME = eINSTANCE.getBusinessClassModel_DatabaseName();
+		EAttribute BUSINESS_DOMAIN_MODEL__DATABASE_NAME = eINSTANCE.getBusinessDomainModel_DatabaseName();
 
 		/**
 		 * The meta object literal for the '<em><b>Comment</b></em>' containment reference list feature.
@@ -2639,7 +2639,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUSINESS_CLASS_MODEL__COMMENT = eINSTANCE.getBusinessClassModel_Comment();
+		EReference BUSINESS_DOMAIN_MODEL__COMMENT = eINSTANCE.getBusinessDomainModel_Comment();
 
 		/**
 		 * The meta object literal for the '<em><b>Enumeration</b></em>' containment reference list feature.
@@ -2647,7 +2647,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUSINESS_CLASS_MODEL__ENUMERATION = eINSTANCE.getBusinessClassModel_Enumeration();
+		EReference BUSINESS_DOMAIN_MODEL__ENUMERATION = eINSTANCE.getBusinessDomainModel_Enumeration();
 
 		/**
 		 * The meta object literal for the '<em><b>Property Container</b></em>' containment reference list feature.
@@ -2655,7 +2655,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUSINESS_CLASS_MODEL__PROPERTY_CONTAINER = eINSTANCE.getBusinessClassModel_PropertyContainer();
+		EReference BUSINESS_DOMAIN_MODEL__PROPERTY_CONTAINER = eINSTANCE.getBusinessDomainModel_PropertyContainer();
 
 		/**
 		 * The meta object literal for the '<em><b>Associations</b></em>' containment reference list feature.
@@ -2663,7 +2663,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUSINESS_CLASS_MODEL__ASSOCIATIONS = eINSTANCE.getBusinessClassModel_Associations();
+		EReference BUSINESS_DOMAIN_MODEL__ASSOCIATIONS = eINSTANCE.getBusinessDomainModel_Associations();
 
 		/**
 		 * The meta object literal for the '{@link BusinessDomainDsl.impl.BusinessClassImpl <em>Business Class</em>}' class.
@@ -3132,14 +3132,14 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EAttribute CONSTRAINT__VALIDATION_MESSAGE = eINSTANCE.getConstraint_ValidationMessage();
 
 		/**
-		 * The meta object literal for the '{@link BusinessDomainDsl.impl.association_RImpl <em>association R</em>}' class.
+		 * The meta object literal for the '{@link BusinessDomainDsl.impl.associationImpl <em>association</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see BusinessDomainDsl.impl.association_RImpl
-		 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getassociation_R()
+		 * @see BusinessDomainDsl.impl.associationImpl
+		 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getassociation()
 		 * @generated
 		 */
-		EClass ASSOCIATION_R = eINSTANCE.getassociation_R();
+		EClass ASSOCIATION = eINSTANCE.getassociation();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
@@ -3147,7 +3147,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSOCIATION_R__SOURCE = eINSTANCE.getassociation_R_Source();
+		EReference ASSOCIATION__SOURCE = eINSTANCE.getassociation_Source();
 
 		/**
 		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
@@ -3155,7 +3155,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSOCIATION_R__TARGET = eINSTANCE.getassociation_R_Target();
+		EReference ASSOCIATION__TARGET = eINSTANCE.getassociation_Target();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Role Name</b></em>' attribute feature.
@@ -3163,7 +3163,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__SOURCE_ROLE_NAME = eINSTANCE.getassociation_R_SourceRoleName();
+		EAttribute ASSOCIATION__SOURCE_ROLE_NAME = eINSTANCE.getassociation_SourceRoleName();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Multiplicity</b></em>' attribute feature.
@@ -3171,7 +3171,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__SOURCE_MULTIPLICITY = eINSTANCE.getassociation_R_SourceMultiplicity();
+		EAttribute ASSOCIATION__SOURCE_MULTIPLICITY = eINSTANCE.getassociation_SourceMultiplicity();
 
 		/**
 		 * The meta object literal for the '<em><b>Target Navigability</b></em>' attribute feature.
@@ -3179,7 +3179,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__TARGET_NAVIGABILITY = eINSTANCE.getassociation_R_TargetNavigability();
+		EAttribute ASSOCIATION__TARGET_NAVIGABILITY = eINSTANCE.getassociation_TargetNavigability();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Navigability</b></em>' attribute feature.
@@ -3187,7 +3187,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__SOURCE_NAVIGABILITY = eINSTANCE.getassociation_R_SourceNavigability();
+		EAttribute ASSOCIATION__SOURCE_NAVIGABILITY = eINSTANCE.getassociation_SourceNavigability();
 
 		/**
 		 * The meta object literal for the '<em><b>Target Role Name</b></em>' attribute feature.
@@ -3195,7 +3195,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__TARGET_ROLE_NAME = eINSTANCE.getassociation_R_TargetRoleName();
+		EAttribute ASSOCIATION__TARGET_ROLE_NAME = eINSTANCE.getassociation_TargetRoleName();
 
 		/**
 		 * The meta object literal for the '<em><b>Target Multiplicity</b></em>' attribute feature.
@@ -3203,7 +3203,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__TARGET_MULTIPLICITY = eINSTANCE.getassociation_R_TargetMultiplicity();
+		EAttribute ASSOCIATION__TARGET_MULTIPLICITY = eINSTANCE.getassociation_TargetMultiplicity();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Composite</b></em>' attribute feature.
@@ -3211,7 +3211,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION_R__IS_COMPOSITE = eINSTANCE.getassociation_R_IsComposite();
+		EAttribute ASSOCIATION__IS_COMPOSITE = eINSTANCE.getassociation_IsComposite();
 
 		/**
 		 * The meta object literal for the '{@link BusinessDomainDsl.AccessModifier <em>Access Modifier</em>}' enum.

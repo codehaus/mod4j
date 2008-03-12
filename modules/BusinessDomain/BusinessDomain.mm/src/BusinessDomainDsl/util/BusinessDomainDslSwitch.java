@@ -93,10 +93,10 @@ public class BusinessDomainDslSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BusinessDomainDslPackage.BUSINESS_CLASS_MODEL: {
-				BusinessClassModel businessClassModel = (BusinessClassModel)theEObject;
-				T result = caseBusinessClassModel(businessClassModel);
-				if (result == null) result = caseNamedElement(businessClassModel);
+			case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL: {
+				BusinessDomainModel businessDomainModel = (BusinessDomainModel)theEObject;
+				T result = caseBusinessDomainModel(businessDomainModel);
+				if (result == null) result = caseNamedElement(businessDomainModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,9 +232,9 @@ public class BusinessDomainDslSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BusinessDomainDslPackage.ASSOCIATION_R: {
-				association_R association_R = (association_R)theEObject;
-				T result = caseassociation_R(association_R);
+			case BusinessDomainDslPackage.ASSOCIATION: {
+				association association = (association)theEObject;
+				T result = caseassociation(association);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,17 +258,17 @@ public class BusinessDomainDslSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Business Class Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Business Domain Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Business Class Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Business Domain Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBusinessClassModel(BusinessClassModel object) {
+	public T caseBusinessDomainModel(BusinessDomainModel object) {
 		return null;
 	}
 
@@ -528,17 +528,17 @@ public class BusinessDomainDslSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>association R</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>association</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>association R</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>association</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseassociation_R(association_R object) {
+	public T caseassociation(association object) {
 		return null;
 	}
 

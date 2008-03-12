@@ -165,8 +165,8 @@ public interface BusinessClass extends PropertyContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Association To</b></em>' reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.association_R}.
-	 * It is bidirectional and its opposite is '{@link BusinessDomainDsl.association_R#getSource <em>Source</em>}'.
+	 * The list contents are of type {@link BusinessDomainDsl.association}.
+	 * It is bidirectional and its opposite is '{@link BusinessDomainDsl.association#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Association To</em>' reference list isn't clear,
@@ -175,16 +175,16 @@ public interface BusinessClass extends PropertyContainer {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Association To</em>' reference list.
 	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClass_AssociationTo()
-	 * @see BusinessDomainDsl.association_R#getSource
+	 * @see BusinessDomainDsl.association#getSource
 	 * @model opposite="source"
 	 * @generated
 	 */
-	EList<association_R> getAssociationTo();
+	EList<association> getAssociationTo();
 
 	/**
 	 * Returns the value of the '<em><b>Association From</b></em>' reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.association_R}.
-	 * It is bidirectional and its opposite is '{@link BusinessDomainDsl.association_R#getTarget <em>Target</em>}'.
+	 * The list contents are of type {@link BusinessDomainDsl.association}.
+	 * It is bidirectional and its opposite is '{@link BusinessDomainDsl.association#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Association From</em>' reference list isn't clear,
@@ -193,10 +193,10 @@ public interface BusinessClass extends PropertyContainer {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Association From</em>' reference list.
 	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClass_AssociationFrom()
-	 * @see BusinessDomainDsl.association_R#getTarget
+	 * @see BusinessDomainDsl.association#getTarget
 	 * @model opposite="target"
 	 * @generated
 	 */
-	EList<association_R> getAssociationFrom();
+	EList<association> getAssociationFrom();
 
 } // BusinessClass

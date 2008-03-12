@@ -76,8 +76,8 @@ public class BusinessDomainDslAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseBusinessClassModel(BusinessClassModel object) {
-				return createBusinessClassModelAdapter();
+			public Adapter caseBusinessDomainModel(BusinessDomainModel object) {
+				return createBusinessDomainModelAdapter();
 			}
 			@Override
 			public Adapter caseBusinessClass(BusinessClass object) {
@@ -148,8 +148,8 @@ public class BusinessDomainDslAdapterFactory extends AdapterFactoryImpl {
 				return createConstraintAdapter();
 			}
 			@Override
-			public Adapter caseassociation_R(association_R object) {
-				return createassociation_RAdapter();
+			public Adapter caseassociation(association object) {
+				return createassociationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -186,16 +186,16 @@ public class BusinessDomainDslAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link BusinessDomainDsl.BusinessClassModel <em>Business Class Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link BusinessDomainDsl.BusinessDomainModel <em>Business Domain Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see BusinessDomainDsl.BusinessClassModel
+	 * @see BusinessDomainDsl.BusinessDomainModel
 	 * @generated
 	 */
-	public Adapter createBusinessClassModelAdapter() {
+	public Adapter createBusinessDomainModelAdapter() {
 		return null;
 	}
 
@@ -438,16 +438,16 @@ public class BusinessDomainDslAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link BusinessDomainDsl.association_R <em>association R</em>}'.
+	 * Creates a new adapter for an object of class '{@link BusinessDomainDsl.association <em>association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see BusinessDomainDsl.association_R
+	 * @see BusinessDomainDsl.association
 	 * @generated
 	 */
-	public Adapter createassociation_RAdapter() {
+	public Adapter createassociationAdapter() {
 		return null;
 	}
 
