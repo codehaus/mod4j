@@ -62,7 +62,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessClassModel" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessDomainModel" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoGenerate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="businessProcessProject"
@@ -80,7 +80,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyContainer" upperBound="-1"
         eType="#//PropertyContainer" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" ordered="false"
-        upperBound="-1" eType="#//association_R" containment="true"/>
+        upperBound="-1" eType="#//association" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//PropertyContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceModifier" eType="#//InheritanceModifier"
@@ -95,9 +95,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
         eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationTo" upperBound="-1"
-        eType="#//association_R" eOpposite="#//association_R/source"/>
+        eType="#//association" eOpposite="#//association/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationFrom" upperBound="-1"
-        eType="#//association_R" eOpposite="#//association_R/target"/>
+        eType="#//association" eOpposite="#//association/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -164,7 +164,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="association_R">
+  <eClassifiers xsi:type="ecore:EClass" name="association">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//BusinessClass" eOpposite="#//BusinessClass/associationTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
