@@ -1,2 +1,8 @@
+preventMMGeneration
+
+importMetamodel "platform:/resource/BusinessDomain.mm/model/BusinessDomainDsl.ecore" ;
+
 //specify your DSL grammar rules here ...
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+
+BusinessDomainModel : "Model" ;
