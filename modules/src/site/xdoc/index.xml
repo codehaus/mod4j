@@ -38,8 +38,8 @@
               </li>
               <li>
                   Install Eclipse with modeling plug-ins. To minimize time spending on version en dependency conflicts we already have a version waiting for you to download.
-                  This version based on Eclipse Europa 3.3.2, OAW 4.2, EMF 2.3.1 and has some convenient plug-ins (like Subclipse). 
-                  You can download it from our project share <a href="https://mod4j.smart-java.nl/docs/downloads"> here</a>
+                  This version based on Eclipse Europa 3.3.2, OAW 4.2 (Xtext 4.3.0), EMF 2.3.1 and has some convenient plug-ins (like Subclipse). 
+                  You can download a Windows or Linux archive from our project share <a href="https://mod4j.smart-java.nl/docs/downloads"> here</a>
               </li>
           </ol>
         </p>
