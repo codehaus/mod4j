@@ -66,13 +66,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoGenerate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="businessProcessProject"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="default.businessprocessproject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="businessProcessDirectory"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceHostProject" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="default.businessprocessdirectory"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceHostProject" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="default.servicehostproject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseType" eType="#//DatabaseType"
         defaultValueLiteral="SQLServer_2005"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="default.databasename"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comment" upperBound="-1"
         eType="#//Comment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" upperBound="-1"
@@ -80,7 +82,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyContainer" upperBound="-1"
         eType="#//PropertyContainer" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" ordered="false"
-        upperBound="-1" eType="#//association" containment="true"/>
+        upperBound="-1" eType="#//Association" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//PropertyContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceModifier" eType="#//InheritanceModifier"
@@ -89,15 +91,13 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessRule" upperBound="-1"
         eType="#//BusinessRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="compositionTarget" upperBound="-1"
-        eType="#//BusinessClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseClass" eType="#//BusinessClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
         eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationTo" upperBound="-1"
-        eType="#//association" eOpposite="#//association/source"/>
+        eType="#//Association" eOpposite="#//Association/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationFrom" upperBound="-1"
-        eType="#//association" eOpposite="#//association/target"/>
+        eType="#//Association" eOpposite="#//Association/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -153,7 +153,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoGenerate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyContainer" eSuperTypes="#//CommentableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyContainer" abstract="true" eSuperTypes="#//CommentableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//Property" containment="true"/>
   </eClassifiers>
@@ -164,19 +164,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="association">
+  <eClassifiers xsi:type="ecore:EClass" name="Association">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//BusinessClass" eOpposite="#//BusinessClass/associationTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//BusinessClass" eOpposite="#//BusinessClass/associationFrom"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="sourceRoleName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceMultiplicity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetMultiplicity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComposite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="targetRoleName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetMultiplicity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComposite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
 </ecore:EPackage>
