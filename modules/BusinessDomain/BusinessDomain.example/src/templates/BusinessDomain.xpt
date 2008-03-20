@@ -1,4 +1,5 @@
 «IMPORT BusinessDomainDsl»
+«IMPORT src::templates»
 
 «EXTENSION template::GeneratorExtensions»
 
@@ -8,7 +9,7 @@
 
 «DEFINE javaClass FOR PropertyContainer»
 	«FILE name + ".java"»
-        public class «description» {
+        public class «name» {
  		
         }
 	«ENDFILE»
@@ -17,14 +18,8 @@
 «DEFINE javaClass FOR BusinessClass»
 	«FILE name + ".java"»
         public class «name» {
- 			«EXPAND addAttribute FOREACH property»
+ 			«EXPAND Attributes::addAttribute FOREACH property»
         }
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE addAttribute FOR Property»
-«ENDDEFINE»
-
-«DEFINE addAttribute FOR StringProperty»
-        private String «name»; 
-«ENDDEFINE»

@@ -10,7 +10,7 @@
 
     <component id="xmiParser" class="org.openarchitectureware.emf.XmiReader">
         <modelFile value="My.businessdomaindsl" />
-        <outputSlot value="model" />
+        <outputSlot value="myBusModel" />
         <metaModelFile value="BusinessDomainDsl.ecore" />
         <firstElementOnly value="true" />
     </component>
@@ -19,9 +19,17 @@
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
-        <expand value="src::templates::Root::Root FOR model"/>
-        <genPath value="${srcGenPath}"/>
+        <expand value="src::templates::BusinessDomain::Root FOR myBusModel" />
+        <genPath value="${srcGenPath}" />
     </component>
 
+    <component class="org.openarchitectureware.check.CheckComponent">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <checkFile value="BusinessDomainChecks" />
+        <!-- TODO use: expression value=""/-->
+        <emfAllChildrenSlot value="myBusModel" />
+    </component>
 
 </workflow>
