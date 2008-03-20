@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<workflow>
+
+    <property file="workflow.properties" />
+
+    <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
+        <directories value="${srcGenPath}" />
+    </component>
+
+    <component id="xmiParser" class="org.openarchitectureware.emf.XmiReader">
+        <modelFile value="My.businessdomaindsl" />
+        <outputSlot value="model" />
+        <metaModelFile value="BusinessDomainDsl.ecore" />
+        <firstElementOnly value="true" />
+    </component>
+
+    <component id="generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="src::templates::Root::Root FOR model"/>
+        <genPath value="${srcGenPath}"/>
+    </component>
+
+
+</workflow>
