@@ -17,7 +17,14 @@
 «DEFINE javaClass FOR BusinessClass»
 	«FILE name + ".java"»
         public class «name» {
- 		
+ 			«EXPAND addAttribute FOREACH property»
         }
 	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR Property»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR StringProperty»
+        private String «name»; 
 «ENDDEFINE»

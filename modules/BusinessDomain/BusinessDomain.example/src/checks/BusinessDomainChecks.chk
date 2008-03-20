@@ -1,0 +1,7 @@
+import BusinessDomainDsl;
+
+context StringProperty ERROR 
+	"StringProperties must be more than one char long" :
+	name.length > 1;
+
+
