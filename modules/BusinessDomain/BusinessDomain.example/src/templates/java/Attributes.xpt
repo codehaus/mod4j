@@ -1,0 +1,41 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE attributeJavaDoc FOR Property»
+	/**
+     *  «name»: «description»
+     */
+«ENDDEFINE»
+
+«DEFINE addGetter FOR Property»
+	public «dataType» get«name.toFirstUpper()» () {
+   		return this.«name»;
+	}
+«ENDDEFINE»
+
+«DEFINE addSetter FOR Property»
+	public void set«name.toFirstUpper()» («dataType» «name») {
+   		this.«name» = «name»;
+	}
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR Property»
+    /**
+     *  Unknown Property type. It is not a subclass of Property or it is not expanded by this generator.
+     *  Name: «name» 
+     * 	Description: «description»
+     */
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR StringProperty»
+	«EXPAND attributeJavaDoc FOR this» private «dataType» «name»;
+	«EXPAND addGetter FOR this»
+ 	«EXPAND addSetter FOR this» 
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR BoolProperty»
+    «EXPAND attributeJavaDoc FOR this» private «dataType» «name»;
+    «EXPAND addGetter FOR this»
+ 	«EXPAND addSetter FOR this» 
+«ENDDEFINE»

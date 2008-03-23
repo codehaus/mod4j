@@ -15,14 +15,6 @@
         <firstElementOnly value="true" />
     </component>
 
-    <component id="generator" class="org.openarchitectureware.xpand2.Generator">
-        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
-            <metaModelFile value="BusinessDomainDsl.ecore" />
-        </metaModel>
-        <expand value="src::templates::BusinessDomain::Root FOR myBusModel" />
-        <genPath value="${srcGenPath}" />
-    </component>
-
     <component class="org.openarchitectureware.check.CheckComponent">
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
@@ -30,6 +22,18 @@
         <checkFile value="BusinessDomainChecks" />
         <!-- TODO use: expression value=""/-->
         <emfAllChildrenSlot value="myBusModel" />
+    </component>
+
+    <component id="generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="src::templates::BusinessDomain::Root FOR myBusModel" />
+        <genPath value="${srcGenPath}" />
+        <outlet path="${srcGenPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
     </component>
 
 </workflow>

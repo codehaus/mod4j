@@ -1,25 +1,11 @@
 «IMPORT BusinessDomainDsl»
-«IMPORT src::templates»
+«IMPORT src::templates::java»
 
 «EXTENSION template::GeneratorExtensions»
 
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
-	«EXPAND javaClass FOREACH propertyContainer»
+	«EXPAND JavaBean::BeanClass FOREACH propertyContainer»
 «ENDDEFINE»
 
-«DEFINE javaClass FOR PropertyContainer»
-	«FILE name + ".java"»
-        public class «name» {
- 		
-        }
-	«ENDFILE»
-«ENDDEFINE»
 
-«DEFINE javaClass FOR BusinessClass»
-	«FILE name + ".java"»
-        public class «name» {
- 			«EXPAND Attributes::addAttribute FOREACH property»
-        }
-	«ENDFILE»
-«ENDDEFINE»
 

@@ -1,7 +1,17 @@
 import BusinessDomainDsl;
 
+context BusinessClass ERROR
+	"Names of BusinessClass attributes must be unique.":
+	property.forAll(a1| property.notExists(a2| a1 != a2 && a1.name == a2.name ) );
+
+context Property ERROR
+	"The dataType of a property must be specified.":
+	dataType.length > 1;
+
 context StringProperty ERROR 
-	"StringProperties must be more than one char long" :
+	"StringProperties must be more than one char long." :
 	name.length > 1;
+
+
 
 
