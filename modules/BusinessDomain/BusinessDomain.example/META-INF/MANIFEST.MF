@@ -4,4 +4,6 @@ Bundle-Name: my.generator.project
 Bundle-SymbolicName: my.generator.project; singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.openarchitectureware.dependencies,
- BusinessDomain.mm
+ BusinessDomain.mm,
+ org.eclipse.jface.text,
+ org.eclipse.jdt.core
