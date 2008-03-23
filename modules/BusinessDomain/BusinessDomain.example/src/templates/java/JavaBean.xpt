@@ -1,0 +1,20 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE BeanClass FOR PropertyContainer»
+	«FILE name + ".java"»
+        public class «name» {
+ 		
+        }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE BeanClass FOR BusinessClass»
+	«FILE name + ".java"»
+        public class «name» {
+ 			«EXPAND Attributes::addAttribute FOREACH property»
+        }
+	«ENDFILE»
+«ENDDEFINE»
+
