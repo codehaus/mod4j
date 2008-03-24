@@ -11,9 +11,11 @@
 «ENDDEFINE»
 
 «DEFINE BeanClass FOR BusinessClass»
-	«FILE name + ".java"»
+	«FILE "domain/" + name + ".java"»
         public class «name» {
  			«EXPAND Attributes::addAttribute FOREACH property»
+ 			«EXPAND Attributes::addGetter FOREACH property»
+ 			«EXPAND Attributes::addSetter FOREACH property»
         }
 	«ENDFILE»
 «ENDDEFINE»

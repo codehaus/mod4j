@@ -2,10 +2,11 @@
 
 «EXTENSION template::GeneratorExtensions»
 
-«DEFINE attributeJavaDoc FOR Property»
+«DEFINE instanceVariable FOR Property»
 	/**
      *  «name»: «description»
      */
+     private «dataType» «name»;
 «ENDDEFINE»
 
 «DEFINE addGetter FOR Property»
@@ -29,13 +30,18 @@
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR StringProperty»
-	«EXPAND attributeJavaDoc FOR this» private «dataType» «name»;
-	«EXPAND addGetter FOR this»
- 	«EXPAND addSetter FOR this» 
+	«EXPAND instanceVariable FOR this» 
+	«IF regularExpression.length>0»
+		public static final String «name.toUpperCase()»_REGEXP = «regularExpression»;
+	«ENDIF»
+	«IF minLength>0»
+		public static final int «name.toUpperCase()»_MINLENGTH = «minLength»;
+	«ENDIF»
+	«IF maxLength>0»
+		public static final int «name.toUpperCase()»_MAXLENGTH = «maxLength»;
+	«ENDIF»
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR BoolProperty»
-    «EXPAND attributeJavaDoc FOR this» private «dataType» «name»;
-    «EXPAND addGetter FOR this»
- 	«EXPAND addSetter FOR this» 
+    «EXPAND instanceVariable FOR this»
 «ENDDEFINE»
