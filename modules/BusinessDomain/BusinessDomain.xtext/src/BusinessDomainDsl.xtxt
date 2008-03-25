@@ -13,7 +13,7 @@ BusinessDomainModel :
 
 Association:
     "Association" 
-    (isComposite?="composite")?
+    (composite?="composite")?
     sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]" "<->"
     "[" targetMultiplicity=Multiplicity "]"targetRoleName=ID target=[BusinessClass] ";";
 
@@ -23,7 +23,7 @@ Enum Multiplicity  :
 BusinessClass :
     "Class" name=ID
     (inheritanceModifier=InheritanceModifier)?
-    ("inherits" baseClass=[BusinessClass])?
+    ("inherits" superclass=[BusinessClass])?
     "["
     ( properties += Property)*
     ("Rules" "[" (businessRules += BusinessRule)* "]" )?
@@ -45,7 +45,7 @@ Constraint :
     name=ID  ";" ;
     
 Enum InheritanceModifier :
-    Abstract="abstract" ;
+    ABSTRACT="abstract" | FINAL="final";
     
 Property : 
 	(BoolProperty | StringProperty | DateTimeProperty) 
