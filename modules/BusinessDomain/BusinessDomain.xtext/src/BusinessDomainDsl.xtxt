@@ -1,8 +1,66 @@
 preventMMGeneration
 
-importMetamodel "platform:/resource/BusinessDomain.mm/model/BusinessDomainDsl.ecore" ;
+importMetamodel "http://www.mod4j.org/busmod" ;
 
 //specify your DSL grammar rules here ...
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
-BusinessDomainModel : "Model" ;
+BusinessDomainModel :
+	"Model" name = ID
+	(types += BusinessClass)* 
+	(enumerations += Enumeration)*
+	(associations += Association)*;
+
+Association:
+    "Association" 
+    (isComposite?="composite")?
+    sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]" "<->"
+    "[" targetMultiplicity=Multiplicity "]"targetRoleName=ID target=[BusinessClass] ";";
+
+Enum Multiplicity  :
+     ZeroMany="0..*"  | One="1" | OneMany="1..*" | ZeroOne="0..1" ;
+       	
+BusinessClass :
+    "Class" name=ID
+    (inheritanceModifier=InheritanceModifier)?
+    ("inherits" baseClass=[BusinessClass])?
+    "["
+    ( properties += Property)*
+    ("Rules" "[" (businessRules += BusinessRule)* "]" )?
+    ("Constraints" "[" (constraints += Constraint)* "]")?
+    "]"
+     ;
+     
+Enumeration :
+    "Enumeration" name=ID "["
+    (enumerationLiterals += EnumerationLiteral)+ "]";
+
+EnumerationLiteral:
+    name=ID ";" ;
+    
+BusinessRule :
+    name=ID ";" ;
+    
+Constraint :
+    name=ID  ";" ;
+    
+Enum InheritanceModifier :
+    Abstract="abstract" ;
+    
+Property : 
+	(BoolProperty | StringProperty | DateTimeProperty) 
+	(nullable?="nullable")?
+	("default" defaultValue=STRING)?
+;
+
+DateTimeProperty : "Timestamp" (accuracy=DateTimeAccuracy)? name=ID ";" ;
+
+Enum DateTimeAccuracy :
+    Month="Month" | Year="Year" | Day = "Day";
+
+BoolProperty : "Boolean" name=ID ";"
+	;
+
+StringProperty : "String" name=ID ";"
+;
+
