@@ -1,0 +1,16 @@
+import BusinessDomainDsl;
+
+extension org::mod4j::businessdomain::xtext::Extensions reexport;
+extension org::mod4j::businessdomain::xtext::GenEditorExtensions reexport;
+
+/*
+ * use this file to overwrite the label() and the image()
+ * extension for your model elements
+ */
+
+ String label(Association assoc) :
+	assoc.sourceRoleName + " <-> " + assoc.targetRoleName;
+ 
+ String image(Association assoc) :
+	"association.ico";
+	
