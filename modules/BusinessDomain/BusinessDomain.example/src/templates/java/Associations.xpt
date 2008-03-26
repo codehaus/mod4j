@@ -1,0 +1,11 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE addReferenceVariable FOR Association»
+	private List<«EXPAND targetClass FOR target»> «targetRoleName»;
+«ENDDEFINE»
+
+«DEFINE targetClass FOR BusinessClass»
+	«name»
+«ENDDEFINE»
