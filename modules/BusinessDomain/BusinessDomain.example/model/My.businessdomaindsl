@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<busmod:BusinessDomainModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:busmod="http://www.mod4j.org/busmod" name="ExampleDomainModel" serviceHostProject="">
-  <propertyContainer xsi:type="busmod:BusinessClass" name="Customer" description="A Customer class to represent customers" associationTo="//@associations.0">
-    <property xsi:type="busmod:StringProperty" name="name" dataType="String" defaultValue="" useAsLogicalId="true" description="The name of the customer" regularExpression="" maxLength="256"/>
-    <property xsi:type="busmod:StringProperty" name="phoneNumber" dataType="String" description="" maxLength="15"/>
-  </propertyContainer>
-  <propertyContainer xsi:type="busmod:BusinessClass" name="Order" associationFrom="//@associations.0">
-    <property xsi:type="busmod:BoolProperty" name="isConfirmed" dataType="Boolean" defaultValue="false" description=""/>
-    <property xsi:type="busmod:StringProperty" name="orderNumber" dataType="String" useAsLogicalId="true" description="Unique numner of the order"/>
-  </propertyContainer>
-  <associations source="//@propertyContainer.0" target="//@propertyContainer.1" sourceRoleName="customer" targetRoleName="orders" targetMultiplicity="*"/>
+<busmod:BusinessDomainModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:busmod="http://www.mod4j.org/busmod">
+  <types xsi:type="busmod:BusinessClass" name="Customer" description="1.0" associationsTo="//@associations.0">
+    <properties xsi:type="busmod:StringProperty" name="name" description="1.00000" dataType="String" defaultValue="" useAsLogicalId="true" regularExpression="" maxLength="256"/>
+    <properties xsi:type="busmod:StringProperty" name="phoneNumber" dataType="String" maxLength="15"/>
+  </types>
+  <types xsi:type="busmod:BusinessClass" name="Order" associationsFrom="//@associations.0">
+    <properties xsi:type="busmod:BoolProperty" name="isConfirmed" dataType="Boolean" defaultValue="false"/>
+    <properties xsi:type="busmod:StringProperty" name="orderNumber" dataType="String" useAsLogicalId="true"/>
+  </types>
+  <associations name="222" source="//@types.0" target="//@types.1" sourceRoleName="customer" targetRoleName="orders" targetMultiplicity="OneMany"/>
 </busmod:BusinessDomainModel>

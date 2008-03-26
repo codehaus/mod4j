@@ -2,7 +2,7 @@
 
 «EXTENSION template::GeneratorExtensions»
 
-«DEFINE BeanClass FOR PropertyContainer»
+«DEFINE BeanClass FOR AbstractType»
 	«FILE name + ".java"»
         public class «name» {
  		
@@ -13,9 +13,10 @@
 «DEFINE BeanClass FOR BusinessClass»
 	«FILE "domain/" + name + ".java"»
         public class «name» {
- 			«EXPAND Attributes::addAttribute FOREACH property»
- 			«EXPAND Attributes::addGetter FOREACH property»
- 			«EXPAND Attributes::addSetter FOREACH property»
+ 			«EXPAND Attributes::addAttribute FOREACH properties»
+ 			«EXPAND Associations::addReferenceVariable FOREACH associationsTo»
+ 			«EXPAND Attributes::addGetter FOREACH properties»
+ 			«EXPAND Attributes::addSetter FOREACH properties»
         }
 	«ENDFILE»
 «ENDDEFINE»

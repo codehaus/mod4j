@@ -29,7 +29,7 @@
      */
 «ENDDEFINE»
 
-«DEFINE addAttribute FOR StringProperty»
+«DEFINE addAttribute FOR StringProperty»	
 	«EXPAND instanceVariable FOR this» 
 	«IF regularExpression.length>0»
 		public static final String «name.toUpperCase()»_REGEXP = «regularExpression»;
