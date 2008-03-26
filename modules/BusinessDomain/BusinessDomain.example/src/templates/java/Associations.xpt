@@ -3,9 +3,5 @@
 «EXTENSION template::GeneratorExtensions»
 
 «DEFINE addReferenceVariable FOR Association»
-	private List<«EXPAND targetClass FOR target»> «targetRoleName»;
-«ENDDEFINE»
-
-«DEFINE targetClass FOR BusinessClass»
-	«name»
+	private List<«target.name»> «targetRoleName»;
 «ENDDEFINE»
