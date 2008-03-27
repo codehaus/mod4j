@@ -3,8 +3,8 @@
 
 «EXTENSION template::GeneratorExtensions»
 
-«DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
-	«EXPAND JavaBean::BeanClass FOREACH types»
+«DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
+	«EXPAND JavaBean::BeanClass (rootPackage) FOREACH types»
 «ENDDEFINE»
 
 

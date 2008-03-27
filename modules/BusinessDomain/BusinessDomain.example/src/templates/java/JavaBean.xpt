@@ -2,7 +2,7 @@
 
 «EXTENSION template::GeneratorExtensions»
 
-«DEFINE BeanClass FOR AbstractType»
+«DEFINE BeanClass (String rootPackage) FOR AbstractType»
 	«FILE name + ".java"»
         public class «name» {
  		
@@ -10,8 +10,10 @@
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE BeanClass FOR BusinessClass»
-	«FILE name + ".java"»
+«DEFINE BeanClass (String rootPackage) FOR BusinessClass»
+	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
+		package «rootPackage»;
+		
 		import java.util.List;
 		import java.util.ArrayList;
 		
