@@ -10,12 +10,20 @@
 «ENDDEFINE»
 
 «DEFINE addGetter FOR Association»
+	/**
+	 *
+	 * @return List<«target.name»>
+	 */
 	public List<«target.name»> get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
 	}
 «ENDDEFINE»
 
 «DEFINE addSetter FOR Association»
+	/**
+	 *
+	 * @param List<«target.name»>
+	 */
 	public void set«target.name.toFirstUpper()» (List<«target.name»> «targetRoleName») {
    		this.«targetRoleName» = «targetRoleName»;
 	}

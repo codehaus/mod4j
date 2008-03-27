@@ -10,12 +10,20 @@
 «ENDDEFINE»
 
 «DEFINE addGetter FOR Property»
+	/**
+	*
+	* @return «dataType»
+	*/
 	public «dataType» get«name.toFirstUpper()» () {
    		return this.«name»;
 	}
 «ENDDEFINE»
 
 «DEFINE addSetter FOR Property»
+	/**
+	*
+	* @param «dataType»
+	*/
 	public void set«name.toFirstUpper()» («dataType» «name») {
    		this.«name» = «name»;
 	}
