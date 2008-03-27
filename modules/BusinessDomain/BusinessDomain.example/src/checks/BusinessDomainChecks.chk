@@ -9,9 +9,5 @@ context Property ERROR
 	dataType.length > 1;
 
 context StringProperty ERROR 
-	"StringProperties must be more than one char long." :
+	"The name of a StringProperties must be more than one char long." :
 	name.length > 1;
-
-
-
-

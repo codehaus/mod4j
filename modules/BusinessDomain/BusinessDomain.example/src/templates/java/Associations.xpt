@@ -3,5 +3,20 @@
 «EXTENSION template::GeneratorExtensions»
 
 «DEFINE addReferenceVariable FOR Association»
-	private List<«target.name»> «targetRoleName»;
+	/**
+     *  «targetRoleName»: «description»
+     */
+	private List<«target.name»> «targetRoleName» = new ArrayList<«target.name»>();
+«ENDDEFINE»
+
+«DEFINE addGetter FOR Association»
+	public List<«target.name»> get«targetRoleName.toFirstUpper()» () {
+   		return this.«targetRoleName»;
+	}
+«ENDDEFINE»
+
+«DEFINE addSetter FOR Association»
+	public void set«target.name.toFirstUpper()» (List<«target.name»> «targetRoleName») {
+   		this.«targetRoleName» = «targetRoleName»;
+	}
 «ENDDEFINE»

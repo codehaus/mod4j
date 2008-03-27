@@ -11,13 +11,17 @@
 «ENDDEFINE»
 
 «DEFINE BeanClass FOR BusinessClass»
-	«FILE "domain/" + name + ".java"»
-        public class «name» {
+	«FILE name + ".java"»
+		import java.util.List;
+		import java.util.ArrayList;
+		
+        public class «name» {    	
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addReferenceVariable FOREACH associationsTo»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
+ 			«EXPAND Associations::addGetter FOREACH associationsTo»
+ 			«EXPAND Associations::addSetter FOREACH associationsTo»
         }
 	«ENDFILE»
 «ENDDEFINE»
-
