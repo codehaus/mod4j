@@ -1,0 +1,42 @@
+import BusinessDomainDsl;
+
+extension org::mod4j::businessdomain::xtext::Extensions;
+/*
+ * This check file is used by the parser
+ * and by the editor. Add your constraints here!
+ */
+
+context BusinessDomainModel ERROR "Business class name is not unique" :
+   types.forAll(e1 | 
+         types.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
+   
+context BusinessDomainModel ERROR "BusinessDomainModel name incorrect" :
+   false;
+
+context Association WARNING "Association waring !!!" :
+   true;
+
+context BusinessClass ERROR "NAMES" :
+   ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|
+     e != this implies e.name != this.name) ;
+ 
+context Enumeration ERROR "Literals must be unique" :
+      enumerationLiterals.forAll(e1 | 
+         enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
+
+
+context BusinessRule ERROR "Write your constraint message here...!" :
+   true;
+
+context Constraint ERROR "Write your constraint message here...!" :
+   true;
+
+context Property ERROR "Write your constraint message here...!" :
+   true;
+
+context BoolProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context StringProperty ERROR "Write your constraint message here...!" :
+   true;
+
