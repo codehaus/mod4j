@@ -157,6 +157,10 @@
                         <q>Run As -> Eclipse Application</q>
                         from the context menu.
                     </li>
+                    <li>
+                        In the new Eclipse session: import the modules <code>BusinessDomain.mm</code>, <code>BusinessDomain.generator</code>
+                        and <code>BusinessDomain.example</code>.
+                    </li>
                 </ol>
             </subsection>
             <subsection name="Modelling">
