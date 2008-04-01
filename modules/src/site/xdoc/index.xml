@@ -70,8 +70,8 @@
                         Make sure you start Eclipse with de right options, e.g
                         on a linux system:
                         '/path-to-eclipse-mod4j/Eclipse-europa/eclipse' -vm
-                        /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms128m
-                        -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=256m
+                        /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms256m
+                        -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=512m
                     </li>
                     <li>
                         Make sure the text file encoding in Eclipse is set to
