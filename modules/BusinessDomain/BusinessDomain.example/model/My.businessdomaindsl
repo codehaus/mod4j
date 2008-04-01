@@ -3,10 +3,12 @@
   <types xsi:type="busmod:BusinessClass" name="Customer" description="A Customer class to represent customers" associationsTo="//@associations.0">
     <properties xsi:type="busmod:StringProperty" name="name" description="The last name of the Customer" dataType="String" defaultValue="" useAsLogicalId="true" regularExpression="" maxLength="256"/>
     <properties xsi:type="busmod:StringProperty" name="phoneNumber" description="The phonenumber of the Customer" dataType="String" maxLength="15"/>
+    <properties xsi:type="busmod:BlobBinaryProperty" name="customerPicture" description="Picture of customer" dataType="Byte[]" defaultValue=""/>
   </types>
   <types xsi:type="busmod:BusinessClass" name="Order" description="" associationsFrom="//@associations.0">
-    <properties xsi:type="busmod:BoolProperty" name="isConfirmed" dataType="Boolean" defaultValue="false"/>
-    <properties xsi:type="busmod:StringProperty" name="orderNumber" dataType="String" useAsLogicalId="true"/>
+    <properties xsi:type="busmod:BoolProperty" name="isConfirmed" description="" dataType="Boolean" defaultValue="false"/>
+    <properties xsi:type="busmod:StringProperty" name="logicalOrderId" description="" dataType="String" useAsLogicalId="true"/>
+    <properties xsi:type="busmod:NumberProperty" name="orderNumber" description="De number of the order" dataType="Integer" defaultValue="" minValue="10" maxValue="10000" minInclusive="true"/>
   </types>
   <associations name="ordered" source="//@types.0" target="//@types.1" sourceRoleName="customer" targetRoleName="orders" targetMultiplicity="OneMany"/>
 </busmod:BusinessDomainModel>
