@@ -1,0 +1,11 @@
+«IMPORT BusinessDomainDsl»
+«IMPORT src::templates::java»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
+	«EXPAND JavaBean::BeanClass (rootPackage) FOREACH types»
+«ENDDEFINE»
+
+
+
