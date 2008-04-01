@@ -37,19 +37,59 @@
      */
 «ENDDEFINE»
 
-«DEFINE addAttribute FOR StringProperty»	
-	«EXPAND instanceVariable FOR this» 
-	«IF regularExpression.length>0»
-		public static final String «name.toUpperCase()»_REGEXP = «regularExpression»;
-	«ENDIF»
-	«IF minLength>0»
-		public static final int «name.toUpperCase()»_MINLENGTH = «minLength»;
-	«ENDIF»
-	«IF maxLength>0»
-		public static final int «name.toUpperCase()»_MAXLENGTH = «maxLength»;
-	«ENDIF»
+«DEFINE addAttribute FOR BlobBinaryProperty»
+    «EXPAND instanceVariable FOR this»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR BlobTextProperty»
+    «EXPAND instanceVariable FOR this»
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR BoolProperty»
     «EXPAND instanceVariable FOR this»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR CustomProperty»
+	«EXPAND instanceVariable FOR this»
+	«IF customDataType>0»
+		public static final int «name.toUpperCase()»_CUSTOMDATATYPE = «customDataType»;
+	«ENDIF»
+	«IF enumeration>0»
+		public static final int «name.toUpperCase()»_ENUMERATION = «enumeration»;
+	«ENDIF»
+	«IF namespace>0»
+		public static final int «name.toUpperCase()»_NAMESPACE = «namespace»;
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR DateTimeProperty»
+	«EXPAND instanceVariable FOR this»
+	«IF accuracy>0»
+		public static final int «name.toUpperCase()»_ACCURACY = «accuracy»;
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR NumberProperty»
+	«EXPAND instanceVariable FOR this»
+	«IF minValue.length>0»
+		public static final «dataType» «name.toUpperCase()»_MINVALUE = «minValue»;
+	«ENDIF»
+	«IF maxValue.length>0»
+		public static final «dataType» «name.toUpperCase()»_MAXLENGTH = «maxValue»;
+	«ENDIF»
+	public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
+	public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR StringProperty»	
+	«EXPAND instanceVariable FOR this» 
+	«IF regularExpression.length>0»
+		public static final «dataType» «name.toUpperCase()»_REGEXP = «regularExpression»;
+	«ENDIF»
+	«IF minLength>0»
+		public static final Integer «name.toUpperCase()»_MINLENGTH = «minLength»;
+	«ENDIF»
+	«IF maxLength>0»
+		public static final Integer «name.toUpperCase()»_MAXLENGTH = «maxLength»;
+	«ENDIF»
 «ENDDEFINE»
