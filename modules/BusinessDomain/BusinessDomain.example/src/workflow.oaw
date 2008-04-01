@@ -28,7 +28,7 @@
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
-        <expand value="src::templates::BusinessDomain::Root('${rootPackage}') FOR myBusModel" />
+        <expand value="BusinessDomain::Root('${rootPackage}') FOR myBusModel" />
         <genPath value="${srcGenPath}" />
         <outlet path="${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
