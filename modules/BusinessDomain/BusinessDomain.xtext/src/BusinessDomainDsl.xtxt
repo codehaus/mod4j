@@ -6,12 +6,14 @@ importMetamodel "http://www.mod4j.org/busmod" ;
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
 BusinessDomainModel :
+	("Description" description=STRING )?
 	"Model" name = ID
 	(types += BusinessClass)* 
 	(enumerations += Enumeration)*
 	(associations += Association)*;
 
 Association:
+	("Description" description=STRING )?
     "Association" 
     (composite?="composite")?
     sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]" "<->"
@@ -21,6 +23,7 @@ Enum Multiplicity  :
      ZeroMany="0..*"  | One="1" | OneMany="1..*" | ZeroOne="0..1" ;
        	
 BusinessClass :
+	("Description" description=STRING )?
     "Class" name=ID
     (inheritanceModifier=InheritanceModifier)?
     ("inherits" superclass=[BusinessClass])?
@@ -32,11 +35,12 @@ BusinessClass :
      ;
      
 Enumeration :
+	("Description" description=STRING )?
     "Enumeration" name=ID "["
     (enumerationLiterals += EnumerationLiteral)+ "]";
 
 EnumerationLiteral:
-    name=ID ";" ;
+    name=ID (persistedValue=ID)? ";" ;
     
 BusinessRule :
     name=ID ";" ;
