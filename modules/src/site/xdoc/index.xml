@@ -131,14 +131,13 @@
                     </li>
                     <li>
                         Now import the modules
-                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>
-                        and
-                        <code>
-                            modules/BusinessDomain/BusinessDomain.xtext.editor.
-                        </code>
+                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>;
+                        <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>;
+                        <code>modules/BusinessDomain/BusinessDomain.generator</code> and
+                        <code>modules/BusinessDomain/BusinessDomain.example</code>.
                     </li>
                     <li>
-                        In both these modules, create a new folder
+                        In all these modules, create a new folder
                         <code>src-gen.</code>
                     </li>
                     <li>
