@@ -4,10 +4,11 @@ Bundle-Name: BusinessDomainDsl Plug-in
 Bundle-SymbolicName: BusinessDomain.xtext;singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
- org.antlr;visibility:=reexport,
  org.openarchitectureware.xtext.core.base;visibility:=reexport,
  org.openarchitectureware.xtext.generator;visibility:=reexport,
- BusinessDomain.mm
+ BusinessDomain.mm,
+ org.antlr,
+ org.antlr
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
                 org.mod4j.businessdomain.xtext.parser
