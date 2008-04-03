@@ -40,7 +40,7 @@ Enumeration :
     (enumerationLiterals += EnumerationLiteral)+ "]";
 
 EnumerationLiteral:
-    name=ID (persistedValue=ID)? ";" ;
+    name=ID ( "=" persistedValue=ID)? ";" ;
     
 BusinessRule :
     name=ID ";" ;
