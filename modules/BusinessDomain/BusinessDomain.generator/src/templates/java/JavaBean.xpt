@@ -14,8 +14,8 @@
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
 		package «rootPackage»;
 		
-		import java.util.List;
-		import java.util.ArrayList;
+		«EXPAND Imports::addImports FOREACH properties»
+		«EXPAND Imports::addImports FOREACH associationsTo»
 		
         public class «name» {    	
  			«EXPAND Attributes::addAttribute FOREACH properties»

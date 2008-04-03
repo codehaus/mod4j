@@ -1,0 +1,14 @@
+«IMPORT BusinessDomainDsl»
+
+«DEFINE addImports FOR BusinessDomainDsl::Property»
+  «REM»Noting to import«ENDREM»
+«ENDDEFINE»
+
+«DEFINE addImports FOR DateTimeProperty»
+ 	import BusinessDomainDsl.DateTimeAccuracy;
+«ENDDEFINE»
+
+«DEFINE addImports FOR Association»
+ 	import java.util.List;
+	import java.util.ArrayList;
+«ENDDEFINE»
