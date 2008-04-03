@@ -52,19 +52,19 @@ Enum InheritanceModifier :
     ABSTRACT="abstract" | FINAL="final";
     
 Property : 
-	(BoolProperty | StringProperty | DateTimeProperty) 
+	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty ) 
 	(nullable?="nullable")?
 	("default" defaultValue=STRING)?
+	";"
 ;
 
-DateTimeProperty : "Timestamp" (accuracy=DateTimeAccuracy)? name=ID ";" ;
+DateTimeProperty : "Timestamp" (accuracy=DateTimeAccuracy)? name=ID;
 
 Enum DateTimeAccuracy :
     Month="Month" | Year="Year" | Day = "Day";
 
-BoolProperty : "Boolean" name=ID ";"
-	;
+BoolProperty : "Boolean" name=ID;
 
-StringProperty : "String" name=ID ";"
-;
+StringProperty : "String" name=ID;
 
+NumberProperty : "Number" name=ID;
