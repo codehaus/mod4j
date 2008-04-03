@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE document PUBLIC
+  "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<!-- 
+    Please edit this file with the Eclipse XML editor, set your XML editor to
+    a line length of 80 characters, indent-size of 4 characters and not using
+    tab-characters, and format the file (Ctrl-Shift-F) before checking in. This
+    should minimize the number of non-significant differences when comparing
+    versions.
+-->
+<document>
+    <properties>
+        <title>Design decisions</title>
+    </properties>
+    <body>
+        <section name="Welcome to Mod4j">
+            <p>
+                During the project a number of desiugn question sis raised. This page shows all questions and (if already decided)
+                the decisions that have been taken.
+            </p>
+            <subsection name="Sepearate interface and implementation classes">
+                <p>
+                    Will we generate an interface and a separate implementation class? for each business domain class?
+                </p>
+                <p>
+                	No, we don't see what the advantages are.
+                </p>
+            </subsection>
+            <subsection name="GEnerate abstract superclass?">
+                <p>
+                    For each business domain class we will generate an abstract superclass and a comncrete subclass.
+                    The abstract superclass contains with all generated code, the concrete subclass is empty
+                    (except for a default constructor).
+                    Handwritten code must be added to the concrete (emopty) subclass.
+                    This subclass will be generated only if it does not exist already.
+                </p>
+            </subsection>
+            <subsection name="Generating unit tests?">
+                <p>
+                    Will we generate unit tests?
+                </p>
+                <p>
+                    Maybe, but not in the first version.
+                </p>
+            </subsection>
+            <subsection name="How to deal with attribute validations?">
+                <p>
+                    How are attribute validation done in the reference architecture?
+                    How are attribute validation errors handled in the reference architecture?
+                </p>
+                <p>
+                    To be discussed.
+                </p>
+            </subsection>
+            <subsection name="Waht do we generate form a business domain class?">
+                <ul>
+                    <li> Domain model Java classes.</li>
+                    <li> Mappings to database (e.g. Hibernate mapping files, see other issue).</li>
+                    <li> Provisionary user interface, but not in first version</li>
+                </ul>
+            </subsection>
+            <subsection name="Domain Driven design and the Reference architecture">
+                <p>
+                    How is the relationship between DDD and the reference architecture. We probably need a
+                    translation between concepts?
+                </p>
+            </subsection>
+            <subsection name="Mapping files versus annotations?">
+                <p>
+                    Will we use mapping files (e.g. hibernate) of annotations (e.g. JPA)?
+                    Separate mappinmg files are easier to deal with during code generation.  
+                    
+                </p>
+               
+            </subsection>
+
+        </section>
+    </body>
+</document>
