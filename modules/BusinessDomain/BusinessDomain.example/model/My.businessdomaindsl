@@ -13,8 +13,8 @@
   </types>
   <types xsi:type="busmod:CustomDataType" name="Address" description="The address is a combination of streetname, housennumber and zipcode that identifies a registered house or building">
     <properties xsi:type="busmod:StringProperty" name="streetName" description="The  name of the street" dataType="String" defaultValue="unknown" regularExpression="" maxLength="100"/>
-    <properties xsi:type="busmod:NumberProperty" name="houseNumber" description="The housenumber" dataType="java.lang.int" defaultValue="" maxValue=""/>
-    <properties xsi:type="busmod:StringProperty" name="zipCode" dataType="java.lang.String" regularExpression="" minLength="7" maxLength="7"/>
+    <properties xsi:type="busmod:NumberProperty" name="houseNumber" description="The housenumber" dataType="int" defaultValue="" maxValue=""/>
+    <properties xsi:type="busmod:StringProperty" name="zipCode" dataType="String" regularExpression="" minLength="7" maxLength="7"/>
   </types>
   <types xsi:type="busmod:BusinessClass" name="Person" inheritanceModifier="Abstract">
     <properties xsi:type="busmod:StringProperty" name="lastName" dataType="String" maxLength="120"/>
