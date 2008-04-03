@@ -24,7 +24,7 @@
 	 *
 	 * @param List<«target.name»>
 	 */
-	public void set«target.name.toFirstUpper()» (List<«target.name»> «targetRoleName») {
+	public void set«target.name.toFirstUpper()» (final List<«target.name»> «targetRoleName») {
    		this.«targetRoleName» = «targetRoleName»;
 	}
 «ENDDEFINE»

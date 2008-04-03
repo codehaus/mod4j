@@ -3,9 +3,16 @@
 «EXTENSION template::GeneratorExtensions»
 
 «DEFINE BeanClass (String rootPackage) FOR AbstractType»
-	«FILE name + ".java"»
+	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
+		package «rootPackage»;
+		
+		«EXPAND Imports::addImports FOREACH properties»
+		
         public class «name» {
- 		
+        
+        	«EXPAND Attributes::addAttribute FOREACH properties»
+ 			«EXPAND Attributes::addGetter FOREACH properties»
+ 			«EXPAND Attributes::addSetter FOREACH properties» 		
         }
 	«ENDFILE»
 «ENDDEFINE»

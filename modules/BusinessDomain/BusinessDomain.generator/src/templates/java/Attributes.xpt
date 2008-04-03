@@ -24,7 +24,7 @@
 	*
 	* @param «dataType»
 	*/
-	public void set«name.toFirstUpper()» («dataType» «name») {
+	public void set«name.toFirstUpper()» (final «dataType» «name») {
    		this.«name» = «name»;
 	}
 «ENDDEFINE»
