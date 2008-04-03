@@ -24,6 +24,7 @@
     <menu name="Main" inherit="top">
       <item name="Home" href="index.html" />
       <item name="Dashboard" href="dashboard.html" />
+      <item name="Design-decisions" href="design-decisions.html" />
     </menu>
     <menu ref="parent" inherit="top" />
     <menu ref="modules" inherit="top" />
