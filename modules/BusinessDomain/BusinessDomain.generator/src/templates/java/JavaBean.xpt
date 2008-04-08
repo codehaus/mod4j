@@ -18,13 +18,13 @@
 «ENDDEFINE»
 
 «DEFINE BeanClass (String rootPackage) FOR BusinessClass»
-	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
+	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + "ImplBase" +  ".java"»
 		package «rootPackage»;
 		
 		«EXPAND Imports::addImports FOREACH properties»
 		«EXPAND Imports::addImports FOREACH associationsTo»
 		
-        public class «name» «IF superclass != null» extends «superclass.name» «ENDIF» implements java.io.Serializable {
+        public abstract class «name»ImplBase «IF superclass != null»extends «superclass.name» «ENDIF»implements java.io.Serializable {
             	
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addReferenceVariable FOREACH associationsTo»
