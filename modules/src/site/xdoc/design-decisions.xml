@@ -14,9 +14,9 @@
         <title>Design decisions</title>
     </properties>
     <body>
-        <section name="Welcome to Mod4j">
+        <section name="Design decisions">
             <p>
-                During the project a number of desiugn question sis raised. This page shows all questions and (if already decided)
+                During the project a number of design questions raised. This page shows all questions and (if already decided)
                 the decisions that have been taken.
             </p>
             <subsection name="Sepearate interface and implementation classes">
@@ -27,12 +27,12 @@
                 	No, we don't see what the advantages are.
                 </p>
             </subsection>
-            <subsection name="GEnerate abstract superclass?">
+            <subsection name="Generate abstract superclass?">
                 <p>
-                    For each business domain class we will generate an abstract superclass and a comncrete subclass.
-                    The abstract superclass contains with all generated code, the concrete subclass is empty
+                    For each business domain class we will generate an abstract superclass and a concrete subclass.
+                    The abstract superclass contains all generated code, the concrete subclass is empty
                     (except for a default constructor).
-                    Handwritten code must be added to the concrete (emopty) subclass.
+                    Handwritten code must be added to the concrete (empty) subclass.
                     This subclass will be generated only if it does not exist already.
                 </p>
             </subsection>
@@ -57,7 +57,7 @@
                 <ul>
                     <li> Domain model Java classes.</li>
                     <li> Mappings to database (e.g. Hibernate mapping files, see other issue).</li>
-                    <li> Provisionary user interface, but not in first version</li>
+                    <li> Provisional user interface, but not in first version</li>
                 </ul>
             </subsection>
             <subsection name="Domain Driven design and the Reference architecture">
@@ -69,7 +69,7 @@
             <subsection name="Mapping files versus annotations?">
                 <p>
                     Will we use mapping files (e.g. hibernate) of annotations (e.g. JPA)?
-                    Separate mappinmg files are easier to deal with during code generation.  
+                    Separate mapping files are easier to deal with during code generation.  
                     
                 </p>
                
