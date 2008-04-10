@@ -2,8 +2,8 @@
 <busmod:BusinessDomainModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:busmod="http://www.mod4j.org/busmod">
   <types xsi:type="busmod:BusinessClass" name="Customer" description="A Customer class to represent customers" superclass="//@types.3" associationsTo="//@associations.0">
     <properties xsi:type="busmod:StringProperty" name="userName" description="The username of the Customer" dataType="String" defaultValue="" useAsLogicalId="true" regularExpression="" maxLength="256"/>
-    <properties xsi:type="busmod:StringProperty" name="phoneNumber" description="The phonenumber of the Customer" dataType="String" maxLength="15"/>
-    <properties xsi:type="busmod:BlobBinaryProperty" name="customerPicture" description="Picture of customer" dataType="byte[]" defaultValue=""/>
+    <properties xsi:type="busmod:StringProperty" name="phoneNumber" description="The phonenumber of the Customer" dataType="String" nullable="true" maxLength="15"/>
+    <properties xsi:type="busmod:BlobBinaryProperty" name="customerPicture" description="Picture of customer" dataType="byte[]" nullable="true" defaultValue=""/>
   </types>
   <types xsi:type="busmod:BusinessClass" name="Order" description="" associationsFrom="//@associations.0">
     <properties xsi:type="busmod:BoolProperty" name="isConfirmed" description="" dataType="Boolean" defaultValue="false"/>

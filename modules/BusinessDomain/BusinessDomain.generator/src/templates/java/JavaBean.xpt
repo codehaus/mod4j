@@ -1,13 +1,15 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION template::GeneratorExtensions»
+«EXTENSION util»
 
 «DEFINE BeanClass (String rootPackage) FOR AbstractType»
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
 		package «rootPackage»;
 		
 		«EXPAND Imports::addImports FOREACH properties»
-		
+		/**
+		* Generated at: «timestamp()»
+		*/
         public class «name» {
         
         	«EXPAND Attributes::addAttribute FOREACH properties»
@@ -24,10 +26,14 @@
 		«EXPAND Imports::addImports FOREACH properties»
 		«EXPAND Imports::addImports FOREACH associationsTo»
 		
+		/**
+		* Generated at: «timestamp()»
+		*/
         public abstract class «name»ImplBase «IF superclass != null»extends «superclass.name» «ENDIF»implements java.io.Serializable {
             	
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addReferenceVariable FOREACH associationsTo»
+ 			«EXPAND Constructors::addDefaultConstructor ("ImplBase") FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
  			«EXPAND Associations::addGetter FOREACH associationsTo»

@@ -1,0 +1,8 @@
+import BusinessDomainDsl;
+
+/**
+* The timeStamp() function returns the current time 
+*/
+String timestamp() :
+ JAVA TemplateUtils.timestamp();
+

@@ -1,18 +1,10 @@
-/**
- * 
- */
 package org.company.exampleapp.domain;
 
-/**
- * @author johan
- *
- */
 public class Order extends OrderImplBase {
 
-	/**
-	 * 
-	 */
-	public Order() {
+	public Order(Boolean isConfirmed, String logicalOrderId,
+			Integer orderNumber, String orderDate) {
+		super(isConfirmed, logicalOrderId, orderNumber, orderDate);
 		// TODO Auto-generated constructor stub
 	}
 

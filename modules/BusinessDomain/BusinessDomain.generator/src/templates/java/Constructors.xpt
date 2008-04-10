@@ -1,0 +1,32 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION util»
+
+«DEFINE addDefaultConstructor (String classNameSuffix) FOR BusinessClass »
+	/**
+	 *  Constructor for «name» 
+     */
+     «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+     	«IF superclass != null -»
+ 			«EXPAND addCallToSuper FOR this.superclass -»
+ 		«ENDIF»
+     	«EXPAND addConstructorAssignment FOREACH properties -»
+     }
+«ENDDEFINE»
+
+«DEFINE addConstructorArgumentsList FOR BusinessClass»
+ 	«IF superclass != null -»
+ 		«EXPAND addConstructorArgumentsList FOR superclass -»,
+ 	«ENDIF»
+ 	«FOREACH properties AS prop SEPARATOR "," -»
+ 		«prop.dataType» «prop.name -»
+ 	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE addConstructorAssignment FOR Property»
+	«IF !nullable -»this.«name» = «name»;«ENDIF»
+«ENDDEFINE»
+
+«DEFINE addCallToSuper FOR BusinessClass»
+	super(«FOREACH properties AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»);
+«ENDDEFINE»
