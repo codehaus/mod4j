@@ -2,7 +2,7 @@
 
 «EXTENSION util»
 
-«DEFINE BeanClass (String rootPackage) FOR AbstractType»
+«DEFINE BeanClassImplBase (String rootPackage) FOR AbstractType»
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
 		package «rootPackage»;
 		
@@ -19,7 +19,7 @@
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE BeanClass (String rootPackage) FOR BusinessClass»
+«DEFINE BeanClassImplBase (String rootPackage) FOR BusinessClass»
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + "ImplBase" +  ".java"»
 		package «rootPackage»;
 		
@@ -33,11 +33,30 @@
             	
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addReferenceVariable FOREACH associationsTo»
- 			«EXPAND Constructors::addDefaultConstructor ("ImplBase") FOR this»
+ 			«EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
+ 			«EXPAND Operations::addAbstractMethodSkeleton FOREACH businessRules»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
  			«EXPAND Associations::addGetter FOREACH associationsTo»
  			«EXPAND Associations::addSetter FOREACH associationsTo»
         }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE BeanClassCustomImpl (String rootPackage) FOR AbstractType»
+	«REM»No generation of AbstracTypes other then BusinessClasses«ENDREM»
+«ENDDEFINE»
+
+«DEFINE BeanClassCustomImpl (String rootPackage) FOR BusinessClass»
+	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name +  ".java"»
+		package «rootPackage»;
+				
+		/**
+		* Initialy generated at: «timestamp()»
+		*/
+        public class «name» extends «name»ImplBase {
+            	
+        «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
+ 		}	
 	«ENDFILE»
 «ENDDEFINE»
