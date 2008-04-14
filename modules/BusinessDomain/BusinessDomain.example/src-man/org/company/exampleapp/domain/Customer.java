@@ -1,10 +1,15 @@
 package org.company.exampleapp.domain;
 
+/**
+ * Initialy generated at: Mon Apr 14 23:24:15 CEST 2008
+ */
 public class Customer extends CustomerImplBase {
 
-    public Customer(String lastName, String firstName, String userName, String phoneNumber, byte[] customerPicture) {
-        super(lastName, firstName, userName, phoneNumber, customerPicture);
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 *  Constructor for Customer 
+	 */
+	Customer(String lastName, String firstName, String userName) {
+		super(lastName, firstName, userName);
+	}
 
 }
