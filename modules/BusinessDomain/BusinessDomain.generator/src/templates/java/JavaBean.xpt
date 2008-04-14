@@ -34,7 +34,6 @@
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addReferenceVariable FOREACH associationsTo»
  			«EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
- 			«EXPAND Operations::addAbstractMethodSkeleton FOREACH businessRules»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
  			«EXPAND Associations::addGetter FOREACH associationsTo»
