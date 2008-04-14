@@ -12,6 +12,7 @@
         <modelFile value="My.businessdomaindsl" />
         <outputSlot value="myBusModel" />
         <metaModelFile value="BusinessDomainDsl.ecore" />
+        <!-- <metaModelPackage value="BusinessDomainDsl.BusinessDomainModel" />  -->
         <firstElementOnly value="true" />
     </component>
 
@@ -29,11 +30,28 @@
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
         <expand value="BusinessDomain::Root('${rootPackage}') FOR myBusModel" />
-        <genPath value="${srcGenPath}" />
         <outlet path="${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
 
+    <component id="man-generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="BusinessDomain::CustomClassGeneration('${rootPackage}') FOR myBusModel" />
+        <outlet path="${srcManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+    <!--     
+        <component id="recipe" class="org.mod4j.businessdomain.generator.recipes.RecipeCreator">
+        <appProject value="BusinessDomain.example" />
+        <modelSlot value="myBusModel" />
+        <recipeFile value="BusinessDomain.recipes" />
+        </component>
+        
+    -->
 </workflow>

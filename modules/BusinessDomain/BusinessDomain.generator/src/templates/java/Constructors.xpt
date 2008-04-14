@@ -2,31 +2,39 @@
 
 «EXTENSION util»
 
-«DEFINE addDefaultConstructor (String classNameSuffix) FOR BusinessClass »
+«DEFINE addMinimalConstructor (String classNameSuffix) FOR BusinessClass »
 	/**
-	 *  Constructor for «name» 
+	 *  Minimal constructor for «name»«classNameSuffix» 
      */
      «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
      	«IF superclass != null -»
- 			«EXPAND addCallToSuper FOR this.superclass -»
+ 			super(«EXPAND addSuperArgumentList FOR this.superclass -»);
  		«ENDIF»
      	«EXPAND addConstructorAssignment FOREACH properties -»
      }
 «ENDDEFINE»
 
-«DEFINE addConstructorArgumentsList FOR BusinessClass»
- 	«IF superclass != null -»
- 		«EXPAND addConstructorArgumentsList FOR superclass -»,
- 	«ENDIF»
- 	«FOREACH properties AS prop SEPARATOR "," -»
- 		«prop.dataType» «prop.name -»
+«DEFINE addConstructorArgumentsList FOR BusinessClass -»
+ 	«IF superclass != null -»«EXPAND addConstructorArgumentsList FOR superclass -», «ENDIF»
+ 	«FOREACH properties.reject(e|e.nullable) AS prop ITERATOR propIter SEPARATOR "," -»
+ 		    «prop.dataType» «prop.name -»
  	«ENDFOREACH»
 «ENDDEFINE»
 
-«DEFINE addConstructorAssignment FOR Property»
-	«IF !nullable -»this.«name» = «name»;«ENDIF»
+«DEFINE addConstructorAssignment FOR Property -»
+	«IF !nullable -»this.«name» = «name»; «ENDIF»
 «ENDDEFINE»
 
-«DEFINE addCallToSuper FOR BusinessClass»
-	super(«FOREACH properties AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»);
+«DEFINE addSuperArgumentList FOR BusinessClass -»
+	«IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -», «ENDIF»
+	«FOREACH properties.reject(e|e.nullable) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
+	/**
+	 *  Constructor for «name»«classNameSuffix» 
+     */
+     «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+         super(«EXPAND addSuperArgumentList FOR this -»);
+ 	     }
 «ENDDEFINE»

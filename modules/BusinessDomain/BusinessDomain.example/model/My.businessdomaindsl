@@ -19,6 +19,7 @@
   <types xsi:type="busmod:BusinessClass" name="Person" inheritanceModifier="Abstract">
     <properties xsi:type="busmod:StringProperty" name="lastName" dataType="String" maxLength="120"/>
     <properties xsi:type="busmod:StringProperty" name="firstName" description="" dataType="String" maxLength="120"/>
+    <properties xsi:type="busmod:NumberProperty" name="numberOfEars" description="Number of ears this person has" dataType="int" nullable="true" defaultValue="2" minValue="0" maxValue="2"/>
   </types>
   <associations name="ordered" source="//@types.0" target="//@types.1" sourceRoleName="customer" targetRoleName="orders" targetMultiplicity="OneMany"/>
 </busmod:BusinessDomainModel>

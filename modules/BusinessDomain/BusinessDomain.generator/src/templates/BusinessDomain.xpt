@@ -4,8 +4,14 @@
 «EXTENSION template::GeneratorExtensions»
 
 «DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
-	«EXPAND JavaBean::BeanClass (rootPackage) FOREACH types»
+	«EXPAND JavaBean::BeanClassImplBase (rootPackage) FOREACH types»
 «ENDDEFINE»
 
-
+«REM»
+	Generation of initial custom extends of the implementation base classes.
+	If they don't exist already these classes typically are generated to the man-src folder. 
+«ENDREM»
+«DEFINE CustomClassGeneration (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
+	«EXPAND JavaBean::BeanClassCustomImpl (rootPackage) FOREACH types»
+«ENDDEFINE»
 

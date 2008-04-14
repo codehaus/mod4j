@@ -1,8 +1,5 @@
-import BusinessDomainDsl;
-
 /**
 * The timeStamp() function returns the current time 
 */
 String timestamp() :
- JAVA TemplateUtils.timestamp();
-
+ JAVA org.mod4j.businessdomain.generator.utils.TemplateUtils.timestamp();

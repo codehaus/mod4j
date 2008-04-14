@@ -8,6 +8,6 @@ context Property ERROR
 	"The dataType of a property must be specified.":
 	dataType.length > 1;
 
-context StringProperty ERROR 
-	"The name of a StringProperties must be more than one char long." :
+context Property ERROR 
+	"The name of a Properties must be more than one char long." :
 	name.length > 1;
