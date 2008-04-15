@@ -6,7 +6,7 @@
 	/**
 	 *  Minimal constructor for «name»«classNameSuffix» 
      */
-     «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+     public «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
      	«IF superclass != null -»
  			super(«EXPAND addSuperArgumentList FOR this.superclass -»);
  		«ENDIF»
@@ -34,7 +34,7 @@
 	/**
 	 *  Constructor for «name»«classNameSuffix» 
      */
-     «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+     public «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
          super(«EXPAND addSuperArgumentList FOR this -»);
  	     }
 «ENDDEFINE»
