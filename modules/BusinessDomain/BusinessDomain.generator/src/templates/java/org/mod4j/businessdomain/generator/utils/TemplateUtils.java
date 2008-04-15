@@ -11,7 +11,7 @@ public class TemplateUtils {
 	}
 	
 	public static boolean fileExist(String path){
-	    File f = new File(path);
+	   File f = new File(path);
 	   return f.exists();
 	}
 }

@@ -11,7 +11,7 @@
 	Generation of initial custom extends of the implementation base classes.
 	If they don't exist already these classes typically are generated to the man-src folder. 
 «ENDREM»
-«DEFINE CustomClassGeneration (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
-	«EXPAND JavaBean::BeanClassCustomImpl (rootPackage) FOREACH types»
+«DEFINE ExtensionPointGeneration (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
+	«EXPAND JavaBean::BeanClassExtensionPoint (rootPackage) FOREACH types»
 «ENDDEFINE»
 

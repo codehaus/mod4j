@@ -1,5 +1,11 @@
+
+String getSrcManPath() : GLOBALVAR srcManPath;
+
 /**
 * The timeStamp() function returns the current time 
 */
 String timestamp() :
  JAVA org.mod4j.businessdomain.generator.utils.TemplateUtils.timestamp();
+
+boolean fileExist(String path) :
+ JAVA org.mod4j.businessdomain.generator.utils.TemplateUtils.fileExist(java.lang.String);
