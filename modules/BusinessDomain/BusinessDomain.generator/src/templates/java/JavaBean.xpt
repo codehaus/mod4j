@@ -51,7 +51,7 @@
 		package «rootPackage»;
 				
 		/**
-		* Initialy generated at: «timestamp()»
+		* Initially generated at: «timestamp()»
 		*/
         public class «name» extends «name»ImplBase {
             	
