@@ -73,7 +73,7 @@
 		public static final «dataType» «name.toUpperCase()»_MINVALUE = «minValue»;
 	«ENDIF»
 	«IF maxValue.length>0»
-		public static final «dataType» «name.toUpperCase()»_MAXLENGTH = «maxValue»;
+		public static final «dataType» «name.toUpperCase()»_MAXVALUE = «maxValue»;
 	«ENDIF»
 	public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
 	public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
