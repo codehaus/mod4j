@@ -8,7 +8,7 @@
  	import BusinessDomainDsl.DateTimeAccuracy;
 «ENDDEFINE»
 
-«DEFINE addImports FOR Association»
+«DEFINE addImports FOR BusinessClass»
  	import java.util.List;
 	import java.util.ArrayList;
 «ENDDEFINE»

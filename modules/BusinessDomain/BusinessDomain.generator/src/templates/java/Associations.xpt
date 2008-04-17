@@ -2,14 +2,61 @@
 
 «EXTENSION template::GeneratorExtensions»
 
-«DEFINE addReferenceVariable FOR Association»
+«DEFINE addToReferenceVariable FOR Association»
 	/**
      *  «targetRoleName»: «description»
      */
-	private List<«target.name»> «targetRoleName» = new ArrayList<«target.name»>();
+    «IF targetMultiplicity.toString()=="One" || targetMultiplicity.toString()=="ZeroOne" -»
+		private «target.name» «targetRoleName»;
+		«EXPAND addToOneAccessorMethods FOR this»
+	«ELSE -»
+		private List<«target.name»> «targetRoleName» = new ArrayList<«target.name»>();
+		«EXPAND addToManyAccessorMethods FOR this»
+	«ENDIF»
 «ENDDEFINE»
 
-«DEFINE addGetter FOR Association»
+«DEFINE addFromReferenceVariable FOR Association»
+	/**
+     *  «sourceRoleName»: «description»
+     */
+	private «source.name» «sourceRoleName»;
+	
+	/**
+	 *
+	 * @param «source.name»
+	 */
+	public void set«source.name.toFirstUpper()» (final «source.name» «sourceRoleName») {
+   		this.«sourceRoleName» = «sourceRoleName»;
+	}
+	
+	/**
+	 *
+	 * @return «source.name»
+	 */
+	public «source.name» get«sourceRoleName.toFirstUpper()» () {
+   		return this.«sourceRoleName»;
+	}
+«ENDDEFINE»
+
+«DEFINE addToOneAccessorMethods FOR Association»
+	/**
+	 *
+	 * @return «target.name»
+	 */
+	public «target.name» get«targetRoleName.toFirstUpper()» () {
+   		return this.«targetRoleName»;
+	}
+	
+	/**
+	 *
+	 * @param «target.name»
+	 */
+	public void set«target.name.toFirstUpper()» (final «target.name» «targetRoleName») {
+   		this.«targetRoleName» = «targetRoleName»;
+	}
+«ENDDEFINE»
+
+«DEFINE addToManyAccessorMethods FOR Association»
 	/**
 	 *
 	 * @return List<«target.name»>
@@ -17,9 +64,7 @@
 	public List<«target.name»> get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
 	}
-«ENDDEFINE»
-
-«DEFINE addSetter FOR Association»
+	
 	/**
 	 *
 	 * @param List<«target.name»>
