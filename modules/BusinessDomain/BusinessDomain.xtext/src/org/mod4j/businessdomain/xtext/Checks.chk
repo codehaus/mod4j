@@ -11,7 +11,7 @@ context BusinessDomainModel ERROR "Business class name is not unique" :
          types.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
    
 context BusinessDomainModel ERROR "BusinessDomainModel name incorrect" :
-   false;
+   true;
 
 context Association WARNING "Association waring !!!" :
    true;
