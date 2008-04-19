@@ -1,12 +1,19 @@
 package org.company.exampleapp.domain;
 
 /**
- * Extension point initially generated at: Tue Apr 15 18:15:23 CEST 2008
+ * Extension point initially generated at: Sat Apr 19 16:54:46 CEST 2008
  */
 public class Customer extends CustomerImplBase {
 
 	/**
-	 *  Constructor for Customer 
+	 *  Minimal constructor for Customer
+	
+	 * @param lastName (String) 
+	 * @param firstName (String) 
+	
+
+	 * @param userName (String) The username of the Customer
+	
 	 */
 	public Customer(String lastName, String firstName, String userName) {
 		super(lastName, firstName, userName);

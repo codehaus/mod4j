@@ -1,12 +1,18 @@
 package org.company.exampleapp.domain;
 
 /**
- * Extension point initially generated at: Tue Apr 15 18:15:23 CEST 2008
+ * Extension point initially generated at: Sat Apr 19 16:54:46 CEST 2008
  */
 public class Order extends OrderImplBase {
 
 	/**
-	 *  Constructor for Order 
+	 *  Minimal constructor for Order
+	
+	 * @param isConfirmed (Boolean) 
+	 * @param logicalOrderId (String) 
+	 * @param orderNumber (Integer) The number of the order
+	 * @param orderDate (String) The date of ordering yyyy/mm/dd
+	
 	 */
 	public Order(Boolean isConfirmed, String logicalOrderId,
 			Integer orderNumber, String orderDate) {

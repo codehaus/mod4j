@@ -1,0 +1,10 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION util»
+
+«DEFINE addJavaDocParamList FOR BusinessClass -»
+ 	«IF superclass != null -»«EXPAND addJavaDocParamList FOR superclass -»«ENDIF»
+ 	«FOREACH properties.reject(e|e.nullable) AS prop -»
+ 		* @param «prop.name» («prop.dataType») «prop.description»
+ 	«ENDFOREACH»
+«ENDDEFINE»

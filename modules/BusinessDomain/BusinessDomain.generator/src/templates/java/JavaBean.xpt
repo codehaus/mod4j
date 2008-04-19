@@ -8,6 +8,8 @@
 		
 		«EXPAND Imports::addImports FOREACH properties»
 		/**
+		* «description»
+		*
 		* Generated at: «timestamp()»
 		*/
         public class «name» {
@@ -27,6 +29,8 @@
 		«EXPAND Imports::addImports»
 		
 		/**
+		* «description»
+		*
 		* Generated at: «timestamp()»
 		*/
         public abstract class «name»ImplBase «IF superclass != null -»extends «superclass.name» «ENDIF»implements java.io.Serializable {

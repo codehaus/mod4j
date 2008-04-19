@@ -1,12 +1,15 @@
 package org.company.exampleapp.domain;
 
 /**
- * Extension point initially generated at: Thu Apr 17 14:20:04 CEST 2008
+ * Extension point initially generated at: Sat Apr 19 16:54:46 CEST 2008
  */
 public class MemberCard extends MemberCardImplBase {
 
 	/**
-	 *  Constructor for MemberCard 
+	 *  Minimal constructor for MemberCard
+	
+	 * @param cardNumber (int) The unique number identifying this card
+	
 	 */
 	public MemberCard(int cardNumber) {
 		super(cardNumber);

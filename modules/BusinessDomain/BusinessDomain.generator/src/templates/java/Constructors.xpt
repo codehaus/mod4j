@@ -4,7 +4,8 @@
 
 «DEFINE addMinimalConstructor (String classNameSuffix) FOR BusinessClass »
 	/**
-	 *  Minimal constructor for «name»«classNameSuffix» 
+	 *  Minimal constructor for «name»«classNameSuffix»
+	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
      public «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
      	«IF superclass != null -»
@@ -32,9 +33,10 @@
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
 	/**
-	 *  Constructor for «name»«classNameSuffix» 
+	 *  Minimal constructor for «name»«classNameSuffix»
+	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
      public «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
          super(«EXPAND addSuperArgumentList FOR this -»);
- 	     }
+ 	 }
 «ENDDEFINE»

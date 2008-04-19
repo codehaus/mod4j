@@ -23,7 +23,7 @@
 	
 	/**
 	 *
-	 * @param «source.name»
+	 * @param «sourceRoleName» («source.name») «source.description»
 	 */
 	public void set«source.name.toFirstUpper()» (final «source.name» «sourceRoleName») {
    		this.«sourceRoleName» = «sourceRoleName»;
@@ -31,7 +31,7 @@
 	
 	/**
 	 *
-	 * @return «source.name»
+	 * @return «sourceRoleName» («source.name»)  «source.description»
 	 */
 	public «source.name» get«sourceRoleName.toFirstUpper()» () {
    		return this.«sourceRoleName»;
@@ -41,7 +41,7 @@
 «DEFINE addToOneAccessorMethods FOR Association»
 	/**
 	 *
-	 * @return «target.name»
+	 * @return «targetRoleName» («target.name»)  «target.description»
 	 */
 	public «target.name» get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
@@ -49,7 +49,7 @@
 	
 	/**
 	 *
-	 * @param «target.name»
+	 * @param «targetRoleName» («target.name»)  «target.description»
 	 */
 	public void set«target.name.toFirstUpper()» (final «target.name» «targetRoleName») {
    		this.«targetRoleName» = «targetRoleName»;
@@ -59,7 +59,7 @@
 «DEFINE addToManyAccessorMethods FOR Association»
 	/**
 	 *
-	 * @return List<«target.name»>
+	 * @return «targetRoleName» (List<«target.name»>) «target.description»
 	 */
 	public List<«target.name»> get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
@@ -67,7 +67,7 @@
 	
 	/**
 	 *
-	 * @param List<«target.name»>
+	 * @param «targetRoleName» (List<«target.name»>) «target.description»
 	 */
 	public void set«target.name.toFirstUpper()» (final List<«target.name»> «targetRoleName») {
    		this.«targetRoleName» = «targetRoleName»;
