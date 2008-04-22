@@ -67,9 +67,17 @@
 	
 	/**
 	 *
-	 * @param «targetRoleName» (List<«target.name»>) «target.description»
+	 * @param a«target.name» («target.name») «target.description»
 	 */
-	public void set«target.name.toFirstUpper()» (final List<«target.name»> «targetRoleName») {
-   		this.«targetRoleName» = «targetRoleName»;
+	public void add«target.name.toFirstUpper()» (final «target.name» a«target.name») {
+   		this.«targetRoleName».add(a«target.name»);
+	}
+	
+	/**
+	 *
+	 * @param a«target.name» («target.name») «target.description»
+	 */
+	public void remove«target.name.toFirstUpper()» (final «target.name» a«target.name») {
+   		this.«targetRoleName».remove(a«target.name»);
 	}
 «ENDDEFINE»
