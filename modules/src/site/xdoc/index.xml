@@ -160,6 +160,10 @@
                         In the new Eclipse session: import the modules <code>BusinessDomain.mm</code>, <code>BusinessDomain.generator</code>
                         and the needed <code>BusinessDomain.example.*</code> modules.
                     </li>
+                     <li>
+                     	Now you should be able to run one of the genrator workflow's in the <code>BusinessDomain.example.*</code> modules. <br/>
+                     	Right-click the file <code>BusinessDomain.example.*/src/workflow.oaw</code> and choose run as <p>Run As -> oAW Workflow</p> from the context-menu. 
+                    </li>
                 </ol>
             </subsection>
             <subsection name="Modelling">
