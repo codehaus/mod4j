@@ -9,7 +9,7 @@
     </component>
 
     <component id="xmiParser" class="org.openarchitectureware.emf.XmiReader">
-        <modelFile value="My.businessdomaindsl" />
+        <modelFile value="${modelFile}" />
         <outputSlot value="myBusModel" />
         <metaModelFile value="BusinessDomainDsl.ecore" />
         <!-- <metaModelPackage value="BusinessDomainDsl.BusinessDomainModel" />  -->
