@@ -25,7 +25,7 @@
 	 *
 	 * @param «sourceRoleName» («source.name») «source.description»
 	 */
-	public void set«source.name.toFirstUpper()» (final «source.name» «sourceRoleName») {
+	public void set«sourceRoleName.toFirstUpper()» (final «source.name» «sourceRoleName») {
    		this.«sourceRoleName» = «sourceRoleName»;
 	}
 	
