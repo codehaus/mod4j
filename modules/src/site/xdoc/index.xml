@@ -70,8 +70,8 @@
                         Make sure you start Eclipse with de right options, e.g
                         on a linux system:
                         /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm
-                        /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms256m
-                        -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=512m
+                        /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
+                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
                     </li>
                     <li>
                         Make sure the text file encoding in Eclipse is set to
@@ -158,7 +158,7 @@
                     </li>
                     <li>
                         In the new Eclipse session: import the modules <code>BusinessDomain.mm</code>, <code>BusinessDomain.generator</code>
-                        and <code>BusinessDomain.example</code>.
+                        and the needed <code>BusinessDomain.example.*</code> modules.
                     </li>
                 </ol>
             </subsection>
