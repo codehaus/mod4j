@@ -133,8 +133,8 @@
                         Now import the modules
                         <code>modules/BusinessDomain/BusinessDomain.xtext</code>;
                         <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>;
-                        <code>modules/BusinessDomain/BusinessDomain.generator</code> and
-                        <code>modules/BusinessDomain/BusinessDomain.example</code>.
+                        <code>modules/BusinessDomain/BusinessDomain.generator</code> and all (or the needed)
+                        <code>modules/BusinessDomain/BusinessDomain.example.*</code> modules.
                     </li>
                     <li>
                         In all these modules, create a new folder
