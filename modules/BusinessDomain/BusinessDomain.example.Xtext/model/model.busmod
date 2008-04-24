@@ -1,9 +1,10 @@
 Model  aaa 
 
 Class Person [
-     Boolean is;
+     boolean is;
      String firstName;
      String lastName;
+     int cusomerNumber;
      Rules [
          firstNameStartsWithA;
          anotherRule;
@@ -19,8 +20,8 @@ Class Person2 [
 
 Class Order [
      String orderNumber;
-     Timestamp orderDate ;
-     Timestamp deliveryDate;
+     Date orderDate ;
+     Date deliveryDate;
 ]
 
 Enumeration  Ordering [
