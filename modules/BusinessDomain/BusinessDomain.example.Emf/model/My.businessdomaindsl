@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <busmod:BusinessDomainModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:busmod="http://www.mod4j.org/busmod">
-  <types xsi:type="busmod:BusinessClass" name="Customer" description="A Customer class to represent customers" superclass="//@types.3" associationsTo="//@associations.0 //@associations.1">
+  <types xsi:type="busmod:BusinessClass" name="Customer" description="A Customer class to represent customers" superclass="//@types.2" associationsTo="//@associations.0 //@associations.1">
     <properties xsi:type="busmod:StringProperty" name="userName" description="The username of the Customer" dataType="String" defaultValue="" useAsLogicalId="true" regularExpression="" maxLength="256"/>
     <properties xsi:type="busmod:StringProperty" name="phoneNumber" description="The phonenumber of the Customer" dataType="String" nullable="true" maxLength="15"/>
     <properties xsi:type="busmod:BlobBinaryProperty" name="customerPicture" description="Picture of customer" dataType="byte[]" nullable="true" defaultValue=""/>
@@ -10,11 +10,6 @@
     <properties xsi:type="busmod:StringProperty" name="logicalOrderId" description="" dataType="String" useAsLogicalId="true"/>
     <properties xsi:type="busmod:NumberProperty" name="orderNumber" description="The number of the order" dataType="Integer" defaultValue="" minValue="10" maxValue="10000" minInclusive="true"/>
     <properties xsi:type="busmod:DateTimeProperty" name="orderDate" description="The date of ordering yyyy/mm/dd" dataType="String" defaultValue=""/>
-  </types>
-  <types xsi:type="busmod:CustomDataType" name="Address" description="The address is a combination of streetname, housennumber and zipcode that identifies a registered house or building">
-    <properties xsi:type="busmod:StringProperty" name="streetName" description="The  name of the street" dataType="String" defaultValue="unknown" regularExpression="" maxLength="100"/>
-    <properties xsi:type="busmod:NumberProperty" name="houseNumber" description="The housenumber" dataType="int" defaultValue="" maxValue=""/>
-    <properties xsi:type="busmod:StringProperty" name="zipCode" dataType="String" regularExpression="" minLength="7" maxLength="7"/>
   </types>
   <types xsi:type="busmod:BusinessClass" name="Person" inheritanceModifier="Abstract">
     <properties xsi:type="busmod:StringProperty" name="lastName" dataType="String" maxLength="120"/>
@@ -26,5 +21,5 @@
     <properties xsi:type="busmod:DateTimeProperty" name="expireDate" description="The date of expiration" dataType="java.util.Date" nullable="true" defaultValue=""/>
   </types>
   <associations name="ordered" source="//@types.0" target="//@types.1" sourceRoleName="customer" targetRoleName="orders" targetMultiplicity="OneMany"/>
-  <associations name="ownsMemberCard" description="Membership of Customer" source="//@types.0" target="//@types.4" sourceRoleName="cardOwner" sourceMultiplicity="ZeroOne" targetRoleName="memberCard" targetMultiplicity="One"/>
+  <associations name="ownsMemberCard" description="Membership of Customer" source="//@types.0" target="//@types.3" sourceRoleName="cardOwner" sourceMultiplicity="ZeroOne" targetRoleName="memberCard" targetMultiplicity="One"/>
 </busmod:BusinessDomainModel>
