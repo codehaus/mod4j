@@ -24,7 +24,7 @@ public class CustomerTest extends TestCase {
         Order order = new Order(Boolean.FALSE, "NR-1", Integer.valueOf(123),"1-1-2008");
         
         order.setCustomer(cust);
-        cust.addOrder(order);
+        cust.addOrders(order);
         assertTrue("Customer has order.", cust.getOrders().contains(order));
     }
 }
