@@ -2,7 +2,6 @@ preventMMGeneration
 
 importMetamodel "http://www.mod4j.org/busmod" ;
 
-//specify your DSL grammar rules here ...
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
 BusinessDomainModel :
@@ -16,7 +15,8 @@ Association:
 	("Description" description=STRING )?
     "Association" 
     (composite?="composite")?
-    sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]" "<->"
+    sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]"
+    "<->"
     "[" targetMultiplicity=Multiplicity "]"targetRoleName=ID target=[BusinessClass] ";";
 
 Enum Multiplicity  :
@@ -43,9 +43,11 @@ EnumerationLiteral:
     name=ID ( "=" persistedValue=ID)? ";" ;
     
 BusinessRule :
+	("Description" description=STRING )?
     name=ID ";" ;
     
 Constraint :
+	("Description" description=STRING )?
     name=ID  ";" ;
     
 Enum InheritanceModifier :
@@ -55,16 +57,20 @@ Property :
 	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty ) 
 	(nullable?="nullable")?
 	("default" defaultValue=STRING)?
+	(useAsLogicalId="useAsLogicalId")? 
+	("persistency" persistency=PersistencyMode)?
 	";"
 ;
+Enum PersistencyMode :
+    ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
 
-DateTimeProperty : "Timestamp" (accuracy=DateTimeAccuracy)? name=ID;
+DateTimeProperty : dataType="Date" (accuracy=DateTimeAccuracy)? name=ID;
 
 Enum DateTimeAccuracy :
     Month="Month" | Year="Year" | Day = "Day";
 
-BoolProperty : "Boolean" name=ID;
+BoolProperty : dataType="boolean" name=ID;
 
-StringProperty : "String" name=ID;
+StringProperty : dataType="String" name=ID;
 
-NumberProperty : "Number" name=ID;
+NumberProperty : (dataType="int" | dataType="float") name=ID; 
