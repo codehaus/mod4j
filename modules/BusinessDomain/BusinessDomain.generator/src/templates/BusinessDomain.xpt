@@ -1,7 +1,8 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT src::templates::java»
+«IMPORT src::templates::maven»
 
-«EXTENSION template::GeneratorExtensions»
+«EXTENSION util»
 
 «DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
 	«EXPAND JavaBean::BeanClassImplBase (rootPackage) FOREACH types»
@@ -15,3 +16,10 @@
 	«EXPAND JavaBean::BeanClassExtensionPoint (rootPackage) FOREACH types»
 «ENDDEFINE»
 
+«REM»
+	Generation of Maven configuration files. 
+«ENDREM»
+«DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
+	«EXPAND SubModulePom::createSubModulePom (getProperty("domainModulePath", appPropFilePath()), "domain")»
+	«EXPAND SubModulePom::createSubModulePom (getProperty("dataModulePath", appPropFilePath()), "data")»
+«ENDDEFINE»

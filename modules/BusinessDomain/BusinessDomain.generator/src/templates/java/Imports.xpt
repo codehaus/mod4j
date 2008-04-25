@@ -5,10 +5,16 @@
 «ENDDEFINE»
 
 «DEFINE addImports FOR DateTimeProperty»
- 	import BusinessDomainDsl.DateTimeAccuracy;
+ 	«REM»TODO See task MOD4J-23«ENDREM»
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessClass»
  	import java.util.List;
 	import java.util.ArrayList;
+«ENDDEFINE»
+
+«DEFINE addImports FOR BusinessRule»
+	import org.springframework.validation.Errors;
+	import org.springframework.validation.ValidationUtils;
+	import org.springframework.validation.Validator;
 «ENDDEFINE»

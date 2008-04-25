@@ -43,6 +43,13 @@
  			«EXPAND Attributes::addSetter FOREACH properties»
         }
 	«ENDFILE»
+	
+	«REM»Generation of Businessrules classes for this BusinessClass«ENDREM»
+	«FOREACH businessRules AS br»
+		«EXPAND BusinessRules (rootPackage + ".businessrules") FOR br»
+	«ENDFOREACH»
+	
+
 «ENDDEFINE»
 
 «DEFINE BeanClassExtensionPoint (String rootPackage) FOR AbstractType»
@@ -63,4 +70,22 @@
  			}	
 		«ENDFILE»
     «ENDIF»
+«ENDDEFINE»
+
+«DEFINE BusinessRules (String package) FOR BusinessRule»
+	«FILE (package).replaceAll("\\.", "/") + "/" + name + "ImplBase" +  ".java"»
+		package «package»;
+		
+		«EXPAND Imports::addImports»
+		
+		/**
+		* «description»
+		*
+		* Generated at: «timestamp()»
+		*/
+        public abstract class «name»ImplBase implements Validator {
+            	
+ 			
+        }
+	«ENDFILE»
 «ENDDEFINE»
