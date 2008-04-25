@@ -52,14 +52,14 @@
 
 «ENDDEFINE»
 
-«DEFINE BeanClassExtensionPoint (String rootPackage) FOR AbstractType»
+«DEFINE BeanClassExtensionPoint (String srcPath, String package) FOR AbstractType»
 	«REM»No generation of AbstracTypes other then BusinessClasses«ENDREM»
 «ENDDEFINE»
 
-«DEFINE BeanClassExtensionPoint (String rootPackage) FOR BusinessClass»
-    «IF !fileExist(getSrcManPath() + "/" + rootPackage.replaceAll("\\.", "/") + "/" + name +  ".java")»
-		«FILE rootPackage.replaceAll("\\.", "/") + "/" + name +  ".java"»
-			package «rootPackage»;
+«DEFINE BeanClassExtensionPoint (String srcPath, String package) FOR BusinessClass»
+    «IF !fileExist(srcPath + "/" + package.replaceAll("\\.", "/") + "/" + name +  ".java")»
+		«FILE package.replaceAll("\\.", "/") + "/" + name +  ".java"»
+			package «package»;
 				
 			/**
 			* Extension point initially generated at: «timestamp()»

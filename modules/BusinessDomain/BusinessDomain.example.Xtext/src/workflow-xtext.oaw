@@ -32,12 +32,11 @@
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
-        <expand value="BusinessDomain::ExtensionPointGeneration('${rootPackage}') FOR myBusModel" />
+        <expand value="BusinessDomain::ExtensionPointGeneration('${srcManPath}', '${rootPackage}') FOR myBusModel" />
         <outlet path="${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
-        <globalVarDef name="srcManPath" value="'${srcManPath}'"/>
     </component>
     <!--     
         <component id="recipe" class="org.mod4j.businessdomain.generator.recipes.RecipeCreator">
