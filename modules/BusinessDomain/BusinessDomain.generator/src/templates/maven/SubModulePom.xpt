@@ -4,36 +4,36 @@
 
 «DEFINE createSubModulePom (String subModulePath, String moduleName) FOR BusinessDomainModel»
 	«FILE subModulePath + "/pom.xml" -»
-		<?xml version="1.0" encoding="UTF-8"?>
-		<project>
-		    <parent>
-		        <groupId>«getProperty("rootPackage", appPropFilePath())»</groupId>
-		        <artifactId>«getProperty("applicationName", appPropFilePath())»</artifactId>
-		        <version>«getProperty("applicationVersion", appPropFilePath())»</version>
-		    </parent>
-		    <modelVersion>4.0.0</modelVersion>
-		    <groupId>«getProperty("domainRootPackage", appPropFilePath())»</groupId>
-		    <artifactId>«getProperty("applicationName", appPropFilePath())»-«moduleName»</artifactId>
-		    <name>«getProperty("applicationName", appPropFilePath())»-«moduleName»</name>
-		    <version>«getProperty("applicationVersion", appPropFilePath())»</version>
-		    <dependencies>
-		        <dependency>
-		            <groupId>junit</groupId>
-		            <artifactId>junit</artifactId>
-		            <scope>test</scope>
-		        </dependency>
-		        <dependency>
-		            <groupId>org.springframework</groupId>
-		            <artifactId>spring-context</artifactId>
-		        </dependency>
-		        <!-- TODO: Enable when cross module is ready
-		        <dependency>
-		            <groupId>«getProperty("rootPackage", appPropFilePath())»</groupId>
-		            <artifactId>«getProperty("applicationName", appPropFilePath())»-cross</artifactId>
-		            <version>${project.version}</version>
-		        </dependency>
-		        -->
-		    </dependencies>
-		</project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <parent>
+        <groupId>«getProperty("rootPackage", appPropFilePath())»</groupId>
+        <artifactId>«getProperty("applicationName", appPropFilePath())»</artifactId>
+        <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>«getProperty("domainRootPackage", appPropFilePath())»</groupId>
+    <artifactId>«getProperty("applicationName", appPropFilePath())»-«moduleName»</artifactId>
+    <name>«getProperty("applicationName", appPropFilePath())»-«moduleName»</name>
+    <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <!-- TODO: Enable when cross module is ready
+            <dependency>
+            <groupId>«getProperty("rootPackage", appPropFilePath())»</groupId>
+            <artifactId>«getProperty("applicationName", appPropFilePath())»-cross</artifactId>
+            <version>${project.version}</version>
+            </dependency>
+        -->
+    </dependencies>
+</project>
 	«ENDFILE»
 «ENDDEFINE»
