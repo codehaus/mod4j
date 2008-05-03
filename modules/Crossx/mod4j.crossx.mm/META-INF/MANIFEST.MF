@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: mod4j.crossx.mm; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: mod4j.crossx,
+ mod4j.crossx.impl,
+ mod4j.crossx.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.openarchitectureware.workflow,
+ org.openarchitectureware.util.stdlib,
+ org.openarchitectureware.core.workflow,
+ org.openarchitectureware.classic.libraries
+Eclipse-LazyStart: true
