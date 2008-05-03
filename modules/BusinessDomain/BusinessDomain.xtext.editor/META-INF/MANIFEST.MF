@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.ui,
  BusinessDomain.xtext
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
- org.mod4j.businessdomain.xtext.editor
+ org.mod4j.businessdomain.xtext.editor,
+ org.mod4j.businessdomain.xtext.wizards
 Bundle-ClassPath: .
 
