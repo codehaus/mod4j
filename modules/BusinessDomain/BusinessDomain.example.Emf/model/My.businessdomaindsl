@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<busmod:BusinessDomainModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:busmod="http://www.mod4j.org/busmod">
+<busmod:BusinessDomainModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:busmod="http://www.mod4j.org/busmod" name="CustomerModelInModel2" description="A Sample customer order model">
   <types xsi:type="busmod:BusinessClass" name="Customer" description="A Customer class to represent customers" superclass="//@types.2" associationsTo="//@associations.0 //@associations.1">
     <properties xsi:type="busmod:StringProperty" name="userName" description="The username of the Customer" dataType="String" defaultValue="" useAsLogicalId="true" regularExpression="" maxLength="256"/>
     <properties xsi:type="busmod:StringProperty" name="phoneNumber" description="The phonenumber of the Customer" dataType="String" nullable="true" maxLength="15"/>
