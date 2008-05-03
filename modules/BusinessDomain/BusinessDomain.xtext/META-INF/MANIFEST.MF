@@ -8,8 +8,10 @@ Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  org.openarchitectureware.xtext.generator;visibility:=reexport,
  BusinessDomain.mm,
  org.antlr,
- org.antlr
+ org.antlr,
+ mod4j.crossx.broker
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
-                org.mod4j.businessdomain.xtext.parser
+ org.mod4j.businessdomain.xtext.parser,
+ org.mod4j.businessdomain.xtext.resource
 
