@@ -21,5 +21,4 @@
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
 	«EXPAND SubModulePom::createSubModulePom (getProperty("domainModulePath", appPropFilePath()), "domain")»
-	«EXPAND SubModulePom::createSubModulePom (getProperty("dataModulePath", appPropFilePath()), "data")»
 «ENDDEFINE»
