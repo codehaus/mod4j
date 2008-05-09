@@ -21,7 +21,7 @@ public class CustomerTest extends TestCase {
 
         Customer cust = new Customer("Van Gogh", "Vincent" , "govinc");
         cust.setNumberOfEars(1);
-        Order order = new Order(Boolean.FALSE, "NR-1", Integer.valueOf(123),"1-1-2008");
+        Order order = new Order(Boolean.FALSE, "NR-1", Integer.valueOf(123));
         
         order.setCustomer(cust);
         cust.addOrders(order);

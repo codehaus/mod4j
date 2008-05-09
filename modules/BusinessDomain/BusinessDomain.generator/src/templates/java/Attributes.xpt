@@ -60,7 +60,7 @@
 
 «DEFINE addAttribute FOR DateTimeProperty»
 	«EXPAND instanceVariable FOR this»
-	public static final DateTimeAccuracy «name.toUpperCase()»_ACCURACY = DateTimeAccuracy.getByName("«accuracy»");
+	public static final String «name.toUpperCase()»_ACCURACY = "«accuracy»";
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR NumberProperty»

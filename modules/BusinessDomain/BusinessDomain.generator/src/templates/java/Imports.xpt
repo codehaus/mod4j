@@ -1,11 +1,11 @@
 «IMPORT BusinessDomainDsl»
 
-«DEFINE addImports FOR BusinessDomainDsl::Property»
+«DEFINE addImports FOR Property»
   «REM»Noting to import«ENDREM»
 «ENDDEFINE»
 
 «DEFINE addImports FOR DateTimeProperty»
- 	«REM»TODO See task MOD4J-23«ENDREM»
+ 	import org.joda.time.*;
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessClass»

@@ -6,7 +6,10 @@
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
 		package «rootPackage»;
 		
-		«EXPAND Imports::addImports FOREACH properties»
+        «REM»Add import statements for Attributes. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»
+        «FOREACH properties.dataType.toSet() AS dataType»
+            «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType)»
+        «ENDFOREACH»
 		/**
 		* «description»
 		*
@@ -25,8 +28,11 @@
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + "ImplBase" +  ".java"»
 		package «rootPackage»;
 		
-		«EXPAND Imports::addImports FOREACH properties»
 		«EXPAND Imports::addImports»
+		«REM»Add import statements for Attributes. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»
+        «FOREACH properties.dataType.toSet() AS dataType»
+            «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType)»
+        «ENDFOREACH»
 		
 		/**
 		* «description»
@@ -60,7 +66,11 @@
     «IF !fileExist(srcPath + "/" + package.replaceAll("\\.", "/") + "/" + name +  ".java")»
 		«FILE package.replaceAll("\\.", "/") + "/" + name +  ".java"»
 			package «package»;
-				
+			
+			«REM»Add import statements for Attributes. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»
+			«FOREACH properties.dataType.toSet() AS dataType»
+			     «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType)»
+			«ENDFOREACH»
 			/**
 			* Extension point initially generated at: «timestamp()»
 			*/

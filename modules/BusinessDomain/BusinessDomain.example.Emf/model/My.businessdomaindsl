@@ -9,7 +9,6 @@
     <properties xsi:type="busmod:BoolProperty" name="isConfirmed" description="" dataType="Boolean" defaultValue="false"/>
     <properties xsi:type="busmod:StringProperty" name="logicalOrderId" description="" dataType="String" useAsLogicalId="true"/>
     <properties xsi:type="busmod:NumberProperty" name="orderNumber" description="The number of the order" dataType="Integer" defaultValue="" minValue="10" maxValue="10000" minInclusive="true"/>
-    <properties xsi:type="busmod:DateTimeProperty" name="orderDate" description="The date of ordering yyyy/mm/dd" dataType="String" defaultValue=""/>
   </types>
   <types xsi:type="busmod:BusinessClass" name="Person" inheritanceModifier="Abstract">
     <properties xsi:type="busmod:StringProperty" name="lastName" dataType="String" maxLength="120"/>
@@ -18,7 +17,6 @@
   </types>
   <types xsi:type="busmod:BusinessClass" name="MemberCard" description="Representation of a customer membercard" associationsFrom="//@associations.1">
     <properties xsi:type="busmod:NumberProperty" name="cardNumber" description="The unique number identifying this card" dataType="int" useAsLogicalId="true" minValue="0" maxValue="10000"/>
-    <properties xsi:type="busmod:DateTimeProperty" name="expireDate" description="The date of expiration" dataType="java.util.Date" nullable="true" defaultValue=""/>
   </types>
   <associations name="ordered" source="//@types.0" target="//@types.1" sourceRoleName="customer" targetRoleName="orders" targetMultiplicity="OneMany"/>
   <associations name="ownsMemberCard" description="Membership of Customer" source="//@types.0" target="//@types.3" sourceRoleName="cardOwner" sourceMultiplicity="ZeroOne" targetRoleName="memberCard" targetMultiplicity="One"/>

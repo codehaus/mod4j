@@ -20,8 +20,8 @@ Class Person2 [
 
 Class Order [
      String orderNumber;
-     Date orderDate ;
-     Date deliveryDate;
+     DateTime orderDate ;
+     DateTime deliveryDate;
 ]
 
 Enumeration  Ordering [

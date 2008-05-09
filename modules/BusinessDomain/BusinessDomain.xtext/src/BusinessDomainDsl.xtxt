@@ -64,7 +64,7 @@ Property :
 Enum PersistencyMode :
     ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
 
-DateTimeProperty : dataType="Date" (accuracy=DateTimeAccuracy)? name=ID;
+DateTimeProperty : dataType="DateTime" (accuracy=DateTimeAccuracy)? name=ID;
 
 Enum DateTimeAccuracy :
     Month="Month" | Year="Year" | Day = "Day";
