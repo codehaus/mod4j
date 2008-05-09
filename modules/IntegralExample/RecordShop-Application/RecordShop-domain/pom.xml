@@ -20,6 +20,10 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
         <!-- TODO: Enable when cross module is ready
             <dependency>
             <groupId>org.company.recordshop</groupId>
