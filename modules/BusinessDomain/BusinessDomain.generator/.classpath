@@ -5,7 +5,6 @@
 	<classpathentry kind="src" path="src-gen"/>
 	<classpathentry kind="src" path="src/templates/java"/>
 	<classpathentry excluding="java/|maven/" kind="src" path="src/templates"/>
-	<classpathentry kind="src" path="src/checks"/>
 	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="src" path="src/templates/maven"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>

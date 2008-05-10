@@ -13,12 +13,22 @@ context BusinessDomainModel ERROR "Business class name is not unique" :
 context BusinessDomainModel ERROR "BusinessDomainModel name incorrect" :
    true;
 
-context Association WARNING "Association waring !!!" :
+context Association WARNING "Association warning !!!" :
    true;
 
-context BusinessClass ERROR "NAMES" :
+context BusinessClass ERROR "Class names must be unique." :
    ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|
      e != this implies e.name != this.name) ;
+
+context BusinessClass ERROR "Names of BusinessClass attributes must be unique.":
+    properties.forAll(a1| properties.notExists(a2| a1 != a2 && a1.name == a2.name ) );
+
+context Property ERROR "The dataType of a property must be specified.":
+    dataType.length > 1;
+
+context Property ERROR "The name of a Properties must be more than one char long." :
+    name.length > 1;
+
  
 context Enumeration ERROR "Literals must be unique" :
       enumerationLiterals.forAll(e1 | 
