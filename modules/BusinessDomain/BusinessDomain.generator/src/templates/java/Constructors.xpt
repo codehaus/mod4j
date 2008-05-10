@@ -37,6 +37,7 @@
 	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
      public «name»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+     
          super(«EXPAND addSuperArgumentList FOR this -»);
  	 }
 «ENDDEFINE»
