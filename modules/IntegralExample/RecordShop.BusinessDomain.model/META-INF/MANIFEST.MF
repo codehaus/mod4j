@@ -5,4 +5,5 @@ Bundle-SymbolicName: my.generator.project; singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.openarchitectureware.dependencies,
  BusinessDomain.mm,
- BusinessDomain.generator
+ BusinessDomain.generator,
+ BusinessDomain.xtext

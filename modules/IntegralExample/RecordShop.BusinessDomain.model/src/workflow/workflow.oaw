@@ -4,32 +4,20 @@
 
     <property file="workflow.properties" />
 
+    <component file='org/mod4j/businessdomain/xtext/parser/Parser.oaw'>
+        <modelFile value="${modelFile}"/>
+        <outputSlot value="${outputSlot}"/>
+    </component>
+
     <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
         <directories value="${domainModulePath}/${srcGenPath}, ${dataModulePath}/${srcGenPath}"/>
-    </component>
-
-    <component id="xmiParser" class="org.openarchitectureware.emf.XmiReader">
-        <modelFile value="${modelFile}" />
-        <outputSlot value="myBusModel" />
-        <metaModelFile value="BusinessDomainDsl.ecore" />
-        <!-- <metaModelPackage value="BusinessDomainDsl.BusinessDomainModel" />  -->
-        <firstElementOnly value="true" />
-    </component>
-
-    <component class="org.openarchitectureware.check.CheckComponent">
-        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
-            <metaModelFile value="BusinessDomainDsl.ecore" />
-        </metaModel>
-        <checkFile value="BusinessDomainChecks" />
-        <!-- TODO use: expression value=""/-->
-        <emfAllChildrenSlot value="myBusModel" />
     </component>
 
     <component id="generator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
-        <expand value="BusinessDomain::Root('${domainRootPackage}') FOR myBusModel" />
+        <expand value="BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}" />
         <outlet path="${domainModulePath}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -44,7 +32,7 @@
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
-        <expand value="BusinessDomain::ExtensionPointGeneration('${domainModulePath}/${srcManPath}','${domainRootPackage}') FOR myBusModel" />
+        <expand value="BusinessDomain::ExtensionPointGeneration('${domainModulePath}/${srcManPath}','${domainRootPackage}') FOR ${outputSlot}" />
         <outlet path="${domainModulePath}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -54,7 +42,7 @@
     <!--     
         <component id="recipe" class="org.mod4j.businessdomain.generator.recipes.RecipeCreator">
         <appProject value="BusinessDomain.example" />
-        <modelSlot value="myBusModel" />
+        <modelSlot value="${outputSlot}" />
         <recipeFile value="BusinessDomain.recipes" />
         </component>
     -->
@@ -66,7 +54,7 @@
         <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
             <metaModelFile value="BusinessDomainDsl.ecore" />
         </metaModel>
-        <expand value="BusinessDomain::CreateMavenConfiguration FOR myBusModel"/>
+        <expand value="BusinessDomain::CreateMavenConfiguration FOR ${outputSlot}"/>
         <outlet path="${applicationPath}">
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>

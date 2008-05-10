@@ -1,0 +1,56 @@
+Model RecordShopDomainModel
+
+Description "A Person represents a legal person." 
+Class Person [
+    String firstName;
+    String lastName;
+    int numberOfEars;
+]
+
+Description "A Customer represents a Person who orders from the RecordShop."
+Class Customer inherits Person [
+    int customerId;
+    boolean isBlackListed;
+    Rules [
+        Description "If Customer has one ear, he/she get a discount of 50 percent."  
+        oneEarDiscount;
+        Description "Just another rule"
+        anotherRule;
+     ]
+     Constraints [
+         Description "customerId must be greater then 100" 
+         custIdgreaterThen100;
+     ]
+]
+
+Description "A Record is a representation of a physical medium containing one or more musical compositions."
+Class Record [
+    String asin;
+    String title;
+    int mediumCode;
+    float price;
+]
+
+Description "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
+Class Order [
+     String orderNumber;
+     DateTime orderDate;
+     DateTime deliveryDate;
+     int discountPercentage;
+     float totalAmount;
+]
+
+Class OrderLine [
+    int lineNumber;
+    String description;
+    float lineAmount;
+]
+
+Enumeration Sexe [
+    female;
+    male;
+]
+ 
+Association composite customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
+Association composite order Order [ 0..1 ] <-> [ 0..* ] orderLines OrderLine;
+Association composite orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
