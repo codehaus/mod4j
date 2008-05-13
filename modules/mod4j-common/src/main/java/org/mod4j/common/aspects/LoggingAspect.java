@@ -6,26 +6,25 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.core.Ordered;
 
 /**
- * Interceptor class to inject logging / tracing
+ * Interceptor class to inject logging / tracing.
  * 
- * @author ordina
+ * @author Philippe Tjon-a-Hen
  * 
  */
 public class LoggingAspect implements Ordered {
 
-    private static Log log = LogFactory.getLog(LoggingAspect.class);
+	private final static Log log = LogFactory.getLog(LoggingAspect.class);
 
-    public Object log(ProceedingJoinPoint call) throws Throwable {
-        log.info("entering method [" + call.getTarget().getClass().getName() + "." + call.getSignature().getName()
-                + "]");
-        Object point = call.proceed();
-        log
-                .info("exiting method [" + call.getTarget().getClass().getName() + "." + call.getSignature().getName()
-                        + "]");
-        return point;
-    }
-    
-    private int order;
+	public Object log(ProceedingJoinPoint call) throws Throwable {
+		log.trace("Entering method [" + call.getTarget().getClass().getName()
+				+ "." + call.getSignature().getName() + "]");
+		Object point = call.proceed();
+		log.trace("Exiting method [" + call.getTarget().getClass().getName()
+				+ "." + call.getSignature().getName() + "]");
+		return point;
+	}
+
+	private int order;
 
 	public int getOrder() {
 		return order;
@@ -34,5 +33,5 @@ public class LoggingAspect implements Ordered {
 	public void setOrder(int order) {
 		this.order = order;
 	}
-    
+
 }

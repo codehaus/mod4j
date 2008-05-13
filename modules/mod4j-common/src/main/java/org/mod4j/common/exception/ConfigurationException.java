@@ -1,29 +1,29 @@
 package org.mod4j.common.exception;
 
 /**
- * Thrown when a business rule exception is violated. Attribute constraints are
- * also considered business rules.
+ * Exception thrown if a configuration error occures.
  * 
+ * @author Philippe Tjon-a-Hen
  * @author Eric Jan Malotaux
  * 
  */
-public class BusinessRuleException extends RuntimeException {
+public class ConfigurationException extends RuntimeException {
 
 	/**
-	 * Constructs a new business rule exception with <code>null</code> as its
+	 * Constructs a new configuration exception with <code>null</code> as its
 	 * detail message. The cause is not initialized, and may subsequently be
 	 * initialized by a call to {@link #initCause}.
 	 */
-	public BusinessRuleException() {
+	public ConfigurationException() {
 		super();
 	}
 
 	/**
-	 * Constructs a new business rule exception with the specified detail
+	 * Constructs a new configuration exception with the specified detail
 	 * message and cause.
 	 * <p>
 	 * Note that the detail message associated with <code>cause</code> is
-	 * <i>not</i> automatically incorporated in this business rule exception's
+	 * <i>not</i> automatically incorporated in this configuration exception's
 	 * detail message.
 	 * 
 	 * @param message
@@ -35,12 +35,12 @@ public class BusinessRuleException extends RuntimeException {
 	 *            permitted, and indicates that the cause is nonexistent or
 	 *            unknown.)
 	 */
-	public BusinessRuleException(String message, Throwable cause) {
+	public ConfigurationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a new business rule exception with the specified detail
+	 * Constructs a new configuration exception with the specified detail
 	 * message. The cause is not initialized, and may subsequently be
 	 * initialized by a call to {@link #initCause}.
 	 * 
@@ -48,15 +48,15 @@ public class BusinessRuleException extends RuntimeException {
 	 *            the detail message. The detail message is saved for later
 	 *            retrieval by the {@link #getMessage()} method.
 	 */
-	public BusinessRuleException(String message) {
+	public ConfigurationException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a new business rule exception with the specified cause and a
+	 * Constructs a new configuration exception with the specified cause and a
 	 * detail message of <tt>(cause==null ? null : cause.toString())</tt>
 	 * (which typically contains the class and detail message of <tt>cause</tt>).
-	 * This constructor is useful for business rule exceptions that are little
+	 * This constructor is useful for configuration exceptions that are little
 	 * more than wrappers for other throwables.
 	 * 
 	 * @param cause
@@ -65,7 +65,7 @@ public class BusinessRuleException extends RuntimeException {
 	 *            permitted, and indicates that the cause is nonexistent or
 	 *            unknown.)
 	 */
-	public BusinessRuleException(Throwable cause) {
+	public ConfigurationException(Throwable cause) {
 		super(cause);
 	}
 
