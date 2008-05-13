@@ -4,9 +4,10 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src-gen"/>
 	<classpathentry kind="src" path="src/templates/java"/>
-	<classpathentry excluding="java/|maven/" kind="src" path="src/templates"/>
+	<classpathentry excluding="hibernate/|java/|maven/" kind="src" path="src/templates"/>
 	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="src" path="src/templates/maven"/>
+	<classpathentry kind="src" path="src/templates/hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
