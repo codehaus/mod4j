@@ -77,7 +77,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DateTimeProperty/accuracy"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//EnumerationProperty">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationProperty/enumeration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//EnumerationProperty/type"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//NumberProperty">
