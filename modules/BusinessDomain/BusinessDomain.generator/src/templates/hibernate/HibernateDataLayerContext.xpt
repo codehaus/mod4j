@@ -1,0 +1,101 @@
+«IMPORT BusinessDomainDsl»
+
+«REM»	
+«EXTENSION template::GeneratorExtensions»
+«ENDREM»
+«EXTENSION ProjectProperties»
+«EXTENSION BusinessClass»
+
+«DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
+«FILE getApplicationName() + "DataLaagContext.xml"»
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop">
+    <!-- TODO: should this be done for each class that has a Dao? Or for a "main" class? Or what?
+«FOREACH this.types.typeSelect(BusinessClass) AS cls»
+	<aop:config>
+		<aop:pointcut id="«cls.name»DataMethods" 
+		              expression="execution(* «getDaoPackage()».«javaClassName(cls)»DaoImpl.*(..))"/>
+	
+		<aop:aspect ref="loggingAspect">
+	        <aop:around pointcut-ref="«cls.name»DataMethods" method="log"/>
+	    </aop:aspect>
+		<aop:aspect ref="timingAspect">
+	        <aop:around pointcut-ref="«cls.name»DataMethods" method="time"/>
+	    </aop:aspect>
+	</aop:config>
+«ENDFOREACH»
+
+    <!--  Data layer part of infrastructure -->
+    <bean id="«getApplicationName()»Dao"
+        class="«getDaoPackage()».«getApplicationName()»DaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- hibernate wiring -->
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref local="dataSource" />
+        </property>
+        <property name="mappingResources">
+            <list>
+«FOREACH this.types.typeSelect(BusinessClass) AS cls»
+                <value>«cls.name».hbm.xml</value>
+«ENDFOREACH»
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    ${hibernate.dialect}
+                </prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">
+                    true
+                </prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.provider_class">
+                    org.hibernate.cache.EhCacheProvider
+                </prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="dataSource"
+        class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/ForumsDS" />
+        <property name="lookupOnStartup" value="false" />
+        <property name="cache" value="true" />
+        <property name="proxyInterface" value="javax.sql.DataSource" />
+    </bean>
+
+    <bean
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:environment.properties</value>
+        </property>
+    </bean>
+
+    <!--  Transaction management -->
+
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref local="sessionFactory" />
+        </property>
+    </bean>
+
+
+</beans>
+«ENDFILE»
+«ENDDEFINE»
+
