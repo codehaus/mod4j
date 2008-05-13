@@ -126,6 +126,11 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
+               <groupId>joda-time</groupId>
+               <artifactId>joda-time</artifactId>
+               <version>1.5.2</version>
+           </dependency>
+            <dependency>
                 <groupId>jcoverage</groupId>
                 <artifactId>jcoverage</artifactId>
                 <version>1.0.5</version>
@@ -428,6 +433,11 @@
             <name>Smart Java Repository</name>
             <url>https://repo.${centralhost}/repo</url>
         </repository>
+	<repository>
+	    <id>fornax.repository</id>
+	    <name>Fornax Repository</name>
+	    <url>http://www.fornax-platform.org/m2/repository</url>
+	</repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -439,5 +449,10 @@
             <name>Smart Java Plugin Repository</name>
             <url>https://repo.${centralhost}/repo</url>
         </pluginRepository>
+	<pluginRepository>
+	    <id>fornax.plugin.repository</id>
+	    <name>Fornax Plugin Repository</name>
+	    <url>http://www.fornax-platform.org/m2/repository</url>
+	</pluginRepository>
     </pluginRepositories>
 </project>
