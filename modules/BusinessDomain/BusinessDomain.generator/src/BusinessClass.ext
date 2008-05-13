@@ -1,0 +1,40 @@
+/* Operations implemented in Java on BusinesClass
+ */
+import BusinessDomainDsl;
+
+String javaPackageName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaPackageName(BusinessDomainDsl.BusinessClass);
+
+ String javaFullName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaFullName(BusinessDomainDsl.BusinessClass);
+ 
+String javaClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
+
+String javaClassName(String cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(java.lang.String);
+
+String javaVarName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaVarName(BusinessDomainDsl.BusinessClass);
+
+String daoClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoClassName(BusinessDomainDsl.BusinessClass);
+
+String daoImplClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassName(BusinessDomainDsl.BusinessClass);
+
+boolean isOne2Many(Association a) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isOne2Many(BusinessDomainDsl.Association);
+
+boolean isOne2One(Association a) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isOne2One(BusinessDomainDsl.Association);
+
+boolean isMany2One(Association a) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isMany2One(BusinessDomainDsl.Association);
+
+boolean isMany2Many(Association a) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isMany2Many(BusinessDomainDsl.Association);
+
+
+String javaFileName(String rootPackage, String classname) :
+rootPackage.replaceAll("\\.", "/") + "/" + classname + ".java";
