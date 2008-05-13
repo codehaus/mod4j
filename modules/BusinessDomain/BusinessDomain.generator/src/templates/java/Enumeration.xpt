@@ -1,0 +1,41 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION util»
+
+«DEFINE createEnum (String rootPackage) FOR Enumeration»
+    «FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
+        package «rootPackage»;
+        
+        «EXPAND Imports::addImports FOR this»
+                
+        /**
+        * «description»
+        *
+        * Generated at: «timestamp()»
+        */
+        public enum «name» {
+        
+            «FOREACH enumerationLiterals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
+                «enumlit.name.toUpperCase()»(«enumlit.persistedValue»)
+            «ENDFOREACH»;
+            
+            private static final Map<Integer, «name»> lookup = new HashMap<Integer, «name»>();
+            static {
+                for(«name» s : EnumSet.allOf(«name».class))
+                   lookup.put(s.getCode(), s);
+            }
+
+            private int code;
+            
+            private «name»(int code) {
+                this.code = code;
+            }
+            
+            public int getCode() { return code; }
+            
+            public static «name» get(int code) {
+                return lookup.get(code); 
+            }                   
+        }
+    «ENDFILE»
+«ENDDEFINE»

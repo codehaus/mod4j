@@ -4,7 +4,7 @@ Description "A Person represents a legal person."
 Class Person [
     String firstName;
     String lastName;
-    int numberOfEars;
+    int numberOfEars nullable;
 ]
 
 Description "A Customer represents a Person who orders from the RecordShop."
@@ -26,7 +26,7 @@ Class Customer inherits Person [
 Description "A Record is a representation of a physical medium containing one or more musical compositions."
 Class Record [
     String asin;
-    String title;
+    String title default "Title unknown";
     int mediumCode;
     float price;
 ]
@@ -34,9 +34,9 @@ Class Record [
 Description "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
      String orderNumber;
-     DateTime orderDate;
-     DateTime deliveryDate;
-     int discountPercentage;
+     DateTime orderDate nullable;
+     DateTime deliveryDate nullable;
+     int discountPercentage nullable;
      float totalAmount;
 ]
 
@@ -46,9 +46,10 @@ Class OrderLine [
     float lineAmount;
 ]
 
+Description "Sexe enumeration."
 Enumeration Sexe [
-    female;
-    male;
+    female = 2;
+    male = 3;
 ]
  
 Association composite customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;

@@ -1,13 +1,5 @@
 «IMPORT BusinessDomainDsl»
 
-«DEFINE addImports FOR Property»
-  «REM»Noting to import«ENDREM»
-«ENDDEFINE»
-
-«DEFINE addImports FOR DateTimeProperty»
- 	import org.joda.time.*;
-«ENDDEFINE»
-
 «DEFINE addImports FOR BusinessClass»
  	import java.util.List;
 	import java.util.ArrayList;
@@ -17,4 +9,18 @@
 	import org.springframework.validation.Errors;
 	import org.springframework.validation.ValidationUtils;
 	import org.springframework.validation.Validator;
+«ENDDEFINE»
+
+«DEFINE addImports FOR DateTimeProperty»
+    import org.joda.time.*;
+«ENDDEFINE»
+
+«DEFINE addImports FOR Enumeration»
+    import java.util.EnumSet;
+    import java.util.HashMap;
+    import java.util.Map;
+«ENDDEFINE»
+
+«DEFINE addImports FOR Property»
+  «REM»Noting to import«ENDREM»
 «ENDDEFINE»

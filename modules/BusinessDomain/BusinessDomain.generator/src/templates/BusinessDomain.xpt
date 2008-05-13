@@ -6,6 +6,7 @@
 
 «DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
 	«EXPAND JavaBean::BeanClassImplBase (rootPackage) FOREACH types»
+	«EXPAND Enumeration::createEnum (rootPackage) FOREACH enumerations»
 «ENDDEFINE»
 
 «REM»
