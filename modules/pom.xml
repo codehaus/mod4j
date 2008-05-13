@@ -34,12 +34,14 @@
       <id>dev-environment</id>
       <modules>
         <module>mod4j-build-tools</module>
+        <module>mod4j-common</module>
       </modules>
     </profile>
     <profile>
       <id>ci</id>
       <modules>
         <module>mod4j-build-tools</module>
+        <module>mod4j-common</module>
       </modules>
       <build>
         <plugins>
