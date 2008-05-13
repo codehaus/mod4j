@@ -1,0 +1,46 @@
+/*******************************************************************************
+ * Copyright (c) 2008 Ordina and committers to Mod4j
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Ordina - initial implementation
+ *******************************************************************************/
+import BusinessDomainDsl;
+
+// extension org::mod4j::businessdomain::xtext::Extensions;
+// extension org::mod4j::businessdomain::xtext::javautils;
+/*
+ * This check file is used by the parser
+ * and by the editor. Add your constraints here!
+ */
+
+context BusinessClass ERROR "Name of BusinessClass [" + this.name + "] is not unique" :
+   ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|
+     e != this implies e.name != this.name) ;
+
+context BusinessClass ERROR "Name of Attributes must be unique.":
+    properties.forAll(a1| properties.notExists(a2| a1 != a2 && a1.name == a2.name ) );
+
+context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
+   ((BusinessDomainDsl::BusinessClass)this.eContainer).properties.forAll(e|
+     e != this implies e.name != this.name) ;
+
+context Property ERROR "The dataType property [" + this.name + "] is not specified.":
+    dataType.length > 1;
+
+context Property ERROR "The name of a Properties must be more than one char long." :
+    name.length > 1;
+ 
+context Enumeration ERROR "Literals must be unique" :
+      enumerationLiterals.forAll(e1 | 
+         enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
+/*
+context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
+       ! classExists(this.name);
+
+context BusinessClass ERROR "5 java check class [" + this.name + "] already defined in [" + definedInResource(this.name) + "]" :
+       ! classExists(this.name);
+*/
