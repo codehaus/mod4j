@@ -1,4 +1,4 @@
-package nl.ordina.innovation.architecture.forum.jmx;
+package org.mod4j.common.jmx;
 
 /**
  * Log4JMBean.

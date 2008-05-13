@@ -1,12 +1,12 @@
 /**
  * 
  */
-package nl.ordina.innovation.architecture.forum.validation;
+package org.mod4j.common.validation;
 
 import java.util.List;
 
-import nl.ordina.innovation.architecture.forum.exception.BusinessRuleException;
 
+import org.mod4j.common.exception.BusinessRuleException;
 import org.springframework.util.ClassUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;

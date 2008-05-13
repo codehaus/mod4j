@@ -1,13 +1,14 @@
-package nl.ordina.innovation.architecture.forum.validation;
+package org.mod4j.common.validation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-import nl.ordina.innovation.architecture.forum.exception.BusinessRuleException;
 
 import org.junit.Test;
+import org.mod4j.common.exception.BusinessRuleException;
+import org.mod4j.common.validation.BusinessRuleValidationTemplate;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

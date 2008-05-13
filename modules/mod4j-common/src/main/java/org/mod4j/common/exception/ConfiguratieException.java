@@ -1,4 +1,4 @@
-package nl.ordina.innovation.architecture.forum.exception;
+package org.mod4j.common.exception;
 
 /**
  * Exception thrown if a configuration error occures.

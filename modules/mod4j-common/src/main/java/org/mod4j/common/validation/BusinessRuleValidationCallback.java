@@ -1,4 +1,4 @@
-package nl.ordina.innovation.architecture.forum.validation;
+package org.mod4j.common.validation;
 
 import org.springframework.validation.Errors;
 

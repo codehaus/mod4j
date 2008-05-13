@@ -1,4 +1,4 @@
-package nl.ordina.innovation.architecture.forum.aspects;
+package org.mod4j.common.aspects;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

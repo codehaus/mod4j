@@ -1,4 +1,4 @@
-package nl.ordina.innovation.architecture.forum.jmx;
+package org.mod4j.common.jmx;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
