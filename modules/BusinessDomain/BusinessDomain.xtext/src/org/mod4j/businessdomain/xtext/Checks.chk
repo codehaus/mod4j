@@ -34,10 +34,10 @@ context Property ERROR "The name of a Properties must be more than one char long
 context Enumeration ERROR "3 Literals must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
-
+/*
 context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
        ! classExists(this.name);
 
 context BusinessClass ERROR "5 java check class [" + this.name + "] already defined in [" + definedInResource(this.name) + "]" :
        ! classExists(this.name);
-
+*/
