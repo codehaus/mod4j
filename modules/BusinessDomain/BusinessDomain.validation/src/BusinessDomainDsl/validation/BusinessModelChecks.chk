@@ -26,10 +26,9 @@ context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
      e != this implies e.name != this.name) ;
 
 context Property ERROR "The dataType of property [" + this.name + "] is not specified.":
-    if this.metaType.isInstance ( EnumerationProperty)
-        true
-    else
-        dataType.length > 1;
+    this.metaType == EnumerationProperty
+    ?    true
+    :    dataType.length > 1;
 
 context Property ERROR "The name of Property ["+ name + "] must be more than one char long." :
     name.length > 1;
