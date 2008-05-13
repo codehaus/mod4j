@@ -9,6 +9,13 @@
      private «dataType» «name»;
 «ENDDEFINE»
 
+«DEFINE instanceVariable FOR EnumerationProperty»
+    /**
+     *  «name»: «description»
+     */
+     private «type.name» «name»;
+«ENDDEFINE»
+
 «DEFINE addGetter FOR Property»
 	/**
 	*
@@ -17,24 +24,6 @@
 	public «dataType» get«name.toFirstUpper()» () {
    		return this.«name»;
 	}
-«ENDDEFINE»
-
-«DEFINE addSetter FOR Property»
-	/**
-	*
-	* @param «name» («dataType») «description»
-	*/
-	public void set«name.toFirstUpper()» (final «dataType» «name») {
-   		this.«name» = «name»;
-	}
-«ENDDEFINE»
-
-«DEFINE addAttribute FOR Property»
-    /**
-     *  Unknown Property type. It is not a subclass of Property or it is not expanded by this generator.
-     *  Name: «name» 
-     * 	Description: «description»
-     */
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR BlobBinaryProperty»
@@ -51,11 +40,6 @@
 
 «DEFINE addAttribute FOR EnumerationProperty»
 	«EXPAND instanceVariable FOR this»
-«REM»	
-    «IF type != null»
-		public static final int «name.toUpperCase()»_ENUMERATIONDATATYPE = «customDataType»;
-	«ENDIF»
-«ENDREM»
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR DateTimeProperty»
@@ -87,3 +71,42 @@
 		public static final Integer «name.toUpperCase()»_MAXLENGTH = «maxLength»;
 	«ENDIF»
 «ENDDEFINE»
+
+«DEFINE addGetter FOR EnumerationProperty»
+    /**
+    *
+    * @return «name» («type.name») «description»
+    */
+    public «type.name» get«name.toFirstUpper()» () {
+        return this.«name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addSetter FOR EnumerationProperty»
+    /**
+    *
+    * @param «name» («type.name») «description»
+    */
+    public void set«name.toFirstUpper()» (final «type.name» «name») {
+        this.«name» = «name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addSetter FOR Property»
+    /**
+    *
+    * @param «name» («dataType») «description»
+    */
+    public void set«name.toFirstUpper()» (final «dataType» «name») {
+        this.«name» = «name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR Property»
+    /**
+     *  Unknown Property type. It is not a subclass of Property or it is not expanded by this generator.
+     *  Name: «name» 
+     *  Description: «description»
+     */
+«ENDDEFINE»
+

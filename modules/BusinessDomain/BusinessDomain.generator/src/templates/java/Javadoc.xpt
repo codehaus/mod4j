@@ -5,6 +5,14 @@
 «DEFINE addJavaDocParamList FOR BusinessClass -»
  	«IF superclass != null -»«EXPAND addJavaDocParamList FOR superclass -»«ENDIF»
  	«FOREACH properties.reject(e|e.nullable) AS prop -»
- 		* @param «prop.name» («prop.dataType») «prop.description»
+        «EXPAND javaDocParam FOR prop-»
  	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE javaDocParam FOR Property-»
+    * @param «name» («dataType») «description»
+«ENDDEFINE»
+
+«DEFINE javaDocParam FOR EnumerationProperty-»
+    * @param «name» («type.name») «description»
 «ENDDEFINE»

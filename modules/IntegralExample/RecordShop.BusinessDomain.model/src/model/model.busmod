@@ -5,6 +5,7 @@ Class Person [
     String firstName;
     String lastName;
     int numberOfEars nullable;
+    Sexe sexe;
 ]
 
 Description "A Customer represents a Person who orders from the RecordShop."
@@ -16,10 +17,10 @@ Class Customer inherits Person [
         oneEarDiscount;
         Description "Just another rule"
         anotherRule;
-     ]
-     Constraints [
-         Description "customerId must be greater then 100" 
-         custIdgreaterThen100;
+    ]
+    Constraints [
+        Description "customerId must be greater then 100" 
+        custIdgreaterThen100;
      ]
 ]
 
