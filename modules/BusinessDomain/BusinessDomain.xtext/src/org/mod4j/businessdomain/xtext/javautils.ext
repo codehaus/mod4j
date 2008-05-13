@@ -1,0 +1,17 @@
+/**
+* Application property functions
+*/
+/**
+* The timeStamp() function returns the current time 
+*/
+String timestamp() :
+ JAVA org.mod4j.businessdomain.xtext.Crossxcheck.timestamp();
+
+boolean fileExist(String path) :
+ JAVA org.mod4j.businessdomain.xtext.Crossxcheck.fileExist(java.lang.String);
+ 
+ boolean classExists(String path) :
+ JAVA org.mod4j.businessdomain.xtext.Crossxcheck.classExists(java.lang.String);
+ 
+String definedInResource(String path) :
+ JAVA org.mod4j.businessdomain.xtext.Crossxcheck.definedInResource(java.lang.String);
