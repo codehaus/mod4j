@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<workflow>
+
+    <property file="workflow.properties" />
+
+<!--
+    <globalVarDef name="appPropFilePath" value="src/workflow/workflow.properties" />
+    <globalVarDef name="applicationName" value="RecordShop" />
+    <globalVarDef name="applicationVersion" value="1.0-SNAPSHOT" />
+    <globalVarDef name="applicationPath" value="../RecordShop-Application" />
+    <globalVarDef name="domainModulePath" value="../RecordShop-Application/RecordShop-domain" />
+    <globalVarDef name="dataModulePath" value="../RecordShop-Application/RecordShop-data" />
+    <globalVarDef name="rootPackage" value="org.company.recordshop" />
+    <globalVarDef name="domainRootPackage" value="org.company.recordshop.domain" />
+    <globalVarDef name="dataRootPackage" value="org.company.recordshop.data" />
+
+    <globalVarDef name="srcGenPath" value="target/generated-sources" />
+    <globalVarDef name="srcManPath" value="src/main/java" />
+    <globalVarDef name="resourceManPath" value="src/main/resources" />
+    <globalVarDef name="fileEncoding" value="ISO-8859-1" />
+-->
+<!-- calling asnother oAW workflow -->
+<!--	<catridge file="globalproperties.oaw"/> -->
+	
+    <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
+        <directories value="${srcGenPath}" />
+    </component>
+
+	<bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+		<platformUri value=".."/>
+	</bean>
+	
+	<bean id="bm" class="oaw.type.emf.EmfMetaModel">
+		<metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />  
+	</bean>
+	
+	<component class="org.eclipse.mwe.emf.Reader">
+    	<uri value="platform:/resource/${modelFile}" />-->
+
+		<modelSlot value="myBusModel" />
+	</component>
+
+    <component class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="bm" />
+        <checkFile value="BusinessDomainChecks" />
+        <!-- TODO use: expression value=""/-->
+        <emfAllChildrenSlot value="myBusModel" />
+    </component>
+
+    <component id="generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="bm" />
+        <expand value="Datalayer::genResources FOR myBusModel" />
+        <outlet path="${dataModulePath}/${resourceManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+<!--            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" /> -->
+        </outlet>
+         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+    </component>
+
+    <component id="generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="bm" />
+<!--
+        <metaModel idRef="bm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+-->
+        <expand value="Datalayer::genDao FOR myBusModel" />
+        <outlet path="${dataModulePath}/${srcManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+    </component>
+<!--
+    <component id="extensionPoint-generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="BusinessDomain::ExtensionPointGeneration('${srcManPath}', '${rootPackage}') FOR myBusModel" />
+        <outlet path="${srcManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+-->
+</workflow>
