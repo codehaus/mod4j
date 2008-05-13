@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/opt/jars/spring/dist/spring-beans.dtd">
+<beans>
+	<bean id="forumServiceSpringTest" class="nl.ordina.forum.service.ForumServiceSpringTest" autowire="byName" >
+		<property name="forumService" ><ref bean="forumService"/></property>
+	</bean>
+
+	<bean id="forumService" class="nl.ordina.forum.service.ForumServiceImpl">
+		<constructor-arg><ref local="forumRepository"/></constructor-arg>
+	</bean>
+
+	<bean id="forumRepository" class="nl.ordina.forum.integratie.spring.ForumRepository">
+		<constructor-arg><ref local="forumDao"/></constructor-arg>
+	</bean>
+
+    <bean id="forumDao" class="nl.ordina.forum.integratie.spring.dao.MockForumDao" />
+
+</beans>

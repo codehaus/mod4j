@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop">
+
+	<bean id="timingAspect"  class = "nl.ordina.innovation.architecture.forum.aspects.TimingAspect">
+		<property name="order" value="10"/>
+	</bean>
+	<bean id="loggingAspect"  class = "nl.ordina.innovation.architecture.forum.aspects.LoggingAspect">
+		<property name="order" value="20"/>
+	</bean>
+
+<!--  JMX - management extentions wiring -->
+    <bean id="log4jMBean" class="nl.ordina.innovation.architecture.forum.jmx.Log4j"/>
+    <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter">
+    	<property name="beans">
+    		<map>
+    			<entry key="nl.ordina.innovation.architecture.forum.jmx:name=Log4J" value-ref="log4jMBean"/>
+    		</map>
+    	</property>
+    </bean>
+
+</beans>
