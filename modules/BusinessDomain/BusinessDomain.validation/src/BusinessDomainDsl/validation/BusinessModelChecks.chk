@@ -21,20 +21,20 @@ context BusinessClass ERROR "Name of BusinessClass [" + this.name + "] is not un
    ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|
      e != this implies e.name != this.name) ;
 
-context BusinessClass ERROR "Name of Attributes must be unique.":
-    properties.forAll(a1| properties.notExists(a2| a1 != a2 && a1.name == a2.name ) );
-
 context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
    ((BusinessDomainDsl::BusinessClass)this.eContainer).properties.forAll(e|
      e != this implies e.name != this.name) ;
 
-context Property ERROR "The dataType property [" + this.name + "] is not specified.":
-    dataType.length > 1;
+context Property ERROR "The dataType of property [" + this.name + "] is not specified.":
+    if this.metaType.isInstance ( EnumerationProperty)
+        true
+    else
+        dataType.length > 1;
 
-context Property ERROR "The name of a Properties must be more than one char long." :
+context Property ERROR "The name of Property ["+ name + "] must be more than one char long." :
     name.length > 1;
  
-context Enumeration ERROR "Literals must be unique" :
+context Enumeration ERROR "Enumeration literals must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
 /*
