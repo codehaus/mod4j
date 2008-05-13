@@ -54,7 +54,7 @@ Enum InheritanceModifier :
     ABSTRACT="abstract" | FINAL="final";
     
 Property : 
-	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty ) 
+	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty | EnumerationProperty ) 
 	(nullable?="nullable")?
 	("default" defaultValue=STRING)?
 	(useAsLogicalId="useAsLogicalId")? 
@@ -74,3 +74,5 @@ BoolProperty : dataType="boolean" name=ID;
 StringProperty : dataType="String" name=ID;
 
 NumberProperty : (dataType="int" | dataType="float") name=ID; 
+
+EnumerationProperty : type=[Enumeration] name=ID; 
