@@ -27,13 +27,17 @@ context BusinessClass ERROR "Names of BusinessClass attributes must be unique.":
 context Property ERROR "The dataType of a property must be specified.":
     dataType.length > 1;
 
-context Property ERROR "The name of a Properties must be more than one char long." :
+context Property ERROR "The name of a Property must be more than one char long." :
     name.length > 1;
 
- 
 context Enumeration ERROR "3 Literals must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
+
+context EnumerationLiteral ERROR "Each EnumerationLiteral must have a persistedValue.":
+    persistedValue !=null;
+    
+
 /*
 context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
        ! classExists(this.name);
