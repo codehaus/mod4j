@@ -1,0 +1,44 @@
+/* Operations implemented in Java on BusinesClass
+ */
+import BusinessDomainDsl;
+
+Void setPropertiesFile(String filename) :
+JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.setPropertiesFile(java.lang.String);
+
+String getApplicationName() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getApplicationName();
+
+String getApplicationVersion() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getApplicationVersion();
+
+String getApplicationPath() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getApplicationPath();
+
+String getDomainModulePath() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDomainModulePath();
+
+String getDataModulePath() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDataModulePath();
+
+String getDomainRootPackage() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDomainRootPackage();
+
+String getDataRootPackage() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDataRootPackage();
+
+String getSrcGenPath() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getSrcGenPath();
+
+String getSrcManPath() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getSrcManPath();
+
+String getResourceManPath() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getResourceManPath();
+
+String getFileEncoding() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getFileEncoding();
+ 
+String getDaoPackage() : 
+     getDataRootPackage() + ".spring.dao";
+
+     
