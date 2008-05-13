@@ -16,7 +16,7 @@ Association:
     "Association" 
     (composite?="composite")?
     sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]"
-    "<->"
+    ( (targetNavigability?="<->") | ("->") )
     "[" targetMultiplicity=Multiplicity "]"targetRoleName=ID target=[BusinessClass] ";";
 
 Enum Multiplicity  :
