@@ -13,7 +13,7 @@ package org.mod4j.businessdomain.xtext;
 import java.io.File;
 import java.util.Date;
 
-import mod4j.crossx.broker.repository.*;
+import mod4j.crossx.broker.repository.CrossxRepository;
 
 public class Crossxcheck {
 
@@ -35,19 +35,19 @@ public class Crossxcheck {
      }
 
     /**
-     * @param path
+     * @param classname
      * @return Returns true of a BusinessClass with the name path exists in any model in the workspace
      */
-    public static boolean classExists(String path){
-    	String resource = CrossxRepository.find(path, "BusinessClass") ;
+    public static boolean classExists(String classname){
+    	String resource = CrossxRepository.find(classname, "BusinessClass") ;
     	return (resource != null);
     }
 
     /** This does the sama as classExists, need a way to not do this twice
      *   Returns the name of the resource in which the BusinessClass path is defined.
      */
-    public static String definedInResource(String path){
-    	String result = CrossxRepository.find(path, "BusinessClass") ;
+    public static String definedInResource(String classname){
+    	String result = CrossxRepository.find(classname, "BusinessClass") ;
     	return result ;
     }
 }
