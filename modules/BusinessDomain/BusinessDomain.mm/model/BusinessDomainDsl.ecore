@@ -71,7 +71,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useAsLogicalId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useAsLogicalId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistency" eType="#//PersistencyMode"
         defaultValueLiteral="ReadWrite"/>
   </eClassifiers>
@@ -121,9 +122,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="sourceRoleName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceMultiplicity" eType="#//Multiplicity"
-        defaultValueLiteral="1"/>
+        defaultValueLiteral="One"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
+        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
