@@ -5,10 +5,6 @@ Class Person [
      String firstName;
      String lastName;
      int cusomerNumber;
-     Rules [
-         firstNameStartsWithA;
-         anotherRule;
-     ]
      Constraints [
          firstNameIsUnique;
      ]
@@ -20,8 +16,6 @@ Class Person2 [
 
 Class Order [
      String orderNumber;
-     DateTime orderDate ;
-     DateTime deliveryDate;
 ]
 
 Enumeration  Ordering [
