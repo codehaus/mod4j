@@ -23,6 +23,9 @@ String daoClassName(BusinessClass cls) :
 String daoImplClassName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassName(BusinessDomainDsl.BusinessClass);
 
+boolean isCompositePart(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isCompositePart(BusinessDomainDsl.BusinessClass);
+
 boolean isOne2Many(Association a) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isOne2Many(BusinessDomainDsl.Association);
 
