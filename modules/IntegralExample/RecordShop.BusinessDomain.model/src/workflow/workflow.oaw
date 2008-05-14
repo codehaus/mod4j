@@ -4,11 +4,18 @@
 
     <property file="workflow.properties" />
 
+    <bean class="org.eclipse.mwe.emf.StandaloneSetup"/>
+    <bean class="org.mod4j.businessdomain.xtext.MetaModelRegistration"/>
+	<component id="BusinessDomainDsl-parser" class="org.mod4j.businessdomain.xtext.parser.ParserComponent">
+		<modelFile value="${modelFile}"/>
+		<outputSlot value="${outputSlot}"/>
+	</component>
+<!--
     <component file='org/mod4j/businessdomain/xtext/parser/Parser.oaw'>
         <modelFile value="${modelFile}"/>
         <outputSlot value="${outputSlot}"/>
     </component>
-
+-->
     <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
         <directories value="${domainModulePath}/${srcGenPath}, ${dataModulePath}/${srcGenPath}"/>
     </component>
