@@ -1,8 +1,5 @@
 «IMPORT BusinessDomainDsl»
 
-«REM»	
-«EXTENSION template::GeneratorExtensions»
-«ENDREM»
 «EXTENSION ProjectProperties»
 «EXTENSION BusinessClass»
 
@@ -17,26 +14,30 @@
 	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:aop="http://www.springframework.org/schema/aop">
-    <!-- TODO: should this be done for each class that has a Dao? Or for a "main" class? Or what?
-«FOREACH this.types.typeSelect(BusinessClass) AS cls»
+
 	<aop:config>
-		<aop:pointcut id="«cls.name»DataMethods" 
-		              expression="execution(* «getDaoPackage()».«javaClassName(cls)»DaoImpl.*(..))"/>
+		<aop:pointcut id="«getApplicationName()»DataMethods" 
+		              expression="execution(* «getDaoPackage()».*DaoImpl.*(..))"/>
 	
 		<aop:aspect ref="loggingAspect">
-	        <aop:around pointcut-ref="«cls.name»DataMethods" method="log"/>
+	        <aop:around pointcut-ref="«getApplicationName()»DataMethods" method="log"/>
 	    </aop:aspect>
 		<aop:aspect ref="timingAspect">
-	        <aop:around pointcut-ref="«cls.name»DataMethods" method="time"/>
+	        <aop:around pointcut-ref="«getApplicationName()»DataMethods" method="time"/>
 	    </aop:aspect>
 	</aop:config>
-«ENDFOREACH»
 
     <!--  Data layer part of infrastructure -->
-    <bean id="«getApplicationName()»Dao"
-        class="«getDaoPackage()».«getApplicationName()»DaoImpl">
+«FOREACH this.types.typeSelect(BusinessClass) AS cls»
+	«IF ! isCompositePart(cls)»
+	<bean id="«javaVarName(cls)»Dao"
+        class="«getDaoPackage()».«daoImplClassName(cls)»">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+	
+	«ENDIF»
+    
+«ENDFOREACH»
 
     <!-- hibernate wiring -->
     <bean id="sessionFactory"
