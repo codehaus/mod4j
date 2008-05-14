@@ -60,6 +60,15 @@ public class BusinessClassHelpers {
 		return ( (srcMult == Multiplicity.ONE_MANY) || (srcMult == Multiplicity.ZERO_MANY) ) &&
 		       ( (tgtMult == Multiplicity.ONE_MANY) || (tgtMult == Multiplicity.ZERO_MANY) ) ;
 	}
+
+	public static boolean isCompositePart(BusinessClass cls){
+		for(Association a : cls.getAssociationsFrom() ){
+			if( a.isComposite() && (a.getSourceMultiplicity() == Multiplicity.ONE) ) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 
 }
