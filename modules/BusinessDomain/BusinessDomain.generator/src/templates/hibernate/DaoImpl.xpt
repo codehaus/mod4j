@@ -26,7 +26,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  */
 public class «daoImplClassName(this)» extends HibernateDaoSupport implements «daoClassName(this)» {
 
-    public «javaClassName(this)» retrieve(int id) {
+    public «javaClassName(this)» retrieve(long id) {
         Object o = getHibernateTemplate().get(«javaClassName(this)».class, new Long(id));
         if (o == null) {
             return null;
