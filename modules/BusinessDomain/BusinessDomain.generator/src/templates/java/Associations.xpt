@@ -64,7 +64,15 @@
 	public List<«target.name»> get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
 	}
-	
+
+    /**
+     *
+     * @param «target.name» (List<«target.name»>) «target.description»
+     */
+    public void set«targetRoleName.toFirstUpper()» (List<«target.name»> «target.name») {
+        this.«targetRoleName» = «target.name»;
+    }
+		
 	/**
 	 *
 	 * @param a«target.name» («target.name») «target.description»
