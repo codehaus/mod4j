@@ -16,12 +16,19 @@
     <artifactId>«getProperty("applicationName", appPropFilePath())»-«moduleName»</artifactId>
     <name>«getProperty("applicationName", appPropFilePath())»-«moduleName»</name>
     <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+    «EXPAND addDependenciesSection FOR moduleName-»
+</project>
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE addDependenciesSection FOR String»
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+    «IF this == "domain"-»
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -30,14 +37,45 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>
-        <!-- TODO: Enable when cross module is ready
-            <dependency>
-            <groupId>«getProperty("rootPackage", appPropFilePath())»</groupId>
-            <artifactId>«getProperty("applicationName", appPropFilePath())»-cross</artifactId>
-            <version>${project.version}</version>
-            </dependency>
-        -->
+    «ELSEIF this == "data"-»
+        <dependency>
+            <groupId>«getProperty("domainRootPackage", appPropFilePath())»</groupId>
+            <artifactId>«getProperty("applicationName", appPropFilePath())»-domain</artifactId>
+            <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+           <artifactId>hibernate</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <scope>test</scope>
+        </dependency>
+    «ENDIF-»
     </dependencies>
-</project>
-	«ENDFILE»
 «ENDDEFINE»
