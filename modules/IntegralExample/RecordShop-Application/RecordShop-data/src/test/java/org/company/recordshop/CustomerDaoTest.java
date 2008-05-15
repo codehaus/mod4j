@@ -1,0 +1,168 @@
+package org.company.recordshop;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.company.recordshop.data.spring.dao.CustomerDao;
+import org.company.recordshop.domain.Customer;
+import org.company.recordshop.domain.Sexe;
+import org.hibernate.SessionFactory;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+
+/**
+ * @author mod4j
+ * 
+ */
+@ContextConfiguration(locations = { "/RecordShopDataLaagContext.xml",
+        "/RecordShopDataLaagTestContext.xml", "/Mod4jCommonContext.xml" })
+public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+
+    @Autowired
+    private CustomerDao customerDao;
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    /**
+     * Test method for
+     * {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve(int)}.
+     */
+    @Test
+    public void testRetrieveInt() {
+        Customer customer = new Customer("Vincent", "Van Gogh", Sexe.MALE, 1, false );
+        customer.setNumberOfEars(1);
+        customerDao.add(customer);
+        Customer savedCust = null;
+        assertNotNull(savedCust = customerDao.retrieve(customer.getId()));
+        assertEquals("Van Gogh", savedCust.getLastName());
+        assertEquals(1, savedCust.getNumberOfEars());
+    }
+
+
+    
+/*    *//**
+     * Test method for
+     * {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve(java.lang.String)}.
+     *//*
+    @Test
+    public void testRetrieveBylogicalId() {
+        Customer customer = new Customer("Vincent", "Van Gogh", Sexe.FEMALE, 1, false );
+        customer.setSexe(Sexe.MALE);
+        customerDao.add(customer);
+        Customer savedCust = null;
+        assertNotNull(savedCust = customerDao.retrieve(customer.getCustomerNr()));
+        assertEquals("Van Gogh", savedCust.getLastName());
+        assertEquals(Sexe.MALE , savedCust.getSexe());
+    }
+
+     
+    *//**
+     * Test method for
+     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#add(nl.ordina.innovation.architecture.customer.domein.Customer)}.
+     *//*
+    @Test
+    public void testAdd() {
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        Customer customer = new Customer("Pinokkio");
+        customer.setLevel(Level.INTERMEDIATE);
+        customerDao.add(customer);
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        assertEquals(Level.INTERMEDIATE.id().intValue(), simpleJdbcTemplate
+                .queryForInt("select level from customerddd where id = ?", customer
+                        .getId()));
+    }
+
+    *//**
+     * Test method for
+     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#update(nl.ordina.innovation.architecture.customer.domein.Customer)}.
+     *//*
+    @Test
+    public void testUpdate() {
+        Customer customer = new Customer("Pinokkio");
+        customer.setLevel(Level.EXPERT);
+        customerDao.add(customer);
+        Customer saved = null;
+        assertNotNull(saved = customerDao.retrieve("Pinokkio"));
+        assertEquals("Pinokkio", saved.getCustomerName());
+        assertEquals(Level.EXPERT, saved.getLevel());
+
+        saved.setCustomerName("Shrek");
+        saved.setLevel(Level.BEGINNER);
+        sessionFactory.getCurrentSession().flush();
+        assertNotNull(saved = customerDao.retrieve("Shrek"));
+        assertEquals(Level.BEGINNER, saved.getLevel());
+        assertNull(saved = customerDao.retrieve("niets"));
+
+        assertNotNull(saved = customerDao.retrieve("Shrek"));
+        saved.setLevel(null);
+        sessionFactory.getCurrentSession().flush();
+        assertNotNull(saved = customerDao.retrieve("Shrek"));
+        assertNull(saved.getLevel());
+    }
+
+    *//**
+     * Test method for
+     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#delete(nl.ordina.innovation.architecture.customer.domein.Customer)}.
+     *//*
+    @Test
+    public void testDelete() {
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        customerDao.add(new Customer("onderwerp"));
+        customerDao.add(new Customer("gezegde"));
+        customerDao.add(new Customer("lijdend voorwerp"));
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        customerDao.delete(customerDao.retrieve("onderwerp"));
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(2, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        customerDao.delete(customerDao.retrieve("gezegde"));
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        customerDao.delete(customerDao.retrieve("lijdend voorwerp"));
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        customerDao.delete(new Customer("bestaat niet"));
+    }
+
+    *//**
+     * Test method for
+     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#listAllCustomers()}.
+     *//*
+    @Test
+    public void testListAllCustomers() {
+        customerDao.add(new Customer("Pinokkio"));
+        customerDao.add(new Customer("Shrek"));
+        customerDao.add(new Customer("Donkey"));
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "USERDDD"));
+        List<Customer> customers = customerDao.listAllCustomers();
+        assertNotNull(customers);
+        assertEquals(3, customers.size());
+        // Om willekeurige volgorde te vermijden.
+        Collections.sort(customers, new CustomerComparator());
+        assertEquals("Donkey", customers.get(0).getCustomerName());
+        assertEquals("Pinokkio", customers.get(1).getCustomerName());
+        assertEquals("Shrek", customers.get(2).getCustomerName());
+    }
+
+    public class CustomerComparator implements Comparator<Customer> {
+
+        public int compare(Customer o1, Customer o2) {
+            return o1.compareTo(o2);
+        }
+
+    }
+*/
+}
