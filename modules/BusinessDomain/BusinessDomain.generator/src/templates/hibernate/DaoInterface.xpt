@@ -73,7 +73,7 @@ public interface «daoClassName(this)» {
      * 
      * @return a List of all «javaClassName(this)» objects.
      */
-    List<«javaClassName(this)»> listAll«javaVarName(this)»s();
+    List<«javaClassName(this)»> listAll«javaClassName(this)»s();
 }
 «ENDFILE»
 «ENDDEFINE»
