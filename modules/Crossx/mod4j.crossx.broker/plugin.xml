@@ -15,7 +15,7 @@
    </extension>
    <extension
          id="CrossxNature"
-         name="Crossx Project Nature"
+         name="Crossx Mod4j Project Nature"
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
@@ -34,24 +34,13 @@
             nameFilter="*"
             id="mod4j.crossx.broker.contribution1">
          <action
-               label="Add/Remove Sample Nature"
+               label="Add/Remove Crossx Nature"
                class="mod4j.crossx.broker.builder.ToggleNatureAction"
                menubarPath="additions"
                enablesFor="+"
                id="mod4j.crossx.broker.addRemoveNatureAction">
          </action>
       </objectContribution>
-   </extension>
-   <extension
-         id="xmlProblem"
-         name="XML Problem"
-         point="org.eclipse.core.resources.markers">
-      <super
-            type="org.eclipse.core.resources.problemmarker">
-      </super>
-      <persistent
-            value="true">
-      </persistent>
    </extension>
    <extension
          point="org.eclipse.ui.views">
