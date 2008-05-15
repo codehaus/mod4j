@@ -28,6 +28,10 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-common</artifactId>
+        </dependency>
     «IF this == "domain"-»
         <dependency>
             <groupId>org.springframework</groupId>
