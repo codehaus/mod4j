@@ -1,0 +1,22 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION ProjectProperties»
+«EXTENSION util»
+«EXTENSION BusinessClass»
+
+«DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»
+
+	«setPropertiesFile( appPropFilePath() )»
+	«EXPAND HibernateConfiguration::hibernateheader     FOR this»
+	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
+    «EXPAND HibernateMapping::mapping                   FOREACH this.types.typeSelect(BusinessClass) »
+«REM»
+    «EXPAND HibernateMapping::mapping(appName)                   FOREACH  this.types.typeSelect(BusinessClass) »
+«ENDREM»
+«ENDDEFINE»
+«DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
+	«EXPAND DaoImpl::daoImplementation  FOREACH
+	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
+	«EXPAND DaoInterface::daoInterface  FOREACH 
+	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
+«ENDDEFINE»
