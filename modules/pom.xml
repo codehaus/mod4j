@@ -85,9 +85,12 @@
       <url>scp://${centralhost}/home/groups/mod4j/htdocs/</url>
     </site>
     <repository>
-      <id>project-repo-deploy</id>
-      <name>mod4j Project Repository</name>
-      <url>scp://${centralhost}/home/groups/mod4j/htdocs/repo</url>
+	<!--
+	    Watch it: We deploy directly to the common smart-repo!
+	-->
+	<id>smart-repo-deploy</id>
+	<name>Common SMART-Java Repository</name>
+	<url>scp://${centralhost}/home/groups/repo/htdocs/repo</url>
     </repository>
   </distributionManagement>
 
@@ -240,7 +243,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.2</version>
+      <version>4.4</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
