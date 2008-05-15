@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mod4j</groupId>
   <!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
   <artifactId>mod4j</artifactId>
   <packaging>pom</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   <name>mod4j</name>
   <url>https://mod4j.${centralhost}/</url>
 
@@ -17,8 +15,8 @@
   </properties>
 
   <scm>
-    <connection>scm:svn:https://svn.${centralhost}/mod4j/trunk/modules</connection>
-    <developerConnection>scm:svn:https://svn.${centralhost}/mod4j/trunk/modules</developerConnection>
+    <connection>scm:svn:https://svn.smart-java.nl/mod4j/tags/mod4j-0.1</connection>
+    <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/tags/mod4j-0.1</developerConnection>
   </scm>
 
   <mailingLists>
@@ -248,6 +246,6 @@
     </dependency>
   </dependencies>
 
-  <dependencyManagement></dependencyManagement>
+  <dependencyManagement />
 
 </project>
