@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<workflow>
+
+    <property file="workflow.properties" />
+
+    <bean class="org.eclipse.mwe.emf.StandaloneSetup"/>
+    <bean class="org.mod4j.businessdomain.xtext.MetaModelRegistration"/>
+    <bean id="bm" class="oaw.type.emf.EmfMetaModel">
+		<metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />  
+	</bean>
+    
+	<component id="BusinessDomainDsl-parser" class="org.mod4j.businessdomain.xtext.parser.ParserComponent">
+		<modelFile value="${modelFile}"/>
+		<outputSlot value="${outputSlot}"/>
+	</component>
+
+    <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
+        <directories value="${domainModulePath}/${srcGenPath}, ${dataModulePath}/${srcGenPath}"/>
+    </component>
+
+    <component id="generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}" />
+        <outlet path="${domainModulePath}/${srcGenPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+
+    <!-- 
+        Generation of extions points for the model.
+        Extension points will only be generated if they do not exist already.
+    -->
+    <component id="extensionPoint-generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="BusinessDomain::ExtensionPointGeneration('${domainModulePath}/${srcManPath}','${domainRootPackage}') FOR ${outputSlot}" />
+        <outlet path="${domainModulePath}/${srcManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+
+    <!-- 
+        Generation of Maven configuration files.
+    -->  
+    <component id="mavenConfig-generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
+            <metaModelFile value="BusinessDomainDsl.ecore" />
+        </metaModel>
+        <expand value="BusinessDomain::CreateMavenConfiguration FOR ${outputSlot}"/>
+        <outlet path="${applicationPath}">
+        <!-- TODO: Fix the XmlBeautifier ==> probably oAW 4.3 propblem -->
+<!--            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />-->
+        </outlet>
+         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+    </component>
+ 
+    <!-- 
+        Generation of Hibernate resource files.
+    -->  
+     <component id="generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="bm" />
+        <expand value="Datalayer::genResources FOR ${outputSlot}" />
+        <outlet path="${dataModulePath}/${resourceManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+<!--            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" /> -->
+        </outlet>
+         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+    </component>
+
+    <!-- 
+        Generation of Dao files.
+    -->  
+    <component id="daoGenerator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="bm" />
+        <expand value="Datalayer::genDao FOR ${outputSlot}" />
+        <outlet path="${dataModulePath}/${srcManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+    </component>
+
+ 
+</workflow>
