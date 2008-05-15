@@ -40,11 +40,13 @@
 		* Generated at: «timestamp()»
 		*/
         public abstract class «name»ImplBase «IF superclass != null -»extends «superclass.name» «ENDIF»implements java.io.Serializable {
-            	
+            
+            «EXPAND Attributes::addIdAttribute FOR this»	
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addToReferenceVariable FOREACH associationsTo.select(e|e.targetNavigability)»
  			«EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.sourceNavigability)»
  			«EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
+ 			«EXPAND Attributes::addIdAccessors FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
         }

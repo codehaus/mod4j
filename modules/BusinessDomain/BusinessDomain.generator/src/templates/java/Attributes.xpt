@@ -110,3 +110,29 @@
      */
 «ENDDEFINE»
 
+«DEFINE addIdAttribute FOR BusinessClass»
+    /**
+     *  id: The identifier of this object.
+     */
+     private long id;
+     
+     @SuppressWarnings("unused")
+     private int version = -1;
+«ENDDEFINE»
+
+«DEFINE addIdAccessors FOR BusinessClass»
+    /**
+    *
+    * @return id (Long) The identifier of this object.
+    */
+     public Long getId() {
+        return this.id;
+    }
+    /**
+    *
+    * @param id (Long) The identifier to set.
+    */
+    public void setId(Long id) {
+        this.id = id;
+    }
+«ENDDEFINE»
