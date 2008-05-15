@@ -20,9 +20,7 @@
     </component>
 
     <component id="generator" class="org.openarchitectureware.xpand2.Generator">
-        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
-            <metaModelFile value="BusinessDomainDsl.ecore" />
-        </metaModel>
+        <metaModel idRef="bm" />
         <expand value="BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}" />
         <outlet path="${domainModulePath}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
@@ -35,9 +33,7 @@
         Extension points will only be generated if they do not exist already.
     -->
     <component id="extensionPoint-generator" class="org.openarchitectureware.xpand2.Generator">
-        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
-            <metaModelFile value="BusinessDomainDsl.ecore" />
-        </metaModel>
+        <metaModel idRef="bm" />
         <expand value="BusinessDomain::ExtensionPointGeneration('${domainModulePath}/${srcManPath}','${domainRootPackage}') FOR ${outputSlot}" />
         <outlet path="${domainModulePath}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
@@ -49,9 +45,7 @@
         Generation of Maven configuration files.
     -->  
     <component id="mavenConfig-generator" class="org.openarchitectureware.xpand2.Generator">
-        <metaModel id="mm" class="org.openarchitectureware.type.emf.EmfMetaModel">
-            <metaModelFile value="BusinessDomainDsl.ecore" />
-        </metaModel>
+        <metaModel idRef="bm" />
         <expand value="BusinessDomain::CreateMavenConfiguration FOR ${outputSlot}"/>
         <outlet path="${applicationPath}">
         <!-- TODO: Fix the XmlBeautifier ==> probably oAW 4.3 propblem -->
