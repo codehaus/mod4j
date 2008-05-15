@@ -10,7 +10,7 @@ Class Person [
 
 Description "A Customer represents a Person who orders from the RecordShop."
 Class Customer inherits Person [
-    int customerId;
+    int customerNr;
     boolean isBlackListed;
     Rules [
         Description "If Customer has one ear, he/she get a discount of 50 percent."  
