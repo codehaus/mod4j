@@ -62,7 +62,7 @@
         <expand value="Datalayer::genResources FOR ${outputSlot}" />
         <outlet path="${dataModulePath}/${resourceManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
-<!--            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" /> -->
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
          <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
     </component>
