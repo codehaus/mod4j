@@ -15,7 +15,7 @@
     </description>
     <properties>
 	    <centralhost>smart-java.nl</centralhost>
-        <spring.version>2.0.8</spring.version>
+        <spring.version>2.5</spring.version>
     </properties>
     <scm>
         <connection>scm:svn:https://svn.${centralhost}/mod4j/trunk/modules/IntegralExample/RecordShop</connection>
