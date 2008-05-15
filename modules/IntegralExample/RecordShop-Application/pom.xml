@@ -103,6 +103,11 @@
     </issueManagement>
     <dependencyManagement>
         <dependencies>
+        	<dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-common</artifactId>
+                <version>0.1</version>
+            </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
@@ -122,7 +127,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.2</version>
+                <version>4.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -143,24 +148,34 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
-                <artifactId>spring</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
-                <artifactId>spring-mock</artifactId>
+                <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
-                <artifactId>spring-portlet</artifactId>
+                <artifactId>spring-orm</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>commons-discovery</groupId>
@@ -234,12 +249,12 @@
                 <version>2.3</version>
                 <scope>provided</scope>
             </dependency>
-		   <dependency>
-			    <groupId>javax.portlet</groupId>
-			    <artifactId>portlet-api</artifactId>
-			    <version>1.0</version>
-		    	<scope>provided</scope>
-		   </dependency>
+            <dependency>
+                <groupId>javax.portlet</groupId>
+                <artifactId>portlet-api</artifactId>
+                <version>1.0</version>
+                <scope>provided</scope>
+            </dependency>
             <dependency>
                 <groupId>aspectj</groupId>
                 <artifactId>aspectjrt</artifactId>
