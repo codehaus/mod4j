@@ -43,7 +43,7 @@
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5_10 or
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or
                         greater). You can download one from the
                         <a
                             href="http://java.sun.com/javase/downloads/index.jsp">
