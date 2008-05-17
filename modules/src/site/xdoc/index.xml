@@ -131,13 +131,14 @@
                         from the context menu.
                     </li>
                     <li>
-                        In the new Eclipse session: import the projects
-                        <code>BusinessDomain.mm</code>,
-                        <code>BusinessDomain.generator</code>,
-                        <code>BusinessDomain.xtext</code>,
-                        <code>BusinessDomain.validation</code>
-                        and the models of the RecordShop example project:
-                        <code>RecordShop.BusinessDomain.model</code>
+                        In the new Eclipse session: import the following projects <br/>
+                        <code>BusinessDomain.mm</code>, <br/>
+                        <code>BusinessDomain.generator</code>, <br/>
+                        <code>BusinessDomain.xtext</code>, <br/>
+                        <code>BusinessDomain.validation</code> <br/>
+                        <code>mod4j.crossx.broker</code> <br/>
+                        and the models of the RecordShop example project: <br/>
+                        <code>RecordShop.BusinessDomain.model</code> <br/>
                         ...    
                     </li>
                     <li>
