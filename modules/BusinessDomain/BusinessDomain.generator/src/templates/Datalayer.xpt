@@ -15,6 +15,7 @@
 «ENDREM»
 «ENDDEFINE»
 «DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
+    «EXPAND GenericEnumUserType::createGenericEnumUserType FOR this»
 	«EXPAND DaoImpl::daoImplementation  FOREACH
 	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
 	«EXPAND DaoInterface::daoInterface  FOREACH 

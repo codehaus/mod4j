@@ -22,20 +22,22 @@
             private static final Map<Integer, «name»> lookup = new HashMap<Integer, «name»>();
             static {
                 for(«name» s : EnumSet.allOf(«name».class))
-                   lookup.put(s.getCode(), s);
+                   lookup.put(s.id(), s);
             }
 
-            private int code;
+            private Integer id;
             
-            private «name»(int code) {
-                this.code = code;
+            private «name»(Integer id) {
+                this.id = id;
             }
             
-            public int getCode() { return code; }
+            public Integer id() {
+                return id;
+            }
             
-            public static «name» get(int code) {
-                return lookup.get(code); 
-            }                   
+            public static «name» value(Integer id) {
+                return lookup.get(id); 
+            }                  
         }
     «ENDFILE»
 «ENDDEFINE»

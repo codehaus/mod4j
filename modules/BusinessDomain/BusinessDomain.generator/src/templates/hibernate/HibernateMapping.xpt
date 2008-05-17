@@ -38,7 +38,17 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::Property»
-        <property name="«this.name»" access="field" />
+    <property name="«this.name»" access="field" />
+«ENDDEFINE»
+
+«DEFINE mapping FOR EnumerationProperty»
+    <property name="«this.name»" access="field">
+        <type name="«getDataRootPackage()».GenericEnumUserType">
+            <param name="enumClass">
+                «getDomainRootPackage()».«this.type.name»
+            </param>
+        </type>
+    </property>
 «ENDDEFINE»
 
 «REM»mapping for outgoing associations«ENDREM»
