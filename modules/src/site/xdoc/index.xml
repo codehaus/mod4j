@@ -16,26 +16,21 @@
     <body>
         <section name="Welcome to Mod4j">
             <p>
-                Mod4j is a project that focuses on Model Driven Software
-                Development. It's goal is to improve the productivity of Java
-                software development by using Domain Specific Languages.
+                Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the
+                productivity of Java software development by using Domain Specific Languages.
             </p>
             <p>TODO: Add more context (target architecture).</p>
 
             <subsection name="About Mod4j">
                 <ul>
                     <li>
-                        <a href="features.html">
-                            What are the features of Mod4j?
-                        </a>
+                        <a href="features.html">What are the features of Mod4j?</a>
                     </li>
                     <li>
                         <a href="guide-helping.html">Can I get involved?</a>
                     </li>
                     <li>
-                        <a href="getting-help.html">
-                            Where do I get help with Mod4j?
-                        </a>
+                        <a href="getting-help.html">Where do I get help with Mod4j?</a>
                     </li>
                 </ul>
             </subsection>
@@ -43,68 +38,51 @@
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5.0_15 or
-                        greater). You can download one from the
-                        <a
-                            href="http://java.sun.com/javase/downloads/index.jsp">
-                            Sun download site
-                        </a>
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or greater). You can download one from
+                        the
+                        <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
                     </li>
                     <li>
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">
-                            Download
-                        </a>
-                        and install Eclipse with modeling plug-ins. To minimize
-                        time spending on version en dependency conflicts we
-                        already have a version waiting for you to download. This
-                        version based on Eclipse Europa 3.3.2, OAW 4.2 (Xtext
-                        4.3.0), EMF 2.3.1 and has some convenient plug-ins (like
-                        Subclipse). You can download a Windows or Linux archive
-                        from our project share
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">
-                            here
-                        </a>
+                        <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
+                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
+                        conflicts we already have a version waiting for you to download. This version based on Eclipse
+                        Europa 3.3.2, OAW 4.2 (Xtext 4.3.0), EMF 2.3.1 and has some convenient plug-ins (like
+                        Subclipse). You can download a Windows or Linux archive from our project share
+                        <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
-                        Make sure you start Eclipse with de right options, e.g
-                        on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm
-                        /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
-                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
+                        Make sure you start Eclipse with de right options, e.g on a linux system:
+                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs
+                        -Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
                     </li>
                     <li>
-                        Make sure the text file encoding in Eclipse is set to
-                        'UTF-8'. You can verify and set this in the field 'Text
-                        file encoding' by navigating to 'Window ->
-                        Preferences... -> General -> Workspace'. For Linux users
-                        UTF-8 is usually the platform encoding, and no change
-                        will be necessary.
+                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in
+                        the field 'Text file encoding' by navigating to 'Window -> Preferences... -> General ->
+                        Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
+                        necessary.
                     </li>
                 </ol>
             </subsection>
 
             <subsection name="Generating the DSL-editors">
                 <p>
-                    While the metamodel and its associated syntax is still under
-                    heavy development, you should be prepared to generate the
-                    model editors yourself from the metamodel and the syntax
-                    definitions, before you can start modelling:
+                    While the metamodel and its associated syntax is still under heavy development, you should be
+                    prepared to generate the model editors yourself from the metamodel and the syntax definitions,
+                    before you can start modelling:
                 </p>
                 <ol>
                     <li>
                         Check out the source code of the
                         <code>mod4j</code>
                         project from the Subversion URL
-                        <code>
-                            https://viewsvn.smart-java.nl/wsvn/mod4j/trunk
-                        </code>
+                        <code>https://viewsvn.smart-java.nl/wsvn/mod4j/trunk</code>
                         into a directory. See the link
                         <a href="source-repository.html">Project information</a>
                         for information on how to do this.
                     </li>
                     <li>
-                        Import the module
+                        Import the project
                         <code>modules/BusinessDomain/BusinessDomain.mm</code>
                         as
                         <q>Existing Projects into Workspace</q>
@@ -112,39 +90,35 @@
                     </li>
                     <li>
                         Open
-                        <code>
-                            BusinessDomain.mm/model/BusinessDomainDsl.genmodel
-                        </code>
-                        in an editor.
+                        <code>BusinessDomain.mm/model/BusinessDomainDsl.genmodel</code>
+                        in the EMF Generator editor.
                     </li>
                     <li>
                         Right-click on
                         <code>BusinessDomainDsl</code>
                         in the editor pane, and choose
                         <q>Generate All</q>
-                        from the context-menu. You will see three projects
-                        appear in the Package Explorer:
+                        from the context-menu. You will see three projects appear in the Package Explorer:
                         <code>BusinessDomain.mm.edit,</code>
                         <code>BusinessDomain.mm.editor</code>
                         and
                         <code>BusinessDomain.mm.tests.</code>
                     </li>
                     <li>
-                        Now import the modules
-                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>;
-                        <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>;
-                        <code>modules/BusinessDomain/BusinessDomain.generator</code> and all (or the needed)
-                        <code>modules/BusinessDomain/BusinessDomain.example.*</code> modules.
+                        Now import the projects
+                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>
+                        ;
+                        <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>
+                        and
+                        <code>modules/BusinessDomain/BusinessDomain.generator</code>
                     </li>
                     <li>
-                        In all these modules, create a new folder
+                        For the two xtext projects, create a new folder
                         <code>src-gen.</code>
                     </li>
                     <li>
                         Right-click the file
-                        <code>
-                            BusinessDomain.xtext/src/genXtextEditor.oaw,
-                        </code>
+                        <code>BusinessDomain.xtext/src/genXtextEditor.oaw,</code>
                         and choose
                         <q>Run As -> oAW Workflow</q>
                         from the context-menu.
@@ -157,12 +131,30 @@
                         from the context menu.
                     </li>
                     <li>
-                        In the new Eclipse session: import the modules <code>BusinessDomain.mm</code>, <code>BusinessDomain.generator</code>
-                        and the needed <code>BusinessDomain.example.*</code> modules.
+                        In the new Eclipse session: import the projects
+                        <code>BusinessDomain.mm</code>,
+                        <code>BusinessDomain.generator</code>,
+                        <code>BusinessDomain.xtext</code>,
+                        <code>BusinessDomain.validation</code>
+                        and the models of the RecordShop example project:
+                        <code>RecordShop.BusinessDomain.model</code>
+                        ...    
                     </li>
-                     <li>
-                     	Now you should be able to run one of the genrator workflow's in the <code>BusinessDomain.example.*</code> modules. <br/>
-                     	Right-click the file <code>BusinessDomain.example.*/src/workflow.oaw</code> and choose run as <p>Run As -> oAW Workflow</p> from the context-menu. 
+                    <li>
+                        Now you should be able to run one of the generator workflow's in the
+                        <code>RecordShop.BusinessDomain.model</code>
+                        project.
+                        <br/>
+                        Right-click the file
+                        <code>RecordShop.BusinessDomain.model/src/workflow/businessGenerator.oaw</code>
+                        and choose
+                        <p>Run As -> oAW Workflow</p>
+                        from the context-menu.
+                    </li>
+                    <li>
+                        The previous step generated two modules into the RecordShop-Application folder.
+                        See: <code>../RecordShop-Application/RecordShop-domain</code> and
+                        <code>../RecordShop-Application/RecordShop-data</code> 
                     </li>
                 </ol>
             </subsection>
