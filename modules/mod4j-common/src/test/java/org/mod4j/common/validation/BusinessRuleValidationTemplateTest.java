@@ -5,7 +5,6 @@ import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-
 import org.junit.Test;
 import org.mod4j.common.exception.BusinessRuleException;
 import org.mod4j.common.validation.BusinessRuleValidationTemplate;
@@ -44,8 +43,7 @@ public class BusinessRuleValidationTemplateTest {
     @Test
     public void testValidateEmptyOrWhitespace() {
         ObjectToValidate target = new ObjectToValidate("");
-        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(
-                target);
+        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(target);
         try {
             template.validateEmptyOrWhitespace("value");
             fail("Expected BusinessRuleException");
@@ -56,8 +54,7 @@ public class BusinessRuleValidationTemplateTest {
     @Test
     public void testInvokeValidator() {
         ObjectToValidate target = new ObjectToValidate("value");
-        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(
-                target);
+        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(target);
         try {
             template.invokeValidator(new TestValidator());
             fail("Expected BusinessRuleException");
@@ -70,11 +67,9 @@ public class BusinessRuleValidationTemplateTest {
     @Test
     public void testInvokeValidators() {
         ObjectToValidate target = new ObjectToValidate("value");
-        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(
-                target);
+        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(target);
         try {
-            template.invokeValidators(Arrays.asList(new Validator[] {
-                    new TestValidator(), new TestValidator() }));
+            template.invokeValidators(Arrays.asList(new Validator[] { new TestValidator(), new TestValidator() }));
             fail("Expected BusinessRuleException");
         } catch (BusinessRuleException e) {
             Errors errors = (Errors) e.getCause();

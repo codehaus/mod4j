@@ -10,46 +10,46 @@ import org.apache.log4j.LogManager;
  */
 public class Log4j implements Log4jMBean {
 
-	public Log4j() {
-	}
+    public Log4j() {
+    }
 
-	public void activateTrace(String category) {
-		LogManager.getLogger(category).setLevel(Level.TRACE);
-	}
+    public void activateTrace(String category) {
+        LogManager.getLogger(category).setLevel(Level.TRACE);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void activateInfo(String category) {
-		LogManager.getLogger(category).setLevel(Level.INFO);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public void activateInfo(String category) {
+        LogManager.getLogger(category).setLevel(Level.INFO);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void activateDebug(String category) {
-		LogManager.getLogger(category).setLevel(Level.DEBUG);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public void activateDebug(String category) {
+        LogManager.getLogger(category).setLevel(Level.DEBUG);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void activateWarn(String category) {
-		LogManager.getLogger(category).setLevel(Level.WARN);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public void activateWarn(String category) {
+        LogManager.getLogger(category).setLevel(Level.WARN);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void activateError(String category) {
-		LogManager.getLogger(category).setLevel(Level.ERROR);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public void activateError(String category) {
+        LogManager.getLogger(category).setLevel(Level.ERROR);
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void activateFatal(String category) {
-		LogManager.getLogger(category).setLevel(Level.FATAL);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public void activateFatal(String category) {
+        LogManager.getLogger(category).setLevel(Level.FATAL);
+    }
 
 }

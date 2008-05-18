@@ -13,25 +13,25 @@ import org.springframework.core.Ordered;
  */
 public class LoggingAspect implements Ordered {
 
-	private final static Log log = LogFactory.getLog(LoggingAspect.class);
+    private final static Log log = LogFactory.getLog(LoggingAspect.class);
 
-	public Object log(ProceedingJoinPoint call) throws Throwable {
-		log.trace("Entering method [" + call.getTarget().getClass().getName()
-				+ "." + call.getSignature().getName() + "]");
-		Object point = call.proceed();
-		log.trace("Exiting method [" + call.getTarget().getClass().getName()
-				+ "." + call.getSignature().getName() + "]");
-		return point;
-	}
+    public Object log(ProceedingJoinPoint call) throws Throwable {
+        log.trace("Entering method [" + call.getTarget().getClass().getName() + "." + call.getSignature().getName()
+                + "]");
+        Object point = call.proceed();
+        log.trace("Exiting method [" + call.getTarget().getClass().getName() + "." + call.getSignature().getName()
+                + "]");
+        return point;
+    }
 
-	private int order;
+    private int order;
 
-	public int getOrder() {
-		return order;
-	}
+    public int getOrder() {
+        return order;
+    }
 
-	public void setOrder(int order) {
-		this.order = order;
-	}
+    public void setOrder(int order) {
+        this.order = order;
+    }
 
 }

@@ -9,21 +9,19 @@ import org.mod4j.common.validation.BusinessRuleValidationTemplate;
 import org.springframework.validation.Validator;
 
 /**
- * The first reason to introduce this class is to provide a generic
- * {@link #validate} method for all domain objects.
+ * The first reason to introduce this class is to provide a generic {@link #validate} method for all domain objects.
  * 
  * @author Eric Jan Malotaux
  * 
  */
 public abstract class AbstractDomainObject {
     protected List<Validator> validators = new LinkedList<Validator>();
-    protected final BusinessRuleValidationTemplate validationTemplate = new BusinessRuleValidationTemplate(
-            this);
+
+    protected final BusinessRuleValidationTemplate validationTemplate = new BusinessRuleValidationTemplate(this);
 
     /**
-     * Add the given <code>validator</code> to the collection of validators
-     * that will be executed on this object when the {@link #validate()} method
-     * is called. The validators will be invoked in the order they were added.
+     * Add the given <code>validator</code> to the collection of validators that will be executed on this object when
+     * the {@link #validate()} method is called. The validators will be invoked in the order they were added.
      * 
      * @param validator -
      *            the validator being added.
@@ -37,13 +35,12 @@ public abstract class AbstractDomainObject {
     /**
      * Validate this object.
      * 
-     * Validation is performed by calling every {@link Validator} added by the
-     * {@link #addValidator(Validator)} method, in the order they were added.
+     * Validation is performed by calling every {@link Validator} added by the {@link #addValidator(Validator)} method,
+     * in the order they were added.
      * 
      * @throws BusinessRuleException -
-     *             thrown when one or more errors are found. The exception
-     *             thrown has as its cause a {@link BindException} containing
-     *             information on all errors found.
+     *             thrown when one or more errors are found. The exception thrown has as its cause a
+     *             {@link BindException} containing information on all errors found.
      */
     protected void validate() throws BusinessRuleException {
         validationTemplate.invokeValidators(validators);
