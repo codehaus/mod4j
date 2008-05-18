@@ -4,13 +4,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.company.recordshop.data.spring.dao.CustomerDao;
+import org.company.recordshop.data.spring.dao.PersonDao;
 import org.company.recordshop.domain.Customer;
+import org.company.recordshop.domain.Person;
 import org.company.recordshop.domain.Sexe;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
  * @author mod4j
@@ -41,11 +44,9 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
         assertEquals(1, savedCust.getNumberOfEars());
     }
 
-
-    
 /*    *//**
      * Test method for
-     * {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve(java.lang.String)}.
+     * {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve()}.
      *//*
     @Test
     public void testRetrieveBylogicalId() {
@@ -57,28 +58,23 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
         assertEquals("Van Gogh", savedCust.getLastName());
         assertEquals(Sexe.MALE , savedCust.getSexe());
     }
+*/
 
-     
-    *//**
+    /**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#add(nl.ordina.innovation.architecture.customer.domein.Customer)}.
-     *//*
+     */
     @Test
     public void testAdd() {
-        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
-        Customer customer = new Customer("Pinokkio");
-        customer.setLevel(Level.INTERMEDIATE);
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        Customer customer = new Customer("Johannes", "Vermeer", Sexe.MALE, 222, false );
         customerDao.add(customer);
         sessionFactory.getCurrentSession().flush();
-        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
-        assertEquals(Level.INTERMEDIATE.id().intValue(), simpleJdbcTemplate
-                .queryForInt("select level from customerddd where id = ?", customer
-                        .getId()));
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        assertEquals(222, simpleJdbcTemplate.queryForInt("select customernr from customer_table where id = ?", customer.getId()));
     }
 
-    *//**
+/*    *//**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#update(nl.ordina.innovation.architecture.customer.domein.Customer)}.
      *//*
@@ -113,25 +109,25 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
     @Test
     public void testDelete() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
+                simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.add(new Customer("onderwerp"));
         customerDao.add(new Customer("gezegde"));
         customerDao.add(new Customer("lijdend voorwerp"));
         sessionFactory.getCurrentSession().flush();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
+                simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(customerDao.retrieve("onderwerp"));
         sessionFactory.getCurrentSession().flush();
         assertEquals(2, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
+                simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(customerDao.retrieve("gezegde"));
         sessionFactory.getCurrentSession().flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
+                simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(customerDao.retrieve("lijdend voorwerp"));
         sessionFactory.getCurrentSession().flush();
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
+                simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(new Customer("bestaat niet"));
     }
 
@@ -146,7 +142,7 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
         customerDao.add(new Customer("Donkey"));
         sessionFactory.getCurrentSession().flush();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "USERDDD"));
+                simpleJdbcTemplate, "Customer_TABLE"));
         List<Customer> customers = customerDao.listAllCustomers();
         assertNotNull(customers);
         assertEquals(3, customers.size());
