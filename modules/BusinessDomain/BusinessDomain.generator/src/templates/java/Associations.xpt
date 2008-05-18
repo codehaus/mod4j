@@ -10,7 +10,7 @@
 		private «target.name» «targetRoleName»;
 		«EXPAND addToOneAccessorMethods FOR this»
 	«ELSE -»
-		private List<«target.name»> «targetRoleName» = new ArrayList<«target.name»>();
+		private Set<«target.name»> «targetRoleName» = new HashSet<«target.name»>();
 		«EXPAND addToManyAccessorMethods FOR this»
 	«ENDIF»
 «ENDDEFINE»
@@ -59,17 +59,17 @@
 «DEFINE addToManyAccessorMethods FOR Association»
 	/**
 	 *
-	 * @return «targetRoleName» (List<«target.name»>) «target.description»
+	 * @return «targetRoleName» (Set<«target.name»>) «target.description»
 	 */
-	public List<«target.name»> get«targetRoleName.toFirstUpper()» () {
+	public Set<«target.name»> get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
 	}
 
     /**
      *
-     * @param «target.name» (List<«target.name»>) «target.description»
+     * @param «target.name» (Set<«target.name»>) «target.description»
      */
-    public void set«targetRoleName.toFirstUpper()» (List<«target.name»> «target.name») {
+    public void set«targetRoleName.toFirstUpper()» (Set<«target.name»> «target.name») {
         this.«targetRoleName» = «target.name»;
     }
 		

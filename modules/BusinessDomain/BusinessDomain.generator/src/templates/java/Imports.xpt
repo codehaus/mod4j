@@ -1,8 +1,8 @@
 «IMPORT BusinessDomainDsl»
 
 «DEFINE addImports FOR BusinessClass»
- 	import java.util.List;
-	import java.util.ArrayList;
+ 	import java.util.Set;
+	import java.util.HashSet;
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessRule»
