@@ -24,7 +24,7 @@
            table="«javaClassName(this)»_TABLE"
            optimistic-lock="version">
         <cache usage="read-write" />
-        <id name="id" access="field" column="id" type="java.lang.Long">
+        <id name="id" column="id" type="java.lang.Long">
             <generator class="native" />
         </id>
         <version name="version" access="field" unsaved-value="negative" />
