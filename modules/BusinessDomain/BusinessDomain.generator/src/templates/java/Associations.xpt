@@ -67,10 +67,10 @@
 
     /**
      *
-     * @param «target.name» (Set<«target.name»>) «target.description»
+     * @param «targetRoleName» (Set<«target.name»>) «target.description»
      */
-    public void set«targetRoleName.toFirstUpper()» (Set<«target.name»> «target.name») {
-        this.«targetRoleName» = «target.name»;
+    public void set«targetRoleName.toFirstUpper()» (Set<«target.name»> «targetRoleName») {
+        this.«targetRoleName» = «targetRoleName»;
     }
 		
 	/**
