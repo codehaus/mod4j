@@ -1,27 +1,27 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION template::GeneratorExtensions»
+«EXTENSION BusinessClass»
 
 «DEFINE instanceVariable FOR Property»
 	/**
      *  «name»: «description»
      */
-     private «dataType» «name»;
+     private «javaType(this)» «name»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR EnumerationProperty»
     /**
      *  «name»: «description»
      */
-     private «type.name» «name»;
+     private «javaType(this)» «name»;
 «ENDDEFINE»
 
 «DEFINE addGetter FOR Property»
 	/**
 	*
-	* @return «name» («dataType») «description»
+	* @return «name» («javaType(this)») «description»
 	*/
-	public «dataType» get«name.toFirstUpper()» () {
+	public «javaType(this)» get«name.toFirstUpper()» () {
    		return this.«name»;
 	}
 «ENDDEFINE»
@@ -50,10 +50,10 @@
 «DEFINE addAttribute FOR NumberProperty»
 	«EXPAND instanceVariable FOR this»
 	«IF minValue.length>0»
-		public static final «dataType» «name.toUpperCase()»_MINVALUE = «minValue»;
+		public static final «javaType(this)» «name.toUpperCase()»_MINVALUE = «minValue»;
 	«ENDIF»
 	«IF maxValue.length>0»
-		public static final «dataType» «name.toUpperCase()»_MAXVALUE = «maxValue»;
+		public static final «javaType(this)» «name.toUpperCase()»_MAXVALUE = «maxValue»;
 	«ENDIF»
 	public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
 	public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
@@ -62,7 +62,7 @@
 «DEFINE addAttribute FOR StringProperty»	
 	«EXPAND instanceVariable FOR this» 
 	«IF regularExpression.length>0»
-		public static final «dataType» «name.toUpperCase()»_REGEXP = «regularExpression»;
+		public static final «javaType(this)» «name.toUpperCase()»_REGEXP = «regularExpression»;
 	«ENDIF»
 	«IF minLength>0»
 		public static final Integer «name.toUpperCase()»_MINLENGTH = «minLength»;
@@ -75,9 +75,9 @@
 «DEFINE addGetter FOR EnumerationProperty»
     /**
     *
-    * @return «name» («type.name») «description»
+    * @return «name» («javaType(this)») «description»
     */
-    public «type.name» get«name.toFirstUpper()» () {
+    public «javaType(this)» get«name.toFirstUpper()» () {
         return this.«name»;
     }
 «ENDDEFINE»
@@ -85,9 +85,9 @@
 «DEFINE addSetter FOR EnumerationProperty»
     /**
     *
-    * @param «name» («type.name») «description»
+    * @param «name» («javaType(this)») «description»
     */
-    public void set«name.toFirstUpper()» (final «type.name» «name») {
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
     }
 «ENDDEFINE»
@@ -95,9 +95,9 @@
 «DEFINE addSetter FOR Property»
     /**
     *
-    * @param «name» («dataType») «description»
+    * @param «name» («javaType(this)») «description»
     */
-    public void set«name.toFirstUpper()» (final «dataType» «name») {
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
     }
 «ENDDEFINE»
