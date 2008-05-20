@@ -9,12 +9,41 @@
      private «javaType(this)» «name»;
 «ENDDEFINE»
 
+«DEFINE instanceVariable FOR BoolProperty»
+    /**
+     *  «name»: «description»
+     */
+     private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
+«ENDDEFINE»
+
 «DEFINE instanceVariable FOR EnumerationProperty»
     /**
      *  «name»: «description»
      */
-     private «javaType(this)» «name»;
+     private «javaType(this)» «name»«IF defaultValue != null» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
+
+«DEFINE instanceVariable FOR DateTimeProperty»
+    /**
+     *  «name»: «description»
+     */
+     private «javaType(this)» «name»«IF defaultValue != null» = new «javaType(this)»("«defaultValue»")«ENDIF»;
+«ENDDEFINE»
+
+«DEFINE instanceVariable FOR NumberProperty»
+    /**
+     *  «name»: «description»
+     */
+     private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
+«ENDDEFINE»
+
+«DEFINE instanceVariable FOR StringProperty»
+    /**
+     *  «name»: «description»
+     */
+     private «javaType(this)» «name»«IF defaultValue != null» = "«defaultValue»"«ENDIF»;
+«ENDDEFINE»
+
 
 «DEFINE addGetter FOR Property»
 	/**

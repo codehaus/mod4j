@@ -10,9 +10,12 @@ Class Person [
     
     "Last name of the customer." 
     string lastName;
+    
+    "Age"
+    integer age persistency NONE;
      
     "We allow Vulcans in this system." 
-    integer numberOfEars default 2 min 2 max 4 nullable   ;
+    integer numberOfEars default 0 min 2 max 4 nullable;
     
     Sexe sexe;   
 ]
@@ -20,7 +23,7 @@ Class Person [
 "A Customer represents a Person who orders from the RecordShop."
 Class Customer inherits Person [
     integer customerNr;
-    boolean isBlackListed default true;
+    boolean isBlackListed default false nullable;
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
         oneEarDiscount;
@@ -34,7 +37,7 @@ Class Customer inherits Person [
 Class Record [
     string asin;
     string title default "Title unknown";
-    integer mediumCode;
+    integer mediumCode nullable ;
     float price;
 ]
 
@@ -44,7 +47,7 @@ Class Order [
     string orderNumber;
     
     "The date on which the order has been placed"
-    datetime orderDate nullable;
+    datetime orderDate default "01-01-2009" nullable;
     datetime deliveryDate nullable;
     integer discountPercentage nullable;
     float totalAmount;
