@@ -19,7 +19,7 @@
 <!-- Mapping for class «this.name»
      Description «this.description»
   -->
-<hibernate-mapping>
+<hibernate-mapping default-access="field">
     <class name="«getDomainRootPackage()».«javaClassName(this)»"
            table="«javaClassName(this)»_TABLE"
            optimistic-lock="version">
@@ -27,7 +27,7 @@
         <id name="id" column="id" type="java.lang.Long">
             <generator class="native" />
         </id>
-        <version name="version" access="field" unsaved-value="negative" />
+        <version name="version" unsaved-value="negative" />
 		«EXPAND mapping      FOREACH this.properties»
 		«EXPAND mappingsTo   FOREACH this.associationsTo»
 		«EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.targetNavigability)»
@@ -38,11 +38,11 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::Property»
-    <property name="«this.name»" access="field" />
+    <property name="«this.name»" />
 «ENDDEFINE»
 
 «DEFINE mapping FOR EnumerationProperty»
-    <property name="«this.name»" access="field">
+    <property name="«this.name»">
         <type name="«getDataRootPackage()».GenericEnumUserType">
             <param name="enumClass">
                 «getDomainRootPackage()».«this.type.name»
