@@ -70,5 +70,44 @@ public class BusinessClassHelpers {
 		return false;
 	}
 	
+	public static String javaType(Property p){
+		if( p instanceof BoolProperty ){
+			return javaType( (BoolProperty)p);
+		} else if( p instanceof StringProperty ){
+			return javaType( (StringProperty)p);
+		} else if( p instanceof NumberProperty ){
+			return javaType( (NumberProperty)p);
+		} else if( p instanceof EnumerationProperty ){
+			return javaType( (EnumerationProperty)p);
+		} else if( p instanceof DateTimeProperty ){
+			return javaType( (DateTimeProperty)p);
+		}
+		return "Object";
+	}
+
+	public static String javaType(BoolProperty p){
+		return p.isNullable() ? "Boolean"  : "boolean";
+	}
+
+	public static String javaType(DateTimeProperty p){
+		return "DateTime"  ;
+	}
+
+	public static String javaType(EnumerationProperty p){
+		return p.getType().getName();
+	}
+
+	public static String javaType(StringProperty p){
+		return "String";
+	}
+
+	public static String javaType(NumberProperty p){
+		if( p.getDataType().equals("int") ){
+			return p.isNullable() ? "Integer"  : "int";
+		} else if( p.getDataType().equals("float") ){
+			return p.isNullable() ? "Float"  : "float";
+		}
+		return "Object";
+	}
 
 }
