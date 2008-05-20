@@ -5,12 +5,14 @@ Model RecordShopDomainModel
  */
 "A Person represents a legal person." 
 Class Person [
-    "A Person represents a legal person." 
+    "First name of the customer." 
     string firstName;
     
+    "Last name of the customer." 
     string lastName;
      
-    integer numberOfEars min 12 max 13 nullable default "äap"  ;
+    "We allow Vulcans in this system." 
+    integer numberOfEars min 2 max 4 nullable default "äap"  ;
     
     Sexe sexe;   
 ]
@@ -22,6 +24,7 @@ Class Customer inherits Person [
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
         oneEarDiscount;
+        
         "Just another rule"
         anotherRule;
     ]
@@ -37,11 +40,14 @@ Class Record [
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
-     string orderNumber;
-     datetime orderDate nullable;
-     datetime deliveryDate nullable;
-     integer discountPercentage nullable;
-     float totalAmount;
+	"An ordernumber should be unique"
+    string orderNumber;
+    
+    "The date on which the order has been placed"
+    datetime orderDate nullable;
+    datetime deliveryDate nullable;
+    integer discountPercentage nullable;
+    float totalAmount;
 ]
 
 Class OrderLine [
