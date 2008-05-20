@@ -102,7 +102,7 @@ public class BusinessClassHelpers {
 	}
 
 	public static String javaType(NumberProperty p){
-		if( p.getDataType().equals("int") ){
+		if( p.getDataType().equals("integer") ){
 			return p.isNullable() ? "Integer"  : "int";
 		} else if( p.getDataType().equals("float") ){
 			return p.isNullable() ? "Float"  : "float";

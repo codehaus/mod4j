@@ -30,7 +30,7 @@
         <version name="version" unsaved-value="negative" />
 		«EXPAND mapping      FOREACH this.properties»
 		«EXPAND mappingsTo   FOREACH this.associationsTo»
-		«EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.targetNavigability)»
+		«EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.bidirectional)»
 
     </class>
 </hibernate-mapping>
@@ -67,7 +67,7 @@
 «ENDDEFINE»
 
 «DEFINE mappingsFrom FOR Association»
-	«IF this.targetNavigability»
+	«IF this.bidirectional»
 	    «IF isOne2Many(this)»
 			«EXPAND one2manyMappingFrom FOR this»
 		«ELSEIF isOne2One(this)»

@@ -49,10 +49,10 @@
 
 «DEFINE addAttribute FOR NumberProperty»
 	«EXPAND instanceVariable FOR this»
-	«IF minValue.length>0»
+	«IF minValue != null »
 		public static final «javaType(this)» «name.toUpperCase()»_MINVALUE = «minValue»;
 	«ENDIF»
-	«IF maxValue.length>0»
+	«IF maxValue != null »
 		public static final «javaType(this)» «name.toUpperCase()»_MAXVALUE = «maxValue»;
 	«ENDIF»
 	public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
