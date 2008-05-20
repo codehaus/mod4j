@@ -56,6 +56,11 @@ Enumeration Sexe [
     male = 3;
 ]
  
-Association composite customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
-Association composite order Order [ 0..1 ] <-> [ 0..* ] orderLines OrderLine;
+"The cutstomer has a number of orders" 
+Association customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
+
+"An order consists of orderlines"
+Association composite order Order [ 0..1 ] -> [ 0..* ] orderLines OrderLine;
+
+"An ordelrine contains a record"
 Association composite orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
