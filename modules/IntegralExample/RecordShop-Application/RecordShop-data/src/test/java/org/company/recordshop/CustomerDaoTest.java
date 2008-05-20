@@ -41,7 +41,7 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
         Customer savedCust = null;
         assertNotNull(savedCust = customerDao.retrieve(customer.getId()));
         assertEquals("Van Gogh", savedCust.getLastName());
-        assertEquals(1, savedCust.getNumberOfEars());
+        assertEquals(1, savedCust.getNumberOfEars().intValue());
     }
 
 /*    *//**
