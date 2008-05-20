@@ -222,6 +222,10 @@
   <children xmi:type="notation:Node" xmi:id="_-xi-uO9PEdyXXp6e1opTJg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_-xi-u-9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xjlwO9PEdyXXp6e1opTJg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_uYFf0CZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//BoolProperty/defaultValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uYFf0SZsEd2hiPOf3RHzuQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xjlwe9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xjlwu9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xjlw-9PEdyXXp6e1opTJg"/>
@@ -243,6 +247,14 @@
   <children xmi:type="notation:Node" xmi:id="_-xjlzO9PEdyXXp6e1opTJg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_-xkM0O9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xkM0e9PEdyXXp6e1opTJg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_Cys_UCZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//DateTimeProperty/accuracy"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_USZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_g6pDQCZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//DateTimeProperty/defaultValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_g6pDQSZsEd2hiPOf3RHzuQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xkM0u9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xkM0-9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xkM1O9PEdyXXp6e1opTJg"/>
@@ -264,6 +276,10 @@
   <children xmi:type="notation:Node" xmi:id="_-xkz4O9PEdyXXp6e1opTJg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_-xkz4-9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xkz5O9PEdyXXp6e1opTJg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_Vues0CZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//EnumerationProperty/defaultValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vues0SZsEd2hiPOf3RHzuQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xkz5e9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xkz5u9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xkz5-9PEdyXXp6e1opTJg"/>
@@ -285,6 +301,26 @@
   <children xmi:type="notation:Node" xmi:id="_-xla9O9PEdyXXp6e1opTJg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_-xla9-9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xla-O9PEdyXXp6e1opTJg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_Cys_UiZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//NumberProperty/minValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_UyZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Cys_VCZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//NumberProperty/maxValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_VSZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Cys_ViZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//NumberProperty/minInclusive"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_VyZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Cys_WCZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//NumberProperty/maxInclusive"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_WSZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nF0zICZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//NumberProperty/defaultValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nF0zISZsEd2hiPOf3RHzuQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xla-e9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xla-u9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xla--9PEdyXXp6e1opTJg"/>
@@ -306,6 +342,22 @@
   <children xmi:type="notation:Node" xmi:id="_-xmCCO9PEdyXXp6e1opTJg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_-xmCC-9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xmpEO9PEdyXXp6e1opTJg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_Cys_WiZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//StringProperty/regularExpression"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_WyZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Cys_XCZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//StringProperty/minLength"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_XSZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Cys_XiZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//StringProperty/maxLength"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cys_XyZsEd2hiPOf3RHzuQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_q72CcCZsEd2hiPOf3RHzuQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//StringProperty/defaultValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_q72CcSZsEd2hiPOf3RHzuQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xmpEe9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xmpEu9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xmpE-9PEdyXXp6e1opTJg"/>
