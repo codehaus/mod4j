@@ -64,15 +64,15 @@ Property :
 Enum PersistencyMode :
     ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
 
-DateTimeProperty : dataType="DateTime" (accuracy=DateTimeAccuracy)? name=ID;
+DateTimeProperty : dataType="datetime" (accuracy=DateTimeAccuracy)? name=ID;
 
 Enum DateTimeAccuracy :
     Month="Month" | Year="Year" | Day = "Day";
 
 BoolProperty : dataType="boolean" name=ID;
 
-StringProperty : dataType="String" name=ID;
+StringProperty : dataType="string" name=ID;
 
-NumberProperty : (dataType="int" | dataType="float") name=ID; 
+NumberProperty : (dataType="integer" | dataType="float") name=ID; 
 
 EnumerationProperty : type=[Enumeration] name=ID; 
