@@ -9,7 +9,6 @@ Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  BusinessDomain.mm,
  org.antlr,
  org.antlr,
- mod4j.crossx.broker,
  BusinessDomain.validation
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
