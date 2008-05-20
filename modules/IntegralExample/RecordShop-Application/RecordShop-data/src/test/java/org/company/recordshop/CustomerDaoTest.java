@@ -48,34 +48,29 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
                 .getId()));
     }
 
-/*    *//**
+    /**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#update(nl.ordina.innovation.architecture.customer.domein.Customer)}.
-     *//*
+     */
     @Test
     public void testUpdate() {
-        Customer customer = new Customer("Pinokkio");
-        customer.setLevel(Level.EXPERT);
+        Customer customer = new Customer("Vincent", "van Gogh", Sexe.MALE, 1, false);
         customerDao.add(customer);
         Customer saved = null;
-        assertNotNull(saved = customerDao.retrieve("Pinokkio"));
-        assertEquals("Pinokkio", saved.getCustomerName());
-        assertEquals(Level.EXPERT, saved.getLevel());
+        assertNotNull(saved = customerDao.retrieve(customer.getId()));
+        assertEquals("Vincent", saved.getFirstName());
+        assertEquals(false, saved.getIsBlackListed());
 
-        saved.setCustomerName("Shrek");
-        saved.setLevel(Level.BEGINNER);
+        saved.setFirstName("Theo");
+        saved.setIsBlackListed(true);
+        customerDao.update(saved);
         sessionFactory.getCurrentSession().flush();
-        assertNotNull(saved = customerDao.retrieve("Shrek"));
-        assertEquals(Level.BEGINNER, saved.getLevel());
-        assertNull(saved = customerDao.retrieve("niets"));
-
-        assertNotNull(saved = customerDao.retrieve("Shrek"));
-        saved.setLevel(null);
-        sessionFactory.getCurrentSession().flush();
-        assertNotNull(saved = customerDao.retrieve("Shrek"));
-        assertNull(saved.getLevel());
+        Customer updated = customerDao.retrieve(saved.getId());
+        assertEquals("Theo", updated.getFirstName());
+        assertEquals("van Gogh", updated.getLastName());
+        assertEquals(true, updated.getIsBlackListed());
+        assertEquals(Sexe.MALE, updated.getSexe());
     }
-*/
     /**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#delete(nl.ordina.innovation.architecture.customer.domein.Customer)}.
