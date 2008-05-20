@@ -12,7 +12,7 @@ Class Person [
     string lastName;
      
     "We allow Vulcans in this system." 
-    integer numberOfEars min 2 max 4 nullable default "äap"  ;
+    integer numberOfEars default 2 min 2 max 4 nullable   ;
     
     Sexe sexe;   
 ]
@@ -20,7 +20,7 @@ Class Person [
 "A Customer represents a Person who orders from the RecordShop."
 Class Customer inherits Person [
     integer customerNr;
-    boolean isBlackListed;
+    boolean isBlackListed default true;
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
         oneEarDiscount;
