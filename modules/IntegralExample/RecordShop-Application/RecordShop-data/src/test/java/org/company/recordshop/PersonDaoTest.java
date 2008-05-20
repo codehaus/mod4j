@@ -23,9 +23,9 @@ public class PersonDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testAddPerson() {
-        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
-        Person pers = new Person("Johannes", "Vermeer", Sexe.MALE);
-
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
+                simpleJdbcTemplate, "Person_TABLE"));
+        Person pers = new Person("Johannes","Vermeer", 50, Sexe.MALE);
         personDao.add(pers);
         sessionFactory.getCurrentSession().flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
@@ -39,7 +39,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
     @Test
     public void testDeletePerson() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
-        Person person = new Person("Rembrandt", "van Rhijn", Sexe.MALE);
+        Person person = new Person("Rembrandt", "van Rhijn", 23, Sexe.MALE);
         personDao.add(person);
         sessionFactory.getCurrentSession().flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
@@ -54,7 +54,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testUpdatePerson() {
-        Person person = new Person("Rembrandt", "van Rhijn", Sexe.MALE);
+        Person person = new Person("Rembrandt", "van Rhijn", 23, Sexe.MALE);
         personDao.add(person);
         sessionFactory.getCurrentSession().flush();
         Person saved = personDao.retrieve(person.getId());
