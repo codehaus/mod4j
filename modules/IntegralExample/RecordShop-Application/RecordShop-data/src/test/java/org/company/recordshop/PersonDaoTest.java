@@ -1,49 +1,71 @@
 package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
-import org.company.recordshop.data.spring.dao.CustomerDao;
 import org.company.recordshop.data.spring.dao.PersonDao;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Person;
 import org.company.recordshop.domain.Sexe;
-import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
- * @author mod4j
- * 
+ * @author Eric Jan Malotaux
  */
-@ContextConfiguration(locations = { "/RecordShopDataLaagContext.xml",
-        "/RecordShopDataLaagTestContext.xml", "/Mod4jCommonContext.xml" })
-public class PersonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class PersonDaoTest extends AbstractDaoTestCase {
 
     @Autowired
     private PersonDao personDao;
-    
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /**
-     * Test method for
-     * {@link org.company.recordshop.data.spring.dao.PersonDaoImpl#add(org.company.recordshop.domain.Customer)}.
+     * Test method for {@link PersonDao#add(Customer)}.
      */
     @Test
     public void testAddPerson() {
-        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Person_TABLE"));
-        Person pers = new Person("Johannes","Vermeer", Sexe.MALE);
-        
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
+        Person pers = new Person("Johannes", "Vermeer", Sexe.MALE);
+
         personDao.add(pers);
         sessionFactory.getCurrentSession().flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
-        assertEquals(Sexe.MALE.id().intValue(), simpleJdbcTemplate
-                .queryForInt("select sexe from person_table where id = ?", pers.getId()));
+        assertEquals(Sexe.MALE.id().intValue(), simpleJdbcTemplate.queryForInt(
+                "select sexe from person_table where id = ?", pers.getId()));
     }
 
+    /**
+     * Testmethod for {@link PersonDao#delete(Person)}.
+     */
+    @Test
+    public void testDeletePerson() {
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
+        Person person = new Person("Rembrandt", "van Rhijn", Sexe.MALE);
+        personDao.add(person);
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
+        Person saved = personDao.retrieve(person.getId());
+        personDao.delete(saved);
+        sessionFactory.getCurrentSession().flush();
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
+    }
+
+    /**
+     * Testmethod for {@link PersonDao#update(Person)}.
+     */
+    @Test
+    public void testUpdatePerson() {
+        Person person = new Person("Rembrandt", "van Rhijn", Sexe.MALE);
+        personDao.add(person);
+        sessionFactory.getCurrentSession().flush();
+        Person saved = personDao.retrieve(person.getId());
+        saved.setFirstName("Paula");
+        saved.setLastName("Potter");
+        saved.setSexe(Sexe.FEMALE);
+        personDao.update(saved);
+        sessionFactory.getCurrentSession().flush();
+        Person updated = personDao.retrieve(person.getId());
+        assertEquals("Paula", updated.getFirstName());
+        assertEquals("Potter", updated.getLastName());
+        assertEquals(Sexe.FEMALE, updated.getSexe());
+    }
 }

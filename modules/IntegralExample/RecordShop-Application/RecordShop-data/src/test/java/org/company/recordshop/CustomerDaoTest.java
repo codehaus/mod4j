@@ -4,38 +4,27 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.company.recordshop.data.spring.dao.CustomerDao;
-import org.company.recordshop.data.spring.dao.PersonDao;
 import org.company.recordshop.domain.Customer;
-import org.company.recordshop.domain.Person;
 import org.company.recordshop.domain.Sexe;
-import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
- * @author mod4j
- * 
+ * @author Jos Warmer
+ * @author Eric Jan Malotaux
  */
-@ContextConfiguration(locations = { "/RecordShopDataLaagContext.xml",
-        "/RecordShopDataLaagTestContext.xml", "/Mod4jCommonContext.xml" })
-public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class CustomerDaoTest extends AbstractDaoTestCase {
 
     @Autowired
     private CustomerDao customerDao;
 
-    @Autowired
-    private SessionFactory sessionFactory;
-
     /**
-     * Test method for
-     * {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve(int)}.
+     * Test method for {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve(int)}.
      */
     @Test
     public void testRetrieveInt() {
-        Customer customer = new Customer("Vincent", "Van Gogh", Sexe.MALE, 1, false );
+        Customer customer = new Customer("Vincent", "Van Gogh", Sexe.MALE, 1, false);
         customer.setNumberOfEars(1);
         customerDao.add(customer);
         Customer savedCust = null;
@@ -44,22 +33,6 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
         assertEquals(1, savedCust.getNumberOfEars().intValue());
     }
 
-/*    *//**
-     * Test method for
-     * {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve()}.
-     *//*
-    @Test
-    public void testRetrieveBylogicalId() {
-        Customer customer = new Customer("Vincent", "Van Gogh", Sexe.FEMALE, 1, false );
-        customer.setSexe(Sexe.MALE);
-        customerDao.add(customer);
-        Customer savedCust = null;
-        assertNotNull(savedCust = customerDao.retrieve(customer.getCustomerNr()));
-        assertEquals("Van Gogh", savedCust.getLastName());
-        assertEquals(Sexe.MALE , savedCust.getSexe());
-    }
-*/
-
     /**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#add(nl.ordina.innovation.architecture.customer.domein.Customer)}.
@@ -67,17 +40,18 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
     @Test
     public void testAdd() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer customer = new Customer("Johannes", "Vermeer", Sexe.MALE, 222, false );
+        Customer customer = new Customer("Johannes", "Vermeer", Sexe.MALE, 222, false);
         customerDao.add(customer);
         sessionFactory.getCurrentSession().flush();
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        assertEquals(222, simpleJdbcTemplate.queryForInt("select customernr from customer_table where id = ?", customer.getId()));
+        assertEquals(222, simpleJdbcTemplate.queryForInt("select customernr from customer_table where id = ?", customer
+                .getId()));
     }
 
-/*    *//**
+    /**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#update(nl.ordina.innovation.architecture.customer.domein.Customer)}.
-     *//*
+     */
     @Test
     public void testUpdate() {
         Customer customer = new Customer("Pinokkio");
@@ -102,63 +76,38 @@ public class CustomerDaoTest extends AbstractTransactionalJUnit4SpringContextTes
         assertNull(saved.getLevel());
     }
 
-    *//**
+    /**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#delete(nl.ordina.innovation.architecture.customer.domein.Customer)}.
-     *//*
-    @Test
-    public void testDelete() {
-        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.add(new Customer("onderwerp"));
-        customerDao.add(new Customer("gezegde"));
-        customerDao.add(new Customer("lijdend voorwerp"));
-        sessionFactory.getCurrentSession().flush();
-        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(customerDao.retrieve("onderwerp"));
-        sessionFactory.getCurrentSession().flush();
-        assertEquals(2, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(customerDao.retrieve("gezegde"));
-        sessionFactory.getCurrentSession().flush();
-        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(customerDao.retrieve("lijdend voorwerp"));
-        sessionFactory.getCurrentSession().flush();
-        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(new Customer("bestaat niet"));
-    }
-
-    *//**
+     */
+    /*
+     * @Test public void testDelete() { assertEquals(0, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate,
+     * "Customer_TABLE")); customerDao.add(new Customer("onderwerp")); customerDao.add(new Customer("gezegde"));
+     * customerDao.add(new Customer("lijdend voorwerp")); sessionFactory.getCurrentSession().flush(); assertEquals(3,
+     * SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
+     * customerDao.delete(customerDao.retrieve("onderwerp")); sessionFactory.getCurrentSession().flush();
+     * assertEquals(2, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
+     * customerDao.delete(customerDao.retrieve("gezegde")); sessionFactory.getCurrentSession().flush(); assertEquals(1,
+     * SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
+     * customerDao.delete(customerDao.retrieve("lijdend voorwerp")); sessionFactory.getCurrentSession().flush();
+     * assertEquals(0, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
+     * customerDao.delete(new Customer("bestaat niet")); }
+     * 
+     *//**
      * Test method for
      * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#listAllCustomers()}.
-     *//*
-    @Test
-    public void testListAllCustomers() {
-        customerDao.add(new Customer("Pinokkio"));
-        customerDao.add(new Customer("Shrek"));
-        customerDao.add(new Customer("Donkey"));
-        sessionFactory.getCurrentSession().flush();
-        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(
-                simpleJdbcTemplate, "Customer_TABLE"));
-        List<Customer> customers = customerDao.listAllCustomers();
-        assertNotNull(customers);
-        assertEquals(3, customers.size());
-        // Om willekeurige volgorde te vermijden.
-        Collections.sort(customers, new CustomerComparator());
-        assertEquals("Donkey", customers.get(0).getCustomerName());
-        assertEquals("Pinokkio", customers.get(1).getCustomerName());
-        assertEquals("Shrek", customers.get(2).getCustomerName());
-    }
-
-    public class CustomerComparator implements Comparator<Customer> {
-
-        public int compare(Customer o1, Customer o2) {
-            return o1.compareTo(o2);
-        }
-
-    }
-*/
+     */
+    /*
+     * @Test public void testListAllCustomers() { customerDao.add(new Customer("Pinokkio")); customerDao.add(new
+     * Customer("Shrek")); customerDao.add(new Customer("Donkey")); sessionFactory.getCurrentSession().flush();
+     * assertEquals(3, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE")); List<Customer>
+     * customers = customerDao.listAllCustomers(); assertNotNull(customers); assertEquals(3, customers.size()); // Om
+     * willekeurige volgorde te vermijden. Collections.sort(customers, new CustomerComparator()); assertEquals("Donkey",
+     * customers.get(0).getCustomerName()); assertEquals("Pinokkio", customers.get(1).getCustomerName());
+     * assertEquals("Shrek", customers.get(2).getCustomerName()); }
+     * 
+     * public class CustomerComparator implements Comparator<Customer> {
+     * 
+     * public int compare(Customer o1, Customer o2) { return o1.compareTo(o2); } }
+     */
 }
