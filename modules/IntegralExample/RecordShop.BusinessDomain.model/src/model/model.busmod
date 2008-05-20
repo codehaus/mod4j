@@ -2,15 +2,15 @@ Model RecordShopDomainModel
 
 Description "A Person represents a legal person." 
 Class Person [
-    String firstName;
-    String lastName;
-    int numberOfEars nullable;
+    string firstName;
+    string lastName;
+    integer numberOfEars nullable;
     Sexe sexe;
 ]
 
 Description "A Customer represents a Person who orders from the RecordShop."
 Class Customer inherits Person [
-    int customerNr;
+    integer customerNr;
     boolean isBlackListed;
     Rules [
         Description "If Customer has one ear, he/she get a discount of 50 percent."  
@@ -26,24 +26,24 @@ Class Customer inherits Person [
 
 Description "A Record is a representation of a physical medium containing one or more musical compositions."
 Class Record [
-    String asin;
-    String title default "Title unknown";
-    int mediumCode;
+    string asin;
+    string title default "Title unknown";
+    integer mediumCode;
     float price;
 ]
 
 Description "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
-     String orderNumber;
-     DateTime orderDate nullable;
-     DateTime deliveryDate nullable;
-     int discountPercentage nullable;
+     string orderNumber;
+     datetime orderDate nullable;
+     datetime deliveryDate nullable;
+     integer discountPercentage nullable;
      float totalAmount;
 ]
 
 Class OrderLine [
-    int lineNumber;
-    String description;
+    integer lineNumber;
+    string description;
     float lineAmount;
 ]
 
