@@ -14,6 +14,20 @@
 		<modelFile value="${modelFile}"/>
 		<outputSlot value="${outputSlot}"/>
 	</component>
+	
+    <component class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="bm" />
+        <checkFile value="BusinessDomainDsl::validation::BusinessModelChecks" />
+        <!-- TODO use: expression value=""/-->
+        <emfAllChildrenSlot value="${outputSlot}" />
+    </component>
+
+    <component class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="bm" />
+        <checkFile value="org::mod4j::businessdomain::xtext::GenChecks" />
+        <!-- TODO use: expression value=""/-->
+        <emfAllChildrenSlot value="${outputSlot}" />
+    </component>
 
     <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
         <directories value="${domainModulePath}/${srcGenPath}, ${dataModulePath}/${srcGenPath}"/>
