@@ -38,8 +38,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessDomainModel" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
-        eType="#//Comment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerations" upperBound="-1"
         eType="#//Enumeration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
@@ -50,29 +48,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//AbstractType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceModifier" eType="#//InheritanceModifier"
         defaultValueLiteral="None"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoGenerateMapping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessRules" upperBound="-1"
         eType="#//BusinessRule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//BusinessClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
-        eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationsTo" upperBound="-1"
         eType="#//Association" eOpposite="#//Association/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationsFrom" upperBound="-1"
         eType="#//Association" eOpposite="#//Association/target"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="commented" upperBound="-1"
-        eType="#//ModelElement"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useAsLogicalId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistency" eType="#//PersistencyMode"
         defaultValueLiteral="ReadWrite"/>
   </eClassifiers>
@@ -93,8 +80,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Enumeration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberProperty" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minInclusive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxInclusive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
@@ -109,11 +96,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlobBinaryProperty" eSuperTypes="#//Property"/>
   <eClassifiers xsi:type="ecore:EClass" name="BlobTextProperty" eSuperTypes="#//Property"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//BusinessClass" eOpposite="#//BusinessClass/associationsTo"/>
@@ -123,15 +105,13 @@
         defaultValueLiteral="sourceRoleName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceMultiplicity" eType="#//Multiplicity"
         defaultValueLiteral="One"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceNavigability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="targetRoleName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetMultiplicity" eType="#//Multiplicity"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="composite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bidirectional" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
 </ecore:EPackage>
