@@ -6,10 +6,6 @@
 
     <bean id="mod4jCommonContext"
         class="org.springframework.context.support.ClassPathXmlApplicationContext">
-        <constructor-arg>
-            <list>
-                <value>Mod4jCommonContext.xml</value>
-            </list>
-        </constructor-arg>
+        <constructor-arg  value="Mod4jCommonContext.xml"/>
     </bean>
 </beans>
