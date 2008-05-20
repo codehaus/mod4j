@@ -1,6 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION util»
+«EXTENSION BusinessClass»
 
 «DEFINE addMinimalConstructor (String classNameSuffix) FOR BusinessClass »
 	/**
@@ -23,7 +24,7 @@
 «ENDDEFINE»
 
 «DEFINE addArgument FOR Property -»
-    «dataType» «name-»
+    «javaType(this)» «name-»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR EnumerationProperty»
