@@ -4,6 +4,5 @@ Bundle-Name: BusinessDomain.validation
 Bundle-SymbolicName: BusinessDomain.validation; singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.openarchitectureware.dependencies,
- BusinessDomain.mm,
- mod4j.crossx.broker
+ BusinessDomain.mm
 Export-Package: BusinessDomainDsl.validation
