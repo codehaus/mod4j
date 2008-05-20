@@ -65,14 +65,6 @@
    		return this.«targetRoleName»;
 	}
 
-    /**
-     *
-     * @param «targetRoleName» (Set<«target.name»>) «target.description»
-     */
-    private void set«targetRoleName.toFirstUpper()» (Set<«target.name»> «targetRoleName») {
-        this.«targetRoleName» = «targetRoleName»;
-    }
-		
 	/**
 	 *
 	 * @param a«target.name» («target.name») «target.description»
