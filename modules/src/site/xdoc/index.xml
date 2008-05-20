@@ -106,8 +106,10 @@
                     </li>
                     <li>
                         Now import the projects
+                        <code>modules/BusinessDomain/BusinessDomain.validation</code>
+                        ,
                         <code>modules/BusinessDomain/BusinessDomain.xtext</code>
-                        ;
+                        ,
                         <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>
                         and
                         <code>modules/BusinessDomain/BusinessDomain.generator</code>
