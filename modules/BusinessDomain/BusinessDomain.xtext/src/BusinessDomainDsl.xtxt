@@ -52,7 +52,6 @@ Property :
     (description=STRING )?
 	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty | EnumerationProperty ) 
 	(nullable?="nullable")?
-	("default" defaultValue=STRING)?
 	("persistency" persistency=PersistencyMode)?
 	";"
 	
@@ -60,19 +59,28 @@ Property :
 Enum PersistencyMode :
     ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
 
-DateTimeProperty : dataType="datetime" (accuracy=DateTimeAccuracy)? name=ID;
+DateTimeProperty : dataType="datetime" (accuracy=DateTimeAccuracy)? name=ID
+                 ("default" defaultValue=STRING)?
+;
 
 Enum DateTimeAccuracy :
     Month="Month" | Year="Year" | Day = "Day";
 
-BoolProperty : dataType="boolean" name=ID;
+BoolProperty : dataType="boolean" name=ID
+               ("default" ((defaultValue?="true") | "false"))?
+            ;
 
 StringProperty : dataType="string" name=ID
+                 ("default" defaultValue=STRING)?
                  ("minlength" minLength=INT)? ("maxlength" maxLength=INT)? 
                  ;
 
 NumberProperty : (dataType="integer" | dataType="float") name=ID
+                 ("default" defaultValue=INT)?
                  ("min" minValue=INT)? ("max" maxValue=INT)?  
                  ; 
 
-EnumerationProperty : type=[Enumeration] name=ID; 
+EnumerationProperty : type=[Enumeration] name=ID
+                 ("default" defaultValue=STRING)?
+
+; 
