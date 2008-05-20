@@ -5,37 +5,36 @@ importMetamodel "http://www.mod4j.org/busmod" ;
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
 BusinessDomainModel :
-	("Description" description=STRING )?
+	(description=STRING )?
 	"Model" name = ID
 	(types += BusinessClass)* 
 	(enumerations += Enumeration)*
 	(associations += Association)*;
 
 Association:
-	("Description" description=STRING )?
+	(description=STRING )?
     "Association" 
     (composite?="composite")?
     sourceRoleName=ID source=[BusinessClass] "[" sourceMultiplicity=Multiplicity "]"
-    ( (targetNavigability?="<->") | ("->") )
+    ( (bidirectional?="<->") | ("->") )
     "[" targetMultiplicity=Multiplicity "]"targetRoleName=ID target=[BusinessClass] ";";
 
 Enum Multiplicity  :
      ZeroMany="0..*"  | One="1" | OneMany="1..*" | ZeroOne="0..1" ;
        	
 BusinessClass :
-	("Description" description=STRING )?
+	(description=STRING )?
     "Class" name=ID
     (inheritanceModifier=InheritanceModifier)?
     ("inherits" superclass=[BusinessClass])?
     "["
     ( properties += Property)*
     ("Rules" "[" (businessRules += BusinessRule)* "]" )?
-    ("Constraints" "[" (constraints += Constraint)* "]")?
     "]"
      ;
      
 Enumeration :
-	("Description" description=STRING )?
+	(description=STRING )?
     "Enumeration" name=ID "["
     (enumerationLiterals += EnumerationLiteral)+ "]";
 
@@ -43,23 +42,20 @@ EnumerationLiteral:
     name=ID ( "=" persistedValue=INT)? ";" ;
     
 BusinessRule :
-	("Description" description=STRING )?
+	(description=STRING )?
     name=ID ";" ;
-    
-Constraint :
-	("Description" description=STRING )?
-    name=ID  ";" ;
     
 Enum InheritanceModifier :
     ABSTRACT="abstract" | FINAL="final";
     
 Property : 
+    (description=STRING )?
 	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty | EnumerationProperty ) 
 	(nullable?="nullable")?
 	("default" defaultValue=STRING)?
-	(useAsLogicalId="useAsLogicalId")? 
 	("persistency" persistency=PersistencyMode)?
 	";"
+	
 ;
 Enum PersistencyMode :
     ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
@@ -71,8 +67,12 @@ Enum DateTimeAccuracy :
 
 BoolProperty : dataType="boolean" name=ID;
 
-StringProperty : dataType="string" name=ID;
+StringProperty : dataType="string" name=ID
+                 ("minlength" minLength=INT)? ("maxlength" maxLength=INT)? 
+                 ;
 
-NumberProperty : (dataType="integer" | dataType="float") name=ID; 
+NumberProperty : (dataType="integer" | dataType="float") name=ID
+                 ("min" minValue=INT)? ("max" maxValue=INT)?  
+                 ; 
 
 EnumerationProperty : type=[Enumeration] name=ID; 
