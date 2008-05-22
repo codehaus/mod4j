@@ -2,9 +2,17 @@ package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import org.company.recordshop.data.spring.dao.CustomerDao;
 import org.company.recordshop.domain.Customer;
+import org.company.recordshop.domain.Order;
+import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.Sexe;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,89 +28,162 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     private CustomerDao customerDao;
 
     /**
-     * Test method for {@link org.company.recordshop.data.spring.dao.CustomerDaoImpl#retrieve(int)}.
+     * Test method for {@link CustomerDao#retrieve(int)}.
      */
     @Test
-    public void testRetrieveInt() {
-        Customer customer = new Customer("Vincent", "Van Gogh", 20, Sexe.MALE, 1);
+    public void testRetrieve() {
+        Customer customer = new Customer("Vincent", "Van Gogh", 1);
         customer.setNumberOfEars(1);
         customerDao.add(customer);
-        Customer savedCust = null;
-        assertNotNull(savedCust = customerDao.retrieve(customer.getId()));
-        assertEquals("Van Gogh", savedCust.getLastName());
-        assertEquals(1, savedCust.getNumberOfEars().intValue());
+        flush();
+
+        Customer saved = customerDao.retrieve(customer.getId());
+        assertNotNull(saved);
+        assertEquals("Vincent", saved.getFirstName());
+        assertEquals("Van Gogh", saved.getLastName());
+        assertNull(saved.getSexe());
+        assertEquals(1, saved.getCustomerNr());
+        assertEquals(false, saved.getIsBlackListed());
+        assertEquals(1, saved.getNumberOfEars().intValue());
+        assertEquals(0, saved.getOrders().size());
     }
 
     /**
-     * Test method for
-     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#add(nl.ordina.innovation.architecture.customer.domein.Customer)}.
+     * Test method for {@link CustomerDao#add(Customer)}.
      */
     @Test
     public void testAdd() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer customer = new Customer("Johannes", "Vermeer", 50, Sexe.MALE, 222);
+        Customer customer = new Customer("Johannes", "Vermeer", 222);
         customerDao.add(customer);
-        sessionFactory.getCurrentSession().flush();
+        flush();
+
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         assertEquals(222, simpleJdbcTemplate.queryForInt("select customernr from customer_table where id = ?", customer
                 .getId()));
     }
 
     /**
-     * Test method for
-     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#update(nl.ordina.innovation.architecture.customer.domein.Customer)}.
+     * Test method for {@link CustomerDao#update(Customer)}.
      */
     @Test
     public void testUpdate() {
-        Customer customer = new Customer("Vincent", "van Gogh", Sexe.MALE, 1, false);
+        Customer customer = new Customer("Vincent", "van Gogh", 1);
         customerDao.add(customer);
         Customer saved = null;
         assertNotNull(saved = customerDao.retrieve(customer.getId()));
         assertEquals("Vincent", saved.getFirstName());
+        assertEquals("van Gogh", saved.getLastName());
+        assertNull(saved.getSexe());
+        assertEquals(0, saved.getNumberOfEars().intValue());
+        assertEquals(1, saved.getCustomerNr());
         assertEquals(false, saved.getIsBlackListed());
+        assertEquals(0, saved.getOrders().size());
 
-        saved.setFirstName("Theo");
+        saved.setFirstName("Thea");
         saved.setIsBlackListed(true);
+        saved.setSexe(Sexe.FEMALE);
+        saved.setCustomerNr(2);
+        saved.setNumberOfEars(2);
+        saved.setLastName("Engelhard");
         customerDao.update(saved);
-        sessionFactory.getCurrentSession().flush();
+        flush();
+
         Customer updated = customerDao.retrieve(saved.getId());
-        assertEquals("Theo", updated.getFirstName());
-        assertEquals("van Gogh", updated.getLastName());
+        assertEquals("Thea", updated.getFirstName());
+        assertEquals("Engelhard", updated.getLastName());
+        assertEquals(Sexe.FEMALE, updated.getSexe());
+        assertEquals(2, updated.getNumberOfEars().intValue());
+        assertEquals(2, updated.getCustomerNr());
         assertEquals(true, updated.getIsBlackListed());
-        assertEquals(Sexe.MALE, updated.getSexe());
+        assertEquals(0, updated.getOrders().size());
     }
+
     /**
-     * Test method for
-     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#delete(nl.ordina.innovation.architecture.customer.domein.Customer)}.
+     * Test method for {@link CustomerDao#delete(Customer)}.
+     */
+    @Test
+    public void testDelete() {
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        Customer rembrandt = customerDao.add(new Customer("Rembrandt", "van Rijn", 111));
+        Customer saskia = customerDao.add(new Customer("Saskia", "van Rijn", 222));
+        Customer potter = customerDao.add(new Customer("Paulus", "Potter", 333));
+        flush();
+        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        customerDao.delete(new Customer("Piet", "Paaljens", 444));
+        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        customerDao.delete(customerDao.retrieve(rembrandt.getId()));
+        flush();
+        assertEquals(2, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        customerDao.delete(customerDao.retrieve(saskia.getId()));
+        flush();
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        customerDao.delete(customerDao.retrieve(potter.getId()));
+        flush();
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+    }
+
+    /**
+     * Test method for {@link CustomerDao#listAllCustomers()}.
+     */
+    @Test
+    public void testListAllCustomers() {
+        customerDao.add(new Customer("Rembrandt", "van Rijn", 111));
+        customerDao.add(new Customer("Saskia", "van Rijn", 222));
+        customerDao.add(new Customer("Paulus", "Potter", 333));
+        flush();
+        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
+        List<Customer> customers = customerDao.listAllCustomers();
+        assertNotNull(customers);
+        assertEquals(3, customers.size());
+        Collections.sort(customers); // Om willekeurige volgorde te vermijden.
+        assertEquals("Paulus", customers.get(0).getFirstName());
+        assertEquals("Rembrandt", customers.get(1).getFirstName());
+        assertEquals("Saskia", customers.get(2).getFirstName());
+    }
+
+    /**
+     * Test method for {@link CustomerDao#update(Customer)} with orders added.
      */
     /*
-     * @Test public void testDelete() { assertEquals(0, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate,
-     * "Customer_TABLE")); customerDao.add(new Customer("onderwerp")); customerDao.add(new Customer("gezegde"));
-     * customerDao.add(new Customer("lijdend voorwerp")); sessionFactory.getCurrentSession().flush(); assertEquals(3,
-     * SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
-     * customerDao.delete(customerDao.retrieve("onderwerp")); sessionFactory.getCurrentSession().flush();
-     * assertEquals(2, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
-     * customerDao.delete(customerDao.retrieve("gezegde")); sessionFactory.getCurrentSession().flush(); assertEquals(1,
-     * SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
-     * customerDao.delete(customerDao.retrieve("lijdend voorwerp")); sessionFactory.getCurrentSession().flush();
-     * assertEquals(0, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE"));
-     * customerDao.delete(new Customer("bestaat niet")); }
+     * Eric Jan Malotaux(2008-05-22): this test is disabled until the Order class is generated without the "new
+     * DateTime("")" that generates an IllegalArgumentException
      * 
-     *//**
-     * Test method for
-     * {@link nl.ordina.innovation.architecture.customer.data.spring.dao.CustomerDaoImpl#listAllCustomers()}.
+     * @Test
      */
-    /*
-     * @Test public void testListAllCustomers() { customerDao.add(new Customer("Pinokkio")); customerDao.add(new
-     * Customer("Shrek")); customerDao.add(new Customer("Donkey")); sessionFactory.getCurrentSession().flush();
-     * assertEquals(3, SimpleJdbcTestUtils.countRowsInTable( simpleJdbcTemplate, "Customer_TABLE")); List<Customer>
-     * customers = customerDao.listAllCustomers(); assertNotNull(customers); assertEquals(3, customers.size()); // Om
-     * willekeurige volgorde te vermijden. Collections.sort(customers, new CustomerComparator()); assertEquals("Donkey",
-     * customers.get(0).getCustomerName()); assertEquals("Pinokkio", customers.get(1).getCustomerName());
-     * assertEquals("Shrek", customers.get(2).getCustomerName()); }
-     * 
-     * public class CustomerComparator implements Comparator<Customer> {
-     * 
-     * public int compare(Customer o1, Customer o2) { return o1.compareTo(o2); } }
-     */
+    public void testAddWithOrders() {
+        Customer customer = new Customer("Johannes", "Vermeer", 222);
+
+        Order order = new Order("1", 10.0F);
+        order.addOrderLine(new OrderLine(1, "verf", 10.0F));
+        order.addOrderLine(new OrderLine(2, "kwast", 12.50F));
+        order.addOrderLine(new OrderLine(3, "doek", 22.50F));
+
+        order = new Order("2", 20.0F);
+        order.addOrderLine(new OrderLine(1, "rood", 10.0F));
+        order.addOrderLine(new OrderLine(2, "penseel", 12.50F));
+        order.addOrderLine(new OrderLine(3, "ezel", 22.50F));
+        customer.addOrder(order);
+
+        customerDao.add(customer);
+        flush();
+
+        Customer saved = customerDao.retrieve(customer.getId());
+        Set<Order> orders = saved.getOrders();
+        assertEquals(1, orders.size());
+
+        for (Iterator<Order> i = orders.iterator(); i.hasNext();) {
+            Order o = i.next();
+            assertEquals("2", o.getOrderNumber());
+            Set<OrderLine> lines = o.getOrderLines();
+            assertEquals(3, lines.size());
+            Iterator<OrderLine> j = lines.iterator();
+            OrderLine line = (OrderLine) j.next();
+            assertEquals(1, line.getLineNumber());
+            line = (OrderLine) j.next();
+            assertEquals(2, line.getLineNumber());
+            line = (OrderLine) j.next();
+            assertEquals(3, line.getLineNumber());
+        }
+    }
 }

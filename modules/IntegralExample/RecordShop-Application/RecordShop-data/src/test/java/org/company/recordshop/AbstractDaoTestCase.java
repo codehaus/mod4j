@@ -16,4 +16,8 @@ public abstract class AbstractDaoTestCase extends AbstractTransactionalJUnit4Spr
 
     @Autowired
     protected SessionFactory sessionFactory;
+
+    protected void flush() {
+        sessionFactory.getCurrentSession().flush();
+    }
 }
