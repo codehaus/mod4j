@@ -146,10 +146,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      * Test method for {@link CustomerDao#update(Customer)} with orders added.
      */
     /*
-     * Eric Jan Malotaux(2008-05-22): this test is disabled until the Order class is generated without the "new
-     * DateTime("")" that generates an IllegalArgumentException
-     * 
-     * @Test
+     * Eric Jan Malotaux(2008-05-22): this test generates a weird SQLDataException: A truncation error was encountered
+     * trying to shrink VARCHAR () FOR BIT DATA 'XX-RESOLVE-XX' to length 255. Find out what that means, fix it and
+     * re-enable this test. @Test
      */
     public void testAddWithOrders() {
         Customer customer = new Customer("Johannes", "Vermeer", 222);
