@@ -74,7 +74,7 @@
      <component id="generator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="Datalayer::genResources FOR ${outputSlot}" />
-        <outlet path="${dataModulePath}/${resourceManPath}/">
+        <outlet path="${dataModulePath}/${resourceGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
@@ -87,7 +87,7 @@
     <component id="daoGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="Datalayer::genDao FOR ${outputSlot}" />
-        <outlet path="${dataModulePath}/${srcManPath}/">
+        <outlet path="${dataModulePath}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
