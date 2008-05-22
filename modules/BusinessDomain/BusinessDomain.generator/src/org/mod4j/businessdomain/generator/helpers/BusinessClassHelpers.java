@@ -94,6 +94,11 @@ public class BusinessClassHelpers {
 	}
 
 	public static String javaType(EnumerationProperty p){
+		Enumeration e = p.getType();
+		if( e == null ) {
+			System.err.println("ERROR in javaType() for EnumerationProperty");
+			return "Object";
+		}
 		return p.getType().getName();
 	}
 
