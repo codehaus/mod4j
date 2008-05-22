@@ -16,3 +16,9 @@
 «DEFINE javaDocParam FOR EnumerationProperty-»
     * @param «name» («type.name») «description»
 «ENDDEFINE»
+
+«DEFINE addInstanceVarJavaDoc FOR Property»
+    /**
+     *  «name»: «description»
+     */
+«ENDDEFINE»

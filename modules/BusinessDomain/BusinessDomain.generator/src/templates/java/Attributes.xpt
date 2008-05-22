@@ -3,44 +3,32 @@
 «EXTENSION BusinessClass»
 
 «DEFINE instanceVariable FOR Property»
-	/**
-     *  «name»: «description»
-     */
-     private «javaType(this)» «name»;
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
+    private «javaType(this)» «name»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR BoolProperty»
-    /**
-     *  «name»: «description»
-     */
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
      private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR EnumerationProperty»
-    /**
-     *  «name»: «description»
-     */
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
      private «javaType(this)» «name»«IF defaultValue != null» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR DateTimeProperty»
-    /**
-     *  «name»: «description»
-     */
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
      private «javaType(this)» «name»«IF defaultValue != null» = new «javaType(this)»("«defaultValue»")«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR NumberProperty»
-    /**
-     *  «name»: «description»
-     */
-     private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
+    private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR StringProperty»
-    /**
-     *  «name»: «description»
-     */
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
      private «javaType(this)» «name»«IF defaultValue != null» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
 
