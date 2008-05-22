@@ -19,7 +19,7 @@
 
 «DEFINE instanceVariable FOR DateTimeProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
-     private «javaType(this)» «name»«IF defaultValue != null» = new «javaType(this)»("«defaultValue»")«ENDIF»;
+     private «javaType(this)» «name»«IF defaultValue != null && defaultValue.length > 0» = new «javaType(this)»("«defaultValue»")«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR NumberProperty»
