@@ -14,10 +14,18 @@
     «EXPAND HibernateMapping::mapping(appName)                   FOREACH  this.types.typeSelect(BusinessClass) »
 «ENDREM»
 «ENDDEFINE»
+
 «DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
     «EXPAND GenericEnumUserType::createGenericEnumUserType FOR this»
-	«EXPAND DaoImpl::daoImplementation  FOREACH
+	«EXPAND DaoImplBase::daoImplementationBase  FOREACH
 	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
-	«EXPAND DaoInterface::daoInterface  FOREACH 
+	«EXPAND DaoInterfaceBase::daoInterfaceBase  FOREACH 
 	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
+«ENDDEFINE»
+
+«DEFINE genDaoExtensions FOR BusinessDomainDsl::BusinessDomainModel»
+    «EXPAND DaoImpl::daoImplementation  FOREACH
+            this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
+    «EXPAND DaoInterface::daoInterface  FOREACH 
+            this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
 «ENDDEFINE»
