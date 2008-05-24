@@ -4,19 +4,35 @@ import BusinessDomainDsl.*;
 
 public class BusinessClassHelpers {
 
+	/** 
+	 * @param cls 
+	 * @return The name of the Java class for cls
+	 */
 	public static String javaClassName(BusinessClass cls) {
 		return StringHelpers.firstCharToUpper(cls.getName());
 	}
 
+	/**
+	 * @param cls
+	 * @return The name of the Java class for a BusinessClass with name cls
+	 */
 	public static String javaClassName(String cls) {
 		return StringHelpers.firstCharToUpper(cls);
 	}
 	
+	/** 
+	 * @param cls 
+	 * @return The name of the Java package for cls
+	 */
 	public static String javaPackageName(BusinessClass cls) {
 		BusinessDomainModel model = (BusinessDomainModel)cls.eContainer();
 		return StringHelpers.firstCharToUpper(model.getName());
 	}
 	
+	/** 
+	 * @param cls 
+	 * @return The full name of the Java class for cls, including the package name
+	 */
 	public static String javaFullName(BusinessClass cls) {
 		return javaPackageName(cls) + "." + javaClassName(cls);
 	}
@@ -24,13 +40,29 @@ public class BusinessClassHelpers {
 	public static String javaVarName(BusinessClass cls) {
 		return StringHelpers.firstCharToLower(cls.getName());
 	}
-	
-	public static String daoClassName(BusinessClass cls) {
+
+	/**
+	 * @param cls
+	 * @return The Java class name for the data accesss object (dao) class for BusinessClass 'cls'
+	 */
+	public static String daoInterfaceName(BusinessClass cls) {
 		return javaClassName(cls) + "Dao";
+	}
+
+	/**
+	 * @param cls
+	 * @return The Java class name for the data accesss object (dao) bases class for BusinessClass 'cls'
+	 */
+	public static String daoInterfaceBaseName(BusinessClass cls) {
+		return daoInterfaceName(cls) + "Base";
 	}
 
 	public static String daoImplClassName(BusinessClass cls) {
 		return javaClassName(cls) + "DaoImpl";
+	}
+
+	public static String daoImplClassBaseName(BusinessClass cls) {
+		return daoImplClassName(cls) + "Base";
 	}
 
 	public static boolean isOne2Many(Association a){

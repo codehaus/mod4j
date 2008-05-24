@@ -17,11 +17,17 @@ String javaClassName(String cls) :
 String javaVarName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaVarName(BusinessDomainDsl.BusinessClass);
 
-String daoClassName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoClassName(BusinessDomainDsl.BusinessClass);
+String daoInterfaceName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceName(BusinessDomainDsl.BusinessClass);
+
+String daoInterfaceBaseName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceBaseName(BusinessDomainDsl.BusinessClass);
 
 String daoImplClassName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassName(BusinessDomainDsl.BusinessClass);
+
+String daoImplClassBaseName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassBaseName(BusinessDomainDsl.BusinessClass);
 
 boolean isCompositePart(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isCompositePart(BusinessDomainDsl.BusinessClass);
