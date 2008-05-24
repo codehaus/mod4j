@@ -94,5 +94,18 @@
          <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
     </component>
 
+    <!-- 
+        Generation of Dao extension files.
+    -->  
+    <component id="daoGenerator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="bm" />
+        <expand value="Datalayer::genDaoExtensions FOR ${outputSlot}" />
+        <outlet path="${dataModulePath}/${srcManPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+    </component>
+
  
 </workflow>
