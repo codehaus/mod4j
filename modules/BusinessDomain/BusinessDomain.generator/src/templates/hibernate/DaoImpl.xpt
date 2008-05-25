@@ -10,13 +10,6 @@
  */
 package «getDaoPackage()»;
 
-import java.util.Iterator;
-import java.util.List;
-
-import «getDomainRootPackage()».«javaClassName(this)»;
-
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
 /**
  * «javaClassName(this)» Data Access Object (DOA) Implementation. Responsible for Creating,
  * Reading, Updating and Deleting «javaClassName(this)» objects in the database. All database

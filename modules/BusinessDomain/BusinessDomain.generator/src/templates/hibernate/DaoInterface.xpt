@@ -10,10 +10,6 @@
  */
 package «getDaoPackage()»;
 
-import java.util.List;
-
-import «getDomainRootPackage()».«javaClassName(this)»;
-
 /**
  * «daoInterfaceName(this)» Data Access Object (DAO). Responsible for accessing the forum database.
  * This interface is intended to be manually changed by developers. 
