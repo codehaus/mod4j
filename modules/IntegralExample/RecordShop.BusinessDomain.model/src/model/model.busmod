@@ -23,6 +23,7 @@ Class Person [
 "A Customer represents a Person who orders from the RecordShop."
 Class Customer inherits Person [
     integer customerNr;
+    string username;
     boolean isBlackListed default false nullable;
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
@@ -37,7 +38,7 @@ Class Customer inherits Person [
 Class Record [
     string asin;
     string title default "Title unknown";
-    integer mediumCode nullable ;
+    integer mediumCode default 111 ;
     float price;
 ]
 
@@ -51,6 +52,10 @@ Class Order [
     datetime deliveryDate nullable;
     integer discountPercentage nullable;
     float totalAmount;
+    /*
+    TODO: The following results in a compilation problem caused by float to Float conversion. 
+    float totalAmount nullable;
+    */
 ]
 
 Class OrderLine [
