@@ -17,6 +17,9 @@ String javaClassName(String cls) :
 String javaVarName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaVarName(BusinessDomainDsl.BusinessClass);
 
+String implBaseClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.implBaseClassName(BusinessDomainDsl.BusinessClass);
+
 String daoInterfaceName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceName(BusinessDomainDsl.BusinessClass);
 
@@ -49,3 +52,6 @@ String javaType(Property p) :
 
 String javaFileName(String rootPackage, String classname) :
 rootPackage.replaceAll("\\.", "/") + "/" + classname + ".java";
+
+boolean hasDefault(Property prop) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasDefault(BusinessDomainDsl.Property);
