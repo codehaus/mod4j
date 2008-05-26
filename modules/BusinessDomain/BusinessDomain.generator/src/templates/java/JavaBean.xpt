@@ -45,6 +45,7 @@
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
             «EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.bidirectional)»
+            «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
             «EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
  			«EXPAND Attributes::addIdAccessors FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
@@ -74,10 +75,11 @@
 			     «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType)»
 			«ENDFOREACH»
 			/**
-			* Extension point initially generated at: «timestamp()»
+			* Extension Point initially generated at: «timestamp()»
 			*/
         	public class «name» extends «name»ImplBase {
-            	
+            
+            «EXPAND Constructors::addDefaultConstructor FOR this»	
         	«EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
  			}	
 		«ENDFILE»
