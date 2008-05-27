@@ -60,27 +60,27 @@ Enum PersistencyMode :
     ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
 
 DateTimeProperty : dataType="datetime" (accuracy=DateTimeAccuracy)? name=ID
-                 ("default" defaultValue=STRING)?
+                 (hasDefault?="default" defaultValue=STRING)?
 ;
 
 Enum DateTimeAccuracy :
     Month="Month" | Year="Year" | Day = "Day";
 
 BoolProperty : dataType="boolean" name=ID
-               ("default" ((defaultValue?="true") | "false"))?
+               (hasDefault?="default" ((defaultValue?="true") | "false"))?
             ;
 
 StringProperty : dataType="string" name=ID
-                 ("default" defaultValue=STRING)?
+                 (hasDefault?="default" defaultValue=STRING)?
                  ("minlength" minLength=INT)? ("maxlength" maxLength=INT)? 
                  ;
 
 NumberProperty : (dataType="integer" | dataType="float") name=ID
-                 ("default" defaultValue=INT)?
+                 (hasDefault?="default" defaultValue=INT)?
                  ("min" minValue=INT)? ("max" maxValue=INT)?  
                  ; 
 
 EnumerationProperty : type=[Enumeration] name=ID
-                 ("default" defaultValue=STRING)?
+                 (hasDefault?="default" defaultValue=STRING)?
 
 ; 
