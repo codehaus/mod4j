@@ -1,7 +1,7 @@
 "Our example model"
 Model RecordShopDomainModel
 
-/* vdgqwvdgqw
+/* remarks
  */
 "A Person represents a legal person." 
 Class Person [
@@ -51,7 +51,6 @@ Class Order [
     datetime orderDate default "2009-01-01" nullable;
     datetime deliveryDate nullable;
     integer discountPercentage nullable;
-    float totalAmount;
     /*
     TODO: The following results in a compilation problem caused by float to Float conversion. 
     float totalAmount nullable;

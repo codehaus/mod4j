@@ -1,6 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION util»
+«EXTENSION BusinessClass»
 
 «DEFINE BeanClassImplBase (String rootPackage) FOR AbstractType»
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
@@ -46,7 +47,9 @@
  			«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
             «EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.bidirectional)»
             «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
-            «EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
+            «IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty»
+                «EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»    
+            «ENDIF»
  			«EXPAND Attributes::addIdAccessors FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
@@ -79,8 +82,10 @@
 			*/
         	public class «name» extends «name»ImplBase {
             
-            «EXPAND Constructors::addDefaultConstructor FOR this»	
-        	«EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
+            «EXPAND Constructors::addDefaultConstructor FOR this»
+            «IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty»	
+        	    «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
+        	«ENDIF»
  			}	
 		«ENDFILE»
     «ENDIF»
