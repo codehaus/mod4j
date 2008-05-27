@@ -48,8 +48,8 @@ Class Order [
     string orderNumber nullable;
     
     "The date on which the order has been placed"
-    datetime orderDate default "2009-01-01" nullable;
-    datetime deliveryDate nullable;
+    datetime day orderDate default "2009-01-01" nullable;
+    datetime day deliveryDate nullable;
     integer discountPercentage nullable;
     /*
     TODO: The following results in a compilation problem caused by float to Float conversion. 
