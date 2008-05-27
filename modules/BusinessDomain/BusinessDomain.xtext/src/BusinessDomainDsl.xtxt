@@ -59,12 +59,12 @@ Property :
 Enum PersistencyMode :
     ReadWrite="ReadWrite" | Read="Read" | None= "NONE";
 
-DateTimeProperty : dataType="datetime" (accuracy=DateTimeAccuracy)? name=ID
-                 (hasDefault?="default" defaultValue=STRING)?
-;
+DateTimeProperty : dataType="datetime" accuracy=DateTimeAccuracy name=ID
+                 (hasDefault?="default" defaultValue=STRING)?;
 
 Enum DateTimeAccuracy :
-    Month="Month" | Year="Year" | Day = "Day";
+    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
+    Second = "second" | Millisecond = "millisecond";
 
 BoolProperty : dataType="boolean" name=ID
                (hasDefault?="default" ((defaultValue?="true") | "false"))?
