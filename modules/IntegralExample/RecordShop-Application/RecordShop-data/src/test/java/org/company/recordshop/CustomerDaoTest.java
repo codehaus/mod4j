@@ -40,8 +40,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testRetrieve() {
-        Customer customer = new Customer("vgogh", "Vincent", "Van Gogh");
+        Customer customer = new Customer("Vincent", "Van Gogh", "vgogh");
         customer.setNumberOfEars(1);
+        customer.setCustomerNr(1);
         customerDao.add(customer);
         flush();
 
@@ -62,7 +63,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testAdd() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer customer = new Customer("jvermeer", "Johannes", "Vermeer");
+        Customer customer = new Customer("Johannes", "Vermeer", "vgogh");
+        customer.setCustomerNr(222);
         customerDao.add(customer);
         flush();
 
@@ -76,7 +78,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testUpdate() {
-        Customer customer = new Customer("vgogh", "Vincent", "van Gogh");
+        Customer customer = new Customer("Vincent", "van Gogh", "vgogh");
+        customer.setCustomerNr(1);
         customerDao.add(customer);
         Customer saved = null;
         assertNotNull(saved = customerDao.retrieve(customer.getId()));
