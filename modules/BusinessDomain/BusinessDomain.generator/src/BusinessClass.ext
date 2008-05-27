@@ -52,6 +52,3 @@ String javaType(Property p) :
 
 String javaFileName(String rootPackage, String classname) :
 rootPackage.replaceAll("\\.", "/") + "/" + classname + ".java";
-
-boolean hasDefault(Property prop) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasDefault(BusinessDomainDsl.Property);
