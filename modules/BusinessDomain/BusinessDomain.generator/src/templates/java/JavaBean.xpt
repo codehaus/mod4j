@@ -46,7 +46,9 @@
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
             «EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.bidirectional)»
-            «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
+            «IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty»
+                «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
+            «ENDIF»
             «EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
  			«EXPAND Attributes::addIdAccessors FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
@@ -79,11 +81,11 @@
 			* Extension Point initially generated at: «timestamp()»
 			*/
         	public class «name» extends «name»ImplBase {
-            
-            «EXPAND Constructors::addDefaultConstructor FOR this»
-            «IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty»	
-        	    «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
-        	«ENDIF»
+                        
+            «IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty» 
+                «EXPAND Constructors::addDefaultConstructor FOR this»    
+            «ENDIF»
+            «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
  			}	
 		«ENDFILE»
     «ENDIF»

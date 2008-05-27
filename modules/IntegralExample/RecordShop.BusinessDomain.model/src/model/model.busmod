@@ -45,7 +45,7 @@ Class Record [
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
 	"An ordernumber should be unique"
-    string orderNumber;
+    string orderNumber nullable;
     
     "The date on which the order has been placed"
     datetime orderDate default "2009-01-01" nullable;
