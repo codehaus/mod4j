@@ -19,13 +19,9 @@
     <eLiterals name="Second" value="2" literal="Second"/>
     <eLiterals name="Minute" value="4" literal="Minute"/>
     <eLiterals name="Hour" value="8" literal="Hour"/>
-    <eLiterals name="ShortTime" value="12" literal="ShortTime"/>
-    <eLiterals name="Time" value="14" literal="Time"/>
     <eLiterals name="Day" value="16" literal="Day"/>
     <eLiterals name="Month" value="32" literal="Month"/>
     <eLiterals name="Year" value="64" literal="Year"/>
-    <eLiterals name="Date" value="112" literal="Date"/>
-    <eLiterals name="DateTime" value="126" literal="DateTime"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PersistencyMode">
     <eLiterals name="ReadWrite" literal="ReadWrite"/>
@@ -78,7 +74,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DateTimeProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accuracy" eType="#//DateTimeAccuracy"
-        defaultValueLiteral="DateTime"/>
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
   </eClassifiers>

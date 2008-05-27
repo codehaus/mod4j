@@ -22,13 +22,9 @@
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Second"/>
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Minute"/>
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Hour"/>
-      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/ShortTime"/>
-      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Time"/>
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Day"/>
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Month"/>
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Year"/>
-      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/Date"/>
-      <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//DateTimeAccuracy/DateTime"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="BusinessDomainDsl.ecore#//PersistencyMode">
       <genEnumLiterals ecoreEnumLiteral="BusinessDomainDsl.ecore#//PersistencyMode/ReadWrite"/>
