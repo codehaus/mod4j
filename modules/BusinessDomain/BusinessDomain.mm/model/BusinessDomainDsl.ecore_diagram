@@ -138,6 +138,22 @@
   <children xmi:type="notation:Node" xmi:id="_-xdfLe9PEdyXXp6e1opTJg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_-xeGMO9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xeGMe9PEdyXXp6e1opTJg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_ZQu9LivGEd2jR5WKWepclw" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//Property/dataType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ZQu9LyvGEd2jR5WKWepclw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ZQu9MCvGEd2jR5WKWepclw" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//Property/nullable"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ZQu9MSvGEd2jR5WKWepclw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ZQu9MivGEd2jR5WKWepclw" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//Property/persistency"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ZQu9MyvGEd2jR5WKWepclw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_OXhF4CvIEd2jR5WKWepclw" type="3001">
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//Property/hasDefault"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_OXhF4SvIEd2jR5WKWepclw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xeGMu9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xeGM-9PEdyXXp6e1opTJg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xeGNO9PEdyXXp6e1opTJg"/>
