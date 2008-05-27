@@ -31,19 +31,15 @@
      	«IF superclass != null -»
  			super(«EXPAND addSuperArgumentList FOR this.superclass -»);
  		«ENDIF»
-     	«EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault()) -»
+     	«EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault) -»
      }
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList FOR BusinessClass -»
- 	«IF superclass != null -»«EXPAND addConstructorArgumentsList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty -», «ENDIF»«ENDIF»
- 	«FOREACH properties.reject(e|e.nullable || e.hasDefault()) AS prop ITERATOR propIter SEPARATOR "," -»
+ 	«IF superclass != null -»«EXPAND addConstructorArgumentsList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
+ 	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop ITERATOR propIter SEPARATOR "," -»
  	    «EXPAND addArgument FOR prop-»
  	«ENDFOREACH»
-«ENDDEFINE»
-
-«DEFINE addArgument FOR Object -»
-    Error: Unkonwn argument: «this.toString()»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR Property -»
@@ -59,8 +55,8 @@
 «ENDDEFINE»
 
 «DEFINE addSuperArgumentList FOR BusinessClass -»
-	«IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault()).isEmpty -», «ENDIF»«ENDIF»
-	«FOREACH properties.reject(e|e.nullable || e.hasDefault()) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
+	«IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
+	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
