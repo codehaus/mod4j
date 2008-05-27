@@ -111,30 +111,6 @@ public class BusinessClassHelpers {
         return false;
     }
 
-    public static boolean hasDefault(Property p) {
-        if (p instanceof StringProperty) {
-            return !isNullOrEmpty(((StringProperty) p).getDefaultValue());
-        } else if (p instanceof BoolProperty) {
-            /*
-             * TODO: Waiting for outcome Jira issue MOD4J-48 Speicfied by the metamodel. Default value literal = false.
-             * So for the BoolProperty no getDefaultValue method is generated. For now we always return true. return
-             * !isNullOrEmpty(((BoolProperty) p).getDefaultValue());
-             */
-            return true;
-        } else if (p instanceof NumberProperty) {
-            return !isNullOrEmpty(((NumberProperty) p).getDefaultValue());
-        } else if (p instanceof EnumerationProperty) {
-            return !isNullOrEmpty(((EnumerationProperty) p).getDefaultValue());
-        } else if (p instanceof DateTimeProperty) {
-            return !isNullOrEmpty(((DateTimeProperty) p).getDefaultValue());
-        }
-        return false;
-    }
-
-    private static boolean isNullOrEmpty(Object obj) {
-        return obj == null || obj.equals("");
-    }
-
     public static String javaType(Property p) {
         if (p instanceof BoolProperty) {
             return javaType((BoolProperty) p);
