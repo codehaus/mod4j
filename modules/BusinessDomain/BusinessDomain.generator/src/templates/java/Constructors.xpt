@@ -36,11 +36,14 @@
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList FOR BusinessClass -»
- 	«FOREACH properties.reject(e|e.nullable || e.hasDefault()).addAll(
- 	         superclass != null ? superclass.properties.reject(e|e.nullable || e.hasDefault()) : {}) 
+ 	«FOREACH (superclass != null ? superclass.properties.reject(e2|e2.nullable || e2.hasDefault()) : {}).addAll(properties.reject(e|e.nullable || e.hasDefault())) 
  	    AS prop ITERATOR propIter SEPARATOR "," -»
         «EXPAND addArgument FOR prop-»
  	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE addArgument FOR Object -»
+    Error: Unkonwn argument: «this.toString()»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR Property -»
