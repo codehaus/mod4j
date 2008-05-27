@@ -27,7 +27,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
 
     public class CustomerComparator implements Comparator<Customer> {
         public int compare(Customer one, Customer other) {
-            return one.getUsername().compareTo(other.getUsername());
+            return (one.getFirstName()+one.getLastName()).compareTo(other.getFirstName()+other.getLastName());
         }
 
     }
@@ -40,9 +40,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testRetrieve() {
-        Customer customer = new Customer("Vincent", "Van Gogh", "vgogh");
+        Customer customer = new Customer("Vincent", "Van Gogh", 1);
         customer.setNumberOfEars(1);
-        customer.setCustomerNr(1);
         customerDao.add(customer);
         flush();
 
@@ -63,8 +62,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testAdd() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer customer = new Customer("Johannes", "Vermeer", "vgogh");
-        customer.setCustomerNr(222);
+        Customer customer = new Customer("Johannes", "Vermeer", 222);
         customerDao.add(customer);
         flush();
 
@@ -78,7 +76,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testUpdate() {
-        Customer customer = new Customer("Vincent", "van Gogh", "vgogh");
+        Customer customer = new Customer("Vincent", "van Gogh", 1);
         customer.setCustomerNr(1);
         customerDao.add(customer);
         Customer saved = null;
@@ -116,12 +114,12 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testDelete() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer rembrandt = customerDao.add(new Customer("rrijn", "Rembrandt", "van Rijn"));
-        Customer saskia = customerDao.add(new Customer("srijn", "Saskia", "van Rijn"));
-        Customer potter = customerDao.add(new Customer("ppotter", "Paulus", "Potter"));
+        Customer rembrandt = customerDao.add(new Customer("Rembrandt", "van Rijn", 3));
+        Customer saskia = customerDao.add(new Customer("Saskia", "van Rijn", 4));
+        Customer potter = customerDao.add(new Customer("Paulus", "Potter", 5));
         flush();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(new Customer("ppaaltje", "Piet", "Paaltjens"));
+        customerDao.delete(new Customer("Piet", "Paaltjens", 6));
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(customerDao.retrieve(rembrandt.getId()));
         flush();
@@ -139,9 +137,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testListAllCustomers() {
-        customerDao.add(new Customer("Rembrandt", "van Rijn", "rrijn"));
-        customerDao.add(new Customer("Saskia", "van Rijn", "srijn"));
-        customerDao.add(new Customer("Paulus", "Potter", "ppotter"));
+        customerDao.add(new Customer("Rembrandt", "van Rijn", 3));
+        customerDao.add(new Customer("Saskia", "van Rijn", 4));
+        customerDao.add(new Customer("Paulus", "Potter", 5));
         flush();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         List<Customer> customers = customerDao.listAllCustomers();
@@ -162,17 +160,17 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      * re-enable this test. @Test
      */
     public void testAddWithOrders() {
-        Customer customer = new Customer("Johannes", "Vermeer", "jvermeer");
+        Customer customer = new Customer("Johannes", "Vermeer", 2);
 
-        Order order = new Order();
-        order.addOrderLine(new OrderLine("verf"));
-        order.addOrderLine(new OrderLine("kwast"));
-        order.addOrderLine(new OrderLine("doek"));
+        Order order = new Order("AA111");
+        order.addOrderLine(new OrderLine(1, "verf", 30));
+        order.addOrderLine(new OrderLine(2, "kwast", 20));
+        order.addOrderLine(new OrderLine(3, "doek", 40));
 
-        order = new Order();
-        order.addOrderLine(new OrderLine("rood"));
-        order.addOrderLine(new OrderLine("penseel"));
-        order.addOrderLine(new OrderLine("ezel"));
+        order = new Order("AA222");
+        order.addOrderLine(new OrderLine(4, "rood", 2));
+        order.addOrderLine(new OrderLine(5, "penseel", 3));
+        order.addOrderLine(new OrderLine(6, "ezel", 110));
         customer.addOrder(order);
 
         customerDao.add(customer);
