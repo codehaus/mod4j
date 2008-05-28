@@ -62,8 +62,9 @@ public class AssociationTest extends AbstractDaoTestCase {
     	return result;
     }
 
-    protected Order createOrder(String orderId, Float ff){
+    protected Order createOrder(String orderId, int discount){
     	Order result = new Order(orderId); //, ff);
+    	result.setDiscountPercentage(discount);
     	allOrders.add(result);
     	orderDao.add(result);
     	return result;
@@ -91,9 +92,9 @@ public class AssociationTest extends AbstractDaoTestCase {
     }
     
     Customer c01, c02, c03, c04 ;
-	Order o01, o02, o03, o04, o05;
+	Order oder01, order02, order03, o04, o05;
 	OrderLine line01, line02, line03, line04, line05, line06; 
-	Record r01, r02, r03, r04, r05, r06, r07;
+	Record record01, record02, record03, record04, record05, record06, r07;
 	Product pr01, pr02, pr03, pr04;
 	
 	@Before
@@ -103,15 +104,15 @@ public class AssociationTest extends AbstractDaoTestCase {
     	c03 = createCustomer("Joanna", "Krater"  , 3);
     	c04 = createCustomer("Karen" , "Grootjes", 4);
     	
-    	o01 = createOrder("order01", 1F);
-    	o02 = createOrder("order02", 1F);
-    	o03 = createOrder("order03", 1F);
-    	o04 = createOrder("order04", 1F);
-    	o05 = createOrder("order05", 1F);
+    	oder01 = createOrder("order01", 1);
+    	order02 = createOrder("order02", 1);
+    	order03 = createOrder("order03", 1);
+    	o04 = createOrder("order04", 1);
+    	o05 = createOrder("order05", 1);
 
-    	c01.addToOrders(o01);
-    	c01.addToOrders(o02);
-    	c01.addToOrders(o03);
+    	c01.addToOrders(oder01);
+    	c01.addToOrders(order02);
+    	c01.addToOrders(order03);
     	c02.addToOrders(o04);
     	
     	line01 = createOrderLine(1, "line01", 0F);
@@ -121,36 +122,36 @@ public class AssociationTest extends AbstractDaoTestCase {
     	line05 = createOrderLine(5, "line05", 0F);
     	line06 = createOrderLine(6, "line06", 0F);
     	
-    	o01.addToOrderLines(line01);
-    	o01.addToOrderLines(line02);
-    	o01.addToOrderLines(line03);
-       	o02.addToOrderLines(line04);
-    	o02.addToOrderLines(line05);
-    	o03.addToOrderLines(line06);
+    	oder01.addToOrderLines(line01);
+    	oder01.addToOrderLines(line02);
+    	oder01.addToOrderLines(line03);
+       	order02.addToOrderLines(line04);
+    	order02.addToOrderLines(line05);
+    	order03.addToOrderLines(line06);
     	
-    	r01 = createRecord(1, "rec 01", 2F);
-    	r02 = createRecord(1, "rec 02", 2F);
-    	r03 = createRecord(1, "rec 03", 2F);
-    	r04 = createRecord(1, "rec 04", 2F);
-    	r05 = createRecord(1, "rec 05", 2F);
-    	r06 = createRecord(1, "rec 06", 2F);
+    	record01 = createRecord(1, "rec 01", 2F);
+    	record02 = createRecord(1, "rec 02", 2F);
+    	record03 = createRecord(1, "rec 03", 2F);
+    	record04 = createRecord(1, "rec 04", 2F);
+    	record05 = createRecord(1, "rec 05", 2F);
+    	record06 = createRecord(1, "rec 06", 2F);
     	
-    	line01.setRecord(r01);
-    	line02.setRecord(r02);
-    	line03.setRecord(r03);
-    	line04.setRecord(r04);
-    	line05.setRecord(r05);
-    	line06.setRecord(r06);
+    	line01.setRecord(record01);
+    	line02.setRecord(record02);
+    	line03.setRecord(record03);
+    	line04.setRecord(record04);
+    	line05.setRecord(record05);
+    	line06.setRecord(record06);
     	
     	pr01 = createProduct("product 01", 1);
     	pr02 = createProduct("product 02", 2);
     	pr03 = createProduct("product 03", 3);
     	pr04 = createProduct("product 04", 4);
     	
-    	r01.setProduct(pr01);
-    	r02.setProduct(pr01);
-    	r03.setProduct(pr01);
-    	r04.setProduct(pr04);
+    	record01.setProduct(pr01);
+    	record02.setProduct(pr01);
+    	record03.setProduct(pr01);
+    	record04.setProduct(pr04);
     	
     	flush();
     }
@@ -176,6 +177,41 @@ public class AssociationTest extends AbstractDaoTestCase {
 				}
 			} else {
 				System.err.println("Order number ["+ order.getOrderNumber()+ "] has null ordernumber");
+			}
+		}
+		return null;
+	}
+
+	public Record lookup(Collection<Record> coll, String name) {
+		for (Record  record : coll) {
+			if( record .getAsin() != null) {
+				if( record .getAsin().equals(name) ){
+					return record ;
+				}
+			} else {
+				System.err.println("Record asin has null asic");
+			}
+		}
+		return null;
+	}
+
+	public Product lookup(Collection<Product> coll, String name) {
+		for (Product product : coll) {
+			if( product.getProductNumnber() != null) {
+				if( product.getProductNumnber().equals(name) ){
+					return product;
+				}
+			} else {
+				System.err.println("product has null ProductNumnber");
+			}
+		}
+		return null;
+	}
+
+	public OrderLine lookup(Collection<OrderLine> coll, int lineNr) {
+		for (OrderLine line: coll) {
+			if( line.getLineNumber() == lineNr){
+				return line;
 			}
 		}
 		return null;
@@ -208,39 +244,47 @@ public class AssociationTest extends AbstractDaoTestCase {
     	
     	allOrders = orderDao.listAllOrders();
     	// Chech whether new opbjects have been created, not the original cached ones.
-    	assertEquals(false, allOrders.contains(o01));
-    	assertEquals(false, allOrders.contains(o02));
-    	assertEquals(false, allOrders.contains(o03));
+    	assertEquals(false, allOrders.contains(oder01));
+    	assertEquals(false, allOrders.contains(order02));
+    	assertEquals(false, allOrders.contains(order03));
     	assertEquals(false, allOrders.contains(o04));
     	assertEquals(false, allOrders.contains(o05));
     	assertEquals(5, allOrders.size());
-    	o01 = lookup(allOrders, "order01");
-    	o02 = lookup(allOrders, "order02");
-    	o03 = lookup(allOrders, "order03");
+    	oder01 = lookup(allOrders, "order01");
+    	order02 = lookup(allOrders, "order02");
+    	order03 = lookup(allOrders, "order03");
     	o04 = lookup(allOrders, "order04");
     	o05 = lookup(allOrders, "order05");
     	
-		assertEquals( true, c01.getOrders().size() == 3   );
-        assertEquals( true, c01.getOrders().contains(o01) );
-		assertEquals( true, c01.getOrders().contains(o02) );
-		assertEquals( true, c01.getOrders().contains(o03) );
+    	allOrderLines = orderLineDao.listAllOrderLines();
+    	line01 = lookup(allOrderLines, 1);
+    	line02 = lookup(allOrderLines, 2);
+    	line03 = lookup(allOrderLines, 3);
+    	line04 = lookup(allOrderLines, 4);
+    	line05 = lookup(allOrderLines, 5);
+    	line06 = lookup(allOrderLines, 6);
 
-		assertEquals( true, c02.getOrders().contains(o04) );
-		assertEquals( true, c02.getOrders().size() == 1 );
-
-    	assertEquals( true, c01!= null );
-   		assertEquals( true, c02!= null );
-   		assertEquals( true, c03!= null );
-   		assertEquals( true, c04!= null );
-   		assertEquals( true, c01.getOrders().size() == 3   );
-
-   		assertEquals( true, o05.getCustomer() == null);
+    	allRecords = recordDao.listAllRecords();
+    	record01 = lookup(allRecords, "rec 01");
+    	record02 = lookup(allRecords, "rec 02");
+    	record03 = lookup(allRecords, "rec 03");
+    	record04 = lookup(allRecords, "rec 04");
+    	record05 = lookup(allRecords, "rec 05");
+    	record06 = lookup(allRecords, "rec 06");
     	
+    	allProducts = productDao.listAllProducts();
+    	pr01 = lookup(allProducts, "product 01");
+    	pr02 = lookup(allProducts, "product 02");
+    	pr03 = lookup(allProducts, "product 03");
+    	pr04 = lookup(allProducts, "product 04");
+
+   		instances();
+   		
     	customerAssociations( allCustomers);
     	orderAssociations(allOrders);
-    	orderLineAssociations(orderLineDao.listAllOrderLines());
-    	recordAssociations(recordDao.listAllRecords());
-    	productAssociations(productDao.listAllProducts());
+    	orderLineAssociations(allOrderLines);
+    	recordAssociations(allRecords);
+    	productAssociations(allProducts);
 
     }
     
@@ -287,31 +331,36 @@ public class AssociationTest extends AbstractDaoTestCase {
 			}
         }
     }
-    
-   
+       
     @Test
     public void testInstances() {
-        assertEquals( true, c01.getOrders().contains(o01) );
-		assertEquals( true, c01.getOrders().contains(o02) );
-		assertEquals( true, c01.getOrders().contains(o03) );
+    	instances();
+    }
+    
+    public void instances() {
+        assertEquals( true, c01.getOrders().contains(oder01) );
+		assertEquals( true, c01.getOrders().contains(order02) );
+		assertEquals( true, c01.getOrders().contains(order03) );
 		assertEquals( true, c01.getOrders().size() == 3   );
 
 		assertEquals( true, c02.getOrders().contains(o04) );
 		assertEquals( true, c02.getOrders().size() == 1 );
 
-		assertEquals( true, o01.getOrderLines().contains(line01) );
-		assertEquals( true, o01.getOrderLines().contains(line02) );
-		assertEquals( true, o01.getOrderLines().contains(line03) );
+		assertEquals( true, o05.getCustomer() == null);
+    	
+		assertEquals( true, oder01.getOrderLines().contains(line01) );
+		assertEquals( true, oder01.getOrderLines().contains(line02) );
+		assertEquals( true, oder01.getOrderLines().contains(line03) );
 
-		assertEquals( true, o02.getOrderLines().contains(line04) );
-		assertEquals( true, o02.getOrderLines().contains(line05) );
+		assertEquals( true, order02.getOrderLines().contains(line04) );
+		assertEquals( true, order02.getOrderLines().contains(line05) );
 
-		assertEquals( true, o03.getOrderLines().contains(line06) );
+		assertEquals( true, order03.getOrderLines().contains(line06) );
 		
-		assertEquals(true , r01.getProduct() == pr01);
-		assertEquals(true , r02.getProduct() == pr01);
-		assertEquals(true , r03.getProduct() == pr01);
-		assertEquals(true , r04.getProduct() == pr04);
+		assertEquals(true , record01.getProduct() == pr01);
+		assertEquals(true , record02.getProduct() == pr01);
+		assertEquals(true , record03.getProduct() == pr01);
+		assertEquals(true , record04.getProduct() == pr04);
 		
 		assertEquals( 3, pr01.getRecord().size());
 		assertEquals( 0, pr02.getRecord().size());
@@ -323,10 +372,10 @@ public class AssociationTest extends AbstractDaoTestCase {
     public void testDeleteAssociationsOne2Many() {
 
     	// Remove an element from a one2many at source side
-    	c01.removeFromOrders(o01);
+    	c01.removeFromOrders(oder01);
     	assertEquals( true , c01.getOrders().size() == 2 );
-        assertEquals( false, c01.getOrders().contains(o01) );
-    	assertEquals( true , o01.getCustomer() == null);
+        assertEquals( false, c01.getOrders().contains(oder01) );
+    	assertEquals( true , oder01.getCustomer() == null);
     	
     	// Move an element from one one2many at source side to another one
         assertEquals( true , c02.getOrders().contains(o04) );
@@ -337,9 +386,9 @@ public class AssociationTest extends AbstractDaoTestCase {
     	assertEquals( true , o04.getCustomer() == c01);
     	
        	// set from target side with existing source
-    	o02.setCustomer(null);
-    	assertEquals(true , o02.getCustomer() == null);
-    	assertEquals(true , !c01.getOrders().contains(o02));
+    	order02.setCustomer(null);
+    	assertEquals(true , order02.getCustomer() == null);
+    	assertEquals(true , !c01.getOrders().contains(order02));
 
        	// set from target side withour existing source
     	o05.setCustomer(null);
@@ -353,7 +402,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     	// Move an element from one one2many at source side to another one
     	line01.setRecord(null);
         assertEquals( true , line01.getRecord() == null);
-        assertEquals( true , r01.getOrderLine() == null);
+        assertEquals( true , record01.getOrderLine() == null);
  
     }
 
