@@ -141,6 +141,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         customerDao.add(new Customer("Saskia", "van Rijn", 4));
         customerDao.add(new Customer("Paulus", "Potter", 5));
         flush();
+        clear();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         List<Customer> customers = customerDao.listAllCustomers();
         assertNotNull(customers);
@@ -163,15 +164,15 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         Customer customer = new Customer("Johannes", "Vermeer", 2);
 
         Order order = new Order("AA111");
-        order.addOrderLine(new OrderLine(1, "verf", 30));
-        order.addOrderLine(new OrderLine(2, "kwast", 20));
-        order.addOrderLine(new OrderLine(3, "doek", 40));
+        order.addToOrderLines(new OrderLine(1, "verf", 30));
+        order.addToOrderLines(new OrderLine(2, "kwast", 20));
+        order.addToOrderLines(new OrderLine(3, "doek", 40));
 
         order = new Order("AA222");
-        order.addOrderLine(new OrderLine(4, "rood", 2));
-        order.addOrderLine(new OrderLine(5, "penseel", 3));
-        order.addOrderLine(new OrderLine(6, "ezel", 110));
-        customer.addOrder(order);
+        order.addToOrderLines(new OrderLine(4, "rood", 2));
+        order.addToOrderLines(new OrderLine(5, "penseel", 3));
+        order.addToOrderLines(new OrderLine(6, "ezel", 110));
+        customer.addToOrders(order);
 
         customerDao.add(customer);
         flush();
