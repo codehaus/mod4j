@@ -143,6 +143,33 @@
 				<version>1.5.2</version>
 			</dependency>
 			<dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time-hibernate</artifactId>
+                <version>1.0</version>
+                <!--
+                    De versies van de volgende dependencies van
+                    joda-time-hibernate conflicteren met onze eigen versies. Dat
+                    komt doordat de dependencies van hibernate 3.0.x expliciet
+                    als dependencies van joda-time-hibernate zijn opgenomen. Wij
+                    gebruiken hibernate 3.2.5.
+                    
+                    Bij een volgende versie van joda-time-hibernate kunnen deze
+                    conflicten verdwenen zijn, en kunnen er nieuwe ontstaan zijn.
+                    Dit moet dan dus gecheckt worden. 
+                -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>ehcache</groupId>
+                        <artifactId>ehcache</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>cglib</groupId>
+                        <artifactId>cglib-full</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+			
+			<dependency>
 				<groupId>jcoverage</groupId>
 				<artifactId>jcoverage</artifactId>
 				<version>1.0.5</version>
