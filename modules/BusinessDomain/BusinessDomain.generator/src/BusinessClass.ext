@@ -35,18 +35,6 @@ String daoImplClassBaseName(BusinessClass cls) :
 boolean isCompositePart(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isCompositePart(BusinessDomainDsl.BusinessClass);
 
-boolean isOne2Many(Association a) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isOne2Many(BusinessDomainDsl.Association);
-
-boolean isOne2One(Association a) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isOne2One(BusinessDomainDsl.Association);
-
-boolean isMany2One(Association a) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isMany2One(BusinessDomainDsl.Association);
-
-boolean isMany2Many(Association a) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isMany2Many(BusinessDomainDsl.Association);
-
 String javaType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
 
