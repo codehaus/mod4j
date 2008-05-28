@@ -1,5 +1,8 @@
 package org.mod4j.businessdomain.generator.helpers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import BusinessDomainDsl.*;
 
 public class BusinessClassHelpers {
@@ -154,6 +157,15 @@ public class BusinessClassHelpers {
             return p.isNullable() ? "Float" : "float";
         }
         return "Object";
+    }
+    
+    public static List<Property> getAllProperties(BusinessClass cls) {
+    	List<Property> result = new ArrayList<Property>();
+    	if( cls.getSuperclass() != null ){
+    		result.addAll( getAllProperties(cls.getSuperclass()) );
+    	}
+    	result.addAll(cls.getProperties());
+    	return result;
     }
 
 }
