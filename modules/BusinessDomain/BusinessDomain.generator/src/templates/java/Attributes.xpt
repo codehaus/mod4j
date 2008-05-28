@@ -145,11 +145,4 @@
      public Long getId() {
         return this.id;
     }
-    /**
-    *
-    * @param id (Long) The identifier to set.
-    */
-    public void setId(Long id) {
-        this.id = id;
-    }
 «ENDDEFINE»
