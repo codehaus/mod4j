@@ -35,6 +35,9 @@ String daoImplClassBaseName(BusinessClass cls) :
 boolean isCompositePart(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isCompositePart(BusinessDomainDsl.BusinessClass);
 
+List[Property] getAllProperties(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllProperties(BusinessDomainDsl.BusinessClass);
+
 String javaType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
 
