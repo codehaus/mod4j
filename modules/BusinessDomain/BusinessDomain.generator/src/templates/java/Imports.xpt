@@ -12,7 +12,7 @@
 «ENDDEFINE»
 
 «DEFINE addImports FOR DateTimeProperty»
-    import org.joda.time.*;
+    import org.joda.time.DateTime;
 «ENDDEFINE»
 
 «DEFINE addImports FOR Enumeration»
