@@ -1,6 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION BusinessClass»
+«EXTENSION Association»
 «EXTENSION util»
 «EXTENSION ProjectProperties»
 
@@ -49,6 +50,11 @@
             </param>
         </type>
     </property>
+«ENDDEFINE»
+
+«DEFINE mapping FOR DateTimeProperty»
+    <property name="«this.name»" 
+              type="org.joda.time.contrib.hibernate.PersistentDateTime" />
 «ENDDEFINE»
 
 «REM»mapping for outgoing associations«ENDREM»
@@ -110,7 +116,7 @@
 		<!-- many2oneMappingTo -->
         <many-to-one name="«targetRoleName»"
             class="«getDomainRootPackage()».«javaClassName(this.target)»" 
-            column="«this.targetRoleName»_ID"
+            not-null="false" column="«this.targetRoleName»_ID"
         />
 «ENDDEFINE»
 
@@ -118,11 +124,16 @@
      This is generat3ed in the target class.
 «ENDREM»
 «DEFINE many2oneMappingFrom FOR Association»
-		<!-- many2oneMappingFrom  -->
-        <one-to-many name="«sourceRoleName»"
-            class="«getDomainRootPackage()».«javaClassName(this.source)»"
-            not-null="false"
-        />
+        <!-- many2oneMappingFrom -->
+        <set name="«this.sourceRoleName»" inverse="false" lazy="false"
+            cascade="save-update">
+            <key>
+                <column name="«this.targetRoleName»_ID" />
+            </key>
+            <one-to-many
+                class="«getDomainRootPackage()».«javaClassName(this.source)»" 
+             />
+        </set>
 «ENDDEFINE»
 
 «DEFINE one2oneMappingTo FOR Association»
