@@ -29,7 +29,7 @@
             <generator class="native" />
         </id>
         <version name="version" unsaved-value="negative" />
-		«EXPAND mapping      FOREACH this.properties»
+		«EXPAND mapping      FOREACH this.getAllProperties()»
 		«EXPAND mappingsTo   FOREACH this.associationsTo»
 		«EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.bidirectional)»
 
