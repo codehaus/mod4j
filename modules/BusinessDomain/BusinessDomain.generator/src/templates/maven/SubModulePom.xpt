@@ -32,6 +32,11 @@
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time-hibernate</artifactId>
+        </dependency>
+ 
     «IF this == "domain"-»
         <dependency>
             <groupId>org.springframework</groupId>
