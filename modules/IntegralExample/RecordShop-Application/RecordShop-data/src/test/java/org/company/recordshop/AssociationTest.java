@@ -163,8 +163,19 @@ public class AssociationTest extends AbstractDaoTestCase {
 				}
 			} else {
 				System.err.println("Customer firstName ["+ customer.getFirstName() + "] has null firstName");
-				System.err.println("Customer lastName ["+ customer.getLastName() + "] has null firstName");
-				System.err.println("Customer customerNr ["+ customer.getCustomerNr() + "] has null firstName");
+			}
+		}
+		return null;
+	}
+
+	public Order lookup(Collection<Order> coll, String name) {
+		for (Order order : coll) {
+			if( order.getOrderNumber() != null) {
+				if( order.getOrderNumber().equals(name) ){
+					return order;
+				}
+			} else {
+				System.err.println("Order number ["+ order.getOrderNumber()+ "] has null ordernumber");
 			}
 		}
 		return null;
@@ -177,29 +188,56 @@ public class AssociationTest extends AbstractDaoTestCase {
     	orderLineAssociations(allOrderLines);
     	recordAssociations(allRecords);
     	productAssociations(allProducts);
-
+    }
+    
+    @Test
+    public void testAssociationsHibernate() {
     	clear();
     	
-    	List<Customer> customers = customerDao.listAllCustomers();
-    	assertEquals(false, customers.contains(c01));
-    	assertEquals(false, customers.contains(c02));
-    	assertEquals(false, customers.contains(c03));
-    	assertEquals(false, customers.contains(c04));
-    	assertEquals(4, customers.size());
-    	c01 = lookup(customers, "Jos");
-    	c02 = lookup(customers, "Piet");
-    	c03 = lookup(customers, "Joanna");
-    	c04 = lookup(customers, "Karen");
+    	allCustomers = customerDao.listAllCustomers();
+    	// Chech whether new opbjects have been created, not the original cached ones.
+    	assertEquals(false, allCustomers.contains(c01));
+    	assertEquals(false, allCustomers.contains(c02));
+    	assertEquals(false, allCustomers.contains(c03));
+    	assertEquals(false, allCustomers.contains(c04));
+    	assertEquals(4, allCustomers.size());
+    	c01 = lookup(allCustomers, "Jos");
+    	c02 = lookup(allCustomers, "Piet");
+    	c03 = lookup(allCustomers, "Joanna");
+    	c04 = lookup(allCustomers, "Karen");
     	
-   		assertEquals( true, c01!= null );
+    	allOrders = orderDao.listAllOrders();
+    	// Chech whether new opbjects have been created, not the original cached ones.
+    	assertEquals(false, allOrders.contains(o01));
+    	assertEquals(false, allOrders.contains(o02));
+    	assertEquals(false, allOrders.contains(o03));
+    	assertEquals(false, allOrders.contains(o04));
+    	assertEquals(false, allOrders.contains(o05));
+    	assertEquals(5, allOrders.size());
+    	o01 = lookup(allOrders, "order01");
+    	o02 = lookup(allOrders, "order02");
+    	o03 = lookup(allOrders, "order03");
+    	o04 = lookup(allOrders, "order04");
+    	o05 = lookup(allOrders, "order05");
+    	
+		assertEquals( true, c01.getOrders().size() == 3   );
+        assertEquals( true, c01.getOrders().contains(o01) );
+		assertEquals( true, c01.getOrders().contains(o02) );
+		assertEquals( true, c01.getOrders().contains(o03) );
+
+		assertEquals( true, c02.getOrders().contains(o04) );
+		assertEquals( true, c02.getOrders().size() == 1 );
+
+    	assertEquals( true, c01!= null );
    		assertEquals( true, c02!= null );
    		assertEquals( true, c03!= null );
    		assertEquals( true, c04!= null );
    		assertEquals( true, c01.getOrders().size() == 3   );
 
+   		assertEquals( true, o05.getCustomer() == null);
     	
-    	customerAssociations( customers);
-    	orderAssociations(orderDao.listAllOrders());
+    	customerAssociations( allCustomers);
+    	orderAssociations(allOrders);
     	orderLineAssociations(orderLineDao.listAllOrderLines());
     	recordAssociations(recordDao.listAllRecords());
     	productAssociations(productDao.listAllProducts());
