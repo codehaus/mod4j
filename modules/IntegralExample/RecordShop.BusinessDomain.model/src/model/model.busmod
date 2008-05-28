@@ -63,17 +63,25 @@ Class OrderLine [
     float lineAmount;
 ]
 
+Class Product [
+	string productNumnber;
+	integer price;
+]
+
 "Sexe enumeration."
 Enumeration Sexe [
     female = 2;
     male = 3;
 ]
  
-"The cutstomer has a number of orders" 
+"One 2 Many Bidirectional: The customer has a number of orders" 
 Association customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
 
-"An order consists of orderlines"
+"One 2 Many unidirectional: An order consists of orderlines"
 Association composite order Order [ 0..1 ] -> [ 0..* ] orderLines OrderLine;
 
-"An ordelrine contains a record"
+"One 2 One bidirectional: An ordelrine contains a record"
 Association composite orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
+
+"Many to One bidirectional: "
+Association composite record Record [ 0..* ] <-> [ 0..1 ] product Product ;
