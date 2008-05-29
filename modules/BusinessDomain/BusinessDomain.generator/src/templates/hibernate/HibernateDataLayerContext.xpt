@@ -75,7 +75,7 @@
 
     <bean id="dataSource"
         class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/ForumsDS" />
+        <property name="jndiName" value="java:comp/env/jdbc/«getApplicationName()»DS" />
         <property name="lookupOnStartup" value="false" />
         <property name="cache" value="true" />
         <property name="proxyInterface" value="javax.sql.DataSource" />
