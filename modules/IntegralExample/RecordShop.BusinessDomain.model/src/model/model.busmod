@@ -39,7 +39,7 @@ Class Record [
     string asin;
     string title default "Title unknown";
     integer mediumCode default 111 ;
-    float price;
+    decimal price ;
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
@@ -60,7 +60,7 @@ Class Order [
 Class OrderLine [
     integer lineNumber min 01 max 50 ;
     string description;
-    float lineAmount;
+    decimal lineAmount;
 ]
 
 Class Product [
