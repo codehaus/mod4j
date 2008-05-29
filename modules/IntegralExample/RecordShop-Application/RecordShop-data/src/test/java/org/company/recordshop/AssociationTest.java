@@ -163,7 +163,7 @@ public class AssociationTest extends AbstractDaoTestCase {
 					return customer;
 				}
 			} else {
-				System.err.println("Customer firstName ["+ customer.getFirstName() + "] has null firstName");
+				System.err.println("Customer  has null firstName");
 			}
 		}
 		return null;
