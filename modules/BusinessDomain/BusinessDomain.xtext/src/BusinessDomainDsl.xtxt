@@ -50,7 +50,8 @@ Enum InheritanceModifier :
     
 Property : 
     (description=STRING )?
-	(BoolProperty | StringProperty | DateTimeProperty | NumberProperty | EnumerationProperty ) 
+	(BoolProperty | StringProperty | DateTimeProperty | IntegerProperty |
+	 DecimalProperty | EnumerationProperty ) 
 	(nullable?="nullable")?
 	("persistency" persistency=PersistencyMode)?
 	";"
@@ -75,9 +76,14 @@ StringProperty : dataType="string" name=ID
                  ("minlength" minLength=INT)? ("maxlength" maxLength=INT)? 
                  ;
 
-NumberProperty : (dataType="integer" | dataType="float") name=ID
+IntegerProperty : (dataType="integer") name=ID
                  (hasDefault?="default" defaultValue=INT)?
                  ("min" minValue=INT)? ("max" maxValue=INT)?  
+                 ; 
+
+DecimalProperty : (dataType="decimal" ) name=ID
+//                 (hasDefault?="default" defaultValue=INT)?
+//               ("min" minValue=INT)? ("max" maxValue=INT)?  
                  ; 
 
 EnumerationProperty : type=[Enumeration] name=ID
