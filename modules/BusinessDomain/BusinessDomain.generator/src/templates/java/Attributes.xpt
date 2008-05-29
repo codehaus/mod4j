@@ -9,27 +9,32 @@
 
 «DEFINE instanceVariable FOR BoolProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
-     private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
+     private «javaType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR EnumerationProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
-     private «javaType(this)» «name»«IF defaultValue != null» = "«defaultValue»"«ENDIF»;
+     private «javaType(this)» «name»«IF hasDefault» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR DateTimeProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
-     private «javaType(this)» «name»«IF defaultValue != null && defaultValue.length > 0» = new «javaType(this)»("«defaultValue»")«ENDIF»;
+     private «javaType(this)» «name»«IF hasDefault && defaultValue.length > 0» = new «javaType(this)»("«defaultValue»")«ENDIF»;
 «ENDDEFINE»
 
-«DEFINE instanceVariable FOR NumberProperty»
+«DEFINE instanceVariable FOR IntegerProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
-    private «javaType(this)» «name»«IF defaultValue != null» = «defaultValue»«ENDIF»;
+    private «javaType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
+«ENDDEFINE»
+
+«DEFINE instanceVariable FOR DecimalProperty»
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
+    private «javaType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR StringProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this»
-     private «javaType(this)» «name»«IF defaultValue != null» = "«defaultValue»"«ENDIF»;
+     private «javaType(this)» «name»«IF hasDefault» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
 
 
@@ -64,16 +69,26 @@
 	public static final String «name.toUpperCase()»_ACCURACY = "«accuracy»";
 «ENDDEFINE»
 
-«DEFINE addAttribute FOR NumberProperty»
-	«EXPAND instanceVariable FOR this»
-	«IF minValue != null »
-		public static final «javaType(this)» «name.toUpperCase()»_MINVALUE = «minValue»;
-	«ENDIF»
-	«IF maxValue != null »
-		public static final «javaType(this)» «name.toUpperCase()»_MAXVALUE = «maxValue»;
-	«ENDIF»
-	public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
-	public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
+«DEFINE addAttribute FOR IntegerProperty»
+    «EXPAND instanceVariable FOR this»
+    «IF minValue != -2147483648»
+        public static final «javaType(this)» «name.toUpperCase()»_MINVALUE = «minValue»;
+    «ENDIF»
+    «IF maxValue != 2147483647 »
+        public static final «javaType(this)» «name.toUpperCase()»_MAXVALUE = «maxValue»;
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR DecimalProperty»
+    «EXPAND instanceVariable FOR this»
+    «IF minValue != -2147483648 »
+        public static final «javaType(this)» «name.toUpperCase()»_MINVALUE = «minValue»;
+    «ENDIF»
+    «IF maxValue != -2147483648 »
+        public static final «javaType(this)» «name.toUpperCase()»_MAXVALUE = «maxValue»;
+    «ENDIF»
+    public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
+    public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR StringProperty»	

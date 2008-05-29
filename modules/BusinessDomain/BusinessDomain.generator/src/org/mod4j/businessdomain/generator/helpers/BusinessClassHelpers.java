@@ -119,8 +119,10 @@ public class BusinessClassHelpers {
             return javaType((BoolProperty) p);
         } else if (p instanceof StringProperty) {
             return javaType((StringProperty) p);
-        } else if (p instanceof NumberProperty) {
-            return javaType((NumberProperty) p);
+        } else if (p instanceof IntegerProperty) {
+            return javaType((IntegerProperty) p);
+        } else if (p instanceof DecimalProperty) {
+            return javaType((DecimalProperty) p);
         } else if (p instanceof EnumerationProperty) {
             return javaType((EnumerationProperty) p);
         } else if (p instanceof DateTimeProperty) {
@@ -150,13 +152,12 @@ public class BusinessClassHelpers {
         return "String";
     }
 
-    public static String javaType(NumberProperty p) {
-        if (p.getDataType().equals("integer")) {
-            return p.isNullable() ? "Integer" : "int";
-        } else if (p.getDataType().equals("float")) {
-            return p.isNullable() ? "Float" : "float";
-        }
-        return "Object";
+    public static String javaType(IntegerProperty p) {
+        return p.isNullable() ? "Integer" : "int";
+    }
+    
+    public static String javaType(DecimalProperty p) {
+        return p.isNullable() ? "Float" : "float";
     }
     
     public static List<Property> getAllProperties(BusinessClass cls) {
