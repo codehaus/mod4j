@@ -71,12 +71,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//EnumerationProperty/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationProperty/defaultValue"/>
     </genClasses>
-    <genClasses ecoreClass="BusinessDomainDsl.ecore#//NumberProperty">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/minValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/maxValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/minInclusive"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/maxInclusive"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//NumberProperty/defaultValue"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//IntegerProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//IntegerProperty/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//IntegerProperty/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//IntegerProperty/defaultValue"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//StringProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//StringProperty/regularExpression"/>
@@ -98,6 +96,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/targetMultiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/composite"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/bidirectional"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//DecimalProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/minInclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/maxInclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/defaultValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
