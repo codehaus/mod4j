@@ -37,7 +37,6 @@
      private «javaType(this)» «name»«IF hasDefault» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
 
-
 «DEFINE addGetter FOR Property»
 	/**
 	*
@@ -46,6 +45,16 @@
 	public «javaType(this)» get«name.toFirstUpper()» () {
    		return this.«name»;
 	}
+«ENDDEFINE»
+
+«DEFINE addGetter FOR BoolProperty»
+    /**
+    *
+    * @return «name» («javaType(this)») «description»
+    */
+    public «javaType(this)» is«name.toFirstUpper()» () {
+        return this.«name»;
+    }
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR BlobBinaryProperty»
@@ -83,54 +92,60 @@
     «EXPAND instanceVariable FOR this»
     «IF minValue != -2147483648 »
         public static final «javaType(this)» «name.toUpperCase()»_MINVALUE = «minValue»;
+        public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
     «ENDIF»
     «IF maxValue != -2147483648 »
         public static final «javaType(this)» «name.toUpperCase()»_MAXVALUE = «maxValue»;
+        public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
     «ENDIF»
-    public static final boolean «name.toUpperCase()»_MININCLUSIVE = «minInclusive»;
-    public static final boolean «name.toUpperCase()»_MAXINCLUSIVE = «maxInclusive»;
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR StringProperty»	
 	«EXPAND instanceVariable FOR this» 
-	«IF regularExpression.length>0»
+	«IF regularExpression.length > 0»
 		public static final «javaType(this)» «name.toUpperCase()»_REGEXP = «regularExpression»;
 	«ENDIF»
-	«IF minLength>0»
+	«IF minLength > -1»
 		public static final Integer «name.toUpperCase()»_MINLENGTH = «minLength»;
 	«ENDIF»
-	«IF maxLength>0»
+	«IF maxLength > -1»
 		public static final Integer «name.toUpperCase()»_MAXLENGTH = «maxLength»;
 	«ENDIF»
 «ENDDEFINE»
 
-«DEFINE addGetter FOR EnumerationProperty»
-    /**
-    *
-    * @return «name» («javaType(this)») «description»
-    */
-    public «javaType(this)» get«name.toFirstUpper()» () {
-        return this.«name»;
-    }
-«ENDDEFINE»
-
-«DEFINE addSetter FOR EnumerationProperty»
-    /**
-    *
-    * @param «name» («javaType(this)») «description»
-    */
-    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
-        this.«name» = «name»;
-    }
-«ENDDEFINE»
-
 «DEFINE addSetter FOR Property»
-    /**
-    *
-    * @param «name» («javaType(this)») «description»
-    */
+   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addSetter FOR BoolProperty»
+   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
+        this.«name» = «name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addSetter FOR IntegerProperty»
+    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
+        this.«name» = «name»;
+        validate();
+        «IF minValue != -2147483648 || maxValue != 2147483647 -»
+             validate«name.toFirstUpper()»();
+        «ENDIF»
+    }
+«ENDDEFINE»
+
+«DEFINE addSetter FOR StringProperty»
+    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
+        this.«name» = «name»;
+        validate();
+        «IF minLength > -1 || maxLength > -1 || regularExpression.length > 0»
+             validate«name.toFirstUpper()»();
+        «ENDIF»
     }
 «ENDDEFINE»
 
@@ -160,4 +175,53 @@
      public Long getId() {
         return this.id;
     }
+«ENDDEFINE»
+
+«DEFINE addValidateMethod FOR Property»
+   «REM»TODO: implement«ENDREM»
+«ENDDEFINE»
+
+«DEFINE addValidateMethod FOR EnumerationProperty»
+    «EXPAND Javadoc::validateMethodJavaDoc FOR this»
+   «REM»TODO: implement«ENDREM»
+«ENDDEFINE»
+
+«DEFINE addValidateMethod FOR IntegerProperty»
+    «IF minValue != -2147483648 || maxValue != 2147483647 -»
+		«EXPAND Javadoc::validateMethodJavaDoc FOR this»
+		private void validate«name.toFirstUpper()»() {
+		    validationTemplate.execute(new BusinessRuleValidationCallback() {
+		        public void doValidate(Object object, Errors errors) {
+		        «IF minValue != -2147483648»
+		            BusinessRuleUtils.validateMinValue(errors, "«name»", «name.toUpperCase()»_MINVALUE);
+		        «ENDIF»
+		        «IF maxValue != 2147483647»
+		            BusinessRuleUtils.validateMaxValue(errors, "«name»", «name.toUpperCase()»_MAXVALUE);
+		        «ENDIF»
+		        }
+		    });
+		}
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE addValidateMethod FOR StringProperty»
+    «IF minLength > -1 || maxLength > -1 || regularExpression.length > 0 -»
+        «EXPAND Javadoc::validateMethodJavaDoc FOR this»
+        private void validate«name.toFirstUpper()»() {
+            validationTemplate.execute(new BusinessRuleValidationCallback() {
+                public void doValidate(Object object, Errors errors) {
+                «IF minLength > -1 -»
+                    BusinessRuleUtils.validateMinLength(errors, "«name»", «name.toUpperCase()»_MINLENGTH);
+                «ENDIF»
+                «IF maxLength > -1 -»
+                    BusinessRuleUtils.validateMaxLength(errors, "«name»", «name.toUpperCase()»_MAXLENGTH);
+                }
+                «ENDIF»
+                «IF regularExpression.length > 0 -»
+                    BusinessRuleUtils.validateRegularExpression(errors, "«name»", «name.toUpperCase()»_REGEXP);
+                }
+                «ENDIF»
+            });
+        }
+    «ENDIF»
 «ENDDEFINE»
