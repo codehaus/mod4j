@@ -78,7 +78,14 @@ public class BusinessRuleUtils {
      * @param max
      */
     public static void validateMaxValue(Errors errors, String field, long max) {
-        Long value = (Long) errors.getFieldValue(field);
+
+        Long value = null;
+
+        if (errors.getFieldValue(field) instanceof Integer) {
+            value = ((Integer) errors.getFieldValue(field)).longValue();
+        } else if (errors.getFieldValue(field) instanceof Long) {
+            value = ((Long) errors.getFieldValue(field));
+        }
         Assert.notNull(value);
         if (value > max) {
             errors.rejectValue(field, "field.value.max", new Long[] { new Long(max), new Long(value) }, field
@@ -97,7 +104,15 @@ public class BusinessRuleUtils {
      * @param min
      */
     public static void validateMinValue(Errors errors, String field, long min) {
-        Long value = (Long) errors.getFieldValue(field);
+
+        Long value = null;
+
+        if (errors.getFieldValue(field) instanceof Integer) {
+            value = ((Integer) errors.getFieldValue(field)).longValue();
+        } else if (errors.getFieldValue(field) instanceof Long) {
+            value = ((Long) errors.getFieldValue(field));
+        }
+
         Assert.notNull(value);
         if (value < min) {
             errors.rejectValue(field, "field.value.min", new Long[] { new Long(min), new Long(value) }, field
