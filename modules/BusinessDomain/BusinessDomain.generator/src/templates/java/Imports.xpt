@@ -1,14 +1,18 @@
 «IMPORT BusinessDomainDsl»
 
 «DEFINE addImports FOR BusinessClass»
- 	import java.util.Set;
-	import java.util.HashSet;
+    import java.util.Set;
+    import java.util.HashSet;
+    import org.mod4j.common.domain.AbstractDomainObject;
+    import org.springframework.validation.Errors;
+    import org.mod4j.common.validation.BusinessRuleUtils;
+    import org.mod4j.common.validation.BusinessRuleValidationCallback;
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessRule»
-	import org.springframework.validation.Errors;
-	import org.springframework.validation.ValidationUtils;
-	import org.springframework.validation.Validator;
+    import org.springframework.validation.Errors;
+    import org.springframework.validation.ValidationUtils;
+    import org.springframework.validation.Validator;
 «ENDDEFINE»
 
 «DEFINE addImports FOR DateTimeProperty»
