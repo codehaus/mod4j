@@ -51,8 +51,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertEquals("Van Gogh", saved.getLastName());
         assertNull(saved.getSexe());
         assertEquals(1, saved.getCustomerNr());
-        assertEquals(false, saved.getIsBlackListed());
-        assertEquals(1, saved.getNumberOfEars().intValue());
+        assertEquals(false, saved.isBlackListed());
+        assertEquals(1, saved.getNumberOfEars());
         assertEquals(0, saved.getOrders().size());
     }
 
@@ -84,13 +84,13 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertEquals("Vincent", saved.getFirstName());
         assertEquals("van Gogh", saved.getLastName());
         assertNull(saved.getSexe());
-        assertEquals(0, saved.getNumberOfEars().intValue());
+        assertEquals(0, saved.getNumberOfEars());
         assertEquals(1, saved.getCustomerNr());
-        assertEquals(false, saved.getIsBlackListed());
+        assertEquals(false, saved.isBlackListed());
         assertEquals(0, saved.getOrders().size());
 
         saved.setFirstName("Thea");
-        saved.setIsBlackListed(true);
+        saved.setBlackListed(true);
         saved.setSexe(Sexe.FEMALE);
         saved.setCustomerNr(2);
         saved.setNumberOfEars(2);
@@ -102,9 +102,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertEquals("Thea", updated.getFirstName());
         assertEquals("Engelhard", updated.getLastName());
         assertEquals(Sexe.FEMALE, updated.getSexe());
-        assertEquals(2, updated.getNumberOfEars().intValue());
+        assertEquals(2, updated.getNumberOfEars());
         assertEquals(2, updated.getCustomerNr());
-        assertEquals(true, updated.getIsBlackListed());
+        assertEquals(true, updated.isBlackListed());
         assertEquals(0, updated.getOrders().size());
     }
 
