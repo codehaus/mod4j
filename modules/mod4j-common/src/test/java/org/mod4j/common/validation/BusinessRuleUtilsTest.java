@@ -25,12 +25,22 @@ public class BusinessRuleUtilsTest {
 
         private Long longValue;
 
+        private Integer integerValue;
+        
         public Long getLongValue() {
             return longValue;
         }
 
         public void setLongValue(Long longValue) {
             this.longValue = longValue;
+        }
+        
+        public Integer getIntegerValue() {
+            return integerValue;
+        }
+
+        public void setIntegerValue(Integer inteerValue) {
+            this.integerValue = integerValue;
         }
 
         public ObjectToValidate(String value) {
@@ -39,6 +49,10 @@ public class BusinessRuleUtilsTest {
 
         public ObjectToValidate(Long value) {
             this.longValue = value;
+        }
+        
+        public ObjectToValidate(Integer value) {
+            this.integerValue = value;
         }
 
         public String getStringValue() {
@@ -78,7 +92,27 @@ public class BusinessRuleUtilsTest {
         assertEquals("field.length.min", error.getCode());
         assertEquals("stringValue should be at least 3 long, but was 2", error.getDefaultMessage());
     }
-
+    
+    private void autoBoxer(Object obj){
+        
+        if (obj instanceof String){
+            System.out.println("Its a String:  " + obj);
+        } else if (obj instanceof Integer){
+            System.out.println("Its a Integer:  " + obj);
+        } else if (obj instanceof Long){
+            System.out.println("Its a Long:  " + obj);
+        }
+        
+    }
+    
+    @Test
+    public void testAutoboing(){
+        autoBoxer(5);
+        autoBoxer(5L);
+        autoBoxer("5");
+        autoBoxer("5 hello");
+    }
+    
     /**
      * Test method for
      * {@link org.mod4j.common.validation.BusinessRuleUtils#validateMinLength(org.springframework.validation.Errors, java.lang.String, int)}.
@@ -146,6 +180,16 @@ public class BusinessRuleUtilsTest {
         BusinessRuleUtils.validateMaxValue(errors, "longValue", 6);
         assertFalse(errors.hasErrors());
     }
+    
+    @Test
+    public void testValidateMaxValueSucceedWithInteger() {
+        ObjectToValidate target = new ObjectToValidate(new Integer(7));
+        Errors errors = new BindException(target, "target");
+        BusinessRuleUtils.validateMaxValue(errors, "integerValue", 8);
+        assertFalse(errors.hasErrors());
+        BusinessRuleUtils.validateMaxValue(errors, "integerValue", 9);
+        assertFalse(errors.hasErrors());
+    }
 
     @Test
     public void testValidateMinValueFail() {
@@ -169,6 +213,16 @@ public class BusinessRuleUtilsTest {
         assertFalse(errors.hasErrors());
     }
 
+    @Test
+    public void testValidateMinValueSucceedWithInteger() {
+        ObjectToValidate target = new ObjectToValidate(new Integer(5));
+        Errors errors = new BindException(target, "target");
+        BusinessRuleUtils.validateMinValue(errors, "integerValue", 5);
+        assertFalse(errors.hasErrors());
+        BusinessRuleUtils.validateMinValue(errors, "integerValue", 2);
+        assertFalse(errors.hasErrors());
+    }
+    
     @Test
     public void testValidateMinLengthWithLong() {
         ObjectToValidate target = new ObjectToValidate(5L);
