@@ -21,3 +21,19 @@
      *  «name»: «description»
      */
 «ENDDEFINE»
+
+«DEFINE addSetterJavaDoc FOR Property»
+    /**
+    *
+    * @param «name» («javaType(this)») «description»
+    */
+«ENDDEFINE»
+
+«DEFINE validateMethodJavaDoc FOR Property»
+    /**
+     *  Validates the «name» attribute. 
+     *
+     *  @param
+     *  @return
+     */
+«ENDDEFINE»
