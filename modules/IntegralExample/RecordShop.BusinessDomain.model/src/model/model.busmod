@@ -15,7 +15,7 @@ Class Person [
     integer age nullable persistency NONE;
      
     "We allow Vulcans in this system." 
-    integer numberOfEars default 0 min 2 max 4 nullable;
+    integer numberOfEars default 0 min 0 max 4;
     
     Sexe sexe nullable;   
 ]
@@ -24,7 +24,7 @@ Class Person [
 Class Customer inherits Person [
     integer customerNr;
     string username nullable;
-    boolean isBlackListed default false nullable;
+    boolean blackListed default false nullable;
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
         oneEarDiscount;
