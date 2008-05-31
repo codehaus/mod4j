@@ -40,7 +40,7 @@
 		*
 		* Generated at: «timestamp()»
 		*/
-        public abstract class «name»ImplBase «IF superclass != null -»extends «superclass.name» «ENDIF»implements java.io.Serializable {
+        public abstract class «name»ImplBase extends «IF superclass != null -»«superclass.name» «ELSE»AbstractDomainObject «ENDIF»implements java.io.Serializable {
             
             «IF superclass == null »
                 «EXPAND Attributes::addIdAttribute FOR this»	
@@ -55,6 +55,7 @@
             «EXPAND Constructors::addMinimalConstructor ("ImplBase") FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
+ 			«EXPAND Attributes::addValidateMethod FOREACH properties»
         }
 	«ENDFILE»
 	
