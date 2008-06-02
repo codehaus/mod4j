@@ -24,7 +24,7 @@ public class PropertyValidationTest {
         try {
             customer.setNumberOfEars(4);
             customer.setNumberOfEars(5);
-            fail();
+            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("numberOfEars should be at most 4, but was 5"));
         }
@@ -41,7 +41,7 @@ public class PropertyValidationTest {
         try {
             customer.setNumberOfEars(0);
             customer.setNumberOfEars(-1);
-            fail();
+            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("numberOfEars should be at least 0, but was -1"));
         }
@@ -58,7 +58,7 @@ public class PropertyValidationTest {
         try {
             customer.setUsername("hermanbrea");
             customer.setUsername("hermanbread");
-            fail();
+            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("username should be at most 10 long, but was 11"));
         }
@@ -75,7 +75,7 @@ public class PropertyValidationTest {
         try {
             customer.setUsername("her");
             customer.setUsername("he");
-            fail();
+            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("username should be at least 3 long, but was 2"));
         }
@@ -93,7 +93,7 @@ public class PropertyValidationTest {
         try {
             record.setPrice(0F);
             record.setPrice(-1F);
-            fail();
+            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("todo"));
         }
