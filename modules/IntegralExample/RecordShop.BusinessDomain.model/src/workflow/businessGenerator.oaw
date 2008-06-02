@@ -40,6 +40,7 @@
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
+        <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
     </component>
 
     <!-- 
@@ -53,6 +54,7 @@
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
+        <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
     </component>
 
     <!-- 
