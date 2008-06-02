@@ -29,9 +29,12 @@
      */
      public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
      	«IF superclass != null -»
+     	
  			super(«EXPAND addSuperArgumentList FOR this.superclass -»);
  		«ENDIF»
      	«EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault) -»
+     	«EXPAND BusinessRules::addBusinessRulesValidators FOR this»
+     	validate();
      }
 «ENDDEFINE»
 
