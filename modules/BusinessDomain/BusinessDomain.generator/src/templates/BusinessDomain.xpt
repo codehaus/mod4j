@@ -1,11 +1,14 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT src::templates::java»
 «IMPORT src::templates::maven»
+«EXTENSION ProjectProperties»
 
 «EXTENSION util»
 
 «DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
+    «setPropertiesFile( appPropFilePath() )»
 	«EXPAND JavaBean::BeanClassImplBase (rootPackage) FOREACH types»
+	«EXPAND BusinessRules::BusinessRulesImplBases (rootPackage) FOREACH types»
 	«EXPAND Enumeration::createEnum (rootPackage) FOREACH enumerations»
 «ENDDEFINE»
 
@@ -15,6 +18,7 @@
 «ENDREM»
 «DEFINE ExtensionPointGeneration (String srcManPath, String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
 	«EXPAND JavaBean::BeanClassExtensionPoint (srcManPath, rootPackage) FOREACH types»
+	«EXPAND BusinessRules::BusinessRulesExtentionPoints (srcManPath, rootPackage) FOREACH types»
 «ENDDEFINE»
 
 «REM»
