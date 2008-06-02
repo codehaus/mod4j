@@ -26,12 +26,15 @@ Class Customer inherits Person [
     integer customerNr;
     string username minlength 3 maxlength 10 nullable ;
     boolean blackListed default false nullable;
+    integer discountPercentage default 0 min 0 max 100 ;
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
-        oneEarDiscount;
-        
+        OneEarDiscount;
+       
+       /* TODO
         "Just another rule"
-        anotherRule;
+        AnotherRule;
+        */
     ]
 ]
 
