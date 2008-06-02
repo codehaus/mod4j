@@ -117,6 +117,7 @@
    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
+        validate();
     }
 «ENDDEFINE»
 
@@ -124,6 +125,7 @@
    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
+        validate();
     }
 «ENDDEFINE»
 
@@ -131,10 +133,10 @@
     «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
-        validate();
         «IF minValue != -2147483648 || maxValue != 2147483647 -»
              validate«name.toFirstUpper()»();
         «ENDIF»
+        validate();
     }
 «ENDDEFINE»
 
@@ -142,10 +144,10 @@
     «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
-        validate();
         «IF minLength > -1 || maxLength > -1 || regularExpression.length > 0»
              validate«name.toFirstUpper()»();
         «ENDIF»
+        validate();
     }
 «ENDDEFINE»
 
