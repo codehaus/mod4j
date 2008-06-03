@@ -10,7 +10,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.mod4j.common.validation.BusinessRuleUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -26,7 +25,7 @@ public class BusinessRuleUtilsTest {
         private Long longValue;
 
         private Integer integerValue;
-        
+
         public Long getLongValue() {
             return longValue;
         }
@@ -34,7 +33,7 @@ public class BusinessRuleUtilsTest {
         public void setLongValue(Long longValue) {
             this.longValue = longValue;
         }
-        
+
         public Integer getIntegerValue() {
             return integerValue;
         }
@@ -50,7 +49,7 @@ public class BusinessRuleUtilsTest {
         public ObjectToValidate(Long value) {
             this.longValue = value;
         }
-        
+
         public ObjectToValidate(Integer value) {
             this.integerValue = value;
         }
@@ -92,19 +91,27 @@ public class BusinessRuleUtilsTest {
         assertEquals("field.length.min", error.getCode());
         assertEquals("stringValue should be at least 3 long, but was 2", error.getDefaultMessage());
     }
-    
-    private void autoBoxer(Object obj){
-        
-        if (obj instanceof String){
+
+    private void autoBoxer(Object obj) {
+
+        if (obj instanceof String) {
             System.out.println("Its a String:  " + obj);
-        } else if (obj instanceof Integer){
+        } else if (obj instanceof Integer) {
             System.out.println("Its a Integer:  " + obj);
-        } else if (obj instanceof Long){
+        } else if (obj instanceof Long) {
             System.out.println("Its a Long:  " + obj);
         }
-        
+
     }
-    
+
+    @Test
+    public void testAutoboing() {
+        autoBoxer(5);
+        autoBoxer(5L);
+        autoBoxer("5");
+        autoBoxer("5 hello");
+    }
+
     /**
      * Test method for
      * {@link org.mod4j.common.validation.BusinessRuleUtils#validateMinLength(org.springframework.validation.Errors, java.lang.String, int)}.
@@ -172,7 +179,7 @@ public class BusinessRuleUtilsTest {
         BusinessRuleUtils.validateMaxValue(errors, "longValue", 6);
         assertFalse(errors.hasErrors());
     }
-    
+
     @Test
     public void testValidateMaxValueSucceedWithInteger() {
         ObjectToValidate target = new ObjectToValidate(new Integer(7));
@@ -214,7 +221,7 @@ public class BusinessRuleUtilsTest {
         BusinessRuleUtils.validateMinValue(errors, "integerValue", 2);
         assertFalse(errors.hasErrors());
     }
-    
+
     @Test
     public void testValidateMinLengthWithLong() {
         ObjectToValidate target = new ObjectToValidate(5L);
@@ -243,12 +250,7 @@ public class BusinessRuleUtilsTest {
     public void testValidateMinValueWithString() {
         ObjectToValidate target = new ObjectToValidate("value");
         Errors errors = new BindException(target, "target");
-        try {
-            BusinessRuleUtils.validateMinValue(errors, "longValue", 5);
-            fail("Expected IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            // Expected
-        }
+        BusinessRuleUtils.validateMinValue(errors, "longValue", 5);
     }
 
     @Test

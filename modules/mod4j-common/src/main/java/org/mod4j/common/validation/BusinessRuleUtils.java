@@ -8,7 +8,7 @@ import org.springframework.validation.ValidationUtils;
  * This class implements some common checks on fields. It uses the {@link ValidationUtils} class of the Spring framework
  * to collect and report errors.
  * 
- * @author Eric Jan Malotaux *
+ * @author Eric Jan Malotaux
  */
 public class BusinessRuleUtils {
 
@@ -102,6 +102,7 @@ public class BusinessRuleUtils {
      * @param errors
      * @param field
      * @param min
+     * @deprecated
      */
     public static void validateMinValue(Errors errors, String field, long min) {
 
@@ -113,10 +114,12 @@ public class BusinessRuleUtils {
             value = ((Long) errors.getFieldValue(field));
         }
 
-        Assert.notNull(value);
-        if (value < min) {
-            errors.rejectValue(field, "field.value.min", new Long[] { new Long(min), new Long(value) }, field
-                    + " should be at least " + min + ", but was " + value);
+        if (value != null) {
+            Assert.notNull(value);
+            if (value < min) {
+                errors.rejectValue(field, "field.value.min", new Long[] { new Long(min), new Long(value) }, field
+                        + " should be at least " + min + ", but was " + value);
+            }
         }
     }
 }
