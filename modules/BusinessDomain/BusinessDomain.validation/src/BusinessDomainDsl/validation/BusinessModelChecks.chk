@@ -10,6 +10,7 @@
  *******************************************************************************/
 import BusinessDomainDsl;
 
+extension BusinessDomainDsl::validation::javautils;
 // extension org::mod4j::businessdomain::xtext::Extensions;
 // extension org::mod4j::businessdomain::xtext::javautils;
 /*
@@ -23,6 +24,9 @@ context BusinessClass ERROR "Name of BusinessClass [" + this.name + "] is not un
 
 context BusinessClass ERROR "Name of BusinessClass should not be empty" :
     this.name.trim().length > 0;
+
+context BusinessClass ERROR "BusinessClass [" + this.name + "] inherits itself" :
+    ! circularInheritance(this);
 
 context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
    ((BusinessDomainDsl::BusinessClass)this.eContainer).properties.forAll(e|
@@ -39,11 +43,23 @@ context Property ERROR "The name of Property ["+ name + "] must be more than one
 context IntegerProperty ERROR "The minimal value of Property ["+ name + "] must be smaller that the maximum value." :
     minValue <= maxValue;
 
-context IntegerProperty ERROR "The default value of Property ["+ name + "] must be between greater than the minimum values." :
+context IntegerProperty ERROR "The default value of Property ["+ name + "] must be  greater than the minimum values." :
     (hasDefault && (minValue != -2147483648) ) ? defaultValue >= minValue : true ;
  
 context IntegerProperty ERROR "The default value of Property ["+ name + "] must be between less than the maximum values." :
     (hasDefault && (maxValue != -2147483648) ) ? defaultValue <= maxValue : true ;
+ 
+context StringProperty ERROR "The lenght of the default value of Property ["+ name + "] must be greater than the minimum lenght." :
+    (hasDefault && (minLength != -1) ) ? defaultValue.length >= minLength : true ;
+ 
+context StringProperty ERROR "The lenght of the default value of Property ["+ name + "] must be less than the maximum lenght." :
+    (hasDefault && (maxLength != -1) ) ? defaultValue.length <= maxLength : true ;
+ 
+context StringProperty ERROR "The minimum lenght of Property ["+ name + "] must be less or equal to the maximum lenght." :
+    ((minLength != -1) && (maxLength != -1) ) ? minLength <= maxLength : true ;
+ 
+context EnumerationProperty ERROR "The default value of Property ["+ name + "] must be an enumeration literal of [" + type.name + "]." :
+    (hasDefault ? this.type.enumerationLiterals.name.contains(defaultValue) : true);
  
 context Enumeration ERROR "Enumeration literals must be unique" :
       enumerationLiterals.forAll(e1 | 

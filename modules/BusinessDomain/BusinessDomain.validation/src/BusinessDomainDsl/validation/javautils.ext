@@ -1,0 +1,4 @@
+import BusinessDomainDsl;
+
+ boolean circularInheritance(BusinessClass cls) :
+ JAVA BusinessDomainDsl.validation.ValidationUtils.circularInheritance(BusinessDomainDsl.BusinessClass);
