@@ -21,6 +21,9 @@ context BusinessClass ERROR "Name of BusinessClass [" + this.name + "] is not un
    ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|
      e != this implies e.name != this.name) ;
 
+context BusinessClass ERROR "Name of BusinessClass should not be empty" :
+    this.name.trim().length > 0;
+
 context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
    ((BusinessDomainDsl::BusinessClass)this.eContainer).properties.forAll(e|
      e != this implies e.name != this.name) ;
@@ -30,12 +33,31 @@ context Property ERROR "The dataType of property [" + this.name + "] is not spec
     ?    true
     :    dataType.length > 1;
 
-context Property ERROR "The name of Property ["+ name + "] must be more than one char long." :
+context Property ERROR "The name of Property ["+ name + "] must be more than one character long." :
     name.length > 1;
+ 
+context IntegerProperty ERROR "The minimal value of Property ["+ name + "] must be smaller that the maximum value." :
+    minValue <= maxValue;
+
+context IntegerProperty ERROR "The default value of Property ["+ name + "] must be between greater than the minimum values." :
+    (hasDefault && (minValue != -2147483648) ) ? defaultValue >= minValue : true ;
+ 
+context IntegerProperty ERROR "The default value of Property ["+ name + "] must be between less than the maximum values." :
+    (hasDefault && (maxValue != -2147483648) ) ? defaultValue <= maxValue : true ;
  
 context Enumeration ERROR "Enumeration literals must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.name != e2.name) );
+
+context Enumeration ERROR "Enumeration numeric values must be unique" :
+      enumerationLiterals.forAll(e1 | 
+         enumerationLiterals.forAll( e2 | e1 != e2 implies e1.persistedValue!= e2.persistedValue) );
+
+context Association ERROR "Many to Many associations are not supported yet" :
+    !( (sourceMultiplicity == Multiplicity::ZeroMany || sourceMultiplicity == Multiplicity::OneMany)
+       && 
+       (targetMultiplicity == Multiplicity::ZeroMany || targetMultiplicity == Multiplicity::OneMany) );
+
 /*
 context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
        ! classExists(this.name);
