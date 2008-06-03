@@ -82,7 +82,7 @@
                         for information on how to do this.
                     </li>
                     <li>
-                        Import the project
+                        Import the BusinessDomain meta model project
                         <code>modules/BusinessDomain/BusinessDomain.mm</code>
                         as
                         <q>Existing Projects into Workspace</q>
@@ -97,15 +97,12 @@
                         Right-click on
                         <code>BusinessDomainDsl</code>
                         in the editor pane, and choose
-                        <q>Generate All</q>
-                        from the context-menu. You will see three projects appear in the Package Explorer:
-                        <code>BusinessDomain.mm.edit,</code>
-                        <code>BusinessDomain.mm.editor</code>
-                        and
-                        <code>BusinessDomain.mm.tests.</code>
+                        <q>Generate Model Code</q> 
                     </li>
                     <li>
-                        Now import the projects
+                        Now import as Maven Project: 
+                        <code>modules/mod4j-common</code>
+                        Now import as Existing Project: 
                         <code>modules/BusinessDomain/BusinessDomain.validation</code>
                         ,
                         <code>modules/BusinessDomain/BusinessDomain.xtext</code>
@@ -138,8 +135,7 @@
                         <code>BusinessDomain.generator</code>, <br/>
                         <code>BusinessDomain.xtext</code>, <br/>
                         <code>BusinessDomain.validation</code> <br/>
-                        <code>mod4j.crossx.broker</code> <br/>
-                        and the models of the RecordShop example project: <br/>
+                        <code>mod4j.crossx.broker</code>  and the models of the RecordShop example project: <br/>
                         <code>RecordShop.BusinessDomain.model</code> <br/>
                         ...    
                     </li>
