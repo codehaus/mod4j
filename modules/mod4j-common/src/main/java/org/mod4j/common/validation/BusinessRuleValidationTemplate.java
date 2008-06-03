@@ -34,22 +34,6 @@ public class BusinessRuleValidationTemplate {
     }
 
     /**
-     * Convenience method to execute the {@link BusinessRuleUtils#validateEmptyOrWhitespace(Errors, String)} method on
-     * the <code>field</code>.
-     * 
-     * @param field
-     * @throws BusinessRuleException
-     *             when the validation rejects the field value.
-     */
-    public void validateEmptyOrWhitespace(final String field) {
-        execute(new BusinessRuleValidationCallback() {
-            public void doValidate(Object object, Errors errors) {
-                BusinessRuleUtils.validateEmptyOrWhitespace(errors, field);
-            }
-        });
-    }
-
-    /**
      * Invoke the given <code>validator</code> on the current object.
      * 
      * @param validator

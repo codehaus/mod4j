@@ -14,54 +14,51 @@ import org.springframework.validation.Validator;
  */
 public class NotNullValidatorTest {
 
-	@Test
-	public void testSupports() {
-		Validator validator = new NotNullValidator(ClassToTest.class,
-				"stringProperty");
-		assertTrue(validator.supports(ClassToTest.class));
-		assertFalse(validator.supports(String.class));
-	}
+    @Test
+    public void testSupports() {
+        Validator validator = new NotNullValidator(ClassToTest.class, "stringProperty");
+        assertTrue(validator.supports(ClassToTest.class));
+        assertFalse(validator.supports(String.class));
+    }
 
-	@Test
-	public void testValidateSucces() {
-		Object object = new ClassToTest("123");
-		Validator validator = new NotNullValidator(ClassToTest.class,
-				"stringProperty");
-		Errors errors = new BindException(object, "object");
-		validator.validate(object, errors);
-		assertFalse(errors.hasErrors());
-	}
+    @Test
+    public void testValidateSucces() {
+        Object object = new ClassToTest("123");
+        Validator validator = new NotNullValidator(ClassToTest.class, "stringProperty");
+        Errors errors = new BindException(object, "object");
+        validator.validate(object, errors);
+        assertFalse(errors.hasErrors());
+    }
 
-	@Test
-	public void testValidateFailure() {
-		Object object = new ClassToTest(null);
-		Validator validator = new NotNullValidator(ClassToTest.class,
-				"stringProperty");
-		Errors errors = new BindException(object, "object");
-		validator.validate(object, errors);
-		assertTrue(errors.hasErrors());
-		assertEquals("field.required", errors.getFieldError().getCode());
-	}
+    @Test
+    public void testValidateFailure() {
+        Object object = new ClassToTest(null);
+        Validator validator = new NotNullValidator(ClassToTest.class, "stringProperty");
+        Errors errors = new BindException(object, "object");
+        validator.validate(object, errors);
+        assertTrue(errors.hasErrors());
+        assertEquals("field.required", errors.getFieldError().getCode());
+    }
 
-	class ClassToTest {
-		private String stringProperty;
+    class ClassToTest {
+        private String stringProperty;
 
-		public ClassToTest(String value) {
-			this.stringProperty = value;
-		}
+        public ClassToTest(String value) {
+            this.stringProperty = value;
+        }
 
-		public String getStringProperty() {
-			return stringProperty;
-		}
+        public String getStringProperty() {
+            return stringProperty;
+        }
 
-		public void setStringProperty(String stringProperty) {
-			this.stringProperty = stringProperty;
-		}
-	}
+        public void setStringProperty(String stringProperty) {
+            this.stringProperty = stringProperty;
+        }
+    }
 
-	class SubclassOfClassToTest extends ClassToTest {
-		public SubclassOfClassToTest(String value) {
-			super(value);
-		}
-	}
+    class SubclassOfClassToTest extends ClassToTest {
+        public SubclassOfClassToTest(String value) {
+            super(value);
+        }
+    }
 }

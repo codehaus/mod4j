@@ -3,7 +3,6 @@
  */
 package org.mod4j.common.validation;
 
-import org.springframework.util.Assert;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -11,42 +10,42 @@ import org.springframework.validation.Validator;
  * @author Eric Jan Malotaux
  */
 public class MaxLengthValidator implements Validator {
-	private String field;
-	private int max;
-	private Class clazz;
+    private String field;
 
-	/**
-	 * @param field
-	 * @param max
-	 */
-	public MaxLengthValidator(Class clazz, String field, int max) {
-		this.clazz = clazz;
-		this.field = field;
-		this.max = max;
-	}
+    private int max;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@SuppressWarnings("unchecked")
-	public boolean supports(Class clazz) {
-		return this.clazz.isAssignableFrom(clazz);
-	}
+    private Class clazz;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void validate(Object target, Errors errors) {
-		String value = (String) errors.getFieldValue(field);
-		if (value != null) {
-			int length = value.length();
-			if (length > max) {
-				errors.rejectValue(field, "field.length.max", new Integer[] {
-						new Integer(max), new Integer(length) }, field
-						+ " should be at most " + max + " long, but was "
-						+ length);
-			}
-		}
-	}
+    /**
+     * @param field
+     * @param max
+     */
+    public MaxLengthValidator(Class clazz, String field, int max) {
+        this.clazz = clazz;
+        this.field = field;
+        this.max = max;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    public boolean supports(Class clazz) {
+        return this.clazz.isAssignableFrom(clazz);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void validate(Object target, Errors errors) {
+        String value = (String) errors.getFieldValue(field);
+        if (value != null) {
+            int length = value.length();
+            if (length > max) {
+                errors.rejectValue(field, "field.length.max", new Integer[] { new Integer(max), new Integer(length) },
+                        field + " should be at most " + max + " long, but was " + length);
+            }
+        }
+    }
 
 }

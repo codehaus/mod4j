@@ -7,7 +7,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 import org.mod4j.common.exception.BusinessRuleException;
-import org.mod4j.common.validation.BusinessRuleValidationTemplate;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -37,17 +36,6 @@ public class BusinessRuleValidationTemplateTest {
 
         public void setValue(String value) {
             this.value = value;
-        }
-    }
-
-    @Test
-    public void testValidateEmptyOrWhitespace() {
-        ObjectToValidate target = new ObjectToValidate("");
-        BusinessRuleValidationTemplate template = new BusinessRuleValidationTemplate(target);
-        try {
-            template.validateEmptyOrWhitespace("value");
-            fail("Expected BusinessRuleException");
-        } catch (BusinessRuleException e) {
         }
     }
 
