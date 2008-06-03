@@ -105,14 +105,6 @@ public class BusinessRuleUtilsTest {
         
     }
     
-    @Test
-    public void testAutoboing(){
-        autoBoxer(5);
-        autoBoxer(5L);
-        autoBoxer("5");
-        autoBoxer("5 hello");
-    }
-    
     /**
      * Test method for
      * {@link org.mod4j.common.validation.BusinessRuleUtils#validateMinLength(org.springframework.validation.Errors, java.lang.String, int)}.
