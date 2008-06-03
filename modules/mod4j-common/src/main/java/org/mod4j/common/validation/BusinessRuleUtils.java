@@ -9,6 +9,8 @@ import org.springframework.validation.ValidationUtils;
  * to collect and report errors.
  * 
  * @author Eric Jan Malotaux
+ * 
+ * @deprecated
  */
 public class BusinessRuleUtils {
 
@@ -22,6 +24,8 @@ public class BusinessRuleUtils {
      * 
      * @param errors
      * @param field
+     * 
+     * @deprecated
      */
     public static void validateEmptyOrWhitespace(Errors errors, String field) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, field, "field.required");
@@ -36,6 +40,8 @@ public class BusinessRuleUtils {
      * @param errors
      * @param field
      * @param min
+     * 
+     * @deprecated
      */
     public static void validateMinLength(Errors errors, String field, int min) {
         String value = (String) errors.getFieldValue(field);
@@ -56,6 +62,8 @@ public class BusinessRuleUtils {
      * @param errors
      * @param field
      * @param max
+     * 
+     * @deprecated
      */
     public static void validateMaxLength(Errors errors, String field, int max) {
         String value = (String) errors.getFieldValue(field);
@@ -76,6 +84,8 @@ public class BusinessRuleUtils {
      * @param errors
      * @param field
      * @param max
+     * 
+     * @deprecated
      */
     public static void validateMaxValue(Errors errors, String field, long max) {
 
