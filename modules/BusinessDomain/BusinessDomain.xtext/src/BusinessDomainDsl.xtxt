@@ -74,6 +74,7 @@ BoolProperty : dataType="boolean" name=ID
 StringProperty : dataType="string" name=ID
                  (hasDefault?="default" defaultValue=STRING)?
                  ("minlength" minLength=INT)? ("maxlength" maxLength=INT)? 
+                 ("regexp" regularExpression=STRING)?
                  ;
 
 IntegerProperty : (dataType="integer") name=ID
