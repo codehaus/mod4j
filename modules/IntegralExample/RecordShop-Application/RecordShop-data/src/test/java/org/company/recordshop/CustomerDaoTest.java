@@ -41,6 +41,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testRetrieve() {
         Customer customer = new Customer("Vincent", "Van Gogh", 1);
+        customer.setDiscountPercentage(50);
         customer.setNumberOfEars(1);
         customerDao.add(customer);
         flush();
