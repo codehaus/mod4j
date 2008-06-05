@@ -117,8 +117,3 @@
         validation.addValidator(new RegExpValidator(«javaClassName(bC)».class, "«name»", «name.toUpperCase()»_REGEXP));
     «ENDIF»
 «ENDDEFINE»
-
-«DEFINE addValidateMethod FOR EnumerationProperty»
-    «EXPAND Javadoc::validateMethodJavaDoc FOR this»
-«ENDDEFINE»
-
