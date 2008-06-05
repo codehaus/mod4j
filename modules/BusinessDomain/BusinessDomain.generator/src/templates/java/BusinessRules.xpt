@@ -87,7 +87,39 @@
 «ENDDEFINE»
 
 «DEFINE addBusinessRulesValidators FOR BusinessClass»
+    «EXPAND addPropertyValidator (this) FOREACH properties»
     «FOREACH businessRules AS br -»
-        addValidator(new «br.name»());
+        validation.addValidator(new «br.name»());
     «ENDFOREACH» 
 «ENDDEFINE»
+
+«DEFINE addPropertyValidator (BusinessClass bC) FOR Property»
+«REM»Nothing to expand«ENDREM»
+«ENDDEFINE»
+
+«DEFINE addPropertyValidator (BusinessClass bC) FOR IntegerProperty»
+    «IF minValue != -2147483648»
+        validation.addValidator(new MinValueValidator(«javaClassName(bC)».class, "«name»", «name.toUpperCase()»_MINVALUE));
+    «ENDIF»
+    «IF maxValue != 2147483647 »
+        validation.addValidator(new MaxValueValidator(«javaClassName(bC)».class, "«name»", «name.toUpperCase()»_MAXVALUE));
+    «ENDIF»    
+«ENDDEFINE»
+
+«DEFINE addPropertyValidator (BusinessClass bC) FOR StringProperty»
+    «IF minLength > -1 -»
+        validation.addValidator(new MinLengthValidator(«javaClassName(bC)».class, "«name»", «name.toUpperCase()»_MINLENGTH));
+    «ENDIF»
+    «IF maxLength > -1 -»
+        validation.addValidator(new MaxLengthValidator(«javaClassName(bC)».class, "«name»", «name.toUpperCase()»_MAXLENGTH));
+    «ENDIF»
+    «IF regularExpression.length > 0 -»
+        validation.addValidator(new RegExpValidator(«javaClassName(bC)».class, "«name»", «name.toUpperCase()»_REGEXP));
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE addValidateMethod FOR EnumerationProperty»
+    «EXPAND Javadoc::validateMethodJavaDoc FOR this»
+   
+«ENDDEFINE»
+

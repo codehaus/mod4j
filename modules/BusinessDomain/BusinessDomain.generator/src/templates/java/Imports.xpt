@@ -1,12 +1,16 @@
 «IMPORT BusinessDomainDsl»
 
+«DEFINE addImports FOR Property»
+  «REM»Noting to import«ENDREM»
+«ENDDEFINE»
+
 «DEFINE addImports FOR BusinessClass»
     import java.util.Set;
     import java.util.HashSet;
-    import org.mod4j.common.domain.AbstractDomainObject;
-    import org.springframework.validation.Errors;
-    import org.mod4j.common.validation.BusinessRuleUtils;
-    import org.mod4j.common.validation.BusinessRuleValidationCallback;
+    import org.mod4j.common.validation.MinValueValidator;
+    import org.mod4j.common.validation.MaxValueValidator;
+    import org.mod4j.common.validation.MinLengthValidator;
+    import org.mod4j.common.validation.MaxLengthValidator;
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessRule»
@@ -25,6 +29,7 @@
     import java.util.Map;
 «ENDDEFINE»
 
-«DEFINE addImports FOR Property»
-  «REM»Noting to import«ENDREM»
+«DEFINE addTopLevelClassImports FOR BusinessClass»
+    import org.mod4j.common.validation.BusinessRuleValidationSupport;
 «ENDDEFINE»
+

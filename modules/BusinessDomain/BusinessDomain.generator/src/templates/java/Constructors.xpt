@@ -34,7 +34,7 @@
  		«ENDIF»
      	«EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault) -»
      	«EXPAND BusinessRules::addBusinessRulesValidators FOR this»
-     	validate();
+     	validation.validate();
      }
 «ENDDEFINE»
 
