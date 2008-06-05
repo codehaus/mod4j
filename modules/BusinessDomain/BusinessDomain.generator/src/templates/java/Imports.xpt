@@ -11,6 +11,7 @@
     import org.mod4j.common.validation.MaxValueValidator;
     import org.mod4j.common.validation.MinLengthValidator;
     import org.mod4j.common.validation.MaxLengthValidator;
+    import org.mod4j.common.validation.RegExpValidator;
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessRule»

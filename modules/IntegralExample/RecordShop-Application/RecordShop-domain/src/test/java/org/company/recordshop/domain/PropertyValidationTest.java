@@ -1,10 +1,9 @@
 package org.company.recordshop.domain;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.company.recordshop.domain.Customer;
-import org.company.recordshop.domain.Record;
 import org.junit.Test;
 import org.mod4j.common.exception.BusinessRuleException;
 
@@ -80,6 +79,23 @@ public class PropertyValidationTest {
             assertEquals(true, e.getMessage().contains("username should be at least 3 long, but was 2"));
         }
     }
+
+    /**
+     * Test method for {@link Customer#setEmailAddress(String)}. According to the RecordShop business domain model, the
+     * email address of a Customer must apply to the given regular expression. A BusinessRuleException must be thrown
+     * if the value of the email address does not match the regular expression.
+     */
+    @Test
+    public void testStringPropertyRegExpValidation() {
+        Customer customer = new Customer("Jhonny", "Mailer", 2);
+        try {
+            customer.setEmailAddress("jhonny.mailler@company.com");
+            customer.setEmailAddress("jhonny@notavalidemailaddress");
+            fail("Expected BusinessRuleException, wrapped in a RuntimeException");
+        } catch (BusinessRuleException e) {
+            assertTrue(e.getMessage().contains("emailAddress with value 'jhonny@notavalidemailaddress' does not match regular expression"));
+        }
+    }
     
     /**
      * Test method for {@link Record#setPrice(float)}. According to the RecordShop business domain model, the
@@ -97,6 +113,5 @@ public class PropertyValidationTest {
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("todo"));
         }
-    }
-    
+    }    
 }

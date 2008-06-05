@@ -103,7 +103,7 @@
 «DEFINE addAttribute FOR StringProperty»	
 	«EXPAND instanceVariable FOR this» 
 	«IF regularExpression.length > 0»
-		public static final «javaType(this)» «name.toUpperCase()»_REGEXP = «regularExpression»;
+		public static final «javaType(this)» «name.toUpperCase()»_REGEXP = "«regularExpression»";
 	«ENDIF»
 	«IF minLength > -1»
 		public static final Integer «name.toUpperCase()»_MINLENGTH = «minLength»;

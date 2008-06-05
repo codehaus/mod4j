@@ -25,6 +25,7 @@ Class Customer inherits Person [
     
     integer customerNr;
     string username minlength 3 maxlength 10 nullable ;
+    string emailAddress regexp "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$" nullable;
     boolean blackListed default false nullable;
     integer discountPercentage default 0 min 0 max 100 ;
     
@@ -38,6 +39,7 @@ Class Customer inherits Person [
 
 "A Record is a representation of a physical medium containing one or more musical compositions."
 Class Record [
+
     string asin;
     string title default "Title unknown";
     integer mediumCode default 111 ;
@@ -48,7 +50,7 @@ Class Record [
 Class Order [
 
 	"An ordernumber should be unique"
-    string orderNumber ;
+    string orderNumber;
     "The date on which the order has been placed"
     datetime day orderDate default "2009-01-01" nullable;
     datetime day deliveryDate nullable;
@@ -65,18 +67,21 @@ Class Order [
 ]
 
 Class OrderLine [
+
     integer lineNumber min 01 max 50 ;
     string description;
     decimal lineAmount;
 ]
 
 Class Product [
+
 	string productNumnber;
 	integer price;
 ]
 
 "Sexe enumeration."
 Enumeration Sexe [
+
     female = 2;
     male = 3;
 ]
