@@ -4,37 +4,35 @@ Model RecordShopDomainModel
 /* 
  * remarks
  */
+ 
 "A Person represents a legal person." 
 Class Person [
-    "First name of the customer." 
+
+    "First name of the person." 
     string firstName;
-    
-    "Last name of the customer." 
+    "Last name of the person." 
     string lastName;
-    
-    "Age"
+    "The age of this person in years"
     integer age nullable persistency NONE;
-     
-    "We allow Vulcans in this system." 
+    "Number of ears (we allow Vulcans in this system)." 
     integer numberOfEars default 0 min 0 max 4;
-    
+    "Gender"    
     Sexe sexe nullable;   
 ]
 
 "A Customer represents a Person who orders from the RecordShop."
 Class Customer inherits Person [
+    
     integer customerNr;
     string username minlength 3 maxlength 10 nullable ;
     boolean blackListed default false nullable;
     integer discountPercentage default 0 min 0 max 100 ;
+    
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
         OneEarDiscount;
-       
-       /* TODO
         "Just another rule"
         AnotherRule;
-        */
     ]
 ]
 
@@ -48,9 +46,9 @@ Class Record [
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
+
 	"An ordernumber should be unique"
     string orderNumber ;
-    
     "The date on which the order has been placed"
     datetime day orderDate default "2009-01-01" nullable;
     datetime day deliveryDate nullable;
@@ -59,6 +57,11 @@ Class Order [
     TODO: The following results in a compilation problem caused by float to Float conversion. 
     float totalAmount nullable;
     */
+    
+    Rules [
+        "The deliveryDate may not precede orderDate"
+        OrderDateBeforeDeliveryDate; 
+    ]
 ]
 
 Class OrderLine [
