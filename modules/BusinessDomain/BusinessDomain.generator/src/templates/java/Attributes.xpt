@@ -117,7 +117,6 @@
    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
-        validation.validate();
     }
 «ENDDEFINE»
 
