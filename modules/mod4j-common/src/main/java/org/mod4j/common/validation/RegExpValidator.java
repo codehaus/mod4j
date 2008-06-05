@@ -7,7 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * @author Eric Jan Malotaux
+ * @author Johan Vogelzang
  */
 public class RegExpValidator implements Validator {
 
@@ -18,8 +18,10 @@ public class RegExpValidator implements Validator {
     private Class clazz;
 
     /**
-     * @param field
-     * @param max
+     * Validator for regular expressions
+     * @param clazz The class that supports validation of regular expressions
+     * @param field The field to validate
+     * @param regExp The regular expression which the the <code>field</code> must apply to
      */
     public RegExpValidator(Class clazz, String field, String regExp) {
         this.clazz = clazz;
