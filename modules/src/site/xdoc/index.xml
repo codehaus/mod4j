@@ -102,6 +102,8 @@
                     <li>
                         Now import as Maven Project: 
                         <code>modules/mod4j-common</code>
+                    </li>
+                    <li>
                         Now import as Existing Project: 
                         <code>modules/BusinessDomain/BusinessDomain.validation</code>
                         ,
