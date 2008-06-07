@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BusinessDomain.oaw
 Bundle-SymbolicName: BusinessDomain.generator;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
- BusinessDomain.mm
+ BusinessDomain.mm,
+ org.junit4
