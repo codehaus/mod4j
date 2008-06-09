@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<!DOCTYPE document PUBLIC
+  "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<!-- 
+    Please edit this file with the Eclipse XML editor, set your XML editor to
+    a line length of 120 characters, indent-size of 4 characters and not using
+    tab-characters, and format the file (Ctrl-Shift-F) before checking in. This
+    should minimize the number of non-significant differences when comparing
+    versions.
+-->
+<document>
+    <properties>
+        <title>Mod4j Developer Guide</title>
+    </properties>
+    <body>
+        <section name="Mod4j Developer Guide">
+            <p>
+                This Developer Guide helps developers to get started with coding and modeling. At last it tells what
+                steps to take for publishing the developed Eclipse features and plugins (DSL editors)to the Mod4j remote
+                update site.
+            </p>
+
+            <subsection name="Getting started">
+                <ol>
+                    <li>
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from
+                        the
+                        <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
+                        .
+                    </li>
+                    <li>
+                        <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
+                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
+                        conflicts we already have a version waiting for you to download. This version based on Eclipse
+                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You
+                        can download a Windows or Linux archive from our project share
+                        <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
+                    </li>
+                    <li>
+                        Make sure you start Eclipse with de right options, e.g on a linux system:
+                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs
+                        -Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
+                    </li>
+                    <li>
+                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in
+                        the field 'Text file encoding' by navigating to 'Window -> Preferences... -> General ->
+                        Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
+                        necessary.
+                    </li>
+                </ol>
+            </subsection>
+
+            <subsection name="Generating the DSL-editors">
+                <p>
+                    While the metamodel and its associated syntax is still under heavy development, you should be
+                    prepared to generate the model editors yourself from the metamodel and the syntax definitions,
+                    before you can start modelling:
+                </p>
+                <ol>
+                    <li>
+                        Check out the source code of the
+                        <code>mod4j</code>
+                        project from the Subversion URL
+                        <code>https://viewsvn.smart-java.nl/wsvn/mod4j/trunk</code>
+                        into a directory. See the link
+                        <a href="source-repository.html">Project information</a>
+                        for information on how to do this.
+                    </li>
+                    <li>
+                        Import the BusinessDomain meta model project
+                        <code>modules/BusinessDomain/BusinessDomain.mm</code>
+                        as
+                        <q>Existing Projects into Workspace</q>
+                        into Eclipse, in a new workspace.
+                    </li>
+                    <li>
+                        Open
+                        <code>BusinessDomain.mm/model/BusinessDomainDsl.genmodel</code>
+                        in the EMF Generator editor.
+                    </li>
+                    <li>
+                        Right-click on
+                        <code>BusinessDomainDsl</code>
+                        in the editor pane, and choose
+                        <q>Generate Model Code</q>
+                    </li>
+                    <li>
+                        Now import as Maven Project:
+                        <code>modules/mod4j-common</code>
+                    </li>
+                    <li>
+                        Now import as Existing Project:
+                        <code>modules/BusinessDomain/BusinessDomain.validation</code>
+                        ,
+                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>
+                        ,
+                        <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>
+                        and
+                        <code>modules/BusinessDomain/BusinessDomain.generator</code>
+                    </li>
+                    <li>
+                        For the two xtext projects, create a new folder
+                        <code>src-gen.</code>
+                    </li>
+                    <li>
+                        Right-click the file
+                        <code>BusinessDomain.xtext/src/genXtextEditor.oaw,</code>
+                        and choose
+                        <q>Run As -> oAW Workflow</q>
+                        from the context-menu.
+                    </li>
+                    Now you have generated the necessary BusinessDomainDSL editor an you are ready to use it. There for
+                    you need to activate the newly created editor in a second Eclipse instance. See next section
+                    "Modeling". But if you want quick development an you're not interested in code completion and syntax
+                    highlighting of the Xtext models, you can live without a second Eclipse instance. There for you can
+                    perform the steps under the section "Modeling" in your first Eclipse instance.
+                </ol>
+            </subsection>
+            <subsection name="Modelling">
+                <ol>
+                    <li>
+                        Right-click the module
+                        <code>BusinessDomain.xtext.editor</code>
+                        and choose
+                        <q>Run As -> Eclipse Application</q>
+                        from the context menu.
+                    </li>
+                    <li>
+                        In the new Eclipse session: import the following projects
+                        <br />
+                        <code>BusinessDomain.mm</code>
+                        ,
+                        <br />
+                        <code>BusinessDomain.generator</code>
+                        ,
+                        <br />
+                        <code>BusinessDomain.xtext</code>
+                        ,
+                        <br />
+                        <code>BusinessDomain.validation</code>
+                        <br />
+                        <code>mod4j.crossx.broker</code>
+                        and the models of the RecordShop example project:
+                        <br />
+                        <code>RecordShop.BusinessDomain.model</code>
+                        <br />
+                        ...
+                        <li>
+                        Now you can start modeling... </br>
+                        Open the file
+                        </li>
+                        <li>
+                            Now you should be able to run one of the generator workflow's in the
+                            <code>RecordShop.BusinessDomain.model</code>
+                            project.
+                            <br />
+                            Right-click the file
+                            <code>RecordShop.BusinessDomain.model/src/workflow/businessGenerator.oaw</code>
+                            and choose
+                            <p>Run As -> oAW Workflow</p>
+                            from the context-menu.
+                        </li>
+                        <li>
+                            The previous step generated two new modules into the RecordShop-Application folder. See:
+                            <code>../RecordShop-Application/RecordShop-domain</code>
+                            and
+                            <code>../RecordShop-Application/RecordShop-data</code>
+                            <br />
+                            You can import these two projects as Maven Projects with help of the Q4E Maven plugin for
+                            Eclipse.
+                        </li>
+
+                </ol>
+            </subsection>
+
+            <subsection name="Publishing to the Mod4j update site">
+                <p>TODO</p>
+            </subsection>
+
+        </section>
+    </body>
+</document>

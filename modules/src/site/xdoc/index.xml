@@ -38,17 +38,15 @@
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5.0_15 or greater). You can download one from
-                        the
-                        <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
-                        .
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from
+                        the <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>.
                     </li>
                     <li>
                         <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
                         and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
                         conflicts we already have a version waiting for you to download. This version based on Eclipse
-                        Europa 3.3.2, OAW 4.2 (Xtext 4.3.0), EMF 2.3.1 and has some convenient plug-ins (like
-                        Subclipse). You can download a Windows or Linux archive from our project share
+                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse).
+                        You can download a Windows or Linux archive from our project share
                         <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
