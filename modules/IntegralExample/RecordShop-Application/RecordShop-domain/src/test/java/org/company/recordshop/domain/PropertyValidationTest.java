@@ -1,6 +1,5 @@
 package org.company.recordshop.domain;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -25,7 +24,7 @@ public class PropertyValidationTest {
             customer.setNumberOfEars(5);
             fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
-            assertEquals(true, e.getMessage().contains("numberOfEars should be at most 4, but was 5"));
+            assertTrue( e.getMessage().contains("numberOfEars should be at most 4, but was 5"));
         }
     }
 
@@ -42,7 +41,7 @@ public class PropertyValidationTest {
             customer.setNumberOfEars(-1);
             fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
-            assertEquals(true, e.getMessage().contains("numberOfEars should be at least 0, but was -1"));
+            assertTrue( e.getMessage().contains("numberOfEars should be at least 0, but was -1"));
         }
     }
 
@@ -59,7 +58,7 @@ public class PropertyValidationTest {
             customer.setUsername("hermanbread");
             fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
-            assertEquals(true, e.getMessage().contains("username should be at most 10 long, but was 11"));
+            assertTrue( e.getMessage().contains("username should be at most 10 long, but was 11"));
         }
     }
 
@@ -76,7 +75,7 @@ public class PropertyValidationTest {
             customer.setUsername("he");
             fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
-            assertEquals(true, e.getMessage().contains("username should be at least 3 long, but was 2"));
+            assertTrue( e.getMessage().contains("username should be at least 3 long, but was 2"));
         }
     }
 
@@ -111,7 +110,7 @@ public class PropertyValidationTest {
             record.setPrice(-1F);
             fail("Expected BusinessRuleException, wrapped in a RuntimeException");
         } catch (BusinessRuleException e) {
-            assertEquals(true, e.getMessage().contains("todo"));
+            assertTrue( e.getMessage().contains("todo"));
         }
-    }    
+    } 
 }
