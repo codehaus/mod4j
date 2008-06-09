@@ -21,6 +21,8 @@
     			<entry key="org.mod4j.common.jmx:name=Log4J" value-ref="log4jMBean"/>
     		</map>
     	</property>
+    	<!--  registration should replace the affected MBean when attempting to register an MBean under a name that already exists. -->
+    	<property name="registrationBehavior" value="2" />
     </bean>
 
 </beans>
