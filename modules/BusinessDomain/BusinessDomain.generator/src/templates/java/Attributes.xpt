@@ -117,29 +117,6 @@
    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
         this.«name» = «name»;
-    }
-«ENDDEFINE»
-
-«DEFINE addSetter FOR BoolProperty»
-   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
-    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
-        this.«name» = «name»;
-        validation.validate();
-    }
-«ENDDEFINE»
-
-«DEFINE addSetter FOR IntegerProperty»
-    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
-    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
-        this.«name» = «name»;
-        validation.validate();
-    }
-«ENDDEFINE»
-
-«DEFINE addSetter FOR StringProperty»
-    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
-    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
-        this.«name» = «name»;
         validation.validate();
     }
 «ENDDEFINE»
