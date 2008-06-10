@@ -20,76 +20,101 @@
 <!-- Mapping for class «this.name»
      Description «this.description»
   -->
-<hibernate-mapping default-access="field">
-    <class name="«getDomainRootPackage()».«javaClassName(this)»"
+<hibernate-mapping
+    default-access="field"
+    package="«getDomainRootPackage()»">
+    «IF superclass == null -»
+        «EXPAND rootClassMapping FOR this -»
+    «ELSE»
+        «EXPAND subclassMapping FOR this -»
+    «ENDIF»
+</hibernate-mapping>
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»
+    <class name="«javaClassName(this)»"
            table="«javaClassName(this)»_TABLE"
+    «IF hasSubclasses()»
+           discriminator-value="«javaClassName(this)»"
+    «ENDIF»
            optimistic-lock="version">
         <cache usage="read-write" />
         <id name="id" column="id" type="java.lang.Long">
             <generator class="native" />
         </id>
+    «IF hasSubclasses() -»
+        <discriminator column="DISCRIMINATOR" type="string" />
+    «ENDIF -»
         <version name="version" unsaved-value="negative" />
-		«EXPAND mapping      FOREACH this.getAllProperties()»
-		«EXPAND mappingsTo   FOREACH this.associationsTo»
-		«EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.bidirectional)»
-
+        «EXPAND featureMappings FOR this -»
     </class>
-</hibernate-mapping>
-«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE mapping FOR BusinessDomainDsl::Property»
-    <property name="«this.name»" />
+«DEFINE subclassMapping FOR BusinessDomainDsl::BusinessClass -»
+    <subclass
+        name="«javaClassName(this)»"
+        extends="«javaClassName(this.superclass)»"
+        discriminator-value="«javaClassName(this)»">
+        «EXPAND featureMappings FOR this -»
+    </subclass>
 «ENDDEFINE»
 
-«DEFINE mapping FOR EnumerationProperty»
-    <property name="«this.name»">
-        <type name="«getDataRootPackage()».GenericEnumUserType">
-            <param name="enumClass">
-                «getDomainRootPackage()».«this.type.name»
-            </param>
-        </type>
-    </property>
+«DEFINE featureMappings FOR BusinessDomainDsl::BusinessClass»
+    «EXPAND mapping      FOREACH this.properties -»
+    «EXPAND mappingsTo   FOREACH this.associationsTo -»
+    «EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.bidirectional) -»
 «ENDDEFINE»
 
-«DEFINE mapping FOR DateTimeProperty»
-    <property name="«this.name»" 
+«DEFINE mapping FOR BusinessDomainDsl::Property -»
+        <property name="«this.name»" />
+«ENDDEFINE»
+
+«DEFINE mapping FOR EnumerationProperty -»
+        <property name="«this.name»">
+            <type name="«getDataRootPackage()».GenericEnumUserType">
+                <param name="enumClass">«getDomainRootPackage()».«this.type.name»</param>
+            </type>
+        </property>
+«ENDDEFINE»
+
+«DEFINE mapping FOR DateTimeProperty -»
+        <property name="«this.name»" 
               type="org.joda.time.contrib.hibernate.PersistentDateTime" />
 «ENDDEFINE»
 
 «REM»mapping for outgoing associations«ENDREM»
-«DEFINE mappingsTo FOR Association»
+«DEFINE mappingsTo FOR Association -»
     «IF isOne2Many(this)»
-		«EXPAND one2manyMappingTo FOR this»
+		«EXPAND one2manyMappingTo FOR this -»
 	«ELSEIF isOne2One(this)»
-		«EXPAND one2oneMappingTo FOR this»
+		«EXPAND one2oneMappingTo FOR this -»
 	«ELSEIF isMany2One(this)»
-		«EXPAND many2oneMappingTo FOR this»
+		«EXPAND many2oneMappingTo FOR this -»
 	«ELSEIF isMany2Many(this)»
-		«EXPAND many2manyMappingTo FOR this»
+		«EXPAND many2manyMappingTo FOR this -»
     «ELSE»
 	<!-- WARNING mappingsTo(Association) no generation for : «this.name» -->
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE mappingsFrom FOR Association»
+«DEFINE mappingsFrom FOR Association -»
 	«IF this.bidirectional»
 	    «IF isOne2Many(this)»
-			«EXPAND one2manyMappingFrom FOR this»
+			«EXPAND one2manyMappingFrom FOR this -»
 		«ELSEIF isOne2One(this)»
-			«EXPAND one2oneMappingFrom FOR this»
+			«EXPAND one2oneMappingFrom FOR this -»
 		«ELSEIF isMany2One(this)»
-			«EXPAND many2oneMappingFrom FOR this»
+			«EXPAND many2oneMappingFrom FOR this -»
 		«ELSEIF isMany2Many(this)»
-			«EXPAND many2manyMappingFrom FOR this»
+			«EXPAND many2manyMappingFrom FOR this -»
 	    «ELSE»
 		<!-- WARNING mappingsFrom(Association) no generation for : «this.name» -->
 	    «ENDIF»
 	«ENDIF»
-
 «ENDDEFINE»
 
-«DEFINE one2manyMappingTo FOR Association»
+«DEFINE one2manyMappingTo FOR Association -»
 		<!-- one2manyMappingTo -->
         <set name="«this.targetRoleName»" inverse="false" lazy="false"
             cascade="save-update">
@@ -97,7 +122,7 @@
                 <column name="«this.sourceRoleName»_ID" />
             </key>
             <one-to-many
-                class="«getDomainRootPackage()».«javaClassName(this.target)»" 
+                class="«javaClassName(this.target)»" 
              />
         </set>
 «ENDDEFINE»
@@ -105,17 +130,17 @@
 «REM»Reverse navigable association from the target.
      This is generat3ed in the target class.
 «ENDREM»
-«DEFINE one2manyMappingFrom FOR Association»
+«DEFINE one2manyMappingFrom FOR Association -»
 		<!-- one2manyMappingFrom -->
         <many-to-one name="«sourceRoleName»"
-            class="«getDomainRootPackage()».«javaClassName(this.source)»"
+            class="«javaClassName(this.source)»"
             not-null="false" column="«this.sourceRoleName»_ID" />
 «ENDDEFINE»
 
-«DEFINE many2oneMappingTo FOR Association»
+«DEFINE many2oneMappingTo FOR Association -»
 		<!-- many2oneMappingTo -->
         <many-to-one name="«targetRoleName»"
-            class="«getDomainRootPackage()».«javaClassName(this.target)»" 
+            class="«javaClassName(this.target)»" 
             not-null="false" column="«this.targetRoleName»_ID"
         />
 «ENDDEFINE»
@@ -123,7 +148,7 @@
 «REM»Reverse navigable association from the target.
      This is generat3ed in the target class.
 «ENDREM»
-«DEFINE many2oneMappingFrom FOR Association»
+«DEFINE many2oneMappingFrom FOR Association -»
         <!-- many2oneMappingFrom -->
         <set name="«this.sourceRoleName»" inverse="false" lazy="false"
             cascade="save-update">
@@ -131,26 +156,26 @@
                 <column name="«this.targetRoleName»_ID" />
             </key>
             <one-to-many
-                class="«getDomainRootPackage()».«javaClassName(this.source)»" 
+                class="«javaClassName(this.source)»" 
              />
         </set>
 «ENDDEFINE»
 
-«DEFINE one2oneMappingTo FOR Association»
+«DEFINE one2oneMappingTo FOR Association -»
 		<!-- one2oneMappingTo -->
         <one-to-one name="«targetRoleName»" 
-                    class="«getDomainRootPackage()».«javaClassName(this.target)»"
+                    class="«javaClassName(this.target)»"
          /> 
 «ENDDEFINE»
 
-«DEFINE one2oneMappingFrom FOR Association»
+«DEFINE one2oneMappingFrom FOR Association -»
 		<!-- one2oneMappingFrom -->
         <one-to-one name="«sourceRoleName»" 
-                    class="«getDomainRootPackage()».«javaClassName(this.source)»"
+                    class="«javaClassName(this.source)»"
          /> 
 «ENDDEFINE»
 
-«DEFINE many2manyMappingTo FOR Association»
+«DEFINE many2manyMappingTo FOR Association -»
 		<!-- many2manyMappingTo  -->
 <class name="events.Person" table="PERSON">
     <id name="id" column="PERSON_ID">
@@ -166,7 +191,7 @@
     </set>
 «ENDDEFINE»
 
-«DEFINE many2manyMappingFrom FOR Association»
+«DEFINE many2manyMappingFrom FOR Association -»
 «REM»Add to Event.hbm  «ENDREM»
 <!-- many2manyFrom -->
 <set name="participants" table="PERSON_EVENT" inverse="true">

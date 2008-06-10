@@ -1,13 +1,9 @@
 package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -21,12 +17,9 @@ import org.company.recordshop.domain.Order;
 import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.Product;
 import org.company.recordshop.domain.Record;
-import org.company.recordshop.domain.Sexe;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.AssertThrows;
-import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
  * @author Jos Warmer

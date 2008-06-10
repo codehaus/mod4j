@@ -1,13 +1,27 @@
 package org.mod4j.businessdomain.generator.helpers;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-import BusinessDomainDsl.*;
+import BusinessDomainDsl.AbstractType;
+import BusinessDomainDsl.Association;
+import BusinessDomainDsl.BoolProperty;
+import BusinessDomainDsl.BusinessClass;
+import BusinessDomainDsl.BusinessDomainModel;
+import BusinessDomainDsl.DateTimeProperty;
+import BusinessDomainDsl.DecimalProperty;
+import BusinessDomainDsl.Enumeration;
+import BusinessDomainDsl.EnumerationProperty;
+import BusinessDomainDsl.IntegerProperty;
+import BusinessDomainDsl.Multiplicity;
+import BusinessDomainDsl.Property;
+import BusinessDomainDsl.StringProperty;
 
 public class BusinessClassHelpers {
 
     private final static String IMPLBASE_SUFFIX = "ImplBase";
+
     /**
      * @param cls
      * @return The name of the Java class for cls
@@ -52,7 +66,7 @@ public class BusinessClassHelpers {
     public static String implBaseClassName(BusinessClass cls) {
         return javaClassName(cls) + IMPLBASE_SUFFIX;
     }
-    
+
     /**
      * @param cls
      * @return The Java class name for the data accesss object (dao) class for BusinessClass 'cls'
@@ -155,18 +169,30 @@ public class BusinessClassHelpers {
     public static String javaType(IntegerProperty p) {
         return p.isNullable() ? "Integer" : "int";
     }
-    
+
     public static String javaType(DecimalProperty p) {
         return p.isNullable() ? "Float" : "float";
     }
-    
+
     public static List<Property> getAllProperties(BusinessClass cls) {
-    	List<Property> result = new ArrayList<Property>();
-    	if( cls.getSuperclass() != null ){
-    		result.addAll( getAllProperties(cls.getSuperclass()) );
-    	}
-    	result.addAll(cls.getProperties());
-    	return result;
+        List<Property> result = new ArrayList<Property>();
+        if (cls.getSuperclass() != null) {
+            result.addAll(getAllProperties(cls.getSuperclass()));
+        }
+        result.addAll(cls.getProperties());
+        return result;
     }
 
+    public static boolean hasSubclasses(BusinessClass clazz) {
+        BusinessDomainModel model = (BusinessDomainModel) clazz.eContainer();
+        for (AbstractType type : model.getTypes()) {
+            if (type instanceof BusinessClass) {
+                BusinessClass businessClass = (BusinessClass) type;
+                if (businessClass.getSuperclass() != null) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

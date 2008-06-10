@@ -43,3 +43,6 @@ String javaType(Property p) :
 
 String javaFileName(String rootPackage, String classname) :
 rootPackage.replaceAll("\\.", "/") + "/" + classname + ".java";
+
+boolean hasSubclasses(BusinessClass clazz) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasSubclasses(BusinessDomainDsl.BusinessClass);
