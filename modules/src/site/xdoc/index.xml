@@ -66,15 +66,27 @@
                 </ol>
             </subsection>
 
-            <subsection name="Installing the DSL-editor Eclipse plugins">
+            <subsection name="Installing the Mod4j DSL Eclipse plugins">
                 <p>
-                    The DLS-editors can be installed from the Mod4j update site:
+                    TODO: UPDATE SITE NOT ACTIVE YET! The Mod4j DSL Eclipse plugins can be installed from the Mod4j
+                    update site:
+                    <br />
                     <big>Mod4j update site: https://mod4j.smart-java.nl/updates</big>
                 </p>
             </subsection>
 
             <subsection name="Modelling">
                 <p>If you've completed the installation steps above, you're ready for moddeling...</p>
+                <br />
+                <br />
+                You can use the following DSL's in your project:
+                <br />
+                <ul>
+                    <li>BusinessDomainDSL</li>
+                    <li>ContractDataDSL  -- NOT AVAILABLE YET</li>
+                    <li>ServiceDSL  -- NOT AVAILABLE YET</li>
+                    <li>PresentationDSL  -- NOT AVAILABLE YET</li>
+                </ul>
                 <ol>
                     <li>
                         First of all you need to create a new Eclipse project for each DSL you're going to use.
@@ -82,6 +94,7 @@
                         For instance if you want to create a BusinessDomain model, choose:
                         <q>File, New, Project, Xtext DSL Wizzards, BusinessDomainDSL project</q>
                         .
+                        <br />
                     </li>
                     <li>TODO More steps</li>
                     <li>
