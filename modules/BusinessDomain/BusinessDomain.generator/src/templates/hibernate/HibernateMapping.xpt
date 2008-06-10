@@ -176,45 +176,9 @@
 «ENDDEFINE»
 
 «DEFINE many2manyMappingTo FOR Association -»
-		<!-- many2manyMappingTo  -->
-<class name="events.Person" table="PERSON">
-    <id name="id" column="PERSON_ID">
-        <generator class="native"/>
-    </id>
-    <property name="age"/>
-    <property name="firstname"/>
-    <property name="lastname"/>
-
-    <set name="events" table="PERSON_EVENT">
-        <key column="PERSON_ID"/>
-        <many-to-many column="EVENT_ID" class="events.Event"/>
-    </set>
+«REM»TODO«ENDREM»
 «ENDDEFINE»
 
 «DEFINE many2manyMappingFrom FOR Association -»
-«REM»Add to Event.hbm  «ENDREM»
-<!-- many2manyFrom -->
-<set name="participants" table="PERSON_EVENT" inverse="true">
-    <key column="EVENT_ID"/>
-    <many-to-many column="PERSON_ID" class="events.Person"/>
-</set>
-«ENDDEFINE»
-
-«DEFINE primitiveCollection FOR Association»
-private Set emailAddresses = new HashSet(); /// type String
-
-public Set getEmailAddresses() {
-    return emailAddresses;
-}
-
-public void setEmailAddresses(Set emailAddresses) {
-    this.emailAddresses = emailAddresses;
-}
-
-// The mapping of this Set:
-
-<set name="emailAddresses" table="PERSON_EMAIL_ADDR">
-    <key column="PERSON_ID"/>
-    <element type="string" column="EMAIL_ADDR"/>
-</set>
+«REM»TODO«ENDREM»
 «ENDDEFINE»
