@@ -1,0 +1,48 @@
+/* Operations implemented in Java on BusinesClass
+ */
+import BusinessDomainDsl;
+
+String javaPackageName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaPackageName(BusinessDomainDsl.BusinessClass);
+
+ String javaFullName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaFullName(BusinessDomainDsl.BusinessClass);
+ 
+String javaClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
+
+String javaClassName(String cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(java.lang.String);
+
+String javaVarName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaVarName(BusinessDomainDsl.BusinessClass);
+
+String implBaseClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.implBaseClassName(BusinessDomainDsl.BusinessClass);
+
+String daoInterfaceName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceName(BusinessDomainDsl.BusinessClass);
+
+String daoInterfaceBaseName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceBaseName(BusinessDomainDsl.BusinessClass);
+
+String daoImplClassName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassName(BusinessDomainDsl.BusinessClass);
+
+String daoImplClassBaseName(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassBaseName(BusinessDomainDsl.BusinessClass);
+
+boolean isCompositePart(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isCompositePart(BusinessDomainDsl.BusinessClass);
+
+List[Property] getAllProperties(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllProperties(BusinessDomainDsl.BusinessClass);
+
+String javaType(Property p) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
+
+String javaFileName(String rootPackage, String classname) :
+rootPackage.replaceAll("\\.", "/") + "/" + classname + ".java";
+
+boolean hasSubclasses(BusinessClass clazz) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasSubclasses(BusinessDomainDsl.BusinessClass);
