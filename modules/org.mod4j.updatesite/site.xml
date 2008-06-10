@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/mod4j.businessdomain.feature_1.0.0.200806071141.jar" id="mod4j.businessdomain.feature" version="1.0.0.200806071141"/>
+   <description url="https://mod4j.smart-java.nl/updatesite">
+      Uodatesite for Mod4j
+   </description>
+   <feature url="features/mod4j.businessdomain.feature_1.0.0.200806101028.jar" id="mod4j.businessdomain.feature" version="1.0.0.200806101028"/>
 </site>
