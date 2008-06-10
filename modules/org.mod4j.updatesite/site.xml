@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description url="https://mod4j.smart-java.nl/updatesite">
-      Uodatesite for Mod4j
+   <description url="https://repo.smart-java.nl/mod4j/updatesite">
+      Updatesite for Mod4j. Accessible for all SMART-Java users.
    </description>
-   <feature url="features/mod4j.businessdomain.feature_1.0.0.200806101932.jar" id="mod4j.businessdomain.feature" version="1.0.0.200806101932"/>
+   <feature url="features/mod4j.businessdomain.feature_0.1.0.200806102112.jar" id="mod4j.businessdomain.feature" version="0.1.0.200806102112"/>
 </site>
