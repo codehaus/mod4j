@@ -110,12 +110,12 @@
                         <q>Run As -> oAW Workflow</q>
                         from the context-menu.
                     </li>
-                    Now you have generated the necessary BusinessDomainDSL editor an you are ready to use it. There for
-                    you need to activate the newly created editor in a second Eclipse instance. See next section
-                    "Modeling". But if you want quick development an you're not interested in code completion and syntax
-                    highlighting of the Xtext models, you can live without a second Eclipse instance. There for you can
-                    perform the steps under the section "Modeling" in your first Eclipse instance.
                 </ol>
+                Now you have generated the necessary BusinessDomainDSL editor an you are ready to use it. There for you
+                need to activate the newly created editor in a second Eclipse instance. See next section "Modeling". But
+                if you want quick development an you're not interested in code completion and syntax highlighting of the
+                Xtext models, you can live without a second Eclipse instance. There for you can perform the steps under
+                the section "Modeling" in your first Eclipse instance.
             </subsection>
             <subsection name="Modelling">
                 <ol>
@@ -146,30 +146,32 @@
                         <code>RecordShop.BusinessDomain.model</code>
                         <br />
                         ...
-                        <li>
-                        Now you can start modeling... </br>
+                    </li>
+                    <li>
+                        Now you can start modeling...
+                        
                         Open the file
-                        </li>
-                        <li>
-                            Now you should be able to run one of the generator workflow's in the
-                            <code>RecordShop.BusinessDomain.model</code>
-                            project.
-                            <br />
-                            Right-click the file
-                            <code>RecordShop.BusinessDomain.model/src/workflow/businessGenerator.oaw</code>
-                            and choose
-                            <p>Run As -> oAW Workflow</p>
-                            from the context-menu.
-                        </li>
-                        <li>
-                            The previous step generated two new modules into the RecordShop-Application folder. See:
-                            <code>../RecordShop-Application/RecordShop-domain</code>
-                            and
-                            <code>../RecordShop-Application/RecordShop-data</code>
-                            <br />
-                            You can import these two projects as Maven Projects with help of the Q4E Maven plugin for
-                            Eclipse.
-                        </li>
+                    </li>
+                    <li>
+                        Now you should be able to run one of the generator workflow's in the
+                        <code>RecordShop.BusinessDomain.model</code>
+                        project.
+                        <br />
+                        Right-click the file
+                        <code>RecordShop.BusinessDomain.model/src/workflow/businessGenerator.oaw</code>
+                        and choose
+                        <p>Run As -> oAW Workflow</p>
+                        from the context-menu.
+                    </li>
+                    <li>
+                        The previous step generated two new modules into the RecordShop-Application folder. See:
+                        <code>../RecordShop-Application/RecordShop-domain</code>
+                        and
+                        <code>../RecordShop-Application/RecordShop-data</code>
+                        <br />
+                        You can import these two projects as Maven Projects with help of the Q4E Maven plugin for
+                        Eclipse.
+                    </li>
 
                 </ol>
             </subsection>

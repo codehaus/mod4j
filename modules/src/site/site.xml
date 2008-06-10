@@ -30,8 +30,8 @@
     <menu ref="modules" inherit="top" />
     <menu ref="reports" inherit="bottom" />
     <menu name="Project" inherit="bottom">
+      <item name="Developer Guide" href="developer-guide.html" />
       <item name="Richtlijnen" href="programmeerrichtlijnen.html" />
-      <item name="Ontwikkelomgeving" href="ontwikkelomgeving.html" />
       <item name="Docs" href="https://mod4j.smart-java.nl/docs" />
       <item name="Project admin portal" href="https://smart-java.nl/projects/mod4j" />
       <item name="Maven project repo" href="https://mod4j.smart-java.nl/repo" />
