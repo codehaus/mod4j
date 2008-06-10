@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="Mod4j.feature"
-      label="Mod4j Feature"
+      id="mod4j.businessdomain.feature"
+      label="Mod4j Business Domain Feature"
       version="1.0.0.qualifier"
       provider-name="Mod4j">
 
@@ -16,6 +16,10 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <url>
+      <update label="Mod4j update site" url="https://mod4j.smart-java.nl/updatesite"/>
+   </url>
 
    <plugin
          id="BusinessDomain.mm"
