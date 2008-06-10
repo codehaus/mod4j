@@ -77,16 +77,14 @@
 
             <subsection name="Modelling">
                 <p>If you've completed the installation steps above, you're ready for moddeling...</p>
-                <br />
-                <br />
-                You can use the following DSL's in your project:
-                <br />
+                <p>You can use the following DSL's in your project:</p>
                 <ul>
                     <li>BusinessDomainDSL</li>
-                    <li>ContractDataDSL  -- NOT AVAILABLE YET</li>
-                    <li>ServiceDSL  -- NOT AVAILABLE YET</li>
-                    <li>PresentationDSL  -- NOT AVAILABLE YET</li>
+                    <li>ContractDataDSL -- NOT AVAILABLE YET</li>
+                    <li>ServiceDSL -- NOT AVAILABLE YET</li>
+                    <li>PresentationDSL -- NOT AVAILABLE YET</li>
                 </ul>
+
                 <ol>
                     <li>
                         First of all you need to create a new Eclipse project for each DSL you're going to use.
@@ -97,6 +95,17 @@
                         <br />
                     </li>
                     <li>TODO More steps</li>
+
+                </ol>
+            </subsection>
+
+            <subsection name="Generating source code">
+                <p>
+                    If you've completed your model(s) in the previous section, you're ready for generating source code
+                    out of the models.
+                </p>
+                <ol>
+                    <li>TODO add steps</li>
                     <li>
                         The previous step generated two modules into the RecordShop-Application folder. See:
                         <code>../RecordShop-Application/RecordShop-domain</code>
