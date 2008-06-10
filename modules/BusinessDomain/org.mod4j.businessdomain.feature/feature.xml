@@ -2,10 +2,10 @@
 <feature
       id="mod4j.businessdomain.feature"
       label="Mod4j Business Domain Feature"
-      version="1.0.0.qualifier"
+      version="0.1.0.qualifier"
       provider-name="Mod4j">
 
-   <description url="http://www.example.com/description">
+   <description url="https://mod4j.smart-java.nl">
       Mod4j feature supports modeling for Java projects
    </description>
 
@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update label="Mod4j update site" url="https://mod4j.smart-java.nl/updatesite"/>
+      <update label="Mod4j update site" url="https://repo.smart-java.nl/mod4j/updatesite"/>
    </url>
 
    <plugin
