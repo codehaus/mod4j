@@ -29,7 +29,6 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         public int compare(Customer one, Customer other) {
             return (one.getFirstName()+one.getLastName()).compareTo(other.getFirstName()+other.getLastName());
         }
-
     }
 
     @Autowired
