@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/mod4j.businessdomain.feature_1.0.0.200806071141.jar" id="mod4j.businessdomain.feature" version="1.0.0.200806071141"/>
+   <feature url="features/org.mod4j.crossx.feature_1.0.0.200806071141.jar" id="org.mod4j.crossx.feature" version="1.0.0.200806071141"/>
+</site>
