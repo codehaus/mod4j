@@ -30,7 +30,7 @@
                         <a href="guide-helping.html">Can I get involved?</a>
                     </li>
                     <li>
-                        <a href="getting-help.html">Where do I get help with Mod4j?</a>
+                        <a href="developer-guide.html">The Mod4j developer guide</a>
                     </li>
                 </ul>
             </subsection>
@@ -39,14 +39,16 @@
                 <ol>
                     <li>
                         Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from
-                        the <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>.
+                        the
+                        <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
+                        .
                     </li>
                     <li>
                         <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
                         and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
                         conflicts we already have a version waiting for you to download. This version based on Eclipse
-                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse).
-                        You can download a Windows or Linux archive from our project share
+                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You
+                        can download a Windows or Linux archive from our project share
                         <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
@@ -60,105 +62,35 @@
                         Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
                         necessary.
                     </li>
+                    <li>Install the DSL-editors as described in the next section.</li>
                 </ol>
             </subsection>
 
-            <subsection name="Generating the DSL-editors">
+            <subsection name="Installing the DSL-editor Eclipse plugins">
                 <p>
-                    While the metamodel and its associated syntax is still under heavy development, you should be
-                    prepared to generate the model editors yourself from the metamodel and the syntax definitions,
-                    before you can start modelling:
+                    The DLS-editors can be installed from the Mod4j update site:
+                    <big>Mod4j update site: https://mod4j.smart-java.nl/updates</big>
                 </p>
+            </subsection>
+
+            <subsection name="Modelling">
+                <p>If you've completed the installation steps above, you're ready for moddeling...</p>
                 <ol>
                     <li>
-                        Check out the source code of the
-                        <code>mod4j</code>
-                        project from the Subversion URL
-                        <code>https://viewsvn.smart-java.nl/wsvn/mod4j/trunk</code>
-                        into a directory. See the link
-                        <a href="source-repository.html">Project information</a>
-                        for information on how to do this.
+                        First of all you need to create a new Eclipse project for each DSL you're going to use.
+                        <br />
+                        For instance if you want to create a BusinessDomain model, choose:
+                        <q>File, New, Project, Xtext DSL Wizzards, BusinessDomainDSL project</q>
+                        .
                     </li>
+                    <li>TODO More steps</li>
                     <li>
-                        Import the BusinessDomain meta model project
-                        <code>modules/BusinessDomain/BusinessDomain.mm</code>
-                        as
-                        <q>Existing Projects into Workspace</q>
-                        into Eclipse, in a new workspace.
-                    </li>
-                    <li>
-                        Open
-                        <code>BusinessDomain.mm/model/BusinessDomainDsl.genmodel</code>
-                        in the EMF Generator editor.
-                    </li>
-                    <li>
-                        Right-click on
-                        <code>BusinessDomainDsl</code>
-                        in the editor pane, and choose
-                        <q>Generate Model Code</q> 
-                    </li>
-                    <li>
-                        Now import as Maven Project: 
-                        <code>modules/mod4j-common</code>
-                    </li>
-                    <li>
-                        Now import as Existing Project: 
-                        <code>modules/BusinessDomain/BusinessDomain.validation</code>
-                        ,
-                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>
-                        ,
-                        <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>
+                        The previous step generated two modules into the RecordShop-Application folder. See:
+                        <code>../RecordShop-Application/RecordShop-domain</code>
                         and
-                        <code>modules/BusinessDomain/BusinessDomain.generator</code>
-                    </li>
-                    <li>
-                        For the two xtext projects, create a new folder
-                        <code>src-gen.</code>
-                    </li>
-                    <li>
-                        Right-click the file
-                        <code>BusinessDomain.xtext/src/genXtextEditor.oaw,</code>
-                        and choose
-                        <q>Run As -> oAW Workflow</q>
-                        from the context-menu.
-                    </li>
-                    <li>
-                        Right-click the module
-                        <code>BusinessDomain.xtext.editor</code>
-                        and choose
-                        <q>Run As -> Eclipse Application</q>
-                        from the context menu.
-                    </li>
-                    <li>
-                        In the new Eclipse session: import the following projects <br/>
-                        <code>BusinessDomain.mm</code>, <br/>
-                        <code>BusinessDomain.generator</code>, <br/>
-                        <code>BusinessDomain.xtext</code>, <br/>
-                        <code>BusinessDomain.validation</code> <br/>
-                        <code>mod4j.crossx.broker</code>  and the models of the RecordShop example project: <br/>
-                        <code>RecordShop.BusinessDomain.model</code> <br/>
-                        ...    
-                    </li>
-                    <li>
-                        Now you should be able to run one of the generator workflow's in the
-                        <code>RecordShop.BusinessDomain.model</code>
-                        project.
-                        <br/>
-                        Right-click the file
-                        <code>RecordShop.BusinessDomain.model/src/workflow/businessGenerator.oaw</code>
-                        and choose
-                        <p>Run As -> oAW Workflow</p>
-                        from the context-menu.
-                    </li>
-                    <li>
-                        The previous step generated two modules into the RecordShop-Application folder.
-                        See: <code>../RecordShop-Application/RecordShop-domain</code> and
-                        <code>../RecordShop-Application/RecordShop-data</code> 
+                        <code>../RecordShop-Application/RecordShop-data</code>
                     </li>
                 </ol>
-            </subsection>
-            <subsection name="Modelling">
-                <p>TODO</p>
             </subsection>
 
         </section>
