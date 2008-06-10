@@ -72,6 +72,18 @@
                     <br />
                     <big>Mod4j update site: https://repo.smart-java.nl/mod4j/updatesite</big>
                 </p>
+                <ol>
+                    <li>In Eclipse navigate to: Help, Software Updates, Find and Install...</li>
+                    <li>Choose the option "Search for new features to install" and click on "Next".</li>
+                    <li>To create a new remote site for Mod4j, click on "New Remote Site".</li>
+                    <li>Enter a Name: "Mod4j update site"</li>
+                    <li>Enter the URL: https://repo.smart-java.nl/mod4j/updatesite and click on "OK"</li>
+                    <li>After clicking on "Finish" you will be prompted for your SMART-Java username and password</li>
+                    <li>
+                        Next you can select the Mod4j features of your choice. Complete the wizard to you install the
+                        chosen features.
+                    </li>
+                </ol>
             </subsection>
 
             <subsection name="Modelling">
@@ -93,7 +105,7 @@
                         .
                         <br />
                     </li>
-                    
+
                     <li>TODO More steps</li>
 
                 </ol>
