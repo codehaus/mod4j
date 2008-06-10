@@ -17,7 +17,7 @@
         <section name="Mod4j Developer Guide">
             <p>
                 This Developer Guide helps developers to get started with coding and modeling. At last it tells what
-                steps to take for publishing the developed Eclipse features and plugins (DSL editors)to the Mod4j remote
+                steps to take for publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote
                 update site.
             </p>
 
@@ -113,8 +113,8 @@
                 </ol>
                 Now you have generated the necessary BusinessDomainDSL editor an you are ready to use it. There for you
                 need to activate the newly created editor in a second Eclipse instance. See next section "Modeling". But
-                if you want quick development an you're not interested in code completion and syntax highlighting of the
-                Xtext models, you can live without a second Eclipse instance. There for you can perform the steps under
+                if you want quick development an you're not interested in code completion or syntax highlighting features of the
+                new created Xtext editors, you can live without a second Eclipse instance. There for you can also perform the steps under
                 the section "Modeling" in your first Eclipse instance.
             </subsection>
             <subsection name="Modelling">
@@ -148,11 +148,6 @@
                         ...
                     </li>
                     <li>
-                        Now you can start modeling...
-                        
-                        Open the file
-                    </li>
-                    <li>
                         Now you should be able to run one of the generator workflow's in the
                         <code>RecordShop.BusinessDomain.model</code>
                         project.
@@ -169,10 +164,9 @@
                         and
                         <code>../RecordShop-Application/RecordShop-data</code>
                         <br />
-                        You can import these two projects as Maven Projects with help of the Q4E Maven plugin for
-                        Eclipse.
+                        You can import these two projects as Maven Projects (with help of the Q4E Maven plugin for
+                        Eclipse).
                     </li>
-
                 </ol>
             </subsection>
 
