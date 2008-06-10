@@ -2,6 +2,11 @@ package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import org.company.recordshop.data.spring.dao.PersonDao;
 import org.company.recordshop.domain.Customer;
@@ -104,5 +109,32 @@ public class PersonDaoTest extends AbstractDaoTestCase {
          * When nothing is changed the flush does not actually update the row, and "version" is not changed.
          */
         assertEquals(2, simpleJdbcTemplate.queryForInt("select version from person_table where id = ?", person.getId()));
+    }
+
+    @Test
+    public void testPolymorphism() {
+        Person person = new Person("Rembrandt", "van Rhijn");
+        personDao.add(person);
+        Customer customer = new Customer("Simon", "de Wit", 1);
+        personDao.add(customer);
+        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
+        flush();
+        clear();
+        assertEquals(2, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Person_TABLE"));
+        List<Person> persons = personDao.listAllPersons();
+        assertEquals(2, persons.size());
+        Collections.sort(persons, new PersonComparator());
+        assertSame(Person.class, persons.get(0).getClass());
+        assertSame(Customer.class, persons.get(1).getClass());
+        assertEquals("Person", simpleJdbcTemplate.queryForObject("SELECT discriminator FROM Person_TABLE WHERE id = ?",
+                String.class, person.getId()));
+        assertEquals("Customer", simpleJdbcTemplate.queryForObject(
+                "SELECT discriminator FROM Person_TABLE WHERE id = ?", String.class, customer.getId()));
+    }
+
+    public class PersonComparator implements Comparator<Person> {
+        public int compare(Person one, Person other) {
+            return (one.getFirstName() + one.getLastName()).compareTo(other.getFirstName() + other.getLastName());
+        }
     }
 }
