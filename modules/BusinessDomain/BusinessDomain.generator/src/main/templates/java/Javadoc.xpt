@@ -1,0 +1,30 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION util»
+«EXTENSION BusinessClass»
+
+«DEFINE addJavaDocParamList FOR BusinessClass -»
+ 	«IF superclass != null -»«EXPAND addJavaDocParamList FOR superclass -»«ENDIF»
+ 	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop -»«EXPAND javaDocParam FOR prop-»«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE javaDocParam FOR Property-»
+    * @param «name» («dataType») «description»
+«ENDDEFINE»
+
+«DEFINE javaDocParam FOR EnumerationProperty-»
+    * @param «name» («type.name») «description»
+«ENDDEFINE»
+
+«DEFINE addInstanceVarJavaDoc FOR Property»
+    /**
+     *  «name»: «description»
+     */
+«ENDDEFINE»
+
+«DEFINE addSetterJavaDoc FOR Property»
+    /**
+    *
+    * @param «name» («javaType(this)») «description»
+    */
+«ENDDEFINE»
