@@ -70,7 +70,13 @@
                 <p>
                     The Mod4j DSL Eclipse plugins can be installed from the Mod4j update site:
                     <br />
-                    <big>Mod4j update site: https://repo.smart-java.nl/mod4j/updatesite</big>
+                    <br />
+                    <b>
+                        <big>
+                            Mod4j update site: 
+                            <code>https://repo.smart-java.nl/mod4j/updatesite</code>
+                        </big>
+                    </b>
                 </p>
                 <ol>
                     <li>In Eclipse navigate to: Help, Software Updates, Find and Install...</li>
@@ -101,12 +107,18 @@
                         First of all you need to create a new Eclipse project for each DSL you're going to use.
                         <br />
                         For instance if you want to create a BusinessDomain model, choose:
-                        <q>File, New, Project, Xtext DSL Wizzards, BusinessDomainDSL project</q>
+                        <q>File, New, Project, Xtext DSL Wizards, BusinessDomainDSL project</q>
                         .
                         <br />
                     </li>
 
-                    <li>TODO More steps</li>
+                    <li>
+                        In the new project create a directory structure like in our RecordShop example project:
+                        <br />
+                        <code>src/main/model/model.busmod</code>
+                        <code>src/main/workflow/businessGenerator.oaw</code>
+                        <code>src/main/workflow/workflow.properties</code>
+                    </li>
 
                 </ol>
             </subsection>
