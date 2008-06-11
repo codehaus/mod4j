@@ -97,9 +97,9 @@
                 <p>You can use the following DSL's in your project:</p>
                 <ul>
                     <li>BusinessDomainDSL</li>
-                    <li>ContractDataDSL -- NOT AVAILABLE YET</li>
-                    <li>ServiceDSL -- NOT AVAILABLE YET</li>
-                    <li>PresentationDSL -- NOT AVAILABLE YET</li>
+                    <li>ContractDataDSL   -- NOT AVAILABLE YET</li>
+                    <li>ServiceDSL        -- NOT AVAILABLE YET</li>
+                    <li>PresentationDSL   -- NOT AVAILABLE YET</li>
                 </ul>
 
                 <ol>
@@ -115,8 +115,8 @@
                     <li>
                         In the new project create a directory structure like in our RecordShop example project:
                         <br />
-                        <code>src/main/model/model.busmod</code>
-                        <code>src/main/workflow/businessGenerator.oaw</code>
+                        <code>src/main/model/model.busmod</code><br/>
+                        <code>src/main/workflow/businessGenerator.oaw</code><br/>
                         <code>src/main/workflow/workflow.properties</code>
                     </li>
 
