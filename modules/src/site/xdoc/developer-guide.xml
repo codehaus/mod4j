@@ -17,8 +17,8 @@
         <section name="Mod4j Developer Guide">
             <p>
                 This Developer Guide helps developers to get started with coding and modeling. At last it tells what
-                steps to take for publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote
-                update site.
+                steps to take for publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j
+                remote update site.
             </p>
 
             <subsection name="Getting started">
@@ -113,9 +113,9 @@
                 </ol>
                 Now you have generated the necessary BusinessDomainDSL editor an you are ready to use it. There for you
                 need to activate the newly created editor in a second Eclipse instance. See next section "Modeling". But
-                if you want quick development an you're not interested in code completion or syntax highlighting features of the
-                new created Xtext editors, you can live without a second Eclipse instance. There for you can also perform the steps under
-                the section "Modeling" in your first Eclipse instance.
+                if you want quick development an you're not interested in code completion or syntax highlighting
+                features of the new created Xtext editors, you can live without a second Eclipse instance. There for you
+                can also perform the steps under the section "Modeling" in your first Eclipse instance.
             </subsection>
             <subsection name="Modelling">
                 <ol>
@@ -170,8 +170,32 @@
                 </ol>
             </subsection>
 
-            <subsection name="Publishing to the Mod4j update site">
-                <p>TODO</p>
+            <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
+                <p>
+                    New versions of the Mod4j DSL Eclipse plugin can be published on the Mod4j updatesite. We will
+                    publish all Mod4j DSL's as one feature based on several plugins.
+                </p>
+                <ol>
+                    <li>
+                        Import as Existing Project:
+                        <br />
+                        <code>modules/BusinessDomain/org.mod4j.businessDomain.feature</code>
+                        and
+                        <code>modules/org.mod4j.updatesite</code>
+                    </li>
+                    <li>Check for the right settings in site.xml and feature.xml.</li>
+                    <li>Open de site.xml in the updatesite project.</li>
+                    <li>
+                        Click on "Build All". Now the features and plugins folder contains the files we need to deploy.
+                    </li>
+                    <li>
+                        Use scp or winscp to copy the features folder, plugins folder and site.xml to:
+                        <br />
+                        smart-java.nl/home/groups/repo/htdocs/mod4j/updatesite
+                    </li>
+                    <li>Make an announcement on the mailinglist.</li>
+                    <li>Sit back and relax.</li>
+                </ol>
             </subsection>
 
         </section>
