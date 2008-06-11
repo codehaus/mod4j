@@ -62,13 +62,13 @@
                         Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
                         necessary.
                     </li>
-                    <li>Install the Mod4j DSL Eclipse plugins as described in the next section.</li>
+                    <li>Install the Mod4j DSL Eclipse plug-in as described in the next section.</li>
                 </ol>
             </subsection>
 
-            <subsection name="Installing the Mod4j DSL Eclipse plugins">
+            <subsection name="Installing the Mod4j DSL Eclipse plug-in">
                 <p>
-                    The Mod4j DSL Eclipse plugins can be installed from the Mod4j update site:
+                    The Mod4j DSL Eclipse plug-in can be installed from the Mod4j update site:
                     <br />
                     <br />
                     <b>
