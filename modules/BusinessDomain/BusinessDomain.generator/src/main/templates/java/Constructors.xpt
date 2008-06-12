@@ -6,7 +6,7 @@
 
 «DEFINE addDefaultImplBaseConstructor FOR BusinessClass »
     /**
-     *  Default no-argument constructor for «implBaseClassName(this)» 
+     * Default no-argument constructor for «implBaseClassName(this)» 
      */
      protected  «implBaseClassName(this)-» () {
         «IF superclass != null -»super();«ENDIF»
@@ -15,7 +15,7 @@
 
 «DEFINE addDefaultConstructor FOR BusinessClass »
     /**
-     *  Default no-argument constructor for «javaClassName(this)» 
+     * Default no-argument constructor for «javaClassName(this)» 
      */
      protected  «javaClassName(this)-» () {
         «IF superclass != null -»super();«ENDIF»
@@ -73,7 +73,7 @@
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
 	/**
-	 *  Minimal constructor for «javaClassName(this)»«classNameSuffix»
+	 * Minimal constructor for «javaClassName(this)»«classNameSuffix»
 	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
      public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
