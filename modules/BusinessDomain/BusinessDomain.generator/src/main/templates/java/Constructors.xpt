@@ -24,7 +24,8 @@
 
 «DEFINE addMinimalConstructor (String classNameSuffix) FOR BusinessClass »
 	/**
-	 *  Minimal constructor for «name»«classNameSuffix»
+	 * Minimal constructor for «name»«classNameSuffix»
+	 *
 	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
      public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {

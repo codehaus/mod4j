@@ -4,11 +4,13 @@
 «EXTENSION BusinessClass»
 
 «DEFINE addJavaDocParamList FOR BusinessClass -»
- 	«IF superclass != null -»«EXPAND addJavaDocParamList FOR superclass -»«ENDIF»
- 	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop -»«EXPAND javaDocParam FOR prop-»«ENDFOREACH»
+ 	«IF superclass != null -»«EXPAND addJavaDocParamList FOR superclass -»«ENDIF -»
+ 	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop -»
+ 	    «EXPAND javaDocParam FOR prop -»
+ 	«ENDFOREACH -»
 «ENDDEFINE»
 
-«DEFINE javaDocParam FOR Property-»
+«DEFINE javaDocParam FOR Property -»
     * @param «name» («dataType») «description»
 «ENDDEFINE»
 
