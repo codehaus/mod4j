@@ -34,6 +34,10 @@ public class ProjectProperties {
 
     private static String fileEncoding = "ISO-8859-1";
 
+    private static final String BUSINESSRULES_PACKAGE = "businessrules";
+
+    private static final String DAO_PACKAGE = "spring.dao";
+
     public static String getApplicationName() {
         return TemplateUtils.getProperty("applicationName", propertyFile);
     }
@@ -66,12 +70,20 @@ public class ProjectProperties {
         return TemplateUtils.getProperty("dataRootPackage", propertyFile);
     }
 
+    public static String getDaoPackage() {
+        return getDataRootPackage() + "." + DAO_PACKAGE;
+    }
+
+    public static String getBusinessRulesPackage() {
+        return getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
+    }
+
     public static String getSrcGenPath() {
         return srcGenPath;
     }
 
     public static String getSrcManPath() {
-        return srcManPath;
+        return TemplateUtils.getProperty("srcManPath", propertyFile);
     }
 
     public static String getResourceManPath() {

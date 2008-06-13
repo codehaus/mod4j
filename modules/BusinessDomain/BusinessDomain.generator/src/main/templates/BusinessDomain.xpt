@@ -13,12 +13,13 @@
 «ENDDEFINE»
 
 «REM»
-	Generation of initial custom extends of the implementation base classes.
-	If they don't exist already these classes typically are generated to the man-src folder. 
+	Generation of Extention Points of the implementation base classes.
+	If they don't exist already these classes typically are generated to the srcMan folder. 
 «ENDREM»
-«DEFINE ExtensionPointGeneration (String srcManPath, String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
-	«EXPAND JavaBean::BeanClassExtensionPoint (srcManPath, rootPackage) FOREACH types»
-	«EXPAND BusinessRules::BusinessRulesExtentionPoints (srcManPath, rootPackage) FOREACH types»
+«DEFINE ExtensionPointGeneration FOR BusinessDomainDsl::BusinessDomainModel»
+    «setPropertiesFile( appPropFilePath() )»
+	«EXPAND JavaBean::BeanClassExtensionPoint FOREACH types»
+	«EXPAND BusinessRules::BusinessRulesExtentionPoints FOREACH types»
 «ENDDEFINE»
 
 «REM»

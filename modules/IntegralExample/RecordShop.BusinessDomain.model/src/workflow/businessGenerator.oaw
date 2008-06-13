@@ -36,7 +36,7 @@
     </component>
 
     <!--
-        Generation of domain sources and resources
+        Generation of Domain sources and resources
     -->
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
@@ -49,11 +49,11 @@
     </component>
 
     <!-- 
-        Generation of Extions Points for domain sources
+        Generation of Extions Points for Domain sources
     -->
     <component id="BusinessDomainWorkflow-DomainEextensionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="BusinessDomain::ExtensionPointGeneration('${domainModulePath}/${srcManPath}','${domainRootPackage}') FOR ${outputSlot}" />
+        <expand value="BusinessDomain::ExtensionPointGeneration FOR ${outputSlot}" />
         <outlet path="${domainModulePath}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -84,7 +84,7 @@
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
-         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
+        <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
     </component>
 
     <!-- 

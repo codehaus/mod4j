@@ -1,7 +1,8 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION util»
 «EXTENSION BusinessClass»
+«EXTENSION util»
+«EXTENSION ProjectProperties»
 
 «DEFINE BeanClassImplBase (String rootPackage) FOR AbstractType»
 	«FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
@@ -72,12 +73,12 @@
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE BeanClassExtensionPoint (String srcPath, String package) FOR AbstractType»
+«DEFINE BeanClassExtensionPoint FOR AbstractType»
 	«REM»No generation of AbstracTypes other then BusinessClasses«ENDREM»
 «ENDDEFINE»
 
 «DEFINE BeanClassExtensionPoint (String srcPath, String package) FOR BusinessClass»
-    «IF !fileExist(srcPath + "/" + package.replaceAll("\\.", "/") + "/" + name +  ".java")»
+    «IF !fileExist(getDomainModulePath() + "/" + getSrcManPath() + "/" + getDomainRootPackage().replaceAll("\\.", "/") + "/" + javaClassName() + ".java")»
 		«FILE package.replaceAll("\\.", "/") + "/" + name +  ".java"»
             /**
              * Extension Point initial generated at: «timestamp()»

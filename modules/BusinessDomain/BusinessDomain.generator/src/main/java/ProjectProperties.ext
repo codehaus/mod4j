@@ -3,7 +3,7 @@
 import BusinessDomainDsl;
 
 Void setPropertiesFile(String filename) :
-JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.setPropertiesFile(java.lang.String);
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.setPropertiesFile(java.lang.String);
 
 String getApplicationName() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getApplicationName();
@@ -26,6 +26,12 @@ String getDomainRootPackage() :
 String getDataRootPackage() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDataRootPackage();
 
+String getDaoPackage() : 
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDaoPackage();
+
+String getBusinessRulesPackage() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getBusinessRulesPackage();
+
 String getSrcGenPath() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getSrcGenPath();
 
@@ -36,9 +42,4 @@ String getResourceManPath() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getResourceManPath();
 
 String getFileEncoding() :
- JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getFileEncoding();
- 
-String getDaoPackage() : 
-     getDataRootPackage() + ".spring.dao";
-
-     
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getFileEncoding();     
