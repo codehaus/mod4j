@@ -80,7 +80,7 @@
     «IF !fileExist(srcPath + "/" + package.replaceAll("\\.", "/") + "/" + name +  ".java")»
 		«FILE package.replaceAll("\\.", "/") + "/" + name +  ".java"»
             /**
-             * Extension Point initially generated at: «timestamp()»
+             * Extension Point initial generated at: «timestamp()»
              */
 			package «package»;
 			
