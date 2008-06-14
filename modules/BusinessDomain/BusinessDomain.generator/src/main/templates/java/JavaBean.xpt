@@ -77,13 +77,13 @@
 	«REM»No generation of AbstracTypes other then BusinessClasses«ENDREM»
 «ENDDEFINE»
 
-«DEFINE BeanClassExtensionPoint (String srcPath, String package) FOR BusinessClass»
-    «IF !fileExist(getDomainModulePath() + "/" + getSrcManPath() + "/" + getDomainRootPackage().replaceAll("\\.", "/") + "/" + javaClassName() + ".java")»
-		«FILE package.replaceAll("\\.", "/") + "/" + name +  ".java"»
+«DEFINE BeanClassExtensionPoint FOR BusinessClass»
+    «IF !fileExist(getDomainModulePath() + "/" + getSrcManPath() + "/" + getDomainRootPackage().replaceAll("\\.", "/") + "/" + name + ".java")»
+		«FILE getDomainRootPackage().replaceAll("\\.", "/") + "/" + name + ".java"»
             /**
              * Extension Point initial generated at: «timestamp()»
              */
-			package «package»;
+			package «getDomainRootPackage()»;
 			
 			«REM»Add import statements for Attributes. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»
 			«FOREACH properties.dataType.toSet() AS dataType»
