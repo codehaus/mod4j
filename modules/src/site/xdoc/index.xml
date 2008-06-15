@@ -18,8 +18,15 @@
             <p>
                 Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the
                 productivity of Java software development by using Domain Specific Languages.
-            </p>
-            <p>TODO: Add more context (target architecture).</p>
+            </p> <p>
+                The DSL's and the corresponding code generation are based on a reference architecture. 
+                This allows developers to model various aspects of the application and generate code that
+                  strictly follows this reference architecture.	
+            </p> <p>
+                The reference architecture is described in a separate document which can be found at  
+                <a href="https://refapp.smart-java.nl">https://refapp.smart-java.nl</a>
+                For a good understanding of the generated code it is useful to read this document.
+           </p>
 
             <subsection name="About Mod4j">
                 <ul>
