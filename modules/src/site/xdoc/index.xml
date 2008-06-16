@@ -24,7 +24,7 @@
                   strictly follows this reference architecture.	
             </p> <p>
                 The reference architecture is described in a separate document which can be found at  
-                <a href="https://refapp.smart-java.nl">https://refapp.smart-java.nl</a>
+		<a href="https://refapp.smart-java.nl/docs/">https://refapp.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
            </p>
 
