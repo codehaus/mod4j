@@ -6,7 +6,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.company.recordshop.domain</groupId>
+    <groupId>org.company.recordshop.data</groupId>
     <artifactId>RecordShop-data</artifactId>
     <name>RecordShop-data</name>
     <version>1.0-SNAPSHOT</version>
