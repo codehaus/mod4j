@@ -1,21 +1,21 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION util»
+«EXTENSION ProjectProperties»
 
 «DEFINE createSubModulePom (String subModulePath, String moduleName) FOR BusinessDomainModel»
 	«FILE subModulePath + "/pom.xml" -»
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <parent>
-        <groupId>«getProperty("rootPackage", appPropFilePath())»</groupId>
-        <artifactId>«getProperty("applicationName", appPropFilePath())»</artifactId>
-        <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+        <groupId>«getRootPackage()»</groupId>
+        <artifactId>«getApplicationName()»</artifactId>
+        <version>«getApplicationVersion()»</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>«getProperty("domainRootPackage", appPropFilePath())»</groupId>
-    <artifactId>«getProperty("applicationName", appPropFilePath())»-«moduleName»</artifactId>
-    <name>«getProperty("applicationName", appPropFilePath())»-«moduleName»</name>
-    <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+    <groupId>«getRootPackage() + "." + moduleName»</groupId>
+    <artifactId>«getApplicationName() + "-" + moduleName»</artifactId>
+    <name>«getApplicationName() + "-" + moduleName»</name>
+    <version>«getApplicationVersion()»</version>
     «EXPAND addDependenciesSection FOR moduleName-»
 </project>
 	«ENDFILE»
@@ -48,9 +48,9 @@
         </dependency>
     «ELSEIF this == "data"-»
         <dependency>
-            <groupId>«getProperty("domainRootPackage", appPropFilePath())»</groupId>
-            <artifactId>«getProperty("applicationName", appPropFilePath())»-domain</artifactId>
-            <version>«getProperty("applicationVersion", appPropFilePath())»</version>
+            <groupId>«getDomainRootPackage()»</groupId>
+            <artifactId>«getApplicationName()»-domain</artifactId>
+            <version>«getApplicationVersion()»</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

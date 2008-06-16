@@ -40,6 +40,9 @@ String getSrcManPath() :
 
 String getResourceManPath() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getResourceManPath();
+ 
+String getRootPackage() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getRootPackage();
 
 String getFileEncoding() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getFileEncoding();     
