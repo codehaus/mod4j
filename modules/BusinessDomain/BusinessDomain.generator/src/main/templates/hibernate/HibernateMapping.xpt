@@ -116,7 +116,7 @@
 
 «DEFINE one2manyMappingTo FOR Association -»
 		<!-- one2manyMappingTo -->
-        <set name="«this.targetRoleName»" inverse="false" lazy="false"
+        <set name="«this.targetRoleName»" inverse="false"
             cascade="save-update">
             <key>
                 <column name="«this.sourceRoleName»_ID" />
@@ -150,7 +150,7 @@
 «ENDREM»
 «DEFINE many2oneMappingFrom FOR Association -»
         <!-- many2oneMappingFrom -->
-        <set name="«this.sourceRoleName»" inverse="false" lazy="false"
+        <set name="«this.sourceRoleName»" inverse="false"
             cascade="save-update">
             <key>
                 <column name="«this.targetRoleName»_ID" />
