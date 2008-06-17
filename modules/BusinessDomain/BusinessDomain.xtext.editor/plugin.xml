@@ -19,10 +19,10 @@
          
 		<wizard
 			category="org.openarchitectureware.xtext.wizards"
-			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslProjectWizard"
+			class="org.mod4j.businessdomain.xtext.wizards.Mod4jNewBusinessDomainDslProjectWizard"
 			icon="icons/sample.gif"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslProjectWizard"
-			name="BusinessDomainDsl Project"
+			name="Mod4j BusinessDomainDsl Project"
 			project="true">
 		</wizard>
          

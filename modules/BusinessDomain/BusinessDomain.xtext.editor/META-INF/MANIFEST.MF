@@ -20,4 +20,5 @@ Export-Package: org.mod4j.businessdomain.xtext,
  org.mod4j.businessdomain.xtext.editor,
  org.mod4j.businessdomain.xtext.wizards
 Bundle-ClassPath: .
+Bundle-Vendor: org.mod4j
 
