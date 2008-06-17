@@ -6,3 +6,4 @@ Bundle-Version: 1.0.0
 Require-Bundle: org.openarchitectureware.dependencies,
  BusinessDomain.mm
 Export-Package: BusinessDomainDsl.validation
+Bundle-Vendor: org.mod4j
