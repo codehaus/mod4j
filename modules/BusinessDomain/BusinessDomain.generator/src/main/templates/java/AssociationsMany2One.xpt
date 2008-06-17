@@ -15,7 +15,8 @@ TODOTODO
         return this.«targetRoleName»;
     }
 
-    /** Implements adding single element to a collection
+    /**
+     * Implements adding single element to a collection
      */
     public void set«this.targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
         if( this.«targetRoleName» != element ) {
@@ -28,12 +29,13 @@ TODOTODO
 «IF this.bidirectional»
             if ( element != null ) {
                 element.z_internalAddTo«this.sourceRoleName.toFirstUpper()»( («javaClassName(this.source)»)this );
-«ENDIF»
             }
+«ENDIF»
         }
     }
 
-    /** This operation should NOT be used by clients. It implements the correct addition of an element in an association.
+    /**
+     * This operation should NOT be used by clients. It implements the correct addition of an element in an association.
      * 
      * @param element 
      */
@@ -41,7 +43,8 @@ TODOTODO
         this.«this.targetRoleName» = element;
     }
     
-    /** This operation should NOT be used by clients. It implements the correct removal of an element in an association.
+    /**
+     * This operation should NOT be used by clients. It implements the correct removal of an element in an association.
      * 
      * @param element 
      */
@@ -59,7 +62,8 @@ TODOTODO
         return this.«sourceRoleName»;
     }
 
-    /** Implements the setter of association end 
+    /**
+     * Implements the setter of association end 
      * 
      * @param element 
      */
@@ -89,8 +93,9 @@ TODOTODO
 «ENDIF»
     }
         
-    /** Should NOT be used by clients!
-     *  Implements the correct setting of the link for + owner : Customer 
+    /**
+     * Should NOT be used by clients!
+     * Implements the correct setting of the link for + owner : Customer 
      *                  when a single element is added to it.
      * 
      * @param element 
@@ -99,8 +104,9 @@ TODOTODO
         this.«this.sourceRoleName».add(element);
     }
     
-    /** Should NOT be used by clients! Implements the correct setting of the link for + owner : Customer 
-                        when a single element is removed to it.
+    /**
+     * Should NOT be used by clients! Implements the correct setting of the link for + owner : Customer 
+     *                  when a single element is removed to it.
      * 
      * @param element 
      */

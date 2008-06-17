@@ -6,8 +6,7 @@
 «DEFINE addToReferenceVariable FOR Association»
 	/**
      *  «targetRoleName»: «description»
-     */
-«REM»«IF targetMultiplicity.toString()=="One" || targetMultiplicity.toString()=="ZeroOne" -»«ENDREM»    
+     */ 
     «IF isOne2One(this) -»
 		private «target.name» «targetRoleName»;
   		«EXPAND AssociationsOne2One::one2OneAccessorsTo FOR this»

@@ -15,7 +15,8 @@
         return this.«targetRoleName»;
     }
 
-    /** Implements adding single element to a collection
+    /**
+     * Implements adding single element to a collection
      */
     public void addTo«targetRoleName.toFirstUpper()»(«javaClassName(target)» element) {
         if ( element == null ) {
@@ -33,7 +34,8 @@
     «ENDIF»
     }
 
-    /** Implements removal of a single element from feature 
+    /**
+     * Implements removal of a single element from feature 
      * 
      * @param element 
      */
@@ -47,8 +49,9 @@
     «ENDIF»
     }
     
-    /** This operation should NOT be used by clients.
-     *  It implements the correct addition of an element in an association.
+    /**
+     * This operation should NOT be used by clients.  It implements the correct
+     * addition of an element in an association.
      * 
      * @param element 
      */
@@ -56,8 +59,9 @@
         this.«this.targetRoleName».add(element);
     }
     
-    /** This operation should NOT be used by clients.
-     *  It implements the correct removal of an element in an association.
+    /**
+     * This operation should NOT be used by clients. It implements the correct
+     * removal of an element in an association.
      * 
      * @param element 
      */
@@ -71,7 +75,8 @@
     Code to update the o=ther side si generated as well.
 «ENDREM»
 «DEFINE one2ManyAccessorsFrom FOR Association»
-    /** Implements the setter of association end 
+    /**
+     * Implements the setter of association end 
      * 
      * @param element 
      */
@@ -79,7 +84,8 @@
         return this.«this.sourceRoleName»;
     }
 
-    /** Implements the setter of association end 
+    /**
+     * Implements the setter of association end 
      * 
      * @param element 
      */
@@ -96,8 +102,9 @@
         }
     }
     
-    /** Should NOT be used by clients! Implements the correct setting of the link for + owner : Customer 
-                        when a single element is added to it.
+    /**
+     * Should NOT be used by clients! Implements the correct setting of the link
+     * for + owner : Customer when a single element is added to it.
      * 
      * @param element 
      */
@@ -105,8 +112,9 @@
         this.«this.sourceRoleName» = element;
     }
     
-    /** Should NOT be used by clients! Implements the correct setting of the link for + owner : Customer 
-                        when a single element is removed to it.
+    /**
+     * Should NOT be used by clients! Implements the correct setting of the link for + owner : Customer 
+     *                  when a single element is removed to it.
      * 
      * @param element 
      */

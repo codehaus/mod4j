@@ -8,12 +8,12 @@
         
         «EXPAND Imports::addImports FOR this»
                 
-        /**
+       /**
         * «description»
         *
         * Generated at: «timestamp()»
         */
-        public enum «name» {
+       public enum «name» {
         
             «FOREACH enumerationLiterals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
                 «enumlit.name.toUpperCase()»(«enumlit.persistedValue»)

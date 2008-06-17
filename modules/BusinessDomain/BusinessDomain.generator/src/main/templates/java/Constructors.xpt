@@ -17,26 +17,25 @@
     /**
      * Default no-argument constructor for «javaClassName(this)» 
      */
-     protected  «javaClassName(this)-» () {
-        «IF superclass != null -»super();«ENDIF»
-     }
+    protected  «javaClassName(this)-» () {
+       «IF superclass != null -»super();«ENDIF»
+    }
 «ENDDEFINE»
 
 «DEFINE addMinimalConstructor (String classNameSuffix) FOR BusinessClass »
-	/**
-	 * Minimal constructor for «name»«classNameSuffix»
-	 *
-	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
+    /**
+     * Minimal constructor for «name»«classNameSuffix»
+     *
+     «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
-     public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
-     	«IF superclass != null -»
-     	
- 			super(«EXPAND addSuperArgumentList FOR this.superclass -»);
- 		«ENDIF»
-     	«EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault) -»
-     	«EXPAND BusinessRules::addBusinessRulesValidators FOR this»
-     	validation.validate();
-     }
+    public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+     «IF superclass != null -»
+        super(«EXPAND addSuperArgumentList FOR this.superclass -»);
+     «ENDIF»
+     «EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault) -»
+     «EXPAND BusinessRules::addBusinessRulesValidators FOR this»
+        validation.validate();
+    }
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList  FOR BusinessClass »
@@ -47,10 +46,10 @@
 
 «REM» Old version
 «DEFINE OLDaddConstructorArgumentsList FOR BusinessClass -»
- 	«IF superclass != null -»«EXPAND addConstructorArgumentsList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
- 	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop ITERATOR propIter SEPARATOR "," -»
- 	    «EXPAND addArgument FOR prop-»
- 	«ENDFOREACH»
+     «IF superclass != null -»«EXPAND addConstructorArgumentsList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
+     «FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop ITERATOR propIter SEPARATOR "," -»
+         «EXPAND addArgument FOR prop-»
+     «ENDFOREACH»
 «ENDDEFINE»
 «ENDREM»
 
@@ -63,21 +62,20 @@
 «ENDDEFINE»
 
 «DEFINE addConstructorAssignment FOR Property -»
-	«IF !nullable -»this.«name» = «name»; «ENDIF»
+    «IF !nullable -»this.«name» = «name»; «ENDIF»
 «ENDDEFINE»
 
 «DEFINE addSuperArgumentList FOR BusinessClass -»
-	«IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
-	«FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
+    «IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
+    «FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
-	/**
-	 * Minimal constructor for «javaClassName(this)»«classNameSuffix»
-	 «EXPAND Javadoc::addJavaDocParamList FOR this -» 
+    /**
+     * Minimal constructor for «javaClassName(this)»«classNameSuffix»
+     «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
-     public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
-     
-         super(«EXPAND addSuperArgumentList FOR this -»);
- 	 }
+    public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+        super(«EXPAND addSuperArgumentList FOR this -»);
+    }
 «ENDDEFINE»

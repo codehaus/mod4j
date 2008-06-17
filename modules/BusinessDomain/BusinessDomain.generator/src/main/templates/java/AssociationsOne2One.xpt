@@ -15,7 +15,8 @@
         return this.«targetRoleName»;
     }
 
-    /** Implements adding single element to a collection
+    /**
+     * Implements adding single element to a collection
      */
     public void set«targetRoleName.toFirstUpper()»(«javaClassName(target)» element) {
         if ( this.«targetRoleName» != element) {       // prevent infinite loop
@@ -34,8 +35,9 @@
         }
     }
 
-    /** This operation should NOT be used by clients.
-     *  It implements the correct setting of an element in an association.
+    /**
+     * This operation should NOT be used by clients.
+     * It implements the correct setting of an element in an association.
      * 
      * @param element 
      */
@@ -43,7 +45,9 @@
         this.«targetRoleName» = null;
     }
 
-    /** This operation should NOT be used by clients. It implements the correct removal of an element in an association.
+    /**
+     * This operation should NOT be used by clients.
+     * It implements the correct removal of an element in an association.
      * 
      * @param element 
      */
@@ -64,7 +68,8 @@
         return this.«sourceRoleName»;
     }
 
-    /** Implements adding single element to a collection
+    /**
+     * Implements adding single element to a collection
      */
     public void set«sourceRoleName.toFirstUpper()»(«javaClassName(source)» element) {
         if ( this.«sourceRoleName» != element) {       // prevent infinite loop
@@ -83,8 +88,9 @@
         }
     }
 «REM»
-    /** This operation should NOT be used by clients.
-     *  It implements the correct setting of an element in an association.
+    /**
+     * This operation should NOT be used by clients.
+     * It implements the correct setting of an element in an association.
      * 
      * @param element 
      */
@@ -92,7 +98,9 @@
         this.«sourceRoleName» = null;
     }
 «ENDREM»
-    /** This operation should NOT be used by clients. It implements the correct removal of an element in an association.
+    /**
+     * This operation should NOT be used by clients.
+     * It implements the correct removal of an element in an association.
      * 
      * @param element 
      */

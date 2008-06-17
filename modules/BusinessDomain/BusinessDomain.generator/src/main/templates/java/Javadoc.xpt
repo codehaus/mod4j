@@ -11,11 +11,11 @@
 «ENDDEFINE»
 
 «DEFINE javaDocParam FOR Property -»
-    * @param «name» («dataType») «description»
+     * @param «name» («dataType») «description»
 «ENDDEFINE»
 
 «DEFINE javaDocParam FOR EnumerationProperty-»
-    * @param «name» («type.name») «description»
+     * @param «name» («type.name») «description»
 «ENDDEFINE»
 
 «DEFINE addInstanceVarJavaDoc FOR Property»
@@ -26,7 +26,6 @@
 
 «DEFINE addSetterJavaDoc FOR Property»
     /**
-    *
-    * @param «name» («javaType(this)») «description»
-    */
+     * @param «name» («javaType(this)») «description»
+     */
 «ENDDEFINE»
