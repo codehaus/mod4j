@@ -18,15 +18,17 @@
             <p>
                 Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the
                 productivity of Java software development by using Domain Specific Languages.
-            </p> <p>
-                The DSL's and the corresponding code generation are based on a reference architecture. 
-                This allows developers to model various aspects of the application and generate code that
-                  strictly follows this reference architecture.	
-            </p> <p>
-                The reference architecture is described in a separate document which can be found at  
-		<a href="https://refapp.smart-java.nl/docs/">https://refapp.smart-java.nl/docs/</a>
+            </p>
+            <p>
+                The DSL's and the corresponding code generation are based on a reference architecture. This allows
+                developers to model various aspects of the application and generate code that strictly follows this
+                reference architecture.
+            </p>
+            <p>
+                The reference architecture is described in a separate document which can be found at
+                <a href="https://refapp.smart-java.nl/docs/">https://refapp.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
-           </p>
+            </p>
 
             <subsection name="About Mod4j">
                 <ul>
@@ -80,7 +82,7 @@
                     <br />
                     <b>
                         <big>
-                            Mod4j update site: 
+                            Mod4j update site:
                             <code>https://repo.smart-java.nl/mod4j/updatesite</code>
                         </big>
                     </b>
@@ -93,8 +95,8 @@
                     <li>Enter the URL: https://repo.smart-java.nl/mod4j/updatesite and click on "OK"</li>
                     <li>After clicking on "Finish" you will be prompted for your SMART-Java username and password</li>
                     <li>
-                        Next you can select the Mod4j features of your choice. Complete the wizard to install the
-                        chosen features.
+                        Next you can select the Mod4j features of your choice. Complete the wizard to install the chosen
+                        features.
                     </li>
                 </ol>
             </subsection>
@@ -104,9 +106,9 @@
                 <p>You can use the following DSL's in your project:</p>
                 <ul>
                     <li>BusinessDomainDSL</li>
-                    <li>ContractDataDSL   -- NOT AVAILABLE YET</li>
-                    <li>ServiceDSL        -- NOT AVAILABLE YET</li>
-                    <li>PresentationDSL   -- NOT AVAILABLE YET</li>
+                    <li>ContractDataDSL -- NOT AVAILABLE YET</li>
+                    <li>ServiceDSL -- NOT AVAILABLE YET</li>
+                    <li>PresentationDSL -- NOT AVAILABLE YET</li>
                 </ul>
 
                 <ol>
@@ -122,8 +124,10 @@
                     <li>
                         In the new project create a directory structure like in our RecordShop example project:
                         <br />
-                        <code>src/main/model/model.busmod</code><br/>
-                        <code>src/main/workflow/businessGenerator.oaw</code><br/>
+                        <code>src/main/model/model.busmod</code>
+                        <br />
+                        <code>src/main/workflow/businessGenerator.oaw</code>
+                        <br />
                         <code>src/main/workflow/workflow.properties</code>
                     </li>
 
@@ -144,6 +148,25 @@
                         <code>../RecordShop-Application/RecordShop-data</code>
                     </li>
                 </ol>
+                <p>Typically the generated sources are placed in the <code>target/generated-sources</code> or <code>target/generated-resources</code> folders of a module.</p>
+            </subsection>
+
+            <subsection name="Extension Points">
+                <p>
+                    There are several reasons to mention why a developer needs to manually add (re)sources to the
+                    generated (re)sources by Mod4j.
+                </p>
+                <ul>
+                    <li>To implement business rules</li>
+                    <li>To</li>
+                </ul>
+                <p>
+                    For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the
+                    generated (re)sources and provide a place where developers manually can make additions to- or change
+                    the behaviour of the system. Initial Mod4j generates Extension Points once if they do not exist
+                    already. So Extension Points will not be overwritten by the generator.
+                </p>
+                <p>Typically Extension Points are placed under the <code>src</code> folder of a module and needs to be added to the projects versioncontrol system.</p>
             </subsection>
 
         </section>
