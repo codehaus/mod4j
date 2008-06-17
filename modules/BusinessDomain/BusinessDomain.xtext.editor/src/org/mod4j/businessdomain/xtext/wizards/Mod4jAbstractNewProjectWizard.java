@@ -99,7 +99,13 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 							pr.create(monitor);
 							pr.open(monitor);
 							String modelFileName = "model." + getFileExtension();
-							Mod4jProjectCreator.create(pr, new String[] { getDslProjectName(), getGeneratorProjectName() }, monitor);
+//							Mod4jProjectCreator.create(pr, new String[] { getDslProjectName(), getGeneratorProjectName() }, monitor);
+							Mod4jProjectCreator.create(pr, new String[] { 
+									"BusinessDomain.mm",
+									"BusinessDomain.validation",
+									"BusinessDomain.generator",
+									"BusinessDomain.xtext"
+							}, monitor);
 							IContainer modelFolder = pr.getFolder("model");
 							IContainer workflowFolder = pr.getFolder("workflow");
 							Mod4jProjectCreator
