@@ -112,7 +112,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 									.createFile(
 											modelFileName,
 											modelFolder,
-											"//model goes here...\n",
+											sampleModelContents(),
 											monitor);
 							Mod4jProjectCreator
 							.createFile(
@@ -182,7 +182,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					"appPropFilePath=workflow/workflow.properties" + LF +
 					"applicationName="+ mainPage.getProjectName() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
-					"applicationPath=../" + LF +
+					"applicationPath=." + LF +
 					"domainModulePath=../" + mainPage.getProjectName() + "-domain" + LF +
 					"dataModulePath=../" + mainPage.getProjectName() + "-data" + LF +
 					"rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
@@ -193,6 +193,16 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					"resourceGenPath=target/generated-resources" + LF +
 					"srcManPath=src/main/java" + LF +
 					"resourceManPath=src/main/resources" + LF ;
+        }
+
+		public String sampleModelContents() {
+			String LF = "\n";
+			
+			return "Model SampleModel" + LF +
+					"" + LF +
+					"Class SampleClass [" + LF +
+					"    string name;" + LF +
+					"]" + LF;
         }
 
 		public String workflowContents () {
@@ -310,7 +320,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"         <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
 			"    </component>" + LF +
 			" " + LF +
-			"</workflow>" ;
+			"</workflow>" + LF;
 		}
 		
 		
