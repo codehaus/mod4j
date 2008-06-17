@@ -3,7 +3,7 @@
       id="mod4j.businessdomain.feature"
       label="Mod4j Business Domain Feature"
       version="0.1.0.qualifier"
-      provider-name="Mod4j">
+      provider-name="org.mod4j">
 
    <description url="https://mod4j.smart-java.nl">
       The Mod4j feature supports modeling and code generation through a series of small independent DSL&apos;s. for Java projects.
