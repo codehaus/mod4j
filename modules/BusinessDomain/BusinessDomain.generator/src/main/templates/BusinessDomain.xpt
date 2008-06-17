@@ -26,7 +26,8 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
+    «setPropertiesFile( appPropFilePath() )»
     «EXPAND ParentPom::createParentPom»
-	«EXPAND SubModulePom::createSubModulePom (getProperty("domainModulePath", appPropFilePath()), "domain")»
-	«EXPAND SubModulePom::createSubModulePom (getProperty("dataModulePath", appPropFilePath()), "data")»
+	«EXPAND SubModulePom::createSubModulePom (getDomainModulePath(), "domain")»
+	«EXPAND SubModulePom::createSubModulePom (getDataModulePath(), "data")»
 «ENDDEFINE»
