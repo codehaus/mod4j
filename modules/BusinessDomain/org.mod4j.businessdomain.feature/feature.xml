@@ -6,12 +6,12 @@
       provider-name="org.mod4j">
 
    <description url="https://mod4j.smart-java.nl">
-      The Mod4j feature supports modeling and code generation through a series of small independent DSL&apos;s. for Java projects.
+      The Mod4j feature supports modeling and code generation through small independent DSL&apos;s. for Java projects. This business domain language is one of those DSL&apos;s.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      (c) 2008, Ordina
-(c) 2008, Jos Warmer &amp; Anneke Kleppe
+   <copyright>
+      (c) 2008, Ordina: original contributor
+(c) 2008, Jos Warmer &amp; Anneke Kleppe: Java code generation for associations is based on the code generator from Octopus (http://octopus.sourceforge.net)
    </copyright>
 
    <license url="http://www.example.com/license">
