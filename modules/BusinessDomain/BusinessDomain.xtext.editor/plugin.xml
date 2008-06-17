@@ -31,7 +31,7 @@
 			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
 			icon="icons/file.gif"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
-			name="BusinessDomainDsl Editor file">
+			name="Mod4j BusinessDomainDsl Editor file">
 		</wizard>
 	</extension>
 </plugin>
