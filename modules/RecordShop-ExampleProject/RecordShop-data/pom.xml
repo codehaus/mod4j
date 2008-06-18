@@ -10,7 +10,6 @@
     <artifactId>RecordShop-data</artifactId>
     <name>RecordShop-data</name>
     <version>1.0-SNAPSHOT</version>
-    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -25,7 +24,6 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time-hibernate</artifactId>
         </dependency>
- 
         <dependency>
             <groupId>org.company.recordshop.domain</groupId>
             <artifactId>RecordShop-domain</artifactId>
