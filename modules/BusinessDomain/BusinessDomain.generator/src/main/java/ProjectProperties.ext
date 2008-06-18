@@ -14,6 +14,12 @@ String getApplicationVersion() :
 String getApplicationPath() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getApplicationPath();
 
+String getDomainModuleName() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDomainModuleName();
+
+String getDataModuleName() :
+ JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDataModuleName();
+
 String getDomainModulePath() :
  JAVA org.mod4j.businessdomain.generator.helpers.ProjectProperties.getDomainModulePath();
 

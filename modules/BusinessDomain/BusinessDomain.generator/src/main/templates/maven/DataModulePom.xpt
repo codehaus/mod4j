@@ -2,8 +2,8 @@
 
 «EXTENSION ProjectProperties»
 
-«DEFINE createSubModulePom (String subModulePath, String moduleName) FOR BusinessDomainModel»
-	«FILE getApplicationName() + "-" + moduleName + "/pom.xml" -»
+«DEFINE createDataModulePom FOR BusinessDomainModel»
+	«FILE getDataModuleName() + "/pom.xml" -»
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <parent>
@@ -12,16 +12,10 @@
         <version>«getApplicationVersion()»</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>«getRootPackage() + "." + moduleName»</groupId>
-    <artifactId>«getApplicationName() + "-" + moduleName»</artifactId>
-    <name>«getApplicationName() + "-" + moduleName»</name>
+    <groupId>«getDataRootPackage()»</groupId>
+    <artifactId>«getDataModuleName()»</artifactId>
+    <name>«getDataModuleName()»</name>
     <version>«getApplicationVersion()»</version>
-    «EXPAND addDependenciesSection FOR moduleName-»
-</project>
-	«ENDFILE»
-«ENDDEFINE»
-
-«DEFINE addDependenciesSection FOR String»
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -36,20 +30,9 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time-hibernate</artifactId>
         </dependency>
- 
-    «IF this == "domain"-»
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-        </dependency>
-    «ELSEIF this == "data"-»
         <dependency>
             <groupId>«getDomainRootPackage()»</groupId>
-            <artifactId>«getApplicationName()»-domain</artifactId>
+            <artifactId>«getDomainModuleName()»</artifactId>
             <version>«getApplicationVersion()»</version>
         </dependency>
         <dependency>
@@ -85,6 +68,7 @@
             <artifactId>commons-dbcp</artifactId>
             <scope>test</scope>
         </dependency>
-    «ENDIF-»
     </dependencies>
+</project>
+	«ENDFILE»
 «ENDDEFINE»

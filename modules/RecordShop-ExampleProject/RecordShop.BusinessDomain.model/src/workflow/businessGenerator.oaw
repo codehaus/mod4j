@@ -32,7 +32,7 @@
         Cleaning of output directories before generation.
     -->
     <component id="BusinessDomainWorkflow-DirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
-        <directories value="${domainModulePath}/${srcGenPath}, ${dataModulePath}/${srcGenPath}"/>
+        <directories value="${applicationPath}/${domainModuleName}/${srcGenPath}, ${applicationPath}/${dataModuleName}/${srcGenPath}"/>
     </component>
 
     <!--
@@ -41,7 +41,7 @@
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}" />
-        <outlet path="${domainModulePath}/${srcGenPath}/">
+        <outlet path="${applicationPath}/${domainModuleName}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
@@ -54,7 +54,7 @@
     <component id="BusinessDomainWorkflow-DomainEextensionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="BusinessDomain::ExtensionPointGeneration FOR ${outputSlot}" />
-        <outlet path="${domainModulePath}/${srcManPath}/">
+        <outlet path="${applicationPath}/${domainModuleName}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
@@ -67,7 +67,7 @@
      <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="Datalayer::genResources FOR ${outputSlot}" />
-        <outlet path="${dataModulePath}/${resourceGenPath}/">
+        <outlet path="${applicationPath}/${dataModuleName}/${resourceGenPath}">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
@@ -80,7 +80,7 @@
     <component id="BusinessDomainWorkflow-DataLayerDaoGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="Datalayer::genDao FOR ${outputSlot}" />
-        <outlet path="${dataModulePath}/${srcGenPath}/">
+        <outlet path="${applicationPath}/${dataModuleName}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
@@ -93,7 +93,7 @@
     <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="Datalayer::genDaoExtensions FOR ${outputSlot}" />
-        <outlet path="${dataModulePath}/${srcManPath}/">
+        <outlet path="${applicationPath}/${dataModuleName}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>

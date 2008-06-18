@@ -28,6 +28,6 @@
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
     «setPropertiesFile( appPropFilePath() )»
     «EXPAND ParentPom::createParentPom»
-	«EXPAND SubModulePom::createSubModulePom (getDomainModulePath(), "domain")»
-	«EXPAND SubModulePom::createSubModulePom (getDataModulePath(), "data")»
+	«EXPAND DomainModulePom::createDomainModulePom»
+	«EXPAND DataModulePom::createDataModulePom»
 «ENDDEFINE»

@@ -16,9 +16,9 @@ public class ProjectProperties {
 
     private static String applicationPath = "DEFAULT";
 
-    private static String domainModulePath = "DEFAULT";
-
-    private static String dataModulePath = "DEFAULT";
+    private static String dataModuleName = "DEFAULT";
+    
+    private static String domainModuleName = "DEFAULT";
 
     private static String rootPackage = "DEFAULT";
 
@@ -51,11 +51,19 @@ public class ProjectProperties {
     }
 
     public static String getDomainModulePath() {
-        return TemplateUtils.getProperty("domainModulePath", propertyFile);
+        return getApplicationPath() + "/" + getDomainModuleName();
+    }
+
+    public static String getDomainModuleName() {
+        return TemplateUtils.getProperty("domainModuleName", propertyFile);
     }
 
     public static String getDataModulePath() {
-        return TemplateUtils.getProperty("dataModulePath", propertyFile);
+        return getApplicationPath() + "/" + getDataModuleName();
+    }
+
+    public static String getDataModuleName() {
+        return TemplateUtils.getProperty("dataModuleName", propertyFile);
     }
 
     public static String getRootPackage() {

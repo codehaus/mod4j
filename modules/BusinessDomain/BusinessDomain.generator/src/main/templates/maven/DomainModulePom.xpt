@@ -1,0 +1,44 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION ProjectProperties»
+
+«DEFINE createDomainModulePom FOR BusinessDomainModel»
+    «FILE getDomainModuleName() + "/pom.xml" -»
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <parent>
+        <groupId>«getRootPackage()»</groupId>
+        <artifactId>«getApplicationName()»</artifactId>
+        <version>«getApplicationVersion()»</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>«getDomainRootPackage()»</groupId>
+    <artifactId>«getDomainModuleName()»</artifactId>
+    <name>«getDomainModuleName()»</name>
+    <version>«getApplicationVersion()»</version>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time-hibernate</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+    </dependencies>    
+</project>
+    «ENDFILE»
+«ENDDEFINE»

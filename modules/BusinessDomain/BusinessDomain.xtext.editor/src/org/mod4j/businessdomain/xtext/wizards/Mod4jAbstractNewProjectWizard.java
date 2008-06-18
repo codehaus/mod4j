@@ -182,9 +182,9 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					"appPropFilePath=workflow/workflow.properties" + LF +
 					"applicationName="+ mainPage.getProjectName() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
-					"applicationPath=." + LF +
-					"domainModulePath=../" + mainPage.getProjectName() + "-domain" + LF +
-					"dataModulePath=../" + mainPage.getProjectName() + "-data" + LF +
+					"applicationPath=../" + LF +
+					"domainModuleName=" + mainPage.getProjectName() + "-domain" + LF +
+					"dataModuleName=" + mainPage.getProjectName() + "-data" + LF +
 					"rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
 					"domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
 					"dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +
@@ -240,7 +240,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"        Cleaning of output directories before generation." + LF +
 			"   -->" + LF +
 			"    <component id=\"BusinessDomainWorkflow-DirCleaner\" class=\"org.openarchitectureware.workflow.common.DirectoryCleaner\">" + LF +
-			"        <directories value=\"${domainModulePath}/${srcGenPath}, ${dataModulePath}/${srcGenPath}\"/>" + LF +
+			"        <directories value=\"${applicationPath}/${domainModuleName}/${srcGenPath}, ${applicationPath}/${dataModuleName}/${srcGenPath}\"/>" + LF +
 			"    </component>" + LF +
 			"" + LF +
 			"    <!--" + LF +
@@ -249,7 +249,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"    <component id=\"BusinessDomainWorkflow-DomainGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
 			"        <metaModel idRef=\"bm\" />" + LF +
 			"        <expand value=\"BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${domainModulePath}/${srcGenPath}/\">" + LF +
+			"        <outlet path=\"${applicationPath}/${domainModuleName}/${srcGenPath}/\">" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
 			"        </outlet>" + LF +
@@ -262,7 +262,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"    <component id=\"BusinessDomainWorkflow-DomainEextensionPointsGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
 			"        <metaModel idRef=\"bm\" />" + LF +
 			"        <expand value=\"BusinessDomain::ExtensionPointGeneration FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${domainModulePath}/${srcManPath}/\">" + LF +
+			"        <outlet path=\"${applicationPath}/${domainModuleName}/${srcManPath}/\">" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
 			"        </outlet>" + LF +
@@ -275,7 +275,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"     <component id=\"BusinessDomainWorkflow-DataLayerResourcesGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
 			"        <metaModel idRef=\"bm\" />" + LF +
 			"        <expand value=\"Datalayer::genResources FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${dataModulePath}/${resourceGenPath}/\">" + LF +
+			"        <outlet path=\"${applicationPath}/${dataModuleName}/${resourceGenPath}/\">" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
 			"        </outlet>" + LF +
@@ -288,7 +288,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"    <component id=\"BusinessDomainWorkflow-DataLayerDaoGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
 			"        <metaModel idRef=\"bm\" />" + LF +
 			"        <expand value=\"Datalayer::genDao FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${dataModulePath}/${srcGenPath}/\">" + LF +
+			"        <outlet path=\"${applicationPath}/${dataModuleName}/${srcGenPath}/\">" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
 			"        </outlet>" + LF +
@@ -301,7 +301,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"    <component id=\"BusinessDomainWorkflow-DataLayerExtentionPointsGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
 			"        <metaModel idRef=\"bm\" />" + LF +
 			"        <expand value=\"Datalayer::genDaoExtensions FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${dataModulePath}/${srcManPath}/\">" + LF +
+			"        <outlet path=\"${applicationPath}/${dataModuleName}/${srcManPath}/\">" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
 			"        </outlet>" + LF +
