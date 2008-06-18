@@ -116,7 +116,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 											monitor);
 							Mod4jProjectCreator
 							.createFile(
-									pr.getName() + ".oaw",
+									"BusinessDomainGenerator.oaw",
 									workflowFolder,
 									workflowContents(), 
 									monitor);
@@ -180,11 +180,11 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					" " + LF +
 					"# Appliation properties" + LF +
 					"appPropFilePath=workflow/workflow.properties" + LF +
-					"applicationName="+ mainPage.getProjectName() + LF +
+					"applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
 					"applicationPath=../" + LF +
-					"domainModuleName=" + mainPage.getProjectName() + "-domain" + LF +
-					"dataModuleName=" + mainPage.getProjectName() + "-data" + LF +
+					"domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
+					"dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
 					"rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
 					"domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
 					"dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +

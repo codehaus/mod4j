@@ -42,10 +42,6 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewProjectCreationPage {
 
-//	public Mod4jWizardNewProjectCreationPage(String pageName) {
-//		super(pageName);
-//		// TODO Auto-generated constructor stub
-//	}
     /**
      * Creates a new project creation wizard page.
      *
@@ -73,9 +69,12 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	 */
 	       // initial value stores
 	    private String initialProjectFieldValue;
+	    private String initialApplicationNameFieldValue;
+	    private String initialPackageNameFieldValue;
 
 	    // widgets
 	    Text projectNameField;
+	    Text applicationNameField;
 	    Text packageNameField;
 
 	    private Listener nameModifyListener = new Listener() {
@@ -177,6 +176,26 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 			}
 	        projectNameField.addListener(SWT.Modify, nameModifyListener);
 	        
+	        /* New application name label */
+            Label applicationNameLabel = new Label(projectGroup, SWT.NONE);
+            applicationNameLabel.setText("Application name");
+            applicationNameLabel.setFont(parent.getFont());
+
+            /* New application name entry field */
+            applicationNameField = new Text(projectGroup, SWT.BORDER);
+            GridData appNamedata = new GridData(GridData.FILL_HORIZONTAL);
+            appNamedata.widthHint = SIZING_TEXT_FIELD_WIDTH;
+            applicationNameField.setLayoutData(appNamedata);
+            applicationNameField.setFont(parent.getFont());
+            
+            // Set the initial value first before listener
+            // to avoid handling an event during the creation.
+            if (initialApplicationNameFieldValue != null) {
+                applicationNameField.setText(initialApplicationNameFieldValue);
+            }
+
+            applicationNameField.addListener(SWT.Modify, nameModifyListener);
+	                
 	        // new package label
 	        Label packageNameLabel = new Label(projectGroup, SWT.NONE);
 	        packageNameLabel.setText("Root package");
@@ -191,9 +210,9 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 
 	        // Set the initial value first before listener
 	        // to avoid handling an event during the creation.
-//	        if (initialProjectFieldValue != null) {
-//				projectNameField.setText(initialProjectFieldValue);
-//			}
+	        if (initialPackageNameFieldValue != null) {
+				packageNameField.setText(initialPackageNameFieldValue);
+			}
 	        packageNameField.addListener(SWT.Modify, nameModifyListener);
 
 	    }
@@ -266,15 +285,20 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	        if (projectNameField == null) {
 				return ""; //$NON-NLS-1$
 			}
-
 	        return projectNameField.getText().trim();
 	    }
-
+	    
+	    public String getApplicationNameFieldValue() {
+            if (applicationNameField == null) {
+                return ""; //$NON-NLS-1$
+            }
+            return applicationNameField.getText().trim();
+        }
+	    
 	    public String getPackageNameFieldValue() {
 	        if (packageNameField == null) {
 				return ""; //$NON-NLS-1$
 			}
-
 	        return packageNameField.getText().trim();
 	    }
 
@@ -303,6 +327,24 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 				}
 	        }
 	    }
+	    
+	    public void setInitialApplicationName(String name) {
+            if (name == null) {
+                initialApplicationNameFieldValue = null;
+            } else {
+                initialApplicationNameFieldValue = name.trim();
+            }
+        }
+	    
+	    public void setInitialRootPackage(String name) {
+            if (name == null) {
+                initialPackageNameFieldValue = null;
+            } else {
+                initialPackageNameFieldValue = name.trim();
+                if(locationArea != null) {
+                }
+            }
+        }
 
 	    /**
 	     * Set the location to the default location if we are set to useDefaults.
