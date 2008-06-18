@@ -3,7 +3,7 @@
 «EXTENSION ProjectProperties»
 
 «DEFINE createSubModulePom (String subModulePath, String moduleName) FOR BusinessDomainModel»
-	«FILE subModulePath + "/pom.xml" -»
+	«FILE getApplicationName() + "-" + moduleName + "/pom.xml" -»
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <parent>
