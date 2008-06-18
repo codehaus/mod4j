@@ -16,45 +16,37 @@
     <body>
         <section name="Welcome to Mod4j">
             <p>
-                Mod4j is a project that focuses on Model Driven Software
-                Development. It's goal is to improve the productivity of Java
-                software development by using Domain Specific Languages.
+                Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the
+                productivity of Java software development by using Domain Specific Languages.
             </p>
             <p>
-                The DSL's and the corresponding code generation are based on a
-                reference architecture. This allows developers to model various
-                aspects of the application and generate code that strictly
-                follows this reference architecture.
+                The DSL's and the corresponding code generation are based on a reference architecture. This allows
+                developers to model various aspects of the application and generate code that strictly follows this
+                reference architecture.
             </p>
             <p>
-                The reference architecture is described in a separate document
-                which can be found at
-                <a href="https://refapp.smart-java.nl/docs/">
-                    https://refapp.smart-java.nl/docs/
-                </a>
-                For a good understanding of the generated code it is useful to
-                read this document.
+                The reference architecture is described in a separate document which can be found at
+                <a href="https://refapp.smart-java.nl/docs/">https://refapp.smart-java.nl/docs/</a>
+                For a good understanding of the generated code it is useful to read this document.
             </p>
 
             <subsection name="About Mod4j">
                 <ul>
                     <li>
-                        <a href="features.html">
-                            What are the features of Mod4j?
-                        </a>
+                        <a href="features.html">What are the features of Mod4j?</a>
                     </li>
                     <li>
                         <a href="guide-helping.html">Can I get involved?</a>
                     </li>
                     <li>
-                        <a href="developer-guide.html">
-                            The Mod4j developer guide
-                        </a>
+                        <a href="developer-guide.html">The Mod4j developer guide</a>
                     </li>
                     <li>
-                        The Mod4j user guide
-                        (<a href="documentation/user-guide/mod4j-user-guide.html">HTML</a>,
-                        <a href="documentation/user-guide/mod4j-user-guide.pdf">PDF</a>)
+                        The Mod4j user guide (
+                        <a href="documentation/user-guide/mod4j-user-guide.html">HTML</a>
+                        ,
+                        <a href="documentation/user-guide/mod4j-user-guide.pdf">PDF</a>
+                        )
                     </li>
                 </ul>
             </subsection>
@@ -62,101 +54,62 @@
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5.0_15
-                        or higher). You can download one from the
-                        <a
-                            href="http://java.sun.com/javase/downloads/index.jsp">
-                            Sun download site
-                        </a>
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from
+                        the
+                        <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
                     </li>
                     <li>
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">
-                            Download
-                        </a>
-                        and install Eclipse with modeling plug-ins. To minimize
-                        time spending on version en dependency conflicts we
-                        already have a version waiting for you to download. This
-                        version based on Eclipse Europa 3.3.2, OAW 4.3, EMF
-                        2.3.1 and has some convenient plug-ins (like Q4E and
-                        Subclipse). You can download a Windows or Linux archive
-                        from our project share
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">
-                            here
-                        </a>
+                        <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
+                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
+                        conflicts we already have a version waiting for you to download. This version based on Eclipse
+                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You
+                        can download a Windows or Linux archive from our project share
+                        <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
-                        Make sure you start Eclipse with de right options, e.g
-                        on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm
-                        /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
-                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
+                        Make sure you start Eclipse with de right options, e.g on a linux system:
+                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs
+                        -Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
                     </li>
                     <li>
-                        Make sure the text file encoding in Eclipse is set to
-                        'UTF-8'. You can verify and set this in the field 'Text
-                        file encoding' by navigating to 'Window ->
-                        Preferences... -> General -> Workspace'. For Linux users
-                        UTF-8 is usually the platform encoding, and no change
-                        will be necessary.
+                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in
+                        the field 'Text file encoding' by navigating to 'Window -> Preferences... -> General ->
+                        Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
+                        necessary.
                     </li>
-                    <li>
-                        Install the Mod4j DSL Eclipse plug-in as described in
-                        the next section.
-                    </li>
+                    <li>Install the Mod4j DSL Eclipse plug-in as described in the next section.</li>
                 </ol>
             </subsection>
 
             <subsection name="Installing the Mod4j DSL Eclipse plug-in">
                 <p>
-                    The Mod4j DSL Eclipse plug-in can be installed from the
-                    Mod4j update site:
+                    The Mod4j DSL Eclipse plug-in can be installed from the Mod4j update site:
                     <br />
                     <br />
                     <b>
                         <big>
                             Mod4j update site:
-                            <code>
-                                https://repo.smart-java.nl/mod4j/updatesite
-                            </code>
+                            <code>https://repo.smart-java.nl/mod4j/updatesite</code>
                         </big>
                     </b>
                 </p>
                 <ol>
-                    <li>
-                        In Eclipse navigate to: Help, Software Updates, Find and
-                        Install...
-                    </li>
-                    <li>
-                        Choose the option "Search for new features to install"
-                        and click on "Next".
-                    </li>
-                    <li>
-                        To create a new remote site for Mod4j, click on "New
-                        Remote Site".
-                    </li>
+                    <li>In Eclipse navigate to: Help, Software Updates, Find and Install...</li>
+                    <li>Choose the option "Search for new features to install" and click on "Next".</li>
+                    <li>To create a new remote site for Mod4j, click on "New Remote Site".</li>
                     <li>Enter a Name: "Mod4j update site"</li>
+                    <li>Enter the URL: https://repo.smart-java.nl/mod4j/updatesite and click on "OK"</li>
+                    <li>After clicking on "Finish" you will be prompted for your SMART-Java username and password</li>
                     <li>
-                        Enter the URL:
-                        https://repo.smart-java.nl/mod4j/updatesite and click on
-                        "OK"
-                    </li>
-                    <li>
-                        After clicking on "Finish" you will be prompted for your
-                        SMART-Java username and password
-                    </li>
-                    <li>
-                        Next you can select the Mod4j features of your choice.
-                        Complete the wizard to install the chosen features.
+                        Next you can select the Mod4j features of your choice. Complete the wizard to install the chosen
+                        features.
                     </li>
                 </ol>
             </subsection>
 
             <subsection name="Modelling">
-                <p>
-                    If you've completed the installation steps above, you're
-                    ready for moddeling...
-                </p>
+                <p>If you've completed the installation steps above, you're ready for moddeling...</p>
                 <p>You can use the following DSL's in your project:</p>
                 <ul>
                     <li>BusinessDomainDSL</li>
@@ -167,43 +120,41 @@
 
                 <ol>
                     <li>
-                        First of all you need to create a new Eclipse project
-                        for each DSL you're going to use.
+                        First of all you need to create a new Eclipse project for each DSL you're going to use.
                         <br />
-                        For instance if you want to create a BusinessDomain
-                        model, choose:
-                        <q>
-                            File, New, Project, Xtext DSL Wizards,
-                            BusinessDomainDSL project
-                        </q>
+                        For instance if you want to create a BusinessDomain model, choose:
+                        <q>File, New, Project, Xtext DSL Wizards, Mod4j BusinessDomainDSL project</q>
                         .
-                        <br />
                     </li>
-
                     <li>
-                        In the new project create a directory structure like in
-                        our RecordShop example project:
-                        <br />
-                        <code>src/main/model/model.busmod</code>
-                        <br />
-                        <code>src/main/workflow/businessGenerator.oaw</code>
-                        <br />
-                        <code>src/main/workflow/workflow.properties</code>
+                        Enter a Project name for the new project. For instance:
+                        <b>MyProject.BusinessDomain.Model</b>
                     </li>
-
+                    <li>
+                        Enter a Root package. Ffor instance:
+                        <b>org.mycompany.myproject</b>
+                    </li>
+                    <li>
+                        After finishing the wizzard, a new model project is created with a directory structure like:
+                        <br />
+                        <code>model/model.busmod</code>
+                        <br />
+                        <code>workflow/businessGenerator.oaw</code>
+                        <br />
+                        <code>workflow/workflow.properties</code>
+                    </li>
                 </ol>
             </subsection>
 
             <subsection name="Generating source code">
                 <p>
-                    If you've completed your model(s) in the previous section,
-                    you're ready for generating source code out of the models.
+                    If you've completed your model(s) in the previous section, you're ready for generating source code
+                    out of the models.
                 </p>
                 <ol>
                     <li>TODO add steps</li>
                     <li>
-                        The previous step generated two modules into the
-                        RecordShop-Application folder. See:
+                        The previous step generated two modules into the RecordShop-Application folder. See:
                         <code>../RecordShop-Application/RecordShop-domain</code>
                         and
                         <code>../RecordShop-Application/RecordShop-data</code>
@@ -220,28 +171,23 @@
 
             <subsection name="Extension Points">
                 <p>
-                    There are several reasons to mention why a developer needs
-                    to manually add (re)sources to the generated (re)sources by
-                    Mod4j.
+                    There are several reasons to mention why a developer needs to manually add (re)sources to the
+                    generated (re)sources by Mod4j.
                 </p>
                 <ul>
                     <li>To implement business rules</li>
                     <li>To</li>
                 </ul>
                 <p>
-                    For these reasons with Mod4j you can use Extension Points.
-                    Extension Points are extends to the generated (re)sources
-                    and provide a place where developers manually can make
-                    additions to- or change the behaviour of the system. Initial
-                    Mod4j generates Extension Points once if they do not exist
-                    already. So Extension Points will not be overwritten by the
-                    generator.
+                    For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the
+                    generated (re)sources and provide a place where developers manually can make additions to- or change
+                    the behaviour of the system. Initial Mod4j generates Extension Points once if they do not exist
+                    already. So Extension Points will not be overwritten by the generator.
                 </p>
                 <p>
                     Typically Extension Points are placed under the
                     <code>src</code>
-                    folder of a module and needs to be added to the projects
-                    versioncontrol system.
+                    folder of a module and needs to be added to the projects versioncontrol system.
                 </p>
             </subsection>
 
