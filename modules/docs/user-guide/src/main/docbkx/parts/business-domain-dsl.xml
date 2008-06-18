@@ -5,12 +5,146 @@
   <title>Business Domain DSL</title>
 
   <chapter>
-    <title></title>
+    <title>Introduction</title>
 
     <section>
-      <title></title>
+      <title>Purpose</title>
+
+      <para>The Business Domain DSL is intended to be use for modeling the
+      domain model of an application. De Busines Domain model consists of all
+      domain classes, as understood by the business expert. Technical aspects
+      do not belong in Business Domain models.</para>
+
+      <para>From a business domain model code is generated, conforming to the
+      reference architecture as describe in REF. As a consequence, the code
+      will alsways conform perfectly to the architecture, ensuring a high
+      quality application.</para>
+
+      <para>This document describes the concepts as they are defined in the
+      language and how they can be used to specify a business domain
+      model.</para>
+    </section>
+
+    <section>
+      <title>Principles</title>
+
+      <para>The principles behind the mod4j project are important to
+      understand how the DSL's are designed and how they should be
+      used.</para>
+
+      <para>.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>The goal of a model is to generate code. Thus, everything in a
+          model is used in some way to generate code.</para>
+        </listitem>
+
+        <listitem>
+          <para>Model and code live side by side. That is, we do not focus on
+          100 percent code generation. Instead we focus on modeling aspects
+          from which much code can =be genmerated, while coding aspects that
+          are as much work in codee as it is in a model. Given the time
+          constraint6s that we all have, we start with the modeling concepts
+          that give the best ratio of model-to-code.</para>
+        </listitem>
+
+        <listitem>
+          <para>Generated code is never overwritten. Within the generated code
+          specific extension point are generated. These extension points are
+          the only places where handwritten code may be placed. In most cases
+          an extension point is in a separete file than the generatee code. To
+          help the developer a first empty extension point file is usually
+          created , but only when the expension point file does not
+          exist.</para>
+        </listitem>
+
+        <listitem>
+          <para>DSL"s and DSL models are independent of each other. They may
+          referen through soft references, but are never hard-linked to each
+          other. Thids allows both DSL models and DSLs to be developed
+          separately. It also allows version management by common tools as CVS
+          or subversion.</para>
+        </listitem>
+      </itemizedlist>
 
       <para></para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Reference</title>
+
+    <para></para>
+
+    <section>
+      <title>Business Class</title>
+
+      <section>
+        <title>Definition</title>
+
+        <para>A Business Class describes something that has a specific meaning
+        in the buiness domain being modeled. In the system being modeled
+        instances of business classes will be created.</para>
+
+        <para>A business class has properties (also called attributes in e.g.
+        UML) of diferent types.</para>
+
+        <para>A busines class also contains business rules, that specify the
+        conditions that an instance of the class needs to conform to.</para>
+      </section>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>For a business class code is generated for both the domain and
+        the data layer of the architecture. In the domain layer two Java
+        classes are generated. The first Java class is a base class containing
+        all generated code for the business class. All code generated for
+        properties, associations and business rules are placed inside this
+        class. </para>
+
+        <para>The second class generated is an empty (except for constructors
+        calling <code>super</code>) class which subclasses the first class.
+        This empty class is an extasion point file, whre manual code may be
+        added. This extension class is generated once and not overwritten,
+        which ensures that all handwritten code is maintained. </para>
+      </section>
+    </section>
+
+    <section>
+      <title>Property</title>
+
+      <section>
+        <title>Definition</title>
+
+        <para>A property descibes a characteristic of a business class.
+        Properties always have a type. Each instance of a business class has
+        its own values for each property.</para>
+
+        <para>A property can have a predefined type, which can be
+        <emphasis>integer</emphasis>, <emphasis>string</emphasis>,
+        <emphasis>decimal</emphasis>, <emphasis>boolean</emphasis> or
+        <emphasis>datetime</emphasis>. For each type specific constraints can
+        be specified. These constraints must always be true for any value of
+        the property.</para>
+      </section>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>For a property code is generated for both the domain and the
+        data layer of the architecture.</para>
+
+        <para>In the domain code is generated in the base Java class. This
+        code contains a field for the property and getter and setter methods.
+        If the there are constaints speciified for the property in the model,
+        validators for the proprty are also generated. Code is also generated
+        to automatically call the validator whenever the value fo the property
+        has changed, e.g. when calling the setter method.</para>
+
+        <para></para>
+      </section>
     </section>
   </chapter>
 </part>
