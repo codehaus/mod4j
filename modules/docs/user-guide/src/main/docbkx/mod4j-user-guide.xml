@@ -34,59 +34,20 @@
     </copyright>
   </bookinfo>
 
-  <part>
-    <title>Business Domain DSL</title>
+  <xi:include href="parts/business-domain-dsl.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 
-    <chapter>
-      <title></title>
+  <xi:include href="parts/data-contract-dsl.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 
-      <section>
-        <title></title>
+  <xi:include href="parts/service-dsl.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 
-        <para></para>
-      </section>
-    </chapter>
-  </part>
+  <xi:include href="parts/user-interface-dsl.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 
-  <part>
-    <title>Data Contract DSL</title>
-
-    <chapter>
-      <title></title>
-
-      <section>
-        <title></title>
-
-        <para></para>
-      </section>
-    </chapter>
-  </part>
-
-  <part>
-    <title>Service DSL</title>
-
-    <chapter>
-      <title></title>
-
-      <section>
-        <title></title>
-
-        <para></para>
-      </section>
-    </chapter>
-  </part>
-
-  <part>
-    <title>User Interface DSL</title>
-
-    <chapter>
-      <title></title>
-
-      <section>
-        <title></title>
-
-        <para></para>
-      </section>
-    </chapter>
-  </part>
 </book>

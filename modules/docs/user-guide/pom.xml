@@ -50,6 +50,7 @@
                     <bodyStartIndent>0pt</bodyStartIndent>
                     <paperType>A4</paperType>
                     <fopExtensions>1</fopExtensions>
+                    <xincludeSupported>true</xincludeSupported>
                 </configuration>
                 <executions>
                     <execution>
