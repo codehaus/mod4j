@@ -86,7 +86,7 @@
             <dependency>
                 <groupId>org.mod4j</groupId>
                 <artifactId>mod4j-common</artifactId>
-                <version>0.2-SNAPSHOT</version>
+                <version>0.9</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
