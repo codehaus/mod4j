@@ -120,29 +120,32 @@
 
                 <ol>
                     <li>
-                        First of all you need to create a new Eclipse project for each DSL you're going to use.
+                        First of all you need to create a new Eclipse project for the DSL you're going to use.
                         <br />
                         For instance if you want to create a BusinessDomain model, choose:
                         <q>File, New, Project, Xtext DSL Wizards, Mod4j BusinessDomainDSL project</q>
                         .
                     </li>
                     <li>
-                        Enter a Project name for the new project. For instance:
-                        <b>MyProject.BusinessDomain.Model</b>
+                        Enter the Application name of the project. For instance:
+                        <b>MyApplication</b>
                     </li>
                     <li>
-                        Enter a Root package. Ffor instance:
-                        <b>org.mycompany.myproject</b>
+                        Enter a Root package. For instance:
+                        <b>org.mycompany.myapplication</b>
                     </li>
                     <li>
-                        After finishing the wizzard, a new model project is created with a directory structure like:
+                        After finishing the wizard, a new model project is created with a directory structure like:
                         <br />
-                        <code>model/model.busmod</code>
+                        <code>model/model.busmod</code> (the model file containing all the elements of your business model)
                         <br />
-                        <code>workflow/businessGenerator.oaw</code>
+                        <code>workflow/businessGenerator.oaw</code> (the workflow file containing all processing steps for generation)
                         <br />
-                        <code>workflow/workflow.properties</code>
+                        <code>workflow/workflow.properties</code> (the property file for the workflow, to be changed as needed)
                     </li>
+                    <li>For modeling the business domain model of your application, open the file <code>model/model.busmod</code></li>
+                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your business model.</li>
+                    <li>After saving your model :), you are ready for generating the (re)sources for your application. See next section.</li>
                 </ol>
             </subsection>
 
@@ -194,6 +197,7 @@
         </section>
         <section name="Latest News">
             <ul>
+                <li>Mod4j 0.9 released. - June 2008</li>
                 <li>Mod4j development team started. - March 2008</li>
             </ul>
         </section>
