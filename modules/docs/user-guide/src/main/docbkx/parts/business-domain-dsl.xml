@@ -95,8 +95,8 @@
 
         <para></para>
 
-        <literallayout><token>Class</token> SampleClass [
-    // properties and rules go here ...
+        <literallayout><constant>Class</constant> <termdef>SampleClass</termdef> [
+    // <classname>properties</classname> and <computeroutput>rules</computeroutput> go <systemitem>here</systemitem> and <token>here</token> ...
 ]
 
 </literallayout>
