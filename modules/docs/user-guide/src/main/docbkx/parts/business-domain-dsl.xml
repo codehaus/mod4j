@@ -94,13 +94,8 @@
         conditions that an instance of the class needs to conform to.</para>
 
         <para></para>
-
-        <literallayout><constant>Class</constant> SampleClass [
-    // <classname>properties</classname> and <computeroutput>rules</computeroutput> go <systemitem>here</systemitem> and <token>here</token> ...
-]
-
-</literallayout>
-
+	<para>
+	</para>
         <para></para>
       </section>
 
