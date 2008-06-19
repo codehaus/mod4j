@@ -3,7 +3,7 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>0.8</version>
+        <version>0.2-SNAPSHOT</version>
     </parent>
     <artifactId>mod4j-common</artifactId>
     <name>${project.artifactId}</name>
