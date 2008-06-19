@@ -92,6 +92,16 @@
 
         <para>A busines class also contains business rules, that specify the
         conditions that an instance of the class needs to conform to.</para>
+
+        <para></para>
+
+        <literallayout><token>Class</token> SampleClass [
+    // properties and rules go here ...
+]
+
+</literallayout>
+
+        <para></para>
       </section>
 
       <section>
@@ -102,13 +112,13 @@
         classes are generated. The first Java class is a base class containing
         all generated code for the business class. All code generated for
         properties, associations and business rules are placed inside this
-        class. </para>
+        class.</para>
 
         <para>The second class generated is an empty (except for constructors
         calling <code>super</code>) class which subclasses the first class.
         This empty class is an extasion point file, whre manual code may be
         added. This extension class is generated once and not overwritten,
-        which ensures that all handwritten code is maintained. </para>
+        which ensures that all handwritten code is maintained.</para>
       </section>
     </section>
 
