@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: BusinessDomain.validation
+Bundle-Name: BusinessDomain validation
 Bundle-SymbolicName: BusinessDomain.validation; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.9.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
  BusinessDomain.mm
 Export-Package: BusinessDomainDsl.validation

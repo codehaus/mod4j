@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: BusinessDomainDsl Plug-in
+Bundle-Name: BusinessDomain xtext
 Bundle-SymbolicName: BusinessDomain.xtext;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.9.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  org.openarchitectureware.xtext.core.base;visibility:=reexport,
  org.openarchitectureware.xtext.generator;visibility:=reexport,

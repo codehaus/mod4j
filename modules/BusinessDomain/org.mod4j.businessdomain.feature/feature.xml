@@ -2,7 +2,7 @@
 <feature
       id="mod4j.businessdomain.feature"
       label="Mod4j Business Domain Feature"
-      version="0.1.0.qualifier"
+      version="0.9.0.qualifier"
       provider-name="org.mod4j">
 
    <description url="https://mod4j.smart-java.nl">
