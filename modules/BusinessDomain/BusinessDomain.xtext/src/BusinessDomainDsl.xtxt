@@ -15,7 +15,7 @@ BusinessDomainModel :
 Association:
 	(description=STRING )?
     "Association" 
-    (composite?="composite")?
+//    (composite?="composite")?
     sourceRoleName=ID source=[BusinessClass]
     "[" sourceMultiplicity=Multiplicity "]"
     ((bidirectional?="<->") | ("->"))
