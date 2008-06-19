@@ -186,10 +186,10 @@
                         and resources in
                         <code>MyApplication-data/target/generated-resources</code>
                         <br />
-                        All Extension Points (see alse next section) are initial generated into the src/main/.. folders.
+                        All Extension Points (see also next section) are initial generated into the src/main/.. folders.
                     </li>
                     <li>
-                        Since the generated mdules are fully Mavenized, you can import the generated modules as directly as Maven projects into Eclipse.
+                        Since the generated mdules are fully Mavenized you can import the generated modules directly as Maven projects into Eclipse.
                         <br />
                         Choose: Import, Maven 2, Maven 2 Project <br/> and navigate to ../MyApplication-domain 
                     </li>
