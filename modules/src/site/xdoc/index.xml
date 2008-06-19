@@ -137,15 +137,27 @@
                     <li>
                         After finishing the wizard, a new model project is created with a directory structure like:
                         <br />
-                        <code>model/model.busmod</code> (the model file containing all the elements of your business model)
+                        <code>model/model.busmod</code>
+                        (the model file containing all the elements of your business model)
                         <br />
-                        <code>workflow/businessGenerator.oaw</code> (the workflow file containing all processing steps for generation)
+                        <code>workflow/businessGenerator.oaw</code>
+                        (the workflow file containing all processing steps for generation)
                         <br />
-                        <code>workflow/workflow.properties</code> (the property file for the workflow, to be changed as needed)
+                        <code>workflow/workflow.properties</code>
+                        (the property file for the workflow, to be changed as needed)
                     </li>
-                    <li>For modeling the business domain model of your application, open the file <code>model/model.busmod</code></li>
-                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your business model.</li>
-                    <li>After saving your model :), you are ready for generating the (re)sources for your application. See next section.</li>
+                    <li>
+                        For modeling the business domain model of your application, open the file
+                        <code>model/model.busmod</code>
+                    </li>
+                    <li>
+                        Here you can add the classes, attributes, businessrules, associations etc. of your business
+                        model.
+                    </li>
+                    <li>
+                        After saving your model :), you are ready for generating the (re)sources for your application.
+                        See next section.
+                    </li>
                 </ol>
             </subsection>
 
@@ -155,21 +167,36 @@
                     out of the models.
                 </p>
                 <ol>
-                    <li>TODO add steps</li>
                     <li>
-                        The previous step generated two modules into the RecordShop-Application folder. See:
-                        <code>../RecordShop-Application/RecordShop-domain</code>
-                        and
-                        <code>../RecordShop-Application/RecordShop-data</code>
+                        Right-click on the file
+                        <code>workflow/businessGenerator.oaw</code>
+                        and choose
+                        <code>Run as.., oAW Workflow.</code>
                     </li>
+                    <li>
+                        The previous step generated two modules right beside the MyApplication.BusinessDomain.Model
+                        project folder. See:
+                        <code>../MyApplication-domain</code>
+                        and
+                        <code>../MyApplication-data</code>
+                    </li>
+                    <li>
+                        Typically the generated sources are placed under the target folder
+                        <code>MyApplication-domain/target/generated-sources</code>
+                        and resources in
+                        <code>MyApplication-data/target/generated-resources</code>
+                        <br />
+                        All Extension Points (see alse next section) are initial generated into the src/main/.. folders.
+                    </li>
+                    <li>
+                        Since the generated mdules are fully Mavenized, you can import the generated modules as directly as Maven projects into Eclipse.
+                        <br />
+                        Choose: Import, Maven 2, Maven 2 Project <br/> and navigate to ../MyApplication-domain 
+                    </li>
+                    <li>Check if the generated-(re)sources folders are added as sourcefolders. If not do it manually.</li>
+                    <li>Do the same with the MyApplication-data module.</li>
                 </ol>
-                <p>
-                    Typically the generated sources are placed in the
-                    <code>target/generated-sources</code>
-                    or
-                    <code>target/generated-resources</code>
-                    folders of a module.
-                </p>
+
             </subsection>
 
             <subsection name="Extension Points">
