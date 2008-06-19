@@ -5,7 +5,7 @@
   <!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
   <artifactId>mod4j</artifactId>
   <packaging>pom</packaging>
-  <version>0.10-SNAPSHOT</version>
+  <version>0.9-SNAPSHOT</version>
   <name>mod4j</name>
   <url>https://mod4j.${centralhost}/</url>
 
