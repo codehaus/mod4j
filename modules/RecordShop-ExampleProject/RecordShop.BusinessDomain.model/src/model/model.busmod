@@ -44,6 +44,7 @@ Class Record [
     string title default "Title unknown";
     integer mediumCode default 111 ;
     decimal price ;
+    RecordType type default "CD";
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
@@ -85,15 +86,21 @@ Enumeration Sexe [
     female = 2;
     male = 3;
 ]
+
+Enumeration RecordType [
+    LP = 2;
+    CD = 3;
+    DVD = 4;
+]
  
 "One 2 Many Bidirectional: The customer has a number of orders" 
 Association customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
 
 "One 2 Many unidirectional: An order consists of orderlines"
-Association composite order Order [ 0..1 ] -> [ 0..* ] orderLines OrderLine;
+Association order Order [ 0..1 ] -> [ 0..* ] orderLines OrderLine;
 
 "One 2 One bidirectional: An ordelrine contains a record"
-Association composite orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
+Association orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
 
 "Many to One bidirectional: "
-Association composite record Record [ 0..* ] <-> [ 0..1 ] product Product ;
+Association record Record [ 0..* ] <-> [ 0..1 ] product Product ;

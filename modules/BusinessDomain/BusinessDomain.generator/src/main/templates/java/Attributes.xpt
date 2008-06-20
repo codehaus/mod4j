@@ -14,7 +14,7 @@
 
 «DEFINE instanceVariable FOR EnumerationProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-     private «javaType(this)» «name»«IF hasDefault» = "«defaultValue»"«ENDIF»;
+     private «javaType(this)» «name»«IF hasDefault» = «javaType(this)».«defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR DateTimeProperty»
