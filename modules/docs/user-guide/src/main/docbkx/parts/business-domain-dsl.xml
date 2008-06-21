@@ -43,7 +43,7 @@
         <listitem>
           <para>Model and code live side by side. That is, we do not focus on
           100 percent code generation. Instead we focus on modeling aspects
-          from which much code can =be genmerated, while coding aspects that
+          from which much code can be genmerated, while coding aspects that
           are as much work in codee as it is in a model. Given the time
           constraint6s that we all have, we start with the modeling concepts
           that give the best ratio of model-to-code.</para>
@@ -83,6 +83,14 @@
       <section>
         <title>Definition</title>
 
+        <programlisting class="monospaced" continuation="continues"
+                        format="specific" linenumbering="numbered"
+                        xml:space="preserve"><keycap>Class</keycap> SampleClass [
+    // properties go here ...
+    // rules go here ...
+]
+</programlisting>
+
         <para>A Business Class describes something that has a specific meaning
         in the buiness domain being modeled. In the system being modeled
         instances of business classes will be created.</para>
@@ -92,11 +100,6 @@
 
         <para>A busines class also contains business rules, that specify the
         conditions that an instance of the class needs to conform to.</para>
-
-        <para></para>
-	<para>
-	</para>
-        <para></para>
       </section>
 
       <section>
@@ -123,16 +126,23 @@
       <section>
         <title>Definition</title>
 
-        <para>A property descibes a characteristic of a business class.
+        <para><programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> SampleClass [
+    <keycap>string</keycap>   name;
+    <keycap>integer</keycap>  numberOfEars;
+    <keycap>datetime</keycap> birthdate;
+    <keycap>decimal</keycap>  ddd;
+    <keycap>boolean</keycap>  isMale;
+    // rules go here ...
+]
+</programlisting>A property descibes a characteristic of a business class.
         Properties always have a type. Each instance of a business class has
-        its own values for each property.</para>
-
-        <para>A property can have a predefined type, which can be
-        <emphasis>integer</emphasis>, <emphasis>string</emphasis>,
-        <emphasis>decimal</emphasis>, <emphasis>boolean</emphasis> or
-        <emphasis>datetime</emphasis>. For each type specific constraints can
-        be specified. These constraints must always be true for any value of
-        the property.</para>
+        its own values for each propertyA property can have a predefined type,
+        which can be <emphasis>integer</emphasis>,
+        <emphasis>string</emphasis>, <emphasis>decimal</emphasis>,
+        <emphasis>boolean</emphasis> or <emphasis>datetime</emphasis>. For
+        each type specific constraints can be specified. These constraints
+        must always be true for any value of the property.</para>
       </section>
 
       <section>
