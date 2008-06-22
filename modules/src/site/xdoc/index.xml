@@ -122,7 +122,7 @@
                     <li>
                         First of all you need to create a new Eclipse project for the DSL you're going to use.
                         <br />
-                        For instance if you want to create a BusinessDomain model, choose:
+                        For instance if you want to create a new BusinessDomain model, choose:
                         <q>File, New, Project, Xtext DSL Wizards, Mod4j BusinessDomainDSL project</q>
                         .
                     </li>
@@ -134,6 +134,17 @@
                         Enter a Root package. For instance:
                         <b>org.mycompany.myapplication</b>
                     </li>
+                    <li>
+                        Uncheck the "Use default location" checkbox and choose a empty location within your application
+                        folder.
+                        <br />
+                        While your project develops, this folder will contain all your model projects you create, all generated modules and the
+                        Maven parent-POM.
+                    </li>
+                    <br />
+                    We suggest (it's commonly used) you use the following folder sturcture:
+                    <br />
+                    <code>path-to-your-projects/MyApplication/modules</code>
                     <li>
                         After finishing the wizard, a new model project is created with a directory structure like:
                         <br />
@@ -189,11 +200,16 @@
                         All Extension Points (see also next section) are initial generated into the src/main/.. folders.
                     </li>
                     <li>
-                        Since the generated mdules are fully Mavenized you can import the generated modules directly as Maven projects into Eclipse.
+                        Since the generated mdules are fully Mavenized you can import the generated modules directly as
+                        Maven projects into Eclipse.
                         <br />
-                        Choose: Import, Maven 2, Maven 2 Project <br/> and navigate to ../MyApplication-domain 
+                        Choose: Import, Maven 2, Maven 2 Project
+                        <br />
+                        and navigate to ../MyApplication-domain
                     </li>
-                    <li>Check if the generated-(re)sources folders are added as sourcefolders. If not do it manually.</li>
+                    <li>
+                        Check if the generated-(re)sources folders are added as sourcefolders. If not do it manually.
+                    </li>
                     <li>Do the same with the MyApplication-data module.</li>
                 </ol>
 
