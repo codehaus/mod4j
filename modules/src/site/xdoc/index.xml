@@ -140,11 +140,11 @@
                         <br />
                         While your project develops, this folder will contain all your model projects you create, all generated modules and the
                         Maven parent-POM.
-                    </li>
                     <br />
-                    We suggest (it's commonly used) you use the following folder sturcture:
+                    We suggest (commonly used) you use the following folder sturcture:
                     <br />
                     <code>path-to-your-projects/MyApplication/modules</code>
+                    </li>
                     <li>
                         After finishing the wizard, a new model project is created with a directory structure like:
                         <br />
