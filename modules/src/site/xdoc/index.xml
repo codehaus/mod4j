@@ -135,26 +135,25 @@
                         <b>org.mycompany.myapplication</b>
                     </li>
                     <li>
-                        Uncheck the "Use default location" checkbox and choose a empty location within your application
-                        folder.
+                        Uncheck the "Use default location" checkbox and choose a location where all model projects and modules for your application can be placed. 
                         <br />
-                        While your project develops, this folder will contain all your model projects you create, all generated modules and the
-                        Maven parent-POM.
+                        While your project develops, this folder will contain all your DSL model projects you create, all generated mavenized modules and the
+                        generated Maven parent-POM.
                     <br />
-                    We suggest (commonly used) you use the following folder sturcture:
+                    We suggest (commonly used) you use the following folder structure:
                     <br />
-                    <code>path-to-your-projects/MyApplication/modules</code>
+                    <code><b>path-to-your-projects/MyApplication/modules</b></code>
                     </li>
                     <li>
                         After finishing the wizard, a new model project is created with a directory structure like:
                         <br />
-                        <code>model/model.busmod</code>
+                        <code><b>model/model.busmod</b></code>
                         (the model file containing all the elements of your business model)
                         <br />
-                        <code>workflow/businessGenerator.oaw</code>
+                        <code><b>workflow/businessGenerator.oaw</b></code>
                         (the workflow file containing all processing steps for generation)
                         <br />
-                        <code>workflow/workflow.properties</code>
+                        <code><b>workflow/workflow.properties</b></code>
                         (the property file for the workflow, to be changed as needed)
                     </li>
                     <li>
