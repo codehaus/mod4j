@@ -145,12 +145,12 @@
                     <code><b>path-to-your-projects/MyApplication/modules</b></code>
                     </li>
                     <li>
-                        After finishing the wizard, a new model project is created with a directory structure like:
+                        After finishing the wizard, a new model project is created with the name <b>MyApplication.BusinessDomain.Model</b> and a directory structure like this:
                         <br />
                         <code><b>model/model.busmod</b></code>
                         (the model file containing all the elements of your business model)
                         <br />
-                        <code><b>workflow/businessGenerator.oaw</b></code>
+                        <code><b>workflow/BusinessGenerator.oaw</b></code>
                         (the workflow file containing all processing steps for generation)
                         <br />
                         <code><b>workflow/workflow.properties</b></code>
