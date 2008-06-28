@@ -17,7 +17,7 @@
         <section name="Welcome to Mod4j">
             <p>
                 Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the
-                productivity of Java software development by using Domain Specific Languages.
+                productivity of Java software development by using Domain Specific Languages (DSL's).
             </p>
             <p>
                 The DSL's and the corresponding code generation are based on a reference architecture. This allows
@@ -29,7 +29,7 @@
                 <a href="https://refapp.smart-java.nl/docs/">https://refapp.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
             </p>
-
+            <img src="images/mod4j-diagram.jpg" align="left" alt=""/>
             <subsection name="About Mod4j">
                 <ul>
                     <li>
@@ -135,25 +135,36 @@
                         <b>org.mycompany.myapplication</b>
                     </li>
                     <li>
-                        Uncheck the "Use default location" checkbox and choose a location where all model projects and modules for your application can be placed. 
+                        Uncheck the "Use default location" checkbox and choose a location where all model projects and
+                        modules for your application can be placed.
                         <br />
-                        While your project develops, this folder will contain all your DSL model projects you create, all generated mavenized modules and the
-                        generated Maven parent-POM.
-                    <br />
-                    We suggest (commonly used) you use the following folder structure:
-                    <br />
-                    <code><b>path-to-your-projects/MyApplication/modules</b></code>
+                        While your project develops, this folder will contain all your DSL model projects you create,
+                        all generated mavenized modules and the generated Maven parent-POM.
+                        <br />
+                        We suggest (commonly used) you use the following folder structure:
+                        <br />
+                        <code>
+                            <b>path-to-your-projects/MyApplication/modules</b>
+                        </code>
                     </li>
                     <li>
-                        After finishing the wizard, a new model project is created with the name <b>MyApplication.BusinessDomain.Model</b> and a directory structure like this:
+                        After finishing the wizard, a new model project is created with the name
+                        <b>MyApplication.BusinessDomain.Model</b>
+                        and a directory structure like this:
                         <br />
-                        <code><b>model/model.busmod</b></code>
+                        <code>
+                            <b>model/model.busmod</b>
+                        </code>
                         (the model file containing all the elements of your business model)
                         <br />
-                        <code><b>workflow/BusinessGenerator.oaw</b></code>
+                        <code>
+                            <b>workflow/BusinessGenerator.oaw</b>
+                        </code>
                         (the workflow file containing all processing steps for generation)
                         <br />
-                        <code><b>workflow/workflow.properties</b></code>
+                        <code>
+                            <b>workflow/workflow.properties</b>
+                        </code>
                         (the property file for the workflow, to be changed as needed)
                     </li>
                     <li>
