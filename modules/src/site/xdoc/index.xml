@@ -26,7 +26,7 @@
             </p>
             <p>
                 The reference architecture is described in a separate document which can be found at
-                <a href="https://refapp.smart-java.nl/docs/">https://refapp.smart-java.nl/docs/</a>
+                <a href="https://mod4j.smart-java.nl/docs/">https://mod4j.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
             </p>
             <img src="images/mod4j-diagram.jpg" align="left" alt=""/>
