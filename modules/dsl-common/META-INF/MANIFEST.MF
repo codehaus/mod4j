@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dsl_common Plug-in
+Bundle-SymbolicName: org.mod4j.dsl_common
+Bundle-Version: 0.10.0.qualifier
+Bundle-Vendor: org.mod4j
+Export-Package: org.mod4j.dslcommon.generator.helpers
