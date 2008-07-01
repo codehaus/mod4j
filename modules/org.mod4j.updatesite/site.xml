@@ -3,5 +3,5 @@
    <description url="https://repo.smart-java.nl/mod4j/updatesite">
       Updatesite for Mod4j. Accessible for all SMART-Java users.
    </description>
-   <feature url="features/mod4j.businessdomain.feature_0.9.0.200806191106.jar" id="mod4j.businessdomain.feature" version="0.9.0.200806191106"/>
+   <feature url="features/mod4j.businessdomain.feature_0.9.0.200806201140.jar" id="mod4j.businessdomain.feature" version="0.9.0.200806201140"/>
 </site>
