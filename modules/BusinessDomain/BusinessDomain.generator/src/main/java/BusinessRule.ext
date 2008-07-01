@@ -1,0 +1,9 @@
+/* Operations implemented in Java on BusinesRule
+ */
+import BusinessDomainDsl;
+
+String implBaseClassName(BusinessRule br) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessRuleHelpers.implBaseClassName(BusinessDomainDsl.BusinessRule);
+ 
+String getBusinessRulesPackage() :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessRuleHelpers.getBusinessRulesPackage();

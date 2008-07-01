@@ -12,7 +12,7 @@ String javaClassName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
 
 String javaClassName(String cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(java.lang.String);
+ JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.javaClassName(java.lang.String);
 
 String javaVarName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaVarName(BusinessDomainDsl.BusinessClass);

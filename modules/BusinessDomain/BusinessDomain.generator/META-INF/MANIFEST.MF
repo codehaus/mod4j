@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: BusinessDomain generator
 Bundle-SymbolicName: BusinessDomain.generator;singleton:=true
 Bundle-Version: 0.9.0.qualifier
-Require-Bundle: org.openarchitectureware.dependencies,
+Require-Bundle: org.mod4j.dsl_common,
  BusinessDomain.mm,
  org.junit4
 Bundle-Vendor: org.mod4j

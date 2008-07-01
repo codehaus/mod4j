@@ -1,8 +1,10 @@
 package org.mod4j.businessdomain.generator.helpers;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
+import org.mod4j.dslcommon.generator.helpers.StringHelpers;
 
 import BusinessDomainDsl.AbstractType;
 import BusinessDomainDsl.Association;
@@ -20,8 +22,6 @@ import BusinessDomainDsl.StringProperty;
 
 public class BusinessClassHelpers {
 
-    private final static String IMPLBASE_SUFFIX = "ImplBase";
-
     /**
      * @param cls
      * @return The name of the Java class for cls
@@ -29,15 +29,7 @@ public class BusinessClassHelpers {
     public static String javaClassName(BusinessClass cls) {
         return StringHelpers.firstCharToUpper(cls.getName());
     }
-
-    /**
-     * @param cls
-     * @return The name of the Java class for a BusinessClass with name cls
-     */
-    public static String javaClassName(String cls) {
-        return StringHelpers.firstCharToUpper(cls);
-    }
-
+    
     /**
      * @param cls
      * @return The name of the Java package for BusinessClass cls
@@ -64,7 +56,7 @@ public class BusinessClassHelpers {
      * @return The name of the ImplBase class for BusinessClass cls
      */
     public static String implBaseClassName(BusinessClass cls) {
-        return javaClassName(cls) + IMPLBASE_SUFFIX;
+        return javaClassName(cls) + ProjectProperties.IMPLBASE_SUFFIX;
     }
 
     /**
