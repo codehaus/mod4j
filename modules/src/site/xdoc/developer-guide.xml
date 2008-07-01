@@ -68,6 +68,10 @@
                         for information on how to do this.
                     </li>
                     <li>
+                        Import as Existing Project:
+                        <code>modules/org.mod4j.dsl-common</code>
+                    </li>
+                    <li>
                         Import the BusinessDomain meta model project
                         <code>modules/BusinessDomain/BusinessDomain.mm</code>
                         as
@@ -91,11 +95,15 @@
                     </li>
                     <li>
                         Now import as Existing Project:
+                        <br />
                         <code>modules/BusinessDomain/BusinessDomain.validation</code>
+                        <br />
                         ,
                         <code>modules/BusinessDomain/BusinessDomain.xtext</code>
+                        <br />
                         ,
                         <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>
+                        <br />
                         and
                         <code>modules/BusinessDomain/BusinessDomain.generator</code>
                     </li>
@@ -166,17 +174,20 @@
                         <br />
                         You can import these two projects as Maven Projects (with help of the Q4E Maven plugin for
                         Eclipse).
-			<br/>
-			NB: Sometimes the Q4E plugin does not set the classpath right in the <code>.classpath</code>
-			file. If there are problems with the generated code check whether the line:
-			<code>
-	                &lt;classpathentry including="**/*.java" kind="src" path="target/generated-sources"/>
-			</code> 
-			is included in the <code>.classpath</code> file of both the data and domain projects.
-			Also check whether the line 
-			<code>
-			&lt;classpathentry  kind="src" path="target/generated-resources"/>
-			</code> is included in the <code>.classpath</code> file of both the data project.
+                        <br />
+                        NB: Sometimes the Q4E plugin does not set the classpath right in the
+                        <code>.classpath</code>
+                        file. If there are problems with the generated code check whether the line:
+                        <code>
+                            &lt;classpathentry including="**/*.java" kind="src" path="target/generated-sources"/>
+                        </code>
+                        is included in the
+                        <code>.classpath</code>
+                        file of both the data and domain projects. Also check whether the line
+                        <code>&lt;classpathentry kind="src" path="target/generated-resources"/></code>
+                        is included in the
+                        <code>.classpath</code>
+                        file of both the data project.
                     </li>
                 </ol>
             </subsection>
