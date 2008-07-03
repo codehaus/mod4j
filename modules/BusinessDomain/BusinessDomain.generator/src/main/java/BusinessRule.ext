@@ -2,6 +2,9 @@
  */
 import BusinessDomainDsl;
 
+String javaClassName(BusinessRule br) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessRuleHelpers.javaClassName(BusinessDomainDsl.BusinessRule);
+
 String implBaseClassName(BusinessRule br) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessRuleHelpers.implBaseClassName(BusinessDomainDsl.BusinessRule);
  

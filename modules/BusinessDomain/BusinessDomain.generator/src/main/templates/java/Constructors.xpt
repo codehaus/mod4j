@@ -22,13 +22,13 @@
     }
 «ENDDEFINE»
 
-«DEFINE addMinimalConstructor (String classNameSuffix) FOR BusinessClass »
+«DEFINE addMinimalConstructor FOR BusinessClass »
     /**
-     * Minimal constructor for «name»«classNameSuffix»
+     * Minimal constructor for «implBaseClassName()»
      *
      «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
-    public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+    public «implBaseClassName()» («EXPAND addConstructorArgumentsList -») {
      «IF superclass != null -»
         super(«EXPAND addSuperArgumentList FOR this.superclass -»);
      «ENDIF»

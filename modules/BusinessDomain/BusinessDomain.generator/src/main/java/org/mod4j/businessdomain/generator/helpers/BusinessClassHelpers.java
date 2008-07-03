@@ -53,7 +53,7 @@ public class BusinessClassHelpers {
 
     /**
      * @param cls
-     * @return The name of the ImplBase class for BusinessClass cls
+     * @return The name of the abstract implementation base class for BusinessClass cls
      */
     public static String implBaseClassName(BusinessClass cls) {
         return javaClassName(cls) + ProjectProperties.IMPLBASE_SUFFIX;

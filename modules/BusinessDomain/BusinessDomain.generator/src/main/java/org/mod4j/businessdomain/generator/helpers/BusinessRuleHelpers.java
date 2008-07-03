@@ -17,7 +17,7 @@ public class BusinessRuleHelpers {
 
     /**
      * @param br
-     * @return The name of the ImplBase class for BusinessRule br
+     * @return The name of the abstract implementation base class for BusinessRule br
      */
     public static String implBaseClassName(BusinessRule br) {
         return javaClassName(br) + ProjectProperties.IMPLBASE_SUFFIX;
