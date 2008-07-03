@@ -8,7 +8,7 @@
 «DEFINE Root (String rootPackage) FOR BusinessDomainDsl::BusinessDomainModel»
     «setPropertiesFile( appPropFilePath() )»
 	«EXPAND JavaBean::BeanClassImplBase (rootPackage) FOREACH types»
-	«EXPAND BusinessRules::BusinessRulesImplBases (rootPackage) FOREACH types»
+	«EXPAND BusinessRules::BusinessRulesImplBases FOREACH types»
 	«EXPAND Enumeration::createEnum (rootPackage) FOREACH enumerations»
 «ENDDEFINE»
 
