@@ -267,7 +267,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			"    -->" + LF +
 			"    <component id=\"BusinessDomainWorkflow-DomainGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
 			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}\" />" + LF +
+			"        <expand value=\"BusinessDomain::Root FOR ${outputSlot}\" />" + LF +
 			"        <outlet path=\"${applicationPath}/${domainModuleName}/${srcGenPath}/\">" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
 			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +

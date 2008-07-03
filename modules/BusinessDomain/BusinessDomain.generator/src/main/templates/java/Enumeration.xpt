@@ -1,10 +1,11 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION util»
+«EXTENSION ProjectProperties»
 
-«DEFINE createEnum (String rootPackage) FOR Enumeration»
-    «FILE rootPackage.replaceAll("\\.", "/") + "/" + name + ".java"»
-        package «rootPackage»;
+«DEFINE createEnum FOR Enumeration»
+    «FILE getDomainRootPackage().replaceAll("\\.", "/") + "/" + name + ".java"»
+        package «getDomainRootPackage()»;
         
         «EXPAND Imports::addImports FOR this»
                 
