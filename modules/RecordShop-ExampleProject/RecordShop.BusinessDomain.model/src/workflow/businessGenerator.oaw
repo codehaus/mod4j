@@ -40,7 +40,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="BusinessDomain::Root('${domainRootPackage}') FOR ${outputSlot}" />
+        <expand value="BusinessDomain::Root FOR ${outputSlot}" />
         <outlet path="${applicationPath}/${domainModuleName}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
