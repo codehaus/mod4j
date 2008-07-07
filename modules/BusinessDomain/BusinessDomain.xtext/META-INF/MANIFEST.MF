@@ -8,7 +8,6 @@ Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  org.openarchitectureware.xtext.generator;visibility:=reexport,
  BusinessDomain.mm,
  org.antlr,
- org.antlr,
  BusinessDomain.validation
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
