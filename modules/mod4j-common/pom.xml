@@ -5,6 +5,7 @@
         <artifactId>mod4j</artifactId>
         <version>0.10-SNAPSHOT</version>
     </parent>
+    <groupId>org.mod4j</groupId>
     <artifactId>mod4j-common</artifactId>
     <name>${project.artifactId}</name>
     <description>
