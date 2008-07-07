@@ -1,13 +1,9 @@
 package org.mod4j.dslcommon.generator.helpers;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import org.junit.internal.runners.TestClassRunner;
-import org.junit.runner.RunWith;
 
-import junit.framework.TestCase;
-
-@RunWith(TestClassRunner.class)
-public class ModelHelpersTest extends TestCase {
+public class ModelHelpersTest {
     
     @Test 
     public void fileExistTest(){
