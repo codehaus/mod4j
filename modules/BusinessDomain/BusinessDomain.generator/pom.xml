@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>dsl-common</artifactId>
+            <artifactId>mod4j-dsl-common</artifactId>
             <version>0.10-SNAPSHOT</version>
         </dependency>
     </dependencies>
