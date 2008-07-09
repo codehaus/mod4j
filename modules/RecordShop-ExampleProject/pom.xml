@@ -519,11 +519,6 @@
 			<name>Smart Java Repository</name>
 			<url>https://repo.${centralhost}/repo</url>
 		</repository>
-		<repository>
-			<id>fornax.repository</id>
-			<name>Fornax Repository</name>
-			<url>http://www.fornax-platform.org/m2/repository</url>
-		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -534,11 +529,6 @@
 			<id>smart-repo</id>
 			<name>Smart Java Plugin Repository</name>
 			<url>https://repo.${centralhost}/repo</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>fornax.plugin.repository</id>
-			<name>Fornax Plugin Repository</name>
-			<url>http://www.fornax-platform.org/m2/repository</url>
 		</pluginRepository>
 	</pluginRepositories>
 </project>
