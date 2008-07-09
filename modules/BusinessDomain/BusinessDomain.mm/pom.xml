@@ -21,12 +21,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.core</groupId>
-            <artifactId>runtime</artifactId>
-            <version>3.3.100-v20070530</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>org.eclipse.emf</groupId>
             <artifactId>ecore</artifactId>
             <!--  TODO: version should be 2.3.2.v20080251830 -->
