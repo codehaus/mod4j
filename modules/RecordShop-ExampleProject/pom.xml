@@ -518,6 +518,11 @@
 			<id>smart-repo</id>
 			<name>Smart Java Repository</name>
 			<url>https://repo.${centralhost}/repo</url>
+                <repository>
+                    <id>OAW-M2-repository</id>
+                    <name>OpenArchitectureWare Maven Repository</name>
+                    <url>http://www.openarchitectureware.org/m2</url>
+                </repository>
 		</repository>
 	</repositories>
 	<pluginRepositories>
