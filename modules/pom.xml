@@ -33,6 +33,11 @@
       <modules>
         <module>mod4j-build-tools</module>
         <module>mod4j-common</module>
+        <module>org.mod4j.dsl-common</module>
+        <module>BusinessDomain/BusinessDomain.mm</module>
+        <module>BusinessDomain/BusinessDomain.xtext</module>
+        <module>BusinessDomain/BusinessDomain.validation</module>
+        <module>BusinessDomain/BusinessDomain.generator</module>
       </modules>
     </profile>
     <profile>
@@ -41,6 +46,11 @@
         <module>mod4j-build-tools</module>
         <module>mod4j-common</module>
         <module>docs</module>
+        <module>org.mod4j.dsl-common</module>
+        <module>BusinessDomain/BusinessDomain.mm</module>
+        <module>BusinessDomain/BusinessDomain.xtext</module>
+        <module>BusinessDomain/BusinessDomain.validation</module>
+        <module>BusinessDomain/BusinessDomain.generator</module>
       </modules>
       <build>
         <plugins>
@@ -228,6 +238,11 @@
     <repository>
       <id>smart-repo</id>
       <url>https://repo.${centralhost}/repo</url>
+    </repository>
+    <repository>
+      <id>OAW-repo</id>
+      <name>OpenArchitectureWare Maven Repository</name>
+      <url>http://www.openarchitectureware.org/m2</url>
     </repository>
   </repositories>
 
