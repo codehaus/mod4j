@@ -34,10 +34,12 @@
         <module>mod4j-build-tools</module>
         <module>mod4j-common</module>
         <module>org.mod4j.dsl-common</module>
+        <!-- TODO
         <module>BusinessDomain/BusinessDomain.mm</module>
         <module>BusinessDomain/BusinessDomain.xtext</module>
         <module>BusinessDomain/BusinessDomain.validation</module>
         <module>BusinessDomain/BusinessDomain.generator</module>
+        -->
       </modules>
     </profile>
     <profile>
@@ -47,10 +49,12 @@
         <module>mod4j-common</module>
         <module>docs</module>
         <module>org.mod4j.dsl-common</module>
+        <!-- TODO
         <module>BusinessDomain/BusinessDomain.mm</module>
         <module>BusinessDomain/BusinessDomain.xtext</module>
         <module>BusinessDomain/BusinessDomain.validation</module>
         <module>BusinessDomain/BusinessDomain.generator</module>
+        -->
       </modules>
       <build>
         <plugins>
