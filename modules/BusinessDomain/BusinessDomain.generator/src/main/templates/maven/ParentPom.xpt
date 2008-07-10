@@ -288,6 +288,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>OAW-M2-repository</id>
+            <name>OpenArchitectureWare Maven Repository</name>
+            <url>http://www.openarchitectureware.org/m2</url>
+        </repository>
+    </repositories>
 </project>
 	    «ENDFILE»
 	«ENDIF»
