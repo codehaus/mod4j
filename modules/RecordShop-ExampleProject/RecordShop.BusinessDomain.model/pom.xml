@@ -78,6 +78,10 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    <!-- 
+     TODO Remove this repositories section when issue MOD4J-77 is resolved.
+     For now is it necessary to get a working version of org.eclipse.jface.text 3.3.0-v20070606-0010 
+    -->
     <repositories>
         <repository>
             <id>Fornax-M2-Repository</id>
