@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<part id="data-contract-dsl">
+  <title>Principles and Patterns</title>
+
+  <chapter>
+    <title>Mod4j Principles and Patterns</title>
+
+    <section>
+      <title>Principles</title>
+
+      <para>It is important to understand the principles behind the mod4j
+      project. These principles have guided how the DSL's are designed and how
+      they should be used.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>The goal of a model is to generate code. Thus, everything in a
+          model is used in some way to generate code.</para>
+        </listitem>
+
+        <listitem>
+          <para>Model and code live side by side. That is, we do not focus on
+          100 percent code generation. Instead we focus on modeling aspects
+          from which much code can be genmerated, while coding aspects that
+          are as much work in codee as it is in a model. Given the time
+          constraint6s that we all have, we start with the modeling concepts
+          that give the best ratio of model-to-code.</para>
+        </listitem>
+
+        <listitem>
+          <para>Generated code is never overwritten. Within the generated code
+          specific extension point are generated. These extension points are
+          the only places where handwritten code may be placed. In most cases
+          an extension point is in a separete file than the generatee code. To
+          help the developer a first empty extension point file is usually
+          created , but only when the expension point file does not
+          exist.</para>
+        </listitem>
+
+        <listitem>
+          <para>DSL"s and DSL models are independent of each other. They may
+          referen through soft references, but are never hard-linked to each
+          other. Thids allows both DSL models and DSLs to be developed
+          separately. It also allows version management by common tools as CVS
+          or subversion.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Code Generation Patterns</title>
+
+      <para>Code generation patterns</para>
+
+      <para></para>
+
+      <section>
+        <title>Empty Subclass Pattern</title>
+
+        <para>Problem: handwritten code may get lost when re-generating code
+        from a model.</para>
+
+        <para>Solution: separet the handwritten and generated code in separate
+        files. In this way the generator may always regenerate the file with
+        generated code, which it will never regenerate the file with
+        handwritten code.</para>
+
+        <para>The empty-subclass pattern is used at several places within
+        Mod4j. It is a well known pattern in Java code generation and allows a
+        clear separation of generated and handwritten code. Code generated for
+        a Java class or java interface is done in two parts. An abstract base
+        class is generated which conmtains all the generated code. An empty
+        concrete subclass is generated. handwritten code should be put into
+        this subclass.</para>
+
+        <para>The generator will always regenerate the abstract baseclass. The
+        generator will only generate the empty subclass once, if it is not
+        there. In this way handwritten code is never overwritten by the code
+        generator.</para>
+
+        <para>The solution is shown in figure REF.</para>
+
+        <figure>
+          <title>Empty subclass pattern</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/base-emptysubclass-pattern.png" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>There are a few caveats with this solution:</para>
+
+        <orderedlist>
+          <listitem>
+            <para>The empty subclass isn't completely empty. It needs to
+            include the public constructors from the base class with a calls
+            to super(). This means that whenever the generated constructors
+            change, the constructors in the subclass will be outdated.</para>
+          </listitem>
+
+          <listitem>
+            <para>When the abstract base class isn;t genearted anymore, the
+            empty subclass will become incorrect. It refers to a non-existing
+            superclass. The java compiler will flag this as an error, and the
+            developer can solve the problem by hand.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+  </chapter>
+</part>
