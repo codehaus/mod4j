@@ -144,7 +144,7 @@
 
             <mediaobject>
               <imageobject>
-                <imagedata fileref="???" />
+                <imagedata fileref="images/base-emptysubclass-pattern.png" />
               </imageobject>
             </mediaobject>
           </figure>
@@ -158,7 +158,8 @@
       <section>
         <title>Definition</title>
 
-        <para><programlisting class="monospaced" continuation="continues"
+	<para>Properties look like this.</para>
+        <programlisting class="monospaced" continuation="continues"
         format="specific" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> Person [
     <keycap>string</keycap>   name;
     <keycap>integer</keycap>  numberOfEars;
@@ -167,7 +168,8 @@
     <keycap>boolean</keycap>  isMale;
     // rules go here ...
 ]
-</programlisting>A property descibes a characteristic of a business class.
+</programlisting>
+    <para>A property descibes a characteristic of a business class.
         Properties always have a type. Each instance of a business class has
         its own values for each propertyA property can have a predefined type,
         which can be <emphasis>integer</emphasis>,
@@ -220,7 +222,7 @@
 
           <para>A string attribute is completely denoted as shown below</para>
 
-          <para><programlisting class="monospaced" continuation="continues"
+          <programlisting class="monospaced" continuation="continues"
         format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute
 <keycap>string</keycap> name
       <keycap>default</keycap> "the default name"
@@ -229,7 +231,7 @@
       <keycap>regexp</keycap> "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
       <keycap>nullable</keycap> ;
 
-</programlisting></para>
+</programlisting>
 
           <para>Each attribute can have a description, which is places
           directly before the attribute definition. Each string attribute has
