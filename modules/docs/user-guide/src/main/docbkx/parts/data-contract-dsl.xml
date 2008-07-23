@@ -5,10 +5,14 @@
   <title>Data Contract DSL</title>
 
   <chapter>
-    <title></title>
+    <title>Concepts</title>
 
     <section>
-      <title></title>
+      <title>Principles</title>
+
+      <para>It is important to understand the principles behind the mod4j
+      project. These principles have guided how the DSL's are designed and how
+      they should be used.</para>
 
       <para></para>
     </section>
