@@ -220,7 +220,8 @@
 
           <para>A string attribute is completely denoted as shown below</para>
 
-          <programlisting>"A readable description of this attribute"
+          <para><programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute
 <keycap>string</keycap> name
       <keycap>default</keycap> "the default name"
       <keycap>minlength</keycap> 3 
@@ -228,7 +229,7 @@
       <keycap>regexp</keycap> "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
       <keycap>nullable</keycap> ;
 
-</programlisting>
+</programlisting></para>
 
           <para>Each attribute can have a description, which is places
           directly before the attribute definition. Each string attribute has
@@ -293,7 +294,8 @@
           <para>A boolean attribute is completely denoted as shown
           below</para>
 
-          <programlisting>"A readable description of this attribute"
+         <programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
 <keycap>boolean</keycap> fixed
       <keycap>default</keycap> "true"
       <keycap>nullable</keycap> ;
@@ -335,7 +337,8 @@
           <para>An integer attribute is completely defined as shown
           below</para>
 
-          <programlisting>"A readable description of this attribute"
+         <programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
 <keycap>integer </keycap>numberOfSteps
       <keycap>default</keycap> 12
       <keycap>min</keycap> 4
@@ -394,7 +397,8 @@
           <para>An decimal attribute is completely defined as shown
           below</para>
 
-          <programlisting>"A readable description of this attribute"
+         <programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
 <keycap>decimal</keycap> percentage
       <keycap>default</keycap> 12
       <keycap>min</keycap> 4
@@ -453,7 +457,8 @@
           <para>An datetime attribute is completely defined as shown
           below</para>
 
-          <programlisting>"A readable description of this attribute"
+         <programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
 <keycap>datetime day</keycap> started
     <keycap>  <keycap>default</keycap></keycap> 4
       <keycap>nullable</keycap> ;
@@ -507,7 +512,8 @@
       list of all enumeration values. The example below shown an enumeration
       definition.</para>
 
-      <programlisting>"The severity level of a customer problem"
+     <programlisting class="monospaced" continuation="continues"
+        format="specific" linenumbering="numbered" xml:space="preserve">"The severity level of a customer problem"
 <keycap>Enumeration</keycap> SeverityLevel [
     Low    = 1;
     Middle = 2;
