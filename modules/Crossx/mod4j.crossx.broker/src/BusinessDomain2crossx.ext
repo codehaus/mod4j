@@ -29,9 +29,20 @@ create Element toElement(BusinessClass cls) :
 create crossx::Element toElement(BusinessDomainDsl::Property prop) :
     this.setName(prop.name) ->
     this.setElemType("Property") ->
-    this.properties.add(prop.type());
+    this.properties.add(prop.typeXX());
     
-create crossx::LiteralProperty type(BusinessDomainDsl::Property prop) :
+create crossx::LiteralProperty typeXX(BusinessDomainDsl::Property prop) :
 	this.setName("DataType")->
 	this.setValue(prop.dataType);
+
+create crossx::Element toElement(BusinessDomainDsl::EnumerationProperty prop) :
+    this.setName(prop.name) ->
+    this.setElemType("Property") ->
+    this.properties.add(prop.typeXX());
+
+create crossx::LiteralProperty typeXX(BusinessDomainDsl::EnumerationProperty prop) :
+    this.setName("DataType")->
+    this.setValue(prop.type.name);
+
+    
     
