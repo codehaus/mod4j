@@ -1,6 +1,6 @@
 /* 
    This file contains the code to create a Crossx model from a BusinesDomainDsl model.
-   Needed for criosssreference purposes.
+   Needed for crosssreference purposes.
 */
 
 import BusinessDomainDsl;
