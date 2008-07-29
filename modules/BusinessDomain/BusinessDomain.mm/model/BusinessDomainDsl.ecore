@@ -41,7 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" ordered="false"
         upperBound="-1" eType="#//Association" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//AbstractType">
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//AbstractBusinessClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceModifier" eType="#//InheritanceModifier"
         defaultValueLiteral="None"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessRules" upperBound="-1"
@@ -49,8 +49,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//BusinessClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associationsTo" upperBound="-1"
         eType="#//Association" eOpposite="#//Association/source"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="associationsFrom" upperBound="-1"
-        eType="#//Association" eOpposite="#//Association/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -107,7 +105,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//BusinessClass" eOpposite="#//BusinessClass/associationsTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//BusinessClass" eOpposite="#//BusinessClass/associationsFrom"/>
+        eType="#//AbstractBusinessClass" eOpposite="#//AbstractBusinessClass/associationsFrom"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRoleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="sourceRoleName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceMultiplicity" eType="#//Multiplicity"
@@ -133,4 +131,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         defaultValueLiteral="0"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractBusinessClass" eSuperTypes="#//AbstractType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associationsFrom" upperBound="-1"
+        eType="#//Association" eOpposite="#//Association/target"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessClassReference" eSuperTypes="#//AbstractBusinessClass"/>
 </ecore:EPackage>

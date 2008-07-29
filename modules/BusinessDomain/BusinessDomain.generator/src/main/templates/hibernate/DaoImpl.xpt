@@ -2,7 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION ProjectProperties»
-«EXTENSION util»
+«EXTENSION generatorutil»
 
 «DEFINE daoImplementation FOR BusinessDomainDsl::BusinessClass»
     «IF !fileExist(getDataModulePath() + "/" + getSrcManPath() + "/" + javaFileName(getDaoPackage(), daoImplClassName(this)))»

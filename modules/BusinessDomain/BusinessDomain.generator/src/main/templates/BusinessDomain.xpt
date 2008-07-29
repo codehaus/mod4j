@@ -3,7 +3,7 @@
 «IMPORT maven»
 «EXTENSION ProjectProperties»
 
-«EXTENSION util»
+«EXTENSION generatorutil»
 
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
     «setPropertiesFile( appPropFilePath() )»

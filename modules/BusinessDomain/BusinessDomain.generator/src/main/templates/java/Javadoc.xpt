@@ -1,6 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION util»
+«EXTENSION generatorutil»
 «EXTENSION BusinessClass»
 
 «DEFINE addJavaDocParamList FOR BusinessClass -»

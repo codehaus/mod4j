@@ -2,7 +2,7 @@
 «IMPORT hibernate»
 
 «EXTENSION ProjectProperties»
-«EXTENSION util»
+«EXTENSION generatorutil»
 «EXTENSION BusinessClass»
 
 «DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»

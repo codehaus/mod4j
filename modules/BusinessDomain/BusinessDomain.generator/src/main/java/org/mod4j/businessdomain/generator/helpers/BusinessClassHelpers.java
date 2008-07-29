@@ -10,6 +10,7 @@ import BusinessDomainDsl.AbstractType;
 import BusinessDomainDsl.Association;
 import BusinessDomainDsl.BoolProperty;
 import BusinessDomainDsl.BusinessClass;
+import BusinessDomainDsl.AbstractBusinessClass;
 import BusinessDomainDsl.BusinessDomainModel;
 import BusinessDomainDsl.DateTimeProperty;
 import BusinessDomainDsl.DecimalProperty;
@@ -27,6 +28,14 @@ public class BusinessClassHelpers {
      * @return The name of the Java class for cls
      */
     public static String javaClassName(BusinessClass cls) {
+        return StringHelpers.firstCharToUpper(cls.getName());
+    }
+
+    /**
+     * @param cls
+     * @return The name of the Java class for cls
+     */
+    public static String javaClassName(AbstractBusinessClass cls) {
         return StringHelpers.firstCharToUpper(cls.getName());
     }
     

@@ -1,7 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION BusinessClass»
-«EXTENSION util»
+«EXTENSION generatorutil»
 «EXTENSION ProjectProperties»
 
 «DEFINE daoInterfaceBase  FOR BusinessDomainDsl::BusinessClass»

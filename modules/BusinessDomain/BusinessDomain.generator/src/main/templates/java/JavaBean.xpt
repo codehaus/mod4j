@@ -2,7 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION BusinessRule»
-«EXTENSION util»
+«EXTENSION generatorutil»
 «EXTENSION ProjectProperties»
 
 «DEFINE BeanClassImplBase FOR AbstractType»

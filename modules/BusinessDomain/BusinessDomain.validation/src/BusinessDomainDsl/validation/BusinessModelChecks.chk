@@ -11,6 +11,7 @@
 import BusinessDomainDsl;
 
 extension BusinessDomainDsl::validation::javautils;
+extension BusinessDomainDsl::validation::crossxutils;
 // extension org::mod4j::businessdomain::xtext::Extensions;
 // extension org::mod4j::businessdomain::xtext::javautils;
 /*
@@ -74,10 +75,3 @@ context Association ERROR "Many to Many associations are not supported yet" :
        && 
        (targetMultiplicity == Multiplicity::ZeroMany || targetMultiplicity == Multiplicity::OneMany) );
 
-/*
-context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
-       ! classExists(this.name);
-
-context BusinessClass ERROR "5 java check class [" + this.name + "] already defined in [" + definedInResource(this.name) + "]" :
-       ! classExists(this.name);
-*/

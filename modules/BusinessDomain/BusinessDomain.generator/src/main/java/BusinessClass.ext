@@ -11,6 +11,9 @@ String javaPackageName(BusinessClass cls) :
 String javaClassName(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
 
+String javaClassName(AbstractBusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.AbstractBusinessClass);
+
 String javaClassName(String cls) :
  JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.javaClassName(java.lang.String);
 

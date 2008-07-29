@@ -2,7 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION Association»
-«EXTENSION util»
+«EXTENSION generatorutil»
 «EXTENSION ProjectProperties»
 
 «DEFINE header FOR BusinessDomainDsl::BusinessClass»

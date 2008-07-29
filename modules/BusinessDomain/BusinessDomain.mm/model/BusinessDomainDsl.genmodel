@@ -45,7 +45,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/businessRules"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/superclass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/associationsTo"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//BusinessClass/associationsFrom"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/dataType"/>
@@ -104,5 +103,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/maxInclusive"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//DecimalProperty/defaultValue"/>
     </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//AbstractBusinessClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//AbstractBusinessClass/associationsFrom"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessClassReference"/>
   </genPackages>
 </genmodel:GenModel>

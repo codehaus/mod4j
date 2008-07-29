@@ -2,7 +2,8 @@
 
 «EXTENSION ProjectProperties»
 «EXTENSION BusinessClass»
-«EXTENSION util»
+«EXTENSION generatorutil»
+«EXTENSION crossx»
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
 «FILE getApplicationName() + "DataLaagContext.xml"-»
@@ -30,14 +31,24 @@
 	</aop:config>
 
     <!--  Data layer part of infrastructure -->
+«REM»
 «FOREACH this.types.typeSelect(BusinessClass) AS cls»
-	«IF ! isCompositePart(cls)»
-	<bean id="«javaVarName(cls)»Dao"
+    «IF ! isCompositePart(cls)»
+    <bean id="«javaVarName(cls)»Dao"
         class="«getDaoPackage()».«daoImplClassName(cls)»">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-	
-	«ENDIF»
+    
+    «ENDIF»
+    
+«ENDFOREACH»
+«ENDREM»
+
+«FOREACH allBusinessClasses() AS clsName»
+    <bean id="«clsName.toFirstLower()»Dao"
+        class="«getDaoPackage()».«clsName»DaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
     
 «ENDFOREACH»
 

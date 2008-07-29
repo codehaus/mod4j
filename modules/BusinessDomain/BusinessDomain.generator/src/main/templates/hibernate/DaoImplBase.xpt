@@ -2,7 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION ProjectProperties»
-«EXTENSION util»
+«EXTENSION generatorutil»
 
 «DEFINE daoImplementationBase FOR BusinessDomainDsl::BusinessClass»
 «FILE javaFileName(getDaoPackage(), daoImplClassBaseName(this) )»

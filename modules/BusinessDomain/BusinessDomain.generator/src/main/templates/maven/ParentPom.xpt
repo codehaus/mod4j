@@ -1,7 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION ProjectProperties»
-«EXTENSION util»
+«EXTENSION generatorutil»
 
 «DEFINE createParentPom FOR BusinessDomainModel»
     «IF !fileExist(getApplicationPath() + "/pom.xml")»

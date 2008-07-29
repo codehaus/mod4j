@@ -7,11 +7,15 @@ importMetamodel "http://www.mod4j.org/busmod" ;
 BusinessDomainModel :
 	(description=STRING )?
 	"Model" name = ID
+	(types+= BusinessClassReference)*
 	(types += BusinessClass)* 
 	(enumerations += Enumeration)*
 	(associations += Association)*
 	;
 
+BusinessClassReference:
+    "import" name=ID;
+    
 Association:
 	(description=STRING )?
     "Association" 
@@ -20,7 +24,7 @@ Association:
     "[" sourceMultiplicity=Multiplicity "]"
     ((bidirectional?="<->") | ("->"))
     "[" targetMultiplicity=Multiplicity "]"
-    targetRoleName=ID target=[BusinessClass] ";"
+    targetRoleName=ID target=[AbstractBusinessClass] ";"
     ;
 
 Enum Multiplicity:
