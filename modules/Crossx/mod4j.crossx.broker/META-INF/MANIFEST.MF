@@ -4,6 +4,8 @@ Bundle-Name: CrossxBroker Plug-in
 Bundle-SymbolicName: mod4j.crossx.broker; singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Vendor: Mod4j
+Eclipse-RegisterBuddy: org.openarchitectureware.core.workflow,
+ org.openarchitectureware.workflow
 Require-Bundle: org.eclipse.core.resources,
  org.eclipse.core.runtime,
  org.eclipse.ui,
@@ -11,9 +13,14 @@ Require-Bundle: org.eclipse.core.resources,
  org.openarchitectureware.workflow,
  org.openarchitectureware.classic.libraries,
  org.apache.commons.cli,
- mod4j.crossx.mm
-Export-Package: crossx.xml,
+ mod4j.crossx.mm,
+ org.eclipse.jdt.core,
+ org.eclipse.ui.console
+Export-Package: crossx.util,
+ mod4j.crossx.broker.actions,
  mod4j.crossx.broker.builder,
  mod4j.crossx.broker.repository,
  mod4j.crossx.broker.views,
  mod4j.crossx.util.eclipse.xml
+Import-Package: org.eclipse.ui.actions
+Eclipse-LazyStart: false
