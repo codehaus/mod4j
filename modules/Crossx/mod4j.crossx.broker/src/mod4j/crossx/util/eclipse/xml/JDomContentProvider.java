@@ -22,10 +22,10 @@ public class JDomContentProvider implements  ITreeContentProvider
 	Object[] kids = ((Element) element).getChildren().toArray();
 	Object[] result = kids == null ? new Object[0] : kids;
 
-	for( Object child : elem.getChildren() ){
-		Element e = (Element)child;
-		
-	}
+//	for( Object child : elem.getChildren() ){
+//		Element e = (Element)child;
+//		
+//	}
 	
 	return result;
   }
