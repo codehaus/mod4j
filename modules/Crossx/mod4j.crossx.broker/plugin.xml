@@ -49,11 +49,12 @@
             id="mod4j.crossx.broker">
       </category>
       <view
-            name="Crossx View"
-            icon="icons/sample.gif"
+            allowMultiple="false"
             category="mod4j.crossx.broker"
             class="mod4j.crossx.broker.views.CrossxView"
-            id="mod4j.crossx.broker.views.CrossxView">
+            icon="icons/sample.gif"
+            id="mod4j.crossx.broker.views.CrossxView"
+            name="Crossx View">
       </view>
    </extension>
    <extension
