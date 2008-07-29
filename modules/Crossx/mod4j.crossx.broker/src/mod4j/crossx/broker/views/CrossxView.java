@@ -3,12 +3,12 @@ package mod4j.crossx.broker.views;
 import java.util.ArrayList;
 
 import mod4j.crossx.broker.builder.CrossxBuilder;
-import mod4j.crossx.broker.builder.RunWorkflow;
 import mod4j.crossx.broker.repository.CrossxRepository;
 import mod4j.crossx.util.eclipse.xml.JDomContentProvider;
 import mod4j.crossx.util.eclipse.xml.JDomLabelProvider;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Image;
@@ -18,6 +18,8 @@ import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 import org.eclipse.core.runtime.IAdaptable;
+
+import crossx.util.RunWorkflow;
 
 
 /**
@@ -31,17 +33,23 @@ import org.eclipse.core.runtime.IAdaptable;
  */
 public class CrossxView extends ViewPart {
 	
-	private TreeViewer viewer;
+	public  TreeViewer viewer;
+	private Object input;
 	private DrillDownAdapter drillDownAdapter;
 	private Action doubleClickAction;
 
 	class NameSorter extends ViewerSorter {
 	}
 
+	public  static CrossxView theView = null;
+	
+	static int i = 1;
+	
 	/**
 	 * The constructor.
 	 */
 	public CrossxView() {
+		theView = this;
 	}
 
 	/**
@@ -56,9 +64,14 @@ public class CrossxView extends ViewPart {
 		viewer.setContentProvider(new JDomContentProvider() );
 		viewer.setLabelProvider(new JDomLabelProvider() );
 		viewer.setSorter(new NameSorter());
-		viewer.setInput(CrossxRepository.getAll());
+		input = CrossxRepository.getAll();
+		viewer.setInput(input);
 //		viewer.setInput(getViewSite());
 		hookDoubleClickAction();
+		viewer.refresh();
+		// System.err.println("CrosssxView getAll: " + CrossxRepository.getAll().getName());
+		this.setPartName("crossx repository" + i);
+		i++;
 	}
 
 
@@ -81,6 +94,24 @@ public class CrossxView extends ViewPart {
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
+	}
+
+	public static void myrefresh() {
+		if( Display.getCurrent() != null ) {
+			theView.setPartName("crossx  "+ 1);
+			i++;
+			theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input, CrossxRepository.getAll());
+			theView.viewer.refresh();
+		} else {
+			Display.getDefault().asyncExec( new Runnable() {
+				public void run() {
+					theView.setPartName("crossx  "+ 1);
+					i++;
+					theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input, CrossxRepository.getAll());
+					theView.viewer.refresh();
+				}
+			});
+		}
 	}
 	
 
