@@ -72,14 +72,14 @@ public class CrossxRepository {
 	
 	static public String find(String name, String elemType) {
 		checkCrossxStatus();
-		print("CROSSX find: [" + CrossxRepository.class.getClassLoader().toString() + "]");
-		print("CROSSX find: [" + name + "] [" + elemType + "]");
+//		print("CROSSX find: [" + CrossxRepository.class.getClassLoader().toString() + "]");
+//		print("CROSSX find: [" + name + "] [" + elemType + "]");
 		for(Element modelinfo : info){
-			print("CROSSX FIND modelinfo");
+//			print("CROSSX FIND modelinfo");
 			for(Object elem : modelinfo.getChildren() ){
 				if( elem instanceof Element) {
 					Element e = (Element) elem;
-					print("CROSSX FIND child [" + elem.toString() + "]");
+//					print("CROSSX FIND child [" + elem.toString() + "]");
 					if( e.getAttributeValue("name"    ).equals(name) && 
 						e.getAttributeValue("elemType").equals(elemType) )
 					{
@@ -95,23 +95,23 @@ public class CrossxRepository {
 
 	static public List<String> findAll(String elemType) {
 		checkCrossxStatus();
-		print("CROSSX findAll: [" + CrossxRepository.class.getClassLoader().toString() + "]");
-		print("CROSSX findAll: [" + elemType + "]");
+//		print("CROSSX findAll: [" + CrossxRepository.class.getClassLoader().toString() + "]");
+//		print("CROSSX findAll: [" + elemType + "]");
 		List<String> result = new ArrayList<String>();
 		for(Element modelinfo : info){
-			print("CROSSX modelinfo");
+//			print("CROSSX modelinfo");
 			for(Object elem : modelinfo.getChildren() ){
-				print("CROSSX child [" + elem.toString() + "]");
+//				print("CROSSX child [" + elem.toString() + "]");
 				if( elem instanceof Element) {
 					Element e = (Element) elem;
-					print("CROSSX element [" + e.getName() + "]");
+//					print("CROSSX element [" + e.getName() + "]");
 					String value = e.getAttributeValue("elemType");
 					if( (value != null) && value.equals(elemType) )
 					{
-						print("CROSSX found: [" + e.getAttributeValue("name") + "]");
+//						print("CROSSX found: [" + e.getAttributeValue("name") + "]");
 						result.add(e.getAttributeValue("name"));
 					} else {
-						print("CROSSX NOT found: [" + e.getAttributeValue("name") + "]");						
+//						print("CROSSX NOT found: [" + e.getAttributeValue("name") + "]");						
 					}
 				}
 			}
