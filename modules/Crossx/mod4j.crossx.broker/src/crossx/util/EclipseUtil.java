@@ -30,12 +30,34 @@ import org.osgi.framework.Bundle;
 
 public class EclipseUtil {
 
+	/** Return a java.io.File correcponsing to a resource
+	 * 
+	 * @param resource The resource
+	 * @return
+	 */
 	static public File toFile(IResource resource) {
+		if( (resource == null) 
+            || (! (resource instanceof IFile)))
+//            ||  ! resource.exists() )
+		{
+			return null;
+		}
 		IFile file = (IFile) resource;
 		IPath p = file.getRawLocation();
 		File f = p.toFile();
 		return f;
 	}
+	
+	/** Get the full local pathname corresponding to a resource.
+	 * 
+	 * @param resource
+	 * @return
+	 */
+	static public String resource2fullpath(IResource resource) {
+		System.err.println(resource.getLocationURI().toString());
+		return resource.getLocationURI().toString();
+	}
+
 	
 	static public void printResource(IFile file){
 		System.err.println("resource getFullPath() [" + file.getFullPath() + "]");
@@ -48,6 +70,12 @@ public class EclipseUtil {
 		System.err.println("resource getProject() [" + file.getProject() + "]");
 	}
 	
+	/** return the Ipath for a resource named 'pathname'in bundle 'bundlename'.
+	 * 
+	 * @param bundlename
+	 * @param pathname path, relative to the bundle root.
+	 * @return
+	 */
 	static public IPath getPath(String bundlename, String pathname) {
 		IPath result = null;
 		try {
@@ -63,7 +91,7 @@ public class EclipseUtil {
 		return result;
 	}
 
-	/**
+	/** Log an error to the Log connected with the plugin 'bundleName'
 	 * @param className
 	 * @param exception
 	 */
@@ -93,10 +121,11 @@ public class EclipseUtil {
 		});
 	}
 
-	/**
-	 * @param outputDir
-	 * @param typeStr
-	 * @return
+	/** Show a question in a modal dialog box and return the user's answer.
+	 * 
+	 * @param title Text for the title bar of the dialog window
+	 * @param message The text of the message
+	 * @return true if users selects ok, false if he selected Cancel
 	 */
 	static public boolean showQuestion(String title, String message) {
 		boolean goThrough;
@@ -123,6 +152,11 @@ public class EclipseUtil {
 		return goThrough;
 	}
 
+	/** Find the OutputStream connected with the Eclipse Console View.
+	 * 
+	 * @param name
+	 * @return
+	 */
 	static public MessageConsoleStream findConsole(String name) {
 		ConsolePlugin plugin = ConsolePlugin.getDefault();
 		IConsoleManager conMan = plugin.getConsoleManager();
@@ -142,11 +176,16 @@ public class EclipseUtil {
 		conMan.addConsoles(new IConsole[]{myConsole});
 		   
 		MessageConsoleStream out = myConsole.newMessageStream();
-		out.println("Hello from Generic console sample action");
+		out.println("Hello " + name);
 		    
 		return out;
 	}
 	
+	/** Find the project of the 'currentSelection'
+	 * 
+	 * @param currentSelection
+	 * @return
+	 */
 	static public IProject findSelectedProject(IStructuredSelection currentSelection) {
 		IResource selResource = null;
 		IProject selProject = null;
@@ -182,6 +221,11 @@ public class EclipseUtil {
 		return selProject;
 	}
 
+	/** Find the resource of çurrentSelection'
+	 * 
+	 * @param currentSelection
+	 * @return
+	 */
 	static public IResource findSelectedResource(IStructuredSelection currentSelection) {
 		IResource selResource = null;
 		if (currentSelection == null) {

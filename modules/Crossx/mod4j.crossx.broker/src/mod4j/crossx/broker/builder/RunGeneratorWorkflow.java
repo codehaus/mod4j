@@ -3,25 +3,27 @@ package mod4j.crossx.broker.builder;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openarchitectureware.workflow.WorkflowRunner;
+import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 import org.openarchitectureware.workflow.issues.Issue;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.issues.IssuesImpl;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
 import crossx.util.MyWorkflowRunner;
 
 public class RunGeneratorWorkflow {
 
-	/**
-	 * @param args
+	/** run workflow 'wfFile' on 'modelFile' with parameters defined in 'propertiesFile'.
+	 * 
+	 * @param wfFile  The name of the workflowfile: fulle local pathname
+	 * @param modelFile The name of the modefile: URI with start file:
+	 * @param propertiesFile The nameof the properties file: full local pathname
 	 */
-	public void runWorkflow(String wfFile, String propertiesFile) {
-		System.err.println("Run Generator ["+ wfFile + "] on:" );
+	public void runWorkflow(String wfFile, String modelFile, String propertiesFile) {
+		System.err.println("Run Generator ["+ wfFile + "] on: [" + modelFile + "]" );
 
 		Map<String, Object> slotContents = new HashMap<String, Object>();
-		Map<String, String> properties = new HashMap<String, String>();
-
+		Map<String, String> properties = ModelHelpers.getProperties(propertiesFile);
+		properties.put("modelFile", modelFile );
+		
 		MyWorkflowRunner runner = new MyWorkflowRunner();
 		runner.run(wfFile ,
 				new NullProgressMonitor(), properties, slotContents);

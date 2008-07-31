@@ -10,16 +10,20 @@ import org.jdom.Element;
 
 import crossx.util.EclipseUtil;
 
+/** This class is a singleton with static members only.
+ *  It keeps all cross reference information for DSL models 
+ * 
+ * @author jwa11799
+ *
+ */
 public class CrossxRepository {
 
+	private static final String TYPE_ATTRIBUTE = "elemType";
+	private static final String NAME_ATTRIBUTE = "name";
+	private static final String RESOURCE_ATTRIBUTE = "resource";
+	private static final String MODEL_REFERENCE = "ModelReference";
 	static private List<Element> info = new ArrayList<Element>();
 	static private Document all = new Document(new Element("ROOT"));
-
-//	   public static String getTimestamp() {
-//	        Date now = new Date(System.currentTimeMillis());
-//	        return now.toString();
-//	        
-//	    }
 
 	static public Element getAll(){
 		return all.getRootElement();
@@ -36,9 +40,9 @@ public class CrossxRepository {
 		Element toRemove = null;
 
 		Element newInfo     = doc.getRootElement();
-		String  newResource = newInfo.getChild("ModelReference").getAttributeValue("resource");
+		String  newResource = newInfo.getChild(MODEL_REFERENCE).getAttributeValue(RESOURCE_ATTRIBUTE);
 		for(Element modelinfo : info){
-			String resource = modelinfo.getChild("ModelReference").getAttributeValue("resource");
+			String resource = modelinfo.getChild(MODEL_REFERENCE).getAttributeValue(RESOURCE_ATTRIBUTE);
 			if( resource.equals(newResource) ){
 				toRemove = modelinfo;
 				print("CrossxRepository: remove [" + resource + "]");
@@ -64,27 +68,29 @@ public class CrossxRepository {
 			print("    XML [" + e.getName() + "]");
 			for( Object ch : e.getChildren()) {
 				Element child = (Element)ch;
-				print("    XML [" + child.getAttributeValue("name") + "]");
+				print("    XML [" + child.getAttributeValue(NAME_ATTRIBUTE) + "]");
 			}
 
 		}
 	}
-	
+
+	/** Find the symbol with name 'name' and type 'type'.
+	 * 
+	 * @param name
+	 * @param elemType
+	 * @return The name of the resource if the element is found, null if it isn't found
+	 */
 	static public String find(String name, String elemType) {
 		checkCrossxStatus();
-//		print("CROSSX find: [" + CrossxRepository.class.getClassLoader().toString() + "]");
-//		print("CROSSX find: [" + name + "] [" + elemType + "]");
 		for(Element modelinfo : info){
-//			print("CROSSX FIND modelinfo");
 			for(Object elem : modelinfo.getChildren() ){
 				if( elem instanceof Element) {
 					Element e = (Element) elem;
-//					print("CROSSX FIND child [" + elem.toString() + "]");
-					if( e.getAttributeValue("name"    ).equals(name) && 
-						e.getAttributeValue("elemType").equals(elemType) )
+					if( e.getAttributeValue(NAME_ATTRIBUTE    ).equals(name) && 
+						e.getAttributeValue(TYPE_ATTRIBUTE).equals(elemType) )
 					{
-						Element modelref = modelinfo.getChild("ModelReference");
-						String result = modelref.getAttributeValue("resource");
+						Element modelref = modelinfo.getChild(MODEL_REFERENCE);
+						String result = modelref.getAttributeValue(RESOURCE_ATTRIBUTE);
 						return result;
 					}
 				}
@@ -93,25 +99,23 @@ public class CrossxRepository {
 		return null;
 	}
 
+	/**  Find all symbols of type 'elemType'.
+	 * 
+	 * @param elemType
+	 * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+	 */
 	static public List<String> findAll(String elemType) {
 		checkCrossxStatus();
-//		print("CROSSX findAll: [" + CrossxRepository.class.getClassLoader().toString() + "]");
-//		print("CROSSX findAll: [" + elemType + "]");
 		List<String> result = new ArrayList<String>();
 		for(Element modelinfo : info){
-//			print("CROSSX modelinfo");
 			for(Object elem : modelinfo.getChildren() ){
-//				print("CROSSX child [" + elem.toString() + "]");
 				if( elem instanceof Element) {
 					Element e = (Element) elem;
-//					print("CROSSX element [" + e.getName() + "]");
-					String value = e.getAttributeValue("elemType");
+					String value = e.getAttributeValue(TYPE_ATTRIBUTE);
 					if( (value != null) && value.equals(elemType) )
 					{
-//						print("CROSSX found: [" + e.getAttributeValue("name") + "]");
-						result.add(e.getAttributeValue("name"));
+						result.add(e.getAttributeValue(NAME_ATTRIBUTE));
 					} else {
-//						print("CROSSX NOT found: [" + e.getAttributeValue("name") + "]");						
 					}
 				}
 			}
@@ -131,6 +135,10 @@ public class CrossxRepository {
 	}
 	private static MessageConsoleStream console;
 
+	/** Print to the eclipse console
+	 * 
+	 * @param text
+	 */
 	private static void print(String text){
 		if( console == null ){
 			console= EclipseUtil.findConsole("crossx.console");

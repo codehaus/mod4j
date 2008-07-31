@@ -30,7 +30,7 @@ import mod4j.crossx.ModelInfo;
 
 /* 
  * Workflow component to write a Crossx model to an XML file.
- * References from workflow (*.oaw) files.
+ * Referenced from workflow (*.oaw) files.
  */
 public class CrossxWorkflowComponent extends WorkflowComponentWithModelSlot {
 
