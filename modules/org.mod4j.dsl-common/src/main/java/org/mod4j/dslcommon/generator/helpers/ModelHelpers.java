@@ -5,13 +5,35 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Map.Entry;
 
 public class ModelHelpers {
 
     private static Properties appProps = new Properties();
 
-    public static String getProperty(String key, String propFilePath) {
+    public static Map<String, String> getProperties(String propFilePath) {
+    	Map<String, String> result = new HashMap<String, String>();
+    	try {
+            Properties props= new Properties();
+            props.load(new FileInputStream(propFilePath));
+            
+            for (Entry<Object, Object> property : props.entrySet()) {
+            	result.put( (String)property.getKey(), (String)property.getValue() );
+			}
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+   	public static String getProperty(String key, String propFilePath) {
 
         try {
             appProps.load(new FileInputStream(propFilePath));
