@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         id="BusinessDomain.generator.crossx"
+         name="Crossx info"
+         point="mod4j.crossx.broker.dsl">
+      <dsl
+            dsl2crossxWorkflow="src/main/templates/crossx/busmod2crossx.oaw"
+            dslFileExtension=".busmod"
+            dslMetamodelPackage="BusinessDomainDsl.BusinessDomainDslPackage"
+            dslName="Business Domain DSL">
+      </dsl>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.factory_override">
+      <factory
+            class="businessDomain.generator.EFactory1"
+            uri="BusinessDomain.generator.factory1">
+      </factory>
+   </extension>
+
+</plugin>
