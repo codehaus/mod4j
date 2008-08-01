@@ -281,13 +281,11 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 				IJavaProject jp = JavaCore.create(getProject());
 				IPath outPath = jp.getOutputLocation();
 				if( outPath.isPrefixOf(resource.getFullPath()) ){
-//					System.err.println("checkDSL skipping [" + resource.getFullPath() + "]");
 					return;
 				}
 			} catch( Exception e ){
 				System.err.println("checkDSL Exception [" + e.getMessage() + "]");
 			}
-//			System.err.println("checkDSL running on [" + resource.getName() + "]");
 	
 			// properties files
 			IResource propertiesFile = getProject().findMember(BUSMOD_PROPERTIES);
@@ -297,8 +295,14 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 			IPath genFile = getGeneratorPath();
 			String genName = genFile.toOSString();
 			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
+
+			// WORKS IN GENERATOR PROJECT
 			genWf.runWorkflow(genName, EclipseUtil.resource2fullpath(resource), 
-					                   propertiesFile.getRawLocation().toOSString());
+	                   propertiesFile.getRawLocation().toOSString());
+			// TRU nested
+//			String mainWf = EclipseUtil.getPath(bundleName, "src/mod4j/crossx/broker/builder/Aworkflow2crossx.oaw").toOSString();
+//			genWf.runWorkflowNested(mainWf,  genName, EclipseUtil.resource2fullpath(resource), 
+//	                   propertiesFile.getRawLocation().toOSString());
 //			System.err.println("checkDSL DONE generating for [" + resource.getName() + "]");
 			
 		}
@@ -339,7 +343,12 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 			
 			IPath wfPath = getWorkflowPath(dsl);
 			String wfName = wfPath.toOSString();
-			wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
+    		wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
+
+			// TRY nested
+//			String mainWf = EclipseUtil.getPath(bundleName, "src/mod4j/crossx/broker/builder/Aworkflow2crossx.oaw").toOSString();
+//			wf.runWorkflowNested(mainWf, wfName, modelfile, xmlfile, crossxfile);
+			
 //			wf.runWorkflow(wfName, modelfile, crossxfile, dsl.getDslXtendModule(),dsl.getDslMetamodelPackage());
 		}
 	}

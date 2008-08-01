@@ -37,4 +37,25 @@ public class RunGeneratorWorkflow {
 		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
 	}
 
+	public void runWorkflowNested(String wfFile, String nestedWf, String modelFile, String propertiesFile) {
+		System.err.println("Run Generator ["+ wfFile + "] on: [" + modelFile + "]" );
+
+		Map<String, Object> slotContents = new HashMap<String, Object>();
+		Map<String, String> properties = ModelHelpers.getProperties(propertiesFile);
+		properties.put("modelFile", modelFile );
+		properties.put("busmodfile", nestedWf);
+		
+		MyWorkflowRunner runner = new MyWorkflowRunner();
+		runner.run(wfFile ,
+				new NullProgressMonitor(), properties, slotContents);
+		System.err.println("Workflow Generator hasErros: [" + runner.issues.hasErrors() + "]");
+		for(Issue issue : runner.issues.getErrors()){
+			System.err.println("Workflow Generator ERROR [" + issue.getMessage() + "]");
+		}
+		for(Issue issue : runner.issues.getWarnings()){
+			System.err.println("WOrkflow Generator WARNING [" + issue.getMessage() + "]");
+		}
+		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
+	}
+
 }
