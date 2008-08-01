@@ -116,7 +116,7 @@ public class EclipseUtil {
 		final String myMessage = mess;
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
-				MessageDialog.openError(null, "Octopus Error", myMessage); 
+				MessageDialog.openError(null, "Mod4j message", myMessage); 
 			}
 		});
 	}

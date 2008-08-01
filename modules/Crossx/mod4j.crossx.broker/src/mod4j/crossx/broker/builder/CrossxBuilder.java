@@ -10,7 +10,9 @@
  *******************************************************************************/
 package mod4j.crossx.broker.builder;
 
+import java.io.PrintStream;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jdt.core.*;
@@ -28,6 +30,8 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
@@ -35,7 +39,7 @@ import org.eclipse.core.runtime.QualifiedName;
 import org.jdom.Document;
 
 import crossx.util.EclipseUtil;
-import crossx.util.RunWorkflow;
+import crossx.util.RunCrossxWorkflow;
 import crossx.util.XmlUtil;
 
 /** This class contains two builders, one to build the crossx symbols from a DSL model,
@@ -46,19 +50,21 @@ import crossx.util.XmlUtil;
  */
 public class CrossxBuilder extends IncrementalProjectBuilder {
 
-	private MessageConsoleStream console = EclipseUtil.findConsole("crossx.projectbuilder");
+	private MessageConsoleStream console = null;
+	
+	private List<DslExtension> dslExtensions = null;
 	
 	private static final String BUSMOD_PROPERTIES = "src\\workflow\\busmod.properties";
 	private static final String SRC_WORKFLOW_BUSMOD_OAW = "src\\workflow\\busmod.oaw";
 	private static final String XML_EXTENSION = ".xml";
 	private static final String CROSSX_EXTENSION = ".crossx";
 	private static boolean initialized = false;
-	private static final String DSL_EXTENSION = "busmod";
-	public  static final String SYM_EXTENSION = "busmod.xml";
-	private static String bundleName = "mod4j.crossx.broker";
-	private static String BUSMOD_BUNDLENAME = "BusinessDomain.generator";
+//	private static final String DSL_EXTENSION = "busmod";
+	private static final String SYM_EXTENSION = "busmod.xml";
+	public  static String bundleName = "mod4j.crossx.broker";
+//	private static String BUSMOD_BUNDLENAME = "BusinessDomain.generator";
 //	private static String wfpath = "src/busmod2crossxTest.oaw";
-	private static String wfpath = "src/main/templates/crossx/busmod2crossx.oaw";
+//	private static String wfpath = "src/main/templates/crossx/busmod2crossx.oaw";
 	
 	class CrossxDeltaVisitor implements IResourceDeltaVisitor {
 		/*
@@ -71,14 +77,14 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 			switch (delta.getKind()) {
 			case IResourceDelta.ADDED:
 				// handle added resource
-				checkDSL(resource);
+				generateCode(resource);
 				break;
 			case IResourceDelta.REMOVED:
 				// handle removed resource
 				break;
 			case IResourceDelta.CHANGED:
 				// handle changed resource
-				checkDSL(resource);
+				generateCode(resource);
 				break;
 			}
 			//return true to continue visiting children.
@@ -119,7 +125,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 
 	class CrossxCodeGeneratorVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
-			checkDSL(resource);
+			generateCode(resource);
 			//return true to continue visiting children.
 			return true;
 		}
@@ -153,13 +159,13 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 				IJavaProject jp = JavaCore.create(getProject());
 				IPath outPath = jp.getOutputLocation();
 				if( outPath.isPrefixOf(resource.getFullPath()) ){
-					System.err.println("checkSymbols skipping binary [" + resource.getFullPath() + "]");
+//					System.err.println("checkSymbols skipping binary [" + resource.getFullPath() + "]");
 					return;
 				}
 			} catch( Exception e ){
 				System.err.println("checkSymbols Exception [" + e.getMessage() + "]");
 			}
-			System.err.println("checkSymbols running on [" + resource.getName() + "]");
+//			System.err.println("checkSymbols running on [" + resource.getName() + "]");
 			Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
 			CrossxRepository.addInfo(doc);
 		} 
@@ -175,7 +181,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 */
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
-		console.println("CrossxBuilder build called");
+		System.err.println("CrossxBuilder build called");
 //		CrossxRepository repo = (CrossxRepository) getProject().getSessionProperty(CROSSX_REPOSITORY);
 //		if( repo == null){
 //			System.err.println("CrossxBuilder build called ==>  FIST TIME FIRST TIME");
@@ -198,33 +204,21 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 		return null;
 	}
 
-	/** Load the Crossx symbols from all crossx files in the project.
-	 * 
-	 */
-//	private void loadCrossxInfo() {
-//		CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
-//		try {
-//			getProject().accept(visitor);
-//		} catch (Exception e) {
-//			System.err.println("CrossxBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");// TODO: handle exception
-//		}
-//	}
-
 	protected void fullBuild(final IProgressMonitor monitor)
 			throws CoreException {
-		console.println("CrossxBuilder: full build");
+		System.err.println("CrossxBuilder: full build");
 		try {
 			getProject().accept(new CrossxSymbolGeneratorVisitor());
 			getProject().accept(new CrossxCodeGeneratorVisitor());
 		} catch (CoreException e) {
-			console.println("CrossxBuilder ERROR fullBuild [" + e.getMessage() + "]");// TODO: handle exception
+			System.err.println("CrossxBuilder ERROR fullBuild [" + e.getMessage() + "]");// TODO: handle exception
 		}
 	}
 
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
 		// the visitor does the work.
-		console.println("CrossxBuilder: incremental build");
+		System.err.println("CrossxBuilder: incremental build");
 		delta.accept(new CrossxGenerateSymbolDeltaVisitor());
 		delta.accept(new CrossxDeltaVisitor());
 	}
@@ -232,6 +226,8 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	protected void startupOnInitialize() {
 		System.err.println("CrossxBuilder: startupOnInitialize()");
 		if( ! initialized ) {
+			console = EclipseUtil.findConsole("crossx.projectbuilder");
+			System.setErr(new PrintStream(console));
 			System.err.println("CrossxBuilder build called ==>  FIST TIME FIRST TIME");
 			initialized = true;
 			start();
@@ -240,6 +236,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	
     public void start() {
 		System.err.println("=========================>>>>>      START");
+		dslExtensions = DslExtension.getExtensions();
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		for (int i = 0; i < projects.length; i++) {
 			IProject project = projects[i];	
@@ -248,6 +245,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 		System.err.println("=========================>>>>>      END");
     }
     
+	
 	/** Load the Crossx symbols from all crossx files in the project.
 	 * 
 	 */
@@ -258,14 +256,15 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 //			EclipseUtil.showMessage("Project '" + selProject.getName() + "' does not have a Mod4j Nature.");
 			}
 		} catch (CoreException e1) {
-			console.println("CrossxBuilder ERROR requesting nature [" + e1.getMessage() + "]");
+			System.err.println("CrossxBuilder ERROR requesting nature [" + e1.getMessage() + "]");
 			e1.printStackTrace();
 		} 
 		CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
 		try {
 			project.accept(visitor);
 		} catch (Exception e) {
-			console.println("CrossxBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");// TODO: handle exception
+			System.err.println("CrossxBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 
@@ -274,32 +273,33 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 * 
 	 * @param resource
 	 */
-	private void checkDSL(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(DSL_EXTENSION)) {
+	private void generateCode(IResource resource) {
+		DslExtension dsl = isModelFile(resource);
+		if ( dsl != null ) {
 			try {
 				// Check whether the resource is inside a binary folder, if so skip it
 				IJavaProject jp = JavaCore.create(getProject());
 				IPath outPath = jp.getOutputLocation();
 				if( outPath.isPrefixOf(resource.getFullPath()) ){
-					System.err.println("checkDSL skipping [" + resource.getFullPath() + "]");
+//					System.err.println("checkDSL skipping [" + resource.getFullPath() + "]");
 					return;
 				}
 			} catch( Exception e ){
 				System.err.println("checkDSL Exception [" + e.getMessage() + "]");
 			}
-			System.err.println("checkDSL running on [" + resource.getName() + "]");
+//			System.err.println("checkDSL running on [" + resource.getName() + "]");
 	
 			// properties files
 			IResource propertiesFile = getProject().findMember(BUSMOD_PROPERTIES);
 			
-			System.err.println("checkDSL generating for     [" + resource.getName() + "]");
-			System.err.println("         workflow [" + propertiesFile.getRawLocation().toOSString() + "]");
+//			System.err.println("checkDSL generating for     [" + resource.getName() + "]");
+//			System.err.println("         workflow [" + propertiesFile.getRawLocation().toOSString() + "]");
 			IPath genFile = getGeneratorPath();
 			String genName = genFile.toOSString();
 			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
 			genWf.runWorkflow(genName, EclipseUtil.resource2fullpath(resource), 
 					                   propertiesFile.getRawLocation().toOSString());
-			System.err.println("checkDSL DONE generating for [" + resource.getName() + "]");
+//			System.err.println("checkDSL DONE generating for [" + resource.getName() + "]");
 			
 		}
 	}
@@ -309,36 +309,38 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 * @param resource
 	 */
 	private void generateCrossxSymbols(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(DSL_EXTENSION)) {
+		DslExtension dsl = isModelFile(resource);
+		if ( dsl != null ) {
 			try {
 				// Check whether the resource is inside a binary folder, if so skip it
 				IJavaProject jp = JavaCore.create(getProject());
 				IPath outPath = jp.getOutputLocation();
 				if( outPath.isPrefixOf(resource.getFullPath()) ){
-					System.err.println("generateCrossxSymbols skipping [" + resource.getFullPath() + "]");
 					return;
 				}
 			} catch( Exception e ){
 				System.err.println("generateCrossxSymbols Exception [" + e.getMessage() + "]");
+				e.printStackTrace();
 			}
-			System.err.println("generateCrossxSymbols running on [" + resource.getName() + "]");
 			IFile file = (IFile) resource;
 			
-			RunWorkflow wf = new RunWorkflow();
+			RunCrossxWorkflow wf = new RunCrossxWorkflow();
 			String modelfile = "";
 			URL modelURL =null;
 			try {
 				modelURL = file.getLocationURI().toURL();
 				modelfile = Platform.asLocalURL( modelURL).toExternalForm();
 			} catch( Exception e ){
-				
+				System.err.println("generateCrossxSymbols Exception [" + e.getMessage() + "]");
+				e.printStackTrace();
 			}
 			String xmlfile = file.getRawLocation().toOSString() + XML_EXTENSION;
-			String crossxmodelfile = modelfile + CROSSX_EXTENSION;
+			String crossxfile = modelfile + CROSSX_EXTENSION;
 			
-			IPath wfPath = getWorkflowPath();
+			IPath wfPath = getWorkflowPath(dsl);
 			String wfName = wfPath.toOSString();
-			wf.runWorkflow(wfName, modelfile, xmlfile, crossxmodelfile);
+			wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
+//			wf.runWorkflow(wfName, modelfile, crossxfile, dsl.getDslXtendModule(),dsl.getDslMetamodelPackage());
 		}
 	}
 
@@ -346,9 +348,8 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 * 
 	 * @return 
 	 */
-	private IPath getWorkflowPath() {
-		return EclipseUtil.getPath(BUSMOD_BUNDLENAME, wfpath);
-//		return EclipseUtil.getPath(bundleName, wfpath);
+	private IPath getWorkflowPath(DslExtension dsl) {
+		return EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDsl2crossxWorkflow());
 	}
 
 	/** The path of the workflowfile for generating the code 
@@ -361,6 +362,16 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 		return path;		
 	}
 
-
-
+	private DslExtension isModelFile(IResource resource){
+		if ( ! (resource instanceof IFile) ) {
+			return null;
+		}
+		for (DslExtension dsl : dslExtensions) {
+			if ( resource.getName().endsWith(dsl.getDslFileExtension())) {
+				return dsl;
+			}
+		}
+		return null;
+	}
+	
 }
