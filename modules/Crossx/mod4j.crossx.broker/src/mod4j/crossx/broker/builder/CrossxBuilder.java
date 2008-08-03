@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jdt.core.*;
-import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
 import mod4j.crossx.broker.repository.CrossxRepository;
@@ -30,8 +29,6 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
@@ -52,19 +49,17 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 
 	private MessageConsoleStream console = null;
 	
-	private List<DslExtension> dslExtensions = null;
-	
+	private static List<DslExtension> dslExtensions = null;
+
+	// TODO put code generator properties file somewhere else
 	private static final String BUSMOD_PROPERTIES = "src\\workflow\\busmod.properties";
+	// TODO put code generator oAW workflow file somewhere else
 	private static final String SRC_WORKFLOW_BUSMOD_OAW = "src\\workflow\\busmod.oaw";
 	private static final String XML_EXTENSION = ".xml";
 	private static final String CROSSX_EXTENSION = ".crossx";
 	private static boolean initialized = false;
-//	private static final String DSL_EXTENSION = "busmod";
 	private static final String SYM_EXTENSION = "busmod.xml";
 	public  static String bundleName = "mod4j.crossx.broker";
-//	private static String BUSMOD_BUNDLENAME = "BusinessDomain.generator";
-//	private static String wfpath = "src/busmod2crossxTest.oaw";
-//	private static String wfpath = "src/main/templates/crossx/busmod2crossx.oaw";
 	
 	class CrossxDeltaVisitor implements IResourceDeltaVisitor {
 		/*
@@ -211,7 +206,8 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 			getProject().accept(new CrossxSymbolGeneratorVisitor());
 			getProject().accept(new CrossxCodeGeneratorVisitor());
 		} catch (CoreException e) {
-			System.err.println("CrossxBuilder ERROR fullBuild [" + e.getMessage() + "]");// TODO: handle exception
+			System.err.println("CrossxBuilder ERROR fullBuild [" + e.getMessage() + "]");
+			// TODO: handle exception
 		}
 	}
 
@@ -263,7 +259,8 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 		try {
 			project.accept(visitor);
 		} catch (Exception e) {
-			System.err.println("CrossxBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");// TODO: handle exception
+			System.err.println("CrossxBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");
+			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
@@ -367,7 +364,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 */
 	private IPath getGeneratorPath() {
 		// TODO generate error message when oaw file is not available
-		IPath path = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW).getLocation();
+ 		IPath path = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW).getLocation();
 		return path;		
 	}
 

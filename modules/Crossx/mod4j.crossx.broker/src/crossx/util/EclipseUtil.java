@@ -21,6 +21,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
@@ -77,15 +78,54 @@ public class EclipseUtil {
 	 * @return
 	 */
 	static public IPath getPath(String bundlename, String pathname) {
+		String myPathname = null;
+		if( Platform.inDevelopmentMode() ){ 
+			myPathname = "src/main/templates/"+pathname;
+		} else {
+			myPathname = pathname;
+		}
+		System.err.println("EclipseUtil.getPath(" + bundlename + ", " + myPathname + ")");
 		IPath result = null;
 		try {
-			URL installURL = Platform.getBundle(bundlename).getEntry("/");
-			URL fromLocation = new URL(installURL, pathname);
-			fromLocation = FileLocator.resolve(fromLocation);
-//			fromLocation = Platform.resolve(fromLocation);
+			System.err.println("dev mode : "+ Platform.inDevelopmentMode());
+						
+			
+			URL installURL = Platform.getBundle(bundlename).getEntry("/" + myPathname);
+			System.err.println("installURL [" + installURL.toString() + "]");
+			
+			URL fromLocation = FileLocator.toFileURL(installURL);
+
+			System.err.println("fromLocation [" + fromLocation.toString() + "]");
+
 			result = new Path(fromLocation.getPath());
 		} catch(Exception e){
 			System.err.println("EclipseUtils.getPath [" + e.getMessage() + "]");
+			e.printStackTrace(System.err);
+	// OctopusCodegenPlugin.getDefault().logError(this.getClass().getName(), e);
+		}
+		return result;
+	}
+	/** return the Ipath for a resource named 'pathname'in bundle 'bundlename'.
+	 * 
+	 * @param bundlename
+	 * @param pathname path, relative to the bundle root.
+	 * @return
+	 */
+	static public IPath agetPath(String bundlename, String pathname) {
+		System.err.println("EclipseUtil.getPath(" + bundlename + ", " + pathname + ")");
+		IPath result = null;
+		try {
+			URL installURL = Platform.getBundle(bundlename).getEntry("/");
+			System.err.println("installURL [" + installURL.toString() + "]");
+			URL fromLocation = new URL(installURL, pathname);
+			System.err.println("fromLocation [" + fromLocation.toString() + "]");
+			fromLocation = FileLocator.resolve(fromLocation);
+			System.err.println("fromLocation [" + fromLocation.toString() + "]");
+			fromLocation = Platform.resolve(fromLocation);
+			result = new Path(fromLocation.getPath());
+		} catch(Exception e){
+			System.err.println("EclipseUtils.getPath [" + e.getMessage() + "]");
+			e.printStackTrace(System.err);
 	// OctopusCodegenPlugin.getDefault().logError(this.getClass().getName(), e);
 		}
 		return result;
@@ -217,6 +257,7 @@ public class EclipseUtil {
 			}
 		} catch (CoreException e) {
 			EclipseUtil.logError("UiHelper", "EMPTY", e);
+			e.printStackTrace();
 		} 
 		return selProject;
 	}
