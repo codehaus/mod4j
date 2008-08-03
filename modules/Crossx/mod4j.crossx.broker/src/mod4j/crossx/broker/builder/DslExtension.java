@@ -72,7 +72,7 @@ public class DslExtension {
 			if( dsl.validate() ){
 				result.add( dsl );
 			} else {
-				EclipseUtil.showMessage("crossx extension point is invalid");
+				EclipseUtil.showError("crossx extension point is invalid");
 			}
 		}
 		return result;

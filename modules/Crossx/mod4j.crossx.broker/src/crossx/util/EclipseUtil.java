@@ -94,13 +94,13 @@ public class EclipseUtil {
 			System.err.println("installURL [" + installURL.toString() + "]");
 			
 			URL fromLocation = FileLocator.toFileURL(installURL);
-
 			System.err.println("fromLocation [" + fromLocation.toString() + "]");
 
 			result = new Path(fromLocation.getPath());
 		} catch(Exception e){
 			System.err.println("EclipseUtils.getPath [" + e.getMessage() + "]");
 			e.printStackTrace(System.err);
+			return null;
 	// OctopusCodegenPlugin.getDefault().logError(this.getClass().getName(), e);
 		}
 		return result;
@@ -143,7 +143,7 @@ public class EclipseUtil {
 						IStatus.ERROR,
 						"Error detected in class: " + className,
 						exception));
-		showMessage("Fatal error occurred (" + exception.getMessage() + "), see Error Log.");
+		showError("Fatal error occurred (" + exception.getMessage() + "), see Error Log.");
 	}
 	
 	/** Displays a message dialog with message <code>mess</code>.
@@ -152,11 +152,40 @@ public class EclipseUtil {
 	 * 
 	 * @param mess
 	 */
-	static public void showMessage(String mess) {
+	static public void showError(String mess) {
 		final String myMessage = mess;
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
 				MessageDialog.openError(null, "Mod4j message", myMessage); 
+			}
+		});
+	}
+
+	/** Displays a message dialog with message <code>mess</code>.
+	 * It synchronizes the execution of the message dialog with the
+	 * current display, in order to prevent thread errors.
+	 * 
+	 * @param mess
+	 */
+	static public void showInformation(String mess) {
+		final String myMessage = mess;
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				MessageDialog.openInformation(null, "Mod4j message", myMessage); 
+			}
+		});
+	}
+	/** Displays a message dialog with message <code>mess</code>.
+	 * It synchronizes the execution of the message dialog with the
+	 * current display, in order to prevent thread errors.
+	 * 
+	 * @param mess
+	 */
+	static public void showWarning(String mess) {
+		final String myMessage = mess;
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				MessageDialog.openWarning(null, "Mod4j message", myMessage); 
 			}
 		});
 	}
@@ -230,7 +259,7 @@ public class EclipseUtil {
 		IResource selResource = null;
 		IProject selProject = null;
 		if (currentSelection == null) {
-			EclipseUtil.showMessage("No project selected.");
+			EclipseUtil.showError("No project selected.");
 			return null;
 		} 
 		if (currentSelection.getFirstElement() instanceof IFile ) {
@@ -243,16 +272,16 @@ public class EclipseUtil {
 			selProject = (IProject) currentSelection.getFirstElement();
 		// now try the Java variants
 		} else {
-			EclipseUtil.showMessage("Cannot find selected project.");
+			EclipseUtil.showError("Cannot find selected project.");
 			return null; 
 		}
 		try {
 			if (selProject != null && !selProject.isOpen()) {
-				EclipseUtil.showMessage("Project '" + selProject.getName() + "' is not open.");
+				EclipseUtil.showError("Project '" + selProject.getName() + "' is not open.");
 				selProject = null;
 			}
 			if (selProject != null && !selProject.hasNature(CrossxNature.NATURE_ID)){
-				EclipseUtil.showMessage("Project '" + selProject.getName() + "' does not have an Octopus Nature.");
+				EclipseUtil.showError("Project '" + selProject.getName() + "' does not have an Octopus Nature.");
 				selProject = null;
 			}
 		} catch (CoreException e) {
@@ -270,7 +299,7 @@ public class EclipseUtil {
 	static public IResource findSelectedResource(IStructuredSelection currentSelection) {
 		IResource selResource = null;
 		if (currentSelection == null) {
-			EclipseUtil.showMessage("No project selected.");
+			EclipseUtil.showError("No project selected.");
 			return null;
 		} 
 		if (currentSelection.getFirstElement() instanceof IFile ) {
@@ -280,7 +309,7 @@ public class EclipseUtil {
 		} else if (currentSelection.getFirstElement() instanceof IProject ) {
 			selResource = (IProject) currentSelection.getFirstElement();
 		} else {
-			EclipseUtil.showMessage("Cannot find selected project.");
+			EclipseUtil.showError("Cannot find selected project.");
 			return null; 
 		}
 		return selResource;

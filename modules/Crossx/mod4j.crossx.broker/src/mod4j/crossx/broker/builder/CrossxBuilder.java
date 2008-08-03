@@ -159,6 +159,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 				}
 			} catch( Exception e ){
 				System.err.println("checkSymbols Exception [" + e.getMessage() + "]");
+				e.printStackTrace();
 			}
 //			System.err.println("checkSymbols running on [" + resource.getName() + "]");
 			Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
@@ -290,6 +291,9 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 //			System.err.println("checkDSL generating for     [" + resource.getName() + "]");
 //			System.err.println("         workflow [" + propertiesFile.getRawLocation().toOSString() + "]");
 			IPath genFile = getGeneratorPath();
+			if( genFile == null ){
+				return ;
+			}
 			String genName = genFile.toOSString();
 			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
 
@@ -355,7 +359,13 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 * @return 
 	 */
 	private IPath getWorkflowPath(DslExtension dsl) {
-		return EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDsl2crossxWorkflow());
+		IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDsl2crossxWorkflow());
+		if( result == null ) {
+			EclipseUtil.showError("Mod4j internal: cannot open crossx workflow ["+ dsl.getDsl2crossxWorkflow() + "]" +
+					              "in plugin [" + dsl.getDslContributor() + "]");
+			return null;
+		}
+		return result;
 	}
 
 	/** The path of the workflowfile for generating the code 
@@ -364,7 +374,13 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	 */
 	private IPath getGeneratorPath() {
 		// TODO generate error message when oaw file is not available
- 		IPath path = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW).getLocation();
+		IResource resource = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW);
+		if( resource == null ) {
+			EclipseUtil.showWarning("Mod4j: cannot open code generation workflow ["+ SRC_WORKFLOW_BUSMOD_OAW +
+					                "] for project [" + getProject().getName() + "] no code is generated");
+			return null;
+		}
+ 		IPath path = resource.getLocation();
 		return path;		
 	}
 
