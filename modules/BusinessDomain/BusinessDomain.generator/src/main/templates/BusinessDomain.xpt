@@ -7,8 +7,8 @@
 
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
     «setPropertiesFile( appPropFilePath() )»
-	«EXPAND JavaBean::BeanClassImplBase FOREACH types»
-	«EXPAND BusinessRules::BusinessRulesImplBases FOREACH types»
+	«EXPAND JavaBean::BeanClassImplBase FOREACH types.typeSelect(BusinessClass)»
+	«EXPAND BusinessRules::BusinessRulesImplBases FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND Enumeration::createEnum FOREACH enumerations»
 «ENDDEFINE»
 
@@ -18,8 +18,8 @@
 «ENDREM»
 «DEFINE ExtensionPointGeneration FOR BusinessDomainDsl::BusinessDomainModel»
     «setPropertiesFile( appPropFilePath() )»
-	«EXPAND JavaBean::BeanClassExtensionPoint FOREACH types»
-	«EXPAND BusinessRules::BusinessRulesExtentionPoints FOREACH types»
+	«EXPAND JavaBean::BeanClassExtensionPoint FOREACH types.typeSelect(BusinessClass)»
+	«EXPAND BusinessRules::BusinessRulesExtentionPoints FOREACH types.typeSelect(BusinessClass)»
 «ENDDEFINE»
 
 «REM»

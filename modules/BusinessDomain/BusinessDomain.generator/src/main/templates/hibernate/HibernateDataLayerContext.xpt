@@ -60,9 +60,14 @@
         </property>
         <property name="mappingResources">
             <list>
+«FOREACH allBusinessClasses() AS clsName»
+                <value>«clsName».hbm.xml</value>
+«ENDFOREACH»
+«REM»
 «FOREACH this.types.typeSelect(BusinessClass) AS cls»
                 <value>«cls.name».hbm.xml</value>
 «ENDFOREACH»
+«ENDREM»
             </list>
         </property>
         <property name="hibernateProperties">
