@@ -75,3 +75,5 @@ context Association ERROR "Many to Many associations are not supported yet" :
        && 
        (targetMultiplicity == Multiplicity::ZeroMany || targetMultiplicity == Multiplicity::OneMany) );
 
+context EnumerationProperty ERROR "Default value [" + this.defaultValueAsString + "] is not a literal of enumeration " + type.name :
+    this.hasDefault implies this.type.enumerationLiterals.exists(lit | lit.name == this.defaultValueAsString);
