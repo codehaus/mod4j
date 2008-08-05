@@ -68,8 +68,7 @@
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//EnumerationProperty">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//EnumerationProperty/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationProperty/defaultValueOld"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//EnumerationProperty/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationProperty/defaultValueAsString"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//IntegerProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//IntegerProperty/minValue"/>

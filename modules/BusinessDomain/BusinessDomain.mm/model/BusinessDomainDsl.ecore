@@ -78,8 +78,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Enumeration"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValueOld" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="#//EnumerationLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

@@ -293,7 +293,7 @@
     <children xmi:type="notation:Node" xmi:id="_-xkz4-9PEdyXXp6e1opTJg" type="5001"/>
     <children xmi:type="notation:Node" xmi:id="_-xkz5O9PEdyXXp6e1opTJg" type="7001">
       <children xmi:type="notation:Node" xmi:id="_Vues0CZsEd2hiPOf3RHzuQ" type="3001">
-        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//EnumerationProperty/defaultValueOld"/>
+        <element xmi:type="ecore:EAttribute" href="BusinessDomainDsl.ecore#//EnumerationProperty/defaultValueAsString"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Vues0SZsEd2hiPOf3RHzuQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-xkz5e9PEdyXXp6e1opTJg"/>
@@ -845,18 +845,5 @@
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MWBL81NLEd2nU9Dd56jOxg" points="[-21, 4, 173, -8]$[-120, 4, 74, -8]$[-126, 4, 68, -8]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MWBL9FNLEd2nU9Dd56jOxg" id="(0.14482759,0.26923078)"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_ffUSAGL3Ed2OKrZrge78UQ" type="4002" source="_-xkz4O9PEdyXXp6e1opTJg" target="_-xf7ZO9PEdyXXp6e1opTJg">
-    <children xmi:type="notation:Node" xmi:id="_ffeDAGL3Ed2OKrZrge78UQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_ffeDAWL3Ed2OKrZrge78UQ" y="40"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_ffeDAmL3Ed2OKrZrge78UQ" type="6003">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_ffeDA2L3Ed2OKrZrge78UQ" x="26" y="24"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ffUSAWL3Ed2OKrZrge78UQ" routing="Rectilinear" lineColor="16711680"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_ffUSAmL3Ed2OKrZrge78UQ" fontColor="16711680"/>
-    <element xmi:type="ecore:EReference" href="BusinessDomainDsl.ecore#//EnumerationProperty/defaultValue"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ffUSA2L3Ed2OKrZrge78UQ" points="[31, -29, -100, 214]$[31, -240, -100, 3]$[102, -240, -29, 3]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ffeDBGL3Ed2OKrZrge78UQ" id="(0.24369748,0.44067797)"/>
   </edges>
 </notation:Diagram>
