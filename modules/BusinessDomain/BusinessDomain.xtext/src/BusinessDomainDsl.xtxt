@@ -113,7 +113,7 @@ DecimalProperty:
 EnumerationProperty:
     (description=STRING)?
     type=[Enumeration] name=ID
-    (hasDefault?="default" defaultValue=[EnumerationLiteral])?
+    (hasDefault?="default" defaultValueAsString=ID)?
     ; 
 
 Enum PersistencyMode:
