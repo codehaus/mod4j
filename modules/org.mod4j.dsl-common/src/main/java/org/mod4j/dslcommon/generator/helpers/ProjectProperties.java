@@ -1,53 +1,73 @@
 package org.mod4j.dslcommon.generator.helpers;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 public class ProjectProperties {
 
     public static void setPropertiesFile(String filename) {
-        propertyFile = filename;
+    	System.err.println("PROPERTIES [" + filename + "]");
+        propertyFile = filename;        
+        readAllProperties();
     }
+    
+    private static void readAllProperties(){
+   	    Properties properties = new Properties();
 
+   		try {
+            properties.load(new FileInputStream(propertyFile));
+        } catch (FileNotFoundException e) {
+            System.err.println("PropjectProperties: cannot find properties file [" + propertyFile + "]");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("PropjectProperties: cannot read properties file [" + propertyFile + "]");
+            e.printStackTrace();
+        }
+
+    	applicationName = properties.getProperty("applicationName");
+        applicationVersion = properties.getProperty("applicationVersion");
+        applicationPath = properties.getProperty("applicationPath");
+        domainModuleName = properties.getProperty("domainModuleName");
+        dataModuleName = properties.getProperty("dataModuleName");
+        rootPackage = properties.getProperty("rootPackage");
+        domainRootPackage = properties.getProperty("domainRootPackage");
+        dataRootPackage = properties.getProperty("dataRootPackage");
+        srcGenPath = properties.getProperty("srcGenPath");
+        srcManPath = properties.getProperty("srcManPath");
+        resourceManPath = properties.getProperty("resourceManPath");
+        fileEncoding = properties.getProperty("fileEncoding");
+    }
+    
     private static String propertyFile = "DEFAULT";
-
     private static String applicationVersion = "DEFAULT";
-
     private static String applicationName = "DEFAULT";
-
     private static String applicationPath = "DEFAULT";
-
     private static String dataModuleName = "DEFAULT";
-    
     private static String domainModuleName = "DEFAULT";
-
     private static String rootPackage = "DEFAULT";
-
     private static String domainRootPackage = "DEFAULT";
-
     private static String dataRootPackage = "DEFAULT";
-
     private static String srcGenPath = "DEFAULT";
-
     private static String srcManPath = "DEFAULT";
-
     private static String resourceManPath = "DEFAULT";
-
     private static String fileEncoding = "ISO-8859-1";
-    
-    public final static String IMPLBASE_SUFFIX = "ImplBase";
 
+    public static final String IMPLBASE_SUFFIX = "ImplBase";
     public static final String BUSINESSRULES_PACKAGE = "businessrules";
-
     public static final String DAO_PACKAGE = "spring.dao";
 
     public static String getApplicationName() {
-        return ModelHelpers.getProperty("applicationName", propertyFile);
+        return applicationName;
     }
 
     public static String getApplicationVersion() {
-        return ModelHelpers.getProperty("applicationVersion", propertyFile);
+        return applicationVersion;
     }
 
     public static String getApplicationPath() {
-        return ModelHelpers.getProperty("applicationPath", propertyFile);
+        return applicationPath;
     }
 
     public static String getDomainModulePath() {
@@ -55,7 +75,7 @@ public class ProjectProperties {
     }
 
     public static String getDomainModuleName() {
-        return ModelHelpers.getProperty("domainModuleName", propertyFile);
+        return domainModuleName;
     }
 
     public static String getDataModulePath() {
@@ -63,19 +83,19 @@ public class ProjectProperties {
     }
 
     public static String getDataModuleName() {
-        return ModelHelpers.getProperty("dataModuleName", propertyFile);
+        return dataModuleName;
     }
 
     public static String getRootPackage() {
-        return ModelHelpers.getProperty("rootPackage", propertyFile);
+        return rootPackage;
     }
 
     public static String getDomainRootPackage() {
-        return ModelHelpers.getProperty("domainRootPackage", propertyFile);
+        return domainRootPackage;
     }
 
     public static String getDataRootPackage() {
-        return ModelHelpers.getProperty("dataRootPackage", propertyFile);
+        return dataRootPackage;
     }
 
     public static String getDaoPackage() {
@@ -87,7 +107,7 @@ public class ProjectProperties {
     }
 
     public static String getSrcManPath() {
-        return ModelHelpers.getProperty("srcManPath", propertyFile);
+        return srcManPath;
     }
 
     public static String getResourceManPath() {

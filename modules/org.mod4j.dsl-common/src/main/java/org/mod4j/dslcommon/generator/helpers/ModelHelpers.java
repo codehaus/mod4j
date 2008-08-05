@@ -14,6 +14,11 @@ public class ModelHelpers {
 
     private static Properties appProps = new Properties();
 
+    /** Read the properties file 'propFilePath' and return the result as a Map<String, String>
+     * 
+     * @param propFilePath absolute pathname of the properties files
+     * @return
+     */
     public static Map<String, String> getProperties(String propFilePath) {
     	Map<String, String> result = new HashMap<String, String>();
     	try {
