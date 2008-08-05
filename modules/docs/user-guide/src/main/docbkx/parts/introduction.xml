@@ -87,7 +87,8 @@
         <informalfigure>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="base-emptysubclass-pattern.png" format="PNG" />
+              <imagedata fileref="images/base-emptysubclass-domain.png"
+                         format="PNG" />
             </imageobject>
           </mediaobject>
         </informalfigure>

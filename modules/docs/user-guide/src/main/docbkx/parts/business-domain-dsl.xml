@@ -138,6 +138,17 @@
           separation of generated and handwritten code both of these use the
           empty subclass pattern. The result for the Person class in the
           example is shown in figure REF.</para>
+
+          <figure>
+            <title></title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/base-emptysubclass-domain.png"
+                           format="PNG" />
+              </imageobject>
+            </mediaobject>
+          </figure>
         </section>
       </section>
     </section>
@@ -217,7 +228,7 @@
 
           <programlisting class="monospaced" continuation="continues"
                           format="specific" linenumbering="numbered"
-                          xml:space="preserve">"A readable description of this attribute"
+                          xml:space="preserve">"A readable description of this attribute
 <keycap>string</keycap> name
       <keycap>default</keycap> "the default name"
       <keycap>minlength</keycap> 3 
