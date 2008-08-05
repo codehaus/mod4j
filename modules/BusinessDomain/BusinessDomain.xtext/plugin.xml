@@ -1,10 +1,6 @@
 <plugin>
    <extension
          point="org.openarchitectureware.xtext.core.base.dynamic_package">
-      <resource
-            location="platform:/plugin/BusinessDomain.xtext/org.mod4j.businessdomain.xtext/BusinessDomainDsl.ecore"
-            uri="BusinessDomainDsl">
-      </resource>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.extension_parser">
