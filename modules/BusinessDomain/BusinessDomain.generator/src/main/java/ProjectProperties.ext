@@ -2,9 +2,6 @@
  */
 import BusinessDomainDsl;
 
-Void setPropertiesFile(String filename) :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.setPropertiesFile(java.lang.String);
-
 String getApplicationName() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getApplicationName();
 

@@ -1,13 +1,11 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT hibernate»
 
-«EXTENSION ProjectProperties»
 «EXTENSION generatorutil»
 «EXTENSION BusinessClass»
 
 «DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»
 
-	«setPropertiesFile( appPropFilePath() )»
 	«EXPAND HibernateConfiguration::hibernateheader     FOR this»
 	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
     «EXPAND HibernateMapping::mapping                   FOREACH this.types.typeSelect(BusinessClass) »

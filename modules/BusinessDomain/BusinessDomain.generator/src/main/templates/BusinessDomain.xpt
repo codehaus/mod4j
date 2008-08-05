@@ -1,12 +1,10 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT java»
 «IMPORT maven»
-«EXTENSION ProjectProperties»
 
 «EXTENSION generatorutil»
 
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
-    «setPropertiesFile( appPropFilePath() )»
 	«EXPAND JavaBean::BeanClassImplBase FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND BusinessRules::BusinessRulesImplBases FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND Enumeration::createEnum FOREACH enumerations»
@@ -17,7 +15,6 @@
 	If they don't exist already these classes typically are generated to the srcMan folder. 
 «ENDREM»
 «DEFINE ExtensionPointGeneration FOR BusinessDomainDsl::BusinessDomainModel»
-    «setPropertiesFile( appPropFilePath() )»
 	«EXPAND JavaBean::BeanClassExtensionPoint FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND BusinessRules::BusinessRulesExtentionPoints FOREACH types.typeSelect(BusinessClass)»
 «ENDDEFINE»
@@ -26,7 +23,6 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
-    «setPropertiesFile( appPropFilePath() )»
     «EXPAND ParentPom::createParentPom»
 	«EXPAND DomainModulePom::createDomainModulePom»
 	«EXPAND DataModulePom::createDataModulePom»
