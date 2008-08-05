@@ -84,15 +84,13 @@
 
         <para>The solution is shown in figure REF.</para>
 
-        <figure>
-          <title>Empty subclass pattern</title>
-
+        <informalfigure>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/base-emptysubclass-pattern.eps" />
+              <imagedata fileref="base-emptysubclass-pattern.png" format="PNG" />
             </imageobject>
           </mediaobject>
-        </figure>
+        </informalfigure>
 
         <para>There are a few caveats with this solution:</para>
 

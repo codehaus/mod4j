@@ -102,7 +102,7 @@
         <title>Generated code</title>
 
         <para>For a business class code is generated for both the domain and
-        the data layer of the architecture. </para>
+        the data layer of the architecture.</para>
 
         <section>
           <title>Domain Layer</title>
@@ -138,16 +138,6 @@
           separation of generated and handwritten code both of these use the
           empty subclass pattern. The result for the Person class in the
           example is shown in figure REF.</para>
-
-          <figure>
-            <title></title>
-
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/base-emptysubclass-pattern.png" />
-              </imageobject>
-            </mediaobject>
-          </figure>
         </section>
       </section>
     </section>
@@ -158,9 +148,11 @@
       <section>
         <title>Definition</title>
 
-	<para>Properties look like this.</para>
+        <para>Properties look like this.</para>
+
         <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> Person [
+                        format="specific" linenumbering="numbered"
+                        xml:space="preserve"><keycap>Class</keycap> Person [
     <keycap>string</keycap>   name;
     <keycap>integer</keycap>  numberOfEars;
     <keycap>datetime</keycap> birthdate;
@@ -169,7 +161,8 @@
     // rules go here ...
 ]
 </programlisting>
-    <para>A property descibes a characteristic of a business class.
+
+        <para>A property descibes a characteristic of a business class.
         Properties always have a type. Each instance of a business class has
         its own values for each propertyA property can have a predefined type,
         which can be <emphasis>integer</emphasis>,
@@ -223,7 +216,8 @@
           <para>A string attribute is completely denoted as shown below</para>
 
           <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute
+                          format="specific" linenumbering="numbered"
+                          xml:space="preserve">"A readable description of this attribute"
 <keycap>string</keycap> name
       <keycap>default</keycap> "the default name"
       <keycap>minlength</keycap> 3 
@@ -296,8 +290,9 @@
           <para>A boolean attribute is completely denoted as shown
           below</para>
 
-         <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
+          <programlisting class="monospaced" continuation="continues"
+                          format="specific" linenumbering="numbered"
+                          xml:space="preserve">"A readable description of this attribute"
 <keycap>boolean</keycap> fixed
       <keycap>default</keycap> "true"
       <keycap>nullable</keycap> ;
@@ -339,8 +334,9 @@
           <para>An integer attribute is completely defined as shown
           below</para>
 
-         <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
+          <programlisting class="monospaced" continuation="continues"
+                          format="specific" linenumbering="numbered"
+                          xml:space="preserve">"A readable description of this attribute"
 <keycap>integer </keycap>numberOfSteps
       <keycap>default</keycap> 12
       <keycap>min</keycap> 4
@@ -399,8 +395,9 @@
           <para>An decimal attribute is completely defined as shown
           below</para>
 
-         <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
+          <programlisting class="monospaced" continuation="continues"
+                          format="specific" linenumbering="numbered"
+                          xml:space="preserve">"A readable description of this attribute"
 <keycap>decimal</keycap> percentage
       <keycap>default</keycap> 12
       <keycap>min</keycap> 4
@@ -459,8 +456,9 @@
           <para>An datetime attribute is completely defined as shown
           below</para>
 
-         <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
+          <programlisting class="monospaced" continuation="continues"
+                          format="specific" linenumbering="numbered"
+                          xml:space="preserve">"A readable description of this attribute"
 <keycap>datetime day</keycap> started
     <keycap>  <keycap>default</keycap></keycap> 4
       <keycap>nullable</keycap> ;
@@ -514,8 +512,9 @@
       list of all enumeration values. The example below shown an enumeration
       definition.</para>
 
-     <programlisting class="monospaced" continuation="continues"
-        format="specific" linenumbering="numbered" xml:space="preserve">"The severity level of a customer problem"
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve">"The severity level of a customer problem"
 <keycap>Enumeration</keycap> SeverityLevel [
     Low    = 1;
     Middle = 2;
