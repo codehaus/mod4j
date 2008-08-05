@@ -12,7 +12,7 @@
 
     <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
     <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
-        <propertyFile value="'${appPropFilePath}'" />
+        <propertyFile value="${appPropFilePath}" />
     </component>
 
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
@@ -117,7 +117,7 @@
     <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="Datalayer::genDaoExtensions FOR ${outputSlot}" />
-        <outlet path="D:\\mod4j\\repository\\modules\\RecordShop-ExampleProject\\RecordShop-data\\target\\generated-resources\\">
+        <outlet path="${applicationPath}/${dataModuleName}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
