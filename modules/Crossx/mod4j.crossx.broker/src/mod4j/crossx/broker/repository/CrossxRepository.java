@@ -126,7 +126,7 @@ public class CrossxRepository {
 	static boolean first = true;
 	
 	private static void checkCrossxStatus() {
-		print("checkCrossxStatus");
+//		print("checkCrossxStatus");
 		if( first ){
 			first = false;
 		} else {

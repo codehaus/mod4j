@@ -12,6 +12,7 @@ package mod4j.crossx.broker.builder;
 
 import java.io.PrintStream;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
 import org.jdom.Document;
+import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
+import org.mod4j.dslcommon.generator.helpers.StringHelpers;
 
 import crossx.util.EclipseUtil;
 import crossx.util.RunCrossxWorkflow;
@@ -221,11 +224,11 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	}
 	
 	protected void startupOnInitialize() {
-		System.err.println("CrossxBuilder: startupOnInitialize()");
+//		System.err.println("CrossxBuilder: startupOnInitialize()");
 		if( ! initialized ) {
 			console = EclipseUtil.findConsole("crossx.projectbuilder");
 			System.setErr(new PrintStream(console));
-			System.err.println("CrossxBuilder build called ==>  FIST TIME FIRST TIME");
+//			System.err.println("CrossxBuilder build called ==>  FIST TIME FIRST TIME");
 			initialized = true;
 			start();
 		}
@@ -297,9 +300,28 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 			String genName = genFile.toOSString();
 			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
 
+	// setup the properties for the generator workflow
+
+			// Need to double all backslahes because of an error in ANTLR
+            String propertiesFilePath = propertiesFile.getRawLocation().toOSString();
+            String modelFilePath     = EclipseUtil.resource2fullpath(resource);
+			// error message: ERROR - 06 no viable alternative at character '\' on line 4
+			String propertiesFilePathFix = StringHelpers.replaceAllSubstrings(propertiesFilePath, "\\", "\\\\");
+			Map<String, String> properties = ModelHelpers.getProperties(propertiesFilePath);
+			properties.put("modelFile", modelFilePath );
+			properties.put("appPropFilePath", propertiesFilePathFix);
+			
+			// Get the relative applicationPath property and make it absolute
+			String applicationPath = properties.get("applicationPath");
+			String newAppPath = getProject().getLocation().toOSString() + "\\" + applicationPath;
+			properties.put("applicationPath", newAppPath );
+
+			System.err.println("applicationPath [" + newAppPath + "]");
 			// WORKS IN GENERATOR PROJECT
-			genWf.runWorkflow(genName, EclipseUtil.resource2fullpath(resource), 
-	                   propertiesFile.getRawLocation().toOSString());
+			genWf.runWorkflow(genName, properties);
+//			genWf.runWorkflow(genName, EclipseUtil.resource2fullpath(resource), 
+//	                   propertiesFile.getRawLocation().toOSString());
+
 			// TRU nested
 //			String mainWf = EclipseUtil.getPath(bundleName, "src/mod4j/crossx/broker/builder/Aworkflow2crossx.oaw").toOSString();
 //			genWf.runWorkflowNested(mainWf,  genName, EclipseUtil.resource2fullpath(resource), 
