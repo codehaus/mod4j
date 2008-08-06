@@ -14,5 +14,13 @@
     <version>0.10-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This module contains DSL common (re)sources.</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openarchitectureware</groupId>
+            <artifactId>oaw-core-workflow</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+    </dependencies>
     
 </project>
