@@ -35,11 +35,12 @@ public class PropertiesWorkflowComponent extends AbstractWorkflowComponent {
 	public void invoke(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
 		System.err.println("PropertiesWorkflowComponent: Found property slot [" + getPropertyFile() + "]");
 		ProjectProperties.setPropertiesFile(getPropertyFile());
+		ProjectProperties.setWorkDir( getWorkDir() );
 	}
 
     public void checkConfiguration(final Issues issues) {
         if (propertyFile == null)
-            issues.addError(this, "modelSlot not specified.");
+            issues.addError(this, "propertyFile not specified.");
     }
 
 	// capture the value of the <propertyFileSlot> slot in the workflow
@@ -51,6 +52,16 @@ public class PropertiesWorkflowComponent extends AbstractWorkflowComponent {
 
 	public void setPropertyFile(final String outlet) {
 		this.propertyFile = outlet;
+	}
+	// capture the value of the <workDir> slot in the workflow
+	public String workDir;
+
+	protected String getWorkDir() {
+		return workDir; 
+	}
+
+	public void setWorkDir(final String outlet) {
+		this.workDir = outlet;
 	}
 
 }

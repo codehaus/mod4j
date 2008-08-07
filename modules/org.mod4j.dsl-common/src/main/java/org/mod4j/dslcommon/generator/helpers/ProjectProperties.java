@@ -58,6 +58,12 @@ public class ProjectProperties {
     public static final String BUSINESSRULES_PACKAGE = "businessrules";
     public static final String DAO_PACKAGE = "spring.dao";
 
+    private static String workDir = "/";
+
+    public static void setWorkDir(String dir){
+    	workDir = dir;
+    }
+    
     public static String getApplicationName() {
         return applicationName;
     }
@@ -67,7 +73,7 @@ public class ProjectProperties {
     }
 
     public static String getApplicationPath() {
-        return applicationPath;
+        return workDir + "/" + applicationPath;
     }
 
     public static String getDomainModulePath() {
