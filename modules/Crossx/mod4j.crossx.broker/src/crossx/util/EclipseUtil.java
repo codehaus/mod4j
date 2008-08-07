@@ -232,20 +232,18 @@ public class EclipseUtil {
 		IConsole[] existing = conMan.getConsoles();
 		MessageConsole myConsole = null;
 		for (int i = 0; i < existing.length; i++) {
-			System.err.println("CONSOLE [" + existing[i].getName() + "]");
 		    if (name.equals(existing[i].getName())) {
 		        myConsole = (MessageConsole) existing[i];
 		    }
 		}
 		//no console found, so create a new one
-		System.err.println("CONSOLE NOT FOUND");
 		if( myConsole == null ){
 		    myConsole = new MessageConsole(name, null);
 		}
 		conMan.addConsoles(new IConsole[]{myConsole});
 		   
 		MessageConsoleStream out = myConsole.newMessageStream();
-		out.println("Hello " + name);
+		out.println("Opening console " + name + " ...");
 		    
 		return out;
 	}

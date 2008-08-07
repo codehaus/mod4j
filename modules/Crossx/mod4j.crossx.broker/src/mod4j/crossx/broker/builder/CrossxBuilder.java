@@ -55,9 +55,9 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 	private static List<DslExtension> dslExtensions = null;
 
 	// TODO put code generator properties file somewhere else
-	private static final String BUSMOD_PROPERTIES = "src\\workflow\\busmod.properties";
+	private static final String BUSMOD_PROPERTIES = "src/workflow/busmod.properties";
 	// TODO put code generator oAW workflow file somewhere else
-	private static final String SRC_WORKFLOW_BUSMOD_OAW = "src\\workflow\\busmod.oaw";
+	private static final String SRC_WORKFLOW_BUSMOD_OAW = "src/workflow/busmod.oaw";
 	private static final String XML_EXTENSION = ".xml";
 	private static final String CROSSX_EXTENSION = ".crossx";
 	private static boolean initialized = false;
@@ -313,8 +313,10 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 			
 			// Get the relative applicationPath property and make it absolute
 			String applicationPath = properties.get("applicationPath");
-			String newAppPath = getProject().getLocation().toOSString() + "\\" + applicationPath;
+			String workDir = getProject().getLocation().toOSString() ;
+			String newAppPath = workDir + "/" + applicationPath;
 			properties.put("applicationPath", newAppPath );
+			properties.put("workDir", workDir);
 
 			System.err.println("applicationPath [" + newAppPath + "]");
 			// WORKS IN GENERATOR PROJECT
