@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mod4j Eclipse integration
+Bundle-SymbolicName: org.mod4j.eclipse; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.mod4j.eclipse.Activator
+Bundle-Vendor: org.mod4j
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.openarchitectureware.core.workflow,
+ org.openarchitectureware.workflow,
+ org.openarchitectureware.classic.libraries,
+ org.apache.commons.cli,
+ org.eclipse.jdt.core,
+ org.eclipse.ui.console,
+ org.mod4j.dsl_common,
+ org.mod4j.crossx.broker,
+ org.mod4j.crossx.mm
+Eclipse-LazyStart: true
+Export-Package: org.mod4j.eclipse,
+ org.mod4j.eclipse.builder,
+ org.mod4j.eclipse.crossx.views,
+ org.mod4j.eclipse.util,
+ org.mod4j.eclipse.util.xml
+Import-Package: org.eclipse.ui.actions 
