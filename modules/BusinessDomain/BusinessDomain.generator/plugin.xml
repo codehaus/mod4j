@@ -4,12 +4,15 @@
    <extension
          id="BusinessDomain.generator.crossx"
          name="Crossx info"
-         point="mod4j.crossx.broker.dsl">
+         point="org.mod4j.eclipse.dsl">
       <dsl
             dsl2crossxWorkflow="crossx/busmod2crossx.oaw"
+            dslCodegenProperties="src/workflow/busmod.properties"
+            dslCodegenWorkflow="src/workflow/busmod.oaw"
             dslFileExtension=".busmod"
             dslMetamodelPackage="BusinessDomainDsl.BusinessDomainDslPackage"
-            dslName="Business Domain DSL">
+            dslName="Business Domain DSL"
+            dslXtendModule="busmod2crossx">
       </dsl>
    </extension>
    <extension

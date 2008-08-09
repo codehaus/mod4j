@@ -33,7 +33,7 @@
 		<metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />   
 	</bean>
 	<bean id="crossx" class="oaw.type.emf.EmfMetaModel">
-		<metaModelPackage value="mod4j.crossx.CrossxPackage" />   
+		<metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
 	</bean>
 
 	<!-- Initialize the issues reporting feature of oAW
@@ -63,7 +63,7 @@
 	</component>
 
 	<!-- Is used to write the model. The model is put in the modelSlot 'model' -->
-	<component class="mod4j.crossx.broker.builder.CrossxWorkflowComponent">
+	<component class="org.mod4j.eclipse.builder.CrossxWorkflowComponent">
 		<modelSlot value="crossxModel"/>
   		<outputFile value="${xmlfile}"></outputFile>
 	</component>

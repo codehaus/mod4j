@@ -6,5 +6,6 @@ Bundle-Version: 0.9.0.qualifier
 Require-Bundle: org.mod4j.dsl_common,
  BusinessDomain.mm,
  org.junit4,
- mod4j.crossx.broker
+ org.mod4j.crossx.broker,
+ org.mod4j.crossx.mm
 Bundle-Vendor: org.mod4j

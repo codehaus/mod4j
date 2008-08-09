@@ -3,8 +3,8 @@
    Needed for crosssreference purposes.
 */
 
-import BusinessDomainDsl;
 import crossx;
+import BusinessDomainDsl;
 
 create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
     this.setModel (modelReference(busModel.name, modelFile))->

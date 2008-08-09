@@ -3,8 +3,8 @@ package org.mod4j.businessdomain.generator.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
-import mod4j.crossx.broker.repository.CrossxRepository;
 
+import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
 import org.mod4j.dslcommon.generator.helpers.StringHelpers;
 
@@ -27,7 +27,7 @@ public class CrossxHelpers {
 
     public static List<String> allBusinessClasses() {
     	List<String> result = new ArrayList<String>();
-    	List<String> tmp = CrossxRepository.findAll("BusinessClass");
+    	List<String> tmp = CrossxBroker.findAll("BusinessClass");
     	if( tmp != null ) {
     		System.err.println("CROSSX HELPER FINDALL [" + tmp.toString() + "]");
     		result.addAll(tmp);
