@@ -74,7 +74,7 @@ If you did not receive this Content directly from the Eclipse Foundation, the Co
          unpack="false"/>
 
    <plugin
-         id="org.mod4j.crossx.repository"
+         id="org.mod4j.crossx.broker"
          download-size="0"
          install-size="0"
          version="0.0.0"
