@@ -60,21 +60,28 @@ If you did not receive this Content directly from the Eclipse Foundation, the Co
          unpack="false"/>
 
    <plugin
-         id="mod4j.crossx.broker"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="mod4j.crossx.mm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.mod4j.dsl_common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.crossx.mm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.crossx.repository"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.eclipse"
          download-size="0"
          install-size="0"
          version="0.0.0"
