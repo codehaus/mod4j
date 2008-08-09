@@ -10,7 +10,7 @@
  *******************************************************************************/
 package BusinessDomainDsl.validation;
 
-import mod4j.crossx.broker.repository.CrossxRepository;
+import org.mod4j.crossx.broker.CrossxBroker;
 
 public class Crossxcheck {
 
@@ -19,7 +19,7 @@ public class Crossxcheck {
      * @return Returns true of a BusinessClass with the name path exists in any model in the workspace
      */
     public static boolean classExists(String classname){
-    	String resource = CrossxRepository.find(classname, "BusinessClass") ;
+    	String resource = CrossxBroker.find(classname, "BusinessClass") ;
     	return (resource != null);
     }
 
@@ -27,7 +27,7 @@ public class Crossxcheck {
      *   Returns the name of the resource in which the BusinessClass path is defined.
      */
     public static String definedInResource(String classname){
-    	String result = CrossxRepository.find(classname, "BusinessClass") ;
+    	String result = CrossxBroker.find(classname, "BusinessClass") ;
     	return result ;
     }
 }
