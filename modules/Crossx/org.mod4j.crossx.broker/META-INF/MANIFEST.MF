@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Repository
+Bundle-SymbolicName: org.mod4j.crossx.broker
+Bundle-Version: 1.0.0
+Export-Package: org.mod4j.crossx.broker
+Require-Bundle: org.openarchitectureware.classic.libraries,
+ org.mod4j.crossx.mm
