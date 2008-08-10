@@ -13,6 +13,7 @@
     <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
     <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
         <propertyFile value="${appPropFilePath}" />
+        <workDir value="${workDir}" />
     </component>
 
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
