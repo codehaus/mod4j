@@ -70,10 +70,12 @@ context Enumeration ERROR "Enumeration numeric values must be unique" :
       enumerationLiterals.forAll(e1 | 
          enumerationLiterals.forAll( e2 | e1 != e2 implies e1.persistedValue!= e2.persistedValue) );
 
-context Association ERROR "Many to Many associations are not supported yet" :
+context Association ERROR "Bi-directional many to many associations are not supported yet" :
     !( (sourceMultiplicity == Multiplicity::ZeroMany || sourceMultiplicity == Multiplicity::OneMany)
        && 
-       (targetMultiplicity == Multiplicity::ZeroMany || targetMultiplicity == Multiplicity::OneMany) );
+       (targetMultiplicity == Multiplicity::ZeroMany || targetMultiplicity == Multiplicity::OneMany) 
+       &&
+       (bidirectional));
 
 context EnumerationProperty ERROR "Default value [" + this.defaultValueAsString + "] is not a literal of enumeration " + type.name :
     this.hasDefault implies this.type.enumerationLiterals.exists(lit | lit.name == this.defaultValueAsString);

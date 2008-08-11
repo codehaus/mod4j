@@ -1,0 +1,32 @@
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION BusinessClass»
+«EXTENSION Association»
+TODOTODO
+«REM»
+    Adds the accessor methods at the source side of a many to many association.
+«ENDREM»
+«DEFINE many2ManyAccessorsTo FOR Association»
+    /**
+     * @return «targetRoleName» (Set<«target.name»>).
+     */
+    public Set<«target.name»> get«targetRoleName.toFirstUpper()» () {
+        return Collections.unmodifiableSet(this.«targetRoleName»);
+    }
+
+    /**
+     * Implements adding single element to a collection.
+     */
+    public void addTo«targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+        this.«this.targetRoleName».add(element);
+        validation.validate();
+    }
+    
+    /**
+     * Implements removing a single element from a collection.
+     */
+    public void removeFrom«targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+        this.«this.targetRoleName».remove(element);
+        validation.validate();
+    }
+«ENDDEFINE»

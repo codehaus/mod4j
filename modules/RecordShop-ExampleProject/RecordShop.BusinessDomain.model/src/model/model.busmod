@@ -37,6 +37,11 @@ Class Customer inherits Person [
     ]
 ]
 
+"An artist is a Person who has had a role in producing a Record"
+Class Artist inherits Person [
+	string title;
+]
+
 "A Record is a representation of a physical medium containing one or more musical compositions."
 Class Record [
 
@@ -44,7 +49,7 @@ Class Record [
     string title default "Title unknown";
     integer mediumCode default 111 ;
     decimal price ;
-    RecordType type default "CD";
+    RecordType type default CD;
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
@@ -104,3 +109,6 @@ Association orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
 
 "Many to One bidirectional: "
 Association record Record [ 0..* ] <-> [ 0..1 ] product Product ;
+
+"Many to Many unidirectional: an Artist has contributed to a Record"
+Association records Record [ 0..* ] -> [ 0..* ] contributors Artist;

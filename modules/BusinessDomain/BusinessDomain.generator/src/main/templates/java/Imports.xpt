@@ -5,6 +5,7 @@
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessClass»
+    import java.util.Collections;
     import java.util.Set;
     import java.util.HashSet;
     import org.mod4j.common.validation.MinValueValidator;

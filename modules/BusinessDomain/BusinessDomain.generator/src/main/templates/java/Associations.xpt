@@ -17,7 +17,8 @@
 		private Set<«javaClassName(target)»> «targetRoleName» = new HashSet<«javaClassName(target)»>();
         «EXPAND AssociationsOne2Many::one2ManyAccessorsTo FOR this»
     «ELSEIF isMany2Many() -»
-        /** TODO: MANY to MANY ASSOCIATIONS NOT IMPLEMENTED YET */    
+        private Set<«javaClassName(target)»> «targetRoleName» = new HashSet<«javaClassName(target)»>();
+        «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
 	«ENDIF»
 «ENDDEFINE»
 
@@ -32,7 +33,7 @@
         private «source.name» «sourceRoleName»;
         «EXPAND AssociationsOne2Many::one2ManyAccessorsFrom FOR this»
     «ELSEIF isMany2Many() -»
-        /** TODO: MANY to MANY ASSOCIATIONS NOT IMPLEMENTED YET */    
+        private Set<«javaClassName(source)»> «sourceRoleName» = new HashSet<«javaClassName(source)»>();
     «ENDIF»
 «ENDDEFINE»
 

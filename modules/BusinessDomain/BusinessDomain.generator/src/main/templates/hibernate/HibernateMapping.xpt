@@ -176,7 +176,10 @@
 «ENDDEFINE»
 
 «DEFINE many2manyMappingTo FOR Association -»
-«REM»TODO«ENDREM»
+        <set name="«this.targetRoleName»" table="«this.source.name»_«this.target.name»">
+            <key column="«this.source.name»_ID" not-null="true" />
+            <many-to-many class="«javaClassName(this.target)»" column="«this.target.name»_ID" />
+        </set>
 «ENDDEFINE»
 
 «DEFINE many2manyMappingFrom FOR Association -»

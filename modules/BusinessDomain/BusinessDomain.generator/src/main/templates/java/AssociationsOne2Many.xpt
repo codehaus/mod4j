@@ -12,7 +12,7 @@
      * @return «targetRoleName» (Set<«target.name»>) 
      */
     public Set<«javaClassName(target)»> get«targetRoleName.toFirstUpper()» () {
-        return this.«targetRoleName»;
+        return Collections.unmodifiableSet(this.«targetRoleName»);
     }
 
     /**
@@ -31,6 +31,7 @@
             element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
         }
         element.z_internalAddTo«sourceRoleName»( («javaClassName(source)»)((«javaClassName(source)»)this) );
+        validation.validate();
     «ENDIF»
     }
 
@@ -39,14 +40,15 @@
      * 
      * @param element 
      */
-    public void removeFrom«this.targetRoleName.toFirstUpper()»( «javaClassName(this.target)» element) {
+    public void removeFrom«this.targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
         if ( element == null ) {
             return;
         }
         this.«this.targetRoleName».remove(element);
-    «IF this.bidirectional»
+    «IF this.bidirectional -»
         element.z_internalRemoveFrom«this.sourceRoleName»( («javaClassName(this.source)»)((«javaClassName(this.source)»)this) );
     «ENDIF»
+        validation.validate();
     }
     
     /**
@@ -100,6 +102,7 @@
                 element.z_internalAddTo«this.targetRoleName»( («javaClassName(this.target)»)((«javaClassName(this.target)»)this) );
             }
         }
+        validation.validate();
     }
     
     /**
