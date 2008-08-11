@@ -47,15 +47,25 @@ public class EclipseUtil {
 	 * @param resource
 	 * @return
 	 */
-	static public String resource2fullpath(IResource resource) {
+	static public String resource2UriString(IResource resource) {
 		System.err.println(resource.getLocationURI().toString());
 		return resource.getLocationURI().toString();
+	}
+
+	/** Get the full local pathname corresponding to a resource.
+	 * 
+	 * @param resource
+	 * @return
+	 */
+	static public String resource2FullPathnameString(IResource resource) {
+		return resource.getLocation().toString();
 	}
 
 	
 	static public void printResource(IFile file){
 		System.err.println("resource getFullPath() [" + file.getFullPath() + "]");
-		System.err.println("resource getLocation() [" + file.getLocation() + "]");
+		System.err.println("resource getLocation().toString [" + file.getLocation().toString() + "]");
+		System.err.println("resource getLocationPortable() [" + file.getLocation().toPortableString() + "]");
 		System.err.println("resource getLocationURI() [" + file.getLocationURI() + "]");
 		System.err.println("resource getRawLocation() [" + file.getRawLocation() + "]");
 		System.err.println("resource getRawLocationURI()[" + file.getRawLocationURI()+ "]");

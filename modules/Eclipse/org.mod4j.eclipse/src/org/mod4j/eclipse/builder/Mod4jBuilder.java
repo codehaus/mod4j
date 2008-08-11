@@ -278,6 +278,11 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			try {
 				// Check whether the resource is inside a binary folder, if so skip it
 				IJavaProject jp = JavaCore.create(getProject());
+				if( jp == null ){
+					EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
+			                "] is not in a Java project [" + getProject().getName() + "]");
+					return;
+				}
 				IPath outPath = jp.getOutputLocation();
 				if( outPath.isPrefixOf(resource.getFullPath()) ){
 					return;
@@ -288,33 +293,39 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	
 			// properties files
 			IResource propertiesFile = getProject().findMember(dsl.getDslCodegenProperties());
+			if( propertiesFile == null ){
+				EclipseUtil.showWarning("Mod4j: code generation properties file ["+ dsl.getDslCodegenProperties() +
+		                "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+			}
 			
 			IPath genFile = getGeneratorPath(dsl);
 			if( genFile == null ){
 				return ;
 			}
-			String genName = genFile.toOSString();
-			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
+//			String genName = genFile.toOSString();
+			String genName = genFile.toString();
 
 	// setup the properties for the generator workflow
 
-			// Need to double all backslahes because of an error in ANTLR
-            String propertiesFilePath = propertiesFile.getRawLocation().toOSString();
-            String modelFilePath     = EclipseUtil.resource2fullpath(resource);
+            String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
+            String modelFilePath     = EclipseUtil.resource2UriString(resource);
+
+            // Need to double all backslahes because of an error in ANTLR
 			// error message: ERROR - 06 no viable alternative at character '\' on line 4
-			String propertiesFilePathFix = StringHelpers.replaceAllSubstrings(propertiesFilePath, "\\", "\\\\");
+//			String propertiesFilePathFix = StringHelpers.replaceAllSubstrings(propertiesFilePath, "\\", "\\\\");
 			Map<String, String> properties = ModelHelpers.getProperties(propertiesFilePath);
 			properties.put("modelFile", modelFilePath );
-			properties.put("appPropFilePath", propertiesFilePathFix);
+			properties.put("appPropFilePath", propertiesFilePath);
 			
 			// Get the relative applicationPath property and make it absolute
 			String applicationPath = properties.get("applicationPath");
-			String workDir = getProject().getLocation().toOSString() ;
+			String workDir = getProject().getLocation().toString() ;
 			String newAppPath = workDir + "/" + applicationPath;
 			properties.put("applicationPath", newAppPath );
 			properties.put("workDir", workDir);
 
 //			System.err.println("applicationPath [" + newAppPath + "]");
+			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
 			genWf.runWorkflow(genName, properties);
 		}
 	}
@@ -329,6 +340,11 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			try {
 				// Check whether the resource is inside a binary folder, if so skip it
 				IJavaProject jp = JavaCore.create(getProject());
+				if( jp == null ){
+					EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
+			                "] is not in a Java project [" + getProject().getName() + "]");
+					return;
+				}
 				IPath outPath = jp.getOutputLocation();
 				if( outPath.isPrefixOf(resource.getFullPath()) ){
 					return;
@@ -339,21 +355,16 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			}
 			IFile file = (IFile) resource;
 			
-			RunCrossxWorkflow wf = new RunCrossxWorkflow();
-			String modelfile = "";
-			URL modelURL =null;
-			try {
-				modelURL = file.getLocationURI().toURL();
-				modelfile = Platform.asLocalURL( modelURL).toExternalForm();
-			} catch( Exception e ){
-				System.err.println("generateCrossxSymbols Exception [" + e.getMessage() + "]");
-				e.printStackTrace();
-			}
-			String xmlfile = file.getRawLocation().toOSString() + XML_EXTENSION;
+			String modelfile = EclipseUtil.resource2UriString(resource);
+			String xmlfile = EclipseUtil.resource2FullPathnameString(file) + XML_EXTENSION;
+//			String xmlfile = file.getRawLocation().toOSString() + XML_EXTENSION;
 			String crossxfile = modelfile + CROSSX_EXTENSION;
-			
+
 			IPath wfPath = getWorkflowPath(dsl);
-			String wfName = wfPath.toOSString();
+			String wfName = wfPath.toString();
+//			String wfName = wfPath.toOSString();
+
+			RunCrossxWorkflow wf = new RunCrossxWorkflow();
     		wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
 		}
 	}

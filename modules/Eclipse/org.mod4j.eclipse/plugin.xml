@@ -34,7 +34,7 @@
             nameFilter="*"
             id="mod4j.crossx.broker.contribution1">
          <action
-               label="Add/Remove Mod4j XXX Nature"
+               label="Add/Remove Mod4j Nature"
                class="org.mod4j.eclipse.builder.ToggleMod4jNatureAction"
                menubarPath="additions"
                enablesFor="+"

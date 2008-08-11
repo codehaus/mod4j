@@ -49,7 +49,7 @@ public class CrossxWorkflowComponent extends WorkflowComponentWithModelSlot {
 		Object outputslot = wfCxt.get(getOutputFile());
 		
 		
-		org.mod4j.crossx.mm.crossx.ModelInfo modelInfo = (org.mod4j.crossx.mm.crossx.ModelInfo )model;
+		ModelInfo modelInfo = (ModelInfo )model;
 
 		System.err.println("Found slot [" + modelInfo .getModel().getName()+ "]");
 		Document doc = createDocument(modelInfo);
@@ -60,7 +60,7 @@ public class CrossxWorkflowComponent extends WorkflowComponentWithModelSlot {
 		
 	}
 
-	private Document createDocument(org.mod4j.crossx.mm.crossx.ModelInfo modelInfo){
+	private Document createDocument(ModelInfo modelInfo){
 		Document result = new Document();
 		Element root = new Element("ModelInfo");
 		result.setRootElement(root);
