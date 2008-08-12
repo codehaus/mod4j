@@ -9,3 +9,4 @@ Require-Bundle: org.mod4j.dsl_common,
  org.mod4j.crossx.broker,
  org.mod4j.crossx.mm
 Bundle-Vendor: org.mod4j
+Export-Package: org.mod4j.businessdomain.generator.helpers
