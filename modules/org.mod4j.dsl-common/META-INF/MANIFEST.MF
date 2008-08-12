@@ -10,4 +10,6 @@ Export-Package: org.mod4j.dslcommon.generator.helpers,
 Require-Bundle: org.openarchitectureware.core.workflow,
  org.openarchitectureware.workflow,
  org.openarchitectureware.classic.libraries,
- org.apache.commons.cli
+ org.apache.commons.cli,
+ org.mod4j.crossx.broker,
+ org.mod4j.crossx.mm

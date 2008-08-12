@@ -40,35 +40,7 @@ public class RunCrossxWorkflow {
 		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
 	}
 
-	/**
-	 * @param args
-	 */
-	public void runWorkflowNested(String wfFile, String nested, String modelfile, String xmlfile, String crossxfile) {
-		System.err.println("NESTED Run ["+ wfFile + "] on:" );
-		System.err.println("    modelfile  [" + modelfile + "]");
-		System.err.println("    crossxfile [" + crossxfile + "]");
-
-		Map<String, Object> slotContents = new HashMap<String, Object>();
-		Map<String, String> properties = new HashMap<String, String>();
-
-		properties.put("modelfile", modelfile);
-		properties.put("xmlfile"  , xmlfile );
-		properties.put("crossxfile"  , crossxfile);
-		properties.put("busmodfile"  , nested);
-
-		MyWorkflowRunner runner = new MyWorkflowRunner();
-		runner.run(wfFile ,
-				new NullProgressMonitor(), properties, slotContents);
-		System.err.println("Workflow hasErros: [" + runner.issues.hasErrors() + "]");
-		for(Issue issue : runner.issues.getErrors()){
-			System.err.println("WOrkflow ERROR [" + issue.getMessage() + "]");
-		}
-		for(Issue issue : runner.issues.getWarnings()){
-			System.err.println("WOrkflow WARNING [" + issue.getMessage() + "]");
-		}
-		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
-	}
-	public void runWorkflow(String wfFile, String modelfile, String crossxfile,
+	public void runWorkflowNOTUSED(String wfFile, String modelfile, String crossxfile,
             String dslXtendModule, String metaModelPackage) {
 		System.err.println("Run ["+ wfFile + "] on:" );
 		System.err.println("    modelfile  [" + modelfile + "]");
