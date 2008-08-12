@@ -10,14 +10,9 @@
  *******************************************************************************/
 package org.mod4j.dslcommon.generator.helpers;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import org.openarchitectureware.workflow.WorkflowContext;
 import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent;
-import org.openarchitectureware.workflow.lib.WorkflowComponentWithModelSlot;
 import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 
 /* 

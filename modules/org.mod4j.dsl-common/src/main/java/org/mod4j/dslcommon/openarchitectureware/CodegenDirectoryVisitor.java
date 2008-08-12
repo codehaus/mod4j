@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 import org.mod4j.dslcommon.generator.helpers.StringHelpers;
-import org.mod4j.dslcommon.io.DirectoryWalker;
 import org.mod4j.dslcommon.io.IDirectoryVisitor;
 
 /**
@@ -13,25 +12,6 @@ import org.mod4j.dslcommon.io.IDirectoryVisitor;
  */
 public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		DslExtension dsl = new DslExtension("BusinessDomainDsl", 
-									"BusinessDomainDsl", 
-									"BusinessDomainDsl.BusinessDomainDslPackage", 
-									".busmod", 
-									"crossx/busmod2crossx.oaw", 
-									"src/workflow/busmod.oaw", 
-									"src/workflow/busmod.properties");
-		
-		String dir = "D:/mod4j/repository/modules/RecordShop-ExampleProject/RecordShop.BusinessDomain.model";
-		DirectoryWalker walker = new DirectoryWalker();
-		CodegenDirectoryVisitor vis = new CodegenDirectoryVisitor(dsl, dir);
-		walker.walk(dir, vis);
-	}
-
 	private DslExtension dsl = null;
 	
 	public CodegenDirectoryVisitor(DslExtension dsl, String theWorkDir){

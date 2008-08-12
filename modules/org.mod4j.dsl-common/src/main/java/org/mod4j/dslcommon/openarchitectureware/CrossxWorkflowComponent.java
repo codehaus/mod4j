@@ -45,14 +45,13 @@ public class CrossxWorkflowComponent extends WorkflowComponentWithModelSlot {
 	public void invoke(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
 
 		Object model = wfCxt.get(getModelSlot());
-		Object outputslot = wfCxt.get(getOutputFile());
+//		Object outputslot = wfCxt.get(getOutputFile());
 		
 		
 		ModelInfo modelInfo = (ModelInfo )model;
 
 		System.err.println("Found slot [" + modelInfo .getModel().getName()+ "]");
 		Document doc = createDocument(modelInfo);
-//		writeDocument(doc, (String) outputslot, false, "    ");
 		writeDocument(doc, outputFile, false, "    ");
 		CrossxBroker.addInfo(doc);
 		

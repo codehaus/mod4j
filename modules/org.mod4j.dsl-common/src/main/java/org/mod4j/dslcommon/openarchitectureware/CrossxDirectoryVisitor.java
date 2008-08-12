@@ -1,9 +1,9 @@
 package org.mod4j.dslcommon.openarchitectureware;
 
 import java.io.File;
+import java.net.URL;
 
 import org.mod4j.dslcommon.generator.helpers.StringHelpers;
-import org.mod4j.dslcommon.io.DirectoryWalker;
 import org.mod4j.dslcommon.io.IDirectoryVisitor;
 
 /**
@@ -15,8 +15,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 	
 	public CrossxDirectoryVisitor(DslExtension dsl, String theWorkDir){
 		this.dsl = dsl;
-		workDir = theWorkDir;
-		setupDsl();
+		initialize();
 	}
 
 	/* (non-Javadoc)
@@ -44,52 +43,34 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 		return null;
 	}
 	
-	/**
-	 * @param args
+	private String oawWorkflow = null;
+	
+	/** Initialize stuff for running the visitor.
+	 * 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		DslExtension dsl = new DslExtension("BusinessDomainDsl", 
-									"BusinessDomainDsl", 
-									"BusinessDomainDsl.BusinessDomainDslPackage", 
-									".busmod", 
-									"crossx/busmod2crossx.oaw", 
-									"src/workflow/busmod.oaw", 
-									"src/workflow/busmod.properties");
-		
-		String dir = "D:/mod4j/repository/modules/RecordShop-ExampleProject/RecordShop.BusinessDomain.model";
-		DirectoryWalker walker = new DirectoryWalker();
-		CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, dir);
-		walker.walk(dir, vis	);
-		CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, dir);
-		walker.walk(dir, codegen);
+	private void initialize() {
+		oawWorkflow = dsl.getDsl2crossxWorkflow();
+		ClassLoader cls = CrossxDirectoryVisitor.class.getClassLoader();
+		URL url = cls.getResource(oawWorkflow);
+		if( url == null ){
+			System.err.println("oaW file [" + oawWorkflow + "] not found");
+			System.exit(1);
+		}
+		oawWorkflow = url.toString();
 	}
-	
-	private String workDir = "";
-	private String oawName = null;
-	
-	private void setupDsl() {
-		oawName = workDir + dsl.getDsl2crossxWorkflow();
-		//TODO oaw Workflow name as parameter
-		oawName = "D:/mod4j/repository/modules/BusinessDomain/BusinessDomain.generator/src/main/templates/crossx/busmod2crossx2.oaw";
-	}
-	
-
 	// TODO extensions import from other files
-	private static final String XML_EXTENSION = ".xml";
 	private static final String CROSSX_EXTENSION = ".crossx";
 
 	private void generateCrossxSymbols(File file) {
 			
 		String modelfile = file.getAbsolutePath();
 		modelfile = StringHelpers.replaceAllSubstrings(modelfile, "\\", "/");
-		String xmlfile = modelfile + XML_EXTENSION;
+		String crossxfile = modelfile.substring(0, modelfile.lastIndexOf(dsl.getDslFileExtension())) +
+        CROSSX_EXTENSION;
 		modelfile = "file:/"+ modelfile;
-		String crossxfile = modelfile + CROSSX_EXTENSION;
-		
 
 		RunCrossxWorkflow wf = new RunCrossxWorkflow();
-    	wf.runWorkflow(oawName, modelfile, xmlfile, crossxfile);
+    	wf.runWorkflow(oawWorkflow, modelfile, crossxfile);
 	}
 	}
 	
