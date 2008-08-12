@@ -11,7 +11,7 @@
 package org.mod4j.eclipse.builder;
 
 import java.io.PrintStream;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +24,8 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
@@ -35,10 +37,12 @@ import org.jdom.Document;
 
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
-import org.mod4j.dslcommon.generator.helpers.StringHelpers;
+import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
+import org.mod4j.dslcommon.openarchitectureware.RunGeneratorWorkflow;
 import org.mod4j.dslcommon.xml.XmlUtil;
 
+import org.mod4j.eclipse.crossx.views.CrossxView;
 import org.mod4j.eclipse.util.EclipseUtil;
 
 /** This class contains two builders, one to build the crossx symbols from a DSL model,
@@ -53,13 +57,14 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	
 	private static List<DslExtension> dslExtensions = null;
 
+	private static final String DSL_EXTENSION_ID = Mod4jBuilder.bundleName + ".dsl";
 	private static final String XML_EXTENSION = ".xml";
 	private static final String CROSSX_EXTENSION = ".crossx";
 	private static boolean initialized = false;
 	private static final String SYM_EXTENSION = "busmod.xml";
 	public  static String bundleName = "org.mod4j.eclipse";
 	
-	class CrossxDeltaVisitor implements IResourceDeltaVisitor {
+	class CrossxDeltaVisitor1 implements IResourceDeltaVisitor {
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -90,7 +95,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	 * @author jwa11799
 	 *
 	 */
-	class CrossxGenerateSymbolDeltaVisitor implements IResourceDeltaVisitor {
+	class CrossxGenerateSymbolDeltaVisitor1 implements IResourceDeltaVisitor {
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -116,7 +121,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	class CrossxCodeGeneratorVisitor implements IResourceVisitor {
+	class CrossxCodeGeneratorVisitor1 implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			generateCode(resource);
 			//return true to continue visiting children.
@@ -129,7 +134,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	 * @author Jos Warmer
 	 *
 	 */
-	class CrossxSymbolGeneratorVisitor implements IResourceVisitor {
+	class CrossxSymbolGeneratorVisitor1 implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			generateCrossxSymbols(resource);
 			//return true to continue visiting children.
@@ -137,7 +142,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	class CrossxFindSymbolsResourceVisitor implements IResourceVisitor {
+	class CrossxFindSymbolsResourceVisitor1 implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			checkSymbols(resource);
 			//return true to continue visiting children.
@@ -195,6 +200,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 				incrementalBuild(delta, monitor);
 			}
 		}
+//		CrossxView.myrefresh();
 		return null;
 	}
 
@@ -202,8 +208,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			throws CoreException {
 		System.err.println("Mod4jBuilder: full build");
 		try {
-			getProject().accept(new CrossxSymbolGeneratorVisitor());
-			getProject().accept(new CrossxCodeGeneratorVisitor());
+			getProject().accept(new CrossxSymbolGeneratorVisitor1());
+			getProject().accept(new CrossxCodeGeneratorVisitor1());
 		} catch (CoreException e) {
 			System.err.println("Mod4jBuilder ERROR fullBuild [" + e.getMessage() + "]");
 			// TODO: handle exception
@@ -214,8 +220,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			IProgressMonitor monitor) throws CoreException {
 		// the visitor does the work.
 		System.err.println("Mod4jBuilder: incremental build");
-		delta.accept(new CrossxGenerateSymbolDeltaVisitor());
-		delta.accept(new CrossxDeltaVisitor());
+		delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
+		delta.accept(new CrossxDeltaVisitor1());
 	}
 	
 	protected void startupOnInitialize() {
@@ -232,7 +238,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	
     public void start() {
 		System.err.println("=========================>>>>>      START");
-		dslExtensions = DslExtension.getExtensions();
+		dslExtensions = Mod4jBuilder.getExtensions();
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		for (int i = 0; i < projects.length; i++) {
 			IProject project = projects[i];	
@@ -257,7 +263,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			e1.printStackTrace();
 		} 
 		// Run the visitor over the project to collect all Crossx information
-		CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
+		CrossxFindSymbolsResourceVisitor1 visitor = new CrossxFindSymbolsResourceVisitor1();
 		try {
 			project.accept(visitor);
 		} catch (Exception e) {
@@ -417,4 +423,34 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		return null;
 	}
 	
+	public static List<DslExtension> getExtensions() {
+		List<DslExtension> result = new ArrayList<DslExtension>();
+		
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] extensions = reg.getConfigurationElementsFor(DSL_EXTENSION_ID);
+		for (int i = 0; i < extensions.length; i++) {
+			IConfigurationElement element = extensions[i];
+			String name = element.getAttribute("dslName");
+			String metamodelPackage = element.getAttribute("dslMetamodelPackage");
+			String fileExtension = element.getAttribute("dslFileExtension");
+			String crossxWorkflow = element.getAttribute("dsl2crossxWorkflow");
+			String contributor= element.getContributor().getName();
+			
+			String codegenWorkflow = element.getAttribute("dslCodegenWorkflow");
+			String codegenProperties = element.getAttribute("dslCodegenProperties");
+
+			System.err.println("DSL [" + name + "] CONTRIBUTED BY [" + contributor + "]" );
+
+			DslExtension dsl = new DslExtension(contributor, name, metamodelPackage, 
+					                            fileExtension, crossxWorkflow,
+					                            codegenWorkflow, codegenProperties);
+			if( dsl.validate() ){
+				result.add( dsl );
+			} else {
+				EclipseUtil.showError("crossx extension point is invalid");
+			}
+		}
+		return result;
+	}
+
 }

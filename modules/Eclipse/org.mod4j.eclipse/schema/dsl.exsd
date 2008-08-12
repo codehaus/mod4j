@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="mod4j.crossx.broker">
+<schema targetNamespace="org.mod4j.eclipse">
 <annotation>
       <appInfo>
-         <meta.schema plugin="mod4j.crossx.broker" id="dsl" name="Dsl Definition"/>
+         <meta.schema plugin="org.mod4j.eclipse" id="dsl" name="Dsl Definition"/>
       </appInfo>
       <documentation>
          Define a DSL that participates in xCross.
