@@ -302,7 +302,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			if( genFile == null ){
 				return ;
 			}
-//			String genName = genFile.toOSString();
 			String genName = genFile.toString();
 
 	// setup the properties for the generator workflow
