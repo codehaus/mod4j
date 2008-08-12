@@ -30,137 +30,137 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class EnumerationLiteralImpl extends ModelElementImpl implements EnumerationLiteral {
     /**
-     * The default value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPersistedValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPersistedValue()
+	 * @generated
+	 * @ordered
+	 */
     protected static final int PERSISTED_VALUE_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPersistedValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPersistedValue()
+	 * @generated
+	 * @ordered
+	 */
     protected int persistedValue = PERSISTED_VALUE_EDEFAULT;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected EnumerationLiteralImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.ENUMERATION_LITERAL;
-    }
+		return BusinessDomainDslPackage.Literals.ENUMERATION_LITERAL;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public int getPersistedValue() {
-        return persistedValue;
-    }
+		return persistedValue;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setPersistedValue(int newPersistedValue) {
-        int oldPersistedValue = persistedValue;
-        persistedValue = newPersistedValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE, oldPersistedValue, persistedValue));
-    }
+		int oldPersistedValue = persistedValue;
+		persistedValue = newPersistedValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE, oldPersistedValue, persistedValue));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                return new Integer(getPersistedValue());
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				return new Integer(getPersistedValue());
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                setPersistedValue(((Integer)newValue).intValue());
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				setPersistedValue(((Integer)newValue).intValue());
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                setPersistedValue(PERSISTED_VALUE_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				setPersistedValue(PERSISTED_VALUE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                return persistedValue != PERSISTED_VALUE_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				return persistedValue != PERSISTED_VALUE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (persistedValue: ");
-        result.append(persistedValue);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (persistedValue: ");
+		result.append(persistedValue);
+		result.append(')');
+		return result.toString();
+	}
 
 } //EnumerationLiteralImpl

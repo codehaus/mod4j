@@ -45,7 +45,7 @@
         «FOREACH properties.dataType.toSet() AS dataType»
             «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType)»
         «ENDFOREACH»
-        «FOREACH businessRules AS br»
+        «FOREACH businessRules.typeSelect(BusinessRule) AS br»
             import «getBusinessRulesPackage()».«javaClassName(br)»;
         «ENDFOREACH»
 		

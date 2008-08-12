@@ -17,5 +17,5 @@ package BusinessDomainDsl;
  * @model
  * @generated
  */
-public interface BusinessRule extends ModelElement {
+public interface BusinessRule extends AbstractBusinessRule {
 } // BusinessRule

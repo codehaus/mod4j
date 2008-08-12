@@ -1,6 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION BusinessClass»
+«EXTENSION BusinessRule»
 «EXTENSION Association»
 «EXTENSION generatorutil»
 «EXTENSION ProjectProperties»
@@ -35,29 +36,23 @@
 «DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»
     <class name="«javaClassName(this)»"
            table="«javaClassName(this)»_TABLE"
-    «IF hasSubclasses()»
-           discriminator-value="«javaClassName(this)»"
-    «ENDIF»
            optimistic-lock="version">
         <cache usage="read-write" />
         <id name="id" column="id" type="java.lang.Long">
             <generator class="native" />
         </id>
-    «IF hasSubclasses() -»
-        <discriminator column="DISCRIMINATOR" type="string" />
-    «ENDIF -»
         <version name="version" unsaved-value="negative" />
         «EXPAND featureMappings FOR this -»
     </class>
 «ENDDEFINE»
 
 «DEFINE subclassMapping FOR BusinessDomainDsl::BusinessClass -»
-    <subclass
+    <union-subclass
         name="«javaClassName(this)»"
-        extends="«javaClassName(this.superclass)»"
-        discriminator-value="«javaClassName(this)»">
+        table="«javaClassName(this)»_TABLE"
+        extends="«javaClassName(this.superclass)»">
         «EXPAND featureMappings FOR this -»
-    </subclass>
+    </union-subclass>
 «ENDDEFINE»
 
 «DEFINE featureMappings FOR BusinessDomainDsl::BusinessClass»
@@ -67,11 +62,24 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::Property -»
-        <property name="«this.name»" />
+        <property name="«this.name»" 
+        «IF this.uniqueRule() != null -»
+            unique-key="«uniqueRule().name»"
+        «ENDIF -»
+        «IF !this.nullable»
+            not-null="true"
+        «ENDIF -»
+        />
 «ENDDEFINE»
 
 «DEFINE mapping FOR EnumerationProperty -»
-        <property name="«this.name»">
+        <property name="«this.name»"        
+        «IF this.uniqueRule() != null -»
+            unique-key="«uniqueRule().name»"
+        «ENDIF -»
+        «IF !this.nullable»
+            not-null="true"
+        «ENDIF -»>
             <type name="«getDataRootPackage()».GenericEnumUserType">
                 <param name="enumClass">«getDomainRootPackage()».«this.type.name»</param>
             </type>
@@ -79,7 +87,13 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR DateTimeProperty -»
-        <property name="«this.name»" 
+        <property name="«this.name»"      
+        «IF this.uniqueRule() != null -»
+            unique-key="«uniqueRule().name»"
+        «ENDIF -»
+        «IF !this.nullable»
+            not-null="true"
+        «ENDIF -»
               type="org.joda.time.contrib.hibernate.PersistentDateTime" />
 «ENDDEFINE»
 

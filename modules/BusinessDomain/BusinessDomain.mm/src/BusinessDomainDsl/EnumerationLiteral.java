@@ -25,29 +25,29 @@ package BusinessDomainDsl;
  */
 public interface EnumerationLiteral extends ModelElement {
     /**
-     * Returns the value of the '<em><b>Persisted Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Persisted Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Persisted Value</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Persisted Value</em>' attribute.
-     * @see #setPersistedValue(int)
-     * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumerationLiteral_PersistedValue()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Persisted Value</em>' attribute.
+	 * @see #setPersistedValue(int)
+	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumerationLiteral_PersistedValue()
+	 * @model
+	 * @generated
+	 */
     int getPersistedValue();
 
     /**
-     * Sets the value of the '{@link BusinessDomainDsl.EnumerationLiteral#getPersistedValue <em>Persisted Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link BusinessDomainDsl.EnumerationLiteral#getPersistedValue <em>Persisted Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Persisted Value</em>' attribute.
-     * @see #getPersistedValue()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Persisted Value</em>' attribute.
+	 * @see #getPersistedValue()
+	 * @generated
+	 */
     void setPersistedValue(int value);
 
 } // EnumerationLiteral

@@ -34,7 +34,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 	@Test
 	public void testAddContributors() {
 		assertEquals(0, countRowsInTable("Record_TABLE"));
-		assertEquals(0, countRowsInTable("Person_TABLE"));
+		assertEquals(0, countRowsInTable("Artist_TABLE"));
 		assertEquals(0, countRowsInTable("Record_Artist"));
 		Record record = new Record("Abbey Road", 25.50F);
 		Artist john = new Artist("John", "Lennon",
@@ -49,7 +49,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 		flush();
 		clear();
 		assertEquals(1, countRowsInTable("Record_TABLE"));
-		assertEquals(2, countRowsInTable("Person_TABLE"));
+		assertEquals(2, countRowsInTable("Artist_TABLE"));
 		assertEquals(2, countRowsInTable("Record_Artist"));
 
 		Record saved = recordDao.retrieve(record.getId());

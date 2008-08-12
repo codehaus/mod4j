@@ -79,3 +79,16 @@ context Association ERROR "Bi-directional many to many associations are not supp
 
 context EnumerationProperty ERROR "Default value [" + this.defaultValueAsString + "] is not a literal of enumeration " + type.name :
     this.hasDefault implies this.type.enumerationLiterals.exists(lit | lit.name == this.defaultValueAsString);
+
+context BusinessRule ERROR "Name of BusinessRule [" + this.name + "] must be unique" :
+    ((BusinessDomainDsl::BusinessClass)this.eContainer).businessRules.forAll(e|
+      e != this implies e.name != this.name)
+	;
+
+context UniqueRule ERROR "All properties of a unique rule must belong to the containing class" :
+    this.properties.forAll( p |  ((BusinessDomainDsl::BusinessClass)this.eContainer).properties.contains(p) );
+
+context UniqueRule ERROR "Any property can be part of just one unique rule" :
+    let constrainedProperties = ((BusinessDomainDsl::BusinessClass)this.eContainer).businessRules.typeSelect(UniqueRule).properties :
+    constrainedProperties.size == constrainedProperties.toSet().size;
+ 

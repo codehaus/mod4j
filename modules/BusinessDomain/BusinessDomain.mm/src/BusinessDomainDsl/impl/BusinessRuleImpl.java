@@ -20,24 +20,24 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class BusinessRuleImpl extends ModelElementImpl implements BusinessRule {
+public class BusinessRuleImpl extends AbstractBusinessRuleImpl implements BusinessRule {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected BusinessRuleImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.BUSINESS_RULE;
-    }
+		return BusinessDomainDslPackage.Literals.BUSINESS_RULE;
+	}
 
 } //BusinessRuleImpl

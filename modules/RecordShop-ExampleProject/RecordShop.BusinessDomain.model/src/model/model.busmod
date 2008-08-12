@@ -18,6 +18,14 @@ Class Person [
     integer numberOfEars default 0 min 0 max 4;
     "Gender"    
     Sexe sexe nullable;   
+    
+    Rules [
+        "The combination of first- and last name of a person must be unique"
+        unique fullName [
+            firstName
+            lastName
+        ];
+    ]
 ]
 
 "A Customer represents a Person who orders from the RecordShop."
@@ -93,6 +101,7 @@ Enumeration Sexe [
 ]
 
 Enumeration RecordType [
+
     LP = 2;
     CD = 3;
     DVD = 4;

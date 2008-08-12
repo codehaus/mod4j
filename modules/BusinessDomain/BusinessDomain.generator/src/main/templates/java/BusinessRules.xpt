@@ -8,7 +8,7 @@
 
 «REM»Generation of Businessrules classes for this BusinessClass«ENDREM»
 «DEFINE BusinessRulesImplBases FOR BusinessClass»
-    «FOREACH businessRules AS br»
+    «FOREACH businessRules.typeSelect(BusinessRule) AS br»
         «EXPAND BusinessRules::BusinessRuleImplBase (this) FOR br»
     «ENDFOREACH»
 «ENDDEFINE»
@@ -51,7 +51,7 @@
 «ENDDEFINE»
 
 «DEFINE BusinessRulesExtentionPoints FOR BusinessClass»
-  «FOREACH businessRules AS br»
+  «FOREACH businessRules.typeSelect(BusinessRule) AS br»
         «EXPAND BusinessRuleExtensionPoint FOR br»
   «ENDFOREACH»
 «ENDDEFINE»
@@ -90,7 +90,7 @@
 
 «DEFINE addBusinessRulesValidators FOR BusinessClass»
     «EXPAND addPropertyValidator (this) FOREACH properties -»
-    «FOREACH businessRules AS br -»
+    «FOREACH businessRules.typeSelect(BusinessRule) AS br -»
         validation.addValidator(new «br.name»());
     «ENDFOREACH» 
 «ENDDEFINE»

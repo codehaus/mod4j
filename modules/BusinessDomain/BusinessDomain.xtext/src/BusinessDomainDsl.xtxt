@@ -38,7 +38,7 @@ BusinessClass:
     ("inherits" superclass=[BusinessClass])?
     "["
         (properties += Property)*
-        ("Rules" "[" (businessRules += BusinessRule)* "]")?
+        ("Rules" "[" (businessRules += AbstractBusinessRule)* "]")?
     "]"
      ;
 
@@ -52,10 +52,21 @@ EnumerationLiteral:
     name=ID ("=" persistedValue=INT)? ";"
     ;
 
+AbstractBusinessRule:
+	BusinessRule | UniqueRule
+	;
+	
 BusinessRule:
-	(description=STRING)?
+    (description=STRING)?
     name=ID ";"
     ;
+
+UniqueRule:
+    (description=STRING)?
+	"unique" name=ID "["
+	   (properties += [Property])+ 
+	"]" ";"
+	;
 
 Enum InheritanceModifier:
     ABSTRACT="abstract" | FINAL="final"

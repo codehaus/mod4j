@@ -58,7 +58,7 @@
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//EnumerationLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//EnumerationLiteral/persistedValue"/>
     </genClasses>
-    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessRule"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//AbstractBusinessRule"/>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//BoolProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//BoolProperty/defaultValue"/>
     </genClasses>
@@ -107,5 +107,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//AbstractBusinessClass/associationsFrom"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessClassReference"/>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//UniqueRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//UniqueRule/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="BusinessDomainDsl.ecore#//BusinessRule"/>
   </genPackages>
 </genmodel:GenModel>

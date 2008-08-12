@@ -10,3 +10,6 @@ String implBaseClassName(BusinessRule br) :
  
 String getBusinessRulesPackage() :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessRuleHelpers.getBusinessRulesPackage();
+ 
+UniqueRule uniqueRule (Property property) :
+    ((BusinessClass)property.eContainer).businessRules.typeSelect(UniqueRule).select(e|e.properties.contains(property)).first();
