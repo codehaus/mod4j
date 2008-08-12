@@ -14,8 +14,7 @@
         This workflow taken a BusinessDomainDsl model and extracts the Crossx model from it.
         Arguments / properties expected:
           - modelfile : the file containing the BusinessDomainDsl model
-          - xmifile   : the file to which the XMI Crossx will be written
-          - crossxmodelfile : the file to which the crossx model will be written
+          - crossxfile : the file to which the crossx model will be written
     -->
 	
 	<property name="nsUriPrefix" value="appelmoes"/>
@@ -63,9 +62,9 @@
 	</component>
 
 	<!-- Is used to write the model. The model is put in the modelSlot 'model' -->
-	<component class="org.mod4j.eclipse.builder.CrossxWorkflowComponent">
+	<component class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
 		<modelSlot value="crossxModel"/>
-  		<outputFile value="${xmlfile}"></outputFile>
+  		<outputFile value="${crossxfile}"></outputFile>
 	</component>
 
 	<!-- last but not least, we write the Ecore model file. We specify the workflow
