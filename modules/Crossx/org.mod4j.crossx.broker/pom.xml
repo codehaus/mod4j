@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.mod4j</groupId>
+        <artifactId>mod4j</artifactId>
+        <version>0.10-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.mod4j.crossx</groupId>
+    <artifactId>mod4j-crossx-broker</artifactId>
+    <version>0.10-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <description>This Eclipse plug-in project contains the Mod4j Crossx Broker.</description>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openarchitectureware</groupId>
+            <artifactId>oaw-classic-libraries</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
