@@ -66,7 +66,7 @@ public class DslExtension {
 		return result;
 	}
 	
-	private boolean validate(){
+	public boolean validate(){
 		if( getDslName() == null ) return false;
 		if( getDslName().length() == 0 ) return false;
 		if( getDsl2crossxWorkflow() == null ) return false;
