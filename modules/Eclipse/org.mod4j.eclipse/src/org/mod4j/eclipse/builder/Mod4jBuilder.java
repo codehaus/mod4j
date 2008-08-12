@@ -57,12 +57,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	
 	private static List<DslExtension> dslExtensions = null;
 
-	private static final String DSL_EXTENSION_ID = Mod4jBuilder.bundleName + ".dsl";
-	private static final String XML_EXTENSION = ".xml";
+	public  static final String bundleName = "org.mod4j.eclipse";
 	private static final String CROSSX_EXTENSION = ".crossx";
 	private static boolean initialized = false;
-	private static final String SYM_EXTENSION = "busmod.xml";
-	public  static String bundleName = "org.mod4j.eclipse";
+	private static final String DSL_EXTENSION_ID = Mod4jBuilder.bundleName + ".dsl";
 	
 	class CrossxDeltaVisitor1 implements IResourceDeltaVisitor {
 		/*
@@ -151,7 +149,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	}
 
 	private void checkSymbols(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(SYM_EXTENSION)) {
+		if (resource instanceof IFile && resource.getName().endsWith(CROSSX_EXTENSION)) {
 			try {
 				// Check whether the resource is inside a binary folder, if so skip it
 				IJavaProject jp = JavaCore.create(getProject());
@@ -200,7 +198,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 				incrementalBuild(delta, monitor);
 			}
 		}
-//		CrossxView.myrefresh();
+		CrossxView.myrefresh();
 		return null;
 	}
 
@@ -361,16 +359,17 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			IFile file = (IFile) resource;
 			
 			String modelfile = EclipseUtil.resource2UriString(resource);
-			String xmlfile = EclipseUtil.resource2FullPathnameString(file) + XML_EXTENSION;
+			String tmp = EclipseUtil.resource2FullPathnameString(file) ;
 //			String xmlfile = file.getRawLocation().toOSString() + XML_EXTENSION;
-			String crossxfile = modelfile + CROSSX_EXTENSION;
+			String crossxfile = tmp.substring(0, tmp.lastIndexOf(dsl.getDslFileExtension())) +
+	        CROSSX_EXTENSION;
 
 			IPath wfPath = getWorkflowPath(dsl);
 			String wfName = wfPath.toString();
-//			String wfName = wfPath.toOSString();
 
 			RunCrossxWorkflow wf = new RunCrossxWorkflow();
-    		wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
+    		wf.runWorkflow(wfName, modelfile, crossxfile);
+//    		wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
 		}
 	}
 
@@ -427,6 +426,11 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		List<DslExtension> result = new ArrayList<DslExtension>();
 		
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
+//		IExtensionPoint[] allextensions = reg.getExtensionPoints();
+//		for (int i = 0; i < allextensions.length; i++) {
+//			IExtensionPoint p = allextensions[i];
+//			System.err.println("Extension: "+ p.getUniqueIdentifier());
+//		}
 		IConfigurationElement[] extensions = reg.getConfigurationElementsFor(DSL_EXTENSION_ID);
 		for (int i = 0; i < extensions.length; i++) {
 			IConfigurationElement element = extensions[i];
@@ -447,7 +451,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			if( dsl.validate() ){
 				result.add( dsl );
 			} else {
-				EclipseUtil.showError("crossx extension point is invalid");
+				EclipseUtil.showError("crossx extension point [is invalid");
 			}
 		}
 		return result;
