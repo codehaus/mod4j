@@ -1,0 +1,50 @@
+import BusinessDomainDsl;
+
+extension org::mod4j::businessdomain::xtext::Extensions;
+/*
+ * This check file is used by the parser
+ * and by the editor. Add your constraints here!
+ */
+
+context BusinessDomainModel ERROR "Write your constraint message here...!" :
+   true;
+
+context BusinessClassReference ERROR "Write your constraint message here...!" :
+   true;
+
+context Association ERROR "Write your constraint message here...!" :
+   true;
+
+context BusinessClass ERROR "Write your constraint message here...!" :
+   true;
+
+context Enumeration ERROR "Write your constraint message here...!" :
+   true;
+
+context EnumerationLiteral ERROR "Write your constraint message here...!" :
+   true;
+
+context BusinessRule ERROR "Write your constraint message here...!" :
+   true;
+
+context Property ERROR "Write your constraint message here...!" :
+   true;
+
+context BoolProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context StringProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context DateTimeProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context IntegerProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context DecimalProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context EnumerationProperty ERROR "Write your constraint message here...!" :
+   true;
+
