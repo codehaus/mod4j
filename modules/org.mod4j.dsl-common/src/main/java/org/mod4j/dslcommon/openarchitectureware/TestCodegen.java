@@ -25,8 +25,8 @@ public class TestCodegen {
 		DirectoryWalker walker = new DirectoryWalker();
 		CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);
 		walker.walk(projectDir, vis	);
-//		CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir);
-//		walker.walk(projectDir, codegen);
+		CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir);
+		walker.walk(projectDir, codegen);
 	}
 
 }
