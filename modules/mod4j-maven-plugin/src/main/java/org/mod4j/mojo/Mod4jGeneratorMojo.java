@@ -50,12 +50,16 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     }
 
     /**
-     * Moethod for processing the DSL model. The following steps will be processed:<br/> 1) Collect all Mod4j model files within the model project. <br/> 2)
-     * Extract reference information the model files (CrossX Broker). <br/> 3) Run the internal oAW workflow file, which
-     * checks consistency of the models and generate artifacts.
+     * Method for processing DSL model files. The following steps will be processed:<br/> 1) Walk through all Mod4j
+     * model files for the given <b>DslExtension</b> within the model project and extract reference information (CrossX
+     * Broker). <br/> 2) Run the internal oAW workflow file, which checks consistency of the models and generate code
+     * and artifacts.
+     * 
+     * @param projectDir
+     * @param DslExterndion
      */
-    public void processDslModel(String projectDir, DslExtension dsl) {
-        
+    public void processDslModel(final String projectDir, final DslExtension dsl) {
+
         DirectoryWalker walker = new DirectoryWalker();
         CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);
         walker.walk(projectDir, vis);
