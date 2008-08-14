@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class AbstractBusinessRuleImpl extends ModelElementImpl implements AbstractBusinessRule {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected AbstractBusinessRuleImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return BusinessDomainDslPackage.Literals.ABSTRACT_BUSINESS_RULE;
-	}
+        return BusinessDomainDslPackage.Literals.ABSTRACT_BUSINESS_RULE;
+    }
 
 } //AbstractBusinessRuleImpl

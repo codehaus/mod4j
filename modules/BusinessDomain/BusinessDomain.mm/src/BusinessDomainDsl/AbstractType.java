@@ -26,19 +26,19 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AbstractType extends ModelElement {
     /**
-	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.Property}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * The list contents are of type {@link BusinessDomainDsl.Property}.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' containment reference list.
-	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getAbstractType_Properties()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Properties</em>' containment reference list.
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAbstractType_Properties()
+     * @model containment="true"
+     * @generated
+     */
     EList<Property> getProperties();
 
 } // AbstractType
