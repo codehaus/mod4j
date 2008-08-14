@@ -37,12 +37,10 @@
         <module>org.mod4j.dsl-common</module>
         <module>Crossx/org.mod4j.crossx.mm</module>
         <module>Crossx/org.mod4j.crossx.broker</module>
-        <!-- TODO
         <module>BusinessDomain/BusinessDomain.mm</module>
         <module>BusinessDomain/BusinessDomain.xtext</module>
         <module>BusinessDomain/BusinessDomain.validation</module>
         <module>BusinessDomain/BusinessDomain.generator</module>
-        -->
       </modules>
     </profile>
     <profile>
@@ -54,12 +52,11 @@
         <module>org.mod4j.dsl-common</module>
         <module>Crossx/org.mod4j.crossx.mm</module>
         <module>Crossx/org.mod4j.crossx.broker</module>
-        <!-- TODO
         <module>BusinessDomain/BusinessDomain.mm</module>
         <module>BusinessDomain/BusinessDomain.xtext</module>
         <module>BusinessDomain/BusinessDomain.validation</module>
         <module>BusinessDomain/BusinessDomain.generator</module>
-        -->
+        <module>mod4j-maven-plugin</module>
       </modules>
       <build>
         <plugins>
