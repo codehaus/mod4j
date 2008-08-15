@@ -87,13 +87,22 @@
         <informalfigure>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/base-emptysubclass-domain.png"
-                         format="PNG" />
+              <imagedata fileref="file:/D:/mod4j/repository/modules/docs/user-guide/src/main/docbkx/parts/images/base-emptysubclass-pattern.gif"
+                         format="GIF" />
             </imageobject>
           </mediaobject>
         </informalfigure>
 
-        <para>There are a few caveats with this solution:</para>
+        <informalfigure condition="" label="">
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="file:/D:/mod4j/repository/modules/docs/user-guide/src/main/docbkx/parts/images/base-emptysubclass-pattern.gif"
+                         format="GIF" />
+            </imageobject>
+          </mediaobject>
+        </informalfigure>
+
+        <para><?target lb?>There are a few caveats with this solution:</para>
 
         <orderedlist>
           <listitem>
