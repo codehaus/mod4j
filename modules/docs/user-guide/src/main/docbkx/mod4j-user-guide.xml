@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
+<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
+<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.gif" NDATA GIF>
+<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.gif" NDATA GIF>
 ]>
 <book lang="en">
   <bookinfo>
@@ -119,21 +121,20 @@
 
           <para>The solution is shown in figure REF.</para>
 
-          <informalfigure>
+          <figure>
+            <title>Empty dubclass pattern</title>
+
             <mediaobject>
               <imageobject>
-                <imagedata fileref="file:/D:/mod4j/repository/modules/docs/user-guide/src/main/docbkx/parts/images/base-emptysubclass-pattern.gif"
-                           format="GIF" />
+                <imagedata entityref="emptysubclass-pattern" format="GIF" />
               </imageobject>
             </mediaobject>
-          </informalfigure>
-
-          <para>There are a few caveats with this solution:</para>
+          </figure>
 
           <informalfigure>
             <mediaobject>
               <imageobject>
-                <imagedata entityref="pattern"
+                <imagedata fileref="images/base-emptysubclass-pattern.gif"
                            format="GIF" />
               </imageobject>
             </mediaobject>
@@ -281,6 +282,27 @@
             where manual code may be added. This extension class is generated
             once and not overwritten, which ensures that all handwritten code
             is maintained at all times.</para>
+
+            <figure>
+              <title>Empty subclass pattern applied to the Domain
+              Layer</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata entityref="emptysubclass-domain"
+                             format="GIF" />
+                </imageobject>
+              </mediaobject>
+            </figure>
+
+            <informalfigure>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="images/base-emptysubclass-domain.gif"
+                             format="GIF" />
+                </imageobject>
+              </mediaobject>
+            </informalfigure>
           </section>
 
           <section>
@@ -301,15 +323,23 @@
             the example is shown in figure REF.</para>
 
             <figure>
-              <title></title>
+              <title>Empty subclass pattern applied to the Data Layer</title>
 
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="file:/D:/mod4j/repository/modules/docs/user-guide/src/main/docbkx/parts/images/base-emptysubclass-domain.gif"
-                             format="GIF" />
+                  <imagedata entityref="emptysubclass-data" format="GIF" />
                 </imageobject>
               </mediaobject>
             </figure>
+
+            <informalfigure>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="images/base-emptysubclass-data.gif"
+                             format="GIF" />
+                </imageobject>
+              </mediaobject>
+            </informalfigure>
           </section>
         </section>
       </section>
@@ -342,26 +372,6 @@
           <emphasis>boolean</emphasis> or <emphasis>datetime</emphasis>. For
           each type specific constraints can be specified. These constraints
           must always be true for any value of the property.</para>
-
-          <glosslist>
-            <glossentry>
-              <glossterm>minlengt</glossterm>
-
-              <glossdef>
-                <para>Defines the minimal number of characters of this
-                attribute's value.</para>
-              </glossdef>
-            </glossentry>
-
-            <glossentry>
-              <glossterm>maxlenght</glossterm>
-
-              <glossdef>
-                <para>Defined the maximum number of characters of this
-                attribute's value.</para>
-              </glossdef>
-            </glossentry>
-          </glosslist>
         </section>
 
         <section>
@@ -456,6 +466,12 @@
                 </glossdef>
               </glossentry>
             </glosslist>
+
+            <section>
+              <title>Generated code</title>
+
+              <para></para>
+            </section>
           </section>
 
           <section>
@@ -720,18 +736,27 @@
         mustBeValid;
         "A second rule"
         isOriginal;
+       <keycap>unique</keycap> namesUnique [ firstname lastname ]
     ]
 ]
 </programlisting>
 
-        <para>A rule only has a name in the model. The actual implementation
-        of the rule must be written in Java as an extension to the generated
-        code.</para>
+        <para>There are twom types of busienssrules that can be modeled.
+        </para>
+
+        <para>The first type of businessrule only has a name in the model. The
+        actual implementation of the rule must be written in Java as an
+        extension to the generated code. </para>
 
         <para>The handling of the rule is completely generated. This means
         that the rule will be called and validated whenever the object
         changes. If the rule is broken, a BusinessClassException is
         created.</para>
+
+        <para></para>
+
+        <para>See the empty-subclass pattern on how this is done in the
+        code</para>
       </section>
 
       <section>
@@ -750,16 +775,4 @@
       </section>
     </chapter>
   </part>
-
-  <xi:include href="parts/data-contract-dsl.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-
-  <xi:include href="parts/service-dsl.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-
-  <xi:include href="parts/user-interface-dsl.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
 </book>
