@@ -83,14 +83,12 @@
     <system>continuum</system>
     <url>https://mod4j.${centralhost}/continuum/servlet/continuum</url>
     <notifiers>
-<!--
       <notifier>
         <type>mail</type>
         <configuration>
           <address>mod4j-team@${centralhost}</address>
         </configuration>
       </notifier>
--->
     </notifiers>
   </ciManagement>
 
