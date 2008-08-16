@@ -6,7 +6,7 @@
   <artifactId>mod4j</artifactId>
   <packaging>pom</packaging>
   <version>0.10-SNAPSHOT</version>
-  <name>mod4j</name>
+  <name>Mod4j Parent</name>
   <url>https://mod4j.${centralhost}/</url>
 
   <properties>
