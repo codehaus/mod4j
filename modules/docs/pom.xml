@@ -8,8 +8,9 @@
         <version>0.10-SNAPSHOT</version>
     </parent>
     <groupId>org.mod4j.docs</groupId>
-    <artifactId>documentation</artifactId>
-    <name>Mod4j Documentation</name>
+    <artifactId>documentation-parent</artifactId>
+    <name>Mod4j Documentation Parent</name>
+    <version>0.10-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>user-guide</module>
