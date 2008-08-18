@@ -2,7 +2,7 @@ package org.mod4j.dslcommon.openarchitectureware;
 
 import org.mod4j.dslcommon.io.DirectoryWalker;
 
-public class TestCodegen {
+public class Codegen {
 
 	/**
 	 * @param args
