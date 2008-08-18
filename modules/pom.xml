@@ -205,6 +205,7 @@
                         <ruleset>/rulesets/basic.xml</ruleset>
                     </rulesets>
                     <format>xml</format>
+                    <aggregate>true</aggregate>
                     <linkXref>true</linkXref>
                     <sourceEncoding>utf-8</sourceEncoding>
                     <minimumTokens>100</minimumTokens>
