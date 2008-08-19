@@ -38,6 +38,7 @@ import org.jdom.Document;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
+import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
 import org.mod4j.dslcommon.openarchitectureware.RunGeneratorWorkflow;
 import org.mod4j.dslcommon.xml.XmlUtil;
@@ -308,14 +309,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			}
 			String genName = genFile.toString();
 
-	// setup the properties for the generator workflow
-
+         	// Setup the properties for the generator workflow
             String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
             String modelFilePath     = EclipseUtil.resource2UriString(resource);
 
-            // Need to double all backslahes because of an error in ANTLR
-			// error message: ERROR - 06 no viable alternative at character '\' on line 4
-//			String propertiesFilePathFix = StringHelpers.replaceAllSubstrings(propertiesFilePath, "\\", "\\\\");
 			Map<String, String> properties = ModelHelpers.getProperties(propertiesFilePath);
 			properties.put("modelFile", modelFilePath );
 			properties.put("appPropFilePath", propertiesFilePath);
@@ -329,7 +326,11 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
 //			System.err.println("applicationPath [" + newAppPath + "]");
 			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
-			genWf.runWorkflow(genName, properties);
+			try {
+                genWf.runWorkflow(genName, properties);
+            } catch (Mod4jWorkflowException e) {
+                System.err.println("Workflow ERROR while processing the DSL Model located at:" + workDir);
+            }
 		}
 	}
 	

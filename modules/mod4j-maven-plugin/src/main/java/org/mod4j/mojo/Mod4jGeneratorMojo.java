@@ -10,6 +10,7 @@ import org.mod4j.dslcommon.io.DirectoryWalker;
 import org.mod4j.dslcommon.openarchitectureware.CodegenDirectoryVisitor;
 import org.mod4j.dslcommon.openarchitectureware.CrossxDirectoryVisitor;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
+import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
 
 /**
  * The Mod4j Maven plug-in is used for generating artifacts out of Mod4j model projects. <br/>
@@ -46,7 +47,13 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
         String dir = project.getBasedir().getAbsolutePath();
         getLog().info("Project basedir : " + project.getBasedir().getAbsolutePath());
 
-        processDslModel(dir, dsl);
+        try {
+            processDslModel(dir, dsl);
+        } catch (Mod4jWorkflowException we) {
+            throw new MojoFailureException("Workflow ERROR while processing the DSL Model located at:" + dir);
+        } catch (Exception e) {
+            throw new MojoFailureException("ERROR while processing the DSL Model :" + e.getMessage());
+        }
     }
 
     /**
@@ -57,8 +64,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * 
      * @param projectDir
      * @param DslExterndion
+     * @throws Exception 
+     * @throws Exception 
      */
-    public void processDslModel(final String projectDir, final DslExtension dsl) {
+    public void processDslModel(final String projectDir, final DslExtension dsl) throws Exception {
 
         DirectoryWalker walker = new DirectoryWalker();
         CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);

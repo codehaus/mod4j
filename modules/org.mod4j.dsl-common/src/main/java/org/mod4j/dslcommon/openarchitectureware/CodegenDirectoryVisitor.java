@@ -21,23 +21,23 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 	}
 
 	/* (non-Javadoc)
-	 * @see nl.klasse.tools.io.IDirectoryVisitor#visitDirectoryBefore(java.io.File)
+	 * @see org.mod4j.dslcommon.io.IDirectoryVisitor#visitDirectoryBefore(java.io.File)
 	 */
 	public Object visitDirectoryBefore(File directory) {
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see nl.klasse.tools.io.IDirectoryVisitor#visitDirectoryAfter(java.io.File)
+	 * @see org.mod4j.dslcommon.io.IDirectoryVisitor#visitDirectoryAfter(java.io.File)
 	 */
 	public Object visitDirectoryAfter(File directory) {
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see nl.klasse.tools.io.IDirectoryVisitor#visitFile(java.io.File)
+	 * @see org.mod4j.dslcommon.io.IDirectoryVisitor#visitFile(java.io.File)
 	 */
-	public Object visitFile(File file) {
+	public Object visitFile(File file) throws Mod4jWorkflowException {
 		if( file.isFile() && file.getName().endsWith(dsl.getDslFileExtension()) )
 		{
 			generateCode(file);
@@ -70,7 +70,11 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
 	}
 	
-	private void generateCode(File file) {
+	/**
+	 * @param file
+	 * @throws Mod4jWorkflowException
+	 */
+	private void generateCode(final File file) throws Mod4jWorkflowException {
 	
 		String modelfile = file.getAbsolutePath();
 		modelfile = StringHelpers.replaceAllSubstrings(modelfile, "\\", "/");

@@ -17,7 +17,12 @@ public class DirectoryWalkerTester {
 		File file = new File("E:\\");
 		DirectoryWalker walker = new DirectoryWalker();
 		DirectoryVisitorImpl visitor = new DirectoryVisitorImpl();
-		walker.walk(file, visitor);
+		try {
+            walker.walk(file, visitor);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 	}
 
 }

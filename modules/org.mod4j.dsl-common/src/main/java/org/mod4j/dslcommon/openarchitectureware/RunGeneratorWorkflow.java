@@ -6,24 +6,30 @@ import java.util.Map;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
-
 public class RunGeneratorWorkflow {
 
-	public void runWorkflow(String wfFile, Map<String, String> properties ) {
-		System.err.println("Run Generator ["+ wfFile + "] on: [" + properties.get("modelFile") + "]" );
+    /**
+     * @param wfFile
+     * @param properties
+     * @throws Mod4jWorkflowException 
+     */
+    public void runWorkflow(final String wfFile, final Map<String, String> properties) throws Mod4jWorkflowException {
 
-		Map<String, Object> slotContents = new HashMap<String, Object>();
-		
-		MyWorkflowRunner runner = new MyWorkflowRunner();
-		runner.run(wfFile ,
-				new NullProgressMonitor(), properties, slotContents);
-		System.err.println("Workflow Generator hasErros: [" + runner.issues.hasErrors() + "]");
-		for(Issue issue : runner.issues.getErrors()){
-			System.err.println("Workflow Generator ERROR [" + issue.getMessage() + "]");
-		}
-		for(Issue issue : runner.issues.getWarnings()){
-			System.err.println("WOrkflow Generator WARNING [" + issue.getMessage() + "]");
-		}
-		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
-	}
+        System.err.println("Run Generator [" + wfFile + "] on: [" + properties.get("modelFile") + "]");
+        Map<String, Object> slotContents = new HashMap<String, Object>();
+
+        Mod4jWorkflowRunner runner = new Mod4jWorkflowRunner();
+        runner.run(wfFile, new NullProgressMonitor(), properties, slotContents);
+
+        for (Issue issue : runner.issues.getWarnings()) {
+            System.err.println("Workflow Generator WARNING [" + issue.getMessage() + "]");
+        }
+        
+        if (runner.issues.hasErrors()) {
+            System.err.println("Workflow Generator ERROR(S)!");
+            throw new Mod4jWorkflowException(runner.issues.getErrors());
+        }
+
+        System.err.println("Workflow Generator SUCCESFULL!");
+    }
 }

@@ -22,7 +22,7 @@ public class RunCrossxWorkflow {
 		properties.put("modelfile", modelfile);
 		properties.put("crossxfile"  , crossxfile);
 
-		MyWorkflowRunner runner = new MyWorkflowRunner();
+		Mod4jWorkflowRunner runner = new Mod4jWorkflowRunner();
 		runner.run(wfFile ,
 				new NullProgressMonitor(), properties, slotContents);
 		System.err.println("Workflow hasErros: [" + runner.issues.hasErrors() + "]");
@@ -56,7 +56,7 @@ public class RunCrossxWorkflow {
 		//Issues issues = new IssuesImpl();
 		//runner.executeWorkflow(slotContents, issues);
 		
-		MyWorkflowRunner runner = new MyWorkflowRunner();
+		Mod4jWorkflowRunner runner = new Mod4jWorkflowRunner();
 		runner.run(wfFile ,
 		new NullProgressMonitor(), properties, slotContents);
 		System.err.println("Workflow hasErros: [" + runner.issues.hasErrors() + "]");
