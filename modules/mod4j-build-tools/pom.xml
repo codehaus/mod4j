@@ -1,30 +1,27 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.mod4j</groupId>
-  <artifactId>mod4j-build-tools</artifactId>
-  <version>0.10-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  <name>mod4j-build-tools</name>
-  <description>
-    The mod4j-build-tools module provides a place for build configurtation files. For example smartjava-checks.xml is stored in here (See also:
-    http://maven.apache.org/plugins/maven-checkstyle-plugin/tips.html).
-  </description>
-
-  <parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <groupId>org.mod4j</groupId>
-    <artifactId>mod4j</artifactId>
+    <artifactId>mod4j-build-tools</artifactId>
     <version>0.10-SNAPSHOT</version>
-  </parent>
-
-  <repositories>
-    <repository>
-      <id>project-repo</id>
-      <url>https://mod4j.smart-java.nl/repo</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
+    <packaging>jar</packaging>
+    <name>mod4j-build-tools</name>
+    <description>
+        The mod4j-build-tools module provides a place for build configurtation files. For example smartjava-checks.xml is stored
+        in here (See also: http://maven.apache.org/plugins/maven-checkstyle-plugin/tips.html).
+    </description>
+    <parent>
+        <groupId>org.mod4j</groupId>
+        <artifactId>mod4j</artifactId>
+        <version>0.10-SNAPSHOT</version>
+    </parent>
+    <repositories>
+        <repository>
+            <id>project-repo</id>
+            <url>https://mod4j.smart-java.nl/repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
