@@ -8,15 +8,15 @@ import java.util.Properties;
 public class ProjectProperties {
 
     public static void setPropertiesFile(String filename) {
-    	System.err.println("PROPERTIES [" + filename + "]");
-        propertyFile = filename;        
+        System.err.println("PROPERTIES [" + filename + "]");
+        propertyFile = filename;
         readAllProperties();
     }
-    
-    private static void readAllProperties(){
-   	    Properties properties = new Properties();
 
-   		try {
+    private static void readAllProperties() {
+        Properties properties = new Properties();
+
+        try {
             properties.load(new FileInputStream(propertyFile));
         } catch (FileNotFoundException e) {
             System.err.println("PropjectProperties: cannot find properties file [" + propertyFile + "]");
@@ -26,7 +26,7 @@ public class ProjectProperties {
             e.printStackTrace();
         }
 
-    	applicationName = properties.getProperty("applicationName");
+        applicationName = properties.getProperty("applicationName");
         applicationVersion = properties.getProperty("applicationVersion");
         applicationPath = properties.getProperty("applicationPath");
         domainModuleName = properties.getProperty("domainModuleName");
@@ -39,31 +39,45 @@ public class ProjectProperties {
         resourceManPath = properties.getProperty("resourceManPath");
         fileEncoding = properties.getProperty("fileEncoding");
     }
-    
+
     private static String propertyFile = "DEFAULT";
+
     private static String applicationVersion = "DEFAULT";
+
     private static String applicationName = "DEFAULT";
+
     private static String applicationPath = "DEFAULT";
+
     private static String dataModuleName = "DEFAULT";
+
     private static String domainModuleName = "DEFAULT";
+
     private static String rootPackage = "DEFAULT";
+
     private static String domainRootPackage = "DEFAULT";
+
     private static String dataRootPackage = "DEFAULT";
+
     private static String srcGenPath = "DEFAULT";
+
     private static String srcManPath = "DEFAULT";
+
     private static String resourceManPath = "DEFAULT";
+
     private static String fileEncoding = "ISO-8859-1";
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
+
     public static final String BUSINESSRULES_PACKAGE = "businessrules";
+
     public static final String DAO_PACKAGE = "spring.dao";
 
     private static String workDir = "/";
 
-    public static void setWorkDir(String dir){
-    	workDir = dir;
+    public static void setWorkDir(String dir) {
+        workDir = dir;
     }
-    
+
     public static String getApplicationName() {
         return applicationName;
     }
