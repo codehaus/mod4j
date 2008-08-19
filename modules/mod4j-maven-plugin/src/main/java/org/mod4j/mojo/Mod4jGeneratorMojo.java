@@ -36,6 +36,9 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      */
     private Set<DslExtension> dslExtensions;
 
+    /* (non-Javadoc)
+     * @see org.apache.maven.plugin.AbstractMojo#execute()
+     */
     public void execute() throws MojoExecutionException, MojoFailureException {
 
         getLog().info("Executing Mod4J Maven plug-in, goal: genrateFromModel");
@@ -50,9 +53,9 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
         try {
             processDslModel(dir, dsl);
         } catch (Mod4jWorkflowException we) {
-            throw new MojoFailureException("Workflow ERROR while processing the DSL Model located at:" + dir);
+            throw new MojoFailureException("Workflow ERROR while processing the " + dsl.getDslName() + " at:" + dir);
         } catch (Exception e) {
-            throw new MojoFailureException("ERROR while processing the DSL Model :" + e.getMessage());
+            throw new MojoFailureException("ERROR while processing " + dsl.getDslName() + " :" + e.getMessage());
         }
     }
 
@@ -63,8 +66,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * and artifacts.
      * 
      * @param projectDir
-     * @param DslExterndion
-     * @throws Exception 
+     * @param DslExtension
      * @throws Exception 
      */
     public void processDslModel(final String projectDir, final DslExtension dsl) throws Exception {
