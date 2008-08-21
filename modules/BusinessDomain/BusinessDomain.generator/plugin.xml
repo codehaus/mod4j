@@ -6,7 +6,7 @@
          name="Crossx info"
          point="org.mod4j.eclipse.dsl">
       <dsl
-            dsl2crossxWorkflow="crossx/busmod2crossx.oaw"
+            dsl2crossxWorkflow="crossx/busmod2crossx2.oaw"
             dslCodegenProperties="BusinessDomainDsl.properties"
             dslCodegenWorkflow="codegen/BusinessDomainDsl.oaw"
             dslFileExtension=".busmod"

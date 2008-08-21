@@ -55,7 +55,16 @@
 		<modelSlot value="model" />
 	</component>
 -->
-	<!-- check model (see other workspace  -->
+    <component id="BusinessDomainWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="BusinessDomainDsl" />
+        <checkFile value="org::mod4j::businessdomain::xtext::GenChecks" />
+        <emfAllChildrenSlot value="model" />
+    </component>
+    <component id="BusinessDomainWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="BusinessDomainDsl" />
+        <checkFile value="BusinessDomainDsl::validation::BusinessModelChecks" />
+        <emfAllChildrenSlot value="model" />
+    </component>
  
  	<!-- Call the Xtend model-to-model transformation that takes a BusinessDomainModel as its input
  	     and returns a Crossx model in the outputSlot
