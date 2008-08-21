@@ -24,6 +24,19 @@
         <connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules/RecordShop-ExampleProject</connection>
         <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules/RecordShop-ExampleProject</developerConnection>
     </scm>
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <name>The mod4j project website</name>
+            <!--Notice: The following url must end with a slash. -->
+            <url>scp://smart-java.nl/home/groups/mod4j/htdocs/RecordShop</url>
+        </site>
+        <repository>
+            <id>smart-repo-deploy</id>
+            <name>Common SMART-Java Repository</name>
+            <url>scp://smart-java.nl/home/groups/mod4j/htdocs/repo</url>
+        </repository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
