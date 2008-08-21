@@ -56,14 +56,26 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
 	private MessageConsoleStream console = null;
 	
-	private static List<DslExtension> dslExtensions = null;
+	protected static List<DslExtension> dslExtensions = null;
 
-	public  static final String bundleName = "org.mod4j.eclipse";
-	private static final String CROSSX_EXTENSION = ".crossx";
+	public static final String BUILDER_ID = "org.mod4j.eclipse.Mod4jBuilder";
+    public static final QualifiedName CROSSX_REPOSITORY = new QualifiedName("mod4j.cxrossx.broker", "crossxrepository");
+
+	public static final String bundleName = "org.mod4j.eclipse";
+	public static final String CROSSX_EXTENSION = ".crossx";
+	public static final String MODEL_DIR = "src/model";
+	    
+
+    public static final String DSL_EXTENSION_ID = Mod4jBuilder.bundleName + ".dsl";
+
 	private static boolean initialized = false;
-	private static final String DSL_EXTENSION_ID = Mod4jBuilder.bundleName + ".dsl";
-	
-	class CrossxDeltaVisitor1 implements IResourceDeltaVisitor {
+
+    /** Visitor to run the crossx symbol extractor on the model files.
+     * 
+     * @author "Jos Warmer"
+     *
+     */
+	class CrossxDeltaVisitor implements IResourceDeltaVisitor {
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -91,7 +103,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
 	/** Generate crossx symbol information for all visited model files.
 	 * 
-	 * @author jwa11799
+	 * @author "Jos Warmer"
 	 *
 	 */
 	class CrossxGenerateSymbolDeltaVisitor1 implements IResourceDeltaVisitor {
@@ -120,7 +132,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	class CrossxCodeGeneratorVisitor1 implements IResourceVisitor {
+	class Mod4jCodeGeneratorVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			generateCode(resource);
 			//return true to continue visiting children.
@@ -133,7 +145,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	 * @author Jos Warmer
 	 *
 	 */
-	class CrossxSymbolGeneratorVisitor1 implements IResourceVisitor {
+	class CrossxSymbolGeneratorVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			generateCrossxSymbols(resource);
 			//return true to continue visiting children.
@@ -141,36 +153,24 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	class CrossxFindSymbolsResourceVisitor1 implements IResourceVisitor {
+	class CrossxFindSymbolsResourceVisitor implements IResourceVisitor {
 		public boolean visit(IResource resource) {
 			checkSymbols(resource);
 			//return true to continue visiting children.
 			return true;
 		}
 	}
-
+	
 	private void checkSymbols(IResource resource) {
 		if (resource instanceof IFile && resource.getName().endsWith(CROSSX_EXTENSION)) {
-			try {
-				// Check whether the resource is inside a binary folder, if so skip it
-				IJavaProject jp = JavaCore.create(getProject());
-				IPath outPath = jp.getOutputLocation();
-				if( outPath.isPrefixOf(resource.getFullPath()) ){
-//					System.err.println("checkSymbols skipping binary [" + resource.getFullPath() + "]");
-					return;
-				}
-			} catch( Exception e ){
-				System.err.println("checkSymbols Exception [" + e.getMessage() + "]");
-				e.printStackTrace();
+			if( ! inModelDir(resource)) {
+			    return;
 			}
-//			System.err.println("checkSymbols running on [" + resource.getName() + "]");
 			Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
 			CrossxBroker.addInfo(doc);
 		} 
 	}
 
-	public static final String BUILDER_ID = "org.mod4j.eclipse.Mod4jBuilder";
-	final static QualifiedName CROSSX_REPOSITORY = new QualifiedName("mod4j.cxrossx.broker", "crossxrepository");
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -179,14 +179,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	 */
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
-		System.err.println("Mod4jBuilder build called");
-//		CrossxBroker repo = (CrossxBroker) getProject().getSessionProperty(CROSSX_REPOSITORY);
-//		if( repo == null){
-//			System.err.println("Mod4jBuilder build called ==>  FIST TIME FIRST TIME");
-//			initialized = true;
-//			loadCrossxInfo();
-//		}
-		
 		if (kind == FULL_BUILD) {
 			fullBuild(monitor);
 		} else if( kind == CLEAN_BUILD ) {
@@ -202,13 +194,17 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		CrossxView.myrefresh();
 		return null;
 	}
-
+    /** Do a full build of the project.  Will run both crossx and the codegenerator
+     * 
+     * @param monitor
+     * @throws CoreException
+     */
 	protected void fullBuild(final IProgressMonitor monitor)
 			throws CoreException {
 		System.err.println("Mod4jBuilder: full build");
 		try {
-			getProject().accept(new CrossxSymbolGeneratorVisitor1());
-			getProject().accept(new CrossxCodeGeneratorVisitor1());
+			getProject().accept(new CrossxSymbolGeneratorVisitor());
+			getProject().accept(new Mod4jCodeGeneratorVisitor());
 		} catch (CoreException e) {
 			System.err.println("Mod4jBuilder ERROR fullBuild [" + e.getMessage() + "]");
 			// TODO: handle exception
@@ -220,30 +216,26 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		// the visitor does the work.
 		System.err.println("Mod4jBuilder: incremental build");
 		delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
-		delta.accept(new CrossxDeltaVisitor1());
+		delta.accept(new CrossxDeltaVisitor());
 	}
 	
 	protected void startupOnInitialize() {
-		System.err.println("Mod4jBuilder: startupOnInitialize()");
 		if( ! initialized ) {
 			console = EclipseUtil.findConsole("crossx.projectbuilder");
 			CrossxBroker.setPrintStream(EclipseUtil.findConsole("crossx.repository")) ;  
 			System.setErr(new PrintStream(console));
-//			System.err.println("Mod4jBuilder build called ==>  FIST TIME FIRST TIME");
 			initialized = true;
 			start();
 		}
 	}
 	
     public void start() {
-		System.err.println("=========================>>>>>      START");
 		dslExtensions = Mod4jBuilder.getExtensions();
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		for (int i = 0; i < projects.length; i++) {
 			IProject project = projects[i];	
 			myloadCrossxInfo(project);
 		}
-		System.err.println("=========================>>>>>      END");
     }
     
 	
@@ -255,14 +247,13 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		try {
 			if ( (!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) ){
 				return;
-//			EclipseUtil.showMessage("Project '" + selProject.getName() + "' does not have a Mod4j Nature.");
 			}
 		} catch (CoreException e1) {
 			System.err.println("Mod4jBuilder ERROR requesting nature [" + e1.getMessage() + "]");
 			e1.printStackTrace();
 		} 
 		// Run the visitor over the project to collect all Crossx information
-		CrossxFindSymbolsResourceVisitor1 visitor = new CrossxFindSymbolsResourceVisitor1();
+		CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
 		try {
 			project.accept(visitor);
 		} catch (Exception e) {
@@ -273,40 +264,24 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	}
 
 
-	private static String MODEL_DIR = "src/model";
-	
+	protected boolean inModelDir(IResource resource ) {
+        IPath resourcePath = resource.getProjectRelativePath();
+        IPath modelPath = getProject().findMember(MODEL_DIR).getProjectRelativePath();
+        return modelPath.isPrefixOf(resourcePath) ;
+	}
 	/** If this is a DSL model, run the workflow to generate code.
 	 * 
 	 * @param resource
 	 */
-	private void generateCode(IResource resource) {
+	protected void generateCode(IResource resource) {
 		DslExtension dsl = isDslFile(resource);
 		if ( dsl != null ) {
-            System.err.println("CODEGEN trying [" + resource.getFullPath().toString() + "]");
 			try {
-				// Check whether the resource is inside a binary folder, if so skip it
-//				IJavaProject jp = JavaCore.create(getProject());
-//				if( jp == null ){
-//					EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
-//			                "] is not in a Java project [" + getProject().getName() + "]");
-//					return;
-//				}
-//              IPath outPath = jp.getOutputLocation();
-//              if( outPath.isPrefixOf(resource.getFullPath()) ){
-//                  return;
-//              }
-              System.err.println(MODEL_DIR + "/" + dsl.getDslCodegenProperties());
-              IPath resourcePath = resource.getProjectRelativePath();
-              IPath modelPath = getProject().findMember(MODEL_DIR).getProjectRelativePath();
-              System.err.println("MODEL_PATH    [" + modelPath.toString() + "]");
-              System.err.println("RESOURCE_PATH [" + resourcePath.toString() + "]");
-              if( ! modelPath.isPrefixOf(resourcePath) ){
-//                EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
-//                "] is not in a Java project [" + getProject().getName() + "]");
-                  return;
-              }
+                if (!inModelDir(resource)) {
+                    return;
+                }
 			} catch( Exception e ){
-				System.err.println("checkDSL Exception [" + e.getMessage() + "]");
+				System.err.println("Mod4j Builder Exception in generateCode [" + e.getMessage() + "]");
 				e.printStackTrace();
 			}
 	
@@ -345,8 +320,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             } catch (Mod4jWorkflowException e) {
                 System.err.println("Workflow ERROR while processing the DSL Model located at:" + workDir);
             }
-		} else {
-		    System.err.println("CODGEN skipping [" + resource.getFullPath().toString() + "]");
 		}
 	}
 	
@@ -357,21 +330,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	private void generateCrossxSymbols(IResource resource) {
 		DslExtension dsl = isDslFile(resource);
 		if ( dsl != null ) {
-			try {
-				// Check whether the resource is inside a binary folder, if so skip it
-				IJavaProject jp = JavaCore.create(getProject());
-				if( jp == null ){
-					EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
-			                "] is not in a Java project [" + getProject().getName() + "]");
-					return;
-				}
-				IPath outPath = jp.getOutputLocation();
-				if( outPath.isPrefixOf(resource.getFullPath()) ){
-					return;
-				}
-			} catch( Exception e ){
-				System.err.println("generateCrossxSymbols Exception [" + e.getMessage() + "]");
-				e.printStackTrace();
+			if( ! inModelDir(resource) ){
+				return;
 			}
 			IFile file = (IFile) resource;
 			
