@@ -318,7 +318,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			try {
                 genWf.runWorkflow(genName, properties);
             } catch (Mod4jWorkflowException e) {
-                System.err.println("Workflow ERROR while processing the DSL Model located at:" + workDir);
+                EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model [" + resource.getName() + "]" +
+                                    "\nLook at consoloe for more information." );
             }
 		}
 	}
