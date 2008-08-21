@@ -53,7 +53,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 		ClassLoader cls = CrossxDirectoryVisitor.class.getClassLoader();
 		URL url = cls.getResource(oawWorkflow);
 		if( url == null ){
-			System.err.println("oaW file [" + oawWorkflow + "] not found");
+			System.err.println("Crossx oaW file [" + oawWorkflow + "] not found");
 			System.exit(1);
 		}
 		oawWorkflow = url.toString();
