@@ -31,6 +31,6 @@ public class RunCrossxWorkflow {
                     + properties.get("crossxfile") + "! See logging.");
         }
         
-        System.err.println("Crossx workflow SUCCESFULL!");
+        System.err.println("Crossx workflow SUCCESSFUL!");
     }
 }

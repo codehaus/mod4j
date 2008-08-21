@@ -25,6 +25,6 @@ public class RunGeneratorWorkflow {
                     + properties.get("modelFile") + "! See logging.");
         }
 
-        System.err.println("Workflow Generator SUCCESFULL!");
+        System.err.println("Workflow Generator SUCCESSFUL!");
     }
 }
