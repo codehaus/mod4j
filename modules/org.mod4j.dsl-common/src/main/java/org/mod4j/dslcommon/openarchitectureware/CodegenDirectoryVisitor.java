@@ -1,6 +1,7 @@
 package org.mod4j.dslcommon.openarchitectureware;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Map;
 
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
@@ -12,6 +13,7 @@ import org.mod4j.dslcommon.io.IDirectoryVisitor;
  */
 public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 	
+	private static final String MODEL_DIR = "src/model";
 	private DslExtension dsl = null;
 	
 	public CodegenDirectoryVisitor(DslExtension dsl, String theWorkDir){
@@ -47,16 +49,27 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 		
 	private String workDir = "";
 	private String propertiesFile = null;
-	private String genName = null;
+    private String codegenWorkflow = null;
 	private Map<String, String> properties = null;
 	
 	private void setupDsl() {
-		propertiesFile =workDir + "/" + dsl.getDslCodegenProperties();
-		if( propertiesFile == null ){
-			System.err.println("Mod4j: code generation properties file ["+ dsl.getDslCodegenProperties() +
-	                "] not found, cannot generate code.");
+//		propertiesFile = workDir + "/" + dsl.getDslCodegenProperties();
+		propertiesFile = workDir + "/" +  MODEL_DIR + "/" + dsl.getDslName() + ".properties";
+		File file = new File(propertiesFile);
+		if( ! file.exists() ) {
+			System.err.println("Mod4j: code generation properties file ["+ propertiesFile +
+	                "] not found, cannot generate code for dsl " + dsl.getDslName() + ".");
+			System.exit(1);
 		}
-		genName = workDir + "/" + dsl.getDslCodegenWorkflow();
+		
+		codegenWorkflow = dsl.getDslCodegenWorkflow();
+        ClassLoader cls = this.getClass().getClassLoader();
+        URL url = cls.getResource(codegenWorkflow);
+        if( url == null ){
+            System.err.println("Code generation oaW file [" + codegenWorkflow + "] not found");
+            System.exit(1);
+        }
+        codegenWorkflow = url.toString();
 
 		properties = ModelHelpers.getProperties(propertiesFile);
 
@@ -75,7 +88,6 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 	 * @throws Mod4jWorkflowException
 	 */
 	private void generateCode(final File file) throws Mod4jWorkflowException {
-	
 		String modelfile = file.getAbsolutePath();
 		modelfile = StringHelpers.replaceAllSubstrings(modelfile, "\\", "/");
 		modelfile = "file:/"+ modelfile;
@@ -83,7 +95,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         properties.put("modelFile", modelfile);
 
 		RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
-		genWf.runWorkflow(genName, properties);
+		genWf.runWorkflow(codegenWorkflow, properties);
 	}
 	
 	public DslExtension isDslFile(String filename){
