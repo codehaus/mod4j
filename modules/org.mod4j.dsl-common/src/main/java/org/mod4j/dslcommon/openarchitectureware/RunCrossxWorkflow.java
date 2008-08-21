@@ -3,70 +3,32 @@ package org.mod4j.dslcommon.openarchitectureware;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openarchitectureware.workflow.issues.Issue;
+import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
 public class RunCrossxWorkflow {
 
-	/**
-	 * @param args
-	 */
-	public void runWorkflow(String wfFile, String modelfile, String crossxfile) {
-		System.err.println("Run ["+ wfFile + "] on:" );
-		System.err.println("    modelfile  [" + modelfile + "]");
-		System.err.println("    crossxfile [" + crossxfile + "]");
+    /**
+     * @param wfFile
+     * @param modelfile
+     * @param crossxfile
+     * @throws Mod4jWorkflowException 
+     */
+    public void runWorkflow(String wfFile, String modelfile, String crossxfile) throws Mod4jWorkflowException {
+        System.err.println("Run [" + wfFile + "] on:");
+        System.err.println("    modelfile  [" + modelfile + "]");
+        System.err.println("    crossxfile [" + crossxfile + "]");
 
-		Map<String, Object> slotContents = new HashMap<String, Object>();
-		Map<String, String> properties = new HashMap<String, String>();
+        Map<String, Object> slotContents = new HashMap<String, Object>();
+        Map<String, String> properties = new HashMap<String, String>();
 
-		properties.put("modelfile", modelfile);
-		properties.put("crossxfile"  , crossxfile);
+        properties.put("modelfile", modelfile);
+        properties.put("crossxfile", crossxfile);
 
-		Mod4jWorkflowRunner runner = new Mod4jWorkflowRunner();
-		runner.run(wfFile ,
-				new NullProgressMonitor(), properties, slotContents);
-		System.err.println("Workflow hasErros: [" + runner.issues.hasErrors() + "]");
-		for(Issue issue : runner.issues.getErrors()){
-			System.err.println("Workflow ERROR [" + issue.getMessage() + "]");
-		}
-		for(Issue issue : runner.issues.getWarnings()){
-			System.err.println("WOrkflow WARNING [" + issue.getMessage() + "]");
-		}
-		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
-	}
-
-	public void runWorkflowNOTUSED(String wfFile, String modelfile, String crossxfile,
-            String dslXtendModule, String metaModelPackage) {
-		System.err.println("Run ["+ wfFile + "] on:" );
-		System.err.println("    modelfile  [" + modelfile + "]");
-		System.err.println("    crossxfile [" + crossxfile + "]");
-		
-		Map<String, Object> slotContents = new HashMap<String, Object>();
-		Map<String, String> properties = new HashMap<String, String>();
-		
-		properties.put("modelfile", modelfile);
-		//properties.put("xmlfile"  , xmlfile );
-		properties.put("crossxfile"  , crossxfile);
-		properties.put("dslXtendModule", dslXtendModule);
-		properties.put("metaModelPackage", metaModelPackage);
-		
-		
-		//WorkflowRunner runner = new WorkflowRunner();
-		//runner.prepare(wfFile, new NullProgressMonitor(), properties);
-		//Issues issues = new IssuesImpl();
-		//runner.executeWorkflow(slotContents, issues);
-		
-		Mod4jWorkflowRunner runner = new Mod4jWorkflowRunner();
-		runner.run(wfFile ,
-		new NullProgressMonitor(), properties, slotContents);
-		System.err.println("Workflow hasErros: [" + runner.issues.hasErrors() + "]");
-		for(Issue issue : runner.issues.getErrors()){
-		System.err.println("WOrkflow ERROR [" + issue.getMessage() + "]");
-		}
-		for(Issue issue : runner.issues.getWarnings()){
-		System.err.println("WOrkflow WARNING [" + issue.getMessage() + "]");
-		}
-		// System.err.println("runner.logger.toString()"+ runner.logger.toString());
-	}
-
+        WorkflowRunner runner = new WorkflowRunner();
+        if (!runner.run(wfFile, new NullProgressMonitor(), properties, slotContents)){
+            throw new Mod4jWorkflowException("ERROR(S) detected while running crossx workflow on "
+                    + properties.get("crossxfile") + "! See logging.");
+        }
+    }
 }

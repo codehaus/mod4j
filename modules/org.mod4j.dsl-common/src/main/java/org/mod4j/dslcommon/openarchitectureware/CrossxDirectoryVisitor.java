@@ -35,7 +35,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 	/* (non-Javadoc)
 	 * @see nl.klasse.tools.io.IDirectoryVisitor#visitFile(java.io.File)
 	 */
-	public Object visitFile(File file) {
+	public Object visitFile(File file) throws Mod4jWorkflowException {
 		if( file.isFile() && file.getName().endsWith(dsl.getDslFileExtension()) )
 		{
 			generateCrossxSymbols(file);
@@ -61,7 +61,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 	// TODO extensions import from other files
 	private static final String CROSSX_EXTENSION = ".crossx";
 
-	private void generateCrossxSymbols(File file) {
+	private void generateCrossxSymbols(File file) throws Mod4jWorkflowException {
 			
 		String modelfile = file.getAbsolutePath();
 		modelfile = StringHelpers.replaceAllSubstrings(modelfile, "\\", "/");

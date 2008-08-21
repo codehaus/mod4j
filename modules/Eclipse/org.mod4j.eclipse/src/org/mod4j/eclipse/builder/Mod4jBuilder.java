@@ -377,7 +377,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			
 			String modelfile = EclipseUtil.resource2UriString(resource);
 			String tmp = EclipseUtil.resource2FullPathnameString(file) ;
-//			String xmlfile = file.getRawLocation().toOSString() + XML_EXTENSION;
 			String crossxfile = tmp.substring(0, tmp.lastIndexOf(dsl.getDslFileExtension())) +
 	        CROSSX_EXTENSION;
 
@@ -385,8 +384,11 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			String wfName = wfPath.toString();
 
 			RunCrossxWorkflow wf = new RunCrossxWorkflow();
-    		wf.runWorkflow(wfName, modelfile, crossxfile);
-//    		wf.runWorkflow(wfName, modelfile, xmlfile, crossxfile);
+    		try {
+                wf.runWorkflow(wfName, modelfile, crossxfile);
+            } catch (Mod4jWorkflowException m4jwe) {
+                System.err.println("[" + m4jwe.getMessage() + "]");
+            }
 		}
 	}
 

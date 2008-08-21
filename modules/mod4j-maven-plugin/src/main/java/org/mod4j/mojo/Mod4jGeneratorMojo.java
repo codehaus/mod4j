@@ -45,7 +45,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         DslExtension dsl = new DslExtension("BusinessDomainDsl", "BusinessDomainDsl",
                 "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod", "crossx/busmod2crossx2.oaw",
-                "src/workflow/busmod.oaw", "src/workflow/busmod.properties");
+                "codegen/BusinessDomainDsl.oaw", "BusinessDomainDsl.properties");
 
         String dir = project.getBasedir().getAbsolutePath();
         getLog().info("Project basedir : " + project.getBasedir().getAbsolutePath());
