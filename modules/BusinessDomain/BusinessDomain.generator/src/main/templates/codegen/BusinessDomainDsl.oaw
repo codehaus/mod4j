@@ -2,9 +2,6 @@
 
 <workflow>
 
-<!--
-    <property file="busmod.properties" />
--->
     <!-- Initialize the issues reporting feature of oAW
          TODO 3 May 2008 : Check whether this is still neccesary
     -->
@@ -19,9 +16,6 @@
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
         <platformUri value=".."/>
     </bean>
-
-<!--    <bean class="org.eclipse.mwe.emf.StandaloneSetup"/>
--->
     <bean class="org.mod4j.businessdomain.xtext.MetaModelRegistration"/>
     <bean id="bm" class="oaw.type.emf.EmfMetaModel">
 		<metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />  
@@ -35,13 +29,6 @@
         <uri value="${modelFile}" />
         <modelSlot value="${outputSlot}" />
     </component>
-
-<!-- Old way of running the workflow, need explicit reference to xText parser
-	<component id="BusinessDomainWorkflow-Parser" class="org.mod4j.businessdomain.xtext.parser.ParserComponent">
-		<modelFile value="${modelFile}"/>
-		<outputSlot value="${outputSlot}"/>
-	</component>
--->
     <component id="BusinessDomainWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="bm" />
         <checkFile value="org::mod4j::businessdomain::xtext::GenChecks" />
@@ -67,9 +54,7 @@
         <metaModel idRef="bm" />
         <expand value="BusinessDomain::Root FOR ${outputSlot}" />
         <outlet path="${applicationPath}/${domainModuleName}/${srcGenPath}/">
-<!--
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
--->
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
@@ -82,9 +67,7 @@
         <metaModel idRef="bm" />
         <expand value="BusinessDomain::ExtensionPointGeneration FOR ${outputSlot}" />
         <outlet path="${applicationPath}/${domainModuleName}/${srcManPath}/">
-<!--
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
--->
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
@@ -97,9 +80,7 @@
         <metaModel idRef="bm" />
         <expand value="Datalayer::genResources FOR ${outputSlot}" />
         <outlet path="${applicationPath}/${dataModuleName}/${resourceGenPath}">
-<!--
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
- -->
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
          <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
@@ -112,9 +93,7 @@
         <metaModel idRef="bm" />
         <expand value="Datalayer::genDao FOR ${outputSlot}" />
         <outlet path="${applicationPath}/${dataModuleName}/${srcGenPath}/">
-<!--
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
--->
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
         <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
@@ -127,9 +106,7 @@
         <metaModel idRef="bm" />
         <expand value="Datalayer::genDaoExtensions FOR ${outputSlot}" />
         <outlet path="${applicationPath}/${dataModuleName}/${srcManPath}/">
-<!--
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
--->
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
          <globalVarDef name="appPropFilePath" value="'${appPropFilePath}'" />
