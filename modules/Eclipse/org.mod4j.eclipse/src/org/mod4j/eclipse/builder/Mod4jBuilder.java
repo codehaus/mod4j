@@ -273,6 +273,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	}
 
 
+	private static String MODEL_DIR = "src/model";
+	
 	/** If this is a DSL model, run the workflow to generate code.
 	 * 
 	 * @param resource
@@ -280,24 +282,36 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	private void generateCode(IResource resource) {
 		DslExtension dsl = isDslFile(resource);
 		if ( dsl != null ) {
+            System.err.println("CODEGEN trying [" + resource.getFullPath().toString() + "]");
 			try {
 				// Check whether the resource is inside a binary folder, if so skip it
-				IJavaProject jp = JavaCore.create(getProject());
-				if( jp == null ){
-					EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
-			                "] is not in a Java project [" + getProject().getName() + "]");
-					return;
-				}
-				IPath outPath = jp.getOutputLocation();
-				if( outPath.isPrefixOf(resource.getFullPath()) ){
-					return;
-				}
+//				IJavaProject jp = JavaCore.create(getProject());
+//				if( jp == null ){
+//					EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
+//			                "] is not in a Java project [" + getProject().getName() + "]");
+//					return;
+//				}
+//              IPath outPath = jp.getOutputLocation();
+//              if( outPath.isPrefixOf(resource.getFullPath()) ){
+//                  return;
+//              }
+              System.err.println(MODEL_DIR + "/" + dsl.getDslCodegenProperties());
+              IPath resourcePath = resource.getProjectRelativePath();
+              IPath modelPath = getProject().findMember(MODEL_DIR).getProjectRelativePath();
+              System.err.println("MODEL_PATH    [" + modelPath.toString() + "]");
+              System.err.println("RESOURCE_PATH [" + resourcePath.toString() + "]");
+              if( ! modelPath.isPrefixOf(resourcePath) ){
+//                EclipseUtil.showWarning("Mod4j: model file ["+ resource.getName() +
+//                "] is not in a Java project [" + getProject().getName() + "]");
+                  return;
+              }
 			} catch( Exception e ){
 				System.err.println("checkDSL Exception [" + e.getMessage() + "]");
+				e.printStackTrace();
 			}
 	
 			// properties files
-			IResource propertiesFile = getProject().findMember(dsl.getDslCodegenProperties());
+			IResource propertiesFile = getProject().findMember(MODEL_DIR + "/"+ dsl.getDslCodegenProperties());
 			if( propertiesFile == null ){
 				EclipseUtil.showWarning("Mod4j: code generation properties file ["+ dsl.getDslCodegenProperties() +
 		                "] in project [" + getProject().getName() + "] not found, cannot generate code.");
@@ -331,6 +345,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             } catch (Mod4jWorkflowException e) {
                 System.err.println("Workflow ERROR while processing the DSL Model located at:" + workDir);
             }
+		} else {
+		    System.err.println("CODGEN skipping [" + resource.getFullPath().toString() + "]");
 		}
 	}
 	
@@ -374,25 +390,39 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	/** The path of the workflowfile for generating the crossx symbols
-	 * 
-	 * @return 
-	 */
-	private IPath getWorkflowPath(DslExtension dsl) {
-		IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDsl2crossxWorkflow());
-		if( result == null ) {
-			EclipseUtil.showError("Mod4j internal: cannot open crossx workflow ["+ dsl.getDsl2crossxWorkflow() + "]" +
-					              "in plugin [" + dsl.getDslContributor() + "]");
-			return null;
-		}
-		return result;
-	}
+    /** The path of the workflowfile for generating the crossx symbols
+     * 
+     * @return 
+     */
+    private IPath getWorkflowPath(DslExtension dsl) {
+        IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDsl2crossxWorkflow());
+        if( result == null ) {
+            EclipseUtil.showError("Mod4j internal: cannot open crossx workflow ["+ dsl.getDsl2crossxWorkflow() + "]" +
+                                  "in plugin [" + dsl.getDslContributor() + "]");
+            return null;
+        }
+        return result;
+    }
+
+    /** The path of the workflowfile for generating the crossx symbols
+     * 
+     * @return 
+     */
+    private IPath getGeneratorPath(DslExtension dsl) {
+        IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDslCodegenWorkflow());
+        if( result == null ) {
+            EclipseUtil.showError("Mod4j internal: cannot open code generation workflow ["+ dsl.getDslCodegenWorkflow() + "]" +
+                                  "in plugin [" + dsl.getDslContributor() + "]");
+            return null;
+        }
+        return result;
+    }
 
 	/** The path of the workflowfile for generating the code 
 	 * 
 	 * @return 
 	 */
-	private IPath getGeneratorPath(DslExtension dsl) {
+	private IPath getGeneratorPathFromProject(DslExtension dsl) {
 		// TODO generate error message when oaw file is not available
 //		IResource resource = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW);
 		IResource resource = getProject().findMember(dsl.getDslCodegenWorkflow());
