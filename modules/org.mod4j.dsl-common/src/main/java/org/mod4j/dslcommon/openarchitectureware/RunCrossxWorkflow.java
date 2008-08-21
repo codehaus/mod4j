@@ -30,5 +30,7 @@ public class RunCrossxWorkflow {
             throw new Mod4jWorkflowException("ERROR(S) detected while running crossx workflow on "
                     + properties.get("crossxfile") + "! See logging.");
         }
+        
+        System.err.println("Crossx workflow SUCCESFULL!");
     }
 }
