@@ -27,6 +27,15 @@ public class DslExtension {
 
     private String dslCodegenProperties;
 
+    /**
+     * @param contributor
+     * @param name
+     * @param metamodelPackage
+     * @param fileExtension
+     * @param crossxWorkflow
+     * @param codegenWorkflow
+     * @param codegenProperties
+     */
     public DslExtension(String contributor, String name, String metamodelPackage, String fileExtension,
             String crossxWorkflow, String codegenWorkflow, String codegenProperties) {
         dslContributor = contributor;
