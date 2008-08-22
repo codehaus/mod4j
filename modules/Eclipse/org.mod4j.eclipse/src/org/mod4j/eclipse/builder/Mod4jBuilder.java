@@ -59,7 +59,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	protected static List<DslExtension> dslExtensions = null;
 
 	public static final String BUILDER_ID = "org.mod4j.eclipse.Mod4jBuilder";
-    public static final QualifiedName CROSSX_REPOSITORY = new QualifiedName("mod4j.cxrossx.broker", "crossxrepository");
+//    public static final QualifiedName CROSSX_REPOSITORY = new QualifiedName("mod4j.cxrossx.broker", "crossxrepository");
 
 	public static final String bundleName = "org.mod4j.eclipse";
 	public static final String CROSSX_EXTENSION = ".crossx";
@@ -221,7 +221,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 	
 	protected void startupOnInitialize() {
 		if( ! initialized ) {
-			console = EclipseUtil.findConsole("crossx.projectbuilder");
+			console = EclipseUtil.findConsole("mod4j.projectbuilder");
 			CrossxBroker.setPrintStream(EclipseUtil.findConsole("crossx.repository")) ;  
 			System.setErr(new PrintStream(console));
 			initialized = true;
@@ -286,9 +286,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			}
 	
 			// properties files
-			IResource propertiesFile = getProject().findMember(MODEL_DIR + "/"+ dsl.getDslCodegenProperties());
+			String propertyFilename = MODEL_DIR + "/"+ dsl.getDslCodegenProperties();
+			IResource propertiesFile = getProject().findMember(propertyFilename);
 			if( propertiesFile == null ){
-				EclipseUtil.showWarning("Mod4j: code generation properties file ["+ dsl.getDslCodegenProperties() +
+				EclipseUtil.showWarning("Mod4j: code generation properties file ["+ propertyFilename +
 		                "] in project [" + getProject().getName() + "] not found, cannot generate code.");
 			}
 			
@@ -318,8 +319,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			try {
                 genWf.runWorkflow(genName, properties);
             } catch (Mod4jWorkflowException e) {
-                EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model [" + resource.getName() + "]" +
-                                    "\nLook at consoloe for more information." );
+                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName() + "]" );
             }
 		}
 	}
@@ -375,7 +375,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDslCodegenWorkflow());
         if( result == null ) {
             EclipseUtil.showError("Mod4j internal: cannot open code generation workflow ["+ dsl.getDslCodegenWorkflow() + "]" +
-                                  "in plugin [" + dsl.getDslContributor() + "]");
+                                  "from plugin [" + dsl.getDslContributor() + "]");
             return null;
         }
         return result;
@@ -445,7 +445,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 			if( dsl.validate() ){
 				result.add( dsl );
 			} else {
-				EclipseUtil.showError("crossx extension point [is invalid");
+				EclipseUtil.showError("Mod4j: crossx extension point [is invalid");
 			}
 		}
 		return result;
