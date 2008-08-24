@@ -30,9 +30,6 @@
 	     Don't use the filenames of the ecore files, because they won't work when the
 	     plugins are exported and installed.
 	-->
-	<bean id="BusinessDomainDsl" class="oaw.type.emf.EmfMetaModel">
-		<metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />   
-	</bean>
 	<bean id="crossx" class="oaw.type.emf.EmfMetaModel">
 		<metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
 	</bean>
@@ -42,19 +39,22 @@
 	-->
 
     <bean class="org.mod4j.businessdomain.xtext.MetaModelRegistration"/>
+    <bean id="BusinessDomainDsl" class="oaw.type.emf.EmfMetaModel">
+        <metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />   
+    </bean>
+<!--
     <component id="BusinessDomainDsl-parser" class="org.mod4j.businessdomain.xtext.parser.ParserComponent">
         <modelFile value="${modelfile}"/>
         <outputSlot value="model"/>
     </component>
-
+-->
 
 	<!-- load the BusinessClassDsl model and store it in slot 'model' -->
-<!--
 	<component class="org.eclipse.mwe.emf.Reader">
 		<uri value="${modelfile}" />
 		<modelSlot value="model" />
 	</component>
--->
+
     <component id="BusinessDomainWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="BusinessDomainDsl" />
         <checkFile value="org::mod4j::businessdomain::xtext::GenChecks" />
