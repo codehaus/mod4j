@@ -40,7 +40,7 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.openarchitectureware.base.oawNature</nature>
-		<nature>mod4j.crossx.broker.CrossxNature</nature>
+		<nature>org.mod4j.crossx.broker.CrossxNature</nature>
 		<nature>org.mod4j.eclipse.Mod4jNature</nature>
 	</natures>
 </projectDescription>
