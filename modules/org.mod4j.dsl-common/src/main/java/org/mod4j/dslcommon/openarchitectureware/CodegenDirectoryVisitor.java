@@ -17,6 +17,18 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
     private DslExtension dsl = null;
 
+    private String workDir = "";
+
+    private String propertiesFile = null;
+
+    private String codegenWorkflow = null;
+
+    private Map<String, String> properties = null;
+
+    /**
+     * @param dsl
+     * @param theWorkDir
+     */
     public CodegenDirectoryVisitor(DslExtension dsl, String theWorkDir) {
         this.dsl = dsl;
         workDir = theWorkDir;
@@ -53,17 +65,13 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         return null;
     }
 
-    private String workDir = "";
-
-    private String propertiesFile = null;
-
-    private String codegenWorkflow = null;
-
-    private Map<String, String> properties = null;
-
     private void setupDsl() {
-        // propertiesFile = workDir + "/" + dsl.getDslCodegenProperties();
-        propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslName() + ".properties";
+        
+        if (dsl.getDslCodegenProperties().length() > 0) {
+            propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties();
+        } else {
+            propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslName() + ".properties";
+        }
         File file = new File(propertiesFile);
         if (!file.exists()) {
             System.err.println("Mod4j: code generation properties file [" + propertiesFile
