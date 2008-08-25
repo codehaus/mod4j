@@ -45,11 +45,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         DslExtension dsl = new DslExtension("BusinessDomainDsl", "BusinessDomainDsl",
                 "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod", "crossx/busmod2crossx2.oaw",
-                "codegen/BusinessDomainDsl.oaw", "BusinessDomainDsl.properties");
+                "codegen/BusinessDomainDsl.oaw", "businessDomain/BusinessDomainDsl.properties");
 
         String dir = project.getBasedir().getAbsolutePath();
-        getLog().info("Project basedir : " + project.getBasedir().getAbsolutePath());
-
+        
         try {
             processDslModel(dir, dsl);
         } catch (Mod4jWorkflowException we) {
@@ -62,7 +61,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     /**
      * Method for processing DSL model files. The following steps will be processed:<br/> 1) Walk through all Mod4j
      * model files for the given <b>DslExtension</b> within the model project and extract reference information (CrossX
-     * Broker). <br/> 2) Run the internal oAW workflow file, which checks consistency of the models and generate code
+     * Broker). <br/> 2) Run the internal oAW workflow files, which checks consistency of the models and generate code
      * and artifacts.
      * 
      * @param projectDir
