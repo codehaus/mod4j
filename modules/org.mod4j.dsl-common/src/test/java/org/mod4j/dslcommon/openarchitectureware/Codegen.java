@@ -11,9 +11,9 @@ public class Codegen {
         // TODO Auto-generated method stub
         DslExtension dsl = new DslExtension("BusinessDomainDsl", "BusinessDomainDsl",
                 "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod", "crossx/busmod2crossx2.oaw",
-                "codegen/BusinessDomainDsl.oaw", "BusinessDomainDsl.properties");
+                "codegen/BusinessDomainDsl.oaw", "businessDomain/BusinessDomainDsl.properties");
 
-        String dir = "D:/mod4j/repository/modules/RecordShop-ExampleProject/RecordShop.BusinessDomain.model";
+        String dir = "D:/mod4j/repository/modules/RecordShop-ExampleProject/RecordShop-DslModels";
 
         execute(dir, dsl);
     }
