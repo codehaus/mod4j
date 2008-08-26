@@ -66,6 +66,12 @@
             <artifactId>oaw-dependencies</artifactId>
             <version>4.3.0</version>
             <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jface</groupId>
+                    <artifactId>text</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
