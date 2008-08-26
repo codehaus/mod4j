@@ -43,6 +43,12 @@
             <artifactId>oaw-dependencies</artifactId>
             <version>4.3.0</version>
             <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jface</groupId>
+                    <artifactId>text</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <!-- TODO Remove this dependency when it is added to the oaw-dependendcies. 
