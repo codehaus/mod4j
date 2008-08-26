@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2008 Ordina and committers to Mod4j
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Ordina - initial implementation
+ *******************************************************************************/
 package org.mod4j.crossx.broker;
 
 import java.io.OutputStream;
@@ -13,7 +23,7 @@ import org.jdom.Element;
 /** This class is a singleton with static members only.
  *  It keeps all cross reference information for DSL models 
  * 
- * @author jwa11799
+ * @author Jos Warmer
  *
  */
 public class CrossxBroker {
@@ -132,30 +142,24 @@ public class CrossxBroker {
 			return;
 		}
 	}
-//	private static MessageConsoleStream console;
+
+	
 	private static PrintWriter pr = null;
-	static int i = 0;
 	
 	static public void setPrintStream(OutputStream s) {
 		pr = new PrintWriter(s);
 	}
 
-	/** Print to the eclipse console
+	/** Print to the error output or the given printstream
 	 * 
 	 * @param text
 	 */
 	private static void print(String text){
-//		if( console == null ){
-//			console= EclipseUtil.findConsole("crossx.console");
-//			pr = new PrintWriter(console);
-//		}
-//		console.println(text);
 		if( pr == null ) { 
-			System.err.println("CrossInforepository printstream not set yet");
 			System.err.println(text);
-			return;
+		} else {
+    		pr.println(text);
+    		pr.flush();
 		}
-		pr.println(text);
-		pr.flush();
 	}
 }
