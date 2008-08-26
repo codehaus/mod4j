@@ -1,6 +1,6 @@
 package org.mod4j.mojo;
 
-import java.util.Set;
+import java.util.HashSet;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -29,12 +29,21 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     private MavenProject project;
 
     /**
+     * The model dir to process
+     * 
+     * @parameter default-value="src/model"
+     * @required
+     */
+    private String MODEL_DIR;
+    
+    /**
      * The list with known DSL extensions to process.
      * 
      * @parameter
      * 
      */
-    private Set<DslExtension> dslExtensions;
+    //TODO Make use of set of dslExtentions to process
+    private HashSet<DslExtension> dslExtensions;
 
     /* (non-Javadoc)
      * @see org.apache.maven.plugin.AbstractMojo#execute()
@@ -72,9 +81,9 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         DirectoryWalker walker = new DirectoryWalker();
         CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);
-        walker.walk(projectDir, vis);
+        walker.walk(projectDir + "/" + MODEL_DIR, vis);
         CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir);
-        walker.walk(projectDir, codegen);
+        walker.walk(projectDir + "/" + MODEL_DIR, codegen);
     }
 
 }
