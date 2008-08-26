@@ -31,10 +31,9 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     /**
      * The model dir to process
      * 
-     * @parameter default-value="src/model"
-     * @required
      */
-    private String MODEL_DIR;
+    //TODO Make this plug-in search in all known source folders 
+    private final static String MODEL_DIR = "src/model";
     
     /**
      * The list with known DSL extensions to process.
