@@ -90,6 +90,8 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
         properties = ModelHelpers.getProperties(propertiesFile);
 
+        propertiesFile = StringHelpers.replaceAllSubstrings(propertiesFile, "\\", "/");
+
         properties.put("appPropFilePath", propertiesFile);
 
         // Get the relative applicationPath property and make it absolute
