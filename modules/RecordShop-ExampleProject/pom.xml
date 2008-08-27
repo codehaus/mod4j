@@ -10,9 +10,10 @@
         <spring.version>2.5</spring.version>
     </properties>
     <modules>
+        <module>RecordShop-DslModels</module>
+       <!-- TODO
         <module>RecordShop-domain</module>
         <module>RecordShop-data</module>
-        <!-- TODO
             <module>RecordShop-cross</module>
             <module>RecordShop-business</module>
             <module>RecordShop-service</module>
