@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="                     http://maven.apache.org/POM/4.0.0                     http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.company.recordshop</groupId>
     <artifactId>RecordShop</artifactId>
@@ -20,23 +19,6 @@
             <module>RecordShop-presentation</module>
         -->
     </modules>
-    <scm>
-        <connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules/RecordShop-ExampleProject</connection>
-        <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules/RecordShop-ExampleProject</developerConnection>
-    </scm>
-    <distributionManagement>
-        <site>
-            <id>site</id>
-            <name>The mod4j project website</name>
-            <!--Notice: The following url must end with a slash. -->
-            <url>scp://smart-java.nl/home/groups/mod4j/htdocs/RecordShop</url>
-        </site>
-        <repository>
-            <id>smart-repo-deploy</id>
-            <name>Common SMART-Java Repository</name>
-            <url>scp://smart-java.nl/home/groups/mod4j/htdocs/repo</url>
-        </repository>
-    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -93,7 +75,7 @@
             <dependency>
                 <groupId>org.mod4j</groupId>
                 <artifactId>mod4j-common</artifactId>
-                <version>0.10-SNAPSHOT</version>
+                <version>0.9</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
