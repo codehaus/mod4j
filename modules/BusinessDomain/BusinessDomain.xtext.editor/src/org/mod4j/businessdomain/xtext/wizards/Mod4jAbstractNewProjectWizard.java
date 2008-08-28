@@ -47,6 +47,8 @@ import org.openarchitectureware.xtext.XtextLog;
 public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			INewWizard {
 
+    private static String MODEL_DIR = "src/model";
+    
 		protected Mod4jGenericNewProjectWizardPage mainPage;
 		private String langName;
 		private String fileExtension;
@@ -117,16 +119,18 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 //							pr.create(monitor);
 							IProject pr = createNewProject();
 							pr.open(monitor);
-							String modelFileName = "model." + getFileExtension();
+							String modelFileName = "SampleModel." + getFileExtension();
 //							Mod4jProjectCreator.create(pr, new String[] { getDslProjectName(), getGeneratorProjectName() }, monitor);
 							Mod4jProjectCreator.create(pr, new String[] { 
 									"BusinessDomain.mm",
 									"BusinessDomain.validation",
 									"BusinessDomain.generator",
-									"BusinessDomain.xtext"
+									"BusinessDomain.xtext",
+									"org.mod4j.crossx.mm",
+									"org.mod4j.crossx.broker",
+									"org.mod4j.eclipse"
 							}, monitor);
-							IContainer modelFolder = pr.getFolder("model");
-							IContainer workflowFolder = pr.getFolder("workflow");
+							IContainer modelFolder = pr.getFolder(MODEL_DIR + "/businessDomain");
 							Mod4jProjectCreator
 									.createFile(
 											modelFileName,
@@ -135,14 +139,8 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 											monitor);
 							Mod4jProjectCreator
 							.createFile(
-									"BusinessDomainGenerator.oaw",
-									workflowFolder,
-									workflowContents(), 
-									monitor);
-							Mod4jProjectCreator
-							.createFile(
-									"workflow.properties",
-									workflowFolder,
+									"BusinessDomainDsl.properties",
+									modelFolder,
 									propertiesContents(), 
 									monitor);
 						} catch (CoreException e) {
@@ -193,15 +191,13 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			String LF = "\n";
 			
 			return "#Model properties" + LF +
-					"modelFile=model.busmod" + LF +
 					"outputSlot=OutputBusModel" + LF +
-					"fileEncoding=ISO-8859-1" + LF +
+					"fileEncoding=UTF-8" + LF +
 					" " + LF +
 					"# Appliation properties" + LF +
-					"appPropFilePath=workflow/workflow.properties" + LF +
 					"applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
-					"applicationPath=../" + LF +
+					"applicationPath=.." + LF +
 					"domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
 					"dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
 					"rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
@@ -224,124 +220,6 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					"]" + LF;
         }
 
-		public String workflowContents () {
-			String LF = "\n";
-			return "<?xml version=\"1.0\" encoding=\"windows-1252\"?>" + LF +
-			"<workflow>" + LF + 
-
-			"    <property file=\"workflow.properties\" />"+ LF + 
-			"" + LF +
-			"    <bean class=\"org.eclipse.mwe.emf.StandaloneSetup\"/>" + LF +
-			"    <bean class=\"org.mod4j.businessdomain.xtext.MetaModelRegistration\"/>" + LF +
-			"    <bean id=\"bm\" class=\"oaw.type.emf.EmfMetaModel\">" + LF +
-			"        <metaModelPackage value=\"BusinessDomainDsl.BusinessDomainDslPackage\" />" + LF +  
-			"	</bean>" + LF +
-			"" + LF +
-			"    <!--" + LF +
-			"        Parse the BusinessDomain model file and validate syntax and model constraints" + LF +
-			"    -->" + LF +
-			"	<component id=\"BusinessDomainWorkflow-Parser\" class=\"org.mod4j.businessdomain.xtext.parser.ParserComponent\">" + LF +
-			"		<modelFile value=\"${modelFile}\"/>" + LF +
-			"		<outputSlot value=\"${outputSlot}\"/>" + LF +
-			"	</component>" + LF +
-			"    <component id=\"BusinessDomainWorkflow-XtextChecks\" class=\"org.openarchitectureware.check.CheckComponent\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <checkFile value=\"org::mod4j::businessdomain::xtext::GenChecks\" />" + LF +
-			"        <emfAllChildrenSlot value=\"${outputSlot}\" />" + LF +
-			"    </component>" + LF +
-			"    <component id=\"BusinessDomainWorkflow-ModelChecks\" class=\"org.openarchitectureware.check.CheckComponent\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <checkFile value=\"BusinessDomainDsl::validation::BusinessModelChecks\" />" + LF +
-			"        <emfAllChildrenSlot value=\"${outputSlot}\" />" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!--" + LF +
-			"        Cleaning of output directories before generation." + LF +
-			"   -->" + LF +
-			"    <component id=\"BusinessDomainWorkflow-DirCleaner\" class=\"org.openarchitectureware.workflow.common.DirectoryCleaner\">" + LF +
-			"        <directories value=\"${applicationPath}/${domainModuleName}/${srcGenPath}, ${applicationPath}/${dataModuleName}/${srcGenPath}\"/>" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!--" + LF +
-			"        Generation of Domain sources and resources" + LF +
-			"    -->" + LF +
-			"    <component id=\"BusinessDomainWorkflow-DomainGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"BusinessDomain::Root FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${applicationPath}/${domainModuleName}/${srcGenPath}/\">" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
-			"        </outlet>" + LF +
-			"        <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!-- " + LF +
-			"        Generation of Extions Points for Domain sources" + LF +
-			"    -->" + LF +
-			"    <component id=\"BusinessDomainWorkflow-DomainEextensionPointsGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"BusinessDomain::ExtensionPointGeneration FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${applicationPath}/${domainModuleName}/${srcManPath}/\">" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
-			"        </outlet>" + LF +
-			"        <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!-- " + LF +
-			"        Generation of Hibernate resources." + LF +
-			"    -->  " + LF +
-			"     <component id=\"BusinessDomainWorkflow-DataLayerResourcesGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"Datalayer::genResources FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${applicationPath}/${dataModuleName}/${resourceGenPath}/\">" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
-			"        </outlet>" + LF +
-			"         <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!-- " + LF +
-			"        Generation of Dao sources." + LF +
-			"    -->  " + LF +
-			"    <component id=\"BusinessDomainWorkflow-DataLayerDaoGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"Datalayer::genDao FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${applicationPath}/${dataModuleName}/${srcGenPath}/\">" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
-			"        </outlet>" + LF +
-			"        <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!-- " + LF +
-			"        Generation of Extention Points for Dao\'s." + LF +
-			"    -->  " + LF +
-			"    <component id=\"BusinessDomainWorkflow-DataLayerExtentionPointsGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"Datalayer::genDaoExtensions FOR ${outputSlot}\" />" + LF +
-			"        <outlet path=\"${applicationPath}/${dataModuleName}/${srcManPath}/\">" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.JavaBeautifier\" />" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
-			"        </outlet>" + LF +
-			"         <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
-			"    </component>" + LF +
-			"" + LF +
-			"    <!-- " + LF +
-			"        Generation of Maven configuration files." + LF +
-			"    -->  " + LF +
-			"    <component id=\"BusinessDomainWorkflow-MavenConfigGenerator\" class=\"org.openarchitectureware.xpand2.Generator\">" + LF +
-			"        <metaModel idRef=\"bm\" />" + LF +
-			"        <expand value=\"BusinessDomain::CreateMavenConfiguration FOR ${outputSlot}\"/>" + LF +
-			"        <outlet path=\"${applicationPath}\">" + LF +
-			"            <postprocessor class=\"org.openarchitectureware.xpand2.output.XmlBeautifier\" />" + LF +
-			"        </outlet>" + LF +
-			"         <globalVarDef name=\"appPropFilePath\" value=\"'${appPropFilePath}'\" />" + LF +
-			"    </component>" + LF +
-			" " + LF +
-			"</workflow>" + LF;
-		}
-		
 		/**
 		 * Creates a new project resource with the selected name.
 		 * <p>

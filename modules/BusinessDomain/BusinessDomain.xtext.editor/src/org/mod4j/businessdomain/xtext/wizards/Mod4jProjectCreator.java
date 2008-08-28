@@ -39,11 +39,13 @@ public class Mod4jProjectCreator  {
 		public static void create(IProject project, String[] requeredBundles,
 				IProgressMonitor progressMonitor) throws CoreException {
 			addNatures(project, new String[] { JavaCore.NATURE_ID,
-					"org.eclipse.pde.PluginNature" }, progressMonitor);
+					"org.eclipse.pde.PluginNature",
+					"org.mod4j.eclipse.Mod4jNature" }, progressMonitor);
 			addBuilders(project, new String[] { JavaCore.BUILDER_ID,
 					"org.eclipse.pde.ManifestBuilder",
-					"org.eclipse.pde.SchemaBuilder" }, progressMonitor);
-			String[] srcFolders = new String[] { "model", "workflow" };
+					"org.eclipse.pde.SchemaBuilder",
+					"org.mod4j.eclipse.Mod4jBuilder"}, progressMonitor);
+			String[] srcFolders = new String[] { "src/model" };
 			addSourceFolders(project, srcFolders, progressMonitor);
 			createManifest(project, requeredBundles,
 					null, progressMonitor);
@@ -90,37 +92,61 @@ public class Mod4jProjectCreator  {
 			ICommand manifest = createBuilderCommand(projectDescription,
 					"org.eclipse.pde.ManifestBuilder");
 
-			ICommand schema = createBuilderCommand(projectDescription,
-					"org.eclipse.pde.SchemaBuilder");
+            ICommand schema = createBuilderCommand(projectDescription,
+            "org.eclipse.pde.SchemaBuilder");
+
+            ICommand mod4j = createBuilderCommand(projectDescription,
+            "org.mod4j.eclipse.Mod4jBuilder");
 			projectDescription
-					.setBuildSpec(new ICommand[] { java, manifest, schema });
+					.setBuildSpec(new ICommand[] { java, manifest, schema, mod4j });
 			project.setDescription(projectDescription, progressMonitor);
 
 		}
 
 		public static void addSourceFolders(IProject project, String[] names,
 				IProgressMonitor progressMonitor) throws CoreException {
-			IJavaProject javaProject = JavaCore.create(project);
-			javaProject.getProject().getDescription().hasNature(JavaCore.NATURE_ID);
-			List<IClasspathEntry> classpathEntries = new ArrayList<IClasspathEntry>();
-			for (String src : names) {
-				IFolder srcContainer = project.getFolder(src);
-				if (!srcContainer.exists()) {
-					srcContainer.create(false, true, new SubProgressMonitor(
-							progressMonitor, 1));
-				}
-				IClasspathEntry srcClasspathEntry = JavaCore
-						.newSourceEntry(srcContainer.getFullPath());
-				classpathEntries.add(srcClasspathEntry);
-			}
-			classpathEntries.add(JavaCore.newContainerEntry(new Path(
-					"org.eclipse.jdt.launching.JRE_CONTAINER")));
-			classpathEntries.add(JavaCore.newContainerEntry(new Path(
-					"org.eclipse.pde.core.requiredPlugins")));
 
-			javaProject.setRawClasspath(classpathEntries
-					.toArray(new IClasspathEntry[] {}), new SubProgressMonitor(
-					progressMonitor, 1));
+		    try {
+                IJavaProject javaProject = JavaCore.create(project);
+                javaProject.getProject().getDescription().hasNature(JavaCore.NATURE_ID);
+                List<IClasspathEntry> classpathEntries = new ArrayList<IClasspathEntry>();
+                for (String src : names) {
+                    // TODO Jos: creating subfolders is not done right, this is currently a non generic fix
+                    IFolder tmp = project.getFolder("src");
+                    if (!tmp.exists()) {
+                        tmp.create(false, true, new SubProgressMonitor(
+                                progressMonitor, 1));
+                    }
+
+                	IFolder srcContainer = project.getFolder(src);
+                	if (!srcContainer.exists()) {
+                		srcContainer.create(false, true, new SubProgressMonitor(
+                				progressMonitor, 1));
+                	}
+                	IClasspathEntry srcClasspathEntry = JavaCore
+                			.newSourceEntry(srcContainer.getFullPath());
+                	classpathEntries.add(srcClasspathEntry);
+                }
+                classpathEntries.add(JavaCore.newContainerEntry(new Path(
+                		"org.eclipse.jdt.launching.JRE_CONTAINER")));
+                classpathEntries.add(JavaCore.newContainerEntry(new Path(
+                		"org.eclipse.pde.core.requiredPlugins")));
+
+                javaProject.setRawClasspath(classpathEntries
+                		.toArray(new IClasspathEntry[] {}), new SubProgressMonitor(
+                		progressMonitor, 1));
+                
+                // TODO Jos: non generic code to add businessDomain
+                IFolder tmp2 = project.getFolder("src/model/businessDomain");
+                if (!tmp2.exists()) {
+                    tmp2.create(false, true, new SubProgressMonitor(
+                            progressMonitor, 1));
+                }
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 		}
 
 		/**
