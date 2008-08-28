@@ -326,6 +326,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (propertiesFile == null) {
                 EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
                         + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+                return;
             }
 
             // Setup the properties for the generator workflow
@@ -366,6 +367,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (propertiesFile == null) {
                 EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
                         + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+                return;
             }
 
             IPath genFile = getGeneratorPath(dsl);
