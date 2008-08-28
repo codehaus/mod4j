@@ -10,7 +10,9 @@
  *******************************************************************************/
 package org.mod4j.eclipse.builder;
 
+import java.io.File;
 import java.io.PrintStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,418 +39,504 @@ import org.jdom.Document;
 
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
+import org.mod4j.dslcommon.generator.helpers.StringHelpers;
+import org.mod4j.dslcommon.io.Files;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
+import org.mod4j.dslcommon.openarchitectureware.RunDirectoryCleanWorkflow;
 import org.mod4j.dslcommon.openarchitectureware.RunGeneratorWorkflow;
 import org.mod4j.dslcommon.xml.XmlUtil;
 
 import org.mod4j.eclipse.crossx.views.CrossxView;
 import org.mod4j.eclipse.util.EclipseUtil;
 
-/** This class contains two builders, one to build the crossx symbols from a DSL model,
- *  one to generate the code from a model
+/**
+ * This class contains two builders, one to build the crossx symbols from a DSL model, one to generate the code from a
+ * model
  * 
  * @author jwa11799
- *
+ * 
  */
 public class Mod4jBuilder extends IncrementalProjectBuilder {
 
-	private MessageConsoleStream console = null;
-	
-	protected static List<DslExtension> dslExtensions = null;
+    private MessageConsoleStream console = null;
 
-	public static final String BUILDER_ID = "org.mod4j.eclipse.Mod4jBuilder";
-//    public static final QualifiedName CROSSX_REPOSITORY = new QualifiedName("mod4j.cxrossx.broker", "crossxrepository");
+    protected static List<DslExtension> dslExtensions = null;
 
-	public static final String bundleName = "org.mod4j.eclipse";
-	public static final String CROSSX_EXTENSION = ".crossx";
-	public static final String MODEL_DIR = "src/model";
-	    
+    public static final String BUILDER_ID = "org.mod4j.eclipse.Mod4jBuilder";
+
+    public static final String bundleName = "org.mod4j.eclipse";
+
+    public static final String CROSSX_EXTENSION = ".crossx";
+
+    public static final String MODEL_DIR = "src/model";
 
     public static final String DSL_EXTENSION_ID = Mod4jBuilder.bundleName + ".dsl";
 
-	private static boolean initialized = false;
+    private static boolean initialized = false;
 
-    /** Visitor to run the crossx symbol extractor on the model files.
+    /**
+     * Visitor to run the crossx symbol extractor on the model files.
      * 
      * @author "Jos Warmer"
-     *
+     * 
      */
-	class CrossxDeltaVisitor implements IResourceDeltaVisitor {
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse.core.resources.IResourceDelta)
-		 */
-		public boolean visit(IResourceDelta delta) throws CoreException {
-			IResource resource = delta.getResource();
-			switch (delta.getKind()) {
-			case IResourceDelta.ADDED:
-				// handle added resource
-				generateCode(resource);
-				break;
-			case IResourceDelta.REMOVED:
-				// handle removed resource
-				break;
-			case IResourceDelta.CHANGED:
-				// handle changed resource
-				generateCode(resource);
-				break;
-			}
-			//return true to continue visiting children.
-			return true;
-		}
-	}
+    class CrossxDeltaVisitor implements IResourceDeltaVisitor {
+        /*
+         * (non-Javadoc)
+         * 
+         * @see org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse.core.resources.IResourceDelta)
+         */
+        public boolean visit(IResourceDelta delta) throws CoreException {
+            IResource resource = delta.getResource();
+            switch (delta.getKind()) {
+            case IResourceDelta.ADDED:
+                // handle added resource
+                generateCode(resource);
+                break;
+            case IResourceDelta.REMOVED:
+                // handle removed resource
+                break;
+            case IResourceDelta.CHANGED:
+                // handle changed resource
+                generateCode(resource);
+                break;
+            }
+            // return true to continue visiting children.
+            return true;
+        }
+    }
 
-	/** Generate crossx symbol information for all visited model files.
-	 * 
-	 * @author "Jos Warmer"
-	 *
-	 */
-	class CrossxGenerateSymbolDeltaVisitor1 implements IResourceDeltaVisitor {
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse.core.resources.IResourceDelta)
-		 */
-		public boolean visit(IResourceDelta delta) throws CoreException {
-			IResource resource = delta.getResource();
-			switch (delta.getKind()) {
-			case IResourceDelta.ADDED:
-				// handle added resource
-				generateCrossxSymbols(resource);
-				break;
-			case IResourceDelta.REMOVED:
-				// handle removed resource
-				break;
-			case IResourceDelta.CHANGED:
-				// handle changed resource
-				generateCrossxSymbols(resource);
-				break;
-			}
-			//return true to continue visiting children.
-			return true;
-		}
-	}
+    /**
+     * Generate crossx symbol information for all visited model files.
+     * 
+     * @author "Jos Warmer"
+     * 
+     */
+    class CrossxGenerateSymbolDeltaVisitor1 implements IResourceDeltaVisitor {
+        /*
+         * (non-Javadoc)
+         * 
+         * @see org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse.core.resources.IResourceDelta)
+         */
+        public boolean visit(IResourceDelta delta) throws CoreException {
+            IResource resource = delta.getResource();
+            switch (delta.getKind()) {
+            case IResourceDelta.ADDED:
+                // handle added resource
+                generateCrossxSymbols(resource);
+                break;
+            case IResourceDelta.REMOVED:
+                // handle removed resource
+                break;
+            case IResourceDelta.CHANGED:
+                // handle changed resource
+                generateCrossxSymbols(resource);
+                break;
+            }
+            // return true to continue visiting children.
+            return true;
+        }
+    }
 
-	class Mod4jCodeGeneratorVisitor implements IResourceVisitor {
-		public boolean visit(IResource resource) {
-			generateCode(resource);
-			//return true to continue visiting children.
-			return true;
-		}
-	}
+    /**
+     * Visitor to generate code from the models
+     * 
+     * @author Jos Warmer
+     * 
+     */
+    class Mod4jCodeGeneratorVisitor implements IResourceVisitor {
+        public boolean visit(IResource resource) {
+            generateCode(resource);
+            // return true to continue visiting children.
+            return true;
+        }
+    }
 
-	/** Visit all resources and generates the crossx symboltable
-	 * 
-	 * @author Jos Warmer
-	 *
-	 */
-	class CrossxSymbolGeneratorVisitor implements IResourceVisitor {
-		public boolean visit(IResource resource) {
-			generateCrossxSymbols(resource);
-			//return true to continue visiting children.
-			return true;
-		}
-	}
+    /**
+     * Visit all resources and generates the crossx symboltable
+     * 
+     * @author Jos Warmer
+     * 
+     */
+    class CrossxSymbolGeneratorVisitor implements IResourceVisitor {
+        public boolean visit(IResource resource) {
+            generateCrossxSymbols(resource);
+            // return true to continue visiting children.
+            return true;
+        }
+    }
 
-	class CrossxFindSymbolsResourceVisitor implements IResourceVisitor {
-		public boolean visit(IResource resource) {
-			checkSymbols(resource);
-			//return true to continue visiting children.
-			return true;
-		}
-	}
-	
-	private void checkSymbols(IResource resource) {
-		if (resource instanceof IFile && resource.getName().endsWith(CROSSX_EXTENSION)) {
-			if( ! inModelDir(resource)) {
-			    return;
-			}
-			Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
-			CrossxBroker.addInfo(doc);
-		} 
-	}
+    /**
+     * Visitor that reads all .crossx files to get already defined symbols
+     * 
+     * @author Jos Warmer
+     * 
+     */
+    class CrossxFindSymbolsResourceVisitor implements IResourceVisitor {
+        public boolean visit(IResource resource) {
+            checkSymbols(resource);
+            // return true to continue visiting children.
+            return true;
+        }
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.core.internal.events.InternalBuilder#build(int,
-	 *      java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
-	 */
-	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
-			throws CoreException {
-		if (kind == FULL_BUILD) {
-			fullBuild(monitor);
-		} else if( kind == CLEAN_BUILD ) {
-			fullBuild(monitor);
-		} else {
-			IResourceDelta delta = getDelta(getProject());
-			if (delta == null) {
-				fullBuild(monitor);
-			} else {
-				incrementalBuild(delta, monitor);
-			}
-		}
-		CrossxView.myrefresh();
-		return null;
-	}
-    /** Do a full build of the project.  Will run both crossx and the codegenerator
+    /**
+     * If this is a .crossx resource, adds the contents to the CrossxBroker
+     * 
+     * @param resource
+     *            The resource to check
+     */
+    private void checkSymbols(IResource resource) {
+        if (resource instanceof IFile && resource.getName().endsWith(CROSSX_EXTENSION)) {
+            if (!inModelDir(resource)) {
+                return;
+            }
+            Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
+            CrossxBroker.addInfo(doc);
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.core.internal.events.InternalBuilder#build(int, java.util.Map,
+     *      org.eclipse.core.runtime.IProgressMonitor)
+     */
+    protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
+        if (kind == FULL_BUILD) {
+            fullBuild(monitor);
+        } else if (kind == CLEAN_BUILD) {
+            fullBuild(monitor);
+        } else {
+            IResourceDelta delta = getDelta(getProject());
+            if (delta == null) {
+                fullBuild(monitor);
+            } else {
+                incrementalBuild(delta, monitor);
+            }
+        }
+        CrossxView.myrefresh();
+        return null;
+    }
+
+    /**
+     * Do a full build of the project. Will run both crossx and the codegenerator
      * 
      * @param monitor
      * @throws CoreException
      */
-	protected void fullBuild(final IProgressMonitor monitor)
-			throws CoreException {
-		System.err.println("Mod4jBuilder: full build");
-		try {
-			getProject().accept(new CrossxSymbolGeneratorVisitor());
-			getProject().accept(new Mod4jCodeGeneratorVisitor());
-		} catch (CoreException e) {
-			System.err.println("Mod4jBuilder ERROR fullBuild [" + e.getMessage() + "]");
-			// TODO: handle exception
-		}
-	}
-
-	protected void incrementalBuild(IResourceDelta delta,
-			IProgressMonitor monitor) throws CoreException {
-		// the visitor does the work.
-		System.err.println("Mod4jBuilder: incremental build");
-		delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
-		delta.accept(new CrossxDeltaVisitor());
-	}
-	
-	protected void startupOnInitialize() {
-		if( ! initialized ) {
-			console = EclipseUtil.findConsole("mod4j.projectbuilder");
-			CrossxBroker.setPrintStream(EclipseUtil.findConsole("crossx.repository")) ;  
-			System.setErr(new PrintStream(console));
-			initialized = true;
-			start();
-		}
-	}
-	
-    public void start() {
-		dslExtensions = Mod4jBuilder.getExtensions();
-		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-		for (int i = 0; i < projects.length; i++) {
-			IProject project = projects[i];	
-			myloadCrossxInfo(project);
-		}
+    protected void fullBuild(final IProgressMonitor monitor) throws CoreException {
+        System.err.println("Mod4jBuilder: full build");
+        cleanOutputDirectories();
+        try {
+            getProject().accept(new CrossxSymbolGeneratorVisitor());
+            getProject().accept(new Mod4jCodeGeneratorVisitor());
+        } catch (CoreException e) {
+            System.err.println("Mod4jBuilder ERROR fullBuild [" + e.getMessage() + "]");
+            // TODO: handle exception
+        }
     }
-    
-	
-	/** Load the Crossx symbols from all crossx files in the project.
-	 * 
-	 */
-	private void myloadCrossxInfo(IProject project) {
-		// Make sure the project is open and has the Mod4j nature.
-		try {
-			if ( (!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) ){
-				return;
-			}
-		} catch (CoreException e1) {
-			System.err.println("Mod4jBuilder ERROR requesting nature [" + e1.getMessage() + "]");
-			e1.printStackTrace();
-		} 
-		// Run the visitor over the project to collect all Crossx information
-		CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
-		try {
-			project.accept(visitor);
-		} catch (Exception e) {
-			System.err.println("Mod4jBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
 
+    /**
+     * Perform an incremental build of the project
+     * 
+     * @param delta
+     *            The changes in the projects resources for which rebuild need to be performed
+     * @param monitor
+     *            The monitor
+     * @throws CoreException
+     *             see Eclipse documentation
+     */
+    protected void incrementalBuild(IResourceDelta delta, IProgressMonitor monitor) throws CoreException {
+        // the visitor does the work.
+        System.err.println("Mod4jBuilder: incremental build");
+        delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
+        delta.accept(new CrossxDeltaVisitor());
+    }
 
-	protected boolean inModelDir(IResource resource ) {
+    /**
+     * Initializes the infomative output console for Crossx and the code generation. Also redirect the standard error
+     * output to a console.
+     */
+    protected void startupOnInitialize() {
+        if (!initialized) {
+            console = EclipseUtil.findConsole("mod4j.projectbuilder");
+            CrossxBroker.setPrintStream(EclipseUtil.findConsole("crossx.repository"));
+            System.setErr(new PrintStream(console));
+            initialized = true;
+            start();
+        }
+    }
+
+    public void start() {
+        dslExtensions = Mod4jBuilder.getExtensions();
+        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+        for (int i = 0; i < projects.length; i++) {
+            IProject project = projects[i];
+            myloadCrossxInfo(project);
+        }
+    }
+
+    /**
+     * Load the Crossx symbols from all crossx files in the project.
+     * 
+     */
+    private void myloadCrossxInfo(IProject project) {
+        // Make sure the project is open and has the Mod4j nature.
+        try {
+            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID))) {
+                return;
+            }
+        } catch (CoreException e1) {
+            System.err.println("Mod4jBuilder ERROR requesting nature [" + e1.getMessage() + "]");
+            e1.printStackTrace();
+        }
+        // Run the visitor over the project to collect all Crossx information
+        CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
+        try {
+            project.accept(visitor);
+        } catch (Exception e) {
+            System.err.println("Mod4jBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Check whether a resource is inside a model directory
+     * 
+     * @param resource
+     *            The resource to check
+     * @return True if resource is inside a model directory, false otherwise.
+     */
+    protected boolean inModelDir(IResource resource) {
         IPath resourcePath = resource.getProjectRelativePath();
         IPath modelPath = getProject().findMember(MODEL_DIR).getProjectRelativePath();
-        return modelPath.isPrefixOf(resourcePath) ;
-	}
-	/** If this is a DSL model, run the workflow to generate code.
-	 * 
-	 * @param resource
-	 */
-	protected void generateCode(IResource resource) {
-		DslExtension dsl = isDslFile(resource);
-		if ( dsl != null ) {
-			try {
+        return modelPath.isPrefixOf(resourcePath);
+    }
+
+    private void cleanOutputDirectories() {
+        System.err.println("START clean directories");
+        for (DslExtension dsl : dslExtensions) {
+            // properties files
+            String propertyFilename = MODEL_DIR + "/" + dsl.getDslCodegenProperties();
+            IResource propertiesFile = getProject().findMember(propertyFilename);
+            if (propertiesFile == null) {
+                EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
+                        + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+            }
+
+            // Setup the properties for the generator workflow
+            String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
+
+            String workDir = getProject().getLocation().toString();
+            RunDirectoryCleanWorkflow genWf = new RunDirectoryCleanWorkflow();
+            try {
+                genWf.runWorkflow(workDir, propertiesFilePath);
+            } catch (Mod4jWorkflowException e) {
+                System.err.println("Mod4j: workflow error while cleaning directory for project ["
+                        + getProject().getName() + "]");
+            }
+        }
+        System.err.println("END clean directories");
+    }
+
+    /**
+     * If this is a DSL model, run the workflow to generate code.
+     * 
+     * @param resource
+     */
+    protected void generateCode(IResource resource) {
+        DslExtension dsl = isDslFile(resource);
+        if (dsl != null) {
+            try {
                 if (!inModelDir(resource)) {
                     return;
                 }
-			} catch( Exception e ){
-				System.err.println("Mod4j Builder Exception in generateCode [" + e.getMessage() + "]");
-				e.printStackTrace();
-			}
-	
-			// properties files
-			String propertyFilename = MODEL_DIR + "/"+ dsl.getDslCodegenProperties();
-			IResource propertiesFile = getProject().findMember(propertyFilename);
-			if( propertiesFile == null ){
-				EclipseUtil.showWarning("Mod4j: code generation properties file ["+ propertyFilename +
-		                "] in project [" + getProject().getName() + "] not found, cannot generate code.");
-			}
-			
-			IPath genFile = getGeneratorPath(dsl);
-			if( genFile == null ){
-				return ;
-			}
-			String genName = genFile.toString();
+            } catch (Exception e) {
+                System.err.println("Mod4j Builder Exception in generateCode [" + e.getMessage() + "]");
+                e.printStackTrace();
+            }
 
-         	// Setup the properties for the generator workflow
+            // properties files
+            String propertyFilename = MODEL_DIR + "/" + dsl.getDslCodegenProperties();
+            IResource propertiesFile = getProject().findMember(propertyFilename);
+            if (propertiesFile == null) {
+                EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
+                        + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+            }
+
+            IPath genFile = getGeneratorPath(dsl);
+            if (genFile == null) {
+                return;
+            }
+            String genName = genFile.toString();
+
+            // Setup the properties for the generator workflow
             String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
-            String modelFilePath     = EclipseUtil.resource2UriString(resource);
+            String modelFilePath = EclipseUtil.resource2UriString(resource);
 
-			Map<String, String> properties = ModelHelpers.getProperties(propertiesFilePath);
-			properties.put("modelFile", modelFilePath );
-			properties.put("appPropFilePath", propertiesFilePath);
-			
-			// Get the relative applicationPath property and make it absolute
-			String applicationPath = properties.get("applicationPath");
-			String workDir = getProject().getLocation().toString() ;
-			String newAppPath = workDir + "/" + applicationPath;
-			properties.put("applicationPath", newAppPath );
-			properties.put("workDir", workDir);
+            Map<String, String> properties = ModelHelpers.getProperties(propertiesFilePath);
+            properties.put("modelFile", modelFilePath);
+            properties.put("appPropFilePath", propertiesFilePath);
 
-//			System.err.println("applicationPath [" + newAppPath + "]");
-			RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
-			try {
+            // Get the relative applicationPath property and make it absolute
+            String applicationPath = properties.get("applicationPath");
+            String workDir = getProject().getLocation().toString();
+            String newAppPath = workDir + "/" + applicationPath;
+            properties.put("applicationPath", newAppPath);
+            properties.put("workDir", workDir);
+
+            // System.err.println("applicationPath [" + newAppPath + "]");
+            RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
+            try {
                 genWf.runWorkflow(genName, properties);
             } catch (Mod4jWorkflowException e) {
-                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName() + "]" );
+                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName()
+                        + "]");
             }
-		}
-	}
-	
-	/** If this is a DSL model, generate the crossx symbols
-	 * 
-	 * @param resource
-	 */
-	private void generateCrossxSymbols(IResource resource) {
-		DslExtension dsl = isDslFile(resource);
-		if ( dsl != null ) {
-			if( ! inModelDir(resource) ){
-				return;
-			}
-			IFile file = (IFile) resource;
-			
-			String modelfile = EclipseUtil.resource2UriString(resource);
-			String tmp = EclipseUtil.resource2FullPathnameString(file) ;
-			String crossxfile = tmp.substring(0, tmp.lastIndexOf(dsl.getDslFileExtension())) +
-	        CROSSX_EXTENSION;
+        }
+    }
 
-			IPath wfPath = getWorkflowPath(dsl);
-			String wfName = wfPath.toString();
+    /**
+     * If this is a DSL model, generate the crossx symbols
+     * 
+     * @param resource
+     */
+    private void generateCrossxSymbols(IResource resource) {
+        DslExtension dsl = isDslFile(resource);
+        if (dsl != null) {
+            if (!inModelDir(resource)) {
+                return;
+            }
+            IFile file = (IFile) resource;
 
-			RunCrossxWorkflow wf = new RunCrossxWorkflow();
-    		try {
+            String modelfile = EclipseUtil.resource2UriString(resource);
+            String tmp = EclipseUtil.resource2FullPathnameString(file);
+            String crossxfile = tmp.substring(0, tmp.lastIndexOf(dsl.getDslFileExtension())) + CROSSX_EXTENSION;
+
+            IPath wfPath = getWorkflowPath(dsl);
+            String wfName = wfPath.toString();
+
+            RunCrossxWorkflow wf = new RunCrossxWorkflow();
+            try {
                 wf.runWorkflow(wfName, modelfile, crossxfile);
             } catch (Mod4jWorkflowException m4jwe) {
                 System.err.println("[" + m4jwe.getMessage() + "]");
             }
-		}
-	}
+        }
+    }
 
-    /** The path of the workflowfile for generating the crossx symbols
+    /**
+     * The path of the workflowfile for generating the crossx symbols
      * 
-     * @return 
+     * @return
      */
     private IPath getWorkflowPath(DslExtension dsl) {
         IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDsl2crossxWorkflow());
-        if( result == null ) {
-            EclipseUtil.showError("Mod4j internal: cannot open crossx workflow ["+ dsl.getDsl2crossxWorkflow() + "]" +
-                                  "in plugin [" + dsl.getDslContributor() + "]");
+        if (result == null) {
+            EclipseUtil.showError("Mod4j internal: cannot open crossx workflow [" + dsl.getDsl2crossxWorkflow() + "]"
+                    + "in plugin [" + dsl.getDslContributor() + "]");
             return null;
         }
         return result;
     }
 
-    /** The path of the workflowfile for generating the crossx symbols
+    /**
+     * The path of the workflowfile for generating the crossx symbols
      * 
-     * @return 
+     * @return
      */
     private IPath getGeneratorPath(DslExtension dsl) {
         IPath result = EclipseUtil.getPath(dsl.getDslContributor(), dsl.getDslCodegenWorkflow());
-        if( result == null ) {
-            EclipseUtil.showError("Mod4j internal: cannot open code generation workflow ["+ dsl.getDslCodegenWorkflow() + "]" +
-                                  "from plugin [" + dsl.getDslContributor() + "]");
+        if (result == null) {
+            EclipseUtil.showError("Mod4j internal: cannot open code generation workflow ["
+                    + dsl.getDslCodegenWorkflow() + "]" + "from plugin [" + dsl.getDslContributor() + "]");
             return null;
         }
         return result;
     }
 
-	/** The path of the workflowfile for generating the code 
-	 * 
-	 * @return 
-	 */
-	private IPath getGeneratorPathFromProject(DslExtension dsl) {
-		// TODO generate error message when oaw file is not available
-//		IResource resource = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW);
-		IResource resource = getProject().findMember(dsl.getDslCodegenWorkflow());
-		if( resource == null ) {
-			EclipseUtil.showWarning("Mod4j: cannot open code generation workflow ["+ dsl.getDslCodegenWorkflow() +
-					                "] for project [" + getProject().getName() + "] no code is generated");
-			return null;
-		}
- 		IPath path = resource.getLocation();
-		return path;		
-	}
+    /**
+     * The path of the workflowfile for generating the code
+     * 
+     * @return
+     */
+    private IPath getGeneratorPathFromProject(DslExtension dsl) {
+        // TODO generate error message when oaw file is not available
+        // IResource resource = getProject().findMember(SRC_WORKFLOW_BUSMOD_OAW);
+        IResource resource = getProject().findMember(dsl.getDslCodegenWorkflow());
+        if (resource == null) {
+            EclipseUtil.showWarning("Mod4j: cannot open code generation workflow [" + dsl.getDslCodegenWorkflow()
+                    + "] for project [" + getProject().getName() + "] no code is generated");
+            return null;
+        }
+        IPath path = resource.getLocation();
+        return path;
+    }
 
-	/** Checks whether <code>resource</code> is a Dsl file of a DSl in the extension list.
-	 *  If so, return the corresponding DslExtension, if not returns  null.
-	 * 
-	 * @param resource
-	 * @return
-	 */
-	private DslExtension isDslFile(IResource resource){
-		if ( ! (resource instanceof IFile) ) {
-			return null;
-		}
-		for (DslExtension dsl : dslExtensions) {
-			if ( resource.getName().endsWith(dsl.getDslFileExtension())) {
-				return dsl;
-			}
-		}
-		return null;
-	}
-	
-	public static List<DslExtension> getExtensions() {
-		List<DslExtension> result = new ArrayList<DslExtension>();
-		
-		IExtensionRegistry reg = Platform.getExtensionRegistry();
-//		IExtensionPoint[] allextensions = reg.getExtensionPoints();
-//		for (int i = 0; i < allextensions.length; i++) {
-//			IExtensionPoint p = allextensions[i];
-//			System.err.println("Extension: "+ p.getUniqueIdentifier());
-//		}
-		IConfigurationElement[] extensions = reg.getConfigurationElementsFor(DSL_EXTENSION_ID);
-		for (int i = 0; i < extensions.length; i++) {
-			IConfigurationElement element = extensions[i];
-			String name = element.getAttribute("dslName");
-			String metamodelPackage = element.getAttribute("dslMetamodelPackage");
-			String fileExtension = element.getAttribute("dslFileExtension");
-			String crossxWorkflow = element.getAttribute("dsl2crossxWorkflow");
-			String contributor= element.getContributor().getName();
-			
-			String codegenWorkflow = element.getAttribute("dslCodegenWorkflow");
-			String codegenProperties = element.getAttribute("dslCodegenProperties");
+    /**
+     * Checks whether <code>resource</code> is a Dsl file of a DSl in the extension list. If so, return the
+     * corresponding DslExtension, if not returns null.
+     * 
+     * @param resource
+     * @return
+     */
+    private DslExtension isDslFile(IResource resource) {
+        if (!(resource instanceof IFile)) {
+            return null;
+        }
+        for (DslExtension dsl : dslExtensions) {
+            if (resource.getName().endsWith(dsl.getDslFileExtension())) {
+                return dsl;
+            }
+        }
+        return null;
+    }
 
-			System.err.println("DSL [" + name + "] CONTRIBUTED BY [" + contributor + "]" );
+    private DslExtension getForExtension(String extension) {
+        for (DslExtension dsl : dslExtensions) {
+            if (extension.equals(dsl.getDslFileExtension())) {
+                return dsl;
+            }
+        }
+        return null;
+    }
 
-			DslExtension dsl = new DslExtension(contributor, name, metamodelPackage, 
-					                            fileExtension, crossxWorkflow,
-					                            codegenWorkflow, codegenProperties);
-			if( dsl.validate() ){
-				result.add( dsl );
-			} else {
-				EclipseUtil.showError("Mod4j: crossx extension point [is invalid");
-			}
-		}
-		return result;
-	}
+    public static List<DslExtension> getExtensions() {
+        List<DslExtension> result = new ArrayList<DslExtension>();
+
+        IExtensionRegistry reg = Platform.getExtensionRegistry();
+        // IExtensionPoint[] allextensions = reg.getExtensionPoints();
+        // for (int i = 0; i < allextensions.length; i++) {
+        // IExtensionPoint p = allextensions[i];
+        // System.err.println("Extension: "+ p.getUniqueIdentifier());
+        // }
+        IConfigurationElement[] extensions = reg.getConfigurationElementsFor(DSL_EXTENSION_ID);
+        for (int i = 0; i < extensions.length; i++) {
+            IConfigurationElement element = extensions[i];
+            String name = element.getAttribute("dslName");
+            String metamodelPackage = element.getAttribute("dslMetamodelPackage");
+            String fileExtension = element.getAttribute("dslFileExtension");
+            String crossxWorkflow = element.getAttribute("dsl2crossxWorkflow");
+            String contributor = element.getContributor().getName();
+
+            String codegenWorkflow = element.getAttribute("dslCodegenWorkflow");
+            String codegenProperties = element.getAttribute("dslCodegenProperties");
+
+            System.err.println("DSL [" + name + "] CONTRIBUTED BY [" + contributor + "]");
+
+            DslExtension dsl = new DslExtension(contributor, name, metamodelPackage, fileExtension, crossxWorkflow,
+                    codegenWorkflow, codegenProperties);
+            if (dsl.validate()) {
+                result.add(dsl);
+            } else {
+                EclipseUtil.showError("Mod4j: crossx extension point [is invalid");
+            }
+        }
+        return result;
+    }
 
 }
