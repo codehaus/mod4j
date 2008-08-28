@@ -11,13 +11,17 @@ import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
 public class RunDirectoryCleanWorkflow {
 
-    /**
-     * @param wfFile
-     * @param properties
+    /** 
+     * Run the clean directories workflow
+     * 
+     * @param workDir The absolute pathname of the workDir
+     * @param propertiesFilePath The absolute pathname of the properties file
      * @throws Mod4jWorkflowException
      */
     public void runWorkflow(String workDir, String propertiesFilePath) throws Mod4jWorkflowException {
-
+        System.err.println("Run DirectoryClean on workDir [" + workDir + "]");
+        System.err.println("           propertiesFilePath [" + propertiesFilePath + "]");
+   
         Map<String, String> properties = initializeWorkflowProperties(workDir, propertiesFilePath);
 
         System.err.println("Run DirectoryClean on directories ");
