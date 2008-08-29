@@ -58,6 +58,7 @@
                 <module>BusinessDomain/BusinessDomain.validation</module>
                 <module>BusinessDomain/BusinessDomain.generator</module>
                 <module>mod4j-maven-plugin</module>
+                <module>RecordShop-ExampleProject</module>
             </modules>
         </profile>
     </profiles>
