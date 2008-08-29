@@ -8,24 +8,42 @@
     <name>RecordShop</name>
     <properties>
         <spring.version>2.5</spring.version>
+        <generated-sources-dir>generated-sources</generated-sources-dir>
+        <generated-resources-dir>generated-resources</generated-resources-dir>
     </properties>
     <modules>
         <module>RecordShop-DslModels</module>
-       <!-- TODO
         <module>RecordShop-domain</module>
         <module>RecordShop-data</module>
+        <!-- TODO       
             <module>RecordShop-cross</module>
             <module>RecordShop-business</module>
             <module>RecordShop-service</module>
             <module>RecordShop-presentation</module>
         -->
     </modules>
-    <build>
+    <build>	
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/${generated-resources-dir}</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>${basedir}/${generated-resources-dir}</directory>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.2</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -35,7 +53,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/target/generated-sources</source>
+                                <source>${basedir}/${generated-sources-dir}</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -47,7 +65,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/target/generated-resources</source>
+                                <source>${basedir}/${generated-resources-dir}</source>
                             </sources>
                         </configuration>
                     </execution>
