@@ -3,28 +3,38 @@ package org.mod4j.dslcommon.openarchitectureware;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openarchitectureware.workflow.WorkflowRunner;
-import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
-public class RunGeneratorWorkflow {
+/**
+ * @author johan
+ *
+ */
+public class Mod4jWorkflowRunner {
+
+    private final Log logger = LogFactory.getLog(getClass());
 
     /**
+     * General workflow runner. 
+     * 
      * @param wfFile
      * @param properties
      * @throws Mod4jWorkflowException
      */
     public void runWorkflow(final String wfFile, final Map<String, String> properties) throws Mod4jWorkflowException {
 
-        System.err.println("Run Generator [" + wfFile + "] on: [" + properties.get("modelFile") + "]");
         Map<String, Object> slotContents = new HashMap<String, Object>();
-
         WorkflowRunner runner = new WorkflowRunner();
+
+        logger.info("Running workflow [" + wfFile + "] with properties : \n\t [" + properties + "]");
+
         if (!runner.run(wfFile, new NullProgressMonitor(), properties, slotContents)) {
-            throw new Mod4jWorkflowException("ERROR(S) detected while running generator workflow on "
-                    + properties.get("modelFile") + "! See logging.");
+            logger.error("ERROR(S) detected while running workflow : [" + wfFile + "] See logging.");
+            throw new Mod4jWorkflowException("ERROR(S) detected while running workflow :" + wfFile);
         }
 
-        System.err.println("Workflow Generator SUCCESSFUL!");
+        logger.info("===== Workflow SUCCESSFUL!=====");
     }
 }

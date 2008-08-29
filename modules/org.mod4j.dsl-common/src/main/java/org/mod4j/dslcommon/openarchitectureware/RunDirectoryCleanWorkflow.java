@@ -22,6 +22,7 @@ public class RunDirectoryCleanWorkflow {
         System.err.println("Run DirectoryClean on workDir [" + workDir + "]");
         System.err.println("           propertiesFilePath [" + propertiesFilePath + "]");
    
+        
         Map<String, String> properties = initializeWorkflowProperties(workDir, propertiesFilePath);
 
         System.err.println("Run DirectoryClean on directories ");
@@ -39,7 +40,9 @@ public class RunDirectoryCleanWorkflow {
     }
 
     private Map<String, String> initializeWorkflowProperties(String workDir, String propertiesFilePath) {
-        Map<String, String> result = ModelHelpers.getProperties(propertiesFilePath);
+
+        
+        Map<String, String> result = ModelHelpers.getProperties(workDir + "/" + propertiesFilePath);
 
         // Get the relative applicationPath property and make it absolute
         String applicationPath = result.get("applicationPath");

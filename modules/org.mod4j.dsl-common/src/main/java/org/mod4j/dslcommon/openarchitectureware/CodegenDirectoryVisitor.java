@@ -113,7 +113,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
         properties.put("modelFile", modelfile);
 
-        RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
+        Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
         genWf.runWorkflow(codegenWorkflow, properties);
     }
 

@@ -7,9 +7,18 @@ public class Mod4jWorkflowException extends Exception {
      */
     private static final long serialVersionUID = 1286074961964414319L;
 
+    private String message;
     
     public Mod4jWorkflowException(String string) {
-        // TODO Auto-generated constructor stub
+        setMessage(string);
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
 

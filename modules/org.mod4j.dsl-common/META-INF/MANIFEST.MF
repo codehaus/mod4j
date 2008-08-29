@@ -12,4 +12,5 @@ Require-Bundle: org.openarchitectureware.core.workflow,
  org.openarchitectureware.classic.libraries,
  org.apache.commons.cli,
  org.mod4j.crossx.broker,
- org.mod4j.crossx.mm
+ org.mod4j.crossx.mm,
+ org.openarchitectureware.util.stdlib;resolution:=optional

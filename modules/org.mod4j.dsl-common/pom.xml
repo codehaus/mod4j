@@ -15,6 +15,26 @@
     <name>${project.artifactId}</name>
     <description>This module contains DSL common (re)sources.</description>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/oaw</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
@@ -33,6 +53,10 @@
         <dependency>
             <groupId>org.openarchitectureware</groupId>
             <artifactId>oaw-classic-libraries</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openarchitectureware</groupId>
+            <artifactId>oaw-util-stdlib</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
