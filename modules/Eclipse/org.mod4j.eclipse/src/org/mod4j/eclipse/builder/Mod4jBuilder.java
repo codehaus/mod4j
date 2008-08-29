@@ -44,7 +44,7 @@ import org.mod4j.dslcommon.io.Files;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
-import org.mod4j.dslcommon.openarchitectureware.RunDirectoryCleanWorkflow;
+import org.mod4j.dslcommon.openarchitectureware.OutletDirectoryCleaner;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner;
 import org.mod4j.dslcommon.xml.XmlUtil;
 
@@ -332,9 +332,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
 
             String workDir = getProject().getLocation().toString();
-            RunDirectoryCleanWorkflow genWf = new RunDirectoryCleanWorkflow();
+            OutletDirectoryCleaner genWf = new OutletDirectoryCleaner();
             try {
-                genWf.runWorkflow(workDir, propertiesFilePath);
+                genWf.clean(workDir, propertiesFilePath);
             } catch (Mod4jWorkflowException e) {
                 System.err.println("Mod4j: workflow error while cleaning directory for project ["
                         + getProject().getName() + "]");

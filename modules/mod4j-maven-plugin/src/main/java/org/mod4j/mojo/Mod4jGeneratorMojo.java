@@ -11,6 +11,7 @@ import org.mod4j.dslcommon.openarchitectureware.CodegenDirectoryVisitor;
 import org.mod4j.dslcommon.openarchitectureware.CrossxDirectoryVisitor;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
+import org.mod4j.dslcommon.openarchitectureware.OutletDirectoryCleaner;
 
 /**
  * The Mod4j Maven plug-in is used for generating artifacts out of Mod4j model projects. <br/>
@@ -32,19 +33,21 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * The model dir to process
      * 
      */
-    //TODO Make this plug-in search in all known source folders 
+    // TODO Make this plug-in search in all known source folders
     private final static String MODEL_DIR = "src/model";
-    
+
     /**
      * The list with known DSL extensions to process.
      * 
      * @parameter
      * 
      */
-    //TODO Make use of set of dslExtentions to process
+    // TODO Make use of set of dslExtentions to process
     private HashSet<DslExtension> dslExtensions;
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see org.apache.maven.plugin.AbstractMojo#execute()
      */
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -56,7 +59,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
                 "codegen/BusinessDomainDsl.oaw", "businessDomain/BusinessDomainDsl.properties");
 
         String dir = project.getBasedir().getAbsolutePath();
-        
+
         try {
             processDslModel(dir, dsl);
         } catch (Mod4jWorkflowException we) {
@@ -69,18 +72,22 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     /**
      * Method for processing DSL model files. The following steps will be processed:<br/> 1) Walk through all Mod4j
      * model files for the given <b>DslExtension</b> within the model project and extract reference information (CrossX
-     * Broker). <br/> 2) Run the internal oAW workflow files, which checks consistency of the models and generate code
-     * and artifacts.
+     * Broker). <br/> 2) Run the directory cleaner. 3) Run the internal oAW workflow files, which checks consistency of
+     * the models and generate code and artifacts.
      * 
      * @param projectDir
      * @param DslExtension
-     * @throws Exception 
+     * @throws Exception
      */
     public void processDslModel(final String projectDir, final DslExtension dsl) throws Exception {
 
         DirectoryWalker walker = new DirectoryWalker();
         CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);
         walker.walk(projectDir + "/" + MODEL_DIR, vis);
+
+        OutletDirectoryCleaner directoryCleaner = new OutletDirectoryCleaner();
+        directoryCleaner.clean(projectDir, projectDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties());
+
         CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir);
         walker.walk(projectDir + "/" + MODEL_DIR, codegen);
     }
