@@ -45,7 +45,7 @@ import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
 import org.mod4j.dslcommon.openarchitectureware.RunDirectoryCleanWorkflow;
-import org.mod4j.dslcommon.openarchitectureware.RunGeneratorWorkflow;
+import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner;
 import org.mod4j.dslcommon.xml.XmlUtil;
 
 import org.mod4j.eclipse.crossx.views.CrossxView;
@@ -326,7 +326,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (propertiesFile == null) {
                 EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
                         + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
-                return;
             }
 
             // Setup the properties for the generator workflow
@@ -392,7 +391,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             properties.put("workDir", workDir);
 
             // System.err.println("applicationPath [" + newAppPath + "]");
-            RunGeneratorWorkflow genWf = new RunGeneratorWorkflow();
+            Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
             try {
                 genWf.runWorkflow(genName, properties);
             } catch (Mod4jWorkflowException e) {
