@@ -41,6 +41,9 @@ String getDaoPackage() :
 String getSrcGenPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getSrcGenPath();
 
+String getResourceGenPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getResourceGenPath();
+
 String getSrcManPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getSrcManPath();
 

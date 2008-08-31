@@ -46,6 +46,7 @@ public class ProjectProperties {
         domainRootPackage = properties.getProperty("domainRootPackage");
         dataRootPackage = properties.getProperty("dataRootPackage");
         srcGenPath = properties.getProperty("srcGenPath");
+        resourceGenPath = properties.getProperty("resourceGenPath");
         srcManPath = properties.getProperty("srcManPath");
         resourceManPath = properties.getProperty("resourceManPath");
         fileEncoding = properties.getProperty("fileEncoding");
@@ -74,6 +75,8 @@ public class ProjectProperties {
     private static String dataRootPackage = "DEFAULT";
 
     private static String srcGenPath = "DEFAULT";
+    
+    private static String resourceGenPath = "DEFAULT";
 
     private static String srcManPath = "DEFAULT";
 
@@ -153,6 +156,10 @@ public class ProjectProperties {
         return srcGenPath;
     }
 
+    public static String getResourceGenPath() {
+        return resourceGenPath;
+    }
+    
     public static String getSrcManPath() {
         return srcManPath;
     }

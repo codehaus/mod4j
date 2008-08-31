@@ -17,8 +17,8 @@
     <name>«getApplicationName()»</name>
     <properties>
         <spring.version>2.5</spring.version>
-        <generated-sources-dir>generated-sources</generated-sources-dir>
-        <generated-resources-dir>generated-resources</generated-resources-dir>
+        <generated-sources-dir>«getSrcGenPath()»</generated-sources-dir>
+        <generated-resources-dir>«getResourceGenPath()»</generated-resources-dir>
     </properties>
     <modules>
         <module>«getApplicationName()»-DslModels</module>
