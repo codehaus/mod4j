@@ -190,7 +190,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 		public String propertiesContents () {
 			String LF = "\n";
 			
-			return 	"# Appliation properties" + LF +
+			return 	"# Application properties" + LF +
 			        "fileEncoding=UTF-8" + LF +
 			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
