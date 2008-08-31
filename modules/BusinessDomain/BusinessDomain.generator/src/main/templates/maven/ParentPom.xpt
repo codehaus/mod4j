@@ -6,9 +6,9 @@
 «DEFINE createParentPom FOR BusinessDomainModel»
     «IF !fileExist(getApplicationPath() + "/pom.xml")»
         «FILE "pom.xml"»
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="«getFileEncoding()»"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>«getRootPackage()»</groupId>
     <artifactId>«getApplicationName()»</artifactId>
@@ -17,8 +17,11 @@
     <name>«getApplicationName()»</name>
     <properties>
         <spring.version>2.5</spring.version>
+        <generated-sources-dir>generated-sources</generated-sources-dir>
+        <generated-resources-dir>generated-resources</generated-resources-dir>
     </properties>
     <modules>
+        <module>«getApplicationName()»-DslModels</module>
         <module>«getApplicationName()»-domain</module>
         <module>«getApplicationName()»-data</module>
         <!-- TODO
@@ -29,11 +32,27 @@
         -->
     </modules>
     <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/${generated-resources-dir}</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>${basedir}/${generated-resources-dir}</directory>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.2</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -43,7 +62,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/target/generated-sources</source>
+                                <source>${basedir}/${generated-sources-dir}</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -55,7 +74,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${basedir}/target/generated-resources</source>
+                                <source>${basedir}/${generated-resources-dir}</source>
                             </sources>
                         </configuration>
                     </execution>

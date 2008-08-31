@@ -1,19 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+«IMPORT BusinessDomainDsl»
+
+«EXTENSION ProjectProperties»
+«EXTENSION generatorutil»
+
+«DEFINE createDslModelsModulePom FOR BusinessDomainModel»
+    «FILE getDslModelsModuleName() + "/pom.xml" -»
+<?xml version="1.0" encoding="«getFileEncoding()»"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.company.recordshop</groupId>
-        <artifactId>RecordShop</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>«getRootPackage()»</groupId>
+        <artifactId>«getApplicationName()»</artifactId>
+        <version>«getApplicationVersion()»</version>
     </parent>
-    <groupId>org.company.recordshop</groupId>
-    <artifactId>RecordShop-DslModels</artifactId>
-    <name>RecordShop-DslModels</name>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>«getRootPackage()»</groupId>
+    <artifactId>«getDslModelsModuleName()»</artifactId>
+    <name>«getDslModelsModuleName()»</name>
+    <version>«getApplicationVersion()»</version>
     <build>
         <resources>
             <resource>
-                <directory>src/model</directory>
+                <directory>«getSrcModelPath()»</directory>
             </resource>
         </resources>
         <plugins>
@@ -76,3 +84,5 @@
         </dependency>
     </dependencies>
 </project>
+    «ENDFILE»
+«ENDDEFINE»

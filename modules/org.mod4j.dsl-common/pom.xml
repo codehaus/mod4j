@@ -57,6 +57,7 @@
         <dependency>
             <groupId>org.openarchitectureware</groupId>
             <artifactId>oaw-util-stdlib</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>

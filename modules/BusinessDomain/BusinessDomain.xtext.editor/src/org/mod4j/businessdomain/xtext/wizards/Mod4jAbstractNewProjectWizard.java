@@ -190,24 +190,25 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 		public String propertiesContents () {
 			String LF = "\n";
 			
-			return "#Model properties" + LF +
-					"outputSlot=OutputBusModel" + LF +
-					"fileEncoding=UTF-8" + LF +
-					" " + LF +
-					"# Appliation properties" + LF +
-					"applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
+			return 	"# Appliation properties" + LF +
+			        "fileEncoding=UTF-8" + LF +
+			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
 					"applicationPath=.." + LF +
-					"domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
-					"dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
-					"rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
-					"domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
-					"dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +
+                    "dslModelsModuleName=" + mainPage.getApplicationNameFieldValue() + "-DslModels" + LF +
+					"srcModelPath=src/model" + LF +
+                    "srcGenPath=generated-sources" + LF +
+                    "resourceGenPath=generated-resources" + LF +
+                    "srcManPath=src/main/java" + LF +
+                    "resourceManPath=src/main/resources" + LF +
 					"" + LF +
-					"srcGenPath=target/generated-sources" + LF +
-					"resourceGenPath=target/generated-resources" + LF +
-					"srcManPath=src/main/java" + LF +
-					"resourceManPath=src/main/resources" + LF ;
+					"# BusinessDomain model properties" + LF +
+                    "outputSlot=OutputBusModel" + LF +
+                    "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
+                    "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
+                    "rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
+                    "domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
+                    "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF;
         }
 
 		public String sampleModelContents() {

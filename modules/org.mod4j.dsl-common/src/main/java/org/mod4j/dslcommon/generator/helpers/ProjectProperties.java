@@ -39,6 +39,7 @@ public class ProjectProperties {
         applicationName = properties.getProperty("applicationName");
         applicationVersion = properties.getProperty("applicationVersion");
         applicationPath = properties.getProperty("applicationPath");
+        dslModelsModuleName = properties.getProperty("dslModelsModuleName");
         domainModuleName = properties.getProperty("domainModuleName");
         dataModuleName = properties.getProperty("dataModuleName");
         rootPackage = properties.getProperty("rootPackage");
@@ -58,10 +59,14 @@ public class ProjectProperties {
 
     private static String applicationPath = "DEFAULT";
 
+    private static String dslModelsModuleName = "DslModels";
+
+    private static String srcModelPath = "src/model";
+    
     private static String dataModuleName = "DEFAULT";
 
     private static String domainModuleName = "DEFAULT";
-
+    
     private static String rootPackage = "DEFAULT";
 
     private static String domainRootPackage = "DEFAULT";
@@ -100,6 +105,14 @@ public class ProjectProperties {
         return workDir + "/" + applicationPath;
     }
 
+    public static String getDslModelsModulePath() {
+        return getApplicationPath() + "/" + getDslModelsModuleName();
+    }
+
+    public static String getDslModelsModuleName() {
+        return dslModelsModuleName;
+    }
+    
     public static String getDomainModulePath() {
         return getApplicationPath() + "/" + getDomainModuleName();
     }
@@ -130,6 +143,10 @@ public class ProjectProperties {
 
     public static String getDaoPackage() {
         return getDataRootPackage() + "." + DAO_PACKAGE;
+    }
+
+    public static String getSrcModelPath() {
+        return srcModelPath;
     }
 
     public static String getSrcGenPath() {

@@ -11,6 +11,12 @@ String getApplicationVersion() :
 String getApplicationPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getApplicationPath();
 
+String getSrcModelPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getSrcModelPath();
+
+String getDslModelsModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDslModelsModuleName();
+
 String getDomainModuleName() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainModuleName();
 

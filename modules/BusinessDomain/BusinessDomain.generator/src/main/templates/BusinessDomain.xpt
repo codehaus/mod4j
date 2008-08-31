@@ -23,6 +23,7 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
+    «EXPAND DslModelsModulePom::createDslModelsModulePom»
     «EXPAND ParentPom::createParentPom»
 	«EXPAND DomainModulePom::createDomainModulePom»
 	«EXPAND DataModulePom::createDataModulePom»
