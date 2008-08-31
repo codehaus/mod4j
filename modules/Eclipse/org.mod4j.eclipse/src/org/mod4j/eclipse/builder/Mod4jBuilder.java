@@ -286,7 +286,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     private void myloadCrossxInfo(IProject project) {
         // Make sure the project is open and has the Mod4j nature.
         try {
-            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID))) {
+            if ((!project.isAccessible()) || 
+                (!project.hasNature(Mod4jNature.NATURE_ID)) ||
+                (! project.isOpen())) {
                 return;
             }
         } catch (CoreException e1) {
