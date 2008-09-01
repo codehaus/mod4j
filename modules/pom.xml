@@ -177,13 +177,14 @@
                     <threshold>High</threshold>
                 </configuration>
             </plugin>
-            <plugin>
+<!--            <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
                     <aggregate>true</aggregate>
                 </configuration>
             </plugin>
+-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>javancss-maven-plugin</artifactId>
