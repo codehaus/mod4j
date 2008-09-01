@@ -10,6 +10,7 @@ package org.mod4j.businessdomain.xtext.wizards;
  *     IBM Corporation - initial API and implementation
  *     Jakub Jurkiewicz <jakub.jurkiewicz@gmail.com> - Fix for Bug 174737
  *     [IDE] New Plug-in Project wizard status handling is inconsistent
+ *     Ordina: adapted this xText generated file for Mod4j.
  *******************************************************************************/
 
 import java.net.URI;
@@ -42,6 +43,13 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewProjectCreationPage {
 
+	/** Duplicated !
+	 * 
+	 */
+	protected String getModelProjectName() {
+		return getApplicationNameFieldValue() + "-DslModels" ;
+	}
+
     /**
      * Creates a new project creation wizard page.
      *
@@ -68,12 +76,12 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	 * </p>
 	 */
 	       // initial value stores
-	    private String initialProjectFieldValue;
+//	    private String initialProjectFieldValue;
 	    private String initialApplicationNameFieldValue;
 	    private String initialPackageNameFieldValue;
 
 	    // widgets
-	    Text projectNameField;
+//	    Text projectNameField;
 	    Text applicationNameField;
 	    Text packageNameField;
 
@@ -89,7 +97,7 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 		private ProjectContentsLocationArea locationArea;
 
 	    // constants
-	    private static final int SIZING_TEXT_FIELD_WIDTH = 250;
+	    private static final int SIZING_TEXT_FIELD_WIDTH = 350;
 
 
 	    /** (non-Javadoc)
@@ -109,8 +117,8 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 
 	        createProjectNameGroup(composite);
 	        locationArea = new ProjectContentsLocationArea(getErrorReporter(), composite);
-	        if(initialProjectFieldValue != null) {
-				locationArea.updateProjectName(initialProjectFieldValue);
+	        if(initialApplicationNameFieldValue != null) {
+				locationArea.updateProjectName(getModelProjectName());
 			}
 
 			// Scale the button based on the rest of the dialog
@@ -158,23 +166,23 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	        projectGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 	        // new project label
-	        Label projectLabel = new Label(projectGroup, SWT.NONE);
-	        projectLabel.setText(IDEWorkbenchMessages.WizardNewProjectCreationPage_nameLabel);
-	        projectLabel.setFont(parent.getFont());
+//	        Label projectLabel = new Label(projectGroup, SWT.NONE);
+//	        projectLabel.setText(IDEWorkbenchMessages.WizardNewProjectCreationPage_nameLabel);
+//	        projectLabel.setFont(parent.getFont());
 
 	        // new project name entry field
-	        projectNameField = new Text(projectGroup, SWT.BORDER);
-	        GridData data = new GridData(GridData.FILL_HORIZONTAL);
-	        data.widthHint = SIZING_TEXT_FIELD_WIDTH;
-	        projectNameField.setLayoutData(data);
-	        projectNameField.setFont(parent.getFont());
+//	        projectNameField = new Text(projectGroup, SWT.BORDER);
+//	        GridData data = new GridData(GridData.FILL_HORIZONTAL);
+//	        data.widthHint = SIZING_TEXT_FIELD_WIDTH;
+//	        projectNameField.setLayoutData(data);
+//	        projectNameField.setFont(parent.getFont());
 
 	        // Set the initial value first before listener
 	        // to avoid handling an event during the creation.
-	        if (initialProjectFieldValue != null) {
-				projectNameField.setText(initialProjectFieldValue);
-			}
-	        projectNameField.addListener(SWT.Modify, nameModifyListener);
+//	        if (initialProjectFieldValue != null) {
+//				projectNameField.setText(initialProjectFieldValue);
+//			}
+//	        projectNameField.addListener(SWT.Modify, nameModifyListener);
 	        
 	        /* New application name label */
             Label applicationNameLabel = new Label(projectGroup, SWT.NONE);
@@ -256,8 +264,10 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 		 * @return the new project resource handle
 		 */
 	    public IProject getProjectHandle() {
+//	        return ResourcesPlugin.getWorkspace().getRoot().getProject(
+//	                getProjectName());
 	        return ResourcesPlugin.getWorkspace().getRoot().getProject(
-	                getProjectName());
+	                getModelProjectName());
 	    }
 
 	    /**
@@ -268,11 +278,16 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	     *   if no project name is known
 	     */
 	    public String getProjectName() {
-	        if (projectNameField == null) {
-				return initialProjectFieldValue;
-			}
+//	        if (projectNameField == null) {
+//				return initialProjectFieldValue;
+//			}
+//
+//	        return getProjectNameFieldValue();
+//	        if (projectNameField == null) {
+//				return initialProjectFieldValue;
+//			}
 
-	        return getProjectNameFieldValue();
+	        return getModelProjectName();
 	    }
 
 	    /**
@@ -281,12 +296,12 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	     * 
 	     * @return the project name in the field
 	     */
-	    private String getProjectNameFieldValue() {
-	        if (projectNameField == null) {
-				return ""; //$NON-NLS-1$
-			}
-	        return projectNameField.getText().trim();
-	    }
+//	    private String getProjectNameFieldValue() {
+//	        if (projectNameField == null) {
+//				return ""; //$NON-NLS-1$
+//			}
+//	        return projectNameField.getText().trim();
+//	    }
 	    
 	    public String getApplicationNameFieldValue() {
             if (applicationNameField == null) {
@@ -317,16 +332,16 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	     * @see IWorkspace#validateName(String, int)
 	     * 
 	     */
-	    public void setInitialProjectName(String name) {
-	        if (name == null) {
-				initialProjectFieldValue = null;
-			} else {
-	            initialProjectFieldValue = name.trim();
-	            if(locationArea != null) {
-					locationArea.updateProjectName(name.trim());
-				}
-	        }
-	    }
+//	    public void setInitialProjectName(String name) {
+//	        if (name == null) {
+//				initialProjectFieldValue = null;
+//			} else {
+//	            initialProjectFieldValue = name.trim();
+//	            if(locationArea != null) {
+//					locationArea.updateProjectName(name.trim());
+//				}
+//	        }
+//	    }
 	    
 	    public void setInitialApplicationName(String name) {
             if (name == null) {
@@ -350,7 +365,8 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	     * Set the location to the default location if we are set to useDefaults.
 	     */
 	    void setLocationForSelection() {
-	    	locationArea.updateProjectName(getProjectNameFieldValue());
+//	    	locationArea.updateProjectName(getProjectNameFieldValue());
+	    	locationArea.updateProjectName(getModelProjectName());
 	    }
 
 	  
@@ -371,7 +387,7 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	            return false;
 	        }
 
-	        String projectFieldContents = getProjectNameFieldValue();
+	        String projectFieldContents = getModelProjectName();
 	        if (projectFieldContents.equals("")) { //$NON-NLS-1$
 	            setErrorMessage(null);
 	            setMessage(IDEWorkbenchMessages.WizardNewProjectCreationPage_projectNameEmpty);
@@ -413,7 +429,7 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	    public void setVisible(boolean visible) {
 	        super.setVisible(visible);
 	        if (visible) {
-				projectNameField.setFocus();
+				applicationNameField.setFocus();
 			}
 	    }
 

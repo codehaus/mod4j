@@ -16,9 +16,10 @@
 
    <extension
          point="org.eclipse.ui.newWizards">
-         
+         <category id="org.mod4j.businessdomaindsl.wizards" 
+                   name="Mod4j new DSL project wizards"/>
 		<wizard
-			category="org.openarchitectureware.xtext.wizards"
+			category="org.mod4j.businessdomaindsl.wizards"
 			class="org.mod4j.businessdomain.xtext.wizards.Mod4jNewBusinessDomainDslProjectWizard"
 			icon="icons/sample.gif"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslProjectWizard"
@@ -27,7 +28,7 @@
 		</wizard>
          
 		<wizard
-			category="org.openarchitectureware.xtext.wizards"
+			category="org.mod4j.businessdomaindsl.wizards"
 			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
 			icon="icons/file.gif"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"

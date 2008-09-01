@@ -10,8 +10,8 @@ public class Mod4jNewBusinessDomainDslProjectWizard extends Mod4jAbstractNewProj
 	public Mod4jNewBusinessDomainDslProjectWizard() {
 		super();
 		setLangName("BusinessDomainDsl");
-		setGeneratorProjectName("BusinessDomain.generator");
-		setDslProjectName("BusinessDomain.xtext");
+//		setGeneratorProjectName("BusinessDomain.generator");
+//		setDslProjectName("BusinessDomain.xtext");
 		setFileExtension("busmod");
 		setPackageName("org/mod4j/businessdomain/xtext/");
 	}

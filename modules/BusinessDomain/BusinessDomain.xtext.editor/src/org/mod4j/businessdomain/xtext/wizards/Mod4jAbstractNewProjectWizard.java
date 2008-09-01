@@ -158,25 +158,30 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			return true;
 		}
 		
-		private String dslProjectName;
+//		private String dslProjectName;
+//		
+//		public String getDslProjectName() {
+//			return dslProjectName;
+//		}
+//		
+//		public void setDslProjectName(String dslProjectName) {
+//			this.dslProjectName = dslProjectName;
+//		}
 		
-		public String getDslProjectName() {
-			return dslProjectName;
+		
+		protected String getModelProjectName() {
+			return mainPage.getApplicationNameFieldValue() + "-DslModels" ;
 		}
-		
-		public void setDslProjectName(String dslProjectName) {
-			this.dslProjectName = dslProjectName;
-		}
-		
-		private String generatorProjectName;
 
-		private String getGeneratorProjectName() {
-			return generatorProjectName;
-		}
-
-		public void setGeneratorProjectName(String generatorProjectName) {
-			this.generatorProjectName = generatorProjectName;
-		}
+//		private String generatorProjectName;
+//
+//		private String getGeneratorProjectName() {
+//			return generatorProjectName;
+//		}
+//
+//		public void setGeneratorProjectName(String generatorProjectName) {
+//			this.generatorProjectName = generatorProjectName;
+//		}
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -195,7 +200,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
 					"applicationPath=.." + LF +
-                    "dslModelsModuleName=" + mainPage.getApplicationNameFieldValue() + "-DslModels" + LF +
+                    "dslModelsModuleName=" + getModelProjectName() + LF +
 					"srcModelPath=src/model" + LF +
                     "srcGenPath=generated-sources" + LF +
                     "resourceGenPath=generated-resources" + LF +
@@ -250,6 +255,10 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			URI location = null;
 			if (!mainPage.useDefaults()) {
 				location = mainPage.getLocationURI();
+				String tmp = location.toASCIIString();
+				tmp = tmp + "/" + getModelProjectName();
+				location = URI.create(tmp);
+				
 			}
 
 			IWorkspace workspace = ResourcesPlugin.getWorkspace();
@@ -331,6 +340,5 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 			return newProject;
 		}
-
 
 	}
