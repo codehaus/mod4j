@@ -126,6 +126,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 									"BusinessDomain.validation",
 									"BusinessDomain.generator",
 									"BusinessDomain.xtext",
+                                    "org.mod4j.dsl_common",									
 									"org.mod4j.crossx.mm",
 									"org.mod4j.crossx.broker",
 									"org.mod4j.eclipse"
