@@ -1,16 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>mod4j</artifactId>
         <groupId>org.mod4j</groupId>
-        <version>0.10-SNAPSHOT</version>
+        <version>0.10</version>
     </parent>
     <groupId>org.mod4j.maven</groupId>
     <artifactId>mod4j-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <name>The Mod4j Maven plug-in</name>
-    <version>0.10-SNAPSHOT</version>
+    <version>0.10</version>
     <description>The Mod4j Maven plug-in makes it possible to build Mod4j model projects outside the Eclipse IDE.</description>
     <prerequisites>
         <maven>2.0.9</maven>
@@ -49,22 +48,22 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-dsl-common</artifactId>
-            <version>0.10-SNAPSHOT</version>
+            <version>0.10</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-broker</artifactId>
-            <version>0.10-SNAPSHOT</version>
+            <version>0.10</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>BusinessDomain.generator</artifactId>
-            <version>0.10-SNAPSHOT</version>
+            <version>0.10</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>BusinessDomain.xtext</artifactId>
-            <version>0.10-SNAPSHOT</version>
+            <version>0.10</version>
         </dependency>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
