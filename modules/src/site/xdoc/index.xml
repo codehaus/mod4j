@@ -16,20 +16,19 @@
     <body>
         <section name="Welcome to Mod4j">
             <p>
-                Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the
-                productivity of Java software development by using Domain Specific Languages (DSL's).
+                Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the productivity
+                of Java software development by using Domain Specific Languages (DSL's).
             </p>
             <p>
-                The DSL's and the corresponding code generation are based on a reference architecture. This allows
-                developers to model various aspects of the application and generate code that strictly follows this
-                reference architecture.
+                The DSL's and the corresponding code generators are based on a reference architecture. This allows developers to
+                model various aspects of the application and generate code that strictly follows this reference architecture.
             </p>
             <p>
                 The reference architecture is described in a separate document which can be found at
                 <a href="https://mod4j.smart-java.nl/docs/">https://mod4j.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
             </p>
-            <img src="images/mod4j-diagram.jpg" align="left" alt=""/>
+            <img src="images/mod4j-diagram.jpg" align="left" alt="" />
             <subsection name="About Mod4j">
                 <ul>
                     <li>
@@ -54,29 +53,27 @@
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from
-                        the
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from the
                         <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
                     </li>
                     <li>
                         <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
-                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
-                        conflicts we already have a version waiting for you to download. This version based on Eclipse
-                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You
-                        can download a Windows or Linux archive from our project share
+                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency conflicts
+                        we already have a version waiting for you to download. This version based on Eclipse Europa 3.3.2, OAW
+                        4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You can download a Windows or
+                        Linux archive from our project share
                         <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
                         Make sure you start Eclipse with de right options, e.g on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs
-                        -Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
+                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
+                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
                     </li>
                     <li>
-                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in
-                        the field 'Text file encoding' by navigating to 'Window -> Preferences... -> General ->
-                        Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
-                        necessary.
+                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
+                        'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
+                        users UTF-8 is usually the platform encoding, and no change will be necessary.
                     </li>
                     <li>Install the Mod4j DSL Eclipse plug-in as described in the next section.</li>
                 </ol>
@@ -135,11 +132,11 @@
                         <b>org.mycompany.myapplication</b>
                     </li>
                     <li>
-                        Uncheck the "Use default location" checkbox and choose a location where all model projects and
-                        modules for your application can be placed.
+                        Uncheck the "Use default location" checkbox and choose a location where all model projects and modules
+                        for your application can be placed.
                         <br />
-                        While your project develops, this folder will contain all your DSL model projects you create,
-                        all generated mavenized modules and the generated Maven parent-POM.
+                        While your project develops, this folder will contain all your the project modules you create, all
+                        generated mavenized modules and the generated Maven parent-POM.
                         <br />
                         We suggest (commonly used) you use the following folder structure:
                         <br />
@@ -149,96 +146,96 @@
                     </li>
                     <li>
                         After finishing the wizard, a new model project is created with the name
-                        <b>MyApplication.BusinessDomain.Model</b>
+                        <b>MyApplication-DslModelsl</b>
                         and a directory structure like this:
                         <br />
                         <code>
-                            <b>model/model.busmod</b>
+                            <b>model/businessDomain/SampleModel.busmod</b>
+                            <b>/BusinessDomainDsl.properties</b>
                         </code>
-                        (the model file containing all the elements of your business model)
+                        (the model file containing the elements of your business model)
                         <br />
                         <code>
-                            <b>workflow/BusinessGenerator.oaw</b>
+                            <b>model/businessDomain/BusinessDomainDsl.properties</b>
                         </code>
-                        (the workflow file containing all processing steps for generation)
-                        <br />
-                        <code>
-                            <b>workflow/workflow.properties</b>
-                        </code>
-                        (the property file for the workflow, to be changed as needed)
+                        (the property file containing input parameters for code generation)
                     </li>
                     <li>
                         For modeling the business domain model of your application, open the file
-                        <code>model/model.busmod</code>
+                        <code>model/SampleModel.busmod</code>
                     </li>
+                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your business model.</li>
                     <li>
-                        Here you can add the classes, attributes, businessrules, associations etc. of your business
-                        model.
-                    </li>
-                    <li>
-                        After saving your model :), you are ready for generating the (re)sources for your application.
-                        See next section.
+                        After saving your model in Eclipse the (re)sources for your application are automatically generated. See
+                        next section.
                     </li>
                 </ol>
             </subsection>
 
             <subsection name="Generating source code">
                 <p>
-                    If you've completed your model(s) in the previous section, you're ready for generating source code
-                    out of the models.
+                    If you've completed and saved your model(s) in the previous section the source code and resources for your
+                    application are automatically generated out of the model(s). Here is were you can find them:
                 </p>
                 <ol>
                     <li>
-                        Right-click on the file
-                        <code>workflow/businessGenerator.oaw</code>
-                        and choose
-                        <code>Run as.., oAW Workflow.</code>
-                    </li>
-                    <li>
-                        The previous step generated two modules right beside the MyApplication.BusinessDomain.Model
-                        project folder. See:
+                        The generated sources and resources for the
+                        <b>domain</b>
+                        and
+                        <b>data</b>
+                        module are generated in the location folder for your modules right beside the
+                        <code>MyApplication.DslModels</code>
+                        folder. See:
                         <code>../MyApplication-domain</code>
                         and
                         <code>../MyApplication-data</code>
                     </li>
                     <li>
-                        Typically the generated sources are placed under the target folder
-                        <code>MyApplication-domain/target/generated-sources</code>
+                        The generated sources are placed in the
+                        <code>genertated-sources</code>
+                        and
+                        <code>genertated-resources</code>
+                        folders
+                        <code>MyApplication-domain/generated-sources</code>
                         and resources in
-                        <code>MyApplication-data/target/generated-resources</code>
+                        <code>MyApplication-data/generated-resources</code>
                         <br />
                         All Extension Points (see also next section) are initial generated into the src/main/.. folders.
                     </li>
                     <li>
-                        Since the generated mdules are fully Mavenized you can import the generated modules directly as
-                        Maven projects into Eclipse.
+                        Since the generated mdules are fully Mavenized you can import the generated modules as Maven projects
+                        into Eclipse. But first you'll need to install the also generated parent-POM.
+                        <br />
+                        Open a command box and type:
+                        <code>
+                            <b>mvn clean install</b>
+                        </code>
+                        <br />
+                        Now the parent-POM and submodules are installed and you can import them as Maven projects into Eclipse.
                         <br />
                         Choose: Import, Maven 2, Maven 2 Project
                         <br />
                         and navigate to ../MyApplication-domain
                     </li>
-                    <li>
-                        Check if the generated-(re)sources folders are added as sourcefolders. If not do it manually.
-                    </li>
-                    <li>Do the same with the MyApplication-data module.</li>
+                    <li>Check if the generated-(re)sources folders are added as sourcefolders. If not do it manually.</li>
+                    <li>Import the MyApplication-data module in the same way.</li>
                 </ol>
-
             </subsection>
 
             <subsection name="Extension Points">
                 <p>
-                    There are several reasons to mention why a developer needs to manually add (re)sources to the
-                    generated (re)sources by Mod4j.
+                    There are several reasons to mention why a developer needs to manually add (re)sources to the generated
+                    (re)sources by Mod4j.
                 </p>
                 <ul>
                     <li>To implement business rules</li>
                     <li>To</li>
                 </ul>
                 <p>
-                    For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the
-                    generated (re)sources and provide a place where developers manually can make additions to- or change
-                    the behaviour of the system. Initial Mod4j generates Extension Points once if they do not exist
-                    already. So Extension Points will not be overwritten by the generator.
+                    For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the generated
+                    (re)sources and provide a place where developers manually can make additions to- or change the behaviour of
+                    the system. Initial Mod4j generates Extension Points once if they do not exist already. So Extension Points
+                    will not be overwritten by the generator.
                 </p>
                 <p>
                     Typically Extension Points are placed under the
