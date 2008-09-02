@@ -56,26 +56,6 @@
         </listitem>
 
         <listitem>
-          <para>Generated code must be clear and readable. Using Mod4j should
-          noit be a lifetime commitment. Thgerefopre the source code must eb
-          at least as good as handwritten code. This allows projects to
-          continue development with the generated code instead of the DSL
-          models. Note that this surely isn;t the recommended way, but we like
-          the freedom this gives.</para>
-
-          <para>Another reason for generating clear and readable code is that
-          we do not have debuggers at the model level. This would be great,
-          but the tools to develop model-level debuggers are not avialable
-          (yet, we hope). Therefore code neesvto be debugged at the source
-          code level and having eadable generated code really helps.</para>
-
-          <para>The third reason for generating clear code is that we do not
-          generate everything. We support a mizxe-mode development where
-          developers write boith models and code to extend the generated code.
-          It is easier to extend generated cod when this is readable.</para>
-        </listitem>
-
-        <listitem>
           <para>Model and code live side by side. That is, we do not focus on
           100 percent code generation. Instead we focus on modeling aspects
           from which as much code as possible can be generated. At the same
@@ -91,22 +71,21 @@
         </listitem>
 
         <listitem>
-          <para>To esnure that generated code bever needs to be overwritten
-          the generated code is designed and generated with <emphasis>specific
-          extension points</emphasis>. These extension points are the only
-          places where handwritten code may be placed. In most cases an
-          extension point is in a separate file than the generates code. To
-          help the developer a first empty extension point file is usually
-          created , but only when the expension point file does not
-          exist.</para>
+          <para>Generated code is designed and generated with
+          <emphasis>specific extension points</emphasis>. These extension
+          points are the only places where handwritten code may be placed. In
+          most cases an extension point is in a separate file than the
+          generates code. To help the developer a first empty extension point
+          file is usually created , but only when the expension point file
+          does not exist.</para>
         </listitem>
 
         <listitem>
           <para>DSL"s and DSL models are independent of each other. They may
-          reference through soft references, but are never hard-linked to each
-          other. This allows both DSL models and DSLs to be developed
-          separately. It also allows version and multi-user management by
-          common tools as CVS or subversion.</para>
+          referen through soft references, but are never hard-linked to each
+          other. Thids allows both DSL models and DSLs to be developed
+          separately. It also allows version management by common tools as CVS
+          or subversion.</para>
         </listitem>
 
         <listitem>
@@ -115,36 +94,6 @@
           which we call DSL models. The relationbshio between those DSL models
           i done by symbolic integration of the mdoels. See the section on
           Crossx.</para>
-        </listitem>
-
-        <listitem>
-          <para>We support two ways of generating code.<itemizedlist>
-              <listitem>
-                <para>Within Eclipse Mod4j support incxremenbtal code
-                generation. This means that code is generated on a per model
-                file basis. Effectively whenever a model file is saved the
-                code for this model file is generated automatically in the
-                background. There is no need for a separate code generation
-                step. This code generation step uses the ard Eclipse build
-                strcuture. If the n 'build automatically' is set this will
-                happen. If a full build is requested all code will be
-                regenerated. This allows Eclipse users to work with models in
-                the same way as with source code (i.e. Java class
-                files).</para>
-              </listitem>
-
-              <listitem>
-                <para>Mod4j includes a Maven plugin that support the code
-                generation process in batch mode. This is used to run
-                automatics builds based on thge models. There is no need to
-                checkin generated source code, just as there is noi need to
-                checkin compiled Java classes.</para>
-              </listitem>
-            </itemizedlist></para>
-        </listitem>
-
-        <listitem>
-          <para>...</para>
         </listitem>
       </itemizedlist>
     </section>
@@ -333,12 +282,12 @@
   </chapter>
 
   <chapter>
-    <title>Business Domain DSL Reference</title>
+    <title>Reference</title>
 
-    <para>This chapter provides a description of all the concepts in the
+    <para>This chapter provides a description of all the conceots in the
     Business Domain DSL. each concept is described by a definition which
     explains the business meaning of the concept, and a description of the
-    code generated for the concept.</para>
+    code generated for the concept. </para>
 
     <section>
       <title>Business Class</title>
@@ -483,15 +432,15 @@
         Properties always have a defined type. A property can have a
         predefined type, which can be <emphasis>integer</emphasis>,
         <emphasis>string</emphasis>, <emphasis>decimal</emphasis>,
-        <emphasis>boolean</emphasis> or <emphasis>datetime</emphasis>.</para>
+        <emphasis>boolean</emphasis> or <emphasis>datetime</emphasis>. </para>
 
         <para>Each attribute can have a description, which is placed directly
         before the attribute definition within double quotes. In the example
-        only isMale has a description.</para>
+        only isMale has a description. </para>
 
         <para>For each attribute additional constraints can be specified. In
         th above eample minlength, maxlength and regexp are such constraints.
-        These constraints must always be true for the property.</para>
+        These constraints must always be true for the property. </para>
 
         <para>Each instance of a business class has its own values for each
         property. These values always need to conform to all the rules
@@ -519,7 +468,7 @@
         the property has changed, e.g. when calling the setter method.
         Wheneven an attempts is made to chnage the value of a property that
         will break a constraint, a BusinessRulevalidation exception is thrown
-        and the value of the attribute is not changed.</para>
+        and the value of the attribute is not changed. </para>
 
         <para>If an attribute is not nullable and has no default value (see
         next sections for an explanation of nullable and default value), the
@@ -598,7 +547,7 @@
               <glossdef>
                 <para>The nullable property specifies that this attribute does
                 not have to have a value. If nullable is not specified, the
-                attribute must always have a defined value..</para>
+                attribute must always have a defined value.. </para>
               </glossdef>
             </glossentry>
           </glosslist>
@@ -607,7 +556,7 @@
             <title>Generated code</title>
 
             <para>Apart from the generic code generated for each property no
-            additional code is generated for a string property.</para>
+            additional code is generated for a string property. </para>
           </section>
         </section>
 
@@ -660,8 +609,8 @@
             <para>A boolean attribute that is not
             <emphasis>nullable</emphasis> is implemented ny a Java
             <emphasis>boolean</emphasis> field, if the attribute is nullable
-            this is done by a <emphasis>Boolean</emphasis> object
-            field.</para>
+            this is done by a <emphasis>Boolean</emphasis> object field.
+            </para>
           </section>
         </section>
 
@@ -715,7 +664,7 @@
               <glossdef>
                 <para>Defines the maximum value of this attribute. The value
                 of <emphasis>max</emphasis> must always be greater or equal to
-                thevalue of <emphasis>min</emphasis>.</para>
+                thevalue of <emphasis>min</emphasis>. </para>
               </glossdef>
             </glossentry>
 
@@ -778,7 +727,7 @@
               <glossdef>
                 <para>Defines the maximum value of this attribute. The value
                 of <emphasis>max</emphasis> must always be greater or equal to
-                thevalue of <emphasis>min</emphasis>.</para>
+                thevalue of <emphasis>min</emphasis>. </para>
               </glossdef>
             </glossentry>
 
@@ -910,7 +859,7 @@
 
       <para>The first type of businessrule has a name only in the model. The
       actual implementation of the rule must be written in Java as an
-      extension to the generated code.</para>
+      extension to the generated code. </para>
 
       <para>The second type of rule is a uniqueness rule, which is indicated
       by the <emphasis>unique</emphasis> keyword. A uniquess rule specifies
@@ -931,11 +880,10 @@
         method returns true and contains a <emphasis>TODO comment</emphasis>
         to remind the developer he needs to implement the rule.</para>
 
-        <para>The handling of the rules is completely generated. This means
+        <para>The handling of the rule is completely generated. This means
         that the rule will be called and validated whenever the object
-        changes. If the rule is broken, a BusinessClassException is created
-        and thrown. Developers do not need to handle these errors
-        themselves.</para>
+        changes. If the rule is broken, a BusinessClassException is
+        created.</para>
 
         <para>See the empty-subclass pattern on how this is done in the
         code</para>
@@ -954,109 +902,7 @@
 <keycap>Association</keycap> order    Order    [0..1]  -&gt; [0..*] orderLines OrderLine;
 </programlisting>
 
-      <para>This example shows one bidirectional association, which uses the
-      &lt;-&gt; syntax and one unidirectional association using the -&gt;
-      syntax.</para>
-
-      <para></para>
-
-      <section>
-        <title>Generated code</title>
-
-        <para>Associations are a powerful mechanism and require careful
-        handling in the code. For bidirectional associations the generated
-        code ensures that both sides will always be updates consistently
-        whenever one of the sides is changed. </para>
-
-        <section>
-          <title>Generated Code for the Business Layer</title>
-
-          <para>On the business layer the code is generated in the Java base
-          class to store the references to objects at the opposite side of an
-          association. For associations with multiplicito 0 or 1 this will be
-          a field of the type at the oppoe side, for associoations with
-          multiplicity greater than 1 this will be a field of typoe
-          Set&lt;oppostite type&gt;.</para>
-
-          <para>Next to these fields methods are generated to change these
-          fields. For a single valued field a simple setter and getter is
-          generated. </para>
-
-          <para>For multivalues fields adding or deleting elements from the
-          collection should always be done by the object owinng the
-          collection. We cannot simply generate getter and setter nethods,
-          because chnages in the collection can be done without the object
-          knowing it, and the oibject cannot guarabntee consistentcy with the
-          opposite objects.</para>
-
-          <para>To resolev this problem we generate methods áddTo...',
-          'removeFrom...' for the collection in the owning class. Fpor the
-          Customer class in the above example we generate the áddToOrders()
-          and removefromOrders() methods. The getter methoids returns an
-          Unmodifyable collection to guard the clinet from changing the
-          collection. </para>
-
-          <para><programlisting class="monospaced" continuation="continues"
-          format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
-  /**
-   *  orders: One 2 Many Bidirectional: The customer has a number of orders
-   */
-  <keycap>private </keycap>Set&lt;Order&gt; orders = <keycap>new</keycap> HashSet&lt;Order&gt;();
-
-  /**
-   * @return orders (Set&lt;Order&gt;) 
-   */
-  <keycap>public</keycap> Set&lt;Order&gt; getOrders()
-
-  /**
-   * Implements adding single element to a collection
-   */
-  <keycap>public void </keycap>addToOrders(Order element)
-
-  /**
-   * Implements removal of a single element from feature 
-   * 
-   * @param element 
-   */
-  <keycap>public void </keycap>removeFromOrders(Order element)
- <keycap /></programlisting>To support the consistency of the two sides of an
-          association we always have to update the other side whenever
-          something changes. We cannot simply call the other isded upodate
-          methods, because they will call their opposite side in trun and we
-          end up in an infinite loop.</para>
-
-          <para>To solve this problem we use special that are only used to
-          update the opposite side. All the methods als generated with
-          'z_internal' as prefix. These methods are public because they must
-          be callable from the opposite class. These methids should never be
-          used for anything else.<programlisting class="monospaced"
-          continuation="continues" format="specific" linenumbering="numbered"
-          xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
-<keycap /><keycap /><keycap /><keycap /><keycap />
-  /**
-   * This operation should NOT be used by clients.  It implements the correct
-   * addition of an element in an association.
-   * 
-   * @param element 
-   */
-  <keycap>public void </keycap>z_internalAddToorders(Order element) {
-
-  /**
-   * This operation should NOT be used by clients. It implements the correct
-   * removal of an element in an association.
-   * 
-   * @param element 
-   */
-  <keycap>public void </keycap>z_internalRemoveFromorders(Order element)
-<keycap /></programlisting></para>
-
-          <para></para>
-
-          <para></para>
-
-          <para> </para>
-        </section>
-      </section>
+      <para>This example shows</para>
     </section>
   </chapter>
 </book>
