@@ -16,46 +16,58 @@
     <body>
         <section name="Mod4j Developer Guide">
             <p>
-                This Developer Guide helps developers to get started with coding and modeling. At last it tells what
-                steps to take for publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j
-                remote update site.
+                This Developer Guide helps developers to get started with coding and modeling. At last it tells what steps to
+                take for publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote update site.
             </p>
 
             <subsection name="Getting started">
                 <ol>
                     <li>
-                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from
-                        the
+                        Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from the
                         <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
                     </li>
                     <li>
                         <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
-                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency
-                        conflicts we already have a version waiting for you to download. This version based on Eclipse
-                        Europa 3.3.2, OAW 4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You
-                        can download a Windows or Linux archive from our project share
+                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency conflicts
+                        we already have a version waiting for you to download. This version based on Eclipse Europa 3.3.2, OAW
+                        4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You can download a Windows or
+                        Linux archive from our project share
                         <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
                         Make sure you start Eclipse with de right options, e.g on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs
-                        -Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
+                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
+                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
                     </li>
                     <li>
-                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in
-                        the field 'Text file encoding' by navigating to 'Window -> Preferences... -> General ->
-                        Workspace'. For Linux users UTF-8 is usually the platform encoding, and no change will be
-                        necessary.
+                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
+                        'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
+                        users UTF-8 is usually the platform encoding, and no change will be necessary.
                     </li>
                 </ol>
             </subsection>
 
             <subsection name="Generating the DSL-editors">
                 <p>
-                    While the metamodel and its associated syntax is still under heavy development, you should be
-                    prepared to generate the model editors yourself from the metamodel and the syntax definitions,
-                    before you can start modelling:
+                    While the metamodel and its associated syntax is still under heavy development, you should be prepared to
+                    generate the model editors yourself from the metamodel and the syntax definitions, before you can start
+                    modelling:
+                </p>
+                <p>
+                    <b>Hybrids</b>
+                    What also important is to know, is that the Mod4j modules that you are going to checkout from the repository
+                    do have a more or less hybrid nature. Some of the modules are Eclipse plug-ins and some are Maven modules.
+                    But the most modules are both: Eclipse plug-in and configured as a Maven module (yes, you recognize them by
+                    the pom.xml file).
+                    <br />
+                    This last category, the hybrids, must be treated with extra care. It mainly implies that you as a developer
+                    must know that dependencies must be manually managed in two places within the module. In the manifest
+                    (Eclipse plug-in) and in the pom.xml file (Maven) of the module. Also, in an equal manner, the versions of
+                    the module must be maintained manually twice.
+                    <br />
+                    As this time We do not have a suitable solution for automating this process, maybe in the future we will
+                    extend our mod4j-maven-plugin with this functionality.
                 </p>
                 <ol>
                     <li>
@@ -68,18 +80,20 @@
                         for information on how to do this.
                     </li>
                     <li>
-                        Import as Existing Project:
-                        <code>modules/org.mod4j.dsl-common</code>
+                        Choose "Import" > "Existing Project into Workspace" and Browse to the .../modules/BusinessDomain folder.
+                        After choosing "Ok and "Finish" the following modules are imported in your workspace:
+                        <code>BusinessDoamin.generator</code>
+                        <br />
+                        <code>BusinessDomain.mm</code>
+                        <br />
+                        <code>BusinessDomain.validation</code>
+                        <br />
+                        <code>BusinessDomain.xtext</code>
+                        <br />
+                        <code>BusinessDomain.xtext.editor</code>
                     </li>
                     <li>
-                        Import the BusinessDomain meta model project
-                        <code>modules/BusinessDomain/BusinessDomain.mm</code>
-                        as
-                        <q>Existing Projects into Workspace</q>
-                        into Eclipse, in a new workspace.
-                    </li>
-                    <li>
-                        Open
+                        If you need to (re)generate the modelcode from the BusinessDomain meta model .. Open
                         <code>BusinessDomain.mm/model/BusinessDomainDsl.genmodel</code>
                         in the EMF Generator editor.
                     </li>
@@ -90,40 +104,41 @@
                         <q>Generate Model Code</q>
                     </li>
                     <li>
-                        Now import as Maven Project:
-                        <code>modules/mod4j-common</code>
-                    </li>
-                    <li>
-                        Now import as Existing Project:
-                        <br />
-                        <code>modules/BusinessDomain/BusinessDomain.validation</code>
-                        <br />
-                        ,
-                        <code>modules/BusinessDomain/BusinessDomain.xtext</code>
-                        <br />
-                        ,
-                        <code>modules/BusinessDomain/BusinessDomain.xtext.editor</code>
-                        <br />
-                        and
-                        <code>modules/BusinessDomain/BusinessDomain.generator</code>
-                    </li>
-                    <li>
-                        For the two xtext projects, create a new folder
-                        <code>src-gen.</code>
-                    </li>
-                    <li>
-                        Right-click the file
+                        If you need to (re)generate the code for Xtext Right-click the file
                         <code>BusinessDomain.xtext/src/genXtextEditor.oaw,</code>
                         and choose
+                        <br />
                         <q>Run As -> oAW Workflow</q>
                         from the context-menu.
                     </li>
+                    <li>
+                        Choose "Import" > "Existing Project into Workspace" and Browse to the .../modules/Crossx folder. After
+                        choosing "Ok and "Finish" the following modules are imported in your workspace:
+                        <code>org.mod4j.crossx.mm</code>
+                        <br />
+                        <code>org.mod4j.crossx.broker</code>
+                    </li>
+                    <li>
+                        Even so do this with:
+                        <br />
+                        <code>modules/org.mod4j.dsl-common</code>
+                        <br />
+                        <code>org.mod4j.eclipse</code>
+
+                    </li>
+                    <li>
+                        Now import as Maven Project:
+                        <br />
+                        <code>modules/mod4j-common</code>
+                        <br />
+                        <code>modules/mod4j-maven-plugin</code>
+                    </li>
                 </ol>
-                Now you have generated the necessary BusinessDomainDSL editor an you are ready to use it. There for you
-                need to activate the newly created editor in a second Eclipse instance. See next section "Modeling". But
-                if you want quick development an you're not interested in code completion or syntax highlighting
-                features of the new created Xtext editors, you can live without a second Eclipse instance. There for you
-                can also perform the steps under the section "Modeling" in your first Eclipse instance.
+                Now you have imported and generated the necessary modules. The BusinessDomainDSL editor is ready to use. There
+                for you need to activate the newly created editor in a second Eclipse instance. See next section "Modeling". But
+                if you want quick development an you're not interested in code completion or syntax highlighting features of the
+                new created Xtext editors, you can live without a second Eclipse instance. There for you can also perform the
+                steps under the section "Modeling" in your first Eclipse instance.
             </subsection>
             <subsection name="Modelling">
                 <ol>
@@ -135,56 +150,64 @@
                         from the context menu.
                     </li>
                     <li>
-                        In the new Eclipse session: import the following projects
+                        In the new Eclipse session you'll need you'll need : import the following projects (as a workaround for
+                        a bug in Elipse)
                         <br />
                         <code>BusinessDomain.mm</code>
-                        ,
                         <br />
                         <code>BusinessDomain.generator</code>
-                        ,
                         <br />
                         <code>BusinessDomain.xtext</code>
-                        ,
                         <br />
                         <code>BusinessDomain.validation</code>
                         <br />
-                        <code>mod4j.crossx.broker</code>
+                        <code>org.mod4j.crossx.broker</code>
+                        <br />
+                        <code>org.mod4j.dsl-common</code>
+                        <br />
+                        <code>org.mod4j.eclipse</code>
+                        <br />
                         and the models of the RecordShop example project:
                         <br />
-                        <code>RecordShop.BusinessDomain.model</code>
+                        <code>RecordShop.DslModels</code>
                         <br />
                         ...
                     </li>
                     <li>
-                        Now you should be able to run one of the generator workflow's in the
-                        <code>RecordShop.BusinessDomain.model</code>
+                        Now you should be able to edit the *.busmod modle files in the
+                        <code>RecordShop.DslModels</code>
                         project.
                         <br />
-                        Right-click the file
-                        <code>RecordShop.BusinessDomain.model/src/workflow/businessGenerator.oaw</code>
-                        and choose
-                        <p>Run As -> oAW Workflow</p>
-                        from the context-menu.
+                        Open the file
+                        <code>RecordShop.DslModels/src/modle/businessDomain/model.busmod</code>
+                        change this file as needed and save the file.
                     </li>
                     <li>
-                        The previous step generated two new modules into the RecordShop-Application folder. See:
-                        <code>../RecordShop-Application/RecordShop-domain</code>
+                        The previous step generated two new modules into the RecordShop-ExampleProject folder. See:
+                        <code>../RecordShop-ExampleProject/RecordShop-domain</code>
                         and
-                        <code>../RecordShop-Application/RecordShop-data</code>
+                        <code>../RecordShop-ExampleProject/RecordShop-data</code>
                         <br />
-                        You can import these two projects as Maven Projects (with help of the Q4E Maven plugin for
-                        Eclipse).
+                        The modules are generated as a mulitmodule Maven project. To test and install the maven modules:
+                        <br />
+                        Open a command box and navigate to the parent-POM (../RecordShop-ExampleProject/pom.xml)
+                        <br />
+                        Give the command:
+                        <code>
+                            <b>mvn clean install</b>
+                        </code>
+                    </li>
+                    <li>
+                        Now you can import the two modules as Maven Projects (with help of the Q4E Maven plugin for Eclipse).
                         <br />
                         NB: Sometimes the Q4E plugin does not set the classpath right in the
                         <code>.classpath</code>
                         file. If there are problems with the generated code check whether the line:
-                        <code>
-                            &lt;classpathentry including="**/*.java" kind="src" path="target/generated-sources"/>
-                        </code>
+                        <code>&lt;classpathentry including="**/*.java" kind="src" path="generated-sources"/></code>
                         is included in the
                         <code>.classpath</code>
                         file of both the data and domain projects. Also check whether the line
-                        <code>&lt;classpathentry kind="src" path="target/generated-resources"/></code>
+                        <code>&lt;classpathentry kind="src" path="generated-resources"/></code>
                         is included in the
                         <code>.classpath</code>
                         file of both the data project.
@@ -194,8 +217,8 @@
 
             <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
                 <p>
-                    New versions of the Mod4j DSL Eclipse plugin can be published on the Mod4j updatesite. We will
-                    publish all Mod4j DSL's as one feature based on several plugins.
+                    New versions of the Mod4j DSL Eclipse plugin can be published on the Mod4j updatesite. We will publish all
+                    Mod4j DSL's as one feature based on several plugins.
                 </p>
                 <ol>
                     <li>
@@ -207,9 +230,7 @@
                     </li>
                     <li>Check for the right settings in site.xml and feature.xml.</li>
                     <li>Open de site.xml in the updatesite project.</li>
-                    <li>
-                        Click on "Build All". Now the features and plugins folder contains the files we need to deploy.
-                    </li>
+                    <li>Click on "Build All". Now the features and plugins folder contains the files we need to deploy.</li>
                     <li>
                         Use scp or winscp to copy the features folder, plugins folder and site.xml to:
                         <br />
