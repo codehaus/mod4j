@@ -17,7 +17,7 @@
         <section name="Mod4j Developer Guide">
             <p>
                 This Developer Guide helps developers to get started with coding and modeling. At last it tells what steps to
-                take for publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote update site.
+                take for releasing and publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote update site.
             </p>
 
             <subsection name="Getting started">
