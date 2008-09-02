@@ -215,31 +215,38 @@
                 </ol>
             </subsection>
 
-            <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
-                <p>
-                    New versions of the Mod4j DSL Eclipse plugin can be published on the Mod4j updatesite. We will publish all
-                    Mod4j DSL's as one feature based on several plugins.
-                </p>
-                <ol>
-                    <li>
-                        Import as Existing Project:
-                        <br />
-                        <code>modules/BusinessDomain/org.mod4j.businessDomain.feature</code>
-                        and
-                        <code>modules/org.mod4j.updatesite</code>
-                    </li>
-                    <li>Check for the right settings in site.xml and feature.xml.</li>
-                    <li>Open de site.xml in the updatesite project.</li>
-                    <li>Click on "Build All". Now the features and plugins folder contains the files we need to deploy.</li>
-                    <li>
-                        Use scp or winscp to copy the features folder, plugins folder and site.xml to:
-                        <br />
-                        smart-java.nl/home/groups/repo/htdocs/mod4j/updatesite
-                    </li>
-                    <li>Make an announcement on the mailinglist.</li>
-                    <li>Sit back and relax.</li>
-                </ol>
+            <subsection name="Releasing Mod4j (release guide)">
+            TODO:
+            - check and adjust version numbers
+            - release Maven modules (including hybrid's)
+            - 
             </subsection>
+
+                <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
+                    <p>
+                        New versions of the Mod4j DSL Eclipse plugin can be published on the Mod4j updatesite. We will publish
+                        all Mod4j DSL's as one feature based on several plugins.
+                    </p>
+                    <ol>
+                        <li>
+                            Import as Existing Project:
+                            <br />
+                            <code>modules/BusinessDomain/org.mod4j.businessDomain.feature</code>
+                            and
+                            <code>modules/org.mod4j.updatesite</code>
+                        </li>
+                        <li>Check for the right settings in site.xml and feature.xml.</li>
+                        <li>Open de site.xml in the updatesite project.</li>
+                        <li>Click on "Build All". Now the features and plugins folder contains the files we need to deploy.</li>
+                        <li>
+                            Use scp or winscp to copy the features folder, plugins folder and site.xml to:
+                            <br />
+                            smart-java.nl/home/groups/repo/htdocs/mod4j/updatesite
+                        </li>
+                        <li>Make an announcement on the mailinglist.</li>
+                        <li>Sit back and relax.</li>
+                    </ol>
+                </subsection>
 
         </section>
     </body>
