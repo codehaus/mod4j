@@ -190,7 +190,7 @@
                         <br />
                         The modules are generated as a mulitmodule Maven project. To test and install the maven modules:
                         <br />
-                        Open a command box and navigate to the parent-POM (../RecordShop-ExampleProject/pom.xml)
+                        Open a command console and navigate to location of the parent-POM (../RecordShop-ExampleProject/pom.xml)
                         <br />
                         Give the command:
                         <code>

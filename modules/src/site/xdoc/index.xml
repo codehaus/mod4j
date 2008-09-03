@@ -206,7 +206,7 @@
                         Since the generated mdules are fully Mavenized you can import the generated modules as Maven projects
                         into Eclipse. But first you'll need to install the also generated parent-POM.
                         <br />
-                        Open a command box and type:
+                        Open a command console and type:
                         <code>
                             <b>mvn clean install</b>
                         </code>
