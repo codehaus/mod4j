@@ -32,46 +32,47 @@
         <profile>
             <id>dev-environment</id>
             <modules>
-                <module>mod4j-build-tools</module>
-                <module>mod4j-common</module>
-                <module>org.mod4j.dsl-common</module>
+                <module>org.mod4j.buildtools</module>
+                <module>org.mod4j.runtime.common</module>
+                <module>org.mod4j.common</module>
                 <module>Crossx/org.mod4j.crossx.mm</module>
                 <module>Crossx/org.mod4j.crossx.broker</module>
-                <module>BusinessDomain/BusinessDomain.mm</module>
-                <module>BusinessDomain/BusinessDomain.xtext</module>
-                <module>BusinessDomain/BusinessDomain.validation</module>
-                <module>BusinessDomain/BusinessDomain.generator</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator</module>
             </modules>
         </profile>
         <profile>
             <id>ci</id>
             <modules>
-                <module>mod4j-build-tools</module>
-                <module>mod4j-common</module>
-                <module>docs</module>
-                <module>org.mod4j.dsl-common</module>
+                <module>org.mod4j.buildtools</module>
+                <module>org.mod4j.runtime.common</module>
+                <module>org.mod4j.common</module>
                 <module>Crossx/org.mod4j.crossx.mm</module>
                 <module>Crossx/org.mod4j.crossx.broker</module>
-                <module>BusinessDomain/BusinessDomain.mm</module>
-                <module>BusinessDomain/BusinessDomain.xtext</module>
-                <module>BusinessDomain/BusinessDomain.validation</module>
-                <module>BusinessDomain/BusinessDomain.generator</module>
-                <module>mod4j-maven-plugin</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation</module>
+		<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator</module>
+ 		<module>org.mod4j.mavenplugin</module>
+                <module>docs</module>
             </modules>
         </profile>
         <profile>
             <id>recordshop</id>
             <modules>
-                <module>mod4j-common</module>
-                <module>org.mod4j.dsl-common</module>
+                <module>org.mod4j.buildtools</module>
+                <module>org.mod4j.runtime.common</module>
+                <module>org.mod4j.common</module>
                 <module>Crossx/org.mod4j.crossx.mm</module>
                 <module>Crossx/org.mod4j.crossx.broker</module>
-                <module>BusinessDomain/BusinessDomain.mm</module>
-                <module>BusinessDomain/BusinessDomain.xtext</module>
-                <module>BusinessDomain/BusinessDomain.validation</module>
-                <module>BusinessDomain/BusinessDomain.generator</module>
-                <module>mod4j-maven-plugin</module>
-                <module>RecordShop-ExampleProject</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator</module>
+		<module>org.mod4j.mavenplugin</module>
+		<module>Examples/RecordShop-ExampleProject</module>
             </modules>
         </profile>
     </profiles>
@@ -133,8 +134,8 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.mod4j</groupId>
-                        <artifactId>mod4j-build-tools</artifactId>
-                        <version>0.10-SNAPSHOT</version>
+                        <artifactId>org.mod4j.buildtools</artifactId>
+                        <version>0.11-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -143,7 +144,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <configuration>
                     <locales>nl</locales>
-                    <excludeModules>mod4j-build-tools</excludeModules>
+                    <excludeModules>org.mod4j.buildtools</excludeModules>
                 </configuration>
             </plugin>
             <plugin>

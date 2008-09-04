@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class BusinessClassReferenceImpl extends AbstractBusinessClassImpl implements BusinessClassReference {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected BusinessClassReferenceImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.BUSINESS_CLASS_REFERENCE;
-    }
+		return BusinessDomainDslPackage.Literals.BUSINESS_CLASS_REFERENCE;
+	}
 
 } //BusinessClassReferenceImpl

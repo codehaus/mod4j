@@ -6,8 +6,8 @@ Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  org.openarchitectureware.xtext.core.base;visibility:=reexport,
  org.openarchitectureware.xtext.generator;visibility:=reexport,
- BusinessDomain.mm,
- BusinessDomain.validation
+ BusinessDomain.validation,
+ BusinessDomain.mm
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
  org.mod4j.businessdomain.xtext.parser,
