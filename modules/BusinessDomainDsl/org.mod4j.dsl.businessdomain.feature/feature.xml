@@ -25,41 +25,6 @@ If you did not receive this Content directly from the Eclipse Foundation, the Co
    </url>
 
    <plugin
-         id="BusinessDomain.mm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="BusinessDomain.xtext"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="BusinessDomain.xtext.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="BusinessDomain.validation"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="BusinessDomain.generator"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.mod4j.crossx.mm"
          download-size="0"
          install-size="0"
@@ -81,7 +46,42 @@ If you did not receive this Content directly from the Eclipse Foundation, the Co
          unpack="false"/>
 
    <plugin
-         id="org.mod4j.dsl_common"
+         id="org.mod4j.dsl.businessdomain.generator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.dsl.businessdomain.mm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.dsl.businessdomain.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.dsl.businessdomain.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.dsl.businessdomain.xtext.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.mod4j.common"
          download-size="0"
          install-size="0"
          version="0.0.0"

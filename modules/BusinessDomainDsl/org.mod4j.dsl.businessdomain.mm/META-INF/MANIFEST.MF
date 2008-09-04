@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BusinessDomain metamodel
-Bundle-SymbolicName: BusinessDomain.mm; singleton:=true
+Bundle-SymbolicName: org.mod4j.dsl.businessdomain.mm;singleton:=true
 Bundle-Version: 0.10.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: org.mod4j

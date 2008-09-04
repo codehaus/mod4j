@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>BusinessDomain.xtext.editor</name>
+	<name>org.mod4j.dsl.businessdomain.xtext.editor</name>
 	<comment></comment>
 	<projects>
 	</projects>

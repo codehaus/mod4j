@@ -4,7 +4,7 @@ Bundle-Name: my.generator.project
 Bundle-SymbolicName: my.generator.project; singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.openarchitectureware.dependencies,
- BusinessDomain.mm,
- BusinessDomain.generator,
- BusinessDomain.xtext,
- BusinessDomain.validation
+ org.mod4j.dsl.businessdomain.generator,
+ org.mod4j.dsl.businessdomain.mm,
+ org.mod4j.dsl.businessdomain.validation,
+ org.mod4j.dsl.businessdomain.xtext

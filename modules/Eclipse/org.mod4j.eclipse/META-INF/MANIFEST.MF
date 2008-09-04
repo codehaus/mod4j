@@ -14,9 +14,9 @@ Require-Bundle: org.eclipse.core.resources,
  org.apache.commons.cli,
  org.eclipse.jdt.core,
  org.eclipse.ui.console,
- org.mod4j.dsl_common,
  org.mod4j.crossx.broker,
- org.mod4j.crossx.mm
+ org.mod4j.crossx.mm,
+ org.mod4j.common
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.eclipse,
  org.mod4j.eclipse.builder,
