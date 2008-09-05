@@ -1,0 +1,4 @@
+import DataContractDsl;
+
+context DataContractModel ERROR "The name of a datacontract model may not be empty" :
+    this.name.length > 0;
