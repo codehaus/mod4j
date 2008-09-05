@@ -1,0 +1,5 @@
+preventMMGeneration
+
+importMetamodel "http://www.mod4j.org/datacontract" ;
+
+DataContractModel : "aap" ;
