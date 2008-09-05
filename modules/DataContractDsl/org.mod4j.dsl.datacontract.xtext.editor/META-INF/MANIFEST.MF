@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.mod4j.dsl.datacontract.xtext.editor
+Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.editor; singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle:  org.openarchitectureware.xtext.core,
+ org.antlr,
+ org.mod4j.dsl.datacontract.xtext,
+ org.openarchitectureware.xtext.core.base,
+ org.openarchitectureware.xtext.editor.base,
+ org.openarchitectureware.xtext.generator,
+ org.openarchitectureware.dependencies
