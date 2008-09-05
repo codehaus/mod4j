@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
-<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.gif" NDATA GIF>
-<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.gif" NDATA GIF>
+<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.jpg" NDATA JPG>
+<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.jpg" NDATA JPG>
+<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
 ]>
 <book lang="en">
   <bookinfo>
@@ -48,105 +48,115 @@
       project. These principles have guided how the DSL's are designed and how
       they should be used.</para>
 
-      <itemizedlist>
-        <listitem>
-          <para>The goal of a model is to generate code. Thus, everything in a
-          model is used in some way to generate code. We don't do modeling for
-          the sake of modeling.</para>
-        </listitem>
+      <section>
+        <title>Code Generation Principles</title>
 
-        <listitem>
-          <para>Generated code must be clear and readable. Using Mod4j should
-          noit be a lifetime commitment. Thgerefopre the source code must eb
-          at least as good as handwritten code. This allows projects to
-          continue development with the generated code instead of the DSL
-          models. Note that this surely isn;t the recommended way, but we like
-          the freedom this gives.</para>
+        <para>Code generation has been around for a long time. Mod4j takes in
+        account many of the lessons learned. The following principles are
+        guiding the Mod4j development.</para>
 
-          <para>Another reason for generating clear and readable code is that
-          we do not have debuggers at the model level. This would be great,
-          but the tools to develop model-level debuggers are not avialable
-          (yet, we hope). Therefore code neesvto be debugged at the source
-          code level and having eadable generated code really helps.</para>
+        <itemizedlist>
+          <listitem>
+            <para><keycap>Generated code must be clear and readable</keycap>.
+            Using Mod4j should noit be a lifetime commitment. Thgerefopre the
+            source code must eb at least as good as handwritten code. This
+            allows projects to continue development with the generated code
+            instead of the DSL models. Note that this surely isn;t the
+            recommended way, but we like the freedom this gives.</para>
 
-          <para>The third reason for generating clear code is that we do not
-          generate everything. We support a mizxe-mode development where
-          developers write boith models and code to extend the generated code.
-          It is easier to extend generated cod when this is readable.</para>
-        </listitem>
+            <para>Another reason for generating clear and readable code is
+            that we do not have debuggers at the model level. This would be
+            great, but the tools to develop model-level debuggers are not
+            avialable (yet, we hope). Therefore code neesvto be debugged at
+            the source code level and having eadable generated code really
+            helps.</para>
 
-        <listitem>
-          <para>Model and code live side by side. That is, we do not focus on
-          100 percent code generation. Instead we focus on modeling aspects
-          from which as much code as possible can be generated. At the same
-          time we keep using code for aspects that are as much work in codee
-          as they are in a model. Given the time constraints that we all have,
-          we start with the modeling concepts that give the best ratio of
-          model-to-code.</para>
-        </listitem>
+            <para>The third reason for generating clear code is that we do not
+            generate everything. We support a mizxe-mode development where
+            developers write boith models and code to extend the generated
+            code. It is easier to extend generated cod when this is
+            readable.</para>
+          </listitem>
 
-        <listitem>
-          <para>Generated code is never overwritten, in other words
-          <emphasis>the model is always leading</emphasis>.</para>
-        </listitem>
+          <listitem>
+            <para><keycap>Generated code is never overwritten</keycap>, in
+            other words <emphasis>the model is always
+            leading</emphasis>.</para>
+          </listitem>
 
-        <listitem>
-          <para>To esnure that generated code bever needs to be overwritten
-          the generated code is designed and generated with <emphasis>specific
-          extension points</emphasis>. These extension points are the only
-          places where handwritten code may be placed. In most cases an
-          extension point is in a separate file than the generates code. To
-          help the developer a first empty extension point file is usually
-          created , but only when the expension point file does not
-          exist.</para>
-        </listitem>
+          <listitem>
+            <para>To ensure that generated code bever needs to be overwritten
+            the generated code is designed and generated with
+            <emphasis>specific extension points</emphasis>. These extension
+            points are the only places where handwritten code may be placed.
+            In most cases an extension point is in a separate file than the
+            generates code. To help the developer a first empty extension
+            point file is usually created , but only when the expension point
+            file does not exist.</para>
+          </listitem>
 
-        <listitem>
-          <para>DSL"s and DSL models are independent of each other. They may
-          reference through soft references, but are never hard-linked to each
-          other. This allows both DSL models and DSLs to be developed
-          separately. It also allows version and multi-user management by
-          common tools as CVS or subversion.</para>
-        </listitem>
+          <listitem>
+            <para><keycap>Within Eclipse Mod4j support incremental code
+            generation</keycap>. This means that code is generated on a per
+            model file basis. Effectively whenever a model file is saved the
+            code for this model file is generated automatically in the
+            background. There is no need for a separate code generation step.
+            This code generation step uses the ard Eclipse build strcuture. If
+            the n 'build automatically' is set this will happen. If a full
+            build is requested all code will be regenerated. This allows
+            Eclipse users to work with models in the same way as with source
+            code (i.e. Java class files).</para>
+          </listitem>
 
-        <listitem>
-          <para>DSL Models remain small. We do not need to handle huge models
-          bevcause models are always divided into small, independent parts
-          which we call DSL models. The relationbshio between those DSL models
-          i done by symbolic integration of the mdoels. See the section on
-          Crossx.</para>
-        </listitem>
+          <listitem>
+            <para><keycap>Code generation through Maven.</keycap> Mod4j
+            includes a Maven plugin that support the code generation process
+            in batch mode. This is used to run automatics builds based on thge
+            models. There is no need to checkin generated source code, just as
+            there is noi need to checkin compiled Java classesWe support two
+            ways of generating code.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
 
-        <listitem>
-          <para>We support two ways of generating code.<itemizedlist>
-              <listitem>
-                <para>Within Eclipse Mod4j support incxremenbtal code
-                generation. This means that code is generated on a per model
-                file basis. Effectively whenever a model file is saved the
-                code for this model file is generated automatically in the
-                background. There is no need for a separate code generation
-                step. This code generation step uses the ard Eclipse build
-                strcuture. If the n 'build automatically' is set this will
-                happen. If a full build is requested all code will be
-                regenerated. This allows Eclipse users to work with models in
-                the same way as with source code (i.e. Java class
-                files).</para>
-              </listitem>
+      <section>
+        <title>Modeling Principles</title>
 
-              <listitem>
-                <para>Mod4j includes a Maven plugin that support the code
-                generation process in batch mode. This is used to run
-                automatics builds based on thge models. There is no need to
-                checkin generated source code, just as there is noi need to
-                checkin compiled Java classes.</para>
-              </listitem>
-            </itemizedlist></para>
-        </listitem>
+        <para>Modeling in Mod4j is:<itemizedlist>
+            <listitem>
+              <para><keycap>The goal of a model is to generate code.</keycap>
+              Thus, everything in a model is used in some way to generate
+              code. We don't do modeling for the sake of modeling.</para>
+            </listitem>
 
-        <listitem>
-          <para>...</para>
-        </listitem>
-      </itemizedlist>
+            <listitem>
+              <para>Model and code live side by side. That is, we do not focus
+              on 100 percent code generation. Instead we focus on modeling
+              aspects from which as much code as possible can be generated. At
+              the same time we keep using code for aspects that are as much
+              work in codee as they are in a model. Given the time constraints
+              that we all have, we start with the modeling concepts that give
+              the best ratio of model-to-code.</para>
+            </listitem>
+
+            <listitem>
+              <para><keycap>DSL"s and DSL models are independent of each
+              other</keycap>. They may reference through soft references, but
+              are never hard-linked to each other. This allows both DSL models
+              and DSLs to be developed separately. It also allows version and
+              multi-user management by common tools as CVS or
+              subversion.</para>
+            </listitem>
+
+            <listitem>
+              <para><keycap>DSL Models are and remain remain small.</keycap>
+              We do not need to handle huge models bevcause models are always
+              divided into small, independent parts which we call DSL models.
+              The relationbshio between those DSL models i done by symbolic
+              integration of the mdoels. See the section on Crossx.</para>
+            </listitem>
+          </itemizedlist></para>
+      </section>
     </section>
 
     <section>
@@ -231,7 +241,8 @@
 
           <mediaobject>
             <imageobject>
-              <imagedata entityref="emptysubclass-pattern" format="GIF" />
+              <imagedata contentwidth="100" entityref="emptysubclass-pattern"
+                         format="JPG" />
             </imageobject>
           </mediaobject>
         </figure>
@@ -239,8 +250,8 @@
         <informalfigure>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/base-emptysubclass-pattern.gif"
-                         format="GIF" />
+              <imagedata fileref="images/base-emptysubclass-pattern.jpg"
+                         format="JPG" />
             </imageobject>
           </mediaobject>
         </informalfigure>
@@ -395,7 +406,7 @@
 
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-domain" format="GIF" />
+                <imagedata entityref="emptysubclass-domain" format="JPG" />
               </imageobject>
             </mediaobject>
           </figure>
@@ -403,8 +414,8 @@
           <informalfigure>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/base-emptysubclass-domain.gif"
-                           format="GIF" />
+                <imagedata fileref="images/base-emptysubclass-domain.jpg"
+                           format="JPG" />
               </imageobject>
             </mediaobject>
           </informalfigure>
@@ -436,7 +447,7 @@
 
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-data" format="GIF" />
+                <imagedata entityref="emptysubclass-data" format="JPG" />
               </imageobject>
             </mediaobject>
           </figure>
@@ -444,8 +455,8 @@
           <informalfigure>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/base-emptysubclass-data.gif"
-                           format="GIF" />
+                <imagedata fileref="images/base-emptysubclass-data.jpg"
+                           format="JPG" />
               </imageobject>
             </mediaobject>
           </informalfigure>
@@ -966,7 +977,7 @@
         <para>Associations are a powerful mechanism and require careful
         handling in the code. For bidirectional associations the generated
         code ensures that both sides will always be updates consistently
-        whenever one of the sides is changed. </para>
+        whenever one of the sides is changed.</para>
 
         <section>
           <title>Generated Code for the Business Layer</title>
@@ -980,7 +991,7 @@
 
           <para>Next to these fields methods are generated to change these
           fields. For a single valued field a simple setter and getter is
-          generated. </para>
+          generated.</para>
 
           <para>For multivalues fields adding or deleting elements from the
           collection should always be done by the object owinng the
@@ -994,7 +1005,7 @@
           Customer class in the above example we generate the áddToOrders()
           and removefromOrders() methods. The getter methoids returns an
           Unmodifyable collection to guard the clinet from changing the
-          collection. </para>
+          collection.</para>
 
           <para><programlisting class="monospaced" continuation="continues"
           format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
@@ -1054,7 +1065,7 @@
 
           <para></para>
 
-          <para> </para>
+          <para></para>
         </section>
       </section>
     </section>
