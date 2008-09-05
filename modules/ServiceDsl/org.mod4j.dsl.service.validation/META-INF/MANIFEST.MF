@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Service.validation
+Bundle-SymbolicName: org.mod4j.dsl.service.validation; singleton:=true
+Bundle-Version: 0.10.0.qualifier
+Require-Bundle: org.openarchitectureware.dependencies,
+ org.mod4j.crossx.broker,
+ org.mod4j.dsl.service.mm
+Bundle-Vendor: org.mod4j

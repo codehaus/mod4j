@@ -1,0 +1,17 @@
+preventMMGeneration
+
+importMetamodel "http://www.mod4j.org/service" ;
+
+//IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+
+ServiceModel:
+	(description=STRING )?
+	"Service" name = ID
+	(methods+= ServiceMethod)*
+	;
+
+ 	
+ServiceMethod:
+	(description=STRING)?
+    "method" name=ID
+     ;
