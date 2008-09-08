@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mod4j DataContract DSL generator
+Bundle-SymbolicName: org.mod4j.dsl.datacontract.generator; singleton:=true
+Bundle-Version: 0.10.0.qualifier
+Require-Bundle:  org.openarchitectureware.dependencies
+Bundle-Vendor: org.mod4j
