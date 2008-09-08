@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.mod4j.dsl.service..generator
+Bundle-Name: Mod4j Service DSL generator
 Bundle-SymbolicName: org.mod4j.dsl.service..generator; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.10.0.qualifier
 Require-Bundle:  org.openarchitectureware.dependencies
+Bundle-Vendor: org.mod4j
