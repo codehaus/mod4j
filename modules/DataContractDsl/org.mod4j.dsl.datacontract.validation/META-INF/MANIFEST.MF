@@ -1,7 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.mod4j.dsl.datacontract.validation
+Bundle-Name: Mod4j DataContract DSL validation
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.validation; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
  org.mod4j.dsl.datacontract.mm;bundle-version="0.1.0"
+Bundle-Vendor: org.mod4j

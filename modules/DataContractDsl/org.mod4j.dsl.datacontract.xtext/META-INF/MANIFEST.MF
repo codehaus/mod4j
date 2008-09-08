@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.mod4j.dsl.datacontract.xtext
+Bundle-Name: Mod4j DataContract DSL xtext
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.xtext.core,
  org.antlr,
  org.openarchitectureware.xtext.core.base,
  org.openarchitectureware.xtext.generator,
  org.openarchitectureware.dependencies,
  org.mod4j.dsl.datacontract.mm;bundle-version="0.1.0"
+Bundle-Vendor: org.mod4j

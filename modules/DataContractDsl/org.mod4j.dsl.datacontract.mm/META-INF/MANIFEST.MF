@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.mod4j.dsl.datacontract.mm Plug-in
+Bundle-Name: Mod4j DataContract DSL metamodel
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.mm
-Bundle-Version: 0.1.0
+Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore
+Bundle-Vendor: org.mod4j
