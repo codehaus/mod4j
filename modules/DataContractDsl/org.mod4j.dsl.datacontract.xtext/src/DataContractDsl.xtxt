@@ -15,9 +15,8 @@ DomainClassReference:
     "import" name=ID;
     
 DomainClassDto :
-    "DomainDto" name=ID "base" base=[DomainClassReference] "["
-    (properties += Property)*
-    "]"
+    "DomainDto" name=ID "base" base=[DomainClassReference]
+    ( "[" (properties += Property)*  "]")?
     ;    
     
 ListDto :
