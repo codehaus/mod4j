@@ -9,54 +9,44 @@ package org.mod4j.dsl.service.mm.ServiceDsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.mod4j.dsl.service.mm.ServiceDsl.MethodType;
+import org.mod4j.dsl.service.mm.ServiceDsl.CrudService;
+import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
-import org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Service Method</b></em>'.
+ * An implementation of the model object '<em><b>Crud Service</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceMethodImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CrudServiceImpl#getDto <em>Dto</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod {
+public class CrudServiceImpl extends ModelElementImpl implements CrudService {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getDto() <em>Dto</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getDto()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final MethodType TYPE_EDEFAULT = MethodType.CUSTOM;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected MethodType type = TYPE_EDEFAULT;
+	protected DtoReference dto;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServiceMethodImpl() {
+	protected CrudServiceImpl() {
 		super();
 	}
 
@@ -67,7 +57,7 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ServiceDslPackage.Literals.SERVICE_METHOD;
+		return ServiceDslPackage.Literals.CRUD_SERVICE;
 	}
 
 	/**
@@ -75,8 +65,16 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MethodType getType() {
-		return type;
+	public DtoReference getDto() {
+		if (dto != null && dto.eIsProxy()) {
+			InternalEObject oldDto = (InternalEObject)dto;
+			dto = (DtoReference)eResolveProxy(oldDto);
+			if (dto != oldDto) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CRUD_SERVICE__DTO, oldDto, dto));
+			}
+		}
+		return dto;
 	}
 
 	/**
@@ -84,11 +82,20 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(MethodType newType) {
-		MethodType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public DtoReference basicGetDto() {
+		return dto;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDto(DtoReference newDto) {
+		DtoReference oldDto = dto;
+		dto = newDto;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.SERVICE_METHOD__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CRUD_SERVICE__DTO, oldDto, dto));
 	}
 
 	/**
@@ -99,8 +106,9 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				return getType();
+			case ServiceDslPackage.CRUD_SERVICE__DTO:
+				if (resolve) return getDto();
+				return basicGetDto();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,8 +121,8 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				setType((MethodType)newValue);
+			case ServiceDslPackage.CRUD_SERVICE__DTO:
+				setDto((DtoReference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +136,8 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				setType(TYPE_EDEFAULT);
+			case ServiceDslPackage.CRUD_SERVICE__DTO:
+				setDto((DtoReference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,26 +151,10 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				return type != TYPE_EDEFAULT;
+			case ServiceDslPackage.CRUD_SERVICE__DTO:
+				return dto != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
-	}
-
-} //ServiceMethodImpl
+} //CrudServiceImpl

@@ -8,17 +8,23 @@ package org.mod4j.dsl.service.mm.ServiceDsl.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.mod4j.dsl.service.mm.ServiceDsl.DataContractReference;
+import org.mod4j.dsl.service.mm.ServiceDsl.CostomMethod;
+import org.mod4j.dsl.service.mm.ServiceDsl.CrudService;
+import org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod;
+import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
+import org.mod4j.dsl.service.mm.ServiceDsl.MethodType;
 import org.mod4j.dsl.service.mm.ServiceDsl.ModelElement;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslFactory;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceModel;
+import org.mod4j.dsl.service.mm.ServiceDsl.SpecialMethod;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +52,28 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dataContractReferenceEClass = null;
+	private EClass dtoReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass customMethodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass crudServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass specialMethodEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -54,6 +81,13 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 * @generated
 	 */
 	private EClass serviceMethodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum methodTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -146,6 +180,24 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getServiceModel_DtoReferences() {
+		return (EReference)serviceModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getServiceModel_CrudServices() {
+		return (EReference)serviceModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModelElement() {
 		return modelElementEClass;
 	}
@@ -173,8 +225,8 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDataContractReference() {
-		return dataContractReferenceEClass;
+	public EClass getDtoReference() {
+		return dtoReferenceEClass;
 	}
 
 	/**
@@ -182,8 +234,71 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataContractReference_Model() {
-		return (EAttribute)dataContractReferenceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDtoReference_Model() {
+		return (EAttribute)dtoReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCustomMethod() {
+		return customMethodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCustomMethod_Input() {
+		return (EReference)customMethodEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCustomMethod_Output() {
+		return (EReference)customMethodEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCrudService() {
+		return crudServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrudService_Dto() {
+		return (EReference)crudServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSpecialMethod() {
+		return specialMethodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecialMethod_Dto() {
+		return (EReference)specialMethodEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -193,6 +308,24 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 */
 	public EClass getServiceMethod() {
 		return serviceMethodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceMethod_Type() {
+		return (EAttribute)serviceMethodEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMethodType() {
+		return methodTypeEEnum;
 	}
 
 	/**
@@ -225,15 +358,31 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 		// Create classes and their features
 		serviceModelEClass = createEClass(SERVICE_MODEL);
 		createEReference(serviceModelEClass, SERVICE_MODEL__METHODS);
+		createEReference(serviceModelEClass, SERVICE_MODEL__DTO_REFERENCES);
+		createEReference(serviceModelEClass, SERVICE_MODEL__CRUD_SERVICES);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__DESCRIPTION);
 
-		dataContractReferenceEClass = createEClass(DATA_CONTRACT_REFERENCE);
-		createEAttribute(dataContractReferenceEClass, DATA_CONTRACT_REFERENCE__MODEL);
+		dtoReferenceEClass = createEClass(DTO_REFERENCE);
+		createEAttribute(dtoReferenceEClass, DTO_REFERENCE__MODEL);
+
+		customMethodEClass = createEClass(CUSTOM_METHOD);
+		createEReference(customMethodEClass, CUSTOM_METHOD__INPUT);
+		createEReference(customMethodEClass, CUSTOM_METHOD__OUTPUT);
+
+		crudServiceEClass = createEClass(CRUD_SERVICE);
+		createEReference(crudServiceEClass, CRUD_SERVICE__DTO);
+
+		specialMethodEClass = createEClass(SPECIAL_METHOD);
+		createEReference(specialMethodEClass, SPECIAL_METHOD__DTO);
 
 		serviceMethodEClass = createEClass(SERVICE_METHOD);
+		createEAttribute(serviceMethodEClass, SERVICE_METHOD__TYPE);
+
+		// Create enums
+		methodTypeEEnum = createEEnum(METHOD_TYPE);
 	}
 
 	/**
@@ -265,21 +414,46 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
 		// Add supertypes to classes
 		serviceModelEClass.getESuperTypes().add(this.getModelElement());
-		dataContractReferenceEClass.getESuperTypes().add(this.getModelElement());
+		dtoReferenceEClass.getESuperTypes().add(this.getModelElement());
+		customMethodEClass.getESuperTypes().add(this.getServiceMethod());
+		crudServiceEClass.getESuperTypes().add(this.getModelElement());
+		specialMethodEClass.getESuperTypes().add(this.getServiceMethod());
 		serviceMethodEClass.getESuperTypes().add(this.getModelElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(serviceModelEClass, ServiceModel.class, "ServiceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getServiceModel_Methods(), this.getServiceMethod(), null, "methods", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServiceModel_DtoReferences(), this.getDtoReference(), null, "dtoReferences", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServiceModel_CrudServices(), this.getCrudService(), null, "crudServices", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dataContractReferenceEClass, DataContractReference.class, "DataContractReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataContractReference_Model(), ecorePackage.getEString(), "model", null, 0, 1, DataContractReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dtoReferenceEClass, DtoReference.class, "DtoReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDtoReference_Model(), ecorePackage.getEString(), "model", null, 0, 1, DtoReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(customMethodEClass, CustomMethod.class, "CustomMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCustomMethod_Input(), this.getDtoReference(), null, "input", null, 0, 1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomMethod_Output(), this.getDtoReference(), null, "output", null, 0, 1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(crudServiceEClass, CrudService.class, "CrudService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCrudService_Dto(), this.getDtoReference(), null, "dto", null, 0, 1, CrudService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(specialMethodEClass, SpecialMethod.class, "SpecialMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecialMethod_Dto(), this.getDtoReference(), null, "dto", null, 0, 1, SpecialMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceMethodEClass, ServiceMethod.class, "ServiceMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServiceMethod_Type(), this.getMethodType(), "type", "Custom", 0, 1, ServiceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(methodTypeEEnum, MethodType.class, "MethodType");
+		addEEnumLiteral(methodTypeEEnum, MethodType.CREATE);
+		addEEnumLiteral(methodTypeEEnum, MethodType.READ);
+		addEEnumLiteral(methodTypeEEnum, MethodType.UPDATE);
+		addEEnumLiteral(methodTypeEEnum, MethodType.DELETE);
+		addEEnumLiteral(methodTypeEEnum, MethodType.FIND);
+		addEEnumLiteral(methodTypeEEnum, MethodType.CUSTOM);
 
 		// Create resource
 		createResource(eNS_URI);

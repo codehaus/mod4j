@@ -1,0 +1,53 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package org.mod4j.dsl.service.mm.ServiceDsl;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Crud Service</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getDto <em>Dto</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCrudService()
+ * @model
+ * @generated
+ */
+public interface CrudService extends ModelElement {
+	/**
+	 * Returns the value of the '<em><b>Dto</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dto</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dto</em>' reference.
+	 * @see #setDto(DtoReference)
+	 * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCrudService_Dto()
+	 * @model
+	 * @generated
+	 */
+	DtoReference getDto();
+
+	/**
+	 * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getDto <em>Dto</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dto</em>' reference.
+	 * @see #getDto()
+	 * @generated
+	 */
+	void setDto(DtoReference value);
+
+} // CrudService

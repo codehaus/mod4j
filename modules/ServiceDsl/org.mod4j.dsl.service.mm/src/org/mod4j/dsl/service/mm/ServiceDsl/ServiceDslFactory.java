@@ -44,13 +44,40 @@ public interface ServiceDslFactory extends EFactory {
 	ModelElement createModelElement();
 
 	/**
-	 * Returns a new object of class '<em>Data Contract Reference</em>'.
+	 * Returns a new object of class '<em>Dto Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Contract Reference</em>'.
+	 * @return a new object of class '<em>Dto Reference</em>'.
 	 * @generated
 	 */
-	DataContractReference createDataContractReference();
+	DtoReference createDtoReference();
+
+	/**
+	 * Returns a new object of class '<em>Custom Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom Method</em>'.
+	 * @generated
+	 */
+	CustomMethod createCustomMethod();
+
+	/**
+	 * Returns a new object of class '<em>Crud Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Crud Service</em>'.
+	 * @generated
+	 */
+	CrudService createCrudService();
+
+	/**
+	 * Returns a new object of class '<em>Special Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Special Method</em>'.
+	 * @generated
+	 */
+	SpecialMethod createSpecialMethod();
 
 	/**
 	 * Returns a new object of class '<em>Service Method</em>'.

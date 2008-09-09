@@ -64,7 +64,7 @@ public class ServiceDslAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch the delegates to the <code>createXXX</code> methods.
+	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -80,8 +80,20 @@ public class ServiceDslAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public Adapter caseDataContractReference(DataContractReference object) {
-				return createDataContractReferenceAdapter();
+			public Adapter caseDtoReference(DtoReference object) {
+				return createDtoReferenceAdapter();
+			}
+			@Override
+			public Adapter caseCustomMethod(CustomMethod object) {
+				return createCustomMethodAdapter();
+			}
+			@Override
+			public Adapter caseCrudService(CrudService object) {
+				return createCrudServiceAdapter();
+			}
+			@Override
+			public Adapter caseSpecialMethod(SpecialMethod object) {
+				return createSpecialMethodAdapter();
 			}
 			@Override
 			public Adapter caseServiceMethod(ServiceMethod object) {
@@ -136,16 +148,58 @@ public class ServiceDslAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mod4j.dsl.service.mm.ServiceDsl.DataContractReference <em>Data Contract Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference <em>Dto Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mod4j.dsl.service.mm.ServiceDsl.DataContractReference
+	 * @see org.mod4j.dsl.service.mm.ServiceDsl.DtoReference
 	 * @generated
 	 */
-	public Adapter createDataContractReferenceAdapter() {
+	public Adapter createDtoReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod <em>Custom Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod
+	 * @generated
+	 */
+	public Adapter createCustomMethodAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService <em>Crud Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mod4j.dsl.service.mm.ServiceDsl.CrudService
+	 * @generated
+	 */
+	public Adapter createCrudServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mod4j.dsl.service.mm.ServiceDsl.SpecialMethod <em>Special Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mod4j.dsl.service.mm.ServiceDsl.SpecialMethod
+	 * @generated
+	 */
+	public Adapter createSpecialMethodAdapter() {
 		return null;
 	}
 

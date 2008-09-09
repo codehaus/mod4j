@@ -100,10 +100,33 @@ public class ServiceDslSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ServiceDslPackage.DATA_CONTRACT_REFERENCE: {
-				DataContractReference dataContractReference = (DataContractReference)theEObject;
-				T result = caseDataContractReference(dataContractReference);
-				if (result == null) result = caseModelElement(dataContractReference);
+			case ServiceDslPackage.DTO_REFERENCE: {
+				DtoReference dtoReference = (DtoReference)theEObject;
+				T result = caseDtoReference(dtoReference);
+				if (result == null) result = caseModelElement(dtoReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ServiceDslPackage.CUSTOM_METHOD: {
+				CustomMethod customMethod = (CustomMethod)theEObject;
+				T result = caseCustomMethod(customMethod);
+				if (result == null) result = caseServiceMethod(customMethod);
+				if (result == null) result = caseModelElement(customMethod);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ServiceDslPackage.CRUD_SERVICE: {
+				CrudService crudService = (CrudService)theEObject;
+				T result = caseCrudService(crudService);
+				if (result == null) result = caseModelElement(crudService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ServiceDslPackage.SPECIAL_METHOD: {
+				SpecialMethod specialMethod = (SpecialMethod)theEObject;
+				T result = caseSpecialMethod(specialMethod);
+				if (result == null) result = caseServiceMethod(specialMethod);
+				if (result == null) result = caseModelElement(specialMethod);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,17 +172,62 @@ public class ServiceDslSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Contract Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Dto Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Contract Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Dto Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDataContractReference(DataContractReference object) {
+	public T caseDtoReference(DtoReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Method</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomMethod(CustomMethod object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Crud Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Crud Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCrudService(CrudService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Special Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Special Method</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecialMethod(SpecialMethod object) {
 		return null;
 	}
 
