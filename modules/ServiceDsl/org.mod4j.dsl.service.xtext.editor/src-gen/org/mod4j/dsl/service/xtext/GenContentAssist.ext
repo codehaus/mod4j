@@ -1,0 +1,91 @@
+import ServiceDsl;
+import codeassist;
+
+extension org::mod4j::dsl::service::xtext::EditorExtensions;
+
+/* proposals for Feature ServiceModel::name */
+List[Proposal] completeServiceModel_name(emf::EObject ctx, String prefix) :
+	{newProposal("ServiceModelName")};
+
+/* proposals for Feature DtoReference::name */
+List[Proposal] completeDtoReference_name(emf::EObject ctx, String prefix) :
+	{newProposal("DtoReferenceName")};
+
+/* proposals for Feature CustomMethod::description */
+List[Proposal] completeCustomMethod_description(emf::EObject ctx, String prefix) :
+	{newProposal("CustomMethodDescription")};
+
+/* proposals for Feature CustomMethod::name */
+List[Proposal] completeCustomMethod_name(emf::EObject ctx, String prefix) :
+	{newProposal("CustomMethodName")};
+
+/* proposals for Feature ServiceModel::description */
+List[Proposal] completeServiceModel_description(emf::EObject ctx, String prefix) :
+	{newProposal("ServiceModelDescription")};
+
+/* proposals for Feature SpecialMethod::name */
+List[Proposal] completeSpecialMethod_name(emf::EObject ctx, String prefix) :
+	{newProposal("SpecialMethodName")};
+
+
+
+/* proposals for Feature SpecialMethod::type */
+List[Proposal] completeSpecialMethod_type(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ServiceModel::crudServices */
+List[Proposal] completeServiceModel_crudServices(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ServiceModel::dtoReferences */
+List[Proposal] completeServiceModel_dtoReferences(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ServiceModel::methods */
+List[Proposal] completeServiceModel_methods(emf::EObject ctx, String prefix) :
+	{};
+
+
+
+
+
+/* proposals for CrudService::dto */
+List[Proposal] completeCrudService_dto(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for CustomMethod::output */
+List[Proposal] completeCustomMethod_output(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for SpecialMethod::dto */
+List[Proposal] completeSpecialMethod_dto(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for CustomMethod::input */
+List[Proposal] completeCustomMethod_input(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+
+List[Proposal] sortProposals(List[Proposal] proposalsToSort):
+	proposalsToSort;
+
+isKeywordProposal(Proposal this):
+	type == codeassist::Type::KEYWORD;
+
+isAssignmentProposal(Proposal this):
+	type == codeassist::Type::ASSIGNMENT;
+	
+isEnumProposal(Proposal this):
+	type == codeassist::Type::ENUM_LITERAL;
+
+// create extensions
+Proposal newProposal(String proposal) :
+	newProposal(proposal,proposal);
+	
+Proposal newProposal(String label, String toReplace) :
+	newProposal(label,toReplace,"default.gif");
+	
+create Proposal newProposal(String label, String replace, String image) :
+	setLabel(label==null?"ERROR":label)->
+	setToInsert(replace==null?"ERROR":replace)->
+	setImage(image);
