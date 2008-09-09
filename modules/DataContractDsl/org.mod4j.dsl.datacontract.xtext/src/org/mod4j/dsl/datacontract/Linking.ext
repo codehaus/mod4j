@@ -1,0 +1,9 @@
+import DataContractDsl;
+
+extension org::mod4j::dsl::datacontract::Extensions;
+extension org::mod4j::dsl::datacontract::GenLinking reexport;
+
+/*
+ * If you need more sophisticated linking semantic just overwrite the linking extensions here and add your own logic.
+ * Have a look at the generated org::mod4j::dsl::datacontract::GenLinking (typically located in src-gen)
+ */

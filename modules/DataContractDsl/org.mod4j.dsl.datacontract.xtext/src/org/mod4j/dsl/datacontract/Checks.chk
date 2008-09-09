@@ -1,0 +1,23 @@
+import DataContractDsl;
+
+extension org::mod4j::dsl::datacontract::Extensions;
+/*
+ * This check file is used by the parser
+ * and by the editor. Add your constraints here!
+ */
+
+context DataContractModel ERROR "Write your constraint message here...!" :
+   true;
+
+context Dto ERROR "Write your constraint message here...!" :
+   true;
+
+context DomainClassDto ERROR "Write your constraint message here...!" :
+   true;
+
+context ListDto ERROR "Write your constraint message here...!" :
+   true;
+
+context CustomDto ERROR "Write your constraint message here...!" :
+   true;
+
