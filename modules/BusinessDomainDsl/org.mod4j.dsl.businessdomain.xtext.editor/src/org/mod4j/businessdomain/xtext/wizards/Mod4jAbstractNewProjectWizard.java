@@ -122,11 +122,11 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 							String modelFileName = "SampleModel." + getFileExtension();
 //							Mod4jProjectCreator.create(pr, new String[] { getDslProjectName(), getGeneratorProjectName() }, monitor);
 							Mod4jProjectCreator.create(pr, new String[] { 
-									"BusinessDomain.mm",
-									"BusinessDomain.validation",
-									"BusinessDomain.generator",
-									"BusinessDomain.xtext",
-                                    "org.mod4j.dsl_common",									
+									"org.mod4j.dsl.businessdomain.mm",
+									"org.mod4j.dsl.businessdomain.validation",
+									"org.mod4j.dsl.businessdomain.generator",
+									"org.mod4j.dsl.businessdomain.xtext",
+                                    "org.mod4j.common",									
 									"org.mod4j.crossx.mm",
 									"org.mod4j.crossx.broker",
 									"org.mod4j.eclipse"
