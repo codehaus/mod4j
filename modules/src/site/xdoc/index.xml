@@ -66,6 +66,10 @@
                         <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
                     <li>
+                        Install Apache Maven 2.0.9 or higher. For download and install instructions see the
+                        <a href="http://maven.apache.org">Apache Maven site</a>
+                    </li>
+                    <li>
                         Make sure you start Eclipse with de right options, e.g on a linux system:
                         /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
                         -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
