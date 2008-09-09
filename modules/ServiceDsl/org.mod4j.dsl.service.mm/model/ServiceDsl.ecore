@@ -8,6 +8,8 @@
         eType="#//ServiceMethod" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtoReferences" upperBound="-1"
         eType="#//DtoReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crudServices" upperBound="-1"
+        eType="#//CrudService" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -16,8 +18,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DtoReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceMethod" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MethodType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomMethod" eSuperTypes="#//ServiceMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//DtoReference"/>
   </eClassifiers>
@@ -28,5 +29,15 @@
     <eLiterals name="Delete" value="3"/>
     <eLiterals name="Find" value="4"/>
     <eLiterals name="Custom" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CrudService" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecialMethod" eSuperTypes="#//ServiceMethod">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceMethod" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MethodType"
+        defaultValueLiteral="Custom"/>
   </eClassifiers>
 </ecore:EPackage>
