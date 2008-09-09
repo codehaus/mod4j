@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ServiceDsl Plug-in
+Bundle-SymbolicName: org.mod4j.dsl.service.xtext;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
+ org.antlr;visibility:=reexport,
+ org.openarchitectureware.xtext.core.base;visibility:=reexport,
+ org.openarchitectureware.xtext.generator,
+ org.mod4j.dsl.service.mm;bundle-version="0.10.0"
+Eclipse-LazyStart: true
+Export-Package: org.mod4j.dsl.service.xtext,
+                org.mod4j.dsl.service.xtext.parser
+Bundle-Vendor: mod4j.org
+
