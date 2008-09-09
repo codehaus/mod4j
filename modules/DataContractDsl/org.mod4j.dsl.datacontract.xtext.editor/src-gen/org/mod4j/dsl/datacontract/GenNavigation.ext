@@ -1,0 +1,46 @@
+
+import DataContractDsl;
+import tree;
+
+extension org::mod4j::dsl::datacontract::EditorExtensions;
+
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
+
+/*
+ * finds the declaration for the given element
+ * the string is the hyperlinked identifier
+ */
+emf::EObject findDeclaration(String s, Object grammarelement, Object element) : null;
+
+findDeclaration(String s,xtext::Assignment ass, DomainClassDto ele) :
+	switch (ass.feature) {
+       case "base" : ele.base
+		default : null
+	};
+findDeclaration(String s,xtext::Assignment ass, ListDto ele) :
+	switch (ass.feature) {
+       case "baseDto" : ele.baseDto
+		default : null
+	};
+/*
+ * finds the declaration for the given element
+ * the string is the hyperlinked identifier
+ */
+List[UIContentNode] findReferences(String s, Object grammarelement, Object element) : null;
+
+
+private cached List[emf::EObject] el() : {};
+List[UIContentNode] findReferences(String s,xtext::Assignment rule, DataContractDsl::Dto ele) :
+	el().union(allVisibleElements(ele).typeSelect(DataContractDsl::ListDto).select(e|e.parsedString("baseDto")==s))
+		.collect(e|e.createContentNode(e.label(),e.image()));
+List[UIContentNode] findReferences(String s,xtext::Assignment rule, DataContractDsl::DomainClassReference ele) :
+	el().union(allVisibleElements(ele).typeSelect(DataContractDsl::DomainClassDto).select(e|e.parsedString("base")==s))
+		.collect(e|e.createContentNode(e.label(),e.image()));
+
+/*
+ * UIContentNode creator
+ */
+create UIContentNode createContentNode(emf::EObject ctx, String label, String image) :
+	setLabel(label)->
+	setImage(image)->
+	setContext(ctx);
