@@ -1,0 +1,30 @@
+
+extension org::mod4j::dsl::datacontract::Extensions;
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
+
+link(emf::EObject this) :
+	let all = allLocalElements() :
+		all.typeSelect(DataContractDsl::DomainClassDto).collect(e|e.link_base()) ->
+		all.typeSelect(DataContractDsl::ListDto).collect(e|e.link_baseDto()) ->
+        null;
+
+
+
+
+Void link_base(DataContractDsl::DomainClassDto this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::DomainClassReference) :
+
+		this.setBase(ents.select(e|e.id() == this.parsedString("base")).first())
+);
+
+
+
+
+Void link_baseDto(DataContractDsl::ListDto this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::Dto) :
+
+		this.setBaseDto(ents.select(e|e.id() == this.parsedString("baseDto")).first())
+);
+
+
+

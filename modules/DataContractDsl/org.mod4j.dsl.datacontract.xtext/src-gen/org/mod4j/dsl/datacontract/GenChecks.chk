@@ -1,0 +1,17 @@
+import DataContractDsl;
+
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
+
+extension org::mod4j::dsl::datacontract::Extensions;
+
+/*
+ * check linking
+ */
+context DomainClassDto ERROR "Couldn't resolve reference to '"+this.parsedString("base")+"'" :
+	this.parsedString("base")!=null ? base!=null : true;
+context ListDto ERROR "Couldn't resolve reference to '"+this.parsedString("baseDto")+"'" :
+	this.parsedString("baseDto")!=null ? baseDto!=null : true;
+
+
+
+

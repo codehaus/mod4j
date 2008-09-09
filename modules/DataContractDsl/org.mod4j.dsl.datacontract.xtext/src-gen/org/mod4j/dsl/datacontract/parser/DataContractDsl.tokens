@@ -1,0 +1,17 @@
+RULE_ML_COMMENT=8
+RULE_ID=4
+RULE_WS=7
+RULE_INT=6
+RULE_STRING=5
+RULE_SL_COMMENT=9
+'base'=13
+'DomainDto'=12
+'string'=20
+'boolean'=19
+'ListDto'=16
+'CustomDto'=17
+'DataContract'=10
+';'=18
+'['=14
+'import'=11
+']'=15

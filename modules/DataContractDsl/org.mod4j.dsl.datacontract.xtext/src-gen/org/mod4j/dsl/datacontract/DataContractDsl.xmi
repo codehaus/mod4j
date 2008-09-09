@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xtext:XtextFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtext="http://www.openarchitectureware.org/xtext" name="DataContractModel" preventMMGeneration="true">
+  <mmImports location="http://www.mod4j.org/datacontract"/>
+  <rules xsi:type="xtext:TypeRule" name="DataContractModel">
+    <type alias="" name="DataContractModel"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Keyword" value="DataContract"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="domainClasses" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="DomainClassReference"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="dtos" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="Dto"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Dto">
+    <type alias="" name="Dto"/>
+    <content xsi:type="xtext:Alternatives">
+      <alternatives xsi:type="xtext:RuleName" name="DomainClassDto"/>
+      <alternatives xsi:type="xtext:RuleName" name="ListDto"/>
+      <alternatives xsi:type="xtext:RuleName" name="CustomDto"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="DomainClassReference">
+    <type alias="" name="DomainClassReference"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Keyword" value="import"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="DomainClassDto">
+    <type alias="" name="DomainClassDto"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Keyword" value="DomainDto"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="base"/>
+      <children xsi:type="xtext:Assignment" feature="base" operator="ASSIGN">
+        <token xsi:type="xtext:CrossReference">
+          <type alias="" name="DomainClassReference"/>
+        </token>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="properties" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="Property"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="ListDto">
+    <type alias="" name="ListDto"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Keyword" value="ListDto"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="base"/>
+      <children xsi:type="xtext:Assignment" feature="baseDto" operator="ASSIGN">
+        <token xsi:type="xtext:CrossReference">
+          <type alias="" name="Dto"/>
+        </token>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="CustomDto">
+    <type alias="" name="CustomDto"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Keyword" value="CustomDto"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="properties" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="Property"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Property">
+    <type alias="" name="Property"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Alternatives">
+        <alternatives xsi:type="xtext:RuleName" name="BooleanProperty"/>
+        <alternatives xsi:type="xtext:RuleName" name="StringProperty"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value=";"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="BooleanProperty">
+    <type alias="" name="BooleanProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="boolean"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="StringProperty">
+    <type alias="" name="StringProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="string"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:NativeLexerRule" name="ID"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="STRING"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="INT"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="WS"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="ML_COMMENT"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="SL_COMMENT"/>
+</xtext:XtextFile>
