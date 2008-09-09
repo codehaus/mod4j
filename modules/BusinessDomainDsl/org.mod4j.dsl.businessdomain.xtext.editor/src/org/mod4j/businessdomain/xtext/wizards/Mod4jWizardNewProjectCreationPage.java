@@ -149,6 +149,11 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 					
 					setPageComplete(valid);
 				}
+
+				public void reportError(String errorMessage, boolean infoOnly) {
+					// TODO Auto-generated method stub
+					
+				}
 			};
 		}
 
