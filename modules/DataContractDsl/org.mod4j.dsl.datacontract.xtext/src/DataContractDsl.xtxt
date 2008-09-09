@@ -2,4 +2,38 @@ preventMMGeneration
 
 importMetamodel "http://www.mod4j.org/datacontract" ;
 
-DataContractModel : "aap" ;
+DataContractModel : 
+    "DataContract" name=ID
+    (dtos += Dto)*
+    ;
+    
+Dto : 
+   ( DomainClassDto | ListDto |  CustomDto ) ;
+
+DomainClassDto :
+    "DomainDto" name=ID "["
+    (properties += Property)*
+    "]"
+    ;    
+    
+ListDto :
+    "ListDto" name=ID
+    ;    
+CustomDto :
+    "CustomDto" name=ID
+    ;    
+
+Property:
+    (BooleanProperty | StringProperty ) // | DateTimeProperty | IntegerProperty |DecimalProperty | EnumerationProperty) 
+	";"
+	;
+
+BooleanProperty:
+    (description=STRING)?
+    dataType="boolean" name=ID
+    ;
+
+StringProperty:
+    (description=STRING)?
+    dataType="string" name=ID
+    ;

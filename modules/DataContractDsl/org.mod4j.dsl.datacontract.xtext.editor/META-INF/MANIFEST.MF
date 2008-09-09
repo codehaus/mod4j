@@ -1,13 +1,22 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Mod4j DataContract DSL xtext.editor
+Bundle-Name: DataContractDsl Editor Plug-in
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.editor; singleton:=true
-Bundle-Version: 0.10.0.qualifier
-Require-Bundle:  org.openarchitectureware.xtext.core,
- org.antlr,
- org.mod4j.dsl.datacontract.xtext,
- org.openarchitectureware.xtext.core.base,
+Bundle-Version: 1.0.0
+Bundle-Activator: org.mod4j.dsl.datacontract.DataContractDslEditorPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.views,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
  org.openarchitectureware.xtext.editor.base,
- org.openarchitectureware.xtext.generator,
- org.openarchitectureware.dependencies
-Bundle-Vendor: org.mod4j
+ org.mod4j.dsl.datacontract.xtext
+Eclipse-LazyStart: true
+Export-Package: org.mod4j.dsl.datacontract,
+ org.mod4j.dsl.datacontract.editor
+Bundle-ClassPath: .
+
