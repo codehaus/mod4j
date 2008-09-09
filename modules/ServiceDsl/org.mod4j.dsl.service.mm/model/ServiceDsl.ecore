@@ -6,8 +6,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ServiceModel" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
         eType="#//ServiceMethod" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoReferences" eType="#//DtoReference"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoReferences" upperBound="-1"
+        eType="#//DtoReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

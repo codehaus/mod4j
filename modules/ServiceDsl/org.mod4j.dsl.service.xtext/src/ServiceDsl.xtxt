@@ -2,16 +2,27 @@ preventMMGeneration
 
 importMetamodel "http://www.mod4j.org/service" ;
 
-//IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
-
 ServiceModel:
 	(description=STRING )?
 	"Service" name = ID
+	(dtoReferences+=DtoReference)*
 	(methods+= ServiceMethod)*
+	"end"
 	;
 
- 	
+DtoReference:
+    "import" name=ID ";"
+    ;
+     	
 ServiceMethod:
 	(description=STRING)?
-    "method" name=ID
+	type=MethodType
+	name=ID
+	("in"  input =[DtoReference] )?
+	("out" output=[DtoReference] )?
+    ";" ;
+     
+
+Enum MethodType:
+     Create="create"  | Read="read" | Update="update" | Delete="delete" | Custom="custom"
      ;

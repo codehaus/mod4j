@@ -6,4 +6,4 @@ Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
  org.mod4j.crossx.broker,
  org.mod4j.dsl.service.mm
-Bundle-Vendor: org.mod4j
+Bundle-Vendor: mod4j.org

@@ -12,9 +12,9 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_sHymh3tCEd28kZw9e3t-QQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_sHymiHtCEd28kZw9e3t-QQ"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_sHo1gXtCEd28kZw9e3t-QQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sHo1gXtCEd28kZw9e3t-QQ" fontHeight="10" fillColor="16766421" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="ServiceDsl.ecore#//ServiceModel"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sHo1gntCEd28kZw9e3t-QQ" x="50" y="75"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sHo1gntCEd28kZw9e3t-QQ" x="45" y="75" width="105"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_sIOrcHtCEd28kZw9e3t-QQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_sIOrc3tCEd28kZw9e3t-QQ" type="4001"/>
@@ -32,7 +32,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_sIOrentCEd28kZw9e3t-QQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_sIOre3tCEd28kZw9e3t-QQ"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_sIOrcXtCEd28kZw9e3t-QQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sIOrcXtCEd28kZw9e3t-QQ" fontHeight="10" fillColor="16766421" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="ServiceDsl.ecore#//DtoReference"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sIOrcntCEd28kZw9e3t-QQ" x="245" y="265"/>
   </children>
@@ -52,7 +52,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_sIOriHtCEd28kZw9e3t-QQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_sIOriXtCEd28kZw9e3t-QQ"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_sIOrf3tCEd28kZw9e3t-QQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_sIOrf3tCEd28kZw9e3t-QQ" fontHeight="10" fillColor="16766421" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="ServiceDsl.ecore#//ServiceMethod"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sIOrgHtCEd28kZw9e3t-QQ" x="240" y="75"/>
   </children>
@@ -87,7 +87,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_FKQldntDEd28kZw9e3t-QQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_FKQld3tDEd28kZw9e3t-QQ"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_FKQlcXtDEd28kZw9e3t-QQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_FKQlcXtDEd28kZw9e3t-QQ" fontHeight="10" fillColor="16766421" lineColor="0"/>
     <element xmi:type="ecore:EEnum" href="ServiceDsl.ecore#//MethodType"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FKQlcntDEd28kZw9e3t-QQ" x="545" y="40"/>
   </children>
