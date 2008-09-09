@@ -41,6 +41,10 @@ public class OutletDirectoryCleaner {
         String dataModuleName = result.get("dataModuleName");
         String srcGenPath = result.get("srcGenPath");
         String resourceGenPath = result.get("resourceGenPath");
+        
+        String srcManPath = result.get("srcManPath");
+        String resourceManPath = result.get("srcManPath");
+        String overwriteExtensionpoints = result.get("overwriteExtensionpoints");
 
         String newAppPath = workDir + "/" + applicationPath;
 
@@ -48,6 +52,13 @@ public class OutletDirectoryCleaner {
                 + dataModuleName + "/" + resourceGenPath + ", " + newAppPath + "/" + domainModuleName + "/"
                 + srcGenPath + ", " + newAppPath + "/" + domainModuleName + "/" + resourceGenPath;
 
+        if( (overwriteExtensionpoints != null) && overwriteExtensionpoints.equals("true") ){
+        	logger.info("cleaning extension points");  
+        	directories = directories + ", " +
+            newAppPath + "/" + dataModuleName + "/" + srcManPath + ", " + newAppPath + "/"
+            + dataModuleName + "/" + resourceManPath + ", " + newAppPath + "/" + domainModuleName + "/"
+            + srcManPath + ", " + newAppPath + "/" + domainModuleName + "/" + resourceManPath;
+        }
         result.put("directories", directories);
         return result;
     }
