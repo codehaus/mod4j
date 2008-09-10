@@ -42,8 +42,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * @parameter
      * 
      */
-    // TODO Make use of set of dslExtentions to process
-    private HashSet<DslExtension> dslExtensions;
+    private HashSet<DslExtension> dslExtensions = new HashSet<DslExtension>();
 
     /*
      * (non-Javadoc)
@@ -54,18 +53,23 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         getLog().info("Executing Mod4J Maven plug-in, goal: genrateFromModel");
 
-        DslExtension dsl = new DslExtension("BusinessDomainDsl", "BusinessDomainDsl",
+        dslExtensions.add(new DslExtension("BusinessDomainDsl", "BusinessDomainDsl",
                 "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod", "crossx/busmod2crossx2.oaw",
-                "codegen/BusinessDomainDsl.oaw", "businessDomain/BusinessDomainDsl.properties");
+                "codegen/BusinessDomainDsl.oaw", "businessDomain/BusinessDomainDsl.properties"));
 
         String dir = project.getBasedir().getAbsolutePath();
 
-        try {
-            processDslModel(dir, dsl);
-        } catch (Mod4jWorkflowException we) {
-            throw new MojoFailureException("Workflow ERROR while processing the " + dsl.getDslName() + " at:" + dir);
-        } catch (Exception e) {
-            throw new MojoFailureException("ERROR while processing " + dsl.getDslName() + " :" + e.getMessage());
+        for (DslExtension dslExt : dslExtensions) {
+
+            try {
+                getLog().info("Processing DSL : " + dslExt.getDslName());
+                processDslModel(dir, dslExt);
+            } catch (Mod4jWorkflowException we) {
+                throw new MojoFailureException("Workflow ERROR while processing the " + dslExt.getDslName() + " at:"
+                        + dir);
+            } catch (Exception e) {
+                throw new MojoFailureException("ERROR while processing " + dslExt.getDslName() + " :" + e.getMessage());
+            }
         }
     }
 
