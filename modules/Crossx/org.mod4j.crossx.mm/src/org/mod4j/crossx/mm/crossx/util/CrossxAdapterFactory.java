@@ -63,7 +63,7 @@ public class CrossxAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * The switch the delegates to the <code>createXXX</code> methods.
+     * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -75,24 +75,20 @@ public class CrossxAdapterFactory extends AdapterFactoryImpl {
                 return createModelInfoAdapter();
             }
             @Override
-            public Adapter caseModelReference(ModelReference object) {
-                return createModelReferenceAdapter();
+            public Adapter caseSymbol(Symbol object) {
+                return createSymbolAdapter();
             }
             @Override
-            public Adapter caseElement(Element object) {
-                return createElementAdapter();
+            public Adapter caseSymbolProperty(SymbolProperty object) {
+                return createSymbolPropertyAdapter();
             }
             @Override
-            public Adapter caseProperty(Property object) {
-                return createPropertyAdapter();
+            public Adapter caseLiteralSymbolProperty(LiteralSymbolProperty object) {
+                return createLiteralSymbolPropertyAdapter();
             }
             @Override
-            public Adapter caseLiteralProperty(LiteralProperty object) {
-                return createLiteralPropertyAdapter();
-            }
-            @Override
-            public Adapter caseReferenceProperty(ReferenceProperty object) {
-                return createReferencePropertyAdapter();
+            public Adapter caseReferenceSymbolProperty(ReferenceSymbolProperty object) {
+                return createReferenceSymbolPropertyAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -129,72 +125,58 @@ public class CrossxAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.ModelReference <em>Model Reference</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.Symbol <em>Symbol</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.crossx.mm.crossx.ModelReference
+     * @see org.mod4j.crossx.mm.crossx.Symbol
      * @generated
      */
-    public Adapter createModelReferenceAdapter() {
+    public Adapter createSymbolAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.Element <em>Element</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.SymbolProperty <em>Symbol Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.crossx.mm.crossx.Element
+     * @see org.mod4j.crossx.mm.crossx.SymbolProperty
      * @generated
      */
-    public Adapter createElementAdapter() {
+    public Adapter createSymbolPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.Property <em>Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.LiteralSymbolProperty <em>Literal Symbol Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.crossx.mm.crossx.Property
+     * @see org.mod4j.crossx.mm.crossx.LiteralSymbolProperty
      * @generated
      */
-    public Adapter createPropertyAdapter() {
+    public Adapter createLiteralSymbolPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.LiteralProperty <em>Literal Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty <em>Reference Symbol Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.crossx.mm.crossx.LiteralProperty
+     * @see org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty
      * @generated
      */
-    public Adapter createLiteralPropertyAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.crossx.mm.crossx.ReferenceProperty <em>Reference Property</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.crossx.mm.crossx.ReferenceProperty
-     * @generated
-     */
-    public Adapter createReferencePropertyAdapter() {
+    public Adapter createReferenceSymbolPropertyAdapter() {
         return null;
     }
 

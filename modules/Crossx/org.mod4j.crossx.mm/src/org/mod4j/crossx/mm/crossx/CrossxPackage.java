@@ -69,22 +69,13 @@ public interface CrossxPackage extends EPackage {
     int MODEL_INFO = 0;
 
     /**
-     * The feature id for the '<em><b>Model</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MODEL_INFO__MODEL = 0;
-
-    /**
      * The feature id for the '<em><b>Elements</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_INFO__ELEMENTS = 1;
+    int MODEL_INFO__ELEMENTS = 0;
 
     /**
      * The feature id for the '<em><b>Last Changed</b></em>' attribute.
@@ -93,26 +84,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int MODEL_INFO__LAST_CHANGED = 2;
-
-    /**
-     * The number of structural features of the '<em>Model Info</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MODEL_INFO_FEATURE_COUNT = 3;
-
-    /**
-     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.ModelReferenceImpl <em>Model Reference</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.crossx.mm.crossx.impl.ModelReferenceImpl
-     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getModelReference()
-     * @generated
-     */
-    int MODEL_REFERENCE = 1;
+    int MODEL_INFO__LAST_CHANGED = 1;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -121,7 +93,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int MODEL_REFERENCE__NAME = 0;
+    int MODEL_INFO__NAME = 2;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' attribute.
@@ -130,26 +102,26 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int MODEL_REFERENCE__RESOURCE = 1;
+    int MODEL_INFO__RESOURCE = 3;
 
     /**
-     * The number of structural features of the '<em>Model Reference</em>' class.
+     * The number of structural features of the '<em>Model Info</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_REFERENCE_FEATURE_COUNT = 2;
+    int MODEL_INFO_FEATURE_COUNT = 4;
 
     /**
-     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.ElementImpl <em>Element</em>}' class.
+     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl <em>Symbol</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.crossx.mm.crossx.impl.ElementImpl
-     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getElement()
+     * @see org.mod4j.crossx.mm.crossx.impl.SymbolImpl
+     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getSymbol()
      * @generated
      */
-    int ELEMENT = 2;
+    int SYMBOL = 1;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -158,16 +130,16 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELEMENT__NAME = 0;
+    int SYMBOL__NAME = 0;
 
     /**
-     * The feature id for the '<em><b>Elem Type</b></em>' attribute.
+     * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELEMENT__ELEM_TYPE = 1;
+    int SYMBOL__TYPE = 1;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -176,35 +148,44 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELEMENT__PROPERTIES = 2;
+    int SYMBOL__PROPERTIES = 2;
 
     /**
-     * The feature id for the '<em><b>Sub Elements</b></em>' containment reference list.
+     * The feature id for the '<em><b>Sub Symbols</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELEMENT__SUB_ELEMENTS = 3;
+    int SYMBOL__SUB_SYMBOLS = 3;
 
     /**
-     * The number of structural features of the '<em>Element</em>' class.
+     * The feature id for the '<em><b>Owner</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELEMENT_FEATURE_COUNT = 4;
+    int SYMBOL__OWNER = 4;
 
     /**
-     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.PropertyImpl <em>Property</em>}' class.
+     * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.crossx.mm.crossx.impl.PropertyImpl
-     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getProperty()
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_FEATURE_COUNT = 5;
+
+    /**
+     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolPropertyImpl <em>Symbol Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.crossx.mm.crossx.impl.SymbolPropertyImpl
+     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getSymbolProperty()
      * @generated
      */
-    int PROPERTY = 3;
+    int SYMBOL_PROPERTY = 2;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,7 +194,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY__NAME = 0;
+    int SYMBOL_PROPERTY__NAME = 0;
 
     /**
      * The feature id for the '<em><b>Sub Properties</b></em>' containment reference list.
@@ -222,26 +203,26 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY__SUB_PROPERTIES = 1;
+    int SYMBOL_PROPERTY__SUB_PROPERTIES = 1;
 
     /**
-     * The number of structural features of the '<em>Property</em>' class.
+     * The number of structural features of the '<em>Symbol Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROPERTY_FEATURE_COUNT = 2;
+    int SYMBOL_PROPERTY_FEATURE_COUNT = 2;
 
     /**
-     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.LiteralPropertyImpl <em>Literal Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.LiteralSymbolPropertyImpl <em>Literal Symbol Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.crossx.mm.crossx.impl.LiteralPropertyImpl
-     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getLiteralProperty()
+     * @see org.mod4j.crossx.mm.crossx.impl.LiteralSymbolPropertyImpl
+     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getLiteralSymbolProperty()
      * @generated
      */
-    int LITERAL_PROPERTY = 4;
+    int LITERAL_SYMBOL_PROPERTY = 3;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -250,7 +231,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LITERAL_PROPERTY__NAME = PROPERTY__NAME;
+    int LITERAL_SYMBOL_PROPERTY__NAME = SYMBOL_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Sub Properties</b></em>' containment reference list.
@@ -259,7 +240,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LITERAL_PROPERTY__SUB_PROPERTIES = PROPERTY__SUB_PROPERTIES;
+    int LITERAL_SYMBOL_PROPERTY__SUB_PROPERTIES = SYMBOL_PROPERTY__SUB_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -268,26 +249,26 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LITERAL_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+    int LITERAL_SYMBOL_PROPERTY__VALUE = SYMBOL_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Literal Property</em>' class.
+     * The number of structural features of the '<em>Literal Symbol Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LITERAL_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+    int LITERAL_SYMBOL_PROPERTY_FEATURE_COUNT = SYMBOL_PROPERTY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.ReferencePropertyImpl <em>Reference Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.ReferenceSymbolPropertyImpl <em>Reference Symbol Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.crossx.mm.crossx.impl.ReferencePropertyImpl
-     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getReferenceProperty()
+     * @see org.mod4j.crossx.mm.crossx.impl.ReferenceSymbolPropertyImpl
+     * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getReferenceSymbolProperty()
      * @generated
      */
-    int REFERENCE_PROPERTY = 5;
+    int REFERENCE_SYMBOL_PROPERTY = 4;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -296,7 +277,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REFERENCE_PROPERTY__NAME = PROPERTY__NAME;
+    int REFERENCE_SYMBOL_PROPERTY__NAME = SYMBOL_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Sub Properties</b></em>' containment reference list.
@@ -305,7 +286,7 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REFERENCE_PROPERTY__SUB_PROPERTIES = PROPERTY__SUB_PROPERTIES;
+    int REFERENCE_SYMBOL_PROPERTY__SUB_PROPERTIES = SYMBOL_PROPERTY__SUB_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Referred Type</b></em>' attribute.
@@ -314,16 +295,16 @@ public interface CrossxPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REFERENCE_PROPERTY__REFERRED_TYPE = PROPERTY_FEATURE_COUNT + 0;
+    int REFERENCE_SYMBOL_PROPERTY__REFERRED_TYPE = SYMBOL_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Reference Property</em>' class.
+     * The number of structural features of the '<em>Reference Symbol Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REFERENCE_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+    int REFERENCE_SYMBOL_PROPERTY_FEATURE_COUNT = SYMBOL_PROPERTY_FEATURE_COUNT + 1;
 
 
     /**
@@ -335,17 +316,6 @@ public interface CrossxPackage extends EPackage {
      * @generated
      */
     EClass getModelInfo();
-
-    /**
-     * Returns the meta object for the containment reference '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getModel <em>Model</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Model</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getModel()
-     * @see #getModelInfo()
-     * @generated
-     */
-    EReference getModelInfo_Model();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getElements <em>Elements</em>}'.
@@ -370,164 +340,165 @@ public interface CrossxPackage extends EPackage {
     EAttribute getModelInfo_LastChanged();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.ModelReference <em>Model Reference</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Model Reference</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ModelReference
-     * @generated
-     */
-    EClass getModelReference();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelReference#getName <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ModelReference#getName()
-     * @see #getModelReference()
+     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getName()
+     * @see #getModelInfo()
      * @generated
      */
-    EAttribute getModelReference_Name();
+    EAttribute getModelInfo_Name();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelReference#getResource <em>Resource</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getResource <em>Resource</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Resource</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ModelReference#getResource()
-     * @see #getModelReference()
+     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getResource()
+     * @see #getModelInfo()
      * @generated
      */
-    EAttribute getModelReference_Resource();
+    EAttribute getModelInfo_Resource();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.Element <em>Element</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.Symbol <em>Symbol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Element</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Element
+     * @return the meta object for class '<em>Symbol</em>'.
+     * @see org.mod4j.crossx.mm.crossx.Symbol
      * @generated
      */
-    EClass getElement();
+    EClass getSymbol();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.Element#getName <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.Symbol#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Element#getName()
-     * @see #getElement()
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getName()
+     * @see #getSymbol()
      * @generated
      */
-    EAttribute getElement_Name();
+    EAttribute getSymbol_Name();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.Element#getElemType <em>Elem Type</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.Symbol#getType <em>Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Elem Type</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Element#getElemType()
-     * @see #getElement()
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getType()
+     * @see #getSymbol()
      * @generated
      */
-    EAttribute getElement_ElemType();
+    EAttribute getSymbol_Type();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.Element#getProperties <em>Properties</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.Symbol#getProperties <em>Properties</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Properties</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Element#getProperties()
-     * @see #getElement()
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getProperties()
+     * @see #getSymbol()
      * @generated
      */
-    EReference getElement_Properties();
+    EReference getSymbol_Properties();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.Element#getSubElements <em>Sub Elements</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.Symbol#getSubSymbols <em>Sub Symbols</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Sub Elements</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Element#getSubElements()
-     * @see #getElement()
+     * @return the meta object for the containment reference list '<em>Sub Symbols</em>'.
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getSubSymbols()
+     * @see #getSymbol()
      * @generated
      */
-    EReference getElement_SubElements();
+    EReference getSymbol_SubSymbols();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.Property <em>Property</em>}'.
+     * Returns the meta object for the container reference '{@link org.mod4j.crossx.mm.crossx.Symbol#getOwner <em>Owner</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Property</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Property
+     * @return the meta object for the container reference '<em>Owner</em>'.
+     * @see org.mod4j.crossx.mm.crossx.Symbol#getOwner()
+     * @see #getSymbol()
      * @generated
      */
-    EClass getProperty();
+    EReference getSymbol_Owner();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.Property#getName <em>Name</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.SymbolProperty <em>Symbol Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Symbol Property</em>'.
+     * @see org.mod4j.crossx.mm.crossx.SymbolProperty
+     * @generated
+     */
+    EClass getSymbolProperty();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.SymbolProperty#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Property#getName()
-     * @see #getProperty()
+     * @see org.mod4j.crossx.mm.crossx.SymbolProperty#getName()
+     * @see #getSymbolProperty()
      * @generated
      */
-    EAttribute getProperty_Name();
+    EAttribute getSymbolProperty_Name();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.Property#getSubProperties <em>Sub Properties</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.SymbolProperty#getSubProperties <em>Sub Properties</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Sub Properties</em>'.
-     * @see org.mod4j.crossx.mm.crossx.Property#getSubProperties()
-     * @see #getProperty()
+     * @see org.mod4j.crossx.mm.crossx.SymbolProperty#getSubProperties()
+     * @see #getSymbolProperty()
      * @generated
      */
-    EReference getProperty_SubProperties();
+    EReference getSymbolProperty_SubProperties();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.LiteralProperty <em>Literal Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.LiteralSymbolProperty <em>Literal Symbol Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Literal Property</em>'.
-     * @see org.mod4j.crossx.mm.crossx.LiteralProperty
+     * @return the meta object for class '<em>Literal Symbol Property</em>'.
+     * @see org.mod4j.crossx.mm.crossx.LiteralSymbolProperty
      * @generated
      */
-    EClass getLiteralProperty();
+    EClass getLiteralSymbolProperty();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.LiteralProperty#getValue <em>Value</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.LiteralSymbolProperty#getValue <em>Value</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Value</em>'.
-     * @see org.mod4j.crossx.mm.crossx.LiteralProperty#getValue()
-     * @see #getLiteralProperty()
+     * @see org.mod4j.crossx.mm.crossx.LiteralSymbolProperty#getValue()
+     * @see #getLiteralSymbolProperty()
      * @generated
      */
-    EAttribute getLiteralProperty_Value();
+    EAttribute getLiteralSymbolProperty_Value();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.ReferenceProperty <em>Reference Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty <em>Reference Symbol Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Reference Property</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ReferenceProperty
+     * @return the meta object for class '<em>Reference Symbol Property</em>'.
+     * @see org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty
      * @generated
      */
-    EClass getReferenceProperty();
+    EClass getReferenceSymbolProperty();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ReferenceProperty#getReferredType <em>Referred Type</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getReferredType <em>Referred Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Referred Type</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ReferenceProperty#getReferredType()
-     * @see #getReferenceProperty()
+     * @see org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getReferredType()
+     * @see #getReferenceSymbolProperty()
      * @generated
      */
-    EAttribute getReferenceProperty_ReferredType();
+    EAttribute getReferenceSymbolProperty_ReferredType();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -562,14 +533,6 @@ public interface CrossxPackage extends EPackage {
         EClass MODEL_INFO = eINSTANCE.getModelInfo();
 
         /**
-         * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference MODEL_INFO__MODEL = eINSTANCE.getModelInfo_Model();
-
-        /**
          * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -586,22 +549,12 @@ public interface CrossxPackage extends EPackage {
         EAttribute MODEL_INFO__LAST_CHANGED = eINSTANCE.getModelInfo_LastChanged();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.ModelReferenceImpl <em>Model Reference</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.crossx.mm.crossx.impl.ModelReferenceImpl
-         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getModelReference()
-         * @generated
-         */
-        EClass MODEL_REFERENCE = eINSTANCE.getModelReference();
-
-        /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MODEL_REFERENCE__NAME = eINSTANCE.getModelReference_Name();
+        EAttribute MODEL_INFO__NAME = eINSTANCE.getModelInfo_Name();
 
         /**
          * The meta object literal for the '<em><b>Resource</b></em>' attribute feature.
@@ -609,17 +562,17 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MODEL_REFERENCE__RESOURCE = eINSTANCE.getModelReference_Resource();
+        EAttribute MODEL_INFO__RESOURCE = eINSTANCE.getModelInfo_Resource();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.ElementImpl <em>Element</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl <em>Symbol</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.crossx.mm.crossx.impl.ElementImpl
-         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getElement()
+         * @see org.mod4j.crossx.mm.crossx.impl.SymbolImpl
+         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getSymbol()
          * @generated
          */
-        EClass ELEMENT = eINSTANCE.getElement();
+        EClass SYMBOL = eINSTANCE.getSymbol();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -627,15 +580,15 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
+        EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
 
         /**
-         * The meta object literal for the '<em><b>Elem Type</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ELEMENT__ELEM_TYPE = eINSTANCE.getElement_ElemType();
+        EAttribute SYMBOL__TYPE = eINSTANCE.getSymbol_Type();
 
         /**
          * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
@@ -643,25 +596,33 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELEMENT__PROPERTIES = eINSTANCE.getElement_Properties();
+        EReference SYMBOL__PROPERTIES = eINSTANCE.getSymbol_Properties();
 
         /**
-         * The meta object literal for the '<em><b>Sub Elements</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Sub Symbols</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELEMENT__SUB_ELEMENTS = eINSTANCE.getElement_SubElements();
+        EReference SYMBOL__SUB_SYMBOLS = eINSTANCE.getSymbol_SubSymbols();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.PropertyImpl <em>Property</em>}' class.
+         * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.crossx.mm.crossx.impl.PropertyImpl
-         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getProperty()
          * @generated
          */
-        EClass PROPERTY = eINSTANCE.getProperty();
+        EReference SYMBOL__OWNER = eINSTANCE.getSymbol_Owner();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolPropertyImpl <em>Symbol Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.crossx.mm.crossx.impl.SymbolPropertyImpl
+         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getSymbolProperty()
+         * @generated
+         */
+        EClass SYMBOL_PROPERTY = eINSTANCE.getSymbolProperty();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -669,7 +630,7 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+        EAttribute SYMBOL_PROPERTY__NAME = eINSTANCE.getSymbolProperty_Name();
 
         /**
          * The meta object literal for the '<em><b>Sub Properties</b></em>' containment reference list feature.
@@ -677,17 +638,17 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROPERTY__SUB_PROPERTIES = eINSTANCE.getProperty_SubProperties();
+        EReference SYMBOL_PROPERTY__SUB_PROPERTIES = eINSTANCE.getSymbolProperty_SubProperties();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.LiteralPropertyImpl <em>Literal Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.LiteralSymbolPropertyImpl <em>Literal Symbol Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.crossx.mm.crossx.impl.LiteralPropertyImpl
-         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getLiteralProperty()
+         * @see org.mod4j.crossx.mm.crossx.impl.LiteralSymbolPropertyImpl
+         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getLiteralSymbolProperty()
          * @generated
          */
-        EClass LITERAL_PROPERTY = eINSTANCE.getLiteralProperty();
+        EClass LITERAL_SYMBOL_PROPERTY = eINSTANCE.getLiteralSymbolProperty();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -695,17 +656,17 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LITERAL_PROPERTY__VALUE = eINSTANCE.getLiteralProperty_Value();
+        EAttribute LITERAL_SYMBOL_PROPERTY__VALUE = eINSTANCE.getLiteralSymbolProperty_Value();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.ReferencePropertyImpl <em>Reference Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.ReferenceSymbolPropertyImpl <em>Reference Symbol Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.crossx.mm.crossx.impl.ReferencePropertyImpl
-         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getReferenceProperty()
+         * @see org.mod4j.crossx.mm.crossx.impl.ReferenceSymbolPropertyImpl
+         * @see org.mod4j.crossx.mm.crossx.impl.CrossxPackageImpl#getReferenceSymbolProperty()
          * @generated
          */
-        EClass REFERENCE_PROPERTY = eINSTANCE.getReferenceProperty();
+        EClass REFERENCE_SYMBOL_PROPERTY = eINSTANCE.getReferenceSymbolProperty();
 
         /**
          * The meta object literal for the '<em><b>Referred Type</b></em>' attribute feature.
@@ -713,7 +674,7 @@ public interface CrossxPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REFERENCE_PROPERTY__REFERRED_TYPE = eINSTANCE.getReferenceProperty_ReferredType();
+        EAttribute REFERENCE_SYMBOL_PROPERTY__REFERRED_TYPE = eINSTANCE.getReferenceSymbolProperty_ReferredType();
 
     }
 

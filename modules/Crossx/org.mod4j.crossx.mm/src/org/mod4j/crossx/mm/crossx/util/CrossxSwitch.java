@@ -92,35 +92,29 @@ public class CrossxSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case CrossxPackage.MODEL_REFERENCE: {
-                ModelReference modelReference = (ModelReference)theEObject;
-                T result = caseModelReference(modelReference);
+            case CrossxPackage.SYMBOL: {
+                Symbol symbol = (Symbol)theEObject;
+                T result = caseSymbol(symbol);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case CrossxPackage.ELEMENT: {
-                Element element = (Element)theEObject;
-                T result = caseElement(element);
+            case CrossxPackage.SYMBOL_PROPERTY: {
+                SymbolProperty symbolProperty = (SymbolProperty)theEObject;
+                T result = caseSymbolProperty(symbolProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case CrossxPackage.PROPERTY: {
-                Property property = (Property)theEObject;
-                T result = caseProperty(property);
+            case CrossxPackage.LITERAL_SYMBOL_PROPERTY: {
+                LiteralSymbolProperty literalSymbolProperty = (LiteralSymbolProperty)theEObject;
+                T result = caseLiteralSymbolProperty(literalSymbolProperty);
+                if (result == null) result = caseSymbolProperty(literalSymbolProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case CrossxPackage.LITERAL_PROPERTY: {
-                LiteralProperty literalProperty = (LiteralProperty)theEObject;
-                T result = caseLiteralProperty(literalProperty);
-                if (result == null) result = caseProperty(literalProperty);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case CrossxPackage.REFERENCE_PROPERTY: {
-                ReferenceProperty referenceProperty = (ReferenceProperty)theEObject;
-                T result = caseReferenceProperty(referenceProperty);
-                if (result == null) result = caseProperty(referenceProperty);
+            case CrossxPackage.REFERENCE_SYMBOL_PROPERTY: {
+                ReferenceSymbolProperty referenceSymbolProperty = (ReferenceSymbolProperty)theEObject;
+                T result = caseReferenceSymbolProperty(referenceSymbolProperty);
+                if (result == null) result = caseSymbolProperty(referenceSymbolProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -144,77 +138,62 @@ public class CrossxSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Model Reference</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Symbol</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Model Reference</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Symbol</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseModelReference(ModelReference object) {
+    public T caseSymbol(Symbol object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Symbol Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Symbol Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseElement(Element object) {
+    public T caseSymbolProperty(SymbolProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Literal Symbol Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Literal Symbol Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProperty(Property object) {
+    public T caseLiteralSymbolProperty(LiteralSymbolProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Literal Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Reference Symbol Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Literal Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Reference Symbol Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLiteralProperty(LiteralProperty object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Reference Property</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Reference Property</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseReferenceProperty(ReferenceProperty object) {
+    public T caseReferenceSymbolProperty(ReferenceSymbolProperty object) {
         return null;
     }
 

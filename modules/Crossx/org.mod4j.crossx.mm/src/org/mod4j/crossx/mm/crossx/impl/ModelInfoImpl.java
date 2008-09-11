@@ -18,13 +18,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
-import org.mod4j.crossx.mm.crossx.Element;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
-import org.mod4j.crossx.mm.crossx.ModelReference;
+import org.mod4j.crossx.mm.crossx.Symbol;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,25 +33,16 @@ import org.mod4j.crossx.mm.crossx.ModelReference;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getModel <em>Model</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getLastChanged <em>Last Changed</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
-    /**
-     * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getModel()
-     * @generated
-     * @ordered
-     */
-    protected ModelReference model;
-
     /**
      * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -60,7 +51,7 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * @generated
      * @ordered
      */
-    protected EList<Element> elements;
+    protected EList<Symbol> elements;
 
     /**
      * The default value of the '{@link #getLastChanged() <em>Last Changed</em>}' attribute.
@@ -81,6 +72,46 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * @ordered
      */
     protected String lastChanged = LAST_CHANGED_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResource()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_EDEFAULT = "[unknown]";
+
+    /**
+     * The cached value of the '{@link #getResource() <em>Resource</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getResource()
+     * @generated
+     * @ordered
+     */
+    protected String resource = RESOURCE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -106,52 +137,9 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ModelReference getModel() {
-        return model;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetModel(ModelReference newModel, NotificationChain msgs) {
-        ModelReference oldModel = model;
-        model = newModel;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__MODEL, oldModel, newModel);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setModel(ModelReference newModel) {
-        if (newModel != model) {
-            NotificationChain msgs = null;
-            if (model != null)
-                msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrossxPackage.MODEL_INFO__MODEL, null, msgs);
-            if (newModel != null)
-                msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CrossxPackage.MODEL_INFO__MODEL, null, msgs);
-            msgs = basicSetModel(newModel, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__MODEL, newModel, newModel));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<Element> getElements() {
+    public EList<Symbol> getElements() {
         if (elements == null) {
-            elements = new EObjectContainmentEList<Element>(Element.class, this, CrossxPackage.MODEL_INFO__ELEMENTS);
+            elements = new EObjectContainmentWithInverseEList<Symbol>(Symbol.class, this, CrossxPackage.MODEL_INFO__ELEMENTS, CrossxPackage.SYMBOL__OWNER);
         }
         return elements;
     }
@@ -182,11 +170,66 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName(String newName) {
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__NAME, oldName, name));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getResource() {
+        return resource;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setResource(String newResource) {
+        String oldResource = resource;
+        resource = newResource;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__RESOURCE, oldResource, resource));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case CrossxPackage.MODEL_INFO__ELEMENTS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__MODEL:
-                return basicSetModel(null, msgs);
             case CrossxPackage.MODEL_INFO__ELEMENTS:
                 return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
         }
@@ -201,12 +244,14 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__MODEL:
-                return getModel();
             case CrossxPackage.MODEL_INFO__ELEMENTS:
                 return getElements();
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 return getLastChanged();
+            case CrossxPackage.MODEL_INFO__NAME:
+                return getName();
+            case CrossxPackage.MODEL_INFO__RESOURCE:
+                return getResource();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -220,15 +265,18 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__MODEL:
-                setModel((ModelReference)newValue);
-                return;
             case CrossxPackage.MODEL_INFO__ELEMENTS:
                 getElements().clear();
-                getElements().addAll((Collection<? extends Element>)newValue);
+                getElements().addAll((Collection<? extends Symbol>)newValue);
                 return;
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 setLastChanged((String)newValue);
+                return;
+            case CrossxPackage.MODEL_INFO__NAME:
+                setName((String)newValue);
+                return;
+            case CrossxPackage.MODEL_INFO__RESOURCE:
+                setResource((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -242,14 +290,17 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__MODEL:
-                setModel((ModelReference)null);
-                return;
             case CrossxPackage.MODEL_INFO__ELEMENTS:
                 getElements().clear();
                 return;
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 setLastChanged(LAST_CHANGED_EDEFAULT);
+                return;
+            case CrossxPackage.MODEL_INFO__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case CrossxPackage.MODEL_INFO__RESOURCE:
+                setResource(RESOURCE_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -263,12 +314,14 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__MODEL:
-                return model != null;
             case CrossxPackage.MODEL_INFO__ELEMENTS:
                 return elements != null && !elements.isEmpty();
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 return LAST_CHANGED_EDEFAULT == null ? lastChanged != null : !LAST_CHANGED_EDEFAULT.equals(lastChanged);
+            case CrossxPackage.MODEL_INFO__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case CrossxPackage.MODEL_INFO__RESOURCE:
+                return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
         }
         return super.eIsSet(featureID);
     }
@@ -285,6 +338,10 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (lastChanged: ");
         result.append(lastChanged);
+        result.append(", name: ");
+        result.append(name);
+        result.append(", resource: ");
+        result.append(resource);
         result.append(')');
         return result.toString();
     }

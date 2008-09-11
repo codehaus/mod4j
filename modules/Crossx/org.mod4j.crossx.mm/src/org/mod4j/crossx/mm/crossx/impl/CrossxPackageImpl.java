@@ -14,12 +14,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.mod4j.crossx.mm.crossx.CrossxFactory;
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
-import org.mod4j.crossx.mm.crossx.Element;
-import org.mod4j.crossx.mm.crossx.LiteralProperty;
+import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
-import org.mod4j.crossx.mm.crossx.ModelReference;
-import org.mod4j.crossx.mm.crossx.Property;
-import org.mod4j.crossx.mm.crossx.ReferenceProperty;
+import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
+import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.crossx.mm.crossx.SymbolProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,35 +39,28 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass modelReferenceEClass = null;
+    private EClass symbolEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass elementEClass = null;
+    private EClass symbolPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass propertyEClass = null;
+    private EClass literalSymbolPropertyEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass literalPropertyEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass referencePropertyEClass = null;
+    private EClass referenceSymbolPropertyEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -152,7 +144,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getModelInfo_Model() {
+    public EReference getModelInfo_Elements() {
         return (EReference)modelInfoEClass.getEStructuralFeatures().get(0);
     }
 
@@ -161,8 +153,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getModelInfo_Elements() {
-        return (EReference)modelInfoEClass.getEStructuralFeatures().get(1);
+    public EAttribute getModelInfo_LastChanged() {
+        return (EAttribute)modelInfoEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -170,7 +162,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getModelInfo_LastChanged() {
+    public EAttribute getModelInfo_Name() {
         return (EAttribute)modelInfoEClass.getEStructuralFeatures().get(2);
     }
 
@@ -179,8 +171,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getModelReference() {
-        return modelReferenceEClass;
+    public EAttribute getModelInfo_Resource() {
+        return (EAttribute)modelInfoEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -188,8 +180,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getModelReference_Name() {
-        return (EAttribute)modelReferenceEClass.getEStructuralFeatures().get(0);
+    public EClass getSymbol() {
+        return symbolEClass;
     }
 
     /**
@@ -197,8 +189,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getModelReference_Resource() {
-        return (EAttribute)modelReferenceEClass.getEStructuralFeatures().get(1);
+    public EAttribute getSymbol_Name() {
+        return (EAttribute)symbolEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -206,8 +198,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getElement() {
-        return elementEClass;
+    public EAttribute getSymbol_Type() {
+        return (EAttribute)symbolEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -215,8 +207,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getElement_Name() {
-        return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
+    public EReference getSymbol_Properties() {
+        return (EReference)symbolEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -224,8 +216,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getElement_ElemType() {
-        return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
+    public EReference getSymbol_SubSymbols() {
+        return (EReference)symbolEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -233,8 +225,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElement_Properties() {
-        return (EReference)elementEClass.getEStructuralFeatures().get(2);
+    public EReference getSymbol_Owner() {
+        return (EReference)symbolEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -242,8 +234,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElement_SubElements() {
-        return (EReference)elementEClass.getEStructuralFeatures().get(3);
+    public EClass getSymbolProperty() {
+        return symbolPropertyEClass;
     }
 
     /**
@@ -251,8 +243,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getProperty() {
-        return propertyEClass;
+    public EAttribute getSymbolProperty_Name() {
+        return (EAttribute)symbolPropertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -260,8 +252,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProperty_Name() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+    public EReference getSymbolProperty_SubProperties() {
+        return (EReference)symbolPropertyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -269,8 +261,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getProperty_SubProperties() {
-        return (EReference)propertyEClass.getEStructuralFeatures().get(1);
+    public EClass getLiteralSymbolProperty() {
+        return literalSymbolPropertyEClass;
     }
 
     /**
@@ -278,8 +270,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getLiteralProperty() {
-        return literalPropertyEClass;
+    public EAttribute getLiteralSymbolProperty_Value() {
+        return (EAttribute)literalSymbolPropertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -287,8 +279,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getLiteralProperty_Value() {
-        return (EAttribute)literalPropertyEClass.getEStructuralFeatures().get(0);
+    public EClass getReferenceSymbolProperty() {
+        return referenceSymbolPropertyEClass;
     }
 
     /**
@@ -296,17 +288,8 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getReferenceProperty() {
-        return referencePropertyEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getReferenceProperty_ReferredType() {
-        return (EAttribute)referencePropertyEClass.getEStructuralFeatures().get(0);
+    public EAttribute getReferenceSymbolProperty_ReferredType() {
+        return (EAttribute)referenceSymbolPropertyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -338,29 +321,27 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
 
         // Create classes and their features
         modelInfoEClass = createEClass(MODEL_INFO);
-        createEReference(modelInfoEClass, MODEL_INFO__MODEL);
         createEReference(modelInfoEClass, MODEL_INFO__ELEMENTS);
         createEAttribute(modelInfoEClass, MODEL_INFO__LAST_CHANGED);
+        createEAttribute(modelInfoEClass, MODEL_INFO__NAME);
+        createEAttribute(modelInfoEClass, MODEL_INFO__RESOURCE);
 
-        modelReferenceEClass = createEClass(MODEL_REFERENCE);
-        createEAttribute(modelReferenceEClass, MODEL_REFERENCE__NAME);
-        createEAttribute(modelReferenceEClass, MODEL_REFERENCE__RESOURCE);
+        symbolEClass = createEClass(SYMBOL);
+        createEAttribute(symbolEClass, SYMBOL__NAME);
+        createEAttribute(symbolEClass, SYMBOL__TYPE);
+        createEReference(symbolEClass, SYMBOL__PROPERTIES);
+        createEReference(symbolEClass, SYMBOL__SUB_SYMBOLS);
+        createEReference(symbolEClass, SYMBOL__OWNER);
 
-        elementEClass = createEClass(ELEMENT);
-        createEAttribute(elementEClass, ELEMENT__NAME);
-        createEAttribute(elementEClass, ELEMENT__ELEM_TYPE);
-        createEReference(elementEClass, ELEMENT__PROPERTIES);
-        createEReference(elementEClass, ELEMENT__SUB_ELEMENTS);
+        symbolPropertyEClass = createEClass(SYMBOL_PROPERTY);
+        createEAttribute(symbolPropertyEClass, SYMBOL_PROPERTY__NAME);
+        createEReference(symbolPropertyEClass, SYMBOL_PROPERTY__SUB_PROPERTIES);
 
-        propertyEClass = createEClass(PROPERTY);
-        createEAttribute(propertyEClass, PROPERTY__NAME);
-        createEReference(propertyEClass, PROPERTY__SUB_PROPERTIES);
+        literalSymbolPropertyEClass = createEClass(LITERAL_SYMBOL_PROPERTY);
+        createEAttribute(literalSymbolPropertyEClass, LITERAL_SYMBOL_PROPERTY__VALUE);
 
-        literalPropertyEClass = createEClass(LITERAL_PROPERTY);
-        createEAttribute(literalPropertyEClass, LITERAL_PROPERTY__VALUE);
-
-        referencePropertyEClass = createEClass(REFERENCE_PROPERTY);
-        createEAttribute(referencePropertyEClass, REFERENCE_PROPERTY__REFERRED_TYPE);
+        referenceSymbolPropertyEClass = createEClass(REFERENCE_SYMBOL_PROPERTY);
+        createEAttribute(referenceSymbolPropertyEClass, REFERENCE_SYMBOL_PROPERTY__REFERRED_TYPE);
     }
 
     /**
@@ -391,34 +372,32 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        literalPropertyEClass.getESuperTypes().add(this.getProperty());
-        referencePropertyEClass.getESuperTypes().add(this.getProperty());
+        literalSymbolPropertyEClass.getESuperTypes().add(this.getSymbolProperty());
+        referenceSymbolPropertyEClass.getESuperTypes().add(this.getSymbolProperty());
 
         // Initialize classes and features; add operations and parameters
         initEClass(modelInfoEClass, ModelInfo.class, "ModelInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getModelInfo_Model(), this.getModelReference(), null, "model", null, 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getModelInfo_Elements(), this.getElement(), null, "elements", null, 0, -1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getModelInfo_Elements(), this.getSymbol(), this.getSymbol_Owner(), "elements", null, 0, -1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getModelInfo_LastChanged(), ecorePackage.getEString(), "lastChanged", "", 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getModelInfo_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getModelInfo_Resource(), ecorePackage.getEString(), "resource", "[unknown]", 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(modelReferenceEClass, ModelReference.class, "ModelReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getModelReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getModelReference_Resource(), ecorePackage.getEString(), "resource", "[unknown]", 0, 1, ModelReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbol_Type(), ecorePackage.getEString(), "type", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbol_Properties(), this.getSymbolProperty(), null, "properties", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbol_SubSymbols(), this.getSymbol(), null, "subSymbols", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbol_Owner(), this.getModelInfo(), this.getModelInfo_Elements(), "owner", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getElement_ElemType(), ecorePackage.getEString(), "elemType", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElement_Properties(), this.getProperty(), null, "properties", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElement_SubElements(), this.getElement(), null, "subElements", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(symbolPropertyEClass, SymbolProperty.class, "SymbolProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getSymbolProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, SymbolProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbolProperty_SubProperties(), this.getSymbolProperty(), null, "subProperties", null, 0, -1, SymbolProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getProperty_SubProperties(), this.getProperty(), null, "subProperties", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(literalSymbolPropertyEClass, LiteralSymbolProperty.class, "LiteralSymbolProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getLiteralSymbolProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, LiteralSymbolProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(literalPropertyEClass, LiteralProperty.class, "LiteralProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getLiteralProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, LiteralProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(referencePropertyEClass, ReferenceProperty.class, "ReferenceProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getReferenceProperty_ReferredType(), ecorePackage.getEString(), "referredType", null, 0, 1, ReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(referenceSymbolPropertyEClass, ReferenceSymbolProperty.class, "ReferenceSymbolProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getReferenceSymbolProperty_ReferredType(), ecorePackage.getEString(), "referredType", null, 0, 1, ReferenceSymbolProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

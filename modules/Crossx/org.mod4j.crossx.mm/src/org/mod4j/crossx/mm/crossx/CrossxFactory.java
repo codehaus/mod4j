@@ -34,49 +34,40 @@ public interface CrossxFactory extends EFactory {
     ModelInfo createModelInfo();
 
     /**
-     * Returns a new object of class '<em>Model Reference</em>'.
+     * Returns a new object of class '<em>Symbol</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Model Reference</em>'.
+     * @return a new object of class '<em>Symbol</em>'.
      * @generated
      */
-    ModelReference createModelReference();
+    Symbol createSymbol();
 
     /**
-     * Returns a new object of class '<em>Element</em>'.
+     * Returns a new object of class '<em>Symbol Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Element</em>'.
+     * @return a new object of class '<em>Symbol Property</em>'.
      * @generated
      */
-    Element createElement();
+    SymbolProperty createSymbolProperty();
 
     /**
-     * Returns a new object of class '<em>Property</em>'.
+     * Returns a new object of class '<em>Literal Symbol Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Property</em>'.
+     * @return a new object of class '<em>Literal Symbol Property</em>'.
      * @generated
      */
-    Property createProperty();
+    LiteralSymbolProperty createLiteralSymbolProperty();
 
     /**
-     * Returns a new object of class '<em>Literal Property</em>'.
+     * Returns a new object of class '<em>Reference Symbol Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Literal Property</em>'.
+     * @return a new object of class '<em>Reference Symbol Property</em>'.
      * @generated
      */
-    LiteralProperty createLiteralProperty();
-
-    /**
-     * Returns a new object of class '<em>Reference Property</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Reference Property</em>'.
-     * @generated
-     */
-    ReferenceProperty createReferenceProperty();
+    ReferenceSymbolProperty createReferenceSymbolProperty();
 
     /**
      * Returns the package supported by this factory.

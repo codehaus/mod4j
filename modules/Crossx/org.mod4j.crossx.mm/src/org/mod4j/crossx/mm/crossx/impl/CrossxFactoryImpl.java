@@ -60,11 +60,10 @@ public class CrossxFactoryImpl extends EFactoryImpl implements CrossxFactory {
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case CrossxPackage.MODEL_INFO: return createModelInfo();
-            case CrossxPackage.MODEL_REFERENCE: return createModelReference();
-            case CrossxPackage.ELEMENT: return createElement();
-            case CrossxPackage.PROPERTY: return createProperty();
-            case CrossxPackage.LITERAL_PROPERTY: return createLiteralProperty();
-            case CrossxPackage.REFERENCE_PROPERTY: return createReferenceProperty();
+            case CrossxPackage.SYMBOL: return createSymbol();
+            case CrossxPackage.SYMBOL_PROPERTY: return createSymbolProperty();
+            case CrossxPackage.LITERAL_SYMBOL_PROPERTY: return createLiteralSymbolProperty();
+            case CrossxPackage.REFERENCE_SYMBOL_PROPERTY: return createReferenceSymbolProperty();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -85,9 +84,9 @@ public class CrossxFactoryImpl extends EFactoryImpl implements CrossxFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ModelReference createModelReference() {
-        ModelReferenceImpl modelReference = new ModelReferenceImpl();
-        return modelReference;
+    public Symbol createSymbol() {
+        SymbolImpl symbol = new SymbolImpl();
+        return symbol;
     }
 
     /**
@@ -95,9 +94,9 @@ public class CrossxFactoryImpl extends EFactoryImpl implements CrossxFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Element createElement() {
-        ElementImpl element = new ElementImpl();
-        return element;
+    public SymbolProperty createSymbolProperty() {
+        SymbolPropertyImpl symbolProperty = new SymbolPropertyImpl();
+        return symbolProperty;
     }
 
     /**
@@ -105,9 +104,9 @@ public class CrossxFactoryImpl extends EFactoryImpl implements CrossxFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public Property createProperty() {
-        PropertyImpl property = new PropertyImpl();
-        return property;
+    public LiteralSymbolProperty createLiteralSymbolProperty() {
+        LiteralSymbolPropertyImpl literalSymbolProperty = new LiteralSymbolPropertyImpl();
+        return literalSymbolProperty;
     }
 
     /**
@@ -115,19 +114,9 @@ public class CrossxFactoryImpl extends EFactoryImpl implements CrossxFactory {
      * <!-- end-user-doc -->
      * @generated
      */
-    public LiteralProperty createLiteralProperty() {
-        LiteralPropertyImpl literalProperty = new LiteralPropertyImpl();
-        return literalProperty;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ReferenceProperty createReferenceProperty() {
-        ReferencePropertyImpl referenceProperty = new ReferencePropertyImpl();
-        return referenceProperty;
+    public ReferenceSymbolProperty createReferenceSymbolProperty() {
+        ReferenceSymbolPropertyImpl referenceSymbolProperty = new ReferenceSymbolPropertyImpl();
+        return referenceSymbolProperty;
     }
 
     /**
