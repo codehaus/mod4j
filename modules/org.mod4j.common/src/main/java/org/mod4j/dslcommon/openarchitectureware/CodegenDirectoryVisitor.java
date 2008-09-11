@@ -95,6 +95,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         String newAppPath = workDir + "/" + applicationPath;
         properties.put("applicationPath", newAppPath);
         properties.put("workDir", workDir);
+        properties.put("project", workDir);
 
     }
 

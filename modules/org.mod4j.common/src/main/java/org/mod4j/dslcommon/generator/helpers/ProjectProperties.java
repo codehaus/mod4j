@@ -172,4 +172,13 @@ public class ProjectProperties {
         return fileEncoding;
     }
 
+    private static String project = "/";
+
+    public static String getProject() {
+        return project;
+    }
+
+    public static void setProject(String project) {
+        ProjectProperties.project = project;
+    }
 }

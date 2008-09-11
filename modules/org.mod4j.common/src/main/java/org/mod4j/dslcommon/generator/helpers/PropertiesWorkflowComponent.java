@@ -31,6 +31,7 @@ public class PropertiesWorkflowComponent extends AbstractWorkflowComponent {
 		System.err.println("PropertiesWorkflowComponent: Found property slot [" + getPropertyFile() + "]");
 		ProjectProperties.setPropertiesFile(getPropertyFile());
 		ProjectProperties.setWorkDir( getWorkDir() );
+		ProjectProperties.setProject( getProject() );
 	}
 
     public void checkConfiguration(final Issues issues) {
@@ -55,8 +56,20 @@ public class PropertiesWorkflowComponent extends AbstractWorkflowComponent {
 		return workDir; 
 	}
 
-	public void setWorkDir(final String outlet) {
-		this.workDir = outlet;
+	public void setWorkDir(final String workDir) {
+		this.workDir = workDir;
 	}
+
+	   // capture the value of the <project> slot in the workflow
+    public String project;
+
+    protected String getProject() {
+        return project; 
+    }
+
+    public void setProject(final String project) {
+        this.project = project;
+    }
+
 
 }
