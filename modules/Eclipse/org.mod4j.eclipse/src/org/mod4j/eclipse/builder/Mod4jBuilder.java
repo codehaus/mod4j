@@ -11,9 +11,11 @@
 package org.mod4j.eclipse.builder;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -32,12 +34,22 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.jdom.Document;
 
 import org.mod4j.crossx.broker.CrossxBroker;
+import org.mod4j.crossx.broker.CrossxEnvironment;
+import org.mod4j.crossx.mm.crossx.CrossxPackage;
+import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 import org.mod4j.dslcommon.generator.helpers.StringHelpers;
 import org.mod4j.dslcommon.io.Files;
@@ -193,9 +205,45 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
-            Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
-            CrossxBroker.addInfo(doc);
+//            Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
+//            CrossxBroker.addInfo(doc);
+            ModelInfo crossxInfo = readCrossx(resource);
+            CrossxEnvironment.addModelInfo(resource.getProject().getName(), crossxInfo);
+            
         }
+    }
+    public ModelInfo readCrossx(IResource resource) {
+        // Create a resource set.
+        ResourceSet resourceSet = new ResourceSetImpl();
+
+       // Register the default resource factory -- only needed for stand-alone!
+       resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+       Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+
+       // Register the package -- only needed for stand-alone!
+       CrossxPackage crossxPackage = CrossxPackage.eINSTANCE;
+
+        // Get the URI of the model file.
+//       URI fileURI = URI.createFileURI(new File("mylibrary.xmi").getAbsolutePath());
+       URI fileURI = URI.createFileURI(resource.getLocation().toPortableString());
+
+        // Demand load the resource for this file.
+        Resource emfResource = resourceSet.getResource(fileURI, true);
+        EList<EObject> tmp = emfResource.getContents();
+        System.err.println("Size of EMF contents is " + tmp.size() + " for [" + resource.getName() + "]");
+        if( ! tmp.isEmpty() ) {
+            EObject first = tmp.get(0);
+            System.err.println("Type of EMF contents is [" + first.getClass().getName() + "]");
+            return (ModelInfo) first;
+        }
+        return null;
+
+        // Print the contents of the resource to System.out.
+//        try
+//        {
+//          emfResource.save(System.out, Collections.EMPTY_MAP);
+//        }
+//        catch (IOException e) {}    
     }
 
     /*
@@ -263,7 +311,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void startupOnInitialize() {
         if (!initialized) {
             console = EclipseUtil.findConsole("mod4j.projectbuilder");
-            CrossxBroker.setPrintStream(EclipseUtil.findConsole("crossx.repository"));
+            CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository"));
             System.setErr(new PrintStream(console));
             initialized = true;
             start();
@@ -390,7 +438,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             String workDir = getProject().getLocation().toString();
             String newAppPath = workDir + "/" + applicationPath;
             properties.put("applicationPath", newAppPath);
-            properties.put("workDir", workDir);
+            properties.put("workDir", workDir );
+            properties.put("project", resource.getProject().getName());
 
             // System.err.println("applicationPath [" + newAppPath + "]");
             Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
@@ -425,7 +474,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
             RunCrossxWorkflow wf = new RunCrossxWorkflow();
             try {
-                wf.runWorkflow(wfName, modelfile, crossxfile);
+                wf.runWorkflow(wfName, resource.getProject().getName(), modelfile, crossxfile);
             } catch (Mod4jWorkflowException m4jwe) {
                 System.err.println("[" + m4jwe.getMessage() + "]");
             }
