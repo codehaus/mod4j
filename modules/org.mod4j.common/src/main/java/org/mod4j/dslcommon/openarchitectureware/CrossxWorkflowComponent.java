@@ -25,6 +25,7 @@ import org.openarchitectureware.workflow.lib.WorkflowComponentWithModelSlot;
 import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 
 import org.mod4j.crossx.broker.CrossxBroker;
+import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 
 /* 
@@ -51,87 +52,74 @@ public class CrossxWorkflowComponent extends WorkflowComponentWithModelSlot {
 		ModelInfo modelInfo = (ModelInfo )model;
 
 		
-		System.err.println("Found slot [" + modelInfo .getModel().getName()+ "]");
-		Document doc = createDocument(modelInfo);
-		writeDocument(doc, outputFile, false, "    ");
-		CrossxBroker.addInfo(doc);
+		System.err.println("Found slot [" + modelInfo .getName()+ "]");
+//		Document doc = createDocument(modelInfo);
+//		writeDocument(doc, outputFile, false, "    ");
+      System.err.println("Crossx: NOTNOTNOTNOT writing document to ");
+//		CrossxBroker.addInfo(doc);
+		CrossxEnvironment.addModelInfo(getProject(), modelInfo);
 		
 	}
 
-	private Document createDocument(ModelInfo modelInfo){
-		Document result = new Document();
-		Element root = new Element("ModelInfo");
-		result.setRootElement(root);
+//	private Document createDocument(ModelInfo modelInfo){
+//		Document result = new Document();
+//		Element root = new Element("ModelInfo");
+//		result.setRootElement(root);
+//
+//		Element modelref = new Element("ModelReference");
+//		modelref.setAttribute("name", modelInfo.getName());
+//		modelref.setAttribute("resource", modelInfo.getResource());
+//		root.addContent(modelref);
+//		
+//		for (org.mod4j.crossx.mm.crossx.Symbol elem : modelInfo.getElements()) {
+//			createFromCrossxElement(root, elem);
+//		}
+//		return result;
+//	}
+//
+//	private void createFromCrossxElement(Element parent, org.mod4j.crossx.mm.crossx.Symbol elem) {
+//		Element child = new Element("Element");
+//		child.setAttribute("name", elem.getName());
+//		child.setAttribute("elemType", elem.getType());
+//		parent.addContent(child);
+//		
+//		for(org.mod4j.crossx.mm.crossx.SymbolProperty prop : elem.getProperties()){
+//			org.mod4j.crossx.mm.crossx.LiteralSymbolProperty lit = (org.mod4j.crossx.mm.crossx.LiteralSymbolProperty)prop;
+//			createFromCrossxProperty(child, lit);
+//		}
+//		// Process the sub elements
+//		for(org.mod4j.crossx.mm.crossx.Symbol sub : elem.getSubSymbols()){
+//			createFromCrossxElement(child, sub);
+//		}
+//	}
+//
+//	private void createFromCrossxProperty(Element parent, org.mod4j.crossx.mm.crossx.LiteralSymbolProperty litProp) {
+//		Element child = new Element("Property");
+//		child.setAttribute("name", litProp.getName());
+//		child.setAttribute("elemType", litProp.getValue());
+//		parent.addContent(child);
+//	}
+//
+    // capture the value of the <outputFile> slot in the workflow
+    public String outputFile;
 
-		Element modelref = new Element("ModelReference");
-		modelref.setAttribute("name", modelInfo.getModel().getName());
-		modelref.setAttribute("resource", modelInfo.getModel().getResource());
-		root.addContent(modelref);
-		
-		for (org.mod4j.crossx.mm.crossx.Element elem : modelInfo.getElements()) {
-			createFromCrossxElement(root, elem);
-		}
-		return result;
-	}
+    protected String getOutputFile() {
+        return outputFile;
+    }
 
-	private void createFromCrossxElement(Element parent, org.mod4j.crossx.mm.crossx.Element elem) {
-		Element child = new Element("Element");
-		child.setAttribute("name", elem.getName());
-		child.setAttribute("elemType", elem.getElemType());
-		parent.addContent(child);
-		
-		for(org.mod4j.crossx.mm.crossx.Property prop : elem.getProperties()){
-			org.mod4j.crossx.mm.crossx.LiteralProperty lit = (org.mod4j.crossx.mm.crossx.LiteralProperty)prop;
-			createFromCrossxProperty(child, lit);
-		}
-		// Process the sub elements
-		for(org.mod4j.crossx.mm.crossx.Element sub : elem.getSubElements()){
-			createFromCrossxElement(child, sub);
-		}
-	}
+    public void setOutputFile(final String outlet) {
+        this.outputFile = outlet;
+    }
 
-	private void createFromCrossxProperty(Element parent, org.mod4j.crossx.mm.crossx.LiteralProperty litProp) {
-		Element child = new Element("Property");
-		child.setAttribute("name", litProp.getName());
-		child.setAttribute("elemType", litProp.getValue());
-		parent.addContent(child);
-	}
+    // capture the value of the <outputFile> slot in the workflow
+    public String project;
 
-	public void writeDocument(Document doc, String outfilename, boolean newLines, String indent){
-		System.err.println("Crossx: writing document to [" + outfilename + "]");
-		try {
-			FileOutputStream stream = new FileOutputStream(new File(outfilename));
-			writeDocument(doc, stream, newLines, indent);
-			stream.close();
-		} catch (IOException exc) {
-			exc.printStackTrace();
-		}
-	}
+    protected String getProject() {
+        return project;
+    }
 
-	public void writeDocument(Document doc, FileOutputStream stream, boolean newLines, String indent){
-		try {
-			XMLOutputter outputter = new XMLOutputter();
-
-			Format fmt = Format.getPrettyFormat();
-			if( indent !=null ) {
-				fmt.setIndent(indent); // use four space indent
-			}
-			outputter.setFormat(fmt);
-			outputter.output(doc, stream);
-		} catch (IOException exc) {
-			exc.printStackTrace();
-		}
-	}
-
-	// capture the value of the <outputFile> slot in the workflow
-	public String outputFile;
-
-	protected String getOutputFile() {
-		return outputFile;
-	}
-
-	public void setOutputFile(final String outlet) {
-		this.outputFile = outlet;
-	}
+    public void setProject(final String theProject) {
+        this.project = theProject;
+    }
 
 }

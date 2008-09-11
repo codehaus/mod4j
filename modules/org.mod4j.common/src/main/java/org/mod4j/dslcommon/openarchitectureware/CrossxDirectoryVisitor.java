@@ -12,9 +12,11 @@ import org.mod4j.dslcommon.io.IDirectoryVisitor;
 public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 	
 	private DslExtension dsl = null;
+	private String project;
 	
 	public CrossxDirectoryVisitor(DslExtension dsl, String theWorkDir){
 		this.dsl = dsl;
+		this.project = theWorkDir;
 		initialize();
 	}
 
@@ -70,7 +72,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 		modelfile = "file:/"+ modelfile;
 
 		RunCrossxWorkflow wf = new RunCrossxWorkflow();
-    	wf.runWorkflow(oawWorkflow, modelfile, crossxfile);
+    	wf.runWorkflow(oawWorkflow, project, modelfile, crossxfile);
 	}
 	}
 	
