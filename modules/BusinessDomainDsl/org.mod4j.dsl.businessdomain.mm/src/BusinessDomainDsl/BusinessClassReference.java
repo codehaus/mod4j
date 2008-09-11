@@ -12,10 +12,42 @@ package BusinessDomainDsl;
  * A representation of the model object '<em><b>Business Class Reference</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link BusinessDomainDsl.BusinessClassReference#getModel <em>Model</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClassReference()
  * @model
  * @generated
  */
 public interface BusinessClassReference extends AbstractBusinessClass {
+
+    /**
+     * Returns the value of the '<em><b>Model</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Model</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Model</em>' attribute.
+     * @see #setModel(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClassReference_Model()
+     * @model
+     * @generated
+     */
+    String getModel();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.BusinessClassReference#getModel <em>Model</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Model</em>' attribute.
+     * @see #getModel()
+     * @generated
+     */
+    void setModel(String value);
 } // BusinessClassReference

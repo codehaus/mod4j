@@ -28,51 +28,55 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface BusinessDomainModel extends ModelElement {
     /**
-	 * Returns the value of the '<em><b>Enumerations</b></em>' containment reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.Enumeration}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Enumerations</b></em>' containment reference list.
+     * The list contents are of type {@link BusinessDomainDsl.Enumeration}.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.Enumeration#getBusinessDomainModel <em>Business Domain Model</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Enumerations</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enumerations</em>' containment reference list.
-	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Enumerations()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Enumerations</em>' containment reference list.
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Enumerations()
+     * @see BusinessDomainDsl.Enumeration#getBusinessDomainModel
+     * @model opposite="businessDomainModel" containment="true"
+     * @generated
+     */
     EList<Enumeration> getEnumerations();
 
     /**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.AbstractType}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+     * The list contents are of type {@link BusinessDomainDsl.AbstractType}.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.AbstractType#getBusinessDomainModel <em>Business Domain Model</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference list.
-	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Types()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Types</em>' containment reference list.
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Types()
+     * @see BusinessDomainDsl.AbstractType#getBusinessDomainModel
+     * @model opposite="businessDomainModel" containment="true"
+     * @generated
+     */
     EList<AbstractType> getTypes();
 
     /**
-	 * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.Association}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
+     * The list contents are of type {@link BusinessDomainDsl.Association}.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Associations</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Associations</em>' containment reference list.
-	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Associations()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Associations</em>' containment reference list.
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Associations()
+     * @model containment="true" ordered="false"
+     * @generated
+     */
     EList<Association> getAssociations();
 
 } // BusinessDomainModel

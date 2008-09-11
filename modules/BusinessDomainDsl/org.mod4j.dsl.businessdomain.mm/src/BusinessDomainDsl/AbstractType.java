@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link BusinessDomainDsl.AbstractType#getProperties <em>Properties</em>}</li>
+ *   <li>{@link BusinessDomainDsl.AbstractType#getBusinessDomainModel <em>Business Domain Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,19 +27,49 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AbstractType extends ModelElement {
     /**
-	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link BusinessDomainDsl.Property}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * The list contents are of type {@link BusinessDomainDsl.Property}.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.Property#getOwningType <em>Owning Type</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' containment reference list.
-	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getAbstractType_Properties()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Properties</em>' containment reference list.
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAbstractType_Properties()
+     * @see BusinessDomainDsl.Property#getOwningType
+     * @model opposite="owningType" containment="true"
+     * @generated
+     */
     EList<Property> getProperties();
+
+    /**
+     * Returns the value of the '<em><b>Business Domain Model</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.BusinessDomainModel#getTypes <em>Types</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Business Domain Model</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Business Domain Model</em>' container reference.
+     * @see #setBusinessDomainModel(BusinessDomainModel)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAbstractType_BusinessDomainModel()
+     * @see BusinessDomainDsl.BusinessDomainModel#getTypes
+     * @model opposite="types" transient="false"
+     * @generated
+     */
+    BusinessDomainModel getBusinessDomainModel();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.AbstractType#getBusinessDomainModel <em>Business Domain Model</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Business Domain Model</em>' container reference.
+     * @see #getBusinessDomainModel()
+     * @generated
+     */
+    void setBusinessDomainModel(BusinessDomainModel value);
 
 } // AbstractType
