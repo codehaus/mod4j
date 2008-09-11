@@ -38,6 +38,15 @@ String getDataRootPackage() :
 String getDaoPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackage();
 
+String getDomainRootPackageAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();
+
+String getDataRootPackageAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataRootPackageAsPath();
+
+String getDaoPackageAsPath() : 
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackageAsPath();
+
 String getSrcGenPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getSrcGenPath();
 

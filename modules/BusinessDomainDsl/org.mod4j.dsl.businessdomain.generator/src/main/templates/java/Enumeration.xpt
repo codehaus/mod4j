@@ -4,7 +4,7 @@
 «EXTENSION ProjectProperties»
 
 «DEFINE createEnum FOR Enumeration»
-    «FILE getDomainRootPackage().replaceAll("\\.", "/") + "/" + name + ".java"»
+    «FILE getDomainRootPackageAsPath() + "/" + name + ".java"»
         package «getDomainRootPackage()»;
         
         «EXPAND Imports::addImports FOR this»

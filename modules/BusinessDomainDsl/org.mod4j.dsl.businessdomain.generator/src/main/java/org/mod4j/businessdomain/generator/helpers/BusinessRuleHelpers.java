@@ -30,4 +30,9 @@ public class BusinessRuleHelpers {
     public static String getBusinessRulesPackage() {
         return ProjectProperties.getDomainRootPackage() + "." + ProjectProperties.BUSINESSRULES_PACKAGE;
     }
+    
+    public static String getBusinessRulesPackageAsPath() {
+        return getBusinessRulesPackage().replaceAll("\\.", "/");
+    }
+
 }
