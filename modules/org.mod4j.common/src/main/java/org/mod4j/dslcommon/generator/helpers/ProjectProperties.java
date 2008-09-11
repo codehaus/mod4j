@@ -140,12 +140,24 @@ public class ProjectProperties {
         return domainRootPackage;
     }
 
+    public static String getDomainRootPackageAsPath() {
+        return getDomainRootPackage().replaceAll("\\.", "/");
+    }
+
     public static String getDataRootPackage() {
         return dataRootPackage;
     }
 
+    public static String getDataRootPackageAsPath() {
+        return getDataRootPackage().replaceAll("\\.", "/");
+    }
+
     public static String getDaoPackage() {
         return getDataRootPackage() + "." + DAO_PACKAGE;
+    }
+
+    public static String getDaoPackageAsPath() {
+        return getDaoPackage().replaceAll("\\.", "/");
     }
 
     public static String getSrcModelPath() {
