@@ -125,6 +125,22 @@
     <element xmi:type="ecore:EClass" href="ServiceDsl.ecore#//ServiceMethod"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QvQF0n5oEd2s5v3cJOwrlQ" x="330" y="25" height="76"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_qlQDYH58Ed2P3p35dLjiqg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_qli-UH58Ed2P3p35dLjiqg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_qli-UX58Ed2P3p35dLjiqg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_qli-Un58Ed2P3p35dLjiqg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_qli-U358Ed2P3p35dLjiqg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_qli-VH58Ed2P3p35dLjiqg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_qli-VX58Ed2P3p35dLjiqg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_qli-Vn58Ed2P3p35dLjiqg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_qli-V358Ed2P3p35dLjiqg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_qli-WH58Ed2P3p35dLjiqg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_qlQDYX58Ed2P3p35dLjiqg" fontHeight="10" fillColor="13761016" lineColor="0"/>
+    <element xmi:type="ecore:EClass" href="ServiceDsl.ecore#//CrudService"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qlQDYn58Ed2P3p35dLjiqg" x="10" y="450"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_rkByIntCEd28kZw9e3t-QQ"/>
   <element xmi:type="ecore:EPackage" href="ServiceDsl.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_sIYcYHtCEd28kZw9e3t-QQ" type="3002" source="_sHo1gHtCEd28kZw9e3t-QQ" target="_QvQF0H5oEd2s5v3cJOwrlQ">
@@ -209,5 +225,29 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KWbtI35pEd2s5v3cJOwrlQ" points="[17, 9, 141, -131]$[17, 143, 141, 3]$[-112, 143, 12, 3]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KWk3EH5pEd2s5v3cJOwrlQ" id="(0.3043478,0.82608694)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KWk3EX5pEd2s5v3cJOwrlQ" id="(0.9246575,0.59574467)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_qm5CIH58Ed2P3p35dLjiqg" type="3002" source="_qlQDYH58Ed2P3p35dLjiqg" target="_sIOrcHtCEd28kZw9e3t-QQ">
+    <children xmi:type="notation:Node" xmi:id="_qm5CJH58Ed2P3p35dLjiqg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qm5CJX58Ed2P3p35dLjiqg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_qm5CJn58Ed2P3p35dLjiqg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qm5CJ358Ed2P3p35dLjiqg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_qm5CIX58Ed2P3p35dLjiqg" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qm5CIn58Ed2P3p35dLjiqg" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="ServiceDsl.ecore#//CrudService/dto"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qm5CI358Ed2P3p35dLjiqg" points="[0, 0, -278, -348]$[259, 325, -19, -23]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_qm5CKH58Ed2P3p35dLjiqg" type="3002" source="_sHo1gHtCEd28kZw9e3t-QQ" target="_qlQDYH58Ed2P3p35dLjiqg">
+    <children xmi:type="notation:Node" xmi:id="_qm5CLH58Ed2P3p35dLjiqg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qm5CLX58Ed2P3p35dLjiqg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_qm5CLn58Ed2P3p35dLjiqg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qm5CL358Ed2P3p35dLjiqg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_qm5CKX58Ed2P3p35dLjiqg" lineColor="0"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qm5CKn58Ed2P3p35dLjiqg" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="ServiceDsl.ecore#//ServiceModel/crudServices"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qm5CK358Ed2P3p35dLjiqg" points="[-7, -20, 55, 150]$[-62, -170, 0, 0]"/>
   </edges>
 </notation:Diagram>
