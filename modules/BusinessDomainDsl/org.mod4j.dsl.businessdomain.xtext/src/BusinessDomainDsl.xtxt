@@ -14,7 +14,7 @@ BusinessDomainModel :
 	;
 
 BusinessClassReference:
-    "import" name=ID;
+    "from" model=ID "import" name=ID;
     
 Association:
 	(description=STRING )?
