@@ -42,7 +42,7 @@ import org.eclipse.ui.statushandlers.StatusAdapter;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openarchitectureware.xtext.LanguageUtilities;
 import org.openarchitectureware.xtext.XtextLog;
-// import org.openarchitectureware.xtext.editor.wizards.ProjectCreator;
+
 
 public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			INewWizard {
@@ -115,12 +115,9 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException,
 							InterruptedException {
 						try {
-//							IProject pr = mainPage.getProjectHandle();
-//							pr.create(monitor);
 							IProject pr = createNewProject();
 							pr.open(monitor);
 							String modelFileName = "SampleModel." + getFileExtension();
-//							Mod4jProjectCreator.create(pr, new String[] { getDslProjectName(), getGeneratorProjectName() }, monitor);
 							Mod4jProjectCreator.create(pr, new String[] { 
 									"org.mod4j.dsl.businessdomain.mm",
 									"org.mod4j.dsl.businessdomain.validation",
@@ -159,30 +156,10 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			return true;
 		}
 		
-//		private String dslProjectName;
-//		
-//		public String getDslProjectName() {
-//			return dslProjectName;
-//		}
-//		
-//		public void setDslProjectName(String dslProjectName) {
-//			this.dslProjectName = dslProjectName;
-//		}
-		
-		
 		protected String getModelProjectName() {
 			return mainPage.getApplicationNameFieldValue() + "-DslModels" ;
 		}
 
-//		private String generatorProjectName;
-//
-//		private String getGeneratorProjectName() {
-//			return generatorProjectName;
-//		}
-//
-//		public void setGeneratorProjectName(String generatorProjectName) {
-//			this.generatorProjectName = generatorProjectName;
-//		}
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -231,128 +208,92 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
         }
 
 		public String sampleModelContents() {
-			String LF = "\n";
-			
-			return "Model SampleModel" + LF +
-					"" + LF +
-					"Class SampleClass [" + LF +
-					"    string name;" + LF +
-					"]" + LF;
+        String LF = "\n";
+
+        return "Model SampleModel" + LF + "" + LF + "Class SampleClass [" + LF + "    string name;" + LF + "]" + LF;
+    }
+
+    /**
+     * Creates a new project resource with the selected name.
+     * <p>
+     * In normal usage, this method is invoked after the user has pressed Finish on the wizard; the enablement of the
+     * Finish button implies that all controls on the pages currently contain valid values.
+     * </p>
+     * <p>
+     * Note that this wizard caches the new project once it has been successfully created; subsequent invocations of
+     * this method will answer the same project resource without attempting to create it again.
+     * </p>
+     * 
+     * @return the created project resource, or <code>null</code> if the project was not created
+     */
+    private IProject createNewProject() {
+        IProject newProject = null;
+        if (newProject != null) {
+            return newProject;
         }
 
-		/**
-		 * Creates a new project resource with the selected name.
-		 * <p>
-		 * In normal usage, this method is invoked after the user has pressed Finish
-		 * on the wizard; the enablement of the Finish button implies that all
-		 * controls on the pages currently contain valid values.
-		 * </p>
-		 * <p>
-		 * Note that this wizard caches the new project once it has been
-		 * successfully created; subsequent invocations of this method will answer
-		 * the same project resource without attempting to create it again.
-		 * </p>
-		 * 
-		 * @return the created project resource, or <code>null</code> if the
-		 *         project was not created
-		 */
-		private IProject createNewProject() {
-			IProject newProject = null;
-			if (newProject != null) {
-				return newProject;
-			}
+        // get a project handle
+        final IProject newProjectHandle = mainPage.getProjectHandle();
 
-			// get a project handle
-			final IProject newProjectHandle = mainPage.getProjectHandle();
+        // get a project descriptor
+        URI location = null;
+        if (!mainPage.useDefaults()) {
+            location = mainPage.getLocationURI();
+            String tmp = location.toASCIIString();
+            tmp = tmp + "/" + getModelProjectName();
+            location = URI.create(tmp);
 
-			// get a project descriptor
-			URI location = null;
-			if (!mainPage.useDefaults()) {
-				location = mainPage.getLocationURI();
-				String tmp = location.toASCIIString();
-				tmp = tmp + "/" + getModelProjectName();
-				location = URI.create(tmp);
-				
-			}
+        }
 
-			IWorkspace workspace = ResourcesPlugin.getWorkspace();
-			final IProjectDescription description = workspace
-					.newProjectDescription(newProjectHandle.getName());
-			description.setLocationURI(location);
+        IWorkspace workspace = ResourcesPlugin.getWorkspace();
+        final IProjectDescription description = workspace.newProjectDescription(newProjectHandle.getName());
+        description.setLocationURI(location);
 
-			// update the referenced project if provided
-//			if (referencePage != null) {
-//				IProject[] refProjects = referencePage.getReferencedProjects();
-//				if (refProjects.length > 0) {
-//					description.setReferencedProjects(refProjects);
-//				}
-//			}
+        // create the new project operation
+        IRunnableWithProgress op = new IRunnableWithProgress() {
+            public void run(IProgressMonitor monitor) throws InvocationTargetException {
+                CreateProjectOperation op = new CreateProjectOperation(description,
+                        ResourceMessages.NewProject_windowTitle);
+                try {
+                    PlatformUI.getWorkbench().getOperationSupport().getOperationHistory().execute(op, monitor,
+                            WorkspaceUndoUtil.getUIInfoAdapter(getShell()));
+                } catch (ExecutionException e) {
+                    throw new InvocationTargetException(e);
+                }
+            }
+        };
 
-			// create the new project operation
-			IRunnableWithProgress op = new IRunnableWithProgress() {
-				public void run(IProgressMonitor monitor)
-						throws InvocationTargetException {
-					CreateProjectOperation op = new CreateProjectOperation(
-							description, ResourceMessages.NewProject_windowTitle);
-					try {
-						PlatformUI.getWorkbench().getOperationSupport()
-								.getOperationHistory().execute(
-										op,
-										monitor,
-										WorkspaceUndoUtil
-												.getUIInfoAdapter(getShell()));
-					} catch (ExecutionException e) {
-						throw new InvocationTargetException(e);
-					}
-				}
-			};
+        // run the new project creation operation
+        try {
+            getContainer().run(false, true, op);
+        } catch (InterruptedException e) {
+            return null;
+        } catch (InvocationTargetException e) {
+            Throwable t = e.getTargetException();
+            if (t instanceof ExecutionException && t.getCause() instanceof CoreException) {
+                CoreException cause = (CoreException) t.getCause();
+                StatusAdapter status;
+                if (cause.getStatus().getCode() == IResourceStatus.CASE_VARIANT_EXISTS) {
+                    status = new StatusAdapter(StatusUtil.newStatus(IStatus.WARNING, NLS.bind(
+                            ResourceMessages.NewProject_caseVariantExistsError, newProjectHandle.getName()), cause));
+                } else {
+                    status = new StatusAdapter(StatusUtil.newStatus(cause.getStatus().getSeverity(),
+                            ResourceMessages.NewProject_errorMessage, cause));
+                }
+                status.setProperty(StatusAdapter.TITLE_PROPERTY, ResourceMessages.NewProject_errorMessage);
+                StatusManager.getManager().handle(status, StatusManager.BLOCK);
+            } else {
+                StatusAdapter status = new StatusAdapter(new Status(IStatus.WARNING, IDEWorkbenchPlugin.IDE_WORKBENCH,
+                        0, NLS.bind(ResourceMessages.NewProject_internalError, t.getMessage()), t));
+                status.setProperty(StatusAdapter.TITLE_PROPERTY, ResourceMessages.NewProject_errorMessage);
+                StatusManager.getManager().handle(status, StatusManager.LOG | StatusManager.BLOCK);
+            }
+            return null;
+        }
 
-			// run the new project creation operation
-			try {
-				getContainer().run(false, true, op);
-			} catch (InterruptedException e) {
-				return null;
-			} catch (InvocationTargetException e) {
-				Throwable t = e.getTargetException();
-				if (t instanceof ExecutionException
-						&& t.getCause() instanceof CoreException) {
-					CoreException cause = (CoreException) t.getCause();
-					StatusAdapter status;
-					if (cause.getStatus().getCode() == IResourceStatus.CASE_VARIANT_EXISTS) {
-						status = new StatusAdapter(
-								StatusUtil
-										.newStatus(
-												IStatus.WARNING,
-												NLS
-														.bind(
-																ResourceMessages.NewProject_caseVariantExistsError,
-																newProjectHandle
-																		.getName()),
-												cause));
-					} else {
-						status = new StatusAdapter(StatusUtil.newStatus(cause
-								.getStatus().getSeverity(),
-								ResourceMessages.NewProject_errorMessage, cause));
-					}
-					status.setProperty(StatusAdapter.TITLE_PROPERTY,
-							ResourceMessages.NewProject_errorMessage);
-					StatusManager.getManager().handle(status, StatusManager.BLOCK);
-				} else {
-					StatusAdapter status = new StatusAdapter(new Status(
-							IStatus.WARNING, IDEWorkbenchPlugin.IDE_WORKBENCH, 0,
-							NLS.bind(ResourceMessages.NewProject_internalError, t
-									.getMessage()), t));
-					status.setProperty(StatusAdapter.TITLE_PROPERTY,
-							ResourceMessages.NewProject_errorMessage);
-					StatusManager.getManager().handle(status,
-							StatusManager.LOG | StatusManager.BLOCK);
-				}
-				return null;
-			}
+        newProject = newProjectHandle;
 
-			newProject = newProjectHandle;
+        return newProject;
+    }
 
-			return newProject;
-		}
-
-	}
+}
