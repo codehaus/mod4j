@@ -67,11 +67,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
     private void setupDsl() {
         
-        if (dsl.getDslCodegenProperties().length() > 0) {
-            propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties();
-        } else {
-            propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslName() + ".properties";
-        }
+        propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties();
         File file = new File(propertiesFile);
         if (!file.exists()) {
             System.err.println("Mod4j: code generation properties file [" + propertiesFile

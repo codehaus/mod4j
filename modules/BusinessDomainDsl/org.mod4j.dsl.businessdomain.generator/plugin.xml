@@ -7,7 +7,7 @@
          point="org.mod4j.eclipse.dsl">
       <dsl
             dsl2crossxWorkflow="crossx/busmod2crossxEclipse.oaw"
-            dslCodegenProperties="businessDomain/BusinessDomainDsl.properties"
+            dslCodegenProperties="mod4j.properties"
             dslCodegenWorkflow="codegen/BusinessDomainDsl.oaw"
             dslFileExtension=".busmod"
             dslMetamodelPackage="BusinessDomainDsl.BusinessDomainDslPackage"
