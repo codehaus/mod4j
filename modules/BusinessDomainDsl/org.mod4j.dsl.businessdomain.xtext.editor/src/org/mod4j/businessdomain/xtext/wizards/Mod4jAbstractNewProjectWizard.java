@@ -196,22 +196,35 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 		public String propertiesContents () {
 			String LF = "\n";
 			
-			return 	"# Application properties" + LF +
+			return  "####" + LF +
+			        "#" + LF +
+			        "# Application properties" + LF +
+			        "#" + LF +
+			        "####" + LF +
 			        "fileEncoding=UTF-8" + LF +
 			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
 					"applicationPath=.." + LF +
-                    "dslModelsModuleName=" + getModelProjectName() + LF +
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Model properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
+					"dslModelsModuleName=" + getModelProjectName() + LF +
+                    "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
+                    "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
 					"srcModelPath=src/model" + LF +
                     "srcGenPath=generated-sources" + LF +
                     "resourceGenPath=generated-resources" + LF +
                     "srcManPath=src/main/java" + LF +
                     "resourceManPath=src/main/resources" + LF +
 					"" + LF +
-					"# BusinessDomain model properties" + LF +
-                    "outputSlot=OutputBusModel" + LF +
-                    "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
-                    "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
+					"####" + LF +
+                    "#" + LF +
+                    "# BusinessDomain model properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
                     "rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
                     "domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
                     "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF;
