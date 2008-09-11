@@ -2,9 +2,9 @@ import BusinessDomainDsl;
 /**
 * Application property functions
 */
- boolean classExists(String path) :
- JAVA BusinessDomainDsl.validation.Crossxcheck.classExists(java.lang.String);
+ boolean classExists(String model, String classname) :
+ JAVA BusinessDomainDsl.validation.Crossxcheck.classExists(java.lang.String, java.lang.String);
  
-String definedInResource(String path) :
- JAVA BusinessDomainDsl.validation.Crossxcheck.definedInResource(java.lang.String);
+String definedInResource(String model, String classname) :
+ JAVA BusinessDomainDsl.validation.Crossxcheck.definedInResource(java.lang.String, java.lang.String);
  

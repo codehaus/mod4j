@@ -13,13 +13,13 @@ import BusinessDomainDsl;
 extension BusinessDomainDsl::validation::crossxutils;
 
 context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
-       ! classExists(this.name);
+       ! classExists(this.businessDomainModel.name, this.name);
 /*
 context BusinessClass ERROR "Businessclass [" + this.name + "] already defined in [" + definedInResource(this.name) + "]" :
        ! classExists(this.name);
 */
-context BusinessClassReference ERROR "BusinessClassReference [" + this.name + "] not defined":
-       classExists(this.name);
+context BusinessClassReference ERROR "BusinessClassReference [" + this.name + "] not defined inj model " + this.model:
+       classExists(this.model, this.name);
 
        
 
