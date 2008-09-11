@@ -13,11 +13,11 @@ package org.mod4j.crossx.broker;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.mod4j.crossx.mm.crossx.Element;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 
 // import crossx.util.EclipseUtil;
@@ -32,7 +32,12 @@ public class CrossxEnvironment {
 
 	static private Map<String, CrossxLocation> environment = new HashMap<String, CrossxLocation>();
 	
+	public static Map<String, CrossxLocation> getAll() {
+        return Collections.unmodifiableMap(environment);
+    }
+	
 	public static void addModelInfo(String location, ModelInfo modelinfo) {
+        print("CrossxEnvironment::AddModelInfo [" + location + "]");
 		CrossxLocation atLocation = findLocation(location);
 		atLocation.addModelInfo(modelinfo);
 	}
@@ -45,7 +50,7 @@ public class CrossxEnvironment {
 	private static CrossxLocation findLocation(String location) {
 		CrossxLocation result = environment.get(location);
 		if( result == null ) {
-			result = new CrossxLocation();
+			result = new CrossxLocation(location);
 			if( pr != null ) {
 				result.setPrintWriter(pr);
 			}
@@ -75,13 +80,23 @@ public class CrossxEnvironment {
 	 * @param elemType
 	 * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
 	 */
-	static public List<String> findAll(String elemType) {
-		List<String> result = new ArrayList<String>();
-		for(CrossxLocation location: environment.values()){
-			result.addAll( location.findAll(elemType) );
-		}
-		return result;
-	}
+    static public List<String> findAll(String projectLocation, String elemType) {
+       print("CrossxEnvironment::findAll [" + projectLocation + "]");
+         CrossxLocation loc = environment.get(projectLocation);
+        if( loc != null ){
+            return loc.findAll(elemType);
+        } else {
+            return new ArrayList<String>();
+        }
+    }
+
+    static public List<String> findAllEverywhere(String elemType) {
+        List<String> result = new ArrayList<String>();
+        for(CrossxLocation location: environment.values()){
+            result.addAll( location.findAll(elemType) );
+        }
+        return result;
+    }
 	
 	static private PrintWriter pr = null;
 	

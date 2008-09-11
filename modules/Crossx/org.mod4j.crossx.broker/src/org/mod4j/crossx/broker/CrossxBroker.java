@@ -35,9 +35,9 @@ public class CrossxBroker {
 	static private List<Element> info = new ArrayList<Element>();
 	static private Document all = new Document(new Element("ROOT"));
 
-	static public Element getAll(){
-		return all.getRootElement();
-	}
+//	static public Element getAll(){
+//		return all.getRootElement();
+//	}
 	
 	/** Add all the XML elements in 'doc' to the repository.
 	 *  If the repository already contains information from the same resource, remove
@@ -45,43 +45,43 @@ public class CrossxBroker {
 	 *  
 	 * @param doc The XML document to add
 	 */
-	static public void addInfo(Document doc) {
-		print("Repository add [" + doc.getRootElement().toString() + "]");
-		Element toRemove = null;
-
-		Element newInfo     = doc.getRootElement();
-		String  newResource = newInfo.getChild(MODEL_REFERENCE).getAttributeValue(RESOURCE_ATTRIBUTE);
-		for(Element modelinfo : info){
-			String resource = modelinfo.getChild(MODEL_REFERENCE).getAttributeValue(RESOURCE_ATTRIBUTE);
-			if( resource.equals(newResource) ){
-				toRemove = modelinfo;
-				print("CrossxBroker: remove [" + resource + "]");
-			}
-		}
-		
-		if( toRemove != null ){
-			info.remove(toRemove);
-			all.getRootElement().removeContent(toRemove);
-		}
-
-		info.add(newInfo);
-		doc.detachRootElement();
-		all.getRootElement().addContent(newInfo);
-		
-		printXML();
-	}
+//	static public void addInfo(Document doc) {
+//		print("Repository add [" + doc.getRootElement().toString() + "]");
+//		Element toRemove = null;
+//
+//		Element newInfo     = doc.getRootElement();
+//		String  newResource = newInfo.getChild(MODEL_REFERENCE).getAttributeValue(RESOURCE_ATTRIBUTE);
+//		for(Element modelinfo : info){
+//			String resource = modelinfo.getChild(MODEL_REFERENCE).getAttributeValue(RESOURCE_ATTRIBUTE);
+//			if( resource.equals(newResource) ){
+//				toRemove = modelinfo;
+//				print("CrossxBroker: remove [" + resource + "]");
+//			}
+//		}
+//		
+//		if( toRemove != null ){
+//			info.remove(toRemove);
+//			all.getRootElement().removeContent(toRemove);
+//		}
+//
+//		info.add(newInfo);
+//		doc.detachRootElement();
+//		all.getRootElement().addContent(newInfo);
+//		
+//		printXML();
+//	}
 	
 	public static void printXML() {
-		print("XML [" + all.getRootElement().getName()+ "]");
-		for( Object o : all.getRootElement().getChildren()) {
-			Element e = (Element)o;
-			print("    XML [" + e.getName() + "]");
-			for( Object ch : e.getChildren()) {
-				Element child = (Element)ch;
-				print("    XML [" + child.getAttributeValue(NAME_ATTRIBUTE) + "]");
-			}
-
-		}
+//		print("XML [" + all.getRootElement().getName()+ "]");
+//		for( Object o : all.getRootElement().getChildren()) {
+//			Element e = (Element)o;
+//			print("    XML [" + e.getName() + "]");
+//			for( Object ch : e.getChildren()) {
+//				Element child = (Element)ch;
+//				print("    XML [" + child.getAttributeValue(NAME_ATTRIBUTE) + "]");
+//			}
+//
+//		}
 	}
 
 	/** Find the symbol with name 'name' and type 'type'.
@@ -90,76 +90,76 @@ public class CrossxBroker {
 	 * @param elemType
 	 * @return The name of the resource if the element is found, null if it isn't found
 	 */
-	static public String find(String name, String elemType) {
-		checkCrossxStatus();
-		for(Element modelinfo : info){
-			for(Object elem : modelinfo.getChildren() ){
-				if( elem instanceof Element) {
-					Element e = (Element) elem;
-					if( e.getAttributeValue(NAME_ATTRIBUTE    ).equals(name) && 
-						e.getAttributeValue(TYPE_ATTRIBUTE).equals(elemType) )
-					{
-						Element modelref = modelinfo.getChild(MODEL_REFERENCE);
-						String result = modelref.getAttributeValue(RESOURCE_ATTRIBUTE);
-						return result;
-					}
-				}
-			}
-		}
-		return null;
-	}
+//	static public String find(String name, String elemType) {
+//		checkCrossxStatus();
+//		for(Element modelinfo : info){
+//			for(Object elem : modelinfo.getChildren() ){
+//				if( elem instanceof Element) {
+//					Element e = (Element) elem;
+//					if( e.getAttributeValue(NAME_ATTRIBUTE    ).equals(name) && 
+//						e.getAttributeValue(TYPE_ATTRIBUTE).equals(elemType) )
+//					{
+//						Element modelref = modelinfo.getChild(MODEL_REFERENCE);
+//						String result = modelref.getAttributeValue(RESOURCE_ATTRIBUTE);
+//						return result;
+//					}
+//				}
+//			}
+//		}
+//		return null;
+//	}
 
 	/**  Find all symbols of type 'elemType'.
 	 * 
 	 * @param elemType
 	 * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
 	 */
-	static public List<String> findAll(String elemType) {
-		checkCrossxStatus();
-		List<String> result = new ArrayList<String>();
-		for(Element modelinfo : info){
-			for(Object elem : modelinfo.getChildren() ){
-				if( elem instanceof Element) {
-					Element e = (Element) elem;
-					String value = e.getAttributeValue(TYPE_ATTRIBUTE);
-					if( (value != null) && value.equals(elemType) )
-					{
-						result.add(e.getAttributeValue(NAME_ATTRIBUTE));
-					} else {
-					}
-				}
-			}
-		}
-		return result;
-	}
+//	static public List<String> findAll(String elemType) {
+////		checkCrossxStatus();
+//		List<String> result = new ArrayList<String>();
+//		for(Element modelinfo : info){
+//			for(Object elem : modelinfo.getChildren() ){
+//				if( elem instanceof Element) {
+//					Element e = (Element) elem;
+//					String value = e.getAttributeValue(TYPE_ATTRIBUTE);
+//					if( (value != null) && value.equals(elemType) )
+//					{
+//						result.add(e.getAttributeValue(NAME_ATTRIBUTE));
+//					} else {
+//					}
+//				}
+//			}
+//		}
+//		return result;
+//	}
 
-	static boolean first = true;
+//	static boolean first = true;
+//	
+//	private static void checkCrossxStatus() {
+//		if( first ){
+//			first = false;
+//		} else {
+//			return;
+//		}
+//	}
+//
 	
-	private static void checkCrossxStatus() {
-		if( first ){
-			first = false;
-		} else {
-			return;
-		}
-	}
-
-	
-	private static PrintWriter pr = null;
-	
-	static public void setPrintStream(OutputStream s) {
-		pr = new PrintWriter(s);
-	}
-
-	/** Print to the error output or the given printstream
-	 * 
-	 * @param text
-	 */
-	private static void print(String text){
-		if( pr == null ) { 
-			System.err.println(text);
-		} else {
-    		pr.println(text);
-    		pr.flush();
-		}
-	}
+//	private static PrintWriter pr = null;
+//	
+//	static public void setPrintStream(OutputStream s) {
+//		pr = new PrintWriter(s);
+//	}
+//
+//	/** Print to the error output or the given printstream
+//	 * 
+//	 * @param text
+//	 */
+//	private static void print(String text){
+//		if( pr == null ) { 
+//			System.err.println(text);
+//		} else {
+//    		pr.println(text);
+//    		pr.flush();
+//		}
+//	}
 }

@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.mod4j.crossx.broker;
 
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import org.mod4j.crossx.mm.crossx.Element;
+import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 
 // import crossx.util.EclipseUtil;
@@ -29,20 +29,37 @@ import org.mod4j.crossx.mm.crossx.ModelInfo;
 public class CrossxLocation {
 
 	private List<ModelInfo> information = new ArrayList<ModelInfo>();
+	private String name;
+	
+	public CrossxLocation(String theName) {
+	    this.name = theName;
+	}
+	
+	public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<ModelInfo> getAll() {
+	    return Collections.unmodifiableList(information);
+	}
 
 	public void addModelInfo(ModelInfo modelinfo) {
 		ModelInfo existing = findModelInfo(modelinfo, information);
 		if( existing != null ) {
 			information.remove(existing);
-			print("XXXX Removing " + modelinfo.getModel().getResource());
+			print("XXXX Removing " + modelinfo.getResource());
 		}
 		information.add(modelinfo);
-		print("XXXX Adding " + modelinfo.getModel().getResource());
+		print("XXXX Adding " + modelinfo.getResource());
 	}
 
 	private ModelInfo findModelInfo(ModelInfo modelinfo, List<ModelInfo> modelInfoList) {
 		for(ModelInfo existing: modelInfoList){
-			if( modelinfo.getModel().getResource().equals( existing.getModel().getResource())){
+			if( modelinfo.getResource().equals( existing.getResource())){
 				return existing;
 			}
 		}
@@ -58,12 +75,12 @@ public class CrossxLocation {
 	 */
 	public String find(String model, String name, String elemType) {
 		for(ModelInfo modelinfo : information){
-			if( modelinfo.getModel().getName().equals(model) ){
-				for(Element elem : modelinfo.getElements()){
-					if( elem.getName().equals(name) && 
-						elem.getElemType().equals(elemType) )
+			if( modelinfo.getName().equals(model) ){
+				for(Symbol symbol : modelinfo.getElements()){
+					if( symbol.getName().equals(name) && 
+						symbol.getType().equals(elemType) )
 					{
-						return modelinfo.getModel().getResource();
+						return modelinfo.getResource();
 					}
 				}
 			}
@@ -79,11 +96,11 @@ public class CrossxLocation {
 	public List<String> findAll(String elemType) {
 		List<String> result = new ArrayList<String>();
 		for(ModelInfo modelinfo : information){
-			for(Element elem : modelinfo.getElements()){
-				String value = elem.getElemType();
+			for(Symbol symbol : modelinfo.getElements()){
+				String value = symbol.getType();
 				if( (value != null) && value.equals(elemType) )
 				{
-					result.add(elem.getName());
+					result.add(symbol.getName());
 				} else {
 				}
 			}
