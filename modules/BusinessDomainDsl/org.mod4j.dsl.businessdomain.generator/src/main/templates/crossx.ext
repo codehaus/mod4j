@@ -1,4 +1,4 @@
 
-List[String] allBusinessClasses() :
- JAVA org.mod4j.businessdomain.generator.helpers.CrossxHelpers.allBusinessClasses();
+List[String] allBusinessClasses(String project) :
+ JAVA org.mod4j.businessdomain.generator.helpers.CrossxHelpers.allBusinessClasses(java.lang.String);
 

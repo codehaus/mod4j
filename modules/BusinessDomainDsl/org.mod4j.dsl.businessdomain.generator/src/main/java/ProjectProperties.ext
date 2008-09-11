@@ -55,3 +55,6 @@ String getRootPackage() :
 
 String getFileEncoding() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getFileEncoding();     
+  
+String getProject() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getProject();     

@@ -15,6 +15,7 @@
         Arguments / properties expected:
           - modelfile : the file containing the BusinessDomainDsl model
           - crossxfile : the file to which the crossx model will be written
+          - project: the name of the project in which tyhe model resides
     -->
 <!--
     <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
@@ -82,7 +83,8 @@
     <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
     <component class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
         <modelSlot value="crossxModel"/>
-        <outputFile value="${crossxfile}"></outputFile>
+        <outputFile value="${crossxfile}"/>
+        <project value="${project}"/>
     </component>
 
     <!-- last but not least, we write the Ecore model file. We specify the workflow
@@ -90,12 +92,12 @@
          to-be-written file.
          This stel isn't neccesary, but migtb be helpfulkl for debugging purposes to check what
          the Crosssx model looks like.
+    -->
 
     <component class="org.eclipse.mwe.emf.Writer">
-        <uri value="${crossxmodelfile}" />
+        <uri value="${crossxfile}" />
         <modelSlot value="crossxModel" />
     </component>
-    -->
 
 </workflow>
 

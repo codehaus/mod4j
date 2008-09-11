@@ -44,7 +44,7 @@
 «ENDFOREACH»
 «ENDREM»
 
-«FOREACH allBusinessClasses() AS clsName»
+«FOREACH allBusinessClasses( getProject() ) AS clsName»
     <bean id="«clsName.toFirstLower()»Dao"
         class="«getDaoPackage()».«clsName»DaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
@@ -60,7 +60,7 @@
         </property>
         <property name="mappingResources">
             <list>
-«FOREACH allBusinessClasses() AS clsName»
+«FOREACH allBusinessClasses( getProject() ) AS clsName»
                 <value>«clsName».hbm.xml</value>
 «ENDFOREACH»
 «REM»

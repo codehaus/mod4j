@@ -7,7 +7,9 @@ import crossx;
 import BusinessDomainDsl;
 
 create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
-    this.setModel (modelReference(busModel.name, modelFile))->
+    this.setName(busModel.name)->
+    this.setResource(modelFile)->
+//    this.setModel (modelReference(busModel.name, modelFile))->
     this.elements.addAll(busModel.types.typeSelect(BusinessClass).toElement());
 /* OLD    
 create ModelInfo exportModel(BusinessDomainModel busModel) :
@@ -17,30 +19,30 @@ create ModelInfo exportModel(BusinessDomainModel busModel) :
 create ModelReference modelReference(String name) :
     this.setName(name);
  */
-create ModelReference modelReference(String name, String modelFile) :
-    this.setName(name)->
-    this.setResource(modelFile);
+//create ModelReference modelReference(String name, String modelFile) :
+//    this.setName(name)->
+//    this.setResource(modelFile);
     
-create Element toElement(BusinessClass cls) :
+create Symbol toElement(BusinessClass cls) :
     this.setName(cls.name) ->
-    this.setElemType("BusinessClass")->
-    this.subElements.addAll(cls.properties.toElement() );
+    this.setType("BusinessClass")->
+    this.subSymbols.addAll(cls.properties.toElement() );
 
-create crossx::Element toElement(BusinessDomainDsl::Property prop) :
+create crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     this.setName(prop.name) ->
-    this.setElemType("Property") ->
+    this.setType("Property") ->
     this.properties.add(prop.typeXX());
     
-create crossx::LiteralProperty typeXX(BusinessDomainDsl::Property prop) :
+create crossx::LiteralSymbolProperty typeXX(BusinessDomainDsl::Property prop) :
 	this.setName("DataType")->
 	this.setValue(prop.dataType);
 
-create crossx::Element toElement(BusinessDomainDsl::EnumerationProperty prop) :
+create crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     this.setName(prop.name) ->
-    this.setElemType("Property") ->
+    this.setType("Property") ->
     this.properties.add(prop.typeXX());
 
-create crossx::LiteralProperty typeXX(BusinessDomainDsl::EnumerationProperty prop) :
+create crossx::LiteralSymbolProperty typeXX(BusinessDomainDsl::EnumerationProperty prop) :
     this.setName("DataType")->
     this.setValue(prop.type.name);
 
