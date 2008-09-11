@@ -128,33 +128,23 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 									"org.mod4j.crossx.broker",
 									"org.mod4j.eclipse"
 							}, monitor);
-							IContainer modelFolder = pr.getFolder(MODEL_DIR + "/businessDomain");
-							Mod4jProjectCreator
-									.createFile(
-											modelFileName,
-											modelFolder,
-											sampleModelContents(),
-											monitor);
-							Mod4jProjectCreator
-							.createFile(
-									"BusinessDomainDsl.properties",
-									modelFolder,
-									propertiesContents(), 
-									monitor);
-						} catch (CoreException e) {
-							mainPage.setErrorMessage(e.getLocalizedMessage());
-						}
-					}
-				}.run(null);
-			} catch (InvocationTargetException e) {
-				XtextLog.logError(e);
-				return false;
-			} catch (InterruptedException e) {
-				XtextLog.logError(e);
-				return false;
-			}
-			return true;
-		}
+							IContainer modelFolder = pr.getFolder(MODEL_DIR);
+                        Mod4jProjectCreator.createFile(modelFileName, modelFolder, sampleModelContents(), monitor);
+                        Mod4jProjectCreator.createFile("mod4j.properties", modelFolder, propertiesContents(), monitor);
+                    } catch (CoreException e) {
+                        mainPage.setErrorMessage(e.getLocalizedMessage());
+                    }
+                }
+            }.run(null);
+        } catch (InvocationTargetException e) {
+            XtextLog.logError(e);
+            return false;
+        } catch (InterruptedException e) {
+            XtextLog.logError(e);
+            return false;
+        }
+        return true;
+    }
 		
 		protected String getModelProjectName() {
 			return mainPage.getApplicationNameFieldValue() + "-DslModels" ;
