@@ -1,7 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION BusinessClass»
-«EXTENSION ProjectProperties»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 
 «DEFINE daoImplementation FOR BusinessDomainDsl::BusinessClass»

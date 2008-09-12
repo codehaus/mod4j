@@ -1,7 +1,7 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-«EXTENSION ProjectProperties»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE createEnum FOR Enumeration»
     «FILE getDomainRootPackageAsPath() + "/" + name + ".java"»

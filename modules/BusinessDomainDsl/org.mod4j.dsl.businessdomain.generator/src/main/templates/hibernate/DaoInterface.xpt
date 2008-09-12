@@ -2,7 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-«EXTENSION ProjectProperties»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE daoInterface  FOR BusinessDomainDsl::BusinessClass»
 	«IF !fileExist(getDataModulePath() + "/" + getSrcManPath() + "/" + javaFileName(getDaoPackage(), daoInterfaceName(this)))»

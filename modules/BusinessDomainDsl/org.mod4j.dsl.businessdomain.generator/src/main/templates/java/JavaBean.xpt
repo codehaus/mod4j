@@ -3,7 +3,7 @@
 «EXTENSION BusinessClass»
 «EXTENSION BusinessRule»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-«EXTENSION ProjectProperties»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE BeanClassImplBase FOR AbstractType»
 	«FILE getDomainRootPackageAsPath() + "/" + name + ".java"»

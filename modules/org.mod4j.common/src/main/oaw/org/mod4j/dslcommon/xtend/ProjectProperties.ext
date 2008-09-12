@@ -1,6 +1,6 @@
-/* Operations implemented in Java on BusinesClass
+/* 
+ * Operations implemented in Java 
  */
-import BusinessDomainDsl;
 
 String getApplicationName() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getApplicationName();

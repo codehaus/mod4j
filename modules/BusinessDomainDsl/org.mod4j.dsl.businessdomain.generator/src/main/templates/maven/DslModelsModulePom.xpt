@@ -1,6 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION ProjectProperties»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE createDslModelsModulePom FOR BusinessDomainModel»
     «FILE getDslModelsModuleName() + "/pom.xml" -»

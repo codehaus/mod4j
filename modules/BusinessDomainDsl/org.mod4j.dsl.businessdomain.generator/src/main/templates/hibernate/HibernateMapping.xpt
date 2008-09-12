@@ -4,7 +4,7 @@
 «EXTENSION BusinessRule»
 «EXTENSION Association»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-«EXTENSION ProjectProperties»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE header FOR BusinessDomainDsl::BusinessClass»
 <?xml version="1.0"?>
