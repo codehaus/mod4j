@@ -44,15 +44,6 @@
     «ENDFOREACH»
 «ENDDEFINE»
 
-«REM» Old version
-«DEFINE OLDaddConstructorArgumentsList FOR BusinessClass -»
-     «IF superclass != null -»«EXPAND addConstructorArgumentsList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
-     «FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop ITERATOR propIter SEPARATOR "," -»
-         «EXPAND addArgument FOR prop-»
-     «ENDFOREACH»
-«ENDDEFINE»
-«ENDREM»
-
 «DEFINE addArgument FOR Property -»
     «javaType(this)» «name-»
 «ENDDEFINE»
