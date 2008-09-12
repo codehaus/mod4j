@@ -1,7 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION ProjectProperties»
-«EXTENSION generatorutil»
 
 «DEFINE createDslModelsModulePom FOR BusinessDomainModel»
     «FILE getDslModelsModuleName() + "/pom.xml" -»

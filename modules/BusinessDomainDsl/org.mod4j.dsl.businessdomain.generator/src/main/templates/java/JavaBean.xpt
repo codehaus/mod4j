@@ -2,7 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION BusinessRule»
-«EXTENSION generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION ProjectProperties»
 
 «DEFINE BeanClassImplBase FOR AbstractType»

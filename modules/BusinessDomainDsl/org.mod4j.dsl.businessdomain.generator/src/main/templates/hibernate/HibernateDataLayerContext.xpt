@@ -2,7 +2,7 @@
 
 «EXTENSION ProjectProperties»
 «EXTENSION BusinessClass»
-«EXTENSION generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION crossx»
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
