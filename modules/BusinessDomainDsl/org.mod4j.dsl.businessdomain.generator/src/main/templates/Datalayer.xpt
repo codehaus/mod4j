@@ -1,7 +1,6 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT hibernate»
 
-«EXTENSION generatorutil»
 «EXTENSION BusinessClass»
 
 «DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»
@@ -9,9 +8,6 @@
 	«EXPAND HibernateConfiguration::hibernateheader     FOR this»
 	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
     «EXPAND HibernateMapping::mapping                   FOREACH this.types.typeSelect(BusinessClass) »
-«REM»
-    «EXPAND HibernateMapping::mapping(appName)                   FOREACH  this.types.typeSelect(BusinessClass) »
-«ENDREM»
 «ENDDEFINE»
 
 «DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
