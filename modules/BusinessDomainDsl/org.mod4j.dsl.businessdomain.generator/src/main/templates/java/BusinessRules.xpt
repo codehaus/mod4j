@@ -1,5 +1,4 @@
 «IMPORT BusinessDomainDsl»
-«IMPORT src::templates::java»
 
 «EXTENSION generatorutil»
 «EXTENSION ProjectProperties»
