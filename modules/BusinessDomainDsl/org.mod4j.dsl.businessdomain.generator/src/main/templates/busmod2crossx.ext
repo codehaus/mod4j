@@ -7,10 +7,10 @@ import crossx;
 import BusinessDomainDsl;
 
 create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
-    this.setName(busModel.name)->
+    this.setModelname(busModel.name)->
     this.setResource(modelFile)->
 //    this.setModel (modelReference(busModel.name, modelFile))->
-    this.elements.addAll(busModel.types.typeSelect(BusinessClass).toElement());
+    this.symbols.addAll(busModel.types.typeSelect(BusinessClass).toElement());
 /* OLD    
 create ModelInfo exportModel(BusinessDomainModel busModel) :
     this.setModel (modelReference(busModel.name))->
