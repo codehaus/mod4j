@@ -52,7 +52,7 @@ public class CrossxWorkflowComponent extends WorkflowComponentWithModelSlot {
 		ModelInfo modelInfo = (ModelInfo )model;
 
 		
-		System.err.println("Found slot [" + modelInfo .getName()+ "]");
+		System.err.println("Found slot [" + modelInfo .getModelname()+ "]");
 //		Document doc = createDocument(modelInfo);
 //		writeDocument(doc, outputFile, false, "    ");
       System.err.println("Crossx: NOTNOTNOTNOT writing document to ");
