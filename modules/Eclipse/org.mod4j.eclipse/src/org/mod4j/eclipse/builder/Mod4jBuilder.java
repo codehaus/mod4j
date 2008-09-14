@@ -46,6 +46,7 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.jdom.Document;
 
+import org.mod4j.common.generator.admin.FileTracker;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
@@ -376,6 +377,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (propertiesFile == null) {
                 EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
                         + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+                return;
             }
 
             // Setup the properties for the generator workflow
@@ -441,6 +443,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             properties.put("workDir", workDir );
             properties.put("project", resource.getProject().getName());
 
+            // Notigy filetracker
+            FileTracker.getFileTracker().initResource(modelFilePath);
             // System.err.println("applicationPath [" + newAppPath + "]");
             Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
             try {

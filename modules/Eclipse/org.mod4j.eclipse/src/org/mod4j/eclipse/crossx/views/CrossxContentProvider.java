@@ -35,10 +35,10 @@ public class CrossxContentProvider implements ITreeContentProvider {
             }
         } else if (element instanceof ModelInfo) {
             ModelInfo info = (ModelInfo) element;
-            if (info.getElements().isEmpty()) {
+            if (info.getSymbols().isEmpty()) {
                 return new Object[0];
             } else {
-                return info.getElements().toArray(); // Set<CossxLocation>
+                return info.getSymbols().toArray(); // Set<CossxLocation>
             }
         } else if (element instanceof Symbol) {
             Symbol sym = (Symbol) element;

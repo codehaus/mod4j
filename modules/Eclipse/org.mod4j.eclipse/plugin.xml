@@ -58,6 +58,21 @@
       </view>
    </extension>
    <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Mod4j"
+            id="org.mod4j.eclipse.crossx">
+      </category>
+      <view
+            allowMultiple="false"
+            category="org.mod4j.eclipse.crossx"
+            class="org.mod4j.eclipse.views.filetracker.FileTrackerView"
+            icon="icons/sample.gif"
+            id="org.mod4j.eclipse.views.filetracker.FileTrackerView"
+            name="Mod4j FileTracker View">
+      </view>
+   </extension>
+   <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="org.eclipse.ui.resourcePerspective">
