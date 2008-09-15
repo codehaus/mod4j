@@ -1,0 +1,7 @@
+/* 
+ * Operations implemented in Java 
+ */
+import ServiceDsl;
+
+String javaClassName(ServiceMethod cls) :
+ JAVA org.mod4j.dsl.service.generator.helpers.ServiceMethodHelpers.javaClassName(org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod);

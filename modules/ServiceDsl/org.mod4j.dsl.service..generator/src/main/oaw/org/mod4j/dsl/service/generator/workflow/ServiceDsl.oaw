@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workflow>
+    <!-- 
+        Initialize workflow and load properties
+    -->
+    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+    <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
+        <propertyFile value="${appPropFilePath}" />
+        <workDir value="${workDir}" />
+    </component>
+    <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+        <platformUri value=".."/>
+    </bean>
+    <bean class="org.mod4j.dsl.service.xtext.MetaModelRegistration"/>
+    <bean id="sm" class="oaw.type.emf.EmfMetaModel">
+		<metaModelPackage value="ServiceDsl.ServiceDslPackage" />  
+	</bean>
+    
+    <!--
+        Parse the model file and validate syntax and model constraints
+    -->
+    <component class="org.eclipse.mwe.emf.Reader">
+        <uri value="${modelFile}" />
+        <modelSlot value="serviceModel" />
+    </component>
+    <component id="ServiceWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="sm" />
+        <checkFile value="org::mod4j::dsl::service::xtext::GenChecks" />
+        <emfAllChildrenSlot value="serviceModel" />
+    </component>
+    <component id="ServiceWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="sm" />
+        <checkFile value="org::mod4j::dsl::service::validation::service" />
+        <emfAllChildrenSlot value="serviceModel" />
+    </component>
+
+    <!--
+        Generation of Service sources and resources for the BUSINESS layer
+    -->
+    <component id="ServiceWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="sm" />
+        <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::Generate FOR serviceModel" />
+        <outlet path="${applicationPath}/${businessModuleName}/${srcGenPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+
+    <!--
+        Generation of Service sources and resources for the SERVICE layer
+    -->
+    <component id="ServiceWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="sm" />
+        <expand value="org::mod4j::dsl::service::generator::xpand::ServiceLayer::Generate FOR serviceModel" />
+        <outlet path="${applicationPath}/${serviceModuleName}/${srcGenPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+ 
+</workflow>
