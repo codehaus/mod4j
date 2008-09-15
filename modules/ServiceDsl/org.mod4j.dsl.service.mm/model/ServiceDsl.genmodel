@@ -25,7 +25,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServiceDsl.ecore#//ModelElement/description"/>
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//DtoReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServiceDsl.ecore#//DtoReference/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServiceDsl.ecore#//DtoReference/modelname"/>
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//CustomMethod">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//CustomMethod/input"/>
