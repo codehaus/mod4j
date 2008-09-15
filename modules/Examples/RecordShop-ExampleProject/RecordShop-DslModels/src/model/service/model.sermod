@@ -1,0 +1,13 @@
+Service RecordShopService
+
+from RecordShop import PersonDto 
+from RecordShop import PersonDto 
+
+create createPerson for PersonDto ;
+read   readPerson for PersonDto ;
+update updatePerson for PersonDto ;
+delete deletePerson for PersonDto ;
+
+
+method anyThinsElse in PersonDto out PersonDto ;
+

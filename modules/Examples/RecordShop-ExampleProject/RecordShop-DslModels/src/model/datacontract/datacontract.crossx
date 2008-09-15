@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<crossx:ModelInfo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:crossx="http://www.mod4j.org/mod4j.crossx" xsi:schemaLocation="http://www.mod4j.org/mod4j.crossx java://org.mod4j.crossx.mm.crossx.CrossxPackage" modelname="RecordShop" resource="file:/D:/mod4j/ganymede/repository/modules/Examples/RecordShop-ExampleProject/RecordShop-DslModels/src/model/datacontract/datacontract.dtcmod">
+  <symbols name="PersonDto" type="Dto"/>
+  <symbols name="ArtistDto" type="Dto"/>
+  <symbols name="PersonList" type="Dto"/>
+</crossx:ModelInfo>

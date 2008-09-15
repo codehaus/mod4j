@@ -1,0 +1,9 @@
+DataContract RecordShop
+
+from RecordShopDomainModel import Person
+from RecordShopDomainModel import Artist
+
+BusinessClassDto PersonDto base Person
+BusinessClassDto ArtistDto base Artist
+
+ListDto PersonList base PersonDto 
