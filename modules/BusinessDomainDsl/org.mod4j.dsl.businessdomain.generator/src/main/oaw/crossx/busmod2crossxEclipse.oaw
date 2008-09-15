@@ -76,7 +76,7 @@
        <metaModel idRef="BusinessDomainDsl"/>
        <metaModel idRef="crossx"/>
        <globalVarDef name="nsUriPrefix" value="'${nsUriPrefix}'"/>
-       <invoke value="busmod2crossx::exportModel(model, '${modelfile}' )"/>
+       <invoke value="crossx::busmod2crossx::exportModel(model, '${modelfile}' )"/>
        <outputSlot value="crossxModel"/>
     </component>
 
