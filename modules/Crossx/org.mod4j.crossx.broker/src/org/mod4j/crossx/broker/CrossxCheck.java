@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.mod4j.crossx.broker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.crossx.mm.crossx.SymbolProperty;;
@@ -59,5 +62,17 @@ public class CrossxCheck {
     public static String definedInResource(String model, String classname){
     	String result = CrossxEnvironment.find(model, classname, "BusinessClass") ;
     	return result ;
+    }
+    
+    public static List<String> lookupAll(String project, String symboltype) {
+        List<String> result = new ArrayList<String>();
+        List<String> tmp = CrossxEnvironment.findAll(project, symboltype);
+        if (tmp != null) {
+            System.err.println("CROSSX lookup all "+ symboltype + " [" + tmp.toString() + "]");
+            result.addAll(tmp);
+        } else {
+            System.err.println("CROSSX HELPER FINDALL NULL");
+        }
+        return result;
     }
 }

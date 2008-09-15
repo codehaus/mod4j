@@ -12,3 +12,6 @@ Symbol lookup(String model, String symbolname, String symboltype) :
 String definedInResource(String model, String classname) :
  JAVA org.mod4j.crossx.broker.CrossxCheck.definedInResource(java.lang.String, java.lang.String);
  
+List[String] lookupAll(String project, String symboltype) :
+ JAVA org.mod4j.crossx.broker.CrossxCheck.lookupAll(java.lang.String, java.lang.String);
+ 
