@@ -32,17 +32,6 @@ public interface «daoInterfaceBaseName(this)» {
      */
     «javaClassName(this)» retrieve(long id);
 
-«REM»
-    /**
-     * Retrieves a «javaClassName(this)» by its name from the database.
-     * 
-     * @param id
-     *                name of the «javaClassName(this)» to retrieve.
-     * @return «this.name» retrieved or null when no «javaClassName(this)» was found.
-     */
-    «javaClassName(this)» retrieve(String id);
-«ENDREM»
-
     /**
      * Adds a new «javaClassName(this)» to the database
      * 
