@@ -9,17 +9,18 @@
  *     Ordina - initial implementation
  *******************************************************************************/
 import BusinessDomainDsl;
+import crossx;
 
-extension BusinessDomainDsl::validation::crossxutils;
+extension org::mod4j::crossx::broker::xtend::Crossx;
 
 context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
-       ! classExists(this.businessDomainModel.name, this.name);
+       lookup(this.businessDomainModel.name, this.name, "BusinessClass") != null;
 /*
 context BusinessClass ERROR "Businessclass [" + this.name + "] already defined in [" + definedInResource(this.name) + "]" :
        ! classExists(this.name);
 */
 context BusinessClassReference ERROR "BusinessClassReference [" + this.name + "] not defined inj model " + this.model:
-       classExists(this.model, this.name);
+       lookup(this.model, this.name, "BusinessClass") != null;
 
        
 
