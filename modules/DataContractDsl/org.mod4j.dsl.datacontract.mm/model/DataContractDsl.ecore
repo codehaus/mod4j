@@ -5,17 +5,20 @@
     nsURI="http://www.mod4j.org/datacontract" nsPrefix="datacontract">
   <eClassifiers xsi:type="ecore:EClass" name="DataContractModel" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="#//Dto"
-        containment="true"/>
+        containment="true" eOpposite="#//Dto/datacontractModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerations" upperBound="-1"
         eType="#//Enumeration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domainClasses" upperBound="-1"
-        eType="#//DomainClassReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessClasses" upperBound="-1"
+        eType="#//BusinessClassReference" containment="true" eOpposite="#//BusinessClassReference/datacontractModel"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dto" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DomainClassDto" eSuperTypes="#//Dto">
+  <eClassifiers xsi:type="ecore:EClass" name="Dto" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datacontractModel" eType="#//DataContractModel"
+        eOpposite="#//DataContractModel/dtos"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessClassDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//DomainClassReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//BusinessClassReference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
@@ -51,5 +54,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DomainClassReference" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessClassReference" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datacontractModel" eType="#//DataContractModel"
+        eOpposite="#//DataContractModel/businessClasses"/>
+  </eClassifiers>
 </ecore:EPackage>

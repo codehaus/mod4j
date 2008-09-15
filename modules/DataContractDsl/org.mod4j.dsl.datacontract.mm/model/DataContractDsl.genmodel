@@ -10,12 +10,14 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//DataContractModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DataContractModel/dtos"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DataContractModel/enumerations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DataContractModel/domainClasses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DataContractModel/businessClasses"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//Dto"/>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DomainClassDto">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DomainClassDto/properties"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DomainClassDto/base"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//Dto">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//Dto/datacontractModel"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//BusinessClassDto">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/base"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//ListDto">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//ListDto/baseDto"/>
@@ -47,6 +49,9 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//CustomDto">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//CustomDto/properties"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DomainClassReference"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//BusinessClassReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//BusinessClassReference/modelname"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassReference/datacontractModel"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
