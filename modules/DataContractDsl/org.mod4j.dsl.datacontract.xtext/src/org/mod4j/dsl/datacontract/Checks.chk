@@ -12,12 +12,24 @@ context DataContractModel ERROR "Write your constraint message here...!" :
 context Dto ERROR "Write your constraint message here...!" :
    true;
 
-context DomainClassDto ERROR "Write your constraint message here...!" :
+context BusinessClassReference ERROR "Write your constraint message here...!" :
+   true;
+
+context BusinessClassDto ERROR "Write your constraint message here...!" :
    true;
 
 context ListDto ERROR "Write your constraint message here...!" :
    true;
 
 context CustomDto ERROR "Write your constraint message here...!" :
+   true;
+
+context Property ERROR "Write your constraint message here...!" :
+   true;
+
+context BooleanProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context StringProperty ERROR "Write your constraint message here...!" :
    true;
 

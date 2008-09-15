@@ -8,7 +8,9 @@ Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  org.openarchitectureware.xtext.core.base;visibility:=reexport,
  org.openarchitectureware.xtext.generator,
  org.mod4j.dsl.datacontract.mm;bundle-version="0.10.0",
- org.mod4j.dsl.datacontract.validation;bundle-version="0.10.0"
+ org.mod4j.dsl.datacontract.validation;bundle-version="0.10.0",
+ org.mod4j.crossx.broker;bundle-version="0.10.0",
+ org.mod4j.crossx.mm;bundle-version="0.10.0"
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.dsl.datacontract,
                 org.mod4j.dsl.datacontract.parser

@@ -4,18 +4,18 @@ importMetamodel "http://www.mod4j.org/datacontract" ;
 
 DataContractModel : 
     "DataContract" name=ID
-    (domainClasses += DomainClassReference)*
+    (businessClasses += BusinessClassReference)*
     (dtos += Dto)*
     ;
     
 Dto : 
-   ( DomainClassDto | ListDto |  CustomDto ) ;
+   ( BusinessClassDto | ListDto |  CustomDto ) ;
 
-DomainClassReference:
-    "import" name=ID;
+BusinessClassReference:
+    "from" modelname=ID "import" name=ID;
     
-DomainClassDto :
-    "DomainDto" name=ID "base" base=[DomainClassReference]
+BusinessClassDto :
+    "BusinessClassDto" name=ID "base" base=[BusinessClassReference]
     ( "[" (properties += Property)*  "]")?
     ;    
     
