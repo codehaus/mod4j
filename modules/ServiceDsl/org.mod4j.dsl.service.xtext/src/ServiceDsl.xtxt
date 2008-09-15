@@ -8,11 +8,10 @@ ServiceModel:
 	(dtoReferences+=DtoReference)*
 	(crudServices += CrudService)*
 	(methods+= ServiceMethod)*
-	"end"
 	;
 
 DtoReference:
-    "import" name=ID ";"
+    "from" modelname=ID "import" name=ID 
     ;
 
 ServiceMethod :
