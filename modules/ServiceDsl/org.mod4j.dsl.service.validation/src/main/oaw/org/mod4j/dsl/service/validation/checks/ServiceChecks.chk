@@ -1,0 +1,4 @@
+import ServiceDsl;
+
+context ServiceModel ERROR "The name of a service may not be empty" :
+    true;
