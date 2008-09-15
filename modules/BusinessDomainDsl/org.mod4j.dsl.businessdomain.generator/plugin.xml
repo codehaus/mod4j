@@ -12,7 +12,7 @@
             dslFileExtension=".busmod"
             dslMetamodelPackage="BusinessDomainDsl.BusinessDomainDslPackage"
             dslName="Business Domain DSL"
-            dslXtendModule="busmod2crossx">
+            dslXtendModule="crossx/busmod2crossx">
       </dsl>
    </extension>
    <extension
