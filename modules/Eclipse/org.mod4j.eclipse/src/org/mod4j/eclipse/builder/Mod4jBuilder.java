@@ -10,12 +10,8 @@
  *******************************************************************************/
 package org.mod4j.eclipse.builder;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.PrintStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +29,6 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -41,26 +36,17 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.ui.console.MessageConsoleStream;
-import org.jdom.Document;
-
 import org.mod4j.common.generator.admin.FileTracker;
-import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
-import org.mod4j.dslcommon.generator.helpers.StringHelpers;
-import org.mod4j.dslcommon.io.Files;
 import org.mod4j.dslcommon.openarchitectureware.DslExtension;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowException;
-import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
-import org.mod4j.dslcommon.openarchitectureware.OutletDirectoryCleaner;
 import org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner;
-import org.mod4j.dslcommon.xml.XmlUtil;
-
+import org.mod4j.dslcommon.openarchitectureware.OutletDirectoryCleaner;
+import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
 import org.mod4j.eclipse.crossx.views.CrossxView;
 import org.mod4j.eclipse.util.EclipseUtil;
 
