@@ -4,6 +4,8 @@ Bundle-Name: Mod4j DataContract DSL validation
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.validation; singleton:=true
 Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
- org.mod4j.dsl.datacontract.mm;bundle-version="0.1.0",
- org.mod4j.crossx.broker;bundle-version="0.10.0"
-Bundle-Vendor: org.mod4j
+ org.mod4j.dsl.datacontract.mm,
+ org.mod4j.crossx.broker,
+ org.mod4j.crossx.mm
+Bundle-Vendor: mod4j.org
+Export-Package: org.mod4j.dsl.datacontract.validation.checks

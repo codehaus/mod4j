@@ -1,0 +1,8 @@
+import DataContractDsl;
+
+context DataContractModel ERROR "The name of a datacontract model may not be empty" :
+    this.name != null;
+    
+context Dto ERROR "The name of Dto "+ this.name + " must be unique" :
+    this.datacontractModel.dtos.name.select(e|e.matches(this.name)).size == 1;
+// 
