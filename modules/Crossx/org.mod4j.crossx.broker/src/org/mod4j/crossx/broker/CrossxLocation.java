@@ -75,8 +75,8 @@ public class CrossxLocation {
 	 */
 	public String find(String model, String name, String elemType) {
 		for(ModelInfo modelinfo : information){
-			if( modelinfo.getName().equals(model) ){
-				for(Symbol symbol : modelinfo.getElements()){
+			if( modelinfo.getModelname().equals(model) ){
+				for(Symbol symbol : modelinfo.getSymbols()){
 					if( symbol.getName().equals(name) && 
 						symbol.getType().equals(elemType) )
 					{
@@ -96,7 +96,7 @@ public class CrossxLocation {
 	public List<String> findAll(String elemType) {
 		List<String> result = new ArrayList<String>();
 		for(ModelInfo modelinfo : information){
-			for(Symbol symbol : modelinfo.getElements()){
+			for(Symbol symbol : modelinfo.getSymbols()){
 				String value = symbol.getType();
 				if( (value != null) && value.equals(elemType) )
 				{
