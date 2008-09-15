@@ -3,8 +3,8 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION BusinessClass»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-«EXTENSION crossx»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
 «LET generate(getApplicationName() + "DataLaagContext.xml") AS filename-»
@@ -46,7 +46,7 @@
 «ENDFOREACH»
 «ENDREM»
 
-«FOREACH allBusinessClasses( getProject() ) AS clsName»
+«FOREACH lookupAll( getProject(), "BusinessClass" ) AS clsName»
     <bean id="«clsName.toFirstLower()»Dao"
         class="«getDaoPackage()».«clsName»DaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
@@ -62,7 +62,7 @@
         </property>
         <property name="mappingResources">
             <list>
-«FOREACH allBusinessClasses( getProject() ) AS clsName»
+«FOREACH lookupAll( getProject(), "BusinessClass" ) AS clsName»
                 <value>«clsName».hbm.xml</value>
 «ENDFOREACH»
 «REM»
