@@ -12,5 +12,5 @@ Eclipse-LazyStart: true
 Export-Package: org.mod4j.businessdomain.xtext,
  org.mod4j.businessdomain.xtext.parser,
  org.mod4j.businessdomain.xtext.resource
-Bundle-Vendor: org.mod4j
+Bundle-Vendor: mod4j.org
 
