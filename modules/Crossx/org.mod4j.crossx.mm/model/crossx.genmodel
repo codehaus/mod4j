@@ -9,9 +9,9 @@
   <genPackages prefix="Crossx" basePackage="org.mod4j.crossx.mm" disposableProviderFactory="true"
       ecorePackage="crossx.ecore#/">
     <genClasses ecoreClass="crossx.ecore#//ModelInfo">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crossx.ecore#//ModelInfo/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crossx.ecore#//ModelInfo/symbols"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/lastChanged"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/modelname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/resource"/>
     </genClasses>
     <genClasses ecoreClass="crossx.ecore#//Symbol">

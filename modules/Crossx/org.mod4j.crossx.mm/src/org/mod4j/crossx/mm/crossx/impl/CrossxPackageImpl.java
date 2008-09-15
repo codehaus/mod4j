@@ -144,7 +144,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getModelInfo_Elements() {
+    public EReference getModelInfo_Symbols() {
         return (EReference)modelInfoEClass.getEStructuralFeatures().get(0);
     }
 
@@ -162,7 +162,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getModelInfo_Name() {
+    public EAttribute getModelInfo_Modelname() {
         return (EAttribute)modelInfoEClass.getEStructuralFeatures().get(2);
     }
 
@@ -321,9 +321,9 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
 
         // Create classes and their features
         modelInfoEClass = createEClass(MODEL_INFO);
-        createEReference(modelInfoEClass, MODEL_INFO__ELEMENTS);
+        createEReference(modelInfoEClass, MODEL_INFO__SYMBOLS);
         createEAttribute(modelInfoEClass, MODEL_INFO__LAST_CHANGED);
-        createEAttribute(modelInfoEClass, MODEL_INFO__NAME);
+        createEAttribute(modelInfoEClass, MODEL_INFO__MODELNAME);
         createEAttribute(modelInfoEClass, MODEL_INFO__RESOURCE);
 
         symbolEClass = createEClass(SYMBOL);
@@ -377,9 +377,9 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
 
         // Initialize classes and features; add operations and parameters
         initEClass(modelInfoEClass, ModelInfo.class, "ModelInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getModelInfo_Elements(), this.getSymbol(), this.getSymbol_Owner(), "elements", null, 0, -1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getModelInfo_Symbols(), this.getSymbol(), this.getSymbol_Owner(), "symbols", null, 0, -1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getModelInfo_LastChanged(), ecorePackage.getEString(), "lastChanged", "", 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getModelInfo_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getModelInfo_Modelname(), ecorePackage.getEString(), "modelname", null, 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getModelInfo_Resource(), ecorePackage.getEString(), "resource", "[unknown]", 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -387,7 +387,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
         initEAttribute(getSymbol_Type(), ecorePackage.getEString(), "type", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSymbol_Properties(), this.getSymbolProperty(), null, "properties", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSymbol_SubSymbols(), this.getSymbol(), null, "subSymbols", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getSymbol_Owner(), this.getModelInfo(), this.getModelInfo_Elements(), "owner", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbol_Owner(), this.getModelInfo(), this.getModelInfo_Symbols(), "owner", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(symbolPropertyEClass, SymbolProperty.class, "SymbolProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSymbolProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, SymbolProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

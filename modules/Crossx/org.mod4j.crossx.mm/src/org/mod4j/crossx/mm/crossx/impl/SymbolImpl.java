@@ -223,7 +223,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newOwner != null)
-                msgs = ((InternalEObject)newOwner).eInverseAdd(this, CrossxPackage.MODEL_INFO__ELEMENTS, ModelInfo.class, msgs);
+                msgs = ((InternalEObject)newOwner).eInverseAdd(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
             msgs = basicSetOwner(newOwner, msgs);
             if (msgs != null) msgs.dispatch();
         }
@@ -274,7 +274,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID) {
             case CrossxPackage.SYMBOL__OWNER:
-                return eInternalContainer().eInverseRemove(this, CrossxPackage.MODEL_INFO__ELEMENTS, ModelInfo.class, msgs);
+                return eInternalContainer().eInverseRemove(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getLastChanged <em>Last Changed</em>}</li>
- *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getName <em>Name</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getModelname <em>Modelname</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
@@ -30,22 +30,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ModelInfo extends EObject {
     /**
-     * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Symbols</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.crossx.mm.crossx.Symbol}.
      * It is bidirectional and its opposite is '{@link org.mod4j.crossx.mm.crossx.Symbol#getOwner <em>Owner</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Symbols</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Elements</em>' containment reference list.
-     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getModelInfo_Elements()
+     * @return the value of the '<em>Symbols</em>' containment reference list.
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getModelInfo_Symbols()
      * @see org.mod4j.crossx.mm.crossx.Symbol#getOwner
      * @model opposite="owner" containment="true"
      * @generated
      */
-    EList<Symbol> getElements();
+    EList<Symbol> getSymbols();
 
     /**
      * Returns the value of the '<em><b>Last Changed</b></em>' attribute.
@@ -75,30 +75,30 @@ public interface ModelInfo extends EObject {
     void setLastChanged(String value);
 
     /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * Returns the value of the '<em><b>Modelname</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Modelname</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getModelInfo_Name()
+     * @return the value of the '<em>Modelname</em>' attribute.
+     * @see #setModelname(String)
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getModelInfo_Modelname()
      * @model
      * @generated
      */
-    String getName();
+    String getModelname();
 
     /**
-     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getName <em>Name</em>}' attribute.
+     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getModelname <em>Modelname</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
+     * @param value the new value of the '<em>Modelname</em>' attribute.
+     * @see #getModelname()
      * @generated
      */
-    void setName(String value);
+    void setModelname(String value);
 
     /**
      * Returns the value of the '<em><b>Resource</b></em>' attribute.

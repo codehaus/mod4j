@@ -33,9 +33,9 @@ import org.mod4j.crossx.mm.crossx.Symbol;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getLastChanged <em>Last Changed</em>}</li>
- *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getModelname <em>Modelname</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
@@ -44,14 +44,14 @@ import org.mod4j.crossx.mm.crossx.Symbol;
  */
 public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     /**
-     * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+     * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getElements()
+     * @see #getSymbols()
      * @generated
      * @ordered
      */
-    protected EList<Symbol> elements;
+    protected EList<Symbol> symbols;
 
     /**
      * The default value of the '{@link #getLastChanged() <em>Last Changed</em>}' attribute.
@@ -74,24 +74,24 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     protected String lastChanged = LAST_CHANGED_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * The default value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
+     * @see #getModelname()
      * @generated
      * @ordered
      */
-    protected static final String NAME_EDEFAULT = null;
+    protected static final String MODELNAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * The cached value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
+     * @see #getModelname()
      * @generated
      * @ordered
      */
-    protected String name = NAME_EDEFAULT;
+    protected String modelname = MODELNAME_EDEFAULT;
 
     /**
      * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
@@ -137,11 +137,11 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Symbol> getElements() {
-        if (elements == null) {
-            elements = new EObjectContainmentWithInverseEList<Symbol>(Symbol.class, this, CrossxPackage.MODEL_INFO__ELEMENTS, CrossxPackage.SYMBOL__OWNER);
+    public EList<Symbol> getSymbols() {
+        if (symbols == null) {
+            symbols = new EObjectContainmentWithInverseEList<Symbol>(Symbol.class, this, CrossxPackage.MODEL_INFO__SYMBOLS, CrossxPackage.SYMBOL__OWNER);
         }
-        return elements;
+        return symbols;
     }
 
     /**
@@ -170,8 +170,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName() {
-        return name;
+    public String getModelname() {
+        return modelname;
     }
 
     /**
@@ -179,11 +179,11 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName) {
-        String oldName = name;
-        name = newName;
+    public void setModelname(String newModelname) {
+        String oldModelname = modelname;
+        modelname = newModelname;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__MODELNAME, oldModelname, modelname));
     }
 
     /**
@@ -216,8 +216,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__ELEMENTS:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+            case CrossxPackage.MODEL_INFO__SYMBOLS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getSymbols()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -230,8 +230,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__ELEMENTS:
-                return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+            case CrossxPackage.MODEL_INFO__SYMBOLS:
+                return ((InternalEList<?>)getSymbols()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -244,12 +244,12 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__ELEMENTS:
-                return getElements();
+            case CrossxPackage.MODEL_INFO__SYMBOLS:
+                return getSymbols();
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 return getLastChanged();
-            case CrossxPackage.MODEL_INFO__NAME:
-                return getName();
+            case CrossxPackage.MODEL_INFO__MODELNAME:
+                return getModelname();
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 return getResource();
         }
@@ -265,15 +265,15 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__ELEMENTS:
-                getElements().clear();
-                getElements().addAll((Collection<? extends Symbol>)newValue);
+            case CrossxPackage.MODEL_INFO__SYMBOLS:
+                getSymbols().clear();
+                getSymbols().addAll((Collection<? extends Symbol>)newValue);
                 return;
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 setLastChanged((String)newValue);
                 return;
-            case CrossxPackage.MODEL_INFO__NAME:
-                setName((String)newValue);
+            case CrossxPackage.MODEL_INFO__MODELNAME:
+                setModelname((String)newValue);
                 return;
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 setResource((String)newValue);
@@ -290,14 +290,14 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__ELEMENTS:
-                getElements().clear();
+            case CrossxPackage.MODEL_INFO__SYMBOLS:
+                getSymbols().clear();
                 return;
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 setLastChanged(LAST_CHANGED_EDEFAULT);
                 return;
-            case CrossxPackage.MODEL_INFO__NAME:
-                setName(NAME_EDEFAULT);
+            case CrossxPackage.MODEL_INFO__MODELNAME:
+                setModelname(MODELNAME_EDEFAULT);
                 return;
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 setResource(RESOURCE_EDEFAULT);
@@ -314,12 +314,12 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case CrossxPackage.MODEL_INFO__ELEMENTS:
-                return elements != null && !elements.isEmpty();
+            case CrossxPackage.MODEL_INFO__SYMBOLS:
+                return symbols != null && !symbols.isEmpty();
             case CrossxPackage.MODEL_INFO__LAST_CHANGED:
                 return LAST_CHANGED_EDEFAULT == null ? lastChanged != null : !LAST_CHANGED_EDEFAULT.equals(lastChanged);
-            case CrossxPackage.MODEL_INFO__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case CrossxPackage.MODEL_INFO__MODELNAME:
+                return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
         }
@@ -338,8 +338,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (lastChanged: ");
         result.append(lastChanged);
-        result.append(", name: ");
-        result.append(name);
+        result.append(", modelname: ");
+        result.append(modelname);
         result.append(", resource: ");
         result.append(resource);
         result.append(')');

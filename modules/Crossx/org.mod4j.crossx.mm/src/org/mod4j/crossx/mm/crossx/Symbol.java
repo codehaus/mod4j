@@ -116,7 +116,7 @@ public interface Symbol extends EObject {
 
     /**
      * Returns the value of the '<em><b>Owner</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getElements <em>Elements</em>}'.
+     * It is bidirectional and its opposite is '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getSymbols <em>Symbols</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Owner</em>' container reference isn't clear,
@@ -126,8 +126,8 @@ public interface Symbol extends EObject {
      * @return the value of the '<em>Owner</em>' container reference.
      * @see #setOwner(ModelInfo)
      * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getSymbol_Owner()
-     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getElements
-     * @model opposite="elements" transient="false"
+     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getSymbols
+     * @model opposite="symbols" transient="false"
      * @generated
      */
     ModelInfo getOwner();

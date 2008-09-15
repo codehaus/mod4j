@@ -69,13 +69,13 @@ public interface CrossxPackage extends EPackage {
     int MODEL_INFO = 0;
 
     /**
-     * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+     * The feature id for the '<em><b>Symbols</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_INFO__ELEMENTS = 0;
+    int MODEL_INFO__SYMBOLS = 0;
 
     /**
      * The feature id for the '<em><b>Last Changed</b></em>' attribute.
@@ -87,13 +87,13 @@ public interface CrossxPackage extends EPackage {
     int MODEL_INFO__LAST_CHANGED = 1;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Modelname</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_INFO__NAME = 2;
+    int MODEL_INFO__MODELNAME = 2;
 
     /**
      * The feature id for the '<em><b>Resource</b></em>' attribute.
@@ -318,15 +318,15 @@ public interface CrossxPackage extends EPackage {
     EClass getModelInfo();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getElements <em>Elements</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getSymbols <em>Symbols</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Elements</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getElements()
+     * @return the meta object for the containment reference list '<em>Symbols</em>'.
+     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getSymbols()
      * @see #getModelInfo()
      * @generated
      */
-    EReference getModelInfo_Elements();
+    EReference getModelInfo_Symbols();
 
     /**
      * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getLastChanged <em>Last Changed</em>}'.
@@ -340,15 +340,15 @@ public interface CrossxPackage extends EPackage {
     EAttribute getModelInfo_LastChanged();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getName <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getModelname <em>Modelname</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getName()
+     * @return the meta object for the attribute '<em>Modelname</em>'.
+     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getModelname()
      * @see #getModelInfo()
      * @generated
      */
-    EAttribute getModelInfo_Name();
+    EAttribute getModelInfo_Modelname();
 
     /**
      * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getResource <em>Resource</em>}'.
@@ -533,12 +533,12 @@ public interface CrossxPackage extends EPackage {
         EClass MODEL_INFO = eINSTANCE.getModelInfo();
 
         /**
-         * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Symbols</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference MODEL_INFO__ELEMENTS = eINSTANCE.getModelInfo_Elements();
+        EReference MODEL_INFO__SYMBOLS = eINSTANCE.getModelInfo_Symbols();
 
         /**
          * The meta object literal for the '<em><b>Last Changed</b></em>' attribute feature.
@@ -549,12 +549,12 @@ public interface CrossxPackage extends EPackage {
         EAttribute MODEL_INFO__LAST_CHANGED = eINSTANCE.getModelInfo_LastChanged();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Modelname</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MODEL_INFO__NAME = eINSTANCE.getModelInfo_Name();
+        EAttribute MODEL_INFO__MODELNAME = eINSTANCE.getModelInfo_Modelname();
 
         /**
          * The meta object literal for the '<em><b>Resource</b></em>' attribute feature.
