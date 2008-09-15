@@ -29,6 +29,12 @@ String getDomainModulePath() :
 String getDataModulePath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataModulePath();
 
+String getBusinessRootPackage() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessRootPackage();
+
+String getServiceRootPackage() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getServiceRootPackage();
+
 String getDomainRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackage();
 

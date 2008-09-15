@@ -43,6 +43,8 @@ public class ProjectProperties {
         domainModuleName = properties.getProperty("domainModuleName");
         dataModuleName = properties.getProperty("dataModuleName");
         rootPackage = properties.getProperty("rootPackage");
+        businessRootPackage = properties.getProperty("businessRootPackage");
+        serviceRootPackage = properties.getProperty("serviceRootPackage");
         domainRootPackage = properties.getProperty("domainRootPackage");
         dataRootPackage = properties.getProperty("dataRootPackage");
         srcGenPath = properties.getProperty("srcGenPath");
@@ -70,6 +72,10 @@ public class ProjectProperties {
     
     private static String rootPackage = "DEFAULT";
 
+    private static String businessRootPackage = "DEFAULT";
+    
+    private static String serviceRootPackage = "DEFAULT";
+    
     private static String domainRootPackage = "DEFAULT";
 
     private static String dataRootPackage = "DEFAULT";
@@ -136,10 +142,18 @@ public class ProjectProperties {
         return rootPackage;
     }
 
+    public static String getBusinessRootPackage() {
+        return businessRootPackage;
+    }
+
+    public static String getServiceRootPackage() {
+        return serviceRootPackage;
+    }
+
     public static String getDomainRootPackage() {
         return domainRootPackage;
     }
-
+    
     public static String getDomainRootPackageAsPath() {
         return getDomainRootPackage().replaceAll("\\.", "/");
     }
