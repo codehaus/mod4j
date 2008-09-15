@@ -9,7 +9,9 @@ Export-Package: org.mod4j.common.generator.admin,
  org.mod4j.dslcommon.generator.helpers,
  org.mod4j.dslcommon.io,
  org.mod4j.dslcommon.openarchitectureware,
- org.mod4j.dslcommon.xml
+ org.mod4j.dslcommon.workflow,
+ org.mod4j.dslcommon.xml,
+ org.mod4j.dslcommon.xtend
 Require-Bundle: org.openarchitectureware.core.workflow,
  org.openarchitectureware.classic.libraries,
  org.apache.commons.cli,
