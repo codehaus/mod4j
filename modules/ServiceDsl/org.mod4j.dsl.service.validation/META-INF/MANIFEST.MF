@@ -4,6 +4,8 @@ Bundle-Name: Mod4j Service DSL validation
 Bundle-SymbolicName: org.mod4j.dsl.service.validation; singleton:=true
 Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
+ org.mod4j.dsl.service.mm,
  org.mod4j.crossx.broker,
- org.mod4j.dsl.service.mm
+ org.mod4j.crossx.mm
 Bundle-Vendor: mod4j.org
+Export-Package: org.mod4j.dsl.service.validation.checks
