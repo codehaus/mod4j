@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.mod4j.crossx.mm.crossx.ModelInfo;
+import org.mod4j.crossx.mm.crossx.Symbol;
 
 // import crossx.util.EclipseUtil;
 
@@ -59,21 +60,40 @@ public class CrossxEnvironment {
 		return result;
 	}	
 
-	/** Find the symbol with name 'name' and type 'type'.
-	 * 
-	 * @param name
-	 * @param elemType
-	 * @return The name of the resource if the element is found, null if it isn't found
-	 */
-	static public String find(String model, String name, String elemType) {
-		for(CrossxLocation location: environment.values()){
-			String result = location.find(model, name, elemType);
-			if( result != null ){
-				return result;
-			}
-		}
-		return null;
-	}
+    /** Find the symbol with name 'name' and type 'type'.
+     * 
+     * @param name
+     * @param elemType
+     * @return The name of the resource if the element is found, null if it isn't found
+     */
+    static public String find(String model, String name, String elemType) {
+        for(CrossxLocation location: environment.values()){
+            String result = location.find(model, name, elemType);
+            if( result != null ){
+                return result;
+            }
+        }
+        return null;
+    }
+
+    /** Find the symbol with name 'name' and type 'type'.
+     * 
+     * @param name
+     * @param elemType
+     * @return The name of the resource if the element is found, null if it isn't found
+     */
+    static public Symbol lookup(String model, String name, String elemType) {
+        if( environment == null ) {
+            System.err.println("CrossxEnvironment::find environment = null");
+        }
+        for(CrossxLocation location: environment.values()){
+            Symbol result = location.lookup(model, name, elemType);
+            if( result != null ){
+                return result;
+            }
+        }
+        return null;
+    }
 
 	/**  Find all symbols of type 'elemType'.
 	 * 

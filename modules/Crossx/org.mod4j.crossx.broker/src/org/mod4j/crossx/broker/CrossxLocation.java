@@ -67,26 +67,50 @@ public class CrossxLocation {
 	}
 	
 
-	/** Find the symbol with name 'name' and type 'type'.
-	 * 
-	 * @param name
-	 * @param elemType
-	 * @return The name of the resource if the element is found, null if it isn't found
-	 */
-	public String find(String model, String name, String elemType) {
-		for(ModelInfo modelinfo : information){
-			if( modelinfo.getModelname().equals(model) ){
-				for(Symbol symbol : modelinfo.getSymbols()){
-					if( symbol.getName().equals(name) && 
-						symbol.getType().equals(elemType) )
-					{
-						return modelinfo.getResource();
-					}
-				}
-			}
-		}
-		return null;
-	}
+    /** Find the symbol with name 'name' and type 'type'.
+     * 
+     * @param name
+     * @param elemType
+     * @return The name of the resource if the element is found, null if it isn't found
+     */
+    public String find(String model, String name, String elemType) {
+        for(ModelInfo modelinfo : information){
+            if( modelinfo.getModelname().equals(model) ){
+                for(Symbol symbol : modelinfo.getSymbols()){
+                    if( symbol.getName().equals(name) && 
+                        symbol.getType().equals(elemType) )
+                    {
+                        return modelinfo.getResource();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /** Find the symbol with name 'name' and type 'type'.
+     * 
+     * @param name
+     * @param elemType
+     * @return The name of the resource if the element is found, null if it isn't found
+     */
+    public Symbol lookup(String model, String name, String elemType) {
+        if( information == null ) {
+            System.err.println("CrossxLocation::lookup information = null");
+        }
+        for(ModelInfo modelinfo : information){
+            if( modelinfo.getModelname().equals(model) ){
+                for(Symbol symbol : modelinfo.getSymbols()){
+                    if( symbol.getName().equals(name) && 
+                        symbol.getType().equals(elemType) )
+                    {
+                        return symbol;
+                    }
+                }
+            }
+        }
+        return null;
+    }
 
 	/**  Find all symbols of type 'elemType'.
 	 * 
