@@ -83,7 +83,12 @@ public class EclipseUtil {
 	static public IPath getPath(String bundlename, String pathname) {
 		String myPathname = null;
 		if( Platform.inDevelopmentMode() ){ 
-			myPathname = "src/main/oaw/"+pathname;
+            if( bundlename.equals("org.mod4j.dsl.businessdomain.generator")) {
+                myPathname = "src/main/templates/"+pathname;
+            }
+            if( bundlename.equals("org.mod4j.dsl.datacontract.generator")) {
+                myPathname = "src/main/oaw/"+pathname;
+            }
 		} else {
 			myPathname = pathname;
 		}
