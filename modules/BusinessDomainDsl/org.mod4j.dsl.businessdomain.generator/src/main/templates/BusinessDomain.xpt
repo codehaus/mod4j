@@ -2,8 +2,6 @@
 «IMPORT java»
 «IMPORT maven»
 
-«EXTENSION generatorutil»
-
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
 	«EXPAND JavaBean::BeanClassImplBase FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND BusinessRules::BusinessRulesImplBases FOREACH types.typeSelect(BusinessClass)»

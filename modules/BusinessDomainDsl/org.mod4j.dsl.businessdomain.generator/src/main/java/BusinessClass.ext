@@ -44,9 +44,6 @@ List[Property] getAllProperties(BusinessClass cls) :
 String javaType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
 
-String javaFileName(String rootPackage, String classname) :
-rootPackage.replaceAll("\\.", "/") + "/" + classname + ".java";
-
 boolean hasSubclasses(BusinessClass clazz) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasSubclasses(BusinessDomainDsl.BusinessClass);
 
