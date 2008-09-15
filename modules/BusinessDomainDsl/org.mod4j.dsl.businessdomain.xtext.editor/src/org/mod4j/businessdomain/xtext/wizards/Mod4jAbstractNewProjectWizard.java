@@ -179,6 +179,8 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "#" + LF +
                     "####" + LF +
 					"dslModelsModuleName=" + getModelProjectName() + LF +
+                    "serviceModuleName=" + mainPage.getApplicationNameFieldValue() + "-service" + LF +
+                    "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
                     "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
                     "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
 					"srcModelPath=src/model" + LF +
@@ -189,10 +191,12 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 					"" + LF +
 					"####" + LF +
                     "#" + LF +
-                    "# BusinessDomain model properties" + LF +
+                    "# Package properties" + LF +
                     "#" + LF +
                     "####" + LF +
                     "rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
+                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service" + LF +
+                    "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
                     "domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
                     "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF;
         }
