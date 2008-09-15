@@ -1,0 +1,39 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+
+import crossx;
+import DataContractDsl;
+
+create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
+    this.setModelname(dtcModel.name)->
+    this.setResource(modelFile)->
+    this.symbols.addAll(dtcModel.dtos.toElement());
+    
+create Symbol toElement(Dto dto) :
+    this.setName(dto.name) ->
+    this.setType("Dto");
+//    this.subProperties.addAll(dto.properties.toElement() );
+
+/*
+create crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
+    this.setName(prop.name) ->
+    this.setType("Property") ->
+    this.properties.add(prop.typeXX());
+    
+create crossx::LiteralSymbolProperty typeXX(BusinessDomainDsl::Property prop) :
+	this.setName("DataType")->
+	this.setValue(prop.dataType);
+
+create crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
+    this.setName(prop.name) ->
+    this.setType("Property") ->
+    this.properties.add(prop.typeXX());
+
+create crossx::LiteralSymbolProperty typeXX(BusinessDomainDsl::EnumerationProperty prop) :
+    this.setName("DataType")->
+    this.setValue(prop.type.name);
+*/
+    
+    
