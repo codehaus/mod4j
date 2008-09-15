@@ -3,6 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Repository
 Bundle-SymbolicName: org.mod4j.crossx.broker
 Bundle-Version: 0.10.0.qualifier
-Export-Package: org.mod4j.crossx.broker
+Export-Package: org.mod4j.crossx.broker,
+ org.mod4j.crossx.broker.xtend
 Require-Bundle: org.openarchitectureware.classic.libraries,
  org.mod4j.crossx.mm
+Bundle-Vendor: mod4j.org
