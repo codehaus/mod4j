@@ -11,21 +11,21 @@ import java.util.List;
  */
 public class DslExtension {
 
-    private String dslContributor;
+    private String dslContributor = null;
 
-    private String dslName;
+    private String dslName= null;
 
-    private String dslMetamodelPackage;
+    private String dslMetamodelPackage= null;
 
-    private String dslFileExtension;
+    private String dslFileExtension= null;
 
-    private String dsl2crossxWorkflow;
+    private String dsl2crossxWorkflow= null;
 
-    private String dslXtendModule;
+    private String dslXtendModule= null;
 
-    private String dslCodegenWorkflow;
+    private String dslCodegenWorkflow= null;
 
-    private String dslCodegenProperties;
+    private String dslCodegenProperties= null;
 
     /**
      * @param contributor
@@ -43,7 +43,6 @@ public class DslExtension {
         dslMetamodelPackage = metamodelPackage;
         dslFileExtension = fileExtension;
         dsl2crossxWorkflow = crossxWorkflow;
-        dslXtendModule = "busmod2crossx";
         dslCodegenWorkflow = codegenWorkflow;
         dslCodegenProperties = codegenProperties;
     }
@@ -71,10 +70,6 @@ public class DslExtension {
         return dsl2crossxWorkflow;
     }
 
-    public String getDslXtendModule() {
-        return dslXtendModule;
-    }
-
     public String getDslCodegenWorkflow() {
         return dslCodegenWorkflow;
     }
@@ -94,10 +89,8 @@ public class DslExtension {
             return false;
         if (getDslName().length() == 0)
             return false;
-        if (getDsl2crossxWorkflow() == null)
-            return false;
-        if (!getDsl2crossxWorkflow().endsWith(".oaw"))
-            return false;
+//        if (!getDsl2crossxWorkflow().endsWith(".oaw"))
+//            return false;
         if (getDslContributor() == null)
             return false;
         if (getDslFileExtension() == null)
