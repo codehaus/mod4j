@@ -453,6 +453,12 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
+            
+            String crossx = dsl.getDsl2crossxWorkflow();
+            if( (crossx == null) || (crossx.length() == 0) ){
+                // no crossx, stop
+                return;
+            }
             IFile file = (IFile) resource;
 
             String modelfile = EclipseUtil.resource2UriString(resource);
