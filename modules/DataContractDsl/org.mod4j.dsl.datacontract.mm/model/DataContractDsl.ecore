@@ -60,4 +60,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="datacontractModel" eType="#//DataContractModel"
         eOpposite="#//DataContractModel/businessClasses"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerProperty" eSuperTypes="#//DataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DecimalProperty" eSuperTypes="#//DataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationProperty" eSuperTypes="#//DataProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Enumeration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateTimeProperty" eSuperTypes="#//DataProperty"/>
 </ecore:EPackage>

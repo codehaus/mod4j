@@ -53,5 +53,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//BusinessClassReference/modelname"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassReference/datacontractModel"/>
     </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//IntegerProperty"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DecimalProperty"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//EnumerationProperty"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DateTimeProperty"/>
   </genPackages>
 </genmodel:GenModel>
