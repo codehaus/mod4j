@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.crossx.mm.crossx.Symbol;
 
@@ -95,11 +97,11 @@ public class CrossxEnvironment {
         return null;
     }
 
-	/**  Find all symbols of type 'elemType'.
-	 * 
-	 * @param elemType
-	 * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
-	 */
+    /**  Find all symbols of type 'elemType'.
+     * 
+     * @param elemType
+     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+     */
     static public List<String> findAll(String projectLocation, String elemType) {
        print("CrossxEnvironment::findAll [" + projectLocation + "]");
          CrossxLocation loc = environment.get(projectLocation);
@@ -109,6 +111,58 @@ public class CrossxEnvironment {
             return new ArrayList<String>();
         }
     }
+
+    /**  Find all symbols of type 'elemType'.
+     * 
+     * @param elemType
+     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+     */
+    static public List<String> findAllFromModel(String modelname, String elemType) {
+        print("CrossxEnvironment::findAllFromModel [" + modelname + "]");
+        List<String> result = new ArrayList<String>();
+        for(CrossxLocation location: environment.values()){
+            result.addAll( location.findAllFromModel(modelname, elemType) );
+        }
+        return result;
+     }
+
+    static public List<String> findAllFromModelInProject(String project, String modelname, String elemType) {
+        print("CrossxEnvironment::findAllFromModelInProject [" + modelname + "]");
+        List<String> result = new ArrayList<String>();
+        for(CrossxLocation location: environment.values()){
+            if( location.getName().equals(project)) {
+                result.addAll( location.findAllFromModel(modelname, elemType) );
+            }
+        }
+        return result;
+     }
+    
+    public static List<String> findAllModels(){
+        List<String> result = new ArrayList<String>();
+        for(CrossxLocation location: environment.values()){
+            for(ModelInfo info: location.getAll()){
+                print("FindAll Models model [" + info.getModelname() + "]");
+                test(info);
+                result.add( info.getModelname());
+            }
+        }
+        return result;
+    }
+
+    public static List<String> findAllModelsInProject(String project){
+        List<String> result = new ArrayList<String>();
+        for(CrossxLocation location: environment.values()){
+            if( location.getName().equals(project)){
+                for(ModelInfo info: location.getAll()){
+                    print("FindAll Models model [" + info.getModelname() + "]");
+                    test(info);
+                    result.add( info.getModelname());
+                }
+            }
+        }
+        return result;
+    }
+ 
 
     static public List<String> findAllEverywhere(String elemType) {
         List<String> result = new ArrayList<String>();
@@ -126,6 +180,16 @@ public class CrossxEnvironment {
 			loc.setPrintWriter(pr);
 		}
 	}
+
+	public static void test(EObject o) {
+        URI u = o.eResource().getURI();
+        print("EOBJECT: URI 1[" + u.toFileString() + "]");
+        print("EOBJECT: URI 2[" + u.toString() + "]");
+        print("EOBJECT: URI 3[" + u.toPlatformString(true) + "]");
+        print("EOBJECT: URI 3[" + u.toPlatformString(false) + "]");
+        print("EOBJECT: URI 4[" + u.devicePath() + "]");
+        print("EOBJECT: URI 4[" + u.path() + "]");
+    }
 
 	/** Print to the error output or the given printstream
 	 * 

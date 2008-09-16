@@ -47,6 +47,10 @@ public class CrossxLocation {
 	    return Collections.unmodifiableList(information);
 	}
 
+    /**
+     * Add modelinfo to this location
+     * @param modelinfo
+     */
 	public void addModelInfo(ModelInfo modelinfo) {
 		ModelInfo existing = findModelInfo(modelinfo, information);
 		if( existing != null ) {
@@ -57,6 +61,12 @@ public class CrossxLocation {
 		print("XXXX Adding " + modelinfo.getResource());
 	}
 
+	/**
+	 * Find the existing ModelInfo that has the same resource as modelinfo
+	 * @param modelinfo
+	 * @param modelInfoList
+	 * @return
+	 */
 	private ModelInfo findModelInfo(ModelInfo modelinfo, List<ModelInfo> modelInfoList) {
 		for(ModelInfo existing: modelInfoList){
 			if( modelinfo.getResource().equals( existing.getResource())){
@@ -112,25 +122,46 @@ public class CrossxLocation {
         return null;
     }
 
-	/**  Find all symbols of type 'elemType'.
-	 * 
-	 * @param elemType
-	 * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
-	 */
-	public List<String> findAll(String elemType) {
-		List<String> result = new ArrayList<String>();
-		for(ModelInfo modelinfo : information){
-			for(Symbol symbol : modelinfo.getSymbols()){
-				String value = symbol.getType();
-				if( (value != null) && value.equals(elemType) )
-				{
-					result.add(symbol.getName());
-				} else {
-				}
-			}
-		}
-		return result;
-	}
+    /**  Find all symbols of type 'elemType'.
+     * 
+     * @param elemType
+     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+     */
+    public List<String> findAll(String elemType) {
+        List<String> result = new ArrayList<String>();
+        for(ModelInfo modelinfo : information){
+            for(Symbol symbol : modelinfo.getSymbols()){
+                String value = symbol.getType();
+                if( (value != null) && value.equals(elemType) )
+                {
+                    result.add(symbol.getName());
+                } else {
+                }
+            }
+        }
+        return result;
+    }
+
+    /**  Find all symbols of type 'elemType'.
+     * 
+     * @param elemType
+     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+     */
+    public List<String> findAllFromModel(String modelname, String elemType) {
+        List<String> result = new ArrayList<String>();
+        for(ModelInfo modelinfo : information){
+            if( modelinfo.getModelname().equals(modelname)) {
+                for(Symbol symbol : modelinfo.getSymbols()){
+                    String value = symbol.getType();
+                    if( (value != null) && value.equals(elemType) )
+                    {
+                        result.add(symbol.getName());
+                    }
+                }
+            }
+        }
+        return result;
+    }
 	
 	private PrintWriter pr = null;
 	

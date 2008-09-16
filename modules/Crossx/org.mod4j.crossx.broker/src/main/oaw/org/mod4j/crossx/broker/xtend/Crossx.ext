@@ -8,3 +8,13 @@ String definedInResource(String model, String classname) :
  
 List[String] lookupAll(String project, String symboltype) :
  JAVA org.mod4j.crossx.broker.CrossxCheck.lookupAll(java.lang.String, java.lang.String);
+ 
+List[String] findAllFromModel(String modelname, String elemType) :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllFromModel(java.lang.String, java.lang.String) ;
+
+List[String] findAllModels() :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModels() ;
+
+List[String] findAllModelsInProject(String project) :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModelsInProject(java.lang.String) ;
+ 
