@@ -52,6 +52,11 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 	 */
 	private void initialize() {
 		oawWorkflow = dsl.getDsl2crossxWorkflow();
+		if( (oawWorkflow == null) || (oawWorkflow.length() == 0) ){
+		    // do nothing
+		    oawWorkflow = null;
+		    return;
+		}
 		ClassLoader cls = CrossxDirectoryVisitor.class.getClassLoader();
 		URL url = cls.getResource(oawWorkflow);
 		if( url == null ){
@@ -64,7 +69,9 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 	private static final String CROSSX_EXTENSION = ".crossx";
 
 	private void generateCrossxSymbols(File file) throws Mod4jWorkflowException {
-			
+		if( oawWorkflow == null ) {
+		    return;
+		}
 		String modelfile = file.getAbsolutePath();
 		modelfile = StringHelpers.replaceAllSubstrings(modelfile, "\\", "/");
 		String crossxfile = modelfile.substring(0, modelfile.lastIndexOf(dsl.getDslFileExtension())) +
