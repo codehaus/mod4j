@@ -225,7 +225,7 @@ public class EclipseUtil {
             }
         }
         //no console found, so create a new one
-        if( myConsole == null ){
+        if( myConsole == null ){    
             myConsole = new MessageConsole(name, null);
         }
         conMan.addConsoles(new IConsole[]{myConsole});
