@@ -1,9 +1,31 @@
 DataContract RecordShop
 
 from RecordShopDomainModel import Person
-from RecordShopDomainModel import Artist
+from RecordShopDomainModel import Artist  
 
-BusinessClassDto PersonDto base Person
-BusinessClassDto ArtistDto base Artist
+BusinessClassDto PersonDto base Person [
+    "First name of the person." 
+    string firstName ;
+    "Last name of the person." 
+    string lastName ;
+    "The age of this person in years"
+    integer age ;
+    "Number of ears (we allow Vulcans in this system)."  
+    integer numberOfEars ;
+]
+
+
+BusinessClassDto ArtistDto base Artist [
+    "First name of the person." 
+    string firstName ;
+    "Last name of the person." 
+    string lastName ;
+    "The age of this person in years"
+    integer age ;
+    "Number of ears (we allow Vulcans in this system)."  
+    integer numberOfEars ;
+	"extra attribute from Artist"
+	string title;
+]
 
 ListDto PersonList base PersonDto 
