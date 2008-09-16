@@ -3,18 +3,18 @@ preventMMGeneration
 importMetamodel "http://www.mod4j.org/datacontract" ;
 
 DataContractModel : 
-    description=STRING
+    (description=STRING)?
     "DataContract" name=ID
     (businessClasses += BusinessClassReference)*
     (dtos += Dto)*
     ;
     
 Dto : 
-    description=STRING
+    (description=STRING)?
    ( BusinessClassDto | ListDto |  CustomDto ) ;
 
 BusinessClassReference:
-    description=STRING
+    (description=STRING)?
     "from" modelname=ID "import" name=ID;
     
 BusinessClassDto :
@@ -32,23 +32,20 @@ CustomDto :
     ;    
 
 Property:
-    description=STRING
+    (description=STRING)?
     (BooleanProperty | StringProperty  | DateTimeProperty | IntegerProperty |DecimalProperty | EnumerationProperty) 
 	";"
 	;
 
 BooleanProperty:
-    (description=STRING)?
     dataType="boolean" name=ID
     ;
 
 StringProperty:
-    (description=STRING)?
     dataType="string" name=ID
     ;
 
 DateTimeProperty:
-    (description=STRING)?
     dataType="datetime"
 //    accuracy=DateTimeAccuracy
     name=ID
@@ -60,17 +57,14 @@ DateTimeProperty:
 //    ;
 
 IntegerProperty:
-    (description=STRING)?
     dataType="integer" name=ID
     ;
 
 DecimalProperty:
-    (description=STRING)?
     dataType="decimal" name=ID
     ;
 
 EnumerationProperty:
-    (description=STRING)?
     type=[Enumeration] name=ID
     ; 
 
