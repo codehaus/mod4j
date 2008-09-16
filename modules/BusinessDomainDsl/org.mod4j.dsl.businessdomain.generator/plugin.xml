@@ -11,8 +11,7 @@
             dslCodegenWorkflow="codegen/BusinessDomainDsl.oaw"
             dslFileExtension=".busmod"
             dslMetamodelPackage="BusinessDomainDsl.BusinessDomainDslPackage"
-            dslName="Business Domain DSL"
-            dslXtendModule="crossx/busmod2crossx">
+            dslName="Business Domain DSL">
       </dsl>
    </extension>
    <extension
