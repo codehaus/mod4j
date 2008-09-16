@@ -1,9 +1,11 @@
-DataContract RecordShop
+"The RecordShop data contract."
+DataContract RecordShopDataContract
 
-from RecordShopDomainModel import Person
-from RecordShopDomainModel import Artist  
+from RecordShopDomainModel import Customer
+from RecordShopDomainModel import Artist
+from RecordShopDomainModel import Order  
 
-BusinessClassDto PersonDto base Person [
+BusinessClassDto SimpleCustomerDto base Customer [
     "First name of the person." 
     string firstName ;
     "Last name of the person." 
@@ -14,7 +16,14 @@ BusinessClassDto PersonDto base Person [
     integer numberOfEars ;
 ]
 
+BusinessClassDto OrderNumberAndDateDto base Order [
+ 	"An ordernumber should be unique"
+    string orderNumber;
+    "The date on which the order has been placed"
+    datetime orderDate;
+]
 
+"The Artist transfer object"
 BusinessClassDto ArtistDto base Artist [
     "First name of the person." 
     string firstName ;
@@ -28,4 +37,20 @@ BusinessClassDto ArtistDto base Artist [
 	string title;
 ]
 
-ListDto PersonList base PersonDto 
+"List of Customers"
+ListDto SimpleCusomerList base SimpleCustomerDto 
+"List of Orders"
+ListDto OrderNumberAndDateList base OrderNumberAndDateDto 
+
+CustomDto StringDto [ 
+    "A string attribute"
+    string stringAttribute;
+]
+
+"Customer unique key"
+CustomDto UniqueCustomerDto [ 
+    "firstName"
+    string firstName;
+    "lastName"
+    string lastName;
+]

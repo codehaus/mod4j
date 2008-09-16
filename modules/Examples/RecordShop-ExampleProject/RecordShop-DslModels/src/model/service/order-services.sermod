@@ -1,7 +1,16 @@
+"The RecordShop Order Service Model. Contains all services for handling and maintaining Orders"
+Service RecordShopOrderServiceModel 
 
-"The Order Service Model for RecordShop"
-Service OrderServiceModel 
+from RecordShopDataContract import OrderNumberAndDateDto
+from RecordShopDataContract import SimpleCustomerDto
+from RecordShopDataContract import OrderNumberAndDateList
 
-      
+/* 
+ * Create, read, update and delete services
+ */
+crud for SimpleCustomerDto;
 
-end
+"Find all Orders for a specific Customer"
+method findOrdersByCustomer in SimpleCustomerDto out OrderNumberAndDateList;
+
+

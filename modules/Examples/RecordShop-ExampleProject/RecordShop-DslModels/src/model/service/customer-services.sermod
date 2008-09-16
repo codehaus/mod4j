@@ -1,7 +1,20 @@
+"The RecordShop Customer Service Model. Contains all services needed to maintain Customers."
+Service RecordShopCustomerServiceModel
 
-"The Customer Service Model for RecordShop"
-Service CustomerServiceModel 
+from RecordShopDataContract import CustomerDto
+from RecordShopDataContract import UniqueCustomerDto
+from RecordShopDataContract import CusomerList
+from RecordShopDataContract import StringDto
 
-      
+create createCustomer for CustomerDto;
+read   readCustomer for CustomerDto;
+update updateCustomer for CustomerDto; 
+delete deleteCustomer for CustomerDto;
 
-end
+"Find Customer by unique key attributes."
+method findCustomerByUniqueKey in UniqueCustomerDto out CustomerDto;
+
+"Find all Customers matcing the given name."
+method findCustomerByName in StringDto out CusomerList;
+
+custom checkCreditworthy for CustomerDto;

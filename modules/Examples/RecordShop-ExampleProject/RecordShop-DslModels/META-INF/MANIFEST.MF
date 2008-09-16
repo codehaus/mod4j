@@ -8,7 +8,7 @@ Require-Bundle: org.openarchitectureware.dependencies,
  org.mod4j.dsl.businessdomain.mm,
  org.mod4j.dsl.businessdomain.validation,
  org.mod4j.dsl.businessdomain.xtext,
- org.mod4j.dsl.service..generator;bundle-version="0.10.0",
+ org.mod4j.dsl.service.generator;bundle-version="0.10.0",
  org.mod4j.dsl.service.mm;bundle-version="0.10.0",
  org.mod4j.dsl.service.validation;bundle-version="0.10.0",
- org.mod4j.dsl.service.xtext;bundle-version="1.0.0"
+ org.mod4j.dsl.service.xtext;bundle-version="0.10.0"
