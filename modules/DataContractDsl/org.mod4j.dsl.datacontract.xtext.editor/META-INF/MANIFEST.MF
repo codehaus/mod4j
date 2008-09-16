@@ -15,9 +15,14 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.openarchitectureware.xtext.editor.base,
  org.mod4j.dsl.datacontract.xtext,
- org.mod4j.dsl.datacontract.mm;bundle-version="1.0.0"
+ org.mod4j.dsl.datacontract.mm;bundle-version="1.0.0",
+ org.mod4j.crossx.broker,
+ org.eclipse.emf.ecore.xmi,
+ org.mod4j.eclipse;visibility:=reexport
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.dsl.datacontract,
- org.mod4j.dsl.datacontract.editor
+ org.mod4j.dsl.datacontract.editor,
+ org.mod4j.dsl.datacontract.wizards
 Bundle-ClassPath: .
+Bundle-Vendor: mod4j.org
 
