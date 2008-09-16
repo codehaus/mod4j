@@ -29,7 +29,7 @@ CustomDto :
     ;    
 
 Property:
-    (BooleanProperty | StringProperty ) // | DateTimeProperty | IntegerProperty |DecimalProperty | EnumerationProperty) 
+    (BooleanProperty | StringProperty  | DateTimeProperty | IntegerProperty |DecimalProperty | EnumerationProperty) 
 	";"
 	;
 
@@ -42,3 +42,31 @@ StringProperty:
     (description=STRING)?
     dataType="string" name=ID
     ;
+
+DateTimeProperty:
+    (description=STRING)?
+    dataType="datetime"
+//    accuracy=DateTimeAccuracy
+    name=ID
+    ;
+
+//Enum DateTimeAccuracy:
+//    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
+//    Second = "second" | Millisecond = "millisecond"
+//    ;
+
+IntegerProperty:
+    (description=STRING)?
+    dataType="integer" name=ID
+    ;
+
+DecimalProperty:
+    (description=STRING)?
+    dataType="decimal" name=ID
+    ;
+
+EnumerationProperty:
+    (description=STRING)?
+    type=[Enumeration] name=ID
+    ; 
+
