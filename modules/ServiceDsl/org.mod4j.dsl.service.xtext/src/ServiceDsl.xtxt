@@ -11,15 +11,16 @@ ServiceModel:
 	;
 
 DtoReference:
+	(description=STRING )?
     "from" modelname=ID "import" name=ID 
     ;
 
 ServiceMethod :
+	(description=STRING )?
     (CustomMethod | SpecialMethod)
     ;
          	
 CustomMethod:
-	(description=STRING)?
 	"method"
 	name=ID
 	("in"  input =[DtoReference]  )?
@@ -34,6 +35,7 @@ SpecialMethod:
     ;
     
 CrudService:
+	(description=STRING )?
     "crud" "for" dto =[DtoReference]
     ";"
     ;
