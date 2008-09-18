@@ -5,7 +5,7 @@
    <extension
          point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            class="org.mod4j.dsl.datacontract.resource.DataContractDslResourceFactory"
+            class="org.mod4j.dsl.datacontract.xtext.resource.DataContractDslResourceFactory"
             type="dtcmod">
       </parser>
    </extension>
