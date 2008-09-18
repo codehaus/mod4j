@@ -1,4 +1,4 @@
-package org.mod4j.dsl.datacontract;
+package org.mod4j.dsl.datacontract.xtext;
 
 import org.openarchitectureware.xtext.AbstractXtextEditorPlugin;
 import org.openarchitectureware.xtext.LanguageUtilities;

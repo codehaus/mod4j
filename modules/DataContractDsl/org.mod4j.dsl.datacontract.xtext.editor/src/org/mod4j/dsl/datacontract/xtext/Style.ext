@@ -1,7 +1,7 @@
 import scanning;
 import datacontractdsl;
 
-extension org::mod4j::dsl::datacontract::GenStyle reexport;
+extension org::mod4j::dsl::datacontract::xtext::GenStyle reexport;
 
 /*
  * Overwrite 'FontStyle fontstyle(String keyword, Object ctx)' to customize the style of keywords.

@@ -1,9 +1,9 @@
-package org.mod4j.dsl.datacontract.editor;
+package org.mod4j.dsl.datacontract.xtext.editor;
 
 import org.openarchitectureware.xtext.AbstractXtextEditorPlugin;
 import org.openarchitectureware.xtext.editor.AbstractXtextEditor;
 
-import org.mod4j.dsl.datacontract.DataContractDslEditorPlugin;
+import org.mod4j.dsl.datacontract.xtext.DataContractDslEditorPlugin;
 
 public class DataContractDslEditor extends AbstractXtextEditor {
 

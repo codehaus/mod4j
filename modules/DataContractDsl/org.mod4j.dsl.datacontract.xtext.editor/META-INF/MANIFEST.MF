@@ -20,9 +20,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.xmi,
  org.mod4j.eclipse;visibility:=reexport
 Eclipse-LazyStart: true
-Export-Package: org.mod4j.dsl.datacontract,
- org.mod4j.dsl.datacontract.editor,
- org.mod4j.dsl.datacontract.wizards
+Export-Package: org.mod4j.dsl.datacontract.xtext,
+ org.mod4j.dsl.datacontract.xtext.editor,
+ org.mod4j.dsl.datacontract.xtext.wizards
 Bundle-ClassPath: .
 Bundle-Vendor: mod4j.org
 
