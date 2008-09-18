@@ -1,6 +1,6 @@
 import DataContractDsl;
 
-extension org::mod4j::dsl::datacontract::Extensions;
+extension org::mod4j::dsl::datacontract::xtext::Extensions;
 /*
  * This check file is used by the parser
  * and by the editor. Add your constraints here!
@@ -31,5 +31,17 @@ context BooleanProperty ERROR "Write your constraint message here...!" :
    true;
 
 context StringProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context DateTimeProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context IntegerProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context DecimalProperty ERROR "Write your constraint message here...!" :
+   true;
+
+context EnumerationProperty ERROR "Write your constraint message here...!" :
    true;
 

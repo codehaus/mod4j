@@ -1,7 +1,7 @@
 import DataContractDsl;
 
-extension org::mod4j::dsl::datacontract::Extensions;
-extension org::mod4j::dsl::datacontract::GenFormatting;
+extension org::mod4j::dsl::datacontract::xtext::Extensions;
+extension org::mod4j::dsl::datacontract::xtext::GenFormatting;
 
 /*
  * This file is intended to define the standard serialization

@@ -1,6 +1,6 @@
 import DataContractDsl;
 
-extension org::mod4j::dsl::datacontract::GenExtensions reexport;
+extension org::mod4j::dsl::datacontract::xtext::GenExtensions reexport;
 
 /*
  * This extension file is intended to be used for defining
