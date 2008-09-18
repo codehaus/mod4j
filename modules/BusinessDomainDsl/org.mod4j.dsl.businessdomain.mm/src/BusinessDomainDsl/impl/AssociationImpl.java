@@ -10,6 +10,7 @@ import BusinessDomainDsl.AbstractBusinessClass;
 import BusinessDomainDsl.Association;
 import BusinessDomainDsl.BusinessClass;
 import BusinessDomainDsl.BusinessDomainDslPackage;
+import BusinessDomainDsl.BusinessDomainModel;
 import BusinessDomainDsl.Multiplicity;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getTargetMultiplicity <em>Target Multiplicity</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#isComposite <em>Composite</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#isBidirectional <em>Bidirectional</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AssociationImpl#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -451,6 +454,47 @@ public class AssociationImpl extends ModelElementImpl implements Association {
      * <!-- end-user-doc -->
      * @generated
      */
+    public BusinessDomainModel getModel() {
+        if (eContainerFeatureID != BusinessDomainDslPackage.ASSOCIATION__MODEL) return null;
+        return (BusinessDomainModel)eContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ASSOCIATION__MODEL, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setModel(BusinessDomainModel newModel) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ASSOCIATION__MODEL && newModel != null)) {
+            if (EcoreUtil.isAncestor(this, newModel))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newModel != null)
+                msgs = ((InternalEObject)newModel).eInverseAdd(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS, BusinessDomainModel.class, msgs);
+            msgs = basicSetModel(newModel, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ASSOCIATION__MODEL, newModel, newModel));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -462,6 +506,10 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 if (target != null)
                     msgs = ((InternalEObject)target).eInverseRemove(this, BusinessDomainDslPackage.ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM, AbstractBusinessClass.class, msgs);
                 return basicSetTarget((AbstractBusinessClass)otherEnd, msgs);
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetModel((BusinessDomainModel)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -478,8 +526,24 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return basicSetSource(null, msgs);
             case BusinessDomainDslPackage.ASSOCIATION__TARGET:
                 return basicSetTarget(null, msgs);
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                return basicSetModel(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID) {
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS, BusinessDomainModel.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
@@ -508,6 +572,8 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return isComposite() ? Boolean.TRUE : Boolean.FALSE;
             case BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL:
                 return isBidirectional() ? Boolean.TRUE : Boolean.FALSE;
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                return getModel();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -543,6 +609,9 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL:
                 setBidirectional(((Boolean)newValue).booleanValue());
+                return;
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                setModel((BusinessDomainModel)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -580,6 +649,9 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             case BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL:
                 setBidirectional(BIDIRECTIONAL_EDEFAULT);
                 return;
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                setModel((BusinessDomainModel)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -608,6 +680,8 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 return composite != COMPOSITE_EDEFAULT;
             case BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL:
                 return bidirectional != BIDIRECTIONAL_EDEFAULT;
+            case BusinessDomainDslPackage.ASSOCIATION__MODEL:
+                return getModel() != null;
         }
         return super.eIsSet(featureID);
     }

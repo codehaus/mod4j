@@ -97,7 +97,7 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
      */
     public EList<Enumeration> getEnumerations() {
         if (enumerations == null) {
-            enumerations = new EObjectContainmentWithInverseEList<Enumeration>(Enumeration.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainDslPackage.ENUMERATION__BUSINESS_DOMAIN_MODEL);
+            enumerations = new EObjectContainmentWithInverseEList<Enumeration>(Enumeration.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ENUMERATIONS, BusinessDomainDslPackage.ENUMERATION__MODEL);
         }
         return enumerations;
     }
@@ -109,7 +109,7 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
      */
     public EList<AbstractType> getTypes() {
         if (types == null) {
-            types = new EObjectContainmentWithInverseEList<AbstractType>(AbstractType.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL);
+            types = new EObjectContainmentWithInverseEList<AbstractType>(AbstractType.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL);
         }
         return types;
     }
@@ -121,7 +121,7 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
      */
     public EList<Association> getAssociations() {
         if (associations == null) {
-            associations = new EObjectContainmentEList<Association>(Association.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS);
+            associations = new EObjectContainmentWithInverseEList<Association>(Association.class, this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS, BusinessDomainDslPackage.ASSOCIATION__MODEL);
         }
         return associations;
     }
@@ -139,6 +139,8 @@ public class BusinessDomainModelImpl extends ModelElementImpl implements Busines
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnumerations()).basicAdd(otherEnd, msgs);
             case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getTypes()).basicAdd(otherEnd, msgs);
+            case BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssociations()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

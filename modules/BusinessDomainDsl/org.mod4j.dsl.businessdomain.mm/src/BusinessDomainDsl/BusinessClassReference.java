@@ -15,7 +15,7 @@ package BusinessDomainDsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link BusinessDomainDsl.BusinessClassReference#getModel <em>Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.BusinessClassReference#getReferredModel <em>Referred Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,28 +26,28 @@ package BusinessDomainDsl;
 public interface BusinessClassReference extends AbstractBusinessClass {
 
     /**
-     * Returns the value of the '<em><b>Model</b></em>' attribute.
+     * Returns the value of the '<em><b>Referred Model</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Model</em>' attribute isn't clear,
+     * If the meaning of the '<em>Referred Model</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Model</em>' attribute.
-     * @see #setModel(String)
-     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClassReference_Model()
+     * @return the value of the '<em>Referred Model</em>' attribute.
+     * @see #setReferredModel(String)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClassReference_ReferredModel()
      * @model
      * @generated
      */
-    String getModel();
+    String getReferredModel();
 
     /**
-     * Sets the value of the '{@link BusinessDomainDsl.BusinessClassReference#getModel <em>Model</em>}' attribute.
+     * Sets the value of the '{@link BusinessDomainDsl.BusinessClassReference#getReferredModel <em>Referred Model</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Model</em>' attribute.
-     * @see #getModel()
+     * @param value the new value of the '<em>Referred Model</em>' attribute.
+     * @see #getReferredModel()
      * @generated
      */
-    void setModel(String value);
+    void setReferredModel(String value);
 } // BusinessClassReference

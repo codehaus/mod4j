@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link BusinessDomainDsl.Enumeration#getEnumerationLiterals <em>Enumeration Literals</em>}</li>
- *   <li>{@link BusinessDomainDsl.Enumeration#getBusinessDomainModel <em>Business Domain Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,31 +45,31 @@ public interface Enumeration extends ModelElement {
     EList<EnumerationLiteral> getEnumerationLiterals();
 
     /**
-     * Returns the value of the '<em><b>Business Domain Model</b></em>' container reference.
+     * Returns the value of the '<em><b>Model</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link BusinessDomainDsl.BusinessDomainModel#getEnumerations <em>Enumerations</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Business Domain Model</em>' container reference isn't clear,
+     * If the meaning of the '<em>Model</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Business Domain Model</em>' container reference.
-     * @see #setBusinessDomainModel(BusinessDomainModel)
-     * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumeration_BusinessDomainModel()
+     * @return the value of the '<em>Model</em>' container reference.
+     * @see #setModel(BusinessDomainModel)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getEnumeration_Model()
      * @see BusinessDomainDsl.BusinessDomainModel#getEnumerations
      * @model opposite="enumerations" transient="false"
      * @generated
      */
-    BusinessDomainModel getBusinessDomainModel();
+    BusinessDomainModel getModel();
 
     /**
-     * Sets the value of the '{@link BusinessDomainDsl.Enumeration#getBusinessDomainModel <em>Business Domain Model</em>}' container reference.
+     * Sets the value of the '{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Business Domain Model</em>' container reference.
-     * @see #getBusinessDomainModel()
+     * @param value the new value of the '<em>Model</em>' container reference.
+     * @see #getModel()
      * @generated
      */
-    void setBusinessDomainModel(BusinessDomainModel value);
+    void setModel(BusinessDomainModel value);
 
 } // Enumeration

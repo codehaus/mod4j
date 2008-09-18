@@ -477,7 +477,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getEnumeration_BusinessDomainModel() {
+    public EReference getEnumeration_Model() {
         return (EReference)enumerationEClass.getEStructuralFeatures().get(1);
     }
 
@@ -711,7 +711,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAbstractType_BusinessDomainModel() {
+    public EReference getAbstractType_Model() {
         return (EReference)abstractTypeEClass.getEStructuralFeatures().get(1);
     }
 
@@ -819,6 +819,15 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getAssociation_Model() {
+        return (EReference)associationEClass.getEStructuralFeatures().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDecimalProperty() {
         return decimalPropertyEClass;
     }
@@ -900,7 +909,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getBusinessClassReference_Model() {
+    public EAttribute getBusinessClassReference_ReferredModel() {
         return (EAttribute)businessClassReferenceEClass.getEStructuralFeatures().get(0);
     }
 
@@ -1010,7 +1019,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
         enumerationEClass = createEClass(ENUMERATION);
         createEReference(enumerationEClass, ENUMERATION__ENUMERATION_LITERALS);
-        createEReference(enumerationEClass, ENUMERATION__BUSINESS_DOMAIN_MODEL);
+        createEReference(enumerationEClass, ENUMERATION__MODEL);
 
         enumerationLiteralEClass = createEClass(ENUMERATION_LITERAL);
         createEAttribute(enumerationLiteralEClass, ENUMERATION_LITERAL__PERSISTED_VALUE);
@@ -1043,7 +1052,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
         abstractTypeEClass = createEClass(ABSTRACT_TYPE);
         createEReference(abstractTypeEClass, ABSTRACT_TYPE__PROPERTIES);
-        createEReference(abstractTypeEClass, ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL);
+        createEReference(abstractTypeEClass, ABSTRACT_TYPE__MODEL);
 
         blobBinaryPropertyEClass = createEClass(BLOB_BINARY_PROPERTY);
 
@@ -1058,6 +1067,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEAttribute(associationEClass, ASSOCIATION__TARGET_MULTIPLICITY);
         createEAttribute(associationEClass, ASSOCIATION__COMPOSITE);
         createEAttribute(associationEClass, ASSOCIATION__BIDIRECTIONAL);
+        createEReference(associationEClass, ASSOCIATION__MODEL);
 
         decimalPropertyEClass = createEClass(DECIMAL_PROPERTY);
         createEAttribute(decimalPropertyEClass, DECIMAL_PROPERTY__MIN_VALUE);
@@ -1070,7 +1080,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         createEReference(abstractBusinessClassEClass, ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM);
 
         businessClassReferenceEClass = createEClass(BUSINESS_CLASS_REFERENCE);
-        createEAttribute(businessClassReferenceEClass, BUSINESS_CLASS_REFERENCE__MODEL);
+        createEAttribute(businessClassReferenceEClass, BUSINESS_CLASS_REFERENCE__REFERRED_MODEL);
 
         uniqueRuleEClass = createEClass(UNIQUE_RULE);
         createEReference(uniqueRuleEClass, UNIQUE_RULE__PROPERTIES);
@@ -1139,9 +1149,9 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getModelElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(businessDomainModelEClass, BusinessDomainModel.class, "BusinessDomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getBusinessDomainModel_Enumerations(), this.getEnumeration(), this.getEnumeration_BusinessDomainModel(), "enumerations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getBusinessDomainModel_Types(), this.getAbstractType(), this.getAbstractType_BusinessDomainModel(), "types", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getBusinessDomainModel_Associations(), this.getAssociation(), null, "associations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getBusinessDomainModel_Enumerations(), this.getEnumeration(), this.getEnumeration_Model(), "enumerations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getBusinessDomainModel_Types(), this.getAbstractType(), this.getAbstractType_Model(), "types", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getBusinessDomainModel_Associations(), this.getAssociation(), this.getAssociation_Model(), "associations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         initEClass(businessClassEClass, BusinessClass.class, "BusinessClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getBusinessClass_InheritanceModifier(), this.getInheritanceModifier(), "inheritanceModifier", "None", 0, 1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1158,7 +1168,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
         initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getEnumeration_EnumerationLiterals(), this.getEnumerationLiteral(), this.getEnumerationLiteral_Enumeration(), "enumerationLiterals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getEnumeration_BusinessDomainModel(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Enumerations(), "businessDomainModel", null, 0, 1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getEnumeration_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Enumerations(), "model", null, 0, 1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(enumerationLiteralEClass, EnumerationLiteral.class, "EnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getEnumerationLiteral_PersistedValue(), ecorePackage.getEInt(), "persistedValue", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1191,7 +1201,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
         initEClass(abstractTypeEClass, AbstractType.class, "AbstractType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getAbstractType_Properties(), this.getProperty(), this.getProperty_OwningType(), "properties", null, 0, -1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAbstractType_BusinessDomainModel(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Types(), "businessDomainModel", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAbstractType_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Types(), "model", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(blobBinaryPropertyEClass, BlobBinaryProperty.class, "BlobBinaryProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1206,6 +1216,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEAttribute(getAssociation_TargetMultiplicity(), this.getMultiplicity(), "targetMultiplicity", "1", 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_Composite(), ecorePackage.getEBoolean(), "composite", "false", 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAssociation_Bidirectional(), ecorePackage.getEBoolean(), "bidirectional", "false", 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssociation_Model(), this.getBusinessDomainModel(), this.getBusinessDomainModel_Associations(), "model", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(decimalPropertyEClass, DecimalProperty.class, "DecimalProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDecimalProperty_MinValue(), ecorePackage.getEFloat(), "minValue", "-2147483648", 0, 1, DecimalProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1218,7 +1229,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
         initEReference(getAbstractBusinessClass_AssociationsFrom(), this.getAssociation(), this.getAssociation_Target(), "associationsFrom", null, 0, -1, AbstractBusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(businessClassReferenceEClass, BusinessClassReference.class, "BusinessClassReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getBusinessClassReference_Model(), ecorePackage.getEString(), "model", null, 0, 1, BusinessClassReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getBusinessClassReference_ReferredModel(), ecorePackage.getEString(), "referredModel", null, 0, 1, BusinessClassReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(uniqueRuleEClass, UniqueRule.class, "UniqueRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getUniqueRule_Properties(), this.getProperty(), null, "properties", null, 0, -1, UniqueRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

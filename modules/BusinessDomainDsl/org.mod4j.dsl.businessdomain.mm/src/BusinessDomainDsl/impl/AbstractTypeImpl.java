@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link BusinessDomainDsl.impl.AbstractTypeImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link BusinessDomainDsl.impl.AbstractTypeImpl#getBusinessDomainModel <em>Business Domain Model</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.AbstractTypeImpl#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,8 +88,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    public BusinessDomainModel getBusinessDomainModel() {
-        if (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL) return null;
+    public BusinessDomainModel getModel() {
+        if (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL) return null;
         return (BusinessDomainModel)eContainer();
     }
 
@@ -98,8 +98,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBusinessDomainModel(BusinessDomainModel newBusinessDomainModel, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newBusinessDomainModel, BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL, msgs);
+    public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, msgs);
         return msgs;
     }
 
@@ -108,20 +108,20 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBusinessDomainModel(BusinessDomainModel newBusinessDomainModel) {
-        if (newBusinessDomainModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL && newBusinessDomainModel != null)) {
-            if (EcoreUtil.isAncestor(this, newBusinessDomainModel))
+    public void setModel(BusinessDomainModel newModel) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL && newModel != null)) {
+            if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            if (newBusinessDomainModel != null)
-                msgs = ((InternalEObject)newBusinessDomainModel).eInverseAdd(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
-            msgs = basicSetBusinessDomainModel(newBusinessDomainModel, msgs);
+            if (newModel != null)
+                msgs = ((InternalEObject)newModel).eInverseAdd(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
+            msgs = basicSetModel(newModel, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL, newBusinessDomainModel, newBusinessDomainModel));
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, newModel, newModel));
     }
 
     /**
@@ -135,10 +135,10 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetBusinessDomainModel((BusinessDomainModel)otherEnd, msgs);
+                return basicSetModel((BusinessDomainModel)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -153,8 +153,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
-                return basicSetBusinessDomainModel(null, msgs);
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return basicSetModel(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -167,7 +167,7 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID) {
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -183,8 +183,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return getProperties();
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
-                return getBusinessDomainModel();
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return getModel();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -202,8 +202,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
                 getProperties().clear();
                 getProperties().addAll((Collection<? extends Property>)newValue);
                 return;
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
-                setBusinessDomainModel((BusinessDomainModel)newValue);
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                setModel((BusinessDomainModel)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -220,8 +220,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 getProperties().clear();
                 return;
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
-                setBusinessDomainModel((BusinessDomainModel)null);
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                setModel((BusinessDomainModel)null);
                 return;
         }
         super.eUnset(featureID);
@@ -237,8 +237,8 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
         switch (featureID) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
                 return properties != null && !properties.isEmpty();
-            case BusinessDomainDslPackage.ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL:
-                return getBusinessDomainModel() != null;
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return getModel() != null;
         }
         return super.eIsSet(featureID);
     }

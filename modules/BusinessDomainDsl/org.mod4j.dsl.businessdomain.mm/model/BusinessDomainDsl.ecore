@@ -35,11 +35,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessDomainModel" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerations" upperBound="-1"
-        eType="#//Enumeration" containment="true" eOpposite="#//Enumeration/businessDomainModel"/>
+        eType="#//Enumeration" containment="true" eOpposite="#//Enumeration/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//AbstractType" containment="true" eOpposite="#//AbstractType/businessDomainModel"/>
+        eType="#//AbstractType" containment="true" eOpposite="#//AbstractType/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" ordered="false"
-        upperBound="-1" eType="#//Association" containment="true"/>
+        upperBound="-1" eType="#//Association" containment="true" eOpposite="#//Association/model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//AbstractBusinessClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceModifier" eType="#//InheritanceModifier"
@@ -63,7 +63,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerationLiterals" upperBound="-1"
         eType="#//EnumerationLiteral" containment="true" eOpposite="#//EnumerationLiteral/enumeration"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessDomainModel" eType="#//BusinessDomainModel"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//BusinessDomainModel"
         eOpposite="#//BusinessDomainModel/enumerations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationLiteral" eSuperTypes="#//ModelElement">
@@ -107,7 +107,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractType" abstract="true" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true" eOpposite="#//Property/owningType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessDomainModel" eType="#//BusinessDomainModel"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//BusinessDomainModel"
         eOpposite="#//BusinessDomainModel/types"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlobBinaryProperty" eSuperTypes="#//Property"/>
@@ -129,6 +129,8 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bidirectional" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//BusinessDomainModel"
+        eOpposite="#//BusinessDomainModel/associations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DecimalProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
@@ -147,7 +149,7 @@
         eType="#//Association" eOpposite="#//Association/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassReference" eSuperTypes="#//AbstractBusinessClass">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referredModel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UniqueRule" eSuperTypes="#//AbstractBusinessRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"

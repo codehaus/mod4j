@@ -30,7 +30,7 @@ public interface BusinessDomainModel extends ModelElement {
     /**
      * Returns the value of the '<em><b>Enumerations</b></em>' containment reference list.
      * The list contents are of type {@link BusinessDomainDsl.Enumeration}.
-     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.Enumeration#getBusinessDomainModel <em>Business Domain Model</em>}'.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Enumerations</em>' containment reference list isn't clear,
@@ -39,8 +39,8 @@ public interface BusinessDomainModel extends ModelElement {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Enumerations</em>' containment reference list.
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Enumerations()
-     * @see BusinessDomainDsl.Enumeration#getBusinessDomainModel
-     * @model opposite="businessDomainModel" containment="true"
+     * @see BusinessDomainDsl.Enumeration#getModel
+     * @model opposite="model" containment="true"
      * @generated
      */
     EList<Enumeration> getEnumerations();
@@ -48,7 +48,7 @@ public interface BusinessDomainModel extends ModelElement {
     /**
      * Returns the value of the '<em><b>Types</b></em>' containment reference list.
      * The list contents are of type {@link BusinessDomainDsl.AbstractType}.
-     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.AbstractType#getBusinessDomainModel <em>Business Domain Model</em>}'.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.AbstractType#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
@@ -57,8 +57,8 @@ public interface BusinessDomainModel extends ModelElement {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Types</em>' containment reference list.
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Types()
-     * @see BusinessDomainDsl.AbstractType#getBusinessDomainModel
-     * @model opposite="businessDomainModel" containment="true"
+     * @see BusinessDomainDsl.AbstractType#getModel
+     * @model opposite="model" containment="true"
      * @generated
      */
     EList<AbstractType> getTypes();
@@ -66,6 +66,7 @@ public interface BusinessDomainModel extends ModelElement {
     /**
      * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
      * The list contents are of type {@link BusinessDomainDsl.Association}.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.Association#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Associations</em>' containment reference list isn't clear,
@@ -74,7 +75,8 @@ public interface BusinessDomainModel extends ModelElement {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Associations</em>' containment reference list.
      * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessDomainModel_Associations()
-     * @model containment="true" ordered="false"
+     * @see BusinessDomainDsl.Association#getModel
+     * @model opposite="model" containment="true" ordered="false"
      * @generated
      */
     EList<Association> getAssociations();

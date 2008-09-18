@@ -199,13 +199,13 @@ public interface BusinessDomainDslPackage extends EPackage {
     int ABSTRACT_TYPE__PROPERTIES = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Business Domain Model</b></em>' container reference.
+     * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int ABSTRACT_TYPE__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Abstract Type</em>' class.
@@ -254,13 +254,13 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int ABSTRACT_BUSINESS_CLASS__PROPERTIES = ABSTRACT_TYPE__PROPERTIES;
 
 				/**
-     * The feature id for the '<em><b>Business Domain Model</b></em>' container reference.
+     * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_BUSINESS_CLASS__BUSINESS_DOMAIN_MODEL = ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL;
+    int ABSTRACT_BUSINESS_CLASS__MODEL = ABSTRACT_TYPE__MODEL;
 
                 /**
      * The feature id for the '<em><b>Associations From</b></em>' reference list.
@@ -318,13 +318,13 @@ public interface BusinessDomainDslPackage extends EPackage {
     int BUSINESS_CLASS__PROPERTIES = ABSTRACT_BUSINESS_CLASS__PROPERTIES;
 
     /**
-     * The feature id for the '<em><b>Business Domain Model</b></em>' container reference.
+     * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUSINESS_CLASS__BUSINESS_DOMAIN_MODEL = ABSTRACT_BUSINESS_CLASS__BUSINESS_DOMAIN_MODEL;
+    int BUSINESS_CLASS__MODEL = ABSTRACT_BUSINESS_CLASS__MODEL;
 
     /**
      * The feature id for the '<em><b>Associations From</b></em>' reference list.
@@ -500,13 +500,13 @@ public interface BusinessDomainDslPackage extends EPackage {
     int ENUMERATION__ENUMERATION_LITERALS = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Business Domain Model</b></em>' container reference.
+     * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION__BUSINESS_DOMAIN_MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int ENUMERATION__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Enumeration</em>' class.
@@ -1411,13 +1411,22 @@ public interface BusinessDomainDslPackage extends EPackage {
     int ASSOCIATION__BIDIRECTIONAL = MODEL_ELEMENT_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ASSOCIATION__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Association</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ASSOCIATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 8;
+    int ASSOCIATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 9;
 
     /**
      * The meta object id for the '{@link BusinessDomainDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
@@ -1584,13 +1593,13 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BUSINESS_CLASS_REFERENCE__PROPERTIES = ABSTRACT_BUSINESS_CLASS__PROPERTIES;
 
 				/**
-     * The feature id for the '<em><b>Business Domain Model</b></em>' container reference.
+     * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUSINESS_CLASS_REFERENCE__BUSINESS_DOMAIN_MODEL = ABSTRACT_BUSINESS_CLASS__BUSINESS_DOMAIN_MODEL;
+    int BUSINESS_CLASS_REFERENCE__MODEL = ABSTRACT_BUSINESS_CLASS__MODEL;
 
                 /**
      * The feature id for the '<em><b>Associations From</b></em>' reference list.
@@ -1601,14 +1610,14 @@ public interface BusinessDomainDslPackage extends EPackage {
      */
 	int BUSINESS_CLASS_REFERENCE__ASSOCIATIONS_FROM = ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM;
 
-				/**
-     * The feature id for the '<em><b>Model</b></em>' attribute.
+                /**
+     * The feature id for the '<em><b>Referred Model</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUSINESS_CLASS_REFERENCE__MODEL = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 0;
+    int BUSINESS_CLASS_REFERENCE__REFERRED_MODEL = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 0;
 
                 /**
      * The number of structural features of the '<em>Business Class Reference</em>' class.
@@ -1967,15 +1976,15 @@ public interface BusinessDomainDslPackage extends EPackage {
     EReference getEnumeration_EnumerationLiterals();
 
     /**
-     * Returns the meta object for the container reference '{@link BusinessDomainDsl.Enumeration#getBusinessDomainModel <em>Business Domain Model</em>}'.
+     * Returns the meta object for the container reference '{@link BusinessDomainDsl.Enumeration#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Business Domain Model</em>'.
-     * @see BusinessDomainDsl.Enumeration#getBusinessDomainModel()
+     * @return the meta object for the container reference '<em>Model</em>'.
+     * @see BusinessDomainDsl.Enumeration#getModel()
      * @see #getEnumeration()
      * @generated
      */
-    EReference getEnumeration_BusinessDomainModel();
+    EReference getEnumeration_Model();
 
     /**
      * Returns the meta object for class '{@link BusinessDomainDsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
@@ -2244,15 +2253,15 @@ public interface BusinessDomainDslPackage extends EPackage {
     EReference getAbstractType_Properties();
 
     /**
-     * Returns the meta object for the container reference '{@link BusinessDomainDsl.AbstractType#getBusinessDomainModel <em>Business Domain Model</em>}'.
+     * Returns the meta object for the container reference '{@link BusinessDomainDsl.AbstractType#getModel <em>Model</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Business Domain Model</em>'.
-     * @see BusinessDomainDsl.AbstractType#getBusinessDomainModel()
+     * @return the meta object for the container reference '<em>Model</em>'.
+     * @see BusinessDomainDsl.AbstractType#getModel()
      * @see #getAbstractType()
      * @generated
      */
-    EReference getAbstractType_BusinessDomainModel();
+    EReference getAbstractType_Model();
 
     /**
      * Returns the meta object for class '{@link BusinessDomainDsl.BlobBinaryProperty <em>Blob Binary Property</em>}'.
@@ -2373,6 +2382,17 @@ public interface BusinessDomainDslPackage extends EPackage {
     EAttribute getAssociation_Bidirectional();
 
     /**
+     * Returns the meta object for the container reference '{@link BusinessDomainDsl.Association#getModel <em>Model</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Model</em>'.
+     * @see BusinessDomainDsl.Association#getModel()
+     * @see #getAssociation()
+     * @generated
+     */
+    EReference getAssociation_Model();
+
+    /**
      * Returns the meta object for class '{@link BusinessDomainDsl.DecimalProperty <em>Decimal Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2469,15 +2489,15 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EClass getBusinessClassReference();
 
 				/**
-     * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassReference#getModel <em>Model</em>}'.
+     * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClassReference#getReferredModel <em>Referred Model</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Model</em>'.
-     * @see BusinessDomainDsl.BusinessClassReference#getModel()
+     * @return the meta object for the attribute '<em>Referred Model</em>'.
+     * @see BusinessDomainDsl.BusinessClassReference#getReferredModel()
      * @see #getBusinessClassReference()
      * @generated
      */
-    EAttribute getBusinessClassReference_Model();
+    EAttribute getBusinessClassReference_ReferredModel();
 
                 /**
      * Returns the meta object for class '{@link BusinessDomainDsl.UniqueRule <em>Unique Rule</em>}'.
@@ -2733,12 +2753,12 @@ public interface BusinessDomainDslPackage extends EPackage {
         EReference ENUMERATION__ENUMERATION_LITERALS = eINSTANCE.getEnumeration_EnumerationLiterals();
 
         /**
-         * The meta object literal for the '<em><b>Business Domain Model</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENUMERATION__BUSINESS_DOMAIN_MODEL = eINSTANCE.getEnumeration_BusinessDomainModel();
+        EReference ENUMERATION__MODEL = eINSTANCE.getEnumeration_Model();
 
         /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
@@ -2959,12 +2979,12 @@ public interface BusinessDomainDslPackage extends EPackage {
         EReference ABSTRACT_TYPE__PROPERTIES = eINSTANCE.getAbstractType_Properties();
 
         /**
-         * The meta object literal for the '<em><b>Business Domain Model</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ABSTRACT_TYPE__BUSINESS_DOMAIN_MODEL = eINSTANCE.getAbstractType_BusinessDomainModel();
+        EReference ABSTRACT_TYPE__MODEL = eINSTANCE.getAbstractType_Model();
 
         /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.BlobBinaryPropertyImpl <em>Blob Binary Property</em>}' class.
@@ -3061,6 +3081,14 @@ public interface BusinessDomainDslPackage extends EPackage {
         EAttribute ASSOCIATION__BIDIRECTIONAL = eINSTANCE.getAssociation_Bidirectional();
 
         /**
+         * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ASSOCIATION__MODEL = eINSTANCE.getAssociation_Model();
+
+        /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3139,12 +3167,12 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EClass BUSINESS_CLASS_REFERENCE = eINSTANCE.getBusinessClassReference();
 
 								/**
-         * The meta object literal for the '<em><b>Model</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Referred Model</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUSINESS_CLASS_REFERENCE__MODEL = eINSTANCE.getBusinessClassReference_Model();
+        EAttribute BUSINESS_CLASS_REFERENCE__REFERRED_MODEL = eINSTANCE.getBusinessClassReference_ReferredModel();
 
                                 /**
          * The meta object literal for the '{@link BusinessDomainDsl.impl.UniqueRuleImpl <em>Unique Rule</em>}' class.

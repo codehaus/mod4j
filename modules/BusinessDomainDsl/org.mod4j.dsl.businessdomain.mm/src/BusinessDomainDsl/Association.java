@@ -23,6 +23,7 @@ package BusinessDomainDsl;
  *   <li>{@link BusinessDomainDsl.Association#getTargetMultiplicity <em>Target Multiplicity</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#isComposite <em>Composite</em>}</li>
  *   <li>{@link BusinessDomainDsl.Association#isBidirectional <em>Bidirectional</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Association#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -254,5 +255,33 @@ public interface Association extends ModelElement {
      * @generated
      */
     void setBidirectional(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Model</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link BusinessDomainDsl.BusinessDomainModel#getAssociations <em>Associations</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Model</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Model</em>' container reference.
+     * @see #setModel(BusinessDomainModel)
+     * @see BusinessDomainDsl.BusinessDomainDslPackage#getAssociation_Model()
+     * @see BusinessDomainDsl.BusinessDomainModel#getAssociations
+     * @model opposite="associations" transient="false"
+     * @generated
+     */
+    BusinessDomainModel getModel();
+
+    /**
+     * Sets the value of the '{@link BusinessDomainDsl.Association#getModel <em>Model</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Model</em>' container reference.
+     * @see #getModel()
+     * @generated
+     */
+    void setModel(BusinessDomainModel value);
 
 } // Association
