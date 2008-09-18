@@ -7,6 +7,7 @@ import crossx;
 import DataContractDsl;
 
 create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
+    this.setDslname("DataContractDsl")->
     this.setModelname(dtcModel.name)->
     this.setResource(modelFile)->
     this.symbols.addAll(dtcModel.dtos.toElement());
