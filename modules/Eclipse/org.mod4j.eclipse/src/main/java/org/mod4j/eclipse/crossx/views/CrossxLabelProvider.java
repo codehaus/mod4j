@@ -39,7 +39,7 @@ public class CrossxLabelProvider extends LabelProvider {
             return "Project: " + loc.getName();
         } else if (element instanceof ModelInfo) {
             ModelInfo info = (ModelInfo) element;
-            return info.getModelname(); // Set<CossxLocation>
+            return info.getDslname() + " : "+ info.getModelname(); // Set<CossxLocation>
         } else if (element instanceof Symbol) {
             Symbol sym = (Symbol) element;
             return sym.getName() + " : "+ sym.getType();
