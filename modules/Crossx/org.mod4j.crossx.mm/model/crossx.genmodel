@@ -13,6 +13,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/lastChanged"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/modelname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ModelInfo/dslname"/>
     </genClasses>
     <genClasses ecoreClass="crossx.ecore#//Symbol">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//Symbol/name"/>

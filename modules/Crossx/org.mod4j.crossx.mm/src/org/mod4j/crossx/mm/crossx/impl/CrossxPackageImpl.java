@@ -180,6 +180,15 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getModelInfo_Dslname() {
+        return (EAttribute)modelInfoEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSymbol() {
         return symbolEClass;
     }
@@ -325,6 +334,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
         createEAttribute(modelInfoEClass, MODEL_INFO__LAST_CHANGED);
         createEAttribute(modelInfoEClass, MODEL_INFO__MODELNAME);
         createEAttribute(modelInfoEClass, MODEL_INFO__RESOURCE);
+        createEAttribute(modelInfoEClass, MODEL_INFO__DSLNAME);
 
         symbolEClass = createEClass(SYMBOL);
         createEAttribute(symbolEClass, SYMBOL__NAME);
@@ -381,6 +391,7 @@ public class CrossxPackageImpl extends EPackageImpl implements CrossxPackage {
         initEAttribute(getModelInfo_LastChanged(), ecorePackage.getEString(), "lastChanged", "", 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getModelInfo_Modelname(), ecorePackage.getEString(), "modelname", null, 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getModelInfo_Resource(), ecorePackage.getEString(), "resource", "[unknown]", 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getModelInfo_Dslname(), ecorePackage.getEString(), "dslname", null, 0, 1, ModelInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

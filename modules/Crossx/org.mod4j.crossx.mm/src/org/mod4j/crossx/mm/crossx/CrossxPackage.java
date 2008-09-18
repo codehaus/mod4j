@@ -105,13 +105,22 @@ public interface CrossxPackage extends EPackage {
     int MODEL_INFO__RESOURCE = 3;
 
     /**
+     * The feature id for the '<em><b>Dslname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODEL_INFO__DSLNAME = 4;
+
+    /**
      * The number of structural features of the '<em>Model Info</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_INFO_FEATURE_COUNT = 4;
+    int MODEL_INFO_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -362,6 +371,17 @@ public interface CrossxPackage extends EPackage {
     EAttribute getModelInfo_Resource();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getDslname <em>Dslname</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Dslname</em>'.
+     * @see org.mod4j.crossx.mm.crossx.ModelInfo#getDslname()
+     * @see #getModelInfo()
+     * @generated
+     */
+    EAttribute getModelInfo_Dslname();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.crossx.mm.crossx.Symbol <em>Symbol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -563,6 +583,14 @@ public interface CrossxPackage extends EPackage {
          * @generated
          */
         EAttribute MODEL_INFO__RESOURCE = eINSTANCE.getModelInfo_Resource();
+
+        /**
+         * The meta object literal for the '<em><b>Dslname</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODEL_INFO__DSLNAME = eINSTANCE.getModelInfo_Dslname();
 
         /**
          * The meta object literal for the '{@link org.mod4j.crossx.mm.crossx.impl.SymbolImpl <em>Symbol</em>}' class.

@@ -37,6 +37,7 @@ import org.mod4j.crossx.mm.crossx.Symbol;
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getLastChanged <em>Last Changed</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getModelname <em>Modelname</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.impl.ModelInfoImpl#getDslname <em>Dslname</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +113,26 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * @ordered
      */
     protected String resource = RESOURCE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getDslname() <em>Dslname</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDslname()
+     * @generated
+     * @ordered
+     */
+    protected static final String DSLNAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDslname() <em>Dslname</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDslname()
+     * @generated
+     * @ordered
+     */
+    protected String dslname = DSLNAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -212,6 +233,27 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getDslname() {
+        return dslname;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDslname(String newDslname) {
+        String oldDslname = dslname;
+        dslname = newDslname;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__DSLNAME, oldDslname, dslname));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -252,6 +294,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
                 return getModelname();
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 return getResource();
+            case CrossxPackage.MODEL_INFO__DSLNAME:
+                return getDslname();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -278,6 +322,9 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 setResource((String)newValue);
                 return;
+            case CrossxPackage.MODEL_INFO__DSLNAME:
+                setDslname((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -302,6 +349,9 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 setResource(RESOURCE_EDEFAULT);
                 return;
+            case CrossxPackage.MODEL_INFO__DSLNAME:
+                setDslname(DSLNAME_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -322,6 +372,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
                 return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
             case CrossxPackage.MODEL_INFO__RESOURCE:
                 return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+            case CrossxPackage.MODEL_INFO__DSLNAME:
+                return DSLNAME_EDEFAULT == null ? dslname != null : !DSLNAME_EDEFAULT.equals(dslname);
         }
         return super.eIsSet(featureID);
     }
@@ -342,6 +394,8 @@ public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
         result.append(modelname);
         result.append(", resource: ");
         result.append(resource);
+        result.append(", dslname: ");
+        result.append(dslname);
         result.append(')');
         return result.toString();
     }

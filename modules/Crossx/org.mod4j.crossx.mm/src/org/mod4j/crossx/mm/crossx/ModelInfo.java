@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getLastChanged <em>Last Changed</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getModelname <em>Modelname</em>}</li>
  *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getResource <em>Resource</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.ModelInfo#getDslname <em>Dslname</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,5 +127,31 @@ public interface ModelInfo extends EObject {
      * @generated
      */
     void setResource(String value);
+
+    /**
+     * Returns the value of the '<em><b>Dslname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Dslname</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Dslname</em>' attribute.
+     * @see #setDslname(String)
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getModelInfo_Dslname()
+     * @model
+     * @generated
+     */
+    String getDslname();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ModelInfo#getDslname <em>Dslname</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Dslname</em>' attribute.
+     * @see #getDslname()
+     * @generated
+     */
+    void setDslname(String value);
 
 } // ModelInfo

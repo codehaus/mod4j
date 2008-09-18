@@ -15,6 +15,10 @@
         <element xmi:type="ecore:EAttribute" href="crossx.ecore#//ModelInfo/resource"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_E-GGfoJOEd2X6udZh8pc5w"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_Cb8PUIVaEd2wwoX0CFRvJw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="crossx.ecore#//ModelInfo/dslname"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cb8PUYVaEd2wwoX0CFRvJw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_E-GGcoJOEd2X6udZh8pc5w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_E-GGc4JOEd2X6udZh8pc5w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_E-GGdIJOEd2X6udZh8pc5w"/>
