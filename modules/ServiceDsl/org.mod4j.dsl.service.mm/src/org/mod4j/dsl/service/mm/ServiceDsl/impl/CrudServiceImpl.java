@@ -32,129 +32,129 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
  */
 public class CrudServiceImpl extends ModelElementImpl implements CrudService {
 	/**
-	 * The cached value of the '{@link #getDto() <em>Dto</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDto() <em>Dto</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDto()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDto()
+     * @generated
+     * @ordered
+     */
 	protected DtoReference dto;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected CrudServiceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ServiceDslPackage.Literals.CRUD_SERVICE;
-	}
+        return ServiceDslPackage.Literals.CRUD_SERVICE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference getDto() {
-		if (dto != null && dto.eIsProxy()) {
-			InternalEObject oldDto = (InternalEObject)dto;
-			dto = (DtoReference)eResolveProxy(oldDto);
-			if (dto != oldDto) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CRUD_SERVICE__DTO, oldDto, dto));
-			}
-		}
-		return dto;
-	}
+        if (dto != null && dto.eIsProxy()) {
+            InternalEObject oldDto = (InternalEObject)dto;
+            dto = (DtoReference)eResolveProxy(oldDto);
+            if (dto != oldDto) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CRUD_SERVICE__DTO, oldDto, dto));
+            }
+        }
+        return dto;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference basicGetDto() {
-		return dto;
-	}
+        return dto;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDto(DtoReference newDto) {
-		DtoReference oldDto = dto;
-		dto = newDto;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CRUD_SERVICE__DTO, oldDto, dto));
-	}
+        DtoReference oldDto = dto;
+        dto = newDto;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CRUD_SERVICE__DTO, oldDto, dto));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ServiceDslPackage.CRUD_SERVICE__DTO:
-				if (resolve) return getDto();
-				return basicGetDto();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CRUD_SERVICE__DTO:
+                if (resolve) return getDto();
+                return basicGetDto();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ServiceDslPackage.CRUD_SERVICE__DTO:
-				setDto((DtoReference)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CRUD_SERVICE__DTO:
+                setDto((DtoReference)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.CRUD_SERVICE__DTO:
-				setDto((DtoReference)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CRUD_SERVICE__DTO:
+                setDto((DtoReference)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.CRUD_SERVICE__DTO:
-				return dto != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CRUD_SERVICE__DTO:
+                return dto != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //CrudServiceImpl

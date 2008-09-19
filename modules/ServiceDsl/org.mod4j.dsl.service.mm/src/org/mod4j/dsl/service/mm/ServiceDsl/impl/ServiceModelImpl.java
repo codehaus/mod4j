@@ -41,188 +41,188 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceModel;
  */
 public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
 	/**
-	 * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMethods()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getMethods()
+     * @generated
+     * @ordered
+     */
 	protected EList<ServiceMethod> methods;
 
 	/**
-	 * The cached value of the '{@link #getDtoReferences() <em>Dto References</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDtoReferences() <em>Dto References</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDtoReferences()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDtoReferences()
+     * @generated
+     * @ordered
+     */
 	protected EList<DtoReference> dtoReferences;
 
 	/**
-	 * The cached value of the '{@link #getCrudServices() <em>Crud Services</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getCrudServices() <em>Crud Services</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCrudServices()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getCrudServices()
+     * @generated
+     * @ordered
+     */
 	protected EList<CrudService> crudServices;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ServiceModelImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ServiceDslPackage.Literals.SERVICE_MODEL;
-	}
+        return ServiceDslPackage.Literals.SERVICE_MODEL;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<ServiceMethod> getMethods() {
-		if (methods == null) {
-			methods = new EObjectContainmentEList<ServiceMethod>(ServiceMethod.class, this, ServiceDslPackage.SERVICE_MODEL__METHODS);
-		}
-		return methods;
-	}
+        if (methods == null) {
+            methods = new EObjectContainmentEList<ServiceMethod>(ServiceMethod.class, this, ServiceDslPackage.SERVICE_MODEL__METHODS);
+        }
+        return methods;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<DtoReference> getDtoReferences() {
-		if (dtoReferences == null) {
-			dtoReferences = new EObjectContainmentEList<DtoReference>(DtoReference.class, this, ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES);
-		}
-		return dtoReferences;
-	}
+        if (dtoReferences == null) {
+            dtoReferences = new EObjectContainmentEList<DtoReference>(DtoReference.class, this, ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES);
+        }
+        return dtoReferences;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<CrudService> getCrudServices() {
-		if (crudServices == null) {
-			crudServices = new EObjectContainmentEList<CrudService>(CrudService.class, this, ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES);
-		}
-		return crudServices;
-	}
+        if (crudServices == null) {
+            crudServices = new EObjectContainmentEList<CrudService>(CrudService.class, this, ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES);
+        }
+        return crudServices;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_MODEL__METHODS:
-				return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
-			case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
-				return ((InternalEList<?>)getDtoReferences()).basicRemove(otherEnd, msgs);
-			case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
-				return ((InternalEList<?>)getCrudServices()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_MODEL__METHODS:
+                return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
+            case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
+                return ((InternalEList<?>)getDtoReferences()).basicRemove(otherEnd, msgs);
+            case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
+                return ((InternalEList<?>)getCrudServices()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_MODEL__METHODS:
-				return getMethods();
-			case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
-				return getDtoReferences();
-			case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
-				return getCrudServices();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_MODEL__METHODS:
+                return getMethods();
+            case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
+                return getDtoReferences();
+            case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
+                return getCrudServices();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_MODEL__METHODS:
-				getMethods().clear();
-				getMethods().addAll((Collection<? extends ServiceMethod>)newValue);
-				return;
-			case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
-				getDtoReferences().clear();
-				getDtoReferences().addAll((Collection<? extends DtoReference>)newValue);
-				return;
-			case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
-				getCrudServices().clear();
-				getCrudServices().addAll((Collection<? extends CrudService>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_MODEL__METHODS:
+                getMethods().clear();
+                getMethods().addAll((Collection<? extends ServiceMethod>)newValue);
+                return;
+            case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
+                getDtoReferences().clear();
+                getDtoReferences().addAll((Collection<? extends DtoReference>)newValue);
+                return;
+            case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
+                getCrudServices().clear();
+                getCrudServices().addAll((Collection<? extends CrudService>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_MODEL__METHODS:
-				getMethods().clear();
-				return;
-			case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
-				getDtoReferences().clear();
-				return;
-			case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
-				getCrudServices().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_MODEL__METHODS:
+                getMethods().clear();
+                return;
+            case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
+                getDtoReferences().clear();
+                return;
+            case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
+                getCrudServices().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_MODEL__METHODS:
-				return methods != null && !methods.isEmpty();
-			case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
-				return dtoReferences != null && !dtoReferences.isEmpty();
-			case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
-				return crudServices != null && !crudServices.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_MODEL__METHODS:
+                return methods != null && !methods.isEmpty();
+            case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
+                return dtoReferences != null && !dtoReferences.isEmpty();
+            case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
+                return crudServices != null && !crudServices.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //ServiceModelImpl

@@ -25,192 +25,192 @@ import org.mod4j.dsl.service.mm.ServiceDsl.*;
  */
 public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static ServiceDslFactory init() {
-		try {
-			ServiceDslFactory theServiceDslFactory = (ServiceDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/service"); 
-			if (theServiceDslFactory != null) {
-				return theServiceDslFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new ServiceDslFactoryImpl();
-	}
+        try {
+            ServiceDslFactory theServiceDslFactory = (ServiceDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/service"); 
+            if (theServiceDslFactory != null) {
+                return theServiceDslFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new ServiceDslFactoryImpl();
+    }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ServiceDslFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case ServiceDslPackage.SERVICE_MODEL: return createServiceModel();
-			case ServiceDslPackage.MODEL_ELEMENT: return createModelElement();
-			case ServiceDslPackage.DTO_REFERENCE: return createDtoReference();
-			case ServiceDslPackage.CUSTOM_METHOD: return createCustomMethod();
-			case ServiceDslPackage.CRUD_SERVICE: return createCrudService();
-			case ServiceDslPackage.SPECIAL_METHOD: return createSpecialMethod();
-			case ServiceDslPackage.SERVICE_METHOD: return createServiceMethod();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case ServiceDslPackage.SERVICE_MODEL: return createServiceModel();
+            case ServiceDslPackage.MODEL_ELEMENT: return createModelElement();
+            case ServiceDslPackage.DTO_REFERENCE: return createDtoReference();
+            case ServiceDslPackage.CUSTOM_METHOD: return createCustomMethod();
+            case ServiceDslPackage.CRUD_SERVICE: return createCrudService();
+            case ServiceDslPackage.SPECIAL_METHOD: return createSpecialMethod();
+            case ServiceDslPackage.SERVICE_METHOD: return createServiceMethod();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case ServiceDslPackage.METHOD_TYPE:
-				return createMethodTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eDataType.getClassifierID()) {
+            case ServiceDslPackage.METHOD_TYPE:
+                return createMethodTypeFromString(eDataType, initialValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case ServiceDslPackage.METHOD_TYPE:
-				return convertMethodTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eDataType.getClassifierID()) {
+            case ServiceDslPackage.METHOD_TYPE:
+                return convertMethodTypeToString(eDataType, instanceValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ServiceModel createServiceModel() {
-		ServiceModelImpl serviceModel = new ServiceModelImpl();
-		return serviceModel;
-	}
+        ServiceModelImpl serviceModel = new ServiceModelImpl();
+        return serviceModel;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ModelElement createModelElement() {
-		ModelElementImpl modelElement = new ModelElementImpl();
-		return modelElement;
-	}
+        ModelElementImpl modelElement = new ModelElementImpl();
+        return modelElement;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference createDtoReference() {
-		DtoReferenceImpl dtoReference = new DtoReferenceImpl();
-		return dtoReference;
-	}
+        DtoReferenceImpl dtoReference = new DtoReferenceImpl();
+        return dtoReference;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CustomMethod createCustomMethod() {
-		CustomMethodImpl customMethod = new CustomMethodImpl();
-		return customMethod;
-	}
+        CustomMethodImpl customMethod = new CustomMethodImpl();
+        return customMethod;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CrudService createCrudService() {
-		CrudServiceImpl crudService = new CrudServiceImpl();
-		return crudService;
-	}
+        CrudServiceImpl crudService = new CrudServiceImpl();
+        return crudService;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public SpecialMethod createSpecialMethod() {
-		SpecialMethodImpl specialMethod = new SpecialMethodImpl();
-		return specialMethod;
-	}
+        SpecialMethodImpl specialMethod = new SpecialMethodImpl();
+        return specialMethod;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ServiceMethod createServiceMethod() {
-		ServiceMethodImpl serviceMethod = new ServiceMethodImpl();
-		return serviceMethod;
-	}
+        ServiceMethodImpl serviceMethod = new ServiceMethodImpl();
+        return serviceMethod;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public MethodType createMethodTypeFromString(EDataType eDataType, String initialValue) {
-		MethodType result = MethodType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        MethodType result = MethodType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertMethodTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ServiceDslPackage getServiceDslPackage() {
-		return (ServiceDslPackage)getEPackage();
-	}
+        return (ServiceDslPackage)getEPackage();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * @deprecated
+     * @generated
+     */
 	@Deprecated
 	public static ServiceDslPackage getPackage() {
-		return ServiceDslPackage.eINSTANCE;
-	}
+        return ServiceDslPackage.eINSTANCE;
+    }
 
 } //ServiceDslFactoryImpl

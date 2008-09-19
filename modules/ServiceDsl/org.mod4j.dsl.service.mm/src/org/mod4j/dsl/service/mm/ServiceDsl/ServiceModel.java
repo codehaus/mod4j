@@ -28,51 +28,51 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ServiceModel extends ModelElement {
 	/**
-	 * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Methods</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Methods</em>' containment reference list.
-	 * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getServiceModel_Methods()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Methods</em>' containment reference list.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getServiceModel_Methods()
+     * @model containment="true"
+     * @generated
+     */
 	EList<ServiceMethod> getMethods();
 
 	/**
-	 * Returns the value of the '<em><b>Dto References</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Dto References</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dto References</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dto References</em>' containment reference list.
-	 * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getServiceModel_DtoReferences()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Dto References</em>' containment reference list.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getServiceModel_DtoReferences()
+     * @model containment="true"
+     * @generated
+     */
 	EList<DtoReference> getDtoReferences();
 
 	/**
-	 * Returns the value of the '<em><b>Crud Services</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Crud Services</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Crud Services</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Crud Services</em>' containment reference list.
-	 * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getServiceModel_CrudServices()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Crud Services</em>' containment reference list.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getServiceModel_CrudServices()
+     * @model containment="true"
+     * @generated
+     */
 	EList<CrudService> getCrudServices();
 
 } // ServiceModel

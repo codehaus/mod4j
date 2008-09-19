@@ -15,7 +15,7 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference#getModel <em>Model</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference#getModelname <em>Modelname</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,29 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  */
 public interface DtoReference extends ModelElement {
 	/**
-	 * Returns the value of the '<em><b>Model</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' attribute.
-	 * @see #setModel(String)
-	 * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getDtoReference_Model()
-	 * @model
-	 * @generated
-	 */
-	String getModel();
+     * Returns the value of the '<em><b>Modelname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Modelname</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Modelname</em>' attribute.
+     * @see #setModelname(String)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getDtoReference_Modelname()
+     * @model
+     * @generated
+     */
+    String getModelname();
 
-	/**
-	 * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference#getModel <em>Model</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' attribute.
-	 * @see #getModel()
-	 * @generated
-	 */
-	void setModel(String value);
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference#getModelname <em>Modelname</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Modelname</em>' attribute.
+     * @see #getModelname()
+     * @generated
+     */
+    void setModelname(String value);
 
 } // DtoReference

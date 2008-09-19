@@ -32,137 +32,137 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod;
  */
 public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
 	protected static final MethodType TYPE_EDEFAULT = MethodType.CUSTOM;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
 	protected MethodType type = TYPE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ServiceMethodImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ServiceDslPackage.Literals.SERVICE_METHOD;
-	}
+        return ServiceDslPackage.Literals.SERVICE_METHOD;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public MethodType getType() {
-		return type;
-	}
+        return type;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setType(MethodType newType) {
-		MethodType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.SERVICE_METHOD__TYPE, oldType, type));
-	}
+        MethodType oldType = type;
+        type = newType == null ? TYPE_EDEFAULT : newType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.SERVICE_METHOD__TYPE, oldType, type));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				return getType();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_METHOD__TYPE:
+                return getType();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				setType((MethodType)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_METHOD__TYPE:
+                setType((MethodType)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_METHOD__TYPE:
+                setType(TYPE_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.SERVICE_METHOD__TYPE:
-				return type != TYPE_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_METHOD__TYPE:
+                return type != TYPE_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (type: ");
+        result.append(type);
+        result.append(')');
+        return result.toString();
+    }
 
 } //ServiceMethodImpl

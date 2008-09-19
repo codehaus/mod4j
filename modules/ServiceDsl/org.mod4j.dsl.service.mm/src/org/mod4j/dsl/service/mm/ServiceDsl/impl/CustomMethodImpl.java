@@ -33,188 +33,188 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
  */
 public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod {
 	/**
-	 * The cached value of the '{@link #getInput() <em>Input</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getInput() <em>Input</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInput()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getInput()
+     * @generated
+     * @ordered
+     */
 	protected DtoReference input;
 
 	/**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutput()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getOutput()
+     * @generated
+     * @ordered
+     */
 	protected DtoReference output;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected CustomMethodImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ServiceDslPackage.Literals.CUSTOM_METHOD;
-	}
+        return ServiceDslPackage.Literals.CUSTOM_METHOD;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference getInput() {
-		if (input != null && input.eIsProxy()) {
-			InternalEObject oldInput = (InternalEObject)input;
-			input = (DtoReference)eResolveProxy(oldInput);
-			if (input != oldInput) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CUSTOM_METHOD__INPUT, oldInput, input));
-			}
-		}
-		return input;
-	}
+        if (input != null && input.eIsProxy()) {
+            InternalEObject oldInput = (InternalEObject)input;
+            input = (DtoReference)eResolveProxy(oldInput);
+            if (input != oldInput) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CUSTOM_METHOD__INPUT, oldInput, input));
+            }
+        }
+        return input;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference basicGetInput() {
-		return input;
-	}
+        return input;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setInput(DtoReference newInput) {
-		DtoReference oldInput = input;
-		input = newInput;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__INPUT, oldInput, input));
-	}
+        DtoReference oldInput = input;
+        input = newInput;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__INPUT, oldInput, input));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference getOutput() {
-		if (output != null && output.eIsProxy()) {
-			InternalEObject oldOutput = (InternalEObject)output;
-			output = (DtoReference)eResolveProxy(oldOutput);
-			if (output != oldOutput) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CUSTOM_METHOD__OUTPUT, oldOutput, output));
-			}
-		}
-		return output;
-	}
+        if (output != null && output.eIsProxy()) {
+            InternalEObject oldOutput = (InternalEObject)output;
+            output = (DtoReference)eResolveProxy(oldOutput);
+            if (output != oldOutput) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CUSTOM_METHOD__OUTPUT, oldOutput, output));
+            }
+        }
+        return output;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoReference basicGetOutput() {
-		return output;
-	}
+        return output;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setOutput(DtoReference newOutput) {
-		DtoReference oldOutput = output;
-		output = newOutput;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__OUTPUT, oldOutput, output));
-	}
+        DtoReference oldOutput = output;
+        output = newOutput;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__OUTPUT, oldOutput, output));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ServiceDslPackage.CUSTOM_METHOD__INPUT:
-				if (resolve) return getInput();
-				return basicGetInput();
-			case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-				if (resolve) return getOutput();
-				return basicGetOutput();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CUSTOM_METHOD__INPUT:
+                if (resolve) return getInput();
+                return basicGetInput();
+            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
+                if (resolve) return getOutput();
+                return basicGetOutput();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ServiceDslPackage.CUSTOM_METHOD__INPUT:
-				setInput((DtoReference)newValue);
-				return;
-			case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-				setOutput((DtoReference)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CUSTOM_METHOD__INPUT:
+                setInput((DtoReference)newValue);
+                return;
+            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
+                setOutput((DtoReference)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.CUSTOM_METHOD__INPUT:
-				setInput((DtoReference)null);
-				return;
-			case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-				setOutput((DtoReference)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CUSTOM_METHOD__INPUT:
+                setInput((DtoReference)null);
+                return;
+            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
+                setOutput((DtoReference)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ServiceDslPackage.CUSTOM_METHOD__INPUT:
-				return input != null;
-			case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-				return output != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ServiceDslPackage.CUSTOM_METHOD__INPUT:
+                return input != null;
+            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
+                return output != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //CustomMethodImpl

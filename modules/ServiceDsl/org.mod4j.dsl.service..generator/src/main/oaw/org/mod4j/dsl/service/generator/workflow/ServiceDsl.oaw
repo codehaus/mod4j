@@ -14,7 +14,7 @@
     </bean>
     <bean class="org.mod4j.dsl.service.xtext.MetaModelRegistration"/>
     <bean id="sm" class="oaw.type.emf.EmfMetaModel">
-		<metaModelPackage value="ServiceDsl.ServiceDslPackage" />  
+		<metaModelPackage value="org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage" />  
 	</bean>
     
     <!--
@@ -31,7 +31,7 @@
     </component>
     <component id="ServiceWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="sm" />
-        <checkFile value="org::mod4j::dsl::service::validation::service" />
+        <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
         <emfAllChildrenSlot value="serviceModel" />
     </component>
 
