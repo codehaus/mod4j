@@ -21,23 +21,23 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataProperty;
  * @generated
  */
 public class DataPropertyImpl extends PropertyImpl implements DataProperty {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataPropertyImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataPropertyImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.DATA_PROPERTY;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return DataContractDslPackage.Literals.DATA_PROPERTY;
+    }
 
 } //DataPropertyImpl

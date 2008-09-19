@@ -21,23 +21,23 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference;
  * @generated
  */
 public class PropertyReferenceImpl extends PropertyImpl implements PropertyReference {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropertyReferenceImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PropertyReferenceImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.PROPERTY_REFERENCE;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return DataContractDslPackage.Literals.PROPERTY_REFERENCE;
+    }
 
 } //PropertyReferenceImpl

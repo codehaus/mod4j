@@ -21,23 +21,23 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.StringProperty;
  * @generated
  */
 public class StringPropertyImpl extends DataPropertyImpl implements StringProperty {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StringPropertyImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected StringPropertyImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.STRING_PROPERTY;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return DataContractDslPackage.Literals.STRING_PROPERTY;
+    }
 
 } //StringPropertyImpl

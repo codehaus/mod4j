@@ -9,24 +9,24 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DecimalProperty;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Reference Dto</b></em>'.
+ * An implementation of the model object '<em><b>Decimal Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ReferenceDtoImpl extends DtoImpl implements ReferenceDto {
+public class DecimalPropertyImpl extends DataPropertyImpl implements DecimalProperty {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ReferenceDtoImpl() {
+    protected DecimalPropertyImpl() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class ReferenceDtoImpl extends DtoImpl implements ReferenceDto {
      */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.REFERENCE_DTO;
+        return DataContractDslPackage.Literals.DECIMAL_PROPERTY;
     }
 
-} //ReferenceDtoImpl
+} //DecimalPropertyImpl

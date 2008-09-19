@@ -9,24 +9,24 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DateTimeProperty;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Reference Dto</b></em>'.
+ * An implementation of the model object '<em><b>Date Time Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ReferenceDtoImpl extends DtoImpl implements ReferenceDto {
+public class DateTimePropertyImpl extends DataPropertyImpl implements DateTimeProperty {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ReferenceDtoImpl() {
+    protected DateTimePropertyImpl() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class ReferenceDtoImpl extends DtoImpl implements ReferenceDto {
      */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.REFERENCE_DTO;
+        return DataContractDslPackage.Literals.DATE_TIME_PROPERTY;
     }
 
-} //ReferenceDtoImpl
+} //DateTimePropertyImpl

@@ -21,23 +21,23 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
  * @generated
  */
 public class BooleanPropertyImpl extends DataPropertyImpl implements BooleanProperty {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanPropertyImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BooleanPropertyImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.BOOLEAN_PROPERTY;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return DataContractDslPackage.Literals.BOOLEAN_PROPERTY;
+    }
 
 } //BooleanPropertyImpl

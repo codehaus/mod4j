@@ -8,25 +8,27 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EClass0;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Reference Dto</b></em>'.
+ * An implementation of the model object '<em><b>EClass0</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ReferenceDtoImpl extends DtoImpl implements ReferenceDto {
+public class EClass0Impl extends EObjectImpl implements EClass0 {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ReferenceDtoImpl() {
+    protected EClass0Impl() {
         super();
     }
 
@@ -37,7 +39,7 @@ public class ReferenceDtoImpl extends DtoImpl implements ReferenceDto {
      */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.REFERENCE_DTO;
+        return DataContractDslPackage.Literals.ECLASS0;
     }
 
-} //ReferenceDtoImpl
+} //EClass0Impl

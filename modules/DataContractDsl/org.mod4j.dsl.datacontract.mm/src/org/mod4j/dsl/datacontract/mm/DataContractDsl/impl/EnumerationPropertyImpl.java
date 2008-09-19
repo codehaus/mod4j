@@ -9,52 +9,44 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Property;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Property</b></em>'.
+ * An implementation of the model object '<em><b>Enumeration Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyImpl#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationPropertyImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PropertyImpl extends ModelElementImpl implements Property {
+public class EnumerationPropertyImpl extends DataPropertyImpl implements EnumerationProperty {
     /**
-     * The default value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
+     * The cached value of the '{@link #getType() <em>Type</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDataType()
+     * @see #getType()
      * @generated
      * @ordered
      */
-    protected static final String DATA_TYPE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDataType()
-     * @generated
-     * @ordered
-     */
-    protected String dataType = DATA_TYPE_EDEFAULT;
+    protected Enumeration type;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected PropertyImpl() {
+    protected EnumerationPropertyImpl() {
         super();
     }
 
@@ -65,7 +57,7 @@ public class PropertyImpl extends ModelElementImpl implements Property {
      */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.PROPERTY;
+        return DataContractDslPackage.Literals.ENUMERATION_PROPERTY;
     }
 
     /**
@@ -73,8 +65,16 @@ public class PropertyImpl extends ModelElementImpl implements Property {
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDataType() {
-        return dataType;
+    public Enumeration getType() {
+        if (type != null && type.eIsProxy()) {
+            InternalEObject oldType = (InternalEObject)type;
+            type = (Enumeration)eResolveProxy(oldType);
+            if (type != oldType) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.ENUMERATION_PROPERTY__TYPE, oldType, type));
+            }
+        }
+        return type;
     }
 
     /**
@@ -82,11 +82,20 @@ public class PropertyImpl extends ModelElementImpl implements Property {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDataType(String newDataType) {
-        String oldDataType = dataType;
-        dataType = newDataType;
+    public Enumeration basicGetType() {
+        return type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setType(Enumeration newType) {
+        Enumeration oldType = type;
+        type = newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.PROPERTY__DATA_TYPE, oldDataType, dataType));
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.ENUMERATION_PROPERTY__TYPE, oldType, type));
     }
 
     /**
@@ -97,8 +106,9 @@ public class PropertyImpl extends ModelElementImpl implements Property {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case DataContractDslPackage.PROPERTY__DATA_TYPE:
-                return getDataType();
+            case DataContractDslPackage.ENUMERATION_PROPERTY__TYPE:
+                if (resolve) return getType();
+                return basicGetType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -111,8 +121,8 @@ public class PropertyImpl extends ModelElementImpl implements Property {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case DataContractDslPackage.PROPERTY__DATA_TYPE:
-                setDataType((String)newValue);
+            case DataContractDslPackage.ENUMERATION_PROPERTY__TYPE:
+                setType((Enumeration)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -126,8 +136,8 @@ public class PropertyImpl extends ModelElementImpl implements Property {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case DataContractDslPackage.PROPERTY__DATA_TYPE:
-                setDataType(DATA_TYPE_EDEFAULT);
+            case DataContractDslPackage.ENUMERATION_PROPERTY__TYPE:
+                setType((Enumeration)null);
                 return;
         }
         super.eUnset(featureID);
@@ -141,26 +151,10 @@ public class PropertyImpl extends ModelElementImpl implements Property {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case DataContractDslPackage.PROPERTY__DATA_TYPE:
-                return DATA_TYPE_EDEFAULT == null ? dataType != null : !DATA_TYPE_EDEFAULT.equals(dataType);
+            case DataContractDslPackage.ENUMERATION_PROPERTY__TYPE:
+                return type != null;
         }
         return super.eIsSet(featureID);
     }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (dataType: ");
-        result.append(dataType);
-        result.append(')');
-        return result.toString();
-    }
-
-} //PropertyImpl
+} //EnumerationPropertyImpl

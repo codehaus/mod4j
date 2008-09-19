@@ -23,23 +23,23 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationLiteral;
  * @generated
  */
 public class EnumerationLiteralImpl extends EObjectImpl implements EnumerationLiteral {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EnumerationLiteralImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EnumerationLiteralImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.ENUMERATION_LITERAL;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return DataContractDslPackage.Literals.ENUMERATION_LITERAL;
+    }
 
 } //EnumerationLiteralImpl

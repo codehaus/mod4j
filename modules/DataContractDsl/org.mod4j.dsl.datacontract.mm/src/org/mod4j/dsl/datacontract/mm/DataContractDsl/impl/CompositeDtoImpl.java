@@ -32,105 +32,105 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
  * @generated
  */
 public class CompositeDtoImpl extends DtoImpl implements CompositeDto {
-	/**
-	 * The cached value of the '{@link #getDtos() <em>Dtos</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDtos()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Dto> dtos;
+    /**
+     * The cached value of the '{@link #getDtos() <em>Dtos</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDtos()
+     * @generated
+     * @ordered
+     */
+    protected EList<Dto> dtos;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompositeDtoImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CompositeDtoImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.COMPOSITE_DTO;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return DataContractDslPackage.Literals.COMPOSITE_DTO;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Dto> getDtos() {
-		if (dtos == null) {
-			dtos = new EObjectResolvingEList<Dto>(Dto.class, this, DataContractDslPackage.COMPOSITE_DTO__DTOS);
-		}
-		return dtos;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Dto> getDtos() {
+        if (dtos == null) {
+            dtos = new EObjectResolvingEList<Dto>(Dto.class, this, DataContractDslPackage.COMPOSITE_DTO__DTOS);
+        }
+        return dtos;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DataContractDslPackage.COMPOSITE_DTO__DTOS:
-				return getDtos();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+        switch (featureID) {
+            case DataContractDslPackage.COMPOSITE_DTO__DTOS:
+                return getDtos();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DataContractDslPackage.COMPOSITE_DTO__DTOS:
-				getDtos().clear();
-				getDtos().addAll((Collection<? extends Dto>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
+        switch (featureID) {
+            case DataContractDslPackage.COMPOSITE_DTO__DTOS:
+                getDtos().clear();
+                getDtos().addAll((Collection<? extends Dto>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.COMPOSITE_DTO__DTOS:
-				getDtos().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset(int featureID) {
+        switch (featureID) {
+            case DataContractDslPackage.COMPOSITE_DTO__DTOS:
+                getDtos().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.COMPOSITE_DTO__DTOS:
-				return dtos != null && !dtos.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet(int featureID) {
+        switch (featureID) {
+            case DataContractDslPackage.COMPOSITE_DTO__DTOS:
+                return dtos != null && !dtos.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //CompositeDtoImpl
