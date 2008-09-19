@@ -4,6 +4,7 @@ Service RecordShopOrderServiceModel
 from RecordShopDataContract import OrderNumberAndDateDto
 from RecordShopDataContract import SimpleCustomerDto
 from RecordShopDataContract import OrderNumberAndDateList
+from RecordShopDataContract import DateDto
 
 /* 
  * Create, read, update and delete services
@@ -13,4 +14,6 @@ crud for SimpleCustomerDto;
 "Find all Orders for a specific Customer"
 method findOrdersByCustomer in SimpleCustomerDto out OrderNumberAndDateList;
 
+"Find all orders for a given date"
+method findOrdersByDate in DateDto out OrderNumberAndDateList;
 

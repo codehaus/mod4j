@@ -3,9 +3,12 @@ Service RecordShopCustomerServiceModel
 
 from RecordShopDataContract import SimpleCustomerDto
 from RecordShopDataContract import UniqueCustomerDto
-from RecordShopDataContract import SimpleCusomerList
 from RecordShopDataContract import StringDto
+from RecordShopDataContract import SimpleCustomerList
 
+/*
+ * Explicit definded crud servicemethods
+ */
 create createCustomer for SimpleCustomerDto;
 read   readCustomer for SimpleCustomerDto;
 update updateCustomer for SimpleCustomerDto; 
@@ -14,7 +17,8 @@ delete deleteCustomer for SimpleCustomerDto;
 "Find Customer by unique key attributes."
 method findCustomerByUniqueKey in UniqueCustomerDto out SimpleCustomerDto;
 
-"Find all Customers matcing the given name."
-method findCustomerByName in StringDto out SimpleCusomerList;
+"Find all Customers matching the given name."
+method findCustomerByName in StringDto out SimpleCustomerList;
 
+//"Check if this Customer is creditworthy"
 custom checkCreditworthy for SimpleCustomerDto;
