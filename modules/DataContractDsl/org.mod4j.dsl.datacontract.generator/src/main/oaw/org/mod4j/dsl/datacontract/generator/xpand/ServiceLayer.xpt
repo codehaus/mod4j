@@ -1,0 +1,27 @@
+«IMPORT DataContractDsl»
+«IMPORT org::mod4j::dsl::datacontract::generator::xpand::java»
+
+«EXTENSION generatorutil»
+
+«DEFINE Generate FOR DataContractModel»
+   TODO implemnt this template
+  - generate sources and resources
+  - genrate Extension Points
+  - generate Maven config
+  	«EXPAND dto::createDto FOREACH dtos»
+«ENDDEFINE»
+
+«REM»
+	Generation of Extention Points of the implementation base classes.
+	If they don't exist already these classes typically are generated to the srcMan folder. 
+«ENDREM»
+«DEFINE ExtensionPointGeneration FOR DataContractModel»
+  TODO implement this template
+«ENDDEFINE»
+
+«REM»
+	Generation of Maven configuration files. 
+«ENDREM»
+«DEFINE CreateMavenConfiguration FOR DataContractModel»
+  TODO implement this template
+«ENDDEFINE»
