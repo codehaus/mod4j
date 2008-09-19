@@ -3,54 +3,62 @@ DataContract RecordShopDataContract
 
 from RecordShopDomainModel import Customer
 from RecordShopDomainModel import Artist
-from RecordShopDomainModel import Order  
+from RecordShopDomainModel import Order
 
-BusinessClassDto SimpleCustomerDto base Customer [
-    "First name of the person." 
-    string firstName ;
-    "Last name of the person." 
-    string lastName ;
-    "The age of this person in years"
-    integer age ;
-    "Number of ears (we allow Vulcans in this system)."  
-    integer numberOfEars ;
-]
-
-BusinessClassDto OrderNumberAndDateDto base Order [
- 	"An ordernumber should be unique"
-    string orderNumber;
-    "The date on which the order has been placed"
-    datetime orderDate;
-]
-
-"The Artist transfer object"
-BusinessClassDto ArtistDto base Artist [
-    "First name of the person." 
-    string firstName ;
-    "Last name of the person." 
-    string lastName ;
-    "The age of this person in years"
-    integer age ;
-    "Number of ears (we allow Vulcans in this system)."  
-    integer numberOfEars ;
-	"extra attribute from Artist"
-	string title;
-]
-
-"List of Customers"
-ListDto SimpleCusomerList base SimpleCustomerDto 
-"List of Orders"
-ListDto OrderNumberAndDateList base OrderNumberAndDateDto 
-
-CustomDto StringDto [ 
-    "A string attribute"
-    string stringAttribute;
-]
-
-"Customer unique key"
-CustomDto UniqueCustomerDto [ 
-    "firstName"
-    string firstName;
-    "lastName"
-    string lastName;
-]
+	BusinessClassDto SimpleCustomerDto base Customer [
+	    "First name of the person." 
+	    string firstName ;
+	    "Last name of the person."
+	    string lastName ;
+	    "The age of this person in years"
+	    integer age ;
+	    "Number of ears (we allow Vulcans in this system)."  
+	    integer numberOfEars ;
+	]
+	
+	BusinessClassDto OrderNumberAndDateDto base Order [
+	 	"An ordernumber should be unique"
+	    string orderNumber;
+	    "The date on which the order has been placed"
+	    datetime orderDate;
+	]
+	
+	"The Artist transfer object"
+	BusinessClassDto ArtistDto base Artist [
+	    "First name of the person." 
+	    string firstName ;
+	    "Last name of the person." 
+	    string lastName ;
+	    "The age of this person in years"
+	    integer age ;
+	    "Number of ears (we allow Vulcans in this system)."  
+	    integer numberOfEars ;
+		"extra attribute from Artist"
+		string title;
+	]
+	
+	"List of Customers"
+	ListDto SimpleCustomerList base SimpleCustomerDto 
+	"List of Orders"
+	ListDto OrderNumberAndDateList base OrderNumberAndDateDto 
+	
+	/*
+	 * Custom data transfer objects
+	 */
+	CustomDto StringDto [ 
+	    "A string attribute"
+	    string stringAttribute;
+	]
+	
+	"Customer unique key"
+	CustomDto UniqueCustomerDto [ 
+	    "firstName"
+	    string firstName;
+	    "lastName"
+	    string lastName;
+	]
+	
+	CustomDto DateDto [ 
+	    "date"
+	    datetime date;
+	]
