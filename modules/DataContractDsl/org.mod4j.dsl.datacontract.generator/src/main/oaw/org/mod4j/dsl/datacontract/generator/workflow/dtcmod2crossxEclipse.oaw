@@ -31,7 +31,7 @@
          Don't use the filenames of the ecore files, because they won't work when the
          plugins are exported and installed.
     -->
-    <bean class="org.mod4j.dsl.datacontract.MetaModelRegistration"/>
+    <bean class="org.mod4j.dsl.datacontract.xtext.MetaModelRegistration"/>
     <bean id="DataContractDsl" class="oaw.type.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />   
     </bean>
@@ -58,7 +58,7 @@
 
     <component id="DataContractWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="DataContractDsl" />
-        <checkFile value="org::mod4j::dsl::datacontract::GenChecks" />
+        <checkFile value="org::mod4j::dsl::datacontract::xtext::GenChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
     
