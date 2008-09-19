@@ -22,13 +22,12 @@
         <generated-resources-dir>«getResourceGenPath()»</generated-resources-dir>
     </properties>
     <modules>
-        <module>«getApplicationName()»-DslModels</module>
-        <module>«getApplicationName()»-domain</module>
-        <module>«getApplicationName()»-data</module>
+        <module>«getDslModelsModuleName()»</module>
+        <module>«getDomainModuleName()»</module>
+        <module>«getDataModuleName()»</module>
         <!-- TODO
-            <module>«getApplicationName()»-cross</module>
-            <module>«getApplicationName()»-business</module>
-            <module>«getApplicationName()»-service</module>
+            <module>«getBusinessModuleName()»</module>
+            <module>«getServiceModuleName()»</module>
             <module>«getApplicationName()»-presentation</module>
         -->
     </modules>

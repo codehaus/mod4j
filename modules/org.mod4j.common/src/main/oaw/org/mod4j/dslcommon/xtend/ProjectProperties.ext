@@ -22,6 +22,12 @@ String getDomainModuleName() :
 
 String getDataModuleName() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataModuleName();
+ 
+String getBusinessModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessModuleName();
+
+String getServiceModuleName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getServiceModuleName();
 
 String getDomainModulePath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainModulePath();
@@ -43,6 +49,12 @@ String getDataRootPackage() :
 
 String getDaoPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackage();
+ 
+String getDtoPackage() : 
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDtoPackage();
+ 
+String getMapperPackage() : 
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getMapperPackage();
 
 String getDomainRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();

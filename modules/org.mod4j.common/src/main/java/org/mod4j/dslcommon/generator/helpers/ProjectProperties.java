@@ -42,6 +42,8 @@ public class ProjectProperties {
         dslModelsModuleName = properties.getProperty("dslModelsModuleName");
         domainModuleName = properties.getProperty("domainModuleName");
         dataModuleName = properties.getProperty("dataModuleName");
+        businessModuleName = properties.getProperty("businessModuleName");
+        serviceModuleName = properties.getProperty("serviceModuleName");
         rootPackage = properties.getProperty("rootPackage");
         businessRootPackage = properties.getProperty("businessRootPackage");
         serviceRootPackage = properties.getProperty("serviceRootPackage");
@@ -67,6 +69,10 @@ public class ProjectProperties {
     private static String srcModelPath = "src/model";
     
     private static String dataModuleName = "DEFAULT";
+
+    private static String businessModuleName = "DEFAULT";
+
+    private static String serviceModuleName = "DEFAULT";
 
     private static String domainModuleName = "DEFAULT";
     
@@ -95,6 +101,10 @@ public class ProjectProperties {
     public static final String BUSINESSRULES_PACKAGE = "businessrules";
 
     public static final String DAO_PACKAGE = "spring.dao";
+    
+    public static final String DTO_PACKAGE = "dto";
+    
+    public static final String MAPPER_PACKAGE = "mapper";
 
     private static String workDir = "/";
 
@@ -128,6 +138,14 @@ public class ProjectProperties {
 
     public static String getDomainModuleName() {
         return domainModuleName;
+    }
+    
+    public static String getBusinessModuleName() {
+        return businessModuleName;
+    }
+    
+    public static String getServiceModuleName() {
+        return serviceModuleName;
     }
 
     public static String getDataModulePath() {
@@ -174,6 +192,14 @@ public class ProjectProperties {
         return getDaoPackage().replaceAll("\\.", "/");
     }
 
+    public static String getDtoPackage() {
+        return getServiceRootPackage() + "." + DTO_PACKAGE;
+    }
+
+    public static String getMapperPackage() {
+        return getDtoPackage() + "." + MAPPER_PACKAGE;
+    }
+    
     public static String getSrcModelPath() {
         return srcModelPath;
     }
