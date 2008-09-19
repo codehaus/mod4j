@@ -4,13 +4,11 @@
    <extension
          point="org.mod4j.eclipse.dsl">
       <dsl
-            dsl2crossxWorkflow="org.mod4j.dsl.service..generator.dsl1"
             dslCodegenProperties="mod4j.properties"
             dslCodegenWorkflow="org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw"
             dslFileExtension=".sermod"
             dslMetamodelPackage="org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage"
-            dslName="Service DSL"
-            dslXtendModule="org.mod4j.dsl.service..generator.dsl1">
+            dslName="Mod4j Service DSL">
       </dsl>
    </extension>
 
