@@ -6,7 +6,10 @@ String timestamp() :
 
 boolean fileExist(String path) :
  JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.fileExist(java.lang.String);
- 
+
+String javaClassName(String cls) :
+ JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.javaClassName(java.lang.String);
+
 String javaPathFileName(String package, String classname) :
-  package.replaceAll("\\.", "/") + "/" + classname + ".java";
+  package.replaceAll("\\.", "/") + "/" + classname.toFirstUpper() + ".java";
  
