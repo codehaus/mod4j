@@ -98,6 +98,15 @@
                 </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.mod4j.maven</groupId>
+                    <artifactId>mod4j-maven-plugin</artifactId>
+                    <version>${mod4j.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
     <dependencyManagement>
         <dependencies>
@@ -172,15 +181,8 @@
                 <artifactId>joda-time-hibernate</artifactId>
                 <version>1.0</version>
                 <!--
-                    De versies van de volgende dependencies van
-                    joda-time-hibernate conflicteren met onze eigen versies. Dat
-                    komt doordat de dependencies van hibernate 3.0.x expliciet
-                    als dependencies van joda-time-hibernate zijn opgenomen. Wij
-                    gebruiken hibernate 3.2.5.
-                    
-                    Bij een volgende versie van joda-time-hibernate kunnen deze
-                    conflicten verdwenen zijn, en kunnen er nieuwe ontstaan zijn.
-                    Dit moet dan dus gecheckt worden. 
+                    The following excluded dependencies conflict with the version we use.
+                    Joda-time-hibernate depends on hibernate 3.0.x while we use hibernate 3.2.5.
                 -->
                 <exclusions>
                     <exclusion>
