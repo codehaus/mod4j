@@ -25,20 +25,20 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface CompositeDto extends Dto {
-	/**
-	 * Returns the value of the '<em><b>Dtos</b></em>' reference list.
-	 * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dtos</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dtos</em>' reference list.
-	 * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getCompositeDto_Dtos()
-	 * @model
-	 * @generated
-	 */
-	EList<Dto> getDtos();
+    /**
+     * Returns the value of the '<em><b>Dtos</b></em>' reference list.
+     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Dtos</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Dtos</em>' reference list.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getCompositeDto_Dtos()
+     * @model
+     * @generated
+     */
+    EList<Dto> getDtos();
 
 } // CompositeDto

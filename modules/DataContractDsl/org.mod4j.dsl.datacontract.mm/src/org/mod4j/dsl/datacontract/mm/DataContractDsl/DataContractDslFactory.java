@@ -17,174 +17,219 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface DataContractDslFactory extends EFactory {
-	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	DataContractDslFactory eINSTANCE = org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslFactoryImpl.init();
+    /**
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    DataContractDslFactory eINSTANCE = org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslFactoryImpl.init();
 
-	/**
-	 * Returns a new object of class '<em>Data Contract Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Contract Model</em>'.
-	 * @generated
-	 */
-	DataContractModel createDataContractModel();
+    /**
+     * Returns a new object of class '<em>Data Contract Model</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Contract Model</em>'.
+     * @generated
+     */
+    DataContractModel createDataContractModel();
 
-	/**
-	 * Returns a new object of class '<em>Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dto</em>'.
-	 * @generated
-	 */
-	Dto createDto();
+    /**
+     * Returns a new object of class '<em>Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dto</em>'.
+     * @generated
+     */
+    Dto createDto();
 
-	/**
-	 * Returns a new object of class '<em>Domain Class Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Class Dto</em>'.
-	 * @generated
-	 */
-	DomainClassDto createDomainClassDto();
+    /**
+     * Returns a new object of class '<em>Business Class Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Business Class Dto</em>'.
+     * @generated
+     */
+    BusinessClassDto createBusinessClassDto();
 
-	/**
-	 * Returns a new object of class '<em>List Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>List Dto</em>'.
-	 * @generated
-	 */
-	ListDto createListDto();
+    /**
+     * Returns a new object of class '<em>List Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>List Dto</em>'.
+     * @generated
+     */
+    ListDto createListDto();
 
-	/**
-	 * Returns a new object of class '<em>Subset Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Subset Dto</em>'.
-	 * @generated
-	 */
-	SubsetDto createSubsetDto();
+    /**
+     * Returns a new object of class '<em>Subset Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Subset Dto</em>'.
+     * @generated
+     */
+    SubsetDto createSubsetDto();
 
-	/**
-	 * Returns a new object of class '<em>Composite Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Dto</em>'.
-	 * @generated
-	 */
-	CompositeDto createCompositeDto();
+    /**
+     * Returns a new object of class '<em>Composite Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Composite Dto</em>'.
+     * @generated
+     */
+    CompositeDto createCompositeDto();
 
-	/**
-	 * Returns a new object of class '<em>Reference Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reference Dto</em>'.
-	 * @generated
-	 */
-	ReferenceDto createReferenceDto();
+    /**
+     * Returns a new object of class '<em>Reference Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Reference Dto</em>'.
+     * @generated
+     */
+    ReferenceDto createReferenceDto();
 
-	/**
-	 * Returns a new object of class '<em>Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property</em>'.
-	 * @generated
-	 */
-	Property createProperty();
+    /**
+     * Returns a new object of class '<em>Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Property</em>'.
+     * @generated
+     */
+    Property createProperty();
 
-	/**
-	 * Returns a new object of class '<em>Property Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Reference</em>'.
-	 * @generated
-	 */
-	PropertyReference createPropertyReference();
+    /**
+     * Returns a new object of class '<em>Property Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Property Reference</em>'.
+     * @generated
+     */
+    PropertyReference createPropertyReference();
 
-	/**
-	 * Returns a new object of class '<em>Data Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Property</em>'.
-	 * @generated
-	 */
-	DataProperty createDataProperty();
+    /**
+     * Returns a new object of class '<em>Data Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Property</em>'.
+     * @generated
+     */
+    DataProperty createDataProperty();
 
-	/**
-	 * Returns a new object of class '<em>String Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Property</em>'.
-	 * @generated
-	 */
-	StringProperty createStringProperty();
+    /**
+     * Returns a new object of class '<em>String Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>String Property</em>'.
+     * @generated
+     */
+    StringProperty createStringProperty();
 
-	/**
-	 * Returns a new object of class '<em>Boolean Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Property</em>'.
-	 * @generated
-	 */
-	BooleanProperty createBooleanProperty();
+    /**
+     * Returns a new object of class '<em>Boolean Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Boolean Property</em>'.
+     * @generated
+     */
+    BooleanProperty createBooleanProperty();
 
-	/**
-	 * Returns a new object of class '<em>Enumeration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enumeration</em>'.
-	 * @generated
-	 */
-	Enumeration createEnumeration();
+    /**
+     * Returns a new object of class '<em>Enumeration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Enumeration</em>'.
+     * @generated
+     */
+    Enumeration createEnumeration();
 
-	/**
-	 * Returns a new object of class '<em>Enumeration Literal</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enumeration Literal</em>'.
-	 * @generated
-	 */
-	EnumerationLiteral createEnumerationLiteral();
+    /**
+     * Returns a new object of class '<em>Enumeration Literal</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Enumeration Literal</em>'.
+     * @generated
+     */
+    EnumerationLiteral createEnumerationLiteral();
 
-	/**
-	 * Returns a new object of class '<em>Model Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model Element</em>'.
-	 * @generated
-	 */
-	ModelElement createModelElement();
+    /**
+     * Returns a new object of class '<em>Model Element</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Model Element</em>'.
+     * @generated
+     */
+    ModelElement createModelElement();
 
-	/**
-	 * Returns a new object of class '<em>Custom Dto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Custom Dto</em>'.
-	 * @generated
-	 */
-	CustomDto createCustomDto();
+    /**
+     * Returns a new object of class '<em>Custom Dto</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Custom Dto</em>'.
+     * @generated
+     */
+    CustomDto createCustomDto();
 
-	/**
-	 * Returns a new object of class '<em>Domain Class Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Class Reference</em>'.
-	 * @generated
-	 */
-	DomainClassReference createDomainClassReference();
+    /**
+     * Returns a new object of class '<em>Business Class Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Business Class Reference</em>'.
+     * @generated
+     */
+    BusinessClassReference createBusinessClassReference();
 
-	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
-	DataContractDslPackage getDataContractDslPackage();
+    /**
+     * Returns a new object of class '<em>Integer Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Integer Property</em>'.
+     * @generated
+     */
+    IntegerProperty createIntegerProperty();
+
+    /**
+     * Returns a new object of class '<em>Decimal Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Decimal Property</em>'.
+     * @generated
+     */
+    DecimalProperty createDecimalProperty();
+
+    /**
+     * Returns a new object of class '<em>Enumeration Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Enumeration Property</em>'.
+     * @generated
+     */
+    EnumerationProperty createEnumerationProperty();
+
+    /**
+     * Returns a new object of class '<em>Date Time Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Date Time Property</em>'.
+     * @generated
+     */
+    DateTimeProperty createDateTimeProperty();
+
+    /**
+     * Returns a new object of class '<em>EClass0</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>EClass0</em>'.
+     * @generated
+     */
+    EClass0 createEClass0();
+
+    /**
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
+    DataContractDslPackage getDataContractDslPackage();
 
 } //DataContractDslFactory
