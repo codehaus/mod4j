@@ -13,7 +13,7 @@ public class Codegen {
                 "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod", "crossx/busmod2crossx2.oaw",
                 "codegen/BusinessDomainDsl.oaw", "businessDomain/BusinessDomainDsl.properties");
 
-        String dir = "D:/mod4j/repository/modules/RecordShop-ExampleProject/RecordShop-DslModels";
+        String dir = "D:/mod4j/repository/modules/RecordShop-ExampleProject/RecordShop-dslModels";
 
         execute(dir, dsl);
     }

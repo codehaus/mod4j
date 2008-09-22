@@ -64,7 +64,7 @@ public class ProjectProperties {
 
     private static String applicationPath = "DEFAULT";
 
-    private static String dslModelsModuleName = "DslModels";
+    private static String dslModelsModuleName = "dslModels";
 
     private static String srcModelPath = "src/model";
     
