@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<crossx:ModelInfo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:crossx="http://www.mod4j.org/mod4j.crossx" xsi:schemaLocation="http://www.mod4j.org/mod4j.crossx java://org.mod4j.crossx.mm.crossx.CrossxPackage" modelname="RecordShopDataContract" resource="file:/home/johan/projects/mod4j-modules/Examples/RecordShop-ExampleProject/RecordShop-dslModels/src/model/datacontract/datacontract.dtcmod" dslname="DataContractDsl">
+  <symbols name="SimpleCustomerDto" type="Dto"/>
+  <symbols name="OrderNumberAndDateDto" type="Dto"/>
+  <symbols name="ArtistDto" type="Dto"/>
+  <symbols name="SimpleCustomerList" type="Dto"/>
+  <symbols name="OrderNumberAndDateList" type="Dto"/>
+  <symbols name="StringDto" type="Dto"/>
+  <symbols name="UniqueCustomerDto" type="Dto"/>
+  <symbols name="DateDto" type="Dto"/>
+</crossx:ModelInfo>
