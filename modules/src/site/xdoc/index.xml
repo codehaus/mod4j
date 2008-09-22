@@ -150,7 +150,7 @@
                     </li>
                     <li>
                         After finishing the wizard, a new model project is created with the name
-                        <b>MyApplication-DslModelsl</b>
+                        <b>MyApplication-dslModelsl</b>
                         and a directory structure like this:
                         <br />
                         <code>
@@ -188,7 +188,7 @@
                         and
                         <b>data</b>
                         module are generated in the location folder for your modules right beside the
-                        <code>MyApplication.DslModels</code>
+                        <code>MyApplication.dslModels</code>
                         folder. See:
                         <code>../MyApplication-domain</code>
                         and

@@ -169,17 +169,17 @@
                         <br />
                         and the models of the RecordShop example project:
                         <br />
-                        <code>RecordShop.DslModels</code>
+                        <code>RecordShop.dslModels</code>
                         <br />
                         ...
                     </li>
                     <li>
                         Now you should be able to edit the *.busmod modle files in the
-                        <code>RecordShop.DslModels</code>
+                        <code>RecordShop.dslModels</code>
                         project.
                         <br />
                         Open the file
-                        <code>RecordShop.DslModels/src/modle/businessDomain/model.busmod</code>
+                        <code>RecordShop.dslModels/src/modle/businessDomain/model.busmod</code>
                         change this file as needed and save the file.
                     </li>
                     <li>
