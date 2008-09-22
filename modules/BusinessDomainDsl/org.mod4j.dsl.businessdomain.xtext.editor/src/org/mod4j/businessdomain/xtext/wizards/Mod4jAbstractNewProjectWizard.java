@@ -147,7 +147,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
     }
 		
 		protected String getModelProjectName() {
-			return mainPage.getApplicationNameFieldValue() + "-DslModels" ;
+			return mainPage.getApplicationNameFieldValue() + "-dslModels" ;
 		}
 
 		/*

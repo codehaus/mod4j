@@ -20,7 +20,7 @@ public class Mod4jGenericNewProjectWizardPage extends Mod4jWizardNewProjectCreat
 			super("newProjectWizardPage");
 			setTitle("Mod4j " + name + " Project");
 			setDescription("Mod4j " + name + " Project");
-//			setInitialProjectName("MyApplication-DslModels");
+//			setInitialProjectName("MyApplication-dslModels");
 			setInitialApplicationName("MyApplication");
 			setInitialRootPackage("org.mycompany.myapplication");
 		}

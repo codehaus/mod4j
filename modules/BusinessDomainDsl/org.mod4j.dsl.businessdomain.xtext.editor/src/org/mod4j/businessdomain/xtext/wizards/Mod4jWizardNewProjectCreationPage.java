@@ -47,7 +47,7 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	 * 
 	 */
 	protected String getModelProjectName() {
-		return getApplicationNameFieldValue() + "-DslModels" ;
+		return getApplicationNameFieldValue() + "-dslModels" ;
 	}
 
     /**
