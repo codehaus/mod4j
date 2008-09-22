@@ -13,11 +13,10 @@
         <generated-resources-dir>generated-resources</generated-resources-dir>
     </properties>
     <modules>
-        <module>RecordShop-DslModels</module>
+        <module>RecordShop-dslModels</module>
         <module>RecordShop-domain</module>
         <module>RecordShop-data</module>
         <!-- TODO
-            <module>RecordShop-cross</module>
             <module>RecordShop-business</module>
             <module>RecordShop-service</module>
             <module>RecordShop-presentation</module>
