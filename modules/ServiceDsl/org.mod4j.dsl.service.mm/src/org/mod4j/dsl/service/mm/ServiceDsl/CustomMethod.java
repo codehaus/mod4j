@@ -6,6 +6,8 @@
  */
 package org.mod4j.dsl.service.mm.ServiceDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +17,8 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInput <em>Input</em>}</li>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInParameters <em>In Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,32 +27,6 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  * @generated
  */
 public interface CustomMethod extends ServiceMethod {
-	/**
-     * Returns the value of the '<em><b>Input</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Input</em>' reference.
-     * @see #setInput(DtoReference)
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCustomMethod_Input()
-     * @model
-     * @generated
-     */
-	DtoReference getInput();
-
-	/**
-     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInput <em>Input</em>}' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Input</em>' reference.
-     * @see #getInput()
-     * @generated
-     */
-	void setInput(DtoReference value);
-
 	/**
      * Returns the value of the '<em><b>Output</b></em>' reference.
      * <!-- begin-user-doc -->
@@ -76,5 +52,23 @@ public interface CustomMethod extends ServiceMethod {
      * @generated
      */
 	void setOutput(DtoReference value);
+
+    /**
+     * Returns the value of the '<em><b>In Parameters</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getMethod <em>Method</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>In Parameters</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>In Parameters</em>' containment reference list.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCustomMethod_InParameters()
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getMethod
+     * @model opposite="method" containment="true"
+     * @generated
+     */
+    EList<Parameter> getInParameters();
 
 } // CustomMethod

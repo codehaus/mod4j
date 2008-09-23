@@ -16,6 +16,7 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getDto <em>Dto</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getModel <em>Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,5 +50,33 @@ public interface CrudService extends ModelElement {
      * @generated
      */
 	void setDto(DtoReference value);
+
+    /**
+     * Returns the value of the '<em><b>Model</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.service.mm.ServiceDsl.ServiceModel#getCrudServices <em>Crud Services</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Model</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Model</em>' container reference.
+     * @see #setModel(ServiceModel)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCrudService_Model()
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceModel#getCrudServices
+     * @model opposite="crudServices" transient="false"
+     * @generated
+     */
+    ServiceModel getModel();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getModel <em>Model</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Model</em>' container reference.
+     * @see #getModel()
+     * @generated
+     */
+    void setModel(ServiceModel value);
 
 } // CrudService

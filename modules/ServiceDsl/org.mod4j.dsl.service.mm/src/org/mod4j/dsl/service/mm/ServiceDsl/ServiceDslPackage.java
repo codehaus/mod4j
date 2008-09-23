@@ -199,13 +199,22 @@ public interface ServiceDslPackage extends EPackage {
     int DTO_REFERENCE__MODELNAME = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_REFERENCE__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Dto Reference</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int DTO_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceMethodImpl <em>Service Method</em>}' class.
@@ -245,13 +254,22 @@ public interface ServiceDslPackage extends EPackage {
 	int SERVICE_METHOD__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+     * The feature id for the '<em><b>Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_METHOD__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Service Method</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int SERVICE_METHOD_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int SERVICE_METHOD_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CustomMethodImpl <em>Custom Method</em>}' class.
@@ -291,24 +309,33 @@ public interface ServiceDslPackage extends EPackage {
 	int CUSTOM_METHOD__TYPE = SERVICE_METHOD__TYPE;
 
 	/**
-     * The feature id for the '<em><b>Input</b></em>' reference.
+     * The feature id for the '<em><b>Model</b></em>' container reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int CUSTOM_METHOD__INPUT = SERVICE_METHOD_FEATURE_COUNT + 0;
+    int CUSTOM_METHOD__MODEL = SERVICE_METHOD__MODEL;
 
-	/**
+    /**
      * The feature id for the '<em><b>Output</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int CUSTOM_METHOD__OUTPUT = SERVICE_METHOD_FEATURE_COUNT + 1;
+	int CUSTOM_METHOD__OUTPUT = SERVICE_METHOD_FEATURE_COUNT + 0;
 
 	/**
+     * The feature id for the '<em><b>In Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_METHOD__IN_PARAMETERS = SERVICE_METHOD_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Custom Method</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,13 +382,22 @@ public interface ServiceDslPackage extends EPackage {
 	int CRUD_SERVICE__DTO = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+     * The feature id for the '<em><b>Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CRUD_SERVICE__MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Crud Service</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int CRUD_SERVICE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int CRUD_SERVICE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.SpecialMethodImpl <em>Special Method</em>}' class.
@@ -401,6 +437,15 @@ public interface ServiceDslPackage extends EPackage {
 	int SPECIAL_METHOD__TYPE = SERVICE_METHOD__TYPE;
 
 	/**
+     * The feature id for the '<em><b>Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPECIAL_METHOD__MODEL = SERVICE_METHOD__MODEL;
+
+    /**
      * The feature id for the '<em><b>Dto</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -419,6 +464,61 @@ public interface ServiceDslPackage extends EPackage {
 	int SPECIAL_METHOD_FEATURE_COUNT = SERVICE_METHOD_FEATURE_COUNT + 1;
 
 	/**
+     * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getParameter()
+     * @generated
+     */
+    int PARAMETER = 7;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER__NAME = MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Method</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER__METHOD = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Parameter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.MethodType <em>Method Type</em>}' enum.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,7 +526,7 @@ public interface ServiceDslPackage extends EPackage {
      * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getMethodType()
      * @generated
      */
-	int METHOD_TYPE = 7;
+	int METHOD_TYPE = 8;
 
 
 	/**
@@ -526,6 +626,17 @@ public interface ServiceDslPackage extends EPackage {
     EAttribute getDtoReference_Modelname();
 
     /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.DtoReference#getModel <em>Model</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Model</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.DtoReference#getModel()
+     * @see #getDtoReference()
+     * @generated
+     */
+    EReference getDtoReference_Model();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod <em>Custom Method</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -534,17 +645,6 @@ public interface ServiceDslPackage extends EPackage {
      * @generated
      */
 	EClass getCustomMethod();
-
-	/**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInput <em>Input</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Input</em>'.
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInput()
-     * @see #getCustomMethod()
-     * @generated
-     */
-	EReference getCustomMethod_Input();
 
 	/**
      * Returns the meta object for the reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput <em>Output</em>}'.
@@ -558,6 +658,17 @@ public interface ServiceDslPackage extends EPackage {
 	EReference getCustomMethod_Output();
 
 	/**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInParameters <em>In Parameters</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>In Parameters</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInParameters()
+     * @see #getCustomMethod()
+     * @generated
+     */
+    EReference getCustomMethod_InParameters();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService <em>Crud Service</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -579,6 +690,17 @@ public interface ServiceDslPackage extends EPackage {
 	EReference getCrudService_Dto();
 
 	/**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getModel <em>Model</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Model</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CrudService#getModel()
+     * @see #getCrudService()
+     * @generated
+     */
+    EReference getCrudService_Model();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.service.mm.ServiceDsl.SpecialMethod <em>Special Method</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,6 +743,49 @@ public interface ServiceDslPackage extends EPackage {
 	EAttribute getServiceMethod_Type();
 
 	/**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod#getModel <em>Model</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Model</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod#getModel()
+     * @see #getServiceMethod()
+     * @generated
+     */
+    EReference getServiceMethod_Model();
+
+    /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter <em>Parameter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Parameter</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.Parameter
+     * @generated
+     */
+    EClass getParameter();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Type</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getType()
+     * @see #getParameter()
+     * @generated
+     */
+    EReference getParameter_Type();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getMethod <em>Method</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Method</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getMethod()
+     * @see #getParameter()
+     * @generated
+     */
+    EReference getParameter_Method();
+
+    /**
      * Returns the meta object for enum '{@link org.mod4j.dsl.service.mm.ServiceDsl.MethodType <em>Method Type</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -731,6 +896,14 @@ public interface ServiceDslPackage extends EPackage {
         EAttribute DTO_REFERENCE__MODELNAME = eINSTANCE.getDtoReference_Modelname();
 
         /**
+         * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DTO_REFERENCE__MODEL = eINSTANCE.getDtoReference_Model();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CustomMethodImpl <em>Custom Method</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -741,14 +914,6 @@ public interface ServiceDslPackage extends EPackage {
 		EClass CUSTOM_METHOD = eINSTANCE.getCustomMethod();
 
 		/**
-         * The meta object literal for the '<em><b>Input</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EReference CUSTOM_METHOD__INPUT = eINSTANCE.getCustomMethod_Input();
-
-		/**
          * The meta object literal for the '<em><b>Output</b></em>' reference feature.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -757,6 +922,14 @@ public interface ServiceDslPackage extends EPackage {
 		EReference CUSTOM_METHOD__OUTPUT = eINSTANCE.getCustomMethod_Output();
 
 		/**
+         * The meta object literal for the '<em><b>In Parameters</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CUSTOM_METHOD__IN_PARAMETERS = eINSTANCE.getCustomMethod_InParameters();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CrudServiceImpl <em>Crud Service</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -775,6 +948,14 @@ public interface ServiceDslPackage extends EPackage {
 		EReference CRUD_SERVICE__DTO = eINSTANCE.getCrudService_Dto();
 
 		/**
+         * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CRUD_SERVICE__MODEL = eINSTANCE.getCrudService_Model();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.SpecialMethodImpl <em>Special Method</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -811,6 +992,40 @@ public interface ServiceDslPackage extends EPackage {
 		EAttribute SERVICE_METHOD__TYPE = eINSTANCE.getServiceMethod_Type();
 
 		/**
+         * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SERVICE_METHOD__MODEL = eINSTANCE.getServiceMethod_Model();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl <em>Parameter</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl
+         * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getParameter()
+         * @generated
+         */
+        EClass PARAMETER = eINSTANCE.getParameter();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+        /**
+         * The meta object literal for the '<em><b>Method</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PARAMETER__METHOD = eINSTANCE.getParameter_Method();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.MethodType <em>Method Type</em>}' enum.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

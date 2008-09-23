@@ -20,6 +20,7 @@ import org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
 import org.mod4j.dsl.service.mm.ServiceDsl.MethodType;
 import org.mod4j.dsl.service.mm.ServiceDsl.ModelElement;
+import org.mod4j.dsl.service.mm.ServiceDsl.Parameter;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslFactory;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod;
@@ -83,6 +84,13 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	private EClass serviceMethodEClass = null;
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass parameterEClass = null;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -240,6 +248,15 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
     /**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDtoReference_Model() {
+        return (EReference)dtoReferenceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -252,20 +269,20 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getCustomMethod_Input() {
+	public EReference getCustomMethod_Output() {
         return (EReference)customMethodEClass.getEStructuralFeatures().get(0);
     }
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getCustomMethod_Output() {
+    public EReference getCustomMethod_InParameters() {
         return (EReference)customMethodEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -284,6 +301,15 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getCrudService_Model() {
+        return (EReference)crudServiceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -320,6 +346,42 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getServiceMethod_Model() {
+        return (EReference)serviceMethodEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getParameter() {
+        return parameterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getParameter_Type() {
+        return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getParameter_Method() {
+        return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -367,19 +429,26 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
         dtoReferenceEClass = createEClass(DTO_REFERENCE);
         createEAttribute(dtoReferenceEClass, DTO_REFERENCE__MODELNAME);
+        createEReference(dtoReferenceEClass, DTO_REFERENCE__MODEL);
 
         customMethodEClass = createEClass(CUSTOM_METHOD);
-        createEReference(customMethodEClass, CUSTOM_METHOD__INPUT);
         createEReference(customMethodEClass, CUSTOM_METHOD__OUTPUT);
+        createEReference(customMethodEClass, CUSTOM_METHOD__IN_PARAMETERS);
 
         crudServiceEClass = createEClass(CRUD_SERVICE);
         createEReference(crudServiceEClass, CRUD_SERVICE__DTO);
+        createEReference(crudServiceEClass, CRUD_SERVICE__MODEL);
 
         specialMethodEClass = createEClass(SPECIAL_METHOD);
         createEReference(specialMethodEClass, SPECIAL_METHOD__DTO);
 
         serviceMethodEClass = createEClass(SERVICE_METHOD);
         createEAttribute(serviceMethodEClass, SERVICE_METHOD__TYPE);
+        createEReference(serviceMethodEClass, SERVICE_METHOD__MODEL);
+
+        parameterEClass = createEClass(PARAMETER);
+        createEReference(parameterEClass, PARAMETER__TYPE);
+        createEReference(parameterEClass, PARAMETER__METHOD);
 
         // Create enums
         methodTypeEEnum = createEEnum(METHOD_TYPE);
@@ -419,12 +488,13 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         crudServiceEClass.getESuperTypes().add(this.getModelElement());
         specialMethodEClass.getESuperTypes().add(this.getServiceMethod());
         serviceMethodEClass.getESuperTypes().add(this.getModelElement());
+        parameterEClass.getESuperTypes().add(this.getModelElement());
 
         // Initialize classes and features; add operations and parameters
         initEClass(serviceModelEClass, ServiceModel.class, "ServiceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getServiceModel_Methods(), this.getServiceMethod(), null, "methods", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getServiceModel_DtoReferences(), this.getDtoReference(), null, "dtoReferences", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getServiceModel_CrudServices(), this.getCrudService(), null, "crudServices", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getServiceModel_Methods(), this.getServiceMethod(), this.getServiceMethod_Model(), "methods", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getServiceModel_DtoReferences(), this.getDtoReference(), this.getDtoReference_Model(), "dtoReferences", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getServiceModel_CrudServices(), this.getCrudService(), this.getCrudService_Model(), "crudServices", null, 0, -1, ServiceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -432,19 +502,26 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
         initEClass(dtoReferenceEClass, DtoReference.class, "DtoReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDtoReference_Modelname(), ecorePackage.getEString(), "modelname", null, 0, 1, DtoReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDtoReference_Model(), this.getServiceModel(), this.getServiceModel_DtoReferences(), "model", null, 0, 1, DtoReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(customMethodEClass, CustomMethod.class, "CustomMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getCustomMethod_Input(), this.getDtoReference(), null, "input", null, 0, 1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getCustomMethod_Output(), this.getDtoReference(), null, "output", null, 0, 1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getCustomMethod_InParameters(), this.getParameter(), this.getParameter_Method(), "inParameters", null, 0, -1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(crudServiceEClass, CrudService.class, "CrudService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getCrudService_Dto(), this.getDtoReference(), null, "dto", null, 0, 1, CrudService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getCrudService_Model(), this.getServiceModel(), this.getServiceModel_CrudServices(), "model", null, 0, 1, CrudService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(specialMethodEClass, SpecialMethod.class, "SpecialMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSpecialMethod_Dto(), this.getDtoReference(), null, "dto", null, 0, 1, SpecialMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(serviceMethodEClass, ServiceMethod.class, "ServiceMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getServiceMethod_Type(), this.getMethodType(), "type", "Custom", 0, 1, ServiceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getServiceMethod_Model(), this.getServiceModel(), this.getServiceModel_Methods(), "model", null, 0, 1, ServiceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getParameter_Type(), this.getDtoReference(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getParameter_Method(), this.getCustomMethod(), this.getCustomMethod_InParameters(), "method", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(methodTypeEEnum, MethodType.class, "MethodType");

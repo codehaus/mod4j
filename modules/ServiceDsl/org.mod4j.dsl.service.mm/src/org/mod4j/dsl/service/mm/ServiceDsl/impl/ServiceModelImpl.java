@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -96,7 +97,7 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
      */
 	public EList<ServiceMethod> getMethods() {
         if (methods == null) {
-            methods = new EObjectContainmentEList<ServiceMethod>(ServiceMethod.class, this, ServiceDslPackage.SERVICE_MODEL__METHODS);
+            methods = new EObjectContainmentWithInverseEList<ServiceMethod>(ServiceMethod.class, this, ServiceDslPackage.SERVICE_MODEL__METHODS, ServiceDslPackage.SERVICE_METHOD__MODEL);
         }
         return methods;
     }
@@ -108,7 +109,7 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
      */
 	public EList<DtoReference> getDtoReferences() {
         if (dtoReferences == null) {
-            dtoReferences = new EObjectContainmentEList<DtoReference>(DtoReference.class, this, ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES);
+            dtoReferences = new EObjectContainmentWithInverseEList<DtoReference>(DtoReference.class, this, ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES, ServiceDslPackage.DTO_REFERENCE__MODEL);
         }
         return dtoReferences;
     }
@@ -120,12 +121,31 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
      */
 	public EList<CrudService> getCrudServices() {
         if (crudServices == null) {
-            crudServices = new EObjectContainmentEList<CrudService>(CrudService.class, this, ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES);
+            crudServices = new EObjectContainmentWithInverseEList<CrudService>(CrudService.class, this, ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES, ServiceDslPackage.CRUD_SERVICE__MODEL);
         }
         return crudServices;
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case ServiceDslPackage.SERVICE_MODEL__METHODS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getMethods()).basicAdd(otherEnd, msgs);
+            case ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getDtoReferences()).basicAdd(otherEnd, msgs);
+            case ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getCrudServices()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

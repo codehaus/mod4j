@@ -68,6 +68,7 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
             case ServiceDslPackage.CRUD_SERVICE: return createCrudService();
             case ServiceDslPackage.SPECIAL_METHOD: return createSpecialMethod();
             case ServiceDslPackage.SERVICE_METHOD: return createServiceMethod();
+            case ServiceDslPackage.PARAMETER: return createParameter();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -174,6 +175,16 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Parameter createParameter() {
+        ParameterImpl parameter = new ParameterImpl();
+        return parameter;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
