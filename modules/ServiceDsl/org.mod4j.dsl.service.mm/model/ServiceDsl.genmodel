@@ -26,19 +26,26 @@
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//DtoReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServiceDsl.ecore#//DtoReference/modelname"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ServiceDsl.ecore#//DtoReference/model"/>
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//CustomMethod">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//CustomMethod/input"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//CustomMethod/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//CustomMethod/inParameters"/>
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//CrudService">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//CrudService/dto"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ServiceDsl.ecore#//CrudService/model"/>
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//SpecialMethod">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//SpecialMethod/dto"/>
     </genClasses>
     <genClasses ecoreClass="ServiceDsl.ecore#//ServiceMethod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServiceDsl.ecore#//ServiceMethod/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ServiceDsl.ecore#//ServiceMethod/model"/>
+    </genClasses>
+    <genClasses ecoreClass="ServiceDsl.ecore#//Parameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//Parameter/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ServiceDsl.ecore#//Parameter/method"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -5,11 +5,11 @@
     nsURI="http://www.mod4j.org/service" nsPrefix="service">
   <eClassifiers xsi:type="ecore:EClass" name="ServiceModel" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
-        eType="#//ServiceMethod" containment="true"/>
+        eType="#//ServiceMethod" containment="true" eOpposite="#//ServiceMethod/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtoReferences" upperBound="-1"
-        eType="#//DtoReference" containment="true"/>
+        eType="#//DtoReference" containment="true" eOpposite="#//DtoReference/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="crudServices" upperBound="-1"
-        eType="#//CrudService" containment="true"/>
+        eType="#//CrudService" containment="true" eOpposite="#//CrudService/model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -17,10 +17,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//ServiceModel"
+        eOpposite="#//ServiceModel/dtoReferences"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomMethod" eSuperTypes="#//ServiceMethod">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//DtoReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inParameters" upperBound="-1"
+        eType="#//Parameter" containment="true" eOpposite="#//Parameter/method"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MethodType">
     <eLiterals name="Create"/>
@@ -32,6 +35,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrudService" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//ServiceModel"
+        eOpposite="#//ServiceModel/crudServices"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecialMethod" eSuperTypes="#//ServiceMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>
@@ -39,5 +44,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ServiceMethod" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MethodType"
         defaultValueLiteral="Custom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//ServiceModel"
+        eOpposite="#//ServiceModel/methods"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DtoReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//CustomMethod"
+        eOpposite="#//CustomMethod/inParameters"/>
   </eClassifiers>
 </ecore:EPackage>
