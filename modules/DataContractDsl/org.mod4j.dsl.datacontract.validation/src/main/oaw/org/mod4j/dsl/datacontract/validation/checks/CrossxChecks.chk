@@ -17,5 +17,13 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
 context BusinessClassReference ERROR "BusinessClass [" + this.name + "] not defined in model [" + this.modelname + "]":
        lookupSymbol(this.modelname, this.name, "BusinessClass") != null;
 
-       
+/*
+context DtoProperty ERROR "Property " + this.name + " must have type [" + "]" :
+    if this.businessClassDto != null then 
+       (let refSymbol = lookupSymbol(this.businessClassDto.base.modelname,
+                                     this.businessClassDto.base.name, "BusinessClass") :
+          this.name == refSymbolgetPropertyValue()
+       )
+    else  true;
+      */    
 

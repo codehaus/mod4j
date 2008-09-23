@@ -5,10 +5,11 @@ context DataContractModel ERROR "The name of a datacontract model may not be emp
     
 context Dto ERROR "The name of Dto "+ this.name + " must be unique" :
     this.datacontractModel.dtos.name.select(e|e.matches(this.name)).size == 1;
-// 
+
 
 //context DtoProperty ERROR "Property " + this.name + " must have a type [" + this.metaType.name + "]" :
 //    ((this.customDto != null) && (this.metaType == "DataContractDsl::DtoProperty")) ? false : true;
 
 //context DtoProperty ERROR "Property " + this.name + " may not have a type [" + this.metaType.name + "]" :
 //    ((this.businessClassDto != null) && (this.metaType.name != "DataContractDsl::DtoProperty")) ? false : true;
+
