@@ -1,11 +1,19 @@
+/*******************************************************************************
+ * Copyright (c) 2008 Ordina and committers to Mod4j
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Ordina - initial implementation
+ *******************************************************************************/
+ 
 import crossx;
 
-Symbol lookup(String model, String symbolname, String symboltype) :
- JAVA org.mod4j.crossx.broker.CrossxCheck.lookup(java.lang.String, java.lang.String, java.lang.String);
- 
-String definedInResource(String model, String classname) :
- JAVA org.mod4j.crossx.broker.CrossxCheck.definedInResource(java.lang.String, java.lang.String);
- 
+Symbol lookupSymbol(String model, String symbolname, String symboltype) :
+ JAVA org.mod4j.crossx.broker.CrossxCheck.lookupSymbol(java.lang.String, java.lang.String, java.lang.String);
+  
 List[String] lookupAll(String project, String symboltype) :
  JAVA org.mod4j.crossx.broker.CrossxCheck.lookupAll(java.lang.String, java.lang.String);
  
@@ -14,6 +22,9 @@ List[String] findAllFromModel(String modelname, String elemType) :
 
 List[String] findAllModels() :
   JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModels() ;
+
+String getPropertyValue(Symbol symbol, String propertyName) :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.getPropertyValue(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 
 List[String] findAllModelsInProject(String project) :
   JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModelsInProject(java.lang.String) ;

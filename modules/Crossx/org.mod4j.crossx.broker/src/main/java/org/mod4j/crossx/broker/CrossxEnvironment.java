@@ -68,15 +68,15 @@ public class CrossxEnvironment {
      * @param elemType
      * @return The name of the resource if the element is found, null if it isn't found
      */
-    static public String find(String model, String name, String elemType) {
-        for(CrossxLocation location: environment.values()){
-            String result = location.find(model, name, elemType);
-            if( result != null ){
-                return result;
-            }
-        }
-        return null;
-    }
+//    static public String find(String model, String name, String elemType) {
+//        for(CrossxLocation location: environment.values()){
+//            String result = location.find(model, name, elemType);
+//            if( result != null ){
+//                return result;
+//            }
+//        }
+//        return null;
+//    }
 
     /** Find the symbol with name 'name' and type 'type'.
      * 
@@ -84,7 +84,7 @@ public class CrossxEnvironment {
      * @param elemType
      * @return The name of the resource if the element is found, null if it isn't found
      */
-    static public Symbol lookup(String model, String name, String elemType) {
+    static public Symbol lookupSymbol(String model, String name, String elemType) {
         if( environment == null ) {
             System.err.println("CrossxEnvironment::find environment = null");
         }
