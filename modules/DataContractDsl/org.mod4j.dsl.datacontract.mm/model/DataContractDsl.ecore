@@ -17,18 +17,24 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//DtoProperty" containment="true"/>
+        eType="#//DtoProperty" containment="true" eOpposite="#//DtoProperty/businessClassDto"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//BusinessClassReference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProperties" upperBound="-1"
-        eType="#//DtoPropertyReference"/>
+        eType="#//DtoPropertyReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoProperty" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessClassDto" eType="#//BusinessClassDto"
+        eOpposite="#//BusinessClassDto/properties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customDto" eType="#//CustomDto"
+        eOpposite="#//CustomDto/properties"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//DtoProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//DtoProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredProperty" eType="#//DtoProperty"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoDataProperty" eSuperTypes="#//DtoProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoStringProperty" eSuperTypes="#//DtoDataProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoBooleanProperty" eSuperTypes="#//DtoDataProperty"/>
@@ -43,7 +49,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//DtoProperty" containment="true"/>
+        eType="#//DtoProperty" containment="true" eOpposite="#//DtoProperty/customDto"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
