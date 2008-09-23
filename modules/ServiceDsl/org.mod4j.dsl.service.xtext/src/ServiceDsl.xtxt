@@ -23,10 +23,15 @@ ServiceMethod :
 CustomMethod:
 	"method"
 	name=ID
-	("in"  input =[DtoReference]  )?
+	("in"  (inParameters+=Parameter)*  )?
 	("out" output=[DtoReference] )?
     ";" ;
      
+Parameter:
+    type=[DtoReference]
+    name=ID 
+    ;
+    
 SpecialMethod:
     type=MethodType
     name=ID
