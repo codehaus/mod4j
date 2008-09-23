@@ -20,7 +20,7 @@ context BusinessClass ERROR "Businessclass [" + this.name + "] already defined i
        ! classExists(this.name);
 */
 context BusinessClassReference ERROR "BusinessClassReference [" + this.name + "] not defined inj model " + this.model:
-       lookup(this.referredModel, this.name, "BusinessClass") != null;
+       lookupSymbol(this.referredModel, this.name, "BusinessClass") != null;
 
        
 
