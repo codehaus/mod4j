@@ -29,14 +29,10 @@
          */
          public class «javaClassName(name)» implements Serializable {
          
-         «FOREACH properties.typeSelect(DtoDataProperty) AS props»
-             «javaType(props)» «javaClassName(props.name)»; 
-         «ENDFOREACH»
-         
-         «IF properties.isEmpty»
-             //TODO implement
-         «ENDIF»
-         
+             private Long id;
+             «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
+                 private «javaType(dataProperty)» «dataProperty.name»; 
+             «ENDFOREACH»
          }
 	«ENDFILE»
 «ENDDEFINE»

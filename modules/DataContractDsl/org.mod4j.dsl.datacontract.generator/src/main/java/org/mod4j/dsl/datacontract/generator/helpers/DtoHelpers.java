@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty;
@@ -18,7 +18,7 @@ public class DtoHelpers {
 
     public static String javaType(DtoProperty p) {
         if (p instanceof DtoBooleanProperty) {
-            return javaType((DataContractModel) p);
+            return javaType((DtoBooleanProperty) p);
         } else if (p instanceof DtoStringProperty) {
             return javaType((DtoStringProperty) p);
         } else if (p instanceof DtoIntegerProperty) {
@@ -33,7 +33,7 @@ public class DtoHelpers {
         return "Object";
     }
 
-    public static String javaType(DataContractModel p) {
+    public static String javaType(DtoBooleanProperty p) {
         // return p.isNullable() ? "Boolean" : "boolean";
         return "Boolean";
     }
