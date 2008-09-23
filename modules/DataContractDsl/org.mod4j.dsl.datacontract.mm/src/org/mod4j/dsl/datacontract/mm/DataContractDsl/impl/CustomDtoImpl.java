@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.CustomDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Property;
 
 /**
@@ -44,7 +45,7 @@ public class CustomDtoImpl extends DtoImpl implements CustomDto {
      * @generated
      * @ordered
      */
-    protected EList<Property> properties;
+    protected EList<DtoProperty> properties;
 
     /**
      * <!-- begin-user-doc -->
@@ -70,9 +71,9 @@ public class CustomDtoImpl extends DtoImpl implements CustomDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Property> getProperties() {
+    public EList<DtoProperty> getProperties() {
         if (properties == null) {
-            properties = new EObjectContainmentEList<Property>(Property.class, this, DataContractDslPackage.CUSTOM_DTO__PROPERTIES);
+            properties = new EObjectContainmentEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.CUSTOM_DTO__PROPERTIES);
         }
         return properties;
     }
@@ -116,7 +117,7 @@ public class CustomDtoImpl extends DtoImpl implements CustomDto {
         switch (featureID) {
             case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
                 getProperties().clear();
-                getProperties().addAll((Collection<? extends Property>)newValue);
+                getProperties().addAll((Collection<? extends DtoProperty>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

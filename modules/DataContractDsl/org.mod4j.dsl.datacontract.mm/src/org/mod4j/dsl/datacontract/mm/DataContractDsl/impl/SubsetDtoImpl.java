@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto;
 
@@ -59,7 +60,7 @@ public class SubsetDtoImpl extends DtoImpl implements SubsetDto {
      * @generated
      * @ordered
      */
-    protected EList<PropertyReference> selectedProperties;
+    protected EList<DtoPropertyReference> selectedProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -123,9 +124,9 @@ public class SubsetDtoImpl extends DtoImpl implements SubsetDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<PropertyReference> getSelectedProperties() {
+    public EList<DtoPropertyReference> getSelectedProperties() {
         if (selectedProperties == null) {
-            selectedProperties = new EObjectContainmentEList<PropertyReference>(PropertyReference.class, this, DataContractDslPackage.SUBSET_DTO__SELECTED_PROPERTIES);
+            selectedProperties = new EObjectContainmentEList<DtoPropertyReference>(DtoPropertyReference.class, this, DataContractDslPackage.SUBSET_DTO__SELECTED_PROPERTIES);
         }
         return selectedProperties;
     }
@@ -175,7 +176,7 @@ public class SubsetDtoImpl extends DtoImpl implements SubsetDto {
                 return;
             case DataContractDslPackage.SUBSET_DTO__SELECTED_PROPERTIES:
                 getSelectedProperties().clear();
-                getSelectedProperties().addAll((Collection<? extends PropertyReference>)newValue);
+                getSelectedProperties().addAll((Collection<? extends DtoPropertyReference>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

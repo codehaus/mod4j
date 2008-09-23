@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Property;
 
 /**
@@ -49,7 +50,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * @generated
      * @ordered
      */
-    protected EList<Property> properties;
+    protected EList<DtoProperty> properties;
 
     /**
      * The cached value of the '{@link #getBase() <em>Base</em>}' reference.
@@ -85,9 +86,9 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Property> getProperties() {
+    public EList<DtoProperty> getProperties() {
         if (properties == null) {
-            properties = new EObjectContainmentEList<Property>(Property.class, this, DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES);
+            properties = new EObjectContainmentEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES);
         }
         return properties;
     }
@@ -172,7 +173,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
         switch (featureID) {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES:
                 getProperties().clear();
-                getProperties().addAll((Collection<? extends Property>)newValue);
+                getProperties().addAll((Collection<? extends DtoProperty>)newValue);
                 return;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
                 setBase((BusinessClassReference)newValue);

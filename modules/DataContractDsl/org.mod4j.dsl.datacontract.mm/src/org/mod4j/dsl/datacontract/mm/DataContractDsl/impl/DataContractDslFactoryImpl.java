@@ -67,21 +67,20 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.SUBSET_DTO: return createSubsetDto();
             case DataContractDslPackage.COMPOSITE_DTO: return createCompositeDto();
             case DataContractDslPackage.REFERENCE_DTO: return createReferenceDto();
-            case DataContractDslPackage.PROPERTY: return createProperty();
-            case DataContractDslPackage.PROPERTY_REFERENCE: return createPropertyReference();
-            case DataContractDslPackage.DATA_PROPERTY: return createDataProperty();
-            case DataContractDslPackage.STRING_PROPERTY: return createStringProperty();
-            case DataContractDslPackage.BOOLEAN_PROPERTY: return createBooleanProperty();
+            case DataContractDslPackage.DTO_PROPERTY: return createDtoProperty();
+            case DataContractDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
+            case DataContractDslPackage.DTO_DATA_PROPERTY: return createDtoDataProperty();
+            case DataContractDslPackage.DTO_STRING_PROPERTY: return createDtoStringProperty();
+            case DataContractDslPackage.DTO_BOOLEAN_PROPERTY: return createDtoBooleanProperty();
             case DataContractDslPackage.ENUMERATION: return createEnumeration();
             case DataContractDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
             case DataContractDslPackage.MODEL_ELEMENT: return createModelElement();
             case DataContractDslPackage.CUSTOM_DTO: return createCustomDto();
             case DataContractDslPackage.BUSINESS_CLASS_REFERENCE: return createBusinessClassReference();
-            case DataContractDslPackage.INTEGER_PROPERTY: return createIntegerProperty();
-            case DataContractDslPackage.DECIMAL_PROPERTY: return createDecimalProperty();
-            case DataContractDslPackage.ENUMERATION_PROPERTY: return createEnumerationProperty();
-            case DataContractDslPackage.DATE_TIME_PROPERTY: return createDateTimeProperty();
-            case DataContractDslPackage.ECLASS0: return createEClass0();
+            case DataContractDslPackage.DTO_INTEGER_PROPERTY: return createDtoIntegerProperty();
+            case DataContractDslPackage.DTO_DECIMAL_PROPERTY: return createDtoDecimalProperty();
+            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY: return createDtoEnumerationProperty();
+            case DataContractDslPackage.DTO_DATE_TIME_PROPERTY: return createDtoDateTimeProperty();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -162,9 +161,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public Property createProperty() {
-        PropertyImpl property = new PropertyImpl();
-        return property;
+    public DtoProperty createDtoProperty() {
+        DtoPropertyImpl dtoProperty = new DtoPropertyImpl();
+        return dtoProperty;
     }
 
     /**
@@ -172,9 +171,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public PropertyReference createPropertyReference() {
-        PropertyReferenceImpl propertyReference = new PropertyReferenceImpl();
-        return propertyReference;
+    public DtoPropertyReference createDtoPropertyReference() {
+        DtoPropertyReferenceImpl dtoPropertyReference = new DtoPropertyReferenceImpl();
+        return dtoPropertyReference;
     }
 
     /**
@@ -182,9 +181,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataProperty createDataProperty() {
-        DataPropertyImpl dataProperty = new DataPropertyImpl();
-        return dataProperty;
+    public DtoDataProperty createDtoDataProperty() {
+        DtoDataPropertyImpl dtoDataProperty = new DtoDataPropertyImpl();
+        return dtoDataProperty;
     }
 
     /**
@@ -192,9 +191,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public StringProperty createStringProperty() {
-        StringPropertyImpl stringProperty = new StringPropertyImpl();
-        return stringProperty;
+    public DtoStringProperty createDtoStringProperty() {
+        DtoStringPropertyImpl dtoStringProperty = new DtoStringPropertyImpl();
+        return dtoStringProperty;
     }
 
     /**
@@ -202,9 +201,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public BooleanProperty createBooleanProperty() {
-        BooleanPropertyImpl booleanProperty = new BooleanPropertyImpl();
-        return booleanProperty;
+    public DtoBooleanProperty createDtoBooleanProperty() {
+        DtoBooleanPropertyImpl dtoBooleanProperty = new DtoBooleanPropertyImpl();
+        return dtoBooleanProperty;
     }
 
     /**
@@ -262,9 +261,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public IntegerProperty createIntegerProperty() {
-        IntegerPropertyImpl integerProperty = new IntegerPropertyImpl();
-        return integerProperty;
+    public DtoIntegerProperty createDtoIntegerProperty() {
+        DtoIntegerPropertyImpl dtoIntegerProperty = new DtoIntegerPropertyImpl();
+        return dtoIntegerProperty;
     }
 
     /**
@@ -272,9 +271,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public DecimalProperty createDecimalProperty() {
-        DecimalPropertyImpl decimalProperty = new DecimalPropertyImpl();
-        return decimalProperty;
+    public DtoDecimalProperty createDtoDecimalProperty() {
+        DtoDecimalPropertyImpl dtoDecimalProperty = new DtoDecimalPropertyImpl();
+        return dtoDecimalProperty;
     }
 
     /**
@@ -282,9 +281,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EnumerationProperty createEnumerationProperty() {
-        EnumerationPropertyImpl enumerationProperty = new EnumerationPropertyImpl();
-        return enumerationProperty;
+    public DtoEnumerationProperty createDtoEnumerationProperty() {
+        DtoEnumerationPropertyImpl dtoEnumerationProperty = new DtoEnumerationPropertyImpl();
+        return dtoEnumerationProperty;
     }
 
     /**
@@ -292,19 +291,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public DateTimeProperty createDateTimeProperty() {
-        DateTimePropertyImpl dateTimeProperty = new DateTimePropertyImpl();
-        return dateTimeProperty;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass0 createEClass0() {
-        EClass0Impl eClass0 = new EClass0Impl();
-        return eClass0;
+    public DtoDateTimeProperty createDtoDateTimeProperty() {
+        DtoDateTimePropertyImpl dtoDateTimeProperty = new DtoDateTimePropertyImpl();
+        return dtoDateTimeProperty;
     }
 
     /**

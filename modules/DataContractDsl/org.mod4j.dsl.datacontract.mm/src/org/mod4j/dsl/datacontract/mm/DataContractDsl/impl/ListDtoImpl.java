@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference;
 
@@ -57,7 +58,7 @@ public class ListDtoImpl extends DtoImpl implements ListDto {
      * @generated
      * @ordered
      */
-    protected EList<PropertyReference> selectedProperties;
+    protected EList<DtoPropertyReference> selectedProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -121,9 +122,9 @@ public class ListDtoImpl extends DtoImpl implements ListDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<PropertyReference> getSelectedProperties() {
+    public EList<DtoPropertyReference> getSelectedProperties() {
         if (selectedProperties == null) {
-            selectedProperties = new EObjectResolvingEList<PropertyReference>(PropertyReference.class, this, DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES);
+            selectedProperties = new EObjectResolvingEList<DtoPropertyReference>(DtoPropertyReference.class, this, DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES);
         }
         return selectedProperties;
     }
@@ -159,7 +160,7 @@ public class ListDtoImpl extends DtoImpl implements ListDto {
                 return;
             case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
                 getSelectedProperties().clear();
-                getSelectedProperties().addAll((Collection<? extends PropertyReference>)newValue);
+                getSelectedProperties().addAll((Collection<? extends DtoPropertyReference>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
