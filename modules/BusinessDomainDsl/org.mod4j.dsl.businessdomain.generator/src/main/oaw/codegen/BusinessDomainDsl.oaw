@@ -20,6 +20,9 @@
     <bean id="bm" class="oaw.type.emf.EmfMetaModel">
 		<metaModelPackage value="BusinessDomainDsl.BusinessDomainDslPackage" />  
 	</bean>
+    <bean id="crossx" class="oaw.type.emf.EmfMetaModel">
+        <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
+    </bean>
     
     <!--
         Parse the BusinessDomain model file and validate syntax and model constraints
@@ -68,6 +71,7 @@
     -->  
      <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
+       <metaModel idRef="crossx"/>
         <expand value="Datalayer::genResources FOR busModel" />
         <outlet path="${applicationPath}/${dataModuleName}/${resourceGenPath}">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />

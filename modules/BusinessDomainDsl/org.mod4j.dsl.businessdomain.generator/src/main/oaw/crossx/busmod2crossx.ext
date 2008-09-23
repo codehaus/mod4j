@@ -15,7 +15,8 @@ create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
 create Symbol toElement(BusinessClass cls) :
     this.setName(cls.name) ->
     this.setType("BusinessClass")->
-    this.subSymbols.addAll(cls.properties.toElement() );
+    this.subSymbols.addAll(cls.properties.toElement() )->
+    cls.superclass != null ? this.subSymbols.addAll( cls.superclass.properties.toElement()): this;
 
 create crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     this.setName(prop.name) ->
