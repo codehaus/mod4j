@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -87,7 +88,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      */
     public EList<DtoProperty> getProperties() {
         if (properties == null) {
-            properties = new EObjectContainmentEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES);
+            properties = new EObjectContainmentWithInverseEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES, DataContractDslPackage.DTO_PROPERTY__BUSINESS_CLASS_DTO);
         }
         return properties;
     }
@@ -128,6 +129,21 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
         base = newBase;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.BUSINESS_CLASS_DTO__BASE, oldBase, base));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**

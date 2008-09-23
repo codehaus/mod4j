@@ -28,6 +28,7 @@ public interface CustomDto extends Dto {
     /**
      * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto <em>Custom Dto</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
@@ -36,7 +37,8 @@ public interface CustomDto extends Dto {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Properties</em>' containment reference list.
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getCustomDto_Properties()
-     * @model containment="true"
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto
+     * @model opposite="customDto" containment="true"
      * @generated
      */
     EList<DtoProperty> getProperties();

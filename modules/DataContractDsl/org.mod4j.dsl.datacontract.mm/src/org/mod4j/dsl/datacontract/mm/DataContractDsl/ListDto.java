@@ -53,7 +53,7 @@ public interface ListDto extends Dto {
     void setBaseDto(Dto value);
 
     /**
-     * Returns the value of the '<em><b>Selected Properties</b></em>' reference list.
+     * Returns the value of the '<em><b>Selected Properties</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference}.
      * <!-- begin-user-doc -->
      * <p>
@@ -61,9 +61,9 @@ public interface ListDto extends Dto {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Selected Properties</em>' reference list.
+     * @return the value of the '<em>Selected Properties</em>' containment reference list.
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getListDto_SelectedProperties()
-     * @model
+     * @model containment="true"
      * @generated
      */
     EList<DtoPropertyReference> getSelectedProperties();

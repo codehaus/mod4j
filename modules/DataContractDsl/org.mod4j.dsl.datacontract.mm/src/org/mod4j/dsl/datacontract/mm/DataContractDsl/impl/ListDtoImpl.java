@@ -10,6 +10,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -17,6 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
@@ -50,7 +53,7 @@ public class ListDtoImpl extends DtoImpl implements ListDto {
     protected Dto baseDto;
 
     /**
-     * The cached value of the '{@link #getSelectedProperties() <em>Selected Properties</em>}' reference list.
+     * The cached value of the '{@link #getSelectedProperties() <em>Selected Properties</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getSelectedProperties()
@@ -123,9 +126,23 @@ public class ListDtoImpl extends DtoImpl implements ListDto {
      */
     public EList<DtoPropertyReference> getSelectedProperties() {
         if (selectedProperties == null) {
-            selectedProperties = new EObjectResolvingEList<DtoPropertyReference>(DtoPropertyReference.class, this, DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES);
+            selectedProperties = new EObjectContainmentEList<DtoPropertyReference>(DtoPropertyReference.class, this, DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES);
         }
         return selectedProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
+                return ((InternalEList<?>)getSelectedProperties()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**

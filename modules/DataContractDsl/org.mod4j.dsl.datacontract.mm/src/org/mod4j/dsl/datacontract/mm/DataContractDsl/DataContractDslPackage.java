@@ -317,7 +317,7 @@ public interface DataContractDslPackage extends EPackage {
     int LIST_DTO__BASE_DTO = DTO_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Selected Properties</b></em>' reference list.
+     * The feature id for the '<em><b>Selected Properties</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -372,13 +372,31 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_PROPERTY__DATA_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY__BUSINESS_CLASS_DTO = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY__CUSTOM_DTO = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Dto Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DTO_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int DTO_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
@@ -418,13 +436,40 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_PROPERTY_REFERENCE__DATA_TYPE = DTO_PROPERTY__DATA_TYPE;
 
     /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY_REFERENCE__BUSINESS_CLASS_DTO = DTO_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY_REFERENCE__CUSTOM_DTO = DTO_PROPERTY__CUSTOM_DTO;
+
+    /**
+     * The feature id for the '<em><b>Referred Property</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY_REFERENCE__REFERRED_PROPERTY = DTO_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Property Reference</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl <em>Dto Data Property</em>}' class.
@@ -462,6 +507,24 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_DATA_PROPERTY__DATA_TYPE = DTO_PROPERTY__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO = DTO_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATA_PROPERTY__CUSTOM_DTO = DTO_PROPERTY__CUSTOM_DTO;
 
     /**
      * The number of structural features of the '<em>Dto Data Property</em>' class.
@@ -510,6 +573,24 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_STRING_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_STRING_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_STRING_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
+
+    /**
      * The number of structural features of the '<em>Dto String Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -554,6 +635,24 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_BOOLEAN_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_BOOLEAN_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_BOOLEAN_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
 
     /**
      * The number of structural features of the '<em>Dto Boolean Property</em>' class.
@@ -777,6 +876,24 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_INTEGER_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_INTEGER_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_INTEGER_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
+
+    /**
      * The number of structural features of the '<em>Dto Integer Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -823,6 +940,24 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_DECIMAL_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DECIMAL_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DECIMAL_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
+
+    /**
      * The number of structural features of the '<em>Dto Decimal Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -867,6 +1002,24 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_ENUMERATION_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ENUMERATION_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ENUMERATION_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' reference.
@@ -922,6 +1075,24 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_DATE_TIME_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATE_TIME_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATE_TIME_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
 
     /**
      * The number of structural features of the '<em>Dto Date Time Property</em>' class.
@@ -1051,10 +1222,10 @@ public interface DataContractDslPackage extends EPackage {
     EReference getListDto_BaseDto();
 
     /**
-     * Returns the meta object for the reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getSelectedProperties <em>Selected Properties</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getSelectedProperties <em>Selected Properties</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Selected Properties</em>'.
+     * @return the meta object for the containment reference list '<em>Selected Properties</em>'.
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getSelectedProperties()
      * @see #getListDto()
      * @generated
@@ -1083,6 +1254,28 @@ public interface DataContractDslPackage extends EPackage {
     EAttribute getDtoProperty_DataType();
 
     /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto <em>Business Class Dto</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Business Class Dto</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto()
+     * @see #getDtoProperty()
+     * @generated
+     */
+    EReference getDtoProperty_BusinessClassDto();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto <em>Custom Dto</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Custom Dto</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto()
+     * @see #getDtoProperty()
+     * @generated
+     */
+    EReference getDtoProperty_CustomDto();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1091,6 +1284,17 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      */
     EClass getDtoPropertyReference();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference#getReferredProperty <em>Referred Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Referred Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference#getReferredProperty()
+     * @see #getDtoPropertyReference()
+     * @generated
+     */
+    EReference getDtoPropertyReference_ReferredProperty();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty <em>Dto Data Property</em>}'.
@@ -1408,7 +1612,7 @@ public interface DataContractDslPackage extends EPackage {
         EReference LIST_DTO__BASE_DTO = eINSTANCE.getListDto_BaseDto();
 
         /**
-         * The meta object literal for the '<em><b>Selected Properties</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Selected Properties</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -1434,6 +1638,22 @@ public interface DataContractDslPackage extends EPackage {
         EAttribute DTO_PROPERTY__DATA_TYPE = eINSTANCE.getDtoProperty_DataType();
 
         /**
+         * The meta object literal for the '<em><b>Business Class Dto</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DTO_PROPERTY__BUSINESS_CLASS_DTO = eINSTANCE.getDtoProperty_BusinessClassDto();
+
+        /**
+         * The meta object literal for the '<em><b>Custom Dto</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DTO_PROPERTY__CUSTOM_DTO = eINSTANCE.getDtoProperty_CustomDto();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1442,6 +1662,14 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EClass DTO_PROPERTY_REFERENCE = eINSTANCE.getDtoPropertyReference();
+
+        /**
+         * The meta object literal for the '<em><b>Referred Property</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DTO_PROPERTY_REFERENCE__REFERRED_PROPERTY = eINSTANCE.getDtoPropertyReference_ReferredProperty();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl <em>Dto Data Property</em>}' class.

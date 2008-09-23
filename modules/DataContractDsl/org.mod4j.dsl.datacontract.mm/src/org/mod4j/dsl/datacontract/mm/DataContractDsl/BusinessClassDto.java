@@ -29,6 +29,7 @@ public interface BusinessClassDto extends Dto {
     /**
      * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto <em>Business Class Dto</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
@@ -37,7 +38,8 @@ public interface BusinessClassDto extends Dto {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Properties</em>' containment reference list.
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getBusinessClassDto_Properties()
-     * @model containment="true"
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto
+     * @model opposite="businessClassDto" containment="true"
      * @generated
      */
     EList<DtoProperty> getProperties();

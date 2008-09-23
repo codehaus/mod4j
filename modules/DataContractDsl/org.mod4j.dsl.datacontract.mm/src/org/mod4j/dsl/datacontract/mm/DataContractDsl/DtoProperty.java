@@ -16,6 +16,8 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto <em>Business Class Dto</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto <em>Custom Dto</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,5 +51,61 @@ public interface DtoProperty extends ModelElement {
      * @generated
      */
     void setDataType(String value);
+
+    /**
+     * Returns the value of the '<em><b>Business Class Dto</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Business Class Dto</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Business Class Dto</em>' container reference.
+     * @see #setBusinessClassDto(BusinessClassDto)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoProperty_BusinessClassDto()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getProperties
+     * @model opposite="properties" transient="false"
+     * @generated
+     */
+    BusinessClassDto getBusinessClassDto();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto <em>Business Class Dto</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Business Class Dto</em>' container reference.
+     * @see #getBusinessClassDto()
+     * @generated
+     */
+    void setBusinessClassDto(BusinessClassDto value);
+
+    /**
+     * Returns the value of the '<em><b>Custom Dto</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.CustomDto#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Custom Dto</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Custom Dto</em>' container reference.
+     * @see #setCustomDto(CustomDto)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoProperty_CustomDto()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.CustomDto#getProperties
+     * @model opposite="properties" transient="false"
+     * @generated
+     */
+    CustomDto getCustomDto();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto <em>Custom Dto</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Custom Dto</em>' container reference.
+     * @see #getCustomDto()
+     * @generated
+     */
+    void setCustomDto(CustomDto value);
 
 } // DtoProperty

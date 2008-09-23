@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -72,9 +73,24 @@ public class CustomDtoImpl extends DtoImpl implements CustomDto {
      */
     public EList<DtoProperty> getProperties() {
         if (properties == null) {
-            properties = new EObjectContainmentEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.CUSTOM_DTO__PROPERTIES);
+            properties = new EObjectContainmentWithInverseEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.CUSTOM_DTO__PROPERTIES, DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO);
         }
         return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
