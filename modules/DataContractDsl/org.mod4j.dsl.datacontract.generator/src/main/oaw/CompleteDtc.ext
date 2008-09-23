@@ -1,0 +1,52 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+
+import crossx;
+import DataContractDsl;
+
+extension org::mod4j::crossx::broker::xtend::Crossx;
+
+completeModel(DataContractModel dtcModel) :
+    let crud = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|dto.properties.isEmpty) :
+    let subs = dtcModel.dtos.typeSelect(BusinessClassDto).reject(dto|dto.properties.isEmpty) :
+	crud.addProperties()
+    ;
+    
+addProperties(BusinessClassDto dto) :
+    let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
+    let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
+    dto.properties.addAll( props.toDtoProperty() )  
+    ;
+
+DataContractDsl::DtoProperty toDtoProperty(Symbol symbol ) :
+    switch (symbol.getPropertyValue("DataType")) {
+        case 'boolean' : newBooleanProperty(symbol)
+        case 'string' : newStringProperty(symbol)
+        case 'integer' : newIntegerProperty(symbol)
+        case 'decimal' : newDecimalProperty(symbol)
+        case 'datetime' : newDateTimeProperty(symbol)
+        default : newEnumProperty(symbol)
+    }
+    ;
+    
+create DataContractDsl::DtoBooleanProperty newBooleanProperty(Symbol symbol) :
+    this.setName(symbol.name)->
+    this.setDataType("boolean");
+create DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
+    this.setName(symbol.name)->
+    this.setDataType("string");
+create DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
+    this.setName(symbol.name)->
+    this.setDataType("integer");
+create DataContractDsl::DtoDecimalProperty newDecimalProperty(Symbol symbol) :
+    this.setName(symbol.name)->
+    this.setDataType("decimal");
+create DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
+    this.setName(symbol.name)->
+    this.setDataType("datetime");
+create DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol) :
+    this.setName(symbol.name);
+    
+    

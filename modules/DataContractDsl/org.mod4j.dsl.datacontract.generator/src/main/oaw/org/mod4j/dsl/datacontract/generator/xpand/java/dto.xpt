@@ -23,7 +23,7 @@
          public class «javaClassName(name)» {
          
          «FOREACH properties AS props»
-             «props.toString()»
+             // «props.name»  : «props.dataType» 
          «ENDFOREACH»
          
          «IF properties.isEmpty»

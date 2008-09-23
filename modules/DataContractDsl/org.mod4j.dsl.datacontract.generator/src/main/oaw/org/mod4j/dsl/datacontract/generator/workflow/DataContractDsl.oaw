@@ -16,6 +16,9 @@
     <bean id="dcm" class="oaw.type.emf.EmfMetaModel">
 		<metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />  
 	</bean>
+     <bean id="crossx" class="oaw.type.emf.EmfMetaModel">
+        <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
+    </bean>
     
     <!--
         Parse the model file and validate syntax and model constraints
@@ -33,6 +36,16 @@
         <metaModel idRef="dcm" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />
         <emfAllChildrenSlot value="dataContractModel" />
+    </component>
+
+    <!-- Call the Xtend model-to-model transformation to complete the DTO model
+         with all properties derived from the business classes.
+    -->
+    <component id="complteDtc" class="oaw.xtend.XtendComponent">
+       <metaModel idRef="dcm"/>
+       <metaModel idRef="crossx"/>
+       <invoke value="CompleteDtc::completeModel(dataContractModel)"/>
+<!--       <outputSlot value="dataContractModel"/> -->
     </component>
 
     <!--
