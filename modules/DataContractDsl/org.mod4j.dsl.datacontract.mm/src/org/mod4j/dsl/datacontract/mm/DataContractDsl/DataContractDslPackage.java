@@ -67,7 +67,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getModelElement()
      * @generated
      */
-    int MODEL_ELEMENT = 14;
+    int MODEL_ELEMENT = 11;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -335,171 +335,6 @@ public interface DataContractDslPackage extends EPackage {
     int LIST_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.SubsetDtoImpl <em>Subset Dto</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.SubsetDtoImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getSubsetDto()
-     * @generated
-     */
-    int SUBSET_DTO = 4;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUBSET_DTO__NAME = DTO__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUBSET_DTO__DESCRIPTION = DTO__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Datacontract Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUBSET_DTO__DATACONTRACT_MODEL = DTO__DATACONTRACT_MODEL;
-
-    /**
-     * The feature id for the '<em><b>Base Dto</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUBSET_DTO__BASE_DTO = DTO_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Selected Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUBSET_DTO__SELECTED_PROPERTIES = DTO_FEATURE_COUNT + 1;
-
-    /**
-     * The number of structural features of the '<em>Subset Dto</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUBSET_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 2;
-
-    /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.CompositeDtoImpl <em>Composite Dto</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.CompositeDtoImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getCompositeDto()
-     * @generated
-     */
-    int COMPOSITE_DTO = 5;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COMPOSITE_DTO__NAME = DTO__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COMPOSITE_DTO__DESCRIPTION = DTO__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Datacontract Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COMPOSITE_DTO__DATACONTRACT_MODEL = DTO__DATACONTRACT_MODEL;
-
-    /**
-     * The feature id for the '<em><b>Dtos</b></em>' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COMPOSITE_DTO__DTOS = DTO_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Composite Dto</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int COMPOSITE_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 1;
-
-    /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ReferenceDtoImpl <em>Reference Dto</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ReferenceDtoImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getReferenceDto()
-     * @generated
-     */
-    int REFERENCE_DTO = 6;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENCE_DTO__NAME = DTO__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENCE_DTO__DESCRIPTION = DTO__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Datacontract Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENCE_DTO__DATACONTRACT_MODEL = DTO__DATACONTRACT_MODEL;
-
-    /**
-     * The number of structural features of the '<em>Reference Dto</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REFERENCE_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 0;
-
-    /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl <em>Dto Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -507,7 +342,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoProperty()
      * @generated
      */
-    int DTO_PROPERTY = 7;
+    int DTO_PROPERTY = 4;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -553,7 +388,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoPropertyReference()
      * @generated
      */
-    int DTO_PROPERTY_REFERENCE = 8;
+    int DTO_PROPERTY_REFERENCE = 5;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -599,7 +434,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDataProperty()
      * @generated
      */
-    int DTO_DATA_PROPERTY = 9;
+    int DTO_DATA_PROPERTY = 6;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -645,7 +480,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoStringProperty()
      * @generated
      */
-    int DTO_STRING_PROPERTY = 10;
+    int DTO_STRING_PROPERTY = 7;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -691,7 +526,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoBooleanProperty()
      * @generated
      */
-    int DTO_BOOLEAN_PROPERTY = 11;
+    int DTO_BOOLEAN_PROPERTY = 8;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -737,7 +572,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumeration()
      * @generated
      */
-    int ENUMERATION = 12;
+    int ENUMERATION = 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -783,7 +618,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationLiteral()
      * @generated
      */
-    int ENUMERATION_LITERAL = 13;
+    int ENUMERATION_LITERAL = 10;
 
     /**
      * The number of structural features of the '<em>Enumeration Literal</em>' class.
@@ -802,7 +637,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getCustomDto()
      * @generated
      */
-    int CUSTOM_DTO = 15;
+    int CUSTOM_DTO = 12;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -857,7 +692,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassReference()
      * @generated
      */
-    int BUSINESS_CLASS_REFERENCE = 16;
+    int BUSINESS_CLASS_REFERENCE = 13;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -912,7 +747,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoIntegerProperty()
      * @generated
      */
-    int DTO_INTEGER_PROPERTY = 17;
+    int DTO_INTEGER_PROPERTY = 14;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -958,7 +793,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDecimalProperty()
      * @generated
      */
-    int DTO_DECIMAL_PROPERTY = 18;
+    int DTO_DECIMAL_PROPERTY = 15;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1004,7 +839,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoEnumerationProperty()
      * @generated
      */
-    int DTO_ENUMERATION_PROPERTY = 19;
+    int DTO_ENUMERATION_PROPERTY = 16;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1059,7 +894,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDateTimeProperty()
      * @generated
      */
-    int DTO_DATE_TIME_PROPERTY = 20;
+    int DTO_DATE_TIME_PROPERTY = 17;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1225,69 +1060,6 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      */
     EReference getListDto_SelectedProperties();
-
-    /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto <em>Subset Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Subset Dto</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto
-     * @generated
-     */
-    EClass getSubsetDto();
-
-    /**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto#getBaseDto <em>Base Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Base Dto</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto#getBaseDto()
-     * @see #getSubsetDto()
-     * @generated
-     */
-    EReference getSubsetDto_BaseDto();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto#getSelectedProperties <em>Selected Properties</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Selected Properties</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto#getSelectedProperties()
-     * @see #getSubsetDto()
-     * @generated
-     */
-    EReference getSubsetDto_SelectedProperties();
-
-    /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto <em>Composite Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Composite Dto</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto
-     * @generated
-     */
-    EClass getCompositeDto();
-
-    /**
-     * Returns the meta object for the reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto#getDtos <em>Dtos</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Dtos</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto#getDtos()
-     * @see #getCompositeDto()
-     * @generated
-     */
-    EReference getCompositeDto_Dtos();
-
-    /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto <em>Reference Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Reference Dto</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto
-     * @generated
-     */
-    EClass getReferenceDto();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty <em>Dto Property</em>}'.
@@ -1642,60 +1414,6 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EReference LIST_DTO__SELECTED_PROPERTIES = eINSTANCE.getListDto_SelectedProperties();
-
-        /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.SubsetDtoImpl <em>Subset Dto</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.SubsetDtoImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getSubsetDto()
-         * @generated
-         */
-        EClass SUBSET_DTO = eINSTANCE.getSubsetDto();
-
-        /**
-         * The meta object literal for the '<em><b>Base Dto</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SUBSET_DTO__BASE_DTO = eINSTANCE.getSubsetDto_BaseDto();
-
-        /**
-         * The meta object literal for the '<em><b>Selected Properties</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SUBSET_DTO__SELECTED_PROPERTIES = eINSTANCE.getSubsetDto_SelectedProperties();
-
-        /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.CompositeDtoImpl <em>Composite Dto</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.CompositeDtoImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getCompositeDto()
-         * @generated
-         */
-        EClass COMPOSITE_DTO = eINSTANCE.getCompositeDto();
-
-        /**
-         * The meta object literal for the '<em><b>Dtos</b></em>' reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference COMPOSITE_DTO__DTOS = eINSTANCE.getCompositeDto_Dtos();
-
-        /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ReferenceDtoImpl <em>Reference Dto</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ReferenceDtoImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getReferenceDto()
-         * @generated
-         */
-        EClass REFERENCE_DTO = eINSTANCE.getReferenceDto();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl <em>Dto Property</em>}' class.

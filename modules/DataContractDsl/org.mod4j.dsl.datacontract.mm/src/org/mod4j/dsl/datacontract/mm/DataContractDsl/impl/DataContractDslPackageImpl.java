@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.CustomDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslFactory;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
@@ -34,8 +33,6 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationLiteral;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ModelElement;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,27 +68,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * @generated
      */
     private EClass listDtoEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass subsetDtoEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass compositeDtoEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass referenceDtoEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -372,60 +348,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSubsetDto() {
-        return subsetDtoEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getSubsetDto_BaseDto() {
-        return (EReference)subsetDtoEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getSubsetDto_SelectedProperties() {
-        return (EReference)subsetDtoEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getCompositeDto() {
-        return compositeDtoEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getCompositeDto_Dtos() {
-        return (EReference)compositeDtoEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getReferenceDto() {
-        return referenceDtoEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getDtoProperty() {
         return dtoPropertyEClass;
     }
@@ -663,15 +585,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         createEReference(listDtoEClass, LIST_DTO__BASE_DTO);
         createEReference(listDtoEClass, LIST_DTO__SELECTED_PROPERTIES);
 
-        subsetDtoEClass = createEClass(SUBSET_DTO);
-        createEReference(subsetDtoEClass, SUBSET_DTO__BASE_DTO);
-        createEReference(subsetDtoEClass, SUBSET_DTO__SELECTED_PROPERTIES);
-
-        compositeDtoEClass = createEClass(COMPOSITE_DTO);
-        createEReference(compositeDtoEClass, COMPOSITE_DTO__DTOS);
-
-        referenceDtoEClass = createEClass(REFERENCE_DTO);
-
         dtoPropertyEClass = createEClass(DTO_PROPERTY);
         createEAttribute(dtoPropertyEClass, DTO_PROPERTY__DATA_TYPE);
 
@@ -741,9 +654,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         dtoEClass.getESuperTypes().add(this.getModelElement());
         businessClassDtoEClass.getESuperTypes().add(this.getDto());
         listDtoEClass.getESuperTypes().add(this.getDto());
-        subsetDtoEClass.getESuperTypes().add(this.getDto());
-        compositeDtoEClass.getESuperTypes().add(this.getDto());
-        referenceDtoEClass.getESuperTypes().add(this.getDto());
         dtoPropertyEClass.getESuperTypes().add(this.getModelElement());
         dtoPropertyReferenceEClass.getESuperTypes().add(this.getDtoProperty());
         dtoDataPropertyEClass.getESuperTypes().add(this.getDtoProperty());
@@ -773,15 +683,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEClass(listDtoEClass, ListDto.class, "ListDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getListDto_BaseDto(), this.getDto(), null, "baseDto", null, 0, 1, ListDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getListDto_SelectedProperties(), this.getDtoPropertyReference(), null, "selectedProperties", null, 0, -1, ListDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(subsetDtoEClass, SubsetDto.class, "SubsetDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSubsetDto_BaseDto(), this.getDto(), null, "baseDto", null, 0, 1, SubsetDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getSubsetDto_SelectedProperties(), this.getDtoPropertyReference(), null, "selectedProperties", null, 0, -1, SubsetDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(compositeDtoEClass, CompositeDto.class, "CompositeDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getCompositeDto_Dtos(), this.getDto(), null, "dtos", null, 0, -1, CompositeDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        initEClass(referenceDtoEClass, ReferenceDto.class, "ReferenceDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(dtoPropertyEClass, DtoProperty.class, "DtoProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getDtoProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, DtoProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

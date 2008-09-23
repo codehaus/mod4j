@@ -64,9 +64,6 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.DTO: return createDto();
             case DataContractDslPackage.BUSINESS_CLASS_DTO: return createBusinessClassDto();
             case DataContractDslPackage.LIST_DTO: return createListDto();
-            case DataContractDslPackage.SUBSET_DTO: return createSubsetDto();
-            case DataContractDslPackage.COMPOSITE_DTO: return createCompositeDto();
-            case DataContractDslPackage.REFERENCE_DTO: return createReferenceDto();
             case DataContractDslPackage.DTO_PROPERTY: return createDtoProperty();
             case DataContractDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
             case DataContractDslPackage.DTO_DATA_PROPERTY: return createDtoDataProperty();
@@ -124,36 +121,6 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     public ListDto createListDto() {
         ListDtoImpl listDto = new ListDtoImpl();
         return listDto;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public SubsetDto createSubsetDto() {
-        SubsetDtoImpl subsetDto = new SubsetDtoImpl();
-        return subsetDto;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public CompositeDto createCompositeDto() {
-        CompositeDtoImpl compositeDto = new CompositeDtoImpl();
-        return compositeDto;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ReferenceDto createReferenceDto() {
-        ReferenceDtoImpl referenceDto = new ReferenceDtoImpl();
-        return referenceDto;
     }
 
     /**

@@ -88,18 +88,6 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createListDtoAdapter();
             }
             @Override
-            public Adapter caseSubsetDto(SubsetDto object) {
-                return createSubsetDtoAdapter();
-            }
-            @Override
-            public Adapter caseCompositeDto(CompositeDto object) {
-                return createCompositeDtoAdapter();
-            }
-            @Override
-            public Adapter caseReferenceDto(ReferenceDto object) {
-                return createReferenceDtoAdapter();
-            }
-            @Override
             public Adapter caseDtoProperty(DtoProperty object) {
                 return createDtoPropertyAdapter();
             }
@@ -228,48 +216,6 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createListDtoAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto <em>Subset Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto
-     * @generated
-     */
-    public Adapter createSubsetDtoAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto <em>Composite Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto
-     * @generated
-     */
-    public Adapter createCompositeDtoAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto <em>Reference Dto</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto
-     * @generated
-     */
-    public Adapter createReferenceDtoAdapter() {
         return null;
     }
 

@@ -62,33 +62,6 @@ public interface DataContractDslFactory extends EFactory {
     ListDto createListDto();
 
     /**
-     * Returns a new object of class '<em>Subset Dto</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Subset Dto</em>'.
-     * @generated
-     */
-    SubsetDto createSubsetDto();
-
-    /**
-     * Returns a new object of class '<em>Composite Dto</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Composite Dto</em>'.
-     * @generated
-     */
-    CompositeDto createCompositeDto();
-
-    /**
-     * Returns a new object of class '<em>Reference Dto</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Reference Dto</em>'.
-     * @generated
-     */
-    ReferenceDto createReferenceDto();
-
-    /**
      * Returns a new object of class '<em>Dto Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

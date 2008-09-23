@@ -117,30 +117,6 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.SUBSET_DTO: {
-                SubsetDto subsetDto = (SubsetDto)theEObject;
-                T result = caseSubsetDto(subsetDto);
-                if (result == null) result = caseDto(subsetDto);
-                if (result == null) result = caseModelElement(subsetDto);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DataContractDslPackage.COMPOSITE_DTO: {
-                CompositeDto compositeDto = (CompositeDto)theEObject;
-                T result = caseCompositeDto(compositeDto);
-                if (result == null) result = caseDto(compositeDto);
-                if (result == null) result = caseModelElement(compositeDto);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DataContractDslPackage.REFERENCE_DTO: {
-                ReferenceDto referenceDto = (ReferenceDto)theEObject;
-                T result = caseReferenceDto(referenceDto);
-                if (result == null) result = caseDto(referenceDto);
-                if (result == null) result = caseModelElement(referenceDto);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case DataContractDslPackage.DTO_PROPERTY: {
                 DtoProperty dtoProperty = (DtoProperty)theEObject;
                 T result = caseDtoProperty(dtoProperty);
@@ -313,51 +289,6 @@ public class DataContractDslSwitch<T> {
      * @generated
      */
     public T caseListDto(ListDto object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Subset Dto</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Subset Dto</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSubsetDto(SubsetDto object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Composite Dto</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composite Dto</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseCompositeDto(CompositeDto object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Reference Dto</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Reference Dto</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseReferenceDto(ReferenceDto object) {
         return null;
     }
 
