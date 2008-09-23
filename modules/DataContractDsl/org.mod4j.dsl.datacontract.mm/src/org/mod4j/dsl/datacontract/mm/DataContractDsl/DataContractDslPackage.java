@@ -500,14 +500,14 @@ public interface DataContractDslPackage extends EPackage {
     int REFERENCE_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyImpl <em>Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl <em>Dto Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoProperty()
      * @generated
      */
-    int PROPERTY = 7;
+    int DTO_PROPERTY = 7;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -516,7 +516,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY__NAME = MODEL_ELEMENT__NAME;
+    int DTO_PROPERTY__NAME = MODEL_ELEMENT__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -525,7 +525,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+    int DTO_PROPERTY__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -534,26 +534,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY__DATA_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int DTO_PROPERTY__DATA_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Property</em>' class.
+     * The number of structural features of the '<em>Dto Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int DTO_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyReferenceImpl <em>Property Reference</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyReferenceImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getPropertyReference()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoPropertyReference()
      * @generated
      */
-    int PROPERTY_REFERENCE = 8;
+    int DTO_PROPERTY_REFERENCE = 8;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -562,7 +562,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_REFERENCE__NAME = PROPERTY__NAME;
+    int DTO_PROPERTY_REFERENCE__NAME = DTO_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -571,7 +571,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_REFERENCE__DESCRIPTION = PROPERTY__DESCRIPTION;
+    int DTO_PROPERTY_REFERENCE__DESCRIPTION = DTO_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -580,26 +580,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROPERTY_REFERENCE__DATA_TYPE = PROPERTY__DATA_TYPE;
+    int DTO_PROPERTY_REFERENCE__DATA_TYPE = DTO_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>Property Reference</em>' class.
+     * The number of structural features of the '<em>Dto Property Reference</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROPERTY_REFERENCE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 0;
+    int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataPropertyImpl <em>Data Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl <em>Dto Data Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataPropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDataProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDataProperty()
      * @generated
      */
-    int DATA_PROPERTY = 9;
+    int DTO_DATA_PROPERTY = 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -608,7 +608,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_PROPERTY__NAME = PROPERTY__NAME;
+    int DTO_DATA_PROPERTY__NAME = DTO_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -617,7 +617,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_PROPERTY__DESCRIPTION = PROPERTY__DESCRIPTION;
+    int DTO_DATA_PROPERTY__DESCRIPTION = DTO_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -626,26 +626,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATA_PROPERTY__DATA_TYPE = PROPERTY__DATA_TYPE;
+    int DTO_DATA_PROPERTY__DATA_TYPE = DTO_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>Data Property</em>' class.
+     * The number of structural features of the '<em>Dto Data Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 0;
+    int DTO_DATA_PROPERTY_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.StringPropertyImpl <em>String Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoStringPropertyImpl <em>Dto String Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.StringPropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getStringProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoStringPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoStringProperty()
      * @generated
      */
-    int STRING_PROPERTY = 10;
+    int DTO_STRING_PROPERTY = 10;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -654,7 +654,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STRING_PROPERTY__NAME = DATA_PROPERTY__NAME;
+    int DTO_STRING_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -663,7 +663,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STRING_PROPERTY__DESCRIPTION = DATA_PROPERTY__DESCRIPTION;
+    int DTO_STRING_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -672,26 +672,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int STRING_PROPERTY__DATA_TYPE = DATA_PROPERTY__DATA_TYPE;
+    int DTO_STRING_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>String Property</em>' class.
+     * The number of structural features of the '<em>Dto String Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STRING_PROPERTY_FEATURE_COUNT = DATA_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_STRING_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BooleanPropertyImpl <em>Boolean Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoBooleanPropertyImpl <em>Dto Boolean Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BooleanPropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBooleanProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoBooleanPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoBooleanProperty()
      * @generated
      */
-    int BOOLEAN_PROPERTY = 11;
+    int DTO_BOOLEAN_PROPERTY = 11;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -700,7 +700,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BOOLEAN_PROPERTY__NAME = DATA_PROPERTY__NAME;
+    int DTO_BOOLEAN_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -709,7 +709,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BOOLEAN_PROPERTY__DESCRIPTION = DATA_PROPERTY__DESCRIPTION;
+    int DTO_BOOLEAN_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -718,16 +718,16 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BOOLEAN_PROPERTY__DATA_TYPE = DATA_PROPERTY__DATA_TYPE;
+    int DTO_BOOLEAN_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>Boolean Property</em>' class.
+     * The number of structural features of the '<em>Dto Boolean Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BOOLEAN_PROPERTY_FEATURE_COUNT = DATA_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_BOOLEAN_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -906,14 +906,14 @@ public interface DataContractDslPackage extends EPackage {
 
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.IntegerPropertyImpl <em>Integer Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoIntegerPropertyImpl <em>Dto Integer Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.IntegerPropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getIntegerProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoIntegerPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoIntegerProperty()
      * @generated
      */
-    int INTEGER_PROPERTY = 17;
+    int DTO_INTEGER_PROPERTY = 17;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -922,7 +922,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTEGER_PROPERTY__NAME = DATA_PROPERTY__NAME;
+    int DTO_INTEGER_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -931,7 +931,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTEGER_PROPERTY__DESCRIPTION = DATA_PROPERTY__DESCRIPTION;
+    int DTO_INTEGER_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -940,26 +940,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTEGER_PROPERTY__DATA_TYPE = DATA_PROPERTY__DATA_TYPE;
+    int DTO_INTEGER_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>Integer Property</em>' class.
+     * The number of structural features of the '<em>Dto Integer Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int INTEGER_PROPERTY_FEATURE_COUNT = DATA_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_INTEGER_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDecimalPropertyImpl <em>Dto Decimal Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DecimalPropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDecimalProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDecimalPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDecimalProperty()
      * @generated
      */
-    int DECIMAL_PROPERTY = 18;
+    int DTO_DECIMAL_PROPERTY = 18;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -968,7 +968,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DECIMAL_PROPERTY__NAME = DATA_PROPERTY__NAME;
+    int DTO_DECIMAL_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -977,7 +977,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DECIMAL_PROPERTY__DESCRIPTION = DATA_PROPERTY__DESCRIPTION;
+    int DTO_DECIMAL_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -986,26 +986,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DECIMAL_PROPERTY__DATA_TYPE = DATA_PROPERTY__DATA_TYPE;
+    int DTO_DECIMAL_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>Decimal Property</em>' class.
+     * The number of structural features of the '<em>Dto Decimal Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DECIMAL_PROPERTY_FEATURE_COUNT = DATA_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_DECIMAL_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationPropertyImpl <em>Enumeration Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl <em>Dto Enumeration Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationPropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoEnumerationProperty()
      * @generated
      */
-    int ENUMERATION_PROPERTY = 19;
+    int DTO_ENUMERATION_PROPERTY = 19;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1014,7 +1014,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENUMERATION_PROPERTY__NAME = DATA_PROPERTY__NAME;
+    int DTO_ENUMERATION_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1023,7 +1023,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENUMERATION_PROPERTY__DESCRIPTION = DATA_PROPERTY__DESCRIPTION;
+    int DTO_ENUMERATION_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -1032,7 +1032,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENUMERATION_PROPERTY__DATA_TYPE = DATA_PROPERTY__DATA_TYPE;
+    int DTO_ENUMERATION_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1041,26 +1041,26 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENUMERATION_PROPERTY__TYPE = DATA_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_ENUMERATION_PROPERTY__TYPE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Enumeration Property</em>' class.
+     * The number of structural features of the '<em>Dto Enumeration Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENUMERATION_PROPERTY_FEATURE_COUNT = DATA_PROPERTY_FEATURE_COUNT + 1;
+    int DTO_ENUMERATION_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DateTimePropertyImpl <em>Date Time Property</em>}' class.
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDateTimePropertyImpl <em>Dto Date Time Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DateTimePropertyImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDateTimeProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDateTimePropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDateTimeProperty()
      * @generated
      */
-    int DATE_TIME_PROPERTY = 20;
+    int DTO_DATE_TIME_PROPERTY = 20;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1069,7 +1069,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATE_TIME_PROPERTY__NAME = DATA_PROPERTY__NAME;
+    int DTO_DATE_TIME_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1078,7 +1078,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATE_TIME_PROPERTY__DESCRIPTION = DATA_PROPERTY__DESCRIPTION;
+    int DTO_DATE_TIME_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -1087,37 +1087,16 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DATE_TIME_PROPERTY__DATA_TYPE = DATA_PROPERTY__DATA_TYPE;
+    int DTO_DATE_TIME_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
 
     /**
-     * The number of structural features of the '<em>Date Time Property</em>' class.
+     * The number of structural features of the '<em>Dto Date Time Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATE_TIME_PROPERTY_FEATURE_COUNT = DATA_PROPERTY_FEATURE_COUNT + 0;
-
-
-    /**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EClass0Impl <em>EClass0</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EClass0Impl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEClass0()
-     * @generated
-     */
-    int ECLASS0 = 21;
-
-    /**
-     * The number of structural features of the '<em>EClass0</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ECLASS0_FEATURE_COUNT = 0;
-
+    int DTO_DATE_TIME_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel <em>Data Contract Model</em>}'.
@@ -1311,65 +1290,65 @@ public interface DataContractDslPackage extends EPackage {
     EClass getReferenceDto();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Property <em>Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty <em>Dto Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Property
+     * @return the meta object for class '<em>Dto Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty
      * @generated
      */
-    EClass getProperty();
+    EClass getDtoProperty();
 
     /**
-     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Property#getDataType <em>Data Type</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getDataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Data Type</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Property#getDataType()
-     * @see #getProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getDataType()
+     * @see #getDtoProperty()
      * @generated
      */
-    EAttribute getProperty_DataType();
+    EAttribute getDtoProperty_DataType();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference <em>Property Reference</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Property Reference</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference
+     * @return the meta object for class '<em>Dto Property Reference</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference
      * @generated
      */
-    EClass getPropertyReference();
+    EClass getDtoPropertyReference();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DataProperty <em>Data Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty <em>Dto Data Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Data Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataProperty
+     * @return the meta object for class '<em>Dto Data Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty
      * @generated
      */
-    EClass getDataProperty();
+    EClass getDtoDataProperty();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.StringProperty <em>String Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty <em>Dto String Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>String Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.StringProperty
+     * @return the meta object for class '<em>Dto String Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty
      * @generated
      */
-    EClass getStringProperty();
+    EClass getDtoStringProperty();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BooleanProperty <em>Boolean Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty <em>Dto Boolean Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Boolean Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BooleanProperty
+     * @return the meta object for class '<em>Dto Boolean Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty
      * @generated
      */
-    EClass getBooleanProperty();
+    EClass getDtoBooleanProperty();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration <em>Enumeration</em>}'.
@@ -1488,65 +1467,55 @@ public interface DataContractDslPackage extends EPackage {
     EReference getBusinessClassReference_DatacontractModel();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.IntegerProperty <em>Integer Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty <em>Dto Integer Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Integer Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.IntegerProperty
+     * @return the meta object for class '<em>Dto Integer Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty
      * @generated
      */
-    EClass getIntegerProperty();
+    EClass getDtoIntegerProperty();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DecimalProperty <em>Decimal Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty <em>Dto Decimal Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Decimal Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DecimalProperty
+     * @return the meta object for class '<em>Dto Decimal Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty
      * @generated
      */
-    EClass getDecimalProperty();
+    EClass getDtoDecimalProperty();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty <em>Enumeration Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty <em>Dto Enumeration Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Enumeration Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty
+     * @return the meta object for class '<em>Dto Enumeration Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty
      * @generated
      */
-    EClass getEnumerationProperty();
+    EClass getDtoEnumerationProperty();
 
     /**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty#getType <em>Type</em>}'.
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getType <em>Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the reference '<em>Type</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty#getType()
-     * @see #getEnumerationProperty()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getType()
+     * @see #getDtoEnumerationProperty()
      * @generated
      */
-    EReference getEnumerationProperty_Type();
+    EReference getDtoEnumerationProperty_Type();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DateTimeProperty <em>Date Time Property</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty <em>Dto Date Time Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Date Time Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DateTimeProperty
+     * @return the meta object for class '<em>Dto Date Time Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty
      * @generated
      */
-    EClass getDateTimeProperty();
-
-    /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EClass0 <em>EClass0</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>EClass0</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EClass0
-     * @generated
-     */
-    EClass getEClass0();
+    EClass getDtoDateTimeProperty();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -1729,14 +1698,14 @@ public interface DataContractDslPackage extends EPackage {
         EClass REFERENCE_DTO = eINSTANCE.getReferenceDto();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyImpl <em>Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl <em>Dto Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoProperty()
          * @generated
          */
-        EClass PROPERTY = eINSTANCE.getProperty();
+        EClass DTO_PROPERTY = eINSTANCE.getDtoProperty();
 
         /**
          * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature.
@@ -1744,47 +1713,47 @@ public interface DataContractDslPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROPERTY__DATA_TYPE = eINSTANCE.getProperty_DataType();
+        EAttribute DTO_PROPERTY__DATA_TYPE = eINSTANCE.getDtoProperty_DataType();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyReferenceImpl <em>Property Reference</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.PropertyReferenceImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getPropertyReference()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoPropertyReference()
          * @generated
          */
-        EClass PROPERTY_REFERENCE = eINSTANCE.getPropertyReference();
+        EClass DTO_PROPERTY_REFERENCE = eINSTANCE.getDtoPropertyReference();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataPropertyImpl <em>Data Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl <em>Dto Data Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataPropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDataProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDataProperty()
          * @generated
          */
-        EClass DATA_PROPERTY = eINSTANCE.getDataProperty();
+        EClass DTO_DATA_PROPERTY = eINSTANCE.getDtoDataProperty();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.StringPropertyImpl <em>String Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoStringPropertyImpl <em>Dto String Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.StringPropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getStringProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoStringPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoStringProperty()
          * @generated
          */
-        EClass STRING_PROPERTY = eINSTANCE.getStringProperty();
+        EClass DTO_STRING_PROPERTY = eINSTANCE.getDtoStringProperty();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BooleanPropertyImpl <em>Boolean Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoBooleanPropertyImpl <em>Dto Boolean Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BooleanPropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBooleanProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoBooleanPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoBooleanProperty()
          * @generated
          */
-        EClass BOOLEAN_PROPERTY = eINSTANCE.getBooleanProperty();
+        EClass DTO_BOOLEAN_PROPERTY = eINSTANCE.getDtoBooleanProperty();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -1885,34 +1854,34 @@ public interface DataContractDslPackage extends EPackage {
         EReference BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL = eINSTANCE.getBusinessClassReference_DatacontractModel();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.IntegerPropertyImpl <em>Integer Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoIntegerPropertyImpl <em>Dto Integer Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.IntegerPropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getIntegerProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoIntegerPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoIntegerProperty()
          * @generated
          */
-        EClass INTEGER_PROPERTY = eINSTANCE.getIntegerProperty();
+        EClass DTO_INTEGER_PROPERTY = eINSTANCE.getDtoIntegerProperty();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DecimalPropertyImpl <em>Decimal Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDecimalPropertyImpl <em>Dto Decimal Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DecimalPropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDecimalProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDecimalPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDecimalProperty()
          * @generated
          */
-        EClass DECIMAL_PROPERTY = eINSTANCE.getDecimalProperty();
+        EClass DTO_DECIMAL_PROPERTY = eINSTANCE.getDtoDecimalProperty();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationPropertyImpl <em>Enumeration Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl <em>Dto Enumeration Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationPropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoEnumerationProperty()
          * @generated
          */
-        EClass ENUMERATION_PROPERTY = eINSTANCE.getEnumerationProperty();
+        EClass DTO_ENUMERATION_PROPERTY = eINSTANCE.getDtoEnumerationProperty();
 
         /**
          * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -1920,27 +1889,17 @@ public interface DataContractDslPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ENUMERATION_PROPERTY__TYPE = eINSTANCE.getEnumerationProperty_Type();
+        EReference DTO_ENUMERATION_PROPERTY__TYPE = eINSTANCE.getDtoEnumerationProperty_Type();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DateTimePropertyImpl <em>Date Time Property</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDateTimePropertyImpl <em>Dto Date Time Property</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DateTimePropertyImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDateTimeProperty()
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDateTimePropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDateTimeProperty()
          * @generated
          */
-        EClass DATE_TIME_PROPERTY = eINSTANCE.getDateTimeProperty();
-
-        /**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EClass0Impl <em>EClass0</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EClass0Impl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEClass0()
-         * @generated
-         */
-        EClass ECLASS0 = eINSTANCE.getEClass0();
+        EClass DTO_DATE_TIME_PROPERTY = eINSTANCE.getDtoDateTimeProperty();
 
     }
 

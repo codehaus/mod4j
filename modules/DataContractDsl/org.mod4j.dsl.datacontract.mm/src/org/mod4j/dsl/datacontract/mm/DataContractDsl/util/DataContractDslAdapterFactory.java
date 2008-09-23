@@ -100,24 +100,24 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createReferenceDtoAdapter();
             }
             @Override
-            public Adapter caseProperty(Property object) {
-                return createPropertyAdapter();
+            public Adapter caseDtoProperty(DtoProperty object) {
+                return createDtoPropertyAdapter();
             }
             @Override
-            public Adapter casePropertyReference(PropertyReference object) {
-                return createPropertyReferenceAdapter();
+            public Adapter caseDtoPropertyReference(DtoPropertyReference object) {
+                return createDtoPropertyReferenceAdapter();
             }
             @Override
-            public Adapter caseDataProperty(DataProperty object) {
-                return createDataPropertyAdapter();
+            public Adapter caseDtoDataProperty(DtoDataProperty object) {
+                return createDtoDataPropertyAdapter();
             }
             @Override
-            public Adapter caseStringProperty(StringProperty object) {
-                return createStringPropertyAdapter();
+            public Adapter caseDtoStringProperty(DtoStringProperty object) {
+                return createDtoStringPropertyAdapter();
             }
             @Override
-            public Adapter caseBooleanProperty(BooleanProperty object) {
-                return createBooleanPropertyAdapter();
+            public Adapter caseDtoBooleanProperty(DtoBooleanProperty object) {
+                return createDtoBooleanPropertyAdapter();
             }
             @Override
             public Adapter caseEnumeration(Enumeration object) {
@@ -140,24 +140,20 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createBusinessClassReferenceAdapter();
             }
             @Override
-            public Adapter caseIntegerProperty(IntegerProperty object) {
-                return createIntegerPropertyAdapter();
+            public Adapter caseDtoIntegerProperty(DtoIntegerProperty object) {
+                return createDtoIntegerPropertyAdapter();
             }
             @Override
-            public Adapter caseDecimalProperty(DecimalProperty object) {
-                return createDecimalPropertyAdapter();
+            public Adapter caseDtoDecimalProperty(DtoDecimalProperty object) {
+                return createDtoDecimalPropertyAdapter();
             }
             @Override
-            public Adapter caseEnumerationProperty(EnumerationProperty object) {
-                return createEnumerationPropertyAdapter();
+            public Adapter caseDtoEnumerationProperty(DtoEnumerationProperty object) {
+                return createDtoEnumerationPropertyAdapter();
             }
             @Override
-            public Adapter caseDateTimeProperty(DateTimeProperty object) {
-                return createDateTimePropertyAdapter();
-            }
-            @Override
-            public Adapter caseEClass0(EClass0 object) {
-                return createEClass0Adapter();
+            public Adapter caseDtoDateTimeProperty(DtoDateTimeProperty object) {
+                return createDtoDateTimePropertyAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -278,72 +274,72 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Property <em>Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty <em>Dto Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Property
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty
      * @generated
      */
-    public Adapter createPropertyAdapter() {
+    public Adapter createDtoPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference <em>Property Reference</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference
      * @generated
      */
-    public Adapter createPropertyReferenceAdapter() {
+    public Adapter createDtoPropertyReferenceAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DataProperty <em>Data Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty <em>Dto Data Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty
      * @generated
      */
-    public Adapter createDataPropertyAdapter() {
+    public Adapter createDtoDataPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.StringProperty <em>String Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty <em>Dto String Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.StringProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty
      * @generated
      */
-    public Adapter createStringPropertyAdapter() {
+    public Adapter createDtoStringPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BooleanProperty <em>Boolean Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty <em>Dto Boolean Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BooleanProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty
      * @generated
      */
-    public Adapter createBooleanPropertyAdapter() {
+    public Adapter createDtoBooleanPropertyAdapter() {
         return null;
     }
 
@@ -418,72 +414,58 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.IntegerProperty <em>Integer Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty <em>Dto Integer Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.IntegerProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty
      * @generated
      */
-    public Adapter createIntegerPropertyAdapter() {
+    public Adapter createDtoIntegerPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DecimalProperty <em>Decimal Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty <em>Dto Decimal Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DecimalProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty
      * @generated
      */
-    public Adapter createDecimalPropertyAdapter() {
+    public Adapter createDtoDecimalPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty <em>Enumeration Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty <em>Dto Enumeration Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty
      * @generated
      */
-    public Adapter createEnumerationPropertyAdapter() {
+    public Adapter createDtoEnumerationPropertyAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DateTimeProperty <em>Date Time Property</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty <em>Dto Date Time Property</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DateTimeProperty
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty
      * @generated
      */
-    public Adapter createDateTimePropertyAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EClass0 <em>EClass0</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EClass0
-     * @generated
-     */
-    public Adapter createEClass0Adapter() {
+    public Adapter createDtoDateTimePropertyAdapter() {
         return null;
     }
 

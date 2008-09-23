@@ -54,7 +54,7 @@ public interface ListDto extends Dto {
 
     /**
      * Returns the value of the '<em><b>Selected Properties</b></em>' reference list.
-     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference}.
+     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Selected Properties</em>' reference list isn't clear,
@@ -66,6 +66,6 @@ public interface ListDto extends Dto {
      * @model
      * @generated
      */
-    EList<PropertyReference> getSelectedProperties();
+    EList<DtoPropertyReference> getSelectedProperties();
 
 } // ListDto

@@ -141,44 +141,44 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.PROPERTY: {
-                Property property = (Property)theEObject;
-                T result = caseProperty(property);
-                if (result == null) result = caseModelElement(property);
+            case DataContractDslPackage.DTO_PROPERTY: {
+                DtoProperty dtoProperty = (DtoProperty)theEObject;
+                T result = caseDtoProperty(dtoProperty);
+                if (result == null) result = caseModelElement(dtoProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.PROPERTY_REFERENCE: {
-                PropertyReference propertyReference = (PropertyReference)theEObject;
-                T result = casePropertyReference(propertyReference);
-                if (result == null) result = caseProperty(propertyReference);
-                if (result == null) result = caseModelElement(propertyReference);
+            case DataContractDslPackage.DTO_PROPERTY_REFERENCE: {
+                DtoPropertyReference dtoPropertyReference = (DtoPropertyReference)theEObject;
+                T result = caseDtoPropertyReference(dtoPropertyReference);
+                if (result == null) result = caseDtoProperty(dtoPropertyReference);
+                if (result == null) result = caseModelElement(dtoPropertyReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.DATA_PROPERTY: {
-                DataProperty dataProperty = (DataProperty)theEObject;
-                T result = caseDataProperty(dataProperty);
-                if (result == null) result = caseProperty(dataProperty);
-                if (result == null) result = caseModelElement(dataProperty);
+            case DataContractDslPackage.DTO_DATA_PROPERTY: {
+                DtoDataProperty dtoDataProperty = (DtoDataProperty)theEObject;
+                T result = caseDtoDataProperty(dtoDataProperty);
+                if (result == null) result = caseDtoProperty(dtoDataProperty);
+                if (result == null) result = caseModelElement(dtoDataProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.STRING_PROPERTY: {
-                StringProperty stringProperty = (StringProperty)theEObject;
-                T result = caseStringProperty(stringProperty);
-                if (result == null) result = caseDataProperty(stringProperty);
-                if (result == null) result = caseProperty(stringProperty);
-                if (result == null) result = caseModelElement(stringProperty);
+            case DataContractDslPackage.DTO_STRING_PROPERTY: {
+                DtoStringProperty dtoStringProperty = (DtoStringProperty)theEObject;
+                T result = caseDtoStringProperty(dtoStringProperty);
+                if (result == null) result = caseDtoDataProperty(dtoStringProperty);
+                if (result == null) result = caseDtoProperty(dtoStringProperty);
+                if (result == null) result = caseModelElement(dtoStringProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.BOOLEAN_PROPERTY: {
-                BooleanProperty booleanProperty = (BooleanProperty)theEObject;
-                T result = caseBooleanProperty(booleanProperty);
-                if (result == null) result = caseDataProperty(booleanProperty);
-                if (result == null) result = caseProperty(booleanProperty);
-                if (result == null) result = caseModelElement(booleanProperty);
+            case DataContractDslPackage.DTO_BOOLEAN_PROPERTY: {
+                DtoBooleanProperty dtoBooleanProperty = (DtoBooleanProperty)theEObject;
+                T result = caseDtoBooleanProperty(dtoBooleanProperty);
+                if (result == null) result = caseDtoDataProperty(dtoBooleanProperty);
+                if (result == null) result = caseDtoProperty(dtoBooleanProperty);
+                if (result == null) result = caseModelElement(dtoBooleanProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -216,45 +216,39 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.INTEGER_PROPERTY: {
-                IntegerProperty integerProperty = (IntegerProperty)theEObject;
-                T result = caseIntegerProperty(integerProperty);
-                if (result == null) result = caseDataProperty(integerProperty);
-                if (result == null) result = caseProperty(integerProperty);
-                if (result == null) result = caseModelElement(integerProperty);
+            case DataContractDslPackage.DTO_INTEGER_PROPERTY: {
+                DtoIntegerProperty dtoIntegerProperty = (DtoIntegerProperty)theEObject;
+                T result = caseDtoIntegerProperty(dtoIntegerProperty);
+                if (result == null) result = caseDtoDataProperty(dtoIntegerProperty);
+                if (result == null) result = caseDtoProperty(dtoIntegerProperty);
+                if (result == null) result = caseModelElement(dtoIntegerProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.DECIMAL_PROPERTY: {
-                DecimalProperty decimalProperty = (DecimalProperty)theEObject;
-                T result = caseDecimalProperty(decimalProperty);
-                if (result == null) result = caseDataProperty(decimalProperty);
-                if (result == null) result = caseProperty(decimalProperty);
-                if (result == null) result = caseModelElement(decimalProperty);
+            case DataContractDslPackage.DTO_DECIMAL_PROPERTY: {
+                DtoDecimalProperty dtoDecimalProperty = (DtoDecimalProperty)theEObject;
+                T result = caseDtoDecimalProperty(dtoDecimalProperty);
+                if (result == null) result = caseDtoDataProperty(dtoDecimalProperty);
+                if (result == null) result = caseDtoProperty(dtoDecimalProperty);
+                if (result == null) result = caseModelElement(dtoDecimalProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.ENUMERATION_PROPERTY: {
-                EnumerationProperty enumerationProperty = (EnumerationProperty)theEObject;
-                T result = caseEnumerationProperty(enumerationProperty);
-                if (result == null) result = caseDataProperty(enumerationProperty);
-                if (result == null) result = caseProperty(enumerationProperty);
-                if (result == null) result = caseModelElement(enumerationProperty);
+            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY: {
+                DtoEnumerationProperty dtoEnumerationProperty = (DtoEnumerationProperty)theEObject;
+                T result = caseDtoEnumerationProperty(dtoEnumerationProperty);
+                if (result == null) result = caseDtoDataProperty(dtoEnumerationProperty);
+                if (result == null) result = caseDtoProperty(dtoEnumerationProperty);
+                if (result == null) result = caseModelElement(dtoEnumerationProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.DATE_TIME_PROPERTY: {
-                DateTimeProperty dateTimeProperty = (DateTimeProperty)theEObject;
-                T result = caseDateTimeProperty(dateTimeProperty);
-                if (result == null) result = caseDataProperty(dateTimeProperty);
-                if (result == null) result = caseProperty(dateTimeProperty);
-                if (result == null) result = caseModelElement(dateTimeProperty);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DataContractDslPackage.ECLASS0: {
-                EClass0 eClass0 = (EClass0)theEObject;
-                T result = caseEClass0(eClass0);
+            case DataContractDslPackage.DTO_DATE_TIME_PROPERTY: {
+                DtoDateTimeProperty dtoDateTimeProperty = (DtoDateTimeProperty)theEObject;
+                T result = caseDtoDateTimeProperty(dtoDateTimeProperty);
+                if (result == null) result = caseDtoDataProperty(dtoDateTimeProperty);
+                if (result == null) result = caseDtoProperty(dtoDateTimeProperty);
+                if (result == null) result = caseModelElement(dtoDateTimeProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -368,77 +362,77 @@ public class DataContractDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProperty(Property object) {
+    public T caseDtoProperty(DtoProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Property Reference</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Property Reference</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePropertyReference(PropertyReference object) {
+    public T caseDtoPropertyReference(DtoPropertyReference object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Data Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Data Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Data Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Data Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDataProperty(DataProperty object) {
+    public T caseDtoDataProperty(DtoDataProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>String Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto String Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>String Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto String Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStringProperty(StringProperty object) {
+    public T caseDtoStringProperty(DtoStringProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Boolean Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Boolean Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Boolean Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Boolean Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBooleanProperty(BooleanProperty object) {
+    public T caseDtoBooleanProperty(DtoBooleanProperty object) {
         return null;
     }
 
@@ -518,77 +512,62 @@ public class DataContractDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Integer Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Integer Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Integer Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Integer Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIntegerProperty(IntegerProperty object) {
+    public T caseDtoIntegerProperty(DtoIntegerProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Decimal Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Decimal Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Decimal Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Decimal Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDecimalProperty(DecimalProperty object) {
+    public T caseDtoDecimalProperty(DtoDecimalProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Enumeration Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Enumeration Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enumeration Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Enumeration Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEnumerationProperty(EnumerationProperty object) {
+    public T caseDtoEnumerationProperty(DtoEnumerationProperty object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Date Time Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Dto Date Time Property</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Date Time Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dto Date Time Property</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDateTimeProperty(DateTimeProperty object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>EClass0</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EClass0</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseEClass0(EClass0 object) {
+    public T caseDtoDateTimeProperty(DtoDateTimeProperty object) {
         return null;
     }
 

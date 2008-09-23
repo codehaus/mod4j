@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
 public interface CustomDto extends Dto {
     /**
      * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Property}.
+     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
@@ -39,6 +39,6 @@ public interface CustomDto extends Dto {
      * @model containment="true"
      * @generated
      */
-    EList<Property> getProperties();
+    EList<DtoProperty> getProperties();
 
 } // CustomDto

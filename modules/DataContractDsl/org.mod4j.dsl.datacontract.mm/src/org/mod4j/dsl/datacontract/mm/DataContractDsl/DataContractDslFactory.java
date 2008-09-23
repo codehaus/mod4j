@@ -89,49 +89,49 @@ public interface DataContractDslFactory extends EFactory {
     ReferenceDto createReferenceDto();
 
     /**
-     * Returns a new object of class '<em>Property</em>'.
+     * Returns a new object of class '<em>Dto Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Property</em>'.
+     * @return a new object of class '<em>Dto Property</em>'.
      * @generated
      */
-    Property createProperty();
+    DtoProperty createDtoProperty();
 
     /**
-     * Returns a new object of class '<em>Property Reference</em>'.
+     * Returns a new object of class '<em>Dto Property Reference</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Property Reference</em>'.
+     * @return a new object of class '<em>Dto Property Reference</em>'.
      * @generated
      */
-    PropertyReference createPropertyReference();
+    DtoPropertyReference createDtoPropertyReference();
 
     /**
-     * Returns a new object of class '<em>Data Property</em>'.
+     * Returns a new object of class '<em>Dto Data Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Data Property</em>'.
+     * @return a new object of class '<em>Dto Data Property</em>'.
      * @generated
      */
-    DataProperty createDataProperty();
+    DtoDataProperty createDtoDataProperty();
 
     /**
-     * Returns a new object of class '<em>String Property</em>'.
+     * Returns a new object of class '<em>Dto String Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>String Property</em>'.
+     * @return a new object of class '<em>Dto String Property</em>'.
      * @generated
      */
-    StringProperty createStringProperty();
+    DtoStringProperty createDtoStringProperty();
 
     /**
-     * Returns a new object of class '<em>Boolean Property</em>'.
+     * Returns a new object of class '<em>Dto Boolean Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Boolean Property</em>'.
+     * @return a new object of class '<em>Dto Boolean Property</em>'.
      * @generated
      */
-    BooleanProperty createBooleanProperty();
+    DtoBooleanProperty createDtoBooleanProperty();
 
     /**
      * Returns a new object of class '<em>Enumeration</em>'.
@@ -179,49 +179,40 @@ public interface DataContractDslFactory extends EFactory {
     BusinessClassReference createBusinessClassReference();
 
     /**
-     * Returns a new object of class '<em>Integer Property</em>'.
+     * Returns a new object of class '<em>Dto Integer Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Integer Property</em>'.
+     * @return a new object of class '<em>Dto Integer Property</em>'.
      * @generated
      */
-    IntegerProperty createIntegerProperty();
+    DtoIntegerProperty createDtoIntegerProperty();
 
     /**
-     * Returns a new object of class '<em>Decimal Property</em>'.
+     * Returns a new object of class '<em>Dto Decimal Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Decimal Property</em>'.
+     * @return a new object of class '<em>Dto Decimal Property</em>'.
      * @generated
      */
-    DecimalProperty createDecimalProperty();
+    DtoDecimalProperty createDtoDecimalProperty();
 
     /**
-     * Returns a new object of class '<em>Enumeration Property</em>'.
+     * Returns a new object of class '<em>Dto Enumeration Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Enumeration Property</em>'.
+     * @return a new object of class '<em>Dto Enumeration Property</em>'.
      * @generated
      */
-    EnumerationProperty createEnumerationProperty();
+    DtoEnumerationProperty createDtoEnumerationProperty();
 
     /**
-     * Returns a new object of class '<em>Date Time Property</em>'.
+     * Returns a new object of class '<em>Dto Date Time Property</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Date Time Property</em>'.
+     * @return a new object of class '<em>Dto Date Time Property</em>'.
      * @generated
      */
-    DateTimeProperty createDateTimeProperty();
-
-    /**
-     * Returns a new object of class '<em>EClass0</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>EClass0</em>'.
-     * @generated
-     */
-    EClass0 createEClass0();
+    DtoDateTimeProperty createDtoDateTimeProperty();
 
     /**
      * Returns the package supported by this factory.
