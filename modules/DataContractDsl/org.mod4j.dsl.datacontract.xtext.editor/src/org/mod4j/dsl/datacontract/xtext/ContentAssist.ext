@@ -3,6 +3,8 @@ import codeassist;
 
 extension org::mod4j::dsl::datacontract::xtext::Extensions;
 extension org::mod4j::dsl::datacontract::xtext::GenContentAssist reexport;
+extension org::mod4j::dsl::datacontract::xtext::EclipseUtil;
+extension org::mod4j::crossx::broker::xtend::Crossx;
 
 /*
  * There are two types of extensions one can define
@@ -15,3 +17,26 @@ extension org::mod4j::dsl::datacontract::xtext::GenContentAssist reexport;
  * you can sort and/or filter the proposals by overwriting 'List[Proposal] sortProposals(List[Proposal] proposalsToSort)'
  */
 
+
+
+
+/*
+ * There are two types of extensions one can define
+ *
+ * completeMetaType_feature(ModelElement ele, String prefix)
+ * This one is called for assignments only. It gets the underlying Modelelement and the current prefix passed in.
+ *
+ * Note that only proposals with 'Proposal.toInsert.toLowerCase().startsWith(prefix.toLowerCase())' will be proposed in the editor
+ * 
+ * you can sort and/or filter the proposals by overwriting 'List[Proposal] sortProposals(List[Proposal] proposalsToSort)'
+ */
+
+/* proposals for Feature BusinessClassReference::name */
+List[Proposal] completeBusinessClassReference_name(emf::EObject ctx, String prefix) :
+	findAllFromModel( ((DataContractDsl::BusinessClassReference)ctx).modelname, "BusinessClass").
+	          collect(x|newProposal(x)).add(newProposal("empty"));
+
+/* proposals for Feature EnumerationProperty::name */
+List[Proposal] completeBusinessClassReference_modelname(emf::EObject ctx, String prefix) :
+	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
+	
