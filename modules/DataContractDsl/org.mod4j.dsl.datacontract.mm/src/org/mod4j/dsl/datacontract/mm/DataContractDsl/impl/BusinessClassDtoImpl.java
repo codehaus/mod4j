@@ -25,7 +25,6 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Property;
 
 /**
  * <!-- begin-user-doc -->

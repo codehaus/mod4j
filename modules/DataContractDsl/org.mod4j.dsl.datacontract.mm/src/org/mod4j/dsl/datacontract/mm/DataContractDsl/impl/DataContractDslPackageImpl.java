@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.BooleanProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.CompositeDto;
@@ -21,9 +20,6 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.CustomDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslFactory;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DateTimeProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DecimalProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty;
@@ -34,17 +30,11 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.EClass0;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationLiteral;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.IntegerProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ModelElement;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Property;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ReferenceDto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.StringProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto;
 
 /**

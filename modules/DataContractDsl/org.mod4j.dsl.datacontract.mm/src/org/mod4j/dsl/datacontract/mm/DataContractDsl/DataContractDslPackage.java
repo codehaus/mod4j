@@ -904,7 +904,6 @@ public interface DataContractDslPackage extends EPackage {
      */
     int BUSINESS_CLASS_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
-
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoIntegerPropertyImpl <em>Dto Integer Property</em>}' class.
      * <!-- begin-user-doc -->
@@ -1097,6 +1096,7 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_DATE_TIME_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel <em>Data Contract Model</em>}'.

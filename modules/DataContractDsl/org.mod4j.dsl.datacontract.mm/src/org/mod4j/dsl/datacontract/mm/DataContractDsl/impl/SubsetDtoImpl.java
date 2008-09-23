@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.SubsetDto;
 
 /**

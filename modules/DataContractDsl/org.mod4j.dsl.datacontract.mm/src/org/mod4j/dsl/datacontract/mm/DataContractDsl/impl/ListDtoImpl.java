@@ -23,7 +23,6 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.PropertyReference;
 
 /**
  * <!-- begin-user-doc -->
