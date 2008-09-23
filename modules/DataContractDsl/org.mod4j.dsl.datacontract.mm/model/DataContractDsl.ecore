@@ -17,30 +17,30 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Property" containment="true"/>
+        eType="#//DtoProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//BusinessClassReference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProperties" upperBound="-1"
-        eType="#//PropertyReference"/>
+        eType="#//DtoPropertyReference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubsetDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProperties" upperBound="-1"
-        eType="#//PropertyReference" containment="true"/>
+        eType="#//DtoPropertyReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="#//Dto"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReferenceDto" eSuperTypes="#//Dto"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DtoProperty" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyReference" eSuperTypes="#//Property"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataProperty" eSuperTypes="#//Property"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringProperty" eSuperTypes="#//DataProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanProperty" eSuperTypes="#//DataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//DtoProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoDataProperty" eSuperTypes="#//DtoProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoStringProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoBooleanProperty" eSuperTypes="#//DtoDataProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//EnumerationLiteral" containment="true"/>
@@ -52,7 +52,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Property" containment="true"/>
+        eType="#//DtoProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -60,10 +60,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="datacontractModel" eType="#//DataContractModel"
         eOpposite="#//DataContractModel/businessClasses"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerProperty" eSuperTypes="#//DataProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalProperty" eSuperTypes="#//DataProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumerationProperty" eSuperTypes="#//DataProperty">
+  <eClassifiers xsi:type="ecore:EClass" name="DtoIntegerProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoDecimalProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoEnumerationProperty" eSuperTypes="#//DtoDataProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Enumeration"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DateTimeProperty" eSuperTypes="#//DataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoDateTimeProperty" eSuperTypes="#//DtoDataProperty"/>
 </ecore:EPackage>
