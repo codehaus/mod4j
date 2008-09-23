@@ -2,24 +2,20 @@
 <!DOCTYPE document PUBLIC
   "-//Apache Software Foundation//DTD XDOC 1.0//EN"
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
-<!-- 
-    Please edit this file with the Eclipse XML editor, set your XML editor to
-    a line length of 120 characters, indent-size of 4 characters and not using
-    tab-characters, and format the file (Ctrl-Shift-F) before checking in. This
-    should minimize the number of non-significant differences when comparing
-    versions.
--->
+    <!--
+        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 120 characters, indent-size
+        of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
+        minimize the number of non-significant differences when comparing versions.
+    -->
 <document>
     <properties>
         <title>Mod4j Developer Guide</title>
     </properties>
     <body>
         <section name="Mod4j Developer Guide">
-            <p>
-                This Developer Guide helps developers to get started with coding and modeling. At last it tells what steps to
-                take for releasing and publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote update site.
-            </p>
-
+            <p> This Developer Guide helps developers to get started with coding and modeling. At last it tells what steps to
+                take for releasing and publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote
+                update site. </p>
             <subsection name="Getting started">
                 <ol>
                     <li>
@@ -35,25 +31,17 @@
                         Linux archive from our project share
                         <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
                     </li>
-                    <li>
-                        Make sure you start Eclipse with de right options, e.g on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
-                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
-                    </li>
-                    <li>
-                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
+                    <li> Make sure you start Eclipse with de right jdk, e.g on a linux system:
+                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java </li>
+                    <li> Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
                         'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
-                        users UTF-8 is usually the platform encoding, and no change will be necessary.
-                    </li>
+                        users UTF-8 is usually the platform encoding, and no change will be necessary. </li>
                 </ol>
             </subsection>
-
             <subsection name="Generating the DSL-editors">
-                <p>
-                    While the metamodel and its associated syntax is still under heavy development, you should be prepared to
+                <p> While the metamodel and its associated syntax is still under heavy development, you should be prepared to
                     generate the model editors yourself from the metamodel and the syntax definitions, before you can start
-                    modelling:
-                </p>
+                    modelling: </p>
                 <p>
                     <b>Hybrids</b>
                     What also important is to know, is that the Mod4j modules that you are going to checkout from the repository
@@ -124,7 +112,6 @@
                         <code>modules/org.mod4j.dsl-common</code>
                         <br />
                         <code>org.mod4j.eclipse</code>
-
                     </li>
                     <li>
                         Now import as Maven Project:
@@ -135,13 +122,20 @@
                     </li>
                 </ol>
                 Now you have imported and generated the necessary modules. The BusinessDomainDSL editor is ready to use. There
-                for you need to activate the newly created editor in a second Eclipse instance. See next section "Modeling". But
-                if you want quick development an you're not interested in code completion or syntax highlighting features of the
-                new created Xtext editors, you can live without a second Eclipse instance. There for you can also perform the
-                steps under the section "Modeling" in your first Eclipse instance.
+                for you need to activate the newly created editor in a second Eclipse instance. See next section "Modeling".
             </subsection>
             <subsection name="Modelling">
                 <ol>
+                    <li>
+                        Be sure you start a second Eclipse instance with the right memory settings. Add the following arguments
+                        in the "Arguments" tab, see Run > Run Configurations...
+                        <br />
+                        Add to Vm arguments:
+                        <q>-Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m</q>
+                        <br />
+                        Add to Program Arguments:
+                        <q> -Dcom.sun.management.jmxremote </q>
+                    </li>
                     <li>
                         Right-click the module
                         <code>BusinessDomain.xtext.editor</code>
