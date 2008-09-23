@@ -19,7 +19,7 @@ BusinessClassReference:
     
 BusinessClassDto :
     "BusinessClassDto" name=ID "base" base=[BusinessClassReference]
-    ( "[" (properties += Property)*  "]")?
+    ( "[" (properties += DtoProperty)*  "]")?
     ;    
     
 ListDto :
@@ -27,25 +27,25 @@ ListDto :
     ;    
 CustomDto :
     "CustomDto" name=ID "["
-    (properties += Property)*
+    (properties += DtoProperty)*
     "]"
     ;    
 
-Property:
+DtoProperty:
     (description=STRING)?
-    (BooleanProperty | StringProperty  | DateTimeProperty | IntegerProperty |DecimalProperty | EnumerationProperty) 
+    (DtoBooleanProperty | DtoStringProperty  | DtoDateTimeProperty | DtoIntegerProperty |DtoDecimalProperty | DtoEnumerationProperty) 
 	";"
 	;
 
-BooleanProperty:
+DtoBooleanProperty:
     dataType="boolean" name=ID
     ;
 
-StringProperty:
+DtoStringProperty:
     dataType="string" name=ID
     ;
 
-DateTimeProperty:
+DtoDateTimeProperty:
     dataType="datetime"
 //    accuracy=DateTimeAccuracy
     name=ID
@@ -56,15 +56,15 @@ DateTimeProperty:
 //    Second = "second" | Millisecond = "millisecond"
 //    ;
 
-IntegerProperty:
+DtoIntegerProperty:
     dataType="integer" name=ID
     ;
 
-DecimalProperty:
+DtoDecimalProperty:
     dataType="decimal" name=ID
     ;
 
-EnumerationProperty:
+DtoEnumerationProperty:
     type=[Enumeration] name=ID
     ; 
 
