@@ -6,7 +6,7 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE businessServiceInterface FOR ServiceMethod»
-    «REM»No generation for this super type«ENDREM»
+    «REM»No generation for this abstract super type«ENDREM»
 «ENDDEFINE»
 
 «REM»Generate interface for Special ServiceMethod«ENDREM»

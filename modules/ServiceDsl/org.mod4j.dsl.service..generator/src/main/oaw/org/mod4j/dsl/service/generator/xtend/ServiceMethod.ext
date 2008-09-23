@@ -3,3 +3,14 @@
  */
 import ServiceDsl;
 
+extension org::mod4j::crossx::broker::xtend::Crossx ;
+
+String JavaType(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let dtoType = dtoSymbol.getPropertyValue("dtoType") :
+    let baseDto = dtoSymbol.getPropertyValue("baseDto") :
+    switch( dtoType ){
+        case 'ListDto' : 'List<' +  baseDto + '>'
+        default : dto.name
+    }
+;
