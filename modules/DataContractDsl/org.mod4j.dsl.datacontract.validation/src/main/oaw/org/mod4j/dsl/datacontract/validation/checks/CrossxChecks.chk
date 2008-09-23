@@ -15,7 +15,7 @@ import crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 
 context BusinessClassReference ERROR "BusinessClass [" + this.name + "] not defined in model [" + this.modelname + "]":
-       lookup(this.modelname, this.name, "BusinessClass") != null;
+       lookupSymbol(this.modelname, this.name, "BusinessClass") != null;
 
        
 
