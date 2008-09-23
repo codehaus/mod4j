@@ -1,0 +1,16 @@
+«IMPORT DataContractDsl»
+
+«DEFINE addImports FOR DtoProperty»
+  «REM»Noting to import«ENDREM»
+«ENDDEFINE»
+
+«DEFINE addImports FOR DtoDateTimeProperty»
+    import org.joda.time.DateTime;
+«ENDDEFINE»
+
+«DEFINE addImports FOR DataContractDsl::DtoEnumerationProperty»
+    import java.util.EnumSet;
+    import java.util.HashMap;
+    import java.util.Map;
+«ENDDEFINE»
+
