@@ -25,15 +25,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProperties" upperBound="-1"
         eType="#//DtoPropertyReference"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SubsetDto" eSuperTypes="#//Dto">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProperties" upperBound="-1"
-        eType="#//DtoPropertyReference" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompositeDto" eSuperTypes="#//Dto">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="#//Dto"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReferenceDto" eSuperTypes="#//Dto"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoProperty" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
