@@ -14,9 +14,26 @@ create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
     
 create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
-    this.setType("Dto");
+    this.setType("Dto") ->
+    this.properties.add( newProperty(dto) ) ->
+    ( dto.metaType == DataContractDsl::ListDto ? this.properties.add( baseProperty((DataContractDsl::ListDto)dto) ) : null )
+    ;
 //    this.subProperties.addAll(dto.properties.toElement() );
 
+create LiteralSymbolProperty newProperty(Dto dto) :
+    this.setName("dtoType")->
+    switch( dto.metaType ){
+        case DataContractDsl::ListDto          : this.setValue("ListDto")
+        case DataContractDsl::BusinessClassDto : this.setValue("BusinessClassDto")
+        case DataContractDsl::CustomDto        : this.setValue("CustomDto")
+        default : this.setValue("UNKNOWN")
+    }
+    ;
+
+create LiteralSymbolProperty baseProperty(ListDto dto) :
+    this.setName("baseDto")->
+    this.setValue(dto.baseDto.name)
+    ;
 /*
 create crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     this.setName(prop.name) ->
