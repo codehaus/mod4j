@@ -17,4 +17,5 @@ Require-Bundle: org.openarchitectureware.core.workflow,
  org.apache.commons.cli,
  org.mod4j.crossx.broker,
  org.mod4j.crossx.mm,
- org.openarchitectureware.util.stdlib;resolution:=optional
+ org.openarchitectureware.util.stdlib;resolution:=optional,
+ org.openarchitectureware.core.xpand2;bundle-version="4.3.0"
