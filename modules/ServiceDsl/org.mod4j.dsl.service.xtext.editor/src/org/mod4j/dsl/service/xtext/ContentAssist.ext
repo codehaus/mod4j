@@ -3,6 +3,8 @@ import codeassist;
 
 extension org::mod4j::dsl::service::xtext::Extensions;
 extension org::mod4j::dsl::service::xtext::GenContentAssist reexport;
+extension org::mod4j::eclipse::xtend::EclipseUtil;
+extension org::mod4j::crossx::broker::xtend::Crossx;
 
 /*
  * There are two types of extensions one can define
@@ -15,3 +17,11 @@ extension org::mod4j::dsl::service::xtext::GenContentAssist reexport;
  * you can sort and/or filter the proposals by overwriting 'List[Proposal] sortProposals(List[Proposal] proposalsToSort)'
  */
 
+/* proposals for Feature BusinessClassReference::name */
+List[Proposal] completeDtoReference_name(emf::EObject ctx, String prefix) :
+	findAllFromModel( ((ServiceDsl::DtoReference)ctx).modelname, "Dto").
+	          collect(x|newProposal(x)).add(newProposal("<<empty>>"));
+
+/* proposals for Feature EnumerationProperty::name */
+List[Proposal] completeDtoReference_modelname(emf::EObject ctx, String prefix) :
+	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)).add(newProposal("<<empty>>")) ;
