@@ -28,10 +28,10 @@ public class XtextParser extends GenParser {
                 Collection<EObject> allElements = EcoreUtil2.allContents(getRootNode().getModelElement());
                 allElements.add(getRootNode().getModelElement());
                 String[] checkFiles = new String[]{
-                        "org::mod4j::dsl::datacontract::GenChecks",
+                        "org::mod4j::dsl::datacontract::xtext::GenChecks",
                         "org::mod4j::dsl::datacontract::validation::checks::CrossxChecks",
                         "org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks",
-                        "org::mod4j::dsl::datacontract::Checks"};
+                        "org::mod4j::dsl::datacontract::xtext::Checks"};
                 for (String checkFile : checkFiles) {
                     CheckFacade.checkAll(checkFile, allElements, ctx, issues);
                 }
