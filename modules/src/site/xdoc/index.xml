@@ -70,9 +70,8 @@
                         <a href="http://maven.apache.org">Apache Maven site</a>
                     </li>
                     <li>
-                        Make sure you start Eclipse with de right options, e.g on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java -vmargs -Xms512m
-                        -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m
+                        Make sure you start Eclipse with de right jdk, e.g on a linux system:
+                        <q>/path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java</q>
                     </li>
                     <li>
                         Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
