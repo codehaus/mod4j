@@ -16,9 +16,14 @@ create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
     this.properties.add( newProperty(dto) ) ->
-    ( dto.metaType == DataContractDsl::ListDto ? this.properties.add( baseProperty((DataContractDsl::ListDto)dto) ) : null )
-    ;
-//    this.subProperties.addAll(dto.properties.toElement() );
+    ( dto.metaType == DataContractDsl::ListDto ?
+                   this.properties.add( baseProperty((DataContractDsl::ListDto)dto) ) :
+                   null )->
+                   
+    ( dto.metaType == DataContractDsl::BusinessClassDto ?
+                   this.properties.add( businessClassProperty((DataContractDsl::BusinessClassDto)dto) ) :
+                   null )
+        ;
 
 create LiteralSymbolProperty newProperty(Dto dto) :
     this.setName("dtoType")->
@@ -33,6 +38,11 @@ create LiteralSymbolProperty newProperty(Dto dto) :
 create LiteralSymbolProperty baseProperty(ListDto dto) :
     this.setName("baseDto")->
     this.setValue(dto.baseDto.name)
+    ;
+    
+create LiteralSymbolProperty businessClassProperty(BusinessClassDto dto) :
+    this.setName("businessClass")->
+    this.setValue(dto.base.name)
     ;
 /*
 create crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
