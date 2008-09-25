@@ -1,10 +1,12 @@
 «IMPORT ServiceDsl»
 
 «EXTENSION org::mod4j::dsl::service::generator::xpand::LocalService»
+«EXTENSION org::mod4j::dsl::service::generator::xpand::LocalServiceImpl»
 
 «DEFINE Generate FOR ServiceModel»
   TODO implement this template 
   «EXPAND  LocalService::LocalService FOR this» 
+  «EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
 «ENDDEFINE»
 
 

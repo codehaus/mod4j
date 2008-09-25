@@ -14,3 +14,15 @@ String JavaType(DtoReference dto) :
         default : dto.name
     }
 ;
+
+String BusinessJavaType(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let businessClass = dtoSymbol.getPropertyValue("businessClass") :
+    getPropertyValue(dtoSymbol, "businessClass")
+;
+
+String DomainService(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let businessClass = dtoSymbol.getPropertyValue("businessClass") :
+    getPropertyValue(dtoSymbol, "businessClass")
+;
