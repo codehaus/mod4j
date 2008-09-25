@@ -29,9 +29,9 @@
          */
          public class «javaClassName(name)» implements Serializable {
          
-             private Long id;
+             public Long id;
              «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
-                 private «javaType(dataProperty)» «dataProperty.name»; 
+                 public «javaType(dataProperty)» «dataProperty.name»; 
              «ENDFOREACH»
          }
 	«ENDFILE»

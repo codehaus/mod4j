@@ -4,18 +4,26 @@ DataContract RecordShopDataContract
 from RecordShopDomainModel import Customer
 from RecordShopDomainModel import Artist
 from RecordShopDomainModel import Order
+from RecordShopDomainModel import Record
 
+    /*
+     * BusinessClass transfer objects
+     */
+	
+	"Full Customer transfer object with all attributes in Customer."
+	BusinessClassDto FullCustomerDto base Customer
+
+    "A simple Customer transfer object with a subset of Customer attributes."
 	BusinessClassDto SimpleCustomerDto base Customer [
-	    "First name of the person." 
-	    string firstName ;
-	    "Last name of the person."
-	    string lastName ;
-	    "The age of this person in years"
-	    integer age ;
-	    "Number of ears (we allow Vulcans in this system)."  
-	    integer numberOfEars ;
+	    "FirstName of the Customer"
+	    string firstName;
+	    "Email address of the Customer"
+	    string emailAddress;
+	    "Can we do business with this Customer?"
+	    boolean blackListed;
 	]
 	
+	"Simple Order transfer object."
 	BusinessClassDto OrderNumberAndDateDto base Order [
 	 	"An ordernumber should be unique"
 	    string orderNumber;
@@ -23,7 +31,7 @@ from RecordShopDomainModel import Order
 	    datetime orderDate;
 	]
 	
-	"The Artist transfer object"
+	"The Artist transfer object."
 	BusinessClassDto ArtistDto base Artist [
 	    "First name of the person." 
 	    string firstName ;
@@ -31,34 +39,41 @@ from RecordShopDomainModel import Order
 	    string lastName ;
 	    "The age of this person in years"
 	    integer age ;
-	    "Number of ears (we allow Vulcans in this system)."  
-	    integer numberOfEars ;
 		"extra attribute from Artist"
 		string title;
 	]
 	
-	"List of Customers"
+
+    /*
+     * Lists of transfer objects
+     */
+
+	"List of SimpleCustomerDto's."
 	ListDto SimpleCustomerList base SimpleCustomerDto 
-	"List of Orders"
+	"List of OrdersNumberAndDateDto's."
 	ListDto OrderNumberAndDateList base OrderNumberAndDateDto 
+
 	
 	/*
-	 * Custom data transfer objects
+	 * Custom transfer objects
 	 */
+
+	"String transfer object."
 	CustomDto StringDto [ 
 	    "A string attribute"
 	    string stringAttribute;
 	]
 	
-	"Customer unique key"
+	"Date transfer object."
+	CustomDto DateDto [ 
+	    "date"
+	    datetime date;
+	]
+	
+	"Customer unique key."
 	CustomDto UniqueCustomerDto [ 
 	    "firstName"
 	    string firstName;
 	    "lastName"
 	    string lastName;
-	]
-	
-	CustomDto DateDto [ 
-	    "date"
-	    datetime date;
 	]
