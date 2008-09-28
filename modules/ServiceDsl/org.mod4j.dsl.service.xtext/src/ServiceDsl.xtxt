@@ -6,8 +6,10 @@ ServiceModel:
 	(description=STRING )?
 	"Service" name = ID
 	(dtoReferences+=DtoReference)*
-	(crudServices += CrudService)*
-	(methods+= ServiceMethod)*
+	(
+	    (crudServices += CrudService)
+	    | (methods+= ServiceMethod)
+	)*
 	;
 
 DtoReference:
@@ -41,10 +43,10 @@ SpecialMethod:
     
 CrudService:
 	(description=STRING )?
-    "crud" "for" dto =[DtoReference]
+    name="crud" "for" dto =[DtoReference]
     ";"
     ;
 
 Enum MethodType:
-     Create="create"  | Read="read" | Update="update" | Delete="delete" | Custom="custom"
+     Create="create"  | Read="read" | Update="update" | Delete="delete" 
      ;
