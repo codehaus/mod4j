@@ -1,0 +1,73 @@
+
+String javaDomainClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainClass(java.lang.String);
+
+String javaDomainClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainClassPath(java.lang.String);
+
+String javaDomainBaseClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainBaseClass(java.lang.String);
+
+String javaDomainBaseClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainBaseClassPath(java.lang.String);
+
+String javaDaoInterface(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoInterface(java.lang.String);
+
+String javaDaoInterfacePath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoInterfacePath(java.lang.String);
+
+String javaDaoClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoClass(java.lang.String);
+
+String javaDaoClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoClassPath(java.lang.String);
+
+String javaDaoBaseInterface(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseInterface(java.lang.String);
+
+String javaDaoBaseInterfacePath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseInterfacePath(java.lang.String);
+
+String javaDaoBaseClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseClass(java.lang.String);
+
+String javaDaoBaseClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDaoBaseClassPath(java.lang.String);
+
+String javaLocalServiceInterface(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceInterface(java.lang.String);
+
+String javaLocalServiceInterfacePath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceInterfacePath(java.lang.String);
+
+String javaLocalServiceClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceClass(java.lang.String);
+
+String javaLocalServiceClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceClassPath(java.lang.String);
+
+String javaLocalServiceBaseClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceBaseClass(java.lang.String);
+
+String javaLocalServiceBaseClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaLocalServiceBaseClassPath(java.lang.String);
+
+String javaDomainServiceInterface(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceInterface(java.lang.String);
+
+String javaDomainServiceInterfacePath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceInterfacePath(java.lang.String);
+
+String javaDomainServiceClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceClass(java.lang.String);
+
+String javaDomainServiceClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceClassPath(java.lang.String);
+
+String javaMapperClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaMapperClass(java.lang.String);
+
+String javaMapperClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaMapperClassPath(java.lang.String);
+

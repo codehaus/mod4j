@@ -12,4 +12,9 @@ String javaClassName(String cls) :
 
 String javaPathFileName(String package, String classname) :
   package.replaceAll("\\.", "/") + "/" + classname.toFirstUpper() + ".java";
+
+String javaPathFileName(String fullclassname) :
+  fullclassname.replaceAll("\\.", "/") + ".java" ;
+
+
  

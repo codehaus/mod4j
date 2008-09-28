@@ -31,7 +31,7 @@ public class FileTracker {
      * @param resource
      */
     public void initResource(String resource) {
-        System.err.println("FileTracker resource [" + resource + "]");
+//        System.err.println("FileTracker resource [" + resource + "]");
         current = getTrack(resource);
     }
 
@@ -52,13 +52,13 @@ public class FileTracker {
 
     static public String generate(String filename) {
         getFileTracker().current.generatedFile(filename);
-        System.err.println("        FileTracker generate [" + filename + "]");
+//        System.err.println("        FileTracker generate [" + filename + "]");
         return filename;
     }
 
     static public String extend(String filename) {
         getFileTracker().current.extensionFile(filename);
-        System.err.println("        FileTracker extension [" + filename + "]");
+//        System.err.println("        FileTracker extension [" + filename + "]");
         return filename;
     }
 
