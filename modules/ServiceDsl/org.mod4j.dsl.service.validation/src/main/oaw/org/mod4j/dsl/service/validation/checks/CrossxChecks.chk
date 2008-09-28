@@ -11,11 +11,22 @@
 import ServiceDsl;
 import crossx;
 
-// extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::common::xtend::NameMapper;
+extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
 
 context DtoReference ERROR "DtoReference [" + this.name + "] not defined inj model " + this.modelname:
        lookupSymbol(this.modelname, this.name, "Dto") != null;
-
        
+context CrudService ERROR "Crud service "+ name + " can only be defined for a BusinessClassDto" :
+       this.dto != null implies this.dto.dtoType() == "BusinessClassDto";
+
+context SpecialMethod ERROR "Dto "+ dto.name + " must be a BusinessClassDto: create / read / update / delete methods can only be defined for a BusinessClassDto" :
+      ((this.type == MethodType::Create) ||
+       (this.type == MethodType::Read) ||
+       (this.type == MethodType::Update) ||
+       (this.type == MethodType::Delete) )
+        implies
+           (this.dto == null) ? true :  (dto.dtoType() == "BusinessClassDto");
+
 
