@@ -1,6 +1,6 @@
 «IMPORT ServiceDsl»
 
-«EXTENSION org::mod4j::dsl::service::generator::xtend::ServiceMethod»
+«EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
