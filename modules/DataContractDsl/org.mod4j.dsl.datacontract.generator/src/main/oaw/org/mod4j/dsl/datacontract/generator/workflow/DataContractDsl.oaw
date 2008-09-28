@@ -45,7 +45,6 @@
        <metaModel idRef="dcm"/>
        <metaModel idRef="crossx"/>
        <invoke value="CompleteDtc::completeModel(dataContractModel)"/>
-<!--       <outputSlot value="dataContractModel"/> -->
     </component>
 
     <!--

@@ -44,24 +44,6 @@ create LiteralSymbolProperty businessClassProperty(BusinessClassDto dto) :
     this.setName("businessClass")->
     this.setValue(dto.base.name)
     ;
-/*
-create crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
-    this.setName(prop.name) ->
-    this.setType("Property") ->
-    this.properties.add(prop.typeXX());
-    
-create crossx::LiteralSymbolProperty typeXX(BusinessDomainDsl::Property prop) :
-	this.setName("DataType")->
-	this.setValue(prop.dataType);
 
-create crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
-    this.setName(prop.name) ->
-    this.setType("Property") ->
-    this.properties.add(prop.typeXX());
-
-create crossx::LiteralSymbolProperty typeXX(BusinessDomainDsl::EnumerationProperty prop) :
-    this.setName("DataType")->
-    this.setValue(prop.type.name);
-*/
     
     
