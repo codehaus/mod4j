@@ -8,7 +8,10 @@ Bundle-Vendor: mod4j.org
 Bundle-Localization: plugin
 Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,
  org.mod4j.dsl.service.mm.ServiceDsl.impl,
- org.mod4j.dsl.service.mm.ServiceDsl.util
+ org.mod4j.dsl.service.mm.ServiceDsl.util,
+ org.mod4j.dsl.service.mm.xtend
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.mod4j.crossx.broker;bundle-version="0.10.0",
+ org.mod4j.crossx.mm;bundle-version="0.10.0"
 Eclipse-LazyStart: true
