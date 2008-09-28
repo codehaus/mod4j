@@ -37,7 +37,21 @@
         <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
         <emfAllChildrenSlot value="serviceModel" />
     </component>
+    <component id="ServiceWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="sm" />
+        <metaModel idRef="crossx" />
+        <checkFile value="org::mod4j::dsl::service::validation::checks::CrossxChecks" />
+        <emfAllChildrenSlot value="serviceModel" />
+    </component>
 
+    <!-- Call the Xtend model-to-model transformation to complete the DTO model
+         with all properties derived from the business classes.
+    -->
+    <component id="complteSvc" class="oaw.xtend.XtendComponent">
+       <metaModel idRef="sm"/>
+       <metaModel idRef="crossx"/>
+       <invoke value="org::mod4j::dsl::service::generator::xtend::CompleteSvc::completeModel(serviceModel)"/>
+    </component>
     <!--
         Generation of Service sources and resources for the BUSINESS layer
     -->

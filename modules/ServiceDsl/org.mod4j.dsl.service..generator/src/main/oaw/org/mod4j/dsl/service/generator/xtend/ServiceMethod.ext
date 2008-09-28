@@ -15,14 +15,21 @@ String JavaType(DtoReference dto) :
     }
 ;
 
-String BusinessJavaType(DtoReference dto) :
+String businessClass(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
     let businessClass = dtoSymbol.getPropertyValue("businessClass") :
-    getPropertyValue(dtoSymbol, "businessClass")
+    (businessClass == null) ? "void": businessClass
 ;
 
-String DomainService(DtoReference dto) :
+String baseDto(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
-    let businessClass = dtoSymbol.getPropertyValue("businessClass") :
-    getPropertyValue(dtoSymbol, "businessClass")
+    let base = dtoSymbol.getPropertyValue("baseDto") :
+    (base == null) ? "void" : base
 ;
+
+String dtoType(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let dtoType = dtoSymbol.getPropertyValue("dtoType") :
+    (dtoType == null) ? "void": dtoType
+;
+

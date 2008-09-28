@@ -1,0 +1,46 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+
+import crossx;
+import ServiceDsl;
+
+extension org::mod4j::crossx::broker::xtend::Crossx;
+
+completeModel(ServiceModel model) :
+    let cruds = model.crudServices :
+	model.methods.addAll( cruds.createMethod())->
+	model.methods.addAll( cruds.readMethod())->
+	model.methods.addAll( cruds.updateMethod())->
+	model.methods.addAll( cruds.deleteMethod())
+    ;
+    
+create SpecialMethod createMethod(CrudService crud) :
+   setDescription(crud.description + " [From crud service]")->
+   setType(MethodType::Create)->
+   setName("create" + crud.dto.name)->
+   setDto(crud.dto)
+   ;
+   
+create SpecialMethod readMethod(CrudService crud) :
+   setDescription(crud.description + " [From crud service]")->
+   setType(MethodType::Read)->
+   setName("read" + crud.dto.name)->
+   setDto(crud.dto)
+   ;
+   
+create SpecialMethod updateMethod(CrudService crud) :
+   setDescription(crud.description + " [From crud service]")->
+   setType(MethodType::Update)->
+   setName("update" + crud.dto.name)->
+   setDto(crud.dto)
+   ;
+   
+create SpecialMethod deleteMethod(CrudService crud) :
+   setDescription(crud.description + " [From crud service]")->
+   setType(MethodType::Delete)->
+   setName("delete" + crud.dto.name)->
+   setDto(crud.dto)
+   ;
+   
