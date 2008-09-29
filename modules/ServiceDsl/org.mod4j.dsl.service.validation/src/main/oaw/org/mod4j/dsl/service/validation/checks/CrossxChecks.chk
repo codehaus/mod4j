@@ -22,10 +22,10 @@ context CrudService ERROR "Crud service "+ name + " can only be defined for a Bu
        this.dto != null implies this.dto.dtoType() == "BusinessClassDto";
 
 context SpecialMethod ERROR "Dto "+ dto.name + " must be a BusinessClassDto: create / read / update / delete methods can only be defined for a BusinessClassDto" :
-      ((this.type == MethodType::Create) ||
-       (this.type == MethodType::Read) ||
-       (this.type == MethodType::Update) ||
-       (this.type == MethodType::Delete) )
+      ((this.type == MethodType::CREATE) ||
+       (this.type == MethodType::READ) ||
+       (this.type == MethodType::UPDATE) ||
+       (this.type == MethodType::DELETE) )
         implies
            (this.dto == null) ? true :  (dto.dtoType() == "BusinessClassDto");
 
