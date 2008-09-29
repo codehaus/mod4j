@@ -8,12 +8,12 @@
   <genPackages prefix="ServiceDsl" basePackage="org.mod4j.dsl.service.mm" disposableProviderFactory="true"
       ecorePackage="ServiceDsl.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ServiceDsl.ecore#//MethodType">
-      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/Create"/>
-      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/Read"/>
-      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/Update"/>
-      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/Delete"/>
-      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/Find"/>
-      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/CREATE"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/READ"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/UPDATE"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/FIND"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/CUSTOM"/>
     </genEnums>
     <genClasses ecoreClass="ServiceDsl.ecore#//ServiceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//ServiceModel/methods"/>

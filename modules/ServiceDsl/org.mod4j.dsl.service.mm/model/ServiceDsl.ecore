@@ -26,12 +26,12 @@
         eType="#//Parameter" containment="true" eOpposite="#//Parameter/method"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MethodType">
-    <eLiterals name="Create"/>
-    <eLiterals name="Read" value="1"/>
-    <eLiterals name="Update" value="2"/>
-    <eLiterals name="Delete" value="3"/>
-    <eLiterals name="Find" value="4"/>
-    <eLiterals name="Custom" value="5"/>
+    <eLiterals name="CREATE" literal="Create"/>
+    <eLiterals name="READ" value="1"/>
+    <eLiterals name="UPDATE" value="2"/>
+    <eLiterals name="DELETE" value="3"/>
+    <eLiterals name="FIND" value="4"/>
+    <eLiterals name="CUSTOM" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrudService" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>

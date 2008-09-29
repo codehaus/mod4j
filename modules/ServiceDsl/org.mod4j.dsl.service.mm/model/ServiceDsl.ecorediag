@@ -56,27 +56,27 @@
     <children xmi:type="notation:Node" xmi:id="_FKQlc3tDEd28kZw9e3t-QQ" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_FKQldHtDEd28kZw9e3t-QQ" type="5008">
       <children xmi:type="notation:Node" xmi:id="_HkVbMHtDEd28kZw9e3t-QQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/Create"/>
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/CREATE"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_HkVbMXtDEd28kZw9e3t-QQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_KBidcHtDEd28kZw9e3t-QQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/Read"/>
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/READ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_KBidcXtDEd28kZw9e3t-QQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_LNPbkHtDEd28kZw9e3t-QQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/Update"/>
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/UPDATE"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_LNPbkXtDEd28kZw9e3t-QQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_MPjNIHtDEd28kZw9e3t-QQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/Delete"/>
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/DELETE"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_MPjNIXtDEd28kZw9e3t-QQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_NneCUHtDEd28kZw9e3t-QQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/Find"/>
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/FIND"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_NneCUXtDEd28kZw9e3t-QQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_fsP2YHtDEd28kZw9e3t-QQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/Custom"/>
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/CUSTOM"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_fsP2YXtDEd28kZw9e3t-QQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_FKQldXtDEd28kZw9e3t-QQ"/>

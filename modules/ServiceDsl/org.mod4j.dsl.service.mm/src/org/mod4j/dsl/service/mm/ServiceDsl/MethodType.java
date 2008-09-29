@@ -23,67 +23,67 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum MethodType implements Enumerator {
 	/**
-     * The '<em><b>Create</b></em>' literal object.
+     * The '<em><b>CREATE</b></em>' literal object.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #CREATE_VALUE
      * @generated
      * @ordered
      */
-	CREATE(0, "Create", "Create"),
+	CREATE(0, "CREATE", "Create"),
 
 	/**
-     * The '<em><b>Read</b></em>' literal object.
+     * The '<em><b>READ</b></em>' literal object.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #READ_VALUE
      * @generated
      * @ordered
      */
-	READ(1, "Read", "Read"),
+	READ(1, "READ", "READ"),
 
 	/**
-     * The '<em><b>Update</b></em>' literal object.
+     * The '<em><b>UPDATE</b></em>' literal object.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #UPDATE_VALUE
      * @generated
      * @ordered
      */
-	UPDATE(2, "Update", "Update"),
+	UPDATE(2, "UPDATE", "UPDATE"),
 
 	/**
-     * The '<em><b>Delete</b></em>' literal object.
+     * The '<em><b>DELETE</b></em>' literal object.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #DELETE_VALUE
      * @generated
      * @ordered
      */
-	DELETE(3, "Delete", "Delete"),
+	DELETE(3, "DELETE", "DELETE"),
 
 	/**
-     * The '<em><b>Find</b></em>' literal object.
+     * The '<em><b>FIND</b></em>' literal object.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #FIND_VALUE
      * @generated
      * @ordered
      */
-	FIND(4, "Find", "Find"),
+	FIND(4, "FIND", "FIND"),
 
 	/**
-     * The '<em><b>Custom</b></em>' literal object.
+     * The '<em><b>CUSTOM</b></em>' literal object.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #CUSTOM_VALUE
      * @generated
      * @ordered
      */
-	CUSTOM(5, "Custom", "Custom");
+	CUSTOM(5, "CUSTOM", "CUSTOM");
 
 	/**
-     * The '<em><b>Create</b></em>' literal value.
+     * The '<em><b>CREATE</b></em>' literal value.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Create</b></em>' literal object isn't clear,
@@ -91,14 +91,14 @@ public enum MethodType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @see #CREATE
-     * @model name="Create"
+     * @model literal="Create"
      * @generated
      * @ordered
      */
 	public static final int CREATE_VALUE = 0;
 
 	/**
-     * The '<em><b>Read</b></em>' literal value.
+     * The '<em><b>READ</b></em>' literal value.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Read</b></em>' literal object isn't clear,
@@ -106,14 +106,14 @@ public enum MethodType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @see #READ
-     * @model name="Read"
+     * @model
      * @generated
      * @ordered
      */
 	public static final int READ_VALUE = 1;
 
 	/**
-     * The '<em><b>Update</b></em>' literal value.
+     * The '<em><b>UPDATE</b></em>' literal value.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Update</b></em>' literal object isn't clear,
@@ -121,14 +121,14 @@ public enum MethodType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @see #UPDATE
-     * @model name="Update"
+     * @model
      * @generated
      * @ordered
      */
 	public static final int UPDATE_VALUE = 2;
 
 	/**
-     * The '<em><b>Delete</b></em>' literal value.
+     * The '<em><b>DELETE</b></em>' literal value.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Delete</b></em>' literal object isn't clear,
@@ -136,14 +136,14 @@ public enum MethodType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @see #DELETE
-     * @model name="Delete"
+     * @model
      * @generated
      * @ordered
      */
 	public static final int DELETE_VALUE = 3;
 
 	/**
-     * The '<em><b>Find</b></em>' literal value.
+     * The '<em><b>FIND</b></em>' literal value.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Find</b></em>' literal object isn't clear,
@@ -151,14 +151,14 @@ public enum MethodType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @see #FIND
-     * @model name="Find"
+     * @model
      * @generated
      * @ordered
      */
 	public static final int FIND_VALUE = 4;
 
 	/**
-     * The '<em><b>Custom</b></em>' literal value.
+     * The '<em><b>CUSTOM</b></em>' literal value.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Custom</b></em>' literal object isn't clear,
@@ -166,7 +166,7 @@ public enum MethodType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
      * @see #CUSTOM
-     * @model name="Custom"
+     * @model
      * @generated
      * @ordered
      */

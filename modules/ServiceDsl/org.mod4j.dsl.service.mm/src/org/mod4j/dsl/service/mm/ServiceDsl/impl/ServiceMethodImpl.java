@@ -44,7 +44,7 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
      * @generated
      * @ordered
      */
-	protected static final MethodType TYPE_EDEFAULT = MethodType.CUSTOM;
+	protected static final MethodType TYPE_EDEFAULT = MethodType.CREATE;
 
 	/**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
