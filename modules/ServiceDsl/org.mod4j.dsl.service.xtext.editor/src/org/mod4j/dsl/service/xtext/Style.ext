@@ -13,3 +13,15 @@ extension org::mod4j::dsl::service::xtext::GenStyle reexport;
  * than 0 is the amount of milliseconds to deleay the context coloring;
  */
 
+FontStyle fontstyle(String keyword, ServiceDsl::MethodType ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 0, 150), createColor(255, 255, 255) );
+
+
+FontStyle fontstyle(String keyword, ServiceDsl::ModelElement ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 0, 150), createColor(255, 255, 255) );
+
+delayContextSensitiveStyling(): 500;
+
+	            
