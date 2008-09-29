@@ -2,6 +2,7 @@ preventMMGeneration
 
 importMetamodel "http://www.mod4j.org/service" ;
 
+
 ServiceModel:
 	(description=STRING )?
 	"Service" name = ID
@@ -11,6 +12,10 @@ ServiceModel:
 	    | (methods+= ServiceMethod)
 	)*
 	;
+
+Enum MethodType:
+     CREATE="create"  | READ="read" | UPDATE="update" | DELETE="delete" 
+     ;
 
 DtoReference:
 	(description=STRING )?
@@ -47,6 +52,3 @@ CrudService:
     ";"
     ;
 
-Enum MethodType:
-     Create="create"  | Read="read" | Update="update" | Delete="delete" 
-     ;
