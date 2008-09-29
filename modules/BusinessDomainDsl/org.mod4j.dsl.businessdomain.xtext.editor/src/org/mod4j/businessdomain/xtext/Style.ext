@@ -13,3 +13,20 @@ extension org::mod4j::businessdomain::xtext::GenStyle reexport;
  * than 0 is the amount of milliseconds to deleay the context coloring;
  */
 
+FontStyle fontstyle(String keyword, BusinessDomainDsl::ModelElement ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 100, 0), createColor(255, 255, 255) );
+
+FontStyle fontstyle(String keyword, BusinessDomainDsl::InheritanceModifier ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 100, 0), createColor(255, 255, 255) );
+
+FontStyle fontstyle(String keyword, BusinessDomainDsl::Multiplicity ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 100, 0), createColor(255, 255, 255) );
+
+FontStyle fontstyle(String keyword, BusinessDomainDsl::DateTimeAccuracy ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 100, 0), createColor(255, 255, 255) );
+
+delayContextSensitiveStyling(): 500;
