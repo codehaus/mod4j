@@ -40,16 +40,16 @@
 	«ENDFOREACH»	
 
 	«FOREACH this.methods.typeSelect(SpecialMethod) AS method»
-		«IF method.type == MethodType::Create»
+		«IF method.type == MethodType::CREATE»
 			«EXPAND CreateMethod FOR method»
 		«ENDIF»
-		«IF method.type == MethodType::Read»
+		«IF method.type == MethodType::READ»
 			«EXPAND ReadMethod FOR method»
 		«ENDIF»
-		«IF method.type == MethodType::Update»
+		«IF method.type == MethodType::UPDATE»
 			«EXPAND UpdateMethod FOR method»
 		«ENDIF»
-		«IF method.type == MethodType::Delete»
+		«IF method.type == MethodType::DELETE»
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
