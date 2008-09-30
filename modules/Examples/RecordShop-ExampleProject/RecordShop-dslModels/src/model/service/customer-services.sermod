@@ -15,10 +15,8 @@ update updateCustomer for SimpleCustomerDto;
 delete deleteCustomer for SimpleCustomerDto;
 
 "Find Customer by unique key attributes."
-method findCustomerByUniqueKey in UniqueCustomerDto out SimpleCustomerDto;
+method findCustomerByUniqueKey in UniqueCustomerDto cust out SimpleCustomerDto;
 
 "Find all Customers matching the given name."
-method findCustomerByName in StringDto out SimpleCustomerList;
+method findCustomerByName in StringDto name out SimpleCustomerList;
 
-//"Check if this Customer is creditworthy"
-custom checkCreditworthy for SimpleCustomerDto;

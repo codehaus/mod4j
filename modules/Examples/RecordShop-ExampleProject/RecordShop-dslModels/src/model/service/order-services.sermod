@@ -12,8 +12,8 @@ from RecordShopDataContract import DateDto
 crud for SimpleCustomerDto;
 
 "Find all Orders for a specific Customer"
-method findOrdersByCustomer in SimpleCustomerDto out OrderNumberAndDateList;
+method findOrdersByCustomer in SimpleCustomerDto customer out OrderNumberAndDateList;
 
 "Find all orders for a given date"
-method findOrdersByDate in DateDto out OrderNumberAndDateList;
+method findOrdersByDate in DateDto date out OrderNumberAndDateList;
 
