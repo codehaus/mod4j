@@ -35,6 +35,7 @@
              «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
                  «EXPAND Attributes::instanceVariable FOR dataProperty»
              «ENDFOREACH»
+             «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
              «EXPAND Attributes::addIdAccessors FOR this»
              «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
                  «EXPAND Attributes::addGetter FOR dataProperty»
@@ -71,6 +72,7 @@
              «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
                  «EXPAND Attributes::instanceVariable FOR dataProperty»
              «ENDFOREACH»
+             «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
              «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
                  «EXPAND Attributes::addGetter FOR dataProperty»
                  «EXPAND Attributes::addSetter FOR dataProperty»
