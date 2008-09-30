@@ -1,0 +1,24 @@
+«IMPORT DataContractDsl»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
+
+«DEFINE javaDocParam FOR DtoProperty -»
+     * @param «name» («dataType») «description»
+«ENDDEFINE»
+
+«DEFINE javaDocParam FOR DtoEnumerationProperty-»
+     * @param «name» («type.name») «description»
+«ENDDEFINE»
+
+«DEFINE addInstanceVarJavaDoc FOR DtoProperty»
+    /**
+     *  «name»: «description»
+     */
+«ENDDEFINE»
+
+«DEFINE addSetterJavaDoc FOR DtoProperty»
+    /**
+     * @param «name» («javaType(this)») «description»
+     */
+«ENDDEFINE»

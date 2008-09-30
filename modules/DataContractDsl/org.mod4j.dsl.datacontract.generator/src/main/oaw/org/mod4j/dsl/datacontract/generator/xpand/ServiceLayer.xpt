@@ -4,7 +4,7 @@
 «EXTENSION generatorutil»
 
 «DEFINE Generate FOR DataContractModel»
-  	«EXPAND dto::createDto FOREACH dtos»
+  	«EXPAND dtoBean::createDto FOREACH dtos»
 «ENDDEFINE»
 
 «REM»

@@ -1,0 +1,50 @@
+«IMPORT DataContractDsl»
+
+«EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
+
+«DEFINE instanceVariable FOR DtoProperty»
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
+    private «javaType(this)» «name»;
+«ENDDEFINE»
+
+«DEFINE addGetter FOR DtoProperty»
+	/**
+	*
+	* @return «name» («javaType(this)») «description»
+	*/
+	public «javaType(this)» get«name.toFirstUpper()» () {
+   		return this.«name»;
+	}
+«ENDDEFINE»
+
+«DEFINE addSetter FOR DtoProperty»
+   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
+        this.«name» = «name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addAttribute FOR DtoProperty»
+    /**
+     *  Unknown Property type. It is not a subclass of Property or it is not expanded by this generator.
+     *  Name: «name» 
+     *  Description: «description»
+     */
+«ENDDEFINE»
+
+«DEFINE addIdAttribute FOR Dto»
+    /**
+     *  id: The identifier of this object.
+     */
+     private long id;
+«ENDDEFINE»
+
+«DEFINE addIdAccessors FOR Dto»
+    /**
+    *
+    * @return id (Long) The identifier of this object.
+    */
+     public Long getId() {
+        return this.id;
+    }
+«ENDDEFINE»
