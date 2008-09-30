@@ -5,6 +5,7 @@
 
 «DEFINE Generate FOR DataContractModel»
   	«EXPAND dtoBean::createDto FOREACH dtos»
+  	«EXPAND Translators::createTranslator FOREACH dtos»
 «ENDDEFINE»
 
 «REM»

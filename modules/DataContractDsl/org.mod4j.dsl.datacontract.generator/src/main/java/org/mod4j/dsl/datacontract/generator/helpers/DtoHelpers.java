@@ -70,4 +70,9 @@ public class DtoHelpers {
         result.addAll(cls.getProperties());
         return result;
     }
+    
+    public static String javaTranslatorName(String clsName){
+        return clsName + "Translator";
+    }
+    
 }
