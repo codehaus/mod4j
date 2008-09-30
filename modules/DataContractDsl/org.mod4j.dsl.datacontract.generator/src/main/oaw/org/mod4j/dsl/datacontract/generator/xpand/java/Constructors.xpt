@@ -7,5 +7,6 @@
      * Default no-argument constructor for «javaClassName(name)» 
      */
      protected  «javaClassName(name)-» () {
+         super();
      }
 «ENDDEFINE»

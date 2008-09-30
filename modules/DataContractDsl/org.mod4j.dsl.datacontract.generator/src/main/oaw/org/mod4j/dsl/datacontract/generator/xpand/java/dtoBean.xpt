@@ -5,7 +5,6 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
-
 «DEFINE createDto FOR Dto»
     «REM»No generation for this super type«ENDREM»
 «ENDDEFINE»
