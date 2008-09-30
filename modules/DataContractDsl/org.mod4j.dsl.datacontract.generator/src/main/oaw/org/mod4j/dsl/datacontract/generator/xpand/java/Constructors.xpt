@@ -1,0 +1,11 @@
+«IMPORT DataContractDsl»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+
+«DEFINE addDefaultNoArgConstructor FOR Dto»
+    /**
+     * Default no-argument constructor for «javaClassName(name)» 
+     */
+     protected  «javaClassName(name)-» () {
+     }
+«ENDDEFINE»
