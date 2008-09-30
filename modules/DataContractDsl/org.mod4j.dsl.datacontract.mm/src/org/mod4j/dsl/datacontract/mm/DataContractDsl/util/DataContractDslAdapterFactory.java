@@ -144,6 +144,10 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createDtoDateTimePropertyAdapter();
             }
             @Override
+            public Adapter caseBusinessClassPropertyReference(BusinessClassPropertyReference object) {
+                return createBusinessClassPropertyReferenceAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object) {
                 return createEObjectAdapter();
             }
@@ -412,6 +416,20 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDtoDateTimePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference <em>Business Class Property Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference
+     * @generated
+     */
+    public Adapter createBusinessClassPropertyReferenceAdapter() {
         return null;
     }
 

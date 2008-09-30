@@ -78,6 +78,7 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.DTO_DECIMAL_PROPERTY: return createDtoDecimalProperty();
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY: return createDtoEnumerationProperty();
             case DataContractDslPackage.DTO_DATE_TIME_PROPERTY: return createDtoDateTimeProperty();
+            case DataContractDslPackage.BUSINESS_CLASS_PROPERTY_REFERENCE: return createBusinessClassPropertyReference();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -261,6 +262,16 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     public DtoDateTimeProperty createDtoDateTimeProperty() {
         DtoDateTimePropertyImpl dtoDateTimeProperty = new DtoDateTimePropertyImpl();
         return dtoDateTimeProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BusinessClassPropertyReference createBusinessClassPropertyReference() {
+        BusinessClassPropertyReferenceImpl businessClassPropertyReference = new BusinessClassPropertyReferenceImpl();
+        return businessClassPropertyReference;
     }
 
     /**

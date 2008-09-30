@@ -262,13 +262,22 @@ public interface DataContractDslPackage extends EPackage {
     int BUSINESS_CLASS_DTO__BASE = DTO_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Property References</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_DTO__PROPERTY_REFERENCES = DTO_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Business Class Dto</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUSINESS_CLASS_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 2;
+    int BUSINESS_CLASS_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl <em>List Dto</em>}' class.
@@ -1105,6 +1114,53 @@ public interface DataContractDslPackage extends EPackage {
 
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl <em>Business Class Property Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassPropertyReference()
+     * @generated
+     */
+    int BUSINESS_CLASS_PROPERTY_REFERENCE = 18;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_PROPERTY_REFERENCE__NAME = MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_PROPERTY_REFERENCE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_PROPERTY_REFERENCE__DTO = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Business Class Property Reference</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_PROPERTY_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel <em>Data Contract Model</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1199,6 +1255,17 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      */
     EReference getBusinessClassDto_Base();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getPropertyReferences <em>Property References</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Property References</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getPropertyReferences()
+     * @see #getBusinessClassDto()
+     * @generated
+     */
+    EReference getBusinessClassDto_PropertyReferences();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto <em>List Dto</em>}'.
@@ -1494,6 +1561,27 @@ public interface DataContractDslPackage extends EPackage {
     EClass getDtoDateTimeProperty();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference <em>Business Class Property Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Business Class Property Reference</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference
+     * @generated
+     */
+    EClass getBusinessClassPropertyReference();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference#getDto <em>Dto</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Dto</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference#getDto()
+     * @see #getBusinessClassPropertyReference()
+     * @generated
+     */
+    EReference getBusinessClassPropertyReference_Dto();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1592,6 +1680,14 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EReference BUSINESS_CLASS_DTO__BASE = eINSTANCE.getBusinessClassDto_Base();
+
+        /**
+         * The meta object literal for the '<em><b>Property References</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BUSINESS_CLASS_DTO__PROPERTY_REFERENCES = eINSTANCE.getBusinessClassDto_PropertyReferences();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl <em>List Dto</em>}' class.
@@ -1846,6 +1942,24 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EClass DTO_DATE_TIME_PROPERTY = eINSTANCE.getDtoDateTimeProperty();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl <em>Business Class Property Reference</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassPropertyReference()
+         * @generated
+         */
+        EClass BUSINESS_CLASS_PROPERTY_REFERENCE = eINSTANCE.getBusinessClassPropertyReference();
+
+        /**
+         * The meta object literal for the '<em><b>Dto</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BUSINESS_CLASS_PROPERTY_REFERENCE__DTO = eINSTANCE.getBusinessClassPropertyReference_Dto();
 
     }
 

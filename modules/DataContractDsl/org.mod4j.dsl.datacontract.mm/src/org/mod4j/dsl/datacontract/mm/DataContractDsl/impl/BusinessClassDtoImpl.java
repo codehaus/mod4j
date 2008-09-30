@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
@@ -36,6 +37,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getBase <em>Base</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getPropertyReferences <em>Property References</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +63,16 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * @ordered
      */
     protected BusinessClassReference base;
+
+    /**
+     * The cached value of the '{@link #getPropertyReferences() <em>Property References</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPropertyReferences()
+     * @generated
+     * @ordered
+     */
+    protected EList<BusinessClassPropertyReference> propertyReferences;
 
     /**
      * <!-- begin-user-doc -->
@@ -136,12 +148,26 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<BusinessClassPropertyReference> getPropertyReferences() {
+        if (propertyReferences == null) {
+            propertyReferences = new EObjectContainmentWithInverseEList<BusinessClassPropertyReference>(BusinessClassPropertyReference.class, this, DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES, DataContractDslPackage.BUSINESS_CLASS_PROPERTY_REFERENCE__DTO);
+        }
+        return propertyReferences;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getPropertyReferences()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -156,6 +182,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
         switch (featureID) {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES:
                 return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
+                return ((InternalEList<?>)getPropertyReferences()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -173,6 +201,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
                 if (resolve) return getBase();
                 return basicGetBase();
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
+                return getPropertyReferences();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -193,6 +223,10 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
                 setBase((BusinessClassReference)newValue);
                 return;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
+                getPropertyReferences().clear();
+                getPropertyReferences().addAll((Collection<? extends BusinessClassPropertyReference>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -211,6 +245,9 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
                 setBase((BusinessClassReference)null);
                 return;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
+                getPropertyReferences().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -227,6 +264,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return properties != null && !properties.isEmpty();
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
                 return base != null;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
+                return propertyReferences != null && !propertyReferences.isEmpty();
         }
         return super.eIsSet(featureID);
     }

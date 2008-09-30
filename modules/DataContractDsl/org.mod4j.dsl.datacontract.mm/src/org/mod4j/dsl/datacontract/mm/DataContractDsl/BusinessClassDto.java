@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getBase <em>Base</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getPropertyReferences <em>Property References</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,5 +70,23 @@ public interface BusinessClassDto extends Dto {
      * @generated
      */
     void setBase(BusinessClassReference value);
+
+    /**
+     * Returns the value of the '<em><b>Property References</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference#getDto <em>Dto</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Property References</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Property References</em>' containment reference list.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getBusinessClassDto_PropertyReferences()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference#getDto
+     * @model opposite="dto" containment="true"
+     * @generated
+     */
+    EList<BusinessClassPropertyReference> getPropertyReferences();
 
 } // BusinessClassDto
