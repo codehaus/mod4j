@@ -104,7 +104,7 @@ public class ProjectProperties {
     
     public static final String DTO_PACKAGE = "dto";
     
-    public static final String MAPPER_PACKAGE = "mapper";
+    public static final String TRANSLATORS_PACKAGE = "translators";
 
     private static String workDir = "/";
 
@@ -196,8 +196,8 @@ public class ProjectProperties {
         return getServiceRootPackage() + "." + DTO_PACKAGE;
     }
 
-    public static String getMapperPackage() {
-        return getDtoPackage() + "." + MAPPER_PACKAGE;
+    public static String getTranslatorsPackage() {
+        return getDtoPackage() + "." + TRANSLATORS_PACKAGE;
     }
     
     public static String getSrcModelPath() {

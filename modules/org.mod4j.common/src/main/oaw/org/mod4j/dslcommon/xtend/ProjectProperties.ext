@@ -53,8 +53,8 @@ String getDaoPackage() :
 String getDtoPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDtoPackage();
  
-String getMapperPackage() : 
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getMapperPackage();
+String getTranslatorsPackage() : 
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getTranslatorsPackage();
 
 String getDomainRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackageAsPath();
