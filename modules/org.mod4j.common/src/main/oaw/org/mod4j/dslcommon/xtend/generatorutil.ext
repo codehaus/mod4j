@@ -15,6 +15,10 @@ String javaPathFileName(String package, String classname) :
 
 String javaPathFileName(String fullclassname) :
   fullclassname.replaceAll("\\.", "/") + ".java" ;
+  
+String print(String message) : JAVA
+ org.mod4j.dslcommon.generator.helpers.ModelHelpers.print(java.lang.String);
+   
 
 
  

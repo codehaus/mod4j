@@ -79,4 +79,8 @@ public class ModelHelpers {
     public static String javaClassName(String cls) {
         return StringHelpers.firstCharToUpper(cls);
     }
+    
+    public static void print(String m){
+        System.err.println(m);
+    }
 }
