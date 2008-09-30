@@ -7,20 +7,24 @@ import crossx;
 import DataContractDsl;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dslcommon::xtend::generatorutil;
 
 completeModel(DataContractModel dtcModel) :
-    let crud = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|dto.properties.isEmpty) :
-    let subs = dtcModel.dtos.typeSelect(BusinessClassDto).reject(dto|dto.properties.isEmpty) :
-	crud.addProperties()
+    let emptyCrud  = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|dto.propertyReferences.isEmpty) :
+    let filledCrud = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|!dto.propertyReferences.isEmpty) :
+	emptyCrud.addProperties() ->
+	filledCrud.completeProperties()
     ;
     
 addProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
-    dto.properties.addAll( props.toDtoProperty() )  
+    print("DTO addProperties: "+ dto.name)->
+    dto.properties.addAll( props.toDtoProperty() ) 
     ;
 
 DataContractDsl::DtoProperty toDtoProperty(Symbol symbol ) :
+    print("     DTO addProperty: "+ symbol.name)->
     switch (symbol.getPropertyValue("DataType")) {
         case 'boolean' : newBooleanProperty(symbol)
         case 'string' : newStringProperty(symbol)
@@ -31,22 +35,64 @@ DataContractDsl::DtoProperty toDtoProperty(Symbol symbol ) :
     }
     ;
     
-create DataContractDsl::DtoBooleanProperty newBooleanProperty(Symbol symbol) :
-    this.setName(symbol.name)->
-    this.setDataType("boolean");
-create DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
-    this.setName(symbol.name)->
-    this.setDataType("string");
-create DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
-    this.setName(symbol.name)->
-    this.setDataType("integer");
-create DataContractDsl::DtoDecimalProperty newDecimalProperty(Symbol symbol) :
-    this.setName(symbol.name)->
-    this.setDataType("decimal");
-create DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
-    this.setName(symbol.name)->
-    this.setDataType("datetime");
-create DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol) :
-    this.setName(symbol.name);
+completeProperties(BusinessClassDto dto) :
+    let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
+    let propertySymbols = symbol.subSymbols.select(s|s.type == "Property") :
+    print("DTO completeProperties: "+ dto.name)->
+    dto.properties.addAll( dto.propertyReferences.toDtoProperty(propertySymbols) )  
+    ;
+    
+DataContractDsl::DtoProperty toDtoProperty(BusinessClassPropertyReference ref, List[Symbol] symbols ) :
+    let symbol = symbols.select(s| s.name == ref.name).first() :
+    if symbol != null then {
+	    switch (symbol.getPropertyValue("DataType")) {
+	        case 'boolean' : newBooleanProperty(symbol)
+	        case 'string' : newStringProperty(symbol)
+	        case 'integer' : newIntegerProperty(symbol)
+	        case 'decimal' : newDecimalProperty(symbol)
+	        case 'datetime' : newDateTimeProperty(symbol)
+	        default : newEnumProperty(symbol)
+	    }
+    }
+    else {
+        print("DTO null for ref " + ref.name )
+    }
+    
+    ;
+    
+DataContractDsl::DtoBooleanProperty newBooleanProperty(Symbol symbol) :
+    let result = new DtoBooleanProperty :
+    result.setName(symbol.name)->
+    result.setDataType("boolean")->
+    result;
+    
+DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
+    let result = new DtoStringProperty:
+    result.setName(symbol.name)->
+    result.setDataType("string")->
+    result;
+    
+DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
+    let result = new DtoStringProperty:
+    result.setName(symbol.name)->
+    result.setDataType("integer")->
+    result;
+    
+DataContractDsl::DtoDecimalProperty newDecimalProperty(Symbol symbol) :
+    let result = new DtoDecimalProperty :
+    result.setName(symbol.name)->
+    result.setDataType("decimal")->
+    result;
+    
+DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
+    let result = new DtoDateTimeProperty:
+    result.setName(symbol.name)->
+    result.setDataType("datetime")->
+    result;
+    
+DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol) :
+    let result = new DtoEnumerationProperty:
+    result.setName(symbol.name)->
+    result;
     
     
