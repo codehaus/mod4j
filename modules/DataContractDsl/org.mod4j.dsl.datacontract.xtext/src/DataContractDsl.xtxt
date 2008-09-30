@@ -19,8 +19,12 @@ BusinessClassReference:
     
 BusinessClassDto :
     "BusinessClassDto" name=ID "base" base=[BusinessClassReference]
-    ( "[" (properties += DtoProperty)*  "]")?
+    ( "[" (propertyReferences += BusinessClassPropertyReference)+  "]")?
     ;    
+    
+BusinessClassPropertyReference :
+    name=ID ";"
+    ;
     
 ListDto :
     "ListDto" name=ID "base" baseDto=[Dto] 

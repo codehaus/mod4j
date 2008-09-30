@@ -9,7 +9,7 @@
  *     Ordina - initial implementation
  *******************************************************************************/
 import DataContractDsl;
-import crossx;
+import crossx; 
 
 // extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
@@ -27,3 +27,8 @@ context DtoProperty ERROR "Property " + this.name + " must have type [" + "]" :
     else  true;
       */    
 
+context BusinessClassPropertyReference ERROR "Property " + this.name + " must be defined in the corresponding business class" :
+    let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
+    let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
+    let sym = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass", "Property", this.name) :
+    sym != null;

@@ -1,5 +1,7 @@
 import datacontractdsl;
 import codeassist;
+import emf;
+import crossx;
 
 extension org::mod4j::dsl::datacontract::xtext::Extensions;
 extension org::mod4j::dsl::datacontract::xtext::GenContentAssist reexport;
@@ -26,4 +28,29 @@ List[Proposal] completeBusinessClassReference_name(emf::EObject ctx, String pref
 /* proposals for Feature EnumerationProperty::name */
 List[Proposal] completeBusinessClassReference_modelname(emf::EObject ctx, String prefix) :
 	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
+
+/* proposals for Feature BusinessClassDto::properties */
+List[Proposal] completeBusinessClassDto_propertyReferences(emf::EObject ctx, String prefix) :
+    getProposal(ctx).collect(p |  newProposal( p) )
+	;
+	
+List[String] getProposal(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.datacontract.xtext.Proposals.getProposal(org.eclipse.emf.ecore.EObject);
+    
+/* proposals for Feature DtoBooleanProperty::name */
+List[Proposal] completeDtoBooleanProperty_dataType(emf::EObject ctx, String prefix) :
+	{newProposal("boolean-1")};
+/* proposals for Feature DtoBooleanProperty::name */
+List[Proposal] completeDtoStringProperty_dataType(emf::EObject ctx, String prefix) :
+	{newProposal("string")};
+/* proposals for Feature DtoBooleanProperty::name */
+List[Proposal] completeDtoIntegerProperty_dataType(emf::EObject ctx, String prefix) :
+	{newProposal("integer")};
+/* proposals for Feature DtoBooleanProperty::name */
+List[Proposal] completeDtoDecimalProperty_dataType(emf::EObject ctx, String prefix) :
+	{newProposal("decimal")};
+/* proposals for Feature DtoBooleanProperty::name */
+List[Proposal] completeDtoDateTimeProperty_dataType(emf::EObject ctx, String prefix) :
+	{newProposal("datetime-1")};
+
 	
