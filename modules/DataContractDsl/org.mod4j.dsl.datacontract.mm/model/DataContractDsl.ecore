@@ -19,6 +19,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//DtoProperty" containment="true" eOpposite="#//DtoProperty/businessClassDto"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//BusinessClassReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyReferences" upperBound="-1"
+        eType="#//BusinessClassPropertyReference" containment="true" eOpposite="#//BusinessClassPropertyReference/dto"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
@@ -63,4 +65,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Enumeration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoDateTimeProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessClassPropertyReference" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//BusinessClassDto"
+        eOpposite="#//BusinessClassDto/propertyReferences"/>
+  </eClassifiers>
 </ecore:EPackage>
