@@ -142,7 +142,7 @@ public class CrossxEnvironment {
         for(CrossxLocation location: environment.values()){
             for(ModelInfo info: location.getAll()){
                 print("FindAll Models model [" + info.getModelname() + "]");
-                test(info);
+//                test(info);
                 result.add( info.getModelname());
             }
         }
@@ -155,7 +155,7 @@ public class CrossxEnvironment {
             if( location.getName().equals(project)){
                 for(ModelInfo info: location.getAll()){
                     print("FindAll Models model [" + info.getModelname() + "]");
-                    test(info);
+//                    test(info);
                     result.add( info.getModelname());
                 }
             }

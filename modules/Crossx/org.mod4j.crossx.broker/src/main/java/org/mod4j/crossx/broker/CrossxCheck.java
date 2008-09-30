@@ -30,7 +30,7 @@ public class CrossxCheck {
      * @return Returns the Symbol with the name path exists in any model in the workspace
      */
     public static Symbol lookupSymbol(String model, String symbolname, String type) {
-        System.err.println("Lookup model [" + model + "] symbol [" + symbolname + "]");
+//        System.err.println("Lookup model [" + model + "] symbol [" + symbolname + "]");
         return CrossxEnvironment.lookupSymbol(model, symbolname, type);
     }
 
@@ -89,14 +89,24 @@ public class CrossxCheck {
     }
 
     /**
-     * @param classname
-     * @return Returns true of a BusinessClass with the name path exists in any model in the workspace
-     */
+      */
     public static Symbol lookupSymbolWithProperty(String model, String symbolname, String type, String propertyName,
             String propertyValue) {
         Symbol symbol = CrossxEnvironment.lookupSymbol(model, symbolname, type);
         if (hasProperty(symbol, propertyName, propertyValue)) {
             return symbol;
+        }
+        return null;
+    }
+    
+    public static Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symboltype, 
+            String subsymbolType,
+            String subsymbolName) {
+        Symbol symbol = CrossxEnvironment.lookupSymbol(model, symbolname, symboltype);
+        for( Symbol  subsym : symbol.getSubSymbols() ){
+            if( subsym.getType().equals(subsymbolType) && subsym.getName().equals(subsymbolName)  ) {
+                return symbol;
+            }
         }
         return null;
     }
@@ -126,6 +136,19 @@ public class CrossxCheck {
         }
         return null;
     }
+
+    static public List<Symbol> findAllSubSymbols(Symbol symbol, String symbolType) {
+        System.err.println("findSubSymbols[" + symbol.getName()+ "] type [" + symbolType + "]");
+        List<Symbol> result = new ArrayList<Symbol>();
+        for (Symbol sub : symbol.getSubSymbols() ) {
+            System.err.println("     sub [" + sub.getName()+ "] type [" + sub.getType() + "]" );
+            if( sub.getType().equals(symbolType)) {
+                result.add(sub);
+            }
+        }
+        return result;
+    }
+
     /**
      * Find all symbols of type 'symboltype' in project 'project'
      * 

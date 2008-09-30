@@ -29,3 +29,16 @@ String getPropertyValue(Symbol symbol, String propertyName) :
 List[String] findAllModelsInProject(String project) :
   JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModelsInProject(java.lang.String) ;
  
+List[Symbol] findAllSubSymbols(Symbol symbol, String symbolType) :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllSubSymbols(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+
+Symbol lookupSymbolWithProperty(String model, String symbolname, String type, String propertyName, String propertyValue) :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.lookupSymbolWithProperty(java.lang.String , java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
+
+Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symboltype, 
+            String subsymbolType,
+            String subsymbolName) :
+  JAVA org.mod4j.crossx.broker.CrossxCheck.lookupSymbolWithSubsymbol(java.lang.String , 
+                                            java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
+
+ 
