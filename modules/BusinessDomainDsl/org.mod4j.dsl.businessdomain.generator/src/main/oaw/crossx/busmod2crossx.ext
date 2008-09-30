@@ -18,8 +18,42 @@ Symbol toElement(BusinessClass cls) :
     result.setType("BusinessClass")->
     result.subSymbols.addAll(cls.properties.toElement() )->
     (cls.superclass != null ? result.subSymbols.addAll( cls.superclass.properties.toElement()): null)->
+    result.subSymbols.addAll( cls.associationsTo.toSymbol() )->
+    result.subSymbols.addAll( cls.associationsFrom.select(e|e.bidirectional).fromSymbol() )->
     result
     ;
+
+crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
+    let result = new Symbol :
+    result.setName(ass.targetRoleName )->
+    result.setType("Association")->
+    result.properties.add( multiplicityProperty(ass.targetMultiplicity) )->
+    result.properties.add( newProperty("BusinessClass", ass.target.name))->
+    result;
+
+crossx::Symbol fromSymbol(BusinessDomainDsl::Association ass) :
+    let result = new Symbol :
+    result.setName(ass.sourceRoleName )->
+    result.setType("Association")->
+    result.properties.add( multiplicityProperty(ass.sourceMultiplicity) )->
+    result.properties.add( newProperty("BusinessClass", ass.source.name))->
+    result;
+
+LiteralSymbolProperty multiplicityProperty(BusinessDomainDsl::Multiplicity mult) :
+    let result = new LiteralSymbolProperty :
+	result.setName("Multiplicity")->
+	result.setValue(mult.asString())->
+    result
+    ;
+    
+String asString(BusinessDomainDsl::Multiplicity mult) :
+    switch( mult ) {
+        case Multiplicity::One      : "1"
+        case Multiplicity::ZeroOne  : "0..1"
+        case Multiplicity::ZeroMany : "0..*"
+        case Multiplicity::OneMany  : "1..*"
+        default : "UNKNOWN"
+    };
 
 crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     let result = new Symbol :
@@ -29,13 +63,6 @@ crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     result
     ;
     
-crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::Property prop) :
-    let result = new LiteralSymbolProperty :
-	result.setName("DataType")->
-	result.setValue(prop.dataType)->
-    result
-    ;
-
 crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     let result = new Symbol :
     result.setName(prop.name) ->
@@ -44,12 +71,19 @@ crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     result
     ;
 
+crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::Property prop) :
+	newProperty("DataType", prop.dataType);
+
 crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::EnumerationProperty prop) :
+    newProperty("DataType", prop.type.name)  ;
+    
+crossx::LiteralSymbolProperty newProperty(String name, String value) :
     let result = new LiteralSymbolProperty :
-    result.setName("DataType")->
-    result.setValue(prop.type.name)->
+    result.setName(name)->
+    result.setValue(value)->
     result
     ;
+
 
     
     
