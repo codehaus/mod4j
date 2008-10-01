@@ -73,7 +73,7 @@ DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
     result;
     
 DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
-    let result = new DtoStringProperty:
+    let result = new DtoIntegerProperty:
     result.setName(symbol.name)->
     result.setDataType("integer")->
     result;
