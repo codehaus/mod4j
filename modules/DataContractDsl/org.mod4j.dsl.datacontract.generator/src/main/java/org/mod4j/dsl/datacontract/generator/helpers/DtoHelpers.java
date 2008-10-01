@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty;
