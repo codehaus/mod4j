@@ -65,9 +65,9 @@ String javaDomainServiceClass(String model) : JAVA
 String javaDomainServiceClassPath(String model) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainServiceClassPath(java.lang.String);
 
-String javaMapperClass(String model) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaMapperClass(java.lang.String);
+String javaTranslatorClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaTranslatorClass(java.lang.String);
 
-String javaMapperClassPath(String model) : JAVA
-  org.mod4j.dslcommon.generator.helpers.NameMapper.javaMapperClassPath(java.lang.String);
+String javaTranslatorClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaTranslatorClassPath(java.lang.String);
 

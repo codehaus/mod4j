@@ -24,7 +24,7 @@
 	«ENDFOREACH»
 
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	import «javaMapperClassPath(dto.businessClass())»;
+	import «javaTranslatorClassPath(dto.businessClass())»;
 	import «javaDomainClassPath(dto.businessClass())»;
 	«ENDFOREACH»
 	
@@ -36,7 +36,7 @@
     private «javaDomainServiceInterface(name)» the«javaDomainServiceInterface(name)»;
     
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	private «javaMapperClass(dto.businessClass())» the«javaMapperClass(dto.businessClass())»;
+	private «javaTranslatorClass(dto.businessClass())» the«javaTranslatorClass(dto.businessClass())»;
 	«ENDFOREACH»
 
 
@@ -70,8 +70,8 @@
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
         «javaDomainClass(dto.businessClass())» result =
               the«javaDomainServiceInterface(model.name)».create«businessClass(this.dto)»( 
-                                       the«javaMapperClass(dto.businessClass())».fromDto(object));
-        return the«javaMapperClass(dto.businessClass())».toDto(result);
+                                       the«javaTranslatorClass(dto.businessClass())».fromDto(object));
+        return the«javaTranslatorClass(dto.businessClass())».toDto(result);
     }
 «ENDDEFINE»
 
@@ -86,7 +86,7 @@
     public «JavaType(this.dto)» «this.name»(Long id) {
         «javaDomainClass(dto.businessClass())» result =
               the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(id);
-        return (result == null) ? null : the«javaMapperClass(dto.businessClass())».toDto(result);
+        return (result == null) ? null : the«javaTranslatorClass(dto.businessClass())».toDto(result);
     }
 «ENDDEFINE»
 
@@ -99,9 +99,9 @@
      * @return the «this.dto.name» updated, possibly modified during update.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {
-        «javaDomainClass(dto.businessClass())» tmp = the«javaMapperClass(dto.businessClass())».fromDto(object);
+        «javaDomainClass(dto.businessClass())» tmp = the«javaTranslatorClass(dto.businessClass())».fromDto(object);
         «javaDomainClass(dto.businessClass())» result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(tmp);
-        return the«javaMapperClass(dto.businessClass())».toDto(result);
+        return the«javaTranslatorClass(dto.businessClass())».toDto(result);
     }
 «ENDDEFINE»
 

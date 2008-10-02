@@ -25,7 +25,7 @@
 	«ENDFOREACH»
 
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	import «javaMapperClassPath(dto.businessClass())»;
+	import «javaTranslatorClassPath(dto.businessClass())»;
 	import «javaDomainClassPath(dto.businessClass())»;
 	«ENDFOREACH»
 	

@@ -25,9 +25,9 @@
         <module>«getDslModelsModuleName()»</module>
         <module>«getDomainModuleName()»</module>
         <module>«getDataModuleName()»</module>
+        <module>«getBusinessModuleName()»</module>
+        <module>«getServiceModuleName()»</module>
         <!-- TODO
-            <module>«getBusinessModuleName()»</module>
-            <module>«getServiceModuleName()»</module>
             <module>«getApplicationName()»-presentation</module>
         -->
     </modules>

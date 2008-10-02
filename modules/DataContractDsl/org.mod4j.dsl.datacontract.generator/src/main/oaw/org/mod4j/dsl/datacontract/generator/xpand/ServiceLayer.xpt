@@ -1,7 +1,6 @@
 «IMPORT DataContractDsl»
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::java»
-
-«EXTENSION generatorutil»
+«IMPORT org::mod4j::dsl::datacontract::generator::xpand::maven»
 
 «DEFINE Generate FOR DataContractModel»
   	«EXPAND dtoBean::createDto FOREACH dtos»
@@ -11,6 +10,6 @@
 «REM»
 	Generation of Maven configuration files. 
 «ENDREM»
-«DEFINE CreateMavenConfiguration FOR DataContractModel»
-  TODO implement this template
+«DEFINE generateMavenConfiguration FOR DataContractModel»
+  	«EXPAND ServiceModulePom::createServiceModulePom»
 «ENDDEFINE»

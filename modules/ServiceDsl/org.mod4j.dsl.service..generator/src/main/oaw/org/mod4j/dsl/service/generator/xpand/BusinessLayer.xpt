@@ -1,29 +1,18 @@
 «IMPORT ServiceDsl»
 «IMPORT org::mod4j::dsl::service::generator::xpand::java»
+«IMPORT org::mod4j::dsl::service::generator::xpand::maven»
 
 «EXTENSION org::mod4j::dsl::service::generator::xpand::BusinessService»
 «EXTENSION org::mod4j::dsl::service::generator::xpand::BusinessServiceImpl»
 
 «DEFINE Generate FOR ServiceModel»
-  TODO implemnt this template
-  - generate sources and resources
-  - genrate Extension Points 
-  - generate Maven config
   	«EXPAND BusinessService::BusinessService FOR this»
   	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
 «ENDDEFINE»
 
 «REM»
-	Generation of Extention Points of the implementation base classes.
-	If they don't exist already these classes typically are generated to the srcMan folder. 
-«ENDREM»
-«DEFINE ExtensionPointGeneration FOR ServiceModel»
-  TODO implement this template
-«ENDDEFINE»
-
-«REM»
 	Generation of Maven configuration files. 
 «ENDREM»
-«DEFINE CreateMavenConfiguration FOR ServiceModel»
-  TODO implement this template
+«DEFINE generateMavenConfiguration FOR ServiceModel»
+  	«EXPAND BusinessModulePom::createBusinessModulePom»
 «ENDDEFINE»

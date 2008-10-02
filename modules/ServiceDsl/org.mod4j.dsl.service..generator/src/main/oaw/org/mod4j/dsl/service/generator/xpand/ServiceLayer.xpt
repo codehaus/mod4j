@@ -4,15 +4,9 @@
 «EXTENSION org::mod4j::dsl::service::generator::xpand::LocalServiceImpl»
 
 «DEFINE Generate FOR ServiceModel»
-  TODO implement this template 
   «EXPAND  LocalService::LocalService FOR this» 
   «EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
   «EXPAND  LocalServiceImplBase::LocalServiceImplBase FOR this» 
-«ENDDEFINE»
-
-
-«DEFINE LocalServiceImplGeneration FOR ServiceModel»
-  TODO implement this template
 «ENDDEFINE»
 
 «REM»
@@ -20,12 +14,5 @@
 	If they don't exist already these classes typically are generated to the srcMan folder. 
 «ENDREM»
 «DEFINE ExtensionPointGeneration FOR ServiceModel»
-  TODO implement this template
-«ENDDEFINE»
-
-«REM»
-	Generation of Maven configuration files. 
-«ENDREM»
-«DEFINE CreateMavenConfiguration FOR ServiceModel»
   TODO implement this template
 «ENDDEFINE»

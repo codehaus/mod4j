@@ -8,13 +8,15 @@ public class NameMapper {
     private static final String DAO_CLASS_POSTFIX = "DaoImpl";
     private static final String DAO_BASE_INTERFACE_POSTFIX = "DaoBase";
     private static final String DAO_BASE_CLASS_POSTFIX = "DaoImplBase";
-
+    
     private static final String LOCAL_SERVICE_INTERFACE_POSTFIX = "LocalService";
     private static final String LOCAL_SERVICE_CLASS_POSTFIX = "LocalServiceImpl";
     private static final String LOCAL_SERVICE_BASE_CLASS_POSTFIX = "LocalServiceImplBase";
 
     private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "BusinessService";
     private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "BusinessServiceImpl";
+
+    private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
     
     /**
      * @param cls
@@ -138,13 +140,13 @@ public class NameMapper {
         return packageName + "." + javaDomainServiceClass(model);
     }
 
-    public static String javaMapperClass(String classname) {
-        return StringHelpers.firstCharToUpper(classname) + "Translator";
+    public static String javaTranslatorClass(String classname) {
+        return StringHelpers.firstCharToUpper(classname) + TRANSLATOR_CLASS_POSTFIX;
     }
 
-    public static String javaMapperClassPath(String classname) {
+    public static String javaTranslatorClassPath(String classname) {
         String packageName = ProjectProperties.getDtoPackage() + ".translators";
-        return packageName + "." + javaMapperClass(classname);
+        return packageName + "." + javaTranslatorClass(classname);
     }
 
 

@@ -77,5 +77,16 @@
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
- 
-</workflow>
+    
+    <!-- 
+        Generation of Maven configuration files.
+    -->  
+    <component id="ServiceDslWorkflow-MavenConfigGenerator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="sm" />
+        <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::generateMavenConfiguration FOR serviceModel"/>
+        <outlet path="${applicationPath}">
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+    
+ </workflow>
