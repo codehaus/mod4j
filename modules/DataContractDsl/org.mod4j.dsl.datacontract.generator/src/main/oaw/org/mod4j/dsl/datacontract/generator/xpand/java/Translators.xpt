@@ -31,6 +31,7 @@
              * @param target The {@link «javaClassName(base.name)»} object translated from source.
              */
              public void fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target){
+                 
                  «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                      target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                  «ENDFOREACH»
