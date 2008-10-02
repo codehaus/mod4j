@@ -30,5 +30,8 @@ context DtoProperty ERROR "Property " + this.name + " must have type [" + "]" :
 context BusinessClassPropertyReference ERROR "Property " + this.name + " must be defined in the corresponding business class" :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
-    let sym = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass", "Property", this.name) :
-    sym != null;
+    let sym1 = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
+                                         "Property", this.name) :
+    let sym2 = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
+                                         "Association", this.name) :
+    (sym1 != null) || (sym2 != null);
