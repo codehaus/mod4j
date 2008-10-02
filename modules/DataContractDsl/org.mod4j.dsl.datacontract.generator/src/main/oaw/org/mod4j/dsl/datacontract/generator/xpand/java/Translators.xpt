@@ -32,7 +32,7 @@
              */
              public void fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target){
                  «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-                     target.set«javaClassName(dataProperty.name)»(source.get«javaClassName(dataProperty.name)»());
+                     target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                  «ENDFOREACH»
              }
              
@@ -46,7 +46,7 @@
                  
                  result.setId(source.getId());
                  «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-                     result.set«javaClassName(dataProperty.name)»(source.get«javaClassName(dataProperty.name)»());
+                     result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                  «ENDFOREACH»
                  return result;
              }

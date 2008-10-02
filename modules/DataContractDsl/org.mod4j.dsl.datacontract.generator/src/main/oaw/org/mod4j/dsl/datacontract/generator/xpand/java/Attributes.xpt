@@ -17,6 +17,16 @@
 	}
 «ENDDEFINE»
 
+«DEFINE addGetter FOR DtoBooleanProperty»
+	/**
+	*
+	* @return «name» («javaType(this)») «description»
+	*/
+	public «javaType(this)» is«name.toFirstUpper()» () {
+   		return this.«name»;
+	}
+«ENDDEFINE»
+
 «DEFINE addSetter FOR DtoProperty»
    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
     public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
