@@ -139,11 +139,11 @@ public class NameMapper {
     }
 
     public static String javaMapperClass(String classname) {
-        return StringHelpers.firstCharToUpper(classname) + "Mapper";
+        return StringHelpers.firstCharToUpper(classname) + "Translator";
     }
 
     public static String javaMapperClassPath(String classname) {
-        String packageName = ProjectProperties.getDtoPackage() + ".mapper";
+        String packageName = ProjectProperties.getDtoPackage() + ".translators";
         return packageName + "." + javaMapperClass(classname);
     }
 
