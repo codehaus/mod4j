@@ -4,7 +4,7 @@ DataContract RecordShopDataContract
 from RecordShopDomainModel import Customer
 from RecordShopDomainModel import Artist
 from RecordShopDomainModel import Order
-from RecordShopDomainModel import Record
+from RecordShopDomainModel import Record    
 
     /*
      * BusinessClass transfer objects
@@ -18,6 +18,9 @@ from RecordShopDomainModel import Record
 	     //firstName;
 	     emailAddress;
 	     blackListed;
+	     references [
+	         OrderNumberAndDateList orders ;
+	     ]
 	]
 	
 	"Simple Order transfer object."
