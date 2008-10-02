@@ -12,8 +12,10 @@ extension org::mod4j::dslcommon::xtend::generatorutil;
 completeModel(DataContractModel dtcModel) :
     let emptyCrud  = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|dto.propertyReferences.isEmpty) :
     let filledCrud = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|!dto.propertyReferences.isEmpty) :
+    let associationRoles = dtcModel.dtos.typeSelect(BusinessClassDto).associationReferences :
 	emptyCrud.addProperties() ->
-	filledCrud.completeProperties()
+	filledCrud.completeProperties()->
+	associationRoles.addDtoAssociationRoles()
     ;
     
 addProperties(BusinessClassDto dto) :
@@ -41,6 +43,18 @@ completeProperties(BusinessClassDto dto) :
     print("DTO completeProperties: "+ dto.name)->
     dto.properties.addAll( dto.propertyReferences.toDtoProperty(propertySymbols) )  
     ;
+    
+addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
+    let symbol = lookupSymbol(assRef.dto.base.modelname, assRef.dto.base.name, "BusinessClass") :
+    let prop = symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == assRef.name)).first() :
+    let result = new DtoAssociationRoleProperty :
+    print("DTO ASSOCIATION : "+ assRef.name + " for dto [" + assRef.dto.name + "]")->
+    result.setName(prop.name)->
+    result.setDataType(assRef.dtoType.name)->
+    result.setDtoType(assRef.dtoType)->
+    assRef.dto.properties.add(result)
+   ;
+
     
 DataContractDsl::DtoProperty toDtoProperty(BusinessClassPropertyReference ref, List[Symbol] symbols ) :
     let symbol = symbols.select(s| s.name == ref.name).first() :
