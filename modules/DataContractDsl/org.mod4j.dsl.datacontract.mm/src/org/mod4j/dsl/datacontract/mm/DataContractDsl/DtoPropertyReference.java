@@ -24,7 +24,6 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  * @generated
  */
 public interface DtoPropertyReference extends DtoProperty {
-
     /**
      * Returns the value of the '<em><b>Referred Property</b></em>' reference.
      * <!-- begin-user-doc -->
@@ -50,4 +49,5 @@ public interface DtoPropertyReference extends DtoProperty {
      * @generated
      */
     void setReferredProperty(DtoProperty value);
+
 } // DtoPropertyReference

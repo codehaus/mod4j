@@ -235,6 +235,22 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE: {
+                BusinessClassAssociationRoleReference businessClassAssociationRoleReference = (BusinessClassAssociationRoleReference)theEObject;
+                T result = caseBusinessClassAssociationRoleReference(businessClassAssociationRoleReference);
+                if (result == null) result = caseModelElement(businessClassAssociationRoleReference);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY: {
+                DtoAssociationRoleProperty dtoAssociationRoleProperty = (DtoAssociationRoleProperty)theEObject;
+                T result = caseDtoAssociationRoleProperty(dtoAssociationRoleProperty);
+                if (result == null) result = caseDtoDataProperty(dtoAssociationRoleProperty);
+                if (result == null) result = caseDtoProperty(dtoAssociationRoleProperty);
+                if (result == null) result = caseModelElement(dtoAssociationRoleProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
     }
@@ -521,6 +537,36 @@ public class DataContractDslSwitch<T> {
      * @generated
      */
     public T caseBusinessClassPropertyReference(BusinessClassPropertyReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Business Class Association Role Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Business Class Association Role Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBusinessClassAssociationRoleReference(BusinessClassAssociationRoleReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Dto Association Role Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Dto Association Role Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDtoAssociationRoleProperty(DtoAssociationRoleProperty object) {
         return null;
     }
 

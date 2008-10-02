@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getBase <em>Base</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getPropertyReferences <em>Property References</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getAssociationReferences <em>Association References</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,5 +89,23 @@ public interface BusinessClassDto extends Dto {
      * @generated
      */
     EList<BusinessClassPropertyReference> getPropertyReferences();
+
+    /**
+     * Returns the value of the '<em><b>Association References</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference#getDto <em>Dto</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Association References</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Association References</em>' containment reference list.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getBusinessClassDto_AssociationReferences()
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference#getDto
+     * @model opposite="dto" containment="true"
+     * @generated
+     */
+    EList<BusinessClassAssociationRoleReference> getAssociationReferences();
 
 } // BusinessClassDto

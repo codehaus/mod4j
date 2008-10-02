@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
@@ -38,6 +38,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getBase <em>Base</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getPropertyReferences <em>Property References</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getAssociationReferences <em>Association References</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +74,16 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * @ordered
      */
     protected EList<BusinessClassPropertyReference> propertyReferences;
+
+    /**
+     * The cached value of the '{@link #getAssociationReferences() <em>Association References</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAssociationReferences()
+     * @generated
+     * @ordered
+     */
+    protected EList<BusinessClassAssociationRoleReference> associationReferences;
 
     /**
      * <!-- begin-user-doc -->
@@ -160,6 +171,18 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<BusinessClassAssociationRoleReference> getAssociationReferences() {
+        if (associationReferences == null) {
+            associationReferences = new EObjectContainmentWithInverseEList<BusinessClassAssociationRoleReference>(BusinessClassAssociationRoleReference.class, this, DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES, DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO);
+        }
+        return associationReferences;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -168,6 +191,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getPropertyReferences()).basicAdd(otherEnd, msgs);
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssociationReferences()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -184,6 +209,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 return ((InternalEList<?>)getPropertyReferences()).basicRemove(otherEnd, msgs);
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
+                return ((InternalEList<?>)getAssociationReferences()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -203,6 +230,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return basicGetBase();
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 return getPropertyReferences();
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
+                return getAssociationReferences();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -227,6 +256,10 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 getPropertyReferences().clear();
                 getPropertyReferences().addAll((Collection<? extends BusinessClassPropertyReference>)newValue);
                 return;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
+                getAssociationReferences().clear();
+                getAssociationReferences().addAll((Collection<? extends BusinessClassAssociationRoleReference>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -248,6 +281,9 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 getPropertyReferences().clear();
                 return;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
+                getAssociationReferences().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -266,6 +302,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return base != null;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 return propertyReferences != null && !propertyReferences.isEmpty();
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
+                return associationReferences != null && !associationReferences.isEmpty();
         }
         return super.eIsSet(featureID);
     }

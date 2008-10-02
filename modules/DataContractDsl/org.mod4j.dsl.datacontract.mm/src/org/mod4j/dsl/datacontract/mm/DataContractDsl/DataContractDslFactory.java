@@ -197,6 +197,24 @@ public interface DataContractDslFactory extends EFactory {
     BusinessClassPropertyReference createBusinessClassPropertyReference();
 
     /**
+     * Returns a new object of class '<em>Business Class Association Role Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Business Class Association Role Reference</em>'.
+     * @generated
+     */
+    BusinessClassAssociationRoleReference createBusinessClassAssociationRoleReference();
+
+    /**
+     * Returns a new object of class '<em>Dto Association Role Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dto Association Role Property</em>'.
+     * @generated
+     */
+    DtoAssociationRoleProperty createDtoAssociationRoleProperty();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

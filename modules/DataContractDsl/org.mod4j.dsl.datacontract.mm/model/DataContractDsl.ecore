@@ -21,6 +21,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//BusinessClassReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyReferences" upperBound="-1"
         eType="#//BusinessClassPropertyReference" containment="true" eOpposite="#//BusinessClassPropertyReference/dto"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associationReferences"
+        upperBound="-1" eType="#//BusinessClassAssociationRoleReference" containment="true"
+        eOpposite="#//BusinessClassAssociationRoleReference/dto"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListDto" eSuperTypes="#//Dto">
     <eStructuralFeatures xsi:type="ecore:EReference" name="baseDto" eType="#//Dto"/>
@@ -68,5 +71,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassPropertyReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//BusinessClassDto"
         eOpposite="#//BusinessClassDto/propertyReferences"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessClassAssociationRoleReference"
+      eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//BusinessClassDto"
+        eOpposite="#//BusinessClassDto/associationReferences"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoType" eType="#//Dto"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoAssociationRoleProperty" eSuperTypes="#//DtoDataProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoType" eType="#//Dto"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -19,6 +19,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/properties"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/base"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/propertyReferences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/associationReferences"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//ListDto">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//ListDto/baseDto"/>
@@ -58,6 +59,13 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoDateTimeProperty"/>
     <genClasses ecoreClass="DataContractDsl.ecore#//BusinessClassPropertyReference">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassPropertyReference/dto"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//BusinessClassAssociationRoleReference">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassAssociationRoleReference/dto"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassAssociationRoleReference/dtoType"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoAssociationRoleProperty">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoAssociationRoleProperty/dtoType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -271,13 +271,22 @@ public interface DataContractDslPackage extends EPackage {
     int BUSINESS_CLASS_DTO__PROPERTY_REFERENCES = DTO_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Association References</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES = DTO_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Business Class Dto</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUSINESS_CLASS_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 3;
+    int BUSINESS_CLASS_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl <em>List Dto</em>}' class.
@@ -1112,7 +1121,6 @@ public interface DataContractDslPackage extends EPackage {
      */
     int DTO_DATE_TIME_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
-
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl <em>Business Class Property Reference</em>}' class.
      * <!-- begin-user-doc -->
@@ -1158,6 +1166,134 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int BUSINESS_CLASS_PROPERTY_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassAssociationRoleReferenceImpl <em>Business Class Association Role Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassAssociationRoleReferenceImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassAssociationRoleReference()
+     * @generated
+     */
+    int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE = 19;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__NAME = MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Dto Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Business Class Association Role Reference</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl <em>Dto Association Role Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoAssociationRoleProperty()
+     * @generated
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY = 20;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+
+    /**
+     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
+
+    /**
+     * The feature id for the '<em><b>Dto Type</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Dto Association Role Property</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
 
     /**
@@ -1266,6 +1402,17 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      */
     EReference getBusinessClassDto_PropertyReferences();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getAssociationReferences <em>Association References</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Association References</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getAssociationReferences()
+     * @see #getBusinessClassDto()
+     * @generated
+     */
+    EReference getBusinessClassDto_AssociationReferences();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto <em>List Dto</em>}'.
@@ -1582,6 +1729,59 @@ public interface DataContractDslPackage extends EPackage {
     EReference getBusinessClassPropertyReference_Dto();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference <em>Business Class Association Role Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Business Class Association Role Reference</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference
+     * @generated
+     */
+    EClass getBusinessClassAssociationRoleReference();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference#getDto <em>Dto</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Dto</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference#getDto()
+     * @see #getBusinessClassAssociationRoleReference()
+     * @generated
+     */
+    EReference getBusinessClassAssociationRoleReference_Dto();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference#getDtoType <em>Dto Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Dto Type</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference#getDtoType()
+     * @see #getBusinessClassAssociationRoleReference()
+     * @generated
+     */
+    EReference getBusinessClassAssociationRoleReference_DtoType();
+
+    /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty <em>Dto Association Role Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Dto Association Role Property</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty
+     * @generated
+     */
+    EClass getDtoAssociationRoleProperty();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getDtoType <em>Dto Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Dto Type</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getDtoType()
+     * @see #getDtoAssociationRoleProperty()
+     * @generated
+     */
+    EReference getDtoAssociationRoleProperty_DtoType();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1688,6 +1888,14 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EReference BUSINESS_CLASS_DTO__PROPERTY_REFERENCES = eINSTANCE.getBusinessClassDto_PropertyReferences();
+
+        /**
+         * The meta object literal for the '<em><b>Association References</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES = eINSTANCE.getBusinessClassDto_AssociationReferences();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl <em>List Dto</em>}' class.
@@ -1960,6 +2168,50 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EReference BUSINESS_CLASS_PROPERTY_REFERENCE__DTO = eINSTANCE.getBusinessClassPropertyReference_Dto();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassAssociationRoleReferenceImpl <em>Business Class Association Role Reference</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassAssociationRoleReferenceImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassAssociationRoleReference()
+         * @generated
+         */
+        EClass BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE = eINSTANCE.getBusinessClassAssociationRoleReference();
+
+        /**
+         * The meta object literal for the '<em><b>Dto</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO = eINSTANCE.getBusinessClassAssociationRoleReference_Dto();
+
+        /**
+         * The meta object literal for the '<em><b>Dto Type</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO_TYPE = eINSTANCE.getBusinessClassAssociationRoleReference_DtoType();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl <em>Dto Association Role Property</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoAssociationRoleProperty()
+         * @generated
+         */
+        EClass DTO_ASSOCIATION_ROLE_PROPERTY = eINSTANCE.getDtoAssociationRoleProperty();
+
+        /**
+         * The meta object literal for the '<em><b>Dto Type</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE = eINSTANCE.getDtoAssociationRoleProperty_DtoType();
 
     }
 

@@ -79,6 +79,8 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY: return createDtoEnumerationProperty();
             case DataContractDslPackage.DTO_DATE_TIME_PROPERTY: return createDtoDateTimeProperty();
             case DataContractDslPackage.BUSINESS_CLASS_PROPERTY_REFERENCE: return createBusinessClassPropertyReference();
+            case DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE: return createBusinessClassAssociationRoleReference();
+            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY: return createDtoAssociationRoleProperty();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -272,6 +274,26 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     public BusinessClassPropertyReference createBusinessClassPropertyReference() {
         BusinessClassPropertyReferenceImpl businessClassPropertyReference = new BusinessClassPropertyReferenceImpl();
         return businessClassPropertyReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BusinessClassAssociationRoleReference createBusinessClassAssociationRoleReference() {
+        BusinessClassAssociationRoleReferenceImpl businessClassAssociationRoleReference = new BusinessClassAssociationRoleReferenceImpl();
+        return businessClassAssociationRoleReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DtoAssociationRoleProperty createDtoAssociationRoleProperty() {
+        DtoAssociationRolePropertyImpl dtoAssociationRoleProperty = new DtoAssociationRolePropertyImpl();
+        return dtoAssociationRoleProperty;
     }
 
     /**
