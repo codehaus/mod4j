@@ -11,7 +11,6 @@
 import DataContractDsl;
 import crossx; 
 
-// extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 
 context BusinessClassReference ERROR "BusinessClass [" + this.name + "] not defined in model [" + this.modelname + "]":
@@ -41,3 +40,16 @@ context BusinessClassAssociationRoleReference ERROR
     let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
     symbol.subSymbols.exists(s|s.type.matches("Association") && (s.name == this.name));
 
+
+context BusinessClassAssociationRoleReference ERROR 
+    "[" + this.name + "] incorrect type [" + this.dtoType.name + "] (must be BusinessClassDto or ListDto) " :
+    let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
+    let props = symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) :
+    let prop = props.first() :
+    let mult = getPropertyValue(prop, "Multiplicity") :
+    if (mult == "0..1") || (mult == "1") then 
+        this.dtoType.metaType == DataContractDsl::BusinessClassDto 
+     else (
+        this.dtoType.metaType == DataContractDsl::ListDto 
+    )
+    ;
