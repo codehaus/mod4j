@@ -27,29 +27,29 @@ context DtoProperty ERROR "Property " + this.name + " must have type [" + "]" :
       */    
 
 context BusinessClassPropertyReference ERROR "Property [" + this.name + "] must be defined in the corresponding business class" :
-    let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
-    let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
     let sym1 = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
                                          "Property", this.name) :
-    let sym2 = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
-                                         "Association", this.name) :
-    (sym1 != null) || (sym2 != null);
+    (sym1 != null) ;
     
 context BusinessClassAssociationRoleReference ERROR 
     "[" + this.name + "] must be a role name in an association for [" + this.dto.base.name  + "]":
-    let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
-    symbol.subSymbols.exists(s|s.type.matches("Association") && (s.name == this.name));
-
-
+    let symbol = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
+                                         "Association", this.name) :
+    symbol != null;
+    
 context BusinessClassAssociationRoleReference ERROR 
     "[" + this.name + "] incorrect type [" + this.dtoType.name + "] (must be BusinessClassDto or ListDto) " :
     let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
-    let props = symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) :
-    let prop = props.first() :
-    let mult = getPropertyValue(prop, "Multiplicity") :
-    if (mult == "0..1") || (mult == "1") then 
-        this.dtoType.metaType == DataContractDsl::BusinessClassDto 
-     else (
-        this.dtoType.metaType == DataContractDsl::ListDto 
-    )
+    let props = (symbol == null ? {} : symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) ):
+    let prop = (props == null ? null : props.first() ):
+    let mult = (prop == null ? null : getPropertyValue(prop, "Multiplicity") ):
+    if (mult == null) || (this.dtoType == null) then
+        true
+    else (
+	    if (mult == "0..1") || (mult == "1") then 
+	        this.dtoType.metaType == DataContractDsl::BusinessClassDto 
+	     else (
+	        this.dtoType.metaType == DataContractDsl::ListDto 
+	    )
+	)
     ;
