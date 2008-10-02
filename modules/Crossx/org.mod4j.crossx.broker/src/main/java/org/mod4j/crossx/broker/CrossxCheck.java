@@ -103,6 +103,7 @@ public class CrossxCheck {
             String subsymbolType,
             String subsymbolName) {
         Symbol symbol = CrossxEnvironment.lookupSymbol(model, symbolname, symboltype);
+        if( symbol == null ) {return null; }
         for( Symbol  subsym : symbol.getSubSymbols() ){
             if( subsym.getType().equals(subsymbolType) && subsym.getName().equals(subsymbolName)  ) {
                 return symbol;
