@@ -19,10 +19,21 @@ BusinessClassReference:
     
 BusinessClassDto :
     "BusinessClassDto" name=ID "base" base=[BusinessClassReference]
-    ( "[" (propertyReferences += BusinessClassPropertyReference)+  "]")?
+    ( "[" (propertyReferences += BusinessClassPropertyReference)+  
+      ( "references" "["
+      		(associationReferences += BusinessClassAssociationRoleReference)+
+        "]"
+      )?
+    
+    "]")?
     ;    
     
 BusinessClassPropertyReference :
+    name=ID ";"
+    ;
+
+BusinessClassAssociationRoleReference :
+    dtoType = [Dto]
     name=ID ";"
     ;
     
