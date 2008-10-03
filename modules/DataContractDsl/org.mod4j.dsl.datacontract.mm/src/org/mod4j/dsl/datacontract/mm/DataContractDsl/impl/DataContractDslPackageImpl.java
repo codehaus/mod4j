@@ -815,7 +815,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         dtoDateTimePropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
         businessClassPropertyReferenceEClass.getESuperTypes().add(this.getModelElement());
         businessClassAssociationRoleReferenceEClass.getESuperTypes().add(this.getModelElement());
-        dtoAssociationRolePropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
+        dtoAssociationRolePropertyEClass.getESuperTypes().add(this.getDtoProperty());
 
         // Initialize classes and features; add operations and parameters
         initEClass(dataContractModelEClass, DataContractModel.class, "DataContractModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

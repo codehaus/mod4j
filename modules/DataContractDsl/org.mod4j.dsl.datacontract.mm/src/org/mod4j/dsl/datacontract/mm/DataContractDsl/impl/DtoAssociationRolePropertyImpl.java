@@ -28,7 +28,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty;
  *
  * @generated
  */
-public class DtoAssociationRolePropertyImpl extends DtoDataPropertyImpl implements DtoAssociationRoleProperty {
+public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements DtoAssociationRoleProperty {
     /**
      * The cached value of the '{@link #getDtoType() <em>Dto Type</em>}' reference.
      * <!-- begin-user-doc -->

@@ -245,7 +245,6 @@ public class DataContractDslSwitch<T> {
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY: {
                 DtoAssociationRoleProperty dtoAssociationRoleProperty = (DtoAssociationRoleProperty)theEObject;
                 T result = caseDtoAssociationRoleProperty(dtoAssociationRoleProperty);
-                if (result == null) result = caseDtoDataProperty(dtoAssociationRoleProperty);
                 if (result == null) result = caseDtoProperty(dtoAssociationRoleProperty);
                 if (result == null) result = caseModelElement(dtoAssociationRoleProperty);
                 if (result == null) result = defaultCase(theEObject);

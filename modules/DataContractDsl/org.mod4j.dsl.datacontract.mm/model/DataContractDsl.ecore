@@ -78,7 +78,7 @@
         eOpposite="#//BusinessClassDto/associationReferences"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtoType" eType="#//Dto"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoAssociationRoleProperty" eSuperTypes="#//DtoDataProperty">
+  <eClassifiers xsi:type="ecore:EClass" name="DtoAssociationRoleProperty" eSuperTypes="#//DtoProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtoType" eType="#//Dto"/>
   </eClassifiers>
 </ecore:EPackage>

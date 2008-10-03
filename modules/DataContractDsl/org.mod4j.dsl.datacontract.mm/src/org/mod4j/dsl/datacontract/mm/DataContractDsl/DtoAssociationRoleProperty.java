@@ -23,7 +23,7 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  * @model
  * @generated
  */
-public interface DtoAssociationRoleProperty extends DtoDataProperty {
+public interface DtoAssociationRoleProperty extends DtoProperty {
 
     /**
      * Returns the value of the '<em><b>Dto Type</b></em>' reference.

@@ -1239,7 +1239,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY__NAME = DTO_DATA_PROPERTY__NAME;
+    int DTO_ASSOCIATION_ROLE_PROPERTY__NAME = DTO_PROPERTY__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1248,7 +1248,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY__DESCRIPTION = DTO_DATA_PROPERTY__DESCRIPTION;
+    int DTO_ASSOCIATION_ROLE_PROPERTY__DESCRIPTION = DTO_PROPERTY__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -1257,7 +1257,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY__DATA_TYPE = DTO_DATA_PROPERTY__DATA_TYPE;
+    int DTO_ASSOCIATION_ROLE_PROPERTY__DATA_TYPE = DTO_PROPERTY__DATA_TYPE;
 
     /**
      * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
@@ -1266,7 +1266,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY__BUSINESS_CLASS_DTO = DTO_DATA_PROPERTY__BUSINESS_CLASS_DTO;
+    int DTO_ASSOCIATION_ROLE_PROPERTY__BUSINESS_CLASS_DTO = DTO_PROPERTY__BUSINESS_CLASS_DTO;
 
     /**
      * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
@@ -1275,7 +1275,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY__CUSTOM_DTO = DTO_DATA_PROPERTY__CUSTOM_DTO;
+    int DTO_ASSOCIATION_ROLE_PROPERTY__CUSTOM_DTO = DTO_PROPERTY__CUSTOM_DTO;
 
     /**
      * The feature id for the '<em><b>Dto Type</b></em>' reference.
@@ -1284,7 +1284,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+    int DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE = DTO_PROPERTY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Dto Association Role Property</em>' class.
@@ -1293,7 +1293,7 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DTO_ASSOCIATION_ROLE_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
+    int DTO_ASSOCIATION_ROLE_PROPERTY_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 1;
 
 
     /**
