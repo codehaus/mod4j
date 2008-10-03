@@ -65,3 +65,51 @@
          this.id = id;
      }
 «ENDDEFINE»
+
+«DEFINE instanceVariable(String associationRolName) FOR Dto»
+    «REM»Nothing to xpand«ENDREM»
+«ENDDEFINE»
+
+«DEFINE instanceVariable(String associationRolName) FOR ListDto»
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
+    private Set<«baseDto.name.toFirstUpper()»> «associationRolName» = new HashSet<«baseDto.name.toFirstUpper()»>();
+«ENDDEFINE»
+
+«DEFINE addAssociationRolAccessors(String associationRolName) FOR Dto»
+    «REM»Nothing to xpand«ENDREM»
+«ENDDEFINE»
+
+«DEFINE addAssociationRolAccessors(String associationRolName) FOR ListDto»
+	/**
+	 * @return «associationRolName» (Set<«baseDto.name.toFirstUpper()»>) 
+	 */
+	public Set<«baseDto.name.toFirstUpper()»> get«associationRolName.toFirstUpper()»() {
+		return Collections.unmodifiableSet(this.«associationRolName»);
+	}
+
+	/**
+	 * Adds a single element to the «associationRolName» collection
+	 *
+	 * @param element The element to add.
+	 */
+	public void addTo«associationRolName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+
+		if (element == null || this.«associationRolName».contains(element)) {
+			return;
+		}
+		this.«associationRolName».add(element);
+	}
+
+	/**
+	 * Removes a single element from the «associationRolName» collection.
+	 * 
+	 * @param element The element to be removed.
+	 */
+	public void removeFrom«associationRolName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+
+		if (element == null) {
+			return;
+		}
+		this.«associationRolName».remove(element);
+	}
+«ENDDEFINE»

@@ -11,7 +11,7 @@
      * @param «name» («type.name») «description»
 «ENDDEFINE»
 
-«DEFINE addInstanceVarJavaDoc FOR DtoProperty»
+«DEFINE addInstanceVarJavaDoc FOR ModelElement»
     /**
      *  «name»: «description»
      */
