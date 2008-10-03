@@ -47,7 +47,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="BusinessDomain::Root FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::Root FOR busModel" />
         <outlet path="${applicationPath}/${domainModuleName}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -59,7 +59,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainEextensionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="BusinessDomain::ExtensionPointGeneration FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::ExtensionPointGeneration FOR busModel" />
         <outlet path="${applicationPath}/${domainModuleName}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -108,7 +108,7 @@
     -->  
     <component id="BusinessDomainWorkflow-MavenConfigGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="BusinessDomain::CreateMavenConfiguration FOR busModel"/>
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::CreateMavenConfiguration FOR busModel"/>
         <outlet path="${applicationPath}">
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
