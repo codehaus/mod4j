@@ -44,7 +44,7 @@
     <component id="complteDtc" class="oaw.xtend.XtendComponent">
        <metaModel idRef="dcm"/>
        <metaModel idRef="crossx"/>
-       <invoke value="CompleteDtc::completeModel(dataContractModel)"/>
+       <invoke value="org::mod4j::dsl::datacontract::generator::xtend::CompleteDtc::completeModel(dataContractModel)"/>
     </component>
 
     <!--
