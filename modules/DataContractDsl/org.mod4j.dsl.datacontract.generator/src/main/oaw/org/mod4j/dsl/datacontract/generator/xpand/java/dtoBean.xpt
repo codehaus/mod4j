@@ -21,7 +21,7 @@
          «FOREACH properties.typeSelect(DtoDataProperty).dataType.toSet() AS dataType -»
              «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType) -»
          «ENDFOREACH»
-         «IF associationReferences.size > 0 -»
+         «IF associationReferences.reject(e|e.dtoType.metaType == BusinessClassDto).size > 0 -»
              «EXPAND Imports::addImports FOR this -»
          «ENDIF»
          

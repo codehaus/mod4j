@@ -75,6 +75,12 @@
     private Set<«baseDto.name.toFirstUpper()»> «associationRolName» = new HashSet<«baseDto.name.toFirstUpper()»>();
 «ENDDEFINE»
 
+«DEFINE instanceVariable(String associationRolName) FOR BusinessClassDto»
+    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
+    private «name.toFirstUpper()» «associationRolName» = new «name.toFirstUpper()»();
+«ENDDEFINE»
+
+
 «DEFINE addAssociationRolAccessors(String associationRolName) FOR Dto»
     «REM»Nothing to xpand«ENDREM»
 «ENDDEFINE»
@@ -112,4 +118,22 @@
 		}
 		this.«associationRolName».remove(element);
 	}
+«ENDDEFINE»
+
+«DEFINE addAssociationRolAccessors(String associationRolName) FOR BusinessClassDto»
+    /**
+	 *
+	 * @return «name» («name.toFirstUpper()») «description»
+	 */
+	 public «name.toFirstUpper()» get«associationRolName.toFirstUpper()» () {
+   	 	return this.«associationRolName»;
+	 }
+	
+	/**
+	 *
+	 * @param «associationRolName» («name.toFirstUpper()») «description»
+	 */
+     public void set«associationRolName.toFirstUpper()» (final «name.toFirstUpper()» «associationRolName») {
+         this.«associationRolName» = «associationRolName»;
+     }
 «ENDDEFINE»
