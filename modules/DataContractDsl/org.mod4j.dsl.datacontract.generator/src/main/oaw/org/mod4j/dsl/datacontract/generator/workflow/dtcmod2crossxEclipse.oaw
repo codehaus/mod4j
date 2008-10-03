@@ -75,7 +75,7 @@
        <metaModel idRef="DataContractDsl"/>
        <metaModel idRef="crossx"/>
        <globalVarDef name="nsUriPrefix" value="'${nsUriPrefix}'"/>
-       <invoke value="dtcmod2crossx::exportModel(model, '${modelfile}' )"/>
+       <invoke value="org::mod4j::dsl::datacontract::generator::xtend::dtcmod2crossx::exportModel(model, '${modelfile}' )"/>
        <outputSlot value="crossxModel"/>
     </component>
     <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
