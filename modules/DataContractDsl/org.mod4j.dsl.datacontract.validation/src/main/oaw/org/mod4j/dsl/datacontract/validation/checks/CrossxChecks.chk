@@ -8,10 +8,14 @@
  * Contributors:
  *     Ordina - initial implementation
  *******************************************************************************/
+
 import DataContractDsl;
 import crossx; 
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::openarchitectureware::util::stdlib::elementprops;
+
+String errorMessage() : GLOBALVAR errorMessage;
 
 context BusinessClassReference ERROR "BusinessClass [" + this.name + "] not defined in model [" + this.modelname + "]":
        lookupSymbol(this.modelname, this.name, "BusinessClass") != null;
@@ -37,8 +41,7 @@ context BusinessClassAssociationRoleReference ERROR
                                          "Association", this.name) :
     symbol != null;
     
-context BusinessClassAssociationRoleReference ERROR 
-    "[" + this.name + "] incorrect type [" + this.dtoType.name + "] (must be BusinessClassDto or ListDto) " :
+context BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
     let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
     let props = (symbol == null ? {} : symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) ):
     let prop = (props == null ? null : props.first() ):
@@ -47,9 +50,38 @@ context BusinessClassAssociationRoleReference ERROR
         true
     else (
 	    if (mult == "0..1") || (mult == "1") then 
-	        this.dtoType.metaType == DataContractDsl::BusinessClassDto 
-	     else (
-	        this.dtoType.metaType == DataContractDsl::ListDto 
+	    (    
+	        if this.dtoType.metaType == DataContractDsl::BusinessClassDto then
+	        (   
+	            let expected = getPropertyValue(prop, "BusinessClass") :
+	            let actual   = ((DataContractDsl::BusinessClassDto)this.dtoType).base.name :
+	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
+	            expected == actual
+	        ) else 
+	            (this.setProperty("ERROR", "[" + this.dtoType.name + "] should be a BusinesClassDto")-> 
+	            false)
 	    )
+	    else   // (mult == "0..*") || (mult == "1..*") 
+	    (
+	        if this.dtoType.metaType == DataContractDsl::ListDto then
+	        (
+	            let expected = getPropertyValue(prop, "BusinessClass") :
+	            let baseDto  =((DataContractDsl::ListDto)this.dtoType) .baseDto :
+	            if baseDto.metaType != BusinessClassDto then
+	            (
+	                this.setProperty("ERROR", "base type of  ListDto [" + this.dtoType.name + "] must be a BusinessClassDto")->
+	                false
+	            ) else (
+	                let actual = ((DataContractDsl::BusinessClassDto)baseDto).base.name :
+    	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
+	                expected == actual
+	            )
+            )
+	        else (
+	            this.setProperty("ERROR", "Type of  [" + this.name + "] must be a ListDto")->
+	            false
+	        )
+        )
 	)
     ;
+    
