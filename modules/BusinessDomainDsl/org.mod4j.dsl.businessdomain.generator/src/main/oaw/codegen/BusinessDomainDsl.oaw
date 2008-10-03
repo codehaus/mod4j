@@ -72,7 +72,7 @@
      <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
        <metaModel idRef="crossx"/>
-        <expand value="Datalayer::genResources FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genResources FOR busModel" />
         <outlet path="${applicationPath}/${dataModuleName}/${resourceGenPath}">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -84,7 +84,7 @@
     -->  
     <component id="BusinessDomainWorkflow-DataLayerDaoGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="Datalayer::genDao FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDao FOR busModel" />
         <outlet path="${applicationPath}/${dataModuleName}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -96,7 +96,7 @@
     -->  
     <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="Datalayer::genDaoExtensions FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDaoExtensions FOR busModel" />
         <outlet path="${applicationPath}/${dataModuleName}/${srcManPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
