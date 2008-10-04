@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>org.mod4j</groupId>
-    <artifactId>BusinessDomain.generator</artifactId>
+    <artifactId>mod4j-businessdomain-generator</artifactId>
     <version>0.11-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the BusinessDomain generator.</description>
@@ -37,12 +37,12 @@
     <dependencies>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>BusinessDomain.mm</artifactId>
+            <artifactId>mod4j-businessdomain-mm</artifactId>
             <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>mod4j-dsl-common</artifactId>
+            <artifactId>mod4j-common</artifactId>
             <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>

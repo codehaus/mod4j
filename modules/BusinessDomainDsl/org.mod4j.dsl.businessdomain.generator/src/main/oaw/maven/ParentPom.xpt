@@ -126,25 +126,25 @@
             </dependency>
             <dependency>
                 <groupId>org.mod4j</groupId>
-                <artifactId>BusinessDomain.xtext</artifactId>
+                <artifactId>mod4j-businessdomain-xtext</artifactId>
                 <version>${mod4j.version}</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.mod4j</groupId>
-                <artifactId>BusinessDomain.validation</artifactId>
+                <artifactId>mod4j-businessdomain-validation</artifactId>
                 <version>${mod4j.version}</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.mod4j</groupId>
-                <artifactId>BusinessDomain.mm</artifactId>
+                <artifactId>mod4j-businessdomain-mm</artifactId>
                 <version>${mod4j.version}</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.mod4j</groupId>
-                <artifactId>BusinessDomain.generator</artifactId>
+                <artifactId>mod4j-businessdomain-generator</artifactId>
                 <version>${mod4j.version}</version>
                 <scope>runtime</scope>
             </dependency>

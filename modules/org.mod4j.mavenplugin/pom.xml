@@ -6,10 +6,10 @@
         <groupId>org.mod4j</groupId>
         <version>0.11-SNAPSHOT</version>
     </parent>
-    <groupId>org.mod4j.maven</groupId>
+    <groupId>org.mod4j</groupId>
     <artifactId>mod4j-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <name>The Mod4j Maven plug-in</name>
+    <name>${project.artifactId}</name>
     <version>0.11-SNAPSHOT</version>
     <description>The Mod4j Maven plug-in makes it possible to build Mod4j model projects outside the Eclipse IDE.</description>
     <prerequisites>
@@ -58,12 +58,12 @@
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>BusinessDomain.generator</artifactId>
+            <artifactId>mod4j-businessdomain-generator</artifactId>
             <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>BusinessDomain.xtext</artifactId>
+            <artifactId>mod4j-businessdomain-xtext</artifactId>
             <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>

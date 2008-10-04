@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>org.mod4j</groupId>
-    <artifactId>BusinessDomain.xtext</artifactId>
+    <artifactId>mod4j-businessdomain-xtext</artifactId>
     <version>0.11-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the BusinessDomain xtext model.</description>
@@ -86,13 +86,13 @@
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>BusinessDomain.mm</artifactId>
+            <artifactId>mod4j-businessdomain-mm</artifactId>
             <version>0.11-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>BusinessDomain.validation</artifactId>
+            <artifactId>mod4j-businessdomain-validation</artifactId>
             <version>0.11-SNAPSHOT</version>
             <type>jar</type>
         </dependency>

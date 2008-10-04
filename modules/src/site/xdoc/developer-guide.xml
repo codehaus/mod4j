@@ -72,17 +72,17 @@
                         After choosing "Ok and "Finish" the following modules are imported in your workspace:
                         <code>BusinessDoamin.generator</code>
                         <br />
-                        <code>BusinessDomain.mm</code>
+                        <code>mod4j-businessdomain-mm</code>
                         <br />
-                        <code>BusinessDomain.validation</code>
+                        <code>mod4j-businessdomain-validation</code>
                         <br />
-                        <code>BusinessDomain.xtext</code>
+                        <code>mod4j-businessdomain-xtext</code>
                         <br />
-                        <code>BusinessDomain.xtext.editor</code>
+                        <code>mod4j-businessdomain-xtext.editor</code>
                     </li>
                     <li>
                         If you need to (re)generate the modelcode from the BusinessDomain meta model .. Open
-                        <code>BusinessDomain.mm/model/BusinessDomainDsl.genmodel</code>
+                        <code>mod4j-businessdomain-mm/model/BusinessDomainDsl.genmodel</code>
                         in the EMF Generator editor.
                     </li>
                     <li>
@@ -93,7 +93,7 @@
                     </li>
                     <li>
                         If you need to (re)generate the code for Xtext Right-click the file
-                        <code>BusinessDomain.xtext/src/genXtextEditor.oaw,</code>
+                        <code>mod4j-businessdomain-xtext/src/genXtextEditor.oaw,</code>
                         and choose
                         <br />
                         <q>Run As -> oAW Workflow</q>
@@ -138,7 +138,7 @@
                     </li>
                     <li>
                         Right-click the module
-                        <code>BusinessDomain.xtext.editor</code>
+                        <code>mod4j-businessdomain-xtext.editor</code>
                         and choose
                         <q>Run As -> Eclipse Application</q>
                         from the context menu.
@@ -147,13 +147,13 @@
                         In the new Eclipse session you'll need you'll need : import the following projects (as a workaround for
                         a bug in Elipse)
                         <br />
-                        <code>BusinessDomain.mm</code>
+                        <code>mod4j-businessdomain-mm</code>
                         <br />
-                        <code>BusinessDomain.generator</code>
+                        <code>mod4j-businessdomain-generator</code>
                         <br />
-                        <code>BusinessDomain.xtext</code>
+                        <code>mod4j-businessdomain-xtext</code>
                         <br />
-                        <code>BusinessDomain.validation</code>
+                        <code>mod4j-businessdomain-validation</code>
                         <br />
                         <code>org.mod4j.crossx.broker</code>
                         <br />
