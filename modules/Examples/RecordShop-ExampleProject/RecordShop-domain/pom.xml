@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>mod4j-common</artifactId>
+            <artifactId>mod4j-runtime-common</artifactId>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
