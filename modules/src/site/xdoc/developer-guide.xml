@@ -116,7 +116,7 @@
                     <li>
                         Now import as Maven Project:
                         <br />
-                        <code>modules/mod4j-common</code>
+                        <code>modules/mod4j-runtime-common</code>
                         <br />
                         <code>modules/mod4j-maven-plugin</code>
                     </li>
