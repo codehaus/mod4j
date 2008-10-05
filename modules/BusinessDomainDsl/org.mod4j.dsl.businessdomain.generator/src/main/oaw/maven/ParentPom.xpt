@@ -25,11 +25,12 @@
         <module>«getDslModelsModuleName()»</module>
         <module>«getDomainModuleName()»</module>
         <module>«getDataModuleName()»</module>
+        
+    <!-- TODO Enable the following modules as soon as they are generated.
         <module>«getBusinessModuleName()»</module>
         <module>«getServiceModuleName()»</module>
-        <!-- TODO
-            <module>«getApplicationName()»-presentation</module>
-        -->
+        <module>«getApplicationName()»-presentation</module>
+    -->
     </modules>
     <build>
         <resources>
@@ -271,6 +272,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
