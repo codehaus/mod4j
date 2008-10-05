@@ -211,8 +211,9 @@
 
             <subsection name="Releasing Mod4j (release guide)">
             TODO:
-            - check and adjust version numbers
-            - release Maven modules (including hybrid's)
+            -1 check and adjust version numbers
+            -2 adjust mod4j version: <mod4j.version>0.10</mod4j.version> in ParentPom.xpt 
+            -3 release Maven modules (including hybrid's)
             - 
             </subsection>
 
