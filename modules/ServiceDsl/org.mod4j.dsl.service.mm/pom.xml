@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.mod4j</groupId>
+        <artifactId>mod4j</artifactId>
+        <version>0.11-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.mod4j</groupId>
+    <artifactId>mod4j-service-mm</artifactId>
+    <version>0.11-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <description>This Eclipse plug-in project contains the ServiceDsl meta model.</description>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>ecore</artifactId>
+            <!--  TODO: version should be 2.3.2.v20080251830 -->
+            <version>2.4.0</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+</project>

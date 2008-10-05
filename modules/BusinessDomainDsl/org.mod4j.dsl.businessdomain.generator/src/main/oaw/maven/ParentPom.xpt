@@ -149,6 +149,54 @@
                 <scope>runtime</scope>
             </dependency>
             <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-datacontract-xtext</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-datacontract-validation</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-datacontract-mm</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-datacontract-generator</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-service-xtext</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-service-validation</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-service-mm</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-service-generator</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>            
+            <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
                 <version>1.1.2</version>

@@ -68,5 +68,45 @@
             <artifactId>mod4j-businessdomain-generator</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-datacontract-xtext</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-datacontract-validation</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-datacontract-mm</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-datacontract-generator</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-service-xtext</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-service-validation</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-service-mm</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-service-generator</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 </project>

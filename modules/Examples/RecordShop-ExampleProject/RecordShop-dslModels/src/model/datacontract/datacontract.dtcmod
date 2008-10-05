@@ -4,7 +4,9 @@ DataContract RecordShopDataContract
 from RecordShopDomainModel import Customer
 from RecordShopDomainModel import Artist
 from RecordShopDomainModel import Order
-from RecordShopDomainModel import Record    
+from RecordShopDomainModel import Record
+from RecordShopDomainModel import OrderLine
+from RecordShopDomainModel import Record
 
     /*
      * BusinessClass transfer objects
@@ -15,11 +17,11 @@ from RecordShopDomainModel import Record
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	BusinessClassDto SimpleCustomerDto base Customer [ 
-	     //firstName;
+	     firstName;
 	     emailAddress;
 	     blackListed;
 	     references [
-	         OrderNumberAndDateList orders ;
+	         OrderNumberAndDateList orders;
 	     ]
 	]
 	
@@ -33,10 +35,20 @@ from RecordShopDomainModel import Record
 	BusinessClassDto ArtistDto base Artist [
 	     firstName ;
 	     lastName ;
-	     age ;
+	     age;
 		 title;
 	]
-	
+
+    BusinessClassDto FullRecordDto base Record
+
+	BusinessClassDto OrderlineDto base OrderLine [
+	    lineNumber;
+	    description;
+	    lineAmount;
+	    references [
+            FullRecordDto record;    	        
+	    ]
+	]
 
     /*
      * Lists of transfer objects
