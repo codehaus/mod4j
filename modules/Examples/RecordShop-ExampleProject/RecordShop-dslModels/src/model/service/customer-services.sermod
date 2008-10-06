@@ -7,7 +7,7 @@ from RecordShopDataContract import StringDto
 from RecordShopDataContract import SimpleCustomerList
 
 /*
- * Explicit definded crud servicemethods
+ * Explicit definded crud servicemethods 
  */
 create createCustomer for SimpleCustomerDto;
 read   readCustomer for SimpleCustomerDto;
