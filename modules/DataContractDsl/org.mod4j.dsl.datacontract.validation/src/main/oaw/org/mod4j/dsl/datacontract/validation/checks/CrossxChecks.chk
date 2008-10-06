@@ -17,8 +17,10 @@ extension org::openarchitectureware::util::stdlib::elementprops;
 
 String errorMessage() : GLOBALVAR errorMessage;
 
-context BusinessClassReference ERROR "BusinessClass [" + this.name + "] not defined in model [" + this.modelname + "]":
-       lookupSymbol(this.modelname, this.name, "BusinessClass") != null;
+context ExternalReference ERROR "BusinessClass or Enumeration [" + this.name + "] not defined in model [" + this.modelname + "]":
+       ( lookupSymbol(this.modelname, this.name, "BusinessClass") != null ) 
+       ||
+       ( lookupSymbol(this.modelname, this.name, "Enumeration") != null) ;
 
 /*
 context DtoProperty ERROR "Property " + this.name + " must have type [" + "]" :
