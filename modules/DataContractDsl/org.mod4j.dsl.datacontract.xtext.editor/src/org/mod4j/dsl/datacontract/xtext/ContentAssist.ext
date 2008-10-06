@@ -9,6 +9,22 @@ extension org::mod4j::dsl::datacontract::xtext::GenContentAssist reexport;
 extension org::mod4j::eclipse::xtend::EclipseUtil;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 
+List[String] getBusinessClassReferenceProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.datacontract.xtext.Proposals.getBusinessClassReferenceProposals(org.eclipse.emf.ecore.EObject);
+    
+List[String] getBusinessClassBaseProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.datacontract.xtext.Proposals.getBusinessClassBaseProposals(org.eclipse.emf.ecore.EObject);
+    
+List[String] getEnumerationBaseProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.datacontract.xtext.Proposals.getEnumerationBaseProposals(org.eclipse.emf.ecore.EObject);
+    
+/* proposals for ListDto::baseDto */
+List[Proposal] completeListDto_baseDto(emf::EObject ctx, String prefix) :
+    let current = (DataContractDsl::Dto)ctx :
+	current.datacontractModel.dtos.select(d | d != ctx).collect(x | newProposal(x.name));
+//	ctx.allVisibleElements().typeSelect(DataContractDsl::Dto).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+
 /*
  * There are two types of extensions one can define
  *
@@ -20,23 +36,42 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
  * you can sort and/or filter the proposals by overwriting 'List[Proposal] sortProposals(List[Proposal] proposalsToSort)'
  */
 
+/* proposals for Feature ExternalReference::modelname */
+List[Proposal] completeExternalReference_modelname(emf::EObject ctx, String prefix) :
+	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
+
 /* proposals for Feature BusinessClassReference::name */
-List[Proposal] completeBusinessClassReference_name(emf::EObject ctx, String prefix) :
-	findAllFromModel( ((DataContractDsl::BusinessClassReference)ctx).modelname, "BusinessClass").
-	          collect(x|newProposal(x)).add(newProposal("empty"));
+List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
+	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "BusinessClass").union(
+	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "Enumeration")).
+	          collect(x|newProposal(x)); //.add(newProposal("empty"));
+
+/* proposals for Feature BusinessClassReference::name */
+//List[Proposal] completeBusinessEnumerationReference_name(emf::EObject ctx, String prefix) :
+//	findAllFromModel( ((DataContractDsl::BusinessClassReference)ctx).modelname, "Enumeration").
+//	          collect(x|newProposal(x)); // .add(newProposal("empty"));
 
 /* proposals for Feature EnumerationProperty::name */
-List[Proposal] completeBusinessClassReference_modelname(emf::EObject ctx, String prefix) :
-	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
+//List[Proposal] completeBusinessClassReference_modelname(emf::EObject ctx, String prefix) :
+//	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
+
+/* proposals for Feature BusinessEnumerationReference::modelname */
+//List[Proposal] completeBusinessEnumerationReference_modelname(emf::EObject ctx, String prefix) :
+//	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
+
+/* proposals for BusinessClassDto::base */
+List[Proposal] completeBusinessClassDto_base(emf::EObject ctx, String prefix) :
+    getBusinessClassBaseProposals(ctx).collect(p |  newProposal( p) );
+
+/* proposals for BusinessClassDto::base */
+List[Proposal] completeEnumerationDto_base(emf::EObject ctx, String prefix) :
+    getEnumerationBaseProposals(ctx).collect(p |  newProposal( p) );
 
 /* proposals for Feature BusinessClassDto::properties */
 List[Proposal] completeBusinessClassDto_propertyReferences(emf::EObject ctx, String prefix) :
-    getProposal(ctx).collect(p |  newProposal( p) )
+    getBusinessClassReferenceProposals(ctx).collect(p |  newProposal( p) )
 	;
 	
-List[String] getProposal(emf::EObject ctx) : JAVA
-    org.mod4j.dsl.datacontract.xtext.Proposals.getProposal(org.eclipse.emf.ecore.EObject);
-    
 /* proposals for Feature DtoBooleanProperty::name */
 List[Proposal] completeDtoBooleanProperty_dataType(emf::EObject ctx, String prefix) :
 	{newProposal("boolean-1")};
@@ -52,5 +87,9 @@ List[Proposal] completeDtoDecimalProperty_dataType(emf::EObject ctx, String pref
 /* proposals for Feature DtoBooleanProperty::name */
 List[Proposal] completeDtoDateTimeProperty_dataType(emf::EObject ctx, String prefix) :
 	{newProposal("datetime-1")};
+	
+// Leave out the default BusinessClassPropertyReferenceName propsal
+List[Proposal] sortProposals(List[Proposal] proposalsToSort):
+	proposalsToSort.select( p | p.label != "BusinessClassPropertyReferenceName");
 
 	

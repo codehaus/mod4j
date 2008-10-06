@@ -5,20 +5,29 @@ importMetamodel "http://www.mod4j.org/datacontract" ;
 DataContractModel : 
     (description=STRING)?
     "DataContract" name=ID
-    (businessClasses += BusinessClassReference)*
+    (externalReferences += ExternalReference)*
     (dtos += Dto)*
+    (enumerations += EnumerationDto)*
     ;
     
 Dto : 
     (description=STRING)?
    ( BusinessClassDto | ListDto |  CustomDto ) ;
 
-BusinessClassReference:
+ExternalReference :
     (description=STRING)?
     "from" modelname=ID "import" name=ID;
     
+//BusinessClassReference:
+//    (description=STRING)?
+//    "from" modelname=ID "class" name=ID;
+    
+//BusinessEnumerationReference:
+//    (description=STRING)?
+//    "from" modelname=ID "enumeration" name=ID;
+    
 BusinessClassDto :
-    "BusinessClassDto" name=ID "base" base=[BusinessClassReference]
+    "BusinessClassDto" name=ID "base" base=[ExternalReference]
     ( "[" (propertyReferences += BusinessClassPropertyReference)+  
       ( "references" "["
       		(associationReferences += BusinessClassAssociationRoleReference)+
@@ -27,6 +36,10 @@ BusinessClassDto :
     
     "]")?
     ;    
+    
+EnumerationDto :
+    "EnumerationDto" name=ID "base" base=[ExternalReference]
+    ; 
     
 BusinessClassPropertyReference :
     name=ID ";"
@@ -80,6 +93,6 @@ DtoDecimalProperty:
     ;
 
 DtoEnumerationProperty:
-    type=[Enumeration] name=ID
+    type=[EnumerationDto] name=ID
     ; 
 
