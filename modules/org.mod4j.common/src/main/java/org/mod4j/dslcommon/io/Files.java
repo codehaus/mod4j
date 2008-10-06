@@ -23,7 +23,7 @@ public class Files {
         ClassLoader cls = this.getClass().getClassLoader();
         URL url = cls.getResource(filename);
         if (url == null) {
-            System.err.println("DirectoryClean oaW file [" + filename + "] not found");
+            System.err.println("File [" + filename + "] not found");
             return null;
         }
         filename = url.toString();
