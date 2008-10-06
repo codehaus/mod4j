@@ -1,38 +1,56 @@
 "The RecordShop data contract."
-DataContract RecordShopDataContract
+DataContract RecordShopDataContract  
 
-from RecordShopDomainModel import Customer
+from RecordShopDomainModel import  Customer 
 from RecordShopDomainModel import Artist
-from RecordShopDomainModel import Order
+from RecordShopDomainModel import  Order 
 from RecordShopDomainModel import Record
 from RecordShopDomainModel import OrderLine
-from RecordShopDomainModel import Record
 
-    /*
+
+from RecordShopDomainModel import Sexe 
+ 
+
+
+
+    /* 
      * BusinessClass transfer objects
-     */
-	
+     */  
 	"Full Customer transfer object with all attributes in Customer."
-	BusinessClassDto FullCustomerDto base Customer
+	BusinessClassDto FullCustomerDto base Customer 
 
     "A simple Customer transfer object with a subset of Customer attributes."
-	BusinessClassDto SimpleCustomerDto base Customer [ 
-	     firstName;
-	     emailAddress;
-	     blackListed;
-	     references [
-	         OrderNumberAndDateList orders;
-	     ]
+	BusinessClassDto SimpleCustomerDto base Customer [  
+	     firstName; 
+ 	     blackListed;
+	     sexe; 
+	     references [  
+	         OrderNumberAndDateList orders ;   
+
+// Uncomment the following to get error messages.
+//	         ArtistDto orders; 
+//	         SimpleCustomerList orders; 
+	     ]   
+
 	]
 	
 	"Simple Order transfer object."
 	BusinessClassDto OrderNumberAndDateDto base Order [
-	     orderNumber;
+	     orderNumber;  
 	     orderDate;
+	     references [
+	         SimpleCustomerDto customer; 
+
+// Uncomment the following to get error messages.
+//	         ArtistDto customer;
+//	         OrderNumberAndDateList customer;
+//	         StringDto customer;
+//           Gjdxu cistomer;
+	     ]
 	]
 	
-	"The Artist transfer object."
-	BusinessClassDto ArtistDto base Artist [
+	"The Artist transfer object."  
+	BusinessClassDto ArtistDto base Artist [ 
 	     firstName ;
 	     lastName ;
 	     age;
@@ -51,13 +69,13 @@ from RecordShopDomainModel import Record
 	]
 
     /*
-     * Lists of transfer objects
+     * Lists of transfer objects 
      */
 
 	"List of SimpleCustomerDto's."
 	ListDto SimpleCustomerList base SimpleCustomerDto 
 	"List of OrdersNumberAndDateDto's."
-	ListDto OrderNumberAndDateList base OrderNumberAndDateDto 
+	ListDto OrderNumberAndDateList base OrderNumberAndDateDto  
 
 	
 	/*
@@ -71,7 +89,7 @@ from RecordShopDomainModel import Record
 	]
 	
 	"Date transfer object."
-	CustomDto DateDto [ 
+	CustomDto DateDto [   
 	    "date"
 	    datetime date;
 	]
@@ -83,3 +101,5 @@ from RecordShopDomainModel import Record
 	    "lastName"
 	    string lastName;
 	]
+	
+	EnumerationDto SexeDto base Sexe 
