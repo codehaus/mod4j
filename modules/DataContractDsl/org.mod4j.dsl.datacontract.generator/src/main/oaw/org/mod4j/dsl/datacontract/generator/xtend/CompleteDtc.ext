@@ -8,24 +8,55 @@ import DataContractDsl;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::generatorutil;
+extension org::mod4j::eclipse::xtend::EclipseUtil;
 
+// Complete the model such that all higher level constructs and all implicit definitions are added.
 completeModel(DataContractModel dtcModel) :
     let emptyCrud  = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|dto.propertyReferences.isEmpty) :
     let filledCrud = dtcModel.dtos.typeSelect(BusinessClassDto).select(dto|!dto.propertyReferences.isEmpty) :
     let associationRoles = dtcModel.dtos.typeSelect(BusinessClassDto).associationReferences :
 	emptyCrud.addProperties() ->
 	filledCrud.completeProperties()->
-	associationRoles.addDtoAssociationRoles()
+	associationRoles.addDtoAssociationRoles()->
+	dtcModel.resolveEnumerationReferences()->
+	dtcModel.enumerations.addLiterals()
     ;
     
+// Add the enumeration literals to the enumeration.
+// Literals are always implicitly taken from the businessclassmodel
+
+addLiterals(EnumerationDto enum) :
+    let symbol = lookupSymbol(enum.base.modelname, enum.base.name, "Enumeration") :
+    let props = symbol.subSymbols.select(s|s.type.matches("EnumerationLiteral")) :
+    print("Enum ["+ enum.name + "]" )->
+    print("Enum symbol ["+ symbol + "]" )->
+    print("Literal symbol ["+ props + "]" )->
+    print("literals ["+ enum.literals.size + "]" )->
+    enum.literals.addAll( props.toEnumLiteral()   )->
+    null
+    ;
+
+EnumerationDtoLiteral toEnumLiteral(Symbol literalProperty) :
+   let result = (print("TO ENUM LITERAL [" + literalProperty.name + "]")->
+        new EnumerationDtoLiteral) :
+   result.setName( literalProperty.name )->
+   result
+   ;
+   
+// resolvbe all references from DtoEnumerationProperties to their type
+resolveEnumerationReferences(DataContractModel dtcModel) :
+    let enumProps = dtcModel.dtos.typeSelect(BusinessClassDto).properties.typeSelect(DtoEnumerationProperty)
+                    .select(prop | prop.type == null ) :
+    enumProps.collect( prop | prop.setType( dtcModel.enumerations.select(e | e.name == prop.dataType).first() ) );
+        
 addProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
     print("DTO addProperties: "+ dto.name)->
-    dto.properties.addAll( props.toDtoProperty() ) 
+    dto.properties.addAll( props.toDtoProperty(dto) ) 
     ;
 
-DataContractDsl::DtoProperty toDtoProperty(Symbol symbol ) :
+DataContractDsl::DtoProperty toDtoProperty(Symbol symbol, BusinessClassDto dto) :
     print("     DTO addProperty: "+ symbol.name)->
     switch (symbol.getPropertyValue("DataType")) {
         case 'boolean' : newBooleanProperty(symbol)
@@ -33,7 +64,7 @@ DataContractDsl::DtoProperty toDtoProperty(Symbol symbol ) :
         case 'integer' : newIntegerProperty(symbol)
         case 'decimal' : newDecimalProperty(symbol)
         case 'datetime' : newDateTimeProperty(symbol)
-        default : newEnumProperty(symbol)
+        default : newEnumProperty(symbol, dto)
     }
     ;
     
@@ -41,7 +72,7 @@ completeProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let propertySymbols = symbol.subSymbols.select(s|s.type == "Property") :
     print("DTO completeProperties: "+ dto.name)->
-    dto.properties.addAll( dto.propertyReferences.toDtoProperty(propertySymbols) )  
+    dto.properties.addAll( dto.propertyReferences.referencesToDtoProperty(propertySymbols) )  
     ;
     
 addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
@@ -54,9 +85,8 @@ addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
     result.setDtoType(assRef.dtoType)->
     assRef.dto.properties.add(result)
    ;
-
     
-DataContractDsl::DtoProperty toDtoProperty(BusinessClassPropertyReference ref, List[Symbol] symbols ) :
+DataContractDsl::DtoProperty referencesToDtoProperty(BusinessClassPropertyReference ref, List[Symbol] symbols ) :
     let symbol = symbols.select(s| s.name == ref.name).first() :
     if symbol != null then {
 	    switch (symbol.getPropertyValue("DataType")) {
@@ -65,7 +95,7 @@ DataContractDsl::DtoProperty toDtoProperty(BusinessClassPropertyReference ref, L
 	        case 'integer' : newIntegerProperty(symbol)
 	        case 'decimal' : newDecimalProperty(symbol)
 	        case 'datetime' : newDateTimeProperty(symbol)
-	        default : newEnumProperty(symbol)
+	        default : newEnumProperty(symbol, ref.dto)
 	    }
     }
     else {
@@ -103,10 +133,22 @@ DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
     result.setName(symbol.name)->
     result.setDataType("datetime")->
     result;
-    
-DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol) :
+
+// Create a new DtoEnumerationProperty based on 'symbol'
+DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol, BusinessClassDto dto) :
     let result = new DtoEnumerationProperty:
-    result.setName(symbol.name)->
+    let dataType = symbol.getPropertyValue("DataType") :
+    let enum = dto.datacontractModel.enumerations.selectFirst(e|(e.base != null) &&
+                                                    (e.base.name == dataType) ):
+    result.setDataType( symbol.getPropertyValue("DataType") )->
+    ( if enum != null then (
+          result.setName(symbol.name)->
+          result.setType(enum)->
+          result.setDataType(enum.name)
+      ) else (
+          result.setName("NO_NAME")->
+	      result.setType(null)->
+          result.setDataType("NO_DATA_TYPE")
+      )
+     )->
     result;
-    
-    

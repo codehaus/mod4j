@@ -11,7 +11,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 
 public class DtoHelpers {
 
@@ -42,7 +42,7 @@ public class DtoHelpers {
     }
 
     public static String javaType(DtoEnumerationProperty p) {
-        Enumeration e = p.getType();
+        EnumerationDto e = p.getType();
         if (e == null) {
             System.err.println("ERROR in javaType() for EnumerationProperty");
             return "Object";

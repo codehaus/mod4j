@@ -10,8 +10,14 @@ create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
     this.setDslname("DataContractDsl")->
     this.setModelname(dtcModel.name)->
     this.setResource(modelFile)->
-    this.symbols.addAll(dtcModel.dtos.toElement());
-    
+    this.symbols.addAll(dtcModel.dtos.toElement())->
+    this.symbols.addAll(dtcModel.enumerations.toElement());
+        
+create Symbol toElement(EnumerationDto dto) :
+    this.setName(dto.name) ->
+    this.setType("EnumerationDto")
+    ;
+
 create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
