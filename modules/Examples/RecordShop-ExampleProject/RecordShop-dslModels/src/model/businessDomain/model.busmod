@@ -2,18 +2,18 @@
 Model RecordShopDomainModel
  
 /*
- * Remarks... 
- */
+ * Remarks...  
+ */ 
  
 "A Person represents a legal person."
 Class Person [
 
-    "First name of the person." 
+    "First name of the person."  
     string firstName ;
-    "Last name of the person." 
+    "Last name of the person."  
     string lastName;
     "The age of this person in years"
-    integer age nullable persistency NONE;
+    integer age nullable persistency NONE; 
     "Number of ears (we allow Vulcans in this system)." 
     integer numberOfEars default 0 min 0 max 4; 
     "Gender"    
@@ -24,7 +24,7 @@ Class Person [
         unique fullName [
             firstName
             lastName
-        ];
+        ]; 
     ]
 ]
 
@@ -39,7 +39,7 @@ Class Customer inherits Person [
     
     Rules [
         "If Customer has one ear, he/she get a discount of 50 percent."  
-        OneEarDiscount;
+        OneEarDiscount;  
         "Just another rule"
         AnotherRule;
     ]
@@ -57,30 +57,30 @@ Class Record [
     string title default "Title unknown";
     integer mediumCode default 111 ;
     decimal price ;
-    RecordType type default CD;
+    RecordType type default CD;  
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
 
 	"An ordernumber should be unique"
-    string orderNumber;
+    string orderNumber;  
     "The date on which the order has been placed"
     datetime day orderDate default "2009-01-01" nullable;
     datetime minute deliveryDateTime  nullable;
     integer discountPercentage min 01 max 100 nullable ;
-    /*
+    /* 
     TODO: The following results in a compilation problem caused by float to Float conversion. 
     float totalAmount nullable;
-    */
+    */ 
     
     Rules [
         "The deliveryDate may not precede orderDate"
-        OrderDateBeforeDeliveryDate; 
+        OrderDateBeforeDeliveryDate;   
     ]
 ]
 
-Class OrderLine [
+Class OrderLine [ 
 
     integer lineNumber min 01 max 50 ;
     string description;
