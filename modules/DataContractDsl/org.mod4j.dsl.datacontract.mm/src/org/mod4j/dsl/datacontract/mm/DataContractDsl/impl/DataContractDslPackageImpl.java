@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.CustomDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslFactory;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
@@ -32,8 +31,9 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationLiteral;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ModelElement;
 
@@ -112,14 +112,14 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass enumerationEClass = null;
+    private EClass enumerationDtoEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass enumerationLiteralEClass = null;
+    private EClass enumerationDtoLiteralEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -134,13 +134,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * @generated
      */
     private EClass customDtoEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass businessClassReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -190,6 +183,13 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * @generated
      */
     private EClass dtoAssociationRolePropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass externalReferenceEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -291,7 +291,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getDataContractModel_BusinessClasses() {
+    public EReference getDataContractModel_ExternalReferences() {
         return (EReference)dataContractModelEClass.getEStructuralFeatures().get(2);
     }
 
@@ -471,8 +471,8 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getEnumeration() {
-        return enumerationEClass;
+    public EClass getEnumerationDto() {
+        return enumerationDtoEClass;
     }
 
     /**
@@ -480,8 +480,8 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getEnumeration_Literals() {
-        return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
+    public EReference getEnumerationDto_Literals() {
+        return (EReference)enumerationDtoEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -489,8 +489,35 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getEnumerationLiteral() {
-        return enumerationLiteralEClass;
+    public EReference getEnumerationDto_Base() {
+        return (EReference)enumerationDtoEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getEnumerationDto_DatacontractModel() {
+        return (EReference)enumerationDtoEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getEnumerationDtoLiteral() {
+        return enumerationDtoLiteralEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEnumerationDtoLiteral_Value() {
+        return (EAttribute)enumerationDtoLiteralEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -536,33 +563,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      */
     public EReference getCustomDto_Properties() {
         return (EReference)customDtoEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getBusinessClassReference() {
-        return businessClassReferenceEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getBusinessClassReference_Modelname() {
-        return (EAttribute)businessClassReferenceEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getBusinessClassReference_DatacontractModel() {
-        return (EReference)businessClassReferenceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -678,6 +678,33 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getExternalReference() {
+        return externalReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalReference_Modelname() {
+        return (EAttribute)externalReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExternalReference_DatacontractModel() {
+        return (EReference)externalReferenceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DataContractDslFactory getDataContractDslFactory() {
         return (DataContractDslFactory)getEFactoryInstance();
     }
@@ -704,7 +731,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         dataContractModelEClass = createEClass(DATA_CONTRACT_MODEL);
         createEReference(dataContractModelEClass, DATA_CONTRACT_MODEL__DTOS);
         createEReference(dataContractModelEClass, DATA_CONTRACT_MODEL__ENUMERATIONS);
-        createEReference(dataContractModelEClass, DATA_CONTRACT_MODEL__BUSINESS_CLASSES);
+        createEReference(dataContractModelEClass, DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES);
 
         dtoEClass = createEClass(DTO);
         createEReference(dtoEClass, DTO__DATACONTRACT_MODEL);
@@ -733,10 +760,13 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
         dtoBooleanPropertyEClass = createEClass(DTO_BOOLEAN_PROPERTY);
 
-        enumerationEClass = createEClass(ENUMERATION);
-        createEReference(enumerationEClass, ENUMERATION__LITERALS);
+        enumerationDtoEClass = createEClass(ENUMERATION_DTO);
+        createEReference(enumerationDtoEClass, ENUMERATION_DTO__LITERALS);
+        createEReference(enumerationDtoEClass, ENUMERATION_DTO__BASE);
+        createEReference(enumerationDtoEClass, ENUMERATION_DTO__DATACONTRACT_MODEL);
 
-        enumerationLiteralEClass = createEClass(ENUMERATION_LITERAL);
+        enumerationDtoLiteralEClass = createEClass(ENUMERATION_DTO_LITERAL);
+        createEAttribute(enumerationDtoLiteralEClass, ENUMERATION_DTO_LITERAL__VALUE);
 
         modelElementEClass = createEClass(MODEL_ELEMENT);
         createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
@@ -744,10 +774,6 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
         customDtoEClass = createEClass(CUSTOM_DTO);
         createEReference(customDtoEClass, CUSTOM_DTO__PROPERTIES);
-
-        businessClassReferenceEClass = createEClass(BUSINESS_CLASS_REFERENCE);
-        createEAttribute(businessClassReferenceEClass, BUSINESS_CLASS_REFERENCE__MODELNAME);
-        createEReference(businessClassReferenceEClass, BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL);
 
         dtoIntegerPropertyEClass = createEClass(DTO_INTEGER_PROPERTY);
 
@@ -767,6 +793,10 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
         dtoAssociationRolePropertyEClass = createEClass(DTO_ASSOCIATION_ROLE_PROPERTY);
         createEReference(dtoAssociationRolePropertyEClass, DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE);
+
+        externalReferenceEClass = createEClass(EXTERNAL_REFERENCE);
+        createEAttribute(externalReferenceEClass, EXTERNAL_REFERENCE__MODELNAME);
+        createEReference(externalReferenceEClass, EXTERNAL_REFERENCE__DATACONTRACT_MODEL);
     }
 
     /**
@@ -806,9 +836,9 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         dtoDataPropertyEClass.getESuperTypes().add(this.getDtoProperty());
         dtoStringPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
         dtoBooleanPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
-        enumerationEClass.getESuperTypes().add(this.getModelElement());
+        enumerationDtoEClass.getESuperTypes().add(this.getModelElement());
+        enumerationDtoLiteralEClass.getESuperTypes().add(this.getModelElement());
         customDtoEClass.getESuperTypes().add(this.getDto());
-        businessClassReferenceEClass.getESuperTypes().add(this.getModelElement());
         dtoIntegerPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
         dtoDecimalPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
         dtoEnumerationPropertyEClass.getESuperTypes().add(this.getDtoDataProperty());
@@ -816,19 +846,20 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         businessClassPropertyReferenceEClass.getESuperTypes().add(this.getModelElement());
         businessClassAssociationRoleReferenceEClass.getESuperTypes().add(this.getModelElement());
         dtoAssociationRolePropertyEClass.getESuperTypes().add(this.getDtoProperty());
+        externalReferenceEClass.getESuperTypes().add(this.getModelElement());
 
         // Initialize classes and features; add operations and parameters
         initEClass(dataContractModelEClass, DataContractModel.class, "DataContractModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDataContractModel_Dtos(), this.getDto(), this.getDto_DatacontractModel(), "dtos", null, 0, -1, DataContractModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getDataContractModel_Enumerations(), this.getEnumeration(), null, "enumerations", null, 0, -1, DataContractModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getDataContractModel_BusinessClasses(), this.getBusinessClassReference(), this.getBusinessClassReference_DatacontractModel(), "businessClasses", null, 0, -1, DataContractModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDataContractModel_Enumerations(), this.getEnumerationDto(), this.getEnumerationDto_DatacontractModel(), "enumerations", null, 0, -1, DataContractModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDataContractModel_ExternalReferences(), this.getExternalReference(), this.getExternalReference_DatacontractModel(), "externalReferences", null, 0, -1, DataContractModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoEClass, Dto.class, "Dto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDto_DatacontractModel(), this.getDataContractModel(), this.getDataContractModel_Dtos(), "datacontractModel", null, 0, 1, Dto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(businessClassDtoEClass, BusinessClassDto.class, "BusinessClassDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getBusinessClassDto_Properties(), this.getDtoProperty(), this.getDtoProperty_BusinessClassDto(), "properties", null, 0, -1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getBusinessClassDto_Base(), this.getBusinessClassReference(), null, "base", null, 0, 1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getBusinessClassDto_Base(), this.getExternalReference(), null, "base", null, 0, 1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessClassDto_PropertyReferences(), this.getBusinessClassPropertyReference(), this.getBusinessClassPropertyReference_Dto(), "propertyReferences", null, 0, -1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessClassDto_AssociationReferences(), this.getBusinessClassAssociationRoleReference(), this.getBusinessClassAssociationRoleReference_Dto(), "associationReferences", null, 0, -1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -850,10 +881,13 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
         initEClass(dtoBooleanPropertyEClass, DtoBooleanProperty.class, "DtoBooleanProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEnumeration_Literals(), this.getEnumerationLiteral(), null, "literals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(enumerationDtoEClass, EnumerationDto.class, "EnumerationDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getEnumerationDto_Literals(), this.getEnumerationDtoLiteral(), null, "literals", null, 0, -1, EnumerationDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getEnumerationDto_Base(), this.getExternalReference(), null, "base", null, 0, 1, EnumerationDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getEnumerationDto_DatacontractModel(), this.getDataContractModel(), this.getDataContractModel_Enumerations(), "datacontractModel", null, 0, 1, EnumerationDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(enumerationLiteralEClass, EnumerationLiteral.class, "EnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(enumerationDtoLiteralEClass, EnumerationDtoLiteral.class, "EnumerationDtoLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getEnumerationDtoLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, EnumerationDtoLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -862,16 +896,12 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEClass(customDtoEClass, CustomDto.class, "CustomDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getCustomDto_Properties(), this.getDtoProperty(), this.getDtoProperty_CustomDto(), "properties", null, 0, -1, CustomDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(businessClassReferenceEClass, BusinessClassReference.class, "BusinessClassReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getBusinessClassReference_Modelname(), ecorePackage.getEString(), "modelname", "", 0, 1, BusinessClassReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getBusinessClassReference_DatacontractModel(), this.getDataContractModel(), this.getDataContractModel_BusinessClasses(), "datacontractModel", null, 0, 1, BusinessClassReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
         initEClass(dtoIntegerPropertyEClass, DtoIntegerProperty.class, "DtoIntegerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(dtoDecimalPropertyEClass, DtoDecimalProperty.class, "DtoDecimalProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(dtoEnumerationPropertyEClass, DtoEnumerationProperty.class, "DtoEnumerationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getDtoEnumerationProperty_Type(), this.getEnumeration(), null, "type", null, 0, 1, DtoEnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDtoEnumerationProperty_Type(), this.getEnumerationDto(), null, "type", null, 0, 1, DtoEnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoDateTimePropertyEClass, DtoDateTimeProperty.class, "DtoDateTimeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -884,6 +914,10 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
         initEClass(dtoAssociationRolePropertyEClass, DtoAssociationRoleProperty.class, "DtoAssociationRoleProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDtoAssociationRoleProperty_DtoType(), this.getDto(), null, "dtoType", null, 0, 1, DtoAssociationRoleProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(externalReferenceEClass, ExternalReference.class, "ExternalReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getExternalReference_Modelname(), ecorePackage.getEString(), "modelname", "", 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getExternalReference_DatacontractModel(), this.getDataContractModel(), this.getDataContractModel_ExternalReferences(), "datacontractModel", null, 0, 1, ExternalReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

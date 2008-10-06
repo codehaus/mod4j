@@ -108,12 +108,12 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createDtoBooleanPropertyAdapter();
             }
             @Override
-            public Adapter caseEnumeration(Enumeration object) {
-                return createEnumerationAdapter();
+            public Adapter caseEnumerationDto(EnumerationDto object) {
+                return createEnumerationDtoAdapter();
             }
             @Override
-            public Adapter caseEnumerationLiteral(EnumerationLiteral object) {
-                return createEnumerationLiteralAdapter();
+            public Adapter caseEnumerationDtoLiteral(EnumerationDtoLiteral object) {
+                return createEnumerationDtoLiteralAdapter();
             }
             @Override
             public Adapter caseModelElement(ModelElement object) {
@@ -122,10 +122,6 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseCustomDto(CustomDto object) {
                 return createCustomDtoAdapter();
-            }
-            @Override
-            public Adapter caseBusinessClassReference(BusinessClassReference object) {
-                return createBusinessClassReferenceAdapter();
             }
             @Override
             public Adapter caseDtoIntegerProperty(DtoIntegerProperty object) {
@@ -154,6 +150,10 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseDtoAssociationRoleProperty(DtoAssociationRoleProperty object) {
                 return createDtoAssociationRolePropertyAdapter();
+            }
+            @Override
+            public Adapter caseExternalReference(ExternalReference object) {
+                return createExternalReferenceAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -302,30 +302,30 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration <em>Enumeration</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto <em>Enumeration Dto</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto
      * @generated
      */
-    public Adapter createEnumerationAdapter() {
+    public Adapter createEnumerationDtoAdapter() {
         return null;
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral <em>Enumeration Dto Literal</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationLiteral
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral
      * @generated
      */
-    public Adapter createEnumerationLiteralAdapter() {
+    public Adapter createEnumerationDtoLiteralAdapter() {
         return null;
     }
 
@@ -354,20 +354,6 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createCustomDtoAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference <em>Business Class Reference</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference
-     * @generated
-     */
-    public Adapter createBusinessClassReferenceAdapter() {
         return null;
     }
 
@@ -466,6 +452,20 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDtoAssociationRolePropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference <em>External Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference
+     * @generated
+     */
+    public Adapter createExternalReferenceAdapter() {
         return null;
     }
 

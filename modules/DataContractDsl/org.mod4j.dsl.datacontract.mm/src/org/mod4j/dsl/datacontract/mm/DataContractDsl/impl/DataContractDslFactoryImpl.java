@@ -69,11 +69,10 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.DTO_DATA_PROPERTY: return createDtoDataProperty();
             case DataContractDslPackage.DTO_STRING_PROPERTY: return createDtoStringProperty();
             case DataContractDslPackage.DTO_BOOLEAN_PROPERTY: return createDtoBooleanProperty();
-            case DataContractDslPackage.ENUMERATION: return createEnumeration();
-            case DataContractDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
+            case DataContractDslPackage.ENUMERATION_DTO: return createEnumerationDto();
+            case DataContractDslPackage.ENUMERATION_DTO_LITERAL: return createEnumerationDtoLiteral();
             case DataContractDslPackage.MODEL_ELEMENT: return createModelElement();
             case DataContractDslPackage.CUSTOM_DTO: return createCustomDto();
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE: return createBusinessClassReference();
             case DataContractDslPackage.DTO_INTEGER_PROPERTY: return createDtoIntegerProperty();
             case DataContractDslPackage.DTO_DECIMAL_PROPERTY: return createDtoDecimalProperty();
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY: return createDtoEnumerationProperty();
@@ -81,6 +80,7 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.BUSINESS_CLASS_PROPERTY_REFERENCE: return createBusinessClassPropertyReference();
             case DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE: return createBusinessClassAssociationRoleReference();
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY: return createDtoAssociationRoleProperty();
+            case DataContractDslPackage.EXTERNAL_REFERENCE: return createExternalReference();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -181,9 +181,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public Enumeration createEnumeration() {
-        EnumerationImpl enumeration = new EnumerationImpl();
-        return enumeration;
+    public EnumerationDto createEnumerationDto() {
+        EnumerationDtoImpl enumerationDto = new EnumerationDtoImpl();
+        return enumerationDto;
     }
 
     /**
@@ -191,9 +191,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
-    public EnumerationLiteral createEnumerationLiteral() {
-        EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
-        return enumerationLiteral;
+    public EnumerationDtoLiteral createEnumerationDtoLiteral() {
+        EnumerationDtoLiteralImpl enumerationDtoLiteral = new EnumerationDtoLiteralImpl();
+        return enumerationDtoLiteral;
     }
 
     /**
@@ -214,16 +214,6 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     public CustomDto createCustomDto() {
         CustomDtoImpl customDto = new CustomDtoImpl();
         return customDto;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public BusinessClassReference createBusinessClassReference() {
-        BusinessClassReferenceImpl businessClassReference = new BusinessClassReferenceImpl();
-        return businessClassReference;
     }
 
     /**
@@ -294,6 +284,16 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     public DtoAssociationRoleProperty createDtoAssociationRoleProperty() {
         DtoAssociationRolePropertyImpl dtoAssociationRoleProperty = new DtoAssociationRolePropertyImpl();
         return dtoAssociationRoleProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExternalReference createExternalReference() {
+        ExternalReferenceImpl externalReference = new ExternalReferenceImpl();
+        return externalReference;
     }
 
     /**

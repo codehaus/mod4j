@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * @generated
      * @ordered
      */
-    protected BusinessClassReference base;
+    protected ExternalReference base;
 
     /**
      * The cached value of the '{@link #getPropertyReferences() <em>Property References</em>}' containment reference list.
@@ -121,10 +121,10 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public BusinessClassReference getBase() {
+    public ExternalReference getBase() {
         if (base != null && base.eIsProxy()) {
             InternalEObject oldBase = (InternalEObject)base;
-            base = (BusinessClassReference)eResolveProxy(oldBase);
+            base = (ExternalReference)eResolveProxy(oldBase);
             if (base != oldBase) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.BUSINESS_CLASS_DTO__BASE, oldBase, base));
@@ -138,7 +138,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public BusinessClassReference basicGetBase() {
+    public ExternalReference basicGetBase() {
         return base;
     }
 
@@ -147,8 +147,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBase(BusinessClassReference newBase) {
-        BusinessClassReference oldBase = base;
+    public void setBase(ExternalReference newBase) {
+        ExternalReference oldBase = base;
         base = newBase;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.BUSINESS_CLASS_DTO__BASE, oldBase, base));
@@ -250,7 +250,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 getProperties().addAll((Collection<? extends DtoProperty>)newValue);
                 return;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
-                setBase((BusinessClassReference)newValue);
+                setBase((ExternalReference)newValue);
                 return;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 getPropertyReferences().clear();
@@ -276,7 +276,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 getProperties().clear();
                 return;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__BASE:
-                setBase((BusinessClassReference)null);
+                setBase((ExternalReference)null);
                 return;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTY_REFERENCES:
                 getPropertyReferences().clear();

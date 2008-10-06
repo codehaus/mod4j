@@ -107,22 +107,22 @@ public interface DataContractDslFactory extends EFactory {
     DtoBooleanProperty createDtoBooleanProperty();
 
     /**
-     * Returns a new object of class '<em>Enumeration</em>'.
+     * Returns a new object of class '<em>Enumeration Dto</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Enumeration</em>'.
+     * @return a new object of class '<em>Enumeration Dto</em>'.
      * @generated
      */
-    Enumeration createEnumeration();
+    EnumerationDto createEnumerationDto();
 
     /**
-     * Returns a new object of class '<em>Enumeration Literal</em>'.
+     * Returns a new object of class '<em>Enumeration Dto Literal</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Enumeration Literal</em>'.
+     * @return a new object of class '<em>Enumeration Dto Literal</em>'.
      * @generated
      */
-    EnumerationLiteral createEnumerationLiteral();
+    EnumerationDtoLiteral createEnumerationDtoLiteral();
 
     /**
      * Returns a new object of class '<em>Model Element</em>'.
@@ -141,15 +141,6 @@ public interface DataContractDslFactory extends EFactory {
      * @generated
      */
     CustomDto createCustomDto();
-
-    /**
-     * Returns a new object of class '<em>Business Class Reference</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Business Class Reference</em>'.
-     * @generated
-     */
-    BusinessClassReference createBusinessClassReference();
 
     /**
      * Returns a new object of class '<em>Dto Integer Property</em>'.
@@ -213,6 +204,15 @@ public interface DataContractDslFactory extends EFactory {
      * @generated
      */
     DtoAssociationRoleProperty createDtoAssociationRoleProperty();
+
+    /**
+     * Returns a new object of class '<em>External Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>External Reference</em>'.
+     * @generated
+     */
+    ExternalReference createExternalReference();
 
     /**
      * Returns the package supported by this factory.

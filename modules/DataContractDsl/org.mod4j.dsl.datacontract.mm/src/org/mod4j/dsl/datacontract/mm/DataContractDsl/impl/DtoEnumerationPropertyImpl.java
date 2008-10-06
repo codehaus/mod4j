@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
      * @generated
      * @ordered
      */
-    protected Enumeration type;
+    protected EnumerationDto type;
 
     /**
      * <!-- begin-user-doc -->
@@ -65,10 +65,10 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
-    public Enumeration getType() {
+    public EnumerationDto getType() {
         if (type != null && type.eIsProxy()) {
             InternalEObject oldType = (InternalEObject)type;
-            type = (Enumeration)eResolveProxy(oldType);
+            type = (EnumerationDto)eResolveProxy(oldType);
             if (type != oldType) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE, oldType, type));
@@ -82,7 +82,7 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
-    public Enumeration basicGetType() {
+    public EnumerationDto basicGetType() {
         return type;
     }
 
@@ -91,8 +91,8 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setType(Enumeration newType) {
-        Enumeration oldType = type;
+    public void setType(EnumerationDto newType) {
+        EnumerationDto oldType = type;
         type = newType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE, oldType, type));
@@ -122,7 +122,7 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
-                setType((Enumeration)newValue);
+                setType((EnumerationDto)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -137,7 +137,7 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
     public void eUnset(int featureID) {
         switch (featureID) {
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
-                setType((Enumeration)null);
+                setType((EnumerationDto)null);
                 return;
         }
         super.eUnset(featureID);

@@ -55,12 +55,12 @@ public interface BusinessClassDto extends Dto {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Base</em>' reference.
-     * @see #setBase(BusinessClassReference)
+     * @see #setBase(ExternalReference)
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getBusinessClassDto_Base()
      * @model
      * @generated
      */
-    BusinessClassReference getBase();
+    ExternalReference getBase();
 
     /**
      * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getBase <em>Base</em>}' reference.
@@ -70,7 +70,7 @@ public interface BusinessClassDto extends Dto {
      * @see #getBase()
      * @generated
      */
-    void setBase(BusinessClassReference value);
+    void setBase(ExternalReference value);
 
     /**
      * Returns the value of the '<em><b>Property References</b></em>' containment reference list.

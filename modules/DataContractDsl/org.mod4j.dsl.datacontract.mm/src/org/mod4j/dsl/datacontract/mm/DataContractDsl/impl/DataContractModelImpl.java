@@ -15,15 +15,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +33,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.Enumeration;
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractModelImpl#getDtos <em>Dtos</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractModelImpl#getEnumerations <em>Enumerations</em>}</li>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractModelImpl#getBusinessClasses <em>Business Classes</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractModelImpl#getExternalReferences <em>External References</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,17 +58,17 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
      * @generated
      * @ordered
      */
-    protected EList<Enumeration> enumerations;
+    protected EList<EnumerationDto> enumerations;
 
     /**
-     * The cached value of the '{@link #getBusinessClasses() <em>Business Classes</em>}' containment reference list.
+     * The cached value of the '{@link #getExternalReferences() <em>External References</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getBusinessClasses()
+     * @see #getExternalReferences()
      * @generated
      * @ordered
      */
-    protected EList<BusinessClassReference> businessClasses;
+    protected EList<ExternalReference> externalReferences;
 
     /**
      * <!-- begin-user-doc -->
@@ -107,9 +106,9 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Enumeration> getEnumerations() {
+    public EList<EnumerationDto> getEnumerations() {
         if (enumerations == null) {
-            enumerations = new EObjectContainmentEList<Enumeration>(Enumeration.class, this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS);
+            enumerations = new EObjectContainmentWithInverseEList<EnumerationDto>(EnumerationDto.class, this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS, DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL);
         }
         return enumerations;
     }
@@ -119,11 +118,11 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<BusinessClassReference> getBusinessClasses() {
-        if (businessClasses == null) {
-            businessClasses = new EObjectContainmentWithInverseEList<BusinessClassReference>(BusinessClassReference.class, this, DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES, DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL);
+    public EList<ExternalReference> getExternalReferences() {
+        if (externalReferences == null) {
+            externalReferences = new EObjectContainmentWithInverseEList<ExternalReference>(ExternalReference.class, this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL);
         }
-        return businessClasses;
+        return externalReferences;
     }
 
     /**
@@ -137,8 +136,10 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
         switch (featureID) {
             case DataContractDslPackage.DATA_CONTRACT_MODEL__DTOS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getDtos()).basicAdd(otherEnd, msgs);
-            case DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getBusinessClasses()).basicAdd(otherEnd, msgs);
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnumerations()).basicAdd(otherEnd, msgs);
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getExternalReferences()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -155,8 +156,8 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
                 return ((InternalEList<?>)getDtos()).basicRemove(otherEnd, msgs);
             case DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS:
                 return ((InternalEList<?>)getEnumerations()).basicRemove(otherEnd, msgs);
-            case DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES:
-                return ((InternalEList<?>)getBusinessClasses()).basicRemove(otherEnd, msgs);
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES:
+                return ((InternalEList<?>)getExternalReferences()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -173,8 +174,8 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
                 return getDtos();
             case DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS:
                 return getEnumerations();
-            case DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES:
-                return getBusinessClasses();
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES:
+                return getExternalReferences();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -194,11 +195,11 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
                 return;
             case DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS:
                 getEnumerations().clear();
-                getEnumerations().addAll((Collection<? extends Enumeration>)newValue);
+                getEnumerations().addAll((Collection<? extends EnumerationDto>)newValue);
                 return;
-            case DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES:
-                getBusinessClasses().clear();
-                getBusinessClasses().addAll((Collection<? extends BusinessClassReference>)newValue);
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES:
+                getExternalReferences().clear();
+                getExternalReferences().addAll((Collection<? extends ExternalReference>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -218,8 +219,8 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
             case DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS:
                 getEnumerations().clear();
                 return;
-            case DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES:
-                getBusinessClasses().clear();
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES:
+                getExternalReferences().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -237,8 +238,8 @@ public class DataContractModelImpl extends ModelElementImpl implements DataContr
                 return dtos != null && !dtos.isEmpty();
             case DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS:
                 return enumerations != null && !enumerations.isEmpty();
-            case DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES:
-                return businessClasses != null && !businessClasses.isEmpty();
+            case DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES:
+                return externalReferences != null && !externalReferences.isEmpty();
         }
         return super.eIsSet(featureID);
     }

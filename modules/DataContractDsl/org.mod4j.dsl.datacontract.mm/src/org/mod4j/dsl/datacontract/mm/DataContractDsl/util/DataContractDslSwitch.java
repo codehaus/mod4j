@@ -158,16 +158,17 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.ENUMERATION: {
-                Enumeration enumeration = (Enumeration)theEObject;
-                T result = caseEnumeration(enumeration);
-                if (result == null) result = caseModelElement(enumeration);
+            case DataContractDslPackage.ENUMERATION_DTO: {
+                EnumerationDto enumerationDto = (EnumerationDto)theEObject;
+                T result = caseEnumerationDto(enumerationDto);
+                if (result == null) result = caseModelElement(enumerationDto);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.ENUMERATION_LITERAL: {
-                EnumerationLiteral enumerationLiteral = (EnumerationLiteral)theEObject;
-                T result = caseEnumerationLiteral(enumerationLiteral);
+            case DataContractDslPackage.ENUMERATION_DTO_LITERAL: {
+                EnumerationDtoLiteral enumerationDtoLiteral = (EnumerationDtoLiteral)theEObject;
+                T result = caseEnumerationDtoLiteral(enumerationDtoLiteral);
+                if (result == null) result = caseModelElement(enumerationDtoLiteral);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -182,13 +183,6 @@ public class DataContractDslSwitch<T> {
                 T result = caseCustomDto(customDto);
                 if (result == null) result = caseDto(customDto);
                 if (result == null) result = caseModelElement(customDto);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE: {
-                BusinessClassReference businessClassReference = (BusinessClassReference)theEObject;
-                T result = caseBusinessClassReference(businessClassReference);
-                if (result == null) result = caseModelElement(businessClassReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -247,6 +241,13 @@ public class DataContractDslSwitch<T> {
                 T result = caseDtoAssociationRoleProperty(dtoAssociationRoleProperty);
                 if (result == null) result = caseDtoProperty(dtoAssociationRoleProperty);
                 if (result == null) result = caseModelElement(dtoAssociationRoleProperty);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case DataContractDslPackage.EXTERNAL_REFERENCE: {
+                ExternalReference externalReference = (ExternalReference)theEObject;
+                T result = caseExternalReference(externalReference);
+                if (result == null) result = caseModelElement(externalReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -390,32 +391,32 @@ public class DataContractDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Enumeration Dto</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enumeration</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enumeration Dto</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEnumeration(Enumeration object) {
+    public T caseEnumerationDto(EnumerationDto object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Enumeration Literal</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Enumeration Dto Literal</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enumeration Literal</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enumeration Dto Literal</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEnumerationLiteral(EnumerationLiteral object) {
+    public T caseEnumerationDtoLiteral(EnumerationDtoLiteral object) {
         return null;
     }
 
@@ -446,21 +447,6 @@ public class DataContractDslSwitch<T> {
      * @generated
      */
     public T caseCustomDto(CustomDto object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Business Class Reference</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Business Class Reference</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseBusinessClassReference(BusinessClassReference object) {
         return null;
     }
 
@@ -566,6 +552,21 @@ public class DataContractDslSwitch<T> {
      * @generated
      */
     public T caseDtoAssociationRoleProperty(DtoAssociationRoleProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>External Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>External Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExternalReference(ExternalReference object) {
         return null;
     }
 

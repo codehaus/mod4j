@@ -9,44 +9,53 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDtoLiteral;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dto Association Role Property</b></em>'.
+ * An implementation of the model object '<em><b>Enumeration Dto Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl#getDtoType <em>Dto Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoLiteralImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements DtoAssociationRoleProperty {
+public class EnumerationDtoLiteralImpl extends ModelElementImpl implements EnumerationDtoLiteral {
     /**
-     * The cached value of the '{@link #getDtoType() <em>Dto Type</em>}' reference.
+     * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDtoType()
+     * @see #getValue()
      * @generated
      * @ordered
      */
-    protected Dto dtoType;
+    protected static final int VALUE_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getValue()
+     * @generated
+     * @ordered
+     */
+    protected int value = VALUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DtoAssociationRolePropertyImpl() {
+    protected EnumerationDtoLiteralImpl() {
         super();
     }
 
@@ -57,7 +66,7 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
      */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.DTO_ASSOCIATION_ROLE_PROPERTY;
+        return DataContractDslPackage.Literals.ENUMERATION_DTO_LITERAL;
     }
 
     /**
@@ -65,16 +74,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dto getDtoType() {
-        if (dtoType != null && dtoType.eIsProxy()) {
-            InternalEObject oldDtoType = (InternalEObject)dtoType;
-            dtoType = (Dto)eResolveProxy(oldDtoType);
-            if (dtoType != oldDtoType) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE, oldDtoType, dtoType));
-            }
-        }
-        return dtoType;
+    public int getValue() {
+        return value;
     }
 
     /**
@@ -82,20 +83,11 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dto basicGetDtoType() {
-        return dtoType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setDtoType(Dto newDtoType) {
-        Dto oldDtoType = dtoType;
-        dtoType = newDtoType;
+    public void setValue(int newValue) {
+        int oldValue = value;
+        value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE, oldDtoType, dtoType));
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE, oldValue, value));
     }
 
     /**
@@ -106,9 +98,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE:
-                if (resolve) return getDtoType();
-                return basicGetDtoType();
+            case DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE:
+                return new Integer(getValue());
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -121,8 +112,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE:
-                setDtoType((Dto)newValue);
+            case DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE:
+                setValue(((Integer)newValue).intValue());
                 return;
         }
         super.eSet(featureID, newValue);
@@ -136,8 +127,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE:
-                setDtoType((Dto)null);
+            case DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE:
+                setValue(VALUE_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -151,10 +142,26 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__DTO_TYPE:
-                return dtoType != null;
+            case DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE:
+                return value != VALUE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
-} //DtoAssociationRolePropertyImpl
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (value: ");
+        result.append(value);
+        result.append(')');
+        return result.toString();
+    }
+
+} //EnumerationDtoLiteralImpl

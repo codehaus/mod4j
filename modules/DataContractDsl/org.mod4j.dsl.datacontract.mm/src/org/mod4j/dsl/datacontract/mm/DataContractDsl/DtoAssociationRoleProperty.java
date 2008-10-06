@@ -24,7 +24,6 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  * @generated
  */
 public interface DtoAssociationRoleProperty extends DtoProperty {
-
     /**
      * Returns the value of the '<em><b>Dto Type</b></em>' reference.
      * <!-- begin-user-doc -->
@@ -50,4 +49,5 @@ public interface DtoAssociationRoleProperty extends DtoProperty {
      * @generated
      */
     void setDtoType(Dto value);
+
 } // DtoAssociationRoleProperty

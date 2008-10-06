@@ -33,12 +33,12 @@ public interface DtoEnumerationProperty extends DtoDataProperty {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Type</em>' reference.
-     * @see #setType(Enumeration)
+     * @see #setType(EnumerationDto)
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoEnumerationProperty_Type()
      * @model
      * @generated
      */
-    Enumeration getType();
+    EnumerationDto getType();
 
     /**
      * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getType <em>Type</em>}' reference.
@@ -48,6 +48,6 @@ public interface DtoEnumerationProperty extends DtoDataProperty {
      * @see #getType()
      * @generated
      */
-    void setType(Enumeration value);
+    void setType(EnumerationDto value);
 
 } // DtoEnumerationProperty

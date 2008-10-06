@@ -16,25 +16,25 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Business Class Reference</b></em>'.
+ * An implementation of the model object '<em><b>External Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassReferenceImpl#getModelname <em>Modelname</em>}</li>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassReferenceImpl#getDatacontractModel <em>Datacontract Model</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl#getModelname <em>Modelname</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl#getDatacontractModel <em>Datacontract Model</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BusinessClassReferenceImpl extends ModelElementImpl implements BusinessClassReference {
+public class ExternalReferenceImpl extends ModelElementImpl implements ExternalReference {
     /**
      * The default value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BusinessClassReferenceImpl() {
+    protected ExternalReferenceImpl() {
         super();
     }
 
@@ -71,7 +71,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
      */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.BUSINESS_CLASS_REFERENCE;
+        return DataContractDslPackage.Literals.EXTERNAL_REFERENCE;
     }
 
     /**
@@ -92,7 +92,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
         String oldModelname = modelname;
         modelname = newModelname;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.BUSINESS_CLASS_REFERENCE__MODELNAME, oldModelname, modelname));
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME, oldModelname, modelname));
     }
 
     /**
@@ -101,7 +101,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
      * @generated
      */
     public DataContractModel getDatacontractModel() {
-        if (eContainerFeatureID != DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL) return null;
+        if (eContainerFeatureID != DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL) return null;
         return (DataContractModel)eContainer();
     }
 
@@ -111,7 +111,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
      * @generated
      */
     public NotificationChain basicSetDatacontractModel(DataContractModel newDatacontractModel, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL, msgs);
+        msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL, msgs);
         return msgs;
     }
 
@@ -121,19 +121,19 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
      * @generated
      */
     public void setDatacontractModel(DataContractModel newDatacontractModel) {
-        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL && newDatacontractModel != null)) {
+        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL && newDatacontractModel != null)) {
             if (EcoreUtil.isAncestor(this, newDatacontractModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newDatacontractModel != null)
-                msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES, DataContractModel.class, msgs);
+                msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractModel.class, msgs);
             msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
     }
 
     /**
@@ -144,7 +144,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
                 return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
@@ -160,7 +160,7 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 return basicSetDatacontractModel(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -174,8 +174,8 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
-                return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__BUSINESS_CLASSES, DataContractModel.class, msgs);
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+                return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractModel.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -188,9 +188,9 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__MODELNAME:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
                 return getModelname();
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 return getDatacontractModel();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -204,10 +204,10 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__MODELNAME:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
                 setModelname((String)newValue);
                 return;
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 setDatacontractModel((DataContractModel)newValue);
                 return;
         }
@@ -222,10 +222,10 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__MODELNAME:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
                 setModelname(MODELNAME_EDEFAULT);
                 return;
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 setDatacontractModel((DataContractModel)null);
                 return;
         }
@@ -240,9 +240,9 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__MODELNAME:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
                 return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
-            case DataContractDslPackage.BUSINESS_CLASS_REFERENCE__DATACONTRACT_MODEL:
+            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
                 return getDatacontractModel() != null;
         }
         return super.eIsSet(featureID);
@@ -264,4 +264,4 @@ public class BusinessClassReferenceImpl extends ModelElementImpl implements Busi
         return result.toString();
     }
 
-} //BusinessClassReferenceImpl
+} //ExternalReferenceImpl
