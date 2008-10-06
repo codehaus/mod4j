@@ -19,8 +19,8 @@ public class Mod4jWorkflowRunner {
     /**
      * General workflow runner. 
      * 
-     * @param wfFile
-     * @param properties
+     * @param wfFile URL-string of the workflow file to execute
+     * @param properties Map containing the properties for <code>wfFile</code>.
      * @throws Mod4jWorkflowException
      */
     public void runWorkflow(final String wfFile, final Map<String, String> properties) throws Mod4jWorkflowException {
