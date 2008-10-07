@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.openarchitectureware</groupId>
             <artifactId>oaw-util-stdlib</artifactId>
-            <version>4.3.0</version>
+            <version>${oaw.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -90,15 +90,16 @@
             <version>2.0.9</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-plugin-plugin</artifactId>
-            <version>2.4.2</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.maven.shared</groupId>
             <artifactId>maven-plugin-testing-harness</artifactId>
             <version>1.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-plugin-plugin</artifactId>
+        	<version>2.4.3</version>
+        	<optional>false</optional>
         </dependency>
     </dependencies>
     <reporting>
