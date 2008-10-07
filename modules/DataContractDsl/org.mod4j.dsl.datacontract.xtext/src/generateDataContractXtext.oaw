@@ -6,9 +6,10 @@
    		<registerEcoreFile value="platform:/resource/org.mod4j.dsl.datacontract.mm/model/DataContractDsl.ecore"/>
   -->
    </bean>
-    <bean class="org.mod4j.dsl.datacontract.xtext.MetaModelRegistration"/>
     <bean id="dcm" class="oaw.type.emf.EmfMetaModel">
 		<metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />  
 	</bean>
-   <component file='org/openarchitectureware/xtext/Generator.oaw' inheritAll='true'/>
+   <component file='org/openarchitectureware/xtext/Generator.oaw' inheritAll='true'>
+           <metaModel idRef="dcm" />
+   </component>
 </workflow>
