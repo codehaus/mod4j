@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
+
 public class FileTracker {
 
     static private FileTracker fileTracker = null;
@@ -52,14 +54,42 @@ public class FileTracker {
 
     static public String generate(String filename) {
         getFileTracker().current.generatedFile(filename);
-//        System.err.println("        FileTracker generate [" + filename + "]");
         return filename;
+    }
+
+    /**
+     * The file 'filename' is to be generated within 'moduleName'. the name of the resulting file
+     * will be returned and stored in the file tracker.
+     * 
+     * @param moduleName
+     * @param filename
+     * @return
+     */
+    static public String generate(String moduleName, String filename) {
+        String result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
+        getFileTracker().current.generatedFile(result);
+        return result;
     }
 
     static public String extend(String filename) {
         getFileTracker().current.extensionFile(filename);
-//        System.err.println("        FileTracker extension [" + filename + "]");
         return filename;
+    }
+
+    static public String fullExtendPath(String moduleName, String filename) {
+        String result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        return ProjectProperties.getApplicationPath() + "/" + result;
+    }
+
+    static public String fullGeneratePath(String moduleName, String filename) {
+        String result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
+        return ProjectProperties.getApplicationPath() + "/" + result;
+    }
+
+    static public String extend(String moduleName, String filename) {
+        String result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        getFileTracker().current.extensionFile(result);
+        return result;
     }
 
     public List<String> getExtensionFiles(String resource) {

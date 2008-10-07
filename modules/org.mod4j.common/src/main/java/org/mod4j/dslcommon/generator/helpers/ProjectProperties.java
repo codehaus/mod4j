@@ -148,6 +148,10 @@ public class ProjectProperties {
         return serviceModuleName;
     }
 
+    public static String getServiceModulePath() {
+        return getApplicationPath() + "/" + getServiceModuleName();
+    }
+
     public static String getDataModulePath() {
         return getApplicationPath() + "/" + getDataModuleName();
     }
@@ -166,6 +170,10 @@ public class ProjectProperties {
 
     public static String getServiceRootPackage() {
         return serviceRootPackage;
+    }
+
+    public static String getServiceRootPackageAsPath() {
+        return getServiceRootPackage().replaceAll("\\.", "/");
     }
 
     public static String getDomainRootPackage() {

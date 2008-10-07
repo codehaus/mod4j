@@ -71,3 +71,6 @@ String javaTranslatorClass(String model) : JAVA
 String javaTranslatorClassPath(String model) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaTranslatorClassPath(java.lang.String);
 
+String javaPrimitiveType(String typename) : JAVA
+  org.mod4j.dslcommon.generator.helpers.JavaTypeHelpers.javaPrimitiveType(java.lang.String);
+

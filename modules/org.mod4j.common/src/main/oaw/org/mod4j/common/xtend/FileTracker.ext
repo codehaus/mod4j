@@ -4,3 +4,15 @@ String generate(String filename) :
 String extend(String filename) :
  JAVA org.mod4j.common.generator.admin.FileTracker.extend(java.lang.String);
  
+String generate(String moduleName, String filename) :
+ JAVA org.mod4j.common.generator.admin.FileTracker.generate(java.lang.String, java.lang.String);
+
+String extend(String moduleName, String filename) :
+ JAVA org.mod4j.common.generator.admin.FileTracker.extend(java.lang.String, java.lang.String);
+  
+String fullExtendPath(String moduleName, String filename) :
+ JAVA org.mod4j.common.generator.admin.FileTracker.fullExtendPath(java.lang.String, java.lang.String);
+  
+String fullGeneratePath(String moduleName, String filename) :
+ JAVA org.mod4j.common.generator.admin.FileTracker.fullGeneratePath(java.lang.String, java.lang.String);
+  
