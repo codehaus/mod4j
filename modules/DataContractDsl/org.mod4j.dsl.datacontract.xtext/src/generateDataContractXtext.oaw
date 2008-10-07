@@ -2,7 +2,12 @@
    <property file='generateDataContractXtext.properties'/>
    <bean class="org.eclipse.mwe.emf.StandaloneSetup">
 	   	<platformUri value=".."/>
+<!--
    		<registerEcoreFile value="platform:/resource/org.mod4j.dsl.datacontract.mm/model/DataContractDsl.ecore"/>
+  -->
    </bean>
+    <bean id="dcm" class="oaw.type.emf.EmfMetaModel">
+		<metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />  
+	</bean>
    <component file='org/openarchitectureware/xtext/Generator.oaw' inheritAll='true'/>
 </workflow>
