@@ -101,7 +101,7 @@ public class PropertyValidationTest {
      * length of the username of a Customer must be between 3 or 10 characters. A BusinessRuleException must be thrown
      * if we try set a value before this range.
      */
-    //@Test TODO implement this test
+    //TODO @Test
     public void testDecimalPropertyMinValueValidation() {
         Record record = new Record("Saterdaynight", 24.95F);
         
