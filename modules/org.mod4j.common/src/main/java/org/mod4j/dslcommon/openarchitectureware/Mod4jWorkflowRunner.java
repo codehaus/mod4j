@@ -19,7 +19,7 @@ public class Mod4jWorkflowRunner {
     /**
      * General workflow runner. 
      * 
-     * @param wfFile URL-string of the workflow file to execute
+     * @param wfFile absolute path string of the workflow file to execute
      * @param properties Map containing the properties for <code>wfFile</code>.
      * @throws Mod4jWorkflowException
      */
