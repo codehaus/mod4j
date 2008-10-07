@@ -97,7 +97,7 @@
     <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDaoExtensions FOR busModel" />
-        <outlet path="${applicationPath}/${dataModuleName}/${srcManPath}/">
+        <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
