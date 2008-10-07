@@ -18,7 +18,7 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>org.mod4j.maven</groupId>
+                <groupId>org.mod4j</groupId>
                 <artifactId>mod4j-maven-plugin</artifactId>
                 <version>${mod4j.version}</version>
                 <executions>
