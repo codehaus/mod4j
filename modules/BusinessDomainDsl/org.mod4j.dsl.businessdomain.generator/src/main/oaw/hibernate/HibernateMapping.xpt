@@ -6,6 +6,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE header FOR BusinessDomainDsl::BusinessClass»
 <?xml version="1.0"?>
@@ -16,7 +17,7 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::BusinessClass»
-«FILE generate(javaClassName(this.name) + ".hbm.xml")»
+«FILE generate(getDataModuleName(), hibernateMappingFile(this.name) )»
 «EXPAND header FOR this»
 
 <!-- Mapping for class «this.name»

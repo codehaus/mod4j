@@ -71,9 +71,9 @@
     -->  
      <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-       <metaModel idRef="crossx"/>
+        <metaModel idRef="crossx"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genResources FOR busModel" />
-        <outlet path="${applicationPath}/${dataModuleName}/${resourceGenPath}">
+        <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>

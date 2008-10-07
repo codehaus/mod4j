@@ -4,11 +4,11 @@
 «EXTENSION BusinessClass»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
-«LET generate(getApplicationName() + "DataLaagContext.xml") AS filename-»
-«FILE filename-»
+«FILE generate( getDataModuleName(), getApplicationName() + "DataLaagContext.xml")-»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()» by Mod4j --> 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -118,5 +118,4 @@
 
 </beans>
 «ENDFILE»
-«ENDLET»
 «ENDDEFINE»
