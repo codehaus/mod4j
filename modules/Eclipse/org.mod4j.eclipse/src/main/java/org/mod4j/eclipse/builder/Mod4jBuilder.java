@@ -436,8 +436,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             try {
                 genWf.runWorkflow(genName, properties);
             } catch (Mod4jWorkflowException e) {
-                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName()
-                        + "]");
+                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + 
+                        resource.getName() + "] error: [" + e.getMessage() + "]");
+                EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model [" + 
+                        resource.getName() + "] \nerror: [" + e.getMessage() + "]");
             }
         }
     }
