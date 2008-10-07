@@ -32,12 +32,12 @@
         <checkFile value="org::mod4j::dsl::service::xtext::GenChecks" />
         <emfAllChildrenSlot value="serviceModel" />
     </component>
-    <component id="ServiceWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+    <component id="ServiceWorkflow-ModelChecks1" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="sm" />
         <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
         <emfAllChildrenSlot value="serviceModel" />
     </component>
-    <component id="ServiceWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+    <component id="ServiceWorkflow-ModelChecks2" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="sm" />
         <metaModel idRef="crossx" />
         <checkFile value="org::mod4j::dsl::service::validation::checks::CrossxChecks" />
@@ -72,7 +72,7 @@
         <metaModel idRef="sm" />
        <metaModel idRef="crossx"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::ServiceLayer::Generate FOR serviceModel" />
-        <outlet path="${applicationPath}/${serviceModuleName}/${srcGenPath}/">
+        <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>

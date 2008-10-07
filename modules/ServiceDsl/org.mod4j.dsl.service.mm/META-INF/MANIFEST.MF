@@ -13,5 +13,6 @@ Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.mod4j.crossx.broker;bundle-version="0.10.0",
- org.mod4j.crossx.mm;bundle-version="0.10.0"
+ org.mod4j.crossx.mm;bundle-version="0.10.0",
+ org.mod4j.common;bundle-version="0.1.0"
 Eclipse-LazyStart: true
