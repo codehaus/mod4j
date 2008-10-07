@@ -74,3 +74,8 @@ String javaTranslatorClassPath(String model) : JAVA
 String javaPrimitiveType(String typename) : JAVA
   org.mod4j.dslcommon.generator.helpers.JavaTypeHelpers.javaPrimitiveType(java.lang.String);
 
+String javaGenericEnumClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaGenericEnumClass();
+
+String javaGenericEnumClassPath() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaGenericEnumClassPath();

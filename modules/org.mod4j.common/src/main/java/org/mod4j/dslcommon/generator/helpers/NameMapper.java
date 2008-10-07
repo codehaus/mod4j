@@ -75,6 +75,15 @@ public class NameMapper {
         return packageName + "." + javaDaoClass(cls);
     }
 
+    public static String javaGenericEnumClass() {
+        return "GenericEnumUserType";
+    }
+
+    public static String javaGenericEnumClassPath() {
+        String packageName = ProjectProperties.getDataRootPackage();
+        return packageName + "." + javaGenericEnumClass();
+    }
+
     public static String javaDaoBaseInterface(String cls) {
         return javaDomainClass(cls) + DAO_BASE_INTERFACE_POSTFIX;
     }
