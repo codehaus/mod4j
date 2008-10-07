@@ -158,5 +158,9 @@ public class NameMapper {
         return packageName + "." + javaTranslatorClass(classname);
     }
 
+    public static String hibernateMappingFile(String classname) {
+        return javaDomainClass(classname) + ".hbm.xml";
+    }
+
 
 }

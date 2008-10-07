@@ -79,3 +79,8 @@ String javaGenericEnumClass() : JAVA
 
 String javaGenericEnumClassPath() : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaGenericEnumClassPath();
+  
+String hibernateMappingFile(String classname) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.hibernateMappingFile(java.lang.String);
+
+  

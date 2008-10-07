@@ -66,7 +66,12 @@ public class FileTracker {
      * @return
      */
     static public String generate(String moduleName, String filename) {
-        String result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
+        String result = null;
+        if( filename.endsWith(".java") ){
+            result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
+        } else {
+            result = moduleName + "/" + ProjectProperties.getResourceGenPath() + "/" + filename;
+        }
         getFileTracker().current.generatedFile(result);
         return result;
     }
@@ -87,11 +92,16 @@ public class FileTracker {
     }
 
     static public String extend(String moduleName, String filename) {
-        String result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        String result = null;
+        if( filename.endsWith(".java") ){
+            result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        } else {
+            result = moduleName + "/" + ProjectProperties.getResourceManPath() + "/" + filename;
+        }
         getFileTracker().current.extensionFile(result);
         return result;
     }
-
+    
     public List<String> getExtensionFiles(String resource) {
         return track.get(resource).getExtensionFiles();
     }
