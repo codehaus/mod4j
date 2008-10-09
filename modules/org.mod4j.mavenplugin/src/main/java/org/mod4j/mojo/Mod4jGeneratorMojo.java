@@ -30,11 +30,11 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     private MavenProject project;
 
     /**
-     * The model dir to process
+     * The model dir to process.
      * 
      */
     // TODO Make this plug-in search in all known source folders
-    private final static String MODEL_DIR = "src/model";
+    private static final String MODEL_DIR = "src/model";
 
     /**
      * The list with known DSL extensions to process.
@@ -44,8 +44,8 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      */
     private HashSet<DslExtension> dslExtensions = new HashSet<DslExtension>();
 
-    /*
-     * (non-Javadoc)
+    /**
+     * (non-Javadoc).
      * 
      * @see org.apache.maven.plugin.AbstractMojo#execute()
      */
@@ -74,10 +74,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     }
 
     /**
-     * Method for processing DSL model files. The following steps will be processed:<br/> 1) Walk through all Mod4j
-     * model files for the given <b>DslExtension</b> within the model project and extract reference information (CrossX
-     * Broker). <br/> 2) Run the directory cleaner. 3) Run the internal oAW workflow files, which checks consistency of
-     * the models and generate code and artifacts.
+     * Method for processing DslExtensions within a project. The following steps will be processed:<br/> 1) Walk through all Mod4j model
+     * files for the given <b>DslExtension</b> within the model project and extract reference information (CrossX
+     * Broker) from them. <br/> 2) Run the outlet directory cleaner to clean previously generated sources. <br/> 3) Run
+     * all workflow files in the project, which checks consistency of the models and generate the code.
      * 
      * @param projectDir
      * @param DslExtension
