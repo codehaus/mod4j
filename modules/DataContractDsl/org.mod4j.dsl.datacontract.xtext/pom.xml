@@ -1,19 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
         <version>0.11-SNAPSHOT</version>
     </parent>
-
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-datacontract-xtext</artifactId>
     <version>0.11-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the DataContractDsl xtext model.</description>
-
     <build>
         <plugins>
             <plugin>
@@ -36,8 +33,26 @@
                     </execution>
                 </executions>
             </plugin>
+<!-- 
+            <plugin>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-maven-plugin</artifactId>
+                <version>${mod4.verson}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>executeWorkflow</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <workflowDescriptor>generateDataContractXtext.oaw</workflowDescriptor>
+                </configuration>
+            </plugin>
+  -->
         </plugins>
-        <resources>
+         <resources>
             <resource>
                 <directory>src-gen</directory>
                 <includes>
@@ -58,11 +73,14 @@
             </resource>
         </resources>
     </build>
-
     <dependencies>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
             <artifactId>oaw-dependencies</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openarchitectureware</groupId>
+            <artifactId>oaw-xtext-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
@@ -83,5 +101,4 @@
             <version>0.11-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 </project>
