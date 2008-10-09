@@ -34,6 +34,7 @@
                 </executions>
             </plugin>
 <!-- 
+TODO Uncomment when OAW issue is solved. See: http://www.openarchitectureware.org/forum/viewtopic.php?showtopic=10209&lastpost=true#10278
             <plugin>
                 <groupId>org.mod4j</groupId>
                 <artifactId>mod4j-maven-plugin</artifactId>
