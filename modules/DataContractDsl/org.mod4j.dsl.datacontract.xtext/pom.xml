@@ -81,10 +81,6 @@ TODO Uncomment when OAW issue is solved. See: http://www.openarchitectureware.or
         </dependency>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
-            <artifactId>oaw-xtext-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.openarchitectureware</groupId>
             <artifactId>oaw-xtext-core-base</artifactId>
         </dependency>
         <dependency>
