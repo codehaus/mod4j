@@ -8,11 +8,11 @@
     import java.util.Collections;
     import java.util.Set;
     import java.util.HashSet;
-    import org.mod4j.common.validation.MinValueValidator;
-    import org.mod4j.common.validation.MaxValueValidator;
-    import org.mod4j.common.validation.MinLengthValidator;
-    import org.mod4j.common.validation.MaxLengthValidator;
-    import org.mod4j.common.validation.RegExpValidator;
+    import org.mod4j.runtime.validation.MinValueValidator;
+    import org.mod4j.runtime.validation.MaxValueValidator;
+    import org.mod4j.runtime.validation.MinLengthValidator;
+    import org.mod4j.runtime.validation.MaxLengthValidator;
+    import org.mod4j.runtime.validation.RegExpValidator;
 «ENDDEFINE»
 
 «DEFINE addImports FOR BusinessRule»
@@ -32,6 +32,6 @@
 «ENDDEFINE»
 
 «DEFINE addTopLevelClassImports FOR BusinessClass»
-    import org.mod4j.common.validation.BusinessRuleValidationSupport;
+    import org.mod4j.runtime.validation.BusinessRuleValidationSupport;
 «ENDDEFINE»
 

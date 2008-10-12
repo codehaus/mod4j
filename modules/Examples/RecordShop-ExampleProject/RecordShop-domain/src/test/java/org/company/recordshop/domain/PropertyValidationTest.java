@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.mod4j.common.exception.BusinessRuleException;
+import org.mod4j.runtime.exception.BusinessRuleException;
 
 /**
  * @author Johan Vogelzang

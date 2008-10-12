@@ -6,19 +6,19 @@
 	   http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
 	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop">
 
-	<bean id="timingAspect"  class = "org.mod4j.common.aspects.TimingAspect">
+	<bean id="timingAspect"  class = "org.mod4j.runtime.aspects.TimingAspect">
 		<property name="order" value="10"/>
 	</bean>
-	<bean id="loggingAspect"  class = "org.mod4j.common.aspects.LoggingAspect">
+	<bean id="loggingAspect"  class = "org.mod4j.runtime.aspects.LoggingAspect">
 		<property name="order" value="20"/>
 	</bean>
 
 <!--  JMX - management extentions wiring -->
-    <bean id="log4jMBean" class="org.mod4j.common.jmx.Log4j"/>
+    <bean id="log4jMBean" class="org.mod4j.runtime.jmx.Log4j"/>
     <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter">
     	<property name="beans">
     		<map>
-    			<entry key="org.mod4j.common.jmx:name=Log4J" value-ref="log4jMBean"/>
+    			<entry key="org.mod4j.runtime.jmx:name=Log4J" value-ref="log4jMBean"/>
     		</map>
     	</property>
     	<!--  registration should replace the affected MBean when attempting to register an MBean under a name that already exists. -->
