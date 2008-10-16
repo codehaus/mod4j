@@ -63,7 +63,7 @@
         public abstract class «javaDomainBaseClass(name)» «IF superclass != null -»extends «javaDomainClass(superclass.name)» «ENDIF»implements java.io.Serializable {
             
             «IF superclass == null »
-                protected BusinessRuleValidationSupport validation = new BusinessRuleValidationSupport(this);
+                «EXPAND ValidationSupport::addValidationInstance FOR this»
                 «EXPAND Attributes::addIdAttribute FOR this»	
                 «EXPAND Attributes::addIdAccessors FOR this»
             «ENDIF»
@@ -76,6 +76,7 @@
             «EXPAND Constructors::addMinimalConstructor FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
+ 			«EXPAND ValidationSupport::addValidationSwithces FOR this»
         }
 	«ENDFILE»
 «ENDDEFINE»
