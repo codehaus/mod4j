@@ -1,0 +1,47 @@
+«IMPORT DataContractDsl»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+
+«DEFINE createEnumDto FOR EnumerationDto»
+
+   «FILE generate(javaPathFileName(getDtoPackage(), javaClassName(name)))»
+        
+        package «getDtoPackage()»;
+        
+        «EXPAND Imports::addImports FOR this»
+                
+       /**
+        * «description»
+        *
+        * Generated at: «timestamp()»
+        */
+       public enum «name» {
+        
+            «FOREACH literals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
+                «enumlit.name.toUpperCase()»(«enumlit.value»)
+            «ENDFOREACH»;
+            
+            private static final Map<Integer, «name»> lookup = new HashMap<Integer, «name»>();
+            static {
+                for(«name» s : EnumSet.allOf(«name».class))
+                   lookup.put(s.id(), s);
+            }
+
+            private Integer id;
+            
+            private «name»(Integer id) {
+                this.id = id;
+            }
+            
+            public Integer id() {
+                return id;
+            }
+            
+            public static «name» value(Integer id) {
+                return lookup.get(id); 
+            }                  
+        }
+    «ENDFILE»
+«ENDDEFINE»

@@ -13,3 +13,9 @@
 «DEFINE addImports FOR DtoDateTimeProperty»
     import org.joda.time.DateTime;
 «ENDDEFINE»
+
+«DEFINE addImports FOR EnumerationDto»
+    import java.util.EnumSet;
+    import java.util.HashMap;
+    import java.util.Map;
+«ENDDEFINE»
