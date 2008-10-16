@@ -14,6 +14,17 @@ import org.springframework.validation.Validator;
  * @author Eric Jan Malotaux
  */
 public class BusinessRuleValidationSupport {
+    
+    private boolean active = true;
+    
+    public boolean isActive() {
+        return this.active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     /**
      * 
      */
@@ -41,7 +52,7 @@ public class BusinessRuleValidationSupport {
     /**
      * Validate this object.
      * 
-     * Validation is performed by calling every {@link Validator} added by the {@link #addValidator(Validator)} method,
+     * If active, validation is performed by calling every {@link Validator} added by the {@link #addValidator(Validator)} method,
      * in the order they were added.
      * 
      * @throws BusinessRuleException -
@@ -49,6 +60,9 @@ public class BusinessRuleValidationSupport {
      *             {@link BindException} containing information on all errors found.
      */
     public void validate() throws BusinessRuleException {
-        validationTemplate.invokeValidators(validators);
+        
+        if (isActive()) {
+            validationTemplate.invokeValidators(validators);    
+        }
     }
 }
