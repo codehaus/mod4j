@@ -217,20 +217,12 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         // Demand load the resource for this file.
         Resource emfResource = resourceSet.getResource(fileURI, true);
         EList<EObject> tmp = emfResource.getContents();
-        System.err.println("Size of EMF contents is " + tmp.size() + " for [" + resource.getName() + "]");
         if( ! tmp.isEmpty() ) {
             EObject first = tmp.get(0);
-            System.err.println("Type of EMF contents is [" + first.getClass().getName() + "]");
             return (ModelInfo) first;
         }
         return null;
 
-        // Print the contents of the resource to System.out.
-//        try
-//        {
-//          emfResource.save(System.out, Collections.EMPTY_MAP);
-//        }
-//        catch (IOException e) {}    
     }
 
     /*
