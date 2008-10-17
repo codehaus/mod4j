@@ -3,6 +3,8 @@ package org.mod4j.eclipse.util;
 import java.io.File;
 import java.net.URL;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -19,11 +21,15 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
+import org.eclipse.ui.ide.IDE;
 import org.osgi.framework.Bundle;
 
 public class EclipseUtil {
@@ -88,7 +94,7 @@ public class EclipseUtil {
      */
     static public IPath getPath(String bundlename, String pathname) {
         String myPathname = null;
-        if (Platform.inDevelopmentMode()) {
+        if (Platform.inDevelopmentMode() && ( ! bundlename.equals("org.mod4j.eclipse"))) {
             myPathname = "src/main/oaw/" + pathname;
         } else {
             myPathname = pathname;
@@ -111,6 +117,34 @@ public class EclipseUtil {
             return null;
         }
         return result;
+    }
+
+    static public URL getURL(String bundlename, String pathname) {
+        String myPathname = null;
+        if (Platform.inDevelopmentMode() && ( ! bundlename.equals("org.mod4j.eclipse"))) {
+            myPathname = "src/main/oaw/" + pathname;
+        } else {
+            myPathname = pathname;
+        }
+        System.err.println("EclipseUtil.getURL(" + bundlename + ", " + myPathname + ")");
+        IPath result = null;
+        URL installURL = null;
+        try {
+            System.err.println("dev mode : " + Platform.inDevelopmentMode());
+
+            installURL = Platform.getBundle(bundlename).getEntry("/" + myPathname);
+            System.err.println("installURL [" + installURL.toString() + "]");
+
+            URL fromLocation = FileLocator.toFileURL(installURL);
+            System.err.println("fromLocation [" + fromLocation.toString() + "]");
+
+            result = new Path(fromLocation.getPath());
+        } catch (Exception e) {
+            System.err.println("EclipseUtils.getPath [" + e.getMessage() + "]");
+            e.printStackTrace(System.err);
+            return null;
+        }
+        return installURL;
     }
 
     /**
@@ -243,5 +277,29 @@ public class EclipseUtil {
         }
         return result;
     }
+    
+    /**
+     *  Open the default EWcliopse editor on the file named 'filename'
+     *  Code from Eclipse Wiki: http://wiki.eclipse.org/FAQ_How_do_I_open_an_editor_programmatically%3F
+     * @param filename
+     */
+    public static void openFile(String filename){
+        
+        File fileToOpen = new File(filename);
+         
+        if (fileToOpen.exists() && fileToOpen.isFile()) {
+            IFileStore fileStore = EFS.getLocalFileSystem().getStore(fileToOpen.toURI());
+            IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+         
+            try {
+                IDE.openEditorOnFileStore( page, fileStore );
+            } catch ( PartInitException e ) {
+                //Put your exception handler here if you wish to
+            }
+        } else {
+            EclipseUtil.showWarning("Cannot find file ["+ filename  + "]");
+        }
+    }
+
 
 }
