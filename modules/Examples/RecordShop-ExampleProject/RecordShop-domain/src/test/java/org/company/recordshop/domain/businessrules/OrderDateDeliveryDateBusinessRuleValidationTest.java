@@ -50,13 +50,13 @@ public class OrderDateDeliveryDateBusinessRuleValidationTest {
         Order order = new Order("123456789");
 
         try {
-            order.deActivateValidation();
+            order.activateValidation(false);
             
             order.setDeliveryDateTime(new DateTime(1));
             order.setOrderDate(new DateTime(2));
             assertTrue(true);
             
-            order.activateValidation();
+            order.activateValidation(true);
             fail("A BusinessRuleException should be thrown!");
         
         } catch (BusinessRuleException e) {

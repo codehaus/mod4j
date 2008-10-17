@@ -76,7 +76,7 @@
             «EXPAND Constructors::addMinimalConstructor FOR this»
  			«EXPAND Attributes::addGetter FOREACH properties»
  			«EXPAND Attributes::addSetter FOREACH properties»
- 			«EXPAND ValidationSupport::addValidationSwithces FOR this»
+ 			«EXPAND ValidationSupport::addValidationSwitch FOR this»
         }
 	«ENDFILE»
 «ENDDEFINE»

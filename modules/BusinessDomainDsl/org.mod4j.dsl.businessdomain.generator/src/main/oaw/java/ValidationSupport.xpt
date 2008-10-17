@@ -10,21 +10,18 @@
     protected BusinessRuleValidationSupport validation = new BusinessRuleValidationSupport(this);
 «ENDDEFINE»
 
-«DEFINE addValidationSwithces FOR BusinessClass»
+«DEFINE addValidationSwitch FOR BusinessClass»
     /**
-     * Switch on validation for this business class and validate.
+     * Activate/deactivate validation for this business class.
+     * When set to active the validation will immediately be executed.
      * 
+     * @param value (boolean) 
      */
-     public void activateValidation() {
-        this.validation.setActive(true);
-        validation.validate();
-     }
-    
-    /**
-     * Switch off validation for this business class.
-     * 
-     */
-     public void deActivateValidation() {
-        this.validation.setActive(false);
+     public void activateValidation(boolean value) {
+        
+        this.validation.setActive(value);
+        if (value) {
+            validation.validate();
+        }
      }
 «ENDDEFINE»
