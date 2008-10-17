@@ -64,6 +64,15 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 
     public static final String DSL_EXTENSION_ID = CrossxBuilder.bundleName + ".dsl";
 
+    public static void initCrossx() {
+        if( !CrossxEnvironment.isStarted() ) {
+            CrossxBuilder b = new CrossxBuilder ();
+            b.startX();
+            CrossxEnvironment.setStarted(true);
+        }
+    }
+
+
     /**
      * Visitor that reads all .crossx files to get already defined symbols
      * 
