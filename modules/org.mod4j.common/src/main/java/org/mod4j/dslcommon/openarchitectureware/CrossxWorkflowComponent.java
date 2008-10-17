@@ -10,23 +10,12 @@
  *******************************************************************************/
 package org.mod4j.dslcommon.openarchitectureware;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+import org.mod4j.crossx.broker.CrossxEnvironment;
+import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.openarchitectureware.workflow.WorkflowContext;
 import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.lib.WorkflowComponentWithModelSlot;
 import org.openarchitectureware.workflow.monitor.ProgressMonitor;
-
-import org.mod4j.crossx.broker.CrossxBroker;
-import org.mod4j.crossx.broker.CrossxEnvironment;
-import org.mod4j.crossx.mm.crossx.ModelInfo;
 
 /* 
  * Workflow component to write a Crossx model to an XML file.
