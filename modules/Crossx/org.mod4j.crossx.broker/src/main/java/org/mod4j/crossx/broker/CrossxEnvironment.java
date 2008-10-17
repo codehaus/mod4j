@@ -32,8 +32,18 @@ import org.mod4j.crossx.mm.crossx.Symbol;
  *
  */
 public class CrossxEnvironment {
+    
+    static private boolean started = false;
 
-	static private Map<String, CrossxLocation> environment = new HashMap<String, CrossxLocation>();
+	public static boolean isStarted() {
+        return started;
+    }
+
+    public static void setStarted(boolean started) {
+        CrossxEnvironment.started = started;
+    }
+
+    static private Map<String, CrossxLocation> environment = new HashMap<String, CrossxLocation>();
 	
 	public static Map<String, CrossxLocation> getAll() {
         return Collections.unmodifiableMap(environment);
@@ -180,16 +190,6 @@ public class CrossxEnvironment {
 			loc.setPrintWriter(pr);
 		}
 	}
-
-	public static void test(EObject o) {
-        URI u = o.eResource().getURI();
-        print("EOBJECT: URI 1[" + u.toFileString() + "]");
-        print("EOBJECT: URI 2[" + u.toString() + "]");
-        print("EOBJECT: URI 3[" + u.toPlatformString(true) + "]");
-        print("EOBJECT: URI 3[" + u.toPlatformString(false) + "]");
-        print("EOBJECT: URI 4[" + u.devicePath() + "]");
-        print("EOBJECT: URI 4[" + u.path() + "]");
-    }
 
 	/** Print to the error output or the given printstream
 	 * 
