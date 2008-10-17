@@ -18,9 +18,13 @@
          
          import «getDomainRootPackage()».«javaClassName(base.name)»;
          import «getDtoPackage()».«javaClassName(name)»;
+         «FOREACH properties.typeSelect(DtoEnumerationProperty) AS enumDto -»
+             import «getDomainRootPackage()».«javaClassName(enumDto.type.base.name)»;
+             import «getDtoPackage()».«javaClassName(enumDto.type.name)»;
+         «ENDFOREACH»
          «FOREACH associationReferences AS assRef -»    
-             import «getDtoPackage()».«EXPAND getBaseDtoName FOR assRef.dtoType -»;
              import «getDomainRootPackage()».«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»;
+             import «getDtoPackage()».«EXPAND getBaseDtoName FOR assRef.dtoType -»;
          «ENDFOREACH»  
          
         /**
@@ -44,10 +48,14 @@
                   }
                   
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-                      target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                      «IF dataProperty.metaType == DtoEnumerationProperty -»
+                          target.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.base.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
+                      «ELSE»
+                          target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                      «ENDIF -»
                   «ENDFOREACH»
                   «FOREACH associationReferences AS assRef -»
-                     «IF assRef.dtoType.metaType == ListDto»
+                     «IF assRef.dtoType.metaType == ListDto -»
                          «REM»2Manny«ENDREM»
 			             for («EXPAND getBaseDtoName FOR assRef.dtoType -» dtoObject : source.get«assRef.name.toFirstUpper()»()){
                             target.addTo«assRef.name.toFirstUpper()»(«assRef.name»Translator.fromDto(dtoObject));
@@ -71,10 +79,14 @@
                  
                   result.setId(source.getId());
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-                      result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                      «IF dataProperty.metaType == DtoEnumerationProperty -»
+                          result.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
+                      «ELSE»
+                          result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                      «ENDIF»
                   «ENDFOREACH»
                   «FOREACH associationReferences AS assRef -»
-                     «IF assRef.dtoType.metaType == ListDto»
+                     «IF assRef.dtoType.metaType == ListDto -»
                          «REM»2Many«ENDREM» 		              
  		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType» element: source.get«assRef.name.toFirstUpper()»()) {
 		                      result.addTo«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(element));
