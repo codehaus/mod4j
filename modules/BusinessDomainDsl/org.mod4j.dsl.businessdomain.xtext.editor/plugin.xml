@@ -8,7 +8,7 @@
             class="org.mod4j.businessdomain.xtext.editor.BusinessDomainDslEditor"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             extensions="busmod"
-            icon="icons/file.gif"
+            icon="icons/mod4j-business.ico"
             id="org.mod4j.businessdomain.xtext.editor.BusinessDomainDslEditor"
             name="BusinessDomainDsl Editor">
       </editor>
@@ -21,7 +21,7 @@
 		<wizard
 			category="org.mod4j.businessdomaindsl.wizards"
 			class="org.mod4j.businessdomain.xtext.wizards.Mod4jNewBusinessDomainDslProjectWizard"
-			icon="icons/sample.gif"
+			icon="icons/mod4j.ico"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslProjectWizard"
 			name="Mod4j BusinessDomainDsl Project"
 			project="true">
@@ -30,7 +30,7 @@
 		<wizard
 			category="org.mod4j.businessdomaindsl.wizards"
 			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
-			icon="icons/file.gif"
+			icon="icons/mod4j-business.ico"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
 			name="Mod4j BusinessDomainDsl Editor file">
 		</wizard>
