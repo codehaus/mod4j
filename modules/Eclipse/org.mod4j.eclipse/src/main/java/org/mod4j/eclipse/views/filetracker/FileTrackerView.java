@@ -11,6 +11,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
 import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
+import org.mod4j.eclipse.util.EclipseUtil;
+
 
 /**
  * This defines the view of the CrosssxRepository.
@@ -27,8 +30,6 @@ public class FileTrackerView extends ViewPart {
     private Object input;
 
     private DrillDownAdapter drillDownAdapter;
-
-    private Action doubleClickAction;
 
     class NameSorter extends ViewerSorter {
     }
@@ -50,15 +51,13 @@ public class FileTrackerView extends ViewPart {
     public void createPartControl(Composite parent) {
         viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
         drillDownAdapter = new DrillDownAdapter(viewer);
-        // viewer.setContentProvider(new CrossxContentProvider());
-        // viewer.setLabelProvider(new CrossxLabelProvider());
         viewer.setContentProvider(new FileTrackerContentProvider());
         viewer.setLabelProvider(new FileTrackerLabelProvider());
         viewer.setSorter(new NameSorter());
         input = FileTracker.getFileTracker();
         viewer.setInput(input);
         // viewer.setInput(getViewSite());
-//        hookDoubleClickAction();
+        hookDoubleClickAction();
         viewer.refresh();
         this.setPartName("etracker repository" + i);
         i++;
@@ -67,7 +66,13 @@ public class FileTrackerView extends ViewPart {
     private void hookDoubleClickAction() {
         viewer.addDoubleClickListener(new IDoubleClickListener() {
             public void doubleClick(DoubleClickEvent event) {
-                doubleClickAction.run();
+                String name = event.getSelection().toString() ;
+                name = name.replaceFirst("Extension: " , "" );
+                name = name.replaceFirst("Generated: " , "" );
+                name = name.substring(1);
+                name = name.replaceFirst("]" , "" );
+                name = ProjectProperties.getApplicationPath() + "/" + name;
+                EclipseUtil.openFile(name);
             }
         });
     }
@@ -80,7 +85,7 @@ public class FileTrackerView extends ViewPart {
     }
 
     /**
-     * Refresh the view with the latest CrossxBroker information.
+     * Refresh the view with the latest  information.
      * 
      */
     public static void myrefresh() {
