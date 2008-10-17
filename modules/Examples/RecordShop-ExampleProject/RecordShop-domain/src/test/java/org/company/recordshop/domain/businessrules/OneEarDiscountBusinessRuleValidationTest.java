@@ -4,14 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.company.recordshop.domain.Customer;
-import org.company.recordshop.domain.Record;
+import org.company.recordshop.domain.Order;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
 
 /**
  * @author Johan Vogelzang
  */
-public class BusinessRuleValidationTest {
+public class OneEarDiscountBusinessRuleValidationTest {
 
     /**
      * Test method for {@link OneEarDiscount}. According to the oneEarDiscount BusinessRule, a
@@ -42,6 +43,6 @@ public class BusinessRuleValidationTest {
         } catch (BusinessRuleException e) {
             assertEquals(true, e.getMessage().contains("discountPercentage for Customers with one ear should be 50, but was 0"));
         }
-    }    
+    } 
 
 }
