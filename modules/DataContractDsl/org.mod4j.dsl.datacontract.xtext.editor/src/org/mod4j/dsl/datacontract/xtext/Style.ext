@@ -15,7 +15,7 @@ extension org::mod4j::dsl::datacontract::xtext::GenStyle reexport;
  
 FontStyle fontstyle(String keyword, DataContractDsl::ModelElement ctx):
 	createFontStyle(true, false, false, false,
-	            createColor(154, 1, 116), createColor(255, 255, 255) );
+	            createColor(151, 0, 184), createColor(255, 255, 255) );
 
-delayContextSensitiveStyling(): 500;
+delayContextSensitiveStyling(): 400;
 
