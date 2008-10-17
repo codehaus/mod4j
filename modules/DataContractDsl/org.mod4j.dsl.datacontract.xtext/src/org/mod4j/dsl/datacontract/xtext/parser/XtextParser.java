@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.eclipse.emf.ecore.EObject;
 import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.eclipse.builder.CrossxBuilder;
-import org.mod4j.eclipse.builder.Mod4jBuilder;
 import org.openarchitectureware.check.CheckFacade;
 import org.openarchitectureware.emf.EcoreUtil2;
 import org.openarchitectureware.expression.ExecutionContext;
@@ -25,11 +24,7 @@ public class XtextParser extends GenParser {
        public Issues doCheck() {
             IssuesImpl issues = new IssuesImpl();
             ResourceLoader cl = ResourceLoaderFactory.createResourceLoader();
-            if( !CrossxEnvironment.isStarted() ) {
-                CrossxBuilder b = new CrossxBuilder ();
-                b.startX();
-                CrossxEnvironment.setStarted(true);
-            }
+            startCrossx();
             try {
                 ResourceLoaderFactory.setCurrentThreadResourceLoader(new ResourceLoaderImpl(GenParser.class.getClassLoader()));
                 ExecutionContext ctx = getExecutionContext();
@@ -50,5 +45,13 @@ public class XtextParser extends GenParser {
             }
             return issues;
         }
+
+    private void startCrossx() {
+        if( !CrossxEnvironment.isStarted() ) {
+            CrossxBuilder b = new CrossxBuilder ();
+            b.startX();
+            CrossxEnvironment.setStarted(true);
+        }
+    }
 
 }
