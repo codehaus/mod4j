@@ -1,5 +1,6 @@
 package org.mod4j.dsl.service.xtext;
 
+import org.mod4j.eclipse.builder.CrossxBuilder;
 import org.openarchitectureware.xtext.AbstractXtextEditorPlugin;
 import org.openarchitectureware.xtext.LanguageUtilities;
 import org.osgi.framework.BundleContext;
@@ -23,4 +24,10 @@ public class ServiceDslEditorPlugin extends AbstractXtextEditorPlugin {
       super.stop(context);
       plugin = null;
    }
+
+   protected void refreshPluginActions() {
+       super.refreshPluginActions();
+       CrossxBuilder.initCrossx(); 
+   }
+
 }
