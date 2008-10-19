@@ -11,7 +11,6 @@ DataContractModel :
     ;
     
 Dto : 
-    (description=STRING)?
    ( BusinessClassDto | ListDto |  CustomDto ) ;
 
 ExternalReference :
@@ -27,6 +26,7 @@ ExternalReference :
 //    "from" modelname=ID "enumeration" name=ID;
     
 BusinessClassDto :
+    (description=STRING)?
     "BusinessClassDto" name=ID "base" base=[ExternalReference]
     ( "[" (propertyReferences += BusinessClassPropertyReference)+  
       ( "references" "["
@@ -38,6 +38,7 @@ BusinessClassDto :
     ;    
     
 EnumerationDto :
+    (description=STRING)?
     "EnumerationDto" name=ID "base" base=[ExternalReference]
     ; 
     
@@ -51,9 +52,11 @@ BusinessClassAssociationRoleReference :
     ;
     
 ListDto :
+    (description=STRING)?
     "ListDto" name=ID "base" baseDto=[Dto] 
     ;    
 CustomDto :
+    (description=STRING)?
     "CustomDto" name=ID "["
     (properties += DtoProperty)*
     "]"
