@@ -40,6 +40,7 @@ import org.eclipse.ui.internal.ide.StatusUtil;
 import org.eclipse.ui.internal.wizards.newresource.ResourceMessages;
 import org.eclipse.ui.statushandlers.StatusAdapter;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.mod4j.eclipse.util.UiHelper;
 import org.openarchitectureware.xtext.LanguageUtilities;
 import org.openarchitectureware.xtext.XtextLog;
 
@@ -95,8 +96,9 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		private Mod4jGenericNewProjectWizardPage createMainPage() {
 			Mod4jGenericNewProjectWizardPage page = new Mod4jGenericNewProjectWizardPage(getLangName());
-			page.setImageDescriptor(ImageDescriptor.createFromImage(getUtilities()
-					.getImage("newprj_wiz.png")));
+//            page.setImageDescriptor(ImageDescriptor.createFromImage(getUtilities()
+//                    .getImage("newprj_wiz.png")));
+            page.setImageDescriptor(ImageDescriptor.createFromImage(UiHelper.mod4jLogoImage));
 			return page;
 		}
 		abstract protected LanguageUtilities getUtilities();

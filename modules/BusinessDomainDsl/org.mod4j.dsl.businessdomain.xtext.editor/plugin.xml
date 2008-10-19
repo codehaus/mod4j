@@ -28,11 +28,11 @@
 		</wizard>
          
 		<wizard
-			category="org.mod4j.businessdomaindsl.wizards"
+            category="org.mod4j.dsl.model" 
 			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
 			icon="icons/mod4j-business.ico"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
-			name="Mod4j BusinessDomainDsl Editor file">
+			name="Mod4j Business Domain Dsl Model ">
 		</wizard>
 	</extension>
 </plugin>
