@@ -54,6 +54,7 @@ public class UiHelper {
     public static Image javaFileImage     = UiHelper.getImageFromString("jcu_obj.gif");
 
     public static Image mod4jImage      = UiHelper.getImageFromString("mod4j.ico");
+    public static Image mod4jLogoImage      = UiHelper.getImageFromString("mod4j-logo-color.gif");
     public static Image mod4jBusinessImage      = UiHelper.getImageFromString("mod4j-business.ico");
     public static Image mod4jServiceImage      = UiHelper.getImageFromString("mod4j-service.ico");
     public static Image mod4jDataContractImage      = UiHelper.getImageFromString("mod4j-datacontract.ico");

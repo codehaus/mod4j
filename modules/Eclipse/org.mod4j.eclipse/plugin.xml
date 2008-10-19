@@ -68,7 +68,7 @@
             allowMultiple="false"
             category="org.mod4j.eclipse.crossx"
             class="org.mod4j.eclipse.views.filetracker.FileTrackerView"
-            icon="icons/mod4j.ico"
+            icon="icons/mod4j-bw.ico"
             id="org.mod4j.eclipse.views.filetracker.FileTrackerView"
             name="Mod4j FileTracker View">
       </view>
@@ -95,5 +95,11 @@
             pattern="*.crossx">
       </filter>
    </extension>
+   <extension
+            point="org.eclipse.ui.newWizards">
+            <category id="org.mod4j.dsl.model" 
+                   name="Mod4j DSL Models"/>
+   </extension>
+   
 
 </plugin>
