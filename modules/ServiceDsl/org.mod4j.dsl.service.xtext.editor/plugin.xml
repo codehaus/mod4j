@@ -27,7 +27,7 @@
 		</wizard>
          
 		<wizard
-			category="org.openarchitectureware.xtext.wizards"
+            category="org.mod4j.dsl.model" 
 			class="org.mod4j.dsl.service.xtext.wizards.NewServiceDslFileWizard"
 			icon="icons/mod4j-service.ico"
 			id="org.mod4j.dsl.service.xtext.wizards.NewServiceDslFileWizard"
