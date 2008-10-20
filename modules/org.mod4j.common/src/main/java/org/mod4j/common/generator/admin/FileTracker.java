@@ -41,8 +41,9 @@ public class FileTracker {
      */
     public void initResource(String resource) {
         System.err.println("FileTracker resource [" + resource + "]");
-//        current = getTrack(resource);
-    }
+        currentProject = findProject(resource);
+        currentProject.setApplicationPath(resource);
+        currentTrack = currentProject.getTrack(resource);    }
 
     /**
      * Notify the ExtensionPointtracker that 'resource'is started
