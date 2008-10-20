@@ -28,16 +28,16 @@ completeModel(DataContractModel dtcModel) :
 addLiterals(EnumerationDto enum) :
     let symbol = lookupSymbol(enum.base.modelname, enum.base.name, "Enumeration") :
     let props = symbol.subSymbols.select(s|s.type.matches("EnumerationLiteral")) :
-    print("Enum ["+ enum.name + "]" )->
-    print("Enum symbol ["+ symbol + "]" )->
-    print("Literal symbol ["+ props + "]" )->
-    print("literals ["+ enum.literals.size + "]" )->
+//    print("Enum ["+ enum.name + "]" )->
+//    print("Enum symbol ["+ symbol + "]" )->
+//    print("Literal symbol ["+ props + "]" )->
+//    print("literals ["+ enum.literals.size + "]" )->
     enum.literals.addAll( props.toEnumLiteral()   )->
     null
     ;
 
 EnumerationDtoLiteral toEnumLiteral(Symbol literalProperty) :
-   let result = (print("TO ENUM LITERAL [" + literalProperty.name + "]")->
+   let result = (      //print("TO ENUM LITERAL [" + literalProperty.name + "]")->
         new EnumerationDtoLiteral) :
    result.setName( literalProperty.name )->
    result
@@ -52,12 +52,12 @@ resolveEnumerationReferences(DataContractModel dtcModel) :
 addProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
-    print("DTO addProperties: "+ dto.name)->
+//    print("DTO addProperties: "+ dto.name)->
     dto.properties.addAll( props.toDtoProperty(dto) ) 
     ;
 
 DataContractDsl::DtoProperty toDtoProperty(Symbol symbol, BusinessClassDto dto) :
-    print("     DTO addProperty: "+ symbol.name)->
+//    print("     DTO addProperty: "+ symbol.name)->
     switch (symbol.getPropertyValue("DataType")) {
         case 'boolean' : newBooleanProperty(symbol)
         case 'string' : newStringProperty(symbol)
@@ -71,7 +71,7 @@ DataContractDsl::DtoProperty toDtoProperty(Symbol symbol, BusinessClassDto dto) 
 completeProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let propertySymbols = symbol.subSymbols.select(s|s.type == "Property") :
-    print("DTO completeProperties: "+ dto.name)->
+//    print("DTO completeProperties: "+ dto.name)->
     dto.properties.addAll( dto.propertyReferences.referencesToDtoProperty(propertySymbols) )  
     ;
     
@@ -79,7 +79,7 @@ addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
     let symbol = lookupSymbol(assRef.dto.base.modelname, assRef.dto.base.name, "BusinessClass") :
     let prop = symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == assRef.name)).first() :
     let result = new DtoAssociationRoleProperty :
-    print("DTO ASSOCIATION : "+ assRef.name + " for dto [" + assRef.dto.name + "]")->
+//    print("DTO ASSOCIATION : "+ assRef.name + " for dto [" + assRef.dto.name + "]")->
     result.setName(prop.name)->
     result.setDataType(assRef.dtoType.name)->
     result.setDtoType(assRef.dtoType)->
