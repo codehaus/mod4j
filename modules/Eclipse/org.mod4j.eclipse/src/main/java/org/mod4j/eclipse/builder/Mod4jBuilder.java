@@ -49,6 +49,7 @@ import org.mod4j.dslcommon.openarchitectureware.OutletDirectoryCleaner;
 import org.mod4j.dslcommon.openarchitectureware.RunCrossxWorkflow;
 import org.mod4j.eclipse.crossx.views.CrossxView;
 import org.mod4j.eclipse.util.EclipseUtil;
+import org.mod4j.eclipse.views.filetracker.FileTrackerView;
 
 /**
  * This class contains two builders, one to build the crossx symbols from a DSL model, one to generate the code from a
@@ -81,7 +82,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * @author "Jos Warmer"
      * 
      */
-    class CrossxDeltaVisitor implements IResourceDeltaVisitor {
+    class Mod4jDeltaVisitor implements IResourceDeltaVisitor {
         /*
          * (non-Javadoc)
          * 
@@ -260,6 +261,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         try {
             getProject().accept(new CrossxSymbolGeneratorVisitor());
             getProject().accept(new Mod4jCodeGeneratorVisitor());
+            FileTrackerView.myrefresh();
         } catch (CoreException e) {
             System.err.println("Mod4jBuilder ERROR fullBuild [" + e.getMessage() + "]");
             // TODO: handle exception
@@ -280,7 +282,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         // the visitor does the work.
         System.err.println("Mod4jBuilder: incremental build");
         delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
-        delta.accept(new CrossxDeltaVisitor());
+        delta.accept(new Mod4jDeltaVisitor());
+        FileTrackerView.myrefresh();
     }
 
     /**
@@ -421,9 +424,12 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             properties.put("workDir", workDir );
             properties.put("project", resource.getProject().getName());
 
+            resource.getFullPath().toPortableString();
             // Notigy filetracker
-            FileTracker.getFileTracker().initResource(modelFilePath);
-            // System.err.println("applicationPath [" + newAppPath + "]");
+            String projectPath = resource.getProject().getLocation().toString();
+            FileTracker.getFileTracker().initResource(modelFilePath, newAppPath, projectPath);
+
+            // Run the workflow
             Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
             try {
                 genWf.runWorkflow(genName, properties);

@@ -51,7 +51,9 @@ public class UiHelper {
     public static Image projectImg   = PlatformUI.getWorkbench().getSharedImages().getImage(SharedImages.IMG_OBJ_PROJECT);
 
     public static Image xmlFileImage      = UiHelper.getImageFromString("XMLFile.gif");
+    public static Image xmlFileGenImage      = UiHelper.getImageFromString("XMLFile_gen.gif");
     public static Image javaFileImage     = UiHelper.getImageFromString("jcu_obj.gif");
+    public static Image javaFileGenImage     = UiHelper.getImageFromString("jcu_obj_gen.gif");
 
     public static Image mod4jImage      = UiHelper.getImageFromString("mod4j.ico");
     public static Image mod4jLogoImage      = UiHelper.getImageFromString("mod4j-logo-color.gif");

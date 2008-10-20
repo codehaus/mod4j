@@ -3,6 +3,7 @@ package org.mod4j.eclipse.views.filetracker;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
@@ -10,7 +11,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
+import org.mod4j.common.generator.admin.FileTrack;
 import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.GeneratedFile;
+import org.mod4j.common.generator.admin.ProjectTrack;
 import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
 import org.mod4j.eclipse.util.EclipseUtil;
 
@@ -66,13 +70,24 @@ public class FileTrackerView extends ViewPart {
     private void hookDoubleClickAction() {
         viewer.addDoubleClickListener(new IDoubleClickListener() {
             public void doubleClick(DoubleClickEvent event) {
-                String name = event.getSelection().toString() ;
-                name = name.replaceFirst("Extension: " , "" );
-                name = name.replaceFirst("Generated: " , "" );
-                name = name.substring(1);
-                name = name.replaceFirst("]" , "" );
-                name = ProjectProperties.getApplicationPath() + "/" + name;
-                EclipseUtil.openFile(name);
+                Object elem = event.getSelection();
+                if( ! (elem instanceof TreeSelection) ) { return; }
+                TreeSelection sel = (TreeSelection)elem;
+                Object selection = sel.getFirstElement();
+                if( selection instanceof FileTrack ) {
+                    FileTrack ft = (FileTrack)selection;
+                    EclipseUtil.showInformation("FileTrack: " + ft.getResource());
+                } else if( selection instanceof ProjectTrack ) {
+                    ProjectTrack proj = (ProjectTrack)selection;
+                    EclipseUtil.showInformation("ProjectTrack: " + proj.getProjectPath());
+                } else if( selection instanceof GeneratedFile ) {
+                    GeneratedFile gen = (GeneratedFile) selection;
+                    String name = gen.getSourcePath();
+                    name = ProjectProperties.getApplicationPath() + "/" + name;
+                    EclipseUtil.openFile(name);
+                } else {
+                    EclipseUtil.showInformation("DoubleC;lick on unknown object: " + selection.toString());
+                }
             }
         });
     }

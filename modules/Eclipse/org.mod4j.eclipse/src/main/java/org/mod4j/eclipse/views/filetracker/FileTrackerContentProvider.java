@@ -8,14 +8,11 @@ import java.util.Map;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.jdom.Element;
 import org.mod4j.common.generator.admin.FileTrack;
 import org.mod4j.common.generator.admin.FileTracker;
-import org.mod4j.crossx.broker.CrossxLocation;
-import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
-import org.mod4j.crossx.mm.crossx.ModelInfo;
-import org.mod4j.crossx.mm.crossx.Symbol;
-import org.mod4j.crossx.mm.crossx.SymbolProperty;
+import org.mod4j.common.generator.admin.GeneratedFile;
+import org.mod4j.common.generator.admin.ProjectTrack;
+
 
 /**
  * JDomContentProvider :
@@ -23,17 +20,20 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
 public class FileTrackerContentProvider implements ITreeContentProvider {
     
     public Object[] getChildren(Object element) {
-        if (element instanceof FileTracker) {
-            FileTracker ft = (FileTracker) element;
+        if (element instanceof ProjectTrack) {
+            ProjectTrack ft = (ProjectTrack) element;
             return ft.getTracks().toArray();
+        } else if (element instanceof FileTracker) {
+            FileTracker ft = (FileTracker) element;
+            return ft.getProjects().toArray();
         } else if (element instanceof FileTrack) {
             FileTrack f = (FileTrack) element;
-            List children = new ArrayList<String>();
-            for (String file : f.getGeneratedFiles()) {
-                children.add("Generated: " + file);
+            List<GeneratedFile> children = new ArrayList<GeneratedFile>();
+            for (GeneratedFile file : f.getGeneratedFiles()) {
+                children.add(file);
             }
-            for (String file : f.getExtensionFiles()) {
-                children.add("Extension: " + file);
+            for (GeneratedFile file : f.getExtensionFiles()) {
+                children.add(file);
             }
             return children.toArray();
         }
