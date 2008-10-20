@@ -2,6 +2,7 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION Association»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE addToReferenceVariable FOR Association»
 	/**

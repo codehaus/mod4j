@@ -1,6 +1,5 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
@@ -15,56 +14,56 @@ package «getDaoPackage()»;
 
 import java.util.List;
 
-import «getDomainRootPackage()».«javaClassName(this)»;
+import «javaDomainClassPath(this.name)»;
 
 /**
- * «daoInterfaceBaseName(this)» Data Access Object (DAO). Responsible for accessing database.
+ * «javaDaoBaseInterface(this.name)»Data Access Object (DAO). Responsible for accessing database.
  * 
  * @author Mod4j generated
  * 
  */
-public interface «daoInterfaceBaseName(this)» {
+public interface «javaDaoBaseInterface(this.name)» {
 
     /**
-     * Retrieves a «javaClassName(this)» by its ID from the database.
+     * Retrieves a «javaDomainClass(this.name)» by its ID from the database.
      * 
-     * @param id id of the «javaClassName(this)» to retrieve.
-     * @return «javaClassName(this)» retrieved or null when no «javaClassName(this)» was found.
+     * @param id id of the «javaDomainClass(this.name)» to retrieve.
+     * @return «javaDomainClass(this.name)» retrieved or null when no «javaDomainClass(this.name)» was found.
      */
-    «javaClassName(this)» retrieve(long id);
+    «javaDomainClass(this.name)» retrieve(long id);
 
     /**
-     * Adds a new «javaClassName(this)» to the database
+     * Adds a new «javaDomainClass(this.name)» to the database
      * 
-     * @param «javaVarName(this)»
-     *                the «javaClassName(this)» to add to the database.
+     * @param object
+     *                the «javaDomainClass(this.name)» to add to the database.
      * @return the stored «this.name».
      */
-    «javaClassName(this)» add(«javaClassName(this)» «javaVarName(this)»);
+    «javaDomainClass(this.name)» add(«javaDomainClass(this.name)» object);
 
     /**
      * Stores/Updates the «this.name» in the database. Inclusive all its posts.
      * 
-     * @param «javaVarName(this)»
-     *                the «javaClassName(this)» to store/update
+     * @param object
+     *                the «javaDomainClass(this.name)» to store/update
      * @return
      */
-    «javaClassName(this)» update(«javaClassName(this)» «javaVarName(this)»);
+    «javaDomainClass(this.name)» update(«javaDomainClass(this.name)» object);
 
     /**
      * Deletes a «this.name» from the database.
      * 
-     * @param «javaVarName(this)»
-     *                the «javaClassName(this)» to delete
+     * @param object
+     *                the «javaDomainClass(this.name)» to delete
      */
-    void delete(«javaClassName(this)» «javaVarName(this)»);
+    void delete(«javaDomainClass(this.name)» object);
 
     /**
-     * Selects all «javaClassName(this)»s from the database.
+     * Selects all «javaDomainClass(this.name)»s from the database.
      * 
-     * @return a List of all «javaClassName(this)» objects.
+     * @return a List of all «javaDomainClass(this.name)» objects.
      */
-    List<«javaClassName(this)»> listAll«javaClassName(this)»s();
+    List<«javaDomainClass(this.name)»> listAll«javaDomainClass(this.name)»s();
 }
 «ENDFILE»
 «ENDDEFINE»

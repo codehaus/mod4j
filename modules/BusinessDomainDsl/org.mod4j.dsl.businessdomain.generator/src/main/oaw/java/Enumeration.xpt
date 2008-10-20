@@ -6,9 +6,6 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createEnum FOR Enumeration»
-«REM»
-    «FILE getDomainRootPackageAsPath() + "/" + name + ".java"»
-«ENDREM» 
     «FILE generate(getDomainModuleName(), javaPathFileName(javaDomainClassPath(this.name) ))»
         package «getDomainRootPackage()»;
         

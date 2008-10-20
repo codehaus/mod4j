@@ -2,14 +2,14 @@
  */
 import BusinessDomainDsl;
 
-String javaPackageName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaPackageName(BusinessDomainDsl.BusinessClass);
+//String javaPackageName(BusinessClass cls) :
+// JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaPackageName(BusinessDomainDsl.BusinessClass);
 
- String javaFullName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaFullName(BusinessDomainDsl.BusinessClass);
+// String javaFullName(BusinessClass cls) :
+// JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaFullName(BusinessDomainDsl.BusinessClass);
  
-String javaClassName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
+//String javaClassName(BusinessClass cls) :
+// JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
 
 String javaClassName(AbstractBusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.AbstractBusinessClass);

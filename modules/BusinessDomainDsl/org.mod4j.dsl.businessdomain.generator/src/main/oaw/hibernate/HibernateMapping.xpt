@@ -1,6 +1,5 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
 «EXTENSION BusinessRule»
 «EXTENSION Association»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
@@ -36,8 +35,8 @@
 «ENDDEFINE»
 
 «DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»
-    <class name="«javaClassName(this)»"
-           table="«javaClassName(this)»_TABLE"
+    <class name="«javaDomainClass(this.name)»"
+           table="«javaDomainClass(this.name)»_TABLE"
            optimistic-lock="version">
         <cache usage="read-write" />
         <id name="id" column="id" type="java.lang.Long">
@@ -50,9 +49,9 @@
 
 «DEFINE subclassMapping FOR BusinessDomainDsl::BusinessClass -»
     <union-subclass
-        name="«javaClassName(this)»"
-        table="«javaClassName(this)»_TABLE"
-        extends="«javaClassName(this.superclass)»">
+        name="«javaDomainClass(this.name)»"
+        table="«javaDomainClass(this.name)»_TABLE"
+        extends="«javaDomainClass(this.superclass.name)»">
         «EXPAND featureMappings FOR this -»
     </union-subclass>
 «ENDDEFINE»
@@ -138,7 +137,7 @@
                 <column name="«this.sourceRoleName»_ID" />
             </key>
             <one-to-many
-                class="«javaClassName(this.target)»" 
+                class="«javaDomainClass(this.target.name)»" 
              />
         </set>
 «ENDDEFINE»
@@ -149,14 +148,14 @@
 «DEFINE one2manyMappingFrom FOR Association -»
 		<!-- one2manyMappingFrom -->
         <many-to-one name="«sourceRoleName»"
-            class="«javaClassName(this.source)»"
+            class="«javaDomainClass(this.source.name)»"
             not-null="false" column="«this.sourceRoleName»_ID" />
 «ENDDEFINE»
 
 «DEFINE many2oneMappingTo FOR Association -»
 		<!-- many2oneMappingTo -->
         <many-to-one name="«targetRoleName»"
-            class="«javaClassName(this.target)»" 
+            class="«javaDomainClass(this.target.name)»" 
             not-null="false" column="«this.targetRoleName»_ID"
         />
 «ENDDEFINE»
@@ -172,7 +171,7 @@
                 <column name="«this.targetRoleName»_ID" />
             </key>
             <one-to-many
-                class="«javaClassName(this.source)»" 
+                class="«javaDomainClass(this.source.name)»" 
              />
         </set>
 «ENDDEFINE»
@@ -180,21 +179,21 @@
 «DEFINE one2oneMappingTo FOR Association -»
 		<!-- one2oneMappingTo -->
         <one-to-one name="«targetRoleName»" 
-                    class="«javaClassName(this.target)»"
+                    class="«javaDomainClass(this.target.name)»"
          /> 
 «ENDDEFINE»
 
 «DEFINE one2oneMappingFrom FOR Association -»
 		<!-- one2oneMappingFrom -->
         <one-to-one name="«sourceRoleName»" 
-                    class="«javaClassName(this.source)»"
+                    class="«javaDomainClass(this.source.name)»"
          /> 
 «ENDDEFINE»
 
 «DEFINE many2manyMappingTo FOR Association -»
         <set name="«this.targetRoleName»" table="«this.source.name»_«this.target.name»">
             <key column="«this.source.name»_ID" not-null="true" />
-            <many-to-many class="«javaClassName(this.target)»" column="«this.target.name»_ID" />
+            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.target.name»_ID" />
         </set>
 «ENDDEFINE»
 
