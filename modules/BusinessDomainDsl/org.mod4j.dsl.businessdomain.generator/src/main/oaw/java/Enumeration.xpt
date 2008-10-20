@@ -2,9 +2,14 @@
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createEnum FOR Enumeration»
+«REM»
     «FILE getDomainRootPackageAsPath() + "/" + name + ".java"»
+«ENDREM» 
+    «FILE generate(getDomainModuleName(), javaPathFileName(javaDomainClassPath(this.name) ))»
         package «getDomainRootPackage()»;
         
         «EXPAND Imports::addImports FOR this»
