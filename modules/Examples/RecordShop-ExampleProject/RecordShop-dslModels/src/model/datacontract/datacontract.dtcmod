@@ -12,22 +12,17 @@ from RecordShopDomainModel import RecordType
     /* 
      * BusinessClass transfer objects
      */
-       
-	"Full Customer transfer object with all attributes in Customer."
+	"Full Customer transfer object with all the Customer attributes (no associations)."
 	BusinessClassDto FullCustomerDto base Customer 
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	BusinessClassDto SimpleCustomerDto base Customer [  
 	     firstName; 
  	     blackListed;
-	     sexe; 
+	     sexe;
 	     references [  
 	         OrderNumberAndDateList orders;
-// Uncomment the following to get error messages.
-//	         ArtistDto orders; 
-//	         SimpleCustomerList orders; 
 	     ]   
-
 	]
 	
 	"Simple Order transfer object."
@@ -36,12 +31,6 @@ from RecordShopDomainModel import RecordType
 	     orderDate;
 	     references [
 	         SimpleCustomerDto customer; 
-
-// Uncomment the following to get error messages.
-//	         ArtistDto customer;
-//	         OrderNumberAndDateList customer;
-//	         StringDto customer;
-//           Gjdxu cistomer;
 	     ]
 	]
 	
@@ -67,17 +56,14 @@ from RecordShopDomainModel import RecordType
     /*
      * Lists of transfer objects 
      */
-
 	"List of SimpleCustomerDto's."
 	ListDto SimpleCustomerList base SimpleCustomerDto 
 	"List of OrdersNumberAndDateDto's."
 	ListDto OrderNumberAndDateList base OrderNumberAndDateDto
-
 	
 	/*
 	 * Custom transfer objects
 	 */
-
 	"String transfer object."
 	CustomDto StringDto [ 
 	    "A string attribute"
@@ -98,11 +84,9 @@ from RecordShopDomainModel import RecordType
 	    string lastName;
 	]
 	
-	
 	/* 
      * Enumeration Dto's
      */
-
 	EnumerationDto SexeDto base Sexe 
 	EnumerationDto RecordTypeDto base RecordType 
 	
