@@ -98,7 +98,7 @@ public class ProjectProperties {
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 
-    public static final String BUSINESSRULES_PACKAGE = "businessrules";
+// TODO remove    public static final String BUSINESSRULES_PACKAGE = "businessrules";
 
     public static final String DAO_PACKAGE = "spring.dao";
     

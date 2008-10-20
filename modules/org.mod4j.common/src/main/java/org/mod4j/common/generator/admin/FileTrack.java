@@ -5,11 +5,20 @@ import java.util.List;
 
 public class FileTrack {
 
-    private List<String> generatedFiles ;
-    private List<String> extensionFiles ;
+    private List<GeneratedFile> generatedFiles ;
+    private List<GeneratedFile> extensionFiles ;
 
     private String resource;
-	
+    private ProjectTrack project;
+    
+    public ProjectTrack getProject() {
+        return project;
+    }
+
+    public void setProject(ProjectTrack project) {
+        this.project = project;
+    }
+
     public String getResource() {
         return resource;
     }
@@ -20,23 +29,25 @@ public class FileTrack {
      */
 	public FileTrack(String resource) {
 	    this.resource = resource;
-        generatedFiles = new ArrayList<String>();
-        extensionFiles = new ArrayList<String>();
+        generatedFiles = new ArrayList<GeneratedFile>();
+        extensionFiles = new ArrayList<GeneratedFile>();
     }
 	
     public void generatedFile(String filename){
-        generatedFiles.add(filename);
+        GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, false);
+        generatedFiles.add(gen);
     }
 
     public void extensionFile(String filename){
-        extensionFiles.add(filename);
+        GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, true);
+        extensionFiles.add(gen);
     }
 	
-    public List<String> getGeneratedFiles(){
+    public List<GeneratedFile> getGeneratedFiles(){
         return generatedFiles;
     }
     
-    public List<String> getExtensionFiles(){
+    public List<GeneratedFile> getExtensionFiles(){
         return extensionFiles;
     }
     

@@ -12,6 +12,16 @@ public class FileTracker {
 
     static private FileTracker fileTracker = null;
 
+//    private Map<String, FileTrack> tracks = new HashMap<String, FileTrack>();
+    private Map<String, ProjectTrack> projects = null;
+
+    public Collection<ProjectTrack> getProjects() {
+        return Collections.unmodifiableCollection(projects.values());
+    }
+
+    private FileTrack    currentTrack   = null;
+    private ProjectTrack currentProject = null;
+
     static public FileTracker getFileTracker() {
         if (fileTracker == null) {
             fileTracker = new FileTracker();
@@ -20,12 +30,9 @@ public class FileTracker {
     }
 
     private FileTracker() {
-        track = new HashMap<String, FileTrack>();
+//        tracks = new HashMap<String, FileTrack>();
+        projects = new HashMap<String, ProjectTrack>();
     }
-
-    private Map<String, FileTrack> track = new HashMap<String, FileTrack>();
-
-    private FileTrack current = null;
 
     /**
      * Notify the ExtensionPointtracker that 'resource'is started
@@ -33,27 +40,50 @@ public class FileTracker {
      * @param resource
      */
     public void initResource(String resource) {
-//        System.err.println("FileTracker resource [" + resource + "]");
-        current = getTrack(resource);
+        System.err.println("FileTracker resource [" + resource + "]");
+//        current = getTrack(resource);
     }
 
-    private FileTrack getTrack(String resource) {
-        FileTrack result = track.get(resource);
+    /**
+     * Notify the ExtensionPointtracker that 'resource'is started
+     * 
+     * @param resource
+     */
+    public void initResource(String resource, String applicationPath, String projectPath) {
+        System.err.println("FileTracker resource [" + resource + "]");
+        System.err.println("FileTracker applicationPath  [" + applicationPath  + "]");
+        System.err.println("FileTracker projectPath  [" + projectPath + "]");
+        currentProject = findProject(projectPath);
+        currentProject.setApplicationPath(applicationPath);
+        currentTrack = currentProject.getTrack(resource);
+    }
+
+    private ProjectTrack findProject(String projectPath) {
+        ProjectTrack result = projects.get(projectPath);
         if (result == null) {
-            result = new FileTrack(resource);
-            track.put(resource, result);
-        } else {
-            result.clear();
+            result = new ProjectTrack(projectPath);
+            projects.put(projectPath, result);
         }
         return result;
     }
 
-    public Collection<FileTrack> getTracks() {
-        return Collections.unmodifiableCollection(track.values());
-    }
+//    private FileTrack getTrack(String resource) {
+//        FileTrack result = tracks.get(resource);
+//        if (result == null) {
+//            result = new FileTrack(resource);
+//            tracks.put(resource, result);
+//        } else {
+//            result.clear();
+//        }
+//        return result;
+//    }
+
+//    public Collection<FileTrack> getTracks() {
+//        return Collections.unmodifiableCollection(tracks.values());
+//    }
 
     static public String generate(String filename) {
-        getFileTracker().current.generatedFile(filename);
+        getFileTracker().currentTrack.generatedFile(filename);
         return filename;
     }
 
@@ -72,12 +102,12 @@ public class FileTracker {
         } else {
             result = moduleName + "/" + ProjectProperties.getResourceGenPath() + "/" + filename;
         }
-        getFileTracker().current.generatedFile(result);
+        getFileTracker().currentTrack.generatedFile(result);
         return result;
     }
 
     static public String extend(String filename) {
-        getFileTracker().current.extensionFile(filename);
+        getFileTracker().currentTrack.extensionFile(filename);
         return filename;
     }
 
@@ -98,21 +128,17 @@ public class FileTracker {
         } else {
             result = moduleName + "/" + ProjectProperties.getResourceManPath() + "/" + filename;
         }
-        getFileTracker().current.extensionFile(result);
+        getFileTracker().currentTrack.extensionFile(result);
         return result;
     }
     
-    public List<String> getExtensionFiles(String resource) {
-        return track.get(resource).getExtensionFiles();
-    }
+//    public List<String> getExtensionFiles(String resource) {
+//        return tracks.get(resource).getExtensionFiles();
+//    }
+//
+//    public List<String> getGeneratedFiles(String resource) {
+//        return tracks.get(resource).getGeneratedFiles();
+//    }
 
-    public List<String> getGeneratedFiles(String resource) {
-        return track.get(resource).getGeneratedFiles();
-    }
 
-    // static public void cleanAll() {
-    // currentFiles = null;
-    // currentResource = null;
-    // track = new HashMap<String, List<String>>();
-    // }
 }

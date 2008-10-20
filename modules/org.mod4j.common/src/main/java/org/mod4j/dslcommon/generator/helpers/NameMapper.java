@@ -18,6 +18,12 @@ public class NameMapper {
 
     private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
     
+    public static final String BUSINESSRULES_PACKAGE = "businessrules";
+    
+    public static final String IMPLBASE_SUFFIX = "ImplBase";
+
+
+    
     /**
      * @param cls
      * @return The name of the Java class for name cls
@@ -161,6 +167,34 @@ public class NameMapper {
     public static String hibernateMappingFile(String classname) {
         return javaDomainClass(classname) + ".hbm.xml";
     }
+
+    /**
+     * 
+     * @return The full packagename of business rules
+     */
+    public static String getBusinessRulesPackage() {
+        return ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
+    }
+    
+    public static String javaBusinessRuleBaseClass(String classname) {
+        return javaDomainClass(classname) + IMPLBASE_SUFFIX;
+    }
+
+    public static String javaBusinessRuleBaseClassPath(String classname) {
+        String packageName = ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
+        return packageName + "." + javaBusinessRuleBaseClass(classname);
+    }
+
+    public static String javaBusinessRuleClass(String classname) {
+        return javaDomainClass(classname);
+    }
+
+    public static String javaBusinessRuleClassPath(String classname) {
+        String packageName = ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
+        return packageName + "." + javaBusinessRuleClass(classname);
+    }
+
+    
 
 
 }

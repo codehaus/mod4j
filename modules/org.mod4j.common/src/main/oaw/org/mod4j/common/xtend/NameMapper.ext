@@ -83,4 +83,18 @@ String javaGenericEnumClassPath() : JAVA
 String hibernateMappingFile(String classname) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.hibernateMappingFile(java.lang.String);
 
-  
+String javaBusinessRuleBaseClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleBaseClass(java.lang.String);
+
+String javaBusinessRuleBaseClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleBaseClassPath(java.lang.String);
+
+String javaBusinessRuleClass(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleClass(java.lang.String);
+
+String javaBusinessRuleClassPath(String model) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaBusinessRuleClassPath(java.lang.String);
+
+String getBusinessRulesPackage() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessRulesPackage();
+
