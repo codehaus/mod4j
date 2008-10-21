@@ -8,7 +8,7 @@
  * Contributors:
  *     Ordina - initial implementation
  *******************************************************************************/
- package org.mod4j.dslcommon.generator.helpers;
+package org.mod4j.dslcommon.generator.helpers;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -67,7 +67,7 @@ public class ProjectProperties {
     private static String dslModelsModuleName = "dslModels";
 
     private static String srcModelPath = "src/model";
-    
+
     private static String dataModuleName = "DEFAULT";
 
     private static String businessModuleName = "DEFAULT";
@@ -75,19 +75,19 @@ public class ProjectProperties {
     private static String serviceModuleName = "DEFAULT";
 
     private static String domainModuleName = "DEFAULT";
-    
+
     private static String rootPackage = "DEFAULT";
 
     private static String businessRootPackage = "DEFAULT";
-    
+
     private static String serviceRootPackage = "DEFAULT";
-    
+
     private static String domainRootPackage = "DEFAULT";
 
     private static String dataRootPackage = "DEFAULT";
 
     private static String srcGenPath = "DEFAULT";
-    
+
     private static String resourceGenPath = "DEFAULT";
 
     private static String srcManPath = "DEFAULT";
@@ -98,12 +98,12 @@ public class ProjectProperties {
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 
-// TODO remove    public static final String BUSINESSRULES_PACKAGE = "businessrules";
+    // TODO remove public static final String BUSINESSRULES_PACKAGE = "businessrules";
 
     public static final String DAO_PACKAGE = "spring.dao";
-    
+
     public static final String DTO_PACKAGE = "dto";
-    
+
     public static final String TRANSLATORS_PACKAGE = "translators";
 
     private static String workDir = "/";
@@ -131,7 +131,7 @@ public class ProjectProperties {
     public static String getDslModelsModuleName() {
         return dslModelsModuleName;
     }
-    
+
     public static String getDomainModulePath() {
         return getApplicationPath() + "/" + getDomainModuleName();
     }
@@ -139,11 +139,11 @@ public class ProjectProperties {
     public static String getDomainModuleName() {
         return domainModuleName;
     }
-    
+
     public static String getBusinessModuleName() {
         return businessModuleName;
     }
-    
+
     public static String getServiceModuleName() {
         return serviceModuleName;
     }
@@ -179,7 +179,7 @@ public class ProjectProperties {
     public static String getDomainRootPackage() {
         return domainRootPackage;
     }
-    
+
     public static String getDomainRootPackageAsPath() {
         return getDomainRootPackage().replaceAll("\\.", "/");
     }
@@ -207,7 +207,7 @@ public class ProjectProperties {
     public static String getTranslatorsPackage() {
         return getDtoPackage() + "." + TRANSLATORS_PACKAGE;
     }
-    
+
     public static String getSrcModelPath() {
         return srcModelPath;
     }
@@ -219,7 +219,7 @@ public class ProjectProperties {
     public static String getResourceGenPath() {
         return resourceGenPath;
     }
-    
+
     public static String getSrcManPath() {
         return srcManPath;
     }

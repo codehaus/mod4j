@@ -8,23 +8,24 @@ import java.util.List;
 import java.util.Map;
 
 public class ProjectTrack {
-    
+
     private List<FileTrack> trackedFiles = new ArrayList<FileTrack>();
 
     private String projectPath = null;
-    
+
     public String getProjectPath() {
         return projectPath;
     }
 
     private Map<String, FileTrack> tracks = new HashMap<String, FileTrack>();
-    
-    public ProjectTrack(String projectPath){
+
+    public ProjectTrack(String projectPath) {
         tracks = new HashMap<String, FileTrack>();
         this.projectPath = projectPath;
     }
-    
+
     private String applicationPath;
+
     public String getApplicationPath() {
         return applicationPath;
     }
@@ -33,13 +34,12 @@ public class ProjectTrack {
         this.applicationPath = applicationPath;
     }
 
-
     public FileTrack getTrack(String resource) {
         String localResource = resource;
-        if( resource.startsWith("file:/")){
+        if (resource.startsWith("file:/")) {
             localResource = resource.substring(6);
         }
-        if( localResource.startsWith(projectPath)){
+        if (localResource.startsWith(projectPath)) {
             localResource = localResource.substring(projectPath.length());
         }
         FileTrack result = tracks.get(localResource);
@@ -52,10 +52,9 @@ public class ProjectTrack {
         }
         return result;
     }
-    
+
     public Collection<FileTrack> getTracks() {
         return Collections.unmodifiableCollection(tracks.values());
     }
-
 
 }

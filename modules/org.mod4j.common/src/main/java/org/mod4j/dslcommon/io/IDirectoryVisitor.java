@@ -10,14 +10,14 @@ import java.io.File;
 /**
  * 
  * @author anneke
- *
+ * 
  */
 public interface IDirectoryVisitor {
-	
-	public Object visitDirectoryBefore(File directory);
 
-	public Object visitDirectoryAfter(File directory);
-	
-	public Object visitFile(File file) throws Exception;
+    public Object visitDirectoryBefore(File directory);
+
+    public Object visitDirectoryAfter(File directory);
+
+    public Object visitFile(File file) throws Exception;
 
 }

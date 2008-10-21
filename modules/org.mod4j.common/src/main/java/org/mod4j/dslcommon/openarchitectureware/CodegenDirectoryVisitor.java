@@ -68,7 +68,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
     }
 
     private void setupDsl() {
-        
+
         propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties();
         File file = new File(propertiesFile);
         if (!file.exists()) {

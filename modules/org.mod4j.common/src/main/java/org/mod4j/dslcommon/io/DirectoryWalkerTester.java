@@ -9,20 +9,20 @@ import java.io.File;
 
 /**
  * @author anneke
- *
+ * 
  */
 public class DirectoryWalkerTester {
-	
-	static public void main(String[] args) {
-		File file = new File("E:\\");
-		DirectoryWalker walker = new DirectoryWalker();
-		DirectoryVisitorImpl visitor = new DirectoryVisitorImpl();
-		try {
+
+    static public void main(String[] args) {
+        File file = new File("E:\\");
+        DirectoryWalker walker = new DirectoryWalker();
+        DirectoryVisitorImpl visitor = new DirectoryVisitorImpl();
+        try {
             walker.walk(file, visitor);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-	}
+    }
 
 }

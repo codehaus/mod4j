@@ -24,20 +24,22 @@ public class ModelHelpers {
 
     private static Properties appProps = new Properties();
 
-    /** Read the properties file 'propFilePath' and return the result as a Map<String, String>
+    /**
+     * Read the properties file 'propFilePath' and return the result as a Map<String, String>
      * 
-     * @param propFilePath absolute pathname of the properties files
+     * @param propFilePath
+     *            absolute pathname of the properties files
      * @return
      */
     public static Map<String, String> getProperties(String propFilePath) {
-    	Map<String, String> result = new HashMap<String, String>();
-    	try {
-            Properties props= new Properties();
+        Map<String, String> result = new HashMap<String, String>();
+        try {
+            Properties props = new Properties();
             props.load(new FileInputStream(propFilePath));
-            
+
             for (Entry<Object, Object> property : props.entrySet()) {
-            	result.put( (String)property.getKey(), (String)property.getValue() );
-			}
+                result.put((String) property.getKey(), (String) property.getValue());
+            }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -48,7 +50,7 @@ public class ModelHelpers {
         return result;
     }
 
-   	public static String getProperty(String key, String propFilePath) {
+    public static String getProperty(String key, String propFilePath) {
 
         try {
             appProps.load(new FileInputStream(propFilePath));
@@ -79,8 +81,8 @@ public class ModelHelpers {
     public static String javaClassName(String cls) {
         return StringHelpers.firstCharToUpper(cls);
     }
-    
-    public static void print(String m){
+
+    public static void print(String m) {
         System.err.println(m);
     }
 }

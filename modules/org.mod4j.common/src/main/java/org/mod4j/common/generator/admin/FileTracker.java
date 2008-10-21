@@ -12,14 +12,15 @@ public class FileTracker {
 
     static private FileTracker fileTracker = null;
 
-//    private Map<String, FileTrack> tracks = new HashMap<String, FileTrack>();
+    // private Map<String, FileTrack> tracks = new HashMap<String, FileTrack>();
     private Map<String, ProjectTrack> projects = null;
 
     public Collection<ProjectTrack> getProjects() {
         return Collections.unmodifiableCollection(projects.values());
     }
 
-    private FileTrack    currentTrack   = null;
+    private FileTrack currentTrack = null;
+
     private ProjectTrack currentProject = null;
 
     static public FileTracker getFileTracker() {
@@ -30,7 +31,7 @@ public class FileTracker {
     }
 
     private FileTracker() {
-//        tracks = new HashMap<String, FileTrack>();
+        // tracks = new HashMap<String, FileTrack>();
         projects = new HashMap<String, ProjectTrack>();
     }
 
@@ -43,7 +44,8 @@ public class FileTracker {
         System.err.println("FileTracker resource [" + resource + "]");
         currentProject = findProject(resource);
         currentProject.setApplicationPath(resource);
-        currentTrack = currentProject.getTrack(resource);    }
+        currentTrack = currentProject.getTrack(resource);
+    }
 
     /**
      * Notify the ExtensionPointtracker that 'resource'is started
@@ -52,7 +54,7 @@ public class FileTracker {
      */
     public void initResource(String resource, String applicationPath, String projectPath) {
         System.err.println("FileTracker resource [" + resource + "]");
-        System.err.println("FileTracker applicationPath  [" + applicationPath  + "]");
+        System.err.println("FileTracker applicationPath  [" + applicationPath + "]");
         System.err.println("FileTracker projectPath  [" + projectPath + "]");
         currentProject = findProject(projectPath);
         currentProject.setApplicationPath(applicationPath);
@@ -68,20 +70,20 @@ public class FileTracker {
         return result;
     }
 
-//    private FileTrack getTrack(String resource) {
-//        FileTrack result = tracks.get(resource);
-//        if (result == null) {
-//            result = new FileTrack(resource);
-//            tracks.put(resource, result);
-//        } else {
-//            result.clear();
-//        }
-//        return result;
-//    }
+    // private FileTrack getTrack(String resource) {
+    // FileTrack result = tracks.get(resource);
+    // if (result == null) {
+    // result = new FileTrack(resource);
+    // tracks.put(resource, result);
+    // } else {
+    // result.clear();
+    // }
+    // return result;
+    // }
 
-//    public Collection<FileTrack> getTracks() {
-//        return Collections.unmodifiableCollection(tracks.values());
-//    }
+    // public Collection<FileTrack> getTracks() {
+    // return Collections.unmodifiableCollection(tracks.values());
+    // }
 
     static public String generate(String filename) {
         getFileTracker().currentTrack.generatedFile(filename);
@@ -89,8 +91,8 @@ public class FileTracker {
     }
 
     /**
-     * The file 'filename' is to be generated within 'moduleName'. the name of the resulting file
-     * will be returned and stored in the file tracker.
+     * The file 'filename' is to be generated within 'moduleName'. the name of the resulting file will be returned and
+     * stored in the file tracker.
      * 
      * @param moduleName
      * @param filename
@@ -98,9 +100,9 @@ public class FileTracker {
      */
     static public String generate(String moduleName, String filename) {
         String result = null;
-        if( filename.endsWith(".java") ){
+        if (filename.endsWith(".java")) {
             result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
-        } else if( filename.equals("pom.xml") ){          // always in root of module
+        } else if (filename.equals("pom.xml")) { // always in root of module
             result = moduleName + "/" + filename;
         } else {
             result = moduleName + "/" + ProjectProperties.getResourceGenPath() + "/" + filename;
@@ -126,15 +128,15 @@ public class FileTracker {
 
     static public String extend(String moduleName, String filename) {
         String result = null;
-        String prefix ;
-        if( (moduleName == null) || (moduleName.length() == 0) ){
+        String prefix;
+        if ((moduleName == null) || (moduleName.length() == 0)) {
             prefix = "";
         } else {
             prefix = moduleName + "/";
         }
-        if( filename.endsWith(".java") ){
+        if (filename.endsWith(".java")) {
             result = prefix + ProjectProperties.getSrcManPath() + "/" + filename;
-        } else if( filename.equals("pom.xml") ){          // always in root of module
+        } else if (filename.equals("pom.xml")) { // always in root of module
             result = prefix + filename;
         } else {
             result = prefix + ProjectProperties.getResourceManPath() + "/" + filename;
@@ -142,14 +144,13 @@ public class FileTracker {
         getFileTracker().currentTrack.extensionFile(result);
         return result;
     }
-    
-//    public List<String> getExtensionFiles(String resource) {
-//        return tracks.get(resource).getExtensionFiles();
-//    }
-//
-//    public List<String> getGeneratedFiles(String resource) {
-//        return tracks.get(resource).getGeneratedFiles();
-//    }
 
+    // public List<String> getExtensionFiles(String resource) {
+    // return tracks.get(resource).getExtensionFiles();
+    // }
+    //
+    // public List<String> getGeneratedFiles(String resource) {
+    // return tracks.get(resource).getGeneratedFiles();
+    // }
 
 }

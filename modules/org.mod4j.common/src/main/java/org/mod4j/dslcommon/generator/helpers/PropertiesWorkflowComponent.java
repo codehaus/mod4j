@@ -21,55 +21,56 @@ import org.openarchitectureware.workflow.monitor.ProgressMonitor;
  */
 public class PropertiesWorkflowComponent extends AbstractWorkflowComponent {
 
-	/**
-	 * Then calling MyWorkflowComponent the invoke method is called. We use it, to instance
-	 * the model and apply it to a modelslot, so it can be used later by the generator component.
-	 *
-	 * @see org.openarchitectureware.workflow.WorkflowComponent#invoke(org.openarchitectureware.workflow.WorkflowContext, org.openarchitectureware.workflow.monitor.ProgressMonitor, org.openarchitectureware.workflow.issues.Issues)
-	 */
-	public void invoke(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
-		System.err.println("PropertiesWorkflowComponent: Found property slot [" + getPropertyFile() + "]");
-		ProjectProperties.setPropertiesFile(getPropertyFile());
-		ProjectProperties.setWorkDir( getWorkDir() );
-		ProjectProperties.setProject( getProject() );
-	}
+    /**
+     * Then calling MyWorkflowComponent the invoke method is called. We use it, to instance the model and apply it to a
+     * modelslot, so it can be used later by the generator component.
+     * 
+     * @see org.openarchitectureware.workflow.WorkflowComponent#invoke(org.openarchitectureware.workflow.WorkflowContext,
+     *      org.openarchitectureware.workflow.monitor.ProgressMonitor, org.openarchitectureware.workflow.issues.Issues)
+     */
+    public void invoke(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
+        System.err.println("PropertiesWorkflowComponent: Found property slot [" + getPropertyFile() + "]");
+        ProjectProperties.setPropertiesFile(getPropertyFile());
+        ProjectProperties.setWorkDir(getWorkDir());
+        ProjectProperties.setProject(getProject());
+    }
 
     public void checkConfiguration(final Issues issues) {
         if (propertyFile == null)
             issues.addError(this, "propertyFile not specified.");
     }
 
-	// capture the value of the <propertyFileSlot> slot in the workflow
-	public String propertyFile;
+    // capture the value of the <propertyFileSlot> slot in the workflow
+    public String propertyFile;
 
-	protected String getPropertyFile() {
-		return propertyFile; 
-	}
+    protected String getPropertyFile() {
+        return propertyFile;
+    }
 
-	public void setPropertyFile(final String outlet) {
-		this.propertyFile = outlet;
-	}
-	// capture the value of the <workDir> slot in the workflow
-	public String workDir;
+    public void setPropertyFile(final String outlet) {
+        this.propertyFile = outlet;
+    }
 
-	protected String getWorkDir() {
-		return workDir; 
-	}
+    // capture the value of the <workDir> slot in the workflow
+    public String workDir;
 
-	public void setWorkDir(final String workDir) {
-		this.workDir = workDir;
-	}
+    protected String getWorkDir() {
+        return workDir;
+    }
 
-	   // capture the value of the <project> slot in the workflow
+    public void setWorkDir(final String workDir) {
+        this.workDir = workDir;
+    }
+
+    // capture the value of the <project> slot in the workflow
     public String project;
 
     protected String getProject() {
-        return project; 
+        return project;
     }
 
     public void setProject(final String project) {
         this.project = project;
     }
-
 
 }

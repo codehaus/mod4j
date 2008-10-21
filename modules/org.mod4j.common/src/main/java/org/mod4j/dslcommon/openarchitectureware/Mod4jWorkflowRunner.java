@@ -10,17 +10,19 @@ import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
 /**
  * @author johan
- *
+ * 
  */
 public class Mod4jWorkflowRunner {
 
     private final Log logger = LogFactory.getLog(getClass());
 
     /**
-     * General workflow runner. 
+     * General workflow runner.
      * 
-     * @param wfFile absolute path string of the workflow file to execute
-     * @param properties Map containing the properties for <code>wfFile</code>.
+     * @param wfFile
+     *            absolute path string of the workflow file to execute
+     * @param properties
+     *            Map containing the properties for <code>wfFile</code>.
      * @throws Mod4jWorkflowException
      */
     public void runWorkflow(final String wfFile, final Map<String, String> properties) throws Mod4jWorkflowException {

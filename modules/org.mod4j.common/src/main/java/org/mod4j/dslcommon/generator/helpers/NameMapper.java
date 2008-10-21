@@ -1,29 +1,33 @@
 package org.mod4j.dslcommon.generator.helpers;
 
 public class NameMapper {
-    
+
     private static final String IMPL_POSTFIX = "ImplBase";
 
     private static final String DAO_INTERFACE_POSTFIX = "Dao";
+
     private static final String DAO_CLASS_POSTFIX = "DaoImpl";
+
     private static final String DAO_BASE_INTERFACE_POSTFIX = "DaoBase";
+
     private static final String DAO_BASE_CLASS_POSTFIX = "DaoImplBase";
-    
+
     private static final String LOCAL_SERVICE_INTERFACE_POSTFIX = "LocalService";
+
     private static final String LOCAL_SERVICE_CLASS_POSTFIX = "LocalServiceImpl";
+
     private static final String LOCAL_SERVICE_BASE_CLASS_POSTFIX = "LocalServiceImplBase";
 
     private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "BusinessService";
+
     private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "BusinessServiceImpl";
 
     private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
-    
+
     public static final String BUSINESSRULES_PACKAGE = "businessrules";
-    
+
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 
-
-    
     /**
      * @param cls
      * @return The name of the Java class for name cls
@@ -53,6 +57,7 @@ public class NameMapper {
     public static String javaDomainBaseClass(String cls) {
         return javaDomainClass(cls) + IMPL_POSTFIX;
     }
+
     /**
      * @param cls
      * @return The name of the Java class for name cls
@@ -108,7 +113,7 @@ public class NameMapper {
         return packageName + "." + javaDaoBaseClass(cls);
     }
 
-//  LOCAL SERVICES
+    // LOCAL SERVICES
     public static String javaLocalServiceInterface(String model) {
         return StringHelpers.firstCharToUpper(model) + LOCAL_SERVICE_INTERFACE_POSTFIX;
     }
@@ -136,7 +141,7 @@ public class NameMapper {
         return packageName + "." + javaLocalServiceBaseClass(model);
     }
 
-// DOMAIN SERVICES
+    // DOMAIN SERVICES
     public static String javaDomainServiceInterface(String model) {
         return StringHelpers.firstCharToUpper(model) + DOMAIN_SERVICE_INTERFACE_POSTFIX;
     }
@@ -175,7 +180,7 @@ public class NameMapper {
     public static String getBusinessRulesPackage() {
         return ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
     }
-    
+
     public static String javaBusinessRuleBaseClass(String classname) {
         return javaDomainClass(classname) + IMPLBASE_SUFFIX;
     }
@@ -193,8 +198,5 @@ public class NameMapper {
         String packageName = ProjectProperties.getDomainRootPackage() + "." + BUSINESSRULES_PACKAGE;
         return packageName + "." + javaBusinessRuleClass(classname);
     }
-
-    
-
 
 }

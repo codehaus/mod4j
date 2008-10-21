@@ -32,7 +32,8 @@ public class Mod4WorklowRunnerTest {
 
     /**
      * Test method for
-     * {@link org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner#runWorkflow(java.lang.String, java.util.Map)}.
+     * {@link org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner#runWorkflow(java.lang.String, java.util.Map)}
+     * .
      */
     @Test
     public final void testRunWorkflowCleanerSuccessful() {
@@ -47,20 +48,20 @@ public class Mod4WorklowRunnerTest {
                 workflowRunner.runWorkflow(wfFile, properties);
             }
             assertFalse("dummyFile expected to be cleaned [" + testFile.getAbsolutePath() + "]", testFile.exists());
-        
+
         } catch (Mod4jWorkflowException e) {
             e.printStackTrace();
             fail("A Mod4jWorkflowException was thrown. Expected to run successful.");
         } catch (IOException e) {
             e.printStackTrace();
             fail("Cannot ceate test file in the system temporal directory");
-        }        
+        }
     }
-    
+
     /**
      * Test method for
-     * {@link org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner#runWorkflow(java.lang.String, java.util.Map)}.
-     * When the workflow fails it should throw a exception.
+     * {@link org.mod4j.dslcommon.openarchitectureware.Mod4jWorkflowRunner#runWorkflow(java.lang.String, java.util.Map)}
+     * . When the workflow fails it should throw a exception.
      */
     @Test
     public final void testRunWorkflowCleanerFail() {
@@ -69,11 +70,12 @@ public class Mod4WorklowRunnerTest {
         wfFile = "src/test/resources/TestWorkflowCleaner.oaw";
 
         try {
-           workflowRunner.runWorkflow(wfFile, properties);
-           fail("A Mod4jWorkflowException was expected to be thrown.");
+            workflowRunner.runWorkflow(wfFile, properties);
+            fail("A Mod4jWorkflowException was expected to be thrown.");
         } catch (Mod4jWorkflowException e) {
             // Ok this is what we expected to happen.
-            assertTrue("Caught a Mod4jWorkflowException", e.getMessage().startsWith("ERROR(S) detected while running workflow"));
+            assertTrue("Caught a Mod4jWorkflowException", e.getMessage().startsWith(
+                    "ERROR(S) detected while running workflow"));
         }
     }
 }

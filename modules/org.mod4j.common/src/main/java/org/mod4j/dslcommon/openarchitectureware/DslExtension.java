@@ -13,19 +13,19 @@ public class DslExtension {
 
     private String dslContributor = null;
 
-    private String dslName= null;
+    private String dslName = null;
 
-    private String dslMetamodelPackage= null;
+    private String dslMetamodelPackage = null;
 
-    private String dslFileExtension= null;
+    private String dslFileExtension = null;
 
-    private String dsl2crossxWorkflow= null;
+    private String dsl2crossxWorkflow = null;
 
-    private String dslXtendModule= null;
+    private String dslXtendModule = null;
 
-    private String dslCodegenWorkflow= null;
+    private String dslCodegenWorkflow = null;
 
-    private String dslCodegenProperties= null;
+    private String dslCodegenProperties = null;
 
     /**
      * @param contributor
@@ -89,8 +89,8 @@ public class DslExtension {
             return false;
         if (getDslName().length() == 0)
             return false;
-//        if (!getDsl2crossxWorkflow().endsWith(".oaw"))
-//            return false;
+        // if (!getDsl2crossxWorkflow().endsWith(".oaw"))
+        // return false;
         if (getDslContributor() == null)
             return false;
         if (getDslFileExtension() == null)

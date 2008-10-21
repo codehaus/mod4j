@@ -4,4 +4,3 @@ public enum FileType {
     UNKNOWN, TEXT, JAVA, XML
 
 }
-

@@ -2,16 +2,16 @@ package org.mod4j.common.generator.admin;
 
 public class GeneratedFile {
 
-//    public GeneratedFile(String moduleName, String sourcePath, String packagePathname, FileType type, boolean extension){
-//        this.sourcePath = sourcePath;
-//        this.moduleName = moduleName;
-//        this.packagePathname = packagePathname;
-//        this.fileType = type;
-//        this.extensionPoint = extension;
-//    }
+    // public GeneratedFile(String moduleName, String sourcePath, String packagePathname, FileType type, boolean
+    // extension){
+    // this.sourcePath = sourcePath;
+    // this.moduleName = moduleName;
+    // this.packagePathname = packagePathname;
+    // this.fileType = type;
+    // this.extensionPoint = extension;
+    // }
 
-    
-    public GeneratedFile(String sourcePath, FileType type, FileTrack owner, boolean extension){
+    public GeneratedFile(String sourcePath, FileType type, FileTrack owner, boolean extension) {
         this.owner = owner;
         this.sourcePath = sourcePath;
         this.fileType = type;
@@ -19,14 +19,18 @@ public class GeneratedFile {
     }
 
     private FileTrack owner;
+
     public FileTrack getOwner() {
         return owner;
     }
 
     private String moduleName;
+
     private String sourcePath;
-//    private String packagePathname;
+
+    // private String packagePathname;
     private boolean extensionPoint;
+
     private FileType fileType = FileType.UNKNOWN;
 
     public FileType getFileType() {
@@ -41,12 +45,12 @@ public class GeneratedFile {
         return sourcePath;
     }
 
-//    public String getPackagePathname() {
-//        return packagePathname;
-//    }
+    // public String getPackagePathname() {
+    // return packagePathname;
+    // }
 
     public boolean isExtensionPoint() {
         return extensionPoint;
     }
-   
+
 }
