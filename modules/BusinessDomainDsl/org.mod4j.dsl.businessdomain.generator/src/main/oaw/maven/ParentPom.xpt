@@ -2,10 +2,13 @@
 
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE createParentPom FOR BusinessDomainModel»
-    «IF !fileExist(getApplicationPath() + "/pom.xml")»
-        «FILE "pom.xml"»
+	«IF fileExist(getApplicationPath() + "/pom.xml")»
+		«extend("", "pom.xml" )»
+	«ELSE»
+		«FILE extend("", "pom.xml")»
 <?xml version="1.0" encoding="«getFileEncoding()»"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
