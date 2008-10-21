@@ -100,6 +100,8 @@ public class FileTracker {
         String result = null;
         if( filename.endsWith(".java") ){
             result = moduleName + "/" + ProjectProperties.getSrcGenPath() + "/" + filename;
+        } else if( filename.equals("pom.xml") ){          // always in root of module
+            result = moduleName + "/" + filename;
         } else {
             result = moduleName + "/" + ProjectProperties.getResourceGenPath() + "/" + filename;
         }
@@ -124,10 +126,18 @@ public class FileTracker {
 
     static public String extend(String moduleName, String filename) {
         String result = null;
-        if( filename.endsWith(".java") ){
-            result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        String prefix ;
+        if( (moduleName == null) || (moduleName.length() == 0) ){
+            prefix = "";
         } else {
-            result = moduleName + "/" + ProjectProperties.getResourceManPath() + "/" + filename;
+            prefix = moduleName + "/";
+        }
+        if( filename.endsWith(".java") ){
+            result = prefix + ProjectProperties.getSrcManPath() + "/" + filename;
+        } else if( filename.equals("pom.xml") ){          // always in root of module
+            result = prefix + filename;
+        } else {
+            result = prefix + ProjectProperties.getResourceManPath() + "/" + filename;
         }
         getFileTracker().currentTrack.extensionFile(result);
         return result;

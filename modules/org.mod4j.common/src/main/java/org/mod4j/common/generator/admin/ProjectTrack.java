@@ -40,7 +40,7 @@ public class ProjectTrack {
             localResource = resource.substring(6);
         }
         if( localResource.startsWith(projectPath)){
-            localResource = resource.substring(projectPath.length());
+            localResource = localResource.substring(projectPath.length());
         }
         FileTrack result = tracks.get(localResource);
         if (result == null) {

@@ -34,12 +34,12 @@ public class FileTrack {
     }
 	
     public void generatedFile(String filename){
-        GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, false);
+        GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, this, false);
         generatedFiles.add(gen);
     }
 
     public void extensionFile(String filename){
-        GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, true);
+        GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, this, true);
         extensionFiles.add(gen);
     }
 	
