@@ -11,46 +11,39 @@ import org.jdom.Element;
  */
 
 /**
- * JDomContentProvider : 
+ * JDomContentProvider :
  */
-public class JDomContentProvider implements  ITreeContentProvider
-{
-  public Object[] getChildren(Object element)
-  {
-	Element elem = (Element)element;
-	
-	Object[] kids = ((Element) element).getChildren().toArray();
-	Object[] result = kids == null ? new Object[0] : kids;
+public class JDomContentProvider implements ITreeContentProvider {
+    public Object[] getChildren(Object element) {
+        Element elem = (Element) element;
 
-//	for( Object child : elem.getChildren() ){
-//		Element e = (Element)child;
-//		
-//	}
-	
-	return result;
-  }
+        Object[] kids = ((Element) element).getChildren().toArray();
+        Object[] result = kids == null ? new Object[0] : kids;
 
-  public Object[] getElements(Object element)
-  {
-	return getChildren(element);
-  }
+        // for( Object child : elem.getChildren() ){
+        // Element e = (Element)child;
+        //		
+        // }
 
-  public boolean hasChildren(Object element)
-  {
-	return getChildren(element).length > 0;
-  }
+        return result;
+    }
 
-  public Object getParent(Object element)
-  {
-	return ((Element)element).getParent();
-  }
-  
-  public void dispose()
-  {
-  }
+    public Object[] getElements(Object element) {
+        return getChildren(element);
+    }
 
-  public void inputChanged(Viewer viewer, Object old_input, Object new_input)
-  {
-	  viewer.refresh();
-  }
+    public boolean hasChildren(Object element) {
+        return getChildren(element).length > 0;
+    }
+
+    public Object getParent(Object element) {
+        return ((Element) element).getParent();
+    }
+
+    public void dispose() {
+    }
+
+    public void inputChanged(Viewer viewer, Object old_input, Object new_input) {
+        viewer.refresh();
+    }
 }

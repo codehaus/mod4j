@@ -16,7 +16,7 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
  * JDomContentProvider :
  */
 public class CrossxContentProvider implements ITreeContentProvider {
-    
+
     public Object[] getChildren(Object element) {
         if (element instanceof Map) {
             Map<String, CrossxLocation> env = (Map<String, CrossxLocation>) element;
@@ -44,7 +44,7 @@ public class CrossxContentProvider implements ITreeContentProvider {
             Symbol sym = (Symbol) element;
             List<SymbolProperty> properties = sym.getProperties();
             List<Symbol> subsymbols = sym.getSubSymbols();
-            
+
             if (subsymbols.isEmpty()) {
                 if (properties.isEmpty()) {
                     return new Object[0];
@@ -55,7 +55,7 @@ public class CrossxContentProvider implements ITreeContentProvider {
                 return subsymbols.toArray(); // Set<CossxLocation>
             }
 
-        } else if( element instanceof LiteralSymbolProperty ){
+        } else if (element instanceof LiteralSymbolProperty) {
             return new Object[0];
         }
         return new Object[0];
@@ -70,7 +70,7 @@ public class CrossxContentProvider implements ITreeContentProvider {
     }
 
     public Object getParent(Object element) {
-            return null;
+        return null;
     }
 
     public void dispose() {

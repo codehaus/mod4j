@@ -18,7 +18,6 @@ import org.mod4j.common.generator.admin.ProjectTrack;
 import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
 import org.mod4j.eclipse.util.EclipseUtil;
 
-
 /**
  * This defines the view of the CrosssxRepository.
  * <p>
@@ -71,18 +70,20 @@ public class FileTrackerView extends ViewPart {
         viewer.addDoubleClickListener(new IDoubleClickListener() {
             public void doubleClick(DoubleClickEvent event) {
                 Object elem = event.getSelection();
-                if( ! (elem instanceof TreeSelection) ) { return; }
-                TreeSelection sel = (TreeSelection)elem;
+                if (!(elem instanceof TreeSelection)) {
+                    return;
+                }
+                TreeSelection sel = (TreeSelection) elem;
                 Object selection = sel.getFirstElement();
-                if( selection instanceof FileTrack ) {
-                    FileTrack ft = (FileTrack)selection;
+                if (selection instanceof FileTrack) {
+                    FileTrack ft = (FileTrack) selection;
                     String name = ft.getResource();
                     name = ft.getProject().getProjectPath() + "/" + name;
                     EclipseUtil.openFile(name);
-                } else if( selection instanceof ProjectTrack ) {
-                    ProjectTrack proj = (ProjectTrack)selection;
-//                    EclipseUtil.showInformation("ProjectTrack: " + proj.getProjectPath());
-                } else if( selection instanceof GeneratedFile ) {
+                } else if (selection instanceof ProjectTrack) {
+                    ProjectTrack proj = (ProjectTrack) selection;
+                    // EclipseUtil.showInformation("ProjectTrack: " + proj.getProjectPath());
+                } else if (selection instanceof GeneratedFile) {
                     GeneratedFile gen = (GeneratedFile) selection;
                     String name = gen.getSourcePath();
                     name = gen.getOwner().getProject().getApplicationPath() + "/" + name;
@@ -102,7 +103,7 @@ public class FileTrackerView extends ViewPart {
     }
 
     /**
-     * Refresh the view with the latest  information.
+     * Refresh the view with the latest information.
      * 
      */
     public static void myrefresh() {
@@ -112,7 +113,8 @@ public class FileTrackerView extends ViewPart {
         if (Display.getCurrent() != null) {
             theView.setPartName("filetracker  " + 1);
             i++;
-            theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input, FileTracker.getFileTracker());
+            theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input,
+                    FileTracker.getFileTracker());
             theView.viewer.refresh();
         } else {
             Display.getDefault().asyncExec(new Runnable() {

@@ -65,13 +65,12 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
     public static final String DSL_EXTENSION_ID = CrossxBuilder.bundleName + ".dsl";
 
     public static void initCrossx() {
-        if( !CrossxEnvironment.isStarted() ) {
-            CrossxBuilder b = new CrossxBuilder ();
+        if (!CrossxEnvironment.isStarted()) {
+            CrossxBuilder b = new CrossxBuilder();
             b.startX();
             CrossxEnvironment.setStarted(true);
         }
     }
-
 
     /**
      * Visitor that reads all .crossx files to get already defined symbols
@@ -98,31 +97,32 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
-//            Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
-//            CrossxBroker.addInfo(doc);
+            // Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
+            // CrossxBroker.addInfo(doc);
             ModelInfo crossxInfo = readCrossx(resource);
             CrossxEnvironment.addModelInfo(resource.getProject().getName(), crossxInfo);
-            
+
         }
     }
+
     public ModelInfo readCrossx(IResource resource) {
         // Create a resource set.
         ResourceSet resourceSet = new ResourceSetImpl();
 
-       // Register the default resource factory -- only needed for stand-alone!
-       resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-       Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+        // Register the default resource factory -- only needed for stand-alone!
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
-       // Register the package -- only needed for stand-alone!
-//       CrossxPackage crossxPackage = CrossxPackage.eINSTANCE;
+        // Register the package -- only needed for stand-alone!
+        // CrossxPackage crossxPackage = CrossxPackage.eINSTANCE;
 
         // Get the URI of the model file.
-       URI fileURI = URI.createFileURI(resource.getLocation().toPortableString());
+        URI fileURI = URI.createFileURI(resource.getLocation().toPortableString());
 
         // Demand load the resource for this file.
         Resource emfResource = resourceSet.getResource(fileURI, true);
         EList<EObject> tmp = emfResource.getContents();
-        if( ! tmp.isEmpty() ) {
+        if (!tmp.isEmpty()) {
             EObject first = tmp.get(0);
             return (ModelInfo) first;
         }
@@ -134,7 +134,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
      * (non-Javadoc)
      * 
      * @see org.eclipse.core.internal.events.InternalBuilder#build(int, java.util.Map,
-     *      org.eclipse.core.runtime.IProgressMonitor)
+     * org.eclipse.core.runtime.IProgressMonitor)
      */
     protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
         return null;
@@ -153,11 +153,11 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
         }
         CrossxView.myrefresh();
     }
-    
-    public IProject getMyProject(){
+
+    public IProject getMyProject() {
         return myProject;
     }
-    
+
     IProject myProject = null;
 
     /**
@@ -167,9 +167,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
     private void myloadCrossxInfo(IProject project) {
         // Make sure the project is open and has the Mod4j nature.
         try {
-            if ((!project.isAccessible()) || 
-                (!project.hasNature(Mod4jNature.NATURE_ID)) ||
-                (! project.isOpen())) {
+            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) || (!project.isOpen())) {
                 return;
             }
         } catch (CoreException e1) {
@@ -197,20 +195,19 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
     protected boolean inModelDir(IResource resource) {
         IPath resourcePath = resource.getProjectRelativePath();
         IProject project = getMyProject();
-        if( project == null ){
+        if (project == null) {
             return false;
         }
         IResource projectResource = project.findMember(MODEL_DIR);
-        if( projectResource == null ){
+        if (projectResource == null) {
             return false;
         }
         IPath modelPath = projectResource.getProjectRelativePath();
-        if( modelPath == null ) {
+        if (modelPath == null) {
             return false;
         }
         return modelPath.isPrefixOf(resourcePath);
     }
-
 
     public static List<DslExtension> getExtensions() {
         List<DslExtension> result = new ArrayList<DslExtension>();

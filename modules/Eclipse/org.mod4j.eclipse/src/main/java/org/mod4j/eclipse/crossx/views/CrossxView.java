@@ -58,7 +58,7 @@ public class CrossxView extends ViewPart {
         input = CrossxEnvironment.getAll();
         viewer.setInput(input);
         // viewer.setInput(getViewSite());
-//        hookDoubleClickAction();
+        // hookDoubleClickAction();
         viewer.refresh();
         this.setPartName("crossx repository" + i);
         i++;

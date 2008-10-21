@@ -13,12 +13,11 @@ import org.mod4j.common.generator.admin.FileTracker;
 import org.mod4j.common.generator.admin.GeneratedFile;
 import org.mod4j.common.generator.admin.ProjectTrack;
 
-
 /**
  * JDomContentProvider :
  */
 public class FileTrackerContentProvider implements ITreeContentProvider {
-    
+
     public Object[] getChildren(Object element) {
         if (element instanceof ProjectTrack) {
             ProjectTrack ft = (ProjectTrack) element;
@@ -49,7 +48,7 @@ public class FileTrackerContentProvider implements ITreeContentProvider {
     }
 
     public Object getParent(Object element) {
-            return null;
+        return null;
     }
 
     public void dispose() {

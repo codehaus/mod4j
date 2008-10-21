@@ -6,6 +6,7 @@
  */
 
 package org.mod4j.eclipse.views.filetracker;
+
 import java.util.Map;
 
 import org.eclipse.jface.viewers.LabelProvider;
@@ -24,16 +25,18 @@ import org.mod4j.eclipse.util.UiHelper;
 
 /**
  * @author jos
- *
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ * 
+ *         To change the template for this generated type comment go to Window&gt;Preferences&gt;Java&gt;Code
+ *         Generation&gt;Code and Comments
  */
 public class FileTrackerLabelProvider extends LabelProvider {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
-	 */
-	public String getText(Object element) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
+     */
+    public String getText(Object element) {
         if (element instanceof ProjectTrack) {
             ProjectTrack p = (ProjectTrack) element;
             return p.getProjectPath();
@@ -47,39 +50,40 @@ public class FileTrackerLabelProvider extends LabelProvider {
             return file.getSourcePath();
         }
         return element.toString();
-	}
+    }
+
     public Image getImage(Object element) {
         if (element instanceof ProjectTrack) {
             return UiHelper.projectImg;
         } else if (element instanceof FileTracker) {
             return UiHelper.fileImg;
         } else if (element instanceof FileTrack) {
-            FileTrack ft = (FileTrack)element;
-            if( ft.getResource().endsWith(".busmod") ){
+            FileTrack ft = (FileTrack) element;
+            if (ft.getResource().endsWith(".busmod")) {
                 return UiHelper.mod4jBusinessImage;
-            } else if( ft.getResource().endsWith(".sermod") ){
+            } else if (ft.getResource().endsWith(".sermod")) {
                 return UiHelper.mod4jServiceImage;
-            } else if( ft.getResource().endsWith(".dtcmod") ){
+            } else if (ft.getResource().endsWith(".dtcmod")) {
                 return UiHelper.mod4jDataContractImage;
             } else {
-                return UiHelper.mod4jImage; 
+                return UiHelper.mod4jImage;
             }
-        } else if( element instanceof GeneratedFile ) {
-            GeneratedFile gen = (GeneratedFile)element;
-            if( gen.getSourcePath().endsWith(".java")) {
-                if( gen.isExtensionPoint() ) {
+        } else if (element instanceof GeneratedFile) {
+            GeneratedFile gen = (GeneratedFile) element;
+            if (gen.getSourcePath().endsWith(".java")) {
+                if (gen.isExtensionPoint()) {
                     return UiHelper.javaFileImage;
                 } else {
                     return UiHelper.javaFileGenImage;
                 }
-            } else if( gen.getSourcePath().endsWith(".xml")) {
-                if( gen.isExtensionPoint() ) {
+            } else if (gen.getSourcePath().endsWith(".xml")) {
+                if (gen.isExtensionPoint()) {
                     return UiHelper.xmlFileImage;
                 } else {
                     return UiHelper.xmlFileGenImage;
                 }
             }
         }
-         return UiHelper.fileImg;
-     }
+        return UiHelper.fileImg;
+    }
 }

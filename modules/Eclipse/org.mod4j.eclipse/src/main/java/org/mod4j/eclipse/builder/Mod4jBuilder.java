@@ -193,32 +193,33 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
-//            Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
-//            CrossxBroker.addInfo(doc);
+            // Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
+            // CrossxBroker.addInfo(doc);
             ModelInfo crossxInfo = readCrossx(resource);
             CrossxEnvironment.addModelInfo(resource.getProject().getName(), crossxInfo);
-            
+
         }
     }
+
     public ModelInfo readCrossx(IResource resource) {
         // Create a resource set.
         ResourceSet resourceSet = new ResourceSetImpl();
 
-       // Register the default resource factory -- only needed for stand-alone!
-       resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-       Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+        // Register the default resource factory -- only needed for stand-alone!
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
-       // Register the package -- only needed for stand-alone!
-       CrossxPackage crossxPackage = CrossxPackage.eINSTANCE;
+        // Register the package -- only needed for stand-alone!
+        CrossxPackage crossxPackage = CrossxPackage.eINSTANCE;
 
         // Get the URI of the model file.
-//       URI fileURI = URI.createFileURI(new File("mylibrary.xmi").getAbsolutePath());
-       URI fileURI = URI.createFileURI(resource.getLocation().toPortableString());
+        // URI fileURI = URI.createFileURI(new File("mylibrary.xmi").getAbsolutePath());
+        URI fileURI = URI.createFileURI(resource.getLocation().toPortableString());
 
         // Demand load the resource for this file.
         Resource emfResource = resourceSet.getResource(fileURI, true);
         EList<EObject> tmp = emfResource.getContents();
-        if( ! tmp.isEmpty() ) {
+        if (!tmp.isEmpty()) {
             EObject first = tmp.get(0);
             return (ModelInfo) first;
         }
@@ -230,7 +231,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * (non-Javadoc)
      * 
      * @see org.eclipse.core.internal.events.InternalBuilder#build(int, java.util.Map,
-     *      org.eclipse.core.runtime.IProgressMonitor)
+     * org.eclipse.core.runtime.IProgressMonitor)
      */
     protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
         if (kind == FULL_BUILD) {
@@ -316,9 +317,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     private void myloadCrossxInfo(IProject project) {
         // Make sure the project is open and has the Mod4j nature.
         try {
-            if ((!project.isAccessible()) || 
-                (!project.hasNature(Mod4jNature.NATURE_ID)) ||
-                (! project.isOpen())) {
+            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) || (!project.isOpen())) {
                 return;
             }
         } catch (CoreException e1) {
@@ -421,7 +420,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             String workDir = getProject().getLocation().toString();
             String newAppPath = workDir + "/" + applicationPath;
             properties.put("applicationPath", newAppPath);
-            properties.put("workDir", workDir );
+            properties.put("workDir", workDir);
             properties.put("project", resource.getProject().getName());
 
             resource.getFullPath().toPortableString();
@@ -434,10 +433,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             try {
                 genWf.runWorkflow(genName, properties);
             } catch (Mod4jWorkflowException e) {
-                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + 
-                        resource.getName() + "] error: [" + e.getMessage() + "]");
-                EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model [" + 
-                        resource.getName() + "] \nerror: [" + e.getMessage() + "]");
+                System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName()
+                        + "] error: [" + e.getMessage() + "]");
+                EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model ["
+                        + resource.getName() + "] \nerror: [" + e.getMessage() + "]");
             }
         }
     }
@@ -453,9 +452,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
-            
+
             String crossx = dsl.getDsl2crossxWorkflow();
-            if( (crossx == null) || (crossx.length() == 0) ){
+            if ((crossx == null) || (crossx.length() == 0)) {
                 // no crossx, stop
                 return;
             }

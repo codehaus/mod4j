@@ -99,7 +99,7 @@ public class EclipseUtil {
      */
     static public IPath getPath(String bundlename, String pathname) {
         String myPathname = null;
-        if (Platform.inDevelopmentMode() && ( ! bundlename.equals("org.mod4j.eclipse"))) {
+        if (Platform.inDevelopmentMode() && (!bundlename.equals("org.mod4j.eclipse"))) {
             myPathname = "src/main/oaw/" + pathname;
         } else {
             myPathname = pathname;
@@ -126,7 +126,7 @@ public class EclipseUtil {
 
     static public URL getURL(String bundlename, String pathname) {
         String myPathname = null;
-        if (Platform.inDevelopmentMode() && ( ! bundlename.equals("org.mod4j.eclipse"))) {
+        if (Platform.inDevelopmentMode() && (!bundlename.equals("org.mod4j.eclipse"))) {
             myPathname = "src/main/oaw/" + pathname;
         } else {
             myPathname = pathname;
@@ -240,8 +240,7 @@ public class EclipseUtil {
     }
 
     /**
-     * Find the OutputStream connected with the Eclipse Console View.
-     * If no console is found a new one will be created.
+     * Find the OutputStream connected with the Eclipse Console View. If no console is found a new one will be created.
      * 
      * @param name
      * @return
@@ -282,49 +281,48 @@ public class EclipseUtil {
         }
         return result;
     }
-    
+
     /**
-     *  Open the default EWcliopse editor on the file named 'filename'
-     *  Code from Eclipse Wiki: http://wiki.eclipse.org/FAQ_How_do_I_open_an_editor_programmatically%3F
+     * Open the default EWcliopse editor on the file named 'filename' Code from Eclipse Wiki:
+     * http://wiki.eclipse.org/FAQ_How_do_I_open_an_editor_programmatically%3F
+     * 
      * @param filename
      */
-    public static void openFile(String filename){
-        
-        
+    public static void openFile(String filename) {
+
         File fileToOpen = new File(filename);
-         
+
         IPath path = new Path(filename);
-//        IFile f = ResourcesPlugin.getWorkspace().getRoot().getFile(path); 
+        // IFile f = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 
         // Check whether the file is insiode the workspace
         IFile ifile = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(path);
-        if( ifile ==null ){
-            EclipseUtil.showWarning("Can only open files inside the Eclipse workspace\n" +
-                                    "File [" + filename + "] is not in the workspace");
+        if (ifile == null) {
+            EclipseUtil.showWarning("Can only open files inside the Eclipse workspace\n" + "File [" + filename
+                    + "] is not in the workspace");
             return;
         }
 
         if (fileToOpen.exists() && fileToOpen.isFile()) {
-//            IFileStore fileStore = EFS.getLocalFileSystem().getStore(fileToOpen.toURI());
+            // IFileStore fileStore = EFS.getLocalFileSystem().getStore(fileToOpen.toURI());
             IFileStore fileStore = EFS.getLocalFileSystem().fromLocalFile(fileToOpen);
             IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-            
+
             try {
-                //  TODO: the following lines open a file outside Eclipse.
-                //  But I have no way of finding out whether a files i insoide an eclipse project
-//                FileStoreEditorInput input = new FileStoreEditorInput(fileStore);
-//                IEditorDescriptor desc = IDE.getEditorDescriptor(f);
-//                IDE.openEditor(page, input, desc.getId());
-                IDE.openEditorOnFileStore( page, fileStore );
-            } catch ( PartInitException e ) {
-                EclipseUtil.showWarning("openFile exception ["+ e.getMessage() + "]");
-            } catch ( Exception e ) {
-                EclipseUtil.showWarning("openFile exception ["+ e.getMessage() + "] [" + e.toString() + "]");
+                // TODO: the following lines open a file outside Eclipse.
+                // But I have no way of finding out whether a files i insoide an eclipse project
+                // FileStoreEditorInput input = new FileStoreEditorInput(fileStore);
+                // IEditorDescriptor desc = IDE.getEditorDescriptor(f);
+                // IDE.openEditor(page, input, desc.getId());
+                IDE.openEditorOnFileStore(page, fileStore);
+            } catch (PartInitException e) {
+                EclipseUtil.showWarning("openFile exception [" + e.getMessage() + "]");
+            } catch (Exception e) {
+                EclipseUtil.showWarning("openFile exception [" + e.getMessage() + "] [" + e.toString() + "]");
             }
         } else {
-            EclipseUtil.showWarning("Cannot find file ["+ filename  + "]");
+            EclipseUtil.showWarning("Cannot find file [" + filename + "]");
         }
     }
-
 
 }
