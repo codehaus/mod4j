@@ -76,14 +76,16 @@ public class FileTrackerView extends ViewPart {
                 Object selection = sel.getFirstElement();
                 if( selection instanceof FileTrack ) {
                     FileTrack ft = (FileTrack)selection;
-                    EclipseUtil.showInformation("FileTrack: " + ft.getResource());
+                    String name = ft.getResource();
+                    name = ft.getProject().getProjectPath() + "/" + name;
+                    EclipseUtil.openFile(name);
                 } else if( selection instanceof ProjectTrack ) {
                     ProjectTrack proj = (ProjectTrack)selection;
-                    EclipseUtil.showInformation("ProjectTrack: " + proj.getProjectPath());
+//                    EclipseUtil.showInformation("ProjectTrack: " + proj.getProjectPath());
                 } else if( selection instanceof GeneratedFile ) {
                     GeneratedFile gen = (GeneratedFile) selection;
                     String name = gen.getSourcePath();
-                    name = ProjectProperties.getApplicationPath() + "/" + name;
+                    name = gen.getOwner().getProject().getApplicationPath() + "/" + name;
                     EclipseUtil.openFile(name);
                 } else {
                     EclipseUtil.showInformation("DoubleC;lick on unknown object: " + selection.toString());
