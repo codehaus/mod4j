@@ -178,7 +178,9 @@
 
 «DEFINE one2oneMappingTo FOR Association -»
 		<!-- one2oneMappingTo -->
-        <one-to-one name="«targetRoleName»" 
+        <many-to-one name="«targetRoleName»" 
+                    column="«this.targetRoleName»_ID"
+                    unique="true"
                     class="«javaDomainClass(this.target.name)»"
          /> 
 «ENDDEFINE»
@@ -186,6 +188,7 @@
 «DEFINE one2oneMappingFrom FOR Association -»
 		<!-- one2oneMappingFrom -->
         <one-to-one name="«sourceRoleName»" 
+                    property-ref="«targetRoleName»"
                     class="«javaDomainClass(this.source.name)»"
          /> 
 «ENDDEFINE»
