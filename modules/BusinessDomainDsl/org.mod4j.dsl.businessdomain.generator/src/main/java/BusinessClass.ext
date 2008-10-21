@@ -2,39 +2,6 @@
  */
 import BusinessDomainDsl;
 
-//String javaPackageName(BusinessClass cls) :
-// JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaPackageName(BusinessDomainDsl.BusinessClass);
-
-// String javaFullName(BusinessClass cls) :
-// JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaFullName(BusinessDomainDsl.BusinessClass);
- 
-//String javaClassName(BusinessClass cls) :
-// JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.BusinessClass);
-
-String javaClassName(AbstractBusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaClassName(BusinessDomainDsl.AbstractBusinessClass);
-
-String javaClassName(String cls) :
- JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.javaClassName(java.lang.String);
-
-String javaVarName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaVarName(BusinessDomainDsl.BusinessClass);
-
-String implBaseClassName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.implBaseClassName(BusinessDomainDsl.BusinessClass);
-
-String daoInterfaceName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceName(BusinessDomainDsl.BusinessClass);
-
-String daoInterfaceBaseName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoInterfaceBaseName(BusinessDomainDsl.BusinessClass);
-
-String daoImplClassName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassName(BusinessDomainDsl.BusinessClass);
-
-String daoImplClassBaseName(BusinessClass cls) :
- JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.daoImplClassBaseName(BusinessDomainDsl.BusinessClass);
-
 boolean isCompositePart(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isCompositePart(BusinessDomainDsl.BusinessClass);
 
