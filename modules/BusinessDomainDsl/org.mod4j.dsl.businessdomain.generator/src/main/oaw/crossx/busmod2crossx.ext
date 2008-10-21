@@ -77,6 +77,7 @@ crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     result.setName(prop.name) ->
     result.setType("Property") ->
     result.properties.add(prop.toLiteralProperty())->
+    result.properties.add(newProperty("Nullable", (prop.nullable? "true" : "false") ))->
     result
     ;
     
