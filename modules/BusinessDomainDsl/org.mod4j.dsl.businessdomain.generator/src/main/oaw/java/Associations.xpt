@@ -1,6 +1,5 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
 «EXTENSION Association»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
@@ -15,10 +14,10 @@
         private «target.name» «targetRoleName»;
         «EXPAND AssociationsMany2One::many2OneAccessorsTo FOR this»
     «ELSEIF isOne2Many() -»
-		private Set<«javaClassName(target)»> «targetRoleName» = new HashSet<«javaClassName(target)»>();
+		private Set<«javaDomainClass(target.name)»> «targetRoleName» = new HashSet<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsOne2Many::one2ManyAccessorsTo FOR this»
     «ELSEIF isMany2Many() -»
-        private Set<«javaClassName(target)»> «targetRoleName» = new HashSet<«javaClassName(target)»>();
+        private Set<«javaDomainClass(target.name)»> «targetRoleName» = new HashSet<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
 	«ENDIF»
 «ENDDEFINE»
@@ -28,13 +27,13 @@
         private «source.name» «sourceRoleName»;
         «EXPAND AssociationsOne2One::one2OneAccessorsFrom FOR this»
     «ELSEIF isMany2One() -»
-        private Set<«javaClassName(source)»> «sourceRoleName» = new HashSet<«javaClassName(source)»>();
+        private Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
         «EXPAND AssociationsMany2One::many2OneAccessorsFrom FOR this»
     «ELSEIF isOne2Many() -»
         private «source.name» «sourceRoleName»;
         «EXPAND AssociationsOne2Many::one2ManyAccessorsFrom FOR this»
     «ELSEIF isMany2Many() -»
-        private Set<«javaClassName(source)»> «sourceRoleName» = new HashSet<«javaClassName(source)»>();
+        private Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
     «ENDIF»
 «ENDDEFINE»
 
@@ -61,23 +60,23 @@
 	 *
 	 * @return «targetRoleName» (Set<«target.name»>) «target.description»
 	 */
-	public Set<«javaClassName(target)»> get«targetRoleName.toFirstUpper()» () {
+	public Set<«javaDomainClass(target.name)»> get«targetRoleName.toFirstUpper()» () {
    		return this.«targetRoleName»;
 	}
 
 	/**
 	 *
-	 * @param a«javaClassName(target)» («target.name») «target.description»
+	 * @param a«javaDomainClass(target.name)» («target.name») «target.description»
 	 */
-	public void add«target.name.toFirstUpper()» (final «javaClassName(target)» a«target.name») {
+	public void add«target.name.toFirstUpper()» (final «javaDomainClass(target.name)» a«target.name») {
    		this.«targetRoleName».add(a«target.name»);
 	}
 	
 	/**
 	 *
-	 * @param a«target.name» («javaClassName(target)») «target.description»
+	 * @param a«target.name» («javaDomainClass(target.name)») «target.description»
 	 */
-	public void remove«target.name.toFirstUpper()» (final «javaClassName(target)» a«target.name») {
+	public void remove«target.name.toFirstUpper()» (final «javaDomainClass(target.name)» a«target.name») {
    		this.«targetRoleName».remove(a«target.name»);
 	}
 «ENDDEFINE»

@@ -1,8 +1,8 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
 «EXTENSION Association»
-TODOTODO
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
 «REM»
     Adds the accessor methods at the source side of a one to many association
     If the association is bidirectional, code is generated to uodate the target side as well.
@@ -11,24 +11,24 @@ TODOTODO
     /**
      * @return «targetRoleName» (Set<«target.name»>) 
      */
-    public «javaClassName(target)» get«targetRoleName.toFirstUpper()» () {
+    public «javaDomainClass(target.name)» get«targetRoleName.toFirstUpper()» () {
         return this.«targetRoleName»;
     }
 
     /**
      * Implements adding single element to a collection
      */
-    public void set«this.targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+    public void set«this.targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
         if( this.«targetRoleName» != element ) {
 «IF this.bidirectional»
             if ( this.«targetRoleName»  != null ) {
-                this.«targetRoleName».z_internalRemoveFrom«this.sourceRoleName.toFirstUpper()»( («javaClassName(source)») this);
+                this.«targetRoleName».z_internalRemoveFrom«this.sourceRoleName.toFirstUpper()»( («javaDomainClass(source.name)») this);
             }
 «ENDIF»
             this.«this.targetRoleName» = element;
 «IF this.bidirectional»
             if ( element != null ) {
-                element.z_internalAddTo«this.sourceRoleName.toFirstUpper()»( («javaClassName(this.source)»)this );
+                element.z_internalAddTo«this.sourceRoleName.toFirstUpper()»( («javaDomainClass(this.source.name)»)this );
             }
 «ENDIF»
         }
@@ -39,7 +39,7 @@ TODOTODO
      * 
      * @param element 
      */
-    public void z_internalSet«this.targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+    public void z_internalSet«this.targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
         this.«this.targetRoleName» = element;
     }
     
@@ -48,7 +48,7 @@ TODOTODO
      * 
      * @param element 
      */
-    public void z_internalRemove«this.targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+    public void z_internalRemove«this.targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
         this.«this.targetRoleName» = null;
     }
 «ENDDEFINE»
@@ -58,7 +58,7 @@ TODOTODO
     Code to update the o=ther side si generated as well.
 «ENDREM»
 «DEFINE many2OneAccessorsFrom FOR Association»
-    public Set<«javaClassName(source)»> get«sourceRoleName.toFirstUpper()» ( ) {
+    public Set<«javaDomainClass(source.name)»> get«sourceRoleName.toFirstUpper()» ( ) {
         return this.«sourceRoleName»;
     }
 
@@ -67,7 +67,7 @@ TODOTODO
      * 
      * @param element 
      */
-    public void addTo«this.sourceRoleName.toFirstUpper()»(«javaClassName(this.source)» element) {
+    public void addTo«this.sourceRoleName.toFirstUpper()»(«javaDomainClass(this.source.name)» element) {
         if( element == null) {
             return;
         }
@@ -79,17 +79,17 @@ TODOTODO
         if ( element.get«targetRoleName.toFirstUpper()»() != null ) {
             element.get«targetRoleName.toFirstUpper()»().z_internalRemoveFrom«sourceRoleName.toFirstUpper()»(element);
         }
-        element.z_internalSet«targetRoleName.toFirstUpper()»( («javaClassName(target)») this) ;
+        element.z_internalSet«targetRoleName.toFirstUpper()»( («javaDomainClass(target.name)») this) ;
 «ENDIF»
     }
     
-    public void removeFrom«sourceRoleName.toFirstUpper()» («javaClassName(source)» element) {
+    public void removeFrom«sourceRoleName.toFirstUpper()» («javaDomainClass(source.name)» element) {
         if ( element == null ) {
             return;
         }
         this.«sourceRoleName».remove(element);
 «IF bidirectional -»
-        element.z_internalRemove«targetRoleName.toFirstUpper()» ( («javaClassName(target)») this) ;
+        element.z_internalRemove«targetRoleName.toFirstUpper()» ( («javaDomainClass(target.name)») this) ;
 «ENDIF»
     }
         
@@ -100,7 +100,7 @@ TODOTODO
      * 
      * @param element 
      */
-    public void z_internalAddTo«this.sourceRoleName.toFirstUpper()»(«javaClassName(this.source)» element) {
+    public void z_internalAddTo«this.sourceRoleName.toFirstUpper()»(«javaDomainClass(this.source.name)» element) {
         this.«this.sourceRoleName».add(element);
     }
     
@@ -110,7 +110,7 @@ TODOTODO
      * 
      * @param element 
      */
-    public void z_internalRemoveFrom«this.sourceRoleName.toFirstUpper()» («javaClassName(this.source)» element) {
+    public void z_internalRemoveFrom«this.sourceRoleName.toFirstUpper()» («javaDomainClass(this.source.name)» element) {
         this.«this.sourceRoleName».remove(element);
     }
 

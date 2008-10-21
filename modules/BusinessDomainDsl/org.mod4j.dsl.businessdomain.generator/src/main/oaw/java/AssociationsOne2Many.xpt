@@ -1,7 +1,8 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
+
 «EXTENSION Association»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «REM»
     Adds the accessor methods at the source side of a one to many association
@@ -11,14 +12,14 @@
     /**
      * @return «targetRoleName» (Set<«target.name»>) 
      */
-    public Set<«javaClassName(target)»> get«targetRoleName.toFirstUpper()» () {
+    public Set<«javaDomainClass(target.name)»> get«targetRoleName.toFirstUpper()» () {
         return Collections.unmodifiableSet(this.«targetRoleName»);
     }
 
     /**
      * Implements adding single element to a collection
      */
-    public void addTo«targetRoleName.toFirstUpper()»(«javaClassName(target)» element) {
+    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
         if ( element == null ) {
             return;
         }
@@ -30,7 +31,7 @@
         if ( element.«getterFrom(this)»() != null ) {
             element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
         }
-        element.z_internalAddTo«sourceRoleName»( («javaClassName(source)»)((«javaClassName(source)»)this) );
+        element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
         validation.validate();
     «ENDIF»
     }
@@ -40,13 +41,13 @@
      * 
      * @param element 
      */
-    public void removeFrom«this.targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+    public void removeFrom«this.targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
         if ( element == null ) {
             return;
         }
         this.«this.targetRoleName».remove(element);
     «IF this.bidirectional -»
-        element.z_internalRemoveFrom«this.sourceRoleName»( («javaClassName(this.source)»)((«javaClassName(this.source)»)this) );
+        element.z_internalRemoveFrom«this.sourceRoleName»( («javaDomainClass(this.source.name)»)((«javaDomainClass(this.source.name)»)this) );
     «ENDIF»
         validation.validate();
     }
@@ -57,7 +58,7 @@
      * 
      * @param element 
      */
-    public void z_internalAddTo«this.targetRoleName»(«javaClassName(this.target)» element) {
+    public void z_internalAddTo«this.targetRoleName»(«javaDomainClass(this.target.name)» element) {
         this.«this.targetRoleName».add(element);
     }
     
@@ -67,7 +68,7 @@
      * 
      * @param element 
      */
-    public void z_internalRemoveFrom«this.targetRoleName»(«javaClassName(this.target)» element) {
+    public void z_internalRemoveFrom«this.targetRoleName»(«javaDomainClass(this.target.name)» element) {
         this.«this.targetRoleName».remove(element);
     }
 «ENDDEFINE»
@@ -82,7 +83,7 @@
      * 
      * @param element 
      */
-    public «javaClassName(this.source)» get«this.sourceRoleName.toFirstUpper()»() {
+    public «javaDomainClass(this.source.name)» get«this.sourceRoleName.toFirstUpper()»() {
         return this.«this.sourceRoleName»;
     }
 
@@ -91,15 +92,15 @@
      * 
      * @param element 
      */
-    public void set«this.sourceRoleName.toFirstUpper()»(«javaClassName(this.source)» element) {
+    public void set«this.sourceRoleName.toFirstUpper()»(«javaDomainClass(this.source.name)» element) {
         if ( this.«this.sourceRoleName» != element ) {
             if ( this.«this.sourceRoleName» != null ) {
                 this.«this.sourceRoleName».z_internalRemoveFrom«this.targetRoleName»( 
-                                              («javaClassName(this.target)») ( («javaClassName(this.target)»)this) );
+                                              («javaDomainClass(this.target.name)») ( («javaDomainClass(this.target.name)»)this) );
             }
             this.«this.sourceRoleName» = element;
             if ( element != null ) {
-                element.z_internalAddTo«this.targetRoleName»( («javaClassName(this.target)»)((«javaClassName(this.target)»)this) );
+                element.z_internalAddTo«this.targetRoleName»( («javaDomainClass(this.target.name)»)((«javaDomainClass(this.target.name)»)this) );
             }
         }
         validation.validate();
@@ -111,7 +112,7 @@
      * 
      * @param element 
      */
-    public void z_internalAddTo«this.sourceRoleName»(«javaClassName(this.source)» element) {
+    public void z_internalAddTo«this.sourceRoleName»(«javaDomainClass(this.source.name)» element) {
         this.«this.sourceRoleName» = element;
     }
     
@@ -121,7 +122,7 @@
      * 
      * @param element 
      */
-    public void z_internalRemoveFrom«this.sourceRoleName» («javaClassName(this.source)» element) {
+    public void z_internalRemoveFrom«this.sourceRoleName» («javaDomainClass(this.source.name)» element) {
         this.«this.sourceRoleName» = null;
     }
 

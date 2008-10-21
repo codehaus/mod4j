@@ -1,33 +1,34 @@
 «IMPORT BusinessDomainDsl»
 
 «EXTENSION BusinessClass»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE addDefaultImplBaseConstructor FOR BusinessClass »
     /**
-     * Default no-argument constructor for «implBaseClassName(this)» 
+     * Default no-argument constructor for «javaDomainBaseClass(this.name)» 
      */
-     protected  «implBaseClassName(this)-» () {
+     protected  «javaDomainBaseClass(this.name)-» () {
         «IF superclass != null -»super();«ENDIF»
      }
 «ENDDEFINE»
 
 «DEFINE addDefaultConstructor FOR BusinessClass »
     /**
-     * Default no-argument constructor for «javaClassName(this)» 
+     * Default no-argument constructor for «javaDomainClass(this.name)» 
      */
-    protected  «javaClassName(this)-» () {
+    protected  «javaDomainClass(this.name)-» () {
        «IF superclass != null -»super();«ENDIF»
     }
 «ENDDEFINE»
 
 «DEFINE addMinimalConstructor FOR BusinessClass »
     /**
-     * Minimal constructor for «implBaseClassName()»
+     * Minimal constructor for «javaDomainBaseClass(this.name)»
      *
      «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
-    public «implBaseClassName()» («EXPAND addConstructorArgumentsList -») {
+    public «javaDomainBaseClass(this.name)» («EXPAND addConstructorArgumentsList -») {
      «IF superclass != null -»
         super(«EXPAND addSuperArgumentList FOR this.superclass -»);
      «ENDIF»
@@ -62,10 +63,10 @@
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»
     /**
-     * Minimal constructor for «javaClassName(this)»«classNameSuffix»
+     * Minimal constructor for «javaDomainClass(this.name)»
      «EXPAND Javadoc::addJavaDocParamList FOR this -» 
      */
-    public «javaClassName(this)»«classNameSuffix» («EXPAND addConstructorArgumentsList -») {
+    public «javaDomainClass(this.name)» («EXPAND addConstructorArgumentsList -») {
         super(«EXPAND addSuperArgumentList FOR this -»);
     }
 «ENDDEFINE»

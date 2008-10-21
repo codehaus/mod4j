@@ -1,6 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION Association»
 
 «REM»
@@ -11,25 +11,25 @@
     /**
      * @return «targetRoleName» (Set<«target.name»>) 
      */
-    public «javaClassName(target)» get«targetRoleName.toFirstUpper()» () {
+    public «javaDomainClass(target.name)» get«targetRoleName.toFirstUpper()» () {
         return this.«targetRoleName»;
     }
 
     /**
      * Implements adding single element to a collection
      */
-    public void set«targetRoleName.toFirstUpper()»(«javaClassName(target)» element) {
+    public void set«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
         if ( this.«targetRoleName» != element) {       // prevent infinite loop
 «IF this.bidirectional»
             if( this.«targetRoleName» != null ) {      // there is a previous link X
-                this.«targetRoleName».z_internalRemove«sourceRoleName»( («javaClassName(this.source)») this );
+                this.«targetRoleName».z_internalRemove«sourceRoleName»( («javaDomainClass(this.source.name)») this );
             }
 «ENDIF»
             this.«targetRoleName» = element;               // set the field to the new value
 «IF this.bidirectional»
             if ( element != null ) {
                 // make the new link aware of this 
-                element.set«sourceRoleName.toFirstUpper()»( («javaClassName(this.source)») this );
+                element.set«sourceRoleName.toFirstUpper()»( («javaDomainClass(this.source.name)») this );
             }
 «ENDIF»
         }
@@ -41,7 +41,7 @@
      * 
      * @param element 
      */
-    public void z_internalSet«targetRoleName»(«javaClassName(target)» element) {
+    public void z_internalSet«targetRoleName»(«javaDomainClass(target.name)» element) {
         this.«targetRoleName» = null;
     }
 
@@ -51,7 +51,7 @@
      * 
      * @param element 
      */
-    public void z_internalRemove«targetRoleName»(«javaClassName(target)» element) {
+    public void z_internalRemove«targetRoleName»(«javaDomainClass(target.name)» element) {
         this.«targetRoleName» = null;
     }
 «ENDDEFINE»
@@ -64,25 +64,25 @@
     /**
      * @return «sourceRoleName» (Set<«source.name»>) «source.description»
      */
-    public «javaClassName(source)» get«sourceRoleName.toFirstUpper()» () {
+    public «javaDomainClass(source.name)» get«sourceRoleName.toFirstUpper()» () {
         return this.«sourceRoleName»;
     }
 
     /**
      * Implements adding single element to a collection
      */
-    public void set«sourceRoleName.toFirstUpper()»(«javaClassName(source)» element) {
+    public void set«sourceRoleName.toFirstUpper()»(«javaDomainClass(source.name)» element) {
         if ( this.«sourceRoleName» != element) {       // prevent infinite loop
 «IF this.bidirectional»
             if( this.«sourceRoleName» != null ) {      // there is a previous link Y
-                this.«sourceRoleName».z_internalRemove«targetRoleName»( («javaClassName(target)») this );
+                this.«sourceRoleName».z_internalRemove«targetRoleName»( («javaDomainClass(target.name)») this );
             }
 «ENDIF»
             this.«sourceRoleName» = element;               // set the field to the new value
 «IF this.bidirectional»
             if ( element != null ) {
                 // make the new link aware of this 
-                element.set«targetRoleName.toFirstUpper()»( («javaClassName(target)») this );
+                element.set«targetRoleName.toFirstUpper()»( («javaDomainClass(target.name)») this );
             }
 «ENDIF»
         }
@@ -104,7 +104,7 @@
      * 
      * @param element 
      */
-    public void z_internalRemove«sourceRoleName»(«javaClassName(source)» element) {
+    public void z_internalRemove«sourceRoleName»(«javaDomainClass(source.name)» element) {
         this.«sourceRoleName» = null;
     }
 «ENDDEFINE»

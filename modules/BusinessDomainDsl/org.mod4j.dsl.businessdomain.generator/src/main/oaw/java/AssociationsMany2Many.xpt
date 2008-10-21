@@ -1,6 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION BusinessClass»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION Association»
 TODOTODO
 «REM»
@@ -17,7 +17,7 @@ TODOTODO
     /**
      * Implements adding single element to a collection.
      */
-    public void addTo«targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
         this.«this.targetRoleName».add(element);
         validation.validate();
     }
@@ -25,7 +25,7 @@ TODOTODO
     /**
      * Implements removing a single element from a collection.
      */
-    public void removeFrom«targetRoleName.toFirstUpper()»(«javaClassName(this.target)» element) {
+    public void removeFrom«targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
         this.«this.targetRoleName».remove(element);
         validation.validate();
     }
