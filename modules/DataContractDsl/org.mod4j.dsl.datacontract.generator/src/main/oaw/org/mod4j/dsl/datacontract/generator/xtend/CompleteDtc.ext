@@ -68,6 +68,8 @@ DataContractDsl::DtoProperty toDtoProperty(Symbol symbol, BusinessClassDto dto) 
     }
     ;
     
+/** Add DtoProperty objects to 'dto' for each External PropertyReference in 'dto'
+ */    
 completeProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
     let propertySymbols = symbol.subSymbols.select(s|s.type == "Property") :
@@ -86,6 +88,9 @@ addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
     assRef.dto.properties.add(result)
    ;
     
+/** Create a new DtoProperty for 'ref''
+ *  'symbols' is the list of Symbols from Crossx containing the "Property" definitions
+ */
 DataContractDsl::DtoProperty referencesToDtoProperty(BusinessClassPropertyReference ref, List[Symbol] symbols ) :
     let symbol = symbols.select(s| s.name == ref.name).first() :
     if symbol != null then {
@@ -99,39 +104,49 @@ DataContractDsl::DtoProperty referencesToDtoProperty(BusinessClassPropertyRefere
 	    }
     }
     else {
-        print("DTO null for ref " + ref.name )
+        print("referencesToDtoProperty: DTO null for ref " + ref.name )
     }
     
     ;
     
 DataContractDsl::DtoBooleanProperty newBooleanProperty(Symbol symbol) :
     let result = new DtoBooleanProperty :
+    let nullable = symbol.getPropertyValue("Nullable") :
     result.setName(symbol.name)->
     result.setDataType("boolean")->
+    result.setNullable( nullable == "true" )->
     result;
     
 DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
     let result = new DtoStringProperty:
+    let nullable = symbol.getPropertyValue("Nullable") :
     result.setName(symbol.name)->
     result.setDataType("string")->
+    result.setNullable( nullable == "true" )->
     result;
     
 DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
     let result = new DtoIntegerProperty:
+    let nullable = symbol.getPropertyValue("Nullable") :
     result.setName(symbol.name)->
     result.setDataType("integer")->
+    result.setNullable( nullable == "true" )->
     result;
     
 DataContractDsl::DtoDecimalProperty newDecimalProperty(Symbol symbol) :
     let result = new DtoDecimalProperty :
+    let nullable = symbol.getPropertyValue("Nullable") :
     result.setName(symbol.name)->
     result.setDataType("decimal")->
+    result.setNullable( nullable == "true" )->
     result;
     
 DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
     let result = new DtoDateTimeProperty:
+    let nullable = symbol.getPropertyValue("Nullable") :
     result.setName(symbol.name)->
     result.setDataType("datetime")->
+    result.setNullable( nullable == "true" )->
     result;
 
 // Create a new DtoEnumerationProperty based on 'symbol'
@@ -140,11 +155,13 @@ DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol, BusinessC
     let dataType = symbol.getPropertyValue("DataType") :
     let enum = dto.datacontractModel.enumerations.selectFirst(e|(e.base != null) &&
                                                     (e.base.name == dataType) ):
+    let nullable = symbol.getPropertyValue("Nullable") :
     result.setDataType( symbol.getPropertyValue("DataType") )->
     ( if enum != null then (
           result.setName(symbol.name)->
           result.setType(enum)->
-          result.setDataType(enum.name)
+          result.setDataType(enum.name)->
+          result.setNullable( nullable == "true" )
       ) else (
           result.setName("NO_NAME")->
 	      result.setType(null)->
