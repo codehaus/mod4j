@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
@@ -391,6 +392,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                 System.err.println("Mod4j Builder Exception in generateCode [" + e.getMessage() + "]");
                 e.printStackTrace();
             }
+            
+            if( hasProblems(resource) ){
+                return;
+            }
 
             // properties files
             String propertyFilename = MODEL_DIR + "/" + dsl.getDslCodegenProperties();
@@ -442,6 +447,24 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
 
     /**
+     * @param resource
+     */
+    private boolean hasProblems(IResource resource) {
+        IMarker[] problems = null;
+        int depth = IResource.DEPTH_ONE;
+        try {
+           problems = resource.findMarkers(IMarker.PROBLEM, true, depth);
+           if( problems.length > 0) {
+               return true;
+           }
+        } catch (CoreException e) {
+            System.err.println("Mod4j Builder Exception in generateCode [" + e.getMessage() + "]");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
      * If this is a DSL model, generate the crossx symbols
      * 
      * @param resource
@@ -450,6 +473,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         DslExtension dsl = isDslFile(resource);
         if (dsl != null) {
             if (!inModelDir(resource)) {
+                return;
+            }
+            if( hasProblems(resource) ){
                 return;
             }
 
