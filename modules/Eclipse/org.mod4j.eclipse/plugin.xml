@@ -55,7 +55,7 @@
             class="org.mod4j.eclipse.crossx.views.CrossxView"
             icon="icons/mod4j.ico"
             id="org.mod4j.eclipse.crossx.views.CrossxView"
-            name="Mod4j Crossx View">
+            name="Crossx">
       </view>
    </extension>
    <extension
@@ -70,7 +70,7 @@
             class="org.mod4j.eclipse.views.filetracker.FileTrackerView"
             icon="icons/mod4j.ico"
             id="org.mod4j.eclipse.views.filetracker.FileTrackerView"
-            name="Mod4j FileTracker View">
+            name="Generated Files">
       </view>
    </extension>
    <extension

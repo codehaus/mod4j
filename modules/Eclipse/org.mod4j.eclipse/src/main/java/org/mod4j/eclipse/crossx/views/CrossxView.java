@@ -35,7 +35,7 @@ public class CrossxView extends ViewPart {
 
     public static CrossxView theView = null;
 
-    static int i = 1;
+//    static int i = 1;
 
     /**
      * The constructor.
@@ -60,8 +60,8 @@ public class CrossxView extends ViewPart {
         // viewer.setInput(getViewSite());
         // hookDoubleClickAction();
         viewer.refresh();
-        this.setPartName("crossx repository" + i);
-        i++;
+//        this.setPartName("crossx repository" + i);
+//        i++;
     }
 
     private void hookDoubleClickAction() {
@@ -88,15 +88,15 @@ public class CrossxView extends ViewPart {
             return;
         }
         if (Display.getCurrent() != null) {
-            theView.setPartName("crossx  " + 1);
-            i++;
+//            theView.setPartName("crossx  " + 1);
+//            i++;
             theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input, CrossxEnvironment.getAll());
             theView.viewer.refresh();
         } else {
             Display.getDefault().asyncExec(new Runnable() {
                 public void run() {
-                    theView.setPartName("crossx  " + 1);
-                    i++;
+//                    theView.setPartName("crossx  " + 1);
+//                    i++;
                     theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input,
                             CrossxEnvironment.getAll());
                     theView.viewer.refresh();

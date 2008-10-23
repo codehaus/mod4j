@@ -39,8 +39,6 @@ public class FileTrackerView extends ViewPart {
 
     public static FileTrackerView theView = null;
 
-    static int i = 1;
-
     /**
      * The constructor.
      */
@@ -62,8 +60,6 @@ public class FileTrackerView extends ViewPart {
         // viewer.setInput(getViewSite());
         hookDoubleClickAction();
         viewer.refresh();
-        this.setPartName("etracker repository" + i);
-        i++;
     }
 
     private void hookDoubleClickAction() {
@@ -111,16 +107,12 @@ public class FileTrackerView extends ViewPart {
             return;
         }
         if (Display.getCurrent() != null) {
-            theView.setPartName("filetracker  " + 1);
-            i++;
             theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input,
                     FileTracker.getFileTracker());
             theView.viewer.refresh();
         } else {
             Display.getDefault().asyncExec(new Runnable() {
                 public void run() {
-                    theView.setPartName("filetracker  " + 1);
-                    i++;
                     theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input,
                             FileTracker.getFileTracker());
                     theView.viewer.refresh();
