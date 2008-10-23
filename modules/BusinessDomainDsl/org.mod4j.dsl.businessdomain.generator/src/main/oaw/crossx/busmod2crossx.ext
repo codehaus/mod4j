@@ -88,7 +88,7 @@ crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     result.setName(prop.name) ->
     result.setType("Property") ->
     result.properties.add(prop.toLiteralProperty())->
-    result.properties.add(newProperty("Nullable", (prop.nullable && (!prop.hasDefault) ? "true" : "false") ))->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) ? "true" : "false") ))->
     result
     ;
 

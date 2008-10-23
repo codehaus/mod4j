@@ -25,7 +25,7 @@ boolean hasAllNonNullables(BusinessClassDto dto) :
     else (
 	    let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
 	    let props = symbol.subSymbols.select(s|s.type.matches("Property")) :
-	    let nonNullables = props.select(p | p.getPropertyValue("Nullable") == "false") :
+	    let nonNullables = props.select(p | p.getPropertyValue("MandatoryForCreation") == "true") :
         dto.propertyReferences.name.containsAll(nonNullables)
     )
     ;

@@ -37,7 +37,7 @@
         eOpposite="#//BusinessClassDto/properties"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customDto" eType="#//CustomDto"
         eOpposite="#//CustomDto/properties"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatoryForCreation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//DtoProperty">

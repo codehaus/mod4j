@@ -110,42 +110,42 @@ DataContractDsl::DtoProperty referencesToDtoProperty(BusinessClassPropertyRefere
     
 DataContractDsl::DtoBooleanProperty newBooleanProperty(Symbol symbol) :
     let result = new DtoBooleanProperty :
-    let nullable = symbol.getPropertyValue("Nullable") :
+    let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     result.setName(symbol.name)->
     result.setDataType("boolean")->
-    result.setNullable( nullable == "true" )->
+    result.setMandatoryForCreation( mandatory == "true" )->
     result;
     
 DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
     let result = new DtoStringProperty:
-    let nullable = symbol.getPropertyValue("Nullable") :
+    let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     result.setName(symbol.name)->
     result.setDataType("string")->
-    result.setNullable( nullable == "true" )->
+    result.setMandatoryForCreation( mandatory == "true" )->
     result;
     
 DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
     let result = new DtoIntegerProperty:
-    let nullable = symbol.getPropertyValue("Nullable") :
+    let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     result.setName(symbol.name)->
     result.setDataType("integer")->
-    result.setNullable( nullable == "true" )->
+    result.setMandatoryForCreation( mandatory == "true" )->
     result;
     
 DataContractDsl::DtoDecimalProperty newDecimalProperty(Symbol symbol) :
     let result = new DtoDecimalProperty :
-    let nullable = symbol.getPropertyValue("Nullable") :
+    let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     result.setName(symbol.name)->
     result.setDataType("decimal")->
-    result.setNullable( nullable == "true" )->
+    result.setMandatoryForCreation( mandatory == "true" )->
     result;
     
 DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
     let result = new DtoDateTimeProperty:
-    let nullable = symbol.getPropertyValue("Nullable") :
+    let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     result.setName(symbol.name)->
     result.setDataType("datetime")->
-    result.setNullable( nullable == "true" )->
+    result.setMandatoryForCreation( mandatory == "true" )->
     result;
 
 // Create a new DtoEnumerationProperty based on 'symbol'
@@ -154,18 +154,18 @@ DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol, BusinessC
     let dataType = symbol.getPropertyValue("DataType") :
     let enum = dto.datacontractModel.enumerations.selectFirst(e|(e.base != null) &&
                                                     (e.base.name == dataType) ):
-    let nullable = symbol.getPropertyValue("Nullable") :
+    let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     result.setDataType( symbol.getPropertyValue("DataType") )->
     ( if enum != null then (
           result.setName(symbol.name)->
           result.setType(enum)->
           result.setDataType(enum.name)->
-          result.setNullable( nullable == "true" )
+          result.setMandatoryForCreation( mandatory == "true" )
       ) else (
           result.setName("NO_NAME")->
 	      result.setType(null)->
           result.setDataType("NO_DATA_TYPE")->
-          result.setNullable( true )
+          result.setMandatoryForCreation( true )
       )
      )->
     result;

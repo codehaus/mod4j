@@ -31,7 +31,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#getBusinessClassDto <em>Business Class Dto</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#getCustomDto <em>Custom Dto</em>}</li>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#isMandatoryForCreation <em>Mandatory For Creation</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,24 +59,24 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
     protected String dataType = DATA_TYPE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+     * The default value of the '{@link #isMandatoryForCreation() <em>Mandatory For Creation</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isNullable()
+     * @see #isMandatoryForCreation()
      * @generated
      * @ordered
      */
-    protected static final boolean NULLABLE_EDEFAULT = true;
+    protected static final boolean MANDATORY_FOR_CREATION_EDEFAULT = true;
 
     /**
-     * The cached value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+     * The cached value of the '{@link #isMandatoryForCreation() <em>Mandatory For Creation</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isNullable()
+     * @see #isMandatoryForCreation()
      * @generated
      * @ordered
      */
-    protected boolean nullable = NULLABLE_EDEFAULT;
+    protected boolean mandatoryForCreation = MANDATORY_FOR_CREATION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -205,8 +205,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isNullable() {
-        return nullable;
+    public boolean isMandatoryForCreation() {
+        return mandatoryForCreation;
     }
 
     /**
@@ -214,11 +214,11 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setNullable(boolean newNullable) {
-        boolean oldNullable = nullable;
-        nullable = newNullable;
+    public void setMandatoryForCreation(boolean newMandatoryForCreation) {
+        boolean oldMandatoryForCreation = mandatoryForCreation;
+        mandatoryForCreation = newMandatoryForCreation;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_PROPERTY__NULLABLE, oldNullable, nullable));
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION, oldMandatoryForCreation, mandatoryForCreation));
     }
 
     /**
@@ -287,8 +287,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
                 return getBusinessClassDto();
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 return getCustomDto();
-            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
-                return isNullable() ? Boolean.TRUE : Boolean.FALSE;
+            case DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION:
+                return isMandatoryForCreation() ? Boolean.TRUE : Boolean.FALSE;
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -310,8 +310,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 setCustomDto((CustomDto)newValue);
                 return;
-            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
-                setNullable(((Boolean)newValue).booleanValue());
+            case DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION:
+                setMandatoryForCreation(((Boolean)newValue).booleanValue());
                 return;
         }
         super.eSet(featureID, newValue);
@@ -334,8 +334,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 setCustomDto((CustomDto)null);
                 return;
-            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
-                setNullable(NULLABLE_EDEFAULT);
+            case DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION:
+                setMandatoryForCreation(MANDATORY_FOR_CREATION_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -355,8 +355,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
                 return getBusinessClassDto() != null;
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 return getCustomDto() != null;
-            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
-                return nullable != NULLABLE_EDEFAULT;
+            case DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION:
+                return mandatoryForCreation != MANDATORY_FOR_CREATION_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -373,8 +373,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (dataType: ");
         result.append(dataType);
-        result.append(", nullable: ");
-        result.append(nullable);
+        result.append(", mandatoryForCreation: ");
+        result.append(mandatoryForCreation);
         result.append(')');
         return result.toString();
     }

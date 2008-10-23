@@ -30,7 +30,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/dataType"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoProperty/businessClassDto"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoProperty/customDto"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/mandatoryForCreation"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoPropertyReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoPropertyReference/referredProperty"/>

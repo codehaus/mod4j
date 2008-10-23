@@ -18,7 +18,7 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto <em>Business Class Dto</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto <em>Custom Dto</em>}</li>
- *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isMandatoryForCreation <em>Mandatory For Creation</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,30 +110,30 @@ public interface DtoProperty extends ModelElement {
     void setCustomDto(CustomDto value);
 
     /**
-     * Returns the value of the '<em><b>Nullable</b></em>' attribute.
+     * Returns the value of the '<em><b>Mandatory For Creation</b></em>' attribute.
      * The default value is <code>"true"</code>.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Nullable</em>' attribute isn't clear,
+     * If the meaning of the '<em>Mandatory For Creation</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Nullable</em>' attribute.
-     * @see #setNullable(boolean)
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoProperty_Nullable()
+     * @return the value of the '<em>Mandatory For Creation</em>' attribute.
+     * @see #setMandatoryForCreation(boolean)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoProperty_MandatoryForCreation()
      * @model default="true"
      * @generated
      */
-    boolean isNullable();
+    boolean isMandatoryForCreation();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isNullable <em>Nullable</em>}' attribute.
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isMandatoryForCreation <em>Mandatory For Creation</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Nullable</em>' attribute.
-     * @see #isNullable()
+     * @param value the new value of the '<em>Mandatory For Creation</em>' attribute.
+     * @see #isMandatoryForCreation()
      * @generated
      */
-    void setNullable(boolean value);
+    void setMandatoryForCreation(boolean value);
 
 } // DtoProperty
