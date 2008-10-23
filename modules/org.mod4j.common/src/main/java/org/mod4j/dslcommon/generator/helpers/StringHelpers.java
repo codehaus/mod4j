@@ -20,9 +20,9 @@ public class StringHelpers {
     private StringHelpers() {
     }
 
-    static public String newLine = System.getProperty("line.separator", "\n");
+    final static public String newLine = System.getProperty("line.separator", "\n");
 
-    static public char newLineChar = newLine.charAt(0);
+    final static public char newLineChar = newLine.charAt(0);
 
     static public StringBuffer replaceAllSubstrings(StringBuffer orig, String origSub, String newSub) {
         StringBuffer result = new StringBuffer();
@@ -84,7 +84,7 @@ public class StringHelpers {
             newIndent = newIndent + "\t";
         }
         String temp = in.toString();
-        temp.trim(); // remove all whitespace from begin and end
+        temp = temp.trim(); // remove all whitespace from begin and end
         temp = newIndent + StringHelpers.replaceAllSubstrings(temp, "\n", "\n" + newIndent);
         result.append(temp);
         if (result.charAt(result.length() - 1) == '\t') {
@@ -100,7 +100,7 @@ public class StringHelpers {
             newIndent = newIndent + "\t";
         }
         String temp = in.toString();
-        temp.trim(); // remove all whitespace from begin and end
+        temp = temp.trim(); // remove all whitespace from begin and end
         temp = newIndent + StringHelpers.replaceAllSubstrings(temp, "\n", "\n" + newIndent);
         result.append(temp);
         if (result.charAt(result.length() - 1) == '\t') {
@@ -138,7 +138,7 @@ public class StringHelpers {
      */
     static public String addBrackets(String source) {
         String temp = source;
-        temp.trim(); // remove all whitespace from begin and end
+        temp = temp.trim(); // remove all whitespace from begin and end
         if (temp.charAt(0) == '(' && temp.charAt(temp.length() - 1) == ')') {
             return source;
         } else if (source.indexOf(' ') != -1) { // string contains a space character
