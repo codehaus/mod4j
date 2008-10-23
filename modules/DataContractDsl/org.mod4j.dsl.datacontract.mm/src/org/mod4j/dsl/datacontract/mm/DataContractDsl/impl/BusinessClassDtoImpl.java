@@ -39,6 +39,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getBase <em>Base</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getPropertyReferences <em>Property References</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#getAssociationReferences <em>Association References</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassDtoImpl#isCreatable <em>Creatable</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +85,26 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * @ordered
      */
     protected EList<BusinessClassAssociationRoleReference> associationReferences;
+
+    /**
+     * The default value of the '{@link #isCreatable() <em>Creatable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isCreatable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean CREATABLE_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isCreatable() <em>Creatable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isCreatable()
+     * @generated
+     * @ordered
+     */
+    protected boolean creatable = CREATABLE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -183,6 +204,27 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isCreatable() {
+        return creatable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCreatable(boolean newCreatable) {
+        boolean oldCreatable = creatable;
+        creatable = newCreatable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE, oldCreatable, creatable));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -232,6 +274,8 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return getPropertyReferences();
             case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
                 return getAssociationReferences();
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE:
+                return isCreatable() ? Boolean.TRUE : Boolean.FALSE;
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -260,6 +304,9 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 getAssociationReferences().clear();
                 getAssociationReferences().addAll((Collection<? extends BusinessClassAssociationRoleReference>)newValue);
                 return;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE:
+                setCreatable(((Boolean)newValue).booleanValue());
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -284,6 +331,9 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
                 getAssociationReferences().clear();
                 return;
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE:
+                setCreatable(CREATABLE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -304,8 +354,26 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 return propertyReferences != null && !propertyReferences.isEmpty();
             case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
                 return associationReferences != null && !associationReferences.isEmpty();
+            case DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE:
+                return creatable != CREATABLE_EDEFAULT;
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (creatable: ");
+        result.append(creatable);
+        result.append(')');
+        return result.toString();
     }
 
 } //BusinessClassDtoImpl

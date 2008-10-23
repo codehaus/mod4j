@@ -31,6 +31,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#getBusinessClassDto <em>Business Class Dto</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#getCustomDto <em>Custom Dto</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl#isNullable <em>Nullable</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +57,26 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * @ordered
      */
     protected String dataType = DATA_TYPE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isNullable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean NULLABLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isNullable()
+     * @generated
+     * @ordered
+     */
+    protected boolean nullable = NULLABLE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -184,6 +205,27 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isNullable() {
+        return nullable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setNullable(boolean newNullable) {
+        boolean oldNullable = nullable;
+        nullable = newNullable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_PROPERTY__NULLABLE, oldNullable, nullable));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -245,6 +287,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
                 return getBusinessClassDto();
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 return getCustomDto();
+            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
+                return isNullable() ? Boolean.TRUE : Boolean.FALSE;
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -265,6 +309,9 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
                 return;
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 setCustomDto((CustomDto)newValue);
+                return;
+            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
+                setNullable(((Boolean)newValue).booleanValue());
                 return;
         }
         super.eSet(featureID, newValue);
@@ -287,6 +334,9 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 setCustomDto((CustomDto)null);
                 return;
+            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
+                setNullable(NULLABLE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -305,6 +355,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
                 return getBusinessClassDto() != null;
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 return getCustomDto() != null;
+            case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
+                return nullable != NULLABLE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -321,6 +373,8 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (dataType: ");
         result.append(dataType);
+        result.append(", nullable: ");
+        result.append(nullable);
         result.append(')');
         return result.toString();
     }

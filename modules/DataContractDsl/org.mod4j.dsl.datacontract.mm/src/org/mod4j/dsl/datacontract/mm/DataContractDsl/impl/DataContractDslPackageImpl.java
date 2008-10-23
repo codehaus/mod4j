@@ -363,6 +363,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getBusinessClassDto_Creatable() {
+        return (EAttribute)businessClassDtoEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getListDto() {
         return listDtoEClass;
     }
@@ -419,6 +428,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
      */
     public EReference getDtoProperty_CustomDto() {
         return (EReference)dtoPropertyEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoProperty_Nullable() {
+        return (EAttribute)dtoPropertyEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -741,6 +759,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         createEReference(businessClassDtoEClass, BUSINESS_CLASS_DTO__BASE);
         createEReference(businessClassDtoEClass, BUSINESS_CLASS_DTO__PROPERTY_REFERENCES);
         createEReference(businessClassDtoEClass, BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES);
+        createEAttribute(businessClassDtoEClass, BUSINESS_CLASS_DTO__CREATABLE);
 
         listDtoEClass = createEClass(LIST_DTO);
         createEReference(listDtoEClass, LIST_DTO__BASE_DTO);
@@ -750,6 +769,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         createEAttribute(dtoPropertyEClass, DTO_PROPERTY__DATA_TYPE);
         createEReference(dtoPropertyEClass, DTO_PROPERTY__BUSINESS_CLASS_DTO);
         createEReference(dtoPropertyEClass, DTO_PROPERTY__CUSTOM_DTO);
+        createEAttribute(dtoPropertyEClass, DTO_PROPERTY__NULLABLE);
 
         dtoPropertyReferenceEClass = createEClass(DTO_PROPERTY_REFERENCE);
         createEReference(dtoPropertyReferenceEClass, DTO_PROPERTY_REFERENCE__REFERRED_PROPERTY);
@@ -862,6 +882,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEReference(getBusinessClassDto_Base(), this.getExternalReference(), null, "base", null, 0, 1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessClassDto_PropertyReferences(), this.getBusinessClassPropertyReference(), this.getBusinessClassPropertyReference_Dto(), "propertyReferences", null, 0, -1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBusinessClassDto_AssociationReferences(), this.getBusinessClassAssociationRoleReference(), this.getBusinessClassAssociationRoleReference_Dto(), "associationReferences", null, 0, -1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getBusinessClassDto_Creatable(), ecorePackage.getEBoolean(), "creatable", null, 0, 1, BusinessClassDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(listDtoEClass, ListDto.class, "ListDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getListDto_BaseDto(), this.getDto(), null, "baseDto", null, 0, 1, ListDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -871,6 +892,7 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEAttribute(getDtoProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, DtoProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getDtoProperty_BusinessClassDto(), this.getBusinessClassDto(), this.getBusinessClassDto_Properties(), "businessClassDto", null, 0, 1, DtoProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getDtoProperty_CustomDto(), this.getCustomDto(), this.getCustomDto_Properties(), "customDto", null, 0, 1, DtoProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDtoProperty_Nullable(), ecorePackage.getEBoolean(), "nullable", "true", 0, 1, DtoProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoPropertyReferenceEClass, DtoPropertyReference.class, "DtoPropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDtoPropertyReference_ReferredProperty(), this.getDtoProperty(), null, "referredProperty", null, 0, 1, DtoPropertyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

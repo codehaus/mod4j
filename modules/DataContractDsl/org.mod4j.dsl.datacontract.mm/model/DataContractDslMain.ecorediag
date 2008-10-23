@@ -35,6 +35,10 @@
   <children xmi:type="notation:Node" xmi:id="_8v5laIlFEd2el5Lm26_Lug" type="1001">
     <children xmi:type="notation:Node" xmi:id="_8v5la4lFEd2el5Lm26_Lug" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_8v5lbIlFEd2el5Lm26_Lug" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_IcYN4KDcEd29lJwM9g-eLA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//BusinessClassDto/creatable"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IcYN4aDcEd29lJwM9g-eLA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_8v5lbYlFEd2el5Lm26_Lug"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_8v5lbolFEd2el5Lm26_Lug"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_8v5lb4lFEd2el5Lm26_Lug"/>
@@ -70,6 +74,10 @@
       <children xmi:type="notation:Node" xmi:id="_8v5lsIlFEd2el5Lm26_Lug" type="2001">
         <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//DtoProperty/dataType"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_8v5lsYlFEd2el5Lm26_Lug"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_v7LwAKDbEd29lJwM9g-eLA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//DtoProperty/nullable"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_v7LwAaDbEd29lJwM9g-eLA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_8v5lqYlFEd2el5Lm26_Lug"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_8v5lqolFEd2el5Lm26_Lug"/>

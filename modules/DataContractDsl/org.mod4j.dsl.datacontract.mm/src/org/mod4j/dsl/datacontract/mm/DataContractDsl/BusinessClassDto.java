@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getBase <em>Base</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getPropertyReferences <em>Property References</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#getAssociationReferences <em>Association References</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#isCreatable <em>Creatable</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,5 +108,31 @@ public interface BusinessClassDto extends Dto {
      * @generated
      */
     EList<BusinessClassAssociationRoleReference> getAssociationReferences();
+
+    /**
+     * Returns the value of the '<em><b>Creatable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Creatable</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Creatable</em>' attribute.
+     * @see #setCreatable(boolean)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getBusinessClassDto_Creatable()
+     * @model
+     * @generated
+     */
+    boolean isCreatable();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto#isCreatable <em>Creatable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Creatable</em>' attribute.
+     * @see #isCreatable()
+     * @generated
+     */
+    void setCreatable(boolean value);
 
 } // BusinessClassDto

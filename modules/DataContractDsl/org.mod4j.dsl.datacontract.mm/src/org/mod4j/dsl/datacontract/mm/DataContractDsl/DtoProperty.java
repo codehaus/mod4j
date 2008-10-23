@@ -18,6 +18,7 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getBusinessClassDto <em>Business Class Dto</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#getCustomDto <em>Custom Dto</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isNullable <em>Nullable</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,5 +108,32 @@ public interface DtoProperty extends ModelElement {
      * @generated
      */
     void setCustomDto(CustomDto value);
+
+    /**
+     * Returns the value of the '<em><b>Nullable</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Nullable</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Nullable</em>' attribute.
+     * @see #setNullable(boolean)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoProperty_Nullable()
+     * @model default="true"
+     * @generated
+     */
+    boolean isNullable();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isNullable <em>Nullable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Nullable</em>' attribute.
+     * @see #isNullable()
+     * @generated
+     */
+    void setNullable(boolean value);
 
 } // DtoProperty
