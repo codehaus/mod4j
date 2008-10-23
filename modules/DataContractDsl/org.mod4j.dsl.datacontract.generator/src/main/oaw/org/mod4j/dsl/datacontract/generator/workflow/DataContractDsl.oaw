@@ -37,6 +37,12 @@
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />
         <emfAllChildrenSlot value="dataContractModel" />
     </component>
+    <component id="DataContractWorkflow-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="dcm" />
+        <metaModel idRef="crossx" />
+        <checkFile value="org::mod4j::dsl::datacontract::validation::checks::CrossxChecks" />
+        <emfAllChildrenSlot value="dataContractModel" />
+    </component>
 
     <!-- Call the Xtend model-to-model transformation to complete the DTO model
          with all properties derived from the business classes.
