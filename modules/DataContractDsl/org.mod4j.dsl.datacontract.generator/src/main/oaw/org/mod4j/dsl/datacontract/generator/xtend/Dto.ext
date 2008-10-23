@@ -14,3 +14,7 @@ String getterPrefix(DtoProperty p) :
 	    case 'boolean' : "is"
 	    default : "get"
 	};
+	
+boolean hasAllNonNullables(BusinessClassDto dto) :
+    true
+    ;

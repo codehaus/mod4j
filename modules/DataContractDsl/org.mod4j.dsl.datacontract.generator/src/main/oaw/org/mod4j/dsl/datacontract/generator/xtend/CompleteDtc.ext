@@ -9,6 +9,7 @@ import DataContractDsl;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 extension org::mod4j::eclipse::xtend::EclipseUtil;
+extension org::mod4j::dsl::datacontract::generator::xtend::Dto;
 
 // Complete the model such that all higher level constructs and all implicit definitions are added.
 completeModel(DataContractModel dtcModel) :
@@ -19,19 +20,19 @@ completeModel(DataContractModel dtcModel) :
 	filledCrud.completeProperties()->
 	associationRoles.addDtoAssociationRoles()->
 	dtcModel.resolveEnumerationReferences()->
-	dtcModel.enumerations.addLiterals()
+	dtcModel.enumerations.addLiterals()->
+	dtcModel.dtos.typeSelect(BusinessClassDto).setCreatable()
     ;
     
+setCreatable(BusinessClassDto dto) :
+    dto.setCreatable( dto.hasAllNonNullables() )->null
+    ;
 // Add the enumeration literals to the enumeration.
 // Literals are always implicitly taken from the businessclassmodel
 
 addLiterals(EnumerationDto enum) :
     let symbol = lookupSymbol(enum.base.modelname, enum.base.name, "Enumeration") :
     let props = symbol.subSymbols.select(s|s.type.matches("EnumerationLiteral")) :
-//    print("Enum ["+ enum.name + "]" )->
-//    print("Enum symbol ["+ symbol + "]" )->
-//    print("Literal symbol ["+ props + "]" )->
-//    print("literals ["+ enum.literals.size + "]" )->
     enum.literals.addAll( props.toEnumLiteral()   )->
     null
     ;
