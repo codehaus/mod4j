@@ -68,6 +68,14 @@
         <emfAllChildrenSlot value="model" />
     </component>
 
+    <!-- Call the Xtend model-to-model transformation to complete the DTO model
+         with all properties derived from the business classes.
+    -->
+    <component id="complteDtc" class="oaw.xtend.XtendComponent">
+       <metaModel idRef="DataContractDsl"/>
+       <metaModel idRef="crossx"/>
+       <invoke value="org::mod4j::dsl::datacontract::generator::xtend::CompleteDtc::completeModel(model)"/>
+    </component>
     <!-- Call the Xtend model-to-model transformation that takes a BusinessDomainModel as its input
          and returns a Crossx model in the outputSlot
     -->
