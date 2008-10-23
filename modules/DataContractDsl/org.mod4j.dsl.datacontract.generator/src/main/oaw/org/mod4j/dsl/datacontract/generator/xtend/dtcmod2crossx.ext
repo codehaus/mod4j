@@ -21,15 +21,23 @@ create Symbol toElement(EnumerationDto dto) :
 create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
+    this.properties.add( newProperty(dto) ) 
+    ;
+
+create Symbol toElement(ListDto dto) :
+    this.setName(dto.name) ->
+    this.setType("Dto") ->
     this.properties.add( newProperty(dto) ) ->
-    ( dto.metaType == DataContractDsl::ListDto ?
-                   this.properties.add( baseProperty((DataContractDsl::ListDto)dto) ) :
-                   null )->
-                   
-    ( dto.metaType == DataContractDsl::BusinessClassDto ?
-                   this.properties.add( businessClassProperty((DataContractDsl::BusinessClassDto)dto) ) :
-                   null )
-        ;
+    this.properties.add( baseProperty(dto) ) 
+   ;
+
+create Symbol toElement(BusinessClassDto dto) :
+    this.setName(dto.name) ->
+    this.setType("Dto") ->
+    this.properties.add( newProperty(dto) ) ->
+    this.properties.add( businessClassProperty(dto) )->
+    this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))
+    ;
 
 create LiteralSymbolProperty newProperty(Dto dto) :
     this.setName("dtoType")->
@@ -51,5 +59,11 @@ create LiteralSymbolProperty businessClassProperty(BusinessClassDto dto) :
     this.setValue(dto.base.name)
     ;
 
+crossx::LiteralSymbolProperty newProperty(String name, String value) :
+    let result = new LiteralSymbolProperty :
+    result.setName(name)->
+    result.setValue(value)->
+    result
+    ;
     
     
