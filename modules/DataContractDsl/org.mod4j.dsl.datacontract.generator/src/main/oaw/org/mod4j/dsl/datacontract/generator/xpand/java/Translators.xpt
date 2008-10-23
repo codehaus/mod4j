@@ -38,32 +38,33 @@
              «EXPAND getBaseDtoName FOR assRef.dtoType»Translator «assRef.name»Translator = new «EXPAND getBaseDtoName FOR assRef.dtoType»Translator();
          «ENDFOREACH»  
              /**
+              * Translates a dto object into a business class. All properties in the dto will be mapped to the 
+              * corresponding property in the <code>target</code> business class. Association references in the dto 
+              * wil not be translated into the <code>target</code> bussiness class.
+              * If the given <code>target</code> parameter is null, a«IF this.creatable» new business class will be created and returned«ELSE»NullPointerException is thrown«ENDIF».
+              *
               * @param source The {@link «javaClassName(name)»} object to translate.
               * @param target The {@link «javaClassName(base.name)»} object translated from source.
+              *
+              * @return {@link «javaClassName(base.name)»}, the resulting business class.
               */
               public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target){
                  
-                  if (target == null) {
-                      target = new «javaClassName(base.name)»();
-                  }
-                  
+                  «IF this.creatable»
+                      if (target == null) {
+                          target = new «javaClassName(base.name)»(«EXPAND Constructors::addConstructorArgumentsList -»);
+                      }
+                  «ELSE»
+                      if (target == null ) {
+                          throw new NullPointerException("Parameter target is null! Translation of the source dto must be based on a existing target business class");
+                      }
+                  «ENDIF»                  
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
                           target.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.base.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
                       «ELSE»
                           target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
-                  «ENDFOREACH»
-                  «FOREACH associationReferences AS assRef -»
-                     «IF assRef.dtoType.metaType == ListDto -»
-                         «REM»2Manny«ENDREM»
-			             for («EXPAND getBaseDtoName FOR assRef.dtoType -» dtoObject : source.get«assRef.name.toFirstUpper()»()){
-                            target.addTo«assRef.name.toFirstUpper()»(«assRef.name»Translator.fromDto(dtoObject));
-			             }
-                     «ELSE»
-                         «REM»2One«ENDREM» 
-                         target.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.fromDto(source.get«assRef.name.toFirstUpper()»()));
-                     «ENDIF»
                   «ENDFOREACH»
                   
                   return target;
