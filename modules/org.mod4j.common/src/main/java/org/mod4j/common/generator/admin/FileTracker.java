@@ -41,7 +41,6 @@ public class FileTracker {
      * @param resource
      */
     public void initResource(String resource) {
-        System.err.println("FileTracker resource [" + resource + "]");
         currentProject = findProject(resource);
         currentProject.setApplicationPath(resource);
         currentTrack = currentProject.getTrack(resource);
@@ -53,9 +52,6 @@ public class FileTracker {
      * @param resource
      */
     public void initResource(String resource, String applicationPath, String projectPath) {
-        System.err.println("FileTracker resource [" + resource + "]");
-        System.err.println("FileTracker applicationPath  [" + applicationPath + "]");
-        System.err.println("FileTracker projectPath  [" + projectPath + "]");
         currentProject = findProject(projectPath);
         currentProject.setApplicationPath(applicationPath);
         currentTrack = currentProject.getTrack(resource);
