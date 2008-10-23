@@ -23,7 +23,7 @@ completeModel(DataContractModel dtcModel) :
     ;
 
 addCreatable(BusinessClassDto dto) :
-    dto.setCreatable( dto.hasAllNonNullables() )
+    dto.setCreatable( dto.hasAllMandatoryProperties() )
     ;
 
 // Add the enumeration literals to the enumeration.
