@@ -40,6 +40,8 @@ Symbol toElement(BusinessClass cls) :
     result
     ;
 
+/** Create a new Symbol of type "Association" for 'ass'
+ */
 crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
     let result = new Symbol :
     result.setName(ass.targetRoleName )->
@@ -86,6 +88,7 @@ crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     result.setName(prop.name) ->
     result.setType("Property") ->
     result.properties.add(prop.toLiteralProperty())->
+    result.properties.add(newProperty("Nullable", (prop.nullable? "true" : "false") ))->
     result
     ;
 
