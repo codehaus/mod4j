@@ -111,7 +111,7 @@ public interface DtoProperty extends ModelElement {
 
     /**
      * Returns the value of the '<em><b>Mandatory For Creation</b></em>' attribute.
-     * The default value is <code>"true"</code>.
+     * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Mandatory For Creation</em>' attribute isn't clear,
@@ -121,7 +121,7 @@ public interface DtoProperty extends ModelElement {
      * @return the value of the '<em>Mandatory For Creation</em>' attribute.
      * @see #setMandatoryForCreation(boolean)
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoProperty_MandatoryForCreation()
-     * @model default="true"
+     * @model default="false"
      * @generated
      */
     boolean isMandatoryForCreation();

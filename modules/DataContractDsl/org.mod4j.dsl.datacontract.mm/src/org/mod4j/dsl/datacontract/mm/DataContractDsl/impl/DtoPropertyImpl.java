@@ -66,7 +66,7 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * @generated
      * @ordered
      */
-    protected static final boolean MANDATORY_FOR_CREATION_EDEFAULT = true;
+    protected static final boolean MANDATORY_FOR_CREATION_EDEFAULT = false;
 
     /**
      * The cached value of the '{@link #isMandatoryForCreation() <em>Mandatory For Creation</em>}' attribute.
