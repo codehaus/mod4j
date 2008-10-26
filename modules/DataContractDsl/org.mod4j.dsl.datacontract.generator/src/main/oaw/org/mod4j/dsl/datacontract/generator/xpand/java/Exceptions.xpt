@@ -1,0 +1,19 @@
+«IMPORT DataContractDsl»
+
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE createExceptions FOR DataContractModel»
+    «FILE generate(javaPathFileName(getTranslatorsPackage(), "TranslatorMisMatchException"))»
+        package org.company.recordshop.service.dto.translators;
+
+        @SuppressWarnings("serial")
+        public class TranslatorMisMatchException extends Exception {
+
+            public TranslatorMisMatchException(String message) {
+                super(message);
+            }
+        }
+    «ENDFILE»
+«ENDDEFINE»

@@ -47,22 +47,32 @@
               * @param target The {@link «javaClassName(base.name)»} object translated from source.
               *
               * @return {@link «javaClassName(base.name)»}, the resulting business class.
+              * @throws TranslatorMisMatchException
               */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target){
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorMisMatchException {
                  
-                  «IF this.creatable»
+                  if (source == null ) {
+                      throw new NullPointerException("Argument source is null! Translation of a dto can not be based on a null dto.");
+                  }
+                  «IF this.creatable -»
                       if (target == null) {
-                          target = new «javaClassName(base.name)»(«EXPAND Constructors::addConstructorArgumentsList -»);
+                          if (source.getId() > 0) {
+                              throw new TranslatorMisMatchException("Can not translate a dto with existng id to a new business class.");
+                          }
+                          target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                       }
                   «ELSE»
                       if (target == null ) {
-                          throw new NullPointerException("Parameter target is null! Translation of the source dto must be based on a existing target business class");
+                          throw new NullPointerException("Argument target is null! Translation of a source dto must be based on a existing target business class");
+                      }
+                      if (source.getId() != target.getId()) {
+                          throw new TranslatorMisMatchException("Can not translate a dto to a business class when the id of the dto differs from the business class id.");
                       }
                   «ENDIF»                  
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
                           target.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.base.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
-                      «ELSE»
+                      «ELSE -»
                           target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
                   «ENDFOREACH»
