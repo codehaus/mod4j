@@ -24,7 +24,6 @@
          «ENDFOREACH»
          «FOREACH associationReferences AS assRef -»    
              import «getDomainRootPackage()».«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»;
-             import «getDtoPackage()».«EXPAND getBaseDtoName FOR assRef.dtoType -»;
          «ENDFOREACH»  
          
         /**
@@ -86,6 +85,10 @@
               */
               public «javaClassName(name)» toDto(final «javaClassName(base.name)» source){
                  
+                  if (source == null ) {
+                      throw new NullPointerException("Argument source is null! Translation of a business class can not be based on a null business class.");
+                  }
+ 
                   «javaClassName(name)» result = new «javaClassName(name)»();
                  
                   result.setId(source.getId());
