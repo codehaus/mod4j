@@ -6,6 +6,8 @@
 import crossx;
 import BusinessDomainDsl;
 
+extension BusinessClass;
+
 create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
     this.setDslname("BusinessDomainDsl")->
     this.setModelname(busModel.name)->
@@ -37,9 +39,13 @@ Symbol toElement(BusinessClass cls) :
     (cls.superclass != null ? result.subSymbols.addAll( cls.superclass.properties.toElement()): null)->
     result.subSymbols.addAll( cls.associationsTo.toSymbol() )->
     result.subSymbols.addAll( cls.associationsFrom.select(e|e.bidirectional).fromSymbol() )->
+    result.addContructorOrder(cls)->
     result
     ;
 
+addContructorOrder(Symbol s, BusinessClass cls) :
+ s.properties.add( newProperty("ConstructorOrder", 
+                           cls.getAllProperties().reject(e|e.nullable || e.hasDefault).name.toString(",")  ));
 /** Create a new Symbol of type "Association" for 'ass'
  */
 crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
