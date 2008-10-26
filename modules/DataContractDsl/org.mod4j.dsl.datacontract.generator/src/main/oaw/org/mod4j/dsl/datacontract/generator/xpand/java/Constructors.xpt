@@ -1,4 +1,5 @@
 «IMPORT DataContractDsl»
+«IMPORT Crossx»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
@@ -13,9 +14,11 @@
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList  FOR BusinessClassDto -»
-    «FOREACH properties.select(e|e.mandatoryForCreation) AS prop ITERATOR propIter SEPARATOR "," -»
+«LET getConstructArguments() AS args»
+    «FOREACH properties.select(e|e.mandatoryForCreation).sortBy(e|args.indexOf(e.name)) AS prop ITERATOR propIter SEPARATOR "," -»
         «EXPAND addArgument FOR prop-»
     «ENDFOREACH»
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR DtoProperty -»

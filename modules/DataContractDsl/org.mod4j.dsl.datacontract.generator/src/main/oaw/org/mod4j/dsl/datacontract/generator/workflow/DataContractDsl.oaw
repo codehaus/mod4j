@@ -58,6 +58,7 @@
     -->
     <component id="DataContractWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="dcm" />
+        <metaModel idRef="crossx" />
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::Generate FOR dataContractModel" />
         <outlet path="${applicationPath}/${serviceModuleName}/${srcGenPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />

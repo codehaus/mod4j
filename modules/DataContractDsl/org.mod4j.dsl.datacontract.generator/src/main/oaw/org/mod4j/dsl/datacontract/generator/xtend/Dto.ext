@@ -30,3 +30,9 @@ boolean hasAllMandatoryProperties(BusinessClassDto dto) :
         dto.propertyReferences.name.containsAll(mandatories.name)
     )
     ;
+    
+List[String] getConstructArguments(BusinessClassDto dto):
+    let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
+    let prop   = symbol.getPropertyValue("ConstructorOrder") :
+    prop.split(",")
+    ;
