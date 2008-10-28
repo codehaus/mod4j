@@ -18,6 +18,7 @@
          
          import java.util.HashMap;
          import java.util.Map;
+         import org.mod4j.runtime.exception.TranslatorException;
          import «getDomainRootPackage()».«javaClassName(base.name)»;
          import «getDtoPackage()».«javaClassName(name)»;
          «FOREACH properties.typeSelect(DtoEnumerationProperty) AS enumDto -»
@@ -46,32 +47,32 @@
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» business class. All properties in the dto will be mapped to the 
               * corresponding property in the <code>target</code> business class. Association references in the dto 
               * wil not be translated into the <code>target</code> bussiness class.
-              * If the given <code>target</code> parameter is null, a«IF this.creatable» new business class will be created and returned«ELSE»NullPointerException is thrown«ENDIF».
+              * If the given <code>target</code> parameter is null, a«IF this.creatable» new business class will be created and returned«ELSE»TranslatorException is thrown«ENDIF».
               *
               * @param source The {@link «javaClassName(name)»} object to translate.
               * @param target The {@link «javaClassName(base.name)»} object translated from source.
               *
               * @return {@link «javaClassName(base.name)»}, the resulting business class.
-              * @throws TranslatorMisMatchException
+              * @throws TranslatorException
               */
-              public synchronized «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorMisMatchException {
+              public synchronized «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorException {
                  
                   if (source == null ) {
-                      throw new NullPointerException("Argument source is null! Translation of a dto can not be based on a null dto.");
+                      throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
                   }
                   «IF this.creatable -»
                       if (target == null) {
                           if (source.getId() > 0) {
-                              throw new TranslatorMisMatchException("Can not translate a dto with existng id to a new business class.");
+                              throw new TranslatorException("Can not translate a dto with existng id to a new business class.");
                           }
                           target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                       }
                   «ELSE -»
                       if (target == null ) {
-                          throw new NullPointerException("Argument target is null! Translation of a source dto must be based on a existing target business class");
+                          throw new TranslatorException("Argument target is null! Translation of a source dto must be based on a existing target business class");
                       }
                       if (source.getId() != target.getId()) {
-                          throw new TranslatorMisMatchException("Can not translate a dto to a business class when the id of the dto differs from the business class id.");
+                          throw new TranslatorException("Can not translate a dto to a business class when the id of the dto differs from the business class id.");
                       }
                   «ENDIF» 
                   target.activateValidation(false);                 
@@ -104,7 +105,7 @@
                   «ENDFOREACH»  
                  
                   if (source == null ) {
-                      throw new NullPointerException("Argument source is null! Translation of a business class can not be based on a null business class.");
+                      throw new TranslatorException("Argument source is null! Translation of a business class can not be based on a null business class.");
                   }
                   
                   if (translated.containsKey((source))) {

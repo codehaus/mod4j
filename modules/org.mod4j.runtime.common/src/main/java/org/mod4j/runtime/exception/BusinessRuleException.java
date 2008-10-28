@@ -1,11 +1,12 @@
 package org.mod4j.runtime.exception;
 
 /**
- * Thrown when a business rule exception is violated. Attribute constraints are also considered business rules.
+ * Thrown when a business rule is violated. Attribute constraints are also considered business rules.
  * 
  * @author Eric Jan Malotaux
  * 
  */
+@SuppressWarnings("serial")
 public class BusinessRuleException extends RuntimeException {
 
     /**

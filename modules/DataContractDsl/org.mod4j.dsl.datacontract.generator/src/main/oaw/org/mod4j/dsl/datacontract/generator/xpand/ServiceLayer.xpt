@@ -3,10 +3,9 @@
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::maven»
 
 «DEFINE Generate FOR DataContractModel»
-  	«EXPAND dtoBean::createDto FOREACH dtos»
-  	«EXPAND Exceptions::createExceptions FOR this»
-  	«EXPAND Translators::createTranslator FOREACH dtos»
     «EXPAND Enumeration::createEnumDto FOREACH enumerations»
+  	«EXPAND dtoBean::createDto FOREACH dtos»
+  	«EXPAND Translators::createTranslator FOREACH dtos»
 «ENDDEFINE»
 
 «REM»

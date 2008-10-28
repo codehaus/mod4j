@@ -7,6 +7,7 @@ package org.mod4j.runtime.exception;
  * @author Eric Jan Malotaux
  * 
  */
+@SuppressWarnings("serial")
 public class ConfigurationException extends RuntimeException {
 
     /**
