@@ -17,10 +17,12 @@ from RecordShopDomainModel import RecordType
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	BusinessClassDto SimpleCustomerDto base Customer [  
-	     firstName; 
+	     customerNr;
+	     lastName;
+	     firstName;
  	     blackListed;
-	     sexe;
-	     references [  
+	     //sexe;
+	     references [
 	         OrderNumberAndDateList orders;
 	     ]   
 	]
@@ -30,7 +32,7 @@ from RecordShopDomainModel import RecordType
 	     orderNumber;  
 	     orderDate;
 	     references [
-	         SimpleCustomerDto customer; 
+	         SimpleCustomerDto customer;
 	     ]
 	]
 	

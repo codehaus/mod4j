@@ -3,26 +3,32 @@
   <symbols name="FullCustomerDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="BusinessClassDto"/>
     <properties xsi:type="crossx:LiteralSymbolProperty" name="businessClass" value="Customer"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="Creatable" value="true"/>
   </symbols>
   <symbols name="SimpleCustomerDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="BusinessClassDto"/>
     <properties xsi:type="crossx:LiteralSymbolProperty" name="businessClass" value="Customer"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="Creatable" value="true"/>
   </symbols>
   <symbols name="OrderNumberAndDateDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="BusinessClassDto"/>
     <properties xsi:type="crossx:LiteralSymbolProperty" name="businessClass" value="Order"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="Creatable" value="true"/>
   </symbols>
   <symbols name="ArtistDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="BusinessClassDto"/>
     <properties xsi:type="crossx:LiteralSymbolProperty" name="businessClass" value="Artist"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="Creatable" value="true"/>
   </symbols>
   <symbols name="FullRecordDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="BusinessClassDto"/>
     <properties xsi:type="crossx:LiteralSymbolProperty" name="businessClass" value="Record"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="Creatable" value="true"/>
   </symbols>
   <symbols name="OrderlineDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="BusinessClassDto"/>
     <properties xsi:type="crossx:LiteralSymbolProperty" name="businessClass" value="OrderLine"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="Creatable" value="true"/>
   </symbols>
   <symbols name="SimpleCustomerList" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="ListDto"/>
@@ -41,4 +47,6 @@
   <symbols name="UniqueCustomerDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="CustomDto"/>
   </symbols>
+  <symbols name="SexeDto" type="EnumerationDto"/>
+  <symbols name="RecordTypeDto" type="EnumerationDto"/>
 </crossx:ModelInfo>
