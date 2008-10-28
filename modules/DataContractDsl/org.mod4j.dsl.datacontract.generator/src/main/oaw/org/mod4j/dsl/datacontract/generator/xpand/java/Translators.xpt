@@ -16,6 +16,8 @@
          */
          package «getTranslatorsPackage()»;
          
+         import java.util.HashMap;
+         import java.util.Map;
          import «getDomainRootPackage()».«javaClassName(base.name)»;
          import «getDtoPackage()».«javaClassName(name)»;
          «FOREACH properties.typeSelect(DtoEnumerationProperty) AS enumDto -»
@@ -33,9 +35,13 @@
          */
          public class «javaTranslatorName(javaClassName(name))» {
          
-         «FOREACH associationReferences AS assRef -»    
-             «EXPAND getBaseDtoName FOR assRef.dtoType»Translator «assRef.name»Translator = new «EXPAND getBaseDtoName FOR assRef.dtoType»Translator();
-         «ENDFOREACH»  
+             /**
+           	  * Register for translated «javaClassName(base.name)» objects
+	          */
+              private Map<«javaClassName(base.name)», «javaClassName(name)»> translated = new HashMap<«javaClassName(base.name)», «javaClassName(name)»>();
+         
+             «EXPAND org::mod4j::dslcommon::xpand::java::Singleton::makeSingleton FOR javaTranslatorName(javaClassName(name)) -»
+         
              /**
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» business class. All properties in the dto will be mapped to the 
               * corresponding property in the <code>target</code> business class. Association references in the dto 
@@ -48,7 +54,7 @@
               * @return {@link «javaClassName(base.name)»}, the resulting business class.
               * @throws TranslatorMisMatchException
               */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorMisMatchException {
+              public synchronized «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorMisMatchException {
                  
                   if (source == null ) {
                       throw new NullPointerException("Argument source is null! Translation of a dto can not be based on a null dto.");
@@ -60,14 +66,16 @@
                           }
                           target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                       }
-                  «ELSE»
+                  «ELSE -»
                       if (target == null ) {
                           throw new NullPointerException("Argument target is null! Translation of a source dto must be based on a existing target business class");
                       }
                       if (source.getId() != target.getId()) {
                           throw new TranslatorMisMatchException("Can not translate a dto to a business class when the id of the dto differs from the business class id.");
                       }
-                  «ENDIF»                  
+                  «ENDIF» 
+                  target.activateValidation(false);                 
+                  
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
                           target.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.base.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
@@ -75,22 +83,32 @@
                           target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
                   «ENDFOREACH»
-                  
+                  target.activateValidation(true);
+
                   return target;
               }
              
              /**
-              * Translates a «javaClassName(base.name)» business class into a «javaClassName(name)» dto object. Properties and associations in the business class will be mapped to the corresponding 
-              * properties and associations in the dto object.    
+              * Translates a «javaClassName(base.name)» business class into a «javaClassName(name)» dto object. Properties and associations in the business class
+              * will be mapped to the corresponding properties and associations in the dto object.
+              * To prevent looping in the translation of biderectional or circulair associations, already translated objects will be added to the 'translated' register.    
               *
               * @param source The {@link «javaClassName(base.name)»} object to translate.
               *
               * @return «javaClassName(name)» The {@link «javaClassName(name)»} object translated from source.
               */
-              public «javaClassName(name)» toDto(final «javaClassName(base.name)» source){
+              public synchronized «javaClassName(name)» toDto(final «javaClassName(base.name)» source) {
+              
+                  «FOREACH associationReferences AS assRef -»    
+                      «EXPAND getBaseDtoName FOR assRef.dtoType»Translator «assRef.name»Translator = «EXPAND getBaseDtoName FOR assRef.dtoType»Translator.getInstance();
+                  «ENDFOREACH»  
                  
                   if (source == null ) {
                       throw new NullPointerException("Argument source is null! Translation of a business class can not be based on a null business class.");
+                  }
+                  
+                  if (translated.containsKey((source))) {
+                      return translated.get(source);
                   }
  
                   «javaClassName(name)» result = new «javaClassName(name)»();
@@ -103,6 +121,7 @@
                           result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
                   «ENDFOREACH»
+                  translated.put(source, result);
                   «FOREACH associationReferences AS assRef -»
                      «IF assRef.dtoType.metaType == ListDto -» «REM»2Many«ENDREM» 		              
  		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element: source.get«assRef.name.toFirstUpper()»()) {
@@ -112,6 +131,8 @@
 		                 result.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(source.get«assRef.name.toFirstUpper()»()));
 		             «ENDIF -»
 		          «ENDFOREACH»
+		          translated.remove(source);
+
                   return result;
               }
           }
