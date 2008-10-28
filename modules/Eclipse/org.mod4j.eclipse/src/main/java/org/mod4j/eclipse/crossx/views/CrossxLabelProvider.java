@@ -47,7 +47,26 @@ public class CrossxLabelProvider extends LabelProvider {
             return info.getDslname() + " : " + info.getModelname(); // Set<CossxLocation>
         } else if (element instanceof Symbol) {
             Symbol sym = (Symbol) element;
-            return sym.getName() + " : " + sym.getType();
+            String display = sym.getName() + " : " + sym.getType();
+            boolean first = true;
+            if( ! sym.getProperties().isEmpty()){
+                display = display + "       [";
+            }
+            for (SymbolProperty prop : sym.getProperties() ) {
+                if( prop instanceof LiteralSymbolProperty ) {
+                    LiteralSymbolProperty p = (LiteralSymbolProperty )prop;
+                    if( first ){
+                        first = false;
+                    } else {
+                        display = display + ", ";
+                    }
+                    display = display + p.getName() + " = " + p.getValue() ;
+                }
+            }
+            if( ! sym.getProperties().isEmpty()){
+                display = display + "]";
+            }
+            return display;
         } else if (element instanceof LiteralSymbolProperty) {
             LiteralSymbolProperty sym = (LiteralSymbolProperty) element;
             return sym.getValue() + " : " + sym.getName();
