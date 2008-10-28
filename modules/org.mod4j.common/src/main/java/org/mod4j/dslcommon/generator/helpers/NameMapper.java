@@ -18,9 +18,9 @@ public class NameMapper {
 
     private static final String LOCAL_SERVICE_BASE_CLASS_POSTFIX = "LocalServiceImplBase";
 
-    private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "BusinessService";
+    private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "DomainService";
 
-    private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "BusinessServiceImpl";
+    private static final String DOMAIN_SERVICE_CLASS_POSTFIX = "DomainServiceImpl";
 
     private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
 
