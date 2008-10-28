@@ -20,22 +20,30 @@ import org.mod4j.crossx.mm.crossx.ModelInfo;
 
 // import crossx.util.EclipseUtil;
 
-/** This class is a singleton with static members only.
- *  It keeps all cross reference information for DSL models 
+/**
+ * This class is a singleton with static members only. It keeps all cross reference information for DSL models
  * 
  * @author Jos Warmer
- *
+ * 
  */
 public class CrossxLocation {
 
-	private List<ModelInfo> information = new ArrayList<ModelInfo>();
-	private String name;
-	
-	public CrossxLocation(String theName) {
-	    this.name = theName;
-	}
-	
-	public String getName() {
+    /**
+     * The list of all ModelInfo objects in this location.
+     */
+    private List<ModelInfo> information = new ArrayList<ModelInfo>();
+
+    private String name;
+
+    /**
+     *  Create a new CrossxLocation for location named 'theName'
+     * @param theName
+     */
+    public CrossxLocation(String theName) {
+        this.name = theName;
+    }
+
+    public String getName() {
         return name;
     }
 
@@ -44,52 +52,52 @@ public class CrossxLocation {
     }
 
     public List<ModelInfo> getAll() {
-	    return Collections.unmodifiableList(information);
-	}
+        return Collections.unmodifiableList(information);
+    }
 
     /**
      * Add modelinfo to this location
+     * 
      * @param modelinfo
      */
-	public void addModelInfo(ModelInfo modelinfo) {
-		ModelInfo existing = findModelInfo(modelinfo, information);
-		if( existing != null ) {
-			information.remove(existing);
-			print("XXXX Removing " + modelinfo.getResource());
-		}
-		information.add(modelinfo);
-		print("XXXX Adding " + modelinfo.getResource());
-	}
+    public void addModelInfo(ModelInfo modelinfo) {
+        ModelInfo existing = findModelInfo(modelinfo, information);
+        if (existing != null) {
+            information.remove(existing);
+            print("XXXX Removing " + modelinfo.getResource());
+        }
+        information.add(modelinfo);
+        print("XXXX Adding " + modelinfo.getResource());
+    }
 
-	/**
-	 * Find the existing ModelInfo that has the same resource as modelinfo
-	 * @param modelinfo
-	 * @param modelInfoList
-	 * @return
-	 */
-	private ModelInfo findModelInfo(ModelInfo modelinfo, List<ModelInfo> modelInfoList) {
-		for(ModelInfo existing: modelInfoList){
-			if( modelinfo.getResource().equals( existing.getResource())){
-				return existing;
-			}
-		}
-		return null;
-	}
-	
+    /**
+     * Find the existing ModelInfo that has the same resource as modelinfo
+     * 
+     * @param modelinfo
+     * @param modelInfoList
+     * @return
+     */
+    private ModelInfo findModelInfo(ModelInfo modelinfo, List<ModelInfo> modelInfoList) {
+        for (ModelInfo existing : modelInfoList) {
+            if (modelinfo.getResource().equals(existing.getResource())) {
+                return existing;
+            }
+        }
+        return null;
+    }
 
-    /** Find the symbol with name 'name' and type 'type'.
+    /**
+     * Find the symbol with name 'name' and type 'type'.
      * 
      * @param name
      * @param elemType
      * @return The name of the resource if the element is found, null if it isn't found
      */
     public String find(String model, String name, String elemType) {
-        for(ModelInfo modelinfo : information){
-            if( modelinfo.getModelname().equals(model) ){
-                for(Symbol symbol : modelinfo.getSymbols()){
-                    if( symbol.getName().equals(name) && 
-                        symbol.getType().equals(elemType) )
-                    {
+        for (ModelInfo modelinfo : information) {
+            if (modelinfo.getModelname().equals(model)) {
+                for (Symbol symbol : modelinfo.getSymbols()) {
+                    if (symbol.getName().equals(name) && symbol.getType().equals(elemType)) {
                         return modelinfo.getResource();
                     }
                 }
@@ -98,22 +106,21 @@ public class CrossxLocation {
         return null;
     }
 
-    /** Find the symbol with name 'name' and type 'type'.
+    /**
+     * Find the symbol with name 'name' and type 'type'.
      * 
      * @param name
      * @param elemType
      * @return The name of the resource if the element is found, null if it isn't found
      */
     public Symbol lookup(String model, String name, String elemType) {
-        if( information == null ) {
+        if (information == null) {
             System.err.println("CrossxLocation::lookup information = null");
         }
-        for(ModelInfo modelinfo : information){
-            if( modelinfo.getModelname().equals(model) ){
-                for(Symbol symbol : modelinfo.getSymbols()){
-                    if( symbol.getName().equals(name) && 
-                        symbol.getType().equals(elemType) )
-                    {
+        for (ModelInfo modelinfo : information) {
+            if (modelinfo.getModelname().equals(model)) {
+                for (Symbol symbol : modelinfo.getSymbols()) {
+                    if (symbol.getName().equals(name) && symbol.getType().equals(elemType)) {
                         return symbol;
                     }
                 }
@@ -122,39 +129,38 @@ public class CrossxLocation {
         return null;
     }
 
-    /**  Find all symbols of type 'elemType'.
+    /**
+     * Find all symbols of type 'elemType'.
      * 
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
     public List<String> findAll(String elemType) {
         List<String> result = new ArrayList<String>();
-        for(ModelInfo modelinfo : information){
-            for(Symbol symbol : modelinfo.getSymbols()){
+        for (ModelInfo modelinfo : information) {
+            for (Symbol symbol : modelinfo.getSymbols()) {
                 String value = symbol.getType();
-                if( (value != null) && value.equals(elemType) )
-                {
+                if ((value != null) && value.equals(elemType)) {
                     result.add(symbol.getName());
-                } else {
                 }
             }
         }
         return result;
     }
 
-    /**  Find all symbols of type 'elemType'.
+    /**
+     * Find all symbols of type 'elemType'.
      * 
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
     public List<String> findAllFromModel(String modelname, String elemType) {
         List<String> result = new ArrayList<String>();
-        for(ModelInfo modelinfo : information){
-            if( modelinfo.getModelname().equals(modelname)) {
-                for(Symbol symbol : modelinfo.getSymbols()){
+        for (ModelInfo modelinfo : information) {
+            if (modelinfo.getModelname().equals(modelname)) {
+                for (Symbol symbol : modelinfo.getSymbols()) {
                     String value = symbol.getType();
-                    if( (value != null) && value.equals(elemType) )
-                    {
+                    if ((value != null) && value.equals(elemType)) {
                         result.add(symbol.getName());
                     }
                 }
@@ -162,23 +168,28 @@ public class CrossxLocation {
         }
         return result;
     }
-	
-	private PrintWriter pr = null;
-	
-	public void setPrintWriter(PrintWriter pw) {
-		pr = pw;
-	}
 
-	/** Print to the error output or the given printstream
-	 * 
-	 * @param text
-	 */
-	private void print(String text){
-		if( pr == null ) { 
-			System.err.println(text);
-		} else {
-    		pr.println(text);
-    		pr.flush();
-		}
-	}
+    private PrintWriter pr = null;
+
+    /**
+     * Sets 'pw' as the output writer for this object.
+     * @param pw
+     */
+    public void setPrintWriter(PrintWriter pw) {
+        pr = pw;
+    }
+
+    /**
+     * Print to the error output or the given printwriter
+     * 
+     * @param text
+     */
+    private void print(String text) {
+        if (pr == null) {
+            System.err.println(text);
+        } else {
+            pr.println(text);
+            pr.flush();
+        }
+    }
 }

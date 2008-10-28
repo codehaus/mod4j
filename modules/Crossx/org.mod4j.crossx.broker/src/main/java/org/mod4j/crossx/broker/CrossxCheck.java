@@ -21,7 +21,7 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
  * This class contains all operations that are needed in the oAW xTend, xPand and Checks files.
  * 
  * @author jwa11799
- *
+ * 
  */
 public class CrossxCheck {
 
@@ -30,7 +30,7 @@ public class CrossxCheck {
      * @return Returns the Symbol with the name path exists in any model in the workspace
      */
     public static Symbol lookupSymbol(String model, String symbolname, String type) {
-//        System.err.println("Lookup model [" + model + "] symbol [" + symbolname + "]");
+        // System.err.println("Lookup model [" + model + "] symbol [" + symbolname + "]");
         return CrossxEnvironment.lookupSymbol(model, symbolname, type);
     }
 
@@ -44,6 +44,7 @@ public class CrossxCheck {
     public static List<String> findAllFromModel(String modelname, String elemType) {
         return CrossxEnvironment.findAllFromModel(modelname, elemType);
     }
+
     public static List<String> lookupSymbolNames(String modelname, String elemType) {
         return CrossxEnvironment.findAllFromModel(modelname, elemType);
     }
@@ -59,6 +60,7 @@ public class CrossxCheck {
     public static List<String> findAllFromModel(String project, String modelname, String elemType) {
         return CrossxEnvironment.findAllFromModelInProject(project, modelname, elemType);
     }
+
     public static List<String> lookupSymbolNames(String project, String modelname, String elemType) {
         return CrossxEnvironment.findAllFromModelInProject(project, modelname, elemType);
     }
@@ -71,9 +73,10 @@ public class CrossxCheck {
     public static List<String> findAllModels() {
         return CrossxEnvironment.findAllModels();
     }
-    public static List<String> lookupModelNames() {
-        return CrossxEnvironment.findAllModels();
-    }
+
+//    public static List<String> lookupModelNames() {
+//        return CrossxEnvironment.findAllModels();
+//    }
 
     /**
      * Find all models within project with name 'project'
@@ -84,9 +87,10 @@ public class CrossxCheck {
     public static List<String> findAllModelsInProject(String project) {
         return CrossxEnvironment.findAllModelsInProject(project);
     }
-    public static List<String> lookupModelNames(String project) {
-        return CrossxEnvironment.findAllModelsInProject(project);
-    }
+
+//    public static List<String> lookupModelNames(String project) {
+//        return CrossxEnvironment.findAllModelsInProject(project);
+//    }
 
     /**
       */
@@ -98,14 +102,15 @@ public class CrossxCheck {
         }
         return null;
     }
-    
-    public static Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symboltype, 
-            String subsymbolType,
-            String subsymbolName) {
+
+    public static Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symboltype,
+            String subsymbolType, String subsymbolName) {
         Symbol symbol = CrossxEnvironment.lookupSymbol(model, symbolname, symboltype);
-        if( symbol == null ) {return null; }
-        for( Symbol  subsym : symbol.getSubSymbols() ){
-            if( subsym.getType().equals(subsymbolType) && subsym.getName().equals(subsymbolName)  ) {
+        if (symbol == null) {
+            return null;
+        }
+        for (Symbol subsym : symbol.getSubSymbols()) {
+            if (subsym.getType().equals(subsymbolType) && subsym.getName().equals(subsymbolName)) {
                 return symbol;
             }
         }
@@ -129,9 +134,9 @@ public class CrossxCheck {
 
     static public String getPropertyValue(Symbol symbol, String propertyName) {
         for (SymbolProperty prop : symbol.getProperties()) {
-            if( prop.getName().equals(propertyName)) {
-                if( prop instanceof LiteralSymbolProperty ){
-                    return ( (LiteralSymbolProperty)prop).getValue();
+            if (prop.getName().equals(propertyName)) {
+                if (prop instanceof LiteralSymbolProperty) {
+                    return ((LiteralSymbolProperty) prop).getValue();
                 }
             }
         }
@@ -139,11 +144,11 @@ public class CrossxCheck {
     }
 
     static public List<Symbol> findAllSubSymbols(Symbol symbol, String symbolType) {
-        System.err.println("findSubSymbols[" + symbol.getName()+ "] type [" + symbolType + "]");
+        System.err.println("findSubSymbols[" + symbol.getName() + "] type [" + symbolType + "]");
         List<Symbol> result = new ArrayList<Symbol>();
-        for (Symbol sub : symbol.getSubSymbols() ) {
-            System.err.println("     sub [" + sub.getName()+ "] type [" + sub.getType() + "]" );
-            if( sub.getType().equals(symbolType)) {
+        for (Symbol sub : symbol.getSubSymbols()) {
+            System.err.println("     sub [" + sub.getName() + "] type [" + sub.getType() + "]");
+            if (sub.getType().equals(symbolType)) {
                 result.add(sub);
             }
         }
