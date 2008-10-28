@@ -27,6 +27,7 @@ Symbol toElement(EnumerationLiteral lit) :
     let result = new Symbol :
     result.setName(lit.name) ->
     result.setType("EnumerationLiteral")->
+    result.properties.add( newProperty("value", lit.persistedValue.toString()))->
     result
     ;
 

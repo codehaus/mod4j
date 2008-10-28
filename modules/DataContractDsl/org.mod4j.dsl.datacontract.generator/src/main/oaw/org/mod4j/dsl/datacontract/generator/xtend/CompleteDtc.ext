@@ -39,6 +39,7 @@ EnumerationDtoLiteral toEnumLiteral(Symbol literalProperty) :
    let result = (      //print("TO ENUM LITERAL [" + literalProperty.name + "]")->
         new EnumerationDtoLiteral) :
    result.setName( literalProperty.name )->
+   result.setValue( literalProperty.getPropertyValue("value").asInteger() )->
    result
    ;
    
