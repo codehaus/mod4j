@@ -35,6 +35,18 @@ public class CrossxEnvironment {
 
     static private boolean started = false;
 
+    /**
+     * Private constructor, this class has static nethods only.
+     */
+    private CrossxEnvironment() {
+
+    }
+
+    /**
+     * Has the environment been started yet?
+     * 
+     * @return
+     */
     public static boolean isStarted() {
         return started;
     }
@@ -51,13 +63,16 @@ public class CrossxEnvironment {
 
     /**
      * Add 'modelinfo' to the location named 'location' in the current environment
-     * @param location the name of the location to add to
-     * @param modelinfo the ModelInfo to add
+     * 
+     * @param location
+     *            the name of the location to add to
+     * @param modelinfo
+     *            the ModelInfo to add
      */
     public static void addModelInfo(String location, ModelInfo modelinfo) {
         print("CrossxEnvironment::AddModelInfo [" + location + "]");
         CrossxLocation atLocation = findLocation(location);
-        atLocation.addModelInfo(modelinfo); 
+        atLocation.addModelInfo(modelinfo);
     }
 
     /**
@@ -79,34 +94,22 @@ public class CrossxEnvironment {
     }
 
     /**
-     * Find the symbol with name 'name' and type 'type'.
+     * Lookup a symbol in a model of a certain type
      * 
-     * @param name
+     * @param model
+     *            The model in which to look for the symbol
+     * @param symbolname
+     *            The name of the symbol to find
      * @param elemType
-     * @return The name of the resource if the element is found, null if it isn't found
+     *            The type of the symbol to find
+     * @return the symbol found, or null if no such symbol could be found
      */
-    // static public String find(String model, String name, String elemType) {
-    // for(CrossxLocation location: environment.values()){
-    // String result = location.find(model, name, elemType);
-    // if( result != null ){
-    // return result;
-    // }
-    // }
-    // return null;
-    // }
-    /**
-     * Find the symbol with name 'name' and type 'type'.
-     * 
-     * @param name
-     * @param elemType
-     * @return The name of the resource if the element is found, null if it isn't found
-     */
-    static public Symbol lookupSymbol(String model, String name, String elemType) {
+    static public Symbol lookupSymbol(String model, String symbolname, String elemType) {
         if (environment == null) {
             System.err.println("CrossxEnvironment::find environment = null");
         }
         for (CrossxLocation location : environment.values()) {
-            Symbol result = location.lookup(model, name, elemType);
+            Symbol result = location.lookup(model, symbolname, elemType);
             if (result != null) {
                 return result;
             }
@@ -166,6 +169,7 @@ public class CrossxEnvironment {
 
     /**
      * Find all models in the current environment.
+     * 
      * @return a list of names of all of the models
      */
     public static List<String> findAllModels() {
@@ -182,8 +186,9 @@ public class CrossxEnvironment {
 
     /**
      * Find all models in project named 'project'
+     * 
      * @param project
-     * @return a list of names of the models 
+     * @return a list of names of the models
      */
     public static List<String> findAllModelsInProject(String project) {
         List<String> result = new ArrayList<String>();
@@ -201,6 +206,7 @@ public class CrossxEnvironment {
 
     /**
      * Find all symbols of type 'elemType' in all models in the environment
+     * 
      * @param elemType
      * @return a list of names of all symbols found
      */
@@ -214,8 +220,9 @@ public class CrossxEnvironment {
 
     static private PrintWriter pr = null;
 
-    /** 
+    /**
      * sets the error stream to 's;'
+     * 
      * @param s
      */
     static public void setPrintStream(OutputStream s) {

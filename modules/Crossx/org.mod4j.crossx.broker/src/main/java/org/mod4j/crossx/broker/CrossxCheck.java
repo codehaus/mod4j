@@ -18,7 +18,8 @@ import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.crossx.mm.crossx.SymbolProperty;
 
 /**
- * This class contains all operations that are needed in the oAW xTend, xPand and Checks files.
+ * This class contains all operations that are needed in the oAW xTend, xPand and Checks files. Therefore all methods
+ * need to be static.
  * 
  * @author jwa11799
  * 
@@ -26,11 +27,23 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
 public class CrossxCheck {
 
     /**
-     * @param classname
-     * @return Returns the Symbol with the name path exists in any model in the workspace
+     * Private constructor, this class contains static members only.
+     */
+    private CrossxCheck() {
+    }
+
+    /**
+     * Lookup a symbol in a model of a certain type
+     * 
+     * @param model
+     *            The model in which to look for the symbol
+     * @param symbolname
+     *            The name of the symbol to find
+     * @param type
+     *            The type of the symbol to find
+     * @return the symbol found, or null if no such symbol could be found
      */
     public static Symbol lookupSymbol(String model, String symbolname, String type) {
-        // System.err.println("Lookup model [" + model + "] symbol [" + symbolname + "]");
         return CrossxEnvironment.lookupSymbol(model, symbolname, type);
     }
 
@@ -74,9 +87,9 @@ public class CrossxCheck {
         return CrossxEnvironment.findAllModels();
     }
 
-//    public static List<String> lookupModelNames() {
-//        return CrossxEnvironment.findAllModels();
-//    }
+    // public static List<String> lookupModelNames() {
+    // return CrossxEnvironment.findAllModels();
+    // }
 
     /**
      * Find all models within project with name 'project'
@@ -88,9 +101,9 @@ public class CrossxCheck {
         return CrossxEnvironment.findAllModelsInProject(project);
     }
 
-//    public static List<String> lookupModelNames(String project) {
-//        return CrossxEnvironment.findAllModelsInProject(project);
-//    }
+    // public static List<String> lookupModelNames(String project) {
+    // return CrossxEnvironment.findAllModelsInProject(project);
+    // }
 
     /**
       */
@@ -144,7 +157,6 @@ public class CrossxCheck {
     }
 
     static public List<Symbol> findAllSubSymbols(Symbol symbol, String symbolType) {
-        System.err.println("findSubSymbols[" + symbol.getName() + "] type [" + symbolType + "]");
         List<Symbol> result = new ArrayList<Symbol>();
         for (Symbol sub : symbol.getSubSymbols()) {
             System.err.println("     sub [" + sub.getName() + "] type [" + sub.getType() + "]");
@@ -166,10 +178,10 @@ public class CrossxCheck {
         List<String> result = new ArrayList<String>();
         List<String> tmp = CrossxEnvironment.findAll(project, symboltype);
         if (tmp != null) {
-            System.err.println("CROSSX lookup all " + symboltype + " [" + tmp.toString() + "]");
+            System.err.println("CrossxCheck lookup all " + symboltype + " [" + tmp.toString() + "]");
             result.addAll(tmp);
         } else {
-            System.err.println("CROSSX HELPER FINDALL NULL");
+            System.err.println("CrossxCheck lookup all returns null");
         }
         return result;
     }
