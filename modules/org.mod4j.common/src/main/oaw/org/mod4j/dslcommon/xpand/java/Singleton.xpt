@@ -1,0 +1,18 @@
+«REM»The recommended way to implement a singleton«ENDREM»
+«DEFINE makeSingleton FOR String»
+
+    // Protected constructor is sufficient to suppress unauthorized calls to the constructor
+    protected «this»() {}
+ 
+    /**
+     * SingletonHolder is loaded on the first execution of Singleton.getInstance() 
+     * or the first access to SingletonHolder.INSTANCE , not before.
+     */
+     private static class SingletonHolder { 
+         private final static «this» INSTANCE = new «this»();
+     }
+ 
+     public static «this» getInstance() {
+         return SingletonHolder.INSTANCE;
+     }
+«ENDDEFINE»
