@@ -14,7 +14,7 @@
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList  FOR BusinessClassDto -»
-«LET getConstructArguments() AS args»
+«LET getConstructArguments() AS args -»
     «FOREACH properties.select(e|e.mandatoryForCreation).sortBy(e|args.indexOf(e.name)) AS prop ITERATOR propIter SEPARATOR "," -»
         «EXPAND addArgument FOR prop-»
     «ENDFOREACH»
