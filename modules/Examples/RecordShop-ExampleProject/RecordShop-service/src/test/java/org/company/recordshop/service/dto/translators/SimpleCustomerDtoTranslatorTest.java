@@ -59,7 +59,7 @@ public class SimpleCustomerDtoTranslatorTest {
             Customer newCust = scTranslator.fromDto(null, null);
             fail("Did not expected to succesfull translate a null dto!");
         } catch (TranslatorException te) {
-            assertTrue("Firstname of Customer should be Vincent.", te.getMessage().contains(
+            assertTrue("Translation of a 'null' dto should fail ", te.getMessage().contains(
                     "Argument source is null! Translation of a dto can not be based on a null dto."));
         }
 
