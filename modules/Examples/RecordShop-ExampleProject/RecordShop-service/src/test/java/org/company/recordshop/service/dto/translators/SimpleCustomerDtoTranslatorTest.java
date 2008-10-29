@@ -7,8 +7,10 @@ import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Order;
 import org.company.recordshop.service.dto.OrderNumberAndDateDto;
 import org.company.recordshop.service.dto.SexeDto;
+import org.company.recordshop.service.dto.SexeEnumDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.junit.Test;
+import org.mod4j.runtime.exception.TranslatorException;
 
 public class SimpleCustomerDtoTranslatorTest {
     
@@ -21,7 +23,7 @@ public class SimpleCustomerDtoTranslatorTest {
         simpleCust.setFirstName("Vincent");
         simpleCust.setLastName("Van Gogh");
         simpleCust.setCustomerNr(1234);
-        //simpleCust.setSexe(SexeDto.MALE);
+        simpleCust.setSexe(SexeEnumDto.MALE);
         
         OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto();
         orderDto.setCustomer(simpleCust);
@@ -33,8 +35,32 @@ public class SimpleCustomerDtoTranslatorTest {
             assertTrue("Firstname of Customer should be Vincent.", newCust.getFirstName().equals("Vincent"));
             assertTrue("CustomerNr should be 1234", newCust.getCustomerNr() == 1234);
             assertTrue("Associations dto's in dto's are not translated so Orders should be empty.", newCust.getOrders().isEmpty());
-        } catch (TranslatorMisMatchException e) {
+        } catch (TranslatorException e) {
             fail("Did not expected to catch a TranslatorMisMatchException. Message :" + e.getMessage());
+        }
+        
+    }
+
+    
+    @Test
+    public void testCreateNewFromDtoFail() {
+        
+        SimpleCustomerDto simpleCust = new SimpleCustomerDto();
+        simpleCust.setFirstName("Vincent");
+        simpleCust.setLastName("Van Gogh");
+        simpleCust.setCustomerNr(1234);
+        simpleCust.setSexe(SexeEnumDto.MALE);
+        
+        OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto();
+        orderDto.setCustomer(simpleCust);
+        
+        simpleCust.addToOrders(orderDto);
+        
+        try {
+            Customer newCust = scTranslator.fromDto(null, null);
+            fail("Did not expected to succesfull translate a null dto!");
+        } catch (TranslatorException te) {
+            assertTrue("Firstname of Customer should be Vincent.", te.getMessage().contains("Argument source is null! Translation of a dto can not be based on a null dto."));
         }
         
     }
@@ -43,6 +69,7 @@ public class SimpleCustomerDtoTranslatorTest {
     public void testToDtoBiderectionalSucceed() {
         
         Customer cust = new Customer("Herman", "Bread", 4321);
+        //cust.setSexe(Sexe.MALE);
         Order order = new Order("1111");
         cust.addToOrders(order);
         

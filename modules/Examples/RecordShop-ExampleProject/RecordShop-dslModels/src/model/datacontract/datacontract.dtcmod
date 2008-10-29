@@ -6,8 +6,8 @@ from RecordShopDomainModel import Artist
 from RecordShopDomainModel import Order
 from RecordShopDomainModel import Record
 from RecordShopDomainModel import OrderLine
-from RecordShopDomainModel import Sexe
-from RecordShopDomainModel import RecordType
+from RecordShopDomainModel import SexeEnum
+from RecordShopDomainModel import RecordTypeEnum
 
     /* 
      * BusinessClass transfer objects
@@ -21,7 +21,7 @@ from RecordShopDomainModel import RecordType
 	     lastName;
 	     firstName;
  	     blackListed;
-	     //sexe;
+	     sexe;
 	     references [
 	         OrderNumberAndDateList orders;
 	     ]   
@@ -89,6 +89,6 @@ from RecordShopDomainModel import RecordType
 	/* 
      * Enumeration Dto's
      */
-	EnumerationDto SexeDto base Sexe 
-	EnumerationDto RecordTypeDto base RecordType 
+	EnumerationDto SexeEnumDto base SexeEnum
+	EnumerationDto RecordTypeEnumDto base RecordTypeEnum 
 	

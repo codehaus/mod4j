@@ -5,6 +5,7 @@
 «DEFINE Generate FOR DataContractModel»
     «EXPAND Enumeration::createEnumDto FOREACH enumerations»
   	«EXPAND dtoBean::createDto FOREACH dtos»
+  	«EXPAND EnumTranslators::createTranslator FOREACH enumerations»
   	«EXPAND Translators::createTranslator FOREACH dtos»
 «ENDDEFINE»
 

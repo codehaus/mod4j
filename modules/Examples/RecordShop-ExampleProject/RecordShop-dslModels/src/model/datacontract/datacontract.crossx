@@ -47,6 +47,6 @@
   <symbols name="UniqueCustomerDto" type="Dto">
     <properties xsi:type="crossx:LiteralSymbolProperty" name="dtoType" value="CustomDto"/>
   </symbols>
-  <symbols name="SexeDto" type="EnumerationDto"/>
-  <symbols name="RecordTypeDto" type="EnumerationDto"/>
+  <symbols name="SexeEnumDto" type="EnumerationDto"/>
+  <symbols name="RecordTypeEnumDto" type="EnumerationDto"/>
 </crossx:ModelInfo>

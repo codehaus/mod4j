@@ -17,7 +17,7 @@ Class Person [
     "Number of ears (we allow Vulcans in this system)." 
     integer numberOfEars default 0 min 0 max 4; 
     "Gender"    
-    Sexe sexe nullable;   
+    SexeEnum sexe nullable;   
     
     Rules [ 
         "The combination of first- and last name of a person must be unique"
@@ -57,7 +57,7 @@ Class Record [
     string title default "Title unknown";
     integer mediumCode default 111 ;
     decimal price ;
-    RecordType type default CD;  
+    RecordTypeEnum type default CD;  
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
@@ -94,13 +94,13 @@ Class Product [
 ]
 
 "Sexe enumeration."
-Enumeration Sexe [
+Enumeration SexeEnum [
 
     female = 2;
     male = 3;
 ]
 
-Enumeration RecordType [
+Enumeration RecordTypeEnum [
 
     LP = 2;
     CD = 3;

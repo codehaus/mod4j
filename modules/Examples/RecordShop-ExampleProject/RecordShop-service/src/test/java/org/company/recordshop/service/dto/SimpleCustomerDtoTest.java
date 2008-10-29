@@ -22,7 +22,7 @@ public class SimpleCustomerDtoTest {
 
 		customerDto.setBlackListed(false);
 		customerDto.setFirstName("John");
-		//customerDto.setSexe(SexeDto.MALE);
+		customerDto.setSexe(SexeEnumDto.MALE);
 		customerDto.addToOrders(newOrder);
 
 		for (OrderNumberAndDateDto order : customerDto.getOrders()) {

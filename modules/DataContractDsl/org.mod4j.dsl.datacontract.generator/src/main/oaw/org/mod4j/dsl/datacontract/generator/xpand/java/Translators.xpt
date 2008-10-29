@@ -22,7 +22,6 @@
          import «getDomainRootPackage()».«javaClassName(base.name)»;
          import «getDtoPackage()».«javaClassName(name)»;
          «FOREACH properties.typeSelect(DtoEnumerationProperty) AS enumDto -»
-             import «getDomainRootPackage()».«javaClassName(enumDto.type.base.name)»;
              import «getDtoPackage()».«javaClassName(enumDto.type.name)»;
          «ENDFOREACH»
          «FOREACH associationReferences AS assRef -»    
@@ -40,8 +39,14 @@
            	  * Register for translated «javaClassName(base.name)» objects
 	          */
               private Map<«javaClassName(base.name)», «javaClassName(name)»> translated = new HashMap<«javaClassName(base.name)», «javaClassName(name)»>();
-         
-             «EXPAND org::mod4j::dslcommon::xpand::java::Singleton::makeSingleton FOR javaTranslatorName(javaClassName(name)) -»
+              
+              «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
+                  «IF dataProperty.metaType == DtoEnumerationProperty -»
+                      private «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator «dataProperty.name»Translator = «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator.getInstance();
+                  «ENDIF»        
+              «ENDFOREACH»
+                                     
+              «EXPAND org::mod4j::dslcommon::xpand::java::Singleton::makeSingleton FOR javaTranslatorName(javaClassName(name)) -»
          
              /**
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» business class. All properties in the dto will be mapped to the 
@@ -79,7 +84,7 @@
                   
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
-                          target.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.base.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
+                          target.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
                       «ELSE -»
                           target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
@@ -117,7 +122,7 @@
                   result.setId(source.getId());
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
-                          result.set«javaClassName(dataProperty.name)»(«javaClassName(((DtoEnumerationProperty)dataProperty).type.name)».value(source.get«javaClassName(dataProperty.name)»().id()));
+                          result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.toDto(source.get«javaClassName(dataProperty.name)»()));
                       «ELSE -»
                           result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
