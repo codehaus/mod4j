@@ -14,7 +14,7 @@ import org.company.recordshop.data.spring.dao.CustomerDao;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Order;
 import org.company.recordshop.domain.OrderLine;
-import org.company.recordshop.domain.Sexe;
+import org.company.recordshop.domain.SexeEnum;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
@@ -91,7 +91,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
 
         saved.setFirstName("Thea");
         saved.setBlackListed(true);
-        saved.setSexe(Sexe.FEMALE);
+        saved.setSexe(SexeEnum.FEMALE);
         saved.setCustomerNr(2);
         saved.setNumberOfEars(2);
         saved.setLastName("Engelhard");
@@ -101,7 +101,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         Customer updated = customerDao.retrieve(saved.getId());
         assertEquals("Thea", updated.getFirstName());
         assertEquals("Engelhard", updated.getLastName());
-        assertEquals(Sexe.FEMALE, updated.getSexe());
+        assertEquals(SexeEnum.FEMALE, updated.getSexe());
         assertEquals(2, updated.getNumberOfEars());
         assertEquals(2, updated.getCustomerNr());
         assertEquals(true, updated.isBlackListed());

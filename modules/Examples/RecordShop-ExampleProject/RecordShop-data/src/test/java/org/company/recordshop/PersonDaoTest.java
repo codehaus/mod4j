@@ -12,7 +12,7 @@ import java.util.List;
 import org.company.recordshop.data.spring.dao.PersonDao;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Person;
-import org.company.recordshop.domain.Sexe;
+import org.company.recordshop.domain.SexeEnum;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,7 +89,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		Person saved = personDao.retrieve(person.getId());
 		saved.setFirstName("Paula");
 		saved.setLastName("Potter");
-		saved.setSexe(Sexe.FEMALE);
+		saved.setSexe(SexeEnum.FEMALE);
 		personDao.update(saved);
 		flush();
 		assertEquals(1, simpleJdbcTemplate
@@ -99,7 +99,6 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		Person updated = personDao.retrieve(person.getId());
 		assertEquals("Paula", updated.getFirstName());
 		assertEquals("Potter", updated.getLastName());
-		assertEquals(Sexe.FEMALE, updated.getSexe());
 		assertEquals(person.getId(), saved.getId());
 		assertEquals(saved.getId(), updated.getId());
 	}
