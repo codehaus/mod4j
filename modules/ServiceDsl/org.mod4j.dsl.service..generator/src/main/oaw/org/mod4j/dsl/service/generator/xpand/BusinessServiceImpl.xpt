@@ -18,12 +18,12 @@
 	package «getBusinessRootPackage()»;
 
 	import java.util.List;
-
-	«FOREACH this.dtoReferences AS dto -»
-		«IF dto.dtoType() == "BusinessClassDto" »
-	    import «javaDomainClassPath(dto.businessClass())»;
-		import «javaDaoInterfacePath(dto.businessClass())»;
-		«ENDIF»
+«REM»Import the business cl;as  and dao for aech base of each BusinessClassDto. 
+     Ensure that doules are removed.
+«ENDREM»	
+	«FOREACH this.uniqueBusinessClasses() AS cls -»
+	    import «javaDomainClassPath(cls)»;  
+		import «javaDaoInterfacePath(cls)»; 
 	«ENDFOREACH»
 
 	/**
@@ -31,24 +31,25 @@
 	 */
 	public class «javaDomainServiceClass(name)» implements «javaDomainServiceInterface(name)» {
 
-	«FOREACH this.dtoReferences AS dto -»
-		«IF dto.dtoType() == "BusinessClassDto" »
-		    private «javaDaoInterface(dto.businessClass())» the«javaDaoInterface(dto.businessClass())»;
+	«FOREACH this.uniqueBusinessClasses() AS cls -»
+		    private «javaDaoInterface(cls)» the«javaDaoInterface(cls)»;
 		    
 		    /**
 		     * @param object
-		     *            the «javaDaoInterface(dto.businessClass())»to set
+		     *            the «javaDaoInterface(cls)»to set
 		     */
-		    public void set«javaDaoInterface(dto.businessClass())»(«javaDaoInterface(dto.businessClass())» object) {
-		        this.the«javaDaoInterface(dto.businessClass())» = object;
+		    public void set«javaDaoInterface(cls)»(«javaDaoInterface(cls)» object) {
+		        this.the«javaDaoInterface(cls)» = object;
 		    }
-		«ENDIF»
 	«ENDFOREACH»
 
-	«FOREACH this.crudServices AS c»
-	    // create crud methods for «c.dto.name»
-	«ENDFOREACH»	
 
+	«EXPAND  CreateMethod FOREACH this.uniqueMethods(MethodType::CREATE) »
+	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
+	«EXPAND  UpdateMethod FOREACH this.uniqueMethods(MethodType::UPDATE) »
+	«EXPAND  DeleteMethod FOREACH this.uniqueMethods(MethodType::DELETE) »
+
+«REM»
 	«FOREACH this.methods.typeSelect(SpecialMethod) AS method»
 		«IF method.type == MethodType::CREATE»
 			«EXPAND CreateMethod FOR method»
@@ -63,9 +64,10 @@
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
-
+«ENDREM»
 	}
     «ENDFILE»
+
 «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»
@@ -80,7 +82,7 @@
      *            the «dto.businessClass()» to create.
      * @return the «dto.businessClass()» created, possibly modified during creation.
      */
-    public «javaDomainClass(dto.businessClass())» «this.name»(«javaDomainClass(dto.businessClass())» object) {
+    public «javaDomainClass(dto.businessClass())» create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         return the«javaDaoInterface(dto.businessClass())».add(object);
     }
 «ENDDEFINE»
@@ -116,7 +118,7 @@
      * @param id
      *            the id of the «dto.businessClass()» to delete.
      */
-    public void «this.name»(Long id){
-        the«javaDaoInterface(dto.businessClass())».delete(id);
+    public void «this.name»(«businessClass(this.dto)» object){
+        the«javaDaoInterface(dto.businessClass())».delete(object);
     }
 «ENDDEFINE»

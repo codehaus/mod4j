@@ -1,4 +1,10 @@
 import ServiceDsl;
 
-context ServiceModel ERROR "The name of a service may not be empty" :
-    true;
+context DtoReference ERROR "The name of an imported element must be unique" :
+    this.model.dtoReferences.forAll(e| (e != this) implies (e.name != this.name) );
+    
+context CrudService ERROR "Crud can only be defined once for a Dto" :
+    this.model.crudServices.forAll(e| (e != this) implies (e.dto.name != this.dto.name) );
+    
+context SpecialMethod ERROR "A special (create/read/update/delete) method cannot be defined for a Dto that also has a crud defined." :
+    ! this.model.crudServices.exists(crud | crud.dto == this.dto);

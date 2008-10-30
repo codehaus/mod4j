@@ -59,7 +59,7 @@
         <metaModel idRef="sm" />
        <metaModel idRef="crossx"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::Generate FOR serviceModel" />
-        <outlet path="${applicationPath}/${businessModuleName}/${srcGenPath}/">
+        <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>

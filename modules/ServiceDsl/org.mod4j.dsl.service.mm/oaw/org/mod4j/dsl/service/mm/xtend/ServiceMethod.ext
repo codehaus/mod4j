@@ -33,3 +33,23 @@ String dtoType(DtoReference dto) :
     (dtoType == null) ? "void": dtoType
 ;
 
+String dtoBase(DtoReference dto) :
+    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
+    let dtoBase = dtoSymbol.getPropertyValue("businessClass") :
+    (dtoBase == null) ? "void": dtoBase
+;
+
+/** Find all method of a special type, 
+ */
+List[SpecialMethod] uniqueMethods(ServiceModel model, MethodType typeToFind) :
+	let createMethods = model.methods.typeSelect(SpecialMethod).select(m| m.type == typeToFind) :
+ 	let uniqueNames = createMethods.name.toSet() :
+ 	let uniqueBusinessClassesNew = createMethods.dto.businessClass().toSet() :
+ 	let uniqueCreateMethodsNew = uniqueBusinessClassesNew.collect(cls| createMethods.selectFirst(m|m.dto.businessClass() == cls)) :
+ 	let uniqueCreateMethods = uniqueNames.collect(unique | createMethods.selectFirst(m|m.name == unique)) :
+ 	uniqueCreateMethodsNew
+;
+
+List[String] uniqueBusinessClasses(ServiceModel model) :
+    model.dtoReferences.select(dtoRef|dtoRef.dtoType() == "BusinessClassDto").dtoBase().toSet()
+;

@@ -7,6 +7,7 @@ import crossx;
 import ServiceDsl;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
 
 completeModel(ServiceModel model) :
     let cruds = model.crudServices :
@@ -19,28 +20,29 @@ completeModel(ServiceModel model) :
 create SpecialMethod createMethod(CrudService crud) :
    setDescription(crud.description + " [From crud service]")->
    setType(MethodType::CREATE)->
-   setName("create" + crud.dto.name)->
+   setName("create" + crud.dto.businessClass() )->
+//   setName("create" + crud.dto.businessClass() + "From" + crud.dto.name )->
    setDto(crud.dto)
    ;
    
 create SpecialMethod readMethod(CrudService crud) :
    setDescription(crud.description + " [From crud service]")->
    setType(MethodType::READ)->
-   setName("read" + crud.dto.name)->
+   setName("read" + crud.dto.businessClass())->
    setDto(crud.dto)
    ;
    
 create SpecialMethod updateMethod(CrudService crud) :
    setDescription(crud.description + " [From crud service]")->
    setType(MethodType::UPDATE)->
-   setName("update" + crud.dto.name)->
+   setName("update" + crud.dto.businessClass())->
    setDto(crud.dto)
    ;
    
 create SpecialMethod deleteMethod(CrudService crud) :
    setDescription(crud.description + " [From crud service]")->
    setType(MethodType::DELETE)->
-   setName("delete" + crud.dto.name)->
+   setName("delete" + crud.dto.businessClass())->
    setDto(crud.dto)
    ;
    

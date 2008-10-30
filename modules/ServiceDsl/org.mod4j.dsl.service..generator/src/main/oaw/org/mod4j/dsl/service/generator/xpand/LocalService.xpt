@@ -43,9 +43,10 @@
 		«IF method.type == MethodType::CREATE»
 			«EXPAND CreateMethod FOR method»
 		«ENDIF»
-		«IF method.type == MethodType::READ»
+«REM»		«IF method.type == MethodType::READ»
 			«EXPAND ReadMethod FOR method»
 		«ENDIF»
+«ENDREM»
 		«IF method.type == MethodType::UPDATE»
 			«EXPAND UpdateMethod FOR method»
 		«ENDIF»
@@ -53,6 +54,7 @@
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
+	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
 
 	}
     «ENDFILE»
@@ -105,5 +107,5 @@
      * @param id
      *            the id of the «this.dto.name» to delete.
      */
-    public void «this.name»(Long id);
+    public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»

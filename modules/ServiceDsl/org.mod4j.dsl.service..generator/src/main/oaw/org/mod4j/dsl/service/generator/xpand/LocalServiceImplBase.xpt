@@ -17,8 +17,10 @@
 	package «getServiceRootPackage()»;
 
 	import java.util.List;
+	import org.mod4j.runtime.exception.TranslatorException;
 
 	import «javaDomainServiceInterfacePath(name)»;
+
 	«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»
 	import «getDtoPackage()».«javaClassName(dto.name)»;
 	«ENDFOREACH»
@@ -44,9 +46,6 @@
 		«IF method.type == MethodType::CREATE»
 			«EXPAND CreateMethod FOR method»
 		«ENDIF»
-		«IF method.type == MethodType::READ»
-			«EXPAND ReadMethod FOR method»
-		«ENDIF»
 		«IF method.type == MethodType::UPDATE»
 			«EXPAND UpdateMethod FOR method»
 		«ENDIF»
@@ -54,6 +53,7 @@
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
+	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
 
 	}
     «ENDFILE»
@@ -68,9 +68,14 @@
      * (@inheritDoc)
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
-        «javaDomainClass(dto.businessClass())» result =
-              the«javaDomainServiceInterface(model.name)».create«businessClass(this.dto)»( 
-                                       the«javaTranslatorClass(dto.name)».fromDto(object));
+        «javaDomainClass(dto.businessClass())» result = null;
+        try{ 
+	        result =
+	              the«javaDomainServiceInterface(model.name)».create«businessClass(this.dto)»( 
+	                                       the«javaTranslatorClass(dto.name)».fromDto(object, null));
+			} catch (TranslatorException e) {
+				e.printStackTrace();
+			}
         return the«javaTranslatorClass(dto.name)».toDto(result);
     }
 «ENDDEFINE»
@@ -99,8 +104,15 @@
      * @return the «this.dto.name» updated, possibly modified during update.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {
-        «javaDomainClass(dto.businessClass())» tmp = the«javaTranslatorClass(dto.name)».fromDto(object);
-        «javaDomainClass(dto.businessClass())» result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(tmp);
+        «javaDomainClass(dto.businessClass())» result = null;
+        try{ 
+            result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+    
+            result = the«javaTranslatorClass(dto.name)».fromDto(object, result);
+            result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(result);
+		} catch (TranslatorException e) {
+			e.printStackTrace();
+		}
         return the«javaTranslatorClass(dto.name)».toDto(result);
     }
 «ENDDEFINE»
@@ -110,7 +122,8 @@
      * @param id
      *            the id of the «this.dto.name» to delete.
      */
-    public void «this.name»(Long id){
-       the«javaDomainServiceInterface(model.name)».delete«businessClass(this.dto)»(id);
+    public void «this.name»(«JavaType(this.dto)» object){
+	        «javaDomainClass(dto.businessClass())» existing = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+	        the«javaDomainServiceInterface(model.name)».delete«businessClass(this.dto)»(existing);
     }
 «ENDDEFINE»
