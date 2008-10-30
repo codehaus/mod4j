@@ -174,8 +174,8 @@ public class CrossxCheck {
      * @param symboltype
      * @return
      */
-    public static List<String> lookupAll(String project, String symboltype) {
-        List<String> result = new ArrayList<String>();
+    public static List<String>  lookupAll(String project, String symboltype) {
+        List<String> result = new ArrayList<String>(); 
         List<String> tmp = CrossxEnvironment.findAll(project, symboltype);
         if (tmp != null) {
             System.err.println("CrossxCheck lookup all " + symboltype + " [" + tmp.toString() + "]");
