@@ -81,7 +81,6 @@
     <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
     <component class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
         <modelSlot value="crossxModel"/>
-        <outputFile value="${crossxfile}"></outputFile>
         <project value="${project}"/>
     </component>
 
