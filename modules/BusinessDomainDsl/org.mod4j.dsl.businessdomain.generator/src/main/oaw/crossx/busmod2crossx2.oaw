@@ -78,7 +78,7 @@
        <outputSlot value="crossxModel"/>
     </component>
 
-    <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
+     <!-- Is used to put the crossxModel in the CrossxEnvironment. -->
     <component class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
         <modelSlot value="crossxModel"/>
         <project value="${project}"/>
