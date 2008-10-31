@@ -8,3 +8,8 @@ context CrudService ERROR "Crud can only be defined once for a Dto" :
     
 context SpecialMethod ERROR "A special (create/read/update/delete) method cannot be defined for a Dto that also has a crud defined." :
     ! this.model.crudServices.exists(crud | crud.dto == this.dto);
+    
+context SpecialMethod ERROR "A "+ this.type + " method can only be defined once for "+ this.dto.name:
+    this.model.methods.typeSelect(SpecialMethod).select(e|e.type == this.type).
+        forAll(e|(e != this) implies (e.dto != this.dto))
+;
