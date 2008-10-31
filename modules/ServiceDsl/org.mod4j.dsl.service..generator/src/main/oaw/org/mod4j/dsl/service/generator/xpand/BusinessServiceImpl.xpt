@@ -49,22 +49,6 @@
 	«EXPAND  UpdateMethod FOREACH this.uniqueMethods(MethodType::UPDATE) »
 	«EXPAND  DeleteMethod FOREACH this.uniqueMethods(MethodType::DELETE) »
 
-«REM»
-	«FOREACH this.methods.typeSelect(SpecialMethod) AS method»
-		«IF method.type == MethodType::CREATE»
-			«EXPAND CreateMethod FOR method»
-		«ENDIF»
-		«IF method.type == MethodType::READ»
-			«EXPAND ReadMethod FOR method»
-		«ENDIF»
-		«IF method.type == MethodType::UPDATE»
-			«EXPAND UpdateMethod FOR method»
-		«ENDIF»
-		«IF method.type == MethodType::DELETE»
-			«EXPAND DeleteMethod FOR method»
-		«ENDIF»
-	«ENDFOREACH»	
-«ENDREM»
 	}
     «ENDFILE»
 
@@ -95,7 +79,7 @@
      *            the id of the «dto.businessClass()» to read.
      * @return 
      */
-    public «javaDomainClass(dto.businessClass())»  «this.name»(Long id){
+    public «javaDomainClass(dto.businessClass())»  read«this.dto.businessClass()»(Long id){
         return the«javaDaoInterface(dto.businessClass())».retrieve(id);
     }
 «ENDDEFINE»
@@ -108,7 +92,7 @@
      *            the representation of the modified «businessClass(this.dto)».
      * @return the «businessClass(this.dto)» updated, possibly modified during update.
      */
-    public «javaDomainClass(dto.businessClass())»  «this.name»(«javaDomainClass(dto.businessClass())» object) {
+    public «javaDomainClass(dto.businessClass())»  update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         return the«javaDaoInterface(dto.businessClass())».update(object);
     }
 «ENDDEFINE»
@@ -118,7 +102,8 @@
      * @param id
      *            the id of the «dto.businessClass()» to delete.
      */
-    public void «this.name»(«businessClass(this.dto)» object){
-        the«javaDaoInterface(dto.businessClass())».delete(object);
+    public void delete«this.dto.businessClass()»(«businessClass(this.dto)» object){
+        the«javaDaoInterface(dto.businessClass())
+        ».delete(object);
     }
 «ENDDEFINE»
