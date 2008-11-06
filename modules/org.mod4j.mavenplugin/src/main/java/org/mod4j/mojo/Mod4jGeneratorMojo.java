@@ -1,6 +1,6 @@
 package org.mod4j.mojo;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -32,19 +32,32 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     /**
      * The model dir to process.
      * 
+     * @parameter default-value="src/model"
      */
-    // TODO Make this plug-in search in all known source folders
-    private static final String MODEL_DIR = "src/model";
+    private final String modelDir = "src/model";
+    
+    /**
+     * The filename of the generator property file within the modelDir. 
+     * 
+     * @parameter default-value="mod4j.properties"
+     */
+    private final String generatorFileName = "mod4j.properties";
 
     /**
-     * The list with known DSL extensions to process.
+     * The list (fifo) with known DSL extensions to process.
      * 
      * @parameter
-     * 
      */
-    private HashSet<DslExtension> dslExtensions = new HashSet<DslExtension>();
+    private LinkedHashSet<DslExtension> dslExtensions = new LinkedHashSet<DslExtension>();
 
     /**
+     * Indicator for default generation processing.
+     * 
+     * @parameter default-value=true
+     */
+    private boolean defaultGeneration;
+
+    /*
      * (non-Javadoc).
      * 
      * @see org.apache.maven.plugin.AbstractMojo#execute()
@@ -53,12 +66,21 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         getLog().info("Executing Mod4J Maven plug-in, goal: genrateFromModel");
 
-        dslExtensions.add(new DslExtension("BusinessDomainDsl", "BusinessDomainDsl",
-                "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod", "crossx/busmod2crossx2.oaw",
-                "codegen/BusinessDomainDsl.oaw", "mod4j.properties"));
-
+        
+        if (defaultGeneration) {
+            addDefaultDslExtensions();
+        }
+        
         String dir = project.getBasedir().getAbsolutePath();
 
+        // Run the outlet directory cleaner to clean previously generated sources. 
+        OutletDirectoryCleaner directoryCleaner = new OutletDirectoryCleaner();
+        try {
+            directoryCleaner.clean(dir, dir + "/" + modelDir + "/" + generatorFileName);
+        } catch (Mod4jWorkflowException mwfe) {
+            throw new MojoFailureException("ERROR while cleaning outlet directories :" + mwfe.getMessage());
+        }
+        
         for (DslExtension dslExt : dslExtensions) {
 
             try {
@@ -74,10 +96,31 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     }
 
     /**
-     * Method for processing DslExtensions within a project. The following steps will be processed:<br/> 1) Walk through all Mod4j model
-     * files for the given <b>DslExtension</b> within the model project and extract reference information (CrossX
-     * Broker) from them. <br/> 2) Run the outlet directory cleaner to clean previously generated sources. <br/> 3) Run
-     * all workflow files in the project, which checks consistency of the models and generate the code.
+     * Add all default extensions to the dslExtension list. The default extensions are: <br>
+     * 1- BusinesDomainDsl (Mod4j) <br>
+     * 2- DataContractDsl (Mod4j) <br>
+     * 3- ServiceDsl (Mod4j)
+     */
+    private void addDefaultDslExtensions() {
+
+        dslExtensions.add(new DslExtension("Mod4j", "BusinessDomainDsl", "BusinessDomainDsl.BusinessDomainDslPackage",
+                ".busmod", "crossx/busmod2crossx2.oaw", "codegen/BusinessDomainDsl.oaw", generatorFileName));
+
+        dslExtensions.add(new DslExtension("Mod4j", "DataContractDsl",
+                "org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage", ".dtcmod",
+                "org/mod4j/dsl/datacontract/generator/workflow/dtcmod2crossx.oaw",
+                "org/mod4j/dsl/datacontract/generator/workflow/DataContractDsl.oaw", generatorFileName));
+
+        dslExtensions.add(new DslExtension("Mod4j", "ServiceDsl",
+                "org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage", ".sermod", "",
+                "org/mod4j/dsl/service/generator/workflow/ServiceDsl2.oaw", generatorFileName));
+    }
+
+    /**
+     * Method for processing DslExtensions within a project. The following steps will be processed:<br> 1) Walk through
+     * all Mod4j model files for the given <b>DslExtension</b> within the model project and extract reference
+     * information (Crossx) from them. <br> 2) Run all workflow files in the project, which checks consistency
+     * of the models and generate the code. <br>
      * 
      * @param projectDir
      * @param DslExtension
@@ -87,13 +130,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         DirectoryWalker walker = new DirectoryWalker();
         CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);
-        walker.walk(projectDir + "/" + MODEL_DIR, vis);
-
-        OutletDirectoryCleaner directoryCleaner = new OutletDirectoryCleaner();
-        directoryCleaner.clean(projectDir, projectDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties());
+        walker.walk(projectDir + "/" + modelDir, vis);
 
         CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir);
-        walker.walk(projectDir + "/" + MODEL_DIR, codegen);
+        walker.walk(projectDir + "/" + modelDir, codegen);
     }
 
 }
