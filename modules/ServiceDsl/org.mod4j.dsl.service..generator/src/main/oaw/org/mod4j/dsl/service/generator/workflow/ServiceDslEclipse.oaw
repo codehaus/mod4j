@@ -23,12 +23,9 @@
     <!--
         Parse the model file and validate syntax and model constraints
     -->
-    <!-- 
-        Load the dsl model and store it in slot 'model' 
-    -->
-    <component id="DataContractDsl-parser" class="org.mod4j.dsl.service.xtext.parser.ParserComponent">
-        <modelFile value="${modelFile}"/>
-        <outputSlot value="serviceModel"/>
+    <component class="org.eclipse.mwe.emf.Reader">
+        <uri value="${modelFile}" />
+        <modelSlot value="serviceModel" />
     </component>
     <component id="ServiceWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="sm" />

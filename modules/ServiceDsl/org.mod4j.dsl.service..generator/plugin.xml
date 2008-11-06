@@ -5,7 +5,7 @@
          point="org.mod4j.eclipse.dsl">
       <dsl
             dslCodegenProperties="mod4j.properties"
-            dslCodegenWorkflow="org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw"
+            dslCodegenWorkflow="org/mod4j/dsl/service/generator/workflow/ServiceDslEclipse.oaw"
             dslFileExtension=".sermod"
             dslMetamodelPackage="org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage"
             dslName="Mod4j Service DSL">

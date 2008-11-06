@@ -113,7 +113,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
 
         dslExtensions.add(new DslExtension("Mod4j", "ServiceDsl",
                 "org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage", ".sermod", "",
-                "org/mod4j/dsl/service/generator/workflow/ServiceDsl2.oaw", generatorFileName));
+                "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorFileName));
     }
 
     /**
