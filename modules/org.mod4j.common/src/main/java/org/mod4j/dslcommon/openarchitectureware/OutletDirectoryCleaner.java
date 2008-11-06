@@ -27,36 +27,49 @@ public class OutletDirectoryCleaner {
         Map<String, String> properties = initializeWorkflowProperties(workDir, propertiesFilePath);
         String wfFile = Files.findFile(DIRCLEAN_WORKFLOW_FILE);
 
-        logger.info("Cleaning outlet directoeries.");
+        logger.info("Cleaning outlet directories.");
         new Mod4jWorkflowRunner().runWorkflow(wfFile, properties);
     }
 
     private Map<String, String> initializeWorkflowProperties(String workDir, String propertiesFilePath) {
 
-        // Map<String, String> result = ModelHelpers.getProperties(workDir + "/" + propertiesFilePath);
         Map<String, String> result = ModelHelpers.getProperties(propertiesFilePath);
-        // Get the relative applicationPath property and make it absolute
+
         String applicationPath = result.get("applicationPath");
         String domainModuleName = result.get("domainModuleName");
         String dataModuleName = result.get("dataModuleName");
+        String businessModuleName = result.get("businessModuleName");
+        String serviceModuleName = result.get("serviceModuleName");
         String srcGenPath = result.get("srcGenPath");
         String resourceGenPath = result.get("resourceGenPath");
-
         String srcManPath = result.get("srcManPath");
         String resourceManPath = result.get("srcManPath");
         String overwriteExtensionpoints = result.get("overwriteExtensionpoints");
+        
+        // Get the relative applicationPath property and make it absolute
+        String absAppPath = workDir + "/" + applicationPath;
 
-        String newAppPath = workDir + "/" + applicationPath;
-
-        String directories = newAppPath + "/" + dataModuleName + "/" + srcGenPath + ", " + newAppPath + "/"
-                + dataModuleName + "/" + resourceGenPath + ", " + newAppPath + "/" + domainModuleName + "/"
-                + srcGenPath + ", " + newAppPath + "/" + domainModuleName + "/" + resourceGenPath;
+        String directories = 
+            absAppPath + "/" + dataModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + dataModuleName + "/" + resourceGenPath + ", " + 
+            absAppPath + "/" + domainModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + domainModuleName + "/" + resourceGenPath + ", " +
+            absAppPath + "/" + businessModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + businessModuleName + "/" + resourceGenPath + ", " +
+            absAppPath + "/" + serviceModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + serviceModuleName + "/" + resourceGenPath;
 
         if ((overwriteExtensionpoints != null) && overwriteExtensionpoints.equals("true")) {
             logger.info("cleaning extension points");
-            directories = directories + ", " + newAppPath + "/" + dataModuleName + "/" + srcManPath + ", " + newAppPath
-                    + "/" + dataModuleName + "/" + resourceManPath + ", " + newAppPath + "/" + domainModuleName + "/"
-                    + srcManPath + ", " + newAppPath + "/" + domainModuleName + "/" + resourceManPath;
+            directories = directories + ", " + 
+            absAppPath + "/" + dataModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + dataModuleName + "/" + resourceManPath + ", " + 
+            absAppPath + "/" + domainModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + domainModuleName + "/" + resourceManPath + ", " +
+            absAppPath + "/" + businessModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + businessModuleName + "/" + resourceManPath + ", " + 
+            absAppPath + "/" + serviceModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + serviceModuleName + "/" + resourceManPath;
         }
         result.put("directories", directories);
         return result;
