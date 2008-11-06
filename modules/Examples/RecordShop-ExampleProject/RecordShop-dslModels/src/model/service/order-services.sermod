@@ -1,5 +1,5 @@
 "The RecordShop Order Service Model. Contains all services for handling and maintaining Orders"
-Service RecordShopOrderServiceModel 
+Service OrderServiceModel 
 
 from RecordShopDataContract import OrderNumberAndDateDto
 from RecordShopDataContract import SimpleCustomerDto

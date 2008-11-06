@@ -1,5 +1,5 @@
 "The RecordShop Customer Service Model. Contains all services needed to maintain Customers."
-Service RecordShopCustomerServiceModel
+Service CustomerServiceModel
 
 from RecordShopDataContract import SimpleCustomerDto
 from RecordShopDataContract import UniqueCustomerDto
