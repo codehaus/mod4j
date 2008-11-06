@@ -8,6 +8,7 @@
     <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
         <propertyFile value="${appPropFilePath}" />
         <workDir value="${workDir}" />
+        <project value="${project}" />
     </component>
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
         <platformUri value=".."/>
