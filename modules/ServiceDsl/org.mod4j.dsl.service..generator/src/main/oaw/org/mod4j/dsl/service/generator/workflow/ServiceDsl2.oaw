@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workflow>
+    <!-- 
+        Initialize workflow and load properties
+    -->
+    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+    <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
+        <propertyFile value="${appPropFilePath}" />
+        <workDir value="${workDir}" />
+    </component>
+    <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+        <platformUri value=".."/>
+    </bean>
+    <bean class="org.mod4j.dsl.service.xtext.MetaModelRegistration"/>
+    <bean id="sm" class="oaw.type.emf.EmfMetaModel">
+		<metaModelPackage value="org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage" />  
+	</bean>
+     <bean id="crossx" class="oaw.type.emf.EmfMetaModel">
+        <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
+    </bean>
+    
+    <!--
+        Parse the model file and validate syntax and model constraints
+    -->
+    <!-- 
+        Load the dsl model and store it in slot 'model' 
+    -->
+    <component id="DataContractDsl-parser" class="org.mod4j.dsl.service.xtext.parser.ParserComponent">
+        <modelFile value="${modelFile}"/>
+        <outputSlot value="serviceModel"/>
+    </component>
+    <component id="ServiceWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="sm" />
+        <checkFile value="org::mod4j::dsl::service::xtext::GenChecks" />
+        <emfAllChildrenSlot value="serviceModel" />
+    </component>
+    <component id="ServiceWorkflow-ModelChecks1" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="sm" />
+        <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
+        <emfAllChildrenSlot value="serviceModel" />
+    </component>
+    <component id="ServiceWorkflow-ModelChecks2" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="sm" />
+        <metaModel idRef="crossx" />
+        <checkFile value="org::mod4j::dsl::service::validation::checks::CrossxChecks" />
+        <emfAllChildrenSlot value="serviceModel" />
+    </component>
+
+    <!-- Call the Xtend model-to-model transformation to complete the DTO model
+         with all properties derived from the business classes.
+    -->
+    <component id="complteSvc" class="oaw.xtend.XtendComponent">
+       <metaModel idRef="sm"/>
+       <metaModel idRef="crossx"/>
+       <invoke value="org::mod4j::dsl::service::generator::xtend::CompleteSvc::completeModel(serviceModel)"/>
+    </component>
+    <!--
+        Generation of Service sources and resources for the BUSINESS layer
+    -->
+    <component id="ServiceWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="sm" />
+       <metaModel idRef="crossx"/>
+        <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::Generate FOR serviceModel" />
+        <outlet path="${applicationPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+
+    <!--
+        Generation of Service sources and resources for the SERVICE layer
+    -->
+    <component id="ServiceWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="sm" />
+       <metaModel idRef="crossx"/>
+        <expand value="org::mod4j::dsl::service::generator::xpand::ServiceLayer::Generate FOR serviceModel" />
+        <outlet path="${applicationPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+    
+    <!-- 
+        Generation of Maven configuration files.
+    -->  
+    <component id="ServiceDslWorkflow-MavenConfigGenerator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="sm" />
+        <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::generateMavenConfiguration FOR serviceModel"/>
+        <outlet path="${applicationPath}">
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+    
+ </workflow>
