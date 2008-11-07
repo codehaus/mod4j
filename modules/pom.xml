@@ -207,6 +207,7 @@
 					<instrumentation>
 						<excludes>
 							<exclude>**/mm/**</exclude>
+							<exclude>**/xtext/**</exclude>
 						</excludes>
 					</instrumentation>
 				</configuration>
@@ -234,6 +235,7 @@
 				<configuration>
 					<excludes>
 						<exclude>**/mm/**</exclude>
+						<exclude>**/xtext/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -242,6 +244,10 @@
 				<version>2.2</version>
 				<configuration>
 					<configLocation>smartjava_checks.xml</configLocation>
+					<excludes>
+						<exclude>**/mm/**</exclude>
+						<exclude>**/xtext/**</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -258,6 +264,10 @@
 					<linkXref>true</linkXref>
 					<sourceEncoding>utf-8</sourceEncoding>
 					<minimumTokens>100</minimumTokens>
+					<excludes>
+						<exclude>**/mm/**</exclude>
+						<exclude>**/xtext/**</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
