@@ -206,7 +206,7 @@
 				<configuration>
 					<instrumentation>
 						<excludes>
-							<exclude>src-gen</exclude>
+							<exclude>**/mm/**</exclude>
 						</excludes>
 					</instrumentation>
 				</configuration>
@@ -233,7 +233,7 @@
 				<version>2.0-beta-2</version>
 				<configuration>
 					<excludes>
-						<exclude>src-gen</exclude>
+						<exclude>**/mm/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
