@@ -1,12 +1,14 @@
 package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import org.company.recordshop.data.spring.dao.ArtistDao;
 import org.company.recordshop.data.spring.dao.CustomerDao;
 import org.company.recordshop.data.spring.dao.OrderDao;
 import org.company.recordshop.data.spring.dao.OrderLineDao;
@@ -17,6 +19,7 @@ import org.company.recordshop.domain.Order;
 import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.Product;
 import org.company.recordshop.domain.Record;
+import org.company.recordshop.domain.Artist;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +50,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     private List<OrderLine> allOrderLines = new ArrayList<OrderLine>();
     private List<Record>    allRecords    = new ArrayList<Record>();
     private List<Product>   allProducts   = new ArrayList<Product>();
+    private List<Artist>    allArtists    = new ArrayList<Artist>();
     
     protected Customer createCustomer(String firstname, String lastName, int custNr){
     	Customer result = new Customer(firstname, lastName, custNr);
@@ -89,6 +93,7 @@ public class AssociationTest extends AbstractDaoTestCase {
 	OrderLine line01, line02, line03, line04, line05, line06; 
 	Record record01, record02, record03, record04, record05, record06, r07;
 	Product pr01, pr02, pr03, pr04;
+	Artist  a01, a02, a03, a04;
 	
 	@Before
     public void createInstances() {
@@ -300,6 +305,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     public void orderLineAssociations(Collection<OrderLine > orderLines) {
         for (OrderLine ol : orderLines) {
 			Record r = ol.getRecord() ;
+			assertNotNull(r);
 			if( r != null ) {
 				assertEquals("t3", ol, r.getOrderLine());
 			}
@@ -308,6 +314,7 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     public void recordAssociations(Collection<Record > records) {
         for( Record r : records) {
+        	assertNotNull(r.getOrderLine());
         	if( r.getOrderLine() != null ){
         		assertEquals(true , r.getOrderLine().getRecord() == r );
         	}
