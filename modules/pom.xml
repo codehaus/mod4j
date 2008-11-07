@@ -14,9 +14,9 @@
 		<oaw.version>4.3.0</oaw.version>
 	</properties>
 	<scm>
-		<connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
+		<connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules 
 		</connection>
-		<developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
+		<developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules 
 		</developerConnection>
 	</scm>
 	<mailingLists>
@@ -37,9 +37,9 @@
 				<module>Crossx/org.mod4j.crossx.broker</module>
 				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
 				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
-				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation
+				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation 
 				</module>
-				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator
+				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator 
 				</module>
 				<module>DataContractDsl/org.mod4j.dsl.datacontract.mm</module>
 				<module>DataContractDsl/org.mod4j.dsl.datacontract.xtext</module>
@@ -61,9 +61,9 @@
 				<module>Crossx/org.mod4j.crossx.broker</module>
 				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
 				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
-				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation
+				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation 
 				</module>
-				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator
+				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator 
 				</module>
 				<module>DataContractDsl/org.mod4j.dsl.datacontract.mm</module>
 				<module>DataContractDsl/org.mod4j.dsl.datacontract.xtext</module>
@@ -87,9 +87,9 @@
 				<module>Crossx/org.mod4j.crossx.broker</module>
 				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
 				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
-				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation
+				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation 
 				</module>
-				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator
+				<module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator 
 				</module>
 				<module>DataContractDsl/org.mod4j.dsl.datacontract.mm</module>
 				<module>DataContractDsl/org.mod4j.dsl.datacontract.xtext</module>
@@ -224,6 +224,11 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>javancss-maven-plugin</artifactId>
 				<version>2.0-beta-2</version>
+				<configuration>
+					<excludes>
+						<exclude>src-gen</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-checkstyle-plugin</artifactId>
