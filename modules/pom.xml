@@ -244,10 +244,6 @@
 				<version>2.2</version>
 				<configuration>
 					<configLocation>smartjava_checks.xml</configLocation>
-					<excludes>
-						<exclude>**/mm/**</exclude>
-						<exclude>**/xtext/**</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
