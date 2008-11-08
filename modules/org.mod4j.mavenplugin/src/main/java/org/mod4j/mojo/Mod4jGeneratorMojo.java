@@ -41,7 +41,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * 
      * @parameter default-value="mod4j.properties"
      */
-    private final String generatorFileName = "mod4j.properties";
+    private final String generatorPropertiesFileName = "mod4j.properties";
 
     /**
      * The list (fifo) with known DSL extensions to process.
@@ -76,7 +76,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
         // Run the outlet directory cleaner to clean previously generated sources. 
         OutletDirectoryCleaner directoryCleaner = new OutletDirectoryCleaner();
         try {
-            directoryCleaner.clean(dir, dir + "/" + modelDir + "/" + generatorFileName);
+            directoryCleaner.clean(dir, dir + "/" + modelDir + "/" + generatorPropertiesFileName);
         } catch (Mod4jWorkflowException mwfe) {
             throw new MojoFailureException("ERROR while cleaning outlet directories :" + mwfe.getMessage());
         }
@@ -104,16 +104,16 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     private void addDefaultDslExtensions() {
 
         dslExtensions.add(new DslExtension("Mod4j", "BusinessDomainDsl", "BusinessDomainDsl.BusinessDomainDslPackage",
-                ".busmod", "crossx/busmod2crossx2.oaw", "codegen/BusinessDomainDsl.oaw", generatorFileName));
+                ".busmod", "crossx/busmod2crossx2.oaw", "codegen/BusinessDomainDsl.oaw", generatorPropertiesFileName));
 
         dslExtensions.add(new DslExtension("Mod4j", "DataContractDsl",
                 "org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage", ".dtcmod",
                 "org/mod4j/dsl/datacontract/generator/workflow/dtcmod2crossx.oaw",
-                "org/mod4j/dsl/datacontract/generator/workflow/DataContractDsl.oaw", generatorFileName));
+                "org/mod4j/dsl/datacontract/generator/workflow/DataContractDsl.oaw", generatorPropertiesFileName));
 
         dslExtensions.add(new DslExtension("Mod4j", "ServiceDsl",
                 "org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage", ".sermod", "",
-                "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorFileName));
+                "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorPropertiesFileName));
     }
 
     /**
