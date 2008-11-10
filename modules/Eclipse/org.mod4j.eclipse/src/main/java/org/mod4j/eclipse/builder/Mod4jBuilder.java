@@ -495,7 +495,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
             RunCrossxWorkflow wf = new RunCrossxWorkflow();
             try {
-                wf.runWorkflow(wfName, resource.getProject().getName(), modelfile, crossxfile);
+                wf.runWorkflow(wfName, resource.getProject().getName(), modelfile, crossxfile, false);
             } catch (Mod4jWorkflowException m4jwe) {
                 System.err.println("[" + m4jwe.getMessage() + "]");
             }

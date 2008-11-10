@@ -104,7 +104,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     private void addDefaultDslExtensions() {
 
         dslExtensions.add(new DslExtension("Mod4j", "BusinessDomainDsl", "BusinessDomainDsl.BusinessDomainDslPackage",
-                ".busmod", "crossx/busmod2crossx2.oaw", "codegen/BusinessDomainDsl.oaw", generatorPropertiesFileName));
+                ".busmod", "crossx/busmod2crossx.oaw", "codegen/BusinessDomainDsl.oaw", generatorPropertiesFileName));
 
         dslExtensions.add(new DslExtension("Mod4j", "DataContractDsl",
                 "org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage", ".dtcmod",
@@ -129,10 +129,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
     public void processDslModel(final String projectDir, final DslExtension dsl) throws Exception {
 
         DirectoryWalker walker = new DirectoryWalker();
-        CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir);
+        CrossxDirectoryVisitor vis = new CrossxDirectoryVisitor(dsl, projectDir, true);
         walker.walk(projectDir + "/" + modelDir, vis);
 
-        CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir);
+        CodegenDirectoryVisitor codegen = new CodegenDirectoryVisitor(dsl, projectDir, true);
         walker.walk(projectDir + "/" + modelDir, codegen);
     }
 

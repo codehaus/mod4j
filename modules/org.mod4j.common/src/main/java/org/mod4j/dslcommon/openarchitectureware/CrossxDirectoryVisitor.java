@@ -15,9 +15,15 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 
     private String project;
 
-    public CrossxDirectoryVisitor(DslExtension dsl, String theWorkDir) {
+    /**
+     * @param dsl
+     * @param theWorkDir
+     * @param standaloneSetup
+     */
+    public CrossxDirectoryVisitor(DslExtension dsl, String theWorkDir, boolean standaloneSetup) {
         this.dsl = dsl;
         this.project = theWorkDir;
+        this.standaloneSetup = standaloneSetup;
         initialize();
     }
 
@@ -53,6 +59,8 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
 
     private String oawWorkflow = null;
 
+    private boolean standaloneSetup;
+
     /**
      * Initialize stuff for running the visitor.
      * 
@@ -86,6 +94,6 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
         modelfile = "file:/" + modelfile;
 
         RunCrossxWorkflow wf = new RunCrossxWorkflow();
-        wf.runWorkflow(oawWorkflow, project, modelfile, crossxfile);
+        wf.runWorkflow(oawWorkflow, project, modelfile, crossxfile, standaloneSetup);
     }
 }

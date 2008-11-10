@@ -21,6 +21,11 @@
     <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
 -->
     <property name="nsUriPrefix" value="appelmoes"/>
+    
+    <property name="isEclipseSetup" value="true"/>
+    <if cond="${isStandaloneSetup}">
+        <property name="isEclipseSetup" value="false"/>
+    </if>
  
     <!-- set up EMF for standalone execution -->
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
@@ -39,23 +44,20 @@
         <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
     </bean>
 
-    <!-- Initialize the issues reporting feature of oAW
-         TODO 3 May 2008 : Check whether this is still neccesary
-    -->
-<!--
-    <component id="BusinessDomainDsl-parser" class="org.mod4j.businessdomain.xtext.parser.ParserComponent">
-        <modelFile value="${modelfile}"/>
-        <outputSlot value="model"/>
-    </component>
--->
-
-    <!-- load the BusinessClassDsl model and store it in slot 'model' -->
-
-    <component class="org.eclipse.mwe.emf.Reader">
-        <uri value="${modelfile}" />
-        <modelSlot value="model" />
-    </component>
-
+    <!-- Load the Dsl modelfile and store it in slot 'model' -->
+    <if cond="${isEclipseSetup}">
+        <component class="org.eclipse.mwe.emf.Reader">
+            <uri value="${modelfile}" />
+            <modelSlot value="model" />
+        </component>
+    </if>
+    <if cond="${isStandaloneSetup}">
+        <component id="BusinessDomainDsl-parser" class="org.mod4j.businessdomain.xtext.parser.ParserComponent">
+            <modelFile value="${modelfile}"/>
+            <outputSlot value="model"/>
+        </component>
+    </if>
+    
     <component id="BusinessDomainWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="BusinessDomainDsl" />
         <checkFile value="org::mod4j::businessdomain::xtext::GenChecks" />
@@ -92,12 +94,12 @@
          to-be-written file.
          This stel isn't neccesary, but migtb be helpfulkl for debugging purposes to check what
          the Crosssx model looks like.
-    -->
 
     <component class="org.eclipse.mwe.emf.Writer">
         <uri value="${crossxfile}" />
         <modelSlot value="crossxModel" />
     </component>
-
+    -->
+    
 </workflow>
 

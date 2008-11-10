@@ -26,13 +26,17 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
     private Map<String, String> properties = null;
 
+    private boolean standaloneSetup;
+
     /**
      * @param dsl
      * @param theWorkDir
+     * @param standaloneSetup
      */
-    public CodegenDirectoryVisitor(DslExtension dsl, String theWorkDir) {
+    public CodegenDirectoryVisitor(DslExtension dsl, String theWorkDir, boolean standaloneSetup) {
         this.dsl = dsl;
-        workDir = theWorkDir;
+        this.workDir = theWorkDir;
+        this.standaloneSetup = standaloneSetup;
         FileTracker.getFileTracker().initResource(theWorkDir);
         setupDsl();
     }
@@ -67,6 +71,9 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         return null;
     }
 
+    /**
+     * 
+     */
     private void setupDsl() {
 
         propertiesFile = workDir + "/" + MODEL_DIR + "/" + dsl.getDslCodegenProperties();
@@ -111,6 +118,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         modelfile = "file:/" + modelfile;
 
         properties.put("modelFile", modelfile);
+        properties.put("isStandaloneSetup", standaloneSetup ? "true" : "false");
 
         Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
         genWf.runWorkflow(codegenWorkflow, properties);

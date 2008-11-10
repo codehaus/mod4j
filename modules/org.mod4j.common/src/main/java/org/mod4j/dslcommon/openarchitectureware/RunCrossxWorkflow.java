@@ -17,7 +17,7 @@ public class RunCrossxWorkflow {
      * @param crossxfile
      * @throws Mod4jWorkflowException
      */
-    public void runWorkflow(String wfFile, String project, String modelfile, String crossxfile)
+    public void runWorkflow(String wfFile, String project, String modelfile, String crossxfile, boolean isStandaloneSetup)
             throws Mod4jWorkflowException {
         System.err.println("Run [" + wfFile + "] on:");
         System.err.println("    modelfile  [" + modelfile + "]");
@@ -29,6 +29,7 @@ public class RunCrossxWorkflow {
         properties.put("modelfile", modelfile);
         properties.put("crossxfile", "file:/" + crossxfile);
         properties.put("project", project);
+        properties.put("isStandaloneSetup", isStandaloneSetup ? "true" : "false");
 
         WorkflowRunner runner = new WorkflowRunner();
         if (!runner.run(wfFile, new NullProgressMonitor(), properties, slotContents)) {
