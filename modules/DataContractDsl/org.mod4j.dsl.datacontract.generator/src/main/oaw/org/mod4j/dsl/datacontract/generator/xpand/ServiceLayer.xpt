@@ -2,7 +2,10 @@
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::java»
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::maven»
 
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+
 «DEFINE Generate FOR DataContractModel»
+	«print("MOD4J INFO: Running Data Contract generator on model [" + this.name + "]")»
     «EXPAND Enumeration::createEnumDto FOREACH enumerations»
   	«EXPAND dtoBean::createDto FOREACH dtos»
   	«EXPAND EnumTranslators::createTranslator FOREACH enumerations»
@@ -13,5 +16,6 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR DataContractModel»
+	«print("MOD4J INFO: Running Data Contract Maven generator on model [" + this.name + "]")»
   	«EXPAND ServiceModulePom::createServiceModulePom»
 «ENDDEFINE»
