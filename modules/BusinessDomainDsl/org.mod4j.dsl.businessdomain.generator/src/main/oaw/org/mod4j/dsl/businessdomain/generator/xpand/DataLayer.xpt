@@ -2,15 +2,17 @@
 «IMPORT hibernate»
 
 «EXTENSION BusinessClass»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 
 «DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»
-
+	«print("MOD4J INFO: Running Business Domain Hibernate generator on model [" + this.name + "]")»
 	«EXPAND HibernateConfiguration::hibernateheader     FOR this»
 	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
     «EXPAND HibernateMapping::mapping                   FOREACH this.types.typeSelect(BusinessClass) »
 «ENDDEFINE»
 
 «DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
+	«print("MOD4J INFO: Running Business Domain Enumerationtype and Dao generator on model [" + this.name + "]")»
     «EXPAND GenericEnumUserType::createGenericEnumUserType FOR this»
 	«EXPAND DaoImplBase::daoImplementationBase  FOREACH
 	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
@@ -19,6 +21,7 @@
 «ENDDEFINE»
 
 «DEFINE genDaoExtensions FOR BusinessDomainDsl::BusinessDomainModel»
+	«print("MOD4J INFO: Running Business Domain Dao Extension points generator on model [" + this.name + "]")»
     «EXPAND DaoImpl::daoImplementation  FOREACH
             this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
     «EXPAND DaoInterface::daoInterface  FOREACH 

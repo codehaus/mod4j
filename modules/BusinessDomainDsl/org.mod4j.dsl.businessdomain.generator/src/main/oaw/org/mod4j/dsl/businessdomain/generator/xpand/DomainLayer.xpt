@@ -2,7 +2,10 @@
 «IMPORT java»
 «IMPORT maven»
 
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel»
+	«print("MOD4J INFO: Running Business Domain generator on model [" + this.name + "]")»
 	«EXPAND JavaBean::BeanClassImplBase FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND BusinessRules::BusinessRulesImplBases FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND Enumeration::createEnum FOREACH enumerations»
@@ -13,6 +16,7 @@
 	If they don't exist already these classes typically are generated to the srcMan folder. 
 «ENDREM»
 «DEFINE ExtensionPointGeneration FOR BusinessDomainDsl::BusinessDomainModel»
+	«print("MOD4J INFO: Running Business Domain extension point generator on model [" + this.name + "]")»
 	«EXPAND JavaBean::BeanClassExtensionPoint FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND BusinessRules::BusinessRulesExtentionPoints FOREACH types.typeSelect(BusinessClass)»
 «ENDDEFINE»
@@ -21,6 +25,7 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
+	«print("MOD4J INFO: Running Business Domain Maven generator on model [" + this.name + "]")»
     «EXPAND DslModelsModulePom::createDslModelsModulePom»
     «EXPAND ParentPom::createParentPom»
 	«EXPAND DomainModulePom::createDomainModulePom»
