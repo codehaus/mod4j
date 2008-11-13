@@ -63,7 +63,7 @@ public class EclipseUtil {
      * @return
      */
     static public String resource2UriString(IResource resource) {
-        System.err.println(resource.getLocationURI().toString());
+//        System.err.println(resource.getLocationURI().toString());
         return resource.getLocationURI().toString();
     }
 
@@ -104,16 +104,16 @@ public class EclipseUtil {
         } else {
             myPathname = pathname;
         }
-        System.err.println("EclipseUtil.getPath(" + bundlename + ", " + myPathname + ")");
+//        System.err.println("EclipseUtil.getPath(" + bundlename + ", " + myPathname + ")");
         IPath result = null;
         try {
-            System.err.println("dev mode : " + Platform.inDevelopmentMode());
+//            System.err.println("dev mode : " + Platform.inDevelopmentMode());
 
             URL installURL = Platform.getBundle(bundlename).getEntry("/" + myPathname);
-            System.err.println("installURL [" + installURL.toString() + "]");
+//            System.err.println("installURL [" + installURL.toString() + "]");
 
             URL fromLocation = FileLocator.toFileURL(installURL);
-            System.err.println("fromLocation [" + fromLocation.toString() + "]");
+//            System.err.println("fromLocation [" + fromLocation.toString() + "]");
 
             result = new Path(fromLocation.getPath());
         } catch (Exception e) {
@@ -131,17 +131,17 @@ public class EclipseUtil {
         } else {
             myPathname = pathname;
         }
-        System.err.println("EclipseUtil.getURL(" + bundlename + ", " + myPathname + ")");
+//        System.err.println("EclipseUtil.getURL(" + bundlename + ", " + myPathname + ")");
         IPath result = null;
         URL installURL = null;
         try {
-            System.err.println("dev mode : " + Platform.inDevelopmentMode());
+//            System.err.println("dev mode : " + Platform.inDevelopmentMode());
 
             installURL = Platform.getBundle(bundlename).getEntry("/" + myPathname);
-            System.err.println("installURL [" + installURL.toString() + "]");
+//            System.err.println("installURL [" + installURL.toString() + "]");
 
             URL fromLocation = FileLocator.toFileURL(installURL);
-            System.err.println("fromLocation [" + fromLocation.toString() + "]");
+//            System.err.println("fromLocation [" + fromLocation.toString() + "]");
 
             result = new Path(fromLocation.getPath());
         } catch (Exception e) {
