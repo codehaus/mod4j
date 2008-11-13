@@ -174,33 +174,51 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
 			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
 					"applicationVersion=1.0-SNAPSHOT" + LF +
 					"applicationPath=.." + LF +
-                    "" + LF +
-                    "####" + LF +
-                    "#" + LF +
-                    "# Model properties" + LF +
-                    "#" + LF +
-                    "####" + LF +
-					"dslModelsModuleName=" + getModelProjectName() + LF +
-                    "serviceModuleName=" + mainPage.getApplicationNameFieldValue() + "-service" + LF +
-                    "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
-                    "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
-                    "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
-					"srcModelPath=src/model" + LF +
                     "srcGenPath=generated-sources" + LF +
                     "resourceGenPath=generated-resources" + LF +
                     "srcManPath=src/main/java" + LF +
                     "resourceManPath=src/main/resources" + LF +
-					"" + LF +
-					"####" + LF +
+                    "rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
+                    "" + LF +
+                    "####" + LF +
                     "#" + LF +
-                    "# Package properties" + LF +
+                    "# DslModel module properties" + LF +
                     "#" + LF +
                     "####" + LF +
-                    "rootPackage=" + mainPage.getPackageNameFieldValue() + LF +
-                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service" + LF +
-                    "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
+                    "dslModelsModuleName=" + getModelProjectName() + LF +
+                    "srcModelPath=src/model" + LF +
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Domain module properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
+                    "domainModuleName=" + mainPage.getApplicationNameFieldValue() + "-domain" + LF +
                     "domainRootPackage=" + mainPage.getPackageNameFieldValue() + ".domain" + LF +
-                    "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF;
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Data module properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
+                    "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
+                    "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +
+                    "hibernate.hbm2ddl.auto=update" + 
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Business module properties" + LF +
+                    "###" + LF +
+                    "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
+                    "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Service module properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
+                    "serviceModuleName=" + mainPage.getApplicationNameFieldValue() + "-service" + LF +
+                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service" + LF;
         }
 
 		public String sampleModelContents() {
@@ -223,11 +241,9 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
      * @return the created project resource, or <code>null</code> if the project was not created
      */
     private IProject createNewProject() {
+        
         IProject newProject = null;
-        if (newProject != null) {
-            return newProject;
-        }
-
+        
         // get a project handle
         final IProject newProjectHandle = mainPage.getProjectHandle();
 

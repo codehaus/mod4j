@@ -54,6 +54,8 @@ public class ProjectProperties {
         srcManPath = properties.getProperty("srcManPath");
         resourceManPath = properties.getProperty("resourceManPath");
         fileEncoding = properties.getProperty("fileEncoding");
+        hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
+        
     }
 
     private static String propertyFile = "DEFAULT";
@@ -107,6 +109,8 @@ public class ProjectProperties {
     public static final String TRANSLATORS_PACKAGE = "translators";
 
     private static String workDir = "/";
+    
+    private static String hibernate_hbm2ddl_auto = "update";
 
     public static void setWorkDir(String dir) {
         workDir = dir;
@@ -230,6 +234,10 @@ public class ProjectProperties {
 
     public static String getFileEncoding() {
         return fileEncoding;
+    }
+    
+    public static String getHibernate_hbm2ddl_auto() {
+        return hibernate_hbm2ddl_auto;
     }
 
     private static String project = "/";

@@ -88,7 +88,10 @@ String getRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getRootPackage();
 
 String getFileEncoding() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getFileEncoding();     
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getFileEncoding();
+ 
+String getHibernate_hbm2ddl_auto() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getHibernate_hbm2ddl_auto();     
   
 String getProject() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getProject();     

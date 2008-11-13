@@ -86,7 +86,7 @@
                 <prop key="hibernate.cache.provider_class">
                     org.hibernate.cache.EhCacheProvider
                 </prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">«getHibernate_hbm2ddl_auto()»</prop>
             </props>
         </property>
     </bean>
