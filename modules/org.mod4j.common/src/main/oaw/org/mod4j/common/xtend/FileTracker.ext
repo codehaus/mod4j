@@ -1,5 +1,5 @@
-String generate(String filename) :
- JAVA org.mod4j.common.generator.admin.FileTracker.generate(java.lang.String);
+//String generate(String filename) :
+// JAVA org.mod4j.common.generator.admin.FileTracker.generate(java.lang.String);
 
 String extend(String filename) :
  JAVA org.mod4j.common.generator.admin.FileTracker.extend(java.lang.String);

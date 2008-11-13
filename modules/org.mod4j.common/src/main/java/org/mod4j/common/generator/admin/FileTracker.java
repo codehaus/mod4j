@@ -66,25 +66,10 @@ public class FileTracker {
         return result;
     }
 
-    // private FileTrack getTrack(String resource) {
-    // FileTrack result = tracks.get(resource);
-    // if (result == null) {
-    // result = new FileTrack(resource);
-    // tracks.put(resource, result);
-    // } else {
-    // result.clear();
-    // }
-    // return result;
-    // }
-
-    // public Collection<FileTrack> getTracks() {
-    // return Collections.unmodifiableCollection(tracks.values());
-    // }
-
-    static public String generate(String filename) {
-        getFileTracker().currentTrack.generatedFile(filename);
-        return filename;
-    }
+//    static public String generate(String filename) {
+//        getFileTracker().currentTrack.generatedFile(filename);
+//        return filename;
+//    }
 
     /**
      * The file 'filename' is to be generated within 'moduleName'. the name of the resulting file will be returned and
