@@ -61,7 +61,7 @@
         <metaModel idRef="dcm" />
         <metaModel idRef="crossx" />
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::Generate FOR dataContractModel" />
-        <outlet path="${applicationPath}/${serviceModuleName}/${srcGenPath}/">
+        <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>

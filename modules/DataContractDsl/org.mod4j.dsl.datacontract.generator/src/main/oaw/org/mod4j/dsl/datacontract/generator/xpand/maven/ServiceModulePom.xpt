@@ -1,9 +1,14 @@
 «IMPORT DataContractDsl»
 
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE createServiceModulePom FOR DataContractModel»
+«REM»
     «FILE getServiceModuleName() + "/pom.xml" -»
+«ENDREM»
+	«FILE generate(getServiceModuleName(), "pom.xml")»
 <?xml version="1.0" encoding="«getFileEncoding()»"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">

@@ -3,11 +3,15 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createEnumDto FOR EnumerationDto»
 
+«REM»
    «FILE generate(javaPathFileName(getDtoPackage(), javaClassName(name)))»
-        
+«ENDREM»
+	«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(name)))»
+         
         package «getDtoPackage()»;
         
         «EXPAND Imports::addImports FOR this»
