@@ -2,7 +2,7 @@
 Model RecordShopDomainModel
  
 /*
- * Remarks...  
+ * Remarks...   
  */ 
  
 "A Person represents a legal person."
@@ -66,8 +66,8 @@ Class Order [
 	"An ordernumber should be unique"
     string orderNumber;  
     "The date on which the order has been placed"
-    datetime day orderDate default "2009-01-01" nullable;
-    datetime minute deliveryDateTime  nullable;
+    datetime  orderDate default "2009-01-01" nullable;
+    datetime  deliveryDateTime  nullable;
     integer discountPercentage min 01 max 100 nullable ;
     /* 
     TODO: The following results in a compilation problem caused by float to Float conversion. 
