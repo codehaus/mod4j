@@ -1,12 +1,12 @@
 «IMPORT ServiceDsl»
 
-«EXTENSION org::mod4j::dsl::service::generator::xpand::LocalService»
-«EXTENSION org::mod4j::dsl::service::generator::xpand::LocalServiceImpl»
-
 «DEFINE Generate FOR ServiceModel»
   «EXPAND  LocalService::LocalService FOR this» 
   «EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
   «EXPAND  LocalServiceImplBase::LocalServiceImplBase FOR this» 
+  «EXPAND  org::mod4j::dsl::service::generator::xpand::spring::ServiceLayerBeanRefContext::GenBeanRefContext FOR this» 
+  «EXPAND  org::mod4j::dsl::service::generator::xpand::spring::ServiceLayerContext::GenServiceLayerContext FOR this» 
+  
 «ENDDEFINE»
 
 «REM»

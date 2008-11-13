@@ -1,0 +1,41 @@
+«IMPORT ServiceDsl»
+
+«EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+
+«DEFINE GenBeanRefContext FOR ServiceModel»
+	«FILE generate(getBusinessModuleName(), "beanRefContext.xml")»
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="businessLayerContext"
+		class="org.springframework.context.support.ClassPathXmlApplicationContext">
+        <constructor-arg>
+            <list>
+                <value>«getApplicationName()»BusinessLayerContext.xml</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="businessLayerAbstractBaseContext"/>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="businessLayerAbstractBaseContext"
+		class="org.springframework.context.support.ClassPathXmlApplicationContext">
+        <constructor-arg>
+            <list>
+                <value>«getApplicationName()»BusinessLayerAbstractBaseContext.xml</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="domainLayerContext"/>
+        </constructor-arg>
+    </bean>
+</beans>
+«ENDFILE»
+«ENDDEFINE»
