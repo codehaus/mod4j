@@ -97,7 +97,7 @@ StringProperty:
 DateTimeProperty:
     (description=STRING)?
     dataType="datetime"
-    accuracy=DateTimeAccuracy
+//    accuracy=DateTimeAccuracy
     name=ID
     (hasDefault?="default" defaultValue=STRING)?
     ;

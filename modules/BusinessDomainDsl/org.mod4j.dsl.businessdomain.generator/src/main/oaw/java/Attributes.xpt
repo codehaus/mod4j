@@ -75,7 +75,7 @@
 
 «DEFINE addAttribute FOR DateTimeProperty»
 	«EXPAND instanceVariable FOR this»
-	public static final String «name.toUpperCase()»_ACCURACY = "«accuracy»";
+«REM»	public static final String «name.toUpperCase()»_ACCURACY = "«accuracy»"; «ENDREM»
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR IntegerProperty»
