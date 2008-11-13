@@ -164,6 +164,15 @@ public class NameMapper {
         return StringHelpers.firstCharToUpper(classname) + TRANSLATOR_CLASS_POSTFIX;
     }
 
+    public static String javaDtoClassPath(String classname) {
+        String packageName = ProjectProperties.getDtoPackage() ;
+        return packageName + "." + javaDtoClass(classname);
+    }
+
+    private static String javaDtoClass(String classname) {
+        return StringHelpers.firstCharToUpper(classname) ;
+    }
+
     public static String javaTranslatorClassPath(String classname) {
         String packageName = ProjectProperties.getDtoPackage() + ".translators";
         return packageName + "." + javaTranslatorClass(classname);
