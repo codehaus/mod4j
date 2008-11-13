@@ -2,7 +2,10 @@
 «IMPORT org::mod4j::dsl::service::generator::xpand::java»
 «IMPORT org::mod4j::dsl::service::generator::xpand::maven»
 
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+
 «DEFINE Generate FOR ServiceModel»
+	«print("MOD4J INFO: Running Service Business generator on model [" + this.name + "]")»
     «EXPAND BusinessService::BusinessService FOR this»
   	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
 
@@ -14,5 +17,6 @@
 	Generation of Maven configuration files. 
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR ServiceModel»
+	«print("MOD4J INFO: Running Service maven generator on model [" + this.name + "]")»
   	«EXPAND BusinessModulePom::createBusinessModulePom»
 «ENDDEFINE»

@@ -1,6 +1,9 @@
 «IMPORT ServiceDsl»
 
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+
 «DEFINE Generate FOR ServiceModel»
+	«print("MOD4J INFO: Running Service generator on model [" + this.name + "]")»
   «EXPAND  LocalService::LocalService FOR this» 
   «EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
   «EXPAND  LocalServiceImplBase::LocalServiceImplBase FOR this» 
