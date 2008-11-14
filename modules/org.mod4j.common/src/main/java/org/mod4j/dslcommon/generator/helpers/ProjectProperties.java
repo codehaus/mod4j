@@ -155,6 +155,10 @@ public class ProjectProperties {
     public static String getServiceModulePath() {
         return getApplicationPath() + "/" + getServiceModuleName();
     }
+    
+    public static String getBusinessModulePath() {
+        return getApplicationPath() + "/" + getBusinessModuleName();
+    }
 
     public static String getDataModulePath() {
         return getApplicationPath() + "/" + getDataModuleName();

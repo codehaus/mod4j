@@ -44,9 +44,11 @@ String getServiceRootPackage() :
 String getServiceRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getServiceRootPackageAsPath();
 
-
 String getServiceModulePath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getServiceModulePath();
+
+String getBusinessModulePath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessModulePath();
 
 String getDomainRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDomainRootPackage();

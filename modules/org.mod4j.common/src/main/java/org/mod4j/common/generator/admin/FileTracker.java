@@ -107,6 +107,11 @@ public class FileTracker {
         return ProjectProperties.getApplicationPath() + "/" + result;
     }
 
+    /**
+     * @param moduleName
+     * @param filename
+     * @return
+     */
     static public String extend(String moduleName, String filename) {
         String result = null;
         String prefix;
