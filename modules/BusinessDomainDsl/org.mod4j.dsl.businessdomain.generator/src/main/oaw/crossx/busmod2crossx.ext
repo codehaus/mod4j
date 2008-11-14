@@ -7,8 +7,10 @@ import crossx;
 import BusinessDomainDsl;
 
 extension BusinessClass;
+extension org::mod4j::dslcommon::xtend::generatorutil;
 
 create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
+    print("MOD4J INFO: Running CrossX on file [" + modelFile + "]")->
     this.setDslname("BusinessDomainDsl")->
     this.setModelname(busModel.name)->
     this.setResource(modelFile)->

@@ -94,12 +94,12 @@
          to-be-written file.
          This stel isn't neccesary, but migtb be helpfulkl for debugging purposes to check what
          the Crosssx model looks like.
+    -->
 
     <component class="org.eclipse.mwe.emf.Writer">
         <uri value="${crossxfile}" />
         <modelSlot value="crossxModel" />
     </component>
-    -->
     
 </workflow>
 
