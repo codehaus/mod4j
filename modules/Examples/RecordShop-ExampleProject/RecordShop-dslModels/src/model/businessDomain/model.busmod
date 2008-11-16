@@ -13,7 +13,7 @@ Class Person [
     "Last name of the person."  
     string lastName;
     "The age of this person in years"
-    integer age nullable persistency NONE; 
+    integer age nullable ; 
     "Number of ears (we allow Vulcans in this system)." 
     integer numberOfEars default 0 min 0 max 4; 
     "Gender"    
