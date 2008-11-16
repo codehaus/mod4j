@@ -35,10 +35,10 @@
 	 */
 	abstract public class «javaLocalServiceBaseClass(name)» implements  «javaLocalServiceInterface(name)» {
 
-    private «javaDomainServiceInterface(name)» the«javaDomainServiceInterface(name)»;
+    protected «javaDomainServiceInterface(name)» the«javaDomainServiceInterface(name)»;
     
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	private «javaTranslatorClass(dto.name)» the«javaTranslatorClass(dto.name)»;
+	protected «javaTranslatorClass(dto.name)» the«javaTranslatorClass(dto.name)»;
 	«ENDFOREACH»
 
 
