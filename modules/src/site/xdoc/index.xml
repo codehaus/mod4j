@@ -2,13 +2,11 @@
 <!DOCTYPE document PUBLIC
   "-//Apache Software Foundation//DTD XDOC 1.0//EN"
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
-<!-- 
-    Please edit this file with the Eclipse XML editor, set your XML editor to
-    a line length of 80 characters, indent-size of 4 characters and not using
-    tab-characters, and format the file (Ctrl-Shift-F) before checking in. This
-    should minimize the number of non-significant differences when comparing
-    versions.
--->
+    <!--
+        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 80 characters, indent-size of
+        4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should minimize
+        the number of non-significant differences when comparing versions.
+    -->
 <document>
     <properties>
         <title>Welcome to Mod4j</title>
@@ -17,6 +15,7 @@
         <section name="Welcome to Mod4j">
             <p>
                 Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the productivity
+                and quality
                 of Java software development by using Domain Specific Languages (DSL's).
             </p>
             <p>
@@ -31,9 +30,6 @@
             <img src="images/mod4j-diagram.jpg" align="left" alt="" />
             <subsection name="About Mod4j">
                 <ul>
-                    <li>
-                        <a href="features.html">What are the features of Mod4j?</a>
-                    </li>
                     <li>
                         <a href="guide-helping.html">Can I get involved?</a>
                     </li>
@@ -58,12 +54,28 @@
                         .
                     </li>
                     <li>
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
-                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency conflicts
-                        we already have a version waiting for you to download. This version based on Eclipse Europa 3.3.2, OAW
-                        4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You can download a Windows or
-                        Linux archive from our project share
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
+                        Install Eclipse Ganymede 3.4 SR1 for Java2EE Developers. You can download one from the Eclipse
+                        <a href="http://www.eclipse.org/downloads">download site.</a>
+                        <br />
+                    </li>
+                    <li>
+                        Install, using the Update Manager, at least the following plugins into Eclipse:
+                        <ul>
+                            <li>
+                                OpenArchitectureWare Eclipse 4.3.0 (4.3.0.20080508-1430PRD).
+                                <b>
+                                    Update site:
+                                    <code>http://www.openarchitectureware.org/updatesite/milestone/site.xml</code>
+                                </b>
+                            </li>
+                            <li>
+                                QforEclipse 0.8.0 Eclipse plugin for Maven2 projects.
+                                <b>
+                                    Update site:
+                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite</code>
+                                </b>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         Install Apache Maven 2.0.9 or higher. For download and install instructions see the
@@ -71,7 +83,8 @@
                     </li>
                     <li>
                         Make sure you start Eclipse with de right jdk, e.g on a linux system:
-                        <q>/path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java</q>
+                        <q>/path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm
+                            /path-to-jdk1.5.0_15/jre/bin/java</q>
                     </li>
                     <li>
                         Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
@@ -110,17 +123,18 @@
 
             <subsection name="Modelling">
                 <p>If you've completed the installation steps above, you're ready for moddeling...</p>
-                <p>You can use the following DSL's in your project:</p>
+                <p>You can create the following Mod4j models in your project:</p>
                 <ul>
-                    <li>BusinessDomainDSL</li>
-                    <li>ContractDataDSL -- NOT AVAILABLE YET</li>
-                    <li>ServiceDSL -- NOT AVAILABLE YET</li>
-                    <li>PresentationDSL -- NOT AVAILABLE YET</li>
+                    <li>
+                        <img src="images/mod4j-business.ico" align="left" alt="" />  BusinessDomain model</li>
+                    <li><img src="images/mod4j-datacontract.ico" align="left" alt="" />  DataContract model</li>
+                    <li><img src="images/mod4j-service.ico" align="left" alt="" />  Service model</li>
+                    <li>Presentation model -- NOT AVAILABLE YET</li>
                 </ul>
 
                 <ol>
                     <li>
-                        First of all you need to create a new Eclipse project for the DSL you're going to use.
+                        First of all you need to create a new Eclipse project for the Mod4j DSL models you are going to create.
                         <br />
                         For instance if you want to create a new BusinessDomain model, choose:
                         <q>File, New, Project, Xtext DSL Wizards, Mod4j BusinessDomainDSL project</q>
@@ -138,7 +152,8 @@
                         Uncheck the "Use default location" checkbox and choose a location where all model projects and modules
                         for your application can be placed.
                         <br />
-                        While your project develops, this folder will contain all your the project modules you create, all
+                        While your project develops over time, this folder will contain all your the project modules you create,
+                        all
                         generated mavenized modules and the generated Maven parent-POM.
                         <br />
                         We suggest (commonly used) you use the following folder structure:
@@ -153,21 +168,21 @@
                         and a directory structure like this:
                         <br />
                         <code>
-                            <b>model/businessDomain/SampleModel.busmod</b>
-                            <b>/BusinessDomainDsl.properties</b>
+                            <b>src/model/BusinessDomain/SampleModel.busmod</b>
                         </code>
-                        (the model file containing the elements of your business model)
+                        (the model file containing the elements of your businessdomain model)
                         <br />
                         <code>
-                            <b>model/businessDomain/BusinessDomainDsl.properties</b>
+                            <b>src/model/mod4j.properties</b>
                         </code>
                         (the property file containing input parameters for code generation)
                     </li>
                     <li>
                         For modeling the business domain model of your application, open the file
-                        <code>model/SampleModel.busmod</code>
+                        <code>src/model/SampleModel.busmod</code>
                     </li>
-                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your business model.</li>
+                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your businessdomain
+                        model.</li>
                     <li>
                         After saving your model in Eclipse the (re)sources for your application are automatically generated. See
                         next section.
