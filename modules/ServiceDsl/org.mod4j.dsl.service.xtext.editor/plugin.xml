@@ -10,7 +10,7 @@
             extensions="sermod"
             icon="icons/mod4j-service.ico"
             id="org.mod4j.dsl.service.xtext.editor.ServiceDslEditor"
-            name="ServiceDsl Editor">
+            name="Service Model Editor">
       </editor>
    </extension>
 

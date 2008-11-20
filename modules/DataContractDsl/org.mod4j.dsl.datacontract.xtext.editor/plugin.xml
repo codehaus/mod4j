@@ -10,7 +10,7 @@
             extensions="dtcmod"
             icon="icons/mod4j-datacontract.ico"
             id="org.mod4j.dsl.datacontract.xtext.editor.DataContractDslEditor"
-            name="DataContractDsl Editor">
+            name="DataContract Model Editor">
       </editor>
    </extension>
 

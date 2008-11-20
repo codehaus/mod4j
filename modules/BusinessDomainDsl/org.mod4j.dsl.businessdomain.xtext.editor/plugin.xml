@@ -10,7 +10,7 @@
             extensions="busmod"
             icon="icons/mod4j-business.ico"
             id="org.mod4j.businessdomain.xtext.editor.BusinessDomainDslEditor"
-            name="BusinessDomainDsl Editor">
+            name="BusinessDomain Model Editor">
       </editor>
    </extension>
 
