@@ -123,14 +123,21 @@
 
             <subsection name="Modelling">
                 <p>If you've completed the installation steps above, you're ready for moddeling...</p>
-                <p>You can create the following Mod4j models in your project:</p>
-                <ul>
-                    <li>
-                        <img src="images/mod4j-business.ico" align="left" alt="" />  BusinessDomain model</li>
-                    <li><img src="images/mod4j-datacontract.ico" align="left" alt="" />  DataContract model</li>
-                    <li><img src="images/mod4j-service.ico" align="left" alt="" />  Service model</li>
-                    <li>Presentation model -- NOT AVAILABLE YET</li>
-                </ul>
+                <p>
+                    You can create the following Mod4j models in your project:
+                    <br />
+                    <br />
+                    <img src="images/mod4j-business.ico" align="left" alt="" />
+                    BusinessDomain model
+                    <br />
+                    <img src="images/mod4j-datacontract.ico" align="left" alt="" />
+                    DataContract model
+                    <br />
+                    <img src="images/mod4j-service.ico" align="left" alt="" />
+                    Service model
+                    <br />
+                    Presentation model -- NOT AVAILABLE YET
+                </p>
 
                 <ol>
                     <li>
@@ -152,9 +159,9 @@
                         Uncheck the "Use default location" checkbox and choose a location where all model projects and modules
                         for your application can be placed.
                         <br />
-                        While your project develops over time, this folder will contain all your the project modules you create,
+                        While your project develops over time, this folder will contain the project modules you create,
                         all
-                        generated mavenized modules and the generated Maven parent-POM.
+                        generated project modules and the generated Maven parent-POM.
                         <br />
                         We suggest (commonly used) you use the following folder structure:
                         <br />
@@ -163,8 +170,8 @@
                         </code>
                     </li>
                     <li>
-                        After finishing the wizard, a new model project is created with the name
-                        <b>MyApplication-dslModelsl</b>
+                        After finishing the wizard, a new project is created with the name
+                        <b>MyApplication-dslModels</b>
                         and a directory structure like this:
                         <br />
                         <code>
@@ -173,18 +180,32 @@
                         (the model file containing the elements of your businessdomain model)
                         <br />
                         <code>
+                            <b>src/model/dataContract/SampleModel.dtcmod</b>
+                        </code>
+                        (the model file containing the elements of your datacontract model)
+                        <br />
+                        <code>
+                            <b>src/model/service/SampleModel.sermod</b>
+                        </code>
+                        (the model file containing the elements of your service model)
+                        <br />
+                        <code>
                             <b>src/model/mod4j.properties</b>
                         </code>
                         (the property file containing input parameters for code generation)
                     </li>
                     <li>
-                        For modeling the business domain model of your application, open the file
-                        <code>src/model/SampleModel.busmod</code>
+                        For modeling the businessdomain model of your application, open the file
+                        <code>src/model/businessDomain/SampleModel.busmod</code>
+                        with the
+                        <code>BusinessDomain Model Editor</code>
+                        .
                     </li>
-                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your businessdomain
-                        model.</li>
+                    <li>Here you can add the classes, attributes, businessrules, associations etc. of your BusinessDomain
+                        model. See our usermanual for more information about how to setup your BusinessDomain model.</li>
+                    <li>You can setup your DataContract- and Service model in the same way. </li>
                     <li>
-                        After saving your model in Eclipse the (re)sources for your application are automatically generated. See
+                        After saving your models in Eclipse, the (re)sources for your application are automatically generated. See
                         next section.
                     </li>
                 </ol>
@@ -192,8 +213,10 @@
 
             <subsection name="Generating source code">
                 <p>
-                    If you've completed and saved your model(s) in the previous section the source code and resources for your
-                    application are automatically generated out of the model(s). Here is were you can find them:
+                    If you've completed and saved your model(s) as described in the previous section, the source code and
+                    resources for your
+                    application are automatically generated out of the model(s). Here is were you can find
+                    them:
                 </p>
                 <ol>
                     <li>
@@ -201,7 +224,7 @@
                         <b>domain</b>
                         and
                         <b>data</b>
-                        module are generated in the location folder for your modules right beside the
+                        modules are generated into the location folder for your modules, right beside the
                         <code>MyApplication.dslModels</code>
                         folder. See:
                         <code>../MyApplication-domain</code>
