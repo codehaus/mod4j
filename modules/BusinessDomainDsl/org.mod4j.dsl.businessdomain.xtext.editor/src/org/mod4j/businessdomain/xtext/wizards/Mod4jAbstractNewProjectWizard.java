@@ -203,7 +203,7 @@ public abstract class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "####" + LF +
                     "dataModuleName=" + mainPage.getApplicationNameFieldValue() + "-data" + LF +
                     "dataRootPackage=" + mainPage.getPackageNameFieldValue() + ".data" + LF +
-                    "hibernate.hbm2ddl.auto=update" + 
+                    "hibernate.hbm2ddl.auto=update" + LF +
                     "" + LF +
                     "####" + LF +
                     "#" + LF +
