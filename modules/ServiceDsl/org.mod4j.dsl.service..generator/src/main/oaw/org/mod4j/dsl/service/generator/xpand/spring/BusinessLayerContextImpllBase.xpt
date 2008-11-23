@@ -1,0 +1,44 @@
+«IMPORT ServiceDsl»
+
+«EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+
+«DEFINE GenBusinessLayerContext FOR ServiceModel»
+	«FILE generate(getBusinessModuleName(), getApplicationName() + "BusinessLayerContextImplBase.xml")»
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!--  AOP configuration for cross cutting concern Logging -->
+    <aop:config>
+        <aop:pointcut id="forumBusinessMethods"
+            expression="execution(* nl.ordina.forum.business.ForumDomainServiceImpl.*(..))" />
+        <aop:aspect ref="loggingAspect">
+            <aop:around pointcut-ref="forumBusinessMethods"
+                method="log" />
+        </aop:aspect>
+        <aop:aspect ref="timingAspect">
+            <aop:around pointcut-ref="forumBusinessMethods"
+                method="time" />
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="«getApplicationName()»DomainService"
+        class="nl.ordina.forum.business.ForumDomainServiceImpl">
+        <property name="forumDao" ref="forumDao" />
+        <property name="userDao" ref="userDao" />
+        <property name="forumFactory" ref="forumFactory" />
+    </bean>
+
+</beans>
+«ENDFILE»
+«ENDDEFINE»

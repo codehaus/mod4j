@@ -1,0 +1,36 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+
+import crossx;
+import ServiceDsl;
+
+extension org::mod4j::dslcommon::xtend::generatorutil;
+
+create ModelInfo exportModel(ServiceModel serviceModel, String modelFile) :
+    print("MOD4J INFO: Running CrossX on file [" + modelFile + "]")->
+    this.setDslname("ServiceDsl")->
+    this.setModelname(serviceModel.name)->
+    this.setResource(modelFile);
+//    this.symbols.addAll(busModel.types.typeSelect(BusinessClass).toElement())->
+//    this.symbols.addAll(busModel.enumerations.toElement());
+    
+Symbol toElement(ServiceMethod enum) :
+    let result = new Symbol :
+    result.setName(enum.name) ->
+    result.setType("Enumeration")->
+//    result.subSymbols.addAll(enum.enumerationLiterals.toElement() )->
+    result
+    ;
+
+crossx::LiteralSymbolProperty newProperty(String name, String value) :
+    let result = new LiteralSymbolProperty :
+    result.setName(name)->
+    result.setValue(value)->
+    result
+    ;
+
+
+    
+    

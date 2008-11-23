@@ -4,6 +4,7 @@
    <extension
          point="org.mod4j.eclipse.dsl">
       <dsl
+            dsl2crossxWorkflow="org/mod4j/dsl/service/generator/workflow/sermod2crossx.oaw"
             dslCodegenProperties="mod4j.properties"
             dslCodegenWorkflow="org/mod4j/dsl/service/generator/workflow/ServiceDslEclipse.oaw"
             dslFileExtension=".sermod"
