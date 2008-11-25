@@ -3,7 +3,7 @@
   "-//Apache Software Foundation//DTD XDOC 1.0//EN"
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
     <!--
-        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 120 characters, indent-size
+        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size
         of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
         minimize the number of non-significant differences when comparing versions.
     -->
@@ -13,9 +13,10 @@
     </properties>
     <body>
         <section name="Mod4j Developer Guide">
-            <p> This Developer Guide helps developers to get started with coding and modeling. At last it tells what steps to
-                take for releasing and publishing the developed Eclipse features and plugins (DSL editors) to the Mod4j remote
-                update site. </p>
+            <p> This Developer Guide helps developers of the Mod4j project to get started with coding and modeling. At last it
+                tells what steps to
+                take for releasing and publishing the developed Eclipse features and plugins (DSL editors) to
+                the Mod4j update site. </p>
             <subsection name="Getting started">
                 <ol>
                     <li>
@@ -24,29 +25,47 @@
                         .
                     </li>
                     <li>
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">Download</a>
-                        and install Eclipse with modeling plug-ins. To minimize time spending on version en dependency conflicts
-                        we already have a version waiting for you to download. This version based on Eclipse Europa 3.3.2, OAW
-                        4.3, EMF 2.3.1 and has some convenient plug-ins (like Q4E and Subclipse). You can download a Windows or
-                        Linux archive from our project share
-                        <a href="https://mod4j.smart-java.nl/docs/downloads">here</a>
+                        Install Eclipse Ganymede 3.4 SR1 for Java2EE Developers. You can download one from the Eclipse
+                        <a href="http://www.eclipse.org/downloads">download site.</a>
+                        <br />
                     </li>
-                    <li> Make sure you start Eclipse with de right jdk, e.g on a linux system:
-                        /path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm /path-to-jdk1.5.0_15/jre/bin/java </li>
+                    <li>
+                        Install, using the Update Manager, at least the following plugins into Eclipse:
+                        <ul>
+                            <li>
+                                OpenArchitectureWare Eclipse 4.3.0 (4.3.0.20080508-1430PRD).
+                                <b>
+                                    Update site:
+                                    <code>http://www.openarchitectureware.org/updatesite/milestone/site.xml</code>
+                                </b>
+                            </li>
+                            <li>
+                                QforEclipse 0.8.0 Eclipse plugin for Maven2 projects.
+                                <b>
+                                    Update site:
+                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite</code>
+                                </b>
+                            </li>
+                        </ul>
+                    </li>
                     <li> Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
                         'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
                         users UTF-8 is usually the platform encoding, and no change will be necessary. </li>
+                    <li>
+                        Install Apache Maven 2.0.9 or higher. For download and install instructions see the
+                        <a href="http://maven.apache.org">Apache Maven site</a>
+                    </li>
                 </ol>
             </subsection>
             <subsection name="Generating the DSL-editors">
-                <p> While the metamodel and its associated syntax is still under heavy development, you should be prepared to
+                <p> While the metamodel and its associated syntax is still under development, you should be prepared to
                     generate the model editors yourself from the metamodel and the syntax definitions, before you can start
-                    modelling: </p>
+                    modeling: </p>
                 <p>
                     <b>Hybrids</b>
                     What also important is to know, is that the Mod4j modules that you are going to checkout from the repository
                     do have a more or less hybrid nature. Some of the modules are Eclipse plug-ins and some are Maven modules.
-                    But the most modules are both: Eclipse plug-in and configured as a Maven module (yes, you recognize them by
+                    But the most modules are both: Eclipse plug-in and configured as a Maven module (yes, you can recognize them by
                     the pom.xml file).
                     <br />
                     This last category, the hybrids, must be treated with extra care. It mainly implies that you as a developer
@@ -55,7 +74,7 @@
                     the module must be maintained manually twice.
                     <br />
                     As this time We do not have a suitable solution for automating this process, maybe in the future we will
-                    extend our mod4j-maven-plugin with this functionality.
+                    extend our mod4j-maven-plugin with this functionality or see if the maven-eclipse-plugin can help us out.
                 </p>
                 <ol>
                     <li>
@@ -69,8 +88,8 @@
                     </li>
                     <li>
                         Choose "Import" > "Existing Project into Workspace" and Browse to the .../modules/BusinessDomain folder.
-                        After choosing "Ok and "Finish" the following modules are imported in your workspace:
-                        <code>BusinessDoamin.generator</code>
+                        After choosing "Ok" and "Finish" the following modules are imported in your workspace:
+                        <code>BusinessDomain.generator</code>
                         <br />
                         <code>mod4j-businessdomain-mm</code>
                         <br />
@@ -144,31 +163,7 @@
                         from the context menu.
                     </li>
                     <li>
-                        In the new Eclipse session you'll need you'll need : import the following projects (as a workaround for
-                        a bug in Elipse)
-                        <br />
-                        <code>mod4j-businessdomain-mm</code>
-                        <br />
-                        <code>mod4j-businessdomain-generator</code>
-                        <br />
-                        <code>mod4j-businessdomain-xtext</code>
-                        <br />
-                        <code>mod4j-businessdomain-validation</code>
-                        <br />
-                        <code>org.mod4j.crossx.broker</code>
-                        <br />
-                        <code>org.mod4j.dsl-common</code>
-                        <br />
-                        <code>org.mod4j.eclipse</code>
-                        <br />
-                        and the models of the RecordShop example project:
-                        <br />
-                        <code>RecordShop.dslModels</code>
-                        <br />
-                        ...
-                    </li>
-                    <li>
-                        Now you should be able to edit the *.busmod modle files in the
+                        In the new Eclipse session you should be able to edit the *.busmod model files in the
                         <code>RecordShop.dslModels</code>
                         project.
                         <br />
