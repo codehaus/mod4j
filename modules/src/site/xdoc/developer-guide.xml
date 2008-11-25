@@ -57,23 +57,26 @@
                     </li>
                 </ol>
             </subsection>
-            <subsection name="Generating the DSL-editors">
+            <subsection name="Checking out, import into Eclipse, generating the DSL-editors">
                 <p> While the metamodel and its associated syntax is still under development, you should be prepared to
-                    generate the model editors yourself from the metamodel and the syntax definitions, before you can start
+                    generate
+                    the model editors yourself from the metamodel and the syntax definitions, before you can start
                     modeling: </p>
                 <p>
                     <b>Hybrids</b>
-                    What also important is to know, is that the Mod4j modules that you are going to checkout from the repository
-                    do have a more or less hybrid nature. Some of the modules are Eclipse plug-ins and some are Maven modules.
-                    But the most modules are both: Eclipse plug-in and configured as a Maven module (yes, you can recognize them by
-                    the pom.xml file).
+                    <br />
+                    Important to know is that the Mod4j modules that you are going to checkout from the repository
+                    do have a more
+                    or less hybrid nature. Some of the modules are Eclipse plug-ins and some are Maven modules. But the most
+                    modules are both: Eclipse plug-in and configured as a Maven module (yes, you can recognize them by the
+                    pom.xml file).
                     <br />
                     This last category, the hybrids, must be treated with extra care. It mainly implies that you as a developer
                     must know that dependencies must be manually managed in two places within the module. In the manifest
                     (Eclipse plug-in) and in the pom.xml file (Maven) of the module. Also, in an equal manner, the versions of
                     the module must be maintained manually twice.
                     <br />
-                    As this time We do not have a suitable solution for automating this process, maybe in the future we will
+                    At the moment we do not have a suitable solution for automating this process, maybe in the future we will
                     extend our mod4j-maven-plugin with this functionality or see if the maven-eclipse-plugin can help us out.
                 </p>
                 <ol>
@@ -87,21 +90,41 @@
                         for information on how to do this.
                     </li>
                     <li>
-                        Choose "Import" > "Existing Project into Workspace" and Browse to the .../modules/BusinessDomain folder.
+                        Choose "Import" > "Existing Project into Workspace" and Browse to the
+                        <code>../modules/Crossx</code>
+                        folder. After choosing "Ok and "Finish" the following modules are imported in your workspace:
+                        <br />
+                        <code>org.mod4j.crossx.mm</code>
+                        <br />
+                        <code>org.mod4j.crossx.broker</code>
+                    </li>
+                    <li>
+                        Even so do this with:
+                        <br />
+                        <code>modules/org.mod4j.dsl-common</code>
+                        and
+                        <br />
+                        <code>modules/org.mod4j.eclipse</code>
+                    </li>
+                    <li>
+                        Choose "Import" > "Existing Project into Workspace" and Browse to the
+                        <code>../modules/BusinessDomain</code>
+                        folder.
                         After choosing "Ok" and "Finish" the following modules are imported in your workspace:
-                        <code>BusinessDomain.generator</code>
                         <br />
-                        <code>mod4j-businessdomain-mm</code>
+                        <code>org.mod4j.dsl.businessdomain.generator</code>
                         <br />
-                        <code>mod4j-businessdomain-validation</code>
+                        <code>org.mod4j.dsl.businessdomain.mm</code>
                         <br />
-                        <code>mod4j-businessdomain-xtext</code>
+                        <code>org.mod4j.dsl.businessdomain.validation</code>
                         <br />
-                        <code>mod4j-businessdomain-xtext.editor</code>
+                        <code>org.mod4j.dsl.businessdomain.xtext</code>
+                        <br />
+                        <code>org.mod4j.dsl.businessdomain.xtext.editor</code>
                     </li>
                     <li>
                         If you need to (re)generate the modelcode from the BusinessDomain meta model .. Open
-                        <code>mod4j-businessdomain-mm/model/BusinessDomainDsl.genmodel</code>
+                        <code>org.mod4j.dsl.businessdomain.mm/model/BusinessDomainDsl.genmodel</code>
                         in the EMF Generator editor.
                     </li>
                     <li>
@@ -112,38 +135,39 @@
                     </li>
                     <li>
                         If you need to (re)generate the code for Xtext Right-click the file
-                        <code>mod4j-businessdomain-xtext/src/genXtextEditor.oaw,</code>
+                        <code>org.mod4j.dsl.businessdomain.xtext/src/genXtextEditor.oaw,</code>
                         and choose
                         <br />
                         <q>Run As -> oAW Workflow</q>
                         from the context-menu.
                     </li>
                     <li>
-                        Choose "Import" > "Existing Project into Workspace" and Browse to the .../modules/Crossx folder. After
-                        choosing "Ok and "Finish" the following modules are imported in your workspace:
-                        <code>org.mod4j.crossx.mm</code>
+                        Repeat the previous steps you took for importing the BusinessDomainDsl projects for:
                         <br />
-                        <code>org.mod4j.crossx.broker</code>
+                        <code>../modules/DataContractDsl</code>
+                        and
+                        <br />
+                        <code>../modules/ServiceDsl</code>
                     </li>
                     <li>
-                        Even so do this with:
+                        Now import as
+                        <b>Maven Project</b>
+                        b>:
                         <br />
-                        <code>modules/org.mod4j.dsl-common</code>
+                        Choose "Import" > "Maven2 Project" > "Next" and Browse to the
+                        <code>modules/org.mod4j.runtime.common</code>
+                        folder. Then choose "Ok' and "Finish".
                         <br />
-                        <code>org.mod4j.eclipse</code>
-                    </li>
-                    <li>
-                        Now import as Maven Project:
+                        Do the same with:
                         <br />
-                        <code>modules/mod4j-runtime-common</code>
-                        <br />
-                        <code>modules/mod4j-maven-plugin</code>
+                        <code>modules/org.mod4j.mavenplugin</code>
                     </li>
                 </ol>
-                Now you have imported and generated the necessary modules. The BusinessDomainDSL editor is ready to use. There
-                for you need to activate the newly created editor in a second Eclipse instance. See next section "Modeling".
+                Now you have imported and generated the necessary modules. The DSL editors are ready to use. There
+                for you need
+                to activate the newly created editor in a second Eclipse instance. See next section "Modeling".
             </subsection>
-            <subsection name="Modelling">
+            <subsection name="Modeling">
                 <ol>
                     <li>
                         Be sure you start a second Eclipse instance with the right memory settings. Add the following arguments

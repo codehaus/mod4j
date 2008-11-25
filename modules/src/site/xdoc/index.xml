@@ -175,7 +175,7 @@
                         and a directory structure like this:
                         <br />
                         <code>
-                            <b>src/model/BusinessDomain/SampleModel.busmod</b>
+                            <b>src/model/businessDomain/SampleModel.busmod</b>
                         </code>
                         (the model file containing the elements of your businessdomain model)
                         <br />
