@@ -29,7 +29,7 @@
 		class="org.springframework.context.support.ClassPathXmlApplicationContext">
         <constructor-arg>
             <list>
-                <value>«getApplicationName()»BusinessLayerAbstractBaseContext.xml</value>
+                <value>«getApplicationName()»BusinessLayerContextImplBase.xml</value>
             </list>
         </constructor-arg>
         <constructor-arg>

@@ -1,12 +1,16 @@
 «IMPORT ServiceDsl»
+«IMPORT crossx»
 
 «EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
-«DEFINE GenBusinessLayerContext FOR ServiceModel»
+«DEFINE GenBusinessLayerContextImplBase FOR ServiceModel»
+«LET findAllSymbols(getProject(),  "Service") AS allServices»
+«LET lookupAll(getProject(),  "Service") AS allServiceNames»
 	«FILE generate(getBusinessModuleName(), getApplicationName() + "BusinessLayerContextImplBase.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -19,26 +23,32 @@
     xmlns:aop="http://www.springframework.org/schema/aop">
 
     <!--  AOP configuration for cross cutting concern Logging -->
+    «FOREACH allServices AS service»
     <aop:config>
-        <aop:pointcut id="forumBusinessMethods"
-            expression="execution(* nl.ordina.forum.business.ForumDomainServiceImpl.*(..))" />
+        <aop:pointcut id="«service»BusinessMethods"
+            expression="execution(* «javaDomainServiceClassPath(service.name)».*(..))" />
         <aop:aspect ref="loggingAspect">
-            <aop:around pointcut-ref="forumBusinessMethods"
+            <aop:around pointcut-ref="«service.name»BusinessMethods"
                 method="log" />
         </aop:aspect>
         <aop:aspect ref="timingAspect">
-            <aop:around pointcut-ref="forumBusinessMethods"
+            <aop:around pointcut-ref="«service.name»BusinessMethods"
                 method="time" />
         </aop:aspect>
     </aop:config>
+    «ENDFOREACH»
 
-    <bean id="«getApplicationName()»DomainService"
-        class="nl.ordina.forum.business.ForumDomainServiceImpl">
-        <property name="forumDao" ref="forumDao" />
-        <property name="userDao" ref="userDao" />
-        <property name="forumFactory" ref="forumFactory" />
+    «FOREACH allServices AS service»
+    <bean id="«service.name»DomainService"
+        class="«javaDomainServiceClassPath(service.name)»">
+        «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS cls»
+        <property name="the«javaDaoInterface(cls)»" ref="the«javaDaoInterface(cls)»" />
+        «ENDFOREACH»
     </bean>
+    «ENDFOREACH»
 
 </beans>
 «ENDFILE»
+«ENDLET»
+«ENDLET»
 «ENDDEFINE»

@@ -1,14 +1,18 @@
 «IMPORT ServiceDsl»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«IMPORT org::mod4j::dsl::service::generator::xpand::java»
+«IMPORT org::mod4j::dsl::service::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::service::generator::xpand::spring»
 
 «DEFINE Generate FOR ServiceModel»
 	«print("MOD4J INFO: Running Service generator on model [" + this.name + "]")»
   «EXPAND  LocalService::LocalService FOR this» 
   «EXPAND  LocalServiceImpl::LocalServiceImpl FOR this» 
   «EXPAND  LocalServiceImplBase::LocalServiceImplBase FOR this» 
-  «EXPAND  org::mod4j::dsl::service::generator::xpand::spring::ServiceLayerBeanRefContext::GenBeanRefContext FOR this» 
-  «EXPAND  org::mod4j::dsl::service::generator::xpand::spring::ServiceLayerContext::GenServiceLayerContext FOR this» 
+  «EXPAND  ServiceLayerBeanRefContext::GenBeanRefContext FOR this» 
+  «EXPAND  ServiceLayerContext::GenServiceLayerContext FOR this» 
+  «EXPAND  ServiceLayerImplBaseContext::GenServiceLayerImplBaseContext FOR this» 
   
 «ENDDEFINE»
 

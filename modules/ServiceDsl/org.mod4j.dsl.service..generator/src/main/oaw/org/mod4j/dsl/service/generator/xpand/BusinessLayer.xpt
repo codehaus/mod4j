@@ -1,6 +1,7 @@
 «IMPORT ServiceDsl»
 «IMPORT org::mod4j::dsl::service::generator::xpand::java»
 «IMPORT org::mod4j::dsl::service::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::service::generator::xpand::spring»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 
@@ -9,8 +10,9 @@
     «EXPAND BusinessService::BusinessService FOR this»
   	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
 
-    «EXPAND  org::mod4j::dsl::service::generator::xpand::spring::BusinessLayerBeanRefContext::GenBeanRefContext FOR this» 
-    «EXPAND  org::mod4j::dsl::service::generator::xpand::spring::BusinessLayerContext::GenBusinessLayerContext FOR this» 
+    «EXPAND  BusinessLayerBeanRefContext::GenBeanRefContext FOR this» 
+    «EXPAND  BusinessLayerContext::GenBusinessLayerContext FOR this» 
+    «EXPAND  BusinessLayerContextImplBase::GenBusinessLayerContextImplBase FOR this» 
 «ENDDEFINE»
 
 «REM»

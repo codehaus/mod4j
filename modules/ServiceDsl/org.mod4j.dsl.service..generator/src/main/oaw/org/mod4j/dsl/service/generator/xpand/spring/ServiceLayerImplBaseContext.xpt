@@ -1,0 +1,64 @@
+«IMPORT ServiceDsl»
+
+«EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+
+«DEFINE GenServiceLayerImplBaseContext FOR ServiceModel»
+	«FILE generate(getServiceModuleName(), getApplicationName() + "ServiceLayerImplBaseContext.xml")»
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+    <aop:config>
+        <aop:pointcut id="«this.name»ServiceMethods" expression="execution(* «javaLocalServiceInterfacePath(this.name)».*(..))"/>
+        <aop:advisor advice-ref="txAdvice«this.name»Service" pointcut-ref="«this.name»ServiceMethods" order="30"/>
+        <aop:aspect ref="loggingAspect">
+            <aop:around pointcut-ref="«this.name»ServiceMethods" method="log" />
+        </aop:aspect>
+        <aop:aspect ref="timingAspect">
+            <aop:around pointcut-ref="«this.name»ServiceMethods"
+                method="time" />
+        </aop:aspect>
+    </aop:config>
+    <tx:advice id="txAdvice«this.name»Service"
+        transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="SUPPORTS" read-only="true" />
+            «FOREACH this.methods AS method»
+            <tx:method name="«method.name»" propagation="REQUIRED" />
+            «ENDFOREACH»
+        </tx:attributes>
+    </tx:advice>
+    <tx:jta-transaction-manager/>
+    
+    <!-- Application Layer  -->
+    <bean id="«this.name»Service"
+        class="«javaLocalServiceBaseClassPath(this.name)»">
+        <property name="the«javaDomainServiceInterface(name)»" ref="the«javaDomainServiceInterface(name)»" />
+    	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
+        <property name="the«javaTranslatorClass(dto.name)»" ref="the«javaTranslatorClass(dto.name)»" />
+	    «ENDFOREACH»
+        
+    </bean>
+  	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
+    <bean id="«dto.name»Translator"
+        class="«javaTranslatorClassPath(dto.name)»">
+    </bean>
+    «ENDFOREACH»
+</beans>
+«ENDFILE»
+«ENDDEFINE»

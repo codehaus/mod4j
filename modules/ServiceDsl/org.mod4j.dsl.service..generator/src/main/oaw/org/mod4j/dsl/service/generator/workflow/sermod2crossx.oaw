@@ -17,9 +17,9 @@
           - crossxfile : the file to which the crossx model will be written
           - project: the name of the project in which tyhe model resides
     -->
-<!--
+
     <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
--->
+
     <property name="nsUriPrefix" value="appelmoes"/>
     
     <property name="isEclipseSetup" value="true"/>
