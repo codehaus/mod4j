@@ -251,8 +251,8 @@
                     </li>
                     <li>
                         Since the generated modules are fully Mavenized you can import the generated modules as Maven projects
-                        into Eclipse. But before ypu can do that, you'll first need to install the also generated Maven
-                        parent-pom.
+                        into Eclipse. But before ypu do that, it's a good practice to install the also generated Maven
+                        parent-pom first.
                         <br />
                         Open a command console and navigate to location of the generated parent-pom (it's the pom.xml in the
                         root of your application folder).
@@ -263,13 +263,15 @@
                         </code>
                         <br />
                         After the build is finished and you've seen "BUILD SUCCESFULL", the parent-pom and submodules are
-                        locally installed and you can import them as Maven projects into Eclipse.
+                        locally installed and you can import the modules as Maven projects into Eclipse. If you run Maven for
+                        the first time, it could take a few minutes to complete for downloading the needed dependencies.
                         <br />
                         Choose: Import, Maven 2, Maven 2 Project
                         <br />
                         and navigate to ../MyApplication-domain
                     </li>
-                    <li>Check if the generated-sources and generated-resources folders are added as sourcefolders to the
+                    <li>Check if the generated-sources and generated-resources folders are correctly added as sourcefolders
+                        to the
                         Build Path. If not, do it manually.</li>
                     <li>Import the MyApplication-data module in the same way.</li>
                 </ol>
@@ -282,14 +284,13 @@
                 </p>
                 <ul>
                     <li>To implement business rules</li>
-                    <li>To</li>
+                    <li>TODO</li>
                 </ul>
                 <p>
                     For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the generated
                     (re)sources and provide a place where developers manually can make additions to- or change the behavior of
                     the system. Initially Mod4j generates Extension Points once if they do not exist already. So Extension
-                    Points
-                    will not be overwritten by the generator.
+                    Points will not be overwritten by the generator.
                 </p>
                 <p>
                     Typically Extension Points are placed under the
@@ -301,6 +302,7 @@
         </section>
         <section name="Latest News">
             <ul>
+                <li>Mod4j 1.0-beta released. - December 2008</li>
                 <li>Mod4j 0.9 released. - June 2008</li>
                 <li>Mod4j development team started. - March 2008</li>
             </ul>
