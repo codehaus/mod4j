@@ -103,7 +103,7 @@
                     <b>
                         <big>
                             Mod4j update site:
-                            <code>https://repo.smart-java.nl/mod4j/updatesite</code>
+                            <code>http://www.mod4j.org/updatesite</code>
                         </big>
                     </b>
                 </p>
@@ -112,7 +112,7 @@
                     <li>Choose the option "Search for new features to install" and click on "Next".</li>
                     <li>To create a new remote site for Mod4j, click on "New Remote Site".</li>
                     <li>Enter a Name: "Mod4j update site"</li>
-                    <li>Enter the URL: https://repo.smart-java.nl/mod4j/updatesite and click on "OK"</li>
+                    <li>Enter the URL: http://www.mod4j.org/updatesite and click on "OK"</li>
                     <li>After clicking on "Finish" you will be prompted for your SMART-Java username and password</li>
                     <li>
                         Next you can select the Mod4j features of your choice. Complete the wizard to install the chosen
@@ -159,9 +159,8 @@
                         Uncheck the "Use default location" checkbox and choose a location where all model projects and modules
                         for your application can be placed.
                         <br />
-                        While your project develops over time, this folder will contain the project modules you create,
-                        all
-                        generated project modules and the generated Maven parent-POM.
+                        While your project develops over time, this folder will contain the project modules you create: all
+                        generated project modules and the generated Maven parent-pom.
                         <br />
                         We suggest (commonly used) you use the following folder structure:
                         <br />
@@ -202,10 +201,11 @@
                         .
                     </li>
                     <li>Here you can add the classes, attributes, businessrules, associations etc. of your BusinessDomain
-                        model. See our usermanual for more information about how to setup your BusinessDomain model.</li>
+                        model. See the usermanual for more information about how to setup your BusinessDomain model.</li>
                     <li>You can setup your DataContract- and Service model in the same way. </li>
                     <li>
-                        After saving your models in Eclipse, the (re)sources for your application are automatically generated. See
+                        After saving your models in Eclipse, the (re)sources for your application are automatically generated.
+                        See
                         next section.
                     </li>
                 </ol>
@@ -214,17 +214,21 @@
             <subsection name="Generating source code">
                 <p>
                     If you've completed and saved your model(s) as described in the previous section, the source code and
-                    resources for your
-                    application are automatically generated out of the model(s). Here is were you can find
-                    them:
+                    resources for your application are automatically generated out of the model(s). Here below is described were
+                    you can find them and how to import them as projects into Eclipse. You can also find a overview and the
+                    location of the generated sources by opening the Mod4j "Generated Files" console. (Window > Show View >
+                    Other > Mod4j > Generated Files).
                 </p>
                 <ol>
                     <li>
-                        The generated sources and resources for the
-                        <b>domain</b>
+                        As you can see in the figure above, the BusinessDomain model generates (re)sources into two modules: the
+                        -data and -domain module.
+                        If these modules does not exist the modules will be automatically created.
+                        The
+                        <b>-domain</b>
                         and
-                        <b>data</b>
-                        modules are generated into the location folder for your modules, right beside the
+                        <b>-data</b>
+                        modules are created in the application folder for all your modules, right beside the
                         <code>MyApplication.dslModels</code>
                         folder. See:
                         <code>../MyApplication-domain</code>
@@ -233,32 +237,40 @@
                     </li>
                     <li>
                         The generated sources are placed in the
-                        <code>genertated-sources</code>
+                        <code>generated-sources</code>
                         and
-                        <code>genertated-resources</code>
+                        <code>generated-resources</code>
                         folders
                         <code>MyApplication-domain/generated-sources</code>
                         and resources in
                         <code>MyApplication-data/generated-resources</code>
                         <br />
-                        All Extension Points (see also next section) are initial generated into the src/main/.. folders.
+                        All Extension Points (see also next section) are initially generated into the
+                        <code>src/main/..</code>
+                        folders.
                     </li>
                     <li>
-                        Since the generated mdules are fully Mavenized you can import the generated modules as Maven projects
-                        into Eclipse. But first you'll need to install the also generated parent-POM.
+                        Since the generated modules are fully Mavenized you can import the generated modules as Maven projects
+                        into Eclipse. But before ypu can do that, you'll first need to install the also generated Maven
+                        parent-pom.
                         <br />
-                        Open a command console and type:
+                        Open a command console and navigate to location of the generated parent-pom (it's the pom.xml in the
+                        root of your application folder).
+                        <br />
+                        type:
                         <code>
                             <b>mvn clean install</b>
                         </code>
                         <br />
-                        Now the parent-POM and submodules are installed and you can import them as Maven projects into Eclipse.
+                        After the build is finished and you've seen "BUILD SUCCESFULL", the parent-pom and submodules are
+                        locally installed and you can import them as Maven projects into Eclipse.
                         <br />
                         Choose: Import, Maven 2, Maven 2 Project
                         <br />
                         and navigate to ../MyApplication-domain
                     </li>
-                    <li>Check if the generated-(re)sources folders are added as sourcefolders. If not do it manually.</li>
+                    <li>Check if the generated-sources and generated-resources folders are added as sourcefolders to the
+                        Build Path. If not, do it manually.</li>
                     <li>Import the MyApplication-data module in the same way.</li>
                 </ol>
             </subsection>
@@ -274,8 +286,9 @@
                 </ul>
                 <p>
                     For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the generated
-                    (re)sources and provide a place where developers manually can make additions to- or change the behaviour of
-                    the system. Initial Mod4j generates Extension Points once if they do not exist already. So Extension Points
+                    (re)sources and provide a place where developers manually can make additions to- or change the behavior of
+                    the system. Initially Mod4j generates Extension Points once if they do not exist already. So Extension
+                    Points
                     will not be overwritten by the generator.
                 </p>
                 <p>
