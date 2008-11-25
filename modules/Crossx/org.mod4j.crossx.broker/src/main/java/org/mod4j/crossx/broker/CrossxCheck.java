@@ -178,10 +178,29 @@ public class CrossxCheck {
         List<String> result = new ArrayList<String>(); 
         List<String> tmp = CrossxEnvironment.findAll(project, symboltype);
         if (tmp != null) {
-            System.err.println("CrossxCheck lookup all " + symboltype + " [" + tmp.toString() + "]");
+            System.err.println("CrossxCheck ["+ project + "]`lookup all " + symboltype + " [" + tmp.toString() + "]");
             result.addAll(tmp);
         } else {
-            System.err.println("CrossxCheck lookup all returns null");
+            System.err.println("CrossxCheck ["+ project + "] lookup all " + symboltype + " returns null");
+        }
+        return result;
+    }
+
+    /**
+     * Find all symbols of type 'symboltype' in project 'project'
+     * 
+     * @param project
+     * @param symboltype
+     * @return
+     */
+    public static List<Symbol>  findAllSymbols(String project, String symboltype) {
+        List<Symbol> result = new ArrayList<Symbol>(); 
+        List<Symbol> tmp = CrossxEnvironment.findAllSymbols(project, symboltype);
+        if (tmp != null) {
+            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " [" + tmp.toString() + "]");
+            result.addAll(tmp);
+        } else {
+            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " returns null");
         }
         return result;
     }

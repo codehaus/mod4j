@@ -124,12 +124,26 @@ public class CrossxEnvironment {
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
     static public List<String> findAll(String projectLocation, String elemType) {
-        print("CrossxEnvironment::findAll [" + projectLocation + "]");
         CrossxLocation loc = environment.get(projectLocation);
         if (loc != null) {
             return loc.findAll(elemType);
         } else {
             return new ArrayList<String>();
+        }
+    }
+
+    /**
+     * Find all symbols of type 'elemType'.
+     * 
+     * @param elemType
+     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+     */
+    static public List<Symbol> findAllSymbols(String projectLocation, String elemType) {
+        CrossxLocation loc = environment.get(projectLocation);
+        if (loc != null) {
+            return loc.findAllSymbols(elemType);
+        } else {
+            return new ArrayList<Symbol>();
         }
     }
 

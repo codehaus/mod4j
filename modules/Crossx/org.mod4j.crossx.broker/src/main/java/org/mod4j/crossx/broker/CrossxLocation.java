@@ -130,7 +130,7 @@ public class CrossxLocation {
     }
 
     /**
-     * Find all symbols of type 'elemType'.
+     * Find all names of symbols of type 'elemType'.
      * 
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
@@ -142,6 +142,25 @@ public class CrossxLocation {
                 String value = symbol.getType();
                 if ((value != null) && value.equals(elemType)) {
                     result.add(symbol.getName());
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Find all symbols of type 'elemType'.
+     * 
+     * @param elemType
+     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
+     */
+    public List<Symbol> findAllSymbols(String elemType) {
+        List<Symbol> result = new ArrayList<Symbol>();
+        for (ModelInfo modelinfo : information) {
+            for (Symbol symbol : modelinfo.getSymbols()) {
+                String value = symbol.getType();
+                if ((value != null) && value.equals(elemType)) {
+                    result.add(symbol);
                 }
             }
         }
