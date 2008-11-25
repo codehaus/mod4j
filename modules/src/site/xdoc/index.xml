@@ -3,9 +3,9 @@
   "-//Apache Software Foundation//DTD XDOC 1.0//EN"
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
     <!--
-        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size of
-        4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should minimize
-        the number of non-significant differences when comparing versions.
+        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size
+        of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
+        minimize the number of non-significant differences when comparing versions.
     -->
 <document>
     <properties>
@@ -122,7 +122,7 @@
             </subsection>
 
             <subsection name="Modelling">
-                <p>If you've completed the installation steps above, you're ready for moddeling...</p>
+                <p>If you've completed the installation steps above, you're ready for modeling...</p>
                 <p>
                     You can create the following Mod4j models in your project:
                     <br />
@@ -138,6 +138,15 @@
                     <br />
                     <img src="images/mod4j-presentation.ico" align="left" alt="" />
                     Presentation model -- NOT AVAILABLE YET
+                </p>
+
+                <p>
+                    Before you start we want bring the <b>RecordShop</b> example project to your attention. If you want see how a
+                    example of these models look like, you can take look at the RecordShop. The RecorodShop is a example project
+                    that we maintain during our development process. Features we implement in Mod4j are tested in the
+                    RecordShop.
+                    <br />
+                    Here you can find it: https://svn.smart-java.nl/mod4j/trunk/modules/Examples/RecordShop-ExampleProject
                 </p>
 
                 <ol>
@@ -206,8 +215,7 @@
                     <li>You can setup your DataContract- and Service model in the same way. </li>
                     <li>
                         After saving your models in Eclipse, the (re)sources for your application are automatically generated.
-                        See
-                        next section.
+                        See next section.
                     </li>
                 </ol>
             </subsection>

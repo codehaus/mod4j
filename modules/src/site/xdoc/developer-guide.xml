@@ -84,8 +84,8 @@
                         Check out the source code of the
                         <code>mod4j</code>
                         project from the Subversion URL
-                        <code>https://viewsvn.smart-java.nl/wsvn/mod4j/trunk</code>
-                        into a directory. See the link
+                        <code>https://svn.smart-java.nl/mod4j/trunk</code>
+                        into a directory on your file system. See the link
                         <a href="source-repository.html">Project information</a>
                         for information on how to do this.
                     </li>
@@ -101,14 +101,14 @@
                     <li>
                         Even so do this with:
                         <br />
-                        <code>modules/org.mod4j.dsl-common</code>
+                        <code>modules/org.mod4j.dsl.common</code>
                         and
                         <br />
                         <code>modules/org.mod4j.eclipse</code>
                     </li>
                     <li>
                         Choose "Import" > "Existing Project into Workspace" and Browse to the
-                        <code>../modules/BusinessDomain</code>
+                        <code>../modules/BusinessDomainDsl</code>
                         folder.
                         After choosing "Ok" and "Finish" the following modules are imported in your workspace:
                         <br />
@@ -123,7 +123,7 @@
                         <code>org.mod4j.dsl.businessdomain.xtext.editor</code>
                     </li>
                     <li>
-                        If you need to (re)generate the modelcode from the BusinessDomain meta model .. Open
+                        If you need to (re)generate the modelcode from the BusinessDomain meta model: Open
                         <code>org.mod4j.dsl.businessdomain.mm/model/BusinessDomainDsl.genmodel</code>
                         in the EMF Generator editor.
                     </li>
@@ -152,7 +152,7 @@
                     <li>
                         Now import as
                         <b>Maven Project</b>
-                        b>:
+                        :
                         <br />
                         Choose "Import" > "Maven2 Project" > "Next" and Browse to the
                         <code>modules/org.mod4j.runtime.common</code>
@@ -181,13 +181,14 @@
                     </li>
                     <li>
                         Right-click the module
-                        <code>mod4j-businessdomain-xtext.editor</code>
+                        <code>org.mod4j.dsl.businessdomain.xtext.editor</code>
                         and choose
                         <q>Run As -> Eclipse Application</q>
                         from the context menu.
                     </li>
                     <li>
-                        In the new Eclipse session you should be able to edit the *.busmod model files in the
+                        In the new Eclipse session you should be able to edit the .busmod, .sermod and .dtcmod model files in
+                        the
                         <code>RecordShop.dslModels</code>
                         project.
                         <br />
@@ -229,38 +230,42 @@
             </subsection>
 
             <subsection name="Releasing Mod4j (release guide)">
+            <p>This section describes how to perform a full Mod4j release.</p> 
             TODO:
-            -1 check and adjust version numbers
-            -2 adjust mod4j version: <mod4j.version>0.10</mod4j.version> in ParentPom.xpt 
-            -3 release Maven modules (including hybrid's)
-            - 
+            <ol>
+                <li>check and adjust version numbers</li>
+                <li>adjust mod4j version: <code><mod4j.version>0.10</mod4j.version></code> in ParentPom.xpt</li> 
+                <li>release Maven modules (including hybrid's)</li>
+            </ol>
             </subsection>
-
-                <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
-                    <p>
-                        New versions of the Mod4j DSL Eclipse plugin can be published on the Mod4j updatesite. We will publish
-                        all Mod4j DSL's as one feature based on several plugins.
-                    </p>
-                    <ol>
-                        <li>
-                            Import as Existing Project:
-                            <br />
-                            <code>modules/BusinessDomain/org.mod4j.businessDomain.feature</code>
-                            and
-                            <code>modules/org.mod4j.updatesite</code>
-                        </li>
-                        <li>Check for the right settings in site.xml and feature.xml.</li>
-                        <li>Open de site.xml in the updatesite project.</li>
-                        <li>Click on "Build All". Now the features and plugins folder contains the files we need to deploy.</li>
-                        <li>
-                            Use scp or winscp to copy the features folder, plugins folder and site.xml to:
-                            <br />
-                            smart-java.nl/home/groups/repo/htdocs/mod4j/updatesite
-                        </li>
-                        <li>Make an announcement on the mailinglist.</li>
-                        <li>Sit back and relax.</li>
-                    </ol>
-                </subsection>
+            
+            <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
+                <p>
+                    New versions of the Mod4j DSL Eclipse plug-in can be published on the Mod4j updatesite. We will publish
+                    all Mod4j DSL's as one feature based on several plug-ins.
+                </p>
+                <ol>
+                    <li>
+                        Import as Existing Project:
+                        <br />
+                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.businessdomain.feature</code>
+                        and <br />
+                        <code>../modules/org.mod4j.updatesite</code>
+                    </li>
+                    <li>Check for the right settings in site.xml and feature.xml.</li>
+                    <li>Open de site.xml in the updatesite project.</li>
+                    <li>Click on "Build All". Now the features and plugins folder in the updatesite project contains the files we need to deploy.</li>
+                    <li>
+                        Use a ftp client copy the <code>features</code> folder, <code>plugins</code> folder and <code>site.xml</code> to:
+                        <br />
+                        <b>ftp.mod4j.org/mod4j.org/wwwroot/updatesite</b> 
+                        <br />
+                        You should be familiar with the username and password for this site.
+                    </li>
+                    <li>Make an announcement on the mailinglist.</li>
+                    <li>Sit back and relax.</li>
+                </ol>
+            </subsection>
 
         </section>
     </body>
