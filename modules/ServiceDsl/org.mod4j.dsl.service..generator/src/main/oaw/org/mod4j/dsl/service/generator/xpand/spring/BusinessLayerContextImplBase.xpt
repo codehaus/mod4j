@@ -10,7 +10,6 @@
 
 «DEFINE GenBusinessLayerContextImplBase FOR ServiceModel»
 «LET findAllSymbols(getProject(),  "Service") AS allServices»
-«LET lookupAll(getProject(),  "Service") AS allServiceNames»
 	«FILE generate(getBusinessModuleName(), getApplicationName() + "BusinessLayerContextImplBase.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -49,6 +48,5 @@
 
 </beans>
 «ENDFILE»
-«ENDLET»
 «ENDLET»
 «ENDDEFINE»
