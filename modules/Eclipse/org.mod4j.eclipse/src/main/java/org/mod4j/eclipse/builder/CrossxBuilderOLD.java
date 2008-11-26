@@ -48,7 +48,7 @@ import org.mod4j.eclipse.util.EclipseUtil;
  * @author jwa11799
  * 
  */
-public class CrossxBuilder extends IncrementalProjectBuilder {
+public class CrossxBuilderOLD extends IncrementalProjectBuilder {
 
     private MessageConsoleStream console = null;
 
@@ -62,15 +62,15 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
 
     public static final String MODEL_DIR = "src/model";
 
-    public static final String DSL_EXTENSION_ID = CrossxBuilder.bundleName + ".dsl";
+    public static final String DSL_EXTENSION_ID = CrossxBuilderOLD.bundleName + ".dsl";
 
-    public static void initCrossx() {
-        if (!CrossxEnvironment.isStarted()) {
-            CrossxBuilder b = new CrossxBuilder();
-            b.startX();
-            CrossxEnvironment.setStarted(true);
-        }
-    }
+//    public static void initCrossx() {
+//        if (!CrossxEnvironment.isStarted()) {
+//            CrossxBuilder b = new CrossxBuilder();
+//            b.startX();
+//            CrossxEnvironment.setStarted(true);
+//        }
+//    }
 
     /**
      * Visitor that reads all .crossx files to get already defined symbols
@@ -97,8 +97,6 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
-            // Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
-            // CrossxBroker.addInfo(doc);
             ModelInfo crossxInfo = readCrossx(resource);
             CrossxEnvironment.addModelInfo(resource.getProject().getName(), crossxInfo);
 
@@ -140,19 +138,19 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
         return null;
     }
 
-    public void startX() {
-        console = EclipseUtil.findConsole("crossx.projectbuilder.startX");
-        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
-        System.setErr(new PrintStream(console));
-        dslExtensions = CrossxBuilder.getExtensions();
-        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-        for (int i = 0; i < projects.length; i++) {
-            IProject project = projects[i];
-            myProject = project;
-            myloadCrossxInfo(project);
-        }
-        CrossxView.myrefresh();
-    }
+//    public void startX() {
+//        console = EclipseUtil.findConsole("crossx.projectbuilder.startX");
+//        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
+//        System.setErr(new PrintStream(console));
+//        dslExtensions = CrossxBuilder.getExtensions();
+//        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+//        for (int i = 0; i < projects.length; i++) {
+//            IProject project = projects[i];
+//            myProject = project;
+//            myloadCrossxInfo(project);
+//        }
+//        CrossxView.myrefresh();
+//    }
 
     public IProject getMyProject() {
         return myProject;
@@ -232,7 +230,7 @@ public class CrossxBuilder extends IncrementalProjectBuilder {
             if (dsl.validate()) {
                 result.add(dsl);
             } else {
-                EclipseUtil.showError("Mod4j: crossx extension point [is invalid");
+                EclipseUtil.showError("Crossx: crossx extension point [is invalid");
             }
         }
         return result;
