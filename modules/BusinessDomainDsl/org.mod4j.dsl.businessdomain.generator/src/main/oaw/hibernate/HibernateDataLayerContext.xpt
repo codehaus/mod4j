@@ -46,7 +46,7 @@
 «ENDFOREACH»
 «ENDREM»
 
-«FOREACH lookupAll( getProject(), "BusinessClass" ) AS clsName»
+«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
     <bean id="«clsName.toFirstLower()»Dao"
         class="«getDaoPackage()».«clsName»DaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
@@ -62,7 +62,7 @@
         </property>
         <property name="mappingResources">
             <list>
-«FOREACH lookupAll( getProject(), "BusinessClass" ) AS clsName»
+«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
                 <value>«clsName».hbm.xml</value>
 «ENDFOREACH»
 «REM»
