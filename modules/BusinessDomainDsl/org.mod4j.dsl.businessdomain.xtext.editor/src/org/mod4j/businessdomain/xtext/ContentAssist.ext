@@ -15,3 +15,288 @@ extension org::mod4j::businessdomain::xtext::GenContentAssist reexport;
  * you can sort and/or filter the proposals by overwriting 'List[Proposal] sortProposals(List[Proposal] proposalsToSort)'
  */
 
+
+extension org::mod4j::businessdomain::xtext::EditorExtensions;
+
+/* proposals for Feature DateTimeProperty::defaultValue */
+List[Proposal] completeDateTimeProperty_defaultValue(emf::EObject ctx, String prefix) :
+	{newProposal("DateTimePropertyDefaultValue")};
+
+/* proposals for Feature BusinessRule::name */
+List[Proposal] completeBusinessRule_name(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessRuleName")};
+
+/* proposals for Feature EnumerationLiteral::persistedValue */
+List[Proposal] completeEnumerationLiteral_persistedValue(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationLiteralPersistedValue")};
+
+/* proposals for Feature StringProperty::description */
+List[Proposal] completeStringProperty_description(emf::EObject ctx, String prefix) :
+	{newProposal("StringPropertyDescription")};
+
+/* proposals for Feature BusinessDomainModel::description */
+List[Proposal] completeBusinessDomainModel_description(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessDomainModelDescription")};
+
+/* proposals for Feature EnumerationProperty::name */
+List[Proposal] completeEnumerationProperty_name(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationPropertyName")};
+
+/* proposals for Feature DecimalProperty::name */
+List[Proposal] completeDecimalProperty_name(emf::EObject ctx, String prefix) :
+	{newProposal("DecimalPropertyName")};
+
+/* proposals for Feature DecimalProperty::description */
+List[Proposal] completeDecimalProperty_description(emf::EObject ctx, String prefix) :
+	{newProposal("DecimalPropertyDescription")};
+
+/* proposals for Feature BusinessClassReference::name */
+List[Proposal] completeBusinessClassReference_name(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessClassReferenceName")};
+
+/* proposals for Feature UniqueRule::description */
+List[Proposal] completeUniqueRule_description(emf::EObject ctx, String prefix) :
+	{newProposal("UniqueRuleDescription")};
+
+/* proposals for Feature BusinessRule::description */
+List[Proposal] completeBusinessRule_description(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessRuleDescription")};
+
+/* proposals for Feature IntegerProperty::defaultValue */
+List[Proposal] completeIntegerProperty_defaultValue(emf::EObject ctx, String prefix) :
+	{newProposal("IntegerPropertyDefaultValue")};
+
+/* proposals for Feature UniqueRule::name */
+List[Proposal] completeUniqueRule_name(emf::EObject ctx, String prefix) :
+	{newProposal("UniqueRuleName")};
+
+/* proposals for Feature DateTimeProperty::name */
+List[Proposal] completeDateTimeProperty_name(emf::EObject ctx, String prefix) :
+	{newProposal("DateTimePropertyName")};
+
+/* proposals for Feature BusinessClassReference::model */
+List[Proposal] completeBusinessClassReference_model(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessClassReferenceModel")};
+
+/* proposals for Feature Association::sourceRoleName */
+List[Proposal] completeAssociation_sourceRoleName(emf::EObject ctx, String prefix) :
+	{newProposal("AssociationSourceRoleName")};
+
+/* proposals for Feature BusinessClass::name */
+List[Proposal] completeBusinessClass_name(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessClassName")};
+
+/* proposals for Feature StringProperty::regularExpression */
+List[Proposal] completeStringProperty_regularExpression(emf::EObject ctx, String prefix) :
+	{newProposal("StringPropertyRegularExpression")};
+
+/* proposals for Feature StringProperty::name */
+List[Proposal] completeStringProperty_name(emf::EObject ctx, String prefix) :
+	{newProposal("StringPropertyName")};
+
+/* proposals for Feature Association::description */
+List[Proposal] completeAssociation_description(emf::EObject ctx, String prefix) :
+	{newProposal("AssociationDescription")};
+
+/* proposals for Feature EnumerationLiteral::name */
+List[Proposal] completeEnumerationLiteral_name(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationLiteralName")};
+
+/* proposals for Feature IntegerProperty::maxValue */
+List[Proposal] completeIntegerProperty_maxValue(emf::EObject ctx, String prefix) :
+	{newProposal("IntegerPropertyMaxValue")};
+
+/* proposals for Feature Association::targetRoleName */
+List[Proposal] completeAssociation_targetRoleName(emf::EObject ctx, String prefix) :
+	{newProposal("AssociationTargetRoleName")};
+
+/* proposals for Feature StringProperty::minLength */
+List[Proposal] completeStringProperty_minLength(emf::EObject ctx, String prefix) :
+	{newProposal("StringPropertyMinLength")};
+
+/* proposals for Feature Enumeration::description */
+List[Proposal] completeEnumeration_description(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationDescription")};
+
+/* proposals for Feature BusinessDomainModel::name */
+List[Proposal] completeBusinessDomainModel_name(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessDomainModelName")};
+
+/* proposals for Feature StringProperty::defaultValue */
+List[Proposal] completeStringProperty_defaultValue(emf::EObject ctx, String prefix) :
+	{newProposal("StringPropertyDefaultValue")};
+
+/* proposals for Feature EnumerationProperty::description */
+List[Proposal] completeEnumerationProperty_description(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationPropertyDescription")};
+
+/* proposals for Feature IntegerProperty::name */
+List[Proposal] completeIntegerProperty_name(emf::EObject ctx, String prefix) :
+	{newProposal("IntegerPropertyName")};
+
+/* proposals for Feature IntegerProperty::description */
+List[Proposal] completeIntegerProperty_description(emf::EObject ctx, String prefix) :
+	{newProposal("IntegerPropertyDescription")};
+
+/* proposals for Feature BusinessClass::description */
+List[Proposal] completeBusinessClass_description(emf::EObject ctx, String prefix) :
+	{newProposal("BusinessClassDescription")};
+
+/* proposals for Feature StringProperty::maxLength */
+List[Proposal] completeStringProperty_maxLength(emf::EObject ctx, String prefix) :
+	{newProposal("StringPropertyMaxLength")};
+
+/* proposals for Feature DateTimeProperty::description */
+List[Proposal] completeDateTimeProperty_description(emf::EObject ctx, String prefix) :
+	{newProposal("DateTimePropertyDescription")};
+
+/* proposals for Feature IntegerProperty::minValue */
+List[Proposal] completeIntegerProperty_minValue(emf::EObject ctx, String prefix) :
+	{newProposal("IntegerPropertyMinValue")};
+
+/* proposals for Feature Enumeration::name */
+List[Proposal] completeEnumeration_name(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationName")};
+
+/* proposals for Feature BoolProperty::description */
+List[Proposal] completeBoolProperty_description(emf::EObject ctx, String prefix) :
+	{newProposal("BoolPropertyDescription")};
+
+/* proposals for Feature EnumerationProperty::defaultValueAsString */
+List[Proposal] completeEnumerationProperty_defaultValueAsString(emf::EObject ctx, String prefix) :
+	{newProposal("EnumerationPropertyDefaultValueAsString")};
+
+/* proposals for Feature BoolProperty::name */
+List[Proposal] completeBoolProperty_name(emf::EObject ctx, String prefix) :
+	{newProposal("BoolPropertyName")};
+
+
+
+/* proposals for Feature Property::persistency */
+List[Proposal] completeProperty_persistency(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessClass::inheritanceModifier */
+List[Proposal] completeBusinessClass_inheritanceModifier(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessDomainModel::types */
+List[Proposal] completeBusinessDomainModel_types(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessDomainModel::associations */
+List[Proposal] completeBusinessDomainModel_associations(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessClass::properties */
+List[Proposal] completeBusinessClass_properties(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature Enumeration::enumerationLiterals */
+List[Proposal] completeEnumeration_enumerationLiterals(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessDomainModel::types */
+List[Proposal] completeBusinessDomainModel_types(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature Association::sourceMultiplicity */
+List[Proposal] completeAssociation_sourceMultiplicity(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature Association::targetMultiplicity */
+List[Proposal] completeAssociation_targetMultiplicity(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessClass::businessRules */
+List[Proposal] completeBusinessClass_businessRules(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature DateTimeProperty::accuracy */
+List[Proposal] completeDateTimeProperty_accuracy(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessDomainModel::enumerations */
+List[Proposal] completeBusinessDomainModel_enumerations(emf::EObject ctx, String prefix) :
+	{};
+
+
+
+/* proposals for Feature EnumerationProperty::hasDefault */
+List[Proposal] completeEnumerationProperty_hasDefault(emf::EObject ctx, String prefix) :
+    {newProposal("default", "default", "keyword.ico")};
+
+/* proposals for Feature BoolProperty::hasDefault */
+List[Proposal] completeBoolProperty_hasDefault(emf::EObject ctx, String prefix) :
+    {newProposal("default", "default", "keyword.ico")};
+
+/* proposals for Feature Property::nullable */
+List[Proposal] completeProperty_nullable(emf::EObject ctx, String prefix) :
+    {newProposal("nullable", "nullable", "keyword.ico")};
+
+/* proposals for Feature Association::bidirectional */
+List[Proposal] completeAssociation_bidirectional(emf::EObject ctx, String prefix) :
+    {newProposal("<->", "<->", "keyword.ico")};
+
+/* proposals for Feature StringProperty::hasDefault */
+List[Proposal] completeStringProperty_hasDefault(emf::EObject ctx, String prefix) :
+    {newProposal("default", "default", "keyword.ico")};
+
+/* proposals for Feature IntegerProperty::hasDefault */
+List[Proposal] completeIntegerProperty_hasDefault(emf::EObject ctx, String prefix) :
+    {newProposal("default", "default", "keyword.ico")};
+
+/* proposals for Feature DateTimeProperty::hasDefault */
+List[Proposal] completeDateTimeProperty_hasDefault(emf::EObject ctx, String prefix) :
+    {newProposal("default", "default", "keyword.ico")};
+
+/* proposals for Feature BoolProperty::defaultValue */
+List[Proposal] completeBoolProperty_defaultValue(emf::EObject ctx, String prefix) :
+    {newProposal("true", "true", "keyword.ico")};
+
+
+
+/* proposals for EnumerationProperty::type */
+List[Proposal] completeEnumerationProperty_type(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(BusinessDomainDsl::Enumeration).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for BusinessClass::superclass */
+List[Proposal] completeBusinessClass_superclass(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(BusinessDomainDsl::BusinessClass).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for UniqueRule::properties */
+List[Proposal] completeUniqueRule_properties(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(BusinessDomainDsl::Property).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for Association::source */
+List[Proposal] completeAssociation_source(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(BusinessDomainDsl::BusinessClass).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+/* proposals for Association::target */
+List[Proposal] completeAssociation_target(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(BusinessDomainDsl::AbstractBusinessClass).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+
+List[Proposal] sortProposals(List[Proposal] proposalsToSort):
+	proposalsToSort.reject(p | p.label.endsWith("Description"));
+
+isKeywordProposal(Proposal this):
+	type == codeassist::Type::KEYWORD;
+
+isAssignmentProposal(Proposal this):
+	type == codeassist::Type::ASSIGNMENT;
+	
+isEnumProposal(Proposal this):
+	type == codeassist::Type::ENUM_LITERAL;
+
+// create extensions
+Proposal newProposal(String proposal) :
+	newProposal(proposal,proposal);
+	
+Proposal newProposal(String label, String toReplace) :
+	newProposal(label,toReplace,"default.gif");
+	
+create Proposal newProposal(String label, String replace, String image) :
+	setLabel(label==null?"ERROR":label)->
+	setToInsert(replace==null?"ERROR":replace)->
+	setImage(image);
