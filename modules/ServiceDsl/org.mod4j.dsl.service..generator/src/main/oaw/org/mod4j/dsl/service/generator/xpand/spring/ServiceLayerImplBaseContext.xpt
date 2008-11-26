@@ -1,12 +1,15 @@
 «IMPORT ServiceDsl»
+«IMPORT crossx»
 
 «EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE GenServiceLayerImplBaseContext FOR ServiceModel»
+«LET findAllSymbols(getProject(),  "Service") AS allServices»
 	«FILE generate(getServiceModuleName(), getApplicationName() + "ServiceLayerImplBaseContext.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -23,42 +26,48 @@
        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+    «FOREACH allServices AS service»
     <aop:config>
-        <aop:pointcut id="«this.name»ServiceMethods" expression="execution(* «javaLocalServiceInterfacePath(this.name)».*(..))"/>
-        <aop:advisor advice-ref="txAdvice«this.name»Service" pointcut-ref="«this.name»ServiceMethods" order="30"/>
+        <aop:pointcut id="«service.name»ServiceMethods" expression="execution(* «javaLocalServiceInterfacePath(service.name)».*(..))"/>
+        <aop:advisor advice-ref="txAdvice«service.name»Service" pointcut-ref="«service.name»ServiceMethods" order="30"/>
         <aop:aspect ref="loggingAspect">
-            <aop:around pointcut-ref="«this.name»ServiceMethods" method="log" />
+            <aop:around pointcut-ref="«service.name»ServiceMethods" method="log" />
         </aop:aspect>
         <aop:aspect ref="timingAspect">
-            <aop:around pointcut-ref="«this.name»ServiceMethods"
+            <aop:around pointcut-ref="«service.name»ServiceMethods"
                 method="time" />
         </aop:aspect>
     </aop:config>
-    <tx:advice id="txAdvice«this.name»Service"
+    «ENDFOREACH»
+    «FOREACH allServices AS service»
+    <tx:advice id="txAdvice«service.name»Service"
         transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="*" propagation="SUPPORTS" read-only="true" />
-            «FOREACH this.methods AS method»
+            «FOREACH findAllSubSymbols(service, "ServiceMethod") AS method»
             <tx:method name="«method.name»" propagation="REQUIRED" />
             «ENDFOREACH»
         </tx:attributes>
     </tx:advice>
     <tx:jta-transaction-manager/>
+    «ENDFOREACH»
     
     <!-- Application Layer  -->
-    <bean id="«this.name»Service"
-        class="«javaLocalServiceBaseClassPath(this.name)»">
-        <property name="the«javaDomainServiceInterface(name)»" ref="the«javaDomainServiceInterface(name)»" />
-    	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-        <property name="the«javaTranslatorClass(dto.name)»" ref="the«javaTranslatorClass(dto.name)»" />
+    «FOREACH allServices AS service»
+	    <bean id="«service.name»Service"
+	        class="«javaLocalServiceBaseClassPath(service.name)»">
+	        <property name="the«javaDomainServiceInterface(name)»" ref="the«javaDomainServiceInterface(service.name)»" />
+	    	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
+	        <property name="the«javaTranslatorClass(dto.name)»" ref="the«javaTranslatorClass(dto.name)»" />
+		    «ENDFOREACH-»
+	    </bean>
+	  	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
+	    <bean id="the«javaTranslatorClass(dto.name)»"
+	        class="«javaTranslatorClassPath(dto.name)»">
+	    </bean>
 	    «ENDFOREACH»
-        
-    </bean>
-  	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-    <bean id="«dto.name»Translator"
-        class="«javaTranslatorClassPath(dto.name)»">
-    </bean>
     «ENDFOREACH»
 </beans>
 «ENDFILE»
+«ENDLET»
 «ENDDEFINE»

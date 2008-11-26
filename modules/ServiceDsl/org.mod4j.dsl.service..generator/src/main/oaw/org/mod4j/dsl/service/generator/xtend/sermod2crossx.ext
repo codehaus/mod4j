@@ -22,7 +22,23 @@ Symbol toSymbol(ServiceModel model) :
     result.setName(model.name) ->
     result.setType("Service")->
     result.properties.add( newProperty("UniqueBusinessClasses", model.uniqueBusinessClasses().toString(",")))->
+    result.subSymbols.addAll( model.methods.toSymbol() )->
+    result.subSymbols.addAll( model.dtoReferences.select(dto|dto.businessClass() != "void").toSymbol() )->
     result
+    ;
+
+Symbol toSymbol(ServiceMethod method) :
+    let result = new Symbol :
+    result.setName(method.name) ->
+    result.setType("ServiceMethod")
+    ;
+
+// Add a DTO nreference for all Dtyo's that have a busienssclass
+Symbol toSymbol(DtoReference dto) :
+    let result = new Symbol :
+    result.properties.add( newProperty("modelname", dto.modelname) )->
+    result.setName(dto.name) ->
+    result.setType("DtoReference")
     ;
 
 crossx::LiteralSymbolProperty newProperty(String name, String value) :

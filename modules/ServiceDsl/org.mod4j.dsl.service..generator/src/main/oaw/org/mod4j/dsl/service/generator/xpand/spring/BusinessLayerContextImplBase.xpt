@@ -24,7 +24,7 @@
     <!--  AOP configuration for cross cutting concern Logging -->
     «FOREACH allServices AS service»
     <aop:config>
-        <aop:pointcut id="«service»BusinessMethods"
+        <aop:pointcut id="«service.name»BusinessMethods"
             expression="execution(* «javaDomainServiceClassPath(service.name)».*(..))" />
         <aop:aspect ref="loggingAspect">
             <aop:around pointcut-ref="«service.name»BusinessMethods"
