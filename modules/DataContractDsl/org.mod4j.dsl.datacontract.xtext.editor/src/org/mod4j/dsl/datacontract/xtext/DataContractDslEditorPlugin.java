@@ -1,6 +1,6 @@
 package org.mod4j.dsl.datacontract.xtext;
 
-import org.mod4j.eclipse.builder.CrossxBuilder;
+import org.mod4j.eclipse.builder.Mod4jBuilder;
 import org.openarchitectureware.xtext.AbstractXtextEditorPlugin;
 import org.openarchitectureware.xtext.LanguageUtilities;
 import org.osgi.framework.BundleContext;
@@ -27,7 +27,7 @@ public class DataContractDslEditorPlugin extends AbstractXtextEditorPlugin {
    
    protected void refreshPluginActions() {
        super.refreshPluginActions();
-       CrossxBuilder.initCrossx(); 
+       Mod4jBuilder.initCrossx(); 
    }
 
 }

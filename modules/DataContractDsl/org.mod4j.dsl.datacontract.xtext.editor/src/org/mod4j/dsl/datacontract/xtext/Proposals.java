@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.mod4j.crossx.broker.CrossxCheck;
+import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
@@ -46,8 +46,8 @@ public class Proposals {
             return result;
         }
 
-        Symbol sym = CrossxCheck.lookupSymbol(base.getModelname(), base.getName(), "BusinessClass");
-        for (Symbol sub : CrossxCheck.findAllSubSymbols(sym, "Property")) {
+        Symbol sym = CrossxBroker.lookupSymbol(base.getModelname(), base.getName(), "BusinessClass");
+        for (Symbol sub : CrossxBroker.findAllSubSymbols(sym, "Property")) {
             if (!containsPropertyNamed(dto.getPropertyReferences(), sub.getName())) {
                 result.add(sub.getName());
             }
@@ -91,7 +91,7 @@ public class Proposals {
 
         List<ExternalReference> refs = dto.getDatacontractModel().getExternalReferences();
         for (ExternalReference ext : refs) {
-            Symbol sym = CrossxCheck.lookupSymbol(ext.getModelname(), ext.getName(), "BusinessClass");
+            Symbol sym = CrossxBroker.lookupSymbol(ext.getModelname(), ext.getName(), "BusinessClass");
             if (sym != null) {
                 result.add(ext.getName());
             }
@@ -120,7 +120,7 @@ public class Proposals {
 
         List<ExternalReference> refs = enumeration.getDatacontractModel().getExternalReferences();
         for (ExternalReference ext : refs) {
-            Symbol sym = CrossxCheck.lookupSymbol(ext.getModelname(), ext.getName(), "Enumeration");
+            Symbol sym = CrossxBroker.lookupSymbol(ext.getModelname(), ext.getName(), "Enumeration");
             if (sym != null) {
                 result.add(ext.getName());
             }

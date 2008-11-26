@@ -2,7 +2,7 @@ import datacontractdsl;
 import codeassist;
 import emf;
 import crossx;
-
+ 
 extension org::mod4j::dsl::datacontract::xtext::Extensions;
 extension org::mod4j::dsl::datacontract::xtext::GenContentAssist reexport;
 //extension org::mod4j::dsl::datacontract::xtext::EclipseUtil;
@@ -38,12 +38,12 @@ List[Proposal] completeListDto_baseDto(emf::EObject ctx, String prefix) :
 
 /* proposals for Feature ExternalReference::modelname */
 List[Proposal] completeExternalReference_modelname(emf::EObject ctx, String prefix) :
-	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
-
+	findAllModelsInProject( ctx.getProjectName()).modelname .collect(x|newProposal(x)) ;
+ 
 /* proposals for Feature BusinessClassReference::name */
 List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
-	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "BusinessClass").union(
-	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "Enumeration")).
+	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "BusinessClass").name.union(
+	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "Enumeration").name).
 	          collect(x|newProposal(x)); //.add(newProposal("empty"));
 
 /* proposals for Feature BusinessClassReference::name */
