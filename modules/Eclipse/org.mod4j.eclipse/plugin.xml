@@ -97,8 +97,22 @@
    </extension>
    <extension
             point="org.eclipse.ui.newWizards">
-            <category id="org.mod4j.dsl.model" 
-                   name="Mod4j DSL Models"/>
+            <category
+                  id="org.mod4j.dsl.model"
+                  name="Mod4j Model files"
+                  parentCategory="org.mod4j.eclipse.wizards"/>
+            <category
+                  id="org.mod4j.eclipse.wizards"
+                  name="Mod4j Wizards">
+            </category>
+            <wizard
+                  category="org.mod4j.eclipse.wizards"
+                  class="org.mod4j.eclipse.wizards.Mod4jAbstractNewProjectWizard"
+                  icon="icons/mod4j-bw.ico"
+                  id="org.mod4j.eclipse.wizards.Mod4jNewBusinessDomainDslProjectWizard"
+                  name="Mod4j new dslModels Project"
+                  project="true">
+            </wizard>
    </extension>
    
 
