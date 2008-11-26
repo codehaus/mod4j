@@ -21,8 +21,9 @@ import org.mod4j.crossx.mm.crossx.ModelInfo;
 // import crossx.util.EclipseUtil;
 
 /**
- * This class is a singleton with static members only. It keeps all cross reference information for DSL models
- * 
+ * This class is a singleton with static members only.
+ * It keeps all cross reference information for DSL models for one location
+ * The location is identified with the 'name'
  * @author Jos Warmer
  * 
  */
@@ -43,12 +44,12 @@ public class CrossxLocation {
         this.name = theName;
     }
 
+    /**
+     * Get the name of this location
+     * @return
+     */
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public List<ModelInfo> getAll() {
@@ -56,7 +57,7 @@ public class CrossxLocation {
     }
 
     /**
-     * Add modelinfo to this location
+     * Add modelinfo to this location, remove previous modelinfo is this exists from the same resource
      * 
      * @param modelinfo
      */
@@ -64,10 +65,8 @@ public class CrossxLocation {
         ModelInfo existing = findModelInfo(modelinfo, information);
         if (existing != null) {
             information.remove(existing);
-            print("XXXX Removing " + modelinfo.getResource());
         }
         information.add(modelinfo);
-        print("XXXX Adding " + modelinfo.getResource());
     }
 
     /**
@@ -90,37 +89,17 @@ public class CrossxLocation {
      * Find the symbol with name 'name' and type 'type'.
      * 
      * @param name
-     * @param elemType
+     * @param symbolType
      * @return The name of the resource if the element is found, null if it isn't found
      */
-    public String find(String model, String name, String elemType) {
-        for (ModelInfo modelinfo : information) {
-            if (modelinfo.getModelname().equals(model)) {
-                for (Symbol symbol : modelinfo.getSymbols()) {
-                    if (symbol.getName().equals(name) && symbol.getType().equals(elemType)) {
-                        return modelinfo.getResource();
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Find the symbol with name 'name' and type 'type'.
-     * 
-     * @param name
-     * @param elemType
-     * @return The name of the resource if the element is found, null if it isn't found
-     */
-    public Symbol lookup(String model, String name, String elemType) {
+    public Symbol lookup(String model, String name, String symbolType) {
         if (information == null) {
             System.err.println("CrossxLocation::lookup information = null");
         }
         for (ModelInfo modelinfo : information) {
             if (modelinfo.getModelname().equals(model)) {
                 for (Symbol symbol : modelinfo.getSymbols()) {
-                    if (symbol.getName().equals(name) && symbol.getType().equals(elemType)) {
+                    if (symbol.getName().equals(name) && symbol.getType().equals(symbolType)) {
                         return symbol;
                     }
                 }
@@ -132,16 +111,16 @@ public class CrossxLocation {
     /**
      * Find all names of symbols of type 'elemType'.
      * 
-     * @param elemType
+     * @param symbolType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
-    public List<String> findAll(String elemType) {
-        List<String> result = new ArrayList<String>();
+    public List<Symbol> findAll(String symbolType) {
+        List<Symbol> result = new ArrayList<Symbol>();
         for (ModelInfo modelinfo : information) {
             for (Symbol symbol : modelinfo.getSymbols()) {
                 String value = symbol.getType();
-                if ((value != null) && value.equals(elemType)) {
-                    result.add(symbol.getName());
+                if ((value != null) && value.equals(symbolType)) {
+                    result.add(symbol);
                 }
             }
         }
@@ -149,17 +128,17 @@ public class CrossxLocation {
     }
 
     /**
-     * Find all symbols of type 'elemType'.
+     * Find all symbols of type 'symbolType'.
      * 
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
-    public List<Symbol> findAllSymbols(String elemType) {
+    public List<Symbol> findAllSymbols(String symbolType) {
         List<Symbol> result = new ArrayList<Symbol>();
         for (ModelInfo modelinfo : information) {
             for (Symbol symbol : modelinfo.getSymbols()) {
                 String value = symbol.getType();
-                if ((value != null) && value.equals(elemType)) {
+                if ((value != null) && value.equals(symbolType)) {
                     result.add(symbol);
                 }
             }
@@ -173,14 +152,29 @@ public class CrossxLocation {
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
-    public List<String> findAllFromModel(String modelname, String elemType) {
-        List<String> result = new ArrayList<String>();
+    public List<Symbol> findAllFromModel(String modelname, String elemType) {
+        List<Symbol> result = new ArrayList<Symbol>();
         for (ModelInfo modelinfo : information) {
             if (modelinfo.getModelname().equals(modelname)) {
                 for (Symbol symbol : modelinfo.getSymbols()) {
                     String value = symbol.getType();
                     if ((value != null) && value.equals(elemType)) {
-                        result.add(symbol.getName());
+                        result.add(symbol);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public List<Symbol> findAllSymbolsFromModel(String modelname, String elemType) {
+        List<Symbol> result = new ArrayList<Symbol>();
+        for (ModelInfo modelinfo : information) {
+            if (modelinfo.getModelname().equals(modelname)) {
+                for (Symbol symbol : modelinfo.getSymbols()) {
+                    String value = symbol.getType();
+                    if ((value != null) && value.equals(elemType)) {
+                        result.add(symbol);
                     }
                 }
             }
@@ -192,6 +186,7 @@ public class CrossxLocation {
 
     /**
      * Sets 'pw' as the output writer for this object.
+     * Should use proper logging for this ...
      * @param pw
      */
     public void setPrintWriter(PrintWriter pw) {

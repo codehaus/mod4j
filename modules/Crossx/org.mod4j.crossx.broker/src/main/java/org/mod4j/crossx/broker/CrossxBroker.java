@@ -14,22 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
+import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.crossx.mm.crossx.SymbolProperty;
 
 /**
- * This class contains all operations that are needed in the oAW xTend, xPand and Checks files. Therefore all methods
- * need to be static.
+ * This class contains all operations that are needed in the oAW xTend, xPand and Checks files.
+ * Therefore all methods need to be static.
  * 
  * @author jwa11799
  * 
  */
-public class CrossxCheck {
+public class CrossxBroker {
 
     /**
      * Private constructor, this class contains static members only.
      */
-    private CrossxCheck() {
+    private CrossxBroker() {
     }
 
     /**
@@ -39,43 +40,35 @@ public class CrossxCheck {
      *            The model in which to look for the symbol
      * @param symbolname
      *            The name of the symbol to find
-     * @param type
+     * @param symbolType
      *            The type of the symbol to find
      * @return the symbol found, or null if no such symbol could be found
      */
-    public static Symbol lookupSymbol(String model, String symbolname, String type) {
-        return CrossxEnvironment.lookupSymbol(model, symbolname, type);
+    public static Symbol lookupSymbol(String model, String symbolname, String symbolType) {
+        return CrossxEnvironment.lookupSymbol(model, symbolname, symbolType);
     }
 
     /**
-     * Find all symbol names with type 'elemType' within models named 'modelname'
+     * Find all symbol names with type 'symbolType' within models named 'modelname'
      * 
      * @param modelname
-     * @param elemType
+     * @param symbolType
      * @return
      */
-    public static List<String> findAllFromModel(String modelname, String elemType) {
-        return CrossxEnvironment.findAllFromModel(modelname, elemType);
-    }
-
-    public static List<String> lookupSymbolNames(String modelname, String elemType) {
-        return CrossxEnvironment.findAllFromModel(modelname, elemType);
+    public static List<Symbol> findAllFromModel(String modelname, String symbolType) {
+        return CrossxEnvironment.findAllFromModel(modelname, symbolType);
     }
 
     /**
-     * Find all symbol names with type 'elemType' within models named 'modelname' and within the project named 'project'
+     * Find all symbol names with type 'symbolType' within models named 'modelname' and within the project named 'project'
      * 
      * @param project
      * @param modelname
-     * @param elemType
+     * @param symbolType
      * @return
      */
-    public static List<String> findAllFromModel(String project, String modelname, String elemType) {
-        return CrossxEnvironment.findAllFromModelInProject(project, modelname, elemType);
-    }
-
-    public static List<String> lookupSymbolNames(String project, String modelname, String elemType) {
-        return CrossxEnvironment.findAllFromModelInProject(project, modelname, elemType);
+    public static List<Symbol> findAllSymbolsFromModel(String project, String modelname, String symbolType) {
+        return CrossxEnvironment.findAllSymbolsFromModelInProject(project, modelname, symbolType);
     }
 
     /**
@@ -83,13 +76,10 @@ public class CrossxCheck {
      * 
      * @return
      */
-    public static List<String> findAllModels() {
+
+    public static List<ModelInfo> findAllModels() {
         return CrossxEnvironment.findAllModels();
     }
-
-    // public static List<String> lookupModelNames() {
-    // return CrossxEnvironment.findAllModels();
-    // }
 
     /**
      * Find all models within project with name 'project'
@@ -97,13 +87,9 @@ public class CrossxCheck {
      * @param project
      * @return
      */
-    public static List<String> findAllModelsInProject(String project) {
+    public static List<ModelInfo> findAllModelsInProject(String project) {
         return CrossxEnvironment.findAllModelsInProject(project);
     }
-
-    // public static List<String> lookupModelNames(String project) {
-    // return CrossxEnvironment.findAllModelsInProject(project);
-    // }
 
     /**
       */
@@ -163,25 +149,6 @@ public class CrossxCheck {
             if (sub.getType().equals(symbolType)) {
                 result.add(sub);
             }
-        }
-        return result;
-    }
-
-    /**
-     * Find all symbols of type 'symboltype' in project 'project'
-     * 
-     * @param project
-     * @param symboltype
-     * @return
-     */
-    public static List<String>  lookupAll(String project, String symboltype) {
-        List<String> result = new ArrayList<String>(); 
-        List<String> tmp = CrossxEnvironment.findAll(project, symboltype);
-        if (tmp != null) {
-            System.err.println("CrossxCheck ["+ project + "]`lookup all " + symboltype + " [" + tmp.toString() + "]");
-            result.addAll(tmp);
-        } else {
-            System.err.println("CrossxCheck ["+ project + "] lookup all " + symboltype + " returns null");
         }
         return result;
     }

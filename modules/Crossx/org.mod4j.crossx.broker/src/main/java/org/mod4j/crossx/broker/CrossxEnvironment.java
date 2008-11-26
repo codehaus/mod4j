@@ -26,7 +26,8 @@ import org.mod4j.crossx.mm.crossx.Symbol;
 // import crossx.util.EclipseUtil;
 
 /**
- * This class is a singleton with static members only. It keeps all cross reference information for DSL models
+ * This class is a singleton with static members only.
+ * It keeps all CrossX information for DSL models
  * 
  * @author Jos Warmer
  * 
@@ -55,8 +56,16 @@ public class CrossxEnvironment {
         CrossxEnvironment.started = started;
     }
 
+    /**
+     * A CrossxEnvoironment consists of a number of CrossxLocations, kept in the variable.
+     */
     static private Map<String, CrossxLocation> environment = new HashMap<String, CrossxLocation>();
 
+    /**
+     * A collection of all locations in this environment.
+     * This is intended to be used for e.g. displaying a tree of all CrossX information.
+     * @return
+     */
     public static Map<String, CrossxLocation> getAll() {
         return Collections.unmodifiableMap(environment);
     }
@@ -123,21 +132,6 @@ public class CrossxEnvironment {
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
-    static public List<String> findAll(String projectLocation, String elemType) {
-        CrossxLocation loc = environment.get(projectLocation);
-        if (loc != null) {
-            return loc.findAll(elemType);
-        } else {
-            return new ArrayList<String>();
-        }
-    }
-
-    /**
-     * Find all symbols of type 'elemType'.
-     * 
-     * @param elemType
-     * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
-     */
     static public List<Symbol> findAllSymbols(String projectLocation, String elemType) {
         CrossxLocation loc = environment.get(projectLocation);
         if (loc != null) {
@@ -153,9 +147,9 @@ public class CrossxEnvironment {
      * @param elemType
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
-    static public List<String> findAllFromModel(String modelname, String elemType) {
+    static public List<Symbol> findAllFromModel(String modelname, String elemType) {
         print("CrossxEnvironment::findAllFromModel [" + modelname + "]");
-        List<String> result = new ArrayList<String>();
+        List<Symbol> result = new ArrayList<Symbol>();
         for (CrossxLocation location : environment.values()) {
             result.addAll(location.findAllFromModel(modelname, elemType));
         }
@@ -170,12 +164,12 @@ public class CrossxEnvironment {
      * @param elemType
      * @return
      */
-    static public List<String> findAllFromModelInProject(String project, String modelname, String elemType) {
-        print("CrossxEnvironment::findAllFromModelInProject [" + modelname + "]");
-        List<String> result = new ArrayList<String>();
+    static public List<Symbol> findAllSymbolsFromModelInProject(String project, String modelname, String elemType) {
+        print("CrossxEnvironment::findAllSymbolsFromModelInProject [" + modelname + "]");
+        List<Symbol> result = new ArrayList<Symbol>();
         for (CrossxLocation location : environment.values()) {
             if (location.getName().equals(project)) {
-                result.addAll(location.findAllFromModel(modelname, elemType));
+                result.addAll(location.findAllSymbolsFromModel(modelname, elemType));
             }
         }
         return result;
@@ -186,13 +180,13 @@ public class CrossxEnvironment {
      * 
      * @return a list of names of all of the models
      */
-    public static List<String> findAllModels() {
-        List<String> result = new ArrayList<String>();
+    public static List<ModelInfo> findAllModels() {
+        List<ModelInfo> result = new ArrayList<ModelInfo>();
         for (CrossxLocation location : environment.values()) {
             for (ModelInfo info : location.getAll()) {
                 print("FindAll Models model [" + info.getModelname() + "]");
                 // test(info);
-                result.add(info.getModelname());
+                result.add(info);
             }
         }
         return result;
@@ -204,14 +198,14 @@ public class CrossxEnvironment {
      * @param project
      * @return a list of names of the models
      */
-    public static List<String> findAllModelsInProject(String project) {
-        List<String> result = new ArrayList<String>();
+    public static List<ModelInfo> findAllModelsInProject(String project) {
+        List<ModelInfo> result = new ArrayList<ModelInfo>();
         for (CrossxLocation location : environment.values()) {
             if (location.getName().equals(project)) {
                 for (ModelInfo info : location.getAll()) {
                     print("FindAll Models model [" + info.getModelname() + "]");
                     // test(info);
-                    result.add(info.getModelname());
+                    result.add(info);
                 }
             }
         }
@@ -221,13 +215,13 @@ public class CrossxEnvironment {
     /**
      * Find all symbols of type 'elemType' in all models in the environment
      * 
-     * @param elemType
+     * @param symbolType
      * @return a list of names of all symbols found
      */
-    static public List<String> findAllEverywhere(String elemType) {
-        List<String> result = new ArrayList<String>();
+    static public List<Symbol> findAllEverywhere(String symbolType) {
+        List<Symbol> result = new ArrayList<Symbol>();
         for (CrossxLocation location : environment.values()) {
-            result.addAll(location.findAll(elemType));
+            result.addAll(location.findAll(symbolType));
         }
         return result;
     }

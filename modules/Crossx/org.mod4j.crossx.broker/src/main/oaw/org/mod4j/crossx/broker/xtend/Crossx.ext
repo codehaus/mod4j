@@ -12,36 +12,33 @@
 import crossx;
 
 Symbol lookupSymbol(String model, String symbolname, String symboltype) :
- JAVA org.mod4j.crossx.broker.CrossxCheck.lookupSymbol(java.lang.String, java.lang.String, java.lang.String);
+ JAVA org.mod4j.crossx.broker.CrossxBroker.lookupSymbol(java.lang.String, java.lang.String, java.lang.String);
   
-List[String] lookupAll(String project, String symboltype) :
- JAVA org.mod4j.crossx.broker.CrossxCheck.lookupAll(java.lang.String, java.lang.String);
- 
-List[String] findAllFromModel(String modelname, String elemType) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllFromModel(java.lang.String, java.lang.String) ;
+List[Symbol] findAllFromModel(String modelname, String elemType) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllFromModel(java.lang.String, java.lang.String) ;
 
-List[String] findAllModels() :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModels() ;
+List[ModelInfo] findAllModels() :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllModels() ;
 
 String getPropertyValue(Symbol symbol, String propertyName) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.getPropertyValue(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+  JAVA org.mod4j.crossx.broker.CrossxBroker.getPropertyValue(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 
-List[String] findAllModelsInProject(String project) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllModelsInProject(java.lang.String) ;
+List[ModelInfo] findAllModelsInProject(String project) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllModelsInProject(java.lang.String) ;
  
 List[Symbol] findAllSubSymbols(Symbol symbol, String symbolType) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllSubSymbols(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllSubSymbols(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 
 List[Symbol] findAllSymbols(String project, String symboltype) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.findAllSymbols(java.lang.String, java.lang.String) ;
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllSymbols(java.lang.String, java.lang.String) ;
 
 Symbol lookupSymbolWithProperty(String model, String symbolname, String type, String propertyName, String propertyValue) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.lookupSymbolWithProperty(java.lang.String , java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
+  JAVA org.mod4j.crossx.broker.CrossxBroker.lookupSymbolWithProperty(java.lang.String , java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
 
 Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symboltype, 
             String subsymbolType,
             String subsymbolName) :
-  JAVA org.mod4j.crossx.broker.CrossxCheck.lookupSymbolWithSubsymbol(java.lang.String , 
+  JAVA org.mod4j.crossx.broker.CrossxBroker.lookupSymbolWithSubsymbol(java.lang.String , 
                                             java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
 
  
