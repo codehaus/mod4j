@@ -194,8 +194,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             if (!inModelDir(resource)) {
                 return;
             }
-            // Document doc = XmlUtil.readXmlDocument(EclipseUtil.toFile(resource), true);
-            // CrossxBroker.addInfo(doc);
             ModelInfo crossxInfo = readCrossx(resource);
             CrossxEnvironment.addModelInfo(resource.getProject().getName(), crossxInfo);
 
@@ -288,11 +286,34 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         FileTrackerView.myrefresh();
     }
 
+    public static void initCrossx() {
+        System.err.println("Mod4jBuilder.initCrossx");
+        if (!CrossxEnvironment.isStarted()) {
+            Mod4jBuilder b = new Mod4jBuilder();
+            b.startX();
+            CrossxEnvironment.setStarted(true);
+        }
+    }
+    public void startX() {
+        console = EclipseUtil.findConsole("crossx.projectbuilder.startX");
+        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
+        System.setErr(new PrintStream(console));
+        dslExtensions = getExtensions();
+        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+        for (int i = 0; i < projects.length; i++) {
+            IProject project = projects[i];
+//            myProject = project;
+            myloadCrossxInfo(project);
+        }
+        CrossxView.myrefresh();
+    }
+
     /**
      * Initializes the infomative output console for Crossx and the code generation. Also redirect the standard error
      * output to a console.
      */
     protected void startupOnInitialize() {
+        System.err.println("Mod4jBuilder.startupOnInitialize");
         if (!initialized) {
             console = EclipseUtil.findConsole("mod4j.projectbuilder");
             CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository"));
