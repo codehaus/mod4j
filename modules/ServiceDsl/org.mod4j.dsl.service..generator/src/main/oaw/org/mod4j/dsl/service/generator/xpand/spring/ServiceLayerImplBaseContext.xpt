@@ -62,9 +62,9 @@
 	    «ENDFOREACH-»
     </bean>
     «ENDFOREACH»
-  	«FOREACH allServices.findAllSubSymbols("DtoReference").toSet() AS dto -»
-    <bean id="the«javaTranslatorClass(dto.name)»"
-        class="«javaTranslatorClassPath(dto.name)»">
+  	«FOREACH allServices.findAllSubSymbols("DtoReference").name.toSet() AS dtoName -»
+    <bean id="the«javaTranslatorClass(dtoName)»"
+        class="«javaTranslatorClassPath(dtoName)»">
     </bean>
     «ENDFOREACH»
 </beans>
