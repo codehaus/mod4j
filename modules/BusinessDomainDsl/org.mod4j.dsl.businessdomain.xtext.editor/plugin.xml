@@ -16,23 +16,13 @@
 
    <extension
          point="org.eclipse.ui.newWizards">
-         <category id="org.mod4j.businessdomaindsl.wizards" 
-                   name="Mod4j new DSL project wizards"/>
-		<wizard
-			category="org.mod4j.businessdomaindsl.wizards"
-			class="org.mod4j.businessdomain.xtext.wizards.Mod4jNewBusinessDomainDslProjectWizard"
-			icon="icons/mod4j.ico"
-			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslProjectWizard"
-			name="Mod4j BusinessDomainDsl Project"
-			project="true">
-		</wizard>
          
 		<wizard
-            category="org.mod4j.dsl.model" 
+            category="org.mod4j.eclipse.wizards/org.mod4j.dsl.model" 
 			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
 			icon="icons/mod4j-business.ico"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
-			name="Mod4j Business Domain Dsl Model ">
+			name="Mod4j BusinessDomain Model file">
 		</wizard>
 	</extension>
 </plugin>
