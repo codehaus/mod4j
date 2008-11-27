@@ -28,6 +28,11 @@
 	«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»
 	import «getDtoPackage()».«javaClassName(dto.name)»;
 	«ENDFOREACH»
+	«FOREACH this.dtoReferences.select(e|e.dtoType() == "ListDto") AS dto -»
+	«LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
+	import «getServiceRootPackage()».dto.«baseDtoName»;
+	«ENDLET»
+	«ENDFOREACH»
 
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
 	import «javaTranslatorClassPath(dto.name)»;

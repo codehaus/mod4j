@@ -54,18 +54,18 @@
     
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
-	    <bean id="«service.name»Service"
-	        class="«javaLocalServiceBaseClassPath(service.name)»">
-	        <property name="the«javaDomainServiceInterface(name)»" ref="the«javaDomainServiceInterface(service.name)»" />
-	    	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-	        <property name="the«javaTranslatorClass(dto.name)»" ref="the«javaTranslatorClass(dto.name)»" />
-		    «ENDFOREACH-»
-	    </bean>
-	  	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-	    <bean id="the«javaTranslatorClass(dto.name)»"
-	        class="«javaTranslatorClassPath(dto.name)»">
-	    </bean>
-	    «ENDFOREACH»
+    <bean id="«service.name»Service"
+        class="«javaLocalServiceBaseClassPath(service.name)»">
+        <property name="the«javaDomainServiceInterface(name)»" ref="the«javaDomainServiceInterface(service.name)»" />
+    	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
+        <property name="the«javaTranslatorClass(dto.name)»" ref="the«javaTranslatorClass(dto.name)»" />
+	    «ENDFOREACH-»
+    </bean>
+    «ENDFOREACH»
+  	«FOREACH allServices.findAllSubSymbols("DtoReference").toSet() AS dto -»
+    <bean id="the«javaTranslatorClass(dto.name)»"
+        class="«javaTranslatorClassPath(dto.name)»">
+    </bean>
     «ENDFOREACH»
 </beans>
 «ENDFILE»
