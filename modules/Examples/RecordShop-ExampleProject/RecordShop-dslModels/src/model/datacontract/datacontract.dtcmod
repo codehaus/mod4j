@@ -12,6 +12,7 @@ from RecordShopDomainModel import RecordTypeEnum
     /* 
      * BusinessClass transfer objects
      */
+	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	BusinessClassDto FullCustomerDto base Customer 
 
@@ -35,6 +36,12 @@ from RecordShopDomainModel import RecordTypeEnum
 	         SimpleCustomerDto customer;
 	     ]
 	]
+	
+	"Full Order transfer object, containing all the Order attributes (no associations)"
+	BusinessClassDto OrderDto base Order 
+	
+	"Full OrderLine transfer object, containing all the OrderLine attributes (no associations)"
+	BusinessClassDto OrderLineDto base OrderLine
 	
 	"The Artist transfer object."  
 	BusinessClassDto ArtistDto base Artist [ 
