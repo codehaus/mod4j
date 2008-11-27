@@ -135,13 +135,7 @@ public class Mod4jProjectCreator  {
                 javaProject.setRawClasspath(classpathEntries
                 		.toArray(new IClasspathEntry[] {}), new SubProgressMonitor(
                 		progressMonitor, 1));
-                
-                // TODO Jos: non generic code to add businessDomain
-                IFolder tmp2 = project.getFolder("src/model/businessDomain");
-                if (!tmp2.exists()) {
-                    tmp2.create(false, true, new SubProgressMonitor(
-                            progressMonitor, 1));
-                }
+               
 
             } catch (Exception e) {
                 // TODO Auto-generated catch block
