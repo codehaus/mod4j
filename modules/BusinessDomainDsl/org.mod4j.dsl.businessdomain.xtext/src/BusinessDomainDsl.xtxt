@@ -6,7 +6,7 @@ importMetamodel "http://www.mod4j.org/busmod" ;
 
 BusinessDomainModel :
 	(description=STRING )?
-	"Model" name = ID
+	"BusinessDomain" name = ID
 	(types+= BusinessClassReference)*
 	(types += BusinessClass)* 
 	(enumerations += Enumeration)*
@@ -65,7 +65,7 @@ UniqueRule:
     (description=STRING)?
 	"unique" name=ID "["
 	   (properties += [Property])+ 
-	"]" ";"
+	"]"
 	;
 
 Enum InheritanceModifier:
