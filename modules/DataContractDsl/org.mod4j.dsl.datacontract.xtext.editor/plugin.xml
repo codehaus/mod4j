@@ -27,11 +27,11 @@
 		</wizard>
          
 		<wizard
-            category="org.mod4j.dsl.model" 
+            category="org.mod4j.eclipse.wizards/org.mod4j.dsl.model" 
 			class="org.mod4j.dsl.datacontract.xtext.wizards.NewDataContractDslFileWizard"
 			icon="icons/mod4j-datacontract.ico"
 			id="org.mod4j.dsl.datacontract.xtext.xtext.wizards.NewDataContractDslFileWizard"
-			name="Mod4j DataContractDsl Model">
+			name="Mod4j DataContract Model file">
 		</wizard>
 	</extension>
 </plugin>

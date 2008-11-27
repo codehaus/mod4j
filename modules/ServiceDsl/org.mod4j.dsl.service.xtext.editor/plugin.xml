@@ -27,11 +27,11 @@
 		</wizard>
          
 		<wizard
-            category="org.mod4j.dsl.model" 
+            category="org.mod4j.eclipse.wizards/org.mod4j.dsl.model" 
 			class="org.mod4j.dsl.service.xtext.wizards.NewServiceDslFileWizard"
 			icon="icons/mod4j-service.ico"
 			id="org.mod4j.dsl.service.xtext.wizards.NewServiceDslFileWizard"
-			name="ServiceDsl Editor file">
+			name="Mod4j Service Model file">
 		</wizard>
 	</extension>
 </plugin>
