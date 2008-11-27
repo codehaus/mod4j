@@ -103,8 +103,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      */
     private void addDefaultDslExtensions() {
 
-        dslExtensions.add(new DslExtension("Mod4j", "BusinessDomainDsl", "BusinessDomainDsl.BusinessDomainDslPackage",
-                ".busmod", "crossx/busmod2crossx.oaw", "codegen/BusinessDomainDsl.oaw", generatorPropertiesFileName));
+        dslExtensions.add(new DslExtension("Mod4j", "BusinessDomainDsl",
+                "BusinessDomainDsl.BusinessDomainDslPackage", ".busmod",
+                "crossx/busmod2crossx.oaw",
+                "codegen/BusinessDomainDsl.oaw", generatorPropertiesFileName));
 
         dslExtensions.add(new DslExtension("Mod4j", "DataContractDsl",
                 "org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage", ".dtcmod",
@@ -112,7 +114,8 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
                 "org/mod4j/dsl/datacontract/generator/workflow/DataContractDsl.oaw", generatorPropertiesFileName));
 
         dslExtensions.add(new DslExtension("Mod4j", "ServiceDsl",
-                "org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage", ".sermod", "",
+                "org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage", ".sermod", 
+                "org/mod4j/dsl/service/generator/workflow/sermod2crossx.oaw",
                 "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorPropertiesFileName));
     }
 
