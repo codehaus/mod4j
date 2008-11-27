@@ -1,5 +1,5 @@
 "The RecordShop BusinessDomain model"
-Model RecordShopDomainModel
+BusinessDomain RecordShopDomainModel
  
 /*
  * Remarks...   
@@ -24,7 +24,7 @@ Class Person [
         unique fullName [
             firstName
             lastName
-        ]; 
+        ]
     ]
 ]
 
