@@ -177,9 +177,8 @@ public class Mod4jProjectCreator  {
 				final IProgressMonitor progressMonitor) throws CoreException {
 			StringBuilder maniContent = new StringBuilder("Manifest-Version: 1.0\n");
 			maniContent.append("Bundle-ManifestVersion: 2\n");
-			maniContent.append("Bundle-Name: " + project.getName() + "\n");
-			maniContent.append("Bundle-SymbolicName: " + project.getName()
-					+ "; singleton:=true\n");
+			maniContent.append("Bundle-Name: " + project.getName().replace("-", ".") + "\n");
+			maniContent.append("Bundle-SymbolicName: " + project.getName().replace("-", ".") +  "; singleton:=true\n");
 			maniContent.append("Bundle-Version: 1.0.0\n");
 			// maniContent.append("Bundle-Localization: plugin\n");
 			maniContent.append("Require-Bundle: ");
