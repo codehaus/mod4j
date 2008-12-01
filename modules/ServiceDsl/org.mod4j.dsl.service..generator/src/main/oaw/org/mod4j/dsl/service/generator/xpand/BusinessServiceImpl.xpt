@@ -1,5 +1,6 @@
 «IMPORT ServiceDsl»
 «IMPORT crossx»
+«IMPORT org::mod4j::dslcommon::xpand::java»
 
 «EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
@@ -32,15 +33,23 @@
 	public class «javaDomainServiceClass(name)» implements «javaDomainServiceInterface(name)» {
 
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
-		    private «javaDaoInterface(cls)» the«javaDaoInterface(cls)»;
+		«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR "the" + javaDaoInterface(cls)»    
+«REM»		    private «javaDaoInterface(cls)» the«javaDaoInterface(cls)»;
 		    
 		    /**
 		     * @param object
 		     *            the «javaDaoInterface(cls)»to set
 		     */
-		    public void set«javaDaoInterface(cls)»(«javaDaoInterface(cls)» object) {
+		    public void setThe«javaDaoInterface(cls)»(«javaDaoInterface(cls)» object) {
 		        this.the«javaDaoInterface(cls)» = object;
 		    }
+
+		    /**
+		     */
+		    public «javaDaoInterface(cls)» getThe«javaDaoInterface(cls)»() {
+		        return this.the«javaDaoInterface(cls)»;
+		    }
+«ENDREM»
 	«ENDFOREACH»
 
 

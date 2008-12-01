@@ -1,6 +1,8 @@
 «IMPORT ServiceDsl»
 «IMPORT crossx»
 
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
 «EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
@@ -35,10 +37,10 @@
 	 */
 	abstract public class «javaLocalServiceBaseClass(name)» implements  «javaLocalServiceInterface(name)» {
 
-    protected «javaDomainServiceInterface(name)» the«javaDomainServiceInterface(name)»;
-    
+	«EXPAND FieldGetterSetter::field(javaDomainServiceInterface(name)) FOR "the" + javaDomainServiceInterface(name)»    
+
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	protected «javaTranslatorClass(dto.name)» the«javaTranslatorClass(dto.name)»;
+	«EXPAND FieldGetterSetter::field(javaTranslatorClass(dto.name)) FOR "the" + javaTranslatorClass(dto.name)»    
 	«ENDFOREACH»
 
 
