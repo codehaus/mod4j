@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     Ordina - initial implementation
+  *     Ordina - Jos Warmer: initial implementation
  *******************************************************************************/
 package org.mod4j.crossx.broker;
 
@@ -79,7 +79,7 @@ public class CrossxEnvironment {
      *            the ModelInfo to add
      */
     public static void addModelInfo(String location, ModelInfo modelinfo) {
-        print("CrossxEnvironment::AddModelInfo [" + location + "]");
+        print("CrossxEnvironment::AddModelInfo [" + location + "] [" + modelinfo.getModelname() + "]");
         CrossxLocation atLocation = findLocation(location);
         atLocation.addModelInfo(modelinfo);
     }
@@ -148,11 +148,12 @@ public class CrossxEnvironment {
      * @return The list of names (String) of all found symbols. If there is no such symbol, an empty list.
      */
     static public List<Symbol> findAllFromModel(String modelname, String elemType) {
-        print("CrossxEnvironment::findAllFromModel [" + modelname + "]");
+        print("CrossxEnvironment::findAllFromModel [" + modelname + "::" + elemType + "]");
         List<Symbol> result = new ArrayList<Symbol>();
         for (CrossxLocation location : environment.values()) {
             result.addAll(location.findAllFromModel(modelname, elemType));
         }
+        print("CrossxEnvironment::findAllFromModel result [" + result + "]");
         return result;
     }
 

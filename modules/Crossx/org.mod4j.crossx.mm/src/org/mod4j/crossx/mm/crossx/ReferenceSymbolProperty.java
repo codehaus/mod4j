@@ -24,29 +24,29 @@ package org.mod4j.crossx.mm.crossx;
  */
 public interface ReferenceSymbolProperty extends SymbolProperty {
     /**
-     * Returns the value of the '<em><b>Referred Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Referred Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Referred Type</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Referred Type</em>' attribute.
-     * @see #setReferredType(String)
-     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getReferenceSymbolProperty_ReferredType()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Referred Type</em>' attribute.
+	 * @see #setReferredType(String)
+	 * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getReferenceSymbolProperty_ReferredType()
+	 * @model
+	 * @generated
+	 */
     String getReferredType();
 
     /**
-     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getReferredType <em>Referred Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getReferredType <em>Referred Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Referred Type</em>' attribute.
-     * @see #getReferredType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Referred Type</em>' attribute.
+	 * @see #getReferredType()
+	 * @generated
+	 */
     void setReferredType(String value);
 
 } // ReferenceSymbolProperty

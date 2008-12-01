@@ -45,359 +45,359 @@ import org.mod4j.crossx.mm.crossx.Symbol;
  */
 public class ModelInfoImpl extends EObjectImpl implements ModelInfo {
     /**
-     * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSymbols() <em>Symbols</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSymbols()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSymbols()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<Symbol> symbols;
 
     /**
-     * The default value of the '{@link #getLastChanged() <em>Last Changed</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLastChanged() <em>Last Changed</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLastChanged()
-     * @generated
-     * @ordered
-     */
+	 * @see #getLastChanged()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String LAST_CHANGED_EDEFAULT = "";
 
     /**
-     * The cached value of the '{@link #getLastChanged() <em>Last Changed</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLastChanged() <em>Last Changed</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLastChanged()
-     * @generated
-     * @ordered
-     */
+	 * @see #getLastChanged()
+	 * @generated
+	 * @ordered
+	 */
     protected String lastChanged = LAST_CHANGED_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getModelname()
-     * @generated
-     * @ordered
-     */
+	 * @see #getModelname()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String MODELNAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getModelname()
-     * @generated
-     * @ordered
-     */
+	 * @see #getModelname()
+	 * @generated
+	 * @ordered
+	 */
     protected String modelname = MODELNAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getResource() <em>Resource</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getResource()
-     * @generated
-     * @ordered
-     */
+	 * @see #getResource()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String RESOURCE_EDEFAULT = "[unknown]";
 
     /**
-     * The cached value of the '{@link #getResource() <em>Resource</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getResource() <em>Resource</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getResource()
-     * @generated
-     * @ordered
-     */
+	 * @see #getResource()
+	 * @generated
+	 * @ordered
+	 */
     protected String resource = RESOURCE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getDslname() <em>Dslname</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getDslname() <em>Dslname</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDslname()
-     * @generated
-     * @ordered
-     */
+	 * @see #getDslname()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String DSLNAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getDslname() <em>Dslname</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDslname() <em>Dslname</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDslname()
-     * @generated
-     * @ordered
-     */
+	 * @see #getDslname()
+	 * @generated
+	 * @ordered
+	 */
     protected String dslname = DSLNAME_EDEFAULT;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected ModelInfoImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return CrossxPackage.Literals.MODEL_INFO;
-    }
+		return CrossxPackage.Literals.MODEL_INFO;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EList<Symbol> getSymbols() {
-        if (symbols == null) {
-            symbols = new EObjectContainmentWithInverseEList<Symbol>(Symbol.class, this, CrossxPackage.MODEL_INFO__SYMBOLS, CrossxPackage.SYMBOL__OWNER);
-        }
-        return symbols;
-    }
+		if (symbols == null) {
+			symbols = new EObjectContainmentWithInverseEList<Symbol>(Symbol.class, this, CrossxPackage.MODEL_INFO__SYMBOLS, CrossxPackage.SYMBOL__OWNER);
+		}
+		return symbols;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getLastChanged() {
-        return lastChanged;
-    }
+		return lastChanged;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setLastChanged(String newLastChanged) {
-        String oldLastChanged = lastChanged;
-        lastChanged = newLastChanged;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__LAST_CHANGED, oldLastChanged, lastChanged));
-    }
+		String oldLastChanged = lastChanged;
+		lastChanged = newLastChanged;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__LAST_CHANGED, oldLastChanged, lastChanged));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getModelname() {
-        return modelname;
-    }
+		return modelname;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setModelname(String newModelname) {
-        String oldModelname = modelname;
-        modelname = newModelname;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__MODELNAME, oldModelname, modelname));
-    }
+		String oldModelname = modelname;
+		modelname = newModelname;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__MODELNAME, oldModelname, modelname));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getResource() {
-        return resource;
-    }
+		return resource;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setResource(String newResource) {
-        String oldResource = resource;
-        resource = newResource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__RESOURCE, oldResource, resource));
-    }
+		String oldResource = resource;
+		resource = newResource;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__RESOURCE, oldResource, resource));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getDslname() {
-        return dslname;
-    }
+		return dslname;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setDslname(String newDslname) {
-        String oldDslname = dslname;
-        dslname = newDslname;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__DSLNAME, oldDslname, dslname));
-    }
+		String oldDslname = dslname;
+		dslname = newDslname;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.MODEL_INFO__DSLNAME, oldDslname, dslname));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case CrossxPackage.MODEL_INFO__SYMBOLS:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getSymbols()).basicAdd(otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case CrossxPackage.MODEL_INFO__SYMBOLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSymbols()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case CrossxPackage.MODEL_INFO__SYMBOLS:
-                return ((InternalEList<?>)getSymbols()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case CrossxPackage.MODEL_INFO__SYMBOLS:
+				return ((InternalEList<?>)getSymbols()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case CrossxPackage.MODEL_INFO__SYMBOLS:
-                return getSymbols();
-            case CrossxPackage.MODEL_INFO__LAST_CHANGED:
-                return getLastChanged();
-            case CrossxPackage.MODEL_INFO__MODELNAME:
-                return getModelname();
-            case CrossxPackage.MODEL_INFO__RESOURCE:
-                return getResource();
-            case CrossxPackage.MODEL_INFO__DSLNAME:
-                return getDslname();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case CrossxPackage.MODEL_INFO__SYMBOLS:
+				return getSymbols();
+			case CrossxPackage.MODEL_INFO__LAST_CHANGED:
+				return getLastChanged();
+			case CrossxPackage.MODEL_INFO__MODELNAME:
+				return getModelname();
+			case CrossxPackage.MODEL_INFO__RESOURCE:
+				return getResource();
+			case CrossxPackage.MODEL_INFO__DSLNAME:
+				return getDslname();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case CrossxPackage.MODEL_INFO__SYMBOLS:
-                getSymbols().clear();
-                getSymbols().addAll((Collection<? extends Symbol>)newValue);
-                return;
-            case CrossxPackage.MODEL_INFO__LAST_CHANGED:
-                setLastChanged((String)newValue);
-                return;
-            case CrossxPackage.MODEL_INFO__MODELNAME:
-                setModelname((String)newValue);
-                return;
-            case CrossxPackage.MODEL_INFO__RESOURCE:
-                setResource((String)newValue);
-                return;
-            case CrossxPackage.MODEL_INFO__DSLNAME:
-                setDslname((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case CrossxPackage.MODEL_INFO__SYMBOLS:
+				getSymbols().clear();
+				getSymbols().addAll((Collection<? extends Symbol>)newValue);
+				return;
+			case CrossxPackage.MODEL_INFO__LAST_CHANGED:
+				setLastChanged((String)newValue);
+				return;
+			case CrossxPackage.MODEL_INFO__MODELNAME:
+				setModelname((String)newValue);
+				return;
+			case CrossxPackage.MODEL_INFO__RESOURCE:
+				setResource((String)newValue);
+				return;
+			case CrossxPackage.MODEL_INFO__DSLNAME:
+				setDslname((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-        switch (featureID) {
-            case CrossxPackage.MODEL_INFO__SYMBOLS:
-                getSymbols().clear();
-                return;
-            case CrossxPackage.MODEL_INFO__LAST_CHANGED:
-                setLastChanged(LAST_CHANGED_EDEFAULT);
-                return;
-            case CrossxPackage.MODEL_INFO__MODELNAME:
-                setModelname(MODELNAME_EDEFAULT);
-                return;
-            case CrossxPackage.MODEL_INFO__RESOURCE:
-                setResource(RESOURCE_EDEFAULT);
-                return;
-            case CrossxPackage.MODEL_INFO__DSLNAME:
-                setDslname(DSLNAME_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case CrossxPackage.MODEL_INFO__SYMBOLS:
+				getSymbols().clear();
+				return;
+			case CrossxPackage.MODEL_INFO__LAST_CHANGED:
+				setLastChanged(LAST_CHANGED_EDEFAULT);
+				return;
+			case CrossxPackage.MODEL_INFO__MODELNAME:
+				setModelname(MODELNAME_EDEFAULT);
+				return;
+			case CrossxPackage.MODEL_INFO__RESOURCE:
+				setResource(RESOURCE_EDEFAULT);
+				return;
+			case CrossxPackage.MODEL_INFO__DSLNAME:
+				setDslname(DSLNAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case CrossxPackage.MODEL_INFO__SYMBOLS:
-                return symbols != null && !symbols.isEmpty();
-            case CrossxPackage.MODEL_INFO__LAST_CHANGED:
-                return LAST_CHANGED_EDEFAULT == null ? lastChanged != null : !LAST_CHANGED_EDEFAULT.equals(lastChanged);
-            case CrossxPackage.MODEL_INFO__MODELNAME:
-                return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
-            case CrossxPackage.MODEL_INFO__RESOURCE:
-                return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
-            case CrossxPackage.MODEL_INFO__DSLNAME:
-                return DSLNAME_EDEFAULT == null ? dslname != null : !DSLNAME_EDEFAULT.equals(dslname);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case CrossxPackage.MODEL_INFO__SYMBOLS:
+				return symbols != null && !symbols.isEmpty();
+			case CrossxPackage.MODEL_INFO__LAST_CHANGED:
+				return LAST_CHANGED_EDEFAULT == null ? lastChanged != null : !LAST_CHANGED_EDEFAULT.equals(lastChanged);
+			case CrossxPackage.MODEL_INFO__MODELNAME:
+				return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
+			case CrossxPackage.MODEL_INFO__RESOURCE:
+				return RESOURCE_EDEFAULT == null ? resource != null : !RESOURCE_EDEFAULT.equals(resource);
+			case CrossxPackage.MODEL_INFO__DSLNAME:
+				return DSLNAME_EDEFAULT == null ? dslname != null : !DSLNAME_EDEFAULT.equals(dslname);
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (lastChanged: ");
-        result.append(lastChanged);
-        result.append(", modelname: ");
-        result.append(modelname);
-        result.append(", resource: ");
-        result.append(resource);
-        result.append(", dslname: ");
-        result.append(dslname);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (lastChanged: ");
+		result.append(lastChanged);
+		result.append(", modelname: ");
+		result.append(modelname);
+		result.append(", resource: ");
+		result.append(resource);
+		result.append(", dslname: ");
+		result.append(dslname);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ModelInfoImpl

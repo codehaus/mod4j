@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     Ordina - initial implementation
+ *     Ordina - Jos Warmer: initial implementation
  *******************************************************************************/
 package org.mod4j.crossx.broker;
 
