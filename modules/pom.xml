@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.mod4j</groupId>
-    <!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
+	<!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
 	<artifactId>mod4j</artifactId>
 	<packaging>pom</packaging>
 	<version>0.11-SNAPSHOT</version>
@@ -24,6 +24,11 @@
 			<archive>http://smart-java.nl/mailman/private/mod4j-team</archive>
 			<name>mod4j-team</name>
 			<post>mod4j-team@${centralhost}</post>
+		</mailingList>
+		<mailingList>
+			<archive>http://smart-java.nl/mailman/private/mod4j-developers</archive>
+			<name>mod4j-developers</name>
+			<post>mod4j-developers@${centralhost}</post>
 		</mailingList>
 	</mailingLists>
 	<profiles>
@@ -111,7 +116,7 @@
 			<notifier>
 				<type>mail</type>
 				<configuration>
-					<address>mod4j-team@${centralhost}</address>
+					<address>mod4j-developers@${centralhost}</address>
 				</configuration>
 			</notifier>
 		</notifiers>
@@ -120,11 +125,11 @@
 		<site>
 			<id>site</id>
 			<name>The mod4j project website</name>
-            <!--Notice: The following url must end with a slash. -->
+			<!--Notice: The following url must end with a slash. -->
 			<url>scp://${centralhost}/home/groups/mod4j/htdocs/</url>
 		</site>
 		<repository>
-            <!--
+			<!--
                 Watch it: We deploy directly to the common smart-repo!
             -->
 			<id>smart-repo-deploy</id>
@@ -176,7 +181,7 @@
 				<version>2.2</version>
 			</plugin>
 			<plugin>
-                <!-- TODO: Remove this workaround when http://jira.codehaus.org/browse/MRELEASE-271 is resolved -->
+				<!-- TODO: Remove this workaround when http://jira.codehaus.org/browse/MRELEASE-271 is resolved -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<configuration>
@@ -215,7 +220,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-                <!--<version>1.2</version> -->
+				<!--<version>1.2</version> -->
 				<version>1.0-beta-1</version>
 				<configuration>
 					<threshold>High</threshold>
