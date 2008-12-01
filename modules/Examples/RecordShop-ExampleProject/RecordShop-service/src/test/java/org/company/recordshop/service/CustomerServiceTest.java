@@ -1,6 +1,7 @@
 package org.company.recordshop.service;
 
 import static org.junit.Assert.fail;
+import org.junit.Assert;
 
 import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
     @Autowired
     CustomerServiceModelLocalService CustomerServiceModelService;
         
-    //@Test
+    @Test
     public final void testCreateCustomer() {
         
         SimpleCustomerDto customer = new SimpleCustomerDto();
@@ -31,8 +32,25 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         customer.setLastName("Sloan");
         customer.setCustomerNr(12345);
         
-        CustomerServiceModelService.createCustomer(customer);
+        SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer(customer);
         
+        SimpleCustomerDto foundCustomer = CustomerServiceModelService.readCustomer(createdCustomer.getId());       
+        Assert.assertNotNull(foundCustomer);
+        Assert.assertEquals(foundCustomer.getId(), createdCustomer.getId() );
+        Assert.assertTrue(foundCustomer.getCustomerNr() == 12345);
+        Assert.assertEquals(foundCustomer.getFirstName(), "Alfred");
+        Assert.assertEquals(foundCustomer.getLastName(), "Sloan");
+        Assert.assertNull(foundCustomer.getSexe());
+        Assert.assertTrue(foundCustomer.getOrders().isEmpty());
+    }
+    @Test
+
+    public final void testCreateIllegalCustomer() {
+        
+        SimpleCustomerDto customer = new SimpleCustomerDto();
+       
+        SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer(customer);
+        Assert.fail();
     }
 
     //@Test
