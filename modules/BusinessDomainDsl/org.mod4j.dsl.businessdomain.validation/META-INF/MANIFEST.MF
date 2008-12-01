@@ -5,6 +5,7 @@ Bundle-SymbolicName: org.mod4j.dsl.businessdomain.validation;singleton:=true
 Bundle-Version: 0.10.0.qualifier
 Require-Bundle: org.openarchitectureware.dependencies,
  org.mod4j.crossx.broker,
- org.mod4j.dsl.businessdomain.mm
+ org.mod4j.dsl.businessdomain.mm,
+ org.mod4j.common;bundle-version="0.1.0"
 Export-Package: BusinessDomainDsl.validation
 Bundle-Vendor: org.mod4j

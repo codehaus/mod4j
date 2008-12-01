@@ -11,6 +11,8 @@
 import BusinessDomainDsl;
 
 extension BusinessDomainDsl::validation::javautils;
+extension org::mod4j::dslcommon::xtend::generatorutil;
+
 /*
  * This check file is used by the parser
  * and by the editor. Add your constraints here!
@@ -52,7 +54,7 @@ context Association ERROR "Association source role ["+ this.sourceRoleName +
 
 context BusinessClass ERROR "Name of BusinessClass [" + this.name + "] is not unique" :
    ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|
-     e != this implies e.name != this.name) ;
+     e != this implies (! e.name.equalsIgnoreCase(this.name) ) ) ;
 
 context BusinessClass ERROR "Name of BusinessClass should not be empty" :
     this.name.trim().length > 0;
@@ -112,7 +114,7 @@ context EnumerationProperty ERROR "Default value [" + this.defaultValueAsString 
     this.hasDefault implies this.type.enumerationLiterals.exists(lit | lit.name == this.defaultValueAsString);
 
 context BusinessRule ERROR "Name of BusinessRule [" + this.name + "] must be unique" :
-    this.businessClass.businessRules.forAll(e| e != this implies e.name != this.name)
+    this.businessClass.businessRules.forAll(e| e != this implies (! e.name.equalsIgnoreCase(this.name)))
 	;
 
 context UniqueRule ERROR "All properties of a unique rule must belong to the containing class" :
