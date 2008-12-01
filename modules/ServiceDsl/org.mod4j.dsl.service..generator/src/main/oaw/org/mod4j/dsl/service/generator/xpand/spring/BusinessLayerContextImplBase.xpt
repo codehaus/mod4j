@@ -12,6 +12,7 @@
 «LET findAllSymbols(getProject(),  "Service") AS allServices»
 	«FILE generate(getBusinessModuleName(), getApplicationName() + "BusinessLayerContextImplBase.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="

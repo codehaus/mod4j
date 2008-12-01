@@ -12,6 +12,7 @@
 «LET findAllSymbols(getProject(),  "Service") AS allServices»
 	«FILE generate(getServiceModuleName(), getApplicationName() + "ServiceLayerImplBaseContext.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
@@ -39,31 +40,33 @@
         </aop:aspect>
     </aop:config>
     «ENDFOREACH»
+
+    <tx:jta-transaction-manager>
     «FOREACH allServices AS service»
     <tx:advice id="txAdvice«service.name»Service"
         transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="*" propagation="SUPPORTS" read-only="true" />
-            «FOREACH findAllSubSymbols(service, "ServiceMethod") AS method»
+            «FOREACH findAllSubSymbols(service, "ServiceMethod") AS method-»
             <tx:method name="«method.name»" propagation="REQUIRED" />
             «ENDFOREACH»
         </tx:attributes>
     </tx:advice>
-    <tx:jta-transaction-manager/>
     «ENDFOREACH»
+    </tx:jta-transaction-manager>
     
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
     <bean id="«service.name»Service"
-        class="«javaLocalServiceBaseClassPath(service.name)»">
-        <property name="the«javaDomainServiceInterface(name)»" ref="the«javaDomainServiceInterface(service.name)»" />
+        class="«javaLocalServiceClassPath(service.name)»">
+        <property name="the«javaDomainServiceInterface(name)»" ref="«javaDomainServiceInterface(service.name)»" />
     	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-        <property name="the«javaTranslatorClass(dto.name)»" ref="the«javaTranslatorClass(dto.name)»" />
+        <property name="the«javaTranslatorClass(dto.name)»" ref="«javaTranslatorClass(dto.name)»" />
 	    «ENDFOREACH-»
     </bean>
     «ENDFOREACH»
   	«FOREACH allServices.findAllSubSymbols("DtoReference").name.toSet() AS dtoName -»
-    <bean id="the«javaTranslatorClass(dtoName)»"
+    <bean id="«javaTranslatorClass(dtoName)»"
         class="«javaTranslatorClassPath(dtoName)»">
     </bean>
     «ENDFOREACH»
