@@ -24,6 +24,10 @@ public class ModelHelpers {
 
     private static Properties appProps = new Properties();
 
+    public static boolean equalsIgnoreCase(String one, String two) {
+        return one.equalsIgnoreCase(two);
+    }
+    
     /**
      * Read the properties file 'propFilePath' and return the result as a Map<String, String>
      * 
