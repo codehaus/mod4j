@@ -53,7 +53,7 @@ from RecordShopDomainModel import RecordTypeEnum
 
     BusinessClassDto FullRecordDto base Record
 
-	BusinessClassDto OrderlineDto base OrderLine [
+	BusinessClassDto OrderlineWithRecordRefsDto base OrderLine [
 	    lineNumber;
 	    description;
 	    lineAmount;
