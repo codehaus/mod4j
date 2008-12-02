@@ -145,7 +145,6 @@ public class CrossxBroker {
     static public List<Symbol> findAllSubSymbols(Symbol symbol, String symbolType) {
         List<Symbol> result = new ArrayList<Symbol>();
         for (Symbol sub : symbol.getSubSymbols()) {
-            System.err.println("     sub [" + sub.getName() + "] type [" + sub.getType() + "]");
             if (sub.getType().equals(symbolType)) {
                 result.add(sub);
             }
