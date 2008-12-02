@@ -37,7 +37,9 @@
 	     * @params «method.inParameters.name»
 	     * @return «method.output.name»
 	     */
+«REM»
 	    public «(method == null) ? "void" : JavaType(method.output)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "»);
+«ENDREM»	    
 	«ENDFOREACH»	
 
 	«FOREACH this.methods.typeSelect(SpecialMethod) AS method»
