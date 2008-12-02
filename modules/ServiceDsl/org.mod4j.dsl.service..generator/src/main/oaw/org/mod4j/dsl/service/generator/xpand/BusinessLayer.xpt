@@ -8,6 +8,8 @@
 «DEFINE Generate FOR ServiceModel»
 	«print("MOD4J INFO: Running Service Business generator on model [" + this.name + "]")»
     «EXPAND BusinessService::BusinessService FOR this»
+    «EXPAND BusinessServiceBase::BusinessServiceBase FOR this»
+  	«EXPAND BusinessServiceImplBase::BusinessServiceImplBase FOR this»
   	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
 
     «EXPAND  BusinessLayerBeanRefContext::GenBeanRefContext FOR this» 
