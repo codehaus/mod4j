@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -15,8 +16,6 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
                                    "/RecordShopBusinessLayerContextImplBase.xml",
                                    "/RecordShopServiceLayerTestContext.xml",
                                    "/Mod4jCommonContext.xml"})
-// TODO Replace RecordShopServiceLayerTestContext.xml for RecordShopServiceLayerImplBaseContext.xml
-// We need to test with the original Spring configuration. 
 @TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
 
 public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContextTests {
@@ -25,6 +24,7 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
     CustomerServiceModelLocalService CustomerServiceModelService;
         
     @Test
+    @Rollback(true)
     public final void testCreateCustomer() {
         
         SimpleCustomerDto customer = new SimpleCustomerDto();
@@ -32,6 +32,7 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         customer.setLastName("Sloan");
         customer.setCustomerNr(12345);
         
+        CustomerServiceModelService.createCustomer(customer);
         SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer(customer);
         
         SimpleCustomerDto foundCustomer = CustomerServiceModelService.readCustomer(createdCustomer.getId());       
