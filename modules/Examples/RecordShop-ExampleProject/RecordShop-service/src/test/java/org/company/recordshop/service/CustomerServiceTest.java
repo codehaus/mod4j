@@ -47,6 +47,34 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         Assert.assertTrue(foundCustomer.getOrders().isEmpty());
     }
 
+    /**
+     * Test whether the same object can be created twice.
+     * Should result in an TranslatorException.
+     */
+    @Test
+    @Rollback(true)
+    @ExpectedException(TranslatorException.class)
+    public final void testCreateCustomerTwice() {
+        
+        SimpleCustomerDto customer = new SimpleCustomerDto();
+        customer.setFirstName("Alfred");
+        customer.setLastName("Sloan");
+        customer.setCustomerNr(12345);
+         
+        CustomerServiceModelService.createCustomer(customer);
+        SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer(customer);
+        
+        SimpleCustomerDto foundCustomer = CustomerServiceModelService.readCustomer(createdCustomer.getId());       
+        Assert.assertNotNull(foundCustomer);
+        Assert.assertEquals(foundCustomer.getId(), createdCustomer.getId() );
+
+        SimpleCustomerDto createdCustomerTwice = CustomerServiceModelService.createCustomer(foundCustomer);
+    }
+
+    /**
+     * Test whether an object can be created while one of his properties violates a constraint.
+     * Should result in a BusinessRuleException.
+     */
     @Test
     @Rollback(true)
     @ExpectedException(BusinessRuleException.class)
@@ -71,6 +99,10 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         Assert.fail();
     }
 
+    /**
+     * Test whether an object can be created from a null DTO.
+     * Should result in a TranslatorException.
+     */
     @Test
     @ExpectedException(TranslatorException.class)
     public final void testTranslatorException() {
