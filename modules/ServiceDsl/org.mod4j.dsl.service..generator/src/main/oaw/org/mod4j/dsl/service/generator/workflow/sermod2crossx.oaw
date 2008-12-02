@@ -65,6 +65,7 @@
     </component>
     <component id="Service-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="ServiceDsl" />
+       <metaModel idRef="crossx"/>
         <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
