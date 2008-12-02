@@ -34,22 +34,6 @@
 
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
 		«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR "the" + javaDaoInterface(cls)»    
-«REM»		    private «javaDaoInterface(cls)» the«javaDaoInterface(cls)»;
-		    
-		    /**
-		     * @param object
-		     *            the «javaDaoInterface(cls)»to set
-		     */
-		    public void setThe«javaDaoInterface(cls)»(«javaDaoInterface(cls)» object) {
-		        this.the«javaDaoInterface(cls)» = object;
-		    }
-
-		    /**
-		     */
-		    public «javaDaoInterface(cls)» getThe«javaDaoInterface(cls)»() {
-		        return this.the«javaDaoInterface(cls)»;
-		    }
-«ENDREM»
 	«ENDFOREACH»
 
 
