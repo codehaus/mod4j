@@ -22,6 +22,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	     lastName;
 	     firstName;
  	     blackListed;
+ 	     username;
 	     sexe;
 	     references [
 	         OrderNumberAndDateList orders;
