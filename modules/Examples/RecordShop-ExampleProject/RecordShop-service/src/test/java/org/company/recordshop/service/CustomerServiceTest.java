@@ -44,8 +44,8 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         Assert.assertNull(foundCustomer.getSexe());
         Assert.assertTrue(foundCustomer.getOrders().isEmpty());
     }
-    @Test
 
+    @Test
     public final void testCreateIllegalCustomer() {
         
         SimpleCustomerDto customer = new SimpleCustomerDto();
