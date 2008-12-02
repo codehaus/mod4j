@@ -37,6 +37,7 @@
     </component>
     <component id="ServiceWorkflow-ModelChecks1" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="sm" />
+        <metaModel idRef="crossx" />
         <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
         <emfAllChildrenSlot value="serviceModel" />
     </component>

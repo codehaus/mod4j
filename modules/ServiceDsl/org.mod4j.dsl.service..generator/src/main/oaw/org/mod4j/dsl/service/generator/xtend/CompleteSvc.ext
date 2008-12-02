@@ -28,7 +28,7 @@ create SpecialMethod createMethod(CrudService crud) :
 create SpecialMethod readMethod(CrudService crud) :
    setDescription(crud.description + " [From crud service]")->
    setType(MethodType::READ)->
-   setName("read" + crud.dto.businessClass())->
+   setName("read" + crud.dto.businessClass() + "As" + crud.dto.name)->
    setDto(crud.dto)
    ;
    

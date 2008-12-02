@@ -48,6 +48,9 @@
 		«IF method.type == MethodType::CREATE»
 			«EXPAND CreateMethod FOR method»
 		«ENDIF»
+		«IF method.type == MethodType::READ»
+			«EXPAND ReadMethod FOR method»
+		«ENDIF»
 		«IF method.type == MethodType::UPDATE»
 			«EXPAND UpdateMethod FOR method»
 		«ENDIF»
@@ -55,8 +58,9 @@
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
+«REM»
 	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
-
+«ENDREM»
 	}
     «ENDFILE»
 «ENDDEFINE»

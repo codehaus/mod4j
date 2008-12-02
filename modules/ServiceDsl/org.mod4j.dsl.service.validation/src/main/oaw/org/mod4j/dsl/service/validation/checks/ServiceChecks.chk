@@ -1,4 +1,8 @@
 import ServiceDsl;
+import crossx;
+
+extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
+extension org::openarchitectureware::util::stdlib::elementprops;
 
 context DtoReference ERROR "The name of an imported element must be unique" :
     this.model.dtoReferences.forAll(e| (e != this) implies (e.name != this.name) );
@@ -13,3 +17,18 @@ context SpecialMethod ERROR "A "+ this.type + " method can only be defined once 
     this.model.methods.typeSelect(SpecialMethod).select(e|e.type == this.type).
         forAll(e|(e != this) implies (e.dto != this.dto))
 ;
+
+context SpecialMethod ERROR "The name of the read method ["+ this.name + "] is not unique" :
+    ( this.type == MethodType::READ ) implies (
+    this.model.methods.typeSelect(SpecialMethod).select(e|e.type == this.type).
+        forAll(e|(e != this) implies (e.name!= this.name))
+) ;
+
+context SpecialMethod ERROR this.getProperty("ERROR") :
+    ( this.type == MethodType::READ ) implies (
+    this.model.crudServices.
+        forAll(crud|
+            this.setProperty("ERROR", "The name of method ["+ this.name + "] is identical to the read method derived from the crud service for [" + crud.dto.name + "]")->
+            ("read" + businessClass( crud.dto) +  "As" + crud.dto.name)!= this.name
+        )
+) ;
