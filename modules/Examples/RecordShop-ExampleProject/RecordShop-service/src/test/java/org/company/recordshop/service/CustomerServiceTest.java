@@ -50,7 +50,7 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
     @Test
     @Rollback(true)
     @ExpectedException(BusinessRuleException.class)
-    public final void testBusinessRuleExceptionOnCustomer() {
+    public final void testBusinessRuleException() {
         
         SimpleCustomerDto customer = new SimpleCustomerDto();
         customer.setFirstName("Alfred");
@@ -68,6 +68,14 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         SimpleCustomerDto customer = new SimpleCustomerDto();
        
         SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer(customer);
+        Assert.fail();
+    }
+
+    @Test
+    @ExpectedException(TranslatorException.class)
+    public final void testTranslatorException() {
+        
+        SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer((SimpleCustomerDto)null);
         Assert.fail();
     }
 
