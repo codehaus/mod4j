@@ -90,7 +90,7 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         SimpleCustomerDto createdCustomer = CustomerServiceModelService.createCustomer(customer);
     }
 
-    @Test
+    // @Test
     public final void testCreateIllegalCustomer() {
         
         SimpleCustomerDto customer = new SimpleCustomerDto();
