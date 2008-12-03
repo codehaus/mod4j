@@ -19,12 +19,12 @@
 	import java.util.List;
 
 	«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»
-	import «getServiceRootPackage()».dto.«dto.name»;
+	    import «getServiceRootPackage()».dto.«dto.name»;
 	«ENDFOREACH»
 	«FOREACH this.dtoReferences.select(e|e.dtoType() == "ListDto") AS dto -»
-	«LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
-	import «getServiceRootPackage()».dto.«baseDtoName»;
-	«ENDLET»
+	    «LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
+	        import «getServiceRootPackage()».dto.«baseDtoName»;
+	    «ENDLET»
 	«ENDFOREACH»
 
 	/**
@@ -33,13 +33,11 @@
 	public interface «javaLocalServiceInterface(name)» {
 
 	«FOREACH this.methods.typeSelect(CustomMethod) AS method»
-		/** «method.description»
+		/** 
+		 * «method.description»
 	     * @params «method.inParameters.name»
 	     * @return «method.output.name»
 	     */
-«REM»
-	    public «(method == null) ? "void" : JavaType(method.output)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "»);
-«ENDREM»	    
 	«ENDFOREACH»	
 
 	«FOREACH this.methods.typeSelect(SpecialMethod) AS method»
@@ -56,9 +54,6 @@
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
-«REM»
-	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
-«ENDREM»
 	}
     «ENDFILE»
 «ENDDEFINE»
@@ -72,8 +67,7 @@
      * Create a new «this.dto.name».
      * «description»
      *
-     * @param object
-     *            the «this.dto.name» to create.
+     * @param object The «this.dto.name» to create.
      * @return the «this.dto.name» created, possibly modified during creation.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
@@ -84,8 +78,7 @@
      * Read an existing «this.dto.name».
      * «description»
      *
-     * @param object
-     *            the id of the «this.dto.name» to read.
+     * @param object The id of the «this.dto.name» to read.
      * @return 
      */
     public «JavaType(this.dto)» «this.name»(Long id);
@@ -96,8 +89,7 @@
      * Update an existing «this.dto.name».
      * «description»
      *
-     * @param object
-     *            the representation of the modified «this.dto.name».
+     * @param object The representation of the modified.«this.dto.name».
      * @return the «this.dto.name» updated, possibly modified during update.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
@@ -107,8 +99,7 @@
     /**
      * «description»
      *
-     * @param id
-     *            the id of the «this.dto.name» to delete.
+     * @param id  The id of the «this.dto.name» to delete.
      */
     public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
