@@ -79,6 +79,10 @@
         <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//DtoProperty/mandatoryForCreation"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_v7LwAaDbEd29lJwM9g-eLA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_trzaAcEqEd233_N1_FD4sA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//DtoProperty/nullable"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_trzaAsEqEd233_N1_FD4sA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_8v5lqYlFEd2el5Lm26_Lug"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_8v5lqolFEd2el5Lm26_Lug"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_8v5lq4lFEd2el5Lm26_Lug"/>

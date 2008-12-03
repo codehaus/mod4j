@@ -426,13 +426,22 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_PROPERTY__MANDATORY_FOR_CREATION = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY__NULLABLE = MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Dto Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DTO_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
+    int DTO_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
@@ -497,6 +506,15 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_PROPERTY_REFERENCE__MANDATORY_FOR_CREATION = DTO_PROPERTY__MANDATORY_FOR_CREATION;
+
+    /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_PROPERTY_REFERENCE__NULLABLE = DTO_PROPERTY__NULLABLE;
 
     /**
      * The feature id for the '<em><b>Referred Property</b></em>' reference.
@@ -581,6 +599,15 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION = DTO_PROPERTY__MANDATORY_FOR_CREATION;
 
     /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATA_PROPERTY__NULLABLE = DTO_PROPERTY__NULLABLE;
+
+    /**
      * The number of structural features of the '<em>Dto Data Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -654,6 +681,15 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_STRING_PROPERTY__MANDATORY_FOR_CREATION = DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION;
 
     /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_STRING_PROPERTY__NULLABLE = DTO_DATA_PROPERTY__NULLABLE;
+
+    /**
      * The number of structural features of the '<em>Dto String Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -725,6 +761,15 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_BOOLEAN_PROPERTY__MANDATORY_FOR_CREATION = DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION;
+
+    /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_BOOLEAN_PROPERTY__NULLABLE = DTO_DATA_PROPERTY__NULLABLE;
 
     /**
      * The number of structural features of the '<em>Dto Boolean Property</em>' class.
@@ -965,6 +1010,15 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_INTEGER_PROPERTY__MANDATORY_FOR_CREATION = DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION;
 
     /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_INTEGER_PROPERTY__NULLABLE = DTO_DATA_PROPERTY__NULLABLE;
+
+    /**
      * The number of structural features of the '<em>Dto Integer Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1038,6 +1092,15 @@ public interface DataContractDslPackage extends EPackage {
     int DTO_DECIMAL_PROPERTY__MANDATORY_FOR_CREATION = DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION;
 
     /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DECIMAL_PROPERTY__NULLABLE = DTO_DATA_PROPERTY__NULLABLE;
+
+    /**
      * The number of structural features of the '<em>Dto Decimal Property</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1109,6 +1172,15 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_ENUMERATION_PROPERTY__MANDATORY_FOR_CREATION = DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION;
+
+    /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ENUMERATION_PROPERTY__NULLABLE = DTO_DATA_PROPERTY__NULLABLE;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1191,6 +1263,15 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_DATE_TIME_PROPERTY__MANDATORY_FOR_CREATION = DTO_DATA_PROPERTY__MANDATORY_FOR_CREATION;
+
+    /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATE_TIME_PROPERTY__NULLABLE = DTO_DATA_PROPERTY__NULLABLE;
 
     /**
      * The number of structural features of the '<em>Dto Date Time Property</em>' class.
@@ -1365,6 +1446,15 @@ public interface DataContractDslPackage extends EPackage {
      * @ordered
      */
     int DTO_ASSOCIATION_ROLE_PROPERTY__MANDATORY_FOR_CREATION = DTO_PROPERTY__MANDATORY_FOR_CREATION;
+
+    /**
+     * The feature id for the '<em><b>Nullable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__NULLABLE = DTO_PROPERTY__NULLABLE;
 
     /**
      * The feature id for the '<em><b>Dto Type</b></em>' reference.
@@ -1654,6 +1744,17 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      */
     EAttribute getDtoProperty_MandatoryForCreation();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isNullable <em>Nullable</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Nullable</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty#isNullable()
+     * @see #getDtoProperty()
+     * @generated
+     */
+    EAttribute getDtoProperty_Nullable();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
@@ -2171,6 +2272,14 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
         EAttribute DTO_PROPERTY__MANDATORY_FOR_CREATION = eINSTANCE.getDtoProperty_MandatoryForCreation();
+
+        /**
+         * The meta object literal for the '<em><b>Nullable</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_PROPERTY__NULLABLE = eINSTANCE.getDtoProperty_Nullable();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
