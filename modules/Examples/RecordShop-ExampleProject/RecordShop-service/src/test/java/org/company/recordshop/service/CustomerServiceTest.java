@@ -1,11 +1,13 @@
 package org.company.recordshop.service;
 
 import static org.junit.Assert.fail;
-import org.junit.Assert;
 
+import org.company.recordshop.service.dto.FullCustomerDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
-import org.mod4j.runtime.exception.*;
+import org.junit.Assert;
 import org.junit.Test;
+import org.mod4j.runtime.exception.BusinessRuleException;
+import org.mod4j.runtime.exception.TranslatorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.annotation.Rollback;
@@ -100,9 +102,18 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         fail();
     }
 
-    //@Test
-    public final void testUpdateCustomer() {
-        fail("Not yet implemented"); // TODO
+    @Test
+    public final void testUpdateCustomerSucceed() {
+        
+        FullCustomerDto custDto = new FullCustomerDto();
+        custDto.setFirstName("Johan");
+        custDto.setLastName("Vogelzang");
+        custDto.setCustomerNr(54321);
+        //custDto.setNumberOfEars(2);
+        custDto.setDiscountPercentage(0);
+        customerServiceModelService.createCustomer(custDto);
+        custDto.setDiscountPercentage(100); // Wondering who wrote this test ;)
+        customerServiceModelService.updateCustomer(custDto);
     }
 
     //@Test
