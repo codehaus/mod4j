@@ -41,7 +41,8 @@
     </aop:config>
     «ENDFOREACH»
 
-    <tx:jta-transaction-manager>
+    <tx:jta-transaction-manager/>
+
     «FOREACH allServices AS service»
     <tx:advice id="txAdvice«service.name»Service"
         transaction-manager="transactionManager">
@@ -53,7 +54,6 @@
         </tx:attributes>
     </tx:advice>
     «ENDFOREACH»
-    </tx:jta-transaction-manager>
     
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
