@@ -119,9 +119,18 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         assertTrue("DiscountPercentage should be 100", result.getDiscountPercentage() == 100); 
     }
 
-    //@Test
+    @Test
     public final void testDeleteCustomer() {
-        fail("Not yet implemented"); // TODO
+
+        FullCustomerDto custDto = new FullCustomerDto();
+        custDto.setFirstName("Nasty");
+        custDto.setLastName("Customer");
+        custDto.setCustomerNr(666);
+
+        FullCustomerDto result = customerServiceModelService.createCustomer(custDto);
+        customerServiceModelService.deleteCustomer(result);
+        result = customerServiceModelService.readCustomerAsFullCustomerDto(result.getId());
+        assertTrue("result value should be null", result == null); 
     }
 
     //@Test
