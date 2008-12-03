@@ -8,8 +8,10 @@ import org.company.recordshop.domain.Order;
 import org.company.recordshop.service.dto.OrderNumberAndDateDto;
 import org.company.recordshop.service.dto.SexeEnumDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
+import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.TranslatorException;
+import org.springframework.test.annotation.ExpectedException;
 
 public class SimpleCustomerDtoTranslatorTest {
 
@@ -81,4 +83,18 @@ public class SimpleCustomerDtoTranslatorTest {
         }
     }
 
+    @Test
+    @ExpectedException(TranslatorException.class)
+    public void testFromDtoWithNullsFail(){
+        
+        SimpleCustomerDto custDto = new SimpleCustomerDto();
+        
+        try {
+            scTranslator.fromDto(custDto, null);
+            fail();
+        } catch (TranslatorException te) {
+            assertTrue("Translation of a dto with null values for non-nullable attributes should fail ", te.getMessage().contains(
+            "Can not translate dto to Customer when non-nullable attribute"));
+        }
+    }
 }

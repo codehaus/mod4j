@@ -69,6 +69,11 @@
                   if (source == null ) {
                       throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
                   }
+                  
+                  «FOREACH properties.select(e|e.mandatoryForCreation) AS nonNullableProp-»
+                      if (source.get«javaClassName(nonNullableProp.name)»() == null) throw new TranslatorException("Can not translate dto to «javaClassName(base.name)» when non-nullable attribute «nonNullableProp.name» is null.");
+                  «ENDFOREACH»
+                                    
                   «IF this.creatable -»
                       if (target == null) {
                           if (source.getId() > 0) {
