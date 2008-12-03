@@ -67,7 +67,8 @@
      * Create a new «this.dto.name».
      * «description»
      *
-     * @param object The «this.dto.name» to create.
+     * @param object 
+     *            The «this.dto.name» to create.
      * @return the «this.dto.name» created, possibly modified during creation.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
@@ -78,7 +79,8 @@
      * Read an existing «this.dto.name».
      * «description»
      *
-     * @param object The id of the «this.dto.name» to read.
+     * @param object 
+     *            The id of the «this.dto.name» to read.
      * @return 
      */
     public «JavaType(this.dto)» «this.name»(Long id);
@@ -89,7 +91,8 @@
      * Update an existing «this.dto.name».
      * «description»
      *
-     * @param object The representation of the modified.«this.dto.name».
+     * @param object 
+     *            The representation of the modified.«this.dto.name».
      * @return the «this.dto.name» updated, possibly modified during update.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
@@ -99,7 +102,8 @@
     /**
      * «description»
      *
-     * @param id  The id of the «this.dto.name» to delete.
+     * @param id
+     *            The id of the «this.dto.name» to delete.
      */
     public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
