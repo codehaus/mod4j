@@ -75,17 +75,17 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
      * Test whether an object can be created while one of his properties violates a constraint.
      * Should result in a BusinessRuleException.
      */
-    //@Test
+    @Test
     @ExpectedException(BusinessRuleException.class)
     public final void testBusinessRuleException() {
         
         SimpleCustomerDto customer = new SimpleCustomerDto();
         customer.setFirstName("Alfred");
         customer.setLastName("Sloan");
-        customer.setCustomerNr(12345);
+        customer.setCustomerNr(-1); //violates min = 0 constraint 
         
         customerServiceModelService.createCustomer(customer);
-        SimpleCustomerDto createdCustomer = customerServiceModelService.createCustomer(customer);
+        
     }
 
     /**
@@ -96,7 +96,7 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
     @ExpectedException(TranslatorException.class)
     public final void testTranslatorException() {
         
-        SimpleCustomerDto createdCustomer = customerServiceModelService.createCustomer((SimpleCustomerDto)null);
+        customerServiceModelService.createCustomer((SimpleCustomerDto)null);
         fail();
     }
 

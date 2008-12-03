@@ -75,13 +75,7 @@
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
         «javaDomainClass(dto.businessClass())» result = null;
-        try{ 
-	        result =
-	              the«javaDomainServiceInterface(model.name)».create«businessClass(this.dto)»( 
-	                                       the«javaTranslatorClass(dto.name)».fromDto(object, null));
-			} catch (TranslatorException e) {
-				e.printStackTrace();
-			}
+	        result = the«javaDomainServiceInterface(model.name)».create«businessClass(this.dto)»(the«javaTranslatorClass(dto.name)».fromDto(object, null));
         return the«javaTranslatorClass(dto.name)».toDto(result);
     }
 «ENDDEFINE»
@@ -111,14 +105,9 @@
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {
         «javaDomainClass(dto.businessClass())» result = null;
-        try{ 
             result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
-    
             result = the«javaTranslatorClass(dto.name)».fromDto(object, result);
             result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(result);
-		} catch (TranslatorException e) {
-			e.printStackTrace();
-		}
         return the«javaTranslatorClass(dto.name)».toDto(result);
     }
 «ENDDEFINE»
