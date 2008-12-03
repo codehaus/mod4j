@@ -143,7 +143,9 @@
 		                      result.addTo«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(element));
 		                  }
 		             «ELSE -» «REM»2One«ENDREM»
-		                 result.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(source.get«assRef.name.toFirstUpper()»()));
+		                 if( source.get«assRef.name.toFirstUpper()»() != null ) {
+		                     result.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(source.get«assRef.name.toFirstUpper()»()));
+		                 }
 		             «ENDIF -»
 		          «ENDFOREACH»
 		          translated.remove(source);
