@@ -59,7 +59,7 @@
     «FOREACH allServices AS service»
     <bean id="«service.name»Service"
         class="«javaLocalServiceClassPath(service.name)»">
-        <property name="the«javaDomainServiceInterface(name)»" ref="«javaDomainServiceInterface(service.name)»" />
+        <property name="the«javaDomainServiceInterface(service.name)»" ref="«javaDomainServiceInterface(service.name)»" />
     	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
         <property name="the«javaTranslatorClass(dto.name)»" ref="«javaTranslatorClass(dto.name)»" />
 	    «ENDFOREACH-»
