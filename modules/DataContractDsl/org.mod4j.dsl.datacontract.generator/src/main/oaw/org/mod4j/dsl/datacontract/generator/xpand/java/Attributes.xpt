@@ -77,7 +77,7 @@
 
 «DEFINE instanceVariable(String associationRolName) FOR BusinessClassDto»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    private «name.toFirstUpper()» «associationRolName» = new «name.toFirstUpper()»();
+    private «name.toFirstUpper()» «associationRolName» = null;
 «ENDDEFINE»
 
 
