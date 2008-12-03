@@ -1,5 +1,6 @@
 package org.company.recordshop.service;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
 
 import org.company.recordshop.service.dto.FullCustomerDto;
@@ -109,11 +110,13 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         custDto.setFirstName("Johan");
         custDto.setLastName("Vogelzang");
         custDto.setCustomerNr(54321);
-        //custDto.setNumberOfEars(2);
         custDto.setDiscountPercentage(0);
-        customerServiceModelService.createCustomer(custDto);
-        custDto.setDiscountPercentage(100); // Wondering who wrote this test ;)
-        customerServiceModelService.updateCustomer(custDto);
+
+        FullCustomerDto result = customerServiceModelService.createCustomer(custDto);
+        result.setDiscountPercentage(100); // Wondering who wrote this test ;)
+        customerServiceModelService.updateCustomer(result);
+        result = customerServiceModelService.readCustomerAsFullCustomerDto(result.getId());
+        assertTrue("DiscountPercentage should be 100", result.getDiscountPercentage() == 100); 
     }
 
     //@Test
