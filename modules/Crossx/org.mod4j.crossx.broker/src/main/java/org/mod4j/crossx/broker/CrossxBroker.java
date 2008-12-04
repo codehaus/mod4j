@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
+import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.crossx.mm.crossx.SymbolProperty;
 
@@ -31,6 +32,10 @@ public class CrossxBroker {
      * Private constructor, this class contains static members only.
      */
     private CrossxBroker() {
+    }
+    
+    public static Symbol lookupReference(ReferenceSymbolProperty ref){
+        return lookupSymbol(ref.getModelname(), ref.getSymbolname(), ref.getType());
     }
 
     /**

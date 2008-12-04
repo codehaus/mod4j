@@ -14,7 +14,9 @@ package org.mod4j.crossx.mm.crossx;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getReferredType <em>Referred Type</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getType <em>Type</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getModelname <em>Modelname</em>}</li>
+ *   <li>{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getSymbolname <em>Symbolname</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,29 +26,81 @@ package org.mod4j.crossx.mm.crossx;
  */
 public interface ReferenceSymbolProperty extends SymbolProperty {
     /**
-	 * Returns the value of the '<em><b>Referred Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Referred Type</em>' attribute isn't clear,
+     * If the meaning of the '<em>Type</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referred Type</em>' attribute.
-	 * @see #setReferredType(String)
-	 * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getReferenceSymbolProperty_ReferredType()
-	 * @model
-	 * @generated
-	 */
-    String getReferredType();
+     * @return the value of the '<em>Type</em>' attribute.
+     * @see #setType(String)
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getReferenceSymbolProperty_Type()
+     * @model
+     * @generated
+     */
+    String getType();
 
     /**
-	 * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getReferredType <em>Referred Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getType <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referred Type</em>' attribute.
-	 * @see #getReferredType()
-	 * @generated
-	 */
-    void setReferredType(String value);
+     * @param value the new value of the '<em>Type</em>' attribute.
+     * @see #getType()
+     * @generated
+     */
+    void setType(String value);
+
+    /**
+     * Returns the value of the '<em><b>Modelname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Modelname</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Modelname</em>' attribute.
+     * @see #setModelname(String)
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getReferenceSymbolProperty_Modelname()
+     * @model
+     * @generated
+     */
+    String getModelname();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getModelname <em>Modelname</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Modelname</em>' attribute.
+     * @see #getModelname()
+     * @generated
+     */
+    void setModelname(String value);
+
+    /**
+     * Returns the value of the '<em><b>Symbolname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Symbolname</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Symbolname</em>' attribute.
+     * @see #setSymbolname(String)
+     * @see org.mod4j.crossx.mm.crossx.CrossxPackage#getReferenceSymbolProperty_Symbolname()
+     * @model
+     * @generated
+     */
+    String getSymbolname();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty#getSymbolname <em>Symbolname</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Symbolname</em>' attribute.
+     * @see #getSymbolname()
+     * @generated
+     */
+    void setSymbolname(String value);
 
 } // ReferenceSymbolProperty

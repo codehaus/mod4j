@@ -40,185 +40,185 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
  */
 public class SymbolPropertyImpl extends EObjectImpl implements SymbolProperty {
     /**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
     protected static final String NAME_EDEFAULT = null;
 
     /**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
     protected String name = NAME_EDEFAULT;
 
     /**
-	 * The cached value of the '{@link #getSubProperties() <em>Sub Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getSubProperties() <em>Sub Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getSubProperties()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSubProperties()
+     * @generated
+     * @ordered
+     */
     protected EList<SymbolProperty> subProperties;
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     protected SymbolPropertyImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     protected EClass eStaticClass() {
-		return CrossxPackage.Literals.SYMBOL_PROPERTY;
-	}
+        return CrossxPackage.Literals.SYMBOL_PROPERTY;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL_PROPERTY__NAME, oldName, name));
-	}
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL_PROPERTY__NAME, oldName, name));
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public EList<SymbolProperty> getSubProperties() {
-		if (subProperties == null) {
-			subProperties = new EObjectContainmentEList<SymbolProperty>(SymbolProperty.class, this, CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES);
-		}
-		return subProperties;
-	}
+        if (subProperties == null) {
+            subProperties = new EObjectContainmentEList<SymbolProperty>(SymbolProperty.class, this, CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES);
+        }
+        return subProperties;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
-				return ((InternalEList<?>)getSubProperties()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
+                return ((InternalEList<?>)getSubProperties()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL_PROPERTY__NAME:
-				return getName();
-			case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
-				return getSubProperties();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL_PROPERTY__NAME:
+                return getName();
+            case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
+                return getSubProperties();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL_PROPERTY__NAME:
-				setName((String)newValue);
-				return;
-			case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
-				getSubProperties().clear();
-				getSubProperties().addAll((Collection<? extends SymbolProperty>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL_PROPERTY__NAME:
+                setName((String)newValue);
+                return;
+            case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
+                getSubProperties().clear();
+                getSubProperties().addAll((Collection<? extends SymbolProperty>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public void eUnset(int featureID) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL_PROPERTY__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
-				getSubProperties().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL_PROPERTY__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
+                getSubProperties().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL_PROPERTY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
-				return subProperties != null && !subProperties.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL_PROPERTY__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case CrossxPackage.SYMBOL_PROPERTY__SUB_PROPERTIES:
+                return subProperties != null && !subProperties.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (name: ");
+        result.append(name);
+        result.append(')');
+        return result.toString();
+    }
 
 } //SymbolPropertyImpl

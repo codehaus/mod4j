@@ -8,6 +8,7 @@ import BusinessDomainDsl;
 
 extension BusinessClass;
 extension org::mod4j::dslcommon::xtend::generatorutil;
+extension org::mod4j::crossx::broker::xtend::Crossx;
 
 create ModelInfo exportModel(BusinessDomainModel busModel, String modelFile) :
     print("MOD4J INFO: Running CrossX on file [" + modelFile + "]")->
@@ -57,6 +58,7 @@ crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
     result.setType("Association")->
     result.properties.add( multiplicityProperty(ass.targetMultiplicity) )->
     result.properties.add( newProperty("BusinessClass", ass.target.name))->
+    result.properties.add( newRefProperty("Target", ass.model.name, ass.target.name, "BusinessClass"))->
     result;
 
 crossx::Symbol fromSymbol(BusinessDomainDsl::Association ass) :
@@ -65,6 +67,7 @@ crossx::Symbol fromSymbol(BusinessDomainDsl::Association ass) :
     result.setType("Association")->
     result.properties.add( multiplicityProperty(ass.sourceMultiplicity) )->
     result.properties.add( newProperty("BusinessClass", ass.source.name))->
+    result.properties.add( newRefProperty("Target", ass.model.name, ass.source.name, "BusinessClass"))->
     result;
 
 LiteralSymbolProperty multiplicityProperty(BusinessDomainDsl::Multiplicity mult) :
@@ -109,12 +112,7 @@ crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::Property prop
 crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::EnumerationProperty prop) :
     newProperty("DataType", prop.type.name)  ;
     
-crossx::LiteralSymbolProperty newProperty(String name, String value) :
-    let result = new LiteralSymbolProperty :
-    result.setName(name)->
-    result.setValue(value)->
-    result
-    ;
+
 
 
     

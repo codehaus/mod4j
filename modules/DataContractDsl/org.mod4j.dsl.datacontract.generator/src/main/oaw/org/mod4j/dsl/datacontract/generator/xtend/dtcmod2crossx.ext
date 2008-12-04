@@ -6,6 +6,8 @@
 import crossx;
 import DataContractDsl;
 
+extension org::mod4j::crossx::broker::xtend::Crossx;
+
 create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
     this.setDslname("DataContractDsl")->
     this.setModelname(dtcModel.name)->
@@ -22,7 +24,7 @@ create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
     this.properties.add( newProperty(dto) ) 
-    ;
+    ; 
 
 create Symbol toElement(ListDto dto) :
     this.setName(dto.name) ->
@@ -36,7 +38,8 @@ create Symbol toElement(BusinessClassDto dto) :
     this.setType("Dto") ->
     this.properties.add( newProperty(dto) ) ->
     this.properties.add( businessClassProperty(dto) )->
-    this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))
+    this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))->
+    this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))
     ;
 
 create LiteralSymbolProperty newProperty(Dto dto) :
@@ -59,11 +62,5 @@ create LiteralSymbolProperty businessClassProperty(BusinessClassDto dto) :
     this.setValue(dto.base.name)
     ;
 
-crossx::LiteralSymbolProperty newProperty(String name, String value) :
-    let result = new LiteralSymbolProperty :
-    result.setName(name)->
-    result.setValue(value)->
-    result
-    ;
     
     

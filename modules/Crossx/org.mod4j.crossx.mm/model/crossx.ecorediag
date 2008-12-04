@@ -100,8 +100,16 @@
     <children xmi:type="notation:Node" xmi:id="_E-GGroJOEd2X6udZh8pc5w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_E-GGr4JOEd2X6udZh8pc5w" type="5001">
       <children xmi:type="notation:Node" xmi:id="_E-GGt4JOEd2X6udZh8pc5w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="crossx.ecore#//ReferenceSymbolProperty/referredType"/>
+        <element xmi:type="ecore:EAttribute" href="crossx.ecore#//ReferenceSymbolProperty/type"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_E-GGuIJOEd2X6udZh8pc5w"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Sv4kIMFAEd233_N1_FD4sA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="crossx.ecore#//ReferenceSymbolProperty/modelname"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Sv4kIcFAEd233_N1_FD4sA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_yw1bUMFEEd2DfJvg17OIVw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="crossx.ecore#//ReferenceSymbolProperty/symbolname"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_yw1bUcFEEd2DfJvg17OIVw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_E-GGsIJOEd2X6udZh8pc5w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_E-GGsYJOEd2X6udZh8pc5w"/>

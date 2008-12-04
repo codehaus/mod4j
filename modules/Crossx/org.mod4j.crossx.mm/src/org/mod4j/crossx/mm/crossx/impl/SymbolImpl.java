@@ -46,356 +46,356 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
  */
 public class SymbolImpl extends EObjectImpl implements Symbol {
     /**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
     protected static final String NAME_EDEFAULT = null;
 
     /**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
     protected String name = NAME_EDEFAULT;
 
     /**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
     protected static final String TYPE_EDEFAULT = null;
 
     /**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
     protected String type = TYPE_EDEFAULT;
 
     /**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
     protected EList<SymbolProperty> properties;
 
     /**
-	 * The cached value of the '{@link #getSubSymbols() <em>Sub Symbols</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getSubSymbols() <em>Sub Symbols</em>}' containment reference list.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @see #getSubSymbols()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSubSymbols()
+     * @generated
+     * @ordered
+     */
     protected EList<Symbol> subSymbols;
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     protected SymbolImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     protected EClass eStaticClass() {
-		return CrossxPackage.Literals.SYMBOL;
-	}
+        return CrossxPackage.Literals.SYMBOL;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__NAME, oldName, name));
-	}
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__NAME, oldName, name));
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public String getType() {
-		return type;
-	}
+        return type;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public void setType(String newType) {
-		String oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__TYPE, oldType, type));
-	}
+        String oldType = type;
+        type = newType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__TYPE, oldType, type));
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public EList<SymbolProperty> getProperties() {
-		if (properties == null) {
-			properties = new EObjectContainmentEList<SymbolProperty>(SymbolProperty.class, this, CrossxPackage.SYMBOL__PROPERTIES);
-		}
-		return properties;
-	}
+        if (properties == null) {
+            properties = new EObjectContainmentEList<SymbolProperty>(SymbolProperty.class, this, CrossxPackage.SYMBOL__PROPERTIES);
+        }
+        return properties;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public EList<Symbol> getSubSymbols() {
-		if (subSymbols == null) {
-			subSymbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, CrossxPackage.SYMBOL__SUB_SYMBOLS);
-		}
-		return subSymbols;
-	}
+        if (subSymbols == null) {
+            subSymbols = new EObjectContainmentEList<Symbol>(Symbol.class, this, CrossxPackage.SYMBOL__SUB_SYMBOLS);
+        }
+        return subSymbols;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public ModelInfo getOwner() {
-		if (eContainerFeatureID != CrossxPackage.SYMBOL__OWNER) return null;
-		return (ModelInfo)eContainer();
-	}
+        if (eContainerFeatureID != CrossxPackage.SYMBOL__OWNER) return null;
+        return (ModelInfo)eContainer();
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public NotificationChain basicSetOwner(ModelInfo newOwner, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newOwner, CrossxPackage.SYMBOL__OWNER, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newOwner, CrossxPackage.SYMBOL__OWNER, msgs);
+        return msgs;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public void setOwner(ModelInfo newOwner) {
-		if (newOwner != eInternalContainer() || (eContainerFeatureID != CrossxPackage.SYMBOL__OWNER && newOwner != null)) {
-			if (EcoreUtil.isAncestor(this, newOwner))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
-			msgs = basicSetOwner(newOwner, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__OWNER, newOwner, newOwner));
-	}
+        if (newOwner != eInternalContainer() || (eContainerFeatureID != CrossxPackage.SYMBOL__OWNER && newOwner != null)) {
+            if (EcoreUtil.isAncestor(this, newOwner))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newOwner != null)
+                msgs = ((InternalEObject)newOwner).eInverseAdd(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
+            msgs = basicSetOwner(newOwner, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, CrossxPackage.SYMBOL__OWNER, newOwner, newOwner));
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL__OWNER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetOwner((ModelInfo)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL__OWNER:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetOwner((ModelInfo)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-			case CrossxPackage.SYMBOL__SUB_SYMBOLS:
-				return ((InternalEList<?>)getSubSymbols()).basicRemove(otherEnd, msgs);
-			case CrossxPackage.SYMBOL__OWNER:
-				return basicSetOwner(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case CrossxPackage.SYMBOL__SUB_SYMBOLS:
+                return ((InternalEList<?>)getSubSymbols()).basicRemove(otherEnd, msgs);
+            case CrossxPackage.SYMBOL__OWNER:
+                return basicSetOwner(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case CrossxPackage.SYMBOL__OWNER:
-				return eInternalContainer().eInverseRemove(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID) {
+            case CrossxPackage.SYMBOL__OWNER:
+                return eInternalContainer().eInverseRemove(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL__NAME:
-				return getName();
-			case CrossxPackage.SYMBOL__TYPE:
-				return getType();
-			case CrossxPackage.SYMBOL__PROPERTIES:
-				return getProperties();
-			case CrossxPackage.SYMBOL__SUB_SYMBOLS:
-				return getSubSymbols();
-			case CrossxPackage.SYMBOL__OWNER:
-				return getOwner();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL__NAME:
+                return getName();
+            case CrossxPackage.SYMBOL__TYPE:
+                return getType();
+            case CrossxPackage.SYMBOL__PROPERTIES:
+                return getProperties();
+            case CrossxPackage.SYMBOL__SUB_SYMBOLS:
+                return getSubSymbols();
+            case CrossxPackage.SYMBOL__OWNER:
+                return getOwner();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL__NAME:
-				setName((String)newValue);
-				return;
-			case CrossxPackage.SYMBOL__TYPE:
-				setType((String)newValue);
-				return;
-			case CrossxPackage.SYMBOL__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends SymbolProperty>)newValue);
-				return;
-			case CrossxPackage.SYMBOL__SUB_SYMBOLS:
-				getSubSymbols().clear();
-				getSubSymbols().addAll((Collection<? extends Symbol>)newValue);
-				return;
-			case CrossxPackage.SYMBOL__OWNER:
-				setOwner((ModelInfo)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL__NAME:
+                setName((String)newValue);
+                return;
+            case CrossxPackage.SYMBOL__TYPE:
+                setType((String)newValue);
+                return;
+            case CrossxPackage.SYMBOL__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends SymbolProperty>)newValue);
+                return;
+            case CrossxPackage.SYMBOL__SUB_SYMBOLS:
+                getSubSymbols().clear();
+                getSubSymbols().addAll((Collection<? extends Symbol>)newValue);
+                return;
+            case CrossxPackage.SYMBOL__OWNER:
+                setOwner((ModelInfo)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public void eUnset(int featureID) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case CrossxPackage.SYMBOL__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
-			case CrossxPackage.SYMBOL__PROPERTIES:
-				getProperties().clear();
-				return;
-			case CrossxPackage.SYMBOL__SUB_SYMBOLS:
-				getSubSymbols().clear();
-				return;
-			case CrossxPackage.SYMBOL__OWNER:
-				setOwner((ModelInfo)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case CrossxPackage.SYMBOL__TYPE:
+                setType(TYPE_EDEFAULT);
+                return;
+            case CrossxPackage.SYMBOL__PROPERTIES:
+                getProperties().clear();
+                return;
+            case CrossxPackage.SYMBOL__SUB_SYMBOLS:
+                getSubSymbols().clear();
+                return;
+            case CrossxPackage.SYMBOL__OWNER:
+                setOwner((ModelInfo)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case CrossxPackage.SYMBOL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CrossxPackage.SYMBOL__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case CrossxPackage.SYMBOL__PROPERTIES:
-				return properties != null && !properties.isEmpty();
-			case CrossxPackage.SYMBOL__SUB_SYMBOLS:
-				return subSymbols != null && !subSymbols.isEmpty();
-			case CrossxPackage.SYMBOL__OWNER:
-				return getOwner() != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case CrossxPackage.SYMBOL__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case CrossxPackage.SYMBOL__TYPE:
+                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+            case CrossxPackage.SYMBOL__PROPERTIES:
+                return properties != null && !properties.isEmpty();
+            case CrossxPackage.SYMBOL__SUB_SYMBOLS:
+                return subSymbols != null && !subSymbols.isEmpty();
+            case CrossxPackage.SYMBOL__OWNER:
+                return getOwner() != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (name: ");
+        result.append(name);
+        result.append(", type: ");
+        result.append(type);
+        result.append(')');
+        return result.toString();
+    }
 
 } //SymbolImpl

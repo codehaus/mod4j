@@ -23,120 +23,120 @@ import org.mod4j.crossx.mm.crossx.*;
  */
 public class CrossxFactoryImpl extends EFactoryImpl implements CrossxFactory {
     /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public static CrossxFactory init() {
-		try {
-			CrossxFactory theCrossxFactory = (CrossxFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/mod4j.crossx"); 
-			if (theCrossxFactory != null) {
-				return theCrossxFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new CrossxFactoryImpl();
-	}
+        try {
+            CrossxFactory theCrossxFactory = (CrossxFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/mod4j.crossx"); 
+            if (theCrossxFactory != null) {
+                return theCrossxFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new CrossxFactoryImpl();
+    }
 
     /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public CrossxFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     @Override
     public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case CrossxPackage.MODEL_INFO: return createModelInfo();
-			case CrossxPackage.SYMBOL: return createSymbol();
-			case CrossxPackage.SYMBOL_PROPERTY: return createSymbolProperty();
-			case CrossxPackage.LITERAL_SYMBOL_PROPERTY: return createLiteralSymbolProperty();
-			case CrossxPackage.REFERENCE_SYMBOL_PROPERTY: return createReferenceSymbolProperty();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case CrossxPackage.MODEL_INFO: return createModelInfo();
+            case CrossxPackage.SYMBOL: return createSymbol();
+            case CrossxPackage.SYMBOL_PROPERTY: return createSymbolProperty();
+            case CrossxPackage.LITERAL_SYMBOL_PROPERTY: return createLiteralSymbolProperty();
+            case CrossxPackage.REFERENCE_SYMBOL_PROPERTY: return createReferenceSymbolProperty();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public ModelInfo createModelInfo() {
-		ModelInfoImpl modelInfo = new ModelInfoImpl();
-		return modelInfo;
-	}
+        ModelInfoImpl modelInfo = new ModelInfoImpl();
+        return modelInfo;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public Symbol createSymbol() {
-		SymbolImpl symbol = new SymbolImpl();
-		return symbol;
-	}
+        SymbolImpl symbol = new SymbolImpl();
+        return symbol;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public SymbolProperty createSymbolProperty() {
-		SymbolPropertyImpl symbolProperty = new SymbolPropertyImpl();
-		return symbolProperty;
-	}
+        SymbolPropertyImpl symbolProperty = new SymbolPropertyImpl();
+        return symbolProperty;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public LiteralSymbolProperty createLiteralSymbolProperty() {
-		LiteralSymbolPropertyImpl literalSymbolProperty = new LiteralSymbolPropertyImpl();
-		return literalSymbolProperty;
-	}
+        LiteralSymbolPropertyImpl literalSymbolProperty = new LiteralSymbolPropertyImpl();
+        return literalSymbolProperty;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public ReferenceSymbolProperty createReferenceSymbolProperty() {
-		ReferenceSymbolPropertyImpl referenceSymbolProperty = new ReferenceSymbolPropertyImpl();
-		return referenceSymbolProperty;
-	}
+        ReferenceSymbolPropertyImpl referenceSymbolProperty = new ReferenceSymbolPropertyImpl();
+        return referenceSymbolProperty;
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     public CrossxPackage getCrossxPackage() {
-		return (CrossxPackage)getEPackage();
-	}
+        return (CrossxPackage)getEPackage();
+    }
 
     /**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * @deprecated
+     * @generated
+     */
     @Deprecated
     public static CrossxPackage getPackage() {
-		return CrossxPackage.eINSTANCE;
-	}
+        return CrossxPackage.eINSTANCE;
+    }
 
 } //CrossxFactoryImpl

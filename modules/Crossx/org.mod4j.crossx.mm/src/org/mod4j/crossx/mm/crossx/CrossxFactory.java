@@ -17,65 +17,65 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface CrossxFactory extends EFactory {
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     CrossxFactory eINSTANCE = org.mod4j.crossx.mm.crossx.impl.CrossxFactoryImpl.init();
 
     /**
-	 * Returns a new object of class '<em>Model Info</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Model Info</em>'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model Info</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Model Info</em>'.
+     * @generated
+     */
     ModelInfo createModelInfo();
 
     /**
-	 * Returns a new object of class '<em>Symbol</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Symbol</em>'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Symbol</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Symbol</em>'.
+     * @generated
+     */
     Symbol createSymbol();
 
     /**
-	 * Returns a new object of class '<em>Symbol Property</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Symbol Property</em>'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Symbol Property</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Symbol Property</em>'.
+     * @generated
+     */
     SymbolProperty createSymbolProperty();
 
     /**
-	 * Returns a new object of class '<em>Literal Symbol Property</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Literal Symbol Property</em>'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Literal Symbol Property</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Literal Symbol Property</em>'.
+     * @generated
+     */
     LiteralSymbolProperty createLiteralSymbolProperty();
 
     /**
-	 * Returns a new object of class '<em>Reference Symbol Property</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Reference Symbol Property</em>'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reference Symbol Property</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Reference Symbol Property</em>'.
+     * @generated
+     */
     ReferenceSymbolProperty createReferenceSymbolProperty();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * @return the package supported by this factory.
+     * @generated
+     */
     CrossxPackage getCrossxPackage();
 
 } //CrossxFactory

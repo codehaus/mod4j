@@ -30,7 +30,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//LiteralSymbolProperty/value"/>
     </genClasses>
     <genClasses ecoreClass="crossx.ecore#//ReferenceSymbolProperty">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ReferenceSymbolProperty/referredType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ReferenceSymbolProperty/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ReferenceSymbolProperty/modelname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crossx.ecore#//ReferenceSymbolProperty/symbolname"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
