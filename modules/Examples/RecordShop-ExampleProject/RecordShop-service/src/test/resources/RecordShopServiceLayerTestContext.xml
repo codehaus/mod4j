@@ -63,6 +63,7 @@
         <property name="theOrderServiceModelDomainService" ref="OrderServiceModelDomainService"/>
         <property name="theOrderDtoTranslator" ref="OrderDtoTranslator"/>
         <property name="theSimpleCustomerDtoTranslator" ref="SimpleCustomerDtoTranslator"/>
+        <property name="theOrderNumberAndDateDtoTranslator" ref="OrderNumberAndDateDtoTranslator"/>
     </bean>
     
     <bean class="org.company.recordshop.service.CustomerServiceModelLocalServiceImpl" id="CustomerServiceModelService">
@@ -75,6 +76,8 @@
     <bean class="org.company.recordshop.service.dto.translators.OrderDtoTranslator" id="OrderDtoTranslator">
     </bean>
     <bean class="org.company.recordshop.service.dto.translators.SimpleCustomerDtoTranslator" id="SimpleCustomerDtoTranslator">
+    </bean>
+    <bean class="org.company.recordshop.service.dto.translators.OrderNumberAndDateDtoTranslator" id="OrderNumberAndDateDtoTranslator">
     </bean>
     <bean class="org.company.recordshop.service.dto.translators.FullCustomerDtoTranslator" id="FullCustomerDtoTranslator">
     </bean>
