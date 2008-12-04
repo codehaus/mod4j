@@ -98,6 +98,15 @@ public interface ServiceDslFactory extends EFactory {
     Parameter createParameter();
 
     /**
+     * Returns a new object of class '<em>Add To Method</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Add To Method</em>'.
+     * @generated
+     */
+    AddToMethod createAddToMethod();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,0 +1,107 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package org.mod4j.dsl.service.mm.ServiceDsl;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Add To Method</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getMain <em>Main</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getPart <em>Part</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getRolename <em>Rolename</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod()
+ * @model
+ * @generated
+ */
+public interface AddToMethod extends ServiceMethod {
+    /**
+     * Returns the value of the '<em><b>Main</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Main</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Main</em>' reference.
+     * @see #setMain(DtoReference)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod_Main()
+     * @model
+     * @generated
+     */
+    DtoReference getMain();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getMain <em>Main</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Main</em>' reference.
+     * @see #getMain()
+     * @generated
+     */
+    void setMain(DtoReference value);
+
+    /**
+     * Returns the value of the '<em><b>Part</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Part</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Part</em>' reference.
+     * @see #setPart(DtoReference)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod_Part()
+     * @model
+     * @generated
+     */
+    DtoReference getPart();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getPart <em>Part</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Part</em>' reference.
+     * @see #getPart()
+     * @generated
+     */
+    void setPart(DtoReference value);
+
+    /**
+     * Returns the value of the '<em><b>Rolename</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Rolename</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Rolename</em>' attribute.
+     * @see #setRolename(String)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod_Rolename()
+     * @model
+     * @generated
+     */
+    String getRolename();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getRolename <em>Rolename</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Rolename</em>' attribute.
+     * @see #getRolename()
+     * @generated
+     */
+    void setRolename(String value);
+
+} // AddToMethod

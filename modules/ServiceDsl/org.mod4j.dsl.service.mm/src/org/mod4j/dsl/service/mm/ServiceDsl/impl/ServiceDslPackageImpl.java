@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.CostomMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.CrudService;
 import org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod;
@@ -89,6 +90,13 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * @generated
      */
     private EClass parameterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass addToMethodEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -383,6 +391,42 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
     /**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAddToMethod() {
+        return addToMethodEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAddToMethod_Main() {
+        return (EReference)addToMethodEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAddToMethod_Part() {
+        return (EReference)addToMethodEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAddToMethod_Rolename() {
+        return (EAttribute)addToMethodEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -450,6 +494,11 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         createEReference(parameterEClass, PARAMETER__TYPE);
         createEReference(parameterEClass, PARAMETER__METHOD);
 
+        addToMethodEClass = createEClass(ADD_TO_METHOD);
+        createEReference(addToMethodEClass, ADD_TO_METHOD__MAIN);
+        createEReference(addToMethodEClass, ADD_TO_METHOD__PART);
+        createEAttribute(addToMethodEClass, ADD_TO_METHOD__ROLENAME);
+
         // Create enums
         methodTypeEEnum = createEEnum(METHOD_TYPE);
     }
@@ -489,6 +538,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         specialMethodEClass.getESuperTypes().add(this.getServiceMethod());
         serviceMethodEClass.getESuperTypes().add(this.getModelElement());
         parameterEClass.getESuperTypes().add(this.getModelElement());
+        addToMethodEClass.getESuperTypes().add(this.getServiceMethod());
 
         // Initialize classes and features; add operations and parameters
         initEClass(serviceModelEClass, ServiceModel.class, "ServiceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -522,6 +572,11 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getParameter_Type(), this.getDtoReference(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getParameter_Method(), this.getCustomMethod(), this.getCustomMethod_InParameters(), "method", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(addToMethodEClass, AddToMethod.class, "AddToMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getAddToMethod_Main(), this.getDtoReference(), null, "main", null, 0, 1, AddToMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAddToMethod_Part(), this.getDtoReference(), null, "part", null, 0, 1, AddToMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAddToMethod_Rolename(), ecorePackage.getEString(), "rolename", null, 0, 1, AddToMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(methodTypeEEnum, MethodType.class, "MethodType");

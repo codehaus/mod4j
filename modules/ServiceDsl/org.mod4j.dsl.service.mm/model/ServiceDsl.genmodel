@@ -47,5 +47,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//Parameter/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ServiceDsl.ecore#//Parameter/method"/>
     </genClasses>
+    <genClasses ecoreClass="ServiceDsl.ecore#//AddToMethod">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//AddToMethod/main"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//AddToMethod/part"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ServiceDsl.ecore#//AddToMethod/rolename"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

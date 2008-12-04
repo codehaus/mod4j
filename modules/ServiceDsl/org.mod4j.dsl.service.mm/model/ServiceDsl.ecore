@@ -52,4 +52,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//CustomMethod"
         eOpposite="#//CustomMethod/inParameters"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddToMethod" eSuperTypes="#//ServiceMethod">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//DtoReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//DtoReference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rolename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -519,6 +519,88 @@ public interface ServiceDslPackage extends EPackage {
     int PARAMETER_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl <em>Add To Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getAddToMethod()
+     * @generated
+     */
+    int ADD_TO_METHOD = 8;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__NAME = SERVICE_METHOD__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__DESCRIPTION = SERVICE_METHOD__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__TYPE = SERVICE_METHOD__TYPE;
+
+    /**
+     * The feature id for the '<em><b>Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__MODEL = SERVICE_METHOD__MODEL;
+
+    /**
+     * The feature id for the '<em><b>Main</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__MAIN = SERVICE_METHOD_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Part</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__PART = SERVICE_METHOD_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Rolename</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD__ROLENAME = SERVICE_METHOD_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Add To Method</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ADD_TO_METHOD_FEATURE_COUNT = SERVICE_METHOD_FEATURE_COUNT + 3;
+
+    /**
      * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.MethodType <em>Method Type</em>}' enum.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,7 +608,7 @@ public interface ServiceDslPackage extends EPackage {
      * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getMethodType()
      * @generated
      */
-	int METHOD_TYPE = 8;
+	int METHOD_TYPE = 9;
 
 
 	/**
@@ -786,6 +868,49 @@ public interface ServiceDslPackage extends EPackage {
     EReference getParameter_Method();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod <em>Add To Method</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Add To Method</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod
+     * @generated
+     */
+    EClass getAddToMethod();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getMain <em>Main</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Main</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getMain()
+     * @see #getAddToMethod()
+     * @generated
+     */
+    EReference getAddToMethod_Main();
+
+    /**
+     * Returns the meta object for the reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getPart <em>Part</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Part</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getPart()
+     * @see #getAddToMethod()
+     * @generated
+     */
+    EReference getAddToMethod_Part();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getRolename <em>Rolename</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Rolename</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getRolename()
+     * @see #getAddToMethod()
+     * @generated
+     */
+    EAttribute getAddToMethod_Rolename();
+
+    /**
      * Returns the meta object for enum '{@link org.mod4j.dsl.service.mm.ServiceDsl.MethodType <em>Method Type</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1024,6 +1149,40 @@ public interface ServiceDslPackage extends EPackage {
          * @generated
          */
         EReference PARAMETER__METHOD = eINSTANCE.getParameter_Method();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl <em>Add To Method</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl
+         * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getAddToMethod()
+         * @generated
+         */
+        EClass ADD_TO_METHOD = eINSTANCE.getAddToMethod();
+
+        /**
+         * The meta object literal for the '<em><b>Main</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ADD_TO_METHOD__MAIN = eINSTANCE.getAddToMethod_Main();
+
+        /**
+         * The meta object literal for the '<em><b>Part</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ADD_TO_METHOD__PART = eINSTANCE.getAddToMethod_Part();
+
+        /**
+         * The meta object literal for the '<em><b>Rolename</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ADD_TO_METHOD__ROLENAME = eINSTANCE.getAddToMethod_Rolename();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.MethodType <em>Method Type</em>}' enum.

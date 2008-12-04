@@ -104,6 +104,10 @@ public class ServiceDslAdapterFactory extends AdapterFactoryImpl {
                 return createParameterAdapter();
             }
             @Override
+            public Adapter caseAddToMethod(AddToMethod object) {
+                return createAddToMethodAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object) {
                 return createEObjectAdapter();
             }
@@ -232,6 +236,20 @@ public class ServiceDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createParameterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod <em>Add To Method</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod
+     * @generated
+     */
+    public Adapter createAddToMethodAdapter() {
         return null;
     }
 
