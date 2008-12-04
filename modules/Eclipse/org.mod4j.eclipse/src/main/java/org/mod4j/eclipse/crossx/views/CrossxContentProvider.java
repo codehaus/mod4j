@@ -9,6 +9,7 @@ import org.jdom.Element;
 import org.mod4j.crossx.broker.CrossxLocation;
 import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
+import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.crossx.mm.crossx.SymbolProperty;
 
@@ -31,14 +32,14 @@ public class CrossxContentProvider implements ITreeContentProvider {
             if (info.isEmpty()) {
                 return new Object[0];
             } else {
-                return info.toArray(); // Set<CossxLocation>
+                return info.toArray(); // Set<ModelInfo>
             }
         } else if (element instanceof ModelInfo) {
             ModelInfo info = (ModelInfo) element;
             if (info.getSymbols().isEmpty()) {
                 return new Object[0];
             } else {
-                return info.getSymbols().toArray(); // Set<CossxLocation>
+                return info.getSymbols().toArray(); // Set<Symbol>
             }
         } else if (element instanceof Symbol) {
             Symbol sym = (Symbol) element;
@@ -56,6 +57,8 @@ public class CrossxContentProvider implements ITreeContentProvider {
             }
 
         } else if (element instanceof LiteralSymbolProperty) {
+            return new Object[0];
+        } else if (element instanceof ReferenceSymbolProperty) {
             return new Object[0];
         }
         return new Object[0];

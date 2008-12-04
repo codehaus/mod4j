@@ -61,6 +61,7 @@ public class CrossxLabelProvider extends LabelProvider {
                         display = display + ", ";
                     }
                     display = display + p.getName() + " = " + p.getValue() ;
+                } else if( prop instanceof ReferenceSymbolProperty ){
                 }
             }
             if( ! sym.getProperties().isEmpty()){
@@ -72,7 +73,7 @@ public class CrossxLabelProvider extends LabelProvider {
             return sym.getValue() + " : " + sym.getName();
         } else if (element instanceof ReferenceSymbolProperty) {
             ReferenceSymbolProperty sym = (ReferenceSymbolProperty) element;
-            return "Reference to " + sym.getName() + " : " + sym.getReferredType();
+            return sym.getName() + " => " + sym.getType() + " : "+  sym.getModelname() + "::" + sym.getSymbolname();
         }
         return element.toString();
     }
