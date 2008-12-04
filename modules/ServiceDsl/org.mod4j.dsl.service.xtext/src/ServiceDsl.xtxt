@@ -24,9 +24,13 @@ DtoReference:
 
 ServiceMethod :
 	(description=STRING )?
-    (CustomMethod | SpecialMethod)
+    (CustomMethod | SpecialMethod | AddToMethod)
     ;
-         	
+
+AddToMethod:
+    "add" part=[DtoReference] "to" rolename=ID "of" main=[DtoReference]
+    ;
+    	
 CustomMethod:
 	"method"
 	name=ID
