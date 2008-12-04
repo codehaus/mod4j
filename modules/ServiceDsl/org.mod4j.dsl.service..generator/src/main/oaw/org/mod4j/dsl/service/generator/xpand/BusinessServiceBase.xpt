@@ -43,6 +43,7 @@
 	«EXPAND  UpdateMethod FOREACH this.uniqueMethods(MethodType::UPDATE) »
 	«EXPAND  DeleteMethod FOREACH this.uniqueMethods(MethodType::DELETE) »
 
+    «EXPAND Associations FOR this»
 	}
     «ENDFILE»
 «ENDDEFINE»
@@ -90,4 +91,10 @@
      *            the id of the «javaDomainClass(dto.businessClass())» to delete.
      */
     public void delete«dto.businessClass()»(«javaDomainClass(dto.businessClass())» object);
+«ENDDEFINE»
+
+«DEFINE Associations FOR ServiceModel»
+	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
+	public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
+	«ENDFOREACH»
 «ENDDEFINE»

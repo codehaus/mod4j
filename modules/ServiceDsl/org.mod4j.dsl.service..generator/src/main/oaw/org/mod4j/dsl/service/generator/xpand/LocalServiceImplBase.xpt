@@ -62,6 +62,7 @@
 «REM»
 	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
 «ENDREM»
+	«EXPAND Associations FOR this»
 	}
     «ENDFILE»
 «ENDDEFINE»
@@ -127,4 +128,19 @@
         }
 	    the«javaDomainServiceInterface(model.name)».delete«businessClass(this.dto)»(existing);
     }
+«ENDDEFINE»
+
+«DEFINE Associations FOR ServiceModel»
+	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
+	public void addTo«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
+		«method.part.businessClass()» partBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
+		if(partBusinessObject == null) { return ; }
+
+		«method.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
+		if(mainBusinessObject  == null) { return ; }
+
+		the«javaDomainServiceInterface(this.name)».addTo«method.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		return ;
+	}
+	«ENDFOREACH»
 «ENDDEFINE»

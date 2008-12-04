@@ -54,6 +54,8 @@
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
+
+	«EXPAND Associations FOR  this»
 	}
     «ENDFILE»
 «ENDDEFINE»
@@ -107,3 +109,10 @@
      */
     public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
+
+«DEFINE Associations FOR ServiceModel»
+	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
+	public void addTo«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
+	«ENDFOREACH»
+«ENDDEFINE»
+

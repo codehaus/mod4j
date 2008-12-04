@@ -42,6 +42,7 @@
 	«EXPAND  UpdateMethod FOREACH this.uniqueMethods(MethodType::UPDATE) »
 	«EXPAND  DeleteMethod FOREACH this.uniqueMethods(MethodType::DELETE) »
 
+    «EXPAND  Associations FOR this»
 	}
     «ENDFILE»
 
@@ -100,3 +101,12 @@
         ».delete(object);
     }
 «ENDDEFINE»
+
+«DEFINE Associations FOR ServiceModel»
+	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
+	public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
+		whole.addTo«method.rolename.toFirstUpper()»(part);
+	}
+	«ENDFOREACH»
+«ENDDEFINE»
+
