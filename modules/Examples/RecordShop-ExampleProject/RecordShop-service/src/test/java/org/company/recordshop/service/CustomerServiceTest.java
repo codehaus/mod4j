@@ -9,7 +9,7 @@ import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
-import org.mod4j.runtime.exception.ServiceException;
+//import org.mod4j.runtime.exception.ServiceException;
 import org.mod4j.runtime.exception.TranslatorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
@@ -83,7 +83,8 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         SimpleCustomerDto customer = new SimpleCustomerDto();
         customer.setFirstName("Alfred");
         customer.setLastName("Sloan");
-        customer.setCustomerNr(-1); // violates min = 0 constraint
+        customer.setCustomerNr(-1);
+        customer.setUsername("a"); // violates minlength = 3 constraint
 
         customerServiceModelService.createCustomer(customer);
     }
@@ -149,12 +150,12 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         assertTrue("result value should be null", result == null);
     }
 
-    @Test
-    @ExpectedException(ServiceException.class)
-    public final void testDeleteCustomerFail() {
-
-        FullCustomerDto zombieDto = new FullCustomerDto();
-        customerServiceModelService.deleteCustomer(zombieDto);
-    }
+//    @Test
+//    @ExpectedException(ServiceException.class)
+//    public final void testDeleteCustomerFail() {
+//
+//        FullCustomerDto zombieDto = new FullCustomerDto();
+//        customerServiceModelService.deleteCustomer(zombieDto);
+//    }
 
 }
