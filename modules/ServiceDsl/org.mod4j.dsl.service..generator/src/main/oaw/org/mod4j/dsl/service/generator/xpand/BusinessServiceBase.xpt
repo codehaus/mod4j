@@ -96,5 +96,7 @@
 «DEFINE Associations FOR ServiceModel»
 	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
 	public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
+
+	public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
 	«ENDFOREACH»
 «ENDDEFINE»

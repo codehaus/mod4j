@@ -104,9 +104,18 @@
 
 «DEFINE Associations FOR ServiceModel»
 	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
+«REM»The addTo method«ENDREM»	
 	public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
 		whole.addTo«method.rolename.toFirstUpper()»(part);
 	}
+	
+«REM»The removefrom method«ENDREM»	
+	public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
+		whole.removeFrom«method.rolename.toFirstUpper()»(part);
+		the«javaDaoInterface(method.main.businessClass())».update(whole);
+		the«javaDaoInterface(method.part.businessClass())».update(part);
+	}
+	
 	«ENDFOREACH»
 «ENDDEFINE»
 
