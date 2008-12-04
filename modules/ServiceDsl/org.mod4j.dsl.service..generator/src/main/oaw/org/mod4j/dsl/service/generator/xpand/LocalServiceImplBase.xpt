@@ -20,6 +20,7 @@
 
 	import java.util.List;
 	import org.mod4j.runtime.exception.TranslatorException;
+	import org.mod4j.runtime.exception.ServiceException;
 
 	import «javaDomainServiceInterfacePath(name)»;
 
@@ -100,7 +101,7 @@
      * Update an existing «this.dto.name».
      * 
      * @param object
-     *            the representation of the modified «this.dto.name».
+     *            The representation of the modified «this.dto.name».
      * @return the «this.dto.name» updated, possibly modified during update.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {
@@ -114,11 +115,16 @@
 
 «DEFINE DeleteMethod FOR SpecialMethod»
     /**
-     * @param id
-     *            the id of the «this.dto.name» to delete.
+     * @param object
+     *            The «this.dto.name» object to delete.
      */
     public void «this.name»(«JavaType(this.dto)» object){
-	        «javaDomainClass(dto.businessClass())» existing = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
-	        the«javaDomainServiceInterface(model.name)».delete«businessClass(this.dto)»(existing);
+		
+		if (object == null) throw new ServiceException("Could not delete «this.dto.name» based on a null «JavaType(this.dto)»");
+		«javaDomainClass(dto.businessClass())» existing = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+		if (existing == null) {
+            throw new ServiceException("Could not delete «this.dto.name» because it does not exist.");
+        }
+	    the«javaDomainServiceInterface(model.name)».delete«businessClass(this.dto)»(existing);
     }
 «ENDDEFINE»
