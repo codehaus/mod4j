@@ -13,8 +13,24 @@ ServiceModel:
 	)*
 	;
 
-Enum MethodType:
+Enum SpecialMethodType [MethodType]:
      CREATE="create"  | READ="read" | UPDATE="update" | DELETE="delete" 
+     ;
+
+Enum AssociationMethodType [MethodType] :
+     ADDTO="add" | REMOVEFROM="remove" | GETFROM="get"
+     ;
+
+Enum AssociationToMethodType [MethodType] :
+     ADDTO="add" 
+     ;
+
+Enum AssociationFromMethodType [MethodType] :
+     REMOVEFROM="remove" 
+     ;
+
+Enum AssociationGetMethodType [MethodType] :
+     GETFROM="get" 
      ;
 
 DtoReference:
@@ -24,12 +40,29 @@ DtoReference:
 
 ServiceMethod :
 	(description=STRING )?
-    (CustomMethod | SpecialMethod | AddToMethod)
+    (CustomMethod | SpecialMethod | AssociationMethod )
     ;
 
-AddToMethod:
-    "add" part=[DtoReference] "to" rolename=ID "of" main=[DtoReference]
-    ;
+AssociationMethod :
+    type=AssociationMethodType
+    part=[DtoReference] "for" rolename=ID "of" main=[DtoReference]
+	;
+	
+//AssociationToMethod [AssociationMethod] :
+//    type=AssociationMethodType
+//    part=[DtoReference] "to" rolename=ID "of" main=[DtoReference]
+//    ;
+
+
+//AssociationFromMethod [AssociationMethod] :
+//    type=AssociationFromMethodType
+//    part=[DtoReference] "from" rolename=ID "of" main=[DtoReference]
+//    ;
+    	
+//AssociationGetMethod [AssociationMethod] :
+//    type=AssociationGetMethodType
+//    part=[DtoReference] "from" rolename=ID "of" main=[DtoReference]
+//    ;
     	
 CustomMethod:
 	"method"
@@ -44,7 +77,7 @@ Parameter:
     ;
     
 SpecialMethod:
-    type=MethodType
+    type=SpecialMethodType
     name=ID
     "for" dto = [DtoReference]
     ";"

@@ -25,7 +25,7 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  * @generated
  */
 public interface DtoReference extends ModelElement {
-	/**
+    /**
      * Returns the value of the '<em><b>Modelname</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>

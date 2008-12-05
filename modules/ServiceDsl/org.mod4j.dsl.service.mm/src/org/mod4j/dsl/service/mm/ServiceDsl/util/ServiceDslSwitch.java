@@ -27,45 +27,45 @@ import org.mod4j.dsl.service.mm.ServiceDsl.*;
  * @generated
  */
 public class ServiceDslSwitch<T> {
-	/**
+    /**
      * The cached model package
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected static ServiceDslPackage modelPackage;
+    protected static ServiceDslPackage modelPackage;
 
-	/**
+    /**
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ServiceDslSwitch() {
+    public ServiceDslSwitch() {
         if (modelPackage == null) {
             modelPackage = ServiceDslPackage.eINSTANCE;
         }
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	public T doSwitch(EObject theEObject) {
+    public T doSwitch(EObject theEObject) {
         return doSwitch(theEObject.eClass(), theEObject);
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
+    protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
             return doSwitch(theEClass.getClassifierID(), theEObject);
         }
@@ -78,14 +78,14 @@ public class ServiceDslSwitch<T> {
         }
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	protected T doSwitch(int classifierID, EObject theEObject) {
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
             case ServiceDslPackage.SERVICE_MODEL: {
                 ServiceModel serviceModel = (ServiceModel)theEObject;
@@ -144,11 +144,11 @@ public class ServiceDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case ServiceDslPackage.ADD_TO_METHOD: {
-                AddToMethod addToMethod = (AddToMethod)theEObject;
-                T result = caseAddToMethod(addToMethod);
-                if (result == null) result = caseServiceMethod(addToMethod);
-                if (result == null) result = caseModelElement(addToMethod);
+            case ServiceDslPackage.ASSOCIATION_METHOD: {
+                AssociationMethod associationMethod = (AssociationMethod)theEObject;
+                T result = caseAssociationMethod(associationMethod);
+                if (result == null) result = caseServiceMethod(associationMethod);
+                if (result == null) result = caseModelElement(associationMethod);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -156,112 +156,112 @@ public class ServiceDslSwitch<T> {
         }
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Service Model</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Service Model</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseServiceModel(ServiceModel object) {
+    public T caseServiceModel(ServiceModel object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseModelElement(ModelElement object) {
+    public T caseModelElement(ModelElement object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Dto Reference</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Dto Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseDtoReference(DtoReference object) {
+    public T caseDtoReference(DtoReference object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Custom Method</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Custom Method</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseCustomMethod(CustomMethod object) {
+    public T caseCustomMethod(CustomMethod object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Crud Service</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Crud Service</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseCrudService(CrudService object) {
+    public T caseCrudService(CrudService object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Special Method</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Special Method</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseSpecialMethod(SpecialMethod object) {
+    public T caseSpecialMethod(SpecialMethod object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Service Method</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Service Method</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseServiceMethod(ServiceMethod object) {
+    public T caseServiceMethod(ServiceMethod object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -277,32 +277,32 @@ public class ServiceDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Add To Method</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Association Method</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Add To Method</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Association Method</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAddToMethod(AddToMethod object) {
+    public T caseAssociationMethod(AssociationMethod object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch, but this is the last case anyway.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-	public T defaultCase(EObject object) {
+    public T defaultCase(EObject object) {
         return null;
     }
 

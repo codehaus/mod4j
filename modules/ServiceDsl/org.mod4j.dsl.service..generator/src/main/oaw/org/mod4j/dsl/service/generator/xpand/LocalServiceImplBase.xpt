@@ -131,30 +131,34 @@
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
-	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
-«REM»The addTo method«ENDREM»
-	public void addTo«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
-		if( (part == null) || (whole == null) ) { return; }
-		«method.part.businessClass()» partBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
-		if(partBusinessObject == null) { return ; }
-
-		«method.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
-		if(mainBusinessObject  == null) { return ; }
-
-		the«javaDomainServiceInterface(this.name)».addTo«method.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
-		return ;
-	}
+	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
+		«REM»The addTo method«ENDREM»
+		«IF method.type == MethodType::ADDTO»
+		public void addTo«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
+			if( (part == null) || (whole == null) ) { return; }
+			«method.part.businessClass()» partBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
+			if(partBusinessObject == null) { return ; }
 	
-«REM»And the removeFrom method«ENDREM»
-	public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
-		if( (part == null) || (whole == null) ) { return; }
-		«method.part.businessClass()» partObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
-		if(partObject == null) { return ; }
-		«method.main.businessClass()» wholeObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
-		if(wholeObject == null) { return ; }
-		
-		the«javaDomainServiceInterface(this.name)».removeFrom«method.rolename.toFirstUpper()»(partObject, wholeObject);
-	}
+			«method.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
+			if(mainBusinessObject  == null) { return ; }
+	
+			the«javaDomainServiceInterface(this.name)».addTo«method.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+			return ;
+		}
+		«ENDIF»
+	
+		«REM»And the removeFrom method«ENDREM»
+		«IF method.type == MethodType::REMOVEFROM»
+		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
+			if( (part == null) || (whole == null) ) { return; }
+			«method.part.businessClass()» partObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
+			if(partObject == null) { return ; }
+			«method.main.businessClass()» wholeObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
+			if(wholeObject == null) { return ; }
+			
+			the«javaDomainServiceInterface(this.name)».removeFrom«method.rolename.toFirstUpper()»(partObject, wholeObject);
+		}
+		«ENDIF»
 	«ENDFOREACH»
 «ENDDEFINE»
 

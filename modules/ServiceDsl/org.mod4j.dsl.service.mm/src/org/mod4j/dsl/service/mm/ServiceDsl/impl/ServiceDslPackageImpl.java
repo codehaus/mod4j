@@ -14,8 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod;
-import org.mod4j.dsl.service.mm.ServiceDsl.CostomMethod;
+import org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.CrudService;
 import org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
@@ -35,56 +34,56 @@ import org.mod4j.dsl.service.mm.ServiceDsl.SpecialMethod;
  * @generated
  */
 public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPackage {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass serviceModelEClass = null;
+    private EClass serviceModelEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass modelElementEClass = null;
+    private EClass modelElementEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass dtoReferenceEClass = null;
+    private EClass dtoReferenceEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass customMethodEClass = null;
+    private EClass customMethodEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass crudServiceEClass = null;
+    private EClass crudServiceEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass specialMethodEClass = null;
+    private EClass specialMethodEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass serviceMethodEClass = null;
+    private EClass serviceMethodEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -96,16 +95,16 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass addToMethodEClass = null;
+    private EClass associationMethodEClass = null;
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EEnum methodTypeEEnum = null;
+    private EEnum methodTypeEEnum = null;
 
-	/**
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -114,24 +113,24 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * initialization of the package, or returns the registered package,
      * if one already exists.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#eNS_URI
      * @see #init()
      * @generated
      */
-	private ServiceDslPackageImpl() {
+    private ServiceDslPackageImpl() {
         super(eNS_URI, ServiceDslFactory.eINSTANCE);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private static boolean isInited = false;
+    private static boolean isInited = false;
 
-	/**
+    /**
      * Creates, registers, and initializes the <b>Package</b> for this
      * model, and for any others upon which it depends.  Simple
      * dependencies are satisfied by calling this method on all
@@ -147,13 +146,13 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <p>Invocation of this method will not affect any packages that have
      * already been initialized.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
      * @generated
      */
-	public static ServiceDslPackage init() {
+    public static ServiceDslPackage init() {
         if (isInited) return (ServiceDslPackage)EPackage.Registry.INSTANCE.getEPackage(ServiceDslPackage.eNS_URI);
 
         // Obtain or create and register package
@@ -173,79 +172,79 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         return theServiceDslPackage;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getServiceModel() {
+    public EClass getServiceModel() {
         return serviceModelEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getServiceModel_Methods() {
+    public EReference getServiceModel_Methods() {
         return (EReference)serviceModelEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getServiceModel_DtoReferences() {
+    public EReference getServiceModel_DtoReferences() {
         return (EReference)serviceModelEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getServiceModel_CrudServices() {
+    public EReference getServiceModel_CrudServices() {
         return (EReference)serviceModelEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getModelElement() {
+    public EClass getModelElement() {
         return modelElementEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getModelElement_Name() {
+    public EAttribute getModelElement_Name() {
         return (EAttribute)modelElementEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getModelElement_Description() {
+    public EAttribute getModelElement_Description() {
         return (EAttribute)modelElementEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getDtoReference() {
+    public EClass getDtoReference() {
         return dtoReferenceEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -265,23 +264,23 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getCustomMethod() {
+    public EClass getCustomMethod() {
         return customMethodEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getCustomMethod_Output() {
+    public EReference getCustomMethod_Output() {
         return (EReference)customMethodEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -292,23 +291,23 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getCrudService() {
+    public EClass getCrudService() {
         return crudServiceEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getCrudService_Dto() {
+    public EReference getCrudService_Dto() {
         return (EReference)crudServiceEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -319,41 +318,41 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getSpecialMethod() {
+    public EClass getSpecialMethod() {
         return specialMethodEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getSpecialMethod_Dto() {
+    public EReference getSpecialMethod_Dto() {
         return (EReference)specialMethodEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getServiceMethod() {
+    public EClass getServiceMethod() {
         return serviceMethodEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getServiceMethod_Type() {
+    public EAttribute getServiceMethod_Type() {
         return (EAttribute)serviceMethodEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -394,8 +393,8 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getAddToMethod() {
-        return addToMethodEClass;
+    public EClass getAssociationMethod() {
+        return associationMethodEClass;
     }
 
     /**
@@ -403,8 +402,8 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAddToMethod_Main() {
-        return (EReference)addToMethodEClass.getEStructuralFeatures().get(0);
+    public EReference getAssociationMethod_Main() {
+        return (EReference)associationMethodEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -412,8 +411,8 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getAddToMethod_Part() {
-        return (EReference)addToMethodEClass.getEStructuralFeatures().get(1);
+    public EReference getAssociationMethod_Part() {
+        return (EReference)associationMethodEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -421,43 +420,43 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getAddToMethod_Rolename() {
-        return (EAttribute)addToMethodEClass.getEStructuralFeatures().get(2);
+    public EAttribute getAssociationMethod_Rolename() {
+        return (EAttribute)associationMethodEClass.getEStructuralFeatures().get(2);
     }
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EEnum getMethodType() {
+    public EEnum getMethodType() {
         return methodTypeEEnum;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ServiceDslFactory getServiceDslFactory() {
+    public ServiceDslFactory getServiceDslFactory() {
         return (ServiceDslFactory)getEFactoryInstance();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private boolean isCreated = false;
+    private boolean isCreated = false;
 
-	/**
+    /**
      * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void createPackageContents() {
+    public void createPackageContents() {
         if (isCreated) return;
         isCreated = true;
 
@@ -494,30 +493,30 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         createEReference(parameterEClass, PARAMETER__TYPE);
         createEReference(parameterEClass, PARAMETER__METHOD);
 
-        addToMethodEClass = createEClass(ADD_TO_METHOD);
-        createEReference(addToMethodEClass, ADD_TO_METHOD__MAIN);
-        createEReference(addToMethodEClass, ADD_TO_METHOD__PART);
-        createEAttribute(addToMethodEClass, ADD_TO_METHOD__ROLENAME);
+        associationMethodEClass = createEClass(ASSOCIATION_METHOD);
+        createEReference(associationMethodEClass, ASSOCIATION_METHOD__MAIN);
+        createEReference(associationMethodEClass, ASSOCIATION_METHOD__PART);
+        createEAttribute(associationMethodEClass, ASSOCIATION_METHOD__ROLENAME);
 
         // Create enums
         methodTypeEEnum = createEEnum(METHOD_TYPE);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private boolean isInitialized = false;
+    private boolean isInitialized = false;
 
-	/**
+    /**
      * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void initializePackageContents() {
+    public void initializePackageContents() {
         if (isInitialized) return;
         isInitialized = true;
 
@@ -538,7 +537,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         specialMethodEClass.getESuperTypes().add(this.getServiceMethod());
         serviceMethodEClass.getESuperTypes().add(this.getModelElement());
         parameterEClass.getESuperTypes().add(this.getModelElement());
-        addToMethodEClass.getESuperTypes().add(this.getServiceMethod());
+        associationMethodEClass.getESuperTypes().add(this.getServiceMethod());
 
         // Initialize classes and features; add operations and parameters
         initEClass(serviceModelEClass, ServiceModel.class, "ServiceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -573,10 +572,10 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         initEReference(getParameter_Type(), this.getDtoReference(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getParameter_Method(), this.getCustomMethod(), this.getCustomMethod_InParameters(), "method", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(addToMethodEClass, AddToMethod.class, "AddToMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAddToMethod_Main(), this.getDtoReference(), null, "main", null, 0, 1, AddToMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getAddToMethod_Part(), this.getDtoReference(), null, "part", null, 0, 1, AddToMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getAddToMethod_Rolename(), ecorePackage.getEString(), "rolename", null, 0, 1, AddToMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(associationMethodEClass, AssociationMethod.class, "AssociationMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getAssociationMethod_Main(), this.getDtoReference(), null, "main", null, 0, 1, AssociationMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getAssociationMethod_Part(), this.getDtoReference(), null, "part", null, 0, 1, AssociationMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAssociationMethod_Rolename(), ecorePackage.getEString(), "rolename", null, 0, 1, AssociationMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(methodTypeEEnum, MethodType.class, "MethodType");
@@ -586,6 +585,9 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         addEEnumLiteral(methodTypeEEnum, MethodType.DELETE);
         addEEnumLiteral(methodTypeEEnum, MethodType.FIND);
         addEEnumLiteral(methodTypeEEnum, MethodType.CUSTOM);
+        addEEnumLiteral(methodTypeEEnum, MethodType.ADDTO);
+        addEEnumLiteral(methodTypeEEnum, MethodType.REMOVEFROM);
+        addEEnumLiteral(methodTypeEEnum, MethodType.GETFROM);
 
         // Create resource
         createResource(eNS_URI);

@@ -24,13 +24,13 @@ import org.mod4j.dsl.service.mm.ServiceDsl.*;
  * @generated
  */
 public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFactory {
-	/**
+    /**
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public static ServiceDslFactory init() {
+    public static ServiceDslFactory init() {
         try {
             ServiceDslFactory theServiceDslFactory = (ServiceDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/service"); 
             if (theServiceDslFactory != null) {
@@ -43,23 +43,23 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
         return new ServiceDslFactoryImpl();
     }
 
-	/**
+    /**
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ServiceDslFactoryImpl() {
+    public ServiceDslFactoryImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public EObject create(EClass eClass) {
+    @Override
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case ServiceDslPackage.SERVICE_MODEL: return createServiceModel();
             case ServiceDslPackage.MODEL_ELEMENT: return createModelElement();
@@ -69,19 +69,19 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
             case ServiceDslPackage.SPECIAL_METHOD: return createSpecialMethod();
             case ServiceDslPackage.SERVICE_METHOD: return createServiceMethod();
             case ServiceDslPackage.PARAMETER: return createParameter();
-            case ServiceDslPackage.ADD_TO_METHOD: return createAddToMethod();
+            case ServiceDslPackage.ASSOCIATION_METHOD: return createAssociationMethod();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
+    @Override
+    public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
             case ServiceDslPackage.METHOD_TYPE:
                 return createMethodTypeFromString(eDataType, initialValue);
@@ -90,13 +90,13 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
         }
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
+    @Override
+    public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
             case ServiceDslPackage.METHOD_TYPE:
                 return convertMethodTypeToString(eDataType, instanceValue);
@@ -105,77 +105,77 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
         }
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ServiceModel createServiceModel() {
+    public ServiceModel createServiceModel() {
         ServiceModelImpl serviceModel = new ServiceModelImpl();
         return serviceModel;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ModelElement createModelElement() {
+    public ModelElement createModelElement() {
         ModelElementImpl modelElement = new ModelElementImpl();
         return modelElement;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DtoReference createDtoReference() {
+    public DtoReference createDtoReference() {
         DtoReferenceImpl dtoReference = new DtoReferenceImpl();
         return dtoReference;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public CustomMethod createCustomMethod() {
+    public CustomMethod createCustomMethod() {
         CustomMethodImpl customMethod = new CustomMethodImpl();
         return customMethod;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public CrudService createCrudService() {
+    public CrudService createCrudService() {
         CrudServiceImpl crudService = new CrudServiceImpl();
         return crudService;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public SpecialMethod createSpecialMethod() {
+    public SpecialMethod createSpecialMethod() {
         SpecialMethodImpl specialMethod = new SpecialMethodImpl();
         return specialMethod;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ServiceMethod createServiceMethod() {
+    public ServiceMethod createServiceMethod() {
         ServiceMethodImpl serviceMethod = new ServiceMethodImpl();
         return serviceMethod;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -190,48 +190,48 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public AddToMethod createAddToMethod() {
-        AddToMethodImpl addToMethod = new AddToMethodImpl();
-        return addToMethod;
+    public AssociationMethod createAssociationMethod() {
+        AssociationMethodImpl associationMethod = new AssociationMethodImpl();
+        return associationMethod;
     }
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public MethodType createMethodTypeFromString(EDataType eDataType, String initialValue) {
+    public MethodType createMethodTypeFromString(EDataType eDataType, String initialValue) {
         MethodType result = MethodType.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String convertMethodTypeToString(EDataType eDataType, Object instanceValue) {
+    public String convertMethodTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ServiceDslPackage getServiceDslPackage() {
+    public ServiceDslPackage getServiceDslPackage() {
         return (ServiceDslPackage)getEPackage();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @deprecated
      * @generated
      */
-	@Deprecated
-	public static ServiceDslPackage getPackage() {
+    @Deprecated
+    public static ServiceDslPackage getPackage() {
         return ServiceDslPackage.eINSTANCE;
     }
 

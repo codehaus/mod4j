@@ -9,23 +9,23 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Add To Method</b></em>'.
+ * A representation of the model object '<em><b>Association Method</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getMain <em>Main</em>}</li>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getPart <em>Part</em>}</li>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getRolename <em>Rolename</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod#getMain <em>Main</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod#getPart <em>Part</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod#getRolename <em>Rolename</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod()
+ * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAssociationMethod()
  * @model
  * @generated
  */
-public interface AddToMethod extends ServiceMethod {
+public interface AssociationMethod extends ServiceMethod {
     /**
      * Returns the value of the '<em><b>Main</b></em>' reference.
      * <!-- begin-user-doc -->
@@ -36,14 +36,14 @@ public interface AddToMethod extends ServiceMethod {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Main</em>' reference.
      * @see #setMain(DtoReference)
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod_Main()
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAssociationMethod_Main()
      * @model
      * @generated
      */
     DtoReference getMain();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getMain <em>Main</em>}' reference.
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod#getMain <em>Main</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Main</em>' reference.
@@ -62,14 +62,14 @@ public interface AddToMethod extends ServiceMethod {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Part</em>' reference.
      * @see #setPart(DtoReference)
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod_Part()
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAssociationMethod_Part()
      * @model
      * @generated
      */
     DtoReference getPart();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getPart <em>Part</em>}' reference.
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod#getPart <em>Part</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Part</em>' reference.
@@ -88,14 +88,14 @@ public interface AddToMethod extends ServiceMethod {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Rolename</em>' attribute.
      * @see #setRolename(String)
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAddToMethod_Rolename()
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getAssociationMethod_Rolename()
      * @model
      * @generated
      */
     String getRolename();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod#getRolename <em>Rolename</em>}' attribute.
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod#getRolename <em>Rolename</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Rolename</em>' attribute.
@@ -104,4 +104,4 @@ public interface AddToMethod extends ServiceMethod {
      */
     void setRolename(String value);
 
-} // AddToMethod
+} // AssociationMethod

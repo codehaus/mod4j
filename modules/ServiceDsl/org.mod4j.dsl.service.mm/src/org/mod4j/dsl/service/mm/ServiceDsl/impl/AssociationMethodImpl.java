@@ -13,26 +13,26 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.mod4j.dsl.service.mm.ServiceDsl.AddToMethod;
+import org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
 import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Add To Method</b></em>'.
+ * An implementation of the model object '<em><b>Association Method</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl#getMain <em>Main</em>}</li>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl#getPart <em>Part</em>}</li>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AddToMethodImpl#getRolename <em>Rolename</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AssociationMethodImpl#getMain <em>Main</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AssociationMethodImpl#getPart <em>Part</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AssociationMethodImpl#getRolename <em>Rolename</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
+public class AssociationMethodImpl extends ServiceMethodImpl implements AssociationMethod {
     /**
      * The cached value of the '{@link #getMain() <em>Main</em>}' reference.
      * <!-- begin-user-doc -->
@@ -78,7 +78,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected AddToMethodImpl() {
+    protected AssociationMethodImpl() {
         super();
     }
 
@@ -89,7 +89,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
      */
     @Override
     protected EClass eStaticClass() {
-        return ServiceDslPackage.Literals.ADD_TO_METHOD;
+        return ServiceDslPackage.Literals.ASSOCIATION_METHOD;
     }
 
     /**
@@ -103,7 +103,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
             main = (DtoReference)eResolveProxy(oldMain);
             if (main != oldMain) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.ADD_TO_METHOD__MAIN, oldMain, main));
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.ASSOCIATION_METHOD__MAIN, oldMain, main));
             }
         }
         return main;
@@ -127,7 +127,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
         DtoReference oldMain = main;
         main = newMain;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.ADD_TO_METHOD__MAIN, oldMain, main));
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.ASSOCIATION_METHOD__MAIN, oldMain, main));
     }
 
     /**
@@ -141,7 +141,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
             part = (DtoReference)eResolveProxy(oldPart);
             if (part != oldPart) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.ADD_TO_METHOD__PART, oldPart, part));
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.ASSOCIATION_METHOD__PART, oldPart, part));
             }
         }
         return part;
@@ -165,7 +165,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
         DtoReference oldPart = part;
         part = newPart;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.ADD_TO_METHOD__PART, oldPart, part));
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.ASSOCIATION_METHOD__PART, oldPart, part));
     }
 
     /**
@@ -186,7 +186,7 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
         String oldRolename = rolename;
         rolename = newRolename;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.ADD_TO_METHOD__ROLENAME, oldRolename, rolename));
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.ASSOCIATION_METHOD__ROLENAME, oldRolename, rolename));
     }
 
     /**
@@ -197,13 +197,13 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ServiceDslPackage.ADD_TO_METHOD__MAIN:
+            case ServiceDslPackage.ASSOCIATION_METHOD__MAIN:
                 if (resolve) return getMain();
                 return basicGetMain();
-            case ServiceDslPackage.ADD_TO_METHOD__PART:
+            case ServiceDslPackage.ASSOCIATION_METHOD__PART:
                 if (resolve) return getPart();
                 return basicGetPart();
-            case ServiceDslPackage.ADD_TO_METHOD__ROLENAME:
+            case ServiceDslPackage.ASSOCIATION_METHOD__ROLENAME:
                 return getRolename();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -217,13 +217,13 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ServiceDslPackage.ADD_TO_METHOD__MAIN:
+            case ServiceDslPackage.ASSOCIATION_METHOD__MAIN:
                 setMain((DtoReference)newValue);
                 return;
-            case ServiceDslPackage.ADD_TO_METHOD__PART:
+            case ServiceDslPackage.ASSOCIATION_METHOD__PART:
                 setPart((DtoReference)newValue);
                 return;
-            case ServiceDslPackage.ADD_TO_METHOD__ROLENAME:
+            case ServiceDslPackage.ASSOCIATION_METHOD__ROLENAME:
                 setRolename((String)newValue);
                 return;
         }
@@ -238,13 +238,13 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ServiceDslPackage.ADD_TO_METHOD__MAIN:
+            case ServiceDslPackage.ASSOCIATION_METHOD__MAIN:
                 setMain((DtoReference)null);
                 return;
-            case ServiceDslPackage.ADD_TO_METHOD__PART:
+            case ServiceDslPackage.ASSOCIATION_METHOD__PART:
                 setPart((DtoReference)null);
                 return;
-            case ServiceDslPackage.ADD_TO_METHOD__ROLENAME:
+            case ServiceDslPackage.ASSOCIATION_METHOD__ROLENAME:
                 setRolename(ROLENAME_EDEFAULT);
                 return;
         }
@@ -259,11 +259,11 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ServiceDslPackage.ADD_TO_METHOD__MAIN:
+            case ServiceDslPackage.ASSOCIATION_METHOD__MAIN:
                 return main != null;
-            case ServiceDslPackage.ADD_TO_METHOD__PART:
+            case ServiceDslPackage.ASSOCIATION_METHOD__PART:
                 return part != null;
-            case ServiceDslPackage.ADD_TO_METHOD__ROLENAME:
+            case ServiceDslPackage.ASSOCIATION_METHOD__ROLENAME:
                 return ROLENAME_EDEFAULT == null ? rolename != null : !ROLENAME_EDEFAULT.equals(rolename);
         }
         return super.eIsSet(featureID);
@@ -285,4 +285,4 @@ public class AddToMethodImpl extends ServiceMethodImpl implements AddToMethod {
         return result.toString();
     }
 
-} //AddToMethodImpl
+} //AssociationMethodImpl

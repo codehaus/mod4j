@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.dsl.service.mm.ServiceDsl.CrudService;
@@ -41,92 +40,92 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceModel;
  * @generated
  */
 public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
-	/**
+    /**
      * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getMethods()
      * @generated
      * @ordered
      */
-	protected EList<ServiceMethod> methods;
+    protected EList<ServiceMethod> methods;
 
-	/**
+    /**
      * The cached value of the '{@link #getDtoReferences() <em>Dto References</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDtoReferences()
      * @generated
      * @ordered
      */
-	protected EList<DtoReference> dtoReferences;
+    protected EList<DtoReference> dtoReferences;
 
-	/**
+    /**
      * The cached value of the '{@link #getCrudServices() <em>Crud Services</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getCrudServices()
      * @generated
      * @ordered
      */
-	protected EList<CrudService> crudServices;
+    protected EList<CrudService> crudServices;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ServiceModelImpl() {
+    protected ServiceModelImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return ServiceDslPackage.Literals.SERVICE_MODEL;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<ServiceMethod> getMethods() {
+    public EList<ServiceMethod> getMethods() {
         if (methods == null) {
             methods = new EObjectContainmentWithInverseEList<ServiceMethod>(ServiceMethod.class, this, ServiceDslPackage.SERVICE_MODEL__METHODS, ServiceDslPackage.SERVICE_METHOD__MODEL);
         }
         return methods;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<DtoReference> getDtoReferences() {
+    public EList<DtoReference> getDtoReferences() {
         if (dtoReferences == null) {
             dtoReferences = new EObjectContainmentWithInverseEList<DtoReference>(DtoReference.class, this, ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES, ServiceDslPackage.DTO_REFERENCE__MODEL);
         }
         return dtoReferences;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<CrudService> getCrudServices() {
+    public EList<CrudService> getCrudServices() {
         if (crudServices == null) {
             crudServices = new EObjectContainmentWithInverseEList<CrudService>(CrudService.class, this, ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES, ServiceDslPackage.CRUD_SERVICE__MODEL);
         }
         return crudServices;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -147,11 +146,11 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case ServiceDslPackage.SERVICE_MODEL__METHODS:
                 return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
@@ -163,13 +162,13 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case ServiceDslPackage.SERVICE_MODEL__METHODS:
                 return getMethods();
@@ -181,14 +180,14 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case ServiceDslPackage.SERVICE_MODEL__METHODS:
                 getMethods().clear();
@@ -206,13 +205,13 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case ServiceDslPackage.SERVICE_MODEL__METHODS:
                 getMethods().clear();
@@ -227,13 +226,13 @@ public class ServiceModelImpl extends ModelElementImpl implements ServiceModel {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case ServiceDslPackage.SERVICE_MODEL__METHODS:
                 return methods != null && !methods.isEmpty();

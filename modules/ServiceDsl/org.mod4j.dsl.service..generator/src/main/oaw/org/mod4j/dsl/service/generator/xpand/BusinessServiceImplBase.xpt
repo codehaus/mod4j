@@ -103,18 +103,22 @@
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
-	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
-«REM»The addTo method«ENDREM»	
-	public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
-		whole.addTo«method.rolename.toFirstUpper()»(part);
-	}
+	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
+		«REM»The addTo method«ENDREM»	
+		«IF method.type == MethodType::ADDTO»
+		public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
+			whole.addTo«method.rolename.toFirstUpper()»(part);
+		}
+		«ENDIF»
 	
-«REM»The removefrom method«ENDREM»	
-	public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
-		whole.removeFrom«method.rolename.toFirstUpper()»(part);
-		the«javaDaoInterface(method.main.businessClass())».update(whole);
-		the«javaDaoInterface(method.part.businessClass())».update(part);
-	}
+		«REM»The removefrom method«ENDREM»	
+		«IF method.type == MethodType::REMOVEFROM»
+		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
+			whole.removeFrom«method.rolename.toFirstUpper()»(part);
+			the«javaDaoInterface(method.main.businessClass())».update(whole);
+			the«javaDaoInterface(method.part.businessClass())».update(part);
+		}
+		«ENDIF»
 	
 	«ENDFOREACH»
 «ENDDEFINE»

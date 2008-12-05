@@ -31,41 +31,41 @@ import org.mod4j.dsl.service.mm.ServiceDsl.SpecialMethod;
  * @generated
  */
 public class SpecialMethodImpl extends ServiceMethodImpl implements SpecialMethod {
-	/**
+    /**
      * The cached value of the '{@link #getDto() <em>Dto</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDto()
      * @generated
      * @ordered
      */
-	protected DtoReference dto;
+    protected DtoReference dto;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected SpecialMethodImpl() {
+    protected SpecialMethodImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return ServiceDslPackage.Literals.SPECIAL_METHOD;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DtoReference getDto() {
+    public DtoReference getDto() {
         if (dto != null && dto.eIsProxy()) {
             InternalEObject oldDto = (InternalEObject)dto;
             dto = (DtoReference)eResolveProxy(oldDto);
@@ -77,34 +77,34 @@ public class SpecialMethodImpl extends ServiceMethodImpl implements SpecialMetho
         return dto;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DtoReference basicGetDto() {
+    public DtoReference basicGetDto() {
         return dto;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setDto(DtoReference newDto) {
+    public void setDto(DtoReference newDto) {
         DtoReference oldDto = dto;
         dto = newDto;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.SPECIAL_METHOD__DTO, oldDto, dto));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case ServiceDslPackage.SPECIAL_METHOD__DTO:
                 if (resolve) return getDto();
@@ -113,13 +113,13 @@ public class SpecialMethodImpl extends ServiceMethodImpl implements SpecialMetho
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case ServiceDslPackage.SPECIAL_METHOD__DTO:
                 setDto((DtoReference)newValue);
@@ -128,13 +128,13 @@ public class SpecialMethodImpl extends ServiceMethodImpl implements SpecialMetho
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case ServiceDslPackage.SPECIAL_METHOD__DTO:
                 setDto((DtoReference)null);
@@ -143,13 +143,13 @@ public class SpecialMethodImpl extends ServiceMethodImpl implements SpecialMetho
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case ServiceDslPackage.SPECIAL_METHOD__DTO:
                 return dto != null;

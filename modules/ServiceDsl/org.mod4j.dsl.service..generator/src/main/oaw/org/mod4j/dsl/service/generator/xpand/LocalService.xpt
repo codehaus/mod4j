@@ -111,10 +111,14 @@
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
-	«FOREACH this.methods.typeSelect(AddToMethod) AS method»
-	public void addTo«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
-	
-	public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
+	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
+		«IF method.type == MethodType::ADDTO»
+		public void addTo«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
+		«ENDIF»
+		
+		«IF method.type == MethodType::REMOVEFROM»
+		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
+		«ENDIF»
 	
 	«ENDFOREACH»
 «ENDDEFINE»

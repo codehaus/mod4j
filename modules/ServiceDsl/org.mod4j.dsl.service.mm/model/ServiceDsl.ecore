@@ -32,6 +32,9 @@
     <eLiterals name="DELETE" value="3"/>
     <eLiterals name="FIND" value="4"/>
     <eLiterals name="CUSTOM" value="5"/>
+    <eLiterals name="ADDTO" value="6"/>
+    <eLiterals name="REMOVEFROM" value="7"/>
+    <eLiterals name="GETFROM" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrudService" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>
@@ -52,7 +55,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//CustomMethod"
         eOpposite="#//CustomMethod/inParameters"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AddToMethod" eSuperTypes="#//ServiceMethod">
+  <eClassifiers xsi:type="ecore:EClass" name="AssociationMethod" eSuperTypes="#//ServiceMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rolename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

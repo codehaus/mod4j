@@ -8,7 +8,6 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Custom Method</b></em>'.
@@ -27,31 +26,31 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface CustomMethod extends ServiceMethod {
-	/**
+    /**
      * Returns the value of the '<em><b>Output</b></em>' reference.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Output</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Output</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Output</em>' reference.
      * @see #setOutput(DtoReference)
      * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCustomMethod_Output()
      * @model
      * @generated
      */
-	DtoReference getOutput();
+    DtoReference getOutput();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput <em>Output</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Output</em>' reference.
      * @see #getOutput()
      * @generated
      */
-	void setOutput(DtoReference value);
+    void setOutput(DtoReference value);
 
     /**
      * Returns the value of the '<em><b>In Parameters</b></em>' containment reference list.
