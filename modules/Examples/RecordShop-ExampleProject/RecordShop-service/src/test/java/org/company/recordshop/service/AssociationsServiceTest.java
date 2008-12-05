@@ -15,61 +15,69 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-@ContextConfiguration(locations = {"/RecordShopDataLaagContext.xml",
-                                   "/RecordShopDataLaagTestContext.xml",
-                                   "/RecordShopBusinessLayerContextImplBase.xml",
-                                   "/RecordShopServiceLayerTestContext.xml",
-                                   "/Mod4jCommonContext.xml"})
-@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
+@ContextConfiguration(locations = { "/RecordShopDataLaagContext.xml",
+		"/RecordShopDataLaagTestContext.xml",
+		"/RecordShopBusinessLayerContextImplBase.xml",
+		"/RecordShopServiceLayerTestContext.xml", "/Mod4jCommonContext.xml" })
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
+public class AssociationsServiceTest extends
+		AbstractTransactionalJUnit4SpringContextTests {
 
-public class AssociationsServiceTest extends AbstractTransactionalJUnit4SpringContextTests {
+	@Autowired
+	CustomerServiceModelLocalService customerServiceModelService;
 
-    @Autowired
-    CustomerServiceModelLocalService customerServiceModelService;
+	@Autowired
+	OrderServiceModelLocalService orderServiceModelService;
 
-    @Autowired
-    OrderServiceModelLocalService orderServiceModelService;
-        
-    SimpleCustomerDto createdCustomer = null;
-    OrderDto createdOrder  = null;
-    
-    public void setup() {
-        SimpleCustomerDto customer = new SimpleCustomerDto();
-        customer.setFirstName("Alfred");
-        customer.setLastName("Sloan");
-        customer.setCustomerNr(12345);
-        createdCustomer = customerServiceModelService.createCustomer(customer);
+	SimpleCustomerDto createdCustomer = null;
+	OrderDto createdOrder = null;
 
-        OrderDto order = new OrderDto();
-        order.setOrderNumber("ISO 001");
-        order.setDiscountPercentage(50);
-        createdOrder = orderServiceModelService.createOrder(order);
-    }
-    
-    public void tearDown() {
-    	createdCustomer = null;
-    	createdOrder = null;
-    }
+	public void setup() {
+		SimpleCustomerDto customer = new SimpleCustomerDto();
+		customer.setFirstName("Alfred");
+		customer.setLastName("Sloan");
+		customer.setCustomerNr(12345);
+		createdCustomer = customerServiceModelService.createCustomer(customer);
 
-    @Test
-    public final void testAddOrder() {
-    	setup();
+		OrderDto order = new OrderDto();
+		order.setOrderNumber("ISO 001");
+		order.setDiscountPercentage(50);
+		createdOrder = orderServiceModelService.createOrder(order);
+	}
 
-    	Long id = createdOrder.getId();
-        customerServiceModelService.addToOrders(createdOrder, createdCustomer);
+	public void tearDown() {
+		createdCustomer = null;
+		createdOrder = null;
+	}
 
-        OrderNumberAndDateDto o = orderServiceModelService.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
-        SimpleCustomerDto orderCustomer = o.getCustomer();
-        Assert.assertEquals( o.getCustomer().getId(), createdCustomer.getId());
-        Assert.assertTrue( o.getCustomer().getOrders().size() == 1);
-        tearDown();
-    }        
-//        OrderDto newOrder = orderServiceModelService.readOrderAsOrderDto(id);
-//        customerServiceModelService.removeFromOrders(newOrder, orderCustomer);
-//
-//        OrderNumberAndDateDto o2 = orderServiceModelService.readOrderAsOrderNumberAndDateDto(id);
-//        SimpleCustomerDto orderCustomer2 = o2.getCustomer();
-//        System.err.println("orderCustomer2 [" + orderCustomer2 + "]");
-//        Assert.assertEquals( orderCustomer2, null);
+	@Test
+	public final void testAddOrder() {
+		setup();
+
+		Long id = createdOrder.getId();
+		customerServiceModelService.addToOrders(createdOrder, createdCustomer);
+
+		OrderNumberAndDateDto o = orderServiceModelService
+				.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
+		SimpleCustomerDto orderCustomer = o.getCustomer();
+		Assert.assertEquals(o.getCustomer().getId(), createdCustomer.getId());
+		Assert.assertTrue(o.getCustomer().getOrders().size() == 1);
+		tearDown();
+	}
+
+	@Test
+	public final void testRemoveOrder() {
+		setup();
+
+		customerServiceModelService.addToOrders(createdOrder, createdCustomer);
+		OrderDto newOrder = orderServiceModelService.readOrderAsOrderDto(createdOrder.getId());
+		customerServiceModelService.removeFromOrders(newOrder, createdCustomer);
+
+		OrderNumberAndDateDto o2 = orderServiceModelService
+				.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
+		SimpleCustomerDto orderCustomer2 = o2.getCustomer();
+		System.err.println("orderCustomer2 [" + orderCustomer2 + "]");
+		Assert.assertEquals(orderCustomer2, null);
+	}
 
 }
