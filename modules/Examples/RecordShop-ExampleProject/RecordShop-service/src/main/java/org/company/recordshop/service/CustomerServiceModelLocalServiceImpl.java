@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.company.recordshop.business.CustomerServiceModelDomainService;
 import org.company.recordshop.service.CustomerServiceModelLocalServiceImplBase;
+import org.company.recordshop.service.dto.OrderDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.company.recordshop.service.dto.UniqueCustomerDto;
 import org.company.recordshop.service.dto.StringDto;
@@ -44,5 +45,10 @@ public class CustomerServiceModelLocalServiceImpl
 		return null;
 
 	}
+
+    public OrderDto addToOrders(OrderDto order, SimpleCustomerDto customer) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

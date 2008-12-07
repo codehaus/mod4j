@@ -9,7 +9,7 @@ import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
-//import org.mod4j.runtime.exception.ServiceException;
+import org.mod4j.runtime.exception.ServiceException;
 import org.mod4j.runtime.exception.TranslatorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
@@ -130,9 +130,12 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         assertTrue("DiscountPercentage should be 100", result.getDiscountPercentage() == 100);
     }
     
-    //TODO @Test
+    @Test
+    @ExpectedException(ServiceException.class)
     public final void testUpdateCustomerFail() {
         
+        FullCustomerDto custDto = new FullCustomerDto();
+        customerServiceModelService.updateCustomer(custDto);
     }
     
 
@@ -150,12 +153,11 @@ public class CustomerServiceTest extends AbstractTransactionalJUnit4SpringContex
         assertTrue("result value should be null", result == null);
     }
 
-//    @Test
-//    @ExpectedException(ServiceException.class)
-//    public final void testDeleteCustomerFail() {
-//
-//        FullCustomerDto zombieDto = new FullCustomerDto();
-//        customerServiceModelService.deleteCustomer(zombieDto);
-//    }
+    @Test
+    @ExpectedException(ServiceException.class)
+    public final void testDeleteCustomerFail() {
 
+        FullCustomerDto zombieDto = new FullCustomerDto();
+        customerServiceModelService.deleteCustomer(zombieDto);
+    }
 }

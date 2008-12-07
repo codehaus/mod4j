@@ -73,7 +73,7 @@
 
 «DEFINE CreateMethod FOR SpecialMethod»
     /**
-     * (@inheritDoc)
+     * {@inheritDoc}
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
         «javaDomainClass(dto.businessClass())» result = null;
@@ -98,18 +98,18 @@
 «ENDDEFINE»
 
 «DEFINE UpdateMethod FOR SpecialMethod»
-   /**
-     * Update an existing «this.dto.name».
-     * 
-     * @param object
-     *            The representation of the modified «this.dto.name».
-     * @return the «this.dto.name» updated, possibly modified during update.
+    /**
+     * {@inheritDoc}
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {
+    
         «javaDomainClass(dto.businessClass())» result = null;
-            result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
-            result = the«javaTranslatorClass(dto.name)».fromDto(object, result);
-            result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(result);
+        result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+        if (result == null) throw new ServiceException("Can not update «businessClass(this.dto)» for «JavaType(this.dto)», because the corresponding «businessClass(this.dto)» does not exist.");
+        
+        result = the«javaTranslatorClass(dto.name)».fromDto(object, result);
+        result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(result);
+        
         return the«javaTranslatorClass(dto.name)».toDto(result);
     }
 «ENDDEFINE»

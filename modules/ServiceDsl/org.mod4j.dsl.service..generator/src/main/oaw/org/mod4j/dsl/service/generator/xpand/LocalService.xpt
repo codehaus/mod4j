@@ -89,12 +89,12 @@
 «ENDDEFINE»
 
 «DEFINE UpdateMethod FOR SpecialMethod»
-   /**
+    /**
      * Update an existing «this.dto.name».
      * «description»
-     *
-     * @param object 
-     *            The representation of the modified.«this.dto.name».
+     * 
+     * @param object
+     *            The «this.dto.name» containing the modifications for the corresponding «JavaType(this.dto)»
      * @return the «this.dto.name» updated, possibly modified during update.
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object);
