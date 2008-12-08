@@ -6,26 +6,30 @@ from RecordShopDataContract import UniqueCustomerDto
 from RecordShopDataContract import StringDto    
 from RecordShopDataContract import SimpleCustomerList  
 from RecordShopDataContract import FullCustomerDto   
-from RecordShopDataContract import OrderDto  
+from RecordShopDataContract import OrderDto 
+from RecordShopDataContract import OrderNumberAndDateList 
   
-read readOrder for OrderDto;     
+read readOrder for OrderDto;      
   
-crud for FullCustomerDto;     
+crud for FullCustomerDto;      
 /*         
  * Explicit definded crud servicemethods   
- */
-create createCustomer for SimpleCustomerDto; 
+ */ 
+create createCustomer for SimpleCustomerDto;   
 read   readCustomer for SimpleCustomerDto;
-update updateCustomer for SimpleCustomerDto;   
+update updateCustomer for SimpleCustomerDto;     
 delete deleteCustomer for SimpleCustomerDto;      
  
 //"add the translated OrderDto to the orders association of the translated CustomerDto"
 //add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
 add OrderDto for orders of SimpleCustomerDto  
-remove OrderDto for orders of SimpleCustomerDto
-get OrderDto for orders of SimpleCustomerDto 
+remove OrderDto for orders of SimpleCustomerDto  
+get OrderNumberAndDateList for orders of SimpleCustomerDto      
+ 
+add SimpleCustomerDto for customer of OrderDto    
+get SimpleCustomerDto for customer of OrderDto 
 
-add SimpleCustomerDto for customer of OrderDto  
+// for CustomerDto .orders add SimpleCustomerDto  
 
 //"remove the translated OrderDto from the orders association of the translated CustomerDto"
 //remove OrderDto for CustomerDto.orders 
@@ -35,13 +39,13 @@ add SimpleCustomerDto for customer of OrderDto
 
 //crud for  FullCustomerDto ; 
  
-"add order to customer" 
+"add order to customer"   
 method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto; 
 
 "Find Customer by unique key attributes."
 method findCustomerByUniqueKey in UniqueCustomerDto cust out SimpleCustomerDto;
 
 "Find all Customers matching the given name."
-method findCustomerByName in StringDto name out SimpleCustomerList; 
+method findCustomerByName in StringDto name out SimpleCustomerList;   
  
     
