@@ -136,7 +136,16 @@ public class CrossxBroker {
         return false;
     }
 
+    /**
+     *  Get the value of the property name 'propertyname' or null if no such property exists.
+     *  Only returns values of literal symbol properties, not of regference properties.
+     * @param symbol        The symbolf for which the property is looked up
+     * @param propertyName  The name of the property too find
+     * @return
+     */
     static public String getPropertyValue(Symbol symbol, String propertyName) {
+        if( ( symbol == null) || (propertyName == null) ) { return null; }
+
         for (SymbolProperty prop : symbol.getProperties()) {
             if (prop.getName().equals(propertyName)) {
                 if (prop instanceof LiteralSymbolProperty) {
@@ -147,8 +156,65 @@ public class CrossxBroker {
         return null;
     }
 
+    /**
+     *  Get the property named 'propertyname' or null if no such property exists
+     * @param symbol        The symbol for which the property is looked up
+     * @param propertyName  The name of the property too find
+     * @return
+     */
+    static public SymbolProperty getProperty(Symbol symbol, String propertyName) {
+        if( ( symbol == null) || (propertyName == null) ) { return null; }
+        
+        for (SymbolProperty prop : symbol.getProperties()) {
+            if (prop.getName().equals(propertyName)) {
+                return prop;
+            }
+        }
+        return null;
+    }
+
+    /**
+     *  Get the property named 'propertyname' or null if no such property exists
+     * @param symbol        The symbol for which the property is looked up
+     * @param propertyName  The name of the property too find
+     * @return
+     */
+    static public ReferenceSymbolProperty getReferenceProperty(Symbol symbol, String propertyName) {
+        SymbolProperty prop = getProperty(symbol, propertyName);
+        if( prop !=  null ){
+            if (prop instanceof ReferenceSymbolProperty) {
+                return ((ReferenceSymbolProperty) prop);
+            }
+        }
+        return null;
+    }
+
+    /**
+     *  Get the property named 'propertyname' or null if no such property exists
+     * @param symbol        The symbol for which the property is looked up
+     * @param propertyName  The name of the property too find
+     * @return
+     */
+    static public LiteralSymbolProperty getLiteralProperty(Symbol symbol, String propertyName) {
+        SymbolProperty prop = getProperty(symbol, propertyName);
+        if( prop !=  null ){
+            if (prop instanceof LiteralSymbolProperty) {
+                return ((LiteralSymbolProperty) prop);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Find all subsymbols of 'symbol' that have the type 'symbolType'
+     * @param symbol
+     * @param symbolType
+     * @return
+     */
     static public List<Symbol> findAllSubSymbols(Symbol symbol, String symbolType) {
         List<Symbol> result = new ArrayList<Symbol>();
+        if( (symbol == null)  || (symbolType == null)){ return result; }
+        
         for (Symbol sub : symbol.getSubSymbols()) {
             if (sub.getType().equals(symbolType)) {
                 result.add(sub);
@@ -157,6 +223,7 @@ public class CrossxBroker {
         return result;
     }
 
+    
     /**
      * Find all symbols of type 'symboltype' in project 'project'
      * 

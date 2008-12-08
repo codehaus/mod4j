@@ -14,8 +14,9 @@ import crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::common::xtend::NameMapper;
 extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
+extension org::openarchitectureware::util::stdlib::elementprops;
 
-context DtoReference ERROR "DtoReference [" + this.name + "] not defined inj model " + this.modelname:
+context DtoReference ERROR "DtoReference [" + this.name + "] not defined in model " + this.modelname:
        lookupSymbol(this.modelname, this.name, "Dto") != null;
        
 context CrudService ERROR "Crud service "+ name + " can only be defined for a BusinessClassDto" :
@@ -29,4 +30,30 @@ context SpecialMethod ERROR "Dto "+ dto.name + " must be a BusinessClassDto: cre
         implies
            (this.dto == null) ? true :  (dto.dtoType() == "BusinessClassDto");
 
-
+context AssociationMethod ERROR "Of "+ main.name + " must be a BusinessClassDto: add / remove / get methods can only be defined for a BusinessClassDto" :
+       (this.main == null) ? true :  (main.dtoType() == "BusinessClassDto");
+      
+context AssociationMethod ERROR "Dto "+ part.name + " must be a BusinessClassDto: add / remove / get methods can only be defined for a BusinessClassDto" :
+      ((this.type == MethodType::ADDTO) ||
+       (this.type == MethodType::REMOVEFROM) )
+       implies
+       (this.part == null) ? true :  (part.dtoType() == "BusinessClassDto");
+	
+context AssociationMethod ERROR this.getProperty("ERROR") :
+      let mainSymbol = lookupSymbol(main.modelname, main.name, "Dto") :
+      let baseClassRef = getReferenceProperty(mainSymbol, "BaseClass") :
+      let class = lookupReference( baseClassRef) :
+      let assoc = findAllSubSymbols(class, "Association").select(sym | sym.name == (this.rolename)) :
+      if assoc.size == 0 then (
+          this.setProperty("ERROR", "Reference "+ this.rolename + " must be a rolename in an association of " + main.name )->
+          false
+      ) else (
+          let target = lookupReference( getReferenceProperty(assoc.first(), "Target") ) :
+          let result = part.businessClass() :
+          if target.name != result then (
+              this.setProperty("ERROR", "The base business class of ["+ part.name + "] is ["+ result + "], but should be [" + target.name  + "]")->
+              false
+          ) else (
+              true
+          )
+      );

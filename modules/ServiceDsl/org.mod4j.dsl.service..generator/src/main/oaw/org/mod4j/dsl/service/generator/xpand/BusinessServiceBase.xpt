@@ -95,12 +95,18 @@
 
 «DEFINE Associations FOR ServiceModel»
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
+	«LET getAssociation(method) AS assoc» 
+	«LET getPropertyValue(assoc, "Multiplicity") AS mult»
+    «LET ((mult == "0..1") || (mult == "1") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 		«IF method.type == MethodType::ADDTO»
-		public void addTo«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
+		public void «genName»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
 		«ENDIF»
 	
 		«IF method.type == MethodType::REMOVEFROM»
 		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
 		«ENDIF»
+	«ENDLET»
+	«ENDLET»
+	«ENDLET»
 	«ENDFOREACH»
 «ENDDEFINE»

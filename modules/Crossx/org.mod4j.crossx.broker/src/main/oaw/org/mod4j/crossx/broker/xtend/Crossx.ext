@@ -26,6 +26,15 @@ List[ModelInfo] findAllModels() :
 String getPropertyValue(Symbol symbol, String propertyName) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.getPropertyValue(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 
+SymbolProperty getProperty(Symbol symbol, String propertyName) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.getProperty(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+
+ReferenceSymbolProperty getReferenceProperty(Symbol symbol, String propertyName) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.getReferenceProperty(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+
+LiteralSymbolProperty getLiteralProperty(Symbol symbol, String propertyName) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.getLiteralProperty(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+
 List[ModelInfo] findAllModelsInProject(String project) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.findAllModelsInProject(java.lang.String) ;
  
@@ -43,6 +52,10 @@ Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symbolt
             String subsymbolName) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.lookupSymbolWithSubsymbol(java.lang.String , 
                                             java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
+
+crossx::Symbol lookupSubSymbol(Symbol main, String subsymbolName, String symbolType) :
+    main.subSymbols.select(sub | (sub.type == symbolType) && (sub.name == subsymbolName) ).first()
+    ; 
 
 crossx::LiteralSymbolProperty newProperty(String name, String value) :
     let result = new LiteralSymbolProperty :

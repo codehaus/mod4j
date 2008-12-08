@@ -55,3 +55,11 @@ List[SpecialMethod] uniqueMethods(ServiceModel model, MethodType typeToFind) :
 List[String] uniqueBusinessClasses(ServiceModel model) :
     model.dtoReferences.select(dtoRef|dtoRef.dtoType() == "BusinessClassDto").dtoBase().toSet()
 ;
+
+crossx::Symbol getAssociation(AssociationMethod method) :
+      let mainSymbol = lookupSymbol(method.main.modelname, method.main.name, "Dto") :
+      let baseClassRef = getReferenceProperty(mainSymbol, "BaseClass") :
+      let class = lookupReference( baseClassRef) :
+      let assoc = lookupSubSymbol(class, method.rolename, "Association") : 
+      assoc
+;
