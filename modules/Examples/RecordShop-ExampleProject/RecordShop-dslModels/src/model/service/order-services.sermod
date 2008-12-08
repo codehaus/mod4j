@@ -5,11 +5,13 @@ from RecordShopDataContract import OrderDto
 from RecordShopDataContract import SimpleCustomerDto
 from RecordShopDataContract import OrderNumberAndDateList
 from RecordShopDataContract import DateDto
+from RecordShopDataContract import OrderNumberAndDateDto 
 
 /* 
  * Create, read, update and delete services
  */
 crud for OrderDto;
+crud for OrderNumberAndDateDto;
 
 "Find all Orders for a specific Customer"
 method findOrdersByCustomer in SimpleCustomerDto customer out OrderNumberAndDateList;

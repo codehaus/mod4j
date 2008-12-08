@@ -1,38 +1,40 @@
 "The RecordShop Customer Service Model. Contains all services needed to maintain Customers."
 Service CustomerServiceModel 
   
-from RecordShopDataContract import SimpleCustomerDto  
+from RecordShopDataContract import SimpleCustomerDto      
 from RecordShopDataContract import UniqueCustomerDto
-from RecordShopDataContract import StringDto
-from RecordShopDataContract import SimpleCustomerList 
+from RecordShopDataContract import StringDto    
+from RecordShopDataContract import SimpleCustomerList  
 from RecordShopDataContract import FullCustomerDto   
 from RecordShopDataContract import OrderDto
   
-read readOrder for OrderDto;
+read readOrder for OrderDto;   
   
 crud for FullCustomerDto;  
 /*  
  * Explicit definded crud servicemethods  
  */
-create createCustomer for SimpleCustomerDto;
+create createCustomer for SimpleCustomerDto; 
 read   readCustomer for SimpleCustomerDto;
-update updateCustomer for SimpleCustomerDto;  
-delete deleteCustomer for SimpleCustomerDto; 
+update updateCustomer for SimpleCustomerDto;   
+delete deleteCustomer for SimpleCustomerDto;      
  
 //"add the translated OrderDto to the orders association of the translated CustomerDto"
 //add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
-//add OrderDto to CustomerDto.orders
+add OrderDto for orders of SimpleCustomerDto  
+remove OrderDto for orders of SimpleCustomerDto
+get OrderDto for orders of SimpleCustomerDto
 
 //"remove the translated OrderDto from the orders association of the translated CustomerDto"
-//remove OrderDto for CustomerDto.orders
+//remove OrderDto for CustomerDto.orders 
 
 //"get the values (as a ListDto) of orders association of the translated CustomerDto"
 //read OrderListDto from CustomerDto.orders
 
-//crud for  FullCustomerDto ;
+//crud for  FullCustomerDto ; 
  
-"add order to customer"
-method addToOrders in OrderDto order SimpleCustomerDto customer out OrderDto;
+"add order to customer" 
+method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto;
 
 "Find Customer by unique key attributes."
 method findCustomerByUniqueKey in UniqueCustomerDto cust out SimpleCustomerDto;
