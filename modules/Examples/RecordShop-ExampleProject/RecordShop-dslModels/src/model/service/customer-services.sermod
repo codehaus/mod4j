@@ -6,13 +6,13 @@ from RecordShopDataContract import UniqueCustomerDto
 from RecordShopDataContract import StringDto    
 from RecordShopDataContract import SimpleCustomerList  
 from RecordShopDataContract import FullCustomerDto   
-from RecordShopDataContract import OrderDto
+from RecordShopDataContract import OrderDto  
   
-read readOrder for OrderDto;   
+read readOrder for OrderDto;     
   
-crud for FullCustomerDto;  
-/*  
- * Explicit definded crud servicemethods  
+crud for FullCustomerDto;     
+/*         
+ * Explicit definded crud servicemethods   
  */
 create createCustomer for SimpleCustomerDto; 
 read   readCustomer for SimpleCustomerDto;
@@ -23,7 +23,9 @@ delete deleteCustomer for SimpleCustomerDto;
 //add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
 add OrderDto for orders of SimpleCustomerDto  
 remove OrderDto for orders of SimpleCustomerDto
-get OrderDto for orders of SimpleCustomerDto
+get OrderDto for orders of SimpleCustomerDto 
+
+add SimpleCustomerDto for customer of OrderDto  
 
 //"remove the translated OrderDto from the orders association of the translated CustomerDto"
 //remove OrderDto for CustomerDto.orders 
@@ -34,7 +36,7 @@ get OrderDto for orders of SimpleCustomerDto
 //crud for  FullCustomerDto ; 
  
 "add order to customer" 
-method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto;
+method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto; 
 
 "Find Customer by unique key attributes."
 method findCustomerByUniqueKey in UniqueCustomerDto cust out SimpleCustomerDto;
