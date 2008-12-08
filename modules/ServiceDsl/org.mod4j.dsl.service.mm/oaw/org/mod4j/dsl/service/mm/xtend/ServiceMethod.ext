@@ -4,6 +4,7 @@
 import ServiceDsl;
 
 extension org::mod4j::crossx::broker::xtend::Crossx ;
+extension org::mod4j::dslcommon::xtend::generatorutil;
 
 String JavaType(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :

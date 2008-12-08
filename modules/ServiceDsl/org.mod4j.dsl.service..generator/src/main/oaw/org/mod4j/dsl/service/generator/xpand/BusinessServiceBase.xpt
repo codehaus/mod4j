@@ -97,7 +97,7 @@
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
 	«LET getAssociation(method) AS assoc» 
 	«LET getPropertyValue(assoc, "Multiplicity") AS mult»
-    «LET ((mult == "0..1") || (mult == "1") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
+    «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 		«IF method.type == MethodType::ADDTO»
 		public void «genName»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
 		«ENDIF»

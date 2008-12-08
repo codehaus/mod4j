@@ -54,7 +54,11 @@ Symbol lookupSymbolWithSubsymbol(String model, String symbolname, String symbolt
                                             java.lang.String , java.lang.String , java.lang.String , java.lang.String ) ;
 
 crossx::Symbol lookupSubSymbol(Symbol main, String subsymbolName, String symbolType) :
-    main.subSymbols.select(sub | (sub.type == symbolType) && (sub.name == subsymbolName) ).first()
+    if main == null then (
+        null
+    ) else (
+        main.subSymbols.select(sub | (sub.type == symbolType) && (sub.name == subsymbolName) ).first()
+    )
     ; 
 
 crossx::LiteralSymbolProperty newProperty(String name, String value) :

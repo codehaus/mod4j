@@ -138,7 +138,7 @@
 	
 		«REM»The addTo or set method «ENDREM»
 		«IF method.type == MethodType::ADDTO»
-			«IF (mult == "0..1") || (mult == "1") »
+			«IF (mult == "ONE") »
 				«EXPAND setMethod FOR method»
 			«ELSE»
 				«EXPAND addToMethod FOR method»

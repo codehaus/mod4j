@@ -79,10 +79,10 @@ LiteralSymbolProperty multiplicityProperty(BusinessDomainDsl::Multiplicity mult)
     
 String asString(BusinessDomainDsl::Multiplicity mult) :
     switch( mult ) {
-        case Multiplicity::One      : "1"
-        case Multiplicity::ZeroOne  : "0..1"
-        case Multiplicity::ZeroMany : "0..*"
-        case Multiplicity::OneMany  : "1..*"
+        case Multiplicity::One      : "ONE"
+        case Multiplicity::ZeroOne  : "ONE"
+        case Multiplicity::ZeroMany : "MANY"
+        case Multiplicity::OneMany  : "MANY"
         default : "UNKNOWN"
     };
 

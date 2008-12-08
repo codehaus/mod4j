@@ -39,7 +39,7 @@ context BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
     if (mult == null) || (this.dtoType == null) then
         true
     else (
-	    if (mult == "0..1") || (mult == "1") then 
+	    if (mult == "ONE") then 
 	    (    
 	        if this.dtoType.metaType == DataContractDsl::BusinessClassDto then
 	        (   
@@ -51,7 +51,7 @@ context BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
 	            (this.setProperty("ERROR", "[" + this.dtoType.name + "] should be a BusinesClassDto")-> 
 	            false)
 	    )
-	    else   // (mult == "0..*") || (mult == "1..*") 
+	    else   // (mult == "MANY")  
 	    (
 	        if this.dtoType.metaType == DataContractDsl::ListDto then
 	        (

@@ -30,7 +30,8 @@ create Symbol toElement(ListDto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
     this.properties.add( newProperty(dto) ) ->
-    this.properties.add( baseProperty(dto) ) 
+    this.properties.add( baseProperty(dto) ) ->
+    this.properties.add( newRefProperty("BaseDto", dto.datacontractModel.name, dto.baseDto.name, "Dto"))
    ;
 
 create Symbol toElement(BusinessClassDto dto) :

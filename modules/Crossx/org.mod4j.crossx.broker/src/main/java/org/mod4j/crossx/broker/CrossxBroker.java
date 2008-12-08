@@ -35,6 +35,7 @@ public class CrossxBroker {
     }
     
     public static Symbol lookupReference(ReferenceSymbolProperty ref){
+        if( ref == null ) return null;
         return lookupSymbol(ref.getModelname(), ref.getSymbolname(), ref.getType());
     }
 
