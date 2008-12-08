@@ -115,7 +115,7 @@
 		«ENDIF»
 	
 		«REM»The removefrom method«ENDREM»	
-		«IF method.type == MethodType::REMOVEFROM»
+		«IF (method.type == MethodType::REMOVEFROM) && (mult == "0..*") || (mult == "1..*")»
 		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
 			whole.removeFrom«method.rolename.toFirstUpper()»(part);
 			the«javaDaoInterface(method.main.businessClass())».update(whole);

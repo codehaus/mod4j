@@ -135,38 +135,83 @@
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
 	«LET getAssociation(method) AS assoc» 
     «LET getPropertyValue(assoc, "Multiplicity") AS mult»
-    «LET ((mult == "0..1") || (mult == "1") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 	
-		«REM»The addTo method«ENDREM»
+		«REM»The addTo or set method «ENDREM»
 		«IF method.type == MethodType::ADDTO»
-		public void «genName»(«method.part.name» part, «method.main.name» whole) {
-			if( (part == null) || (whole == null) ) { return; }
-			«method.part.businessClass()» partBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
-			if(partBusinessObject == null) { return ; }
-	
-			«method.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
-			if(mainBusinessObject  == null) { return ; }
-	
-			the«javaDomainServiceInterface(this.name)».«genName»(partBusinessObject, mainBusinessObject);
-			return ;
-		}
+			«IF (mult == "0..1") || (mult == "1") »
+				«EXPAND setMethod FOR method»
+			«ELSE»
+				«EXPAND addToMethod FOR method»
+			«ENDIF»
 		«ENDIF»
 	
 		«REM»And the removeFrom method«ENDREM»
 		«IF method.type == MethodType::REMOVEFROM»
 		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
-			if( (part == null) || (whole == null) ) { return; }
+			if( part == null ) { 
+			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: parameter [part] should not be null");
+			}
+			if( whole == null ) { 
+			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: parameter [whole] should not be null");
+			}
 			«method.part.businessClass()» partObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
-			if(partObject == null) { return ; }
+			if(partObject == null) { 
+			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: cannot find business object for parameter [part]");
+			}
 			«method.main.businessClass()» wholeObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
-			if(wholeObject == null) { return ; }
+			if(wholeObject == null) { 
+			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
+			}
 			
 			the«javaDomainServiceInterface(this.name)».removeFrom«method.rolename.toFirstUpper()»(partObject, wholeObject);
 		}
 		«ENDIF»
 	«ENDLET»
 	«ENDLET»
-	«ENDLET»
 	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE addToMethod FOR AssociationMethod»
+	public void addTo«this.rolename.toFirstUpper()»(«this.part.name» part, «this.main.name» whole) {
+			if( part == null ) { 
+			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [part] should not be null");
+			}
+			if( whole == null ) { 
+			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
+			}
+
+		«this.part.businessClass()» partBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.part.businessClass()»(part.getId());
+		if(partBusinessObject == null) { 
+		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: cannot find business object for parameter [part]");
+		}
+
+		«this.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.main.businessClass()»(whole.getId());
+		if(mainBusinessObject  == null) { 
+		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
+		}
+
+		the«javaDomainServiceInterface(this.model.name)».addTo«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		return ;
+	}
+«ENDDEFINE»
+
+«DEFINE setMethod FOR AssociationMethod»
+	public void set«this.rolename.toFirstUpper()»(«this.part.name» part, «this.main.name» whole) {
+			if( whole == null ) { 
+			    throw new ServiceException("set«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
+			}
+		«this.part.businessClass()» partBusinessObject = null;
+		if( part != null ) {
+	        partBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.part.businessClass()»(part.getId());
+	    }
+
+		«this.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.main.businessClass()»(whole.getId());
+		if(mainBusinessObject  == null) { 
+		    throw new ServiceException("set«this.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
+		}
+
+		the«javaDomainServiceInterface(this.model.name)».set«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		return ;
+	}
 «ENDDEFINE»
 

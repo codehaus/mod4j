@@ -40,6 +40,10 @@ context AssociationMethod ERROR "Dto "+ part.name + " must be a BusinessClassDto
        (this.part == null) ? true :  (part.dtoType() == "BusinessClassDto");
 	
 context AssociationMethod ERROR this.getProperty("ERROR") :
+	 let assoc1 =  getAssociation(this) :
+	 let mult = getPropertyValue(assoc1, "Multiplicity") :
+     let genName = ((mult == "0..1") || (mult == "1") ? "set" : "addTo") + this.rolename.toFirstUpper():
+
       let mainSymbol = lookupSymbol(main.modelname, main.name, "Dto") :
       let baseClassRef = getReferenceProperty(mainSymbol, "BaseClass") :
       let class = lookupReference( baseClassRef) :
@@ -54,6 +58,14 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
               this.setProperty("ERROR", "The base business class of ["+ part.name + "] is ["+ result + "], but should be [" + target.name  + "]")->
               false
           ) else (
-              true
+              if (this.type == MethodType::REMOVEFROM) &&
+                 ( ((mult == "0..1") || (mult == "1")) )
+              then (
+                  this.setProperty("ERROR", "Remove method for association ["+ this.rolename  +
+                                    "] with multiplicity zero or one is not allowed, use add method instead")->
+                  false
+              ) else (
+                  true
+              )
           )
       );
