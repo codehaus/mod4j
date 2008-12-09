@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description url="https://repo.smart-java.nl/mod4j/updatesite">
-      Updatesite for Mod4j. Accessible for all SMART-Java users.
+   <description url="http://mod4j.org/updatesite">
+      Updatesite for Mod4j features
    </description>
-   <feature url="features/mod4j.businessdomain.feature_0.9.0.200808081505.jar" id="mod4j.businessdomain.feature" version="0.9.0.200808081505"/>
-   <feature url="features/mod4j.businessdomain.feature_0.10.0.200809021439.jar" id="mod4j.businessdomain.feature" version="0.10.0.200809021439"/>
+   <feature url="features/mod4j.businessdomain.feature_0.9.0.200808081505.jar" id="mod4j.businessdomain.feature" version="0.9.0.200808081505">
+      <category name="Mod4j model editors"/>
+   </feature>
+   <feature url="features/mod4j.businessdomain.feature_0.10.0.200809121636.jar" id="mod4j.businessdomain.feature" version="0.10.0.200809121636">
+      <category name="Mod4j model editors"/>
+   </feature>
+   <category-def name="Mod4j model editors" label="Mod4j Model Editors">
+      <description>
+         This categorie contains alll the Mod4j model editors.
+      </description>
+   </category-def>
 </site>
