@@ -15,14 +15,11 @@
         <section name="Welcome to Mod4j">
             <p>
                 Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the productivity
-                and quality
-                of Java software development by using Domain Specific Languages (DSL's).
+                and quality of enterprise Java software development by using Domain Specific Languages (DSL's).
             </p>
             <p>
-                The DSL's and the corresponding code generators are based on a reference architecture. This allows developers to
+                The Mod4j DSL's and the corresponding code generators are based on a reference architecture. This allows developers to
                 model various aspects of the application and generate code that strictly follows this reference architecture.
-            </p>
-            <p>
                 The reference architecture is described in a separate document which can be found at
                 <a href="https://mod4j.smart-java.nl/docs/">https://mod4j.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
@@ -103,7 +100,7 @@
                     <b>
                         <big>
                             Mod4j update site:
-                            <code>http://www.mod4j.org/updatesite</code>
+                            <code>http://mod4j.org/updatesite</code>
                         </big>
                     </b>
                 </p>
@@ -112,7 +109,7 @@
                     <li>Choose the option "Search for new features to install" and click on "Next".</li>
                     <li>To create a new remote site for Mod4j, click on "New Remote Site".</li>
                     <li>Enter a Name: "Mod4j update site"</li>
-                    <li>Enter the URL: http://www.mod4j.org/updatesite and click on "OK"</li>
+                    <li>Enter the URL: http://mod4j.org/updatesite and click on "OK"</li>
                     <li>After clicking on "Finish" you will be prompted for your SMART-Java username and password</li>
                     <li>
                         Next you can select the Mod4j features of your choice. Complete the wizard to install the chosen
