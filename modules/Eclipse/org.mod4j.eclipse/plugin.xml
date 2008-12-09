@@ -70,7 +70,7 @@
             class="org.mod4j.eclipse.views.filetracker.FileTrackerView"
             icon="icons/mod4j.ico"
             id="org.mod4j.eclipse.views.filetracker.FileTrackerView"
-            name="Generated Files">
+            name="Mod4j FileTracker">
       </view>
    </extension>
    <extension
