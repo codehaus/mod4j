@@ -7,7 +7,11 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE GenBusinessLayerContext FOR ServiceModel»
-	«FILE generate(getBusinessModuleName(), getApplicationName() + "BusinessLayerContext.xml")»
+«IF fileExist(fullExtendPath(getBusinessModuleName(), "BusinessLayerContext.xml"))»
+    «extend(getBusinessModuleName(), "BusinessLayerContext.xml")»
+«ELSE»
+	«FILE extend(getBusinessModuleName(), "BusinessLayerContext.xml")»
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -19,4 +23,5 @@
     xmlns:aop="http://www.springframework.org/schema/aop">
 </beans>
 «ENDFILE»
+«ENDIF»
 «ENDDEFINE»
