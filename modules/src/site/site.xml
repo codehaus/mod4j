@@ -25,7 +25,6 @@
             <item name="Design-decisions" href="design-decisions.html" />
         </menu>
         <menu ref="parent" inherit="top" />
-        <menu ref="modules" inherit="top" />
         <menu ref="reports" inherit="bottom" />
         <menu name="Project" inherit="bottom">
             <item name="Developer Guide" href="developer-guide.html" />
