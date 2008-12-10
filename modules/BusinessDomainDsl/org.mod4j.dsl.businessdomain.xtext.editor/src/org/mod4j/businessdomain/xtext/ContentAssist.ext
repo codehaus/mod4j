@@ -41,7 +41,10 @@ List[Property] allProperties(BusinessClass cls) :
 
 /** Filter out all proiposals that end with Description. 
  *  This eliminates the descritions from all proposals.
+ *  Also put a space at the end of all proposals
  */
 List[Proposal] sortProposals(List[Proposal] proposalsToSort):
-	proposalsToSort.reject(p | p.label.endsWith("Description"));
+    proposalsToSort.reject(p | p.label.endsWith("Description"))
+    .select(p | p.setToInsert(p.toInsert + " ")->true)
+	;
 

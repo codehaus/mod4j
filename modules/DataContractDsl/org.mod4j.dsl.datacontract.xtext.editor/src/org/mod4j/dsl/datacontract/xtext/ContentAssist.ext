@@ -121,11 +121,14 @@ List[Proposal] completeBusinessClassDto_description(emf::EObject ctx, String pre
 List[Proposal] completeEnumerationDto_description(emf::EObject ctx, String prefix) :
 	{};
 
-
-
-	
-// Leave out the default BusinessClassPropertyReferenceName propsal
+/** Filter out all proiposals that end with Description. 
+ *  This eliminates the descritions from all proposals.
+ *  Also put a space at the end of all proposals
+ *  Leave out the default BusinessClassPropertyReferenceName propsal
+ */
 List[Proposal] sortProposals(List[Proposal] proposalsToSort):
-	proposalsToSort.select( p | p.label != "BusinessClassPropertyReferenceName");
-
+	proposalsToSort.select( p | p.label != "BusinessClassPropertyReferenceName")
+    .reject(p | p.label.endsWith("Description"))
+    .select(p | p.setToInsert(p.toInsert + " ")->true)
+	;
 	
