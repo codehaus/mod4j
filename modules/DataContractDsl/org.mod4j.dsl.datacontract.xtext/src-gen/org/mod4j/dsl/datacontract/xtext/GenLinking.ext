@@ -1,0 +1,60 @@
+
+extension org::mod4j::dsl::datacontract::xtext::Extensions;
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
+
+link(emf::EObject this) :
+	let all = allLocalElements() :
+		all.typeSelect(DataContractDsl::BusinessClassDto).collect(e|e.link_base()) ->
+		all.typeSelect(DataContractDsl::EnumerationDto).collect(e|e.link_base()) ->
+		all.typeSelect(DataContractDsl::BusinessClassAssociationRoleReference).collect(e|e.link_dtoType()) ->
+		all.typeSelect(DataContractDsl::ListDto).collect(e|e.link_baseDto()) ->
+		all.typeSelect(DataContractDsl::DtoEnumerationProperty).collect(e|e.link_type()) ->
+        null;
+
+
+
+
+Void link_base(DataContractDsl::BusinessClassDto this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::ExternalReference) :
+
+		this.setBase(ents.select(e|e.id() == this.parsedString("base")).first())
+);
+
+
+
+
+Void link_base(DataContractDsl::EnumerationDto this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::ExternalReference) :
+
+		this.setBase(ents.select(e|e.id() == this.parsedString("base")).first())
+);
+
+
+
+
+Void link_dtoType(DataContractDsl::BusinessClassAssociationRoleReference this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::Dto) :
+
+		this.setDtoType(ents.select(e|e.id() == this.parsedString("dtoType")).first())
+);
+
+
+
+
+Void link_baseDto(DataContractDsl::ListDto this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::Dto) :
+
+		this.setBaseDto(ents.select(e|e.id() == this.parsedString("baseDto")).first())
+);
+
+
+
+
+Void link_type(DataContractDsl::DtoEnumerationProperty this) :
+	(let ents = this.allVisibleElements().typeSelect(DataContractDsl::EnumerationDto) :
+
+		this.setType(ents.select(e|e.id() == this.parsedString("type")).first())
+);
+
+
+

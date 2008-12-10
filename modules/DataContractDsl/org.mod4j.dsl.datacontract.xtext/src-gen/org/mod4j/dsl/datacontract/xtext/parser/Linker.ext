@@ -1,0 +1,32 @@
+
+extension org::mod4j::dsl::datacontract::xtext::Extensions;
+extension org::mod4j::dsl::datacontract::xtext::Linking;
+
+link(emf::EObject this) :
+	this.allVisibleElements().internalLink();
+
+private Void internalLink(emf::EObject this) :
+	null;
+
+
+private Void internalLink(DataContractDsl::BusinessClassDto this) :
+	this.link_base()
+;
+
+private Void internalLink(DataContractDsl::EnumerationDto this) :
+	this.link_base()
+;
+
+private Void internalLink(DataContractDsl::BusinessClassAssociationRoleReference this) :
+	this.link_dtoType()
+;
+
+private Void internalLink(DataContractDsl::ListDto this) :
+	this.link_baseDto()
+;
+
+private Void internalLink(DataContractDsl::DtoEnumerationProperty this) :
+	this.link_type()
+;
+
+
