@@ -1,10 +1,18 @@
 import servicedsl;
 import codeassist;
+import emf;
+import crossx;
 
 extension org::mod4j::dsl::service::xtext::Extensions;
 extension org::mod4j::dsl::service::xtext::GenContentAssist reexport;
 extension org::mod4j::eclipse::xtend::EclipseUtil;
 extension org::mod4j::crossx::broker::xtend::Crossx;
+
+List[String] getRolenameProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.service.xtext.ServiceProposals.getRolenameProposals(org.eclipse.emf.ecore.EObject);
+
+List[String] getPartProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.service.xtext.ServiceProposals.getPartProposals(org.eclipse.emf.ecore.EObject);
 
 /*
  * There are two types of extensions one can define
@@ -25,3 +33,47 @@ List[Proposal] completeDtoReference_name(emf::EObject ctx, String prefix) :
 /* proposals for Feature EnumerationProperty::name */
 List[Proposal] completeDtoReference_modelname(emf::EObject ctx, String prefix) :
 	findAllModelsInProject( ctx.getProjectName()).modelname.collect(x|newProposal(x)).add(newProposal("<<empty>>")) ;
+
+/* proposals for Feature AssociationMethod::rolename */
+List[Proposal] completeAssociationMethod_rolename(emf::EObject ctx, String prefix) :
+	getRolenameProposals(ctx).collect(p |  newProposal( p) );
+	
+/* proposals for AssociationMethod::part */
+List[Proposal] completeAssociationMethod_part(emf::EObject ctx, String prefix) :
+	getPartProposals(ctx).collect(p |  newProposal( p) );
+
+/* proposals for AssociationMethod::main */
+//List[Proposal] completeAssociationMethod_main(emf::EObject ctx, String prefix) :
+//	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).collect(x|newProposal(x.label(),x.id(),x.image()));
+
+
+// GET RID OF DESCRIPTIONS IN THE CODE COMPLETION
+
+/* proposals for Feature DtoReference::description */
+List[Proposal] completeDtoReference_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature CrudService::description */
+List[Proposal] completeCrudService_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ServiceMethod::description */
+List[Proposal] completeServiceMethod_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature SpecialMethod::description */
+List[Proposal] completeSpecialMethod_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature CustomMethod::description */
+List[Proposal] completeCustomMethod_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ServiceModel::description */
+List[Proposal] completeServiceModel_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature AssociationMethod::description */
+List[Proposal] completeAssociationMethod_description(emf::EObject ctx, String prefix) :
+	{};
+

@@ -59,7 +59,7 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
 	 let mult = getPropertyValue(assoc, "Multiplicity") :
 
      if assoc == null then (
-         this.setProperty("ERROR", "Reference "+ this.rolename + " must be a rolename in an association of " + main.name )->
+         this.setProperty("ERROR", "01 Reference "+ this.rolename + " must be a rolename in an association of " + main.name )->
          false
      ) else (
          ( this.type == MethodType::GETFROM ) implies (
@@ -70,11 +70,11 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
          if mult == "ONE" then (
              let busClass = this.part.businessClass() :
              if dtoType != "BusinessClassDto" then (
- 	             this.setProperty("ERROR", "The class ["+ part.name + "] should be a BusinessClassDto because [" + this.rolename + "] has multiplicity ONE" )->
+ 	             this.setProperty("ERROR", "02 The class ["+ part.name + "] should be a BusinessClassDto because [" + this.rolename + "] has multiplicity ONE" )->
 	             false
 	         ) else (
 	             if target.name != busClass then (
-	 	             this.setProperty("ERROR", "The base business class of ["+ part.name + "] is ["+ busClass + "], but should be [" + target.name  + "]")->
+	 	             this.setProperty("ERROR", "03 The base business class of ["+ part.name + "] is ["+ busClass + "], but should be [" + target.name  + "]")->
 		             false
 		         ) else (
 		             true
@@ -82,18 +82,18 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
 		     )
          ) else ( // mult == MANY
              if dtoType != "ListDto" then (
- 	             this.setProperty("ERROR", "The class ["+ part.name + "] should be a ListDto because [" + this.rolename + "] has multiplicity MANY" )->
+ 	             this.setProperty("ERROR", "04 The class ["+ part.name + "] should be a ListDto because [" + this.rolename + "] has multiplicity MANY" )->
 	             false
 	         ) else (
 	             let baseDto = lookupReference(baseDtoRef) :
 	             let baseDtoType = baseDto.getPropertyValue("dtoType") :
 	             if baseDtoType != "BusinessClassDto"  then (
-		             this.setProperty("ERROR", "The base business class of the ListDto ["+ this.part.name + "] should be a BusinessClassDto")->
+		             this.setProperty("ERROR", "05 The base business class of the ListDto ["+ this.part.name + "] should be a BusinessClassDto")->
 	                 false
 		         ) else (
 		             let businessClass = baseDto.getPropertyValue("businessClass") :
 				 	 if  businessClass != assoc.getPropertyValue("BusinessClass") then (
-		                 this.setProperty("ERROR", "The base business class of the ListDto ["+ this.part.name + "] should be [" + assoc.getPropertyValue("BusinessClass") + "]")->
+		                 this.setProperty("ERROR", "06 The base business class of the ListDto ["+ this.part.name + "] should be [" + assoc.getPropertyValue("BusinessClass") + "]")->
 					     false
 					 ) else ( 
 			             true
@@ -109,7 +109,7 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
      if (this.type == MethodType::REMOVEFROM) &&
         ( (mult == "ONE") )
      then (
-         this.setProperty("ERROR", "Remove method for association ["+ this.rolename  +
+         this.setProperty("ERROR", "07 Remove method for association ["+ this.rolename  +
                            "] with multiplicity zero or one is not allowed, use add method instead")->
          false
      ) else (

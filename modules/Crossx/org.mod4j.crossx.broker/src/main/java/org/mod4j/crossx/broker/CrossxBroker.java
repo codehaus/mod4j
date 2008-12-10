@@ -206,6 +206,17 @@ public class CrossxBroker {
         return null;
     }
 
+    static public Symbol getSubSymbol(Symbol mainSymbol, String symbolName) {
+       if( ( mainSymbol == null) || (symbolName == null) ) { return null; }
+        
+        for (Symbol sub : mainSymbol.getSubSymbols() ) {
+            if (sub.getName().equals(symbolName)) {
+                return sub;
+            }
+        }
+        return null;
+    }
+
     /**
      * Find all subsymbols of 'symbol' that have the type 'symbolType'
      * @param symbol

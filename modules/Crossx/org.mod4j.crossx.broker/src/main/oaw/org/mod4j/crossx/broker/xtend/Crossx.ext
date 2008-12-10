@@ -26,6 +26,9 @@ List[ModelInfo] findAllModels() :
 String getPropertyValue(Symbol symbol, String propertyName) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.getPropertyValue(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 
+Symbol getSubSymbol(Symbol mainSymbol, String symbolName) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.getSubSymbol(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
+
 SymbolProperty getProperty(Symbol symbol, String propertyName) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.getProperty(org.mod4j.crossx.mm.crossx.Symbol, java.lang.String) ;
 
