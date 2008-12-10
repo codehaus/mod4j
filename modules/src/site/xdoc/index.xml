@@ -18,8 +18,10 @@
                 and quality of enterprise Java software development by using Domain Specific Languages (DSL's).
             </p>
             <p>
-                The Mod4j DSL's and the corresponding code generators are based on a reference architecture. This allows developers to
-                model various aspects of the application and generate code that strictly follows this reference architecture.
+                The Mod4j DSL's and the corresponding code generators are based on a reference architecture. This allows
+                developers to
+                model various aspects of the application and generate code that strictly follows this reference
+                architecture.
                 The reference architecture is described in a separate document which can be found at
                 <a href="https://mod4j.smart-java.nl/docs/">https://mod4j.smart-java.nl/docs/</a>
                 For a good understanding of the generated code it is useful to read this document.
@@ -110,7 +112,6 @@
                     <li>To create a new remote site for Mod4j, click on "New Remote Site".</li>
                     <li>Enter a Name: "Mod4j update site"</li>
                     <li>Enter the URL: http://mod4j.org/updatesite and click on "OK"</li>
-                    <li>After clicking on "Finish" you will be prompted for your SMART-Java username and password</li>
                     <li>
                         Next you can select the Mod4j features of your choice. Complete the wizard to install the chosen
                         features.
@@ -138,28 +139,32 @@
                 </p>
 
                 <p>
-                    Before you start we want bring the <b>RecordShop</b> example project to your attention. If you want see how a
-                    example of these models look like, you can take look at the RecordShop. The RecorodShop is a example project
-                    that we maintain during our development process. Features we implement in Mod4j are tested in the
-                    RecordShop.
+                    Before you start we want to bring our
+                    <b>RecordShop</b>
+                    example project to your attention. This project contains a example of each of the Mod4j models above. So if
+                    you want to learn the syntax and structure of the models, take a look at the RecordShop. The RecorodShop is
+                    a
+                    example project that we maintain during our development process. Features we implement in Mod4j are first
+                    tested in the RecordShop.
                     <br />
-                    Here you can find it: https://svn.smart-java.nl/mod4j/trunk/modules/Examples/RecordShop-ExampleProject
+                    <a href="https://svn.smart-java.nl/mod4j/trunk/modules/Examples/RecordShop-ExampleProject">Here</a>
+                    you can find the RecordShop sources and model files.
                 </p>
 
                 <ol>
                     <li>
                         First of all you need to create a new Eclipse project for the Mod4j DSL models you are going to create.
                         <br />
-                        For instance if you want to create a new BusinessDomain model, choose:
-                        <q>File, New, Project, Xtext DSL Wizards, Mod4j BusinessDomainDSL project</q>
+                        Choose:
+                        <q>File, New, Project, Mod4j Wizards, Mod4j new dslModels Project</q>
                         .
                     </li>
                     <li>
-                        Enter the Application name of the project. For instance:
+                        Enter the application name of the project. For instance:
                         <b>MyApplication</b>
                     </li>
                     <li>
-                        Enter a Root package. For instance:
+                        Enter the Root package. For instance:
                         <b>org.mycompany.myapplication</b>
                     </li>
                     <li>
@@ -181,12 +186,12 @@
                         and a directory structure like this:
                         <br />
                         <code>
-                            <b>src/model/businessDomain/SampleModel.busmod</b>
+                            <b>src/model/businessdomain/SampleModel.busmod</b>
                         </code>
                         (the model file containing the elements of your businessdomain model)
                         <br />
                         <code>
-                            <b>src/model/dataContract/SampleModel.dtcmod</b>
+                            <b>src/model/datacontract/SampleModel.dtcmod</b>
                         </code>
                         (the model file containing the elements of your datacontract model)
                         <br />
@@ -202,13 +207,15 @@
                     </li>
                     <li>
                         For modeling the businessdomain model of your application, open the file
-                        <code>src/model/businessDomain/SampleModel.busmod</code>
+                        <code>src/model/businessdomain/SampleModel.busmod</code>
                         with the
                         <code>BusinessDomain Model Editor</code>
                         .
                     </li>
                     <li>Here you can add the classes, attributes, businessrules, associations etc. of your BusinessDomain
-                        model. See the usermanual for more information about how to setup your BusinessDomain model.</li>
+                        model. Code-completion (ctrl + space) will help you a lot to find the right keywords and model elements
+                        to use. See the
+                        usermanual for more information about how to setup your BusinessDomain model.</li>
                     <li>You can setup your DataContract- and Service model in the same way. </li>
                     <li>
                         After saving your models in Eclipse, the (re)sources for your application are automatically generated.
@@ -229,7 +236,7 @@
                     <li>
                         As you can see in the figure above, the BusinessDomain model generates (re)sources into two modules: the
                         -data and -domain module.
-                        If these modules does not exist the modules will be automatically created.
+                        If these modules don't exist the modules will be automatically created.
                         The
                         <b>-domain</b>
                         and
@@ -242,11 +249,11 @@
                         <code>../MyApplication-data</code>
                     </li>
                     <li>
-                        The generated sources are placed in the
+                        The generated sources and resources are placed in the
                         <code>generated-sources</code>
                         and
                         <code>generated-resources</code>
-                        folders
+                        folders. Sources in
                         <code>MyApplication-domain/generated-sources</code>
                         and resources in
                         <code>MyApplication-data/generated-resources</code>
@@ -257,8 +264,8 @@
                     </li>
                     <li>
                         Since the generated modules are fully Mavenized you can import the generated modules as Maven projects
-                        into Eclipse. But before ypu do that, it's a good practice to install the also generated Maven
-                        parent-pom first.
+                        into Eclipse. But before ypu do that, it's a good practice to check if the generated modules can be
+                        build by Maven.
                         <br />
                         Open a command console and navigate to location of the generated parent-pom (it's the pom.xml in the
                         root of your application folder).
@@ -268,17 +275,19 @@
                             <b>mvn clean install</b>
                         </code>
                         <br />
-                        After the build is finished and you've seen "BUILD SUCCESFULL", the parent-pom and submodules are
-                        locally installed and you can import the modules as Maven projects into Eclipse. If you run Maven for
-                        the first time, it could take a few minutes to complete for downloading the needed dependencies.
+                        If you run Maven for the first time, it could take a few minutes to complete for downloading the needed
+                        dependencies. After the build is finished and you've seen "BUILD SUCCESFULL", the parent-pom and
+                        submodules are locally installed and you can import the modules as Maven projects into Eclipse.
+                    </li>
+                    <li>
+                        You can import all the generated Maven modules at once as follows:
                         <br />
                         Choose: Import, Maven 2, Maven 2 Project
                         <br />
-                        and navigate to ../MyApplication-domain
+                        and navigate to the application folder. Choose Ok.
                     </li>
                     <li>Check if the generated-sources and generated-resources folders are correctly added as sourcefolders
-                        to the
-                        Build Path. If not, do it manually.</li>
+                        to the Build Path. If not, correct it manually.</li>
                     <li>Import the MyApplication-data module in the same way.</li>
                 </ol>
             </subsection>
@@ -290,6 +299,7 @@
                 </p>
                 <ul>
                     <li>To implement business rules</li>
+                    <li>If the generated code does not fit your needs</li>
                     <li>TODO</li>
                 </ul>
                 <p>

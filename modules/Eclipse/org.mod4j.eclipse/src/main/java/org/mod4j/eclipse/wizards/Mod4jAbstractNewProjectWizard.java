@@ -219,6 +219,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "####" + LF +
                     "#" + LF +
                     "# Business module properties" + LF +
+                    "#" + LF +                    
                     "###" + LF +
                     "businessModuleName=" + mainPage.getApplicationNameFieldValue() + "-business" + LF +
                     "businessRootPackage=" + mainPage.getPackageNameFieldValue() + ".business" + LF +
@@ -234,24 +235,38 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		public String busmodSampleModelContents() {
             return 
-            "Model SampleModel" + LF + "" + LF +
+            "BusinessDomain SampleModel" + LF + 
+            "/*" + LF +
+            " * This is an example model file." + LF +
+            " */" + LF + LF +
+            "\"The SampleClass\"" + LF +
             "Class SampleClass [" + LF + 
             "    string name;" + LF + "]" + LF;
         }
 		
 		public String dtcmodSampleModelContents() {
 		    return   
-		    "DataContract SampleDataContractModel" + LF + "" + LF +
-		    "from SampleModel import SampleClass" + LF + "" + LF +
+		    "DataContract SampleDataContractModel" + LF +
+            "/*" + LF +
+            " * This is an example model file." + LF +
+            " */" + LF + LF +
+            "\"Import needed BusinessClasses\"" + LF +
+		    "from SampleModel import SampleClass" + LF + LF +
+		    "\"Data transfer object for SampleClass\"" + LF +
 		    "BusinessClassDto SampleDto base SampleClass [" + LF +
 		    "    name ;" + LF +
-		    "]"; 
+		    "]";
 		}
 		
         public String sermodSampleModelContents() {
             return 
-            "Service SampleServiceModel" + LF + "" + LF +
-            "from SampleDataContractModel import SampleDto" + LF + "" + LF +
+            "Service SampleServiceModel" + LF +
+            "/*" + LF +
+            " * This is an example model file." + LF +
+            " */" + LF + LF +
+            "\"Import needed dto's\"" + LF +
+            "from SampleDataContractModel import SampleDto" + LF + LF +
+            "\"Create-, read- update- and delete service methods for SampleDto\"" + LF +
             "crud for SampleDto;";
         }
 
