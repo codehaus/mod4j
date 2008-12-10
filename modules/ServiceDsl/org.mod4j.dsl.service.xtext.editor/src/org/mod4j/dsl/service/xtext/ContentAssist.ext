@@ -43,9 +43,21 @@ List[Proposal] completeAssociationMethod_part(emf::EObject ctx, String prefix) :
 	getPartProposals(ctx).collect(p |  newProposal( p) );
 
 /* proposals for AssociationMethod::main */
-//List[Proposal] completeAssociationMethod_main(emf::EObject ctx, String prefix) :
-//	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).collect(x|newProposal(x.label(),x.id(),x.image()));
+List[Proposal] completeAssociationMethod_main(emf::EObject ctx, String prefix) :
+	allBusinessClassDtos(ctx, prefix);
 
+/* proposals for SpecialMethod::dto */
+List[Proposal] completeSpecialMethod_dto(emf::EObject ctx, String prefix) :
+	allBusinessClassDtos(ctx, prefix);
+
+/* proposals for CrudService::dto */
+List[Proposal] completeCrudService_dto(emf::EObject ctx, String prefix) :
+	allBusinessClassDtos(ctx, prefix);
+
+List[Proposal] allBusinessClassDtos(emf::EObject ctx, String prefix) :
+	ctx.allVisibleElements().typeSelect(ServiceDsl::DtoReference).
+	select(dtoRef | lookupSymbol(dtoRef.modelname, dtoRef.name, "Dto").getPropertyValue("dtoType") == "BusinessClassDto" ) .
+	collect(x|newProposal(x.name));
 
 // GET RID OF DESCRIPTIONS IN THE CODE COMPLETION
 
