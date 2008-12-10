@@ -15,4 +15,11 @@
         </property>
     </bean>
 
+    <!--  Transaction management -->
+    <bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="transactionManager">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
 </beans>

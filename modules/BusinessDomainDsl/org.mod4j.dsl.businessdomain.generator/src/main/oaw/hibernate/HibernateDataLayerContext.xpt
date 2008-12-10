@@ -33,25 +33,12 @@
 	</aop:config>
 
     <!--  Data layer part of infrastructure -->
-«REM»
-«FOREACH this.types.typeSelect(BusinessClass) AS cls»
-    «IF ! isCompositePart(cls)»
-    <bean id="«javaVarName(cls)»Dao"
-        class="«getDaoPackage()».«daoImplClassName(cls)»">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    
-    «ENDIF»
-    
-«ENDFOREACH»
-«ENDREM»
 
 «FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
     <bean id="«clsName.toFirstLower()»Dao"
         class="«getDaoPackage()».«clsName»DaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    
 «ENDFOREACH»
 
     <!-- hibernate wiring -->
@@ -65,11 +52,6 @@
 «FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
                 <value>«clsName».hbm.xml</value>
 «ENDFOREACH»
-«REM»
-«FOREACH this.types.typeSelect(BusinessClass) AS cls»
-                <value>«cls.name».hbm.xml</value>
-«ENDFOREACH»
-«ENDREM»
             </list>
         </property>
         <property name="hibernateProperties">
@@ -105,17 +87,6 @@
             <value>classpath:environment.properties</value>
         </property>
     </bean>
-
-    <!--  Transaction management -->
-
-    <bean id="transactionManager"
-        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-        <property name="sessionFactory">
-            <ref local="sessionFactory" />
-        </property>
-    </bean>
-
-
 </beans>
 «ENDFILE»
 «ENDDEFINE»

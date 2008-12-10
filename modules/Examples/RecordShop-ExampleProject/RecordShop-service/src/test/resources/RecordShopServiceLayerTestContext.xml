@@ -24,6 +24,13 @@
         </aop:aspect>
     </aop:config>
     
+    <!--  Transaction management. We want to test out-of-container. -->
+    <bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="transactionManager">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
     <tx:advice id="txAdviceOrderServiceModelService" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
