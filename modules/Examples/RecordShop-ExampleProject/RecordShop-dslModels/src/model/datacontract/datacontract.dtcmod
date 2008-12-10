@@ -1,13 +1,13 @@
 "The RecordShop data contract."
-DataContract RecordShopDataContract  
+DataContract RecordShopDataContract   
  
 from RecordShopDomainModel import Customer 
 from RecordShopDomainModel import Artist
 from RecordShopDomainModel import Order
-from RecordShopDomainModel import Record
+from RecordShopDomainModel import Record 
 from RecordShopDomainModel import OrderLine
 from RecordShopDomainModel import SexeEnum
-from RecordShopDomainModel import RecordTypeEnum
+from RecordShopDomainModel import RecordTypeEnum 
  
     /*    
      * BusinessClass transfer objects 
@@ -19,13 +19,13 @@ from RecordShopDomainModel import RecordTypeEnum
     "A simple Customer transfer object with a subset of Customer attributes."
 	BusinessClassDto SimpleCustomerDto base Customer [  
 	     customerNr; 
-	     lastName;
+	     lastName; 
 	     firstName;
  	     blackListed;
  	     username; 
 	     sexe;  
 	     references [ 
-	         orders as OrderNumberAndDateList ; 
+	         orders as   OrderNumberAndDateList ;  
 	     ]   
 	]
 	
@@ -34,7 +34,8 @@ from RecordShopDomainModel import RecordTypeEnum
 	     orderNumber;  
 	     orderDate;
 	     references [
-	         customer as SimpleCustomerDto ; 
+	         customer as SimpleCustomerDto ;  
+	         
 	     ]
 	]
 	
@@ -47,7 +48,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	"The Artist transfer object."  
 	BusinessClassDto ArtistDto base Artist [ 
 	     firstName ;
-	     lastName ;
+	     lastName ; 
 	     age;
 		 title;
 	]
@@ -58,7 +59,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	    lineNumber;
 	    description;
 	    lineAmount;
-	    references [
+	    references [ 
             record as FullRecordDto  ;    	        
 	    ]
 	]
@@ -70,6 +71,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	ListDto SimpleCustomerList base SimpleCustomerDto 
 	"List of OrdersNumberAndDateDto's."
 	ListDto OrderNumberAndDateList base OrderNumberAndDateDto
+	ListDto OrderList base OrderDto
 	
 	/*
 	 * Custom transfer objects
