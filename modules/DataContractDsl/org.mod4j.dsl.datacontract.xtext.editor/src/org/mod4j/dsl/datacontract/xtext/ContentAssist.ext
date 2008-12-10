@@ -46,19 +46,6 @@ List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
 	findAllFromModel( ((DataContractDsl::ExternalReference)ctx).modelname, "Enumeration").name).
 	          collect(x|newProposal(x)); //.add(newProposal("empty"));
 
-/* proposals for Feature BusinessClassReference::name */
-//List[Proposal] completeBusinessEnumerationReference_name(emf::EObject ctx, String prefix) :
-//	findAllFromModel( ((DataContractDsl::BusinessClassReference)ctx).modelname, "Enumeration").
-//	          collect(x|newProposal(x)); // .add(newProposal("empty"));
-
-/* proposals for Feature EnumerationProperty::name */
-//List[Proposal] completeBusinessClassReference_modelname(emf::EObject ctx, String prefix) :
-//	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
-
-/* proposals for Feature BusinessEnumerationReference::modelname */
-//List[Proposal] completeBusinessEnumerationReference_modelname(emf::EObject ctx, String prefix) :
-//	findAllModelsInProject( ctx.getProjectName()) .collect(x|newProposal(x)) ;
-
 /* proposals for BusinessClassDto::base */
 List[Proposal] completeBusinessClassDto_base(emf::EObject ctx, String prefix) :
     getBusinessClassBaseProposals(ctx).collect(p |  newProposal( p) );
@@ -87,6 +74,38 @@ List[Proposal] completeDtoDecimalProperty_dataType(emf::EObject ctx, String pref
 /* proposals for Feature DtoBooleanProperty::name */
 List[Proposal] completeDtoDateTimeProperty_dataType(emf::EObject ctx, String prefix) :
 	{newProposal("datetime-1")};
+
+// GET RID OF ALL THE DESCRIPTION PROPOSALS
+/* proposals for Feature DataContractModel::description */
+List[Proposal] completeDataContractModel_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature DtoProperty::description */
+List[Proposal] completeDtoProperty_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ExternalReference::description */
+List[Proposal] completeExternalReference_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature ListDto::description */
+List[Proposal] completeListDto_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature CustomDto::description */
+List[Proposal] completeCustomDto_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature BusinessClassDto::description */
+List[Proposal] completeBusinessClassDto_description(emf::EObject ctx, String prefix) :
+	{};
+
+/* proposals for Feature EnumerationDto::description */
+List[Proposal] completeEnumerationDto_description(emf::EObject ctx, String prefix) :
+	{};
+
+
+
 	
 // Leave out the default BusinessClassPropertyReferenceName propsal
 List[Proposal] sortProposals(List[Proposal] proposalsToSort):
