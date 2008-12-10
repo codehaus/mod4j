@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
@@ -55,6 +56,40 @@ public class Proposals {
         return result;
     }
 
+    static public List<String> getBusinessClassAssociationRoleReferenceProposals(EObject ctx) {
+        List<String> result = new ArrayList<String>();
+        BusinessClassDto dto = null;
+        if (ctx == null) {
+            return result;
+        }
+        // The context may be of different types
+        if (ctx instanceof BusinessClassAssociationRoleReference) {
+            dto = ((BusinessClassAssociationRoleReference) ctx).getDto();
+        }
+        if ((ctx instanceof BusinessClassDto)) {
+            dto = (BusinessClassDto) ctx;
+        }
+        if (dto == null) {
+            result.add("no dto found");
+            return result;
+        }
+
+        ExternalReference base = dto.getBase();
+
+        if (base == null) {
+            result.add("base is null");
+            return result;
+        }
+
+        Symbol sym = CrossxBroker.lookupSymbol(base.getModelname(), base.getName(), "BusinessClass");
+        for (Symbol sub : CrossxBroker.findAllSubSymbols(sym, "Association")) {
+            if (!containsAssociationRoleNamed(dto.getAssociationReferences(), sub.getName())) {
+                result.add(sub.getName());
+            }
+        }
+        return result;
+    }
+
     /**
      * Checks whether the list 'properties' contains an element with name 'name'
      * @param properties
@@ -64,6 +99,15 @@ public class Proposals {
     static private boolean containsPropertyNamed(List<BusinessClassPropertyReference> properties, String name) {
         for (BusinessClassPropertyReference propertyRef : properties) {
             if (propertyRef.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static private boolean containsAssociationRoleNamed(List<BusinessClassAssociationRoleReference> properties, String name) {
+        for (BusinessClassAssociationRoleReference assRef : properties) {
+            if (assRef.getName().equals(name)) {
                 return true;
             }
         }

@@ -47,8 +47,8 @@ BusinessClassPropertyReference :
     ;
 
 BusinessClassAssociationRoleReference :
-    dtoType = [Dto]
-    name=ID ";"
+    name=ID "as"
+    dtoType = [Dto] ";"
     ;
     
 ListDto :
