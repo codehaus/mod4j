@@ -14,6 +14,9 @@ List[String] getBusinessClassReferenceProposals(emf::EObject ctx) : JAVA
     
 List[String] getBusinessClassAssociationRoleReferenceProposals(emf::EObject ctx) : JAVA
     org.mod4j.dsl.datacontract.xtext.Proposals.getBusinessClassAssociationRoleReferenceProposals(org.eclipse.emf.ecore.EObject);
+
+List[String] getBusinessClassAssociationReferenceDtoProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.datacontract.xtext.Proposals.getBusinessClassAssociationReferenceDtoProposals(org.eclipse.emf.ecore.EObject);
     
 List[String] getBusinessClassBaseProposals(emf::EObject ctx) : JAVA
     org.mod4j.dsl.datacontract.xtext.Proposals.getBusinessClassBaseProposals(org.eclipse.emf.ecore.EObject);
@@ -66,6 +69,12 @@ List[Proposal] completeBusinessClassDto_propertyReferences(emf::EObject ctx, Str
 List[Proposal] completeBusinessClassAssociationRoleReference_name(emf::EObject ctx, String prefix) :
     getBusinessClassAssociationRoleReferenceProposals(ctx).collect(p |  newProposal( p) )
     ;
+
+/* proposals for BusinessClassAssociationRoleReference::dtoType */
+List[Proposal] completeBusinessClassAssociationRoleReference_dtoType(emf::EObject ctx, String prefix) :
+    getBusinessClassAssociationReferenceDtoProposals(ctx).collect(p |  newProposal( p) )
+    ;
+
 	
 /* proposals for Feature DtoBooleanProperty::name */
 List[Proposal] completeDtoBooleanProperty_dataType(emf::EObject ctx, String prefix) :

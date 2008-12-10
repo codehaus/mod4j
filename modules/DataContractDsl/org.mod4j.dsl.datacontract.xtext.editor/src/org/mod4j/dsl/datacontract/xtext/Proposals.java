@@ -9,9 +9,13 @@ import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRoleReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
+
+import com.sun.java_cup.internal.assoc;
 
 public class Proposals {
 
@@ -85,6 +89,65 @@ public class Proposals {
         for (Symbol sub : CrossxBroker.findAllSubSymbols(sym, "Association")) {
             if (!containsAssociationRoleNamed(dto.getAssociationReferences(), sub.getName())) {
                 result.add(sub.getName());
+            }
+        }
+        return result;
+    }
+
+    static public List<String> getBusinessClassAssociationReferenceDtoProposals(EObject ctx) {
+        List<String> result = new ArrayList<String>();
+        BusinessClassDto dto = null;
+        BusinessClassAssociationRoleReference assocRef = null;
+        if (ctx == null) {
+            result.add("ERROR: null context");
+            return result;
+        }
+        // The context may be of different types
+        if (ctx instanceof BusinessClassAssociationRoleReference) {
+            assocRef = (BusinessClassAssociationRoleReference)ctx;
+            dto = assocRef.getDto();
+        }
+        if ((ctx instanceof BusinessClassDto)) {
+            dto = (BusinessClassDto) ctx;
+        }
+        if (dto == null) {
+            result.add("no dto found");
+            return result;
+        }
+
+        ExternalReference base = dto.getBase();
+
+        if (base == null) {
+            result.add("base is null");
+            return result;
+        }
+
+        Symbol busclassSymbol = CrossxBroker.lookupSymbol(base.getModelname(), base.getName(), "BusinessClass");
+        Symbol assocSymbol = CrossxBroker.getSubSymbol(busclassSymbol, assocRef.getName());
+        String requiredName = CrossxBroker.getPropertyValue(assocSymbol, "BusinessClass");
+
+        String multiplicity = CrossxBroker.getPropertyValue(assocSymbol, "Multiplicity");
+        for (Dto availableDto : dto.getDatacontractModel().getDtos() ) {
+            if ( availableDto instanceof BusinessClassDto ) {
+                if( multiplicity.equals("ONE")) {
+                    BusinessClassDto busDto = (BusinessClassDto)availableDto;
+                    if( busDto.getBase().getName().equals(requiredName)){
+                        result.add(busDto.getName());
+                    }
+                }
+            }
+            if ( availableDto instanceof ListDto ) {
+                if( multiplicity.equals("MANY")) {
+                    ListDto listDto = (ListDto)availableDto;
+                    Dto baseDto = listDto.getBaseDto();
+                    if( baseDto instanceof BusinessClassDto ) {
+                        BusinessClassDto busDto = (BusinessClassDto)baseDto;
+                        
+                        if( busDto.getBase().getName().equals(requiredName)){
+                            result.add(listDto.getName());
+                        }
+                    }
+                }
             }
         }
         return result;
