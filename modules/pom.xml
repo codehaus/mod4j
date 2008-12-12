@@ -15,9 +15,9 @@
     </properties>
     <scm>
         <connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
-		</connection>
+        </connection>
         <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
-		</developerConnection>
+        </developerConnection>
     </scm>
     <mailingLists>
         <mailingList>
@@ -26,7 +26,8 @@
             <post>mod4j-team@${centralhost}</post>
         </mailingList>
         <mailingList>
-            <archive>http://smart-java.nl/mailman/private/mod4j-developers</archive>
+            <archive>http://smart-java.nl/mailman/private/mod4j-developers
+            </archive>
             <name>mod4j-developers</name>
             <post>mod4j-developers@${centralhost}</post>
         </mailingList>
@@ -40,16 +41,21 @@
                 <module>org.mod4j.common</module>
                 <module>Crossx/org.mod4j.crossx.mm</module>
                 <module>Crossx/org.mod4j.crossx.broker</module>
-                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
-                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
+                </module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext
+                </module>
                 <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation
-				</module>
+                </module>
                 <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator
-				</module>
+                </module>
                 <module>DataContractDsl/org.mod4j.dsl.datacontract.mm</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.xtext</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.validation</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.generator</module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.xtext
+                </module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.validation
+                </module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.generator
+                </module>
                 <module>ServiceDsl/org.mod4j.dsl.service.mm</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
@@ -64,16 +70,21 @@
                 <module>org.mod4j.common</module>
                 <module>Crossx/org.mod4j.crossx.mm</module>
                 <module>Crossx/org.mod4j.crossx.broker</module>
-                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
-                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
+                </module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext
+                </module>
                 <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation
-				</module>
+                </module>
                 <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator
-				</module>
+                </module>
                 <module>DataContractDsl/org.mod4j.dsl.datacontract.mm</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.xtext</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.validation</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.generator</module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.xtext
+                </module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.validation
+                </module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.generator
+                </module>
                 <module>ServiceDsl/org.mod4j.dsl.service.mm</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
@@ -90,16 +101,21 @@
                 <module>org.mod4j.common</module>
                 <module>Crossx/org.mod4j.crossx.mm</module>
                 <module>Crossx/org.mod4j.crossx.broker</module>
-                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm</module>
-                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext</module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
+                </module>
+                <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.xtext
+                </module>
                 <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.validation
-				</module>
+                </module>
                 <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.generator
-				</module>
+                </module>
                 <module>DataContractDsl/org.mod4j.dsl.datacontract.mm</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.xtext</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.validation</module>
-                <module>DataContractDsl/org.mod4j.dsl.datacontract.generator</module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.xtext
+                </module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.validation
+                </module>
+                <module>DataContractDsl/org.mod4j.dsl.datacontract.generator
+                </module>
                 <module>ServiceDsl/org.mod4j.dsl.service.mm</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
@@ -129,13 +145,14 @@
             <url>scp://${centralhost}/home/groups/mod4j/htdocs/</url>
         </site>
         <repository>
-            <!--
-                Watch it: We deploy directly to the common smart-repo!
-            -->
-            <id>smart-repo-deploy</id>
-            <name>Common SMART-Java Repository</name>
-            <url>scp://${centralhost}/home/groups/repo/htdocs/repo</url>
+            <id>mod4j-repo-deploy</id>
+            <name>Central Mod4j Maven Repository</name>
+            <url>ftp://ftp.mod4j.org/mod4j.org/mod4j.org/wwwroot/m2-repository/</url>
         </repository>
+        <!--
+            <repository> <id>smart-repo-deploy</id> <name>Common SMART-Java Repository</name>
+            <url>scp://${centralhost}/home/groups/repo/htdocs/repo</url> </repository>
+        -->
     </distributionManagement>
     <issueManagement>
         <system>Jira</system>
@@ -194,6 +211,11 @@
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh-external</artifactId>
                 <version>1.0-alpha-5</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>1.0-beta-2</version>
             </extension>
         </extensions>
     </build>
