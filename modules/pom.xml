@@ -145,14 +145,13 @@
             <url>scp://${centralhost}/home/groups/mod4j/htdocs/</url>
         </site>
         <repository>
-            <id>mod4j-repo-deploy</id>
-            <name>Central Mod4j Maven Repository</name>
-            <url>ftp://ftp.mod4j.org/mod4j.org/mod4j.org/wwwroot/m2-repository/</url>
+            <!--
+                Watch it!: We deploy directly to the common smart-repo!
+            -->
+            <id>smart-repo-deploy</id>
+            <name>Common SMART-Java Repository</name>
+            <url>scp://${centralhost}/home/groups/repo/htdocs/repo</url>
         </repository>
-        <!--
-            <repository> <id>smart-repo-deploy</id> <name>Common SMART-Java Repository</name>
-            <url>scp://${centralhost}/home/groups/repo/htdocs/repo</url> </repository>
-        -->
     </distributionManagement>
     <issueManagement>
         <system>Jira</system>
@@ -214,7 +213,7 @@
             </extension>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
+                <artifactId>wagon-webdav</artifactId>
                 <version>1.0-beta-2</version>
             </extension>
         </extensions>
