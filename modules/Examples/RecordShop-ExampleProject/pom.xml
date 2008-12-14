@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.company.recordshop</groupId>
     <artifactId>RecordShop</artifactId>
@@ -18,7 +19,7 @@
         <module>RecordShop-data</module>
         <module>RecordShop-service</module>
         <module>RecordShop-business</module>
-         <!-- TODO       
+        <!-- TODO       
         <module>RecordShop-presentation</module>
         -->
     </modules>
@@ -177,7 +178,7 @@
                 <artifactId>mod4j-service-generator</artifactId>
                 <version>${mod4j.version}</version>
                 <scope>runtime</scope>
-            </dependency>            
+            </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
@@ -210,15 +211,10 @@
                 <artifactId>joda-time-hibernate</artifactId>
                 <version>1.0</version>
                 <!--
-                    De versies van de volgende dependencies van
-                    joda-time-hibernate conflicteren met onze eigen versies. Dat
-                    komt doordat de dependencies van hibernate 3.0.x expliciet
-                    als dependencies van joda-time-hibernate zijn opgenomen. Wij
-                    gebruiken hibernate 3.2.5.
-                    
-                    Bij een volgende versie van joda-time-hibernate kunnen deze
-                    conflicten verdwenen zijn, en kunnen er nieuwe ontstaan zijn.
-                    Dit moet dan dus gecheckt worden. 
+                    De versies van de volgende dependencies van joda-time-hibernate conflicteren met onze eigen versies. Dat
+                    komt doordat de dependencies van hibernate 3.0.x expliciet als dependencies van joda-time-hibernate zijn
+                    opgenomen. Wij gebruiken hibernate 3.2.5. Bij een volgende versie van joda-time-hibernate kunnen deze
+                    conflicten verdwenen zijn, en kunnen er nieuwe ontstaan zijn. Dit moet dan dus gecheckt worden.
                 -->
                 <exclusions>
                     <exclusion>
@@ -365,9 +361,21 @@
     </dependencyManagement>
     <repositories>
         <repository>
-            <id>OAW-M2-repository</id>
+            <id>oaw-m2-repository</id>
             <name>OpenArchitectureWare Maven Repository</name>
             <url>http://www.openarchitectureware.org/m2</url>
         </repository>
+        <!-- TODO: Remove this repository as soon as Mod4j as moved to Codehaus. See issue MOD4J-168 -->
+        <repository>
+            <id>smart-repo</id>
+            <url>https://repo.smart-java.nl/repo</url>
+        </repository>
     </repositories>
+    <!-- TODO: Remove this pluginRepository as soon as Mod4j as moved to Codehaus. See issue MOD4J-168. -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>smart-repo</id>
+            <url>https://repo.smart-java.nl/repo</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
