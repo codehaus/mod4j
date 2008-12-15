@@ -231,11 +231,17 @@
 
             <subsection name="Releasing Mod4j (release guide)">
             <p>This section describes how to perform a full Mod4j release.</p> 
-            TODO:
             <ol>
-                <li>check and adjust version numbers</li>
-                <li>adjust mod4j version: <code><mod4j.version>0.10</mod4j.version></code> in ParentPom.xpt</li> 
-                <li>release Maven modules (including hybrid's)</li>
+                <li>Check and adjust all version numbers in all plug-ins (manifests). And commit.</li>
+                <li>Adjust mod4j version: <code><![CDATA[<mod4j.version>x.x.x</mod4j.version>]]></code> in ParentPom.xpt. So that is equal to new release version of the Mod4j Maven modules.</li> 
+                <li>Release all Maven modules (including hybrid's). Open a commandbox and navigate to the Mod4j parent-pom. Enter the following commands: <br />
+    <code>
+        <b>mvn release:prepare -Pci</b>
+    </code> (and enter the correct version numbers and tag when asked)
+    <br />
+    <code>
+        <b>mvn release:perform -Pci</b>
+    </code> </li>
             </ol>
             </subsection>
             
