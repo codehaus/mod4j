@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mod4j Service DSL metamodel
 Bundle-SymbolicName: org.mod4j.dsl.service.mm; singleton:=true
-Bundle-Version: 0.10.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: mod4j.org
 Bundle-Localization: plugin
@@ -12,7 +12,7 @@ Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,
  org.mod4j.dsl.service.mm.xtend
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.mod4j.crossx.broker;bundle-version="0.10.0",
- org.mod4j.crossx.mm;bundle-version="0.10.0",
- org.mod4j.common;bundle-version="0.1.0"
+ org.mod4j.crossx.broker;bundle-version="1.0.0",
+ org.mod4j.crossx.mm;bundle-version="1.0.0",
+ org.mod4j.common;bundle-version="1.0.0"
 Eclipse-LazyStart: true

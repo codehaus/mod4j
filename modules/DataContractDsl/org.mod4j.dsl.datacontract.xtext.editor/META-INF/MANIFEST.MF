@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: DataContractDsl Editor Plug-in
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.editor; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.mod4j.dsl.datacontract.xtext.DataContractDslEditorPlugin
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.ui,
  org.mod4j.dsl.datacontract.xtext,
  org.mod4j.dsl.datacontract.mm;bundle-version="1.0.0",
  org.mod4j.crossx.broker,
- org.mod4j.crossx.mm;bundle-version="0.10.0",
+ org.mod4j.crossx.mm;bundle-version="1.0.0",
  org.mod4j.eclipse;visibility:=reexport,
  org.eclipse.emf.ecore.xmi
 Eclipse-LazyStart: true

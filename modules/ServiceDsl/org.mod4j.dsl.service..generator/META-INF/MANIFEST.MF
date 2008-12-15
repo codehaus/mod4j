@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mod4j Service DSL generator
 Bundle-SymbolicName: org.mod4j.dsl.service.generator;singleton:=true
-Bundle-Version: 0.10.0.qualifier
-Require-Bundle: org.mod4j.dsl.service.mm;bundle-version="0.10.0",
- org.mod4j.common;bundle-version="0.1.0",
- org.mod4j.crossx.broker;bundle-version="0.10.0",
- org.mod4j.crossx.mm;bundle-version="0.10.0",
- org.mod4j.eclipse
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.mod4j.dsl.service.mm;bundle-version="1.0.0",
+ org.mod4j.common;bundle-version="1.0.0",
+ org.mod4j.crossx.broker;bundle-version="1.0.0",
+ org.mod4j.crossx.mm;bundle-version="1.0.0",
+ org.mod4j.eclipse;bundle-version="1.0.0"
 Bundle-Vendor: org.mod4j
