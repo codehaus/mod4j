@@ -133,7 +133,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                 break;
             case IResourceDelta.CHANGED:
                 // handle changed resource
-                generateCrossxSymbols(resource);
+                files.add(resource);
+//                generateCrossxSymbols(resource);
                 break;
             }
             // return true to continue visiting children.
@@ -141,6 +142,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         }
     }
 
+    List<IResource> files = new ArrayList<IResource>();
     /**
      * Visitor to generate code from the models
      * 
@@ -282,8 +284,27 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         // the visitor does the work.
         System.err.println("Mod4jBuilder: incremental build");
         delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
+        generateCrossxForAllFiles();
         delta.accept(new Mod4jDeltaVisitor());
         FileTrackerView.myrefresh();
+    }
+
+    private void generateCrossxForAllFiles() {
+        for (IResource resource : files) {
+            if( resource.getName().endsWith(".busmod")){
+                generateCrossxSymbols(resource);
+            }
+        }
+        for (IResource resource : files) {
+            if( resource.getName().endsWith(".dtcmod")){
+                generateCrossxSymbols(resource);
+            }
+        }
+        for (IResource resource : files) {
+            if( resource.getName().endsWith(".sermod")){
+                generateCrossxSymbols(resource);
+            }
+        }
     }
 
     public static void initCrossx() {
