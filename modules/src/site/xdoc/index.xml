@@ -158,7 +158,7 @@
                         First of all you need to create a new Eclipse project for the Mod4j DSL models you are going to create.
                         <br />
                         Choose:
-                        <q>File, New, Project, Mod4j Wizards, Mod4j new dslModels Project</q>
+                        <q>File, New, Other, Mod4j Wizards, <b>Mod4j new dslModels Project</b></q>
                         .
                     </li>
                     <li>
