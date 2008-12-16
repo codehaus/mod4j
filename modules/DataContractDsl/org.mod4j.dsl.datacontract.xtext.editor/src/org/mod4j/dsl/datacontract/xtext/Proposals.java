@@ -10,12 +10,9 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassAssociationRol
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
-
-import com.sun.java_cup.internal.assoc;
 
 public class Proposals {
 
