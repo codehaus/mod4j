@@ -12,7 +12,6 @@ public class FileTracker {
 
     static private FileTracker fileTracker = null;
 
-    // private Map<String, FileTrack> tracks = new HashMap<String, FileTrack>();
     private Map<String, ProjectTrack> projects = null;
 
     public Collection<ProjectTrack> getProjects() {
@@ -31,7 +30,6 @@ public class FileTracker {
     }
 
     private FileTracker() {
-        // tracks = new HashMap<String, FileTrack>();
         projects = new HashMap<String, ProjectTrack>();
     }
 
@@ -66,11 +64,6 @@ public class FileTracker {
         return result;
     }
 
-//    static public String generate(String filename) {
-//        getFileTracker().currentTrack.generatedFile(filename);
-//        return filename;
-//    }
-
     /**
      * The file 'filename' is to be generated within 'moduleName'. the name of the resulting file will be returned and
      * stored in the file tracker.
@@ -92,13 +85,8 @@ public class FileTracker {
         return result;
     }
 
-    static public String extend(String filename) {
-        getFileTracker().currentTrack.extensionFile(filename);
-        return filename;
-    }
-
     static public String fullExtendPath(String moduleName, String filename) {
-        String result = moduleName + "/" + ProjectProperties.getSrcManPath() + "/" + filename;
+        String result = getModuleManFilePath(moduleName, filename);
         return ProjectProperties.getApplicationPath() + "/" + result;
     }
 
@@ -113,6 +101,22 @@ public class FileTracker {
      * @return
      */
     static public String extend(String moduleName, String filename) {
+
+        String result = getModuleManFilePath(moduleName, filename);
+        getFileTracker().currentTrack.extensionFile(result);
+        return result;
+    }
+
+    /**
+     * Determine the filepath for manual maintained sources or resources, based on the given fileName and moduleName. E.g. <br>
+     * <code>MyApp-domain/src/main/resources/filenname.xml</code>. Or <br>
+     * <code>MyApp-domain/src/main/java/filename.java</code>
+     * 
+     * @param moduleName
+     * @param fileName
+     * @return The path to the given fileName.
+     */
+    static public String getModuleManFilePath(String moduleName, String fileName) {
         String result = null;
         String prefix;
         if ((moduleName == null) || (moduleName.length() == 0)) {
@@ -120,23 +124,13 @@ public class FileTracker {
         } else {
             prefix = moduleName + "/";
         }
-        if (filename.endsWith(".java")) {
-            result = prefix + ProjectProperties.getSrcManPath() + "/" + filename;
-        } else if (filename.equals("pom.xml")) { // always in root of module
-            result = prefix + filename;
+        if (fileName.endsWith(".java")) {
+            result = prefix + ProjectProperties.getSrcManPath() + "/" + fileName;
+        } else if (fileName.equals("pom.xml")) { // always in root of module
+            result = prefix + fileName;
         } else {
-            result = prefix + ProjectProperties.getResourceManPath() + "/" + filename;
+            result = prefix + ProjectProperties.getResourceManPath() + "/" + fileName;
         }
-        getFileTracker().currentTrack.extensionFile(result);
         return result;
     }
-
-    // public List<String> getExtensionFiles(String resource) {
-    // return tracks.get(resource).getExtensionFiles();
-    // }
-    //
-    // public List<String> getGeneratedFiles(String resource) {
-    // return tracks.get(resource).getGeneratedFiles();
-    // }
-
 }
