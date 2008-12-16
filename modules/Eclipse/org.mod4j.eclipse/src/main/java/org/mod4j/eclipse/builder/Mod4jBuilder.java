@@ -126,7 +126,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             switch (delta.getKind()) {
             case IResourceDelta.ADDED:
                 // handle added resource
-                generateCrossxSymbols(resource);
+                files.add(resource);
+//                generateCrossxSymbols(resource);
                 break;
             case IResourceDelta.REMOVED:
                 // handle removed resource
@@ -165,7 +166,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      */
     class CrossxSymbolGeneratorVisitor implements IResourceVisitor {
         public boolean visit(IResource resource) {
-            generateCrossxSymbols(resource);
+            files.add(resource);
+//            generateCrossxSymbols(resource);
             // return true to continue visiting children.
             return true;
         }
@@ -261,7 +263,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         System.err.println("Mod4jBuilder: full build");
         cleanOutputDirectories();
         try {
+            files.clear();
             getProject().accept(new CrossxSymbolGeneratorVisitor());
+            generateCrossxForAllFiles();
             getProject().accept(new Mod4jCodeGeneratorVisitor());
             FileTrackerView.myrefresh();
         } catch (CoreException e) {
@@ -283,6 +287,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void incrementalBuild(IResourceDelta delta, IProgressMonitor monitor) throws CoreException {
         // the visitor does the work.
         System.err.println("Mod4jBuilder: incremental build");
+        files.clear();
         delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
         generateCrossxForAllFiles();
         delta.accept(new Mod4jDeltaVisitor());
