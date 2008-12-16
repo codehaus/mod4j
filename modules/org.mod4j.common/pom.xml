@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.0.0-beta</version>
+        <version>0.11-SNAPSHOT</version>
     </parent>
 
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-common</artifactId>
-    <version>1.0.0-beta</version>
+    <version>0.11-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This module contains DSL common (re)sources.</description>
 
@@ -38,12 +38,12 @@
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-broker</artifactId>
-            <version>1.0.0-beta</version>
+            <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-mm</artifactId>
-            <version>1.0.0-beta</version>
+            <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
