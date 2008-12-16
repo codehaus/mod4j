@@ -51,7 +51,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
     protected static final String SERVICE_PACKAGE = "service";
 
-    private static final String LF = "\n";
+    private static final String LF = System.getProperty("line.separator");
 
     private static String MODEL_DIR = "src/model";
     
