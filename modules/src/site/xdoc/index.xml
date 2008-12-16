@@ -64,14 +64,16 @@
                                 OpenArchitectureWare Eclipse 4.3.0 (4.3.0.20080508-1430PRD).
                                 <b>
                                     Update site:
-                                    <code>http://www.openarchitectureware.org/updatesite/milestone/site.xml</code>
+                                    <code>http://www.openarchitectureware.org/updatesite/milestone/site.xml
+                                    </code>
                                 </b>
                             </li>
                             <li>
                                 QforEclipse 0.8.0 Eclipse plugin for Maven2 projects.
                                 <b>
                                     Update site:
-                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite</code>
+                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite
+                                    </code>
                                 </b>
                             </li>
                         </ul>
@@ -298,8 +300,10 @@
                 </p>
                 <ul>
                     <li>To implement business rules</li>
-                    <li>If the generated code does not fit your needs</li>
-                    <li>TODO</li>
+                    <li>If the generated code does not fit your needs, and changing the model is not possible or does not lead
+                        to the right result.
+					</li>
+                    <li>...</li>
                 </ul>
                 <p>
                     For these reasons with Mod4j you can use Extension Points. Extension Points are extends to the generated
