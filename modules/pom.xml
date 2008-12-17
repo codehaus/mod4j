@@ -4,7 +4,7 @@
     <!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
     <artifactId>mod4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-20081217.0807</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>mod4j</name>
     <url>https://mod4j.${centralhost}/</url>
     <properties>
@@ -13,9 +13,9 @@
         <oaw.version>4.3.0</oaw.version>
     </properties>
     <scm>
-        <connection>scm:svn:https://svn.smart-java.nl/mod4j/tags/mod4j-1.0.0-20081217.0807
+        <connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
         </connection>
-        <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/tags/mod4j-1.0.0-20081217.0807
+        <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
         </developerConnection>
     </scm>
     <mailingLists>
