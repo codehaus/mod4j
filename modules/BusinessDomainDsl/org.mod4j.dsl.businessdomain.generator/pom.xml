@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>0.11-SNAPSHOT</version>
+        <version>1.0.0-beta-1</version>
     </parent>
 
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-businessdomain-generator</artifactId>
-    <version>0.11-SNAPSHOT</version>
+    <version>1.0.0-beta-1</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the BusinessDomain generator.</description>
 
@@ -38,17 +38,17 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-businessdomain-mm</artifactId>
-            <version>0.11-SNAPSHOT</version>
+            <version>1.0.0-beta-1</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-common</artifactId>
-            <version>0.11-SNAPSHOT</version>
+            <version>1.0.0-beta-1</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-broker</artifactId>
-            <version>0.11-SNAPSHOT</version>
+            <version>1.0.0-beta-1</version>
         </dependency>
     </dependencies>
 
