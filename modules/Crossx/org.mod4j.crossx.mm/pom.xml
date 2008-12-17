@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>0.11-SNAPSHOT</version>
+        <version>1.0.0-20081217.0807</version>
     </parent>
 
     <groupId>org.mod4j.crossx</groupId>
     <artifactId>mod4j-crossx-mm</artifactId>
-    <version>0.11-SNAPSHOT</version>
+    <version>1.0.0-20081217.0807</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the Mod4j crossx meta model.</description>
 

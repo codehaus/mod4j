@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>0.11-SNAPSHOT</version>
+        <version>1.0.0-20081217.0807</version>
     </parent>
 
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-businessdomain-xtext</artifactId>
-    <version>0.11-SNAPSHOT</version>
+    <version>1.0.0-20081217.0807</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the BusinessDomain xtext model.</description>
 
@@ -75,12 +75,12 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-businessdomain-mm</artifactId>
-            <version>0.11-SNAPSHOT</version>
+            <version>1.0.0-20081217.0807</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-businessdomain-validation</artifactId>
-            <version>0.11-SNAPSHOT</version>
+            <version>1.0.0-20081217.0807</version>
         </dependency>
     </dependencies>
 
