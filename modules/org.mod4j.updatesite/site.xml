@@ -3,13 +3,13 @@
    <description url="http://mod4j.org/updatesite">
       Updatesite for Mod4j features
    </description>
-   <feature url="features/mod4j.businessdomain.feature_0.10.0.200812100855.jar" id="mod4j.businessdomain.feature" version="0.10.0.200812100855">
+   <feature url="features/mod4j.businessdomain.feature_1.0.0.200812170807.jar" id="mod4j.businessdomain.feature" version="1.0.0.200812170807">
       <category name="Mod4j model editors"/>
    </feature>
-   <feature url="features/mod4j.datacontract.feature_0.10.0.200812100855.jar" id="mod4j.datacontract.feature" version="0.10.0.200812100855">
+   <feature url="features/mod4j.datacontract.feature_1.0.0.200812170807.jar" id="mod4j.datacontract.feature" version="1.0.0.200812170807">
       <category name="Mod4j model editors"/>
    </feature>
-   <feature url="features/mod4j.service.feature_0.10.0.200812100855.jar" id="mod4j.service.feature" version="0.10.0.200812100855">
+   <feature url="features/mod4j.service.feature_1.0.0.200812170807.jar" id="mod4j.service.feature" version="1.0.0.200812170807">
       <category name="Mod4j model editors"/>
    </feature>
    <category-def name="Mod4j model editors" label="Mod4j Model Editors">
