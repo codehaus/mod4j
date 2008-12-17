@@ -1,13 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>0.11-SNAPSHOT</version>
     </parent>
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-service-validation</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>0.11-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the ServiceDsl validation sources.</description>
     <build>
@@ -28,12 +29,12 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-service-mm</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-broker</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>0.11-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

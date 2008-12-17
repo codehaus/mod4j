@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>mod4j</artifactId>
         <groupId>org.mod4j</groupId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>0.11-SNAPSHOT</version>
     </parent>
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <name>${project.artifactId}</name>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>0.11-SNAPSHOT</version>
     <description>The Mod4j Maven plug-in makes it possible to build Mod4j model projects outside the Eclipse IDE.
     </description>
     <prerequisites>
@@ -50,7 +51,7 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-common</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>0.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.openarchitectureware</groupId>
@@ -92,49 +93,49 @@
         <dependency>
         	<groupId>org.mod4j</groupId>
         	<artifactId>mod4j-businessdomain-generator</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>
         <dependency>
         	<groupId>org.mod4j</groupId>
         	<artifactId>mod4j-businessdomain-xtext</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>
         <dependency>
         	<groupId>org.mod4j</groupId>
         	<artifactId>mod4j-service-generator</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>
         <dependency>
         	<groupId>org.mod4j</groupId>
         	<artifactId>mod4j-service-xtext</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>
         <dependency>
         	<groupId>org.mod4j</groupId>
         	<artifactId>mod4j-datacontract-generator</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>
         <dependency>
         	<groupId>org.mod4j</groupId>
         	<artifactId>mod4j-datacontract-xtext</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>
         <dependency>
         	<groupId>org.mod4j.crossx</groupId>
         	<artifactId>mod4j-crossx-broker</artifactId>
-        	<version>1.0.1-SNAPSHOT</version>
+        	<version>0.11-SNAPSHOT</version>
         	<scope>runtime</scope>
         	<optional>false</optional>
         </dependency>

@@ -3,12 +3,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>0.11-SNAPSHOT</version>
     </parent>
     <groupId>org.mod4j.docs</groupId>
     <artifactId>documentation-parent</artifactId>
     <name>Mod4j Documentation Parent</name>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>0.11-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>user-guide</module>
