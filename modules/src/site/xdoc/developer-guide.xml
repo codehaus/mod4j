@@ -267,15 +267,48 @@
 
             <subsection name="Releasing Mod4j (release guide)">
                 <p>This section describes how to perform a full Mod4j release.</p>
+                <p>Prerequisites: </p>
                 <ol>
-                    <li>Check and adjust all version numbers in all plug-ins (manifests). And commit.</li>
+                    <li>Svn command-client version 1.5.0. (higher versions lead to errors icw maven-scm-provider)</li>
+                    <li>Be free of outstanding local modifications.</li>
                     <li>
-                        Adjust mod4j version:
-                        <code><![CDATA[<mod4j.version>x.x.x</mod4j.version>]]></code>
-                        in ParentPom.xpt. So that is equal to new release version of the Mod4j Maven modules.
+                        Import as Existing Project:
+                        <br />
+                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.businessdomain.feature
+                        </code>
+                        <br />
+                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.datacontract.feature
+                        </code>
+                        <br />
+                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.service.feature
+                        </code>
+                        and
+                        <br />
+                        <code>../modules/org.mod4j.updatesite</code>
                     </li>
+                </ol>
+                <ol>
+                    <li>Choose the release versionnr for the Mod4j Eclipse plug-ins. Fi: 1.0.0.qualifier. Check and adjust
+                        all
+                        version numbers in all Mod4j plug-ins (manifests, site.xml and feature.xml's).
+                        And commit.</li>
+                    <li>Choose the release versionnr. for the Mod4j Maven modules. Fi: 1.0.0-beta-1</li>
                     <li>
-                        Release all Maven modules (including hybrid's). Open a commandbox and navigate to the Mod4j parent-pom.
+                        Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr.:
+                        <br />
+                        <code><
+                            <b><![CDATA[<mod4j.version>1.0.0-beta-1</mod4j.version>]]></b>
+                        </code>
+                        And commit.
+                    </li>
+                    <li>Open de site.xml in the updatesite project.</li>
+                    <li>Click on "Build All". Now the features and plugins folder in the updatesite project contains
+                        the
+                        files we need to deploy to our updatesite (see next section).</li>
+                    <li>With the previous step a timebased releasenr is generated. For instance: 1.0.0.200812170807</li>
+                    <li>
+                        Release all Maven modules (including hybrid's). Open a commandbox and navigate to the Mod4j
+                        parent-pom.
                         Enter the following commands:
                         <br />
                         <code>
@@ -297,19 +330,6 @@
                     Mod4j DSL's as one feature based on several plug-ins.
                 </p>
                 <ol>
-                    <li>
-                        Import as Existing Project:
-                        <br />
-                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.businessdomain.feature
-                        </code>
-                        and
-                        <br />
-                        <code>../modules/org.mod4j.updatesite</code>
-                    </li>
-                    <li>Check for the right settings in site.xml and feature.xml.</li>
-                    <li>Open de site.xml in the updatesite project.</li>
-                    <li>Click on "Build All". Now the features and plugins folder in the updatesite project contains the
-                        files we need to deploy.</li>
                     <li>
                         Use a ftp client copy the
                         <code>features</code>
