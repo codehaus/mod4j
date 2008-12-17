@@ -3,7 +3,7 @@
 <repository name='file:/home/johan/projects/mod4j-modules/org.mod4j.updatesite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1229497685078'/>
+    <property name='p2.timestamp' value='1229507112843'/>
   </properties>
   <references size='6'>
     <repository url='http://mod4.org/updatesite' type='1' options='0'/>
@@ -13,7 +13,7 @@
     <repository url='http://mod4j.org/updatesite' type='1' options='0'/>
     <repository url='https://repo.smart-java.nl/mod4j/updatesite' type='0' options='0'/>
   </references>
-  <units size='74'>
+  <units size='99'>
     <unit id='org.mod4j.dsl.businessdomain.validation' version='0.10.0.200809121632'>
       <update id='org.mod4j.dsl.businessdomain.validation' range='[0.0.0,0.10.0.200809121632)' severity='0'/>
       <properties size='2'>
@@ -1766,7 +1766,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.datacontract.validation.checks&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.dsl.datacontract.mm,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.validation; singleton:=true&#xA;Bundle-Name: Mod4j DataContract DSL validation&#xA;Bundle-Vendor: mod4j.org&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.datacontract.validation.checks&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.dsl.datacontract.mm,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.validation; singleton:=true&#xA;Bundle-Name: Mod4j DataContract DSL validation&#xA;Bundle-Vendor: mod4j.org
           </instruction>
         </instructions>
       </touchpointData>
@@ -1799,7 +1799,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.datacontract.mm.DataContractDsl,org.mod4j.dsl.datacontract.mm.DataContractDsl.impl,org.mod4j.dsl.datacontract.mm.DataContractDsl.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.mm;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.datacontract.mm.DataContractDsl,org.mod4j.dsl.datacontract.mm.DataContractDsl.impl,org.mod4j.dsl.datacontract.mm.DataContractDsl.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.mm;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .
           </instruction>
         </instructions>
       </touchpointData>
@@ -1830,7 +1830,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.service.validation.checks&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.dsl.service.mm,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.validation; singleton:=true&#xA;Bundle-Name: Mod4j Service DSL validation&#xA;Bundle-Vendor: mod4j.org&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.service.validation.checks&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.dsl.service.mm,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.validation; singleton:=true&#xA;Bundle-Name: Mod4j Service DSL validation&#xA;Bundle-Vendor: mod4j.org
           </instruction>
         </instructions>
       </touchpointData>
@@ -1903,7 +1903,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.businessdomain.xtext,org.mod4j.businessdomain.xtext.editor,org.mod4j.businessdomain.xtext.wizards&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.eclipse,org.mod4j.dsl.businessdomain.xtext&#xA;Bundle-Activator: org.mod4j.businessdomain.xtext.BusinessDomainDslEditorPlugin&#xA;Bundle-Name: BusinessDomain Xtext Editor&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: org.mod4j&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.xtext.editor;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.businessdomain.xtext,org.mod4j.businessdomain.xtext.editor,org.mod4j.businessdomain.xtext.wizards&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.eclipse,org.mod4j.dsl.businessdomain.xtext&#xA;Bundle-Activator: org.mod4j.businessdomain.xtext.BusinessDomainDslEditorPlugin&#xA;Bundle-Name: BusinessDomain Xtext Editor&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: org.mod4j&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.xtext.editor;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true
           </instruction>
         </instructions>
       </touchpointData>
@@ -1938,7 +1938,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.datacontract.xtext,               org.mod4j.dsl.datacontract.xtext.parser&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.antlr;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.datacontract.validation;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext;singleton:=true&#xA;Eclipse-LazyStart: true&#xA;Bundle-Name: DataContractDsl Plug-in&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.datacontract.xtext,               org.mod4j.dsl.datacontract.xtext.parser&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.antlr;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.datacontract.validation;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext;singleton:=true&#xA;Eclipse-LazyStart: true&#xA;Bundle-Name: DataContractDsl Plug-in
           </instruction>
         </instructions>
       </touchpointData>
@@ -1972,7 +1972,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-Vendor: mod4j.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: Mod4j Service DSL metamodel&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.mm; singleton:=true&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,org.mod4j.dsl.service.mm.ServiceDsl.impl,org.mod4j.dsl.service.mm.ServiceDsl.util,org.mod4j.dsl.service.mm.xtend&#xA;
+            Bundle-Vendor: mod4j.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: Mod4j Service DSL metamodel&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.mm; singleton:=true&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,org.mod4j.dsl.service.mm.ServiceDsl.impl,org.mod4j.dsl.service.mm.ServiceDsl.util,org.mod4j.dsl.service.mm.xtend
           </instruction>
         </instructions>
       </touchpointData>
@@ -2015,7 +2015,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.datacontract.xtext,org.mod4j.dsl.datacontract.xtext.editor,org.mod4j.dsl.datacontract.xtext.wizards&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.dsl.datacontract.xtext,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;visibility:=reexport,org.eclipse.emf.ecore.xmi&#xA;Bundle-Activator: org.mod4j.dsl.datacontract.xtext.DataContractDslEditorPlugin&#xA;Bundle-Name: DataContractDsl Editor Plug-in&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.editor; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.datacontract.xtext,org.mod4j.dsl.datacontract.xtext.editor,org.mod4j.dsl.datacontract.xtext.wizards&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.dsl.datacontract.xtext,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;visibility:=reexport,org.eclipse.emf.ecore.xmi&#xA;Bundle-Activator: org.mod4j.dsl.datacontract.xtext.DataContractDslEditorPlugin&#xA;Bundle-Name: DataContractDsl Editor Plug-in&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.editor; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true
           </instruction>
         </instructions>
       </touchpointData>
@@ -2045,7 +2045,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-Name: Mod4j Service DSL generator&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.generator;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Vendor: org.mod4j&#xA;Require-Bundle: org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;bundle-version=&quot;1.0.0&quot;&#xA;
+            Bundle-Name: Mod4j Service DSL generator&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.generator;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Vendor: org.mod4j&#xA;Require-Bundle: org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;bundle-version=&quot;1.0.0&quot;
           </instruction>
         </instructions>
       </touchpointData>
@@ -2077,7 +2077,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.datacontract.generator.workflow&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.generator;singleton:=true&#xA;Bundle-Name: Mod4j DataContract DSL generator&#xA;Bundle-Vendor: org.mod4j&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.dsl.datacontract.generator.workflow&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.generator;singleton:=true&#xA;Bundle-Name: Mod4j DataContract DSL generator&#xA;Bundle-Vendor: org.mod4j
           </instruction>
         </instructions>
       </touchpointData>
@@ -2107,7 +2107,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.crossx.mm.crossx,org.mod4j.crossx.mm.crossx.impl,org.mod4j.crossx.mm.crossx.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: Crossx metamodel&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.crossx.mm; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.crossx.mm.crossx,org.mod4j.crossx.mm.crossx.impl,org.mod4j.crossx.mm.crossx.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: Crossx metamodel&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.crossx.mm; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true
           </instruction>
         </instructions>
       </touchpointData>
@@ -2136,7 +2136,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: BusinessDomainDsl,BusinessDomainDsl.impl,BusinessDomainDsl.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: BusinessDomain metamodel&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: org.mod4j&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.mm;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: BusinessDomainDsl,BusinessDomainDsl.impl,BusinessDomainDsl.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: BusinessDomain metamodel&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: org.mod4j&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.mm;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true
           </instruction>
         </instructions>
       </touchpointData>
@@ -2172,7 +2172,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Name: ServiceDsl xtext syntax&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.antlr;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator,org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.service.validation,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;&#xA;Export-Package: org.mod4j.dsl.service.xtext,               org.mod4j.dsl.service.xtext.parser&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.xtext;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: mod4j.org&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: ServiceDsl xtext syntax&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.antlr;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator,org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.service.validation,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;&#xA;Export-Package: org.mod4j.dsl.service.xtext,               org.mod4j.dsl.service.xtext.parser&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.xtext;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: mod4j.org
           </instruction>
         </instructions>
       </touchpointData>
@@ -2200,7 +2200,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.crossx.broker,org.mod4j.crossx.broker.xtend&#xA;Require-Bundle: org.mod4j.crossx.mm&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.crossx.broker&#xA;Bundle-Name: Repository&#xA;Bundle-Vendor: mod4j.org&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.crossx.broker,org.mod4j.crossx.broker.xtend&#xA;Require-Bundle: org.mod4j.crossx.mm&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.crossx.broker&#xA;Bundle-Name: Repository&#xA;Bundle-Vendor: mod4j.org
           </instruction>
         </instructions>
       </touchpointData>
@@ -2276,7 +2276,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.common.generator.admin,org.mod4j.common.xtend,org.mod4j.dslcommon.generator.helpers,org.mod4j.dslcommon.io,org.mod4j.dslcommon.openarchitectureware,org.mod4j.dslcommon.workflow,org.mod4j.dslcommon.xml,org.mod4j.dslcommon.xtend&#xA;Require-Bundle: org.openarchitectureware.core.workflow,org.openarchitectureware.classic.libraries,org.apache.commons.cli,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.openarchitectureware.util.stdlib;resolution:=optional,org.openarchitectureware.core.xpand2;bundle-version=&quot;4.3.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.common&#xA;Bundle-Name: Mod4j common Plug-in&#xA;Bundle-Vendor: org.mod4j&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.common.generator.admin,org.mod4j.common.xtend,org.mod4j.dslcommon.generator.helpers,org.mod4j.dslcommon.io,org.mod4j.dslcommon.openarchitectureware,org.mod4j.dslcommon.workflow,org.mod4j.dslcommon.xml,org.mod4j.dslcommon.xtend&#xA;Require-Bundle: org.openarchitectureware.core.workflow,org.openarchitectureware.classic.libraries,org.apache.commons.cli,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.openarchitectureware.util.stdlib;resolution:=optional,org.openarchitectureware.core.xpand2;bundle-version=&quot;4.3.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.common&#xA;Bundle-Name: Mod4j common Plug-in&#xA;Bundle-Vendor: org.mod4j
           </instruction>
         </instructions>
       </touchpointData>
@@ -2343,7 +2343,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.businessdomain.generator.helpers&#xA;Require-Bundle: org.junit4,org.mod4j.crossx.mm,org.mod4j.crossx.broker,org.mod4j.dsl.businessdomain.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.generator;singleton:=true&#xA;Bundle-Name: BusinessDomain generator&#xA;Bundle-Vendor: org.mod4j&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: org.mod4j.businessdomain.generator.helpers&#xA;Require-Bundle: org.junit4,org.mod4j.crossx.mm,org.mod4j.crossx.broker,org.mod4j.dsl.businessdomain.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.generator;singleton:=true&#xA;Bundle-Name: BusinessDomain generator&#xA;Bundle-Vendor: org.mod4j
           </instruction>
         </instructions>
       </touchpointData>
@@ -2458,7 +2458,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.service.xtext,org.mod4j.dsl.service.xtext.editor&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.dsl.service.xtext,org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;&#xA;Bundle-Activator: org.mod4j.dsl.service.xtext.ServiceDslEditorPlugin&#xA;Bundle-Name: ServiceDsl Editor Plug-in&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.xtext.editor; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.service.xtext,org.mod4j.dsl.service.xtext.editor&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.dsl.service.xtext,org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;&#xA;Bundle-Activator: org.mod4j.dsl.service.xtext.ServiceDslEditorPlugin&#xA;Bundle-Name: ServiceDsl Editor Plug-in&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.xtext.editor; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true
           </instruction>
         </instructions>
       </touchpointData>
@@ -2494,7 +2494,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Name: BusinessDomain xtext&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator;visibility:=reexport,org.mod4j.dsl.businessdomain.mm,org.mod4j.dsl.businessdomain.validation,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Export-Package: org.mod4j.businessdomain.xtext,org.mod4j.businessdomain.xtext.parser,org.mod4j.businessdomain.xtext.resource&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.xtext;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: mod4j.org&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: BusinessDomain xtext&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator;visibility:=reexport,org.mod4j.dsl.businessdomain.mm,org.mod4j.dsl.businessdomain.validation,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Export-Package: org.mod4j.businessdomain.xtext,org.mod4j.businessdomain.xtext.parser,org.mod4j.businessdomain.xtext.resource&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.xtext;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: mod4j.org
           </instruction>
         </instructions>
       </touchpointData>
@@ -2544,7 +2544,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-Vendor: org.mod4j&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Activator: org.mod4j.eclipse.Activator&#xA;Bundle-Name: Mod4j Eclipse integration&#xA;Import-Package: org.eclipse.ui.actions,org.eclipse.ui.part&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.eclipse.ui,org.openarchitectureware.core.workflow,org.openarchitectureware.workflow,org.openarchitectureware.classic.libraries,org.apache.commons.cli,org.eclipse.jdt.core,org.eclipse.ui.console,org.mod4j.crossx.mm,org.mod4j.common,org.eclipse.emf.ecore.xmi;bundle-version=&quot;2.4.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.eclipse.ui.ide;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.filesystem;bundle-version=&quot;1.2.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.4.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.eclipse; singleton:=true&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Export-Package: org.mod4j.eclipse,org.mod4j.eclipse.builder,org.mod4j.eclipse.crossx.views,org.mod4j.eclipse.util,org.mod4j.eclipse.util.xml,org.mod4j.eclipse.views.filetracker,org.mod4j.eclipse.xtend&#xA;
+            Bundle-Vendor: org.mod4j&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Activator: org.mod4j.eclipse.Activator&#xA;Bundle-Name: Mod4j Eclipse integration&#xA;Import-Package: org.eclipse.ui.actions,org.eclipse.ui.part&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.eclipse.ui,org.openarchitectureware.core.workflow,org.openarchitectureware.workflow,org.openarchitectureware.classic.libraries,org.apache.commons.cli,org.eclipse.jdt.core,org.eclipse.ui.console,org.mod4j.crossx.mm,org.mod4j.common,org.eclipse.emf.ecore.xmi;bundle-version=&quot;2.4.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.eclipse.ui.ide;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.filesystem;bundle-version=&quot;1.2.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.4.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.eclipse; singleton:=true&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Eclipse-LazyStart: true&#xA;Export-Package: org.mod4j.eclipse,org.mod4j.eclipse.builder,org.mod4j.eclipse.crossx.views,org.mod4j.eclipse.util,org.mod4j.eclipse.util.xml,org.mod4j.eclipse.views.filetracker,org.mod4j.eclipse.xtend
           </instruction>
         </instructions>
       </touchpointData>
@@ -2574,7 +2574,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: BusinessDomainDsl.validation&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.crossx.broker,org.mod4j.dsl.businessdomain.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.validation;singleton:=true&#xA;Bundle-Name: BusinessDomain validation&#xA;Bundle-Vendor: org.mod4j&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812170807&#xA;Export-Package: BusinessDomainDsl.validation&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.crossx.broker,org.mod4j.dsl.businessdomain.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.validation;singleton:=true&#xA;Bundle-Name: BusinessDomain validation&#xA;Bundle-Vendor: org.mod4j
           </instruction>
         </instructions>
       </touchpointData>
@@ -2616,6 +2616,883 @@
       <copyright>
         (c) 2008, Ordina: original contributor&#xA;(c) 2008, Jos Warmer &amp; Anneke Kleppe: Java code generation for&#xA;associations is based on the code generator from Octopus (http://octopus.sourceforge.net)
       </copyright>
+    </unit>
+    <unit id='org.mod4j.eclipse' version='1.0.0.200812171044'>
+      <update id='org.mod4j.eclipse' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Eclipse integration'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.eclipse' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.eclipse' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse.builder' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse.crossx.views' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse.util.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse.views.filetracker' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.eclipse.xtend' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='18'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.core.workflow' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.workflow' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.classic.libraries' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.apache.commons.cli' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='2.4.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='1.2.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='3.4.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.actions' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.part' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.eclipse' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: org.mod4j&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Activator: org.mod4j.eclipse.Activator&#xA;Bundle-Name: Mod4j Eclipse integration&#xA;Import-Package: org.eclipse.ui.actions,org.eclipse.ui.part&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.eclipse.ui,org.openarchitectureware.core.workflow,org.openarchitectureware.workflow,org.openarchitectureware.classic.libraries,org.apache.commons.cli,org.eclipse.jdt.core,org.eclipse.ui.console,org.mod4j.crossx.mm,org.mod4j.common,org.eclipse.emf.ecore.xmi;bundle-version=&quot;2.4.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.eclipse.ui.ide;bundle-version=&quot;3.4.0&quot;,org.eclipse.core.filesystem;bundle-version=&quot;1.2.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.4.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.eclipse; singleton:=true&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Eclipse-LazyStart: true&#xA;Export-Package: org.mod4j.eclipse,org.mod4j.eclipse.builder,org.mod4j.eclipse.crossx.views,org.mod4j.eclipse.util,org.mod4j.eclipse.util.xml,org.mod4j.eclipse.views.filetracker,org.mod4j.eclipse.xtend&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='mod4j.service.feature.feature.jar' version='1.0.0.200812171044'>
+      <update id='mod4j.service.feature.feature.jar' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Service Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='The Mod4j features supports modeling and code generation through&#xA;small independent DSL&apos;s. for Java projects. This service&#xA;language is one of those DSL&apos;s.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mod4j.service.feature.feature.jar' version='1.0.0.200812171044'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='mod4j.service.feature' version='1.0.0.200812171044'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='mod4j.service.feature' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.example.com/license'>
+          Mod4j contributors make available all content in this plug-in&#xA;(&quot;Content&quot;). Unless otherwise indicated below, the Content is&#xA;provided to you under the terms and conditions of the Eclipse&#xA;Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is available&#xA;at http://www.eclipse.org/legal/epl-v10.html. For purposes of&#xA;the EPL, &quot;Program&quot; will mean the Content.&#xA;If you did not receive this Content directly from the Eclipse&#xA;Foundation, the Content is being redistributed by another party&#xA;(&quot;Redistributor&quot;) and different terms and conditions may apply&#xA;to your use of any object code in the Content. Check the Redistributor’s&#xA;license that was provided with the Content. If no such license&#xA;exists, contact the Redistributor. Unless otherwise indicated&#xA;below, the terms and conditions of the EPL still apply to any&#xA;source code in the Content and such source code may be obtained&#xA;at http://www.eclipse.org.
+        </license>
+      </licenses>
+      <copyright>
+        (c) 2008, Ordina: original contributor
+      </copyright>
+    </unit>
+    <unit id='org.mod4j.dsl.datacontract.mm' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.datacontract.mm' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='4'>
+        <property name='df_LT.providerName' value='www.example.org'/>
+        <property name='df_LT.pluginName' value='DataContractDsl Model'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.mm' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.mm' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.mm.DataContractDsl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.mm.DataContractDsl.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.mm.DataContractDsl.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.datacontract.mm' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.datacontract.mm.DataContractDsl,org.mod4j.dsl.datacontract.mm.DataContractDsl.impl,org.mod4j.dsl.datacontract.mm.DataContractDsl.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.mm;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.crossx.mm' version='1.0.0.200812171044'>
+      <update id='org.mod4j.crossx.mm' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Crossx metamodel'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.crossx.mm' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.crossx.mm' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.crossx.mm.crossx' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.crossx.mm.crossx.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.crossx.mm.crossx.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.crossx.mm' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.crossx.mm.crossx,org.mod4j.crossx.mm.crossx.impl,org.mod4j.crossx.mm.crossx.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: Crossx metamodel&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.crossx.mm; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.datacontract.validation' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.datacontract.validation' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j DataContract DSL validation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.validation' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.validation' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.validation.checks' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.datacontract.validation' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.dsl.datacontract.validation.checks&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.dsl.datacontract.mm,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.validation; singleton:=true&#xA;Bundle-Name: Mod4j DataContract DSL validation&#xA;Bundle-Vendor: mod4j.org&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.businessdomain.validation' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.businessdomain.validation' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='BusinessDomain validation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.validation' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.validation' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='BusinessDomainDsl.validation' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.businessdomain.validation' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: BusinessDomainDsl.validation&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.crossx.broker,org.mod4j.dsl.businessdomain.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.validation;singleton:=true&#xA;Bundle-Name: BusinessDomain validation&#xA;Bundle-Vendor: org.mod4j&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.businessdomain.xtext.editor' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.businessdomain.xtext.editor' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='BusinessDomain Xtext Editor'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.xtext.editor' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.xtext.editor' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.xtext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.xtext.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.xtext.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.editor.base' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.eclipse' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.xtext' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.businessdomain.xtext.editor' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.businessdomain.xtext,org.mod4j.businessdomain.xtext.editor,org.mod4j.businessdomain.xtext.wizards&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.eclipse,org.mod4j.dsl.businessdomain.xtext&#xA;Bundle-Activator: org.mod4j.businessdomain.xtext.BusinessDomainDslEditorPlugin&#xA;Bundle-Name: BusinessDomain Xtext Editor&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-Vendor: org.mod4j&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.xtext.editor;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.common' version='1.0.0.200812171044' singleton='false'>
+      <update id='org.mod4j.common' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j common Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='11'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.common' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.common' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.common.generator.admin' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.common.xtend' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dslcommon.generator.helpers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dslcommon.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dslcommon.openarchitectureware' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dslcommon.workflow' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dslcommon.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dslcommon.xtend' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.core.workflow' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.classic.libraries' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.apache.commons.cli' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.util.stdlib' range='0.0.0' optional='true'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.core.xpand2' range='4.3.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.common' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.common.generator.admin,org.mod4j.common.xtend,org.mod4j.dslcommon.generator.helpers,org.mod4j.dslcommon.io,org.mod4j.dslcommon.openarchitectureware,org.mod4j.dslcommon.workflow,org.mod4j.dslcommon.xml,org.mod4j.dslcommon.xtend&#xA;Require-Bundle: org.openarchitectureware.core.workflow,org.openarchitectureware.classic.libraries,org.apache.commons.cli,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.openarchitectureware.util.stdlib;resolution:=optional,org.openarchitectureware.core.xpand2;bundle-version=&quot;4.3.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.common&#xA;Bundle-Name: Mod4j common Plug-in&#xA;Bundle-Vendor: org.mod4j&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.service.xtext.editor' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.service.xtext.editor' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='ServiceDsl Editor Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.xtext.editor' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.service.xtext.editor' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.xtext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.xtext.editor' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.editor.base' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.service.xtext' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.service.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.eclipse' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.service.xtext.editor' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.service.xtext,org.mod4j.dsl.service.xtext.editor&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.dsl.service.xtext,org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;&#xA;Bundle-Activator: org.mod4j.dsl.service.xtext.ServiceDslEditorPlugin&#xA;Bundle-Name: ServiceDsl Editor Plug-in&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.xtext.editor; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.service.mm' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.service.mm' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Service DSL metamodel'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.mm' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.service.mm' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.mm.ServiceDsl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.mm.ServiceDsl.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.mm.ServiceDsl.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.mm.xtend' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.service.mm' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: mod4j.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: Mod4j Service DSL metamodel&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibility:=reexport,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Bundle-ClassPath: .&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.mm; singleton:=true&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Eclipse-LazyStart: true&#xA;Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,org.mod4j.dsl.service.mm.ServiceDsl.impl,org.mod4j.dsl.service.mm.ServiceDsl.util,org.mod4j.dsl.service.mm.xtend&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='mod4j.businessdomain.feature.feature.jar' version='1.0.0.200812171044'>
+      <update id='mod4j.businessdomain.feature.feature.jar' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j BusinessDomain Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='The Mod4j features supports modeling and code generation through&#xA;small independent DSL&apos;s. for Java projects. This business domain&#xA;language is one of those DSL&apos;s.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mod4j.businessdomain.feature.feature.jar' version='1.0.0.200812171044'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='mod4j.businessdomain.feature' version='1.0.0.200812171044'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='mod4j.businessdomain.feature' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org'>
+          Mod4j contributors make available all content in this plug-in&#xA;(&quot;Content&quot;). Unless otherwise indicated below, the Content is&#xA;provided to you under the terms and conditions of the Eclipse&#xA;Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is available&#xA;at http://www.eclipse.org/legal/epl-v10.html. For purposes of&#xA;the EPL, &quot;Program&quot; will mean the Content.&#xA;If you did not receive this Content directly from the Eclipse&#xA;Foundation, the Content is being redistributed by another party&#xA;(&quot;Redistributor&quot;) and different terms and conditions may apply&#xA;to your use of any object code in the Content. Check the Redistributor’s&#xA;license that was provided with the Content. If no such license&#xA;exists, contact the Redistributor. Unless otherwise indicated&#xA;below, the terms and conditions of the EPL still apply to any&#xA;source code in the Content and such source code may be obtained&#xA;at http://www.eclipse.org.
+        </license>
+      </licenses>
+      <copyright>
+        (c) 2008, Ordina: original contributor&#xA;(c) 2008, Jos Warmer &amp; Anneke Kleppe: Java code generation for&#xA;associations is based on the code generator from Octopus (http://octopus.sourceforge.net)
+      </copyright>
+    </unit>
+    <unit id='org.mod4j.dsl.service.xtext' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.service.xtext' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='ServiceDsl xtext syntax'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.xtext' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.service.xtext' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.xtext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.xtext.parser' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.antlr' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.core.base' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.generator' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.service.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.service.validation' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.service.xtext' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: ServiceDsl xtext syntax&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.antlr;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator,org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.service.validation,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;&#xA;Export-Package: org.mod4j.dsl.service.xtext,               org.mod4j.dsl.service.xtext.parser&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.xtext;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: mod4j.org&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.service.validation' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.service.validation' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Service DSL validation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.validation' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.service.validation' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.service.validation.checks' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.service.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.service.validation' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.dsl.service.validation.checks&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.dsl.service.mm,org.mod4j.crossx.broker,org.mod4j.crossx.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.validation; singleton:=true&#xA;Bundle-Name: Mod4j Service DSL validation&#xA;Bundle-Vendor: mod4j.org&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.businessdomain.mm' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.businessdomain.mm' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='BusinessDomain metamodel'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.mm' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.mm' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='BusinessDomainDsl' version='0.0.0'/>
+        <provided namespace='java.package' name='BusinessDomainDsl.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='BusinessDomainDsl.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.businessdomain.mm' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: BusinessDomainDsl,BusinessDomainDsl.impl,BusinessDomainDsl.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport&#xA;Bundle-Name: BusinessDomain metamodel&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-Vendor: org.mod4j&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.mm;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.datacontract.xtext' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.datacontract.xtext' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='1'>
+        <property name='org.eclipse.equinox.p2.name' value='DataContractDsl Plug-in'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.xtext' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.xtext' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.xtext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.xtext.parser' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.antlr' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.core.base' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.generator' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.validation' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.datacontract.xtext' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.dsl.datacontract.xtext,               org.mod4j.dsl.datacontract.xtext.parser&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.antlr;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.datacontract.validation;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext;singleton:=true&#xA;Eclipse-LazyStart: true&#xA;Bundle-Name: DataContractDsl Plug-in&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.businessdomain.generator' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.businessdomain.generator' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='BusinessDomain generator'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.generator' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.generator' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.generator.helpers' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.junit4' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.businessdomain.generator' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.businessdomain.generator.helpers&#xA;Require-Bundle: org.junit4,org.mod4j.crossx.mm,org.mod4j.crossx.broker,org.mod4j.dsl.businessdomain.mm,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.generator;singleton:=true&#xA;Bundle-Name: BusinessDomain generator&#xA;Bundle-Vendor: org.mod4j&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.datacontract.xtext.editor' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.datacontract.xtext.editor' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='DataContractDsl Editor Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.xtext.editor' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.xtext.editor' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.xtext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.xtext.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.xtext.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='15'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.editor.base' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.xtext' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.eclipse' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.datacontract.xtext.editor' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.mod4j.dsl.datacontract.xtext,org.mod4j.dsl.datacontract.xtext.editor,org.mod4j.dsl.datacontract.xtext.wizards&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.workbench.texteditor,org.eclipse.ui.views,org.eclipse.core.resources,org.eclipse.ui.ide,org.openarchitectureware.xtext.editor.base,org.mod4j.dsl.datacontract.xtext,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;visibility:=reexport,org.eclipse.emf.ecore.xmi&#xA;Bundle-Activator: org.mod4j.dsl.datacontract.xtext.DataContractDslEditorPlugin&#xA;Bundle-Name: DataContractDsl Editor Plug-in&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-Vendor: mod4j.org&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.editor; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.businessdomain.xtext' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.businessdomain.xtext' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='BusinessDomain xtext'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.xtext' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.xtext' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.xtext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.xtext.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.businessdomain.xtext.resource' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.core.base' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.xtext.generator' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.mm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.businessdomain.validation' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.businessdomain.xtext' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: BusinessDomain xtext&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Eclipse-LazyStart: true&#xA;Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,org.openarchitectureware.xtext.core.base;visibility:=reexport,org.openarchitectureware.xtext.generator;visibility:=reexport,org.mod4j.dsl.businessdomain.mm,org.mod4j.dsl.businessdomain.validation,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;&#xA;Export-Package: org.mod4j.businessdomain.xtext,org.mod4j.businessdomain.xtext.parser,org.mod4j.businessdomain.xtext.resource&#xA;Bundle-SymbolicName: org.mod4j.dsl.businessdomain.xtext;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: mod4j.org&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.dsl.datacontract.generator' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.datacontract.generator' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j DataContract DSL generator'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.generator' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.generator' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.dsl.datacontract.generator.workflow' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.openarchitectureware.dependencies' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.datacontract.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.eclipse' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.datacontract.generator' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.dsl.datacontract.generator.workflow&#xA;Require-Bundle: org.openarchitectureware.dependencies,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.dsl.datacontract.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.dsl.datacontract.generator;singleton:=true&#xA;Bundle-Name: Mod4j DataContract DSL generator&#xA;Bundle-Vendor: org.mod4j&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='mod4j.datacontract.feature.feature.group' version='1.0.0.200812171044' singleton='false'>
+      <update id='mod4j.datacontract.feature.feature.group' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Datacontract Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='The Mod4j features supports modeling and code generation through&#xA;small independent DSL&apos;s. for Java projects. This business domain&#xA;language is one of those DSL&apos;s.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mod4j.datacontract.feature.feature.group' version='1.0.0.200812171044'/>
+      </provides>
+      <requires size='10'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.common' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.crossx.broker' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.crossx.mm' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.generator' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.mm' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.validation' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.xtext' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.datacontract.xtext.editor' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.eclipse' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='mod4j.datacontract.feature.feature.jar' range='[1.0.0.200812171044,1.0.0.200812171044]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org'>
+          Mod4j contributors make available all content in this plug-in&#xA;(&quot;Content&quot;). Unless otherwise indicated below, the Content is&#xA;provided to you under the terms and conditions of the Eclipse&#xA;Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is available&#xA;at http://www.eclipse.org/legal/epl-v10.html. For purposes of&#xA;the EPL, &quot;Program&quot; will mean the Content.&#xA;If you did not receive this Content directly from the Eclipse&#xA;Foundation, the Content is being redistributed by another party&#xA;(&quot;Redistributor&quot;) and different terms and conditions may apply&#xA;to your use of any object code in the Content. Check the Redistributor’s&#xA;license that was provided with the Content. If no such license&#xA;exists, contact the Redistributor. Unless otherwise indicated&#xA;below, the terms and conditions of the EPL still apply to any&#xA;source code in the Content and such source code may be obtained&#xA;at http://www.eclipse.org.
+        </license>
+      </licenses>
+      <copyright url='http://mod4j.org'>
+        (c) 2008, Ordina: original contributor
+      </copyright>
+    </unit>
+    <unit id='mod4j.service.feature.feature.group' version='1.0.0.200812171044' singleton='false'>
+      <update id='mod4j.service.feature.feature.group' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Service Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='The Mod4j features supports modeling and code generation through&#xA;small independent DSL&apos;s. for Java projects. This service&#xA;language is one of those DSL&apos;s.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mod4j.service.feature.feature.group' version='1.0.0.200812171044'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.generator' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.mm' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.validation' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.xtext' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.xtext.editor' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='mod4j.service.feature.feature.jar' range='[1.0.0.200812171044,1.0.0.200812171044]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.example.com/license'>
+          Mod4j contributors make available all content in this plug-in&#xA;(&quot;Content&quot;). Unless otherwise indicated below, the Content is&#xA;provided to you under the terms and conditions of the Eclipse&#xA;Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is available&#xA;at http://www.eclipse.org/legal/epl-v10.html. For purposes of&#xA;the EPL, &quot;Program&quot; will mean the Content.&#xA;If you did not receive this Content directly from the Eclipse&#xA;Foundation, the Content is being redistributed by another party&#xA;(&quot;Redistributor&quot;) and different terms and conditions may apply&#xA;to your use of any object code in the Content. Check the Redistributor’s&#xA;license that was provided with the Content. If no such license&#xA;exists, contact the Redistributor. Unless otherwise indicated&#xA;below, the terms and conditions of the EPL still apply to any&#xA;source code in the Content and such source code may be obtained&#xA;at http://www.eclipse.org.
+        </license>
+      </licenses>
+      <copyright>
+        (c) 2008, Ordina: original contributor
+      </copyright>
+    </unit>
+    <unit id='mod4j.businessdomain.feature.feature.group' version='1.0.0.200812171044' singleton='false'>
+      <update id='mod4j.businessdomain.feature.feature.group' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j BusinessDomain Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='The Mod4j features supports modeling and code generation through&#xA;small independent DSL&apos;s. for Java projects. This business domain&#xA;language is one of those DSL&apos;s.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mod4j.businessdomain.feature.feature.group' version='1.0.0.200812171044'/>
+      </provides>
+      <requires size='10'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.crossx.mm' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.crossx.broker' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.eclipse' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.generator' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.mm' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.validation' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.xtext' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.businessdomain.xtext.editor' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.common' range='[1.0.0.200812171044,1.0.0.200812171044]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='mod4j.businessdomain.feature.feature.jar' range='[1.0.0.200812171044,1.0.0.200812171044]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org'>
+          Mod4j contributors make available all content in this plug-in&#xA;(&quot;Content&quot;). Unless otherwise indicated below, the Content is&#xA;provided to you under the terms and conditions of the Eclipse&#xA;Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is available&#xA;at http://www.eclipse.org/legal/epl-v10.html. For purposes of&#xA;the EPL, &quot;Program&quot; will mean the Content.&#xA;If you did not receive this Content directly from the Eclipse&#xA;Foundation, the Content is being redistributed by another party&#xA;(&quot;Redistributor&quot;) and different terms and conditions may apply&#xA;to your use of any object code in the Content. Check the Redistributor’s&#xA;license that was provided with the Content. If no such license&#xA;exists, contact the Redistributor. Unless otherwise indicated&#xA;below, the terms and conditions of the EPL still apply to any&#xA;source code in the Content and such source code may be obtained&#xA;at http://www.eclipse.org.
+        </license>
+      </licenses>
+      <copyright>
+        (c) 2008, Ordina: original contributor&#xA;(c) 2008, Jos Warmer &amp; Anneke Kleppe: Java code generation for&#xA;associations is based on the code generator from Octopus (http://octopus.sourceforge.net)
+      </copyright>
+    </unit>
+    <unit id='mod4j.datacontract.feature.feature.jar' version='1.0.0.200812171044'>
+      <update id='mod4j.datacontract.feature.feature.jar' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Datacontract Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='The Mod4j features supports modeling and code generation through&#xA;small independent DSL&apos;s. for Java projects. This business domain&#xA;language is one of those DSL&apos;s.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://mod4j.org'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='mod4j.datacontract.feature.feature.jar' version='1.0.0.200812171044'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='mod4j.datacontract.feature' version='1.0.0.200812171044'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='mod4j.datacontract.feature' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org'>
+          Mod4j contributors make available all content in this plug-in&#xA;(&quot;Content&quot;). Unless otherwise indicated below, the Content is&#xA;provided to you under the terms and conditions of the Eclipse&#xA;Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is available&#xA;at http://www.eclipse.org/legal/epl-v10.html. For purposes of&#xA;the EPL, &quot;Program&quot; will mean the Content.&#xA;If you did not receive this Content directly from the Eclipse&#xA;Foundation, the Content is being redistributed by another party&#xA;(&quot;Redistributor&quot;) and different terms and conditions may apply&#xA;to your use of any object code in the Content. Check the Redistributor’s&#xA;license that was provided with the Content. If no such license&#xA;exists, contact the Redistributor. Unless otherwise indicated&#xA;below, the terms and conditions of the EPL still apply to any&#xA;source code in the Content and such source code may be obtained&#xA;at http://www.eclipse.org.
+        </license>
+      </licenses>
+      <copyright url='http://mod4j.org'>
+        (c) 2008, Ordina: original contributor
+      </copyright>
+    </unit>
+    <unit id='org.mod4j.dsl.service.generator' version='1.0.0.200812171044'>
+      <update id='org.mod4j.dsl.service.generator' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mod4j Service DSL generator'/>
+        <property name='org.eclipse.equinox.p2.provider' value='org.mod4j'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.dsl.service.generator' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.dsl.service.generator' version='1.0.0.200812171044'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.mod4j.dsl.service.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.common' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.broker' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.mod4j.eclipse' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.dsl.service.generator' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Name: Mod4j Service DSL generator&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Bundle-SymbolicName: org.mod4j.dsl.service.generator;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Vendor: org.mod4j&#xA;Require-Bundle: org.mod4j.dsl.service.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.common;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.broker;bundle-version=&quot;1.0.0&quot;,org.mod4j.crossx.mm;bundle-version=&quot;1.0.0&quot;,org.mod4j.eclipse;bundle-version=&quot;1.0.0&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mod4j.crossx.broker' version='1.0.0.200812171044' singleton='false'>
+      <update id='org.mod4j.crossx.broker' range='[0.0.0,1.0.0.200812171044)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Repository'/>
+        <property name='org.eclipse.equinox.p2.provider' value='mod4j.org'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mod4j.crossx.broker' version='1.0.0.200812171044'/>
+        <provided namespace='osgi.bundle' name='org.mod4j.crossx.broker' version='1.0.0.200812171044'/>
+        <provided namespace='java.package' name='org.mod4j.crossx.broker' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mod4j.crossx.broker.xtend' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.mod4j.crossx.mm' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mod4j.crossx.broker' version='1.0.0.200812171044'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.200812171044&#xA;Export-Package: org.mod4j.crossx.broker,org.mod4j.crossx.broker.xtend&#xA;Require-Bundle: org.mod4j.crossx.mm&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.mod4j.crossx.broker&#xA;Bundle-Name: Repository&#xA;Bundle-Vendor: mod4j.org&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
     </unit>
   </units>
 </repository>
