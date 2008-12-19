@@ -8,9 +8,11 @@ import ServiceDsl;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
+extension org::mod4j::dslcommon::xtend::generatorutil;
 
 completeModel(ServiceModel model) :
     let cruds = model.crudServices :
+    print("MOD4J INFO: Running CompleteSvc::completeModel on file [" + model.name + "]")->
 	model.methods.addAll( cruds.createMethod())->
 	model.methods.addAll( cruds.readMethod())->
 	model.methods.addAll( cruds.updateMethod())->
