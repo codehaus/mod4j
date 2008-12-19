@@ -9,11 +9,13 @@ Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
  org.openarchitectureware.xtext.generator,
  org.mod4j.dsl.service.mm;bundle-version="1.0.0",
  org.mod4j.dsl.service.validation,
+ org.mod4j.dsl.service.generator;bundle-version="1.0.0",
  org.mod4j.crossx.broker;bundle-version="1.0.0",
  org.mod4j.common;bundle-version="1.0.0",
  org.mod4j.crossx.mm;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.dsl.service.xtext,
-                org.mod4j.dsl.service.xtext.parser
+ org.mod4j.dsl.service.xtext.parser,
+ org.mod4j.dsl.service.xtext.resource
 Bundle-Vendor: mod4j.org
 
