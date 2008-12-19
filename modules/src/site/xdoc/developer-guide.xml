@@ -287,14 +287,24 @@
                         <code>../modules/org.mod4j.updatesite</code>
                     </li>
                 </ol>
+                <p>Release steps: </p>
                 <ol>
-                    <li>Choose the release versionnr for the Mod4j Eclipse plug-ins. Fi: 1.0.0.qualifier. Check and adjust
-                        all
-                        version numbers in all Mod4j plug-ins (manifests, site.xml and feature.xml's).
-                        And commit.</li>
-                    <li>Choose the release versionnr. for the Mod4j Maven modules. Fi: 1.0.0-beta-1</li>
                     <li>
-                        Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr.:
+                        Choose the release versionnr for the Mod4j Eclipse plug-ins. For example:
+                        <b>1.0.0.qualifier</b>
+                        . Check and adjust
+                        all version numbers in all Mod4j plug-ins (manifests, site.xml and feature.xml's).
+                        And
+                        commit.
+                    </li>
+                    <li>
+                        Choose the release versionnr. for the Mod4j Maven modules. For example:
+                        <b>1.0.0-beta-1</b>
+                        (TODO: In future versions this must be equal to the version of the Mod4j Eclipse plug-ins. See Jira issue:
+                        https://mod4j.smart-java.nl/jira/browse/MOD4J-169)
+                    </li>
+                    <li>
+                        Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr. For example:
                         <br />
                         <code>
                             <b><![CDATA[<mod4j.version>1.0.0-beta-1</mod4j.version>]]></b>
@@ -305,7 +315,7 @@
                     <li>Click on "Build All". Now the features and plugins folder in the updatesite project contains
                         the
                         files we need to deploy to our updatesite (see next section).</li>
-                    <li>With the previous step a timebased releasenr is generated. For instance: 1.0.0.200812170807</li>
+                    <li>With the previous step a timebased releasenr is generated. For example: <b>1.0.0.200812170807</b></li>
                     <li>
                         Release all Maven modules (including hybrid's). Open a commandbox and navigate to the Mod4j
                         parent-pom.
