@@ -6,9 +6,11 @@
 import crossx;
 import DataContractDsl;
 
+extension org::mod4j::dslcommon::xtend::generatorutil;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 
 create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
+    print("MOD4J INFO: Running Crossx on file [" + modelFile + "]")->
     this.setDslname("DataContractDsl")->
     this.setModelname(dtcModel.name)->
     this.setResource(modelFile)->
