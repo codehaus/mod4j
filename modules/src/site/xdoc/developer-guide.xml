@@ -296,7 +296,7 @@
                     <li>
                         Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr.:
                         <br />
-                        <code><
+                        <code>
                             <b><![CDATA[<mod4j.version>1.0.0-beta-1</mod4j.version>]]></b>
                         </code>
                         And commit.
