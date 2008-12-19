@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-buildtools</artifactId>
-    <version>1.0.0-beta-2</version>
+    <version>1.0.0-beta-3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>mod4j-buildtools</name>
     <description>
@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.0.0-beta-2</version>
+        <version>1.0.0-beta-3-SNAPSHOT</version>
     </parent>
     <repositories>
         <repository>
