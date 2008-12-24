@@ -29,7 +29,7 @@
       </author>
     </authorgroup>
 
-    <releaseinfo>0.9</releaseinfo>
+    <releaseinfo>1.0 beta</releaseinfo>
 
     <copyright>
       <year>2008</year>
@@ -174,7 +174,8 @@
       the code generators of the various DSLs.</para>
 
       <section id="section-emptysubclass-pattern">
-        <title id="empty">Empty Subclass Pattern</title>
+        <title id="empty">Generation Gap Pattern or Empty Subclass
+        Pattern</title>
 
         <para>The problem is twofold:</para>
 
@@ -980,9 +981,9 @@
         whenever one of the sides is changed.</para>
 
         <section>
-          <title>Generated Code for the Business Layer</title>
+          <title>Generated Code for the Domain Layer</title>
 
-          <para>On the business layer the code is generated in the Java base
+          <para>On the domain layer the code is generated in the Java base
           class to store the references to objects at the opposite side of an
           association. For associations with multiplicito 0 or 1 this will be
           a field of the type at the oppoe side, for associoations with
@@ -1067,6 +1068,385 @@
 
           <para></para>
         </section>
+      </section>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Data Contrac DSL Reference</title>
+
+    <para>This chapter provides a description of all the concepts in the Data
+    Contract DSL. Each concept is described by a definition which explains the
+    meaning of the concept, and a description of the code generated for the
+    concept.</para>
+
+    <section>
+      <title>Data Transfer Object (DTO)</title>
+
+      <para>The central concept in the Data Contract DSL is the Data Transfer
+      Object, or DTO. A DTO is a value object that carries data only. The
+      purpose of a DTO is to be able to send data to back and forth to and
+      from clients.</para>
+
+      <para>Clients communicatie with domain objects thriough servicves. The
+      services and the service methods are defined by using the Service DSL.
+      The DTO objects define the in- and out parameters for the service
+      methods.</para>
+
+      <para>There are several types of DTOs. A customDto is a DTO that may
+      have any attributes. A BusinbessClassDto represents the data of a domain
+      object as defined in the Business Domain DSL. A ListDto defines a
+      collection of other DTOs. All these variants are described in detail
+      below.</para>
+    </section>
+
+    <section>
+      <title>CustomDto</title>
+
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
+    // properties go here ...
+]
+</programlisting>
+
+      <para>A Business Class describes something that has a specific meaning
+      in the buiness domain being modeled. In the system being modeled
+      instances of business classes will be created.</para>
+
+      <para>A business class has properties (also called attributes in e.g.
+      UML) of diferent types.</para>
+
+      <para>A busines class also contains business rules, that specify the
+      conditions that an instance of the class needs to conform to.</para>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>For a business class code is generated for both the domain and
+        the data layer of the architecture.</para>
+
+        <section>
+          <title>Domain Layer</title>
+
+          <para>The second class generated is an empty (except for
+          constructors calling <code>super()</code>) class which subclasses
+          the first class. This empty class is what we call an
+          <emphasis>extension point </emphasis>file, where manual code may be
+          added. This extension class is generated once and not overwritten,
+          which ensures that all handwritten code is maintained at all
+          times.</para>
+        </section>
+
+        <section>
+          <title>Data Layer</title>
+
+          <para>In the datalayer a number of files is generated.</para>
+
+          <para>A hibernate mapping file is generated for each
+          businessclass.</para>
+
+          <para>One Hibernate confiuguration file (how do you call this
+          DatalaagContext.xml file) file is generated for the application as a
+          whole.</para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>DTO Attributes</title>
+
+      <section>
+        <title>Definition</title>
+
+        <para>DTO Attributes are part of a DTO and defined within the scope of
+        their DTO. The example custom DTO personDto looks as follows.</para>
+
+        <programlisting class="monospaced" continuation="continues"
+                        format="specific" linenumbering="numbered"
+                        xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
+    <keycap>string</keycap>   description; 
+    <keycap>integer</keycap>  amount;    
+    <keycap>datetime</keycap> deliverydate;       
+    <keycap>decimal</keycap>  price;          
+    "Description of the isOk attribute"
+    <keycap>boolean</keycap>  isOk;          
+]
+</programlisting>
+
+        <para>An attribute describes a field of a data transfer object.
+        Attributes always have a defined type, which can be
+        <emphasis>integer</emphasis>, <emphasis>string</emphasis>,
+        <emphasis>decimal</emphasis>, <emphasis>boolean</emphasis> or
+        <emphasis>datetime</emphasis>.</para>
+
+        <para>Each attribute may have a description, which is placed directly
+        before the attribute definition within double quotes. In the example
+        only <emphasis>isOk</emphasis> has a description.</para>
+
+        <para>Contrary to business classes in the Business Domain DSL,
+        attributes of a DTO have no constraints associated with it.</para>
+      </section>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>For an attribute code is generated for both the service layer of
+        the architecture.</para>
+
+        <para>For each DTO a Java class is generated. This class contains a
+        protected field for each attribute and getter and setter methods to
+        access the field.</para>
+
+        <para>The fields in data transfer objets are always nullable,
+        therefore the field types in the generated code are always real
+        objkects. This means that <emphasis>Integer</emphasis>,
+        <emphasis>Float</emphasis>, <emphasis>Boolean</emphasis> are used as
+        field types for the attributes of type <emphasis>integer</emphasis>,
+        <emphasis>decimal</emphasis> and <emphasis>boolean</emphasis>.</para>
+
+        <para>The description of an attribute is used to generate Javadoc
+        comments in the code for the attribute.</para>
+      </section>
+    </section>
+
+    <section>
+      <title>BusinessClassDto</title>
+
+      <para>A BusinessClassDto is a DTO that represents the data of a business
+      class from the Business Domain DSL. As a consequence, the attributes
+      that are allowed within a BusinessClassDTO must map 1-to-1 to attributes
+      of the corresponding business class.</para>
+
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
+
+<keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+    // attributes go here 
+]
+</programlisting>
+
+      <para>A BusinessClassDto always declares the business class that it
+      represents as its base class. This business class must be defined in a
+      Business Domain model. To ensure that the business class is in scope it
+      must be imported first from its business domain model. Import statements
+      are always at the top of a data contract model.</para>
+
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+    name; 
+    numberOfEars;    
+    birthdate;       
+    length;          
+    "Description of the isMale attribute"
+    isMale;
+]
+</programlisting>
+
+      <para>Attributes of a BusinessClassDto must have the same names as
+      attributes in the bas business class. Not every attribute has to be
+      thre, allowing a BusinessClassDto to contain a subset of attributes from
+      its base business class.</para>
+
+      <para>The type of the attributes is derived from the type iof the
+      corresponding ttribute in the business class in the business domain
+      model. Therefore it is not speciified in the data contract model.</para>
+
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+    // attributes go here 
+
+    <keycap>references </keycap>[ 
+        orders <keycap>as</keycap> OrderNumberAndDateList ;  
+    ]   
+]
+</programlisting>
+
+      <para>A business class may take part is associations as defined in the
+      business domain model. A BusinessClassdto may represent such an
+      association as well. Tghere are restrictions on represented
+      associations. The main restriction is only one side of an association is
+      represented as a reference.</para>
+
+      <para>The references are contained in the references block. The same
+      rule that app;lied to attributes also applies to associations. Only
+      associations thart are defined in the business domain model may be used.
+      The name to be used is the role name of the opposite class in the
+      association definition.</para>
+
+      <para>The type mof a reference</para>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>For a business rule an abstract method with the name of the rule
+        returning a boolean value is generated in the base class. This ensures
+        that the developer must provide an implementation in the empty
+        subclass.</para>
+
+        <para>The first time the empty subclass is generated an empty method
+        implementing the abstract method from the base class is genarted. This
+        method returns true and contains a <emphasis>TODO comment</emphasis>
+        to remind the developer he needs to implement the rule.</para>
+
+        <para>The handling of the rules is completely generated. This means
+        that the rule will be called and validated whenever the object
+        changes. If the rule is broken, a BusinessClassException is created
+        and thrown. Developers do not need to handle these errors
+        themselves.</para>
+
+        <para>See the empty-subclass pattern on how this is done in the
+        code</para>
+      </section>
+    </section>
+
+    <section>
+      <title>ListDto</title>
+
+      <para>The final part of a domain model defines all the relationship,s
+      beteenm the bsuiness classes.</para>
+
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve"><keycap>Association</keycap> customer Customer [0..1] &lt;-&gt; [0..*] orders     Order    ;
+<keycap>Association</keycap> order    Order    [0..1]  -&gt; [0..*] orderLines OrderLine;
+</programlisting>
+
+      <para>This example shows one bidirectional association, which uses the
+      &lt;-&gt; syntax and one unidirectional association using the -&gt;
+      syntax.</para>
+
+      <para></para>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>Associations are a powerful mechanism and require careful
+        handling in the code. For bidirectional associations the generated
+        code ensures that both sides will always be updates consistently
+        whenever one of the sides is changed.</para>
+
+        <section>
+          <title>Generated Code for the Domain Layer</title>
+
+          <para>On the domain layer the code is generated in the Java base
+          class to store the references to objects at the opposite side of an
+          association. For associations with multiplicito 0 or 1 this will be
+          a field of the type at the oppoe side, for associoations with
+          multiplicity greater than 1 this will be a field of typoe
+          Set&lt;oppostite type&gt;.</para>
+
+          <para>Next to these fields methods are generated to change these
+          fields. For a single valued field a simple setter and getter is
+          generated.</para>
+
+          <para>For multivalues fields adding or deleting elements from the
+          collection should always be done by the object owinng the
+          collection. We cannot simply generate getter and setter nethods,
+          because chnages in the collection can be done without the object
+          knowing it, and the oibject cannot guarabntee consistentcy with the
+          opposite objects.</para>
+
+          <para>To resolev this problem we generate methods áddTo...',
+          'removeFrom...' for the collection in the owning class. Fpor the
+          Customer class in the above example we generate the áddToOrders()
+          and removefromOrders() methods. The getter methoids returns an
+          Unmodifyable collection to guard the clinet from changing the
+          collection.</para>
+
+          <para><programlisting class="monospaced" continuation="continues"
+          format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
+  /**
+   *  orders: One 2 Many Bidirectional: The customer has a number of orders
+   */
+  <keycap>private </keycap>Set&lt;Order&gt; orders = <keycap>new</keycap> HashSet&lt;Order&gt;();
+
+  /**
+   * @return orders (Set&lt;Order&gt;) 
+   */
+  <keycap>public</keycap> Set&lt;Order&gt; getOrders()
+
+  /**
+   * Implements adding single element to a collection
+   */
+  <keycap>public void </keycap>addToOrders(Order element)
+
+  /**
+   * Implements removal of a single element from feature 
+   * 
+   * @param element 
+   */
+  <keycap>public void </keycap>removeFromOrders(Order element)
+ <keycap /></programlisting>To support the consistency of the two sides of an
+          association we always have to update the other side whenever
+          something changes. We cannot simply call the other isded upodate
+          methods, because they will call their opposite side in trun and we
+          end up in an infinite loop.</para>
+
+          <para>To solve this problem we use special that are only used to
+          update the opposite side. All the methods als generated with
+          'z_internal' as prefix. These methods are public because they must
+          be callable from the opposite class. These methids should never be
+          used for anything else.<programlisting class="monospaced"
+          continuation="continues" format="specific" linenumbering="numbered"
+          xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
+<keycap /><keycap /><keycap /><keycap /><keycap />
+  /**
+   * This operation should NOT be used by clients.  It implements the correct
+   * addition of an element in an association.
+   * 
+   * @param element 
+   */
+  <keycap>public void </keycap>z_internalAddToorders(Order element) {
+
+  /**
+   * This operation should NOT be used by clients. It implements the correct
+   * removal of an element in an association.
+   * 
+   * @param element 
+   */
+  <keycap>public void </keycap>z_internalRemoveFromorders(Order element)
+<keycap /></programlisting></para>
+
+          <para></para>
+
+          <para></para>
+
+          <para></para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>EnumerationDto</title>
+
+      <para>An enumeration defines a datatype which can be used as the type of
+      an attibute of a business class. The enumeration definition includes a
+      list of all enumeration values. The example below shown an enumeration
+      definition.</para>
+
+      <programlisting class="monospaced" continuation="continues"
+                      format="specific" linenumbering="numbered"
+                      xml:space="preserve">"The severity level of a customer problem"
+<keycap>Enumeration</keycap> SeverityLevel [
+    Low    = 1;
+    Middle = 2;
+    High   = 3;
+]
+</programlisting>
+
+      <para>The "= 1" ets defines the numeric value that is used for the
+      enumeration literal in the code and the database. This is optional, but
+      useful when you need to address existing encoding schemes for
+      enumerations.</para>
+
+      <section>
+        <title>Generated code</title>
+
+        <para>To Be Done</para>
       </section>
     </section>
   </chapter>
