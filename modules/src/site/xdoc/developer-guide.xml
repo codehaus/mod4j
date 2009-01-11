@@ -36,12 +36,12 @@
                                 OpenArchitectureWare Eclipse 4.3.0 (4.3.0.20080508-1430PRD).
                                 <b>
                                     Update site:
-                                    <code>http://www.openarchitectureware.org/updatesite/milestone/site.xml
+                                    <code>http://www.openarchitectureware.org/updatesite/milestone/4.3.0/
                                     </code>
                                 </b>
                             </li>
                             <li>
-                                QforEclipse 0.8.0 Eclipse plugin for Maven2 projects.
+                                QforEclipse 0.8.1 Eclipse plugin for Maven2 projects.
                                 <b>
                                     Update site:
                                     <code>http://q4e.googlecode.com/svn/trunk/updatesite
