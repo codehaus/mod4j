@@ -37,9 +37,9 @@
                     </li>
                     <li>
                         The Mod4j user guide (
-                        <a href="documentation/user-guide/mod4j-user-guide.html">HTML</a>
+                        <a href="documentation-parent/user-guide/mod4j-user-guide.html">HTML</a>
                         ,
-                        <a href="documentation/user-guide/mod4j-user-guide.pdf">PDF</a>
+                        <a href="documentation-parent/user-guide/mod4j-user-guide.pdf">PDF</a>
                         )
                     </li>
                 </ul>
