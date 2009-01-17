@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apache.maven.wagon</groupId>
+  <artifactId>wagon-ftp</artifactId>
+  <version>1.0-beta-2-PATCHED-WAGON-148</version>
+  <name>Maven Wagon FTP Provider</name>
+  
+  <description>
+    Patched version of wagon-ftp. Wagon that gets and puts artifacts from and to remote server using FTP protocol
+    This version is based on wagon 1.0-beta-2 and patched with the patch that is attached to issue WAGON-148.
+  </description>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/WAGONFTP</url>
+  </issueManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+      <version>1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-ftpd</artifactId>
+      <version>1.0-alpha-1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.wagon</groupId>
+      <artifactId>wagon-provider-api</artifactId>
+      <version>1.0-beta-2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.wagon</groupId>
+      <artifactId>wagon-provider-test</artifactId>
+      <version>1.0-beta-2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
