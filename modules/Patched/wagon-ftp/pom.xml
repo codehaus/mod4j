@@ -4,12 +4,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mod4j.patched</groupId>
   <artifactId>wagon-ftp</artifactId>
-  <version>1.0-beta-2-PATCHED-WAGON-148</version>
+  <version>1.0-beta-2-PATCHEDv2-WAGON-148</version>
   <name>Maven Wagon FTP Provider</name>
 
   <description>
     Patched version of wagon-ftp. Wagon that gets and puts artifacts from and to remote server using FTP protocol
-    This version is based on wagon 1.0-beta-2 and patched with the patch that is attached to issue WAGON-148.
+    This version is based on wagon 1.0-beta-2 and:
+    - is patched with the patch that is attached to issue WAGON-148
+    - is fixed for issue WAGON-256
   </description>
 
   <issueManagement>
