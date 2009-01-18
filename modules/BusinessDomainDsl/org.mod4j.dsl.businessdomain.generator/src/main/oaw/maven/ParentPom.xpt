@@ -389,19 +389,7 @@
             <name>OpenArchitectureWare Maven Repository</name>
             <url>http://www.openarchitectureware.org/m2</url>
         </repository>
-        <!-- TODO: Remove this repository as soon as Mod4j as moved to Codehaus. See issue MOD4J-168 -->
-        <repository>
-            <id>smart-repo</id>
-            <url>https://repo.smart-java.nl/repo</url>
-        </repository>
     </repositories>
-    <!-- TODO: Remove this pluginRepository as soon as Mod4j as moved to Codehaus. See issue MOD4J-168. -->
-    <pluginRepositories>
-        <pluginRepository>
-            <id>smart-repo</id>
-            <url>https://repo.smart-java.nl/repo</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
 	    «ENDFILE»
 	«ENDIF»
