@@ -463,8 +463,12 @@ public class FtpWagon
         {
             if ( !ftp.changeWorkingDirectory( getRepository().getBasedir() ) )
             {
-                throw new TransferFailedException( "Required directory: '" + getRepository().getBasedir() + "' "
-                                + "is missing" );
+            	//Basedir does not exist so we try to create it
+            	if ( !ftp.makeDirectory( getRepository().getBasedir() ) )
+            	{
+            		throw new TransferFailedException( "Required directory: '" + getRepository().getBasedir() + "' "
+                            + "is missing and could not be created" );
+            	}
             }
         }
         catch ( IOException e )
@@ -573,7 +577,8 @@ public class FtpWagon
             try
             {
                 // It's a file. Upload it in the current directory.
-                if ( ftp.storeFile( fileName, new FileInputStream( sourceFile ) ) )
+            	FileInputStream fis = new FileInputStream( sourceFile );
+                if ( ftp.storeFile( fileName, fis ) )
                 {
                     if ( permissions != null )
                     {
@@ -606,6 +611,7 @@ public class FtpWagon
                                         + ftp.getReplyString();
                     throw new TransferFailedException( msg );
                 }
+                fis.close();
             }
             catch ( IOException e )
             {
