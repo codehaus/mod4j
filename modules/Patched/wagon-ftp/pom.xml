@@ -2,11 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.maven.wagon</groupId>
+  <groupId>org.mod4j.patched</groupId>
   <artifactId>wagon-ftp</artifactId>
   <version>1.0-beta-2-PATCHED-WAGON-148</version>
   <name>Maven Wagon FTP Provider</name>
-  
+
   <description>
     Patched version of wagon-ftp. Wagon that gets and puts artifacts from and to remote server using FTP protocol
     This version is based on wagon 1.0-beta-2 and patched with the patch that is attached to issue WAGON-148.
@@ -16,6 +16,14 @@
     <system>jira</system>
     <url>http://jira.codehaus.org/browse/WAGONFTP</url>
   </issueManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>dav.codehaus.org</id>
+      <name>Mod4j Central Maven Repository</name>
+      <url>dav:https://dav.codehaus.org/repository/mod4j/</url>
+    </repository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
