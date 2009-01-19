@@ -269,6 +269,18 @@
         <p>This section describes how to perform a full Mod4j release.</p>
         <p><big>Prerequisites</big></p>
         <ol>
+          <li>To be able to deploy artifacts to our Maven repository at Codehaus, you'll need to add the following server to your local settings.xml:
+            <br />
+            <![CDATA[
+              <!-- Remote Codehaus Mod4j repositories -->
+              <server>
+                <id>dav.codehaus.org</id>
+                <username>your Codehaus username</username>
+                <password>your Codehaus password</password>
+              </server>
+            ]]>
+            <br />
+          </li>
           <li>
             For deployment of the projec-site you'll need the ftp -username an -password for the Mod4j ftp-server.
             <br />
