@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.jpg" NDATA JPG>
+<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.jpg" NDATA JPG>
+<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
+]>
+<book lang="en">
+  <bookinfo>
+    <title>mod4j Application Architecture</title>
+
+    <author>
+      <firstname>Eric</firstname>
+
+      <othername>Jan</othername>
+
+      <surname>Malotaux</surname>
+    </author>
+
+    <releaseinfo>${version}</releaseinfo>
+
+    <copyright>
+      <year>2098</year>
+
+      <holder>Ordina J-Technologies</holder>
+    </copyright>
+  </bookinfo>
+
+  <chapter>
+    <title>Business Domain DSL Reference</title>
+
+    <para></para>
+
+    <section>
+      <title>Business Class</title>
+
+      <section>
+        <title>Generated code</title>
+
+        <para></para>
+      </section>
+    </section>
+  </chapter>
+</book>
