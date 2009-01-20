@@ -140,10 +140,7 @@ public class FtpWagon
             // Set to binary mode.
             ftp.setFileType( FTP.BINARY_FILE_TYPE );
 
-            // Use passive mode as default because most of us are
-            // behind firewalls these days.
-            // TODO [BP]: make optional based on a flag
-            ftp.enterLocalPassiveMode();
+            ftp.enterLocalActiveMode();
         }
         catch ( IOException e )
         {

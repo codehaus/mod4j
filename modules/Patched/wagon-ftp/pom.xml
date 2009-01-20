@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mod4j.patched</groupId>
   <artifactId>wagon-ftp</artifactId>
-  <version>1.0-beta-2-PATCHEDv2-WAGON-148</version>
+  <version>1.0-beta-2-PATCHEDv3-WAGON-148</version>
   <name>Maven Wagon FTP Provider</name>
 
   <description>
