@@ -39,17 +39,17 @@
         <itemizedlist>
           <listitem>
             <para><keycap>Generated code must be clear and readable</keycap>. Using Mod4j should
-              noit be a lifetime commitment. Thgerefopre the source code must eb at least as good as
+              not be a lifetime commitment. Therefore the source code must eb at least as good as
               handwritten code. This allows projects to continue development with the generated code
-              instead of the DSL models. Note that this surely isn;t the recommended way, but we
+              instead of the DSL models. Note that this surely isn't the recommended way, but we
               like the freedom this gives.</para>
             <para>Another reason for generating clear and readable code is that we do not have
               debuggers at the model level. This would be great, but the tools to develop
-              model-level debuggers are not avialable (yet, we hope). Therefore code neesvto be
-              debugged at the source code level and having eadable generated code really
+              model-level debuggers are not available (yet, we hope). Therefore code needs to be
+              debugged at the source code level and having readable generated code really
               helps.</para>
             <para>The third reason for generating clear code is that we do not generate everything.
-              We support a mizxe-mode development where developers write boith models and code to
+              We support a mixed-mode development where developers write both models and code to
               extend the generated code. It is easier to extend generated cod when this is
               readable.</para>
           </listitem>
@@ -58,19 +58,19 @@
                 model is always leading</emphasis>.</para>
           </listitem>
           <listitem>
-            <para>To ensure that generated code bever needs to be overwritten the generated code is
+            <para>To ensure that generated code never needs to be overwritten the generated code is
               designed and generated with <emphasis>specific extension points</emphasis>. These
               extension points are the only places where handwritten code may be placed. In most
               cases an extension point is in a separate file than the generates code. To help the
               developer a first empty extension point file is usually created , but only when the
-              expension point file does not exist.</para>
+              extension point file does not exist.</para>
           </listitem>
           <listitem>
             <para><keycap>Within Eclipse Mod4j support incremental code generation</keycap>. This
               means that code is generated on a per model file basis. Effectively whenever a model
               file is saved the code for this model file is generated automatically in the
               background. There is no need for a separate code generation step. This code generation
-              step uses the ard Eclipse build strcuture. If the n 'build automatically' is set this
+              step uses the standard Eclipse build structure. If the n 'build automatically' is set this
               will happen. If a full build is requested all code will be regenerated. This allows
               Eclipse users to work with models in the same way as with source code (i.e. Java class
               files).</para>
@@ -78,8 +78,8 @@
           <listitem>
             <para><keycap>Code generation through Maven.</keycap> Mod4j includes a Maven plugin that
               support the code generation process in batch mode. This is used to run automatics
-              builds based on thge models. There is no need to checkin generated source code, just
-              as there is noi need to checkin compiled Java classesWe support two ways of generating
+              builds based on the models. There is no need to checkin generated source code, just
+              as there is no need to checkin compiled Java classes. We support two ways of generating
               code.</para>
           </listitem>
         </itemizedlist>
@@ -96,7 +96,7 @@
               <para>Model and code live side by side. That is, we do not focus on 100 percent code
                 generation. Instead we focus on modeling aspects from which as much code as possible
                 can be generated. At the same time we keep using code for aspects that are as much
-                work in codee as they are in a model. Given the time constraints that we all have,
+                work in code as they are in a model. Given the time constraints that we all have,
                 we start with the modeling concepts that give the best ratio of
                 model-to-code.</para>
             </listitem>
@@ -107,10 +107,10 @@
                 and multi-user management by common tools as CVS or subversion.</para>
             </listitem>
             <listitem>
-              <para><keycap>DSL Models are and remain remain small.</keycap> We do not need to
-                handle huge models bevcause models are always divided into small, independent parts
-                which we call DSL models. The relationbshio between those DSL models i done by
-                symbolic integration of the mdoels. See the section on Crossx.</para>
+              <para><keycap>DSL Models are and remain small.</keycap> We do not need to
+                handle huge models because models are always divided into small, independent parts
+                which we call DSL models. The relationship between those DSL models is done by
+                symbolic integration of the models. See the section on Crossx.</para>
             </listitem>
           </itemizedlist></para>
       </section>
@@ -119,8 +119,8 @@
       <title>Code Generation Patterns</title>
       <para>The code generated by mod4j is designed to be extensible by handwritten code,. This
         allows the developer maximum flexibility. These so-called extension points are designed in
-        such a way that a developer necver needs to overwerite generated code, he always extands it.
-        This ensures that code can always be regeneretd keeping the model as the source for
+        such a way that a developer never needs to overwrite generated code, he always extends it.
+        This ensures that code can always be regenerated keeping the model as the source for
         development during the lifetime of an application.</para>
       <para>This section describes a number of code generation patterns that are used in the various
         code generators. These patters are applied in the code generators of the various
@@ -133,7 +133,7 @@
             <para>handwritten code may get lost when re-generating code from a model</para>
           </listitem>
           <listitem>
-            <para>generated code may somteimes not do exactly what is needed</para>
+            <para>generated code may sometimes not do exactly what is needed</para>
           </listitem>
         </itemizedlist>
         <para>Solution:</para>
@@ -152,22 +152,22 @@
           <listitem>
             <para>Overwrite a method in the generated base class. This allows a developer to
               overrule the generated code. The system depends to a great extent on assumptions about
-              the generated code. Therefore the developer should be intimitely aware of the
+              the generated code. Therefore the developer should be intimately aware of the
               consequences and only use this in exceptional cases.</para>
           </listitem>
         </itemizedlist>
         <para>The empty-subclass pattern is used at several places within Mod4j. It is a well known
           pattern in Java code generation and allows a clear separation of generated and handwritten
           code. Code generated for a Java class or java interface is done in two parts. An abstract
-          base class is generated which conmtains all the generated code. An empty concrete subclass
+          base class is generated which contains all the generated code. An empty concrete subclass
           is generated. handwritten code should be put into this subclass.</para>
-        <para>The generator will always regenerate the abstract baseclass. The generator will only
+        <para>The generator will always regenerate the abstract base class. The generator will only
           generate the empty subclass once, if it is not there. In this way handwritten code is
           never overwritten by the code generator.</para>
         <para>The solution is shown in <xref linkend="emptysubclass-pattern"/>.</para>
         <para/>
         <figure id="emptysubclass-pattern">
-          <title id="titleid">Empty dubclass pattern</title>
+          <title id="titleid">Empty subclass pattern</title>
           <mediaobject>
             <imageobject>
               <imagedata contentwidth="100" entityref="emptysubclass-pattern" format="JPG"/>
@@ -181,7 +181,7 @@
             </imageobject>
           </mediaobject>
         </informalfigure>
-        <para>There are a few porperties of this solution that we need to be aware of:</para>
+        <para>There are a few properties of this solution that we need to be aware of:</para>
         <orderedlist>
           <listitem>
             <para>The empty subclass isn't completely empty. It needs to include the public
@@ -190,7 +190,7 @@
               outdated.</para>
           </listitem>
           <listitem>
-            <para>When the abstract base class isnt generated anymore, the empty subclass will
+            <para>When the abstract base class is not generated anymore, the empty subclass will
               become superfluous. It refers to a non-existing base class. The java compiler will
               flag this as an error, and the developer needs to remove the subclass by hand.</para>
           </listitem>
@@ -203,17 +203,17 @@
     <section>
       <title>Purpose</title>
       <para>The Business Domain DSL is intended to be use for modeling the domain model of an
-        application. De Busines Domain model consists of all domain classes, as understood by the
+        application. De Business Domain model consists of all domain classes, as understood by the
         business expert. Technical aspects do not belong in Business Domain models.</para>
       <para>From a business domain model code is generated, conforming to the reference architecture
-        as describe in REF. As a consequence, the code will alsways conform perfectly to the
+        as describe in REF. As a consequence, the code will always conform perfectly to the
         architecture, ensuring a high quality application.</para>
       <para>This document describes the concepts as they are defined in the language and how they
         can be used to specify a business domain model.</para>
     </section>
     <section>
       <title>Principles</title>
-      <para>The principles behind the mod4j project are important to understand how the DSL's are
+      <para>The principles behind the mod4j project are important to understand how the DSLs are
         designed and how they should be used.</para>
       <itemizedlist>
         <listitem>
@@ -222,21 +222,21 @@
         </listitem>
         <listitem>
           <para>Model and code live side by side. That is, we do not focus on 100 percent code
-            generation. Instead we focus on modeling aspects from which much code can be genmerated,
-            while coding aspects that are as much work in codee as it is in a model. Given the time
+            generation. Instead we focus on modeling aspects from which much code can be generated,
+            while coding aspects that are as much work in code as it is in a model. Given the time
             constraint6s that we all have, we start with the modeling concepts that give the best
             ratio of model-to-code.</para>
         </listitem>
         <listitem>
           <para>Generated code is never overwritten. Within the generated code specific extension
             point are generated. These extension points are the only places where handwritten code
-            may be placed. In most cases an extension point is in a separete file than the generatee
+            may be placed. In most cases an extension point is in a separate file than the generated
             code. To help the developer a first empty extension point file is usually created , but
-            only when the expension point file does not exist.</para>
+            only when the extension point file does not exist.</para>
         </listitem>
         <listitem>
-          <para>DSL"s and DSL models are independent of each other. They may referen through soft
-            references, but are never hard-linked to each other. Thids allows both DSL models and
+          <para>DSLs and DSL models are independent of each other. They may reference through soft
+            references, but are never hard-linked to each other. This allows both DSL models and
             DSLs to be developed separately. It also allows version management by common tools as
             CVS or subversion.</para>
         </listitem>
@@ -257,12 +257,12 @@
     // rules go here ...
 ]
 </programlisting>
-        <para>A Business Class describes something that has a specific meaning in the buiness domain
+        <para>A Business Class describes something that has a specific meaning in the business domain
           being modeled. In the system being modeled instances of business classes will be
           created.</para>
-        <para>A business class has properties (also called attributes in e.g. UML) of diferent
+        <para>A business class has properties (also called attributes in e.g. UML) of different
           types.</para>
-        <para>A busines class also contains business rules, that specify the conditions that an
+        <para>A business class also contains business rules, that specify the conditions that an
           instance of the class needs to conform to.</para>
       </section>
       <section>
@@ -271,8 +271,8 @@
           architecture.</para>
         <section>
           <title>Domain Layer</title>
-          <para>In the domain code is generated according to the <emphasis>empty baseclass pattern
-              </emphasis>(<xref linkend="section-emptysubclass-pattern"/>). For each businessclass
+          <para>In the domain code is generated according to the <emphasis>empty base class pattern
+              </emphasis>(<xref linkend="section-emptysubclass-pattern"/>). For each business class
             two Java classes are generated. The first Java class is an abstract base class
             containing all generated code for the business class. All code generated for properties,
             associations and business rules is placed inside this class.</para>
@@ -299,15 +299,15 @@
         </section>
         <section>
           <title>Data Layer</title>
-          <para>In the datalayer a number of files is generated.</para>
-          <para>A hibernate mapping file is generated for each businessclass.</para>
-          <para>One Hibernate confiuguration file (how do you call this DatalaagContext.xml file)
+          <para>In the data layer a number of files is generated.</para>
+          <para>A hibernate mapping file is generated for each business class.</para>
+          <para>One Hibernate configuration file (how do you call this DatalaagContext.xml file)
             file is generated for the application as a whole.</para>
-          <para>A Dao (Data Acces layer) is generated. The dao normally consists of one interface
+          <para>A Dao (Data Access layer) is generated. The dao normally consists of one interface
             and an implementing class. To get a clean separation of generated and handwritten code
             both of these use the empty subclass pattern. The result for a class called Person is
             shown in figure <xref linkend="figure-emptysubclass-data"/>. Note that this is another
-            instance of the empty subclass patternb as described in <xref
+            instance of the empty subclass pattern as described in <xref
               linkend="section-emptysubclass-pattern"/>.</para>
           <figure id="figure-emptysubclass-data">
             <title>Empty subclass pattern applied to the Data Layer</title>
@@ -346,13 +346,13 @@
     // rules go here ...
 ]
 </programlisting>
-        <para>A property descibes a characteristic of a business class. Properties always have a
+        <para>A property describes a characteristic of a business class. Properties always have a
           defined type. A property can have a predefined type, which can be
             <emphasis>integer</emphasis>, <emphasis>string</emphasis>, <emphasis>decimal</emphasis>,
             <emphasis>boolean</emphasis> or <emphasis>datetime</emphasis>.</para>
         <para>Each attribute can have a description, which is placed directly before the attribute
-          definition within double quotes. In the example only isMale has a description.</para>
-        <para>For each attribute additional constraints can be specified. In th above eample
+          definition within double quotes. In the example only <emphasis>isMale</emphasis> has a description.</para>
+        <para>For each attribute additional constraints can be specified. In th above example
           minlength, maxlength and regexp are such constraints. These constraints must always be
           true for the property.</para>
         <para>Each instance of a business class has its own values for each property. These values
@@ -363,15 +363,15 @@
         <para>For a property code is generated for both the domain and the data layer of the
           architecture.</para>
         <para>As described before (REF) code is generated in the domain layer according to the Empty
-          baseclass pattern. For each businessclass an abstract base class is generated. This
-          abstract bases class contains a field for eack property and getter and setter methods to
+          base class pattern. For each business class an abstract base class is generated. This
+          abstract bases class contains a field for each property and getter and setter methods to
           access the property.</para>
         <para>The description of an attribute is used to generate Javadoc comments in the code for
           the attribute.</para>
-        <para>If the there are constaints speciified for the property in the model, validators for
+        <para>If the there are constraints specified for the property in the model, validators for
           the property are also generated. Code is also generated to automatically call these
-          validators whenever the value fo the property has changed, e.g. when calling the setter
-          method. Wheneven an attempts is made to chnage the value of a property that will break a
+          validators whenever the value of the property has changed, e.g. when calling the setter
+          method. Whenever an attempts is made to change the value of a property that will break a
           constraint, a BusinessRulevalidation exception is thrown and the value of the attribute is
           not changed.</para>
         <para>If an attribute is not nullable and has no default value (see next sections for an
@@ -396,7 +396,7 @@
             the attribute and are explained below..</para>
           <glosslist>
             <glossentry>
-              <glossterm>defauilt</glossterm>
+              <glossterm>default</glossterm>
               <glossdef>
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may be changed later on in the objects
@@ -405,20 +405,20 @@
             <glossentry>
               <glossterm>minlengt</glossterm>
               <glossdef>
-                <para>Defines the minimal number of characters of this attribute's value.</para>
+                <para>Defines the minimal number of characters of this attributes value.</para>
               </glossdef></glossentry>
             <glossentry>
               <glossterm>maxlenght</glossterm>
               <glossdef>
-                <para>Defined the maximum number of characters of this attribute's value. The value
+                <para>Defined the maximum number of characters of this attributes value. The value
                   of <emphasis>maxlength</emphasis> must always be higher or equal to value of
                     <emphasis>minlength</emphasis>..</para>
               </glossdef></glossentry>
             <glossentry>
               <glossterm>regexp</glossterm>
               <glossdef>
-                <para>Defines the format of the attribute's value through a regular expression. The
-                  syntax of the reguar expression is defined by REF.</para>
+                <para>Defines the format of the attributes value through a regular expression. The
+                  syntax of the regular expression is defined by REF.</para>
               </glossdef></glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
@@ -449,7 +449,7 @@
             of the attribute and are explained below..</para>
           <glosslist>
             <glossentry>
-              <glossterm>defauilt</glossterm>
+              <glossterm>default</glossterm>
               <glossdef>
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may change later on in the Objects
@@ -473,7 +473,7 @@
         <section>
           <title>Integer Attribute</title>
           <para>An integer attribute is completely defined as shown below</para>
-          <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
+          <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
 <keycap>integer </keycap>numberOfSteps
       <keycap>default</keycap> 12
       <keycap>min</keycap> 4
@@ -486,12 +486,12 @@
             attribute and are explained below..</para>
           <glosslist>
             <glossentry>
-              <glossterm>defauilt</glossterm>
+              <glossterm>default</glossterm>
               <glossdef>
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may change later on in the Objects lifetime. If
                   the <emphasis>min</emphasis> and/or <emphasis>max</emphasis> properties are
-                  specied the default value must conform to these properties.</para>
+                  specified the default value must conform to these properties.</para>
               </glossdef></glossentry>
             <glossentry>
               <glossterm>min</glossterm>
@@ -502,7 +502,7 @@
               <glossterm>max</glossterm>
               <glossdef>
                 <para>Defines the maximum value of this attribute. The value of
-                    <emphasis>max</emphasis> must always be greater or equal to thevalue of
+                    <emphasis>max</emphasis> must always be greater or equal to the value of
                     <emphasis>min</emphasis>.</para>
               </glossdef></glossentry>
             <glossentry>
@@ -517,7 +517,7 @@
         <section>
           <title>Decimal Attribute</title>
           <para>An decimal attribute is completely defined as shown below</para>
-          <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
+          <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve">"A readable description of this attribute"
 <keycap>decimal</keycap> percentage
       <keycap>default</keycap> 12
       <keycap>min</keycap> 4
@@ -530,7 +530,7 @@
             attribute and are explained below..</para>
           <glosslist>
             <glossentry>
-              <glossterm>defauilt</glossterm>
+              <glossterm>default</glossterm>
               <glossdef>
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may change later on during the objects
@@ -545,7 +545,7 @@
               <glossterm>max</glossterm>
               <glossdef>
                 <para>Defines the maximum value of this attribute. The value of
-                    <emphasis>max</emphasis> must always be greater or equal to thevalue of
+                    <emphasis>max</emphasis> must always be greater or equal to the value of
                     <emphasis>min</emphasis>.</para>
               </glossdef></glossentry>
             <glossentry>
@@ -559,8 +559,8 @@
         </section>
         <section>
           <title>Datetime Attribute</title>
-          <para>An datetime attribute is completely defined as shown below</para>
-          <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve">"The day on which it all started"
+          <para>A datetime attribute is completely defined as shown below</para>
+          <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve">"The day on which it all started"
 <keycap>datetime day</keycap> started
     <keycap>  <keycap>default</keycap></keycap> 4
     <keycap>  <keycap>accuracy</keycap></keycap> day
@@ -572,7 +572,7 @@
             attribute and are explained below..</para>
           <glosslist>
             <glossentry>
-              <glossterm>accuray</glossterm>
+              <glossterm>accuracy</glossterm>
               <glossdef>
                 <para>Defines the accuracy of the datetime attribute. The possible values are year,
                   month, day, hour, minute, second, millisecond. In the above example the accuracy
@@ -596,17 +596,17 @@
     </section>
     <section>
       <title>Enumerations</title>
-      <para>An enumeration defines a datatype which can be used as the type of an attibute of a
+      <para>An enumeration defines a data type which can be used as the type of an attribute of a
         business class. The enumeration definition includes a list of all enumeration values. The
         example below shown an enumeration definition.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve">"The severity level of a customer problem"
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve">"The severity level of a customer problem"
 <keycap>Enumeration</keycap> SeverityLevel [
     Low    = 1;
     Middle = 2;
     High   = 3;
 ]
 </programlisting>
-      <para>The "= 1" ets defines the numeric value that is used for the enumeration literal in the
+      <para>The "= 1" defines the numeric value that is used for the enumeration literal in the
         code and the database. This is optional, but useful when you need to address existing
         encoding schemes for enumerations.</para>
       <section>
@@ -616,12 +616,12 @@
     </section>
     <section>
       <title>Business Rules</title>
-      <para>A business class may include business rules. Note that the conceopt of business rule
+      <para>A business class may include business rules. Note that the concept of business rule
         here is limited. In this context a business rule is a rule that should be true at all times
         for every object of the given business class.</para>
       <para>Other rules, for example one that trigger something when a certain condition is met, are
         not covered.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> SampleClass [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> SampleClass [
     // properties go here ...
     // rules go here ...
     <keycap>Rules</keycap> [
@@ -634,11 +634,11 @@
     ]
 ]
 </programlisting>
-      <para>There are two types of businessrules that can be modeled.</para>
-      <para>The first type of businessrule has a name only in the model. The actual implementation
+      <para>There are two types of business rules that can be modeled.</para>
+      <para>The first type of business rule has a name only in the model. The actual implementation
         of the rule must be written in Java as an extension to the generated code.</para>
       <para>The second type of rule is a uniqueness rule, which is indicated by the
-          <emphasis>unique</emphasis> keyword. A uniquess rule specifies that the combination of
+          <emphasis>unique</emphasis> keyword. A uniqueness rule specifies that the combination of
         values of one or more attributes of the class must be unique at all times. The names of the
         attributes are specified between brackets after the name of the rule.</para>
       <section>
@@ -647,7 +647,7 @@
           value is generated in the base class. This ensures that the developer must provide an
           implementation in the empty subclass.</para>
         <para>The first time the empty subclass is generated an empty method implementing the
-          abstract method from the base class is genarted. This method returns true and contains a
+          abstract method from the base class is generated. This method returns true and contains a
             <emphasis>TODO comment</emphasis> to remind the developer he needs to implement the
           rule.</para>
         <para>The handling of the rules is completely generated. This means that the rule will be
@@ -659,9 +659,9 @@
     </section>
     <section>
       <title>Associations</title>
-      <para>The final part of a domain model defines all the relationship,s beteenm the bsuiness
+      <para>The final part of a domain model defines all the relationships between the business
         classes.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>Association</keycap> customer Customer [0..1] &lt;-&gt; [0..*] orders     Order    ;
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Association</keycap> customer Customer [0..1] &lt;-&gt; [0..*] orders     Order    ;
 <keycap>Association</keycap> order    Order    [0..1]  -&gt; [0..*] orderLines OrderLine;
 </programlisting>
       <para>This example shows one bidirectional association, which uses the &lt;-&gt; syntax and
@@ -676,20 +676,20 @@
           <title>Generated Code for the Domain Layer</title>
           <para>On the domain layer the code is generated in the Java base class to store the
             references to objects at the opposite side of an association. For associations with
-            multiplicito 0 or 1 this will be a field of the type at the oppoe side, for
-            associoations with multiplicity greater than 1 this will be a field of typoe
-            Set&lt;oppostite type&gt;.</para>
+            multiplicity 0 or 1 this will be a field of the type at the opposite side, for
+            associations with multiplicity greater than 1 this will be a field of type
+            Set&lt;opposite type&gt;.</para>
           <para>Next to these fields methods are generated to change these fields. For a single
             valued field a simple setter and getter is generated.</para>
-          <para>For multivalues fields adding or deleting elements from the collection should always
-            be done by the object owinng the collection. We cannot simply generate getter and setter
-            nethods, because chnages in the collection can be done without the object knowing it,
-            and the oibject cannot guarabntee consistentcy with the opposite objects.</para>
-          <para>To resolev this problem we generate methods áddTo...', 'removeFrom...' for the
-            collection in the owning class. Fpor the Customer class in the above example we generate
-            the áddToOrders() and removefromOrders() methods. The getter methoids returns an
-            Unmodifyable collection to guard the clinet from changing the collection.</para>
-          <para><programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
+          <para>For multivalued fields adding or deleting elements from the collection should always
+            be done by the object owning the collection. We cannot simply generate getter and setter
+            methods, because changes in the collection can be done without the object knowing it,
+            and the object cannot guarantee consistency with the opposite objects.</para>
+          <para>To resolve this problem we generate methods áddTo...', 'removeFrom...' for the
+            collection in the owning class. For the Customer class in the above example we generate
+            the áddToOrders() and removefromOrders() methods. The getter methods returns an
+            Unmodifiable collection to guard the client from changing the collection.</para>
+          <para><programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
   /**
    *  orders: One 2 Many Bidirectional: The customer has a number of orders
    */
@@ -713,14 +713,14 @@
   <keycap>public void </keycap>removeFromOrders(Order element)
  <keycap/></programlisting>To
             support the consistency of the two sides of an association we always have to update the
-            other side whenever something changes. We cannot simply call the other isded upodate
-            methods, because they will call their opposite side in trun and we end up in an infinite
+            other side whenever something changes. We cannot simply call the other sides update
+            methods, because they will call their opposite side in turn and we end up in an infinite
             loop.</para>
           <para>To solve this problem we use special that are only used to update the opposite side.
-            All the methods als generated with 'z_internal' as prefix. These methods are public
-            because they must be callable from the opposite class. These methids should never be
+            All the methods are generated with 'z_internal' as prefix. These methods are public
+            because they must be callable from the opposite class. These methods should never be
             used for anything
-            else.<programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
+            else.<programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
 <keycap/><keycap/><keycap/><keycap/><keycap/>
   /**
    * This operation should NOT be used by clients.  It implements the correct
@@ -755,22 +755,22 @@
       <para>The central concept in the Data Contract DSL is the Data Transfer Object, or DTO. A DTO
         is a value object that carries data only. The purpose of a DTO is to be able to send data to
         back and forth to and from clients.</para>
-      <para>Clients communicatie with domain objects through services. The services and the service
+      <para>Clients communicate with domain objects through services. The services and the service
         methods are defined by using the Service DSL. The DTO objects define the in- and out
         parameters for the service methods.</para>
       <para>There are several types of DTOs. A customDto is a DTO that may have any attributes. A
-        BusinbessClassDto represents the data of a domain object as defined in the Business Domain
+        BusinessClassDto represents the data of a domain object as defined in the Business Domain
         DSL. A ListDto defines a collection of other DTOs. All these variants are described in
         detail below.</para>
     </section>
     <section>
       <title>CustomDto</title>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
     // properties go here ...
 ]
 </programlisting>
       <para>A custom dto describes </para>
-      <para>A custom dto has properties of diferent types.</para>
+      <para>A custom dto has properties of different types.</para>
       <section>
         <title>Generated code</title>
         <para>For a custom dto </para>
@@ -782,7 +782,7 @@
         <title>Definition</title>
         <para>DTO Attributes are part of a DTO and defined within the scope of their DTO. The
           example custom DTO personDto looks as follows.</para>
-        <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
     <keycap>string</keycap>   description; 
     <keycap>integer</keycap>  amount;    
     <keycap>datetime</keycap> deliverydate;       
@@ -807,8 +807,8 @@
           architecture.</para>
         <para>For each DTO a Java class is generated. This class contains a protected field for each
           attribute and getter and setter methods to access the field.</para>
-        <para>The fields in data transfer objets are always nullable, therefore the field types in
-          the generated code are always real objkects. This means that <emphasis>Integer</emphasis>,
+        <para>The fields in data transfer objects are always nullable, therefore the field types in
+          the generated code are always real objects. This means that <emphasis>Integer</emphasis>,
             <emphasis>Float</emphasis>, <emphasis>Boolean</emphasis> are used as field types for the
           attributes of type <emphasis>integer</emphasis>, <emphasis>decimal</emphasis> and
             <emphasis>boolean</emphasis>.</para>
@@ -821,7 +821,7 @@
       <para>A BusinessClassDto is a DTO that represents the data of a business class from the
         Business Domain DSL. As a consequence, the attributes that are allowed within a
         BusinessClassDTO must map 1-to-1 to attributes of the corresponding business class.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
 
 <keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
     // attributes go here 
@@ -831,7 +831,7 @@
         class. This business class must be defined in a Business Domain model. To ensure that the
         business class is in scope it must be imported first from its business domain model. Import
         statements are always at the top of a data contract model.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
     name; 
     numberOfEars;    
     birthdate;       
@@ -843,10 +843,10 @@
       <para>Attributes of a BusinessClassDto must have the same names as attributes in the base
         business class. Not every attribute has to be there, allowing a BusinessClassDto to contain
         a subset of attributes from its base business class.</para>
-      <para>The type of the attributes is derived from the type iof the corresponding attribute in
-        the business class in the business domain model. Therefore it is not speciified in the data
+      <para>The type of the attributes is derived from the type of the corresponding attribute in
+        the business class in the business domain model. Therefore it is not specified in the data
         contract model.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
     // attributes go here 
 
     <keycap>references </keycap>[ 
@@ -859,7 +859,7 @@
         represented associations. The main restriction is that only one side of an association is
         represented as a reference. A Dto does not support bi-directional associations.</para>
       <para>The references are contained in the references block. The same rule that applied to
-        attributes also applies to associations. Only associations thart are defined in the business
+        attributes also applies to associations. Only associations that are defined in the business
         domain model may be used. The name to be used is the role name of the opposite class in the
         association definition.</para>
       <para>The type of a reference must conform to the type defined in the association in the
@@ -873,21 +873,21 @@
         following shorthand will achieve this. It will by default add all attributes to the
         BusinesssClassDto.</para>
       <para>
-        <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> FullCustomerDto <keycap>base </keycap>Customer [
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> FullCustomerDto <keycap>base </keycap>Customer [
 </programlisting>
       </para>
       <para/>
       <section>
         <title>Generated code</title>
         <para>For a BusinessClassDto several files are generated.</para>
-        <para>First of all there is a straightformard Java class representing the attributes and
+        <para>First of all there is a straightforward Java class representing the attributes and
           references defined in the BusinessClassDto.</para>
         <para>Secondly a Translator class is generated. This class contains two translator methods
           to translate the BusinessClass Dto to a Domain class and vice versa. For example for the
           BusinessClassDto FullCustomerDto the following two translator methods are
           generated.</para>
         <para>
-          <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public</keycap> <keycap>synchronized</keycap> Customer fromDto(<keycap>final</keycap> FullCustomerDto source, 
+          <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>public</keycap> <keycap>synchronized</keycap> Customer fromDto(<keycap>final</keycap> FullCustomerDto source, 
                                      Customer target) <keycap>throws</keycap> TranslatorException;
 
 <keycap>public</keycap> <keycap>synchronized</keycap> FullCustomerDto toDto(<keycap>final</keycap> Customer source); 
@@ -900,7 +900,7 @@
       <title>ListDto</title>
       <para>The final part of a domain model defines all the relationships between the business
         classes.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>ListDto </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>ListDto </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
 </programlisting>
       <para>This example shows the ListDto named CustomerList which contains objects of type
         FullCustomerDto.</para>
@@ -914,11 +914,11 @@
     </section>
     <section>
       <title>EnumerationDto</title>
-      <para>An enumeration defines a datatype which can be used as the type of an attibute of a
+      <para>An enumeration defines a data type which can be used as the type of an attribute of a
         business class. The EnumerationDto definition includes a list of all enumeration values. As
         with the BusinessClassDto, this dto is connected to an Enumeration in the business class
         model. The example below shown an enumeration definition.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>EnumerationDto</keycap> SeverityLevelDto <keycap>base</keycap> SecurityLevelEnum [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>EnumerationDto</keycap> SeverityLevelDto <keycap>base</keycap> SecurityLevelEnum [
 </programlisting>
       <para>The SecurityLevelEnum must be defined in a Business Class model and imported defines the
         numeric value that is used for the enumeration literal in the code and the database. This is
@@ -935,48 +935,48 @@
     <para>This chapter provides a description of all the concepts in the Service DSL. Each concept
       is described by a definition which explains the meaning of the concept, and a description of
       the code generated for the concept.</para>
-    <para>The central concept in the Service DSL is the Service Method. A service method used DTO's,
+    <para>The central concept in the Service DSL is the Service Method. A service method used DTOs,
       defined in a Data Contract Model (see chapter on Data Contract DSL). </para>
     <para>The </para>
     <section>
       <title>Service Method</title>
       <para> A service method is method that is defined in the service model, but will be
-        implemented by hand. A method is defined by the keyword "method", followed by the name fo
-        tyhe method. A method may have zero or more input parameters and zero or one output
+        implemented by hand. A method is defined by the keyword "method", followed by the name of
+        the method. A method may have zero or more input parameters and zero or one output
         parameter.</para>
       <para>
-        <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>method</keycap> addToOrders <keycap>in</keycap> OrderDto order SimpleCustomerDto customer <keycap>out</keycap> OrderDto;</programlisting>
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>method</keycap> addToOrders <keycap>in</keycap> OrderDto order SimpleCustomerDto customer <keycap>out</keycap> OrderDto;</programlisting>
       </para>
       <section>
         <title>Generated code</title>
         <para>For a service method code is generated for service layer in the architecture. A
-          servivce method results in the generation of a corresponding Java method.</para>
+          service method results in the generation of a corresponding Java method.</para>
       </section>
     </section>
     <section>
       <title>Create, Read, Update, Delete service methods</title>
-      <para>In a layered architecture ceratin types of serviuce methods often occurr in
-        applications. Methgods for createing, reading, updatring and deleting (CRUD) business
+      <para>In a layered architecture certain types of service methods often occur in
+        applications. Methods for creating, reading, updating and deleting (CRUD) business
         objects are often needed.</para>
       <para>For this purpose the service DSL includes special methods which are indicated by their
-        respecive keywords.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
+        respective keywords.</para>
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
 
 create</keycap> createCustomer <keycap>for</keycap> SimpleCustomerDto;
 <keycap>read</keycap>   readCustomer   <keycap>for</keycap> SimpleCustomerDto;
 <keycap>update</keycap> updateCustomer <keycap>for</keycap> SimpleCustomerDto;
 <keycap>delete</keycap> deleteCustomer <keycap>for</keycap> SimpleCustomerDto;</programlisting>
-      <para>Because the Dto is defined in a datacontract model it needs to be imported first. As
-        thise methods are used for defining CRUD functionality for business objetcs the DTO used
+      <para>Because the Dto is defined in a data contract model it needs to be imported first. As
+        these methods are used for defining CRUD functionality for business objects the DTO used
         must be a BusinessClassDto.</para>
-      <para>If you need all of the DRUCD methods, you can use a shortcut to specify all four methods
+      <para>If you need all of the CRUD methods, you can use a shortcut to specify all four methods
         as
-        follows:<programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
+        follows:<programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
 
 crud</keycap> <keycap>for</keycap> SimpleCustomerDto;</programlisting>In
-        this case the names of the crud methos are derived from the name of the Dto and the business
+        this case the names of the crud methods are derived from the name of the Dto and the business
         class it represents. In the above example the names will be createCustomer,
-        readAsSimpleCustomerDto, updateCustomer, deleteCustomer. The read method has a slighly
+        readAsSimpleCustomerDto, updateCustomer, deleteCustomer. The read method has a slightly
         unappealing name, but that's for a reason. If multiple CRUD's are defined with different
         Dto's representing the same businessclass the name readCustomer would become ambiguous. The
         create, delete and uopdate methods have the SimpleCustomerDto as one of their parameters and
@@ -1050,7 +1050,7 @@ public void deleteCustomer(SimpleCustomerDto object);
         <para>A reference method allows you to handle changing links between objects. There are two
           types of reference methods. The add method allows adds an object to an association, the
           remove removes an object from an association.</para>
-        <programlisting class="monospaced" continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>add</keycap> OrderDto
+        <programlisting continuation="continues" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>add</keycap> OrderDto
 <keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>remove</keycap> OrderDto </programlisting>
         <para>An .</para>
       </section>
@@ -1074,7 +1074,7 @@ public void deleteCustomer(SimpleCustomerDto object);
       <para>A BusinessClassDto is a DTO that represents the data of a business class from the
         Business Domain DSL. As a consequence, the attributes that are allowed within a
         BusinessClassDTO must map 1-to-1 to attributes of the corresponding business class.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
 
 <keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
     // attributes go here 
@@ -1084,7 +1084,7 @@ public void deleteCustomer(SimpleCustomerDto object);
         class. This business class must be defined in a Business Domain model. To ensure that the
         business class is in scope it must be imported first from its business domain model. Import
         statements are always at the top of a data contract model.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
     name; 
     numberOfEars;    
     birthdate;       
@@ -1099,7 +1099,7 @@ public void deleteCustomer(SimpleCustomerDto object);
       <para>The type of the attributes is derived from the type iof the corresponding attribute in
         the business class in the business domain model. Therefore it is not speciified in the data
         contract model.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
     // attributes go here 
 
     <keycap>references </keycap>[ 
@@ -1126,7 +1126,7 @@ public void deleteCustomer(SimpleCustomerDto object);
         following shorthand will achieve this. It will by default add all attributes to the
         BusinesssClassDto.</para>
       <para>
-        <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> FullCustomerDto <keycap>base </keycap>Customer [
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> FullCustomerDto <keycap>base </keycap>Customer [
 </programlisting>
       </para>
       <para/>
@@ -1140,7 +1140,7 @@ public void deleteCustomer(SimpleCustomerDto object);
           BusinessClassDto FullCustomerDto the following two translator methods are
           generated.</para>
         <para>
-          <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>public</keycap> <keycap>synchronized</keycap> Customer fromDto(<keycap>final</keycap> FullCustomerDto source, 
+          <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>public</keycap> <keycap>synchronized</keycap> Customer fromDto(<keycap>final</keycap> FullCustomerDto source, 
                                      Customer target) <keycap>throws</keycap> TranslatorException;
 
 <keycap>public</keycap> <keycap>synchronized</keycap> FullCustomerDto toDto(<keycap>final</keycap> Customer source); 
@@ -1153,7 +1153,7 @@ public void deleteCustomer(SimpleCustomerDto object);
       <title>ListDto</title>
       <para>The final part of a domain model defines all the relationships between the business
         classes.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>ListDto </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>ListDto </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
 </programlisting>
       <para>This example shows the ListDto named CustomerList which contains objects of type
         FullCustomerDto.</para>
@@ -1171,7 +1171,7 @@ public void deleteCustomer(SimpleCustomerDto object);
         business class. The EnumerationDto definition includes a list of all enumeration values. As
         with the BusinessClassDto, this dto is connected to an Enumeration in the business class
         model. The example below shown an enumeration definition.</para>
-      <programlisting class="monospaced" continuation="continues" format="specific" linenumbering="numbered" xml:space="preserve"><keycap>EnumerationDto</keycap> SeverityLevelDto <keycap>base</keycap> SecurityLevelEnum [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>EnumerationDto</keycap> SeverityLevelDto <keycap>base</keycap> SecurityLevelEnum [
 </programlisting>
       <para>The SecurityLevelEnum must be defined in a Business Class model and imported defines the
         numeric value that is used for the enumeration literal in the code and the database. This is
