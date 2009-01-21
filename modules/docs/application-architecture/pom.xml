@@ -84,11 +84,13 @@
         <resources>
             <resource>
                 <directory>${docbkx.src.dir}</directory>
+                <targetPath>../site</targetPath>
                 <includes>
                     <include>**/*.svg</include>
                     <include>**/*.png</include>
                     <include>**/*.gif</include>
                     <include>**/*.jpg</include>
+                    <include>**/*.bmp</include>
                 </includes>
             </resource>
         </resources>

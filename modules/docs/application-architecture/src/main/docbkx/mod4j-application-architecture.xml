@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.jpg" NDATA JPG>
-<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.jpg" NDATA JPG>
-<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
+<!ENTITY logical-view SYSTEM "images/logical-view.gif" NDATA GIF>
 ]>
 <book lang="en">
   <bookinfo>
@@ -17,28 +15,58 @@
       <surname>Malotaux</surname>
     </author>
 
-    <releaseinfo>${version}</releaseinfo>
+    <releaseinfo>&amp;version;</releaseinfo>
 
     <copyright>
-      <year>2098</year>
+      <year>2009</year>
 
       <holder>Ordina J-Technologies</holder>
     </copyright>
   </bookinfo>
 
   <chapter>
-    <title>Business Domain DSL Reference</title>
-
-    <para></para>
+    <title>Introduction</title>
 
     <section>
-      <title>Business Class</title>
+      <title>Scope</title>
+    </section>
 
-      <section>
-        <title>Generated code</title>
+    <section>
+      <title>References</title>
+    </section>
 
-        <para></para>
-      </section>
+    <section>
+      <title>Abbreviations</title>
+    </section>
+
+    <section>
+      <title>Structure of this document</title>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Logical View</title>
+
+    <para>This chapter describes the logical composition of the mod4j
+    Reference Architecture. It defines the layers, the component types in each
+    layer and the responsibilities of these component types.</para>
+
+    <section>
+      <title>Overview</title>
+
+      <para><figure>
+          <title>Logical view</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata entityref="logical-view" format="GIF" />
+            </imageobject>
+
+            <imageobject>
+              <imagedata fileref="images/logical-view.gif" format="GIF" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
     </section>
   </chapter>
 </book>
