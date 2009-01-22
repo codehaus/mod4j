@@ -168,7 +168,7 @@
           <title id="titleid">Empty subclass pattern</title>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/base-emptysubclass-pattern.gif" format="GIF"/>
+              <imagedata entityref="emptysubclass-pattern" format="GIF"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -270,10 +270,11 @@
               <imageobject>
                 <imagedata entityref="emptysubclass-data" format="JPG"/>
               </imageobject>
-<!--              <imageobject>
+              <!--              <imageobject>
                 <imagedata fileref="images/base-emptysubclass-data.gif" format="GIF"/>
               </imageobject>
--->            </mediaobject>
+-->
+            </mediaobject>
           </figure>
         </section>
       </section>
