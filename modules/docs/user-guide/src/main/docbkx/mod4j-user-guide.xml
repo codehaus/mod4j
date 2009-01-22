@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.jpg" NDATA JPG>
-<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.jpg" NDATA JPG>
-<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
+<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
+<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.gif" NDATA GIF>
+<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.gif" NDATA GIF>
 ]>
 <book lang="en">
   <bookinfo><title>mod4j User Guide</title><authorgroup>
@@ -38,8 +38,8 @@
           lessons learned. The following principles are guiding the Mod4j development.</para>
         <itemizedlist>
           <listitem>
-            <para><keycap>Generated code must be clear and readable</keycap>. Using Mod4j should
-              not be a lifetime commitment. Therefore the source code must eb at least as good as
+            <para><keycap>Generated code must be clear and readable</keycap>. Using Mod4j should not
+              be a lifetime commitment. Therefore the source code must eb at least as good as
               handwritten code. This allows projects to continue development with the generated code
               instead of the DSL models. Note that this surely isn't the recommended way, but we
               like the freedom this gives.</para>
@@ -70,16 +70,16 @@
               means that code is generated on a per model file basis. Effectively whenever a model
               file is saved the code for this model file is generated automatically in the
               background. There is no need for a separate code generation step. This code generation
-              step uses the standard Eclipse build structure. If the n 'build automatically' is set this
-              will happen. If a full build is requested all code will be regenerated. This allows
-              Eclipse users to work with models in the same way as with source code (i.e. Java class
-              files).</para>
+              step uses the standard Eclipse build structure. If the n 'build automatically' is set
+              this will happen. If a full build is requested all code will be regenerated. This
+              allows Eclipse users to work with models in the same way as with source code (i.e.
+              Java class files).</para>
           </listitem>
           <listitem>
             <para><keycap>Code generation through Maven.</keycap> Mod4j includes a Maven plugin that
               support the code generation process in batch mode. This is used to run automatics
-              builds based on the models. There is no need to checkin generated source code, just
-              as there is no need to checkin compiled Java classes. We support two ways of generating
+              builds based on the models. There is no need to checkin generated source code, just as
+              there is no need to checkin compiled Java classes. We support two ways of generating
               code.</para>
           </listitem>
         </itemizedlist>
@@ -96,9 +96,8 @@
               <para>Model and code live side by side. That is, we do not focus on 100 percent code
                 generation. Instead we focus on modeling aspects from which as much code as possible
                 can be generated. At the same time we keep using code for aspects that are as much
-                work in code as they are in a model. Given the time constraints that we all have,
-                we start with the modeling concepts that give the best ratio of
-                model-to-code.</para>
+                work in code as they are in a model. Given the time constraints that we all have, we
+                start with the modeling concepts that give the best ratio of model-to-code.</para>
             </listitem>
             <listitem>
               <para><keycap>DSL"s and DSL models are independent of each other</keycap>. They may
@@ -107,10 +106,10 @@
                 and multi-user management by common tools as CVS or subversion.</para>
             </listitem>
             <listitem>
-              <para><keycap>DSL Models are and remain small.</keycap> We do not need to
-                handle huge models because models are always divided into small, independent parts
-                which we call DSL models. The relationship between those DSL models is done by
-                symbolic integration of the models. See the section on Crossx.</para>
+              <para><keycap>DSL Models are and remain small.</keycap> We do not need to handle huge
+                models because models are always divided into small, independent parts which we call
+                DSL models. The relationship between those DSL models is done by symbolic
+                integration of the models. See the section on Crossx.</para>
             </listitem>
           </itemizedlist></para>
       </section>
@@ -165,22 +164,14 @@
           generate the empty subclass once, if it is not there. In this way handwritten code is
           never overwritten by the code generator.</para>
         <para>The solution is shown in <xref linkend="emptysubclass-pattern"/>.</para>
-        <para/>
         <figure id="emptysubclass-pattern">
           <title id="titleid">Empty subclass pattern</title>
           <mediaobject>
             <imageobject>
-              <imagedata contentwidth="100" entityref="emptysubclass-pattern" format="JPG"/>
+              <imagedata fileref="images/base-emptysubclass-pattern.gif" format="GIF"/>
             </imageobject>
           </mediaobject>
         </figure>
-        <informalfigure>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/base-emptysubclass-pattern.jpg" format="JPG"/>
-            </imageobject>
-          </mediaobject>
-        </informalfigure>
         <para>There are a few properties of this solution that we need to be aware of:</para>
         <orderedlist>
           <listitem>
@@ -199,55 +190,26 @@
     </section>
   </chapter>
   <chapter>
-    <title>Business Domain DSL</title>
-    <section>
-      <title>Purpose</title>
-      <para>The Business Domain DSL is intended to be use for modeling the domain model of an
-        application. De Business Domain model consists of all domain classes, as understood by the
-        business expert. Technical aspects do not belong in Business Domain models.</para>
-      <para>From a business domain model code is generated, conforming to the reference architecture
-        as describe in REF. As a consequence, the code will always conform perfectly to the
-        architecture, ensuring a high quality application.</para>
-      <para>This document describes the concepts as they are defined in the language and how they
-        can be used to specify a business domain model.</para>
-    </section>
-    <section>
-      <title>Principles</title>
-      <para>The principles behind the mod4j project are important to understand how the DSLs are
-        designed and how they should be used.</para>
-      <itemizedlist>
-        <listitem>
-          <para>The goal of a model is to generate code. Thus, everything in a model is used in some
-            way to generate code.</para>
-        </listitem>
-        <listitem>
-          <para>Model and code live side by side. That is, we do not focus on 100 percent code
-            generation. Instead we focus on modeling aspects from which much code can be generated,
-            while coding aspects that are as much work in code as it is in a model. Given the time
-            constraint6s that we all have, we start with the modeling concepts that give the best
-            ratio of model-to-code.</para>
-        </listitem>
-        <listitem>
-          <para>Generated code is never overwritten. Within the generated code specific extension
-            point are generated. These extension points are the only places where handwritten code
-            may be placed. In most cases an extension point is in a separate file than the generated
-            code. To help the developer a first empty extension point file is usually created , but
-            only when the extension point file does not exist.</para>
-        </listitem>
-        <listitem>
-          <para>DSLs and DSL models are independent of each other. They may reference through soft
-            references, but are never hard-linked to each other. This allows both DSL models and
-            DSLs to be developed separately. It also allows version management by common tools as
-            CVS or subversion.</para>
-        </listitem>
-      </itemizedlist>
-    </section>
-  </chapter>
-  <chapter>
     <title>Business Domain DSL Reference</title>
     <para>This chapter provides a description of all the concepts in the Business Domain DSL. each
       concept is described by a definition which explains the business meaning of the concept, and a
       description of the code generated for the concept.</para>
+    <para>The Business Domain DSL is intended to be use for modeling the domain model of an
+      application. De Business Domain model consists of all domain classes, as understood by the
+      business expert. Technical aspects do not belong in Business Domain models.</para>
+    <para>From a business domain model code is generated, conforming to the reference architecture
+      as describe in REF. As a consequence, the code will always conform perfectly to the
+      architecture, ensuring a high quality application.</para>
+    <figure>
+      <title>Business Domain DSL generation overview</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/BusinessDomainModel-generated.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>This document describes the concepts as they are defined in the language and how they can
+      be used to specify a business domain model.</para>
     <section>
       <title>Business Class</title>
       <section>
@@ -257,8 +219,8 @@
     // rules go here ...
 ]
 </programlisting>
-        <para>A Business Class describes something that has a specific meaning in the business domain
-          being modeled. In the system being modeled instances of business classes will be
+        <para>A Business Class describes something that has a specific meaning in the business
+          domain being modeled. In the system being modeled instances of business classes will be
           created.</para>
         <para>A business class has properties (also called attributes in e.g. UML) of different
           types.</para>
@@ -285,17 +247,10 @@
             <title>Empty subclass pattern applied to the Domain Layer</title>
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-domain" format="JPG"/>
+                <imagedata fileref="images/base-emptysubclass-domain.gif" format="GIF"/>
               </imageobject>
             </mediaobject>
           </figure>
-          <informalfigure>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/base-emptysubclass-domain.jpg" format="JPG"/>
-              </imageobject>
-            </mediaobject>
-          </informalfigure>
         </section>
         <section>
           <title>Data Layer</title>
@@ -312,18 +267,15 @@
           <figure id="figure-emptysubclass-data">
             <title>Empty subclass pattern applied to the Data Layer</title>
             <mediaobject>
-              <imageobject>
+              <!--              <imageobject>
                 <imagedata entityref="emptysubclass-data" format="JPG"/>
+              </imageobject>
+-->
+              <imageobject>
+                <imagedata fileref="images/base-emptysubclass-data.gif" format="GIF"/>
               </imageobject>
             </mediaobject>
           </figure>
-          <informalfigure>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/base-emptysubclass-data.jpg" format="JPG"/>
-              </imageobject>
-            </mediaobject>
-          </informalfigure>
         </section>
       </section>
     </section>
@@ -351,7 +303,8 @@
             <emphasis>integer</emphasis>, <emphasis>string</emphasis>, <emphasis>decimal</emphasis>,
             <emphasis>boolean</emphasis> or <emphasis>datetime</emphasis>.</para>
         <para>Each attribute can have a description, which is placed directly before the attribute
-          definition within double quotes. In the example only <emphasis>isMale</emphasis> has a description.</para>
+          definition within double quotes. In the example only <emphasis>isMale</emphasis> has a
+          description.</para>
         <para>For each attribute additional constraints can be specified. In th above example
           minlength, maxlength and regexp are such constraints. These constraints must always be
           true for the property.</para>
@@ -606,9 +559,9 @@
     High   = 3;
 ]
 </programlisting>
-      <para>The "= 1" defines the numeric value that is used for the enumeration literal in the
-        code and the database. This is optional, but useful when you need to address existing
-        encoding schemes for enumerations.</para>
+      <para>The "= 1" defines the numeric value that is used for the enumeration literal in the code
+        and the database. This is optional, but useful when you need to address existing encoding
+        schemes for enumerations.</para>
       <section>
         <title>Generated code</title>
         <para>To Be Done</para>
@@ -616,9 +569,9 @@
     </section>
     <section>
       <title>Business Rules</title>
-      <para>A business class may include business rules. Note that the concept of business rule
-        here is limited. In this context a business rule is a rule that should be true at all times
-        for every object of the given business class.</para>
+      <para>A business class may include business rules. Note that the concept of business rule here
+        is limited. In this context a business rule is a rule that should be true at all times for
+        every object of the given business class.</para>
       <para>Other rules, for example one that trigger something when a certain condition is met, are
         not covered.</para>
       <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> SampleClass [
@@ -955,9 +908,9 @@
     </section>
     <section>
       <title>Create, Read, Update, Delete service methods</title>
-      <para>In a layered architecture certain types of service methods often occur in
-        applications. Methods for creating, reading, updating and deleting (CRUD) business
-        objects are often needed.</para>
+      <para>In a layered architecture certain types of service methods often occur in applications.
+        Methods for creating, reading, updating and deleting (CRUD) business objects are often
+        needed.</para>
       <para>For this purpose the service DSL includes special methods which are indicated by their
         respective keywords.</para>
       <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
@@ -974,8 +927,8 @@ create</keycap> createCustomer <keycap>for</keycap> SimpleCustomerDto;
         follows:<programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
 
 crud</keycap> <keycap>for</keycap> SimpleCustomerDto;</programlisting>In
-        this case the names of the crud methods are derived from the name of the Dto and the business
-        class it represents. In the above example the names will be createCustomer,
+        this case the names of the crud methods are derived from the name of the Dto and the
+        business class it represents. In the above example the names will be createCustomer,
         readAsSimpleCustomerDto, updateCustomer, deleteCustomer. The read method has a slightly
         unappealing name, but that's for a reason. If multiple CRUD's are defined with different
         Dto's representing the same businessclass the name readCustomer would become ambiguous. The
@@ -1056,130 +1009,7 @@ public void deleteCustomer(SimpleCustomerDto object);
       </section>
       <section>
         <title>Generated code</title>
-        <para>For an attribute code is generated for both the service layer of the
-          architecture.</para>
-        <para>For each DTO a Java class is generated. This class contains a protected field for each
-          attribute and getter and setter methods to access the field.</para>
-        <para>The fields in data transfer objets are always nullable, therefore the field types in
-          the generated code are always real objkects. This means that <emphasis>Integer</emphasis>,
-            <emphasis>Float</emphasis>, <emphasis>Boolean</emphasis> are used as field types for the
-          attributes of type <emphasis>integer</emphasis>, <emphasis>decimal</emphasis> and
-            <emphasis>boolean</emphasis>.</para>
-        <para>The description of an attribute is used to generate Javadoc comments in the code for
-          the attribute.</para>
-      </section>
-    </section>
-    <section>
-      <title>BusinessClassDto</title>
-      <para>A BusinessClassDto is a DTO that represents the data of a business class from the
-        Business Domain DSL. As a consequence, the attributes that are allowed within a
-        BusinessClassDTO must map 1-to-1 to attributes of the corresponding business class.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
-
-<keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
-    // attributes go here 
-]
-</programlisting>
-      <para>A BusinessClassDto always declares the business class that it represents as its base
-        class. This business class must be defined in a Business Domain model. To ensure that the
-        business class is in scope it must be imported first from its business domain model. Import
-        statements are always at the top of a data contract model.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
-    name; 
-    numberOfEars;    
-    birthdate;       
-    length;          
-    "Description of the isMale attribute"
-    isMale;
-]
-</programlisting>
-      <para>Attributes of a BusinessClassDto must have the same names as attributes in the base
-        business class. Not every attribute has to be there, allowing a BusinessClassDto to contain
-        a subset of attributes from its base business class.</para>
-      <para>The type of the attributes is derived from the type iof the corresponding attribute in
-        the business class in the business domain model. Therefore it is not speciified in the data
-        contract model.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
-    // attributes go here 
-
-    <keycap>references </keycap>[ 
-        orders <keycap>as</keycap> OrderNumberAndDateList ;  
-    ]   
-]
-</programlisting>
-      <para>A business class may take part is associations as defined in the business domain model.
-        A BusinessClassDto may represent such an association as well. There are restrictions on
-        represented associations. The main restriction is that only one side of an association is
-        represented as a reference. A Dto does not support bi-directional associations.</para>
-      <para>The references are contained in the references block. The same rule that applied to
-        attributes also applies to associations. Only associations thart are defined in the business
-        domain model may be used. The name to be used is the role name of the opposite class in the
-        association definition.</para>
-      <para>The type of a reference must conform to the type defined in the association in the
-        business domain model. There are two possibilities.</para>
-      <para>The association has multiplicity of maximum one. In this case the type of the reference
-        must be a BusinessClassDto based on the BusinessClass in the association.</para>
-      <para>If the association has a multiplicity larger than one, the type must be a ListDto based
-        on a BusinessClassDto based on the BusinessClass in the association.</para>
-      <para>Shorthand</para>
-      <para>If you need a BusinessClassDto that represents all attributes from a BusinessClass, the
-        following shorthand will achieve this. It will by default add all attributes to the
-        BusinesssClassDto.</para>
-      <para>
-        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> FullCustomerDto <keycap>base </keycap>Customer [
-</programlisting>
-      </para>
-      <para/>
-      <section>
-        <title>Generated code</title>
-        <para>For a BusinessClassDto several files are generated.</para>
-        <para>First of all there is a straightformard Java class representing the attributes and
-          references defined in the BusinessClassDto.</para>
-        <para>Secondly a Translator class is generated. This class contains two translator methods
-          to translate the BusinessClass Dto to a Domain class and vice versa. For example for the
-          BusinessClassDto FullCustomerDto the following two translator methods are
-          generated.</para>
-        <para>
-          <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>public</keycap> <keycap>synchronized</keycap> Customer fromDto(<keycap>final</keycap> FullCustomerDto source, 
-                                     Customer target) <keycap>throws</keycap> TranslatorException;
-
-<keycap>public</keycap> <keycap>synchronized</keycap> FullCustomerDto toDto(<keycap>final</keycap> Customer source); 
-
-</programlisting>
-        </para>
-      </section>
-    </section>
-    <section>
-      <title>ListDto</title>
-      <para>The final part of a domain model defines all the relationships between the business
-        classes.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>ListDto </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
-</programlisting>
-      <para>This example shows the ListDto named CustomerList which contains objects of type
-        FullCustomerDto.</para>
-      <para/>
-      <section>
-        <title>Generated code</title>
-        <para>For a ListDto no specific classes are generated.</para>
-        <para>At all places where a ListDto is used in any DSL model , the Java List class is used
-          in the code.</para>
-      </section>
-    </section>
-    <section>
-      <title>EnumerationDto</title>
-      <para>An enumeration defines a datatype which can be used as the type of an attibute of a
-        business class. The EnumerationDto definition includes a list of all enumeration values. As
-        with the BusinessClassDto, this dto is connected to an Enumeration in the business class
-        model. The example below shown an enumeration definition.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>EnumerationDto</keycap> SeverityLevelDto <keycap>base</keycap> SecurityLevelEnum [
-</programlisting>
-      <para>The SecurityLevelEnum must be defined in a Business Class model and imported defines the
-        numeric value that is used for the enumeration literal in the code and the database. This is
-        optional, but useful when you need to address existing encoding schemes for
-        enumerations.</para>
-      <section>
-        <title>Generated code</title>
-        <para>To Be Done</para>
+        <para>For a reference method full code is generated to code is generated.</para>
       </section>
     </section>
   </chapter>
