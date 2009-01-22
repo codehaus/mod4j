@@ -204,7 +204,7 @@
       <title>Business Domain DSL generation overview</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/BusinessDomainModel-generated.png" format="PNG"/>
+          <imagedata fileref="images/BusinessDomainModel-generated.gif" format="GIF"/>
         </imageobject>
       </mediaobject>
     </figure>
@@ -267,14 +267,13 @@
           <figure id="figure-emptysubclass-data">
             <title>Empty subclass pattern applied to the Data Layer</title>
             <mediaobject>
-              <!--              <imageobject>
-                <imagedata entityref="emptysubclass-data" format="JPG"/>
-              </imageobject>
--->
               <imageobject>
+                <imagedata entityref="emptysubclass-data" format="GIF"/>
+              </imageobject>
+<!--              <imageobject>
                 <imagedata fileref="images/base-emptysubclass-data.gif" format="GIF"/>
               </imageobject>
-            </mediaobject>
+-->            </mediaobject>
           </figure>
         </section>
       </section>
