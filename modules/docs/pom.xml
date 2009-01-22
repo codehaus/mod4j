@@ -12,5 +12,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>user-guide</module>
+        <module>application-architecture</module>
     </modules>
 </project>
