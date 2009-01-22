@@ -3,7 +3,7 @@
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
 <!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.gif" NDATA GIF>
-<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.gif" NDATA GIF>
+<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
 ]>
 <book lang="en">
   <bookinfo><title>mod4j User Guide</title><authorgroup>
@@ -268,7 +268,7 @@
             <title>Empty subclass pattern applied to the Data Layer</title>
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-data" format="GIF"/>
+                <imagedata entityref="emptysubclass-data" format="JPG"/>
               </imageobject>
 <!--              <imageobject>
                 <imagedata fileref="images/base-emptysubclass-data.gif" format="GIF"/>
