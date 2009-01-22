@@ -9,7 +9,7 @@
       <othername>Jan</othername>
       <surname>Malotaux</surname>
     </author>
-    <releaseinfo>&amp;version;</releaseinfo>
+    <releaseinfo>&version;</releaseinfo>
     <copyright>
       <year>2009</year>
       <holder>Ordina J-Technologies</holder>
@@ -52,6 +52,13 @@
           </publisher>
           <date>1996</date>
         </biblioentry>
+        <biblioentry id="evans03"><abbrev>Evans03</abbrev><title>Domain-Driven Design: Tackling
+            Complexity in the Heart of
+              Software</title><author><firstname>Eric</firstname><surname>Evans</surname></author><publisher><publishername>Addison-Wesley</publishername></publisher><date>2003</date><isbn>0-321-12521-5</isbn></biblioentry>
+        <biblioentry id="fowler02"
+              ><abbrev>Fowler02</abbrev><author><firstname>Martin</firstname><surname>Fowler</surname></author><title>Patterns
+            of Enterprise Application
+              Architecture</title><publisher><publishername>Addison-Wesley</publishername></publisher><date>2002</date><isbn>0-321-12742-0</isbn></biblioentry>
       </bibliography>
       <para/>
     </section>
@@ -76,9 +83,6 @@
           <mediaobject>
             <imageobject>
               <imagedata entityref="logical-view" format="JPG"/>
-            </imageobject>
-            <imageobject>
-              <imagedata align="left" fileref="images/logical-view.jpg" format="JPG"/>
             </imageobject>
           </mediaobject>
         </figure>The <emphasis>Layers</emphasis> architectural pattern itself is described in
@@ -118,22 +122,26 @@
     </section>
     <section>
       <title>Service Layer</title>
-      <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is isolating the
-          <emphasis>Business Layer</emphasis> from the various protocols in use for invoking its
-        service operations. Examples of such protocols are SOAP or RESTful Web Services, messaging,
-        EJB, RMI or plain old local mehod calls. A Service Layer presents the interface of the
-        Business Layer in the form required for one particular access protocol. Therefore, a
-        separate Service Layer is needed for each protocol by which the system will be
-        accessed.</para>
-      <para>In addition, the Service Layer is reponsible for:<itemizedlist>
+      <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is to isolate the
+        business layer from the various protocols in use for remotely invoking its service
+        operations. Examples of such protocols are SOAP or RESTful Web Services, messaging, EJB, RMI
+        or plain old local mehod calls. A service layer presents the interface of the business layer
+        in the form required for one particular access protocol. Therefore, a separate service layer
+        is needed for each protocol by which the system will be accessed. This makes it clear that
+        the presentation layer should not contain any business functionality, because that would
+        have to be duplicated for each separate service layer.</para>
+      <para>In addition, the service layer is reponsible for:<itemizedlist>
           <listitem>
             <para>authentication and authorisation of the calling identities</para>
           </listitem>
           <listitem>
-            <para>translation of the information in the <emphasis>Data Transfer Objects</emphasis>
-              used for communication with the Presentation Layer to and from <emphasis>Domain
-                Model</emphasis> objects used for communication with the <emphasis>Business
-                Layer</emphasis></para>
+            <para>exposing a collection of <emphasis>Data Transfer Objects</emphasis> to be used for
+              transferring data between the service layer and its callers</para>
+          </listitem>
+          <listitem>
+            <para>translation of the information in the data transfer objects used for communication
+              with the presentation layer to and from <emphasis>Domain Model</emphasis> objects used
+              for communication with the business layer</para>
           </listitem>
           <listitem>
             <para>making the call to each service operation an atomic (ACID) transaction.</para>
@@ -142,15 +150,86 @@
     </section>
     <section>
       <title>Business Layer</title>
-      <para/>
+      <para>The <emphasis>Business Layer</emphasis> is a <emphasis>facade</emphasis> for the
+          <emphasis>Domain Model</emphasis>. It exposed the business functionality of the
+        application in the form of methods, with arguments and return values from the domain model.
+        These methods:<itemizedlist>
+          <listitem>
+            <para>persist and retrieve domain objects by delegating to the <emphasis>Data
+                Layer</emphasis></para>
+          </listitem>
+          <listitem>
+            <para>delegate to domain model objects to execute reusable business functionality</para>
+          </listitem>
+          <listitem>
+            <para>implement business logic specific to a single business process</para>
+          </listitem>
+        </itemizedlist></para>
     </section>
     <section>
       <title>Data Layer</title>
-      <para/>
+      <para>The responsibility of the <emphasis>Data Layer</emphasis> is to persist and retrieve
+        data. The data is transferred between the data layer and its calling business layer in the
+        form of arguments and return values based on the domain model. The persistence logic is
+        dependent on the particular persistence technology in use, like a relational database,
+        textfiles, XML documents or an XML database, or another application that exposes services
+        for accessing data.</para>
+      <para>The data layer contains a number of data access objects, in principle one for each
+        domain model class. Each such object:<itemizedlist>
+          <listitem>
+            <para>Has CRUD-methods to create (C), retrieve (R), update (U) or delete (D) data
+              contained in one domain model object</para>
+          </listitem>
+          <listitem>
+            <para>Can have methods to retrieve a list of objects based on a query</para>
+          </listitem>
+          <listitem>
+            <para>Must transform data from the domain model to the format in which they are
+              persisted, and vice versa. When a relational database is used, this may be done with a
+              Object-Relational Mapping (ORM) framework, like <emphasis role="italic"
+                >Hibernate</emphasis> or <emphasis role="italic">Toplink</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Can offer paging facilities when a large result set may be retrieved.</para>
+          </listitem>
+          <listitem>
+            <para>May not maintain state.</para>
+          </listitem>
+        </itemizedlist></para>
     </section>
     <section>
       <title>Domain Model</title>
-      <para/>
+      <para>The <emphasis>Domain Model</emphasis> contains objects that model the part of the world
+        that is of interest to the application. The domain model is preferably developed in an
+        object oriented way as advocated by <biblioref linkend="fowler02"/> and <biblioref
+          linkend="evans03"/>. As much business functionality as possible is implemented as methods
+        on domain model classes. Domain model objects:<itemizedlist>
+          <listitem>
+            <para>Should expose methods that perform business actions or complex
+              computations.</para>
+          </listitem>
+          <listitem>
+            <para>Should not be aware of persistence-related issues. Domain model objects should not
+              have to worry about whether or not they are persisted, and how. For instance: they
+              should not have create, retrieve, update or delete methods.</para>
+          </listitem>
+          <listitem>
+            <para>Trigger validation of business rules at any state change. Business rule violations
+              are reported by raising an exception. When more than one business rule is violated by
+              a state change, only one exception is raised that contains information about each
+              one.</para>
+          </listitem>
+          <listitem>
+            <para>May leave the validation of certain types of business rule to lower layers, like
+              the database. Good candidates for instance are unique rules, that are easily enforced
+              by a relational database by defining unique constraints. The downside of this approach
+              is that business rule violations in these cases are raised at a different moment than
+              ordinary business, and that they have to be treated differently.</para>
+          </listitem>
+          <listitem>
+            <para>May trigger events to notify other interested objects of state changes.</para>
+          </listitem>
+        </itemizedlist></para>
     </section>
   </chapter>
 </book>
