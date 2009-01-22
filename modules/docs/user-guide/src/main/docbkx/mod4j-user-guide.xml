@@ -4,6 +4,7 @@
 <!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
 <!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.gif" NDATA GIF>
 <!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
+<!ENTITY BusinessDomainModel-generated SYSTEM "images/BusinessDomainModel-generated.gif" NDATA GIF>
 ]>
 <book lang="en">
   <bookinfo><title>mod4j User Guide</title><authorgroup>
@@ -168,7 +169,7 @@
           <title id="titleid">Empty subclass pattern</title>
           <mediaobject>
             <imageobject>
-              <imagedata entityref="emptysubclass-pattern" format="GIF"/>
+              <imagedata entityref="emptysubclass-pattern" />
             </imageobject>
           </mediaobject>
         </figure>
@@ -204,8 +205,9 @@
       <title>Business Domain DSL generation overview</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/BusinessDomainModel-generated.gif" format="GIF"/>
-        </imageobject>
+          <imagedata entityref="BusinessDomainModel-generated"/>
+<!--          <imagedata fileref="images/BusinessDomainModel-generated.gif" format="GIF"/>
+-->        </imageobject>
       </mediaobject>
     </figure>
     <para>This document describes the concepts as they are defined in the language and how they can
@@ -247,7 +249,7 @@
             <title>Empty subclass pattern applied to the Domain Layer</title>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/base-emptysubclass-domain.gif" format="GIF"/>
+                <imagedata entityref="emptysubclass-domain" />
               </imageobject>
             </mediaobject>
           </figure>
