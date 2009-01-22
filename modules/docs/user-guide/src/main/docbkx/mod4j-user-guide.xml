@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.gif" NDATA GIF>
-<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.gif" NDATA GIF>
+<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.jpg" NDATA JPG>
+<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.jpg" NDATA JPG>
 <!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
-<!ENTITY BusinessDomainModel-generated SYSTEM "images/BusinessDomainModel-generated.gif" NDATA GIF>
+<!ENTITY BusinessDomainModel-generated SYSTEM "images/BusinessDomainModel-generated.jpg" NDATA JPG>
+<!ENTITY BusinessDomainClass-generated SYSTEM "images/BusinessDomainClass-generated.jpg" NDATA JPG>
+<!ENTITY BusinessRule-generated SYSTEM "images/BusinessRule-generated.jpg" NDATA JPG>
 ]>
 <book lang="en">
   <bookinfo><title>mod4j User Guide</title><authorgroup>
@@ -57,8 +59,6 @@
           <listitem>
             <para><keycap>Generated code is never overwritten</keycap>, in other words <emphasis>the
                 model is always leading</emphasis>.</para>
-          </listitem>
-          <listitem>
             <para>To ensure that generated code never needs to be overwritten the generated code is
               designed and generated with <emphasis>specific extension points</emphasis>. These
               extension points are the only places where handwritten code may be placed. In most
@@ -94,11 +94,12 @@
                 modeling.</para>
             </listitem>
             <listitem>
-              <para>Model and code live side by side. That is, we do not focus on 100 percent code
-                generation. Instead we focus on modeling aspects from which as much code as possible
-                can be generated. At the same time we keep using code for aspects that are as much
-                work in code as they are in a model. Given the time constraints that we all have, we
-                start with the modeling concepts that give the best ratio of model-to-code.</para>
+              <para><keycap>Model and code live side by side</keycap>. That is, we do not focus on
+                100 percent code generation. Instead we focus on modeling aspects from which as much
+                code as possible can be generated. At the same time we keep using code for aspects
+                that are as much work in code as they are in a model. Given the time constraints
+                that we all have, we start with the modeling concepts that give the best ratio of
+                model-to-code.</para>
             </listitem>
             <listitem>
               <para><keycap>DSL"s and DSL models are independent of each other</keycap>. They may
@@ -169,7 +170,7 @@
           <title id="titleid">Empty subclass pattern</title>
           <mediaobject>
             <imageobject>
-              <imagedata entityref="emptysubclass-pattern" />
+              <imagedata entityref="emptysubclass-pattern"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -202,16 +203,40 @@
       as describe in REF. As a consequence, the code will always conform perfectly to the
       architecture, ensuring a high quality application.</para>
     <figure>
-      <title>Business Domain DSL generation overview</title>
+      <title>Business Domain DSL generation for each Business Class</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata entityref="BusinessDomainClass-generated"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>As you can see in the figure, seven files are generated for each business class. At the
+      domain level the generation gap pattern is used to generate two files. At the data layer a Dao
+      class always has a separate interface. YTo allow manual additions, a double generation gap
+      pattern is used where both the interface and the class can be extended. Next to the Java files
+      a Hibernatre mapping file is generated containg the mapping for the specified class.</para>
+    <para>For a business rule two files, fo0llowing the generation gap pattern are genberated. This
+      is shown in figure.</para>
+    <figure>
+      <title>Business Domain DSL generation for a Business Domain model.</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata entityref="BusinessRule-generated"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>For the model as a whole, several files are generated as well, independent of the number
+      of buysinessclasses in the model. This is shown in the following figure.  </para>
+    <figure>
+      <title>Business Domain DSL generation for a Business Domain model.</title>
       <mediaobject>
         <imageobject>
           <imagedata entityref="BusinessDomainModel-generated"/>
-<!--          <imagedata fileref="images/BusinessDomainModel-generated.gif" format="GIF"/>
--->        </imageobject>
+        </imageobject>
       </mediaobject>
     </figure>
-    <para>This document describes the concepts as they are defined in the language and how they can
-      be used to specify a business domain model.</para>
+    <para>The remainder of this document describes the concepts as they are defined in the language
+      and how they can be used to specify a business domain model.</para>
     <section>
       <title>Business Class</title>
       <section>
@@ -239,7 +264,8 @@
               </emphasis>(<xref linkend="section-emptysubclass-pattern"/>). For each business class
             two Java classes are generated. The first Java class is an abstract base class
             containing all generated code for the business class. All code generated for properties,
-            associations and business rules is placed inside this class.</para>
+            associations and validation of attribute aconstraints and business rules is placed
+            inside this class.</para>
           <para>The second class generated is an empty (except for constructors calling
               <code>super()</code>) class which subclasses the first class. This empty class is what
             we call an <emphasis>extension point </emphasis>file, where manual code may be added.
@@ -249,7 +275,7 @@
             <title>Empty subclass pattern applied to the Domain Layer</title>
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-domain" />
+                <imagedata entityref="emptysubclass-domain"/>
               </imageobject>
             </mediaobject>
           </figure>
