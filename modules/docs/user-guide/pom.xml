@@ -64,7 +64,7 @@
                     <sectionLabelIncludesComponentLabel>
                         1
                     </sectionLabelIncludesComponentLabel>
-                    <bodyStartIndent>0pt</bodyStartIndent>
+                    <bodyStartIndent>0</bodyStartIndent>
                     <paperType>A4</paperType>
                     <fopExtensions>1</fopExtensions>
                     <xincludeSupported>true</xincludeSupported>
