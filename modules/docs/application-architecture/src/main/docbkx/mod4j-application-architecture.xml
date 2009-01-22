@@ -1,216 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY logical-view SYSTEM "images/logical-view.gif" NDATA GIF>
+<!ENTITY logical-view SYSTEM "images/logical-view.jpg" NDATA JPG>
 ]>
 <book lang="en">
-  <bookinfo>
-    <title>mod4j Application Architecture</title>
-
-    <author>
+  <bookinfo><title>mod4j Application Architecture</title><author>
       <firstname>Eric</firstname>
-
       <othername>Jan</othername>
-
       <surname>Malotaux</surname>
     </author>
-
     <releaseinfo>&amp;version;</releaseinfo>
-
     <copyright>
       <year>2009</year>
-
       <holder>Ordina J-Technologies</holder>
     </copyright>
   </bookinfo>
-
   <chapter>
     <title>Introduction</title>
-
     <section>
       <title>Scope</title>
+      <para/>
     </section>
-
     <section>
       <title>References</title>
-
       <bibliography>
         <biblioentry id="busch96">
           <abbrev>Busch96</abbrev>
-
-          <title>Pattern-Oriented Software Architecture - A System of
-          Patterns</title>
-
-          <authorgroup>
+          <title>Pattern-Oriented Software Architecture - A System of Patterns</title><authorgroup>
             <author>
               <firstname>Frank</firstname>
-
               <surname>Buschmann</surname>
             </author>
-
             <author>
               <surname>Meunier</surname>
-
               <firstname>Regine</firstname>
             </author>
-
             <author>
               <surname>Rohnert</surname>
-
               <firstname>Hans</firstname>
             </author>
-
             <author>
               <surname>Sommerlad</surname>
-
               <firstname>Peter</firstname>
             </author>
-
             <author>
               <surname>Stal</surname>
-
               <firstname>Michael</firstname>
             </author>
-          </authorgroup>
-
-          <publisher>
+          </authorgroup><publisher>
             <publishername>John Wiley &amp; Sons</publishername>
           </publisher>
-
           <date>1996</date>
         </biblioentry>
       </bibliography>
+      <para/>
     </section>
-
     <section>
       <title>Abbreviations</title>
+      <para/>
     </section>
-
     <section>
       <title>Structure of this document</title>
+      <para/>
     </section>
   </chapter>
-
   <chapter>
     <title>Logical View</title>
-
-    <para>This chapter describes the logical composition of the mod4j
-    Reference Architecture. It defines the layers, the component types in each
-    layer and the responsibilities of these component types.</para>
-
+    <para>This chapter describes the logical composition of the mod4j Reference Architecture. It
+      defines the layers, the component types in each layer and the responsibilities of these
+      component types.</para>
     <section>
       <title>Overview</title>
-
       <para><figure>
           <title>Logical view</title>
-
           <mediaobject>
             <imageobject>
-              <imagedata entityref="logical-view" format="GIF" />
+              <imagedata entityref="logical-view" format="JPG"/>
             </imageobject>
-
             <imageobject>
-              <imagedata fileref="images/logical-view.gif" format="GIF" />
+              <imagedata align="left" fileref="images/logical-view.jpg" format="JPG"/>
             </imageobject>
           </mediaobject>
-        </figure>The <emphasis>Layers</emphasis> architectural pattern itself
-      is described in <biblioref linkend="busch96" />. The
-      <emphasis>Presentation Layer</emphasis> provides an interface to the
-      system to a human user, presenting information and interpreting actions
-      of the user. It uses the Service Layer to obtain the information or
-      execute other operations that the Service Layer offers. The
-      <emphasis>Service Layer</emphasis> provides access to the services of
-      the Business Layer using a particular access protocol, like SOAP, EJB,
-      RMI or local method invocation. The <emphasis>Business Layer</emphasis>
-      provides services that implement functionality and business logic. The
-      <emphasis>Data Layer</emphasis> provides access to persistent data on
-      behalf of the Business Layer. The <emphasis>Domain Model</emphasis>
-      consists of Objects that model the part of the world of interest to the
-      application. The next paragraphs describes the responsibilities and the
-      structure of the layers in more detail.</para>
+        </figure>The <emphasis>Layers</emphasis> architectural pattern itself is described in
+          <biblioref linkend="busch96"/>. The <emphasis>Presentation Layer</emphasis> provides an
+        interface to the system to a human user, presenting information and interpreting actions of
+        the user. It uses the Service Layer to obtain the information or execute other operations
+        that the Service Layer offers. The <emphasis>Service Layer</emphasis> provides access to the
+        services of the Business Layer using a particular access protocol, like SOAP, EJB, RMI or
+        local method invocation. The <emphasis>Business Layer</emphasis> provides services that
+        implement functionality and business logic. The <emphasis>Data Layer</emphasis> provides
+        access to persistent data on behalf of the Business Layer. The <emphasis>Domain
+          Model</emphasis> consists of Objects that model the part of the world of interest to the
+        application. The next paragraphs describes the responsibilities and the structure of the
+        layers in more detail.</para>
     </section>
-
     <section>
       <title>Presentation Layer</title>
-
-      <para>The Presentation Layer contains components that present
-      information to a user and interprets his actions by executing functions
-      of the system.Typical responsibilities of the Presentation Layer
-      include:</para>
-
+      <para>The Presentation Layer contains components that present information to a user and
+        interprets his actions by executing functions of the system.Typical responsibilities of the
+        Presentation Layer include:</para>
       <itemizedlist>
         <listitem>
-          <para>Presenting data to the user. This implies mapping fields on a
-          screen to attibutes of <emphasis>Data Transfer Objects</emphasis>
-          received from the Service Layer, formatting of data,
-          internationalisation en localisation of data.</para>
+          <para>Presenting data to the user. This implies mapping fields on a screen to attibutes of
+              <emphasis>Data Transfer Objects</emphasis> received from the Service Layer, formatting
+            of data, internationalisation en localisation of data.</para>
         </listitem>
-
         <listitem>
-          <para>Accepting data entered by the user. This implies applying
-          simple validations on the data entered and keeping track of this
-          data.</para>
+          <para>Accepting data entered by the user. This implies applying simple validations on the
+            data entered and keeping track of this data.</para>
         </listitem>
       </itemizedlist>
-
-      <para>This Presentation Layer should not execute business functionality
-      by itself, but instead delegate that responsibility to the Service Layer
-      by calling its operations. Data is transferred to and from the Service
-      Layer in the form of <emphasis>Data Transfer Objects</emphasis>.</para>
-
-      <para>TODO: expand this section when the User Interface DSL is nearer to
-      completion.</para>
+      <para>This Presentation Layer should not execute business functionality by itself, but instead
+        delegate that responsibility to the Service Layer by calling its operations. Data is
+        transferred to and from the Service Layer in the form of <emphasis>Data Transfer
+          Objects</emphasis>.</para>
+      <para>TODO: expand this section when the User Interface DSL is nearer to completion.</para>
     </section>
-
     <section>
       <title>Service Layer</title>
-
-      <para>The primary responsibility of the <emphasis>Service
-      Layer</emphasis> is isolating the <emphasis>Business Layer</emphasis>
-      from the various protocols in use for invoking its service operations.
-      Examples of such protocols are SOAP or RESTful Web Services, messaging,
-      EJB, RMI or plain old local mehod calls. A Service Layer presents the
-      interface of the Business Layer in the form required for one particular
-      access protocol. Therefore, a separate Service Layer is needed for each
-      protocol by which the system will be accessed.</para>
-
+      <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is isolating the
+          <emphasis>Business Layer</emphasis> from the various protocols in use for invoking its
+        service operations. Examples of such protocols are SOAP or RESTful Web Services, messaging,
+        EJB, RMI or plain old local mehod calls. A Service Layer presents the interface of the
+        Business Layer in the form required for one particular access protocol. Therefore, a
+        separate Service Layer is needed for each protocol by which the system will be
+        accessed.</para>
       <para>In addition, the Service Layer is reponsible for:<itemizedlist>
           <listitem>
-            <para>authentication and authorisation of the calling
-            identities</para>
+            <para>authentication and authorisation of the calling identities</para>
           </listitem>
-
           <listitem>
-            <para>translation of the information in the <emphasis>Data
-            Transfer Objects</emphasis> used for communication with the
-            Presentation Layer to and from <emphasis>Domain Model</emphasis>
-            objects used for communication with the <emphasis>Business
-            Layer</emphasis></para>
+            <para>translation of the information in the <emphasis>Data Transfer Objects</emphasis>
+              used for communication with the Presentation Layer to and from <emphasis>Domain
+                Model</emphasis> objects used for communication with the <emphasis>Business
+                Layer</emphasis></para>
           </listitem>
-
           <listitem>
-            <para>making the call to each service operation an atomic (ACID)
-            transaction.</para>
+            <para>making the call to each service operation an atomic (ACID) transaction.</para>
           </listitem>
         </itemizedlist></para>
     </section>
-
     <section>
       <title>Business Layer</title>
-
-      <para></para>
+      <para/>
     </section>
-
     <section>
       <title>Data Layer</title>
-
-      <para></para>
+      <para/>
     </section>
-
     <section>
       <title>Domain Model</title>
-
-      <para></para>
+      <para/>
     </section>
   </chapter>
 </book>
