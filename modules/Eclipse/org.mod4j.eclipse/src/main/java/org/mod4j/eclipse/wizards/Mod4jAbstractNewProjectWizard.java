@@ -56,8 +56,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
     private static String MODEL_DIR = "src/model";
     
 		protected Mod4jGenericNewProjectWizardPage mainPage;
-		private String langName;
-		private String fileExtension;
+		private String langName = "";
 		private String packageName;
 
 		public String getLangName() {
@@ -66,14 +65,6 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		public void setLangName(String langName) {
 			this.langName = langName;
-		}
-
-		public String getFileExtension() {
-			return fileExtension;
-		}
-
-		public void setFileExtension(String fileExtension) {
-			this.fileExtension = fileExtension;
 		}
 
 		public String getPackageName() {
