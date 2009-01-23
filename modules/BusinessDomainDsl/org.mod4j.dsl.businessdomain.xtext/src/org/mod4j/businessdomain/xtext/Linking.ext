@@ -2,8 +2,35 @@ import BusinessDomainDsl;
 
 extension org::mod4j::businessdomain::xtext::Extensions;
 extension org::mod4j::businessdomain::xtext::GenLinking reexport;
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
 
 /*
  * If you need more sophisticated linking semantic just overwrite the linking extensions here and add your own logic.
  * Have a look at the generated org::mod4j::businessdomain::xtext::GenLinking (typically located in src-gen)
  */
+ 
+ link(emf::EObject this) :
+	let all = allLocalElements() :
+		all.typeSelect(BusinessDomainDsl::Association).collect(e|e.link_source()) ->
+		all.typeSelect(BusinessDomainDsl::Association).collect(e|e.link_target()) ->
+		all.typeSelect(BusinessDomainDsl::BusinessClass).collect(e|e.link_superclass()) ->
+		all.typeSelect(BusinessDomainDsl::UniqueRule).collect(e|e.link_properties()) ->
+		all.typeSelect(BusinessDomainDsl::EnumerationProperty).collect(e|e.link_type()) ->
+        null;
+
+
+ 
+
+ Void link_properties(BusinessDomainDsl::UniqueRule this) :
+//	(let ents = this.allVisibleElements().typeSelect(BusinessDomainDsl::Property)
+//	            .select(p | p.owningType.name == this.businessClass.name)
+//	 :
+	(let ents = this.businessClass.properties
+	 :
+
+		this.properties.addAll(
+			this.parsed("properties").collect(f|
+				ents.select(e|e.id() == f).first()
+		).reject(e|e == null))
+);
+ 
