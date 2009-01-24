@@ -149,7 +149,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 				simpleJdbcTemplate, "Person_TABLE"));
 		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Customer_TABLE"));
-		List<Person> persons = personDao.listAllPersons();
+		List<Person> persons = personDao.listAll();
 		assertEquals(2, persons.size());
 		Collections.sort(persons, new PersonComparator());
 		assertSame(Person.class, persons.get(0).getClass());

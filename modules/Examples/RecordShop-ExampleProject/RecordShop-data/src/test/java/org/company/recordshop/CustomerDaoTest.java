@@ -43,7 +43,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         customer.setDiscountPercentage(50);
         customer.setNumberOfEars(1);
         customerDao.add(customer);
-        flush();
+        flush();clear();
 
         Customer saved = customerDao.retrieve(customer.getId());
         assertNotNull(saved);
@@ -143,7 +143,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         flush();
         clear();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        List<Customer> customers = customerDao.listAllCustomers();
+        List<Customer> customers = customerDao.listAll();
         assertNotNull(customers);
         assertEquals(3, customers.size());
         Collections.sort(customers, new CustomerComparator()); // Om willekeurige volgorde te vermijden.

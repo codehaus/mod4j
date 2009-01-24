@@ -228,7 +228,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     public void testAssociationsHibernate() {
     	clear();
     	
-    	allCustomers = customerDao.listAllCustomers();
+    	allCustomers = customerDao.listAll();
     	// Chech whether new opbjects have been created, not the original cached ones.
     	assertEquals(false, allCustomers.contains(c01));
     	assertEquals(false, allCustomers.contains(c02));
@@ -240,7 +240,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     	c03 = lookup(allCustomers, "Joanna");
     	c04 = lookup(allCustomers, "Karen");
     	
-    	allOrders = orderDao.listAllOrders();
+    	allOrders = orderDao.listAll();
     	// Chech whether new opbjects have been created, not the original cached ones.
     	assertEquals(false, allOrders.contains(oder01));
     	assertEquals(false, allOrders.contains(order02));
@@ -254,7 +254,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     	o04 = lookup(allOrders, "order04");
     	o05 = lookup(allOrders, "order05");
     	
-    	allOrderLines = orderLineDao.listAllOrderLines();
+    	allOrderLines = orderLineDao.listAll();
     	line01 = lookup(allOrderLines, 1);
     	line02 = lookup(allOrderLines, 2);
     	line03 = lookup(allOrderLines, 3);
@@ -262,7 +262,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     	line05 = lookup(allOrderLines, 5);
     	line06 = lookup(allOrderLines, 6);
 
-    	allRecords = recordDao.listAllRecords();
+    	allRecords = recordDao.listAll();
     	record01 = lookup(allRecords, "rec 01");
     	record02 = lookup(allRecords, "rec 02");
     	record03 = lookup(allRecords, "rec 03");
@@ -270,7 +270,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     	record05 = lookup(allRecords, "rec 05");
     	record06 = lookup(allRecords, "rec 06");
     	
-    	allProducts = productDao.listAllProducts();
+    	allProducts = productDao.listAll();
     	pr01 = lookup(allProducts, "product 01");
     	pr02 = lookup(allProducts, "product 02");
     	pr03 = lookup(allProducts, "product 03");
