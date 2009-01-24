@@ -63,7 +63,7 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
     }
 
     @SuppressWarnings("unchecked")
-    public List<«javaDomainClass(this.name)»> listAll«javaDomainClass(this.name)»s() {
+    public List<«javaDomainClass(this.name)»> listAll() {
         return getHibernateTemplate().find("from «javaDomainClass(this.name)»");
     }
 }

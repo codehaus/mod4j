@@ -110,7 +110,7 @@
      * @return List<«dto.businessClass()»>
      */
     public List<«javaDomainClass(dto.businessClass())»>  listAll«this.dto.businessClass()»s(){
-        return the«javaDaoInterface(dto.businessClass())».listAll«dto.businessClass()»s();
+        return the«javaDaoInterface(dto.businessClass())».listAll();
     }
 «ENDDEFINE»
 

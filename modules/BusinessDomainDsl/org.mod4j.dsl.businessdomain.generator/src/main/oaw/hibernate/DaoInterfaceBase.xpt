@@ -63,7 +63,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      * 
      * @return a List of all «javaDomainClass(this.name)» objects.
      */
-    List<«javaDomainClass(this.name)»> listAll«javaDomainClass(this.name)»s();
+    List<«javaDomainClass(this.name)»> listAll();
 }
 «ENDFILE»
 «ENDDEFINE»
