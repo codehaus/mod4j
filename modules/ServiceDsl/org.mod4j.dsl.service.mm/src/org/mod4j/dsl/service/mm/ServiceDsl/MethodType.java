@@ -110,7 +110,15 @@ public enum MethodType implements Enumerator {
      * @generated
      * @ordered
      */
-    GETFROM(8, "GETFROM", "GETFROM");
+    GETFROM(8, "GETFROM", "GETFROM"), /**
+     * The '<em><b>LISTALL</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #LISTALL_VALUE
+     * @generated
+     * @ordered
+     */
+    LISTALL(9, "LISTALL", "LISTALL");
 
     /**
      * The '<em><b>CREATE</b></em>' literal value.
@@ -248,6 +256,21 @@ public enum MethodType implements Enumerator {
     public static final int GETFROM_VALUE = 8;
 
     /**
+     * The '<em><b>LISTALL</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>LISTALL</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #LISTALL
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int LISTALL_VALUE = 9;
+
+    /**
      * An array of all the '<em><b>Method Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -264,6 +287,7 @@ public enum MethodType implements Enumerator {
             ADDTO,
             REMOVEFROM,
             GETFROM,
+            LISTALL,
         };
 
     /**
@@ -323,6 +347,7 @@ public enum MethodType implements Enumerator {
             case ADDTO_VALUE: return ADDTO;
             case REMOVEFROM_VALUE: return REMOVEFROM;
             case GETFROM_VALUE: return GETFROM;
+            case LISTALL_VALUE: return LISTALL;
         }
         return null;
     }

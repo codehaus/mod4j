@@ -10,13 +10,21 @@ context DtoReference ERROR "The name of an imported element must be unique" :
 context CrudService ERROR "Crud can only be defined once for a Dto" :
     this.model.crudServices.forAll(e| (e != this) implies (e.dto.name != this.dto.name) );
     
-context SpecialMethod ERROR "A special (create/read/update/delete) method cannot be defined for a Dto that also has a crud defined." :
-    ! this.model.crudServices.exists(crud | crud.dto == this.dto);
+context SpecialMethod ERROR "A create/read/update/delete method cannot be defined for a Dto that also has a crud defined." :
+    ( (type == MethodType::CREATE) || (type==MethodType::READ) ||
+      (type == MethodType::UPDATE) || (type==MethodType::DELETE) )
+    implies ! this.model.crudServices.exists(crud | crud.dto == this.dto);
     
 context SpecialMethod ERROR "A "+ this.type + " method can only be defined once for "+ this.dto.name:
     this.model.methods.typeSelect(SpecialMethod).select(e|e.type == this.type).
         forAll(e|(e != this) implies (e.dto != this.dto))
 ;
+
+context SpecialMethod ERROR "The name of the listall method ["+ this.name + "] is not unique" :
+    ( this.type == MethodType::LISTALL) implies (
+    this.model.methods.typeSelect(SpecialMethod).select(e|e.type == this.type).
+        forAll(e|(e != this) implies (e.name!= this.name))
+) ;
 
 context SpecialMethod ERROR "The name of the read method ["+ this.name + "] is not unique" :
     ( this.type == MethodType::READ ) implies (

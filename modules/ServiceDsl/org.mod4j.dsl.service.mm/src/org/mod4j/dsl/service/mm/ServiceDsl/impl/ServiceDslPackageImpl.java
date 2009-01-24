@@ -588,6 +588,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         addEEnumLiteral(methodTypeEEnum, MethodType.ADDTO);
         addEEnumLiteral(methodTypeEEnum, MethodType.REMOVEFROM);
         addEEnumLiteral(methodTypeEEnum, MethodType.GETFROM);
+        addEEnumLiteral(methodTypeEEnum, MethodType.LISTALL);
 
         // Create resource
         createResource(eNS_URI);

@@ -35,6 +35,7 @@
     <eLiterals name="ADDTO" value="6"/>
     <eLiterals name="REMOVEFROM" value="7"/>
     <eLiterals name="GETFROM" value="8"/>
+    <eLiterals name="LISTALL" value="9"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrudService" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//DtoReference"/>

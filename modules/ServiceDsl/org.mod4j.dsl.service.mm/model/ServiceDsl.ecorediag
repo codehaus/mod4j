@@ -91,6 +91,10 @@
         <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/GETFROM"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_JzCuYsLUEd2i3t-QigiDWw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_RVSg0OmBEd21r99jYLrAcQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="ServiceDsl.ecore#//MethodType/LISTALL"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RVSg0emBEd21r99jYLrAcQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_FKQldXtDEd28kZw9e3t-QQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_FKQldntDEd28kZw9e3t-QQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_FKQld3tDEd28kZw9e3t-QQ"/>

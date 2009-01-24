@@ -41,6 +41,7 @@
 	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
 	«EXPAND  UpdateMethod FOREACH this.uniqueMethods(MethodType::UPDATE) »
 	«EXPAND  DeleteMethod FOREACH this.uniqueMethods(MethodType::DELETE) »
+	«EXPAND  ListallMethod FOREACH this.uniqueMethods(MethodType::LISTALL) »
 
     «EXPAND  Associations FOR this»
 	}
@@ -101,6 +102,18 @@
         ».delete(object);
     }
 «ENDDEFINE»
+
+«DEFINE ListallMethod FOR SpecialMethod»
+    /**
+     * List all «dto.businessClass()»s.
+     * 
+     * @return List<«dto.businessClass()»>
+     */
+    public List<«javaDomainClass(dto.businessClass())»>  listAll«this.dto.businessClass()»s(){
+        return the«javaDaoInterface(dto.businessClass())».listAll«dto.businessClass()»s();
+    }
+«ENDDEFINE»
+
 
 «DEFINE Associations FOR ServiceModel»
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»

@@ -17,6 +17,7 @@
       <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/ADDTO"/>
       <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/REMOVEFROM"/>
       <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/GETFROM"/>
+      <genEnumLiterals ecoreEnumLiteral="ServiceDsl.ecore#//MethodType/LISTALL"/>
     </genEnums>
     <genClasses ecoreClass="ServiceDsl.ecore#//ServiceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ServiceDsl.ecore#//ServiceModel/methods"/>

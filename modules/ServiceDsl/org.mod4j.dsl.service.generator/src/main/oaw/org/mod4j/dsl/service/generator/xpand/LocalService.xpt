@@ -53,6 +53,9 @@
 		«IF method.type == MethodType::DELETE»
 			«EXPAND DeleteMethod FOR method»
 		«ENDIF»
+		«IF method.type == MethodType::LISTALL»
+			«EXPAND ListallMethod FOR method»
+		«ENDIF»
 	«ENDFOREACH»	
 
 	«EXPAND Associations FOR  this»
@@ -108,6 +111,13 @@
      *            The id of the «this.dto.name» to delete.
      */
     public void «this.name»(«JavaType(this.dto)» object);
+«ENDDEFINE»
+
+«DEFINE ListallMethod FOR SpecialMethod»
+    /**
+     * «description»
+     */
+    public List<«JavaType(this.dto)»> «this.name»( );
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
