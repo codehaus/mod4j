@@ -2,6 +2,7 @@ package org.company.recordshop.service;
 
 import static org.junit.Assert.fail;
 
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Assert;
@@ -36,6 +37,14 @@ public class AssociationsServiceTest extends
 	SimpleCustomerDto createdCustomer = null;
 	OrderDto createdOrder = null;
 
+	public void createCustomer(String first, String last, int nr) {
+		SimpleCustomerDto customer2 = new SimpleCustomerDto();
+		customer2.setFirstName(first);
+		customer2.setLastName(last);
+		customer2.setCustomerNr(nr);
+		customer2 = customerServiceModelService.createCustomer(customer2);
+	}
+
 	public void setup() {
 		SimpleCustomerDto customer = new SimpleCustomerDto();
 		customer.setFirstName("Alfred");
@@ -43,6 +52,9 @@ public class AssociationsServiceTest extends
 		customer.setCustomerNr(12345);
 		createdCustomer = customerServiceModelService.createCustomer(customer);
 
+		createCustomer("Joan", "Perfect", 3);
+		createCustomer("Mark", "Thorpe", 44);
+		
 		OrderDto order = new OrderDto();
 		order.setOrderNumber("ISO 001");
 		order.setDiscountPercentage(50);
@@ -53,6 +65,21 @@ public class AssociationsServiceTest extends
 		createdCustomer = null;
 		createdOrder = null;
 	}
+
+	@Test
+	public final void testListAll() {
+		setup();
+
+		List<SimpleCustomerDto> all = customerServiceModelService.listAllCustomers();
+			
+		for (SimpleCustomerDto simpleCustomerDto : all) {
+			int nr = simpleCustomerDto.getCustomerNr();
+			Assert.assertTrue( (nr == 3) || (nr == 44) || (nr == 12345));
+		}
+		Assert.assertEquals(all.size(), 3);
+		tearDown();
+	}
+	
 
 	@Test
 	public final void testAddOrder() {
