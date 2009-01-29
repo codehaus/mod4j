@@ -392,9 +392,19 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      */
     protected boolean inModelDir(IResource resource) {
         IPath resourcePath = resource.getProjectRelativePath();
-        IPath modelPath = getProject().findMember(MODEL_DIR).getProjectRelativePath();
+        IProject thisProject = getProject();
+        if( thisProject == null ) {
+            System.err.println("found model [" + resource.getName() + "] in NO project ");
+            return false;
+        }
+        IResource modeldir = getProject().findMember(MODEL_DIR);
+        if( modeldir == null ) {
+            System.err.println("found model [" + resource.getName() + "] in project without MDOELDIR");
+            return false;
+        } 
+        IPath modelPath = modeldir.getProjectRelativePath();
         return modelPath.isPrefixOf(resourcePath);
-    }
+}
 
     private void cleanOutputDirectories() {
         System.err.println("START clean directories");
