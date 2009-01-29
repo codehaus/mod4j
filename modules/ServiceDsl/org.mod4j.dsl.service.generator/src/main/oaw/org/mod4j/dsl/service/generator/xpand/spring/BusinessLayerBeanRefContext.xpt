@@ -7,34 +7,34 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE GenBeanRefContext FOR ServiceModel»
-	«FILE generate(getBusinessModuleName(), "beanRefContext.xml")»
+	«FILE generate(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/beanRefContext.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
-    <bean id="businessLayerContext"
+    <bean id="«getBusinessRootPackage()».Context"
 		class="org.springframework.context.support.ClassPathXmlApplicationContext">
         <constructor-arg>
             <list>
-                <value>«getApplicationName()»BusinessLayerContext.xml</value>
+                <value>/«getBusinessRootPackageAsPath()»/applicationContext.xml</value>
             </list>
         </constructor-arg>
         <constructor-arg>
-            <ref bean="businessLayerAbstractBaseContext"/>
+            <ref bean="«getBusinessRootPackage()».ContextBase"/>
         </constructor-arg>
     </bean>
     
-    <bean id="businessLayerAbstractBaseContext"
+    <bean id="«getBusinessRootPackage()».ContextBase"
 		class="org.springframework.context.support.ClassPathXmlApplicationContext">
         <constructor-arg>
             <list>
-                <value>«getApplicationName()»BusinessLayerContextImplBase.xml</value>
+                <value>/«getBusinessRootPackageAsPath()»/applicationContextBase.xml</value>
             </list>
         </constructor-arg>
         <constructor-arg>
-            <ref bean="domainLayerContext"/>
+            <ref bean="«getDataRootPackage()».Context"/>
         </constructor-arg>
     </bean>
 </beans>

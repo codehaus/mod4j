@@ -10,18 +10,21 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
  * 
  * @author Eric Jan Malotaux
  */
-@ContextConfiguration(locations = { "/RecordShopDataLaagContext.xml", "/RecordShopDataLaagTestContext.xml",
-        "/Mod4jCommonContext.xml" })
-public abstract class AbstractDaoTestCase extends AbstractTransactionalJUnit4SpringContextTests {
+@ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
+		"/org/company/recordshop/data/applicationContextBase.xml",
+		"/org/company/recordshop/data/applicationContext.xml",
+		"/org/company/recordshop/data/testContext.xml" })
+public abstract class AbstractDaoTestCase extends
+		AbstractTransactionalJUnit4SpringContextTests {
 
-    @Autowired
-    protected SessionFactory sessionFactory;
+	@Autowired
+	protected SessionFactory sessionFactory;
 
-    protected void flush() {
-        sessionFactory.getCurrentSession().flush();
-    }
+	protected void flush() {
+		sessionFactory.getCurrentSession().flush();
+	}
 
-    protected void clear() {
-        sessionFactory.getCurrentSession().clear();
-    }
+	protected void clear() {
+		sessionFactory.getCurrentSession().clear();
+	}
 }

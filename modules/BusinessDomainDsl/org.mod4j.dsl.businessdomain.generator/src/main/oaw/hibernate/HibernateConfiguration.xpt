@@ -6,25 +6,43 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE hibernateheader FOR BusinessDomainDsl::BusinessDomainModel»
-«FILE generate(getDataModuleName(), "beanRefContext.xml")-»
+«FILE generate(getDataModuleName(), getDataRootPackageAsPath() + "/beanRefContext.xml")-»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-	<bean id="dataLaagContext"
-		class="org.springframework.context.support.ClassPathXmlApplicationContext">
-		<constructor-arg>
-			<list>
-				<value>«getApplicationName()»DataLaagContext.xml</value>
-			</list>
-		</constructor-arg>
-		<constructor-arg>
-			<ref bean="crossLaagContext"/>
-		</constructor-arg>
-	</bean>
+    <bean id="«getDataRootPackage()».Context"
+        class="org.springframework.context.support.ClassPathXmlApplicationContext">
+        <constructor-arg>
+            <list>
+                <value>/«getDataRootPackageAsPath()»/applicationContext.xml</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="«getDataRootPackage()».ContextBase"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="«getDataRootPackage()».ContextBase"
+        class="org.springframework.context.support.ClassPathXmlApplicationContext">
+        <constructor-arg>
+            <list>
+                <value>/«getDataRootPackageAsPath()»/applicationContextBase.xml</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="mod4jCommonContext"/>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="mod4jCommonContext"
+        class="org.springframework.context.support.ClassPathXmlApplicationContext">
+        <constructor-arg  value="Mod4jCommonContext.xml"/>
+    </bean>
 </beans>
 «ENDFILE»
 «ENDDEFINE»

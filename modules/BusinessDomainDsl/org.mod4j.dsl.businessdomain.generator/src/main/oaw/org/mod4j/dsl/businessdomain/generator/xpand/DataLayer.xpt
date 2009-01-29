@@ -8,6 +8,7 @@
 	«print("MOD4J INFO: Running Business Domain Hibernate generator on model [" + this.name + "]")»
 	«EXPAND HibernateConfiguration::hibernateheader     FOR this»
 	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
+    «EXPAND HibernateDataLayerContextBase::datalayercontextbase FOR this»
     «EXPAND HibernateMapping::mapping                   FOREACH this.types.typeSelect(BusinessClass) »
 «ENDDEFINE»
 

@@ -176,6 +176,10 @@ public class ProjectProperties {
         return businessRootPackage;
     }
 
+    public static String getBusinessRootPackageAsPath() {
+        return getBusinessRootPackage().replaceAll("\\.", "/");
+    }
+
     public static String getServiceRootPackage() {
         return serviceRootPackage;
     }

@@ -71,6 +71,9 @@ String getDomainRootPackageAsPath() :
 String getDataRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDataRootPackageAsPath();
 
+String getBusinessRootPackageAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getBusinessRootPackageAsPath();
+
 String getDaoPackageAsPath() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackageAsPath();
 

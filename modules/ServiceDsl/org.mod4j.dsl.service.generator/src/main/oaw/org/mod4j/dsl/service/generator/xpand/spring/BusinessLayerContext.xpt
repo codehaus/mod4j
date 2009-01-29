@@ -7,18 +7,19 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE GenBusinessLayerContext FOR ServiceModel»
-«IF fileExist(fullExtendPath(getBusinessModuleName(), "BusinessLayerContext.xml"))»
-    «extend(getBusinessModuleName(), "BusinessLayerContext.xml")»
+«IF fileExist(fullExtendPath(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml"))»
+    «extend(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
 «ELSE»
-	«FILE extend(getBusinessModuleName(), "BusinessLayerContext.xml")»
+    «FILE extend(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-	   http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
-	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:aop="http://www.springframework.org/schema/aop">
 </beans>
