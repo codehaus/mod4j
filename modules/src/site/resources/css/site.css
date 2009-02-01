@@ -3,7 +3,41 @@
    van de skin in je target dir.
 */
 
+
+body {
+  background-image: url(../images/bg.jpg) ;
+  /*background-position: 250px;*/
+  width: 1000px;
+  background-position: top;
+}
+
 #banner {
-  height: 73px;
-  background: url(../images/dummy.gif);
+  height: 190px;
+  background: url(../images/mod4j-people-header.jpg) no-repeat;
+  background-position: top;
+}
+
+#bannerLeft {
+  display:none; 
+}
+
+#breadcrumbs {
+  display:none; 
+  height: auto;
+  background-image: none;
+  padding: 5px 10px 14px 20px;
+}
+
+#leftColumn {
+  width: 150px;
+  float:left;
+  overflow: auto;
+  margin-left: 20px;
+  margin-right: 8px;
+}
+
+#bodyColumn {
+  margin-right: 1.5em;
+  margin-left: 180px;
+  padding-right: 10px;
 }

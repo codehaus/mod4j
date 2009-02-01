@@ -5,18 +5,6 @@
         <artifactId>maven-stylus-skin</artifactId>
         <version>1.0.1</version>
     </skin>
-    <bannerLeft>
-        <name>Mod4j-logo</name>
-    <!-- Vervang dit logo voor de site door het project of klantlogo -->
-    <!-- Notice: make sure the image background is transparent -->
-        <src>images/mod4j-header-left.jpg</src>
-        <href>http://www.mod4j.org</href>
-    </bannerLeft>
-    <bannerRight>
-        <name>Mod4j-Blocks</name>
-        <src>images/mod4j-header-right.jpg</src>
-        <href>http://www.mod4j.org</href>
-    </bannerRight>
     <publishDate position="bottom" format="dd MMM yyyy - HH:mm" />
     <body>
         <menu name="Main">
