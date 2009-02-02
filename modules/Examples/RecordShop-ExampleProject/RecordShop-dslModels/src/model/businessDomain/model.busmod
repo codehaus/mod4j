@@ -102,10 +102,10 @@ Enumeration SexeEnum [
 ]
 
 Enumeration RecordTypeEnum [
-
     LP = 2;
     CD = 3;
     DVD = 4;
+    BLUERAY = 5;
 ]
  
 "One 2 Many Bidirectional: The customer has a number of orders" 
