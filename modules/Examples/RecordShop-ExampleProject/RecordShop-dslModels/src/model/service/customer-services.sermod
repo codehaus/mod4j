@@ -36,7 +36,6 @@ for  OrderDto reference   customer add  SimpleCustomerDto
 
 //"remove the translated OrderDto from the orders association of the translated CustomerDto"
 //remove OrderDto for CustomerDto.orders 
-
  
 "add order to customer"     
 method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto; 

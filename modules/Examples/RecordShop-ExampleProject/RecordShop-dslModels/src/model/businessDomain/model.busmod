@@ -18,13 +18,10 @@ Class Person [
     integer numberOfEars default 0 min 0 max 4; 
     "Gender"    
     SexeEnum sexe nullable;   
-    
+
     Rules [ 
         "The combination of first- and last name of a person must be unique"
-        unique fullName [
-            firstName
-            lastName
-        ]
+        unique fullName [firstName lastName]
     ]
 ]
 
@@ -38,6 +35,9 @@ Class Customer inherits Person [
     integer discountPercentage default 0 min 0 max 100 ;
     
     Rules [
+        "The customerNr must be unique"
+        unique uniqueCustomerNr [customerNr] 
+        
         "If Customer has one ear, he/she get a discount of 50 percent."  
         OneEarDiscount;  
         "Just another rule"
@@ -47,7 +47,7 @@ Class Customer inherits Person [
 
 "An artist is a Person who has had a role in producing a Record"
 Class Artist inherits Person [
-	string title;
+    string artistName;
 ]
 
 "A Record is a representation of a physical medium containing one or more musical compositions."
@@ -63,18 +63,19 @@ Class Record [
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
 Class Order [
 
-	"An ordernumber should be unique"
+	"A number to identify the Order"
     string orderNumber;  
     "The date on which the order has been placed"
     datetime  orderDate default "2009-01-01" nullable;
     datetime  deliveryDateTime  nullable;
     integer discountPercentage min 01 max 100 nullable ;
-    /* 
-    TODO: The following results in a compilation problem caused by float to Float conversion. 
-    float totalAmount nullable;
-    */ 
+    "The total amount of the Order"
+    decimal totalAmount nullable ; 
     
     Rules [
+        "The orderNumber of a Order must be unique "
+        unique uniqueOrderNumber [orderNumber]
+          
         "The deliveryDate may not precede orderDate"
         OrderDateBeforeDeliveryDate;   
     ]

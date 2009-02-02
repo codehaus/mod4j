@@ -25,7 +25,7 @@ from RecordShopDomainModel import RecordTypeEnum
  	     username; 
 	     sexe;  
 	     references [ 
-	         orders as   OrderNumberAndDateList ;  
+	         orders as OrderNumberAndDateList ;
 	     ]   
 	]
 	
@@ -50,7 +50,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	     firstName ;
 	     lastName ; 
 	     age;
-		 title;
+		 artistName ;
 	]
 
     BusinessClassDto FullRecordDto base Record
@@ -96,7 +96,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	    string lastName;
 	]
 	
-	/* 
+    /* 
      * Enumeration Dto's
      */
 	EnumerationDto SexeEnumDto base SexeEnum

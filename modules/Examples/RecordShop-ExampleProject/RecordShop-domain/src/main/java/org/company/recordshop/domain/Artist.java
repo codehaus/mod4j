@@ -1,5 +1,5 @@
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Mon Aug 11 22:17:09 CEST 2008
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Mon Feb 02 20:47:53 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -21,10 +21,10 @@ public class Artist extends ArtistImplBase {
 	 * Minimal constructor for Artist
 	 * @param firstName (string) First name of the person.
 	 * @param lastName (string) Last name of the person.
-	 * @param title (string) 
+	 * @param artistName (string) 
 	 */
-	public Artist(String firstName, String lastName, String title) {
-		super(firstName, lastName, title);
+	public Artist(String firstName, String lastName, String artistName) {
+		super(firstName, lastName, artistName);
 	}
 
 }
