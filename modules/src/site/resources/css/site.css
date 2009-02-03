@@ -5,10 +5,11 @@
 
 
 body {
-  background-image: url(../images/bg.jpg) ;
+  background-image: url(../images/background.jpg) ;
   /*background-position: 250px;*/
   width: 1000px;
   background-position: top;
+  background-color:rgb(192,182,172); 
 }
 
 #banner {
