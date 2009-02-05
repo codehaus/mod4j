@@ -15,6 +15,7 @@ package «getDaoPackage()»;
 import java.util.List;
 
 import «javaDomainClassPath(this.name)»;
+import «javaDomainExampleClassPath(this.name)»;
 
 /**
  * «javaDaoBaseInterface(this.name)»Data Access Object (DAO). Responsible for accessing database.
@@ -64,6 +65,14 @@ public interface «javaDaoBaseInterface(this.name)» {
      * @return a List of all «javaDomainClass(this.name)» objects.
      */
     List<«javaDomainClass(this.name)»> listAll();
+
+    /**
+     * Selects «javaDomainClass(this.name)»s from the database that matches an
+     * example object using Query-by-Example(QBE).
+     * 
+     * @return a List of «javaDomainClass(this.name)» objects.
+     */
+    List<«javaDomainClass(this.name)»> findByExample(«javaDomainExampleClass(this.name)» example);
 }
 «ENDFILE»
 «ENDDEFINE»

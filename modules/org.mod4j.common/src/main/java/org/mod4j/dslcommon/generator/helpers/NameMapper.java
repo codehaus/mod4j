@@ -4,7 +4,10 @@ public class NameMapper {
 
     private static final String IMPL_POSTFIX = "ImplBase";
 
-    /** Dao
+    private static final String EXAMPLE_POSTFIX = "Example";
+
+    /**
+     * Dao
      */
     private static final String DAO_INTERFACE_POSTFIX = "Dao";
 
@@ -14,7 +17,8 @@ public class NameMapper {
 
     private static final String DAO_BASE_CLASS_POSTFIX = "DaoImplBase";
 
-    /** Local Services
+    /**
+     * Local Services
      */
     private static final String LOCAL_SERVICE_INTERFACE_POSTFIX = "LocalService";
 
@@ -22,7 +26,8 @@ public class NameMapper {
 
     private static final String LOCAL_SERVICE_BASE_CLASS_POSTFIX = "LocalServiceImplBase";
 
-    /** Domain
+    /**
+     * Domain
      */
     private static final String DOMAIN_SERVICE_INTERFACE_POSTFIX = "DomainService";
 
@@ -32,7 +37,6 @@ public class NameMapper {
 
     private static final String DOMAIN_SERVICE_BASE_CLASS_POSTFIX = "DomainServiceImplBase";
 
-    
     private static final String TRANSLATOR_CLASS_POSTFIX = "Translator";
 
     public static final String BUSINESSRULES_PACKAGE = "businessrules";
@@ -67,6 +71,19 @@ public class NameMapper {
      */
     public static String javaDomainBaseClass(String cls) {
         return javaDomainClass(cls) + IMPL_POSTFIX;
+    }
+
+    /**
+     * @param cls
+     * @return The name of the Java class for name cls
+     */
+    public static String javaDomainExampleClass(String cls) {
+        return javaDomainClass(cls) + EXAMPLE_POSTFIX;
+    }
+
+    public static String javaDomainExampleClassPath(String cls) {
+        String packageName = ProjectProperties.getDomainRootPackage();
+        return packageName + "." + javaDomainExampleClass(cls);
     }
 
     /**
@@ -188,17 +205,18 @@ public class NameMapper {
         String packageName = ProjectProperties.getBusinessRootPackage();
         return packageName + "." + javaDomainServiceBaseClass(model);
     }
+
     public static String javaTranslatorClass(String classname) {
         return StringHelpers.firstCharToUpper(classname) + TRANSLATOR_CLASS_POSTFIX;
     }
 
     public static String javaDtoClassPath(String classname) {
-        String packageName = ProjectProperties.getDtoPackage() ;
+        String packageName = ProjectProperties.getDtoPackage();
         return packageName + "." + javaDtoClass(classname);
     }
 
     private static String javaDtoClass(String classname) {
-        return StringHelpers.firstCharToUpper(classname) ;
+        return StringHelpers.firstCharToUpper(classname);
     }
 
     public static String javaTranslatorClassPath(String classname) {

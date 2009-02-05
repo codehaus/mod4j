@@ -18,6 +18,7 @@
 «DEFINE ExtensionPointGeneration FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain extension point generator on model [" + this.name + "]")»
 	«EXPAND JavaBean::BeanClassExtensionPoint FOREACH types.typeSelect(BusinessClass)»
+    «EXPAND JavaBean::BeanClassQueryExample FOREACH types.typeSelect(BusinessClass)»
 	«EXPAND BusinessRules::BusinessRulesExtentionPoints FOREACH types.typeSelect(BusinessClass)»
 «ENDDEFINE»
 

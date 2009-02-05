@@ -12,6 +12,7 @@ import java.util.Set;
 
 import org.company.recordshop.data.spring.dao.CustomerDao;
 import org.company.recordshop.domain.Customer;
+import org.company.recordshop.domain.CustomerExample;
 import org.company.recordshop.domain.Order;
 import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.SexeEnum;
@@ -27,7 +28,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
 
     public class CustomerComparator implements Comparator<Customer> {
         public int compare(Customer one, Customer other) {
-            return (one.getFirstName()+one.getLastName()).compareTo(other.getFirstName()+other.getLastName());
+            return (one.getFirstName() + one.getLastName()).compareTo(other.getFirstName() + other.getLastName());
         }
     }
 
@@ -43,7 +44,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         customer.setDiscountPercentage(50);
         customer.setNumberOfEars(1);
         customerDao.add(customer);
-        flush();clear();
+        flush();
+        clear();
 
         Customer saved = customerDao.retrieve(customer.getId());
         assertNotNull(saved);
@@ -146,7 +148,10 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         List<Customer> customers = customerDao.listAll();
         assertNotNull(customers);
         assertEquals(3, customers.size());
-        Collections.sort(customers, new CustomerComparator()); // Om willekeurige volgorde te vermijden.
+        Collections.sort(customers, new CustomerComparator()); // Om
+        // willekeurige
+        // volgorde te
+        // vermijden.
         assertEquals("Paulus", customers.get(0).getFirstName());
         assertEquals("Rembrandt", customers.get(1).getFirstName());
         assertEquals("Saskia", customers.get(2).getFirstName());
@@ -194,5 +199,58 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
             line = (OrderLine) j.next();
             assertEquals(3, line.getLineNumber());
         }
+    }
+
+    @Test
+    public void testFindByExample() {
+        customerDao.add(new Customer("Rembrandt", "van Rijn", 3));
+        customerDao.add(new Customer("Saskia", "van Rijn", 4));
+        Customer paulus = new Customer("Paulus", "Potter", 5);
+        paulus.setBlackListed(true);
+        customerDao.add(paulus);
+        flush();
+        clear();
+
+        CustomerExample example = new CustomerExample();
+        List<Customer> result = customerDao.findByExample(example);
+        assertEquals(2, result.size());
+
+        example = new CustomerExample();
+        example.setBlackListed(true);
+        result = customerDao.findByExample(example);
+        assertEquals(1, result.size());
+
+        example = new CustomerExample();
+        example.setFirstName("Rembrandt");
+        Customer customer = customerDao.findByExample(example).get(0);
+        assertEquals(3, customer.getCustomerNr());
+
+        example = new CustomerExample();
+        example.setFirstName("rEMBRANDT");
+        customer = customerDao.findByExample(example).get(0);
+        assertEquals(3, customer.getCustomerNr());
+
+        example = new CustomerExample();
+        example.setFirstName("Rem");
+        customer = customerDao.findByExample(example).get(0);
+        assertEquals(3, customer.getCustomerNr());
+
+        example = new CustomerExample();
+        example.setFirstName(null);
+        example.setLastName("Rij");
+        customer = customerDao.findByExample(example).get(0);
+        assertEquals(3, customer.getCustomerNr());
+        customer = customerDao.findByExample(example).get(1);
+        assertEquals(4, customer.getCustomerNr());
+
+        example.setFirstName("mbr");
+        customer = customerDao.findByExample(example).get(0);
+        assertEquals(3, customer.getCustomerNr());
+
+        example = new CustomerExample();
+        example.setBlackListed(null);
+        example.setCustomerNr(5);
+        customer = customerDao.findByExample(example).get(0);
+        assertEquals(5, customer.getCustomerNr());
     }
 }

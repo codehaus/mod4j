@@ -8,6 +8,12 @@ String javaDomainClassPath(String cls) : JAVA
 String javaDomainBaseClass(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainBaseClass(java.lang.String);
 
+String javaDomainExampleClass(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainExampleClass(java.lang.String);
+
+String javaDomainExampleClassPath(String cls) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainExampleClassPath(java.lang.String);
+
 String javaDomainBaseClassPath(String cls) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.javaDomainBaseClassPath(java.lang.String);
 
