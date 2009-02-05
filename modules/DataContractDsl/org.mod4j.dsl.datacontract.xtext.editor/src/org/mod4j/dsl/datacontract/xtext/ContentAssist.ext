@@ -44,7 +44,7 @@ List[Proposal] completeListDto_baseDto(emf::EObject ctx, String prefix) :
 
 /* proposals for Feature ExternalReference::modelname */
 List[Proposal] completeExternalReference_modelname(emf::EObject ctx, String prefix) :
-	findAllModelsInProject( ctx.getProjectName()).modelname .collect(x|newProposal(x)) ;
+	findAllModelsInProject( ctx.getProjectName()).select(m | m.dslname == "BusinessDomainDsl").modelname .collect(x|newProposal(x)) ;
  
 /* proposals for Feature BusinessClassReference::name */
 List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
