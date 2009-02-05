@@ -6,8 +6,7 @@ DataContractModel :
     (description=STRING)?
     "DataContract" name=ID
     (externalReferences += ExternalReference)*
-    (dtos += Dto)*
-    (enumerations += EnumerationDto)*
+    ( (dtos += Dto) | (enumerations += EnumerationDto) )*
     ;
     
 Dto : 
