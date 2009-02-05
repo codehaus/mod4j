@@ -20,18 +20,19 @@ create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
 create Symbol toElement(EnumerationDto dto) :
     this.setName(dto.name) ->
     this.setType("EnumerationDto")
+//    this.subSymbols
     ;
 
 create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
-    this.properties.add( newProperty(dto) ) 
+    this.properties.add( addDtoTypeProperty(dto) ) 
     ; 
 
 create Symbol toElement(ListDto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
-    this.properties.add( newProperty(dto) ) ->
+    this.properties.add( addDtoTypeProperty(dto) ) ->
     this.properties.add( baseProperty(dto) ) ->
     this.properties.add( newRefProperty("BaseDto", dto.datacontractModel.name, dto.baseDto.name, "Dto"))
    ;
@@ -39,13 +40,26 @@ create Symbol toElement(ListDto dto) :
 create Symbol toElement(BusinessClassDto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
-    this.properties.add( newProperty(dto) ) ->
+    this.properties.add( addDtoTypeProperty(dto) ) ->
     this.properties.add( businessClassProperty(dto) )->
     this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))->
-    this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))
+    this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))->
+    this.subSymbols.addAll(dto.properties.toElement() )
+        ;
+        
+crossx::Symbol toElement(DtoProperty prop) :
+    let result = new Symbol :
+    result.setName(prop.name) ->
+    result.setType("Property") ->
+    result.properties.add(prop.dataTypeToLiteralProperty())->
+    result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result
     ;
 
-create LiteralSymbolProperty newProperty(Dto dto) :
+crossx::LiteralSymbolProperty dataTypeToLiteralProperty(DtoProperty prop) :
+	newProperty("DataType", prop.dataType);
+
+create LiteralSymbolProperty addDtoTypeProperty(Dto dto) :
     this.setName("dtoType")->
     switch( dto.metaType ){
         case DataContractDsl::ListDto          : this.setValue("ListDto")
