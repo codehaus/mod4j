@@ -78,11 +78,26 @@ public class CrossxLocation {
      */
     private ModelInfo findModelInfo(ModelInfo modelinfo, List<ModelInfo> modelInfoList) {
         for (ModelInfo existing : modelInfoList) {
-            if (modelinfo.getResource().equals(existing.getResource())) {
+            if( isSameResource(modelinfo.getResource(), existing.getResource() ) ) {
+//            if (modelinfo.getResource().equals(existing.getResource())) {
                 return existing;
             }
         }
         return null;
+    }
+    
+    /**
+     * Check whether two resource are the same. 
+     * Special workaround for identifying file:/ and file:// prefixes as equal.
+     */
+    private boolean isSameResource(String resource1, String resource2) {
+        if( resource1.startsWith("file://") ){
+            resource1 = resource1.replaceFirst("file://", "file:/");
+        }
+        if( resource2.startsWith("file://") ){
+            resource2 = resource2.replaceFirst("file://", "file:/");
+        }
+        return resource1.equals(resource2);
     }
 
     /**
