@@ -35,18 +35,12 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.devzuz.q.maven.jdt.core.mavenIncrementalBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.openarchitectureware.base.oawNature</nature>
-		<nature>org.devzuz.q.maven.jdt.core.mavenNature</nature>
-		<nature>org.mod4j.crossx.broker.CrossxNature</nature>
-		<nature>org.mod4j.eclipse.Mod4jNature</nature>
-		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.mod4j.crossx.broker.CrossxNature</nature>
+		<nature>org.openarchitectureware.base.oawNature</nature>
+		<nature>org.mod4j.eclipse.Mod4jNature</nature>
 	</natures>
 </projectDescription>
