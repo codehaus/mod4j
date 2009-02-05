@@ -28,11 +28,11 @@ List[String] getPartProposals(emf::EObject ctx) : JAVA
 /* proposals for Feature BusinessClassReference::name */
 List[Proposal] completeDtoReference_name(emf::EObject ctx, String prefix) :
 	findAllFromModel( ((ServiceDsl::DtoReference)ctx).modelname, "Dto").name.
-	          collect(x|newProposal(x)).add(newProposal("<<empty>>"));
+	          collect(x|newProposal(x));
 
 /* proposals for Feature EnumerationProperty::name */
 List[Proposal] completeDtoReference_modelname(emf::EObject ctx, String prefix) :
-	findAllModelsInProject( ctx.getProjectName()).modelname.collect(x|newProposal(x)).add(newProposal("<<empty>>")) ;
+	findAllModelsInProject( ctx.getProjectName()).select(e|e.dslname == "DataContractDsl").modelname.collect(x|newProposal(x)) ;
 
 /* proposals for Feature AssociationMethod::rolename */
 List[Proposal] completeAssociationMethod_rolename(emf::EObject ctx, String prefix) :
