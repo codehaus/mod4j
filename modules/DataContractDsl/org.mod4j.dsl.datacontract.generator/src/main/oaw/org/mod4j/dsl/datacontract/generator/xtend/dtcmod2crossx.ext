@@ -19,10 +19,16 @@ create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
         
 create Symbol toElement(EnumerationDto dto) :
     this.setName(dto.name) ->
-    this.setType("EnumerationDto")
-//    this.subSymbols
+    this.setType("EnumerationDto")->
+    this.subSymbols.addAll( dto.literals.enumLiteralToSymbol() )
     ;
 
+crossx::Symbol enumLiteralToSymbol(EnumerationDtoLiteral lit) :
+    let result = new Symbol :
+    result.setName(lit.name) ->
+    result.setType("EnumerationDtoLiteral") ->
+    result
+    ;
 create Symbol toElement(Dto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
