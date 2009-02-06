@@ -2,7 +2,6 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mod4j</groupId>
-  <!-- Warning! Don not change the artifactId of this parent pom. It is expected to be equal to the SmartJava project name. -->
   <artifactId>mod4j</artifactId>
   <packaging>pom</packaging>
   <version>1.0.0-beta-3-SNAPSHOT</version>
