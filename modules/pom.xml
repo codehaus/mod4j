@@ -13,9 +13,8 @@
     <oaw.version>4.3.0</oaw.version>
   </properties>
   <scm>
-    <connection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
-        </connection>
-    <developerConnection>scm:svn:https://svn.smart-java.nl/mod4j/trunk/modules
+    <connection>scm:svn:http://svn.codehaus.org/mod4j/trunk/modules  </connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/trunk/modules
         </developerConnection>
   </scm>
   <mailingLists>
