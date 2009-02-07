@@ -97,26 +97,34 @@
 «ENDDEFINE»
 
 «DEFINE addPropertyValidator (BusinessClass bC) FOR Property»
-«REM»Nothing to expand«ENDREM»
+    «IF !nullable -»
+        validation.addValidator(new NotNullValidator(«javaDomainClass(bC.name)».class, "«name»"));
+    «ENDIF -»
 «ENDDEFINE»
 
 «DEFINE addPropertyValidator (BusinessClass bC) FOR IntegerProperty»
+    «IF !nullable -»
+        validation.addValidator(new NotNullValidator(«javaDomainClass(bC.name)».class, "«name»"));
+    «ENDIF -»
     «IF minValue != -2147483648 -»
         validation.addValidator(new MinValueValidator(«javaDomainClass(bC.name)».class, "«name»", «name.toUpperCase()»_MINVALUE));
-    «ENDIF»
+    «ENDIF -»
     «IF maxValue != 2147483647 -»
         validation.addValidator(new MaxValueValidator(«javaDomainClass(bC.name)».class, "«name»", «name.toUpperCase()»_MAXVALUE));
-    «ENDIF»    
+    «ENDIF -»    
 «ENDDEFINE»
 
 «DEFINE addPropertyValidator (BusinessClass bC) FOR StringProperty»
+    «IF !nullable -»
+        validation.addValidator(new NotNullValidator(«javaDomainClass(bC.name)».class, "«name»"));
+    «ENDIF -»
     «IF minLength > -1 -»
         validation.addValidator(new MinLengthValidator(«javaDomainClass(bC.name)».class, "«name»", «name.toUpperCase()»_MINLENGTH));
-    «ENDIF»
+    «ENDIF -»
     «IF maxLength > -1 -»
         validation.addValidator(new MaxLengthValidator(«javaDomainClass(bC.name)».class, "«name»", «name.toUpperCase()»_MAXLENGTH));
-    «ENDIF»
+    «ENDIF -»
     «IF regularExpression.length > 0 -»
         validation.addValidator(new RegExpValidator(«javaDomainClass(bC.name)».class, "«name»", «name.toUpperCase()»_REGEXP));
-    «ENDIF»
+    «ENDIF -»
 «ENDDEFINE»

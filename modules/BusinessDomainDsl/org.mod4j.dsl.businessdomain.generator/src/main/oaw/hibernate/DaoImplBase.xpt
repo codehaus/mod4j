@@ -82,7 +82,6 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
                     throws HibernateException, SQLException {
                 return session.createCriteria(«javaDomainClass(this.name)».class)
                     .add(Example.create(example)
-                         .excludeZeroes()
                          .enableLike(MatchMode.ANYWHERE)
                          .ignoreCase()
                         )

@@ -3,14 +3,10 @@ package org.mod4j.businessdomain.generator.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
-import org.mod4j.dslcommon.generator.helpers.StringHelpers;
-
 import BusinessDomainDsl.AbstractType;
 import BusinessDomainDsl.Association;
 import BusinessDomainDsl.BoolProperty;
 import BusinessDomainDsl.BusinessClass;
-import BusinessDomainDsl.AbstractBusinessClass;
 import BusinessDomainDsl.BusinessDomainModel;
 import BusinessDomainDsl.DateTimeProperty;
 import BusinessDomainDsl.DecimalProperty;
@@ -77,12 +73,37 @@ public class BusinessClassHelpers {
         return "Object";
     }
 
+    public static String javaNullableType(Property p) {
+        if (p instanceof BoolProperty) {
+            return javaNullableType((BoolProperty) p);
+        } else if (p instanceof StringProperty) {
+            return javaNullableType((StringProperty) p);
+        } else if (p instanceof IntegerProperty) {
+            return javaNullableType((IntegerProperty) p);
+        } else if (p instanceof DecimalProperty) {
+            return javaNullableType((DecimalProperty) p);
+        } else if (p instanceof EnumerationProperty) {
+            return javaNullableType((EnumerationProperty) p);
+        } else if (p instanceof DateTimeProperty) {
+            return javaNullableType((DateTimeProperty) p);
+        }
+        return "Object";
+    }
+
     public static String javaType(BoolProperty p) {
         return p.isNullable() ? "Boolean" : "boolean";
     }
 
+    public static String javaNullableType(BoolProperty p) {
+        return "Boolean";
+    }
+
     public static String javaType(DateTimeProperty p) {
         return "DateTime";
+    }
+
+    public static String javaNullableType(DateTimeProperty p) {
+        return javaType(p);
     }
 
     public static String javaType(EnumerationProperty p) {
@@ -94,16 +115,32 @@ public class BusinessClassHelpers {
         return p.getType().getName();
     }
 
+    public static String javaNullableType(EnumerationProperty p) {
+        return javaType(p);
+    }
+
     public static String javaType(StringProperty p) {
         return "String";
+    }
+
+    public static String javaNullableType(StringProperty p) {
+        return javaType(p);
     }
 
     public static String javaType(IntegerProperty p) {
         return p.isNullable() ? "Integer" : "int";
     }
 
+    public static String javaNullableType(IntegerProperty p) {
+        return "Integer";
+    }
+
     public static String javaType(DecimalProperty p) {
         return p.isNullable() ? "Float" : "float";
+    }
+
+    public static String javaNullableType(DecimalProperty p) {
+        return "Float";
     }
 
     public static List<Property> getAllProperties(BusinessClass cls) {

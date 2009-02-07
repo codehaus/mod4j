@@ -11,6 +11,9 @@ List[Property] getAllProperties(BusinessClass cls) :
 String javaType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
 
+String javaNullableType(Property p) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaNullableType(BusinessDomainDsl.Property);
+
 boolean hasSubclasses(BusinessClass clazz) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasSubclasses(BusinessDomainDsl.BusinessClass);
 

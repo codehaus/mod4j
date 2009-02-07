@@ -4,37 +4,37 @@
 
 «DEFINE instanceVariable FOR Property»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    protected «javaType(this)» «name»;
+    protected «javaNullableType(this)» «name»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR BoolProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-     protected «javaType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
+     protected «javaNullableType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR EnumerationProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-     protected «javaType(this)» «name»«IF hasDefault» = «javaType(this)».«defaultValue().name»«ENDIF»;
+     protected «javaNullableType(this)» «name»«IF hasDefault» = «javaType(this)».«defaultValue().name»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR DateTimeProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-     protected «javaType(this)» «name»«IF hasDefault && defaultValue.length > 0» = new «javaType(this)»("«defaultValue»")«ENDIF»;
+     protected «javaNullableType(this)» «name»«IF hasDefault && defaultValue.length > 0» = new «javaType(this)»("«defaultValue»")«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR IntegerProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    protected «javaType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
+    protected «javaNullableType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR DecimalProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    protected «javaType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
+    protected «javaNullableType(this)» «name»«IF hasDefault» = «defaultValue»«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE instanceVariable FOR StringProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-     protected «javaType(this)» «name»«IF hasDefault» = "«defaultValue»"«ENDIF»;
+     protected «javaNullableType(this)» «name»«IF hasDefault» = "«defaultValue»"«ENDIF»;
 «ENDDEFINE»
 
 «DEFINE addGetter FOR Property»
