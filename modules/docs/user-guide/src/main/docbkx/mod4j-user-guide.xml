@@ -617,7 +617,9 @@
 </programlisting>
       <para>There are two types of business rules that can be modeled.</para>
       <para>The first type of business rule has a name only in the model. The actual implementation
-        of the rule must be written in Java as an extension to the generated code.</para>
+        of the rule must be written in Java as an extension to the generated code. This type business
+        rules are validated in the order they were declared. So in the Sample class above, first the "mustBeValid" rule 
+        will be validated and after that the "isOriginal" rule.</para>
       <para>The second type of rule is a uniqueness rule, which is indicated by the
           <emphasis>unique</emphasis> keyword. A uniqueness rule specifies that the combination of
         values of one or more attributes of the class must be unique at all times. The names of the
