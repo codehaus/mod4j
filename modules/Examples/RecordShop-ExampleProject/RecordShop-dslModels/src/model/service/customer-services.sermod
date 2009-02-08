@@ -15,14 +15,14 @@ read readOrder for OrderDto;
 crud for    FullCustomerDto;       
 /*         
  * Explicit definded crud servicemethods     
- */        
+ */         
 create createCustomer for SimpleCustomerDto;          
 read   readCustomer for SimpleCustomerDto;  
 update updateCustomer for SimpleCustomerDto;     
 delete deleteCustomer for SimpleCustomerDto;   
 
 listall listAllCustomers for SimpleCustomerDto ;      
-     
+      
 //"add the translated OrderDto to the orders association of the translated CustomerDto"
 //add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
 for SimpleCustomerDto reference orders add OrderDto
@@ -30,12 +30,14 @@ for SimpleCustomerDto reference orders remove OrderDto
    
  
 for  OrderDto reference   customer add  SimpleCustomerDto              
- 
+  
 // for CustomerDto .orders add    OrderDto     
 // for CustomerDto .orders remove OrderDto  
 
 //"remove the translated OrderDto from the orders association of the translated CustomerDto"
 //remove OrderDto for CustomerDto.orders 
+"test"
+method voidreturn in OrderDto order ; 
  
 "add order to customer"     
 method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto; 
@@ -44,6 +46,8 @@ method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto;
 method findCustomerByUniqueKey in UniqueCustomerDto cust out SimpleCustomerDto;
 
 "Find all Customers matching the given name."
-method findCustomerByName in StringDto name out SimpleCustomerList;   
+method findCustomerByName in StringDto name out SimpleCustomerList;  
+
+ 
  
     
