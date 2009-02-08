@@ -8,6 +8,12 @@ boolean isCompositePart(BusinessClass cls) :
 List[Property] getAllProperties(BusinessClass cls) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllProperties(BusinessDomainDsl.BusinessClass);
 
+List[Association] getAllAssociationsTo(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllAssociationsTo(BusinessDomainDsl.BusinessClass);
+
+List[Association] getAllAssociationsFrom(BusinessClass cls) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getAllAssociationsFrom(BusinessDomainDsl.BusinessClass);
+
 String javaType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaType(BusinessDomainDsl.Property);
 

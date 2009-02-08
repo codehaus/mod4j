@@ -122,3 +122,6 @@ Association record Record [ 0..* ] <-> [ 0..1 ] product Product ;
 
 "Many to Many unidirectional: an Artist has contributed to a Record"
 Association records Record [ 0..* ] -> [ 0..* ] contributors Artist;
+
+"Test"
+Association person Person [ 0..1 ] -> [ 0..1 ] relatedTo Artist ;

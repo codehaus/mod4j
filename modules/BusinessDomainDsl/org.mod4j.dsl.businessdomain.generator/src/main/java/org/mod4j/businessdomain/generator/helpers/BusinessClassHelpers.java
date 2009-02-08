@@ -152,6 +152,24 @@ public class BusinessClassHelpers {
         return result;
     }
 
+    public static List<Association> getAllAssociationsTo(BusinessClass cls) {
+        List<Association> result = new ArrayList<Association>();
+        if (cls.getSuperclass() != null) {
+            result.addAll(getAllAssociationsTo(cls.getSuperclass()));
+        }
+        result.addAll(cls.getAssociationsTo());
+        return result;
+    }
+
+    public static List<Association> getAllAssociationsFrom(BusinessClass cls) {
+        List<Association> result = new ArrayList<Association>();
+        if (cls.getSuperclass() != null) {
+            result.addAll(getAllAssociationsFrom(cls.getSuperclass()));
+        }
+        result.addAll(cls.getAssociationsFrom());
+        return result;
+    }
+
     public static boolean hasSubclasses(BusinessClass clazz) {
         BusinessDomainModel model = (BusinessDomainModel) clazz.eContainer();
         for (AbstractType type : model.getTypes()) {
