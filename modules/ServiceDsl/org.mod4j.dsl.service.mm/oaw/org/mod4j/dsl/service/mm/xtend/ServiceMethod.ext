@@ -7,13 +7,15 @@ extension org::mod4j::crossx::broker::xtend::Crossx ;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 
 String JavaType(DtoReference dto) :
+    ( dto == null ? "void"  : (
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
     let dtoType = dtoSymbol.getPropertyValue("dtoType") :
     let baseDto = dtoSymbol.getPropertyValue("baseDto") :
     switch( dtoType ){
         case 'ListDto' : 'List<' +  baseDto + '>'
         default : dto.name
-    }
+    } )
+    )
 ;
 
 /** Get the name of the businessclass for dto, returns "void" if the dto does not have a businessclass
