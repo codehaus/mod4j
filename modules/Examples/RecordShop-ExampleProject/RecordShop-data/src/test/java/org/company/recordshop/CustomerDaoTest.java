@@ -86,7 +86,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertEquals("Vincent", saved.getFirstName());
         assertEquals("van Gogh", saved.getLastName());
         assertNull(saved.getSexe());
-        assertEquals(0, saved.getNumberOfEars());
+        assertEquals(2, saved.getNumberOfEars());
         assertEquals(1, saved.getCustomerNr());
         assertEquals(false, saved.isBlackListed());
         assertEquals(0, saved.getOrders().size());
