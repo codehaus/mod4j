@@ -1,6 +1,6 @@
 "The RecordShop data contract."
 DataContract RecordShopDataContract   
- 
+  
 from RecordShopDomainModel import Customer 
 from RecordShopDomainModel import Artist
 from RecordShopDomainModel import Order
@@ -24,10 +24,10 @@ from RecordShopDomainModel import RecordTypeEnum
  	     blackListed;
  	     username; 
 	     sexe;  
-	     references [ 
+	     references [  
 	         orders as OrderNumberAndDateList ;
-	     ]   
-	]
+	     ]    
+	]  
 	
 	"Simple Order transfer object."
 	BusinessClassDto OrderNumberAndDateDto base Order [
@@ -84,7 +84,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	
 	"Date transfer object."
 	CustomDto DateDto [   
-	    "date"
+	    "date"  
 	    datetime date;
 	]
 	
@@ -94,11 +94,12 @@ from RecordShopDomainModel import RecordTypeEnum
 	    string firstName;
 	    "lastName"
 	    string lastName;
-	]
+	] 
 	
     /* 
      * Enumeration Dto's
      */
-	EnumerationDto SexeEnumDto base SexeEnum
+	EnumerationDto sexeEnumDto base SexeEnum
 	EnumerationDto RecordTypeEnumDto base RecordTypeEnum 
+	EnumerationDto lowerRecordTypeEnumDto base RecordTypeEnum 
 	
