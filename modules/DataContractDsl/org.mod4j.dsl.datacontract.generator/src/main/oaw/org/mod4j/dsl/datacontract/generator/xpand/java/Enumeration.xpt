@@ -21,21 +21,21 @@
         *
         * Generated at: «timestamp()»
         */
-       public enum «name» {
+       public enum «javaClassName(name)» {
         
             «FOREACH literals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
                 «enumlit.name.toUpperCase()»(«enumlit.value»)
             «ENDFOREACH»;
             
-            private static final Map<Integer, «name»> lookup = new HashMap<Integer, «name»>();
+            private static final Map<Integer, «javaClassName(name)»> lookup = new HashMap<Integer, «javaClassName(name)»>();
             static {
-                for(«name» s : EnumSet.allOf(«name».class))
+                for(«javaClassName(name)» s : EnumSet.allOf(«javaClassName(name)».class))
                    lookup.put(s.id(), s);
             }
 
             private Integer id;
             
-            private «name»(Integer id) {
+            private «javaClassName(name)»(Integer id) {
                 this.id = id;
             }
             
@@ -43,7 +43,7 @@
                 return id;
             }
             
-            public static «name» value(Integer id) {
+            public static «javaClassName(name)» value(Integer id) {
                 return lookup.get(id); 
             }                  
         }

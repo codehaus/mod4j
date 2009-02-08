@@ -13,6 +13,8 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 
+import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
+
 public class DtoHelpers {
 
     public static String javaType(DtoProperty p) {
@@ -47,7 +49,7 @@ public class DtoHelpers {
             System.err.println("ERROR in javaType() for EnumerationProperty");
             return "Object";
         }
-        return p.getType().getName();
+        return ModelHelpers.javaClassName(p.getType().getName());
     }
 
     public static String javaType(DtoStringProperty p) {
@@ -71,7 +73,7 @@ public class DtoHelpers {
     }
     
     public static String javaTranslatorName(String clsName){
-        return clsName + "Translator";
+        return ModelHelpers.javaClassName(clsName) + "Translator";
     }
     
 }
