@@ -45,11 +45,11 @@
 	public class «javaLocalServiceClass(name)» extends  «javaLocalServiceBaseClass(name)» {
 
 	«FOREACH this.methods.typeSelect(CustomMethod) AS method»
-		/**
+		/** «this.description»
 	     * @params «method.inParameters.name»
 	     * @return «method.output.name»
 	     */
-	    public «(method == null) ? "void" : JavaType(method.output)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "») {
+	    public «JavaType(method.output)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "») {
 	        «IF method.output == null »
 	        // TODO Mod4j: implement this service method manually
 	        «ENDIF»
