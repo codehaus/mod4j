@@ -8,7 +8,7 @@ from RecordShopDataContract import SimpleCustomerList
 from RecordShopDataContract import FullCustomerDto   
 from RecordShopDataContract import OrderDto   
 from RecordShopDataContract import OrderNumberAndDateList 
-  
+   
 read readOrder for OrderDto;       
  
 "All crud servuices needed for FullCustomer"   
@@ -27,7 +27,7 @@ listall listAllCustomers for SimpleCustomerDto ;
 //add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
 for SimpleCustomerDto reference orders add OrderDto
 for SimpleCustomerDto reference orders remove OrderDto   
-   
+      
  
 for  OrderDto reference   customer add  SimpleCustomerDto              
   
