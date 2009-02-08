@@ -77,10 +77,10 @@ context Property ERROR "The name of Property ["+ name + "] must be more than one
 context IntegerProperty ERROR "The minimal value of Property ["+ name + "] must be smaller that the maximum value." :
     minValue <= maxValue;
 
-context IntegerProperty ERROR "The default value of Property ["+ name + "] must be  greater than the minimum values." :
+context IntegerProperty ERROR "The default value of Property ["+ name + "] must be  greater than the minimum value." :
     (hasDefault && (minValue != -2147483648) ) ? defaultValue >= minValue : true ;
  
-context IntegerProperty ERROR "The default value of Property ["+ name + "] must be between less than the maximum values." :
+context IntegerProperty ERROR "The default value of Property ["+ name + "] must be less than the maximum value." :
     (hasDefault && (maxValue != -2147483648) ) ? defaultValue <= maxValue : true ;
  
 context StringProperty ERROR "The lenght of the default value of Property ["+ name + "] must be greater than the minimum lenght." :
