@@ -131,7 +131,17 @@
             
             public «javaDomainExampleClass(name)»() {
                 activateValidation(false);
+                «EXPAND addNullSetters FOR this -»
             }
         }
     «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE addNullSetters FOR BusinessClass -»
+    «IF superclass != null -»
+        «EXPAND addNullSetters FOR superclass -»
+    «ENDIF -»
+    «FOREACH this.properties.select(p|p.hasDefault) AS p -»
+        «p.name» = null;
+    «ENDFOREACH -»
 «ENDDEFINE»
