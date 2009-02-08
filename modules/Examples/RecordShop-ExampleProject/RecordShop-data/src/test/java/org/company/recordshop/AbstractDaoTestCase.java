@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 @ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
 		"/org/company/recordshop/data/applicationContextBase.xml",
 		"/org/company/recordshop/data/applicationContext.xml",
-		"/org/company/recordshop/data/testContext.xml" })
+		"/org/company/recordshop/data/testDataSourceContext.xml" })
 public abstract class AbstractDaoTestCase extends
 		AbstractTransactionalJUnit4SpringContextTests {
 

@@ -213,12 +213,17 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
 
         CustomerExample example = new CustomerExample();
         List<Customer> result = customerDao.findByExample(example);
-        assertEquals(2, result.size());
+        assertEquals(3, result.size());
 
         example = new CustomerExample();
         example.setBlackListed(true);
         result = customerDao.findByExample(example);
         assertEquals(1, result.size());
+
+        example = new CustomerExample();
+        example.setBlackListed(false);
+        result = customerDao.findByExample(example);
+        assertEquals(2, result.size());
 
         example = new CustomerExample();
         example.setFirstName("Rembrandt");
