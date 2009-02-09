@@ -226,7 +226,7 @@
       </mediaobject>
     </figure>
     <para>For the model as a whole, several files are generated as well, independent of the number
-      of buysinessclasses in the model. This is shown in the following figure.  </para>
+      of buysinessclasses in the model. This is shown in the following figure. </para>
     <figure>
       <title>Business Domain DSL generation for a Business Domain model.</title>
       <mediaobject>
@@ -308,6 +308,37 @@
       </section>
     </section>
     <section>
+      <title>Inheritance</title>
+      <programlisting continuation="continues" format="linespecific" linenumbering="numbered" xml:space="preserve"><emphasis role="bold">Class</emphasis> Customer <emphasis role="bold">inherits</emphasis> Person [
+        // additional properties go here ...
+        // additional rules go here ...
+]
+      </programlisting>
+      <para>A Business Class may inherit from another business class. All properties, associations
+        and rules defined for the class from which it inherits are applicable to the subclass as
+        well. </para>
+      <para>A business class may inherit from one class at most, multiple inheritance is not
+        supported.</para>
+      <section>
+        <title>Generated code</title>
+        <para>For inheritance business class code is generated for both the domain and the data
+          layer of the architecture.</para>
+        <section>
+          <title>Domain Layer</title>
+          <para>In the domain code is generated to ensure that inheritance is part of the Java class
+            structure as well. That is, inheritance is mapped onto the Java <emphasis role="italic"
+              >extends </emphasis>.</para>
+        </section>
+        <section>
+          <title>Data Layer</title>
+          <para>In the data layer code is generated in the hibernate mapping files using the
+            hibernate support for inheritance.</para>
+          <para>In the Dao package, a regular Dao Java file is generated.  There is no inheritance
+            relationship between the class and its superclass in the Dao code.</para>
+        </section>
+      </section>
+    </section>
+    <section>
       <title>Attributes</title>
       <section>
         <title>Definition</title>
@@ -384,7 +415,7 @@
                   lifetime.</para>
               </glossdef></glossentry>
             <glossentry>
-              <glossterm>minlengt</glossterm>
+              <glossterm>minlength</glossterm>
               <glossdef>
                 <para>Defines the minimal number of characters of this attributes value.</para>
               </glossdef></glossentry>
@@ -617,9 +648,9 @@
 </programlisting>
       <para>There are two types of business rules that can be modeled.</para>
       <para>The first type of business rule has a name only in the model. The actual implementation
-        of the rule must be written in Java as an extension to the generated code. This type business
-        rules are validated in the order they were declared. So in the Sample class above, first the "mustBeValid" rule 
-        will be validated and after that the "isOriginal" rule.</para>
+        of the rule must be written in Java as an extension to the generated code. This type
+        business rules are validated in the order they were declared. So in the Sample class above,
+        first the "mustBeValid" rule will be validated and after that the "isOriginal" rule.</para>
       <para>The second type of rule is a uniqueness rule, which is indicated by the
           <emphasis>unique</emphasis> keyword. A uniqueness rule specifies that the combination of
         values of one or more attributes of the class must be unique at all times. The names of the
