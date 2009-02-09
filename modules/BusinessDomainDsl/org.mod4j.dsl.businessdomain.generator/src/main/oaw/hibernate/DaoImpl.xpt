@@ -26,7 +26,6 @@
 			public class «javaDaoClass(this.name)» extends «javaDaoBaseClass(this.name)»
 			                                      implements «javaDaoInterface(this.name)» {
 			
-			    // TODO: Add manual DAO method implementations here
 			}
 		«ENDFILE»
 	«ENDIF»

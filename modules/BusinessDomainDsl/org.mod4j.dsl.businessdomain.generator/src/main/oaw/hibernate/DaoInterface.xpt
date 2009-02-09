@@ -25,7 +25,6 @@
 		     */
 		    public interface «javaDaoInterface(this.name)» extends «javaDaoBaseInterface(this.name)» {
 		    
-		        // TODO: Add manual DAO methods over here
 		    }
 		«ENDFILE»
 	«ENDIF»
