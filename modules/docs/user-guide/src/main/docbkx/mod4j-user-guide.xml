@@ -675,12 +675,18 @@
       <title>Associations</title>
       <para>The final part of a domain model defines all the relationships between the business
         classes.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Association</keycap> customer Customer [0..1] &lt;-&gt; [0..*] orders     Order    ;
-<keycap>Association</keycap> order    Order    [0..1]  -&gt; [0..*] orderLines OrderLine;
-</programlisting>
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Association</keycap> customer  Customer  <emphasis role="bold">[0..1]</emphasis> &lt;-&gt; <emphasis role="bold">[0..*]</emphasis> orders     Order    ;
+<keycap>Association</keycap> order     Order     <emphasis role="bold">[0..1]</emphasis>  -&gt; <emphasis role="bold">[1..*]</emphasis> orderLines OrderLine;
+<keycap>Association</keycap> orderline OrderLine <emphasis role="bold">[0..*]</emphasis>  -&gt; <emphasis role="bold">[1..1]</emphasis> record     Record   ;</programlisting>
       <para>This example shows one bidirectional association, which uses the &lt;-&gt; syntax and
         one unidirectional association using the -&gt; syntax.</para>
-      <para/>
+      <para>The qualifiers <emphasis role="bold">[0..1]</emphasis>, <emphasis role="bold"
+          >[1..1]</emphasis>, <emphasis role="bold">[0..*]</emphasis> and <emphasis role="bold"
+          >[1..*]</emphasis> denote the multiplicity of the association at the side of the object
+        closest to it.  Note that <emphasis role="bold">[0..1]</emphasis> and <emphasis role="bold"
+          >[1..1] </emphasis> are handled identically by Mod4 and the code generator.  This is also
+        the case for <emphasis role="bold">[0..*]</emphasis> and <emphasis role="bold"
+          >[1..*]</emphasis>.</para>
       <section>
         <title>Generated code</title>
         <para>Associations are a powerful mechanism and require careful handling in the code. For
@@ -725,7 +731,7 @@
    * @param element 
    */
   <keycap>public void </keycap>removeFromOrders(Order element)
- <keycap/></programlisting>To
+ </programlisting>To
             support the consistency of the two sides of an association we always have to update the
             other side whenever something changes. We cannot simply call the other sides update
             methods, because they will call their opposite side in turn and we end up in an infinite
@@ -735,7 +741,7 @@
             because they must be callable from the opposite class. These methods should never be
             used for anything
             else.<programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>public abstract class </keycap>CustomerImplBase {
-<keycap/><keycap/><keycap/><keycap/><keycap/>
+
   /**
    * This operation should NOT be used by clients.  It implements the correct
    * addition of an element in an association.
@@ -750,8 +756,8 @@
    * 
    * @param element 
    */
-  <keycap>public void </keycap>z_internalRemoveFromorders(Order element)
-<keycap/></programlisting></para>
+  <emphasis role="bold">public void </emphasis>z_internalRemoveFromorders(Order element)
+</programlisting></para>
           <para/>
           <para/>
           <para/>
