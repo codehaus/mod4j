@@ -53,10 +53,10 @@
               «EXPAND org::mod4j::dslcommon::xpand::java::Singleton::makeSingleton FOR javaTranslatorName(javaClassName(name)) -»
          
              /**
-              * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» businessclass object. All properties in the dto will be mapped to the 
+              * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» business object. All properties in the dto will be mapped to the 
               * corresponding property in the <code>target</code> businessclass. Association references in the dto 
-              * wil not be translated into the <code>target</code> bussiness class.
-              * If the given <code>target</code> parameter is null, a«IF this.creatable» new businessclass object will be created and returned«ELSE»TranslatorException is thrown«ENDIF».
+              * will not be translated into the <code>target</code> business object.
+              * If the given <code>target</code> parameter is null, a«IF this.creatable» new business object will be created and returned«ELSE»TranslatorException is thrown«ENDIF».
               *
               * @param source The {@link «javaClassName(name)»} object to translate.
               * @param target The {@link «javaClassName(base.name)»} object translated from source.
@@ -83,7 +83,7 @@
                       }
                   «ELSE -»
                       if (target == null ) {
-                          throw new TranslatorException("Argument target is null! Translation of a source dto must be based on a existing target businessclass");
+                          throw new TranslatorException("Argument target is null! Translation of this source dto must be based on a existing target businessclass.");
                       }
                       if (source.getId() != target.getId()) {
                           throw new TranslatorException("Can not translate a dto to a businessclass object when the id of the dto differs from the businessclass id.");
@@ -106,7 +106,7 @@
               }
              
              /**
-              * Translates a «javaClassName(base.name)» businessclass object into a «javaClassName(name)» dto object. Properties and associations in the businessclass object
+              * Translates a «javaClassName(base.name)» business object into a «javaClassName(name)» dto object. Properties and associations in the business object
               * will be mapped to the corresponding properties and associations in the dto object.
               * To prevent looping while translating biderectional or circulair associations translated objects will be added to the 'translated' register.    
               *

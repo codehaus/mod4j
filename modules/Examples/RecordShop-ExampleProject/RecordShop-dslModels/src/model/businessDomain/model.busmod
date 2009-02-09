@@ -56,8 +56,8 @@ Class Record [
     string asin;
     string title default "Title unknown";
     integer mediumCode default 111 ;
-    decimal price ;
-    RecordTypeEnum type default CD;  
+    decimal price;
+    RecordTypeEnum type;  
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."

@@ -20,6 +20,7 @@ import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.Product;
 import org.company.recordshop.domain.Record;
 import org.company.recordshop.domain.Artist;
+import org.company.recordshop.domain.RecordTypeEnum;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +76,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     }
     
     protected Record createRecord(int i, String asin, Float ff){
-    	Record result = new Record(asin, ff);
+    	Record result = new Record(asin, ff, RecordTypeEnum.BLUERAY);
     	allRecords.add(result);
     	recordDao.add(result);
     	return result;

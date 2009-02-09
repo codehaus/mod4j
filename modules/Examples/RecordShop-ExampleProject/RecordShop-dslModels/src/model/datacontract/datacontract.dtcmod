@@ -54,6 +54,12 @@ from RecordShopDomainModel import RecordTypeEnum
 	]
 
     BusinessClassDto FullRecordDto base Record
+    
+    BusinessClassDto SimpleRecordDto base Record [
+        asin;
+        price; 
+        type;
+    ]
 
 	BusinessClassDto OrderlineWithRecordRefsDto base OrderLine [
 	    lineNumber;
@@ -94,7 +100,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	    string firstName;
 	    "lastName"
 	    string lastName;
-	] 
+	]
 	
     /* 
      * Enumeration Dto's

@@ -18,7 +18,7 @@
     «FOREACH properties.select(e|e.mandatoryForCreation).sortBy(e|args.indexOf(e.name)) AS prop ITERATOR propIter SEPARATOR "," -»
         «EXPAND addArgument FOR prop-»
     «ENDFOREACH»
-«ENDLET»
+«ENDLET -»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR DtoProperty -»
@@ -26,5 +26,5 @@
 «ENDDEFINE»
 
 «DEFINE addArgument FOR DtoEnumerationProperty -»
-    source.get«name»()
+    «name»Translator.fromDto(source.get«javaClassName(name)»())
 «ENDDEFINE»

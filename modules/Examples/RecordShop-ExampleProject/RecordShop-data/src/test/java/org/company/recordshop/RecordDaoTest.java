@@ -6,6 +6,7 @@ import org.company.recordshop.data.spring.dao.ArtistDao;
 import org.company.recordshop.data.spring.dao.RecordDao;
 import org.company.recordshop.domain.Artist;
 import org.company.recordshop.domain.Record;
+import org.company.recordshop.domain.RecordTypeEnum;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +23,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testRetrieve() {
-		Record record = new Record("Abbey Road", 25.50F);
+		Record record = new Record("Abbey Road", 25.50F, RecordTypeEnum.BLUERAY);
 		recordDao.add(record);
 		flush();
 		clear();
@@ -36,7 +37,7 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 		assertEquals(0, countRowsInTable("Record_TABLE"));
 		assertEquals(0, countRowsInTable("Artist_TABLE"));
 		assertEquals(0, countRowsInTable("Record_Artist"));
-		Record record = new Record("Abbey Road", 25.50F);
+		Record record = new Record("Abbey Road", 25.50F, RecordTypeEnum.BLUERAY);
 		Artist john = new Artist("John", "Lennon",
 				"singer/guitarist/songwriter");
 		Artist paul = new Artist("Paul", "McCartney", "singer/bass/songwriter");
