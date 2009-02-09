@@ -31,8 +31,8 @@
 	 */
 	public interface «javaDomainServiceInterface(name)»  extends «javaDomainServiceBaseInterface(name)» {
 	«FOREACH this.methods.typeSelect(CustomMethod) AS method»
-	// TODO MOD4J Generate custom methods?
 	«REM»
+	// TODO MOD4J Generate custom methods?
 		/**
 	     * @params «method.inParameters.name»
 	     * @return «method.output.name»
