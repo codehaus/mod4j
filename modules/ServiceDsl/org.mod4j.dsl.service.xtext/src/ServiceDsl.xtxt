@@ -20,7 +20,7 @@ AssociationMethod :
     part=[DtoReference] 
 	;
 Enum SpecialMethodType [MethodType]:
-     CREATE="create"  | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall"
+     CREATE="create"  | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall" | FIND="find"
      ;
 
 Enum AssociationMethodType [MethodType] :
