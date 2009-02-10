@@ -119,14 +119,16 @@
 «ENDDEFINE»
 
 «DEFINE FindMethod FOR SpecialMethod»
+«LET javaDomainClass(dto.businessClass()) AS Class»
     /**
-     * Find all «dto.businessClass()» that look like the «dto.name».
+     * Find all «Class» that look like the «dto.name».
      * 
-     * @return List<«javaDomainClass(dto.businessClass())»>
+     * @return List<«Class»>
      */
-    public List<«javaDomainClass(dto.businessClass())»> findByExample(«javaDomainExampleClass(dto.businessClass())» example) {
+    public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example) {
         return this.the«javaDaoInterface(dto.businessClass())».findByExample(example);
     }
+«ENDLET»
 «ENDDEFINE»
 
 

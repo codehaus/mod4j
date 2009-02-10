@@ -35,6 +35,7 @@
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
 	import «javaTranslatorClassPath(dto.name)»;
 	import «javaDomainClassPath(dto.businessClass())»;
+	import «javaDomainExampleClassPath(dto.businessClass())»;
 	«ENDFOREACH»
 	
 	/**
@@ -64,6 +65,9 @@
 		«ENDIF»
 		«IF method.type == MethodType::LISTALL»
 			«EXPAND ListallMethod FOR method»
+		«ENDIF»
+		«IF method.type == MethodType::FIND»
+			«EXPAND FindMethod FOR method»
 		«ENDIF»
 	«ENDFOREACH»	
 «REM»
@@ -151,6 +155,31 @@
 		}
 		return result;
     }
+«ENDDEFINE»
+
+«DEFINE FindMethod FOR SpecialMethod»
+«LET JavaType(this.dto) AS dtoType»
+«LET javaDomainClass(this.dto.businessClass()) AS Class»
+    /**
+     * «description»
+     */
+	public List<«dtoType»> «this.name»(«dtoType» example) {
+		List<«Class»> found = null;
+		List<«dtoType»> result = new ArrayList<«dtoType»>();
+
+		«this.dto.businessClass().javaDomainExampleClass()» bexample =
+		              the«javaTranslatorClass(dto.name)».exampleFromDto(example);
+		found = the«javaDomainServiceInterface(model.name)».find«Class»ByExample(bexample);
+		
+		for («Class» object : found) {
+			«dtoType» item = the«javaTranslatorClass(dto.name)».toDto(object);
+			result.add(item);
+		}
+		return result;
+
+	}
+«ENDLET»
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»

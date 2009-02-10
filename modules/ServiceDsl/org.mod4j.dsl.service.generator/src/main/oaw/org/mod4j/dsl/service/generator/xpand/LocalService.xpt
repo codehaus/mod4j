@@ -54,6 +54,9 @@
 		«IF method.type == MethodType::LISTALL»
 			«EXPAND ListallMethod FOR method»
 		«ENDIF»
+		«IF method.type == MethodType::FIND»
+			«EXPAND FindMethod FOR method»
+		«ENDIF»
 	«ENDFOREACH»	
 
 	«EXPAND Associations FOR  this»
@@ -125,6 +128,14 @@
      * «description»
      */
     public List<«JavaType(this.dto)»> «this.name»( );
+«ENDDEFINE»
+
+«DEFINE FindMethod FOR SpecialMethod»
+    /**
+     * Find method: «description»
+     */
+    public List<«JavaType(this.dto)»> «this.name»(«JavaType(this.dto)» example);
+//    public List<SimpleCustomerDto> findByExample(SimpleCustomerDto example);
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
