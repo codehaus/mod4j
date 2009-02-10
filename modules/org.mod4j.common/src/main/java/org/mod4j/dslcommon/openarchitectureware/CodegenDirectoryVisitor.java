@@ -105,7 +105,6 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         properties.put("applicationPath", newAppPath);
         properties.put("workDir", workDir);
         properties.put("project", workDir);
-
     }
 
     /**
@@ -119,7 +118,8 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
 
         properties.put("modelFile", modelfile);
         properties.put("isStandaloneSetup", standaloneSetup ? "true" : "false");
-
+        properties.put("isEclipseSetup", standaloneSetup ? "false" : "true");
+        
         Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
         genWf.runWorkflow(codegenWorkflow, properties);
     }

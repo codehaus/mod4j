@@ -21,12 +21,7 @@
     <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
 
     <property name="nsUriPrefix" value="appelmoes"/>
-    
-    <property name="isEclipseSetup" value="true"/>
-    <if cond="${isStandaloneSetup}">
-        <property name="isEclipseSetup" value="false"/>
-    </if>
- 
+
     <!-- set up EMF for standalone execution -->
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
         <platformUri value=".."/>
@@ -101,17 +96,14 @@
     <!-- Is used to put the model in the environment. The model is put in the modelSlot 'model' -->
     <component class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
         <modelSlot value="crossxModel"/>
-        <outputFile value="${crossxfile}"/>
         <project value="${project}"/>
     </component>
 
-    <!-- last but not least, we write the Ecore model file. We specify the workflow
-         slot where we expect the model as well as the file name of the
-         to-be-written file.
+    <!-- Last but not least, we write the Ecore model file. We specify the workflow
+         slot where we expect the model as well as the file name of the to-be-written file.
          This stel isn't neccesary, but migtb be helpfulkl for debugging purposes to check what
          the Crosssx model looks like.
     -->
-
     <if cond="${isEclipseSetup}">
 	    <component class="org.eclipse.mwe.emf.Writer">
 	        <uri value="${crossxfile}" />

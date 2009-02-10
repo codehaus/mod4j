@@ -30,6 +30,7 @@ public class RunCrossxWorkflow {
         properties.put("crossxfile", "file:/" + crossxfile);
         properties.put("project", project);
         properties.put("isStandaloneSetup", isStandaloneSetup ? "true" : "false");
+        properties.put("isEclipseSetup", isStandaloneSetup ? "false" : "true");
 
         WorkflowRunner runner = new WorkflowRunner();
         if (!runner.run(wfFile, new NullProgressMonitor(), properties, slotContents)) {

@@ -17,7 +17,7 @@ public class Mod4jWorkflowRunner {
     private final Log logger = LogFactory.getLog(getClass());
 
     /**
-     * General workflow runner.
+     * General Mod4j workflow runner. 
      * 
      * @param wfFile
      *            absolute path string of the workflow file to execute
@@ -30,13 +30,22 @@ public class Mod4jWorkflowRunner {
         Map<String, Object> slotContents = new HashMap<String, Object>();
         WorkflowRunner runner = new WorkflowRunner();
 
-        logger.info("Running workflow [" + wfFile + "] with properties : \n\t [" + properties + "]");
+        String propertiesListing = "";
+        for (Map.Entry<String, String> prop: properties.entrySet()) {
+            propertiesListing += "\t\t" + prop.toString() + "\n";
+        } 
+
+        logger.info("Running workflow [" + wfFile + "] with properties : \n" + propertiesListing); 
 
         if (!runner.run(wfFile, new NullProgressMonitor(), properties, slotContents)) {
-            logger.error("ERROR(S) detected while running workflow : [" + wfFile + "] See logging.");
+            logger.error("--------------------------------------------------------------------------------------");
+            logger.error("------- ERROR(S) detected while running workflow : [" + wfFile + "] ");
+            logger.error("------- See logging above for more details.");
+            logger.error("--------------------------------------------------------------------------------------");
             throw new Mod4jWorkflowException("ERROR(S) detected while running workflow :" + wfFile);
         }
-
-        logger.info("===== Workflow SUCCESSFUL!=====");
+        logger.info("--------------------------------------------------------------------------");
+        logger.info("-------- Workflow SUCCESSFUL! ");
+        logger.info("--------------------------------------------------------------------------");
     }
 }
