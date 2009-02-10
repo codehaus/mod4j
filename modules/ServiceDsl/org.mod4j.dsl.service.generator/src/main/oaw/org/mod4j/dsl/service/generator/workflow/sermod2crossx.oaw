@@ -112,10 +112,12 @@
          the Crosssx model looks like.
     -->
 
-    <component class="org.eclipse.mwe.emf.Writer">
-        <uri value="${crossxfile}" />
-        <modelSlot value="crossxModel" />
-    </component>
+    <if cond="${isEclipseSetup}">
+	    <component class="org.eclipse.mwe.emf.Writer">
+	        <uri value="${crossxfile}" />
+	        <modelSlot value="crossxModel" />
+	    </component>
+    </if>
     
 </workflow>
 
