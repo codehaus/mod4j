@@ -20,6 +20,7 @@
 
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
 	import «javaDomainClassPath(cls )»;
+	import «javaDomainExampleClassPath(cls )»;
 	«ENDFOREACH»
 
 	/**
@@ -38,11 +39,12 @@
     «ENDREM»
 	«ENDFOREACH»	
 
-	«EXPAND  CreateMethod FOREACH this.uniqueMethods(MethodType::CREATE) »
-	«EXPAND  ReadMethod FOREACH this.uniqueMethods(MethodType::READ) »
-	«EXPAND  UpdateMethod FOREACH this.uniqueMethods(MethodType::UPDATE) »
-	«EXPAND  DeleteMethod FOREACH this.uniqueMethods(MethodType::DELETE) »
+	«EXPAND  CreateMethod  FOREACH this.uniqueMethods(MethodType::CREATE) »
+	«EXPAND  ReadMethod    FOREACH this.uniqueMethods(MethodType::READ) »
+	«EXPAND  UpdateMethod  FOREACH this.uniqueMethods(MethodType::UPDATE) »
+	«EXPAND  DeleteMethod  FOREACH this.uniqueMethods(MethodType::DELETE) »
 	«EXPAND  ListallMethod FOREACH this.uniqueMethods(MethodType::LISTALL) »
+	«EXPAND  FindMethod    FOREACH this.uniqueMethods(MethodType::FIND) »
 
     «EXPAND Associations FOR this»
 	}
@@ -103,6 +105,14 @@
     public List<«javaDomainClass(dto.businessClass())»> listAll«this.dto.businessClass()»s();
 «ENDDEFINE»
 
+«DEFINE FindMethod FOR SpecialMethod»
+    /**
+     * Find all «dto.businessClass()» that look like the «dto.name».
+     * 
+     * @return List<«javaDomainClass(dto.businessClass())»>
+     */
+    public List<«javaDomainClass(dto.businessClass())»> findByExample(«javaDomainExampleClass(dto.businessClass())» example);
+«ENDDEFINE»
 
 
 «DEFINE Associations FOR ServiceModel»
