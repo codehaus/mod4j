@@ -8,21 +8,23 @@ from RecordShopDataContract import SimpleCustomerList
 from RecordShopDataContract import FullCustomerDto   
 from RecordShopDataContract import OrderDto   
 from RecordShopDataContract import OrderNumberAndDateList 
-   
-read readOrder for OrderDto;       
+      
+read readOrder for OrderDto;            
  
 "All crud servuices needed for FullCustomer"   
 crud for    FullCustomerDto;       
-/*         
+/*           
  * Explicit definded crud servicemethods     
  */         
-create createCustomer for SimpleCustomerDto;          
+create createCustomer for SimpleCustomerDto;           
 read   readCustomer for SimpleCustomerDto;  
 update updateCustomer for SimpleCustomerDto;     
-delete deleteCustomer for SimpleCustomerDto;   
+delete deleteCustomer for SimpleCustomerDto;    
 
 listall listAllCustomers for SimpleCustomerDto ;      
       
+find findCustomers for SimpleCustomerDto ;
+
 //"add the translated OrderDto to the orders association of the translated CustomerDto"
 //add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
 for SimpleCustomerDto reference orders add OrderDto
