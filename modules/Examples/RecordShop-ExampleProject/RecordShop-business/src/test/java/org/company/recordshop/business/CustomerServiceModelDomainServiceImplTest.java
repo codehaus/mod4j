@@ -56,20 +56,20 @@ public class CustomerServiceModelDomainServiceImplTest extends AbstractTransacti
         assertEquals(3, countRowsInTable("Customer_TABLE"));
 
         CustomerExample example = new CustomerExample();
-        List<Customer> result = service.findByExample(example);
+        List<Customer> result = service.findCustomerByExample(example);
         assertEquals(3, result.size());
         
         example.setBlackListed(false);
-        result = service.findByExample(example);
+        result = service.findCustomerByExample(example);
         assertEquals(3, result.size());
         
         example.setBlackListed(true);
-        result = service.findByExample(example);
+        result = service.findCustomerByExample(example);
         assertEquals(0, result.size());
         
         example.setBlackListed(null);
         example.setFirstName("Jo");
-        result = service.findByExample(example);
+        result = service.findCustomerByExample(example);
         assertEquals(2, result.size());
     }
 

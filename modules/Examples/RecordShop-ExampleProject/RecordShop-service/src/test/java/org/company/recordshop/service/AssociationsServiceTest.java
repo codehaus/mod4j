@@ -1,8 +1,12 @@
 package org.company.recordshop.service;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 import java.util.Set;
 
+import org.company.recordshop.domain.Customer;
+import org.company.recordshop.domain.CustomerExample;
 import org.company.recordshop.service.dto.OrderDto;
 import org.company.recordshop.service.dto.OrderNumberAndDateDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
@@ -77,6 +81,45 @@ public class AssociationsServiceTest extends
 		Assert.assertEquals(all.size(), 3);
 		tearDown();
 	}
+
+	@Test
+	public final void testFindByExample() {
+		SimpleCustomerDto c = new SimpleCustomerDto();
+		c.setFirstName("Johan");
+		c.setLastName("Vogelzang");
+		c.setCustomerNr(1);
+		c.setBlackListed(false);
+		customerServiceModelService.createCustomer(c);
+		c = new SimpleCustomerDto();
+		c.setFirstName("Jos");
+		c.setLastName("Warmer");
+		c.setCustomerNr(2);
+		customerServiceModelService.createCustomer(c);
+		c = new SimpleCustomerDto();
+		c.setFirstName("Eric Jan");
+		c.setLastName("Malotaux");
+		c.setCustomerNr(3);
+		customerServiceModelService.createCustomer(c);
+		
+//        assertEquals(3, countRowsInTable("Customer_TABLE"));
+
+        SimpleCustomerDto example  = new SimpleCustomerDto();
+        List<SimpleCustomerDto> result = customerServiceModelService.findCustomers(example);
+        assertEquals(3, result.size());
+        
+        example.setBlackListed(false);
+        result = customerServiceModelService.findCustomers(example);
+        assertEquals(1, result.size());
+        
+        example.setBlackListed(true);
+        result = customerServiceModelService.findCustomers(example);
+        assertEquals(0, result.size());
+        
+        example.setBlackListed(null);
+        example.setFirstName("Jo");
+        result = customerServiceModelService.findCustomers(example);
+        assertEquals(2, result.size());
+    }
 
 	@Test
 	public final void testAddOrder() {
