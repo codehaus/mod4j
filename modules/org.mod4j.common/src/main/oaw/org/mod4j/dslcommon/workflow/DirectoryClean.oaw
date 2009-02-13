@@ -2,22 +2,16 @@
 
 <workflow>
 
-    <!-- Initialize the issues reporting feature of oAW
+    <!-- 
+         Initialize the issues reporting feature of oAW
     -->
     <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
 
     <!--
-        Cleaning of output directories before generation.
-      -->
+         Cleaning of output directories.
+    -->
     <component id="DirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
         <directories value="${directories}"/>
     </component>
-
-
-<!--
-    <component id="BusinessDomainWorkflow-DirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
-        <directories value="${applicationPath}/${domainModuleName}/${srcGenPath}, ${applicationPath}/${dataModuleName}/${srcGenPath}"/>
-    </component>
- -->
  
 </workflow>
