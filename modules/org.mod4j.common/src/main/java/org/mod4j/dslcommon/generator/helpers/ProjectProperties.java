@@ -55,6 +55,8 @@ public class ProjectProperties {
         resourceManPath = properties.getProperty("resourceManPath");
         fileEncoding = properties.getProperty("fileEncoding");
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
+        hibernate_mapping_class_id_generator_class = properties.getProperty("hibernate-mapping.class.id.generator.class");
+        hibernate_mapping_inheritance_strategy = properties.getProperty("hibernate-mapping.inheritance.strategy");
         
     }
 
@@ -111,6 +113,10 @@ public class ProjectProperties {
     private static String workDir = "/";
     
     private static String hibernate_hbm2ddl_auto = "update";
+    
+    private static String hibernate_mapping_class_id_generator_class = "native";
+    
+    private static String hibernate_mapping_inheritance_strategy = "table.per.concrete.class";
 
     public static void setWorkDir(String dir) {
         workDir = dir;
@@ -246,6 +252,14 @@ public class ProjectProperties {
     
     public static String getHibernate_hbm2ddl_auto() {
         return hibernate_hbm2ddl_auto;
+    }
+    
+    public static String getHibernate_mapping_class_id_generator_class() {
+        return hibernate_mapping_class_id_generator_class;
+    }
+    
+    public static String getHibernate_InheritanceMappingStrategy() {
+        return hibernate_mapping_inheritance_strategy;
     }
 
     private static String project = "/";
