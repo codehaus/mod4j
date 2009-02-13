@@ -13,13 +13,15 @@
 	
     /**
      * @param object
-     *            the «this»to set
+     *            The «this» to set.
 	 */
 	public void set«this.toFirstUpper()»(«type» object) {
 	    this.«this» = object;
     }
 	
-    /** RETURN THE VALUE OF «this»
+    /** 
+     * @return The «this» to get.
+     *
      */
 	public «type» get«this.toFirstUpper()»() {
 	    return this.«this»;
