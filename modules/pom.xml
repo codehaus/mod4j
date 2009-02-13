@@ -37,6 +37,7 @@
         <module>org.mod4j.buildtools</module>
         <module>org.mod4j.runtime.common</module>
         <module>org.mod4j.common</module>
+        <module>org.mod4j.mavenplugin</module>
         <module>Crossx/org.mod4j.crossx.mm</module>
         <module>Crossx/org.mod4j.crossx.broker</module>
         <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
