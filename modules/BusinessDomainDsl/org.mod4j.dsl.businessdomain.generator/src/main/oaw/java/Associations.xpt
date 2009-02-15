@@ -34,6 +34,7 @@
         «EXPAND AssociationsOne2Many::one2ManyAccessorsFrom FOR this»
     «ELSEIF isMany2Many() -»
         private Set<«javaDomainClass(source.name)»> «sourceRoleName» = new HashSet<«javaDomainClass(source.name)»>();
+        «EXPAND AssociationsMany2Many::many2ManyAccessorsFrom FOR this»
     «ENDIF»
 «ENDDEFINE»
 

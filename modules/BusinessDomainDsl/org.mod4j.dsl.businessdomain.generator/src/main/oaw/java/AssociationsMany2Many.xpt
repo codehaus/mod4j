@@ -2,10 +2,7 @@
 
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION Association»
-TODOTODO
-«REM»
-    Adds the accessor methods at the source side of a many to many association.
-«ENDREM»
+
 «DEFINE many2ManyAccessorsTo FOR Association»
     /**
      * @return «targetRoleName» (Set<«target.name»>).
@@ -17,16 +14,53 @@ TODOTODO
     /**
      * Implements adding single element to a collection.
      */
-    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
-        this.«this.targetRoleName».add(element);
-        validation.validate();
+    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
+        if (!«targetRoleName».contains(element)) {
+            «targetRoleName».add(element);
+            element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
+            validation.validate();
+        }
     }
     
     /**
      * Implements removing a single element from a collection.
      */
     public void removeFrom«targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
-        this.«this.targetRoleName».remove(element);
-        validation.validate();
+        if («targetRoleName».contains(element)) {
+            this.«this.targetRoleName».remove(element);
+            element.removeFrom«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
+            validation.validate();
+        }
+    }
+«ENDDEFINE»
+
+«DEFINE many2ManyAccessorsFrom FOR Association»
+    /**
+     * @return «sourceRoleName» (Set<«source.name»>).
+     */
+    public Set<«source.name»> get«sourceRoleName.toFirstUpper()» () {
+        return Collections.unmodifiableSet(this.«sourceRoleName»);
+    }
+
+    /**
+     * Implements adding single element to a collection.
+     */
+    public void addTo«sourceRoleName.toFirstUpper()»(«javaDomainClass(source.name)» element) {
+        if (!«sourceRoleName».contains(element)) {
+            «sourceRoleName».add(element);
+            element.addTo«targetRoleName.toFirstUpper()»((«javaDomainClass(target.name)») this);
+            validation.validate();
+        }
+    }
+    
+    /**
+     * Implements removing a single element from a collection.
+     */
+    public void removeFrom«sourceRoleName.toFirstUpper()»(«javaDomainClass(source.name)» element) {
+        if («sourceRoleName».contains(element)) {
+            this.«sourceRoleName».remove(element);
+            element.removeFrom«targetRoleName.toFirstUpper()»((«javaDomainClass(target.name)») this);
+            validation.validate();
+        }
     }
 «ENDDEFINE»
