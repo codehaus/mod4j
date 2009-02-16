@@ -15,6 +15,9 @@
      * Implements adding single element to a collection.
      */
     public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
+		if ( element == null ) {
+			return;
+		}
         if (!«targetRoleName».contains(element)) {
             «targetRoleName».add(element);
             element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
@@ -26,6 +29,9 @@
      * Implements removing a single element from a collection.
      */
     public void removeFrom«targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
+		if ( element == null ) {
+			return;
+		}
         if («targetRoleName».contains(element)) {
             this.«this.targetRoleName».remove(element);
             element.removeFrom«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
@@ -46,6 +52,9 @@
      * Implements adding single element to a collection.
      */
     public void addTo«sourceRoleName.toFirstUpper()»(«javaDomainClass(source.name)» element) {
+		if ( element == null ) {
+			return;
+		}
         if (!«sourceRoleName».contains(element)) {
             «sourceRoleName».add(element);
             element.addTo«targetRoleName.toFirstUpper()»((«javaDomainClass(target.name)») this);
@@ -57,6 +66,9 @@
      * Implements removing a single element from a collection.
      */
     public void removeFrom«sourceRoleName.toFirstUpper()»(«javaDomainClass(source.name)» element) {
+		if ( element == null ) {
+			return;
+		}
         if («sourceRoleName».contains(element)) {
             this.«sourceRoleName».remove(element);
             element.removeFrom«targetRoleName.toFirstUpper()»((«javaDomainClass(target.name)») this);
