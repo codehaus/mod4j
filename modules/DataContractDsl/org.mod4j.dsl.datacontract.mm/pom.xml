@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.0.0-beta-3</version>
+        <version>1.0.0-beta-3-SNAPSHOT</version>
     </parent>
 
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-datacontract-mm</artifactId>
-    <version>1.0.0-beta-3</version>
+    <version>1.0.0-beta-3-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the DataContract meta model.</description>
 
