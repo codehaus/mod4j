@@ -60,8 +60,8 @@
         </dependency>
         <dependency>
             <!--
-                TODO Remove this dependency when it is added to the oaw-dependendcies. See
-                http://www.openarchitectureware.org/forum/viewtopic.php?forum=2&showtopic=8444&highlight=maven
+                TODO Remove this dependency when it is added to the oaw-dependendcies.
+                See http://www.openarchitectureware.org/forum/viewtopic.php?forum=2&showtopic=8444&highlight=maven
             -->
             <groupId>org.eclipse.jface</groupId>
             <artifactId>text</artifactId>
