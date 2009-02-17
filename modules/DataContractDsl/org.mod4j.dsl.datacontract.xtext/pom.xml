@@ -37,7 +37,7 @@ TODO Uncomment when OAW issue is solved. See: http://www.openarchitectureware.or
             <plugin>
                 <groupId>org.mod4j</groupId>
                 <artifactId>mod4j-maven-plugin</artifactId>
-                <version>${mod4.verson}</version>
+                <version>${mod4j.verson}</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>

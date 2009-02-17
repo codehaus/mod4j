@@ -36,7 +36,7 @@ at http://www.eclipse.org.
    </license>
 
    <url>
-      <update label="Mod4j update site" url="http://mod4.org/updatesite"/>
+      <update label="Mod4j update site" url="http://mod4j.org/updatesite"/>
    </url>
 
    <plugin
