@@ -93,6 +93,17 @@
         />
 «ENDDEFINE»
 
+«DEFINE mapping FOR BusinessDomainDsl::StringProperty -»
+        <property name="«this.name»" «IF maxLength > -1»length="«maxLength»"«ENDIF» 
+        «IF this.uniqueRule() != null -»
+            unique-key="«uniqueRule().name»"
+        «ENDIF -»
+        «IF !this.nullable»
+            not-null="true"
+        «ENDIF -»
+        />
+«ENDDEFINE»
+
 «DEFINE mapping FOR EnumerationProperty -»
         <property name="«this.name»"        
         «IF this.uniqueRule() != null -»

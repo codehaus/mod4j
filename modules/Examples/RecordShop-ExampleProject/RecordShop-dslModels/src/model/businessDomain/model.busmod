@@ -48,6 +48,7 @@ Class Customer inherits Person [
 "An artist is a Person who has had a role in producing a Record"
 Class Artist inherits Person [
     string artistName;
+    string biography maxlength 32000 nullable;
 ]
 
 "A Record is a representation of a physical medium containing one or more musical compositions."
