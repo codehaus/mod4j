@@ -28,6 +28,7 @@ public class ServiceDslEditorPlugin extends AbstractXtextEditorPlugin {
 
    protected void refreshPluginActions() {
        super.refreshPluginActions();
+       System.err.println("ServiceDslEditor.refreshPluginActions");
        Mod4jBuilder.initCrossx(); 
    }
 

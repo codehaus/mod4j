@@ -28,6 +28,7 @@ public class BusinessDomainDslEditorPlugin extends AbstractXtextEditorPlugin {
    
    protected void refreshPluginActions() {
        super.refreshPluginActions();
+       System.err.println("BusinessDslEditor.refreshPluginActions");
        Mod4jBuilder.initCrossx(); 
    }
    

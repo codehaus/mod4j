@@ -27,6 +27,7 @@ public class DataContractDslEditorPlugin extends AbstractXtextEditorPlugin {
    
    protected void refreshPluginActions() {
        super.refreshPluginActions();
+       System.err.println("DataContractDslEditor.refreshPluginActions");
        Mod4jBuilder.initCrossx(); 
    }
 

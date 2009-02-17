@@ -322,12 +322,16 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
     public void startX() {
         console = EclipseUtil.findConsole("crossx.projectbuilder.startX");
-        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
+//        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
+        CrossxEnvironment.setPrintStream(console);
         System.setErr(new PrintStream(console));
         dslExtensions = getExtensions();
         IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+        System.err.println("Number of projects [" + projects.length + "]");
         for (int i = 0; i < projects.length; i++) {
             IProject project = projects[i];
+            
+            System.err.println("Projects [" + project.getName() + "]");
 //            myProject = project;
             myloadCrossxInfo(project);
         }
@@ -350,6 +354,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
 
     public void start() {
+    	System.err.println("Mod4jBuilder.start()");
         dslExtensions = Mod4jBuilder.getExtensions();
         IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
         for (int i = 0; i < projects.length; i++) {
@@ -358,6 +363,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         }
     }
 
+    IProject currentProject = null;
     /**
      * Load the Crossx symbols from all crossx files in the project.
      * 
@@ -375,7 +381,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         // Run the visitor over the project to collect all Crossx information
         CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
         try {
+            currentProject = project;
             project.accept(visitor);
+            currentProject = null;
         } catch (Exception e) {
             System.err.println("Mod4jBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");
             // TODO: handle exception
@@ -394,10 +402,13 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         IPath resourcePath = resource.getProjectRelativePath();
         IProject thisProject = getProject();
         if( thisProject == null ) {
+        	thisProject = currentProject;
+        }
+        if( thisProject == null ) {
             System.err.println("found model [" + resource.getName() + "] in NO project ");
             return false;
         }
-        IResource modeldir = getProject().findMember(MODEL_DIR);
+        IResource modeldir = thisProject.findMember(MODEL_DIR);
         if( modeldir == null ) {
             System.err.println("found model [" + resource.getName() + "] in project without MDOELDIR");
             return false;
