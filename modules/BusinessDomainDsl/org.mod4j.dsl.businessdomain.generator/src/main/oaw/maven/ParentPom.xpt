@@ -20,7 +20,7 @@
     <version>«getApplicationVersion()»</version>
     <name>«getApplicationName()»</name>
     <properties>
-        <mod4j.version>1.0.0-beta-2</mod4j.version>
+        <mod4j.version>1.0.0-beta-3</mod4j.version>
         <spring.version>2.5</spring.version>
         <generated-sources-dir>«getSrcGenPath()»</generated-sources-dir>
         <generated-resources-dir>«getResourceGenPath()»</generated-resources-dir>
