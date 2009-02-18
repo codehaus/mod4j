@@ -20,7 +20,9 @@
 		}
         if (!«targetRoleName».contains(element)) {
             «targetRoleName».add(element);
+    «IF this.bidirectional -»
             element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
+    «ENDIF -»
             validation.validate();
         }
     }
@@ -34,7 +36,9 @@
 		}
         if («targetRoleName».contains(element)) {
             this.«this.targetRoleName».remove(element);
+    «IF this.bidirectional -»
             element.removeFrom«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
+    «ENDIF -»
             validation.validate();
         }
     }
