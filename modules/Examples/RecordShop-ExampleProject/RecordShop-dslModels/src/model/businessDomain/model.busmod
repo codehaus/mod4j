@@ -109,20 +109,23 @@ Enumeration RecordTypeEnum [
     BLUERAY = 5;
 ]
  
-"One 2 Many Bidirectional: The customer has a number of orders" 
+"One 2 Many bidirectional: A customer has a number of orders." 
 Association customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
 
-"One 2 Many unidirectional: An order consists of orderlines"
+"One 2 Many unidirectional: An order consists of orderLines."
 Association order Order [ 0..1 ] -> [ 0..* ] orderLines OrderLine;
 
-"One 2 One bidirectional: An ordelrine contains a record"
+"One 2 One bidirectional: An orderLine contains a record."
 Association orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
 
-"Many to One bidirectional: "
+"Many to One bidirectional: A record is sold as a product."
 Association record Record [ 0..* ] <-> [ 0..1 ] product Product;
 
-"Many to Many unidirectional: an Artist has contributed to a Record"
+"Many to Many bidirectional: A records have been made by zero or more contributors."
 Association records Record [ 0..* ] <-> [ 0..* ] contributors Artist;
 
-"Test"
+"Many to Many unidirectional: A product has been bought by zero or more buyers."
+Association product Product [ 0..* ] -> [ 0..* ] buyers Customer ;
+
+"Tests"
 Association person Person [ 0..1 ] -> [ 0..1 ] relatedTo Artist ;

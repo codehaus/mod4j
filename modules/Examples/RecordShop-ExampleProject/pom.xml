@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>RecordShop</name>
     <properties>
-        <mod4j.version>1.0.0-beta-3-SNAPSHOT</mod4j.version>
+        <mod4j.version>1.0.0-beta-4-SNAPSHOT</mod4j.version>
         <spring.version>2.5</spring.version>
         <generated-sources-dir>generated-sources</generated-sources-dir>
         <generated-resources-dir>generated-resources</generated-resources-dir>
