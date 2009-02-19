@@ -95,6 +95,16 @@ Class Product [
 	integer price;
 ]
 
+"This class has no meaning in the recordshop application. Its purpose is to test
+ uni-directional many-to-many associations"
+Class Many2ManyFrom [
+    string property;
+]
+
+Class Many2ManyTo [
+    string property;
+]
+
 "Sexe enumeration."
 Enumeration SexeEnum [
 
@@ -129,3 +139,7 @@ Association product Product [ 0..* ] -> [ 0..* ] buyers Customer ;
 
 "Tests"
 Association person Person [ 0..1 ] -> [ 0..1 ] relatedTo Artist ;
+
+"This Association has no meaning in the recordshop application. Its purpose is to test
+ uni-directional many-to-many associations"
+Association fromEnd Many2ManyFrom [ 0..* ] -> [ 0..* ] toEnd Many2ManyTo;
