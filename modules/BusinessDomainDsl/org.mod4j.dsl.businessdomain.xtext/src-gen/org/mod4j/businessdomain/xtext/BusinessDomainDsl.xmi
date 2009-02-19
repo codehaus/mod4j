@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xtext:XtextFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtext="http://www.openarchitectureware.org/xtext" name="BusinessDomainModel" preventMMGeneration="true">
+  <mmImports location="http://www.mod4j.org/busmod"/>
+  <rules xsi:type="xtext:TypeRule" name="BusinessDomainModel">
+    <type alias="" name="BusinessDomainModel"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="BusinessDomain"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="types" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="BusinessClassReference"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="types" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="BusinessClass"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="enumerations" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="Enumeration"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="associations" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="Association"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="BusinessClassReference">
+    <type alias="" name="BusinessClassReference"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Keyword" value="from"/>
+      <children xsi:type="xtext:Assignment" feature="model" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="import"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Association">
+    <type alias="" name="Association"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="Association"/>
+      <children xsi:type="xtext:Assignment" feature="sourceRoleName" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="source" operator="ASSIGN">
+        <token xsi:type="xtext:CrossReference">
+          <type alias="" name="BusinessClass"/>
+        </token>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" feature="sourceMultiplicity" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="Multiplicity"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+      <children xsi:type="xtext:Alternatives">
+        <alternatives xsi:type="xtext:Assignment" feature="bidirectional" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="&lt;->"/>
+        </alternatives>
+        <alternatives xsi:type="xtext:Keyword" value="->"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" feature="targetMultiplicity" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="Multiplicity"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="ordered" operator="BOOLASSIGN">
+        <token xsi:type="xtext:Keyword" value="ordered"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="targetRoleName" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="target" operator="ASSIGN">
+        <token xsi:type="xtext:CrossReference">
+          <type alias="" name="AbstractBusinessClass"/>
+        </token>
+      </children>
+      <children xsi:type="xtext:Keyword" value=";"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="Multiplicity">
+    <type alias="" name="Multiplicity"/>
+    <literals keyword="0..*" name="ZeroMany"/>
+    <literals keyword="1" name="One"/>
+    <literals keyword="1..*" name="OneMany"/>
+    <literals keyword="0..1" name="ZeroOne"/>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="BusinessClass">
+    <type alias="" name="BusinessClass"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="Class"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="inheritanceModifier" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="InheritanceModifier"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="inherits"/>
+        <children xsi:type="xtext:Assignment" feature="superclass" operator="ASSIGN">
+          <token xsi:type="xtext:CrossReference">
+            <type alias="" name="BusinessClass"/>
+          </token>
+        </children>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" cardinality="ANY" feature="properties" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="Property"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="Rules"/>
+        <children xsi:type="xtext:Keyword" value="["/>
+        <children xsi:type="xtext:Assignment" cardinality="ANY" feature="businessRules" operator="ADD">
+          <token xsi:type="xtext:RuleName" name="AbstractBusinessRule"/>
+        </children>
+        <children xsi:type="xtext:Keyword" value="]"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Enumeration">
+    <type alias="" name="Enumeration"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="Enumeration"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" cardinality="ONEORMORE" feature="enumerationLiterals" operator="ADD">
+        <token xsi:type="xtext:RuleName" name="EnumerationLiteral"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="EnumerationLiteral">
+    <type alias="" name="EnumerationLiteral"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="="/>
+        <children xsi:type="xtext:Assignment" feature="persistedValue" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="INT"/>
+        </children>
+      </children>
+      <children xsi:type="xtext:Keyword" value=";"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="AbstractBusinessRule">
+    <type alias="" name="AbstractBusinessRule"/>
+    <content xsi:type="xtext:Alternatives">
+      <alternatives xsi:type="xtext:RuleName" name="BusinessRule"/>
+      <alternatives xsi:type="xtext:RuleName" name="UniqueRule"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="BusinessRule">
+    <type alias="" name="BusinessRule"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value=";"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="UniqueRule">
+    <type alias="" name="UniqueRule"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="unique"/>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value="["/>
+      <children xsi:type="xtext:Assignment" cardinality="ONEORMORE" feature="properties" operator="ADD">
+        <token xsi:type="xtext:CrossReference">
+          <type alias="" name="Property"/>
+        </token>
+      </children>
+      <children xsi:type="xtext:Keyword" value="]"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="InheritanceModifier">
+    <type alias="" name="InheritanceModifier"/>
+    <literals keyword="abstract" name="ABSTRACT"/>
+    <literals keyword="final" name="FINAL"/>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Property">
+    <type alias="" name="Property"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Alternatives">
+        <alternatives xsi:type="xtext:RuleName" name="BoolProperty"/>
+        <alternatives xsi:type="xtext:RuleName" name="StringProperty"/>
+        <alternatives xsi:type="xtext:RuleName" name="DateTimeProperty"/>
+        <alternatives xsi:type="xtext:RuleName" name="IntegerProperty"/>
+        <alternatives xsi:type="xtext:RuleName" name="DecimalProperty"/>
+        <alternatives xsi:type="xtext:RuleName" name="EnumerationProperty"/>
+      </children>
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="nullable" operator="BOOLASSIGN">
+        <token xsi:type="xtext:Keyword" value="nullable"/>
+      </children>
+      <children xsi:type="xtext:Keyword" value=";"/>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="BoolProperty">
+    <type alias="" name="BoolProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="boolean"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Assignment" feature="hasDefault" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="default"/>
+        </children>
+        <children xsi:type="xtext:Alternatives">
+          <alternatives xsi:type="xtext:Assignment" feature="defaultValue" operator="BOOLASSIGN">
+            <token xsi:type="xtext:Keyword" value="true"/>
+          </alternatives>
+          <alternatives xsi:type="xtext:Keyword" value="false"/>
+        </children>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="StringProperty">
+    <type alias="" name="StringProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="string"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Assignment" feature="hasDefault" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="default"/>
+        </children>
+        <children xsi:type="xtext:Assignment" feature="defaultValue" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="STRING"/>
+        </children>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="minlength"/>
+        <children xsi:type="xtext:Assignment" feature="minLength" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="INT"/>
+        </children>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="maxlength"/>
+        <children xsi:type="xtext:Assignment" feature="maxLength" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="INT"/>
+        </children>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="regexp"/>
+        <children xsi:type="xtext:Assignment" feature="regularExpression" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="STRING"/>
+        </children>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="DateTimeProperty">
+    <type alias="" name="DateTimeProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="datetime"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Assignment" feature="hasDefault" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="default"/>
+        </children>
+        <children xsi:type="xtext:Assignment" feature="defaultValue" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="STRING"/>
+        </children>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="DateTimeAccuracy">
+    <type alias="" name="DateTimeAccuracy"/>
+    <literals keyword="month" name="Month"/>
+    <literals keyword="year" name="Year"/>
+    <literals keyword="day" name="Day"/>
+    <literals keyword="hour" name="Hour"/>
+    <literals keyword="minute" name="Minute"/>
+    <literals keyword="second" name="Second"/>
+    <literals keyword="millisecond" name="Millisecond"/>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="IntegerProperty">
+    <type alias="" name="IntegerProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="integer"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Assignment" feature="hasDefault" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="default"/>
+        </children>
+        <children xsi:type="xtext:Assignment" feature="defaultValue" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="INT"/>
+        </children>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="min"/>
+        <children xsi:type="xtext:Assignment" feature="minValue" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="INT"/>
+        </children>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Keyword" value="max"/>
+        <children xsi:type="xtext:Assignment" feature="maxValue" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="INT"/>
+        </children>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="DecimalProperty">
+    <type alias="" name="DecimalProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="dataType" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="decimal"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="EnumerationProperty">
+    <type alias="" name="EnumerationProperty"/>
+    <content xsi:type="xtext:Group">
+      <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="description" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="type" operator="ASSIGN">
+        <token xsi:type="xtext:CrossReference">
+          <type alias="" name="Enumeration"/>
+        </token>
+      </children>
+      <children xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Assignment" feature="hasDefault" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="default"/>
+        </children>
+        <children xsi:type="xtext:Assignment" feature="defaultValueAsString" operator="ASSIGN">
+          <token xsi:type="xtext:RuleName" name="ID"/>
+        </children>
+      </children>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="PersistencyMode">
+    <type alias="" name="PersistencyMode"/>
+    <literals keyword="ReadWrite" name="ReadWrite"/>
+    <literals keyword="Read" name="Read"/>
+    <literals keyword="NONE" name="None"/>
+  </rules>
+  <rules xsi:type="xtext:NativeLexerRule" name="ID"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="STRING"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="INT"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="WS"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="ML_COMMENT"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="SL_COMMENT"/>
+</xtext:XtextFile>
