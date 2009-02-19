@@ -8,6 +8,7 @@ package org.mod4j.eclipse.wizards;
  *
  * Contributors:
  *     committers of openArchitectureWare
+ *     2009: Ordina: adapted for Mod4j
  *******************************************************************************/
 
 import java.lang.reflect.InvocationTargetException;
