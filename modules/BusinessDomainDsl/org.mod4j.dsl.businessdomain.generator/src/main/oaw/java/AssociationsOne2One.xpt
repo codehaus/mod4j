@@ -9,7 +9,7 @@
 «ENDREM»
 «DEFINE one2OneAccessorsTo FOR Association»
     /**
-     * @return «targetRoleName» (Set<«target.name»>) 
+     * @return «targetRoleName» («target.name») 
      */
     public «javaDomainClass(target.name)» get«targetRoleName.toFirstUpper()» () {
         return this.«targetRoleName»;
@@ -62,7 +62,7 @@
 «ENDREM»
 «DEFINE one2OneAccessorsFrom FOR Association»
     /**
-     * @return «sourceRoleName» (Set<«source.name»>) «source.description»
+     * @return «sourceRoleName» («source.name») «source.description»
      */
     public «javaDomainClass(source.name)» get«sourceRoleName.toFirstUpper()» () {
         return this.«sourceRoleName»;

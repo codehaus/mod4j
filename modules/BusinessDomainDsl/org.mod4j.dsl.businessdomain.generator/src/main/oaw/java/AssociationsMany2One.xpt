@@ -9,7 +9,7 @@
 «ENDREM»
 «DEFINE many2OneAccessorsTo FOR Association»
     /**
-     * @return «targetRoleName» (Set<«target.name»>) 
+     * @return «targetRoleName» (<«target.name»>) 
      */
     public «javaDomainClass(target.name)» get«targetRoleName.toFirstUpper()» () {
         return this.«targetRoleName»;

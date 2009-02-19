@@ -51,6 +51,12 @@ context Association ERROR "Association source role ["+ this.sourceRoleName +
      )
 ;
 
+// TODO: the test for an upper bound for the target multiplicity of "Many"
+// using string comparison is ugly. This must be improved!
+context Association ERROR "[" + this.targetRoleName + "/" + this.targetMultiplicity +
+                          "]: only associations with multiplicity MANY may be ordered" :
+    this.ordered implies (this.targetMultiplicity.toString().equalsIgnoreCase("ZeroMany")
+    || this.targetMultiplicity.toString().equalsIgnoreCase("OneMany"));
 
 context BusinessClass ERROR "Name of BusinessClass [" + this.name + "] is not unique" :
    ((BusinessDomainDsl::BusinessDomainModel)this.eContainer).types.forAll(e|

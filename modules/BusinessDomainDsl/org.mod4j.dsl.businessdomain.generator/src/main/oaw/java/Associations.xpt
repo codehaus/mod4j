@@ -1,6 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION Association»
+«EXTENSION org::mod4j::dsl::businessdomain::generator::xtend::Association»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE addToReferenceVariable FOR Association»
@@ -14,10 +14,10 @@
         private «target.name» «targetRoleName»;
         «EXPAND AssociationsMany2One::many2OneAccessorsTo FOR this»
     «ELSEIF isOne2Many() -»
-		private Set<«javaDomainClass(target.name)»> «targetRoleName» = new HashSet<«javaDomainClass(target.name)»>();
+		private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsOne2Many::one2ManyAccessorsTo FOR this»
     «ELSEIF isMany2Many() -»
-        private Set<«javaDomainClass(target.name)»> «targetRoleName» = new HashSet<«javaDomainClass(target.name)»>();
+        private «getCollectionInterface()»<«javaDomainClass(target.name)»> «targetRoleName» = new «getCollectionImplementation()»<«javaDomainClass(target.name)»>();
         «EXPAND AssociationsMany2Many::many2ManyAccessorsTo FOR this»
 	«ENDIF»
 «ENDDEFINE»

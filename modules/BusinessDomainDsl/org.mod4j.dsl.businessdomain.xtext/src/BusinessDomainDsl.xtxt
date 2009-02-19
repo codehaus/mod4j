@@ -24,6 +24,7 @@ Association:
     "[" sourceMultiplicity=Multiplicity "]"
     ((bidirectional?="<->") | ("->"))
     "[" targetMultiplicity=Multiplicity "]"
+    (ordered?="ordered")?
     targetRoleName=ID target=[AbstractBusinessClass] ";"
     ;
 

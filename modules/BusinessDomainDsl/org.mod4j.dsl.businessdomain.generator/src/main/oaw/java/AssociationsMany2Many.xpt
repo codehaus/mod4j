@@ -5,10 +5,10 @@
 
 «DEFINE many2ManyAccessorsTo FOR Association»
     /**
-     * @return «targetRoleName» (Set<«target.name»>).
+     * @return «targetRoleName» («getCollectionInterface()»<«target.name»>).
      */
-    public Set<«target.name»> get«targetRoleName.toFirstUpper()» () {
-        return Collections.unmodifiableSet(this.«targetRoleName»);
+    public «getCollectionInterface()»<«target.name»> get«targetRoleName.toFirstUpper()» () {
+        return Collections.unmodifiable«getCollectionInterface()»(this.«targetRoleName»);
     }
 
     /**

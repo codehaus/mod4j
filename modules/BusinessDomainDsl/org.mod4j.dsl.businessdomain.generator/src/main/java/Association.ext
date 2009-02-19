@@ -14,6 +14,12 @@ boolean isMany2One(Association a) :
 boolean isMany2Many(Association a) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.isMany2Many(BusinessDomainDsl.Association);
 
+String getCollectionInterface(Association a) :
+    JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getCollectionInterface(BusinessDomainDsl.Association);
+
+String getCollectionImplementation(Association a) :
+    JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.getCollectionImplementation(BusinessDomainDsl.Association);
+
 String getterTo(Association a) :
  "get" + a.targetRoleName.toFirstUpper();
  

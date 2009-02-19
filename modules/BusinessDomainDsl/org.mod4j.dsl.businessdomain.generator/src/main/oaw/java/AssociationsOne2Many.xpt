@@ -10,10 +10,10 @@
 «ENDREM»
 «DEFINE one2ManyAccessorsTo FOR Association»
     /**
-     * @return «targetRoleName» (Set<«target.name»>) 
+     * @return «targetRoleName» (List<«target.name»>) 
      */
-    public Set<«javaDomainClass(target.name)»> get«targetRoleName.toFirstUpper()» () {
-        return Collections.unmodifiableSet(this.«targetRoleName»);
+    public «getCollectionInterface()»<«javaDomainClass(target.name)»> get«targetRoleName.toFirstUpper()» () {
+        return Collections.unmodifiable«getCollectionInterface()»(this.«targetRoleName»);
     }
 
     /**

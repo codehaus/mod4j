@@ -102,6 +102,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/targetMultiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/composite"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/bidirectional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Association/ordered"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Association/model"/>
     </genClasses>
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//DecimalProperty">

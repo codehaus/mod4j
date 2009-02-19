@@ -132,13 +132,21 @@
 «REM»mapping for outgoing associations«ENDREM»
 «DEFINE mappingsTo FOR Association -»
     «IF isOne2Many(this)»
-		«EXPAND one2manyMappingTo FOR this -»
+        «IF ordered»
+            «EXPAND orderedOne2manyMappingTo FOR this -»
+        «ELSE»
+            «EXPAND one2manyMappingTo FOR this -»
+        «ENDIF»
 	«ELSEIF isOne2One(this)»
 		«EXPAND one2oneMappingTo FOR this -»
 	«ELSEIF isMany2One(this)»
 		«EXPAND many2oneMappingTo FOR this -»
-	«ELSEIF isMany2Many(this)»
-		«EXPAND many2manyMappingTo FOR this -»
+    «ELSEIF isMany2Many(this)»
+        «IF ordered»
+            «EXPAND orderedMany2manyMappingTo FOR this -»
+        «ELSE»
+            «EXPAND many2manyMappingTo FOR this -»
+        «ENDIF»
     «ELSE»
 	<!-- WARNING mappingsTo(Association) no generation for : «this.name» -->
     «ENDIF»
@@ -171,6 +179,20 @@
                 class="«javaDomainClass(this.target.name)»" 
              />
         </set>
+«ENDDEFINE»
+
+«DEFINE orderedOne2manyMappingTo FOR Association -»
+        <!-- orderedOne2manyMappingTo -->
+        <list name="«this.targetRoleName»" inverse="false"
+            cascade="save-update">
+            <key>
+                <column name="«this.sourceRoleName»_ID" />
+            </key>
+            <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
+            <one-to-many
+                class="«javaDomainClass(this.target.name)»" 
+             />
+        </list>
 «ENDDEFINE»
 
 «REM»Reverse navigable association from the target.
@@ -230,6 +252,15 @@
             <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.target.name»_ID" />
         </set>
 «ENDDEFINE»
+
+«DEFINE orderedMany2manyMappingTo FOR Association -»
+        <list name="«this.targetRoleName»" table="«this.source.name»_«this.target.name»">
+            <key column="«this.source.name»_ID" not-null="true" />
+            <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
+            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.target.name»_ID" />
+        </list>
+«ENDDEFINE»
+
 
 «DEFINE many2manyMappingFrom FOR Association -»
         <set name="«this.sourceRoleName»" inverse="true" table="«this.source.name»_«this.target.name»">
