@@ -1,6 +1,6 @@
 «IMPORT BusinessDomainDsl»
 
-«EXTENSION org::mod4j::dsl::businessdomain::generator::xtend::Association»
+«EXTENSION Association»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE addToReferenceVariable FOR Association»

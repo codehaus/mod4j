@@ -1,7 +1,0 @@
-/* Operations implemented in Java on BusinesRule
- */
-import BusinessDomainDsl;
-
- 
-UniqueRule uniqueRule (Property property) :
-    ((BusinessClass)property.eContainer).businessRules.typeSelect(UniqueRule).select(e|e.properties.contains(property)).first();
