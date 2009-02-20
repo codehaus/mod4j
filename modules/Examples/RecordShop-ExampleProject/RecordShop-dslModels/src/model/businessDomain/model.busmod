@@ -95,36 +95,6 @@ Class Product [
 	integer price;
 ]
 
-"This class has no meaning in the recordshop application. Its purpose is to test
- uni-directional many-to-many associations"
-Class Many2ManyFrom [
-    string property;
-]
-
-"This class has no meaning in the recordshop application. Its purpose is to test
- uni-directional many-to-many associations"
-Class Many2ManyTo [
-    string property;
-]
-
-"This class has no meaning in the recordshop application. Its purpose is to test
- ordered one-to-many associations"
-Class One2ManyFrom [
-    string property;
-]
-
-"This class has no meaning in the recordshop application. Its purpose is to test
- ordered one-to-many associations"
-Class One2ManyOrderedTo [
-    string property;
-]
-
-"This class has no meaning in the recordshop application. Its purpose is to test
- ordered one-to-many associations"
-Class Many2ManyOrderedTo [
-    string property;
-]
-
 "Sexe enumeration."
 Enumeration SexeEnum [
 
@@ -159,14 +129,3 @@ Association product Product [ 0..* ] -> [ 0..* ] buyers Customer ;
 
 "Tests"
 Association person Person [ 0..1 ] -> [ 0..1 ] relatedTo Artist;
-
-"This Association has no meaning in the recordshop application. Its purpose is to test
- uni-directional many-to-many associations"
-Association fromEnd Many2ManyFrom [ 0..* ] -> [ 0..* ] toEnd Many2ManyTo;
-
-"This Association has no meaning in the recordshop application. Its purpose is to test
- uni-directional many-to-many associations"
- Association source One2ManyFrom [ 1 ] -> [ 0..* ] ordered target One2ManyOrderedTo;
- Association source One2ManyFrom [ 1 ] <-> [ 0..* ] ordered targetBiDirectional One2ManyOrderedTo;
- Association many2manySource Many2ManyFrom [ 0..* ] -> [ 0..* ] ordered target Many2ManyOrderedTo; 
- Association many2manySource Many2ManyFrom [ 0..* ] <-> [ 0..* ] ordered targetBiDirectional Many2ManyOrderedTo; 
