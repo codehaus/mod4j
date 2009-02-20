@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mod4j</groupId>
   <artifactId>mod4j</artifactId>
@@ -7,7 +8,6 @@
   <name>mod4j</name>
   <url>http://mod4j.org</url>
   <properties>
-    <centralhost>smart-java.nl</centralhost>
     <oaw.version>4.3.0</oaw.version>
   </properties>
   <scm>
@@ -17,15 +17,24 @@
   </scm>
   <mailingLists>
     <mailingList>
-      <archive>http://smart-java.nl/mailman/private/mod4j-team</archive>
-      <name>mod4j-team</name>
-      <post>mod4j-team@${centralhost}</post>
+      <name>Mod4j commits mailinglist</name>
+      <post>scm@mod4j.codehaus.org</post>
+      <archive>http://markmail.org/browse/org.codehaus.mod4j.scm</archive>
     </mailingList>
     <mailingList>
-      <archive>http://smart-java.nl/mailman/private/mod4j-developers
-            </archive>
-      <name>mod4j-developers</name>
-      <post>mod4j-developers@${centralhost}</post>
+      <name>Mod4j user mailinglist</name>
+      <post>user@mod4j.codehaus.org </post>
+      <archive>http://markmail.org/browse/org.codehaus.mod4j.user</archive>
+    </mailingList>
+    <mailingList>
+      <name>Mod4j developer mailinglist</name>
+      <post>dev@mod4j.codehaus.org</post>
+      <archive>http://markmail.org/browse/org.codehaus.mod4j.dev</archive>
+    </mailingList>
+    <mailingList>
+      <name>Mod4j announce mailinglist</name>
+      <post>announce@mod4j.codehaus.org</post>
+      <archive>http://markmail.org/browse/org.codehaus.mod4j.announce</archive>
     </mailingList>
   </mailingLists>
   <profiles>
@@ -124,12 +133,12 @@
   </profiles>
   <ciManagement>
     <system>continuum</system>
-    <url>https://mod4j.${centralhost}/continuum</url>
+    <url>https://mod4j.smart-java.nl/continuum</url>
     <notifiers>
       <notifier>
         <type>mail</type>
         <configuration>
-          <address>mod4j-developers@${centralhost}</address>
+          <address>dev@mod4j.codehaus.org</address>
         </configuration>
       </notifier>
     </notifiers>
@@ -154,7 +163,7 @@
   </distributionManagement>
   <issueManagement>
     <system>Jira</system>
-    <url>https://mod4j.${centralhost}/jira</url>
+    <url>http://jira.codehaus.org/browse/MODFORJ</url>
   </issueManagement>
   <build>
     <plugins>
