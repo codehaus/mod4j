@@ -15,6 +15,16 @@
     <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/trunk/modules
         </developerConnection>
   </scm>
+  <organization>
+    <name>Mod4j</name>
+    <url>http://mod4j.org</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Eclipse Public License v1.0</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
   <mailingLists>
     <mailingList>
       <name>Mod4j commits mailinglist</name>
@@ -37,6 +47,45 @@
       <archive>http://markmail.org/browse/org.codehaus.mod4j.announce</archive>
     </mailingList>
   </mailingLists>
+  <developers>
+    <developer>
+      <name>Jos Warmer</name>
+      <email>jos.warmer@ordina.nl</email>
+      <organization>Ordina</organization>
+      <organizationUrl>http://www.ordina.nl</organizationUrl>
+      <roles>
+        <role>Project Lead</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Eric Jan Malotaux</name>
+      <email>eric.jan.malotaux@ordina.nl</email>
+      <organization>Ordina</organization>
+      <organizationUrl>http://www.ordina.nl</organizationUrl>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Johan Vogelzang</name>
+      <email>johan.vogelzang@ordina.nl</email>
+      <organization>Ordina</organization>
+      <organizationUrl>http://www.ordina.nl</organizationUrl>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <name>Jim van Dam</name>
+      <email>jim.van.dam@hipes.nl</email>
+      <organization>Hipes</organization>
+      <organizationUrl>http://www.hipes.nl</organizationUrl>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
   <profiles>
     <profile>
       <id>dev-environment</id>
