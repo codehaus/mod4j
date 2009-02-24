@@ -13,11 +13,12 @@
     </properties>
     <body>
         <section name="Mod4j Release Guide">
-            <p> The Release Guide gives instructions to developers of the Mod4j project for releasing a new version of Mod4j.
-                It
-                tells what steps to take for releasing and publishing the developed Eclipse features and plug-ins
-                to the Mod4j
-                update site. </p>
+            <p> The Release Guide gives instructions to developers of Mod4j for releasing a new version of Mod4j.
+                It tells what
+                steps to take for releasing and publishing the developed Eclipse features and plug-ins
+                to the Mod4j update site
+                and releasing Mod4j artifacts to the central Maven repository.
+            </p>
 
             <subsection name="Prerequisites">
                 <p>This section describes which prerequisites to full fill before you can start releasing.</p>
@@ -46,7 +47,7 @@
                         Username:
                         <b>mod4j.org</b>
                         <br />
-                        The password can be obtained via one of the project members.
+                        You should be familiar with the password that comes with the username.
                         <br />
                         With the Maven based release process also the project site will be deployed, for this to work you'll
                         need to add the following
@@ -130,10 +131,16 @@
                             <b>mvn release:perform -Pci</b>
                         </code>
                     </li>
+                    <li>With previous step all the Mod4j modules are deployed as Maven artifacts to Maven repository at
+                        Codehaus and the project site is deployed to mod4j.org. Within 4 hours the deployed Maven artifacts at
+                        Codehaus are
+                        automatically synchronized with the central Maven repository (see:
+                        http://repo1.maven.org/maven2/org/mod4j)\
+                    </li>
                 </ol>
             </subsection>
 
-            <subsection name="Publishing the Mod4j DSL Eclipse plugin to the Mod4j updatesite">
+            <subsection name="Publishing the Mod4j DSL Eclipse plug-ins to the Mod4j updatesite">
                 <p>
                     New versions of the Mod4j DSL Eclipse plug-in can be published on the Mod4j updatesite. We will publish
                     all
