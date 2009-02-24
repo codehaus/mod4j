@@ -16,49 +16,51 @@ importMetamodel "http://www.mod4j.org/busmod" ;
 
 BusinessDomainModel :
 	(description=STRING )?
-	"BusinessDomain" name = ID
+	"domain" name = ID ";"
 	(types+= BusinessClassReference)*
-	(types += BusinessClass)* 
-	(enumerations += Enumeration)*
-	(associations += Association)*
+	( (types        += BusinessClass) |
+	  (enumerations += Enumeration)   |
+	  (associations += Association)
+	 )*
 	;
 
 BusinessClassReference:
-    "from" model=ID "import" name=ID;
+    "from" model=ID "import" name=ID  ";" 
+    ;
     
 Association:
 	(description=STRING )?
-    "Association" 
-    sourceRoleName=ID source=[BusinessClass]
-    "[" sourceMultiplicity=Multiplicity "]"
+    "association" 
+    source=[BusinessClass] sourceRoleName=ID 
+    sourceMultiplicity=Multiplicity
     ((bidirectional?="<->") | ("->"))
-    "[" targetMultiplicity=Multiplicity "]"
-    (ordered?="ordered")?
-    targetRoleName=ID target=[AbstractBusinessClass] ";"
+    targetMultiplicity=Multiplicity
+    target=[AbstractBusinessClass]  targetRoleName=ID 
+    (ordered?="ordered")? ";"
     ;
 
 Enum Multiplicity:
-     ZeroMany="0..*"  | One="1" | OneMany="1..*" | ZeroOne="0..1"
+     ZeroMany="many"  | ZeroOne="one" // | OneMany="1..*" | One="1..1"
      ;
  	
 BusinessClass:
 	(description=STRING)?
-    "Class" name=ID
+    "class" name=ID
     ("inherits" superclass=[BusinessClass])?
     "["
         (properties += Property)*
-        ("Rules" "[" (businessRules += AbstractBusinessRule)* "]")?
+        ("rules" "[" (businessRules += AbstractBusinessRule)* "]")?
     "]"
      ;
 
 Enumeration:
 	(description=STRING)?
-    "Enumeration" name=ID
+    "enumeration" name=ID
     "[" (enumerationLiterals += EnumerationLiteral)+ "]"
     ;
 
 EnumerationLiteral:
-    name=ID ("=" persistedValue=INT)? ";"
+    name=ID ("=" persistedValue=INT) ";"
     ;
 
 AbstractBusinessRule:
@@ -73,7 +75,8 @@ BusinessRule:
 UniqueRule:
     (description=STRING)?
 	"unique" name=ID "["
-	   (properties += [Property])+ 
+	   (properties += [Property]) 
+	   ("," properties += [Property])* 
 	"]"
 	;
 
