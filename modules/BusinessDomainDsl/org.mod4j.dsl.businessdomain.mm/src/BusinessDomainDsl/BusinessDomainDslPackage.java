@@ -336,22 +336,13 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BUSINESS_CLASS__ASSOCIATIONS_FROM = ABSTRACT_BUSINESS_CLASS__ASSOCIATIONS_FROM;
 
 	/**
-	 * The feature id for the '<em><b>Inheritance Modifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUSINESS_CLASS__INHERITANCE_MODIFIER = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Business Rules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS__BUSINESS_RULES = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 1;
+	int BUSINESS_CLASS__BUSINESS_RULES = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Superclass</b></em>' reference.
@@ -360,7 +351,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS__SUPERCLASS = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 2;
+	int BUSINESS_CLASS__SUPERCLASS = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Associations To</b></em>' reference list.
@@ -369,7 +360,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS__ASSOCIATIONS_TO = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 3;
+	int BUSINESS_CLASS__ASSOCIATIONS_TO = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Business Class</em>' class.
@@ -378,7 +369,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_CLASS_FEATURE_COUNT = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 4;
+	int BUSINESS_CLASS_FEATURE_COUNT = ABSTRACT_BUSINESS_CLASS_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -1729,16 +1720,6 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BUSINESS_RULE_FEATURE_COUNT = ABSTRACT_BUSINESS_RULE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link BusinessDomainDsl.InheritanceModifier <em>Inheritance Modifier</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see BusinessDomainDsl.InheritanceModifier
-	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getInheritanceModifier()
-	 * @generated
-	 */
-	int INHERITANCE_MODIFIER = 21;
-
-	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.Multiplicity <em>Multiplicity</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1746,7 +1727,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getMultiplicity()
 	 * @generated
 	 */
-	int MULTIPLICITY = 22;
+	int MULTIPLICITY = 21;
 
 	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.DateTimeAccuracy <em>Date Time Accuracy</em>}' enum.
@@ -1756,7 +1737,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getDateTimeAccuracy()
 	 * @generated
 	 */
-	int DATE_TIME_ACCURACY = 23;
+	int DATE_TIME_ACCURACY = 22;
 
 	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.PersistencyMode <em>Persistency Mode</em>}' enum.
@@ -1766,7 +1747,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getPersistencyMode()
 	 * @generated
 	 */
-	int PERSISTENCY_MODE = 24;
+	int PERSISTENCY_MODE = 23;
 
 
 	/**
@@ -1853,17 +1834,6 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBusinessClass();
-
-	/**
-	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.BusinessClass#getInheritanceModifier <em>Inheritance Modifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Inheritance Modifier</em>'.
-	 * @see BusinessDomainDsl.BusinessClass#getInheritanceModifier()
-	 * @see #getBusinessClass()
-	 * @generated
-	 */
-	EAttribute getBusinessClass_InheritanceModifier();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link BusinessDomainDsl.BusinessClass#getBusinessRules <em>Business Rules</em>}'.
@@ -2541,16 +2511,6 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EClass getBusinessRule();
 
 	/**
-	 * Returns the meta object for enum '{@link BusinessDomainDsl.InheritanceModifier <em>Inheritance Modifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Inheritance Modifier</em>'.
-	 * @see BusinessDomainDsl.InheritanceModifier
-	 * @generated
-	 */
-	EEnum getInheritanceModifier();
-
-	/**
 	 * Returns the meta object for enum '{@link BusinessDomainDsl.Multiplicity <em>Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2671,14 +2631,6 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUSINESS_CLASS = eINSTANCE.getBusinessClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Inheritance Modifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BUSINESS_CLASS__INHERITANCE_MODIFIER = eINSTANCE.getBusinessClass_InheritanceModifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Business Rules</b></em>' containment reference list feature.
@@ -3219,16 +3171,6 @@ public interface BusinessDomainDslPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUSINESS_RULE = eINSTANCE.getBusinessRule();
-
-		/**
-		 * The meta object literal for the '{@link BusinessDomainDsl.InheritanceModifier <em>Inheritance Modifier</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see BusinessDomainDsl.InheritanceModifier
-		 * @see BusinessDomainDsl.impl.BusinessDomainDslPackageImpl#getInheritanceModifier()
-		 * @generated
-		 */
-		EEnum INHERITANCE_MODIFIER = eINSTANCE.getInheritanceModifier();
 
 		/**
 		 * The meta object literal for the '{@link BusinessDomainDsl.Multiplicity <em>Multiplicity</em>}' enum.

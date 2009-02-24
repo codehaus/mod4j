@@ -94,8 +94,6 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case BusinessDomainDslPackage.INHERITANCE_MODIFIER:
-				return createInheritanceModifierFromString(eDataType, initialValue);
 			case BusinessDomainDslPackage.MULTIPLICITY:
 				return createMultiplicityFromString(eDataType, initialValue);
 			case BusinessDomainDslPackage.DATE_TIME_ACCURACY:
@@ -115,8 +113,6 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case BusinessDomainDslPackage.INHERITANCE_MODIFIER:
-				return convertInheritanceModifierToString(eDataType, instanceValue);
 			case BusinessDomainDslPackage.MULTIPLICITY:
 				return convertMultiplicityToString(eDataType, instanceValue);
 			case BusinessDomainDslPackage.DATE_TIME_ACCURACY:
@@ -326,26 +322,6 @@ public class BusinessDomainDslFactoryImpl extends EFactoryImpl implements Busine
 	public BusinessRule createBusinessRule() {
 		BusinessRuleImpl businessRule = new BusinessRuleImpl();
 		return businessRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InheritanceModifier createInheritanceModifierFromString(EDataType eDataType, String initialValue) {
-		InheritanceModifier result = InheritanceModifier.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInheritanceModifierToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

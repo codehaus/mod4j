@@ -25,7 +25,6 @@ import BusinessDomainDsl.DecimalProperty;
 import BusinessDomainDsl.Enumeration;
 import BusinessDomainDsl.EnumerationLiteral;
 import BusinessDomainDsl.EnumerationProperty;
-import BusinessDomainDsl.InheritanceModifier;
 import BusinessDomainDsl.IntegerProperty;
 import BusinessDomainDsl.ModelElement;
 import BusinessDomainDsl.Multiplicity;
@@ -201,13 +200,6 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum inheritanceModifierEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum multiplicityEEnum = null;
 
 	/**
@@ -369,17 +361,8 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBusinessClass_InheritanceModifier() {
-		return (EAttribute)businessClassEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBusinessClass_BusinessRules() {
-		return (EReference)businessClassEClass.getEStructuralFeatures().get(1);
+		return (EReference)businessClassEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -388,7 +371,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * @generated
 	 */
 	public EReference getBusinessClass_Superclass() {
-		return (EReference)businessClassEClass.getEStructuralFeatures().get(2);
+		return (EReference)businessClassEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -397,7 +380,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * @generated
 	 */
 	public EReference getBusinessClass_AssociationsTo() {
-		return (EReference)businessClassEClass.getEStructuralFeatures().get(3);
+		return (EReference)businessClassEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -945,15 +928,6 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getInheritanceModifier() {
-		return inheritanceModifierEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getMultiplicity() {
 		return multiplicityEEnum;
 	}
@@ -1014,7 +988,6 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 		createEReference(businessDomainModelEClass, BUSINESS_DOMAIN_MODEL__ASSOCIATIONS);
 
 		businessClassEClass = createEClass(BUSINESS_CLASS);
-		createEAttribute(businessClassEClass, BUSINESS_CLASS__INHERITANCE_MODIFIER);
 		createEReference(businessClassEClass, BUSINESS_CLASS__BUSINESS_RULES);
 		createEReference(businessClassEClass, BUSINESS_CLASS__SUPERCLASS);
 		createEReference(businessClassEClass, BUSINESS_CLASS__ASSOCIATIONS_TO);
@@ -1098,7 +1071,6 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 		businessRuleEClass = createEClass(BUSINESS_RULE);
 
 		// Create enums
-		inheritanceModifierEEnum = createEEnum(INHERITANCE_MODIFIER);
 		multiplicityEEnum = createEEnum(MULTIPLICITY);
 		dateTimeAccuracyEEnum = createEEnum(DATE_TIME_ACCURACY);
 		persistencyModeEEnum = createEEnum(PERSISTENCY_MODE);
@@ -1164,7 +1136,6 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 		initEReference(getBusinessDomainModel_Associations(), this.getAssociation(), this.getAssociation_Model(), "associations", null, 0, -1, BusinessDomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(businessClassEClass, BusinessClass.class, "BusinessClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBusinessClass_InheritanceModifier(), this.getInheritanceModifier(), "inheritanceModifier", "None", 0, 1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessClass_BusinessRules(), this.getAbstractBusinessRule(), this.getAbstractBusinessRule_BusinessClass(), "businessRules", null, 0, -1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessClass_Superclass(), this.getBusinessClass(), null, "superclass", null, 0, 1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessClass_AssociationsTo(), this.getAssociation(), this.getAssociation_Source(), "associationsTo", null, 0, -1, BusinessClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1248,11 +1219,6 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 		initEClass(businessRuleEClass, BusinessRule.class, "BusinessRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(inheritanceModifierEEnum, InheritanceModifier.class, "InheritanceModifier");
-		addEEnumLiteral(inheritanceModifierEEnum, InheritanceModifier.NONE);
-		addEEnumLiteral(inheritanceModifierEEnum, InheritanceModifier.ABSTRACT);
-		addEEnumLiteral(inheritanceModifierEEnum, InheritanceModifier.FINAL);
-
 		initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");
 		addEEnumLiteral(multiplicityEEnum, Multiplicity.ZERO_MANY);
 		addEEnumLiteral(multiplicityEEnum, Multiplicity.ONE);

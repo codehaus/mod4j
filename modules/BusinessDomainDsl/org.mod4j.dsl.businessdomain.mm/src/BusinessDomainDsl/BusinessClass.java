@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link BusinessDomainDsl.BusinessClass#getInheritanceModifier <em>Inheritance Modifier</em>}</li>
  *   <li>{@link BusinessDomainDsl.BusinessClass#getBusinessRules <em>Business Rules</em>}</li>
  *   <li>{@link BusinessDomainDsl.BusinessClass#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link BusinessDomainDsl.BusinessClass#getAssociationsTo <em>Associations To</em>}</li>
@@ -28,36 +27,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface BusinessClass extends AbstractBusinessClass {
-	/**
-	 * Returns the value of the '<em><b>Inheritance Modifier</b></em>' attribute.
-	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link BusinessDomainDsl.InheritanceModifier}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Inheritance Modifier</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inheritance Modifier</em>' attribute.
-	 * @see BusinessDomainDsl.InheritanceModifier
-	 * @see #setInheritanceModifier(InheritanceModifier)
-	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getBusinessClass_InheritanceModifier()
-	 * @model default="None"
-	 * @generated
-	 */
-	InheritanceModifier getInheritanceModifier();
-
-	/**
-	 * Sets the value of the '{@link BusinessDomainDsl.BusinessClass#getInheritanceModifier <em>Inheritance Modifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inheritance Modifier</em>' attribute.
-	 * @see BusinessDomainDsl.InheritanceModifier
-	 * @see #getInheritanceModifier()
-	 * @generated
-	 */
-	void setInheritanceModifier(InheritanceModifier value);
-
 	/**
 	 * Returns the value of the '<em><b>Business Rules</b></em>' containment reference list.
 	 * The list contents are of type {@link BusinessDomainDsl.AbstractBusinessRule}.

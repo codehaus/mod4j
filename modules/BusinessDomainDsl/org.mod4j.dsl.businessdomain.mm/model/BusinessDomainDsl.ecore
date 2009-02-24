@@ -3,11 +3,6 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BusinessDomainDsl"
     nsURI="http://www.mod4j.org/busmod" nsPrefix="busmod">
-  <eClassifiers xsi:type="ecore:EEnum" name="InheritanceModifier">
-    <eLiterals name="NONE" literal="None"/>
-    <eLiterals name="ABSTRACT" value="1" literal="Abstract"/>
-    <eLiterals name="FINAL" value="2" literal="Sealed"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Multiplicity">
     <eLiterals name="ZeroMany" literal="ZeroMany"/>
     <eLiterals name="One" value="1" literal="One"/>
@@ -42,8 +37,6 @@
         upperBound="-1" eType="#//Association" containment="true" eOpposite="#//Association/model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClass" eSuperTypes="#//AbstractBusinessClass">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceModifier" eType="#//InheritanceModifier"
-        defaultValueLiteral="None"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="businessRules" upperBound="-1"
         eType="#//AbstractBusinessRule" containment="true" eOpposite="#//AbstractBusinessRule/businessClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//BusinessClass"/>

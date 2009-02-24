@@ -10,7 +10,6 @@ import BusinessDomainDsl.AbstractBusinessRule;
 import BusinessDomainDsl.Association;
 import BusinessDomainDsl.BusinessClass;
 import BusinessDomainDsl.BusinessDomainDslPackage;
-import BusinessDomainDsl.InheritanceModifier;
 
 import java.util.Collection;
 
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getInheritanceModifier <em>Inheritance Modifier</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getBusinessRules <em>Business Rules</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.BusinessClassImpl#getAssociationsTo <em>Associations To</em>}</li>
@@ -45,26 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BusinessClassImpl extends AbstractBusinessClassImpl implements BusinessClass {
-	/**
-	 * The default value of the '{@link #getInheritanceModifier() <em>Inheritance Modifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInheritanceModifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final InheritanceModifier INHERITANCE_MODIFIER_EDEFAULT = InheritanceModifier.NONE;
-
-	/**
-	 * The cached value of the '{@link #getInheritanceModifier() <em>Inheritance Modifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInheritanceModifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected InheritanceModifier inheritanceModifier = INHERITANCE_MODIFIER_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getBusinessRules() <em>Business Rules</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -112,27 +90,6 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 	@Override
 	protected EClass eStaticClass() {
 		return BusinessDomainDslPackage.Literals.BUSINESS_CLASS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InheritanceModifier getInheritanceModifier() {
-		return inheritanceModifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInheritanceModifier(InheritanceModifier newInheritanceModifier) {
-		InheritanceModifier oldInheritanceModifier = inheritanceModifier;
-		inheritanceModifier = newInheritanceModifier == null ? INHERITANCE_MODIFIER_EDEFAULT : newInheritanceModifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BUSINESS_CLASS__INHERITANCE_MODIFIER, oldInheritanceModifier, inheritanceModifier));
 	}
 
 	/**
@@ -238,8 +195,6 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BusinessDomainDslPackage.BUSINESS_CLASS__INHERITANCE_MODIFIER:
-				return getInheritanceModifier();
 			case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
 				return getBusinessRules();
 			case BusinessDomainDslPackage.BUSINESS_CLASS__SUPERCLASS:
@@ -260,9 +215,6 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BusinessDomainDslPackage.BUSINESS_CLASS__INHERITANCE_MODIFIER:
-				setInheritanceModifier((InheritanceModifier)newValue);
-				return;
 			case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
 				getBusinessRules().clear();
 				getBusinessRules().addAll((Collection<? extends AbstractBusinessRule>)newValue);
@@ -286,9 +238,6 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BusinessDomainDslPackage.BUSINESS_CLASS__INHERITANCE_MODIFIER:
-				setInheritanceModifier(INHERITANCE_MODIFIER_EDEFAULT);
-				return;
 			case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
 				getBusinessRules().clear();
 				return;
@@ -310,8 +259,6 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BusinessDomainDslPackage.BUSINESS_CLASS__INHERITANCE_MODIFIER:
-				return inheritanceModifier != INHERITANCE_MODIFIER_EDEFAULT;
 			case BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES:
 				return businessRules != null && !businessRules.isEmpty();
 			case BusinessDomainDslPackage.BUSINESS_CLASS__SUPERCLASS:
@@ -320,22 +267,6 @@ public class BusinessClassImpl extends AbstractBusinessClassImpl implements Busi
 				return associationsTo != null && !associationsTo.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (inheritanceModifier: ");
-		result.append(inheritanceModifier);
-		result.append(')');
-		return result.toString();
 	}
 
 } //BusinessClassImpl
