@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.service.dto.FullCustomerDto;
 import org.company.recordshop.service.dto.SexeEnumDto;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
 import org.mod4j.runtime.exception.TranslatorException;
@@ -22,6 +23,7 @@ public class FullCustomerDtoTranslatorTest {
         fullCustDto.setFirstName("Vincent");
         fullCustDto.setLastName("Van Gogh");
         fullCustDto.setCustomerNr(1234);
+        fullCustDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
         fullCustDto.setSexe(SexeEnumDto.MALE);
 
         try {
@@ -46,6 +48,7 @@ public class FullCustomerDtoTranslatorTest {
         fullCustDto.setFirstName("Vincent");
         fullCustDto.setLastName("Van Gogh");
         fullCustDto.setCustomerNr(1234);
+        fullCustDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
         fullCustDto.setDiscountPercentage(-1); // Illegal
 
         try {

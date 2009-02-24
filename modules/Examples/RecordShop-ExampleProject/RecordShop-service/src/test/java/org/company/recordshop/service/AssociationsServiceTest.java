@@ -10,6 +10,7 @@ import org.company.recordshop.domain.CustomerExample;
 import org.company.recordshop.service.dto.OrderDto;
 import org.company.recordshop.service.dto.OrderNumberAndDateDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
+import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.ServiceException;
@@ -43,6 +44,7 @@ public class AssociationsServiceTest extends
 		customer2.setFirstName(first);
 		customer2.setLastName(last);
 		customer2.setCustomerNr(nr);
+        customer2.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customer2 = customerServiceModelService.createCustomer(customer2);
 	}
 
@@ -51,6 +53,7 @@ public class AssociationsServiceTest extends
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(12345);
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		createdCustomer = customerServiceModelService.createCustomer(customer);
 
 		createCustomer("Joan", "Perfect", 3);
@@ -89,16 +92,19 @@ public class AssociationsServiceTest extends
 		c.setLastName("Vogelzang");
 		c.setCustomerNr(1);
 		c.setBlackListed(false);
+        c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 		c = new SimpleCustomerDto();
 		c.setFirstName("Jos");
 		c.setLastName("Warmer");
 		c.setCustomerNr(2);
+        c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 		c = new SimpleCustomerDto();
 		c.setFirstName("Eric Jan");
 		c.setLastName("Malotaux");
 		c.setCustomerNr(3);
+        c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 		
 //        assertEquals(3, countRowsInTable("Customer_TABLE"));

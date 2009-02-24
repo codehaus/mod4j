@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 
 import org.company.recordshop.service.dto.FullCustomerDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
+import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
@@ -40,6 +41,7 @@ public class CustomerServiceTest extends
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(12345);
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		customerServiceModelService.createCustomer(customer);
 		SimpleCustomerDto createdCustomer = customerServiceModelService
@@ -96,6 +98,7 @@ public class CustomerServiceTest extends
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(-1);
 		customer.setUsername("a"); // violates minlength = 3 constraint
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		customerServiceModelService.createCustomer(customer);
 	}
@@ -119,6 +122,7 @@ public class CustomerServiceTest extends
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(12345);
+        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customer = customerServiceModelService.createCustomer(customer);
 		customer = customerServiceModelService.readCustomer(customer.getId());
 		assertEquals("Alfred", customer.getFirstName());
@@ -134,6 +138,7 @@ public class CustomerServiceTest extends
 		custDto.setLastName("Vogelzang");
 		custDto.setCustomerNr(54321);
 		custDto.setDiscountPercentage(0);
+        custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		FullCustomerDto result = customerServiceModelService
 				.createCustomer(custDto);
@@ -160,6 +165,7 @@ public class CustomerServiceTest extends
 		custDto.setFirstName("Nasty");
 		custDto.setLastName("Customer");
 		custDto.setCustomerNr(666);
+        custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		FullCustomerDto result = customerServiceModelService
 				.createCustomer(custDto);

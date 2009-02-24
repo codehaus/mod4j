@@ -26,6 +26,7 @@ public class SimpleCustomerDtoTranslatorTest {
         simpleCust.setLastName("Van Gogh");
         simpleCust.setCustomerNr(1234);
         simpleCust.setSexe(SexeEnumDto.MALE);
+        simpleCust.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
         OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto();
         orderDto.setCustomer(simpleCust);
