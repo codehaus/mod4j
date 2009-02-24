@@ -1,0 +1,23 @@
+import BusinessDomainDsl;
+
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
+
+extension org::mod4j::businessdomain::xtext::Extensions;
+
+/*
+ * check linking
+ */
+context Association ERROR "Couldn't resolve reference to '"+this.parsedString("source")+"'" :
+	this.parsedString("source")!=null ? source!=null : true;
+context Association ERROR "Couldn't resolve reference to '"+this.parsedString("target")+"'" :
+	this.parsedString("target")!=null ? target!=null : true;
+context BusinessClass ERROR "Couldn't resolve reference to '"+this.parsedString("superclass")+"'" :
+	this.parsedString("superclass")!=null ? superclass!=null : true;
+context UniqueRule ERROR "Couldn't resolve reference to '"+this.parsedString("properties")+"'" :
+	properties.size==this.parsed("properties").size;
+context EnumerationProperty ERROR "Couldn't resolve reference to '"+this.parsedString("type")+"'" :
+	this.parsedString("type")!=null ? type!=null : true;
+
+
+
+
