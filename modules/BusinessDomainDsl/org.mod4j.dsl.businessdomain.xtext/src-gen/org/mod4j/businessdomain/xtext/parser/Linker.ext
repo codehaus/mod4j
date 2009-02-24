@@ -1,0 +1,29 @@
+
+extension org::mod4j::businessdomain::xtext::Extensions;
+extension org::mod4j::businessdomain::xtext::Linking;
+
+link(emf::EObject this) :
+	this.allVisibleElements().internalLink();
+
+private Void internalLink(emf::EObject this) :
+	null;
+
+
+private Void internalLink(BusinessDomainDsl::Association this) :
+	this.link_source()
+ -> 	this.link_target()
+;
+
+private Void internalLink(BusinessDomainDsl::BusinessClass this) :
+	this.link_superclass()
+;
+
+private Void internalLink(BusinessDomainDsl::UniqueRule this) :
+	this.link_properties()
+;
+
+private Void internalLink(BusinessDomainDsl::EnumerationProperty this) :
+	this.link_type()
+;
+
+
