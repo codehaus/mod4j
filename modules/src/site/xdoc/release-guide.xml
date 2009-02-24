@@ -99,7 +99,7 @@
                         <b>1.0.0-beta-1</b>
                         (TODO: In future versions this must be equal to the version of the Mod4j Eclipse plug-ins. See Jira
                         issue:
-                        https://mod4j.smart-java.nl/jira/browse/MOD4J-169)
+                        http://jira.codehaus.org/browse/MODFORJ-53)
                     </li>
                     <li>
                         Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr. For example:
