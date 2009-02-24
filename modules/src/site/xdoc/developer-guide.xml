@@ -86,7 +86,7 @@
             Check out the source code of the
             <code>mod4j</code>
             project from the Subversion URL
-            <code>https://svn.smart-java.nl/mod4j/trunk</code>
+            <code>https://svn.codehaus.org/mod4j/trunk</code>
             into a directory on your file system. See the link
             <a href="source-repository.html">Project information</a>
             for information on how to do this.
@@ -132,7 +132,7 @@
             <code>org.mod4j.dsl.businessdomain.xtext.editor</code>
           </li>
           <li>
-            If you need to (re)generate the modelcode from a meta model, fi the BusinessDomani meta model: Open
+            If you need to (re)generate the modelcode from a meta model, for instance the BusinessDomani meta model: Open
             <code>org.mod4j.dsl.businessdomain.mm/model/BusinessDomainDsl.genmodel
             </code>
             in the EMF Generator editor.
@@ -144,7 +144,7 @@
             <q>Generate Model Code</q>
           </li>
           <li>
-            If you need to (re)generate the code for Xtext Right-click the file
+            You need to generate the code for Xtext adn Xtext Editor projects: Right-click the file
             <code>org.mod4j.dsl.businessdomain.xtext/src/genXtextEditor.oaw,
             </code>
             and choose
