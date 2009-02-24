@@ -109,7 +109,7 @@
 			
 			«REM»Add import statements for Attributes. If a dataType occurs more then once, the import statement will be added just once.«ENDREM»
 			«FOREACH this.getAllProperties().dataType.toSet() AS dataType»
-			     «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType)»
+			     «EXPAND Imports::addImports FOR this.getAllProperties().selectFirst(e|e.dataType == dataType)»
 			«ENDFOREACH»
             /**
              * «description»
