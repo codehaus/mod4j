@@ -7,6 +7,7 @@ import org.company.recordshop.data.spring.dao.RecordDao;
 import org.company.recordshop.domain.Artist;
 import org.company.recordshop.domain.Record;
 import org.company.recordshop.domain.RecordTypeEnum;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,6 +21,10 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 
 	@Autowired
 	private ArtistDao artistDao;
+
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
 
 	@Test
 	public void testRetrieve() {
@@ -38,9 +43,9 @@ public class RecordDaoTest extends AbstractDaoTestCase {
 		assertEquals(0, countRowsInTable("Artist_TABLE"));
 		assertEquals(0, countRowsInTable("Record_Artist"));
 		Record record = new Record("Abbey Road", 25.50F, RecordTypeEnum.BLUERAY);
-		Artist john = new Artist("John", "Lennon",
+		Artist john = new Artist("John", "Lennon", date(), 
 				"singer/guitarist/songwriter");
-		Artist paul = new Artist("Paul", "McCartney", "singer/bass/songwriter");
+		Artist paul = new Artist("Paul", "McCartney", date(), "singer/bass/songwriter");
 		artistDao.add(john);
 		artistDao.add(paul);
 

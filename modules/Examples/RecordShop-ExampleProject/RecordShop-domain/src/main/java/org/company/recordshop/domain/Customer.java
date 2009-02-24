@@ -1,7 +1,13 @@
 /**
- * Extension Point initial generated at: Thu Jul 03 22:38:37 CEST 2008
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 10:57:25 CET 2009
  */
 package org.company.recordshop.domain;
+
+import org.joda.time.DateTime;
+
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 
 /**
  * A Customer represents a Person who orders from the RecordShop.
@@ -19,12 +25,14 @@ public class Customer extends CustomerImplBase {
 
 	/**
 	 * Minimal constructor for Customer
-	 * @param firstName (string) First name of the person.
-	 * @param lastName (string) Last name of the person.
-	 * @param customerNr (integer) 
+	 * @param firstName (String) First name of the person.
+	 * @param lastName (String) Last name of the person.
+	 * @param birthDate (DateTime) 
+	 * @param customerNr (int) 
 	 */
-	public Customer(String firstName, String lastName, int customerNr) {
-		super(firstName, lastName, customerNr);
+	public Customer(String firstName, String lastName, DateTime birthDate,
+			int customerNr) {
+		super(firstName, lastName, birthDate, customerNr);
 	}
 
 }

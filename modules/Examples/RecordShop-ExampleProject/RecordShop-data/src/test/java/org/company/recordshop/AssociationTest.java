@@ -25,6 +25,7 @@ import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.Product;
 import org.company.recordshop.domain.Record;
 import org.company.recordshop.domain.RecordTypeEnum;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,8 +66,12 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     private List<Artist> allArtists = new ArrayList<Artist>();
 
-    protected Customer createCustomer(String firstname, String lastName, int custNr) {
-        Customer result = new Customer(firstname, lastName, custNr);
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
+
+	protected Customer createCustomer(String firstname, String lastName, int custNr) {
+        Customer result = new Customer(firstname, lastName, date(), custNr);
         allCustomers.add(result);
         customerDao.add(result);
         return result;
@@ -183,7 +188,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     }
 
     private Artist createArtist(String firstName, String lastName, String artistName) {
-        Artist artist = new Artist(firstName, lastName, artistName);
+        Artist artist = new Artist(firstName, lastName, date(), artistName);
         this.artistDao.add(artist);
         return artist;
     }

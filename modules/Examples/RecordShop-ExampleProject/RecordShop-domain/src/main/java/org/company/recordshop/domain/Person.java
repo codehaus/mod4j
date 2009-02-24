@@ -1,7 +1,9 @@
 /**
- * Extension Point initial generated at: Thu Jul 03 22:38:37 CEST 2008
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 10:53:36 CET 2009
  */
 package org.company.recordshop.domain;
+
+import org.joda.time.DateTime;
 
 /**
  * A Person represents a legal person.
@@ -19,11 +21,12 @@ public class Person extends PersonImplBase {
 
 	/**
 	 * Minimal constructor for Person
-	 * @param firstName (string) First name of the person.
-	 * @param lastName (string) Last name of the person.
+	 * @param firstName (String) First name of the person.
+	 * @param lastName (String) Last name of the person.
+	 * @param birthDate (DateTime) 
 	 */
-	public Person(String firstName, String lastName) {
-		super(firstName, lastName);
+	public Person(String firstName, String lastName, DateTime birthDate) {
+		super(firstName, lastName, birthDate);
 	}
 
 }

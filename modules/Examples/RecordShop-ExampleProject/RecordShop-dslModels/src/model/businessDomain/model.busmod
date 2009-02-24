@@ -13,11 +13,12 @@ Class Person [
     "Last name of the person."  
     string lastName;
     "The age of this person in years"
-    integer age nullable ; 
+    integer age nullable ;      
     "Number of ears (we allow Vulcans in this system)." 
     integer numberOfEars default 2 min 0 max 4; 
     "Gender"    
-    SexeEnum sexe nullable;   
+    SexeEnum sexe nullable;  
+    datetime birthDate ; 
 
     Rules [ 
         "The combination of first- and last name of a person must be unique"

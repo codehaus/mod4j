@@ -9,6 +9,7 @@ import org.company.recordshop.data.spring.dao.RecordDao;
 import org.company.recordshop.domain.Artist;
 import org.company.recordshop.domain.Record;
 import org.company.recordshop.domain.RecordTypeEnum;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class ManyToManyAssociationTest extends AbstractDaoTestCase {
 
 	Artist artist1, artist2, artist3;
 
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
+
 	@Before
 	public void setUp() throws Exception {
 		record1 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
@@ -34,9 +39,9 @@ public class ManyToManyAssociationTest extends AbstractDaoTestCase {
 		recordDao.add(record2);
 		recordDao.add(record3);
 
-		artist1 = new Artist("A1", "L1", "A1");
-		artist2 = new Artist("A2", "L2", "A2");
-		artist3 = new Artist("A3", "L3", "A3");
+		artist1 = new Artist("A1", "L1", date(), "A1");
+		artist2 = new Artist("A2", "L2", date(), "A2");
+		artist3 = new Artist("A3", "L3", date(), "A3");
 		artistDao.add(artist1);
 		artistDao.add(artist2);
 		artistDao.add(artist3);

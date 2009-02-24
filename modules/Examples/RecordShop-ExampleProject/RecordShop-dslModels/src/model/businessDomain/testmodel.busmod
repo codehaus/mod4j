@@ -22,7 +22,7 @@ Class One2ManyFrom [
 "This class has no meaning in the recordshop application. Its purpose is to test
  ordered one-to-many associations"
 Class One2ManyOrderedTo [
-    string property;
+    string property; 
 ]
 
 "This class has no meaning in the recordshop application. Its purpose is to test

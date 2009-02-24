@@ -16,6 +16,7 @@ import org.company.recordshop.domain.CustomerExample;
 import org.company.recordshop.domain.Order;
 import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.SexeEnum;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
@@ -35,12 +36,16 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Autowired
     private CustomerDao customerDao;
 
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
+
     /**
      * Test method for {@link CustomerDao#retrieve(int)}.
      */
     @Test
     public void testRetrieve() {
-        Customer customer = new Customer("Vincent", "Van Gogh", 1);
+        Customer customer = new Customer("Vincent", "Van Gogh", date(), 1);
         customer.setDiscountPercentage(50);
         customer.setNumberOfEars(1);
         customerDao.add(customer);
@@ -64,7 +69,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testAdd() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer customer = new Customer("Johannes", "Vermeer", 222);
+        Customer customer = new Customer("Johannes", "Vermeer", date(), 222);
         customerDao.add(customer);
         flush();
 
@@ -78,7 +83,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testUpdate() {
-        Customer customer = new Customer("Vincent", "van Gogh", 1);
+        Customer customer = new Customer("Vincent", "van Gogh", date(), 1);
         customer.setCustomerNr(1);
         customerDao.add(customer);
         Customer saved = null;
@@ -116,12 +121,12 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     @Test
     public void testDelete() {
         assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        Customer rembrandt = customerDao.add(new Customer("Rembrandt", "van Rijn", 3));
-        Customer saskia = customerDao.add(new Customer("Saskia", "van Rijn", 4));
-        Customer potter = customerDao.add(new Customer("Paulus", "Potter", 5));
+        Customer rembrandt = customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
+        Customer saskia = customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
+        Customer potter = customerDao.add(new Customer("Paulus", "Potter", date(), 5));
         flush();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        customerDao.delete(new Customer("Piet", "Paaltjens", 6));
+        customerDao.delete(new Customer("Piet", "Paaltjens", date(), 6));
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
         customerDao.delete(customerDao.retrieve(rembrandt.getId()));
         flush();
@@ -139,9 +144,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      */
     @Test
     public void testListAllCustomers() {
-        customerDao.add(new Customer("Rembrandt", "van Rijn", 3));
-        customerDao.add(new Customer("Saskia", "van Rijn", 4));
-        customerDao.add(new Customer("Paulus", "Potter", 5));
+        customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
+        customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
+        customerDao.add(new Customer("Paulus", "Potter", date(), 5));
         flush();
         clear();
         assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
@@ -166,7 +171,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
      * re-enable this test. @Test
      */
     public void testAddWithOrders() {
-        Customer customer = new Customer("Johannes", "Vermeer", 2);
+        Customer customer = new Customer("Johannes", "Vermeer", date(), 2);
 
         Order order = new Order("AA111");
         order.addToOrderLines(new OrderLine(1, "verf", 30));
@@ -203,9 +208,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
 
     @Test
     public void testFindByExample() {
-        customerDao.add(new Customer("Rembrandt", "van Rijn", 3));
-        customerDao.add(new Customer("Saskia", "van Rijn", 4));
-        Customer paulus = new Customer("Paulus", "Potter", 5);
+        customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
+        customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
+        Customer paulus = new Customer("Paulus", "Potter", date(), 5);
         paulus.setBlackListed(true);
         customerDao.add(paulus);
         flush();

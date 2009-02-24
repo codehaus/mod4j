@@ -1,7 +1,25 @@
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Mon Feb 02 20:47:53 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 10:57:25 CET 2009
  */
 package org.company.recordshop.domain;
+
+import java.util.Collections;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
+import org.mod4j.runtime.validation.MinValueValidator;
+import org.mod4j.runtime.validation.MaxValueValidator;
+import org.mod4j.runtime.validation.MinLengthValidator;
+import org.mod4j.runtime.validation.MaxLengthValidator;
+import org.mod4j.runtime.validation.NotNullValidator;
+import org.mod4j.runtime.validation.RegExpValidator;
+
+import org.joda.time.DateTime;
+
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * An artist is a Person who has had a role in producing a Record
@@ -19,12 +37,14 @@ public class Artist extends ArtistImplBase {
 
 	/**
 	 * Minimal constructor for Artist
-	 * @param firstName (string) First name of the person.
-	 * @param lastName (string) Last name of the person.
-	 * @param artistName (string) 
+	 * @param firstName (String) First name of the person.
+	 * @param lastName (String) Last name of the person.
+	 * @param birthDate (DateTime) 
+	 * @param artistName (String) 
 	 */
-	public Artist(String firstName, String lastName, String artistName) {
-		super(firstName, lastName, artistName);
+	public Artist(String firstName, String lastName, DateTime birthDate,
+			String artistName) {
+		super(firstName, lastName, birthDate, artistName);
 	}
 
 }

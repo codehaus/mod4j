@@ -10,6 +10,7 @@ import java.util.List;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.CustomerExample;
 import org.hibernate.SessionFactory;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.access.BeanFactoryLocator;
@@ -41,6 +42,9 @@ public class CustomerServiceModelDomainServiceImplTest extends AbstractTransacti
     @Autowired
     protected SessionFactory sessionFactory;
 
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
     /**
      * Test method for
      * {@link org.company.recordshop.business.CustomerServiceModelDomainServiceImpl#findCustomersByExample(org.company.recordshop.domain.CustomerExample)}
@@ -48,9 +52,9 @@ public class CustomerServiceModelDomainServiceImplTest extends AbstractTransacti
      */
     @Test
     public void testFindCustomersByExample() {
-        service.createCustomer(new Customer("Johan", "Vogelzang", 1));
-        service.createCustomer(new Customer("Jos", "Warmer", 2));
-        service.createCustomer(new Customer("Eric Jan", "Malotaux", 3));
+        service.createCustomer(new Customer("Johan", "Vogelzang", date(), 1));
+        service.createCustomer(new Customer("Jos", "Warmer", date(), 2));
+        service.createCustomer(new Customer("Eric Jan", "Malotaux", date(), 3));
         sessionFactory.getCurrentSession().flush();
         sessionFactory.getCurrentSession().clear();
         assertEquals(3, countRowsInTable("Customer_TABLE"));

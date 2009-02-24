@@ -14,17 +14,21 @@ import org.mod4j.runtime.exception.BusinessRuleException;
  */
 public class OneEarDiscountBusinessRuleValidationTest {
 
-    /**
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
+
+	/**
      * Test method for {@link OneEarDiscount}. According to the oneEarDiscount BusinessRule, a
      * Customer with one ear must have a discountPercentage of 50.
      */
     @Test
     public void testOneEarDiscountSucceed() {
         
-        Customer johannes = new Customer("Johannes", "Vermeer", 1);
+        Customer johannes = new Customer("Johannes", "Vermeer", date(), 1);
         johannes.setDiscountPercentage(0);
         johannes.setNumberOfEars(2);
-        Customer vincent = new Customer("Vincent", "Van Gogh", 1);
+        Customer vincent = new Customer("Vincent", "Van Gogh", date(), 1);
         vincent.setDiscountPercentage(50);
         vincent.setNumberOfEars(1);
         assertEquals(0, johannes.getDiscountPercentage());
@@ -34,7 +38,7 @@ public class OneEarDiscountBusinessRuleValidationTest {
     @Test
     public void testOneEarDiscountFail() {
         
-        Customer customer = new Customer("Vincent", "Van Gogh", 1);
+        Customer customer = new Customer("Vincent", "Van Gogh", date(), 1);
                
         try {
             customer.setDiscountPercentage(0);

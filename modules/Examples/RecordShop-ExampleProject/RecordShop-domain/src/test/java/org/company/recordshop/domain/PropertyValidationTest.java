@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
 import org.springframework.validation.Errors;
@@ -13,6 +14,9 @@ import org.springframework.validation.Errors;
  */
 public class PropertyValidationTest {
 
+	private DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
     /**
      * Test method for {@link Customer#setNumberOfEars(int)}. According to the RecordShop business domain model, a
      * Person can have 0,1,2,3 or 4 ears (min 0 max 4). A BusinessRuleException must be thrown if we try set a value
@@ -20,7 +24,7 @@ public class PropertyValidationTest {
      */
     @Test
     public void testIntegerPropertyMaxValueValidation() {
-        Customer customer = new Customer("Vincent", "Van Gogh", 1);
+        Customer customer = new Customer("Vincent", "Van Gogh", date(), 1);
         try {
             customer.setNumberOfEars(4);
             customer.setNumberOfEars(5);
@@ -37,7 +41,7 @@ public class PropertyValidationTest {
      */
     @Test
     public void testIntegerPropertyMinValueValidation() {
-        Customer customer = new Customer("Vincent", "Van Gogh", 1);
+        Customer customer = new Customer("Vincent", "Van Gogh", date(),1);
         try {
             customer.setNumberOfEars(0);
             customer.setNumberOfEars(-1);
@@ -54,7 +58,7 @@ public class PropertyValidationTest {
      */
     @Test
     public void testStringPropertyMaxLengthValueValidation() {
-        Customer customer = new Customer("Herman", "Bread", 2);
+        Customer customer = new Customer("Herman", "Bread", date(),2);
         try {
             customer.setUsername("hermanbrea");
             customer.setUsername("hermanbread");
@@ -71,7 +75,7 @@ public class PropertyValidationTest {
      */
     @Test
     public void testStringPropertyMinLengthValueValidation() {
-        Customer customer = new Customer("Herman", "Bread", 2);
+        Customer customer = new Customer("Herman", "Bread", date(),2);
         try {
             customer.setUsername("her");
             customer.setUsername("he");
@@ -88,7 +92,7 @@ public class PropertyValidationTest {
      */
     @Test
     public void testStringPropertyRegExpValidation() {
-        Customer customer = new Customer("Jhonny", "Mailer", 2);
+        Customer customer = new Customer("Jhonny", "Mailer", date(),2);
         try {
             customer.setEmailAddress("jhonny.mailler@company.com");
             customer.setEmailAddress("jhonny@notavalidemailaddress");

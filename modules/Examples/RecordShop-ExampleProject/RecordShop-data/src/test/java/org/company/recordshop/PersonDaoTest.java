@@ -14,6 +14,7 @@ import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Person;
 import org.company.recordshop.domain.SexeEnum;
 import org.hibernate.exception.ConstraintViolationException;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
@@ -26,9 +27,13 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 	@Autowired
 	private PersonDao personDao;
 
+	protected DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
+
 	@Test
 	public void testRetrieve() {
-		Person person = new Person("Johannes", "Vermeer");
+		Person person = new Person("Johannes", "Vermeer", date());
 		personDao.add(person);
 		flush();
 		assertEquals("Johannes", simpleJdbcTemplate.queryForObject(
@@ -49,7 +54,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 	public void testAdd() {
 		assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Person_TABLE"));
-		Person pers = new Person("Johannes", "Vermeer");
+		Person pers = new Person("Johannes", "Vermeer", date());
 		personDao.add(pers);
 		flush();
 		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
@@ -66,7 +71,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 	public void testDelete() {
 		assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Person_TABLE"));
-		Person person = new Person("Rembrandt", "van Rhijn");
+		Person person = new Person("Rembrandt", "van Rhijn", date());
 		personDao.add(person);
 		flush();
 		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
@@ -83,7 +88,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 	 */
 	@Test
 	public void testUpdate() {
-		Person person = new Person("Rembrandt", "van Rhijn");
+		Person person = new Person("Rembrandt", "van Rhijn", date());
 		personDao.add(person);
 		flush();
 		Person saved = personDao.retrieve(person.getId());
@@ -105,7 +110,7 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testVersion() {
-		Person person = new Person("Rembrandt", "van Rhijn");
+		Person person = new Person("Rembrandt", "van Rhijn", date());
 		personDao.add(person);
 		assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Person_TABLE"));
@@ -135,9 +140,9 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testPolymorphism() {
-		Person person = new Person("Rembrandt", "van Rhijn");
+		Person person = new Person("Rembrandt", "van Rhijn", date());
 		personDao.add(person);
-		Customer customer = new Customer("Simon", "de Wit", 1);
+		Customer customer = new Customer("Simon", "de Wit", date(), 1);
 		personDao.add(customer);
 		assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Person_TABLE"));
@@ -158,8 +163,8 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 
 	@Test
 	public void testUniqueConstraint() {
-		personDao.add(new Person("Klaas", "Vaak"));
-		personDao.add(new Person("Klaas", "Vaak"));
+		personDao.add(new Person("Klaas", "Vaak", date()));
+		personDao.add(new Person("Klaas", "Vaak", date()));
 		try {
 			flush();
 			fail("Expected ConstraintViolationException");

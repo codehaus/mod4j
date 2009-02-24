@@ -2,6 +2,7 @@ package org.company.recordshop.domain;
 
 import static org.junit.Assert.*;
 
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,15 +12,19 @@ public class ManyToManyAssociationTest {
 
     Artist artist1, artist2, artist3;
 
+	private DateTime date() {
+		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+	}
+
     @Before
     public void setUp() throws Exception {
         record1 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
         record2 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
         record3 = new Record("1234", 24.95F, RecordTypeEnum.BLUERAY);
 
-        artist1 = new Artist("A1", "L1", "A1");
-        artist2 = new Artist("A2", "L2", "A2");
-        artist3 = new Artist("A3", "L3", "A3");
+        artist1 = new Artist("A1", "L1", date(), "A1");
+        artist2 = new Artist("A2", "L2", date(), "A2");
+        artist3 = new Artist("A3", "L3", date(), "A3");
     }
 
     @Test

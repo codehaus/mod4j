@@ -8,6 +8,7 @@ import org.company.recordshop.domain.Order;
 import org.company.recordshop.service.dto.OrderNumberAndDateDto;
 import org.company.recordshop.service.dto.SexeEnumDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
+import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.TranslatorException;
@@ -70,7 +71,7 @@ public class SimpleCustomerDtoTranslatorTest {
     @Test
     public void testToDtoBiderectionalSucceed() {
 
-        Customer cust = new Customer("Herman", "Bread", 4321);
+        Customer cust = new Customer("Herman", "Bread", new DateTime(2009, 11, 6, 0, 0, 0, 0), 4321);
         Order order = new Order("1111");
         cust.addToOrders(order);
 
