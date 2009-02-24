@@ -1,43 +1,42 @@
-BusinessDomain TestDomainModel
-
-
-"This class has no meaning in the recordshop application. Its purpose is to test
- uni-directional many-to-many associations"
-Class Many2ManyFrom [
-    string property;
-]
+domain TestDomainModel ;
 
 "This class has no meaning in the recordshop application. Its purpose is to test
  uni-directional many-to-many associations"
-Class Many2ManyTo [
+class Many2ManyFrom [
     string property;
 ]
 
 "This class has no meaning in the recordshop application. Its purpose is to test
- ordered one-to-many associations"
-Class One2ManyFrom [
-    string property;
-]
-
-"This class has no meaning in the recordshop application. Its purpose is to test
- ordered one-to-many associations"
-Class One2ManyOrderedTo [
+ uni-directional many-to-many associations"
+class Many2ManyTo [
     string property; 
 ]
 
 "This class has no meaning in the recordshop application. Its purpose is to test
  ordered one-to-many associations"
-Class Many2ManyOrderedTo [
+class One2ManyFrom [
+    string property;
+]
+
+"This class has no meaning in the recordshop application. Its purpose is to test
+ ordered one-to-many associations"
+class One2ManyOrderedTo [
+    string property; 
+]
+
+"This class has no meaning in the recordshop application. Its purpose is to test
+ ordered one-to-many associations"
+class Many2ManyOrderedTo [
     string property;
 ]
 
 "This Association has no meaning in the recordshop application. Its purpose is to test
  uni-directional many-to-many associations"
-Association fromEnd Many2ManyFrom [ 0..* ] -> [ 0..* ] toEnd Many2ManyTo;
+association Many2ManyFrom fromEnd  many  -> many  Many2ManyTo toEnd ;
 
 "This Association has no meaning in the recordshop application. Its purpose is to test
  uni-directional many-to-many associations"
-Association source One2ManyFrom [ 1 ] -> [ 0..* ] ordered target One2ManyOrderedTo;
-Association source One2ManyFrom [ 1 ] <-> [ 0..* ] ordered targetBiDirectional One2ManyOrderedTo;
-Association many2manySource Many2ManyFrom [ 0..* ] -> [ 0..* ] ordered target Many2ManyOrderedTo; 
-Association many2manySource Many2ManyFrom [ 0..* ] <-> [ 0..* ] ordered targetBiDirectional Many2ManyOrderedTo; 
+association One2ManyFrom source  one  -> many  One2ManyOrderedTo  target ordered ;
+association One2ManyFrom source one  <-> many  One2ManyOrderedTo targetBiDirectional ordered ;
+association Many2ManyFrom many2manySource many  -> many  Many2ManyOrderedTo target ordered ; 
+association Many2ManyFrom many2manySource many  <-> many  Many2ManyOrderedTo targetBiDirectional ordered ; 

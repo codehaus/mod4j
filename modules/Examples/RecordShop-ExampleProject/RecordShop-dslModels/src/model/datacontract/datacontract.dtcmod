@@ -1,23 +1,23 @@
 "The RecordShop data contract."
-DataContract RecordShopDataContract   
+datacontract RecordShopDataContract  ; 
   
-from RecordShopDomainModel import Customer 
-from RecordShopDomainModel import Artist
-from RecordShopDomainModel import Order
-from RecordShopDomainModel import Record 
-from RecordShopDomainModel import OrderLine
-from RecordShopDomainModel import SexeEnum
-from RecordShopDomainModel import RecordTypeEnum 
+from RecordShopDomainModel import Customer ;
+from RecordShopDomainModel import Artist;
+from RecordShopDomainModel import Order;
+from RecordShopDomainModel import Record ;
+from RecordShopDomainModel import OrderLine;
+from RecordShopDomainModel import SexeEnum;
+from RecordShopDomainModel import RecordTypeEnum ;
   
     /*    
      * BusinessClass transfer objects 
      */
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
-	BusinessClassDto FullCustomerDto base Customer 
+	class FullCustomerDto represents Customer 
 
     "A simple Customer transfer object with a subset of Customer attributes."
-	BusinessClassDto SimpleCustomerDto base Customer [  
+	class SimpleCustomerDto represents Customer [  
 	     customerNr; 
 	     lastName; 
 	     firstName;
@@ -31,7 +31,7 @@ from RecordShopDomainModel import RecordTypeEnum
 	]  
 	
 	"Simple Order transfer object."
-	BusinessClassDto OrderNumberAndDateDto base Order [
+	class OrderNumberAndDateDto represents Order [
 	     orderNumber;  
 	     orderDate;
 	     references [
@@ -41,28 +41,28 @@ from RecordShopDomainModel import RecordTypeEnum
 	]
 	
 	"Full Order transfer object, containing all the Order attributes (no associations)"
-	BusinessClassDto OrderDto base Order 
+	class OrderDto represents Order 
 	
 	"Full OrderLine transfer object, containing all the OrderLine attributes (no associations)"
-	BusinessClassDto OrderLineDto base OrderLine
+	class OrderLineDto represents OrderLine
 	
 	"The Artist transfer object."  
-	BusinessClassDto ArtistDto base Artist [ 
+	class ArtistDto represents Artist [ 
 	     firstName ;
 	     lastName ; 
 	     age;
 		 artistName ;
 	]
 
-    BusinessClassDto FullRecordDto base Record
+    class FullRecordDto represents Record
     
-    BusinessClassDto SimpleRecordDto base Record [
+    class SimpleRecordDto represents Record [
         asin;
         price; 
         type;
     ]
 
-	BusinessClassDto OrderlineWithRecordRefsDto base OrderLine [
+	class OrderlineWithRecordRefsDto represents OrderLine [
 	    lineNumber;
 	    description;
 	    lineAmount;
@@ -75,28 +75,28 @@ from RecordShopDomainModel import RecordTypeEnum
      * Lists of transfer objects 
      */
 	"List of SimpleCustomerDto's."
-	ListDto SimpleCustomerList base SimpleCustomerDto 
+	list SimpleCustomerList contains  SimpleCustomerDto 
 	"List of OrdersNumberAndDateDto's."
-	ListDto OrderNumberAndDateList base OrderNumberAndDateDto
-	ListDto OrderList base OrderDto
+	list OrderNumberAndDateList contains  OrderNumberAndDateDto
+	list OrderList contains  OrderDto
 	
 	/*
 	 * Custom transfer objects
 	 */
 	"String transfer object."
-	CustomDto StringDto [ 
+	custom StringDto [ 
 	    "A string attribute"
 	    string stringAttribute;
 	]
 	
 	"Date transfer object."
-	CustomDto DateDto [   
+	custom DateDto [   
 	    "date"  
 	    datetime date;
 	]
 	
 	"Customer unique key."
-	CustomDto UniqueCustomerDto [ 
+	custom UniqueCustomerDto [ 
 	    "firstName"
 	    string firstName;
 	    "lastName"
@@ -106,7 +106,7 @@ from RecordShopDomainModel import RecordTypeEnum
     /* 
      * Enumeration Dto's
      */
-	EnumerationDto sexeEnumDto base SexeEnum
-	EnumerationDto RecordTypeEnumDto base RecordTypeEnum 
-	EnumerationDto lowerRecordTypeEnumDto base RecordTypeEnum 
+	enumeration sexeEnumDto represents  SexeEnum
+	enumeration RecordTypeEnumDto represents RecordTypeEnum 
+	enumeration lowerRecordTypeEnumDto represents RecordTypeEnum  
 	

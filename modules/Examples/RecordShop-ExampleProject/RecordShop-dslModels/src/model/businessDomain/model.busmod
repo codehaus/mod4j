@@ -1,12 +1,12 @@
 "The RecordShop BusinessDomain model"
-BusinessDomain RecordShopDomainModel
+domain RecordShopDomainModel ;
  
 /*
- * Remarks...   
- */ 
+ * Remarks...     
+ */  
  
 "A Person represents a legal person."
-Class Person [
+class Person [
 
     "First name of the person."  
     string firstName ;
@@ -20,14 +20,14 @@ Class Person [
     SexeEnum sexe nullable;  
     datetime birthDate ; 
 
-    Rules [ 
+    rules [ 
         "The combination of first- and last name of a person must be unique"
-        unique fullName [firstName lastName]
+        unique fullName [firstName, lastName]
     ]
 ]
 
 "A Customer represents a Person who orders from the RecordShop."
-Class Customer inherits Person [
+class Customer inherits Person [
     
     integer customerNr;
     string username minlength 3 maxlength 10 nullable ;
@@ -35,7 +35,7 @@ Class Customer inherits Person [
     boolean blackListed default false nullable;
     integer discountPercentage default 0 min 0 max 100 ;
     
-    Rules [
+    rules [
         "The customerNr must be unique"
         unique uniqueCustomerNr [customerNr] 
         
@@ -47,13 +47,13 @@ Class Customer inherits Person [
 ]
 
 "An artist is a Person who has had a role in producing a Record"
-Class Artist inherits Person [
+class Artist inherits Person [
     string artistName;
     string biography maxlength 32000 nullable;
 ]
 
 "A Record is a representation of a physical medium containing one or more musical compositions."
-Class Record [
+class Record [
 
     string asin;
     string title default "Title unknown";
@@ -63,7 +63,7 @@ Class Record [
 ]
 
 "An Order represents the agreement between a Customer and the RecordShop about one or more purchased Records."
-Class Order [
+class Order [ 
 
 	"A number to identify the Order"
     string orderNumber;  
@@ -74,7 +74,7 @@ Class Order [
     "The total amount of the Order"
     decimal totalAmount nullable ; 
     
-    Rules [
+    rules [
         "The orderNumber of a Order must be unique "
         unique uniqueOrderNumber [orderNumber]
           
@@ -83,27 +83,27 @@ Class Order [
     ]
 ]
 
-Class OrderLine [ 
+class OrderLine [ 
 
     integer lineNumber min 01 max 50 ;
     string description;
     decimal lineAmount;
 ]
 
-Class Product [
+class Product [
 
 	string productNumnber;
 	integer price;
 ]
 
 "Sexe enumeration."
-Enumeration SexeEnum [
+enumeration SexeEnum [
 
     female = 2;
     male = 3;
 ]
 
-Enumeration RecordTypeEnum [
+enumeration RecordTypeEnum [
     LP = 2;
     CD = 3;
     DVD = 4;
@@ -111,22 +111,22 @@ Enumeration RecordTypeEnum [
 ]
  
 "One 2 Many bidirectional: A customer has a number of orders." 
-Association customer Customer [ 0..1 ] <-> [ 0..* ] orders Order;
+association Customer customer one  <-> many Order orders ;
 
 "One 2 Many unidirectional: An order consists of orderLines."
-Association order Order [ 0..1 ] -> [ 0..* ] orderLines OrderLine;
+association Order order one  -> many  OrderLine orderLines ;
 
 "One 2 One bidirectional: An orderLine contains a record."
-Association orderLine OrderLine [ 0..1 ] <-> [ 1 ] record Record;
+association OrderLine orderLine one  <-> one  Record  record ;
 
 "Many to One bidirectional: A record is sold as a product."
-Association record Record [ 0..* ] <-> [ 0..1 ] product Product;
+association Record  record many  <-> one  Product product ;
 
 "Many to Many bidirectional: A records have been made by zero or more contributors."
-Association records Record [ 0..* ] <-> [ 0..* ] contributors Artist;
+association Record records many  <-> many  Artist contributors ;
 
 "Many to Many unidirectional: A product has been bought by zero or more buyers."
-Association product Product [ 0..* ] -> [ 0..* ] buyers Customer ;
-
+association Product product many  -> many  Customer buyers ;
+ 
 "Tests"
-Association person Person [ 0..1 ] -> [ 0..1 ] relatedTo Artist;
+association Person person one  -> many  Artist relatedTo ; 
