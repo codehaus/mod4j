@@ -1,5 +1,5 @@
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Sun Feb 08 21:49:20 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 16:48:48 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -19,8 +19,8 @@ public class Record extends RecordImplBase {
 
 	/**
 	 * Minimal constructor for Record
-	 * @param asin (string) 
-	 * @param price (decimal) 
+	 * @param asin (String) 
+	 * @param price (float) 
 	 * @param type (RecordTypeEnum) 
 	 */
 	public Record(String asin, float price, RecordTypeEnum type) {

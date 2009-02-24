@@ -89,7 +89,7 @@
                                     
                   «IF this.creatable -»
                       if (target == null) {
-                          if (source.getId() > 0) {
+                          if (source.getId() != null) {
                               throw new TranslatorException("Can not translate a dto with existng id to a new businessclass object.");
                           }
                           target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
@@ -98,7 +98,7 @@
                       if (target == null ) {
                           throw new TranslatorException("Argument target is null! Translation of this source dto must be based on a existing target businessclass.");
                       }
-                      if (source.getId() != target.getId()) {
+                      if ((source.getId() == null) || (source.getId().equals(target.getId()) == false)) {
                           throw new TranslatorException("Can not translate a dto to a businessclass object when the id of the dto differs from the businessclass id.");
                       }
                   «ENDIF» 

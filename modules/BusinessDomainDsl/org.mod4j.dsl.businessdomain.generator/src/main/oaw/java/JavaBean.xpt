@@ -78,6 +78,7 @@
                 «EXPAND ValidationSupport::addValidationInstance FOR this»
                 «EXPAND Attributes::addIdAttribute FOR this»	
                 «EXPAND Attributes::addIdAccessors FOR this»
+                «EXPAND StandardOverrides::addEqualsMethod FOR this»
             «ENDIF»
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»

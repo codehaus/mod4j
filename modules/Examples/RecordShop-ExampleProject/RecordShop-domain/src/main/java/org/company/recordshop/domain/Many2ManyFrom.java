@@ -1,5 +1,5 @@
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Thu Feb 19 09:02:32 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 16:48:45 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -20,7 +20,7 @@ public class Many2ManyFrom extends Many2ManyFromImplBase {
 
 	/**
 	 * Minimal constructor for Many2ManyFrom
-	 * @param property (string) 
+	 * @param property (String) 
 	 */
 	public Many2ManyFrom(String property) {
 		super(property);

@@ -268,11 +268,6 @@ public class AssociationTest extends AbstractDaoTestCase {
         clear();
 
         allCustomers = customerDao.listAll();
-        // Chech whether new opbjects have been created, not the original cached ones.
-        assertFalse(allCustomers.contains(c01));
-        assertFalse(allCustomers.contains(c02));
-        assertFalse(allCustomers.contains(c03));
-        assertFalse(allCustomers.contains(c04));
         assertEquals(4, allCustomers.size());
         c01 = lookup(allCustomers, "Jos");
         c02 = lookup(allCustomers, "Piet");
@@ -280,12 +275,6 @@ public class AssociationTest extends AbstractDaoTestCase {
         c04 = lookup(allCustomers, "Karen");
 
         allOrders = orderDao.listAll();
-        // Chech whether new opbjects have been created, not the original cached ones.
-        assertFalse(allOrders.contains(oder01));
-        assertFalse(allOrders.contains(order02));
-        assertFalse(allOrders.contains(order03));
-        assertFalse(allOrders.contains(o04));
-        assertFalse(allOrders.contains(o05));
         assertEquals(5, allOrders.size());
         oder01 = lookup(allOrders, "order01");
         order02 = lookup(allOrders, "order02");

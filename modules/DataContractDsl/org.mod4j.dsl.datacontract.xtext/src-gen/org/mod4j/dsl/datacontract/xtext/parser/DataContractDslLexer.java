@@ -1,4 +1,4 @@
-// $ANTLR 3.0 ..//org.mod4j.dsl.datacontract.xtext/src-gen//org/mod4j/dsl/datacontract/xtext/parser/DataContractDsl.g 2009-02-24 16:21:40
+// $ANTLR 3.0 ..//org.mod4j.dsl.datacontract.xtext/src-gen//org/mod4j/dsl/datacontract/xtext/parser/DataContractDsl.g 2009-02-24 17:07:23
 
 package org.mod4j.dsl.datacontract.xtext.parser;
 

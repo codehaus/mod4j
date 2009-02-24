@@ -125,7 +125,11 @@
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object) {
     
         «javaDomainClass(dto.businessClass())» result = null;
-        result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+        try {
+            result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+        } catch (IllegalArgumentException e) {
+            throw new ServiceException("Can not update «businessClass(this.dto)» for «JavaType(this.dto)»", e);
+        }
         if (result == null) throw new ServiceException("Can not update «businessClass(this.dto)» for «JavaType(this.dto)», because the corresponding «businessClass(this.dto)» does not exist.");
         
         result = the«javaTranslatorClass(dto.name)».fromDto(object, result);
@@ -143,7 +147,12 @@
     public void «this.name»(«JavaType(this.dto)» object){
 		
 		if (object == null) throw new ServiceException("Could not delete «this.dto.name» based on a null «JavaType(this.dto)»");
-		«javaDomainClass(dto.businessClass())» existing = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+		«javaDomainClass(dto.businessClass())» existing = null;
+		try {
+    		existing = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+    	} catch (IllegalArgumentException e) {
+    	    throw new ServiceException("Could not delete «this.dto.name»", e);
+    	}
 		if (existing == null) {
             throw new ServiceException("Could not delete «this.dto.name» because it does not exist.");
         }

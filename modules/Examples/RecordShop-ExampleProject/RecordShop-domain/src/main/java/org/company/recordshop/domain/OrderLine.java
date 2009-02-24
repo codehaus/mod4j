@@ -1,5 +1,5 @@
 /**
- * Extension Point initial generated at: Thu Jul 03 22:38:37 CEST 2008
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 16:48:48 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -19,9 +19,9 @@ public class OrderLine extends OrderLineImplBase {
 
 	/**
 	 * Minimal constructor for OrderLine
-	 * @param lineNumber (integer) 
-	 * @param description (string) 
-	 * @param lineAmount (decimal) 
+	 * @param lineNumber (int) 
+	 * @param description (String) 
+	 * @param lineAmount (float) 
 	 */
 	public OrderLine(int lineNumber, String description, float lineAmount) {
 		super(lineNumber, description, lineAmount);

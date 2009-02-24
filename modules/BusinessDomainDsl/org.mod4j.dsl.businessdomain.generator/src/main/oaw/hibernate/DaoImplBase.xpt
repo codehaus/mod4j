@@ -45,8 +45,8 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  */
 public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport implements «javaDaoBaseInterface(this.name)» {
 
-    public «javaDomainClass(this.name)» retrieve(long id) {
-        Object o = getHibernateTemplate().get(«javaDomainClass(this.name)».class, new Long(id));
+    public «javaDomainClass(this.name)» retrieve(Long id) {
+        Object o = getHibernateTemplate().get(«javaDomainClass(this.name)».class, id);
         if (o == null) {
             return null;
         }

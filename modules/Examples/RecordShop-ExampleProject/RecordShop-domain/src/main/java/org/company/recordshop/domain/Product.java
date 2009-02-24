@@ -1,5 +1,5 @@
 /**
- * Extension Point initial generated at: Thu Jul 03 22:38:37 CEST 2008
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 16:48:48 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -19,8 +19,8 @@ public class Product extends ProductImplBase {
 
 	/**
 	 * Minimal constructor for Product
-	 * @param productNumnber (string) 
-	 * @param price (integer) 
+	 * @param productNumnber (String) 
+	 * @param price (int) 
 	 */
 	public Product(String productNumnber, int price) {
 		super(productNumnber, price);

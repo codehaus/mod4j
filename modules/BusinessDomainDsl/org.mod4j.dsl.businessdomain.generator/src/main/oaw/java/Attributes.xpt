@@ -142,7 +142,7 @@
     /**
      *  id: The identifier of this object.
      */
-     private long id;
+     private Long id;
      
      @SuppressWarnings("unused")
      private int version = -1;

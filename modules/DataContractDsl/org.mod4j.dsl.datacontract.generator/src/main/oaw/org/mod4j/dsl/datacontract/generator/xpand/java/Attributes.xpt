@@ -56,7 +56,7 @@
     /**
      *  id: The identifier of this object.
      */
-     private long id;
+     private Long id;
 «ENDDEFINE»
 
 «DEFINE addIdAccessors FOR Dto»

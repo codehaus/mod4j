@@ -1,5 +1,5 @@
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Thu Feb 19 13:22:59 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 16:48:45 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -20,7 +20,7 @@ public class Many2ManyOrderedTo extends Many2ManyOrderedToImplBase {
 
 	/**
 	 * Minimal constructor for Many2ManyOrderedTo
-	 * @param property (string) 
+	 * @param property (String) 
 	 */
 	public Many2ManyOrderedTo(String property) {
 		super(property);
