@@ -27,10 +27,6 @@ FontStyle fontstyle(String keyword, BusinessDomainDsl::ModelElement ctx):
 	createFontStyle(true, false, false, false,
 	            createColor(0, 100, 0), createColor(255, 255, 255) );
 
-FontStyle fontstyle(String keyword, BusinessDomainDsl::InheritanceModifier ctx):
-	createFontStyle(true, false, false, false,
-	            createColor(0, 100, 0), createColor(255, 255, 255) );
-
 FontStyle fontstyle(String keyword, BusinessDomainDsl::Multiplicity ctx):
 	createFontStyle(true, false, false, false,
 	            createColor(0, 100, 0), createColor(255, 255, 255) );
@@ -39,4 +35,4 @@ FontStyle fontstyle(String keyword, BusinessDomainDsl::DateTimeAccuracy ctx):
 	createFontStyle(true, false, false, false,
 	            createColor(0, 100, 0), createColor(255, 255, 255) );
 
-delayContextSensitiveStyling(): 500;
+delayContextSensitiveStyling(): 300;
