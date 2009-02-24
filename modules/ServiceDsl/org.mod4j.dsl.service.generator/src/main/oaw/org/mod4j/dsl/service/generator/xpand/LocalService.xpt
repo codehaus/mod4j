@@ -145,7 +145,6 @@
      * Find method: «description»
      */
     public List<«JavaType(this.dto)»> «this.name»(«JavaType(this.dto)» example);
-//    public List<SimpleCustomerDto> findByExample(SimpleCustomerDto example);
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
