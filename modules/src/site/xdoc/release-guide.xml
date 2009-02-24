@@ -13,10 +13,11 @@
     </properties>
     <body>
         <section name="Mod4j Release Guide">
-            <p> This Release Guide gives instructions to developers of the Mod4j project for releasing a new version of Mod4j.
+            <p> The Release Guide gives instructions to developers of the Mod4j project for releasing a new version of Mod4j.
                 It
-                tells what steps to take for releasing and publishing the developed Eclipse features and plugins (DSL editors)
-                to the Mod4j update site. </p>
+                tells what steps to take for releasing and publishing the developed Eclipse features and plug-ins
+                to the Mod4j
+                update site. </p>
 
             <subsection name="Prerequisites">
                 <p>This section describes which prerequisites to full fill before you can start releasing.</p>
@@ -25,16 +26,15 @@
                         To be able to deploy artifacts to our Maven repository at Codehaus, you'll need to add the following
                         server to your local settings.xml:
                         <br />
-                        <code>
-            <![CDATA[
-              <!-- Remote Codehaus Mod4j repositories -->
-              <server>
-                <id>dav.codehaus.org</id>
-                <username>your Codehaus username</username>
-                <password>your Codehaus password</password>
-              </server>
-            ]]>
-                        </code>
+                        <textarea rows="7" cols="80"><![CDATA[
+ <!-- Mod4j Maven repositories at Codehaus-->
+ <server>
+     <id>dav.codehaus.org</id>
+     <username>your Codehaus username</username>
+     <password>your Codehaus password</password>
+ </server>              ]]>
+                        </textarea>
+                        <br />
                         <br />
                     </li>
                     <li>
@@ -52,16 +52,15 @@
                         need to add the following
                         to your local settings.xml:
                         <br />
-                        <code>
-            <![CDATA[
-              <!-- Mod4j projectsite --> 
-              <server>
-                <id>ftp.mod4j.org</id>
-                <username>mod4j.org</username>
-                <password>The-obtained-password</password>
-              </server>
-            ]]>
-                        </code>
+                        <textarea rows="7" cols="80"><![CDATA[
+ <!-- Mod4j project site --> 
+ <server>
+     <id>ftp.mod4j.org</id>
+     <username>mod4j.org</username>
+     <password>The-obtained-password</password>
+ </server>              ]]>
+                        </textarea>
+                        <br />
                         <br />
                     </li>
                     <li>Svn command-client version 1.5.0. (higher versions lead to errors icw maven-scm-provider)</li>
