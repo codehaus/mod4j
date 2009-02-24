@@ -29,7 +29,6 @@ BusinessClassReference:
 Association:
 	(description=STRING )?
     "Association" 
-//    (composite?="composite")?
     sourceRoleName=ID source=[BusinessClass]
     "[" sourceMultiplicity=Multiplicity "]"
     ((bidirectional?="<->") | ("->"))
@@ -45,7 +44,6 @@ Enum Multiplicity:
 BusinessClass:
 	(description=STRING)?
     "Class" name=ID
-    (inheritanceModifier=InheritanceModifier)?
     ("inherits" superclass=[BusinessClass])?
     "["
         (properties += Property)*
@@ -78,10 +76,6 @@ UniqueRule:
 	   (properties += [Property])+ 
 	"]"
 	;
-
-Enum InheritanceModifier:
-    ABSTRACT="abstract" | FINAL="final"
-    ;
 
 Property:
     (BoolProperty | StringProperty | DateTimeProperty | IntegerProperty |
