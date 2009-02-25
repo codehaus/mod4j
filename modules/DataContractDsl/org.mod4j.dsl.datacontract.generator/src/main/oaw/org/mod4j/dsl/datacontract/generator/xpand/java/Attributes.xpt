@@ -103,18 +103,7 @@
 		return Collections.unmodifiableSet(this.«associationRolName»);
 	}
 
-	/**
-	 * Adds a single element to the «associationRolName» collection
-	 *
-	 * @param element The element to add.
-	 */
-	public void addTo«associationRolName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
-
-		if (element == null || this.«associationRolName».contains(element)) {
-			return;
-		}
-		this.«associationRolName».add(element);
-	}
+    «EXPAND addToCollection(associationRolName) FOR this»
 
 	/**
 	 * Removes a single element from the «associationRolName» collection.
@@ -146,4 +135,19 @@
      public void set«associationRolName.toFirstUpper()» (final «name.toFirstUpper()» «associationRolName») {
          this.«associationRolName» = «associationRolName»;
      }
+«ENDDEFINE»
+
+«DEFINE addToCollection(String associationRolName) FOR ListDto»
+    /**
+     * Adds a single element to the «associationRolName» collection
+     *
+     * @param element The element to add.
+     */
+    public void addTo«associationRolName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+
+        if (element == null || this.«associationRolName».contains(element)) {
+            return;
+        }
+        this.«associationRolName».add(element);
+    }
 «ENDDEFINE»
