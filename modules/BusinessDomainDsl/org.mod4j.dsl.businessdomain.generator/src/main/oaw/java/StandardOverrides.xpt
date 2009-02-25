@@ -28,3 +28,13 @@
         return getId() == null ? false : getId().equals(((«javaDomainBaseClass(this.name)»)object).getId());
     }
 «ENDDEFINE»
+
+«DEFINE addHashCodeMethod FOR BusinessClass »
+    /**
+     * hashCode method for «javaDomainBaseClass(this.name)» 
+     */
+    @Override
+    public int hashCode() {
+        return getId() == null ? super.hashCode() : getId().hashCode();
+    }
+«ENDDEFINE»

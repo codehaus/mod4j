@@ -79,6 +79,7 @@
                 «EXPAND Attributes::addIdAttribute FOR this»	
                 «EXPAND Attributes::addIdAccessors FOR this»
                 «EXPAND StandardOverrides::addEqualsMethod FOR this»
+                «EXPAND StandardOverrides::addHashCodeMethod FOR this»
             «ENDIF»
  			«EXPAND Attributes::addAttribute FOREACH properties»
  			«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
