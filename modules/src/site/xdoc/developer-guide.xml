@@ -140,9 +140,16 @@
                         <code>BusinessDomainDsl</code>
                         in the editor pane, and choose
                         <q>Generate Model Code</q>
+                        <br />
+                        Normally you wouldn't need to add generated sources to the version control system (Subverson), but due
+                        to not being able for us to run to perform this step outside Eclipse we've decided -for now- to add the generated code
+                        (src-gen
+                        folder) to Subversion. So the continuous integration build can build it and other modules can
+                        depend on it.
+                        <br />
                     </li>
                     <li>
-                        You need to generate the code for Xtext adn Xtext Editor projects: Right-click the file
+                        You need to generate the code for Xtext and Xtext Editor projects: Right-click the file
                         <code>org.mod4j.dsl.businessdomain.xtext/src/genXtextEditor.oaw,
                         </code>
                         and choose
@@ -229,9 +236,9 @@
                         <br />
                         <code>RecordShop-service</code>
                     </li>
-                    <li>In the previous step the Q4E Maven plug-in not always recognizes the source folders. Add the source
+                    <li>In the previous step the Q4E Maven plug-in not always recognizes the source folders correctly. Adjust the source
                         folders manually if you encounter compilation failures. Right-click on the project to adjust the "Build
-                        Path" congfiguratian. Add src/main/java, src/test/java, src/main/resources, generated-sources and
+                        Path" configuration. Add src/main/java, src/test/java, src/main/resources, generated-sources and
                         generated-resources to it.</li>
                     <li>
                         In the new Eclipse session you should be able to edit the .busmod, .sermod and .dtcmod model files in

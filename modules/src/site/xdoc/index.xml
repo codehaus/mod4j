@@ -12,7 +12,7 @@
         <title>Welcome to Mod4j</title>
     </properties>
     <body>
-    
+
         <section name="Welcome to Mod4j">
             <p>
                 Mod4j is a project that focuses on Model Driven Software Development. It's goal is to improve the productivity
@@ -159,7 +159,10 @@
                         First of all you need to create a new Eclipse project for the Mod4j DSL models you are going to create.
                         <br />
                         Choose:
-                        <q>File, New, Other, Mod4j Wizards, <b>Mod4j new dslModels Project</b></q>
+                        <q>
+                            File, New, Other, Mod4j Wizards,
+                            <b>Mod4j new dslModels Project</b>
+                        </q>
                         .
                     </li>
                     <li>
@@ -289,8 +292,11 @@
                         <br />
                         and navigate to the application folder. Choose Ok.
                     </li>
-                    <li>Check if the generated-sources and generated-resources folders are correctly added as sourcefolders
-                        to the Build Path. If not, correct it manually.</li>
+                    <li>In the previous step the Q4E Maven plug-in not always recognizes the source folders correctly. Adjust the source
+                        folders manually if you encounter compilation failures. Right-click on the project to adjust the "Build
+                        Path" configuration. Add src/main/java, src/test/java, src/main/resources, generated-sources and
+                        generated-resources to it.
+                    </li>
                 </ol>
             </subsection>
 

@@ -64,10 +64,23 @@
                         <br />
                         <br />
                     </li>
-                    <li>Svn command-client version 1.5.0. (higher versions lead to errors icw maven-scm-provider)</li>
-                    <li>Be free of outstanding local modifications.</li>
+                    <li>Svn command-client version 1.4.6 installed. Version 1.5.0 might work also, but higher versions lead
+                        to
+                        errors icw maven-scm-provider. To check the version: open a command shell and type "svn --version".
+                    </li>
                     <li>
-                        Import as Existing Project:
+                        If you already have a checkout of the Mod4j sources that was done with a Subversion 1.4.x client you can pass this step and
+                        move on to next. Otherwise, perform a checkout of all the sources with the svn command-client. Open a command shell
+                        and type:
+                        <br />
+                        <b>
+                            <code>svn checkout https://svn.codehaus.org/mod4j/trunk/modules mod4j</code>
+                        </b>
+                    </li>
+                    <li>Go to the Mod4j Developer Guide and perform all import steps, to begin with step 2, from the section
+                        "Checking out, import into Eclipse, generating the DSL-editors"</li>
+                    <li>
+                        Now also import as Existing Project into Eclipse:
                         <br />
                         <code>../modules/BusinessDomainDsl/org.mod4j.dsl.businessdomain.feature
                         </code>
@@ -81,6 +94,7 @@
                         <br />
                         <code>../modules/org.mod4j.updatesite</code>
                     </li>
+                    <li>At this point your local checkout should be free of outstanding local modifications.</li>
                 </ol>
             </subsection>
 
