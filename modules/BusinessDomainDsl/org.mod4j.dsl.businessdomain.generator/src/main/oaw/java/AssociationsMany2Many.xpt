@@ -20,21 +20,11 @@
         return Collections.unmodifiable«getCollectionInterface()»(this.«targetRoleName»);
     }
 
-    /**
-     * Implements adding single element to a collection.
-     */
-    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
-		if ( element == null ) {
-			return;
-		}
-        if (!«targetRoleName».contains(element)) {
-            «targetRoleName».add(element);
-    «IF this.bidirectional -»
-            element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
-    «ENDIF -»
-            validation.validate();
-        }
-    }
+    «EXPAND addToTargetCollection FOR this»
+    
+    «IF ordered»
+        «EXPAND addIndexedToTargetList FOR this»
+    «ENDIF»
     
     /**
      * Implements removing a single element from a collection.
@@ -87,5 +77,39 @@
             element.removeFrom«targetRoleName.toFirstUpper()»((«javaDomainClass(target.name)») this);
             validation.validate();
         }
+    }
+«ENDDEFINE»
+«DEFINE addToTargetCollection FOR Association»
+    /**
+     * Implements adding single element to a collection.
+     */
+    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
+        if ( element == null ) {
+            return;
+        }
+        if (!«targetRoleName».contains(element)) {
+            «targetRoleName».add(element);
+    «IF this.bidirectional -»
+            element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
+    «ENDIF -»
+            validation.validate();
+        }
+    }
+«ENDDEFINE»
+
+«DEFINE addIndexedToTargetList FOR Association»
+    /**
+     * Implements adding single element to an ordered collection at a specified
+     * location.
+     */
+    public void addTo«targetRoleName.toFirstUpper()»(int index, «javaDomainClass(target.name)» element) {
+        if ( element == null ) {
+            return;
+        }
+        «targetRoleName».add(index, element);
+    «IF this.bidirectional -»
+            element.addTo«sourceRoleName.toFirstUpper()»((«javaDomainClass(source.name)») this);
+    «ENDIF -»
+        validation.validate();
     }
 «ENDDEFINE»

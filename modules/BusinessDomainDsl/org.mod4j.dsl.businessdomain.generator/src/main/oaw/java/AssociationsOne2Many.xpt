@@ -25,25 +25,11 @@
         return Collections.unmodifiable«getCollectionInterface()»(this.«targetRoleName»);
     }
 
-    /**
-     * Implements adding single element to a collection
-     */
-    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
-        if ( element == null ) {
-            return;
-        }
-        if ( this.«targetRoleName».contains(element) ) {
-            return;
-        }
-        this.«targetRoleName».add(element);
-    «IF this.bidirectional»
-        if ( element.«getterFrom(this)»() != null ) {
-            element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
-        }
-        element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
-        validation.validate();
+    «EXPAND addToTargetCollection FOR this -»
+    
+    «IF ordered»
+        «EXPAND addIndexedToTargetList FOR this -»
     «ENDIF»
-    }
 
     /**
      * Implements removal of a single element from feature 
@@ -136,3 +122,46 @@
     }
 
 «ENDDEFINE»
+
+«DEFINE addToTargetCollection FOR Association»
+    /**
+     * Implements adding single element to a collection
+     */
+    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
+        if ( element == null ) {
+            return;
+        }
+        if ( this.«targetRoleName».contains(element) ) {
+            return;
+        }
+        this.«targetRoleName».add(element);
+    «IF this.bidirectional»
+        if ( element.«getterFrom(this)»() != null ) {
+            element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
+        }
+        element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
+        validation.validate();
+    «ENDIF»
+    }
+«ENDDEFINE»
+
+«DEFINE addIndexedToTargetList FOR Association»
+    /**
+     * Implements adding single element to an ordered collection at a specified
+     * location.
+     */
+    public void addTo«targetRoleName.toFirstUpper()»(int index, «javaDomainClass(target.name)» element) {
+        if ( element == null ) {
+            return;
+        }
+        this.«targetRoleName».add(index, element);
+    «IF this.bidirectional -»
+        if ( element.«getterFrom(this)»() != null ) {
+            element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
+        }
+        element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
+        validation.validate();
+    «ENDIF»
+    }
+«ENDDEFINE»
+

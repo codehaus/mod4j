@@ -3,6 +3,7 @@ package org.company.recordshop;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.company.recordshop.data.spring.dao.One2ManyFromDao;
 import org.company.recordshop.data.spring.dao.One2ManyOrderedToDao;
@@ -253,5 +254,67 @@ public class OrderedOneToManyAssociationTest extends AbstractDaoTestCase {
         assertEquals(2, from.getTarget().size());
         assertEquals("three", from.getTarget().get(0).getProperty());
         assertEquals("two", from.getTarget().get(1).getProperty());
+    }
+
+    @Test
+    public void testAddToTargetIndexElementMiddle() {
+        from.addToTarget(one);
+        from.addToTarget(three);
+        from.addToTarget(1, two);
+        flush();
+        clear();
+
+        from = fromDao.retrieve(from.getId());
+        assertEquals("one", from.getTarget().get(0).getProperty());
+        assertEquals("two", from.getTarget().get(1).getProperty());
+        assertEquals("three", from.getTarget().get(2).getProperty());
+    }
+
+    @Test
+    public void testAddToTargetIndexElementEnd() {
+        from.addToTarget(one);
+        from.addToTarget(two);
+        from.addToTarget(from.getTarget().size(), three);
+        flush();
+        clear();
+
+        from = fromDao.retrieve(from.getId());
+        assertEquals("one", from.getTarget().get(0).getProperty());
+        assertEquals("two", from.getTarget().get(1).getProperty());
+        assertEquals("three", from.getTarget().get(2).getProperty());
+    }
+
+    @Test
+    public void testAddToTargetIndexElementStart() {
+        from.addToTarget(two);
+        from.addToTarget(three);
+        from.addToTarget(0, one);
+        flush();
+        clear();
+
+        from = fromDao.retrieve(from.getId());
+        assertEquals("one", from.getTarget().get(0).getProperty());
+        assertEquals("two", from.getTarget().get(1).getProperty());
+        assertEquals("three", from.getTarget().get(2).getProperty());
+    }
+
+    @Test
+    public void testAddToTargetIndexElementOutOfBounds() {
+        from.addToTarget(two);
+        from.addToTarget(three);
+        flush();
+        clear();
+
+        from = fromDao.retrieve(from.getId());
+        try {
+            from.addToTarget(-1, one);
+            fail("Expected IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException e) {
+        }
+        try {
+            from.addToTarget(3, one);
+            fail("Expected IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException e) {
+        }
     }
 }
