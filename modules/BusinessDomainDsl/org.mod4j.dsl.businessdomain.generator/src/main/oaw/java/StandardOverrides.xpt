@@ -38,3 +38,28 @@
         return getId() == null ? super.hashCode() : getId().hashCode();
     }
 «ENDDEFINE»
+
+«DEFINE addToStringMethod FOR BusinessClass»
+    /**
+     * toString method for «javaDomainBaseClass(name)»
+     */
+    @Override
+    public String toString() {
+        StringBuffer result = new StringBuffer();
+        result.append("«getDomainRootPackage()».«javaDomainClass(name)»[");
+        result.append("id=");
+        result.append(getId());
+        «FOREACH getAllProperties() AS p»
+            «EXPAND addAttribute FOR p -»
+        «ENDFOREACH»
+        result.append("]");
+        return result.toString();
+    }
+«ENDDEFINE»
+
+
+«DEFINE addAttribute FOR Property»
+        result.append(",");
+        result.append("«this.name»=");
+        result.append(«this.name»);
+«ENDDEFINE»
