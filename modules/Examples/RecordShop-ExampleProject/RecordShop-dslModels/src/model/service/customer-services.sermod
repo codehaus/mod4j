@@ -12,7 +12,8 @@ from RecordShopDataContract import OrderNumberAndDateList
 read readOrder for OrderDto;            
   
 "All crud servuices needed for FullCustomer"   
-crud for    FullCustomerDto;        
+crud for    FullCustomerDto;
+       
 /*           
  * Explicit definded crud servicemethods     
  */         
@@ -25,19 +26,11 @@ listall listAllCustomers for SimpleCustomerDto ;
       
 find findCustomers for SimpleCustomerDto ; 
 
-//"add the translated OrderDto to the orders association of the translated CustomerDto"
-//add OrderDto using OrderServiceModel::readOrderAsOrderDto to orders for CustomerDto
 for SimpleCustomerDto reference orders add OrderDto
 for SimpleCustomerDto reference orders remove OrderDto   
-      
  
-for  OrderDto reference   customer add  SimpleCustomerDto              
+for OrderDto reference customer add SimpleCustomerDto              
    
-// for CustomerDto .orders add    OrderDto     
-// for CustomerDto .orders remove OrderDto  
-
-//"remove the translated OrderDto from the orders association of the translated CustomerDto"
-//remove OrderDto for CustomerDto.orders 
 "test"
 method voidreturn in OrderDto order ; 
  
@@ -48,8 +41,4 @@ method addToOrdersa in OrderDto order SimpleCustomerDto customer out OrderDto;
 method findCustomerByUniqueKey in UniqueCustomerDto cust out SimpleCustomerDto;
 
 "Find all Customers matching the given name."
-method findCustomerByName in StringDto name out SimpleCustomerList;  
-
- 
- 
-    
+method findCustomerByName in StringDto name out SimpleCustomerList;
