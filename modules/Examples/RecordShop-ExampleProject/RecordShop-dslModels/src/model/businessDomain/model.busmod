@@ -113,8 +113,8 @@ enumeration RecordTypeEnum [
 "One 2 Many bidirectional: A customer has a number of orders." 
 association Customer customer one <-> many Order orders ;
 
-"One 2 Many unidirectional: An order consists of orderLines."
-association Order order one -> many OrderLine orderLines ;
+"One 2 Many unidirectional: An order consists of an ordered list of orderLines."
+association Order order one -> many OrderLine orderLines ordered ;
 
 "One 2 One bidirectional: An orderLine contains a record."
 association OrderLine orderLine one <-> one Record record ;
