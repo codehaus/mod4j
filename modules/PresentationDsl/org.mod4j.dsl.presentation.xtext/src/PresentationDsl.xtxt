@@ -1,0 +1,96 @@
+preventMMGeneration
+
+importMetamodel "http://www.mod4j.org/pmfmod" ;
+
+//IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+
+PresentationModel :
+	(description=STRING )?
+	"PresentationModel" name = ID
+	(externalReferences += ExternalReference)*
+	(elements += ModelElement)*
+	;
+
+ExternalReference :
+    "from" modelName = ID "import" name = ID 
+	;
+	
+ModelElement :
+	UIModelElement | Link
+	;
+	
+UIModelElement :
+	Dialogue | Process
+	;
+		
+Dialogue :
+	ContentForm | CompoundDialogue
+	;
+	
+ContentForm :
+	(description=STRING )?
+	"ContentForm" name = ID "using" contextRef = [ExternalReference]
+	("readonly" ((readonly?="true") | "false") ";")?
+	(formElements += FormElement)*
+	("Processes" "[" (processes += ProcessCall)* "]" )?
+	;
+	
+CompoundDialogue :
+	(description=STRING )?
+	"CompoundDialogue" name = ID "using" contextRef = [ExternalReference]
+	("readonly" ((readonly?="true") | "false") ";")?
+	("Dialogues" "[" (dialogues += DialogueCall)* "]" )?
+	("Processes" "[" (processes += ProcessCall)* "]" )?  
+	| CollectionDialogue
+	;
+		
+CollectionDialogue :
+	(description=STRING )?
+	"CollectionDialogue" name = ID "using" contextRef = [ExternalReference]
+	("readonly" ((readonly?="true") | "false") ";")?
+	("Dialogues" "[" (dialogues += DialogueCall)* "]" )?
+	("Processes" "[" (processes += ProcessCall)* "]" )?
+	;
+	
+Process :
+	AutomatedProcess | InteractiveProcess
+	;
+	
+AutomatedProcess :
+	(description=STRING )?
+	"AutomatedProcess" name = ID "using" contextRef = [ExternalReference]
+	;
+
+InteractiveProcess :
+	(description=STRING )?
+	"InteractiveProcess" name = ID "using" contextRef = [ExternalReference]
+	;
+	
+FormElement :
+	"FormElement" name = ID 
+	"references" references = DtoPropertyReference
+	("readonly" ((readonly?="true") | "false") ";")?
+	;
+		
+DtoPropertyReference :
+	name = ID ";"
+	;
+			
+DialogueCall :
+	("navigate" LinkRef)?
+	name = ID ";"
+	;
+
+ProcessCall :
+	("navigate" LinkRef)?
+	name = ID ";"
+	;
+
+LinkRef :
+	name = ID
+	;
+	
+Link :
+	(description=STRING )?
+	"Link" name = ID "using" contextRef = [ExternalReference]
+	;

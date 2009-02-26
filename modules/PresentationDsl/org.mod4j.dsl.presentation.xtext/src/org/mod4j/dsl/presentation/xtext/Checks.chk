@@ -1,0 +1,50 @@
+import PresentationDsl;
+
+extension org::mod4j::dsl::presentation::xtext::Extensions;
+/*
+ * This check file is used by the parser
+ * and by the editor. Add your constraints here!
+ */
+
+context PresentationModel ERROR "Write your constraint message here...!" :
+   true;
+
+context ExternalReference ERROR "Write your constraint message here...!" :
+   true;
+
+context ModelElement ERROR "Write your constraint message here...!" :
+   true;
+
+context UIModelElement ERROR "Write your constraint message here...!" :
+   true;
+
+context Dialogue ERROR "Write your constraint message here...!" :
+   true;
+
+context ContentForm ERROR "Write your constraint message here...!" :
+   true;
+
+context CompoundDialogue ERROR "Write your constraint message here...!" :
+   true;
+
+context CollectionDialogue ERROR "Write your constraint message here...!" :
+   true;
+
+context Process ERROR "Write your constraint message here...!" :
+   true;
+
+context AutomatedProcess ERROR "Write your constraint message here...!" :
+   true;
+
+context InteractiveProcess ERROR "Write your constraint message here...!" :
+   true;
+
+context FormElement ERROR "Write your constraint message here...!" :
+   true;
+
+context DtoPropertyReference ERROR "Write your constraint message here...!" :
+   true;
+
+context Link ERROR "Write your constraint message here...!" :
+   true;
+
