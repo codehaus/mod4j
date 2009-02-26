@@ -1,0 +1,27 @@
+"prachtig voorbeeld van een presentatiemodel"
+PresentationModel RecordshopPresentation
+   
+from RecordShopDataContract import FullCustomerDto    
+
+"Artist ContentForm"  
+ContentForm ArtistDetail using FullCustomerDto  
+	FormElement name  
+		references lastName;  
+	FormElement email  
+		references emailAddress;
+	FormElement age   
+		references age;
+		readonly true;  
+ 
+"Artist ContentReadonlyForm" 
+ContentForm ArtistReadOnlyDetail using FullCustomerDto
+	readonly true; 
+	FormElement name  
+		references lastName ; 
+	FormElement artistSexe
+		references sexe; 
+
+CollectionDialogue ArtistCollection using FullCustomerDto
+	  Dialogues [ 
+	  	ArtistReadOnlyDetail; 
+	  ]
