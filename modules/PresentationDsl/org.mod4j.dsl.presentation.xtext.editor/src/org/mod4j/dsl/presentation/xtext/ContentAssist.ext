@@ -1,0 +1,48 @@
+import presentationdsl;
+import codeassist;
+import emf;
+import crossx;
+ 
+extension org::openarchitectureware::util::IO;
+extension org::mod4j::dsl::presentation::xtext::Extensions;
+extension org::mod4j::dsl::presentation::xtext::GenContentAssist reexport;
+extension org::mod4j::eclipse::xtend::EclipseUtil;
+extension org::mod4j::crossx::broker::xtend::Crossx;
+
+/*
+ * There are two types of extensions one can define
+ *
+ * completeMetaType_feature(ModelElement ele, String prefix)
+ * This one is called for assignments only. It gets the underlying Modelelement and the current prefix passed in.
+ *
+ * Note that only proposals with 'Proposal.toInsert.toLowerCase().startsWith(prefix.toLowerCase())' will be proposed in the editor
+ * 
+ * you can sort and/or filter the proposals by overwriting 'List[Proposal] sortProposals(List[Proposal] proposalsToSort)'
+ */
+
+List[String] getFormElementReferenceProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.presentation.xtext.Proposals.getFormElementReferenceProposals(org.eclipse.emf.ecore.EObject);
+
+/* proposals for Feature ExternalReference::modelname */
+List[Proposal] completeExternalReference_modelName(emf::EObject ctx, String prefix) :
+	findAllModelsInProject( ctx.getProjectName()).modelname .collect(x|newProposal(x)) ;
+
+ 
+/* proposals for Feature ExternalReference::name */
+List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
+	findAllFromModel( ((PresentationDsl::ExternalReference)ctx).modelName, "Dto").name.
+	          collect(x|newProposal(x)); //.add(newProposal("empty"));
+
+/* proposals for Feature FormElement::references */
+List[Proposal] completeFormElement_references(emf::EObject ctx, String prefix) :
+	getFormElementReferenceProposals(ctx).collect(x|newProposal(x));
+	
+/** Filter out all proiposals that end with Description. 
+ *  This eliminates the descritions from all proposals.
+ *  Also put a space at the end of all proposals
+ */
+List[Proposal] sortProposals(List[Proposal] proposalsToSort):
+    proposalsToSort.reject(p | p.label.endsWith("Description"))
+    .select(p | p.setToInsert(p.toInsert + " ")->true).sortBy(p|p.label)
+	;
+	
