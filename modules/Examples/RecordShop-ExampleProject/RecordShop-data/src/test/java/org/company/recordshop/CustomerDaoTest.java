@@ -194,7 +194,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         for (Iterator<Order> i = orders.iterator(); i.hasNext();) {
             Order o = i.next();
             assertEquals("2", o.getOrderNumber());
-            Set<OrderLine> lines = o.getOrderLines();
+            List<OrderLine> lines = o.getOrderLines();
             assertEquals(3, lines.size());
             Iterator<OrderLine> j = lines.iterator();
             OrderLine line = (OrderLine) j.next();
