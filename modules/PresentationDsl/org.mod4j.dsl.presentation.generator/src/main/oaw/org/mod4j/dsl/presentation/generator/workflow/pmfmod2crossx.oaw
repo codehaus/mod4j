@@ -22,11 +22,6 @@
 
     <property name="nsUriPrefix" value="appelmoes"/>
     
-    <property name="isEclipseSetup" value="true"/>
-    <if cond="${isStandaloneSetup}">
-        <property name="isEclipseSetup" value="false"/>
-    </if>
- 
     <!-- set up EMF for standalone execution -->
     <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
         <platformUri value=".."/>
@@ -78,7 +73,7 @@
        <metaModel idRef="PresentationDsl"/>
        <metaModel idRef="org.mod4j.dsl.presentation.generator.xtend"/>
        <globalVarDef name="nsUriPrefix" value="'${nsUriPrefix}'"/>
-       <invoke value="org.mod4j.dsl.presentation.generator.xtend::pmfmod2crossx::exportModel(model, '${modelfile}' )"/>
+       <invoke value="org::mod4j::dsl::presentation::generator::xtend::pmfmod2crossx::exportModel(model, '${modelfile}' )"/>
        <outputSlot value="crossxModel"/>
     </component>
 
