@@ -26,26 +26,12 @@
     }
 
     «EXPAND addToTargetCollection FOR this -»
-    
+    «EXPAND removeFromTargetCollection FOR this -»
     «IF ordered»
         «EXPAND addIndexedToTargetList FOR this -»
+        «EXPAND AssociationsOne2Many::removeIndexedFromTargetCollection FOR this -»
+        «EXPAND setInTargetCollection FOR this -»
     «ENDIF»
-
-    /**
-     * Implements removal of a single element from feature 
-     * 
-     * @param element 
-     */
-    public void removeFrom«this.targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
-        if ( element == null ) {
-            return;
-        }
-        this.«this.targetRoleName».remove(element);
-    «IF this.bidirectional -»
-        element.z_internalRemoveFrom«this.sourceRoleName»( («javaDomainClass(this.source.name)»)((«javaDomainClass(this.source.name)»)this) );
-    «ENDIF»
-        validation.validate();
-    }
     
     /**
      * This operation should NOT be used by clients.  It implements the correct
@@ -127,12 +113,12 @@
     /**
      * Implements adding single element to a collection
      */
-    public void addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
+    public boolean addTo«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
         if ( element == null ) {
-            return;
+            return false;
         }
         if ( this.«targetRoleName».contains(element) ) {
-            return;
+            return false;
         }
         this.«targetRoleName».add(element);
     «IF this.bidirectional»
@@ -142,6 +128,7 @@
         element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
         validation.validate();
     «ENDIF»
+        return true;
     }
 «ENDDEFINE»
 
@@ -165,3 +152,67 @@
     }
 «ENDDEFINE»
 
+«DEFINE removeFromTargetCollection FOR Association»
+    /**
+     * Implements removal of a single element from feature 
+     * 
+     * @param element 
+     */
+    public boolean removeFrom«this.targetRoleName.toFirstUpper()»(«javaDomainClass(this.target.name)» element) {
+        if ( element == null ) {
+            return false;
+        }
+        if (this.«this.targetRoleName».remove(element)) {
+    «IF this.bidirectional -»
+            element.z_internalRemoveFrom«this.sourceRoleName»( («javaDomainClass(this.source.name)»)((«javaDomainClass(this.source.name)»)this) );
+    «ENDIF»
+            validation.validate();
+            return true;
+        }
+        return false;
+    }
+«ENDDEFINE»
+
+«DEFINE removeIndexedFromTargetCollection FOR Association»
+    /**
+     * Removes the element at the specified position in {@link «this.targetRoleName»}.
+     * Shifts any subsequent elements to the left (subtracts one from their
+     * indices). Returns the element that was removed from the list. 
+     * 
+     * @param index
+     *        the index of the element to remove. 
+     * @return the element previously at the specified position.
+     * @throws IndexOutOfBoundsException
+     *         if the index is out of range (index < 0 || index >= size()).
+     */
+    public «javaDomainClass(this.target.name)» removeFrom«this.targetRoleName.toFirstUpper()»(int index) {
+        «javaDomainClass(this.target.name)» result;
+        result = this.«this.targetRoleName».remove(index);
+    «IF this.bidirectional -»
+        result.z_internalRemoveFrom«this.sourceRoleName»( («javaDomainClass(this.source.name)»)((«javaDomainClass(this.source.name)»)this) );
+    «ENDIF»
+        validation.validate();
+        return result;
+    }
+«ENDDEFINE»
+
+«DEFINE setInTargetCollection FOR Association»
+    /**
+     * Replaces the element at the specified position in
+     * {@link «this.targetRoleName»} with the specified element.
+     * 
+     * @param index
+     *        index of element to replace.
+     * @param element
+     *        element to be stored at the specified position. 
+     * @return the element previously at the specified position.
+     * @throws IndexOutOfBoundsException
+     *         if the index is out of range (index < 0 || index >= size()).
+     */
+    public «javaDomainClass(this.target.name)» set«this.targetRoleName.toFirstUpper()»(int index, «javaDomainClass(target.name)» element) {
+        «javaDomainClass(this.target.name)» result;
+        result = removeFrom«this.targetRoleName.toFirstUpper()»(index);
+        addTo«targetRoleName.toFirstUpper()»(index, element);
+        return result;
+    }
+«ENDDEFINE»

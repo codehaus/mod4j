@@ -6,18 +6,18 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-public class OrderedOneToManyAssociationTest {
+public class OrderedManyToManyAssociationTest {
 
-    private One2ManyFrom from;
+    private Many2ManyFrom from;
 
-    private One2ManyOrderedTo one, two, three;
+    private Many2ManyOrderedTo one, two, three;
 
     @Before
     public void setUp() throws Exception {
-        from = new One2ManyFrom("thing");
-        one = new One2ManyOrderedTo("one");
-        two = new One2ManyOrderedTo("two");
-        three = new One2ManyOrderedTo("three");
+        from = new Many2ManyFrom("thing");
+        one = new Many2ManyOrderedTo("one");
+        two = new Many2ManyOrderedTo("two");
+        three = new Many2ManyOrderedTo("three");
     }
 
     @Test
@@ -139,9 +139,9 @@ public class OrderedOneToManyAssociationTest {
         from.addToTarget(one);
         from.addToTarget(two);
         from.addToTarget(three);
-        One2ManyOrderedTo twoAndAHalf = new One2ManyOrderedTo();
+        Many2ManyOrderedTo twoAndAHalf = new Many2ManyOrderedTo();
         twoAndAHalf.setProperty("twoAndAHalf");
-        One2ManyOrderedTo previous = from.setTarget(1, twoAndAHalf);
+        Many2ManyOrderedTo previous = from.setTarget(1, twoAndAHalf);
         assertEquals("one", from.getTarget().get(0).getProperty());
         assertEquals("twoAndAHalf", from.getTarget().get(1).getProperty());
         assertEquals("three", from.getTarget().get(2).getProperty());
