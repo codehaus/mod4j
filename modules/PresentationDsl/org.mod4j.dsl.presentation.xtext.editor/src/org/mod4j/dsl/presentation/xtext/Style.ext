@@ -16,7 +16,7 @@ extension org::mod4j::dsl::presentation::xtext::GenStyle reexport;
 FontStyle fontstyle(String keyword, Object ctx):
 	(keyword == "true" || keyword == "false")
 	? createFontStyle(false, false, false, false, createColor(0,0,255), createColor(255,255,255))
-	: createFontStyle(true, false, false, false, createColor(127,0,85), createColor(255,255,255))
+	: createFontStyle(true, false, false, false, createColor(233,131,0), createColor(255,255,255))
 	;
 	
 delayContextSensitiveStyling(): 0;
