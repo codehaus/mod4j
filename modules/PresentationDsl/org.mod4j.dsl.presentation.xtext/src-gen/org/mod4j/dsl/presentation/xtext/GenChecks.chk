@@ -1,0 +1,25 @@
+import PresentationDsl;
+
+extension org::openarchitectureware::xtext::parser::LinkerUtils;
+
+extension org::mod4j::dsl::presentation::xtext::Extensions;
+
+/*
+ * check linking
+ */
+context ContentForm ERROR "Couldn't resolve reference to '"+this.parsedString("contextRef")+"'" :
+	this.parsedString("contextRef")!=null ? contextRef!=null : true;
+context CompoundDialogue ERROR "Couldn't resolve reference to '"+this.parsedString("contextRef")+"'" :
+	this.parsedString("contextRef")!=null ? contextRef!=null : true;
+context CollectionDialogue ERROR "Couldn't resolve reference to '"+this.parsedString("contextRef")+"'" :
+	this.parsedString("contextRef")!=null ? contextRef!=null : true;
+context AutomatedProcess ERROR "Couldn't resolve reference to '"+this.parsedString("contextRef")+"'" :
+	this.parsedString("contextRef")!=null ? contextRef!=null : true;
+context InteractiveProcess ERROR "Couldn't resolve reference to '"+this.parsedString("contextRef")+"'" :
+	this.parsedString("contextRef")!=null ? contextRef!=null : true;
+context Link ERROR "Couldn't resolve reference to '"+this.parsedString("contextRef")+"'" :
+	this.parsedString("contextRef")!=null ? contextRef!=null : true;
+
+
+
+
