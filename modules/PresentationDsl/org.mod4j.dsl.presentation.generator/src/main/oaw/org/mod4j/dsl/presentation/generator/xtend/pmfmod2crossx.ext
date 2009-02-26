@@ -1,0 +1,25 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+
+import crossx;
+import PresentationDsl;
+
+extension org::mod4j::dslcommon::xtend::generatorutil;
+extension org::mod4j::org.mod4j.dsl.presentation.generator.xtend::broker::xtend::Crossx;
+
+create ModelInfo exportModel(PresentationModel pmfModel, String modelFile) :
+    print("MOD4J INFO: Running CrossX on file [" + modelFile + "]")->
+    this.setDslname("PresentationDsl")->
+    this.setModelname(pmfModel.name)->
+    this.setResource(modelFile)->
+    this.symbols.addAll(pmfModel.elements.typeSelect(Dialogue).toElement());
+    
+Symbol toElement(Dialogue d) :
+    let result = new Symbol :
+    result.setName(d.name) ->
+    result.setType("Dialogue")->
+    result
+    ;
+

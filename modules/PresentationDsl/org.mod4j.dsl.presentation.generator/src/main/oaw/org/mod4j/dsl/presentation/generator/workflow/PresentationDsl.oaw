@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<workflow>
+
+    <!-- Initialize the issues reporting feature of oAW
+         TODO 3 May 2008 : Check whether this is still neccesary
+    -->
+    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+
+    <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
+        <propertyFile value="${appPropFilePath}" />
+        <workDir value="${workDir}" />
+        <project value="${project}" />
+    </component>
+
+    <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+        <platformUri value=".."/>
+    </bean>
+    <bean class="org.mod4j.dsl.presentation.xtext.MetaModelRegistration"/>
+    <bean id="pmf" class="oaw.type.emf.EmfMetaModel">
+		<metaModelPackage value="org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage" />  
+	</bean>
+    <bean id="org.mod4j.dsl.presentation.generator.xtend" class="oaw.type.emf.EmfMetaModel">
+        <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
+    </bean>
+    
+    <!--
+        Parse the Presentation model file and validate syntax and model constraints
+    -->
+    <component class="org.eclipse.mwe.emf.Reader">
+        <uri value="${modelFile}" />
+        <modelSlot value="pmfModel" />
+    </component>
+    <component id="PresentationWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="pmf" />
+        <checkFile value="org::mod4j::dsl::presentation::xtext::GenChecks" />
+        <emfAllChildrenSlot value="pmfModel" />
+    </component>
+    <component id="PresentationWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="pmf" />
+        <checkFile value="org::mod4j::dsl::presentation::validation::PresentationChecks" />
+        <emfAllChildrenSlot value="pmfModel" />
+    </component>
+ 
+    <component id="PresentationWorkflow-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
+        <metaModel idRef="pmf" />
+        <metaModel idRef="org.mod4j.dsl.presentation.generator.xtend" />
+        <checkFile value="org::mod4j::dsl::presentation::validation::CrossxChecks" />
+        <emfAllChildrenSlot value="pmfModel" />
+    </component>
+ 
+</workflow>

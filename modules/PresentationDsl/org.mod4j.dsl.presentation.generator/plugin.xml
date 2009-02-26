@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension 
+		point="org.mod4j.eclipse.dsl"
+	    id="Presenttion.generator.crossx"
+        name="Crossx info">
+      <dsl
+            dsl2crossxWorkflow="org/mod4j/dsl/presentation/generator/workflow/pmfmod2crossx.oaw"
+            dslCodegenProperties="mod4j.properties"
+            dslCodegenWorkflow="org/mod4j/dsl/presentation/generator/workflow/PresentationDsl.oaw"
+            dslFileExtension=".pmfmod"
+            dslMetamodelPackage="org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage"
+            dslName="Presentation DSL">
+      </dsl>
+   </extension>
+   
+</plugin>
