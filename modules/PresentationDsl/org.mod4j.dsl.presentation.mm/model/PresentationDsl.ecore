@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PresentationDsl"
+    nsURI="http://www.mod4j.org/pmfmod" nsPrefix="pmfmod">
+  <eClassifiers xsi:type="ecore:EClass" name="AutomatedProcess" eSuperTypes="#//Process"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Form">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formElements" upperBound="-1"
+        eType="#//FormElement" eOpposite="#//FormElement/form"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"
+        eType="#//DialogueCall"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionDialogue" eSuperTypes="#//CompoundDialogue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dialogue" abstract="true" eSuperTypes="#//UIModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+        eType="#//ProcessCall"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UIModelElementRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//NamedReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" eSuperTypes="#//NamedReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Dialogue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FormElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" eType="#//DtoPropertyReference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="form" lowerBound="1" eType="#//ContentForm"
+        eOpposite="#//ContentForm/formElements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractiveProcess" eSuperTypes="#//Process"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//NamedReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextRef" eType="#//ExternalReference"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ModelElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
+        eType="#//ExternalReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//UIModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UIModelElementRef" abstract="true" eSuperTypes="#//NamedReference"/>
+</ecore:EPackage>
