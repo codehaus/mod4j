@@ -69,15 +69,25 @@
                     <paperType>A4</paperType>
                     <fopExtensions>1</fopExtensions>
                     <xincludeSupported>true</xincludeSupported>
-                    <keepRelativeImageUris>0</keepRelativeImageUris>
+                    <keepRelativeImageUris>1</keepRelativeImageUris>
                 </configuration>
                 <executions>
                     <execution>
+                        <id>generate-html</id>
                         <goals>
                             <goal>generate-html</goal>
+                        </goals>
+                        <phase>pre-site</phase>
+                    </execution>
+                    <execution>
+                        <id>generate-pdf</id>
+                        <goals>
                             <goal>generate-pdf</goal>
                         </goals>
                         <phase>pre-site</phase>
+                        <configuration>
+                            <imgSrcPath>${project.build.directory}/site/</imgSrcPath>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
