@@ -18,8 +18,8 @@
     </authorgroup>
     <releaseinfo>1.0 beta</releaseinfo>
     <copyright>
-      <year>2008</year>
-      <holder>Ordina J-Technologies</holder>
+      <year>2009</year>
+      <holder>Ordina and other Mod4j committer</holder>
     </copyright>
   </bookinfo>
   <chapter>
@@ -35,7 +35,7 @@
         <itemizedlist>
           <listitem>
             <para><keycap>Generated code must be clear and readable</keycap>. Using Mod4j should not
-              be a lifetime commitment. Therefore the source code must eb at least as good as
+              be a lifetime commitment. Therefore the source code must be at least as good as
               handwritten code. This allows projects to continue development with the generated code
               instead of the DSL models. Note that this surely isn't the recommended way, but we
               like the freedom this gives.</para>
@@ -199,7 +199,7 @@
       <title>Business Domain DSL generation for each Business Class</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/BusinessDomainClass-generated.jpg"/>
+          <imagedata fileref="images/BusinessDomainClass-generated.jpg" scale=""/>
         </imageobject>
       </mediaobject>
     </figure>
@@ -234,7 +234,7 @@
       <title>Business Class</title>
       <section>
         <title>Definition</title>
-        <programlisting continuation="continues" format="linespecific" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> Person [
+        <programlisting continuation="continues" format="linespecific" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> Person [
     // properties go here ...
     // rules go here ...
 ]
@@ -298,7 +298,7 @@
     </section>
     <section>
       <title>Inheritance</title>
-      <programlisting continuation="continues" format="linespecific" linenumbering="numbered" xml:space="preserve"><emphasis role="bold">Class</emphasis> Customer <emphasis role="bold">inherits</emphasis> Person [
+      <programlisting continuation="continues" format="linespecific" linenumbering="numbered" xml:space="preserve"><emphasis role="bold">class</emphasis> Customer <emphasis role="bold">inherits</emphasis> Person [
         // additional properties go here ...
         // additional rules go here ...
 ]
@@ -322,7 +322,7 @@
           <title>Data Layer</title>
           <para>In the data layer code is generated in the hibernate mapping files using the
             hibernate support for inheritance.</para>
-          <para>In the Dao package, a regular Dao Java file is generated.  There is no inheritance
+          <para>In the Dao package, a regular Dao Java file is generated. There is no inheritance
             relationship between the class and its superclass in the Dao code.</para>
         </section>
       </section>
@@ -333,7 +333,7 @@
         <title>Definition</title>
         <para>Attributes are part of a business class and defined within the scope of their class.
           The example class person looks as follows.</para>
-        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> Person [
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> Person [
     <keycap>string</keycap>   name;  <keycap>default</keycap> "the default name"
                     <keycap>minlength</keycap> 3  <keycap>maxlength</keycap> 10 
       <keycap>              regexp</keycap> "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
@@ -601,15 +601,16 @@
         business class. The enumeration definition includes a list of all enumeration values. The
         example below shown an enumeration definition.</para>
       <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve">"The severity level of a customer problem"
-<keycap>Enumeration</keycap> SeverityLevel [
+<keycap>enumeration</keycap> SeverityLevel [
     Low    = 1;
     Middle = 2;
     High   = 3;
 ]
 </programlisting>
       <para>The "= 1" defines the numeric value that is used for the enumeration literal in the code
-        and the database. This is optional, but useful when you need to address existing encoding
-        schemes for enumerations.</para>
+        and the database. This is mandatory, because it is often neccesary to retain previous values
+        when you need to address existing encoding schemes for enumerations, or when you are adding
+        enumeration literals during development.</para>
       <section>
         <title>Generated code</title>
         <para>To Be Done</para>
@@ -622,16 +623,16 @@
         every object of the given business class.</para>
       <para>Other rules, for example one that trigger something when a certain condition is met, are
         not covered.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Class</keycap> SampleClass [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> SampleClass [
     // properties go here ...
     // rules go here ...
-    <keycap>Rules</keycap> [
+    <keycap>rules</keycap> [
         "A first rule"
         mustBeValid;
         "A second rule"
         isOriginal;
         "a unique rule"
-        <keycap>unique</keycap> namesUnique [ firstname lastname ]
+        <keycap>unique</keycap> namesUnique [ firstname, lastname ]
     ]
 ]
 </programlisting>
@@ -664,18 +665,15 @@
       <title>Associations</title>
       <para>The final part of a domain model defines all the relationships between the business
         classes.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>Association</keycap> customer  Customer  <emphasis role="bold">[0..1]</emphasis> &lt;-&gt; <emphasis role="bold">[0..*]</emphasis> orders     Order    ;
-<keycap>Association</keycap> order     Order     <emphasis role="bold">[0..1]</emphasis>  -&gt; <emphasis role="bold">[1..*]</emphasis> orderLines OrderLine;
-<keycap>Association</keycap> orderline OrderLine <emphasis role="bold">[0..*]</emphasis>  -&gt; <emphasis role="bold">[1..1]</emphasis> record     Record   ;</programlisting>
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>association</keycap> customer  Customer  <emphasis role="bold">one</emphasis> &lt;-&gt; <emphasis role="bold">many</emphasis> orders     Order    ;
+<keycap>association</keycap> order     Order     <emphasis role="bold">one</emphasis>  -&gt; <emphasis role="bold">many</emphasis> orderLines OrderLine;
+<keycap>association</keycap> orderline OrderLine <emphasis role="bold">many</emphasis>  -&gt; <emphasis role="bold">one</emphasis> record     Record   ;</programlisting>
       <para>This example shows one bidirectional association, which uses the &lt;-&gt; syntax and
         one unidirectional association using the -&gt; syntax.</para>
-      <para>The qualifiers <emphasis role="bold">[0..1]</emphasis>, <emphasis role="bold"
-          >[1..1]</emphasis>, <emphasis role="bold">[0..*]</emphasis> and <emphasis role="bold"
-          >[1..*]</emphasis> denote the multiplicity of the association at the side of the object
-        closest to it.  Note that <emphasis role="bold">[0..1]</emphasis> and <emphasis role="bold"
-          >[1..1] </emphasis> are handled identically by Mod4 and the code generator.  This is also
-        the case for <emphasis role="bold">[0..*]</emphasis> and <emphasis role="bold"
-          >[1..*]</emphasis>.</para>
+      <para>The qualifiers <emphasis role="bold">one</emphasis> and <emphasis role="bold"
+          >many</emphasis> denote the multiplicity of the association at the side of the object
+        closest to it..</para>
+      <para>TODO: ordered associations and many-to-many associations</para>
       <section>
         <title>Generated code</title>
         <para>Associations are a powerful mechanism and require careful handling in the code. For
@@ -774,7 +772,7 @@
     </section>
     <section>
       <title>CustomDto</title>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>custom</keycap> ExampleDto [
     // properties go here ...
 ]
 </programlisting>
@@ -791,7 +789,7 @@
         <title>Definition</title>
         <para>DTO Attributes are part of a DTO and defined within the scope of their DTO. The
           example custom DTO personDto looks as follows.</para>
-        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>CustomDto</keycap> ExampleDto [
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>custom</keycap> ExampleDto [
     <keycap>string</keycap>   description; 
     <keycap>integer</keycap>  amount;    
     <keycap>datetime</keycap> deliverydate;       
@@ -826,13 +824,13 @@
       </section>
     </section>
     <section>
-      <title>BusinessClassDto</title>
+      <title>Business Class Dto</title>
       <para>A BusinessClassDto is a DTO that represents the data of a business class from the
         Business Domain DSL. As a consequence, the attributes that are allowed within a
         BusinessClassDTO must map 1-to-1 to attributes of the corresponding business class.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDomainModel <keycap>import </keycap>Customer ;
 
-<keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+<keycap>class</keycap> SimpleCustomerDto <keycap>represents </keycap>Customer [
     // attributes go here 
 ]
 </programlisting>
@@ -840,7 +838,7 @@
         class. This business class must be defined in a Business Domain model. To ensure that the
         business class is in scope it must be imported first from its business domain model. Import
         statements are always at the top of a data contract model.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> SimpleCustomerDto <keycap>represents </keycap>Customer [
     name; 
     numberOfEars;    
     birthdate;       
@@ -855,7 +853,7 @@
       <para>The type of the attributes is derived from the type of the corresponding attribute in
         the business class in the business domain model. Therefore it is not specified in the data
         contract model.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> SimpleCustomerDto <keycap>base </keycap>Customer [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> SimpleCustomerDto <keycap>represents </keycap>Customer [
     // attributes go here 
 
     <keycap>references </keycap>[ 
@@ -882,7 +880,7 @@
         following shorthand will achieve this. It will by default add all attributes to the
         BusinesssClassDto.</para>
       <para>
-        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>BusinessClassDto</keycap> FullCustomerDto <keycap>base </keycap>Customer [
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> FullCustomerDto <keycap>represents </keycap>Customer [
 </programlisting>
       </para>
       <para/>
@@ -909,7 +907,7 @@
       <title>ListDto</title>
       <para>The final part of a domain model defines all the relationships between the business
         classes.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>ListDto </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>list </keycap> CustomerList <keycap>base</keycap> FullCustomerDto ;
 </programlisting>
       <para>This example shows the ListDto named CustomerList which contains objects of type
         FullCustomerDto.</para>
@@ -927,7 +925,7 @@
         business class. The EnumerationDto definition includes a list of all enumeration values. As
         with the BusinessClassDto, this dto is connected to an Enumeration in the business class
         model. The example below shown an enumeration definition.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>EnumerationDto</keycap> SeverityLevelDto <keycap>base</keycap> SecurityLevelEnum [
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>enumeration</keycap> SeverityLevelDto <keycap>represents</keycap> SecurityLevelEnum [
 </programlisting>
       <para>The SecurityLevelEnum must be defined in a Business Class model and imported defines the
         numeric value that is used for the enumeration literal in the code and the database. This is
@@ -954,7 +952,9 @@
         the method. A method may have zero or more input parameters and zero or one output
         parameter.</para>
       <para>
-        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>method</keycap> addToOrders <keycap>in</keycap> OrderDto order SimpleCustomerDto customer <keycap>out</keycap> OrderDto;</programlisting>
+        <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>method</keycap> addToOrders <keycap>in</keycap> [ OrderDto order;
+                             SimpleCustomerDto customer 
+                     <keycap>out</keycap> OrderDto;</programlisting>
       </para>
       <section>
         <title>Generated code</title>
@@ -969,20 +969,20 @@
         needed.</para>
       <para>For this purpose the service DSL includes special methods which are indicated by their
         respective keywords.</para>
-      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
+      <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto
 
-create</keycap> createCustomer <keycap>for</keycap> SimpleCustomerDto;
-<keycap>read</keycap>   readCustomer   <keycap>for</keycap> SimpleCustomerDto;
-<keycap>update</keycap> updateCustomer <keycap>for</keycap> SimpleCustomerDto;
-<keycap>delete</keycap> deleteCustomer <keycap>for</keycap> SimpleCustomerDto;</programlisting>
+<keycap>for</keycap> SimpleCustomerDto <keycap>create</keycap> createCustomer ;
+<keycap>for</keycap> SimpleCustomerDto <keycap>read</keycap>   readCustomer   ;
+<keycap>for</keycap> SimpleCustomerDto <keycap>update</keycap> updateCustomer ;
+<keycap>for</keycap> SimpleCustomerDto <keycap>delete</keycap> deleteCustomer ;</programlisting>
       <para>Because the Dto is defined in a data contract model it needs to be imported first. As
         these methods are used for defining CRUD functionality for business objects the DTO used
         must be a BusinessClassDto.</para>
       <para>If you need all of the CRUD methods, you can use a shortcut to specify all four methods
         as
-        follows:<programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto<keycap>
+        follows:<programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>from</keycap> RecordShopDataContract <keycap>import</keycap> SimpleCustomerDto ;
 
-crud</keycap> <keycap>for</keycap> SimpleCustomerDto;</programlisting>In
+<keycap>for</keycap> SimpleCustomerDto <keycap>crud</keycap> ;</programlisting>In
         this case the names of the crud methods are derived from the name of the Dto and the
         business class it represents. In the above example the names will be createCustomer,
         readAsSimpleCustomerDto, updateCustomer, deleteCustomer. The read method has a slightly
@@ -1059,8 +1059,8 @@ public void deleteCustomer(SimpleCustomerDto object);
         <para>A reference method allows you to handle changing links between objects. There are two
           types of reference methods. The add method allows adds an object to an association, the
           remove removes an object from an association.</para>
-        <programlisting continuation="continues" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>add</keycap> OrderDto
-<keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>remove</keycap> OrderDto </programlisting>
+        <programlisting continuation="continues" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>add</keycap> OrderDto   ;
+<keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>remove</keycap> OrderDto; </programlisting>
         <para>An .</para>
       </section>
       <section>
