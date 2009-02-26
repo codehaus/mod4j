@@ -2,7 +2,6 @@
    This file contains the code to create a Crossx model from a BusinesDomainDsl model.
    Needed for crosssreference purposes.
 */
-
 import crossx;
 import PresentationDsl;
 
@@ -20,6 +19,8 @@ Symbol toElement(Dialogue d) :
     let result = new Symbol :
     result.setName(d.name) ->
     result.setType("Dialogue")->
+    result.properties.add( newProperty("dialogueType", d.metaType.name.simpleName()))->
+    result.properties.add( newProperty("context", d.contextRef.name))->
     result
     ;
 
