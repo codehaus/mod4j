@@ -1,12 +1,10 @@
 package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.company.recordshop.data.spring.dao.One2ManyFromDao;
-import org.company.recordshop.data.spring.dao.One2ManyOrderedToDao;
+import org.company.recordshop.data.One2ManyFromDao;
+import org.company.recordshop.data.One2ManyOrderedToDao;
 import org.company.recordshop.domain.One2ManyFrom;
 import org.company.recordshop.domain.One2ManyOrderedTo;
 import org.junit.Before;

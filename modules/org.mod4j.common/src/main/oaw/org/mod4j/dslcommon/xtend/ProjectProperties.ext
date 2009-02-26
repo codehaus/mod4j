@@ -70,6 +70,9 @@ String getDataRootPackage() :
 String getDaoPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoPackage();
  
+String getDaoImplPackage() : 
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDaoImplPackage();
+ 
 String getDtoPackage() : 
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDtoPackage();
  

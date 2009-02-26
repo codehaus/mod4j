@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.company.recordshop.data.spring.dao.PersonDao;
+import org.company.recordshop.data.PersonDao;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Person;
 import org.company.recordshop.domain.SexeEnum;

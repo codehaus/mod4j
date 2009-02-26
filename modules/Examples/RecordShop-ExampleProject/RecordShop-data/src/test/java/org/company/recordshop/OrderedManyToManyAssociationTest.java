@@ -3,8 +3,8 @@ package org.company.recordshop;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import org.company.recordshop.data.spring.dao.Many2ManyFromDao;
-import org.company.recordshop.data.spring.dao.Many2ManyOrderedToDao;
+import org.company.recordshop.data.Many2ManyFromDao;
+import org.company.recordshop.data.Many2ManyOrderedToDao;
 import org.company.recordshop.domain.Many2ManyFrom;
 import org.company.recordshop.domain.Many2ManyOrderedTo;
 import org.junit.Before;

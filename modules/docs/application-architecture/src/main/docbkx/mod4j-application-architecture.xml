@@ -4,9 +4,7 @@
 <!ENTITY logical-view SYSTEM "images/logical-view.jpg" NDATA JPG>
 ]>
 <book lang="en">
-  <bookinfo>
-    <title>mod4j Application Architecture</title>
-    <author>
+  <bookinfo><title>mod4j Application Architecture</title><author>
       <firstname>Eric</firstname>
       <othername>Jan</othername>
       <surname>Malotaux</surname>
@@ -28,8 +26,7 @@
       <bibliography>
         <biblioentry id="busch96">
           <abbrev>Busch96</abbrev>
-          <title>Pattern-Oriented Software Architecture - A System of Patterns</title>
-          <authorgroup>
+          <title>Pattern-Oriented Software Architecture - A System of Patterns</title><authorgroup>
             <author>
               <firstname>Frank</firstname>
               <surname>Buschmann</surname>
@@ -50,20 +47,17 @@
               <surname>Stal</surname>
               <firstname>Michael</firstname>
             </author>
-          </authorgroup>
-          <publisher>
+          </authorgroup><publisher>
             <publishername>John Wiley &amp; Sons</publishername>
           </publisher>
           <date>1996</date>
         </biblioentry>
         <biblioentry id="evans03">
           <abbrev>Evans03</abbrev>
-          <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title>
-          <author>
+          <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title><author>
             <firstname>Eric</firstname>
             <surname>Evans</surname>
-          </author>
-          <publisher>
+          </author><publisher>
             <publishername>Addison-Wesley</publishername>
           </publisher>
           <date>2003</date>
@@ -74,9 +68,7 @@
           <author>
             <firstname>Martin</firstname>
             <surname>Fowler</surname>
-          </author>
-          <title>Patterns of Enterprise Application Architecture</title>
-          <publisher>
+          </author><title>Patterns of Enterprise Application Architecture</title><publisher>
             <publishername>Addison-Wesley</publishername>
           </publisher>
           <date>2002</date>
@@ -170,6 +162,11 @@
             <para>making the call to each service operation an atomic (ACID) transaction.</para>
           </listitem>
         </itemizedlist></para>
+      <section>
+        <title>Data Transfer Objects</title>
+        <para>TODO: describe the strategy of the Data Transfer Objects: scope, references, lazy
+          loading.</para>
+      </section>
     </section>
     <section>
       <title>Business Layer</title>
@@ -271,9 +268,9 @@
         project.</para>
       <para>The names of the modules are formed by concatenating the mod4j Project Name, a dash
         ("-") and a keyword derived from the architectural layer the module implements. For a
-        hypothetical mod4j project "RecordShop", the module names would be:
-          <literal>RecordShop-service</literal>, <literal>RecordShop-business</literal>,
-          <literal>RecordShop-data</literal> and <literal>RecordShop-domain</literal>.</para>
+        hypothetical mod4j project "RecordShop", the module names would be: <literal
+          >RecordShop-service</literal>, <literal>RecordShop-business</literal>, <literal
+          >RecordShop-data</literal> and <literal>RecordShop-domain</literal>.</para>
       <para>The maven project can be built by maven from the command-line. Alternatively, the
         modules may be imported into Eclipse with the <emphasis role="italic">
           <ulink url="http://code.google.com/p/q4e/">Q4E</ulink>
@@ -283,10 +280,72 @@
       <title>Packages</title>
       <para>The Java classes are organised in Java packages all prefixed with a root package name
         provided by the user at the time the mod4j project was created by the mod4j Project Creation
-        Wizard and stored in the file <filename>src/model/mod4j.properties</filename> as the value
+        Wizard, and stored in the file <filename>src/model/mod4j.properties</filename> as the value
         of the property <varname>rootPackage</varname>. The packages names below this common prefix
         start with a package name corresponding with the component name, that in turn is derived
         from the architectural layer that it implements.</para>
+      <table>
+        <title>Packages</title>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <package>service</package>
+              </entry>
+              <entry>Java classes implementing the service layer.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>service.dto</package>
+              </entry>
+              <entry>Data Transfer Objects.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>service.dto.translators</package>
+              </entry>
+              <entry>Java classes that translate Domain Objects to Data Transfer Objects, and vice
+                versa.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>business</package>
+              </entry>
+              <entry>Java classes implementing Domain Services in the business layer.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>data</package>
+              </entry>
+              <entry>Java classes implementing the business layer.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>data.spring.dao</package>
+              </entry>
+              <entry>Java classes implementing the business layer.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>domain</package>
+              </entry>
+              <entry>Java classes implementing the business layer.</entry>
+            </row>
+            <row>
+              <entry>
+                <package>domain.businessrules</package>
+              </entry>
+              <entry>Java classes implementing the business layer.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </section>
     <section>
       <title>Spring</title>
@@ -295,10 +354,10 @@
         configuration files, generally two per architectural layer. One of these contains the
         generated configuration, the other is just once generated empty as a placeholder for
         customizing the configuration by hand. From these two files a Spring context can be
-        constructed where the one, the
-          <literal>org.company.recordshop.service.applicationContextBase</literal>, is the parent of
-        the other, the <literal>org.company.recordshop.service.applicationContext</literal> . This
-        can be done by </para>
+        constructed where the one, the <literal
+          >org.company.recordshop.service.applicationContextBase</literal>, is the parent of the
+        other, the <literal>org.company.recordshop.service.applicationContext</literal> . This can
+        be done by </para>
       <programlisting><![CDATA[<bean
     class="org.springframework.context.support.ClassPathXmlApplicationContext"
     id="org.company.recordshop.service.applicationContext">

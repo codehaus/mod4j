@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.company.recordshop.data.spring.dao.CustomerDao;
+import org.company.recordshop.data.CustomerDao;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.CustomerExample;
 import org.company.recordshop.domain.Order;

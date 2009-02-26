@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.company.recordshop.data.spring.dao.ArtistDao;
-import org.company.recordshop.data.spring.dao.RecordDao;
+import org.company.recordshop.data.ArtistDao;
+import org.company.recordshop.data.RecordDao;
 import org.company.recordshop.domain.Artist;
 import org.company.recordshop.domain.Record;
 import org.company.recordshop.domain.RecordTypeEnum;

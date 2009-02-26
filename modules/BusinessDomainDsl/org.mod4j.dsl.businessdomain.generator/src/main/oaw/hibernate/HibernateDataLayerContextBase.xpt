@@ -45,7 +45,7 @@
 
 «FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
     <bean id="«clsName.toFirstLower()»Dao"
-        class="«getDaoPackage()».«clsName»DaoImpl">
+        class="«getDaoImplPackage()».«clsName»DaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 «ENDFOREACH»

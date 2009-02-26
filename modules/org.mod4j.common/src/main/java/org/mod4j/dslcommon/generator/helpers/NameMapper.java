@@ -120,7 +120,7 @@ public class NameMapper {
     }
 
     public static String javaDaoClassPath(String cls) {
-        String packageName = ProjectProperties.getDaoPackage();
+        String packageName = ProjectProperties.getDaoImplPackage();
         return packageName + "." + javaDaoClass(cls);
     }
 
@@ -147,7 +147,7 @@ public class NameMapper {
     }
 
     public static String javaDaoBaseClassPath(String cls) {
-        String packageName = ProjectProperties.getDaoPackage();
+        String packageName = ProjectProperties.getDaoImplPackage();
         return packageName + "." + javaDaoBaseClass(cls);
     }
 

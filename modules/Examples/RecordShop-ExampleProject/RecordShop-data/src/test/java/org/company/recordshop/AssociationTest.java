@@ -12,12 +12,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import org.company.recordshop.data.spring.dao.ArtistDao;
-import org.company.recordshop.data.spring.dao.CustomerDao;
-import org.company.recordshop.data.spring.dao.OrderDao;
-import org.company.recordshop.data.spring.dao.OrderLineDao;
-import org.company.recordshop.data.spring.dao.ProductDao;
-import org.company.recordshop.data.spring.dao.RecordDao;
+import org.company.recordshop.data.ArtistDao;
+import org.company.recordshop.data.CustomerDao;
+import org.company.recordshop.data.OrderDao;
+import org.company.recordshop.data.OrderLineDao;
+import org.company.recordshop.data.ProductDao;
+import org.company.recordshop.data.RecordDao;
 import org.company.recordshop.domain.Artist;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Order;

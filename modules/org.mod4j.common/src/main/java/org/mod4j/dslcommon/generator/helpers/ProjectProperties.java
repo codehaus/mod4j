@@ -55,9 +55,10 @@ public class ProjectProperties {
         resourceManPath = properties.getProperty("resourceManPath");
         fileEncoding = properties.getProperty("fileEncoding");
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
-        hibernate_mapping_class_id_generator_class = properties.getProperty("hibernate-mapping.class.id.generator.class");
+        hibernate_mapping_class_id_generator_class = properties
+                .getProperty("hibernate-mapping.class.id.generator.class");
         hibernate_mapping_inheritance_strategy = properties.getProperty("hibernate-mapping.inheritance.strategy");
-        
+
     }
 
     private static String propertyFile = "DEFAULT";
@@ -104,18 +105,20 @@ public class ProjectProperties {
 
     // TODO remove public static final String BUSINESSRULES_PACKAGE = "businessrules";
 
-    public static final String DAO_PACKAGE = "spring.dao";
+    public static final String DAO_PACKAGE = "";
 
-    public static final String DTO_PACKAGE = "dto";
+    public static final String DAO_IMPL_PACKAGE = ".spring.hibernate";
 
-    public static final String TRANSLATORS_PACKAGE = "translators";
+    public static final String DTO_PACKAGE = ".dto";
+
+    public static final String TRANSLATORS_PACKAGE = ".translators";
 
     private static String workDir = "/";
-    
+
     private static String hibernate_hbm2ddl_auto = "update";
-    
+
     private static String hibernate_mapping_class_id_generator_class = "native";
-    
+
     private static String hibernate_mapping_inheritance_strategy = "table.per.concrete.class";
 
     public static void setWorkDir(String dir) {
@@ -161,7 +164,7 @@ public class ProjectProperties {
     public static String getServiceModulePath() {
         return getApplicationPath() + "/" + getServiceModuleName();
     }
-    
+
     public static String getBusinessModulePath() {
         return getApplicationPath() + "/" + getBusinessModuleName();
     }
@@ -211,19 +214,27 @@ public class ProjectProperties {
     }
 
     public static String getDaoPackage() {
-        return getDataRootPackage() + "." + DAO_PACKAGE;
+        return getDataRootPackage() + DAO_PACKAGE;
     }
 
     public static String getDaoPackageAsPath() {
         return getDaoPackage().replaceAll("\\.", "/");
     }
 
+    public static String getDaoImplPackage() {
+        return getDataRootPackage() + DAO_IMPL_PACKAGE;
+    }
+
+    public static String getDaoImplPackageAsPath() {
+        return getDaoPackage().replaceAll("\\.", "/");
+    }
+
     public static String getDtoPackage() {
-        return getServiceRootPackage() + "." + DTO_PACKAGE;
+        return getServiceRootPackage() + DTO_PACKAGE;
     }
 
     public static String getTranslatorsPackage() {
-        return getDtoPackage() + "." + TRANSLATORS_PACKAGE;
+        return getDtoPackage() + TRANSLATORS_PACKAGE;
     }
 
     public static String getSrcModelPath() {
@@ -249,15 +260,15 @@ public class ProjectProperties {
     public static String getFileEncoding() {
         return fileEncoding;
     }
-    
+
     public static String getHibernate_hbm2ddl_auto() {
         return hibernate_hbm2ddl_auto;
     }
-    
+
     public static String getHibernate_mapping_class_id_generator_class() {
         return hibernate_mapping_class_id_generator_class;
     }
-    
+
     public static String getHibernate_InheritanceMappingStrategy() {
         return hibernate_mapping_inheritance_strategy;
     }
