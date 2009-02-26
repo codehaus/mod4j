@@ -10,14 +10,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"
-        eType="#//DialogueCall"/>
+        eType="#//DialogueCall" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionDialogue" eSuperTypes="#//CompoundDialogue"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dialogue" abstract="true" eSuperTypes="#//UIModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
-        eType="#//ProcessCall"/>
+        eType="#//ProcessCall" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UIModelElementRef"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//NamedReference"/>
@@ -41,6 +41,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contextRef" eType="#//ExternalReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presentationModel" lowerBound="1"
+        eType="#//PresentationModel" eOpposite="#//PresentationModel/elements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedReference">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -49,7 +51,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModelElement" containment="true"/>
+        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/presentationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
         eType="#//ExternalReference" containment="true"/>
   </eClassifiers>
