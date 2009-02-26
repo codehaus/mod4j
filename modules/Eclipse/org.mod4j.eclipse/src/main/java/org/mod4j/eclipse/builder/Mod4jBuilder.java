@@ -61,9 +61,22 @@ import org.mod4j.eclipse.views.filetracker.FileTrackerView;
  */
 public class Mod4jBuilder extends IncrementalProjectBuilder {
 
-    private MessageConsoleStream console = null;
+    private static final String MOD4J_BUILDER_CONSOLE = "mod4j.projectbuilder";
 
-    protected static List<DslExtension> dslExtensions = null;
+	protected MessageConsoleStream console = null;
+
+    /**
+	 * @return the console
+	 */
+	protected MessageConsoleStream getConsole() {
+		if( console == null ){
+			console = EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE);
+	        System.setErr(new PrintStream(console));
+		}
+		return console;
+	}
+
+	protected static List<DslExtension> dslExtensions = null;
 
     public static final String BUILDER_ID = "org.mod4j.eclipse.Mod4jBuilder";
 
@@ -324,10 +337,12 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         }
     }
     public void startX() {
-        console = EclipseUtil.findConsole("crossx.projectbuilder.startX");
+    	getConsole();
+    	System.err.println("Mod4jBuilder.startX()");
+// J        console = EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE);
 //        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
-        CrossxEnvironment.setPrintStream(console);
-        System.setErr(new PrintStream(console));
+        CrossxEnvironment.setPrintStream(getConsole());
+// J        System.setErr(new PrintStream(getConsole()));
         dslExtensions = getExtensions();
         IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
         System.err.println("Number of projects [" + projects.length + "]");
@@ -348,9 +363,10 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void startupOnInitialize() {
         System.err.println("Mod4jBuilder.startupOnInitialize");
         if (!initialized) {
-            console = EclipseUtil.findConsole("mod4j.projectbuilder");
-            CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository"));
-            System.setErr(new PrintStream(console));
+// J            console = EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE);
+// J            CrossxEnvironment.setPrintStream(EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE));
+            CrossxEnvironment.setPrintStream(getConsole());
+// J            System.setErr(new PrintStream(getConsole()));
             initialized = true;
             start();
         }

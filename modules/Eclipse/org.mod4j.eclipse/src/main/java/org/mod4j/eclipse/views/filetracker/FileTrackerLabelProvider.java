@@ -68,6 +68,8 @@ public class FileTrackerLabelProvider extends LabelProvider {
                 return UiHelper.mod4jServiceImage;
             } else if (ft.getResource().endsWith(".dtcmod")) {
                 return UiHelper.mod4jDataContractImage;
+            } else if (ft.getResource().endsWith(".pmfmod")) {
+                return UiHelper.mod4jPresentationImage;
             } else {
                 return UiHelper.mod4jImage;
             }

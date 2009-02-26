@@ -76,6 +76,8 @@ public class UiHelper {
 
     public static Image mod4jDataContractImage = UiHelper.getImageFromString("mod4j-datacontract.ico");
 
+    public static Image mod4jPresentationImage = UiHelper.getImageFromString("mod4j-presentation.ico");
+
     /**
      * Constructor: is not needed because all methods are static
      */
