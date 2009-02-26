@@ -15,7 +15,7 @@ importMetamodel "http://www.mod4j.org/service" ;
 
 ServiceModel:
 	(description=STRING )?
-	"Service" name = ID
+	"service" name = ID ";"
 	(dtoReferences+=DtoReference)*
 	(
 	    (crudServices += CrudService)
@@ -27,7 +27,7 @@ AssociationMethod :
 	(description=STRING )?
     "for" main=[DtoReference]  "reference"  rolename=ID 
     type=AssociationMethodType
-    part=[DtoReference] 
+    part=[DtoReference] ";"
 	;
 Enum SpecialMethodType [MethodType]:
      CREATE="create"  | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall" | FIND="find"
@@ -50,38 +50,19 @@ Enum AssociationGetMethodType [MethodType] :
      ;
 
 DtoReference:
-	(description=STRING )?
-    "from" modelname=ID "import" name=ID 
+    "from" modelname=ID "import" name=ID ";"
     ;
 
 ServiceMethod :
 	(description=STRING )?
     (CustomMethod | SpecialMethod | AssociationMethod )
     ;
-
-
-	
-//AssociationToMethod [AssociationMethod] :
-//    type=AssociationMethodType
-//    part=[DtoReference] "to" rolename=ID "of" main=[DtoReference]
-//    ;
-
-
-//AssociationFromMethod [AssociationMethod] :
-//    type=AssociationFromMethodType
-//    part=[DtoReference] "from" rolename=ID "of" main=[DtoReference]
-//    ;
-    	
-//AssociationGetMethod [AssociationMethod] :
-//    type=AssociationGetMethodType
-//    part=[DtoReference] "from" rolename=ID "of" main=[DtoReference]
-//    ;
     	
 CustomMethod:
 	(description=STRING )?
 	"method"
 	name=ID
-	("in"  (inParameters+=Parameter)*  )?
+	("in" "[" (inParameters+=Parameter ";")* "]" )?
 	("out" output=[DtoReference] )?
     ";" ;
      
@@ -92,15 +73,16 @@ Parameter:
     
 SpecialMethod:
 	(description=STRING )?
+    "for" dto = [DtoReference]
     type=SpecialMethodType
     name=ID
-    "for" dto = [DtoReference]
     ";"
     ;
     
 CrudService:
 	(description=STRING )?
-    name="crud" "for" dto =[DtoReference]
+    "for" dto =[DtoReference]
+    name="crud"
     ";"
     ;
 
