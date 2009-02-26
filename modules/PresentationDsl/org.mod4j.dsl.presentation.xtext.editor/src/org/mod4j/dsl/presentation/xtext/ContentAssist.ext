@@ -23,6 +23,9 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
 List[String] getFormElementReferenceProposals(emf::EObject ctx) : JAVA
     org.mod4j.dsl.presentation.xtext.Proposals.getFormElementReferenceProposals(org.eclipse.emf.ecore.EObject);
 
+List[String] getDialogueCallProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.presentation.xtext.Proposals.getDialogueCallProposals(org.eclipse.emf.ecore.EObject);
+
 /* proposals for Feature ExternalReference::modelname */
 List[Proposal] completeExternalReference_modelName(emf::EObject ctx, String prefix) :
 	findAllModelsInProject( ctx.getProjectName()).modelname .collect(x|newProposal(x)) ;
@@ -37,6 +40,12 @@ List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
 List[Proposal] completeFormElement_references(emf::EObject ctx, String prefix) :
 	getFormElementReferenceProposals(ctx).collect(x|newProposal(x));
 	
+List[Proposal] completeCollectionDialogue_dialogues(emf::EObject ctx, String prefix) :
+	getDialogueCallProposals(ctx).collect(x|newProposal(x));
+
+List[Proposal] completeCompoundDialogue_dialogues(emf::EObject ctx, String prefix) :
+	getDialogueCallProposals(ctx).collect(x|newProposal(x));
+	
 /** Filter out all proiposals that end with Description. 
  *  This eliminates the descritions from all proposals.
  *  Also put a space at the end of all proposals
@@ -45,4 +54,5 @@ List[Proposal] sortProposals(List[Proposal] proposalsToSort):
     proposalsToSort.reject(p | p.label.endsWith("Description"))
     .select(p | p.setToInsert(p.toInsert + " ")->true).sortBy(p|p.label)
 	;
+	
 	
