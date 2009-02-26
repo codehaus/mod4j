@@ -115,7 +115,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
      * @author "Jos Warmer"
      * 
      */
-    class CrossxGenerateSymbolDeltaVisitor1 implements IResourceDeltaVisitor {
+    class CrossxGenerateSymbolDeltaVisitor implements IResourceDeltaVisitor {
         /*
          * (non-Javadoc)
          * 
@@ -288,7 +288,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         // the visitor does the work.
         System.err.println("Mod4jBuilder: incremental build");
         files.clear();
-        delta.accept(new CrossxGenerateSymbolDeltaVisitor1());
+        delta.accept(new CrossxGenerateSymbolDeltaVisitor());
         generateCrossxForAllFiles();
         delta.accept(new Mod4jDeltaVisitor());
         FileTrackerView.myrefresh();
@@ -296,20 +296,23 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
     private void generateCrossxForAllFiles() {
         for (IResource resource : files) {
-            if( resource.getName().endsWith(".busmod")){
-                generateCrossxSymbols(resource);
-            }
+            generateCrossxSymbols(resource);
         }
-        for (IResource resource : files) {
-            if( resource.getName().endsWith(".dtcmod")){
-                generateCrossxSymbols(resource);
-            }
-        }
-        for (IResource resource : files) {
-            if( resource.getName().endsWith(".sermod")){
-                generateCrossxSymbols(resource);
-            }
-        }
+//        for (IResource resource : files) {
+//            if( resource.getName().endsWith(".busmod")){
+//                generateCrossxSymbols(resource);
+//            }
+//        }
+//        for (IResource resource : files) {
+//            if( resource.getName().endsWith(".dtcmod")){
+//                generateCrossxSymbols(resource);
+//            }
+//        }
+//        for (IResource resource : files) {
+//            if( resource.getName().endsWith(".sermod")){
+//                generateCrossxSymbols(resource);
+//            }
+//        }
     }
 
     public static void initCrossx() {
