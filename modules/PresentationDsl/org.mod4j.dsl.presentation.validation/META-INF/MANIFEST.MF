@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.mod4j.dsl.presentation.validation
+Bundle-SymbolicName: org.mod4j.dsl.presentation.validation; singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.openarchitectureware.dependencies,
+ org.mod4j.common;bundle-version="1.0.0",
+ org.mod4j.crossx.broker;bundle-version="1.0.0",
+ org.mod4j.crossx.mm;bundle-version="1.0.0",
+ org.mod4j.dsl.presentation.mm;bundle-version="1.0.0"
+Export-Package: org.mod4j.dsl.presentation.validation
