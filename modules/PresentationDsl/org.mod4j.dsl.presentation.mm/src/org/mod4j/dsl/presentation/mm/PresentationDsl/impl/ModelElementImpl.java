@@ -9,15 +9,18 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementImpl#getContextRef <em>Context Ref</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementImpl#getPresentationModel <em>Presentation Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -189,6 +193,91 @@ public abstract class ModelElementImpl extends EObjectImpl implements ModelEleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PresentationModel getPresentationModel() {
+		if (eContainerFeatureID != PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL) return null;
+		return (PresentationModel)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPresentationModel(PresentationModel newPresentationModel, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPresentationModel, PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPresentationModel(PresentationModel newPresentationModel) {
+		if (newPresentationModel != eInternalContainer() || (eContainerFeatureID != PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL && newPresentationModel != null)) {
+			if (EcoreUtil.isAncestor(this, newPresentationModel))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPresentationModel != null)
+				msgs = ((InternalEObject)newPresentationModel).eInverseAdd(this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationModel.class, msgs);
+			msgs = basicSetPresentationModel(newPresentationModel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL, newPresentationModel, newPresentationModel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPresentationModel((PresentationModel)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				return basicSetPresentationModel(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				return eInternalContainer().eInverseRemove(this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationModel.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -199,6 +288,8 @@ public abstract class ModelElementImpl extends EObjectImpl implements ModelEleme
 			case PresentationDslPackage.MODEL_ELEMENT__CONTEXT_REF:
 				if (resolve) return getContextRef();
 				return basicGetContextRef();
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				return getPresentationModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,6 +310,9 @@ public abstract class ModelElementImpl extends EObjectImpl implements ModelEleme
 				return;
 			case PresentationDslPackage.MODEL_ELEMENT__CONTEXT_REF:
 				setContextRef((ExternalReference)newValue);
+				return;
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				setPresentationModel((PresentationModel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -241,6 +335,9 @@ public abstract class ModelElementImpl extends EObjectImpl implements ModelEleme
 			case PresentationDslPackage.MODEL_ELEMENT__CONTEXT_REF:
 				setContextRef((ExternalReference)null);
 				return;
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				setPresentationModel((PresentationModel)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -259,6 +356,8 @@ public abstract class ModelElementImpl extends EObjectImpl implements ModelEleme
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case PresentationDslPackage.MODEL_ELEMENT__CONTEXT_REF:
 				return contextRef != null;
+			case PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL:
+				return getPresentationModel() != null;
 		}
 		return super.eIsSet(featureID);
 	}

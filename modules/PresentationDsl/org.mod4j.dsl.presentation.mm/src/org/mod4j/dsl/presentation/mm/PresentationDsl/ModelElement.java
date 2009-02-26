@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getName <em>Name</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getContextRef <em>Context Ref</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getPresentationModel <em>Presentation Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,33 @@ public interface ModelElement extends EObject {
 	 * @generated
 	 */
 	void setContextRef(ExternalReference value);
+
+	/**
+	 * Returns the value of the '<em><b>Presentation Model</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Presentation Model</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Presentation Model</em>' container reference.
+	 * @see #setPresentationModel(PresentationModel)
+	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getModelElement_PresentationModel()
+	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel#getElements
+	 * @model opposite="elements" required="true" transient="false"
+	 * @generated
+	 */
+	PresentationModel getPresentationModel();
+
+	/**
+	 * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getPresentationModel <em>Presentation Model</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Presentation Model</em>' container reference.
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	void setPresentationModel(PresentationModel value);
 
 } // ModelElement

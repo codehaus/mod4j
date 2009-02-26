@@ -8,8 +8,12 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
@@ -30,7 +34,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialogue {
 	/**
-	 * The cached value of the '{@link #getDialogues() <em>Dialogues</em>}' reference list.
+	 * The cached value of the '{@link #getDialogues() <em>Dialogues</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDialogues()
@@ -65,9 +69,23 @@ public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialog
 	 */
 	public EList<DialogueCall> getDialogues() {
 		if (dialogues == null) {
-			dialogues = new EObjectResolvingEList<DialogueCall>(DialogueCall.class, this, PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES);
+			dialogues = new EObjectContainmentEList<DialogueCall>(DialogueCall.class, this, PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES);
 		}
 		return dialogues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
+				return ((InternalEList<?>)getDialogues()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

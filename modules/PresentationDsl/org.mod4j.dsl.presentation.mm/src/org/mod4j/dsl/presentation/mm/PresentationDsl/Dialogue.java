@@ -56,7 +56,7 @@ public interface Dialogue extends UIModelElement {
 	void setReadonly(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Processes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
 	 * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -64,9 +64,9 @@ public interface Dialogue extends UIModelElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Processes</em>' reference list.
+	 * @return the value of the '<em>Processes</em>' containment reference list.
 	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogue_Processes()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ProcessCall> getProcesses();

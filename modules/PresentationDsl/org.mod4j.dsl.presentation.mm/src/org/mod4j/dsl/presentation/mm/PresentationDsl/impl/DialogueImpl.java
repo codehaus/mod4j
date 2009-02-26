@@ -9,9 +9,13 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -52,7 +56,7 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
 	protected boolean readonly = READONLY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProcesses() <em>Processes</em>}' reference list.
+	 * The cached value of the '{@link #getProcesses() <em>Processes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProcesses()
@@ -108,9 +112,23 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
 	 */
 	public EList<ProcessCall> getProcesses() {
 		if (processes == null) {
-			processes = new EObjectResolvingEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES);
+			processes = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES);
 		}
 		return processes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PresentationDslPackage.DIALOGUE__PROCESSES:
+				return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

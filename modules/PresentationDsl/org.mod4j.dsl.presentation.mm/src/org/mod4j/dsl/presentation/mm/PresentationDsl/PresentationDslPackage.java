@@ -97,13 +97,22 @@ public interface PresentationDslPackage extends EPackage {
 	int MODEL_ELEMENT__CONTEXT_REF = 2;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__PRESENTATION_MODEL = 3;
+
+	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = 3;
+	int MODEL_ELEMENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementImpl <em>UI Model Element</em>}' class.
@@ -141,6 +150,15 @@ public interface PresentationDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int UI_MODEL_ELEMENT__CONTEXT_REF = MODEL_ELEMENT__CONTEXT_REF;
+
+	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UI_MODEL_ELEMENT__PRESENTATION_MODEL = MODEL_ELEMENT__PRESENTATION_MODEL;
 
 	/**
 	 * The number of structural features of the '<em>UI Model Element</em>' class.
@@ -217,6 +235,15 @@ public interface PresentationDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROCESS__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
+
+	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
 
 	/**
 	 * The number of structural features of the '<em>Process</em>' class.
@@ -315,6 +342,15 @@ public interface PresentationDslPackage extends EPackage {
 	int AUTOMATED_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOMATED_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
+
+	/**
 	 * The number of structural features of the '<em>Automated Process</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -351,6 +387,15 @@ public interface PresentationDslPackage extends EPackage {
 	int DIALOGUE__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIALOGUE__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
+
+	/**
 	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,7 +405,7 @@ public interface PresentationDslPackage extends EPackage {
 	int DIALOGUE__READONLY = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Processes</b></em>' reference list.
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -405,6 +450,15 @@ public interface PresentationDslPackage extends EPackage {
 	int FORM__CONTEXT_REF = DIALOGUE__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
+
+	/**
 	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,7 +468,7 @@ public interface PresentationDslPackage extends EPackage {
 	int FORM__READONLY = DIALOGUE__READONLY;
 
 	/**
-	 * The feature id for the '<em><b>Processes</b></em>' reference list.
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -459,6 +513,15 @@ public interface PresentationDslPackage extends EPackage {
 	int CONTENT_FORM__CONTEXT_REF = FORM__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FORM__PRESENTATION_MODEL = FORM__PRESENTATION_MODEL;
+
+	/**
 	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -468,7 +531,7 @@ public interface PresentationDslPackage extends EPackage {
 	int CONTENT_FORM__READONLY = FORM__READONLY;
 
 	/**
-	 * The feature id for the '<em><b>Processes</b></em>' reference list.
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -522,6 +585,15 @@ public interface PresentationDslPackage extends EPackage {
 	int COMPOUND_DIALOGUE__CONTEXT_REF = DIALOGUE__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DIALOGUE__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
+
+	/**
 	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -531,7 +603,7 @@ public interface PresentationDslPackage extends EPackage {
 	int COMPOUND_DIALOGUE__READONLY = DIALOGUE__READONLY;
 
 	/**
-	 * The feature id for the '<em><b>Processes</b></em>' reference list.
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -540,7 +612,7 @@ public interface PresentationDslPackage extends EPackage {
 	int COMPOUND_DIALOGUE__PROCESSES = DIALOGUE__PROCESSES;
 
 	/**
-	 * The feature id for the '<em><b>Dialogues</b></em>' reference list.
+	 * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -585,6 +657,15 @@ public interface PresentationDslPackage extends EPackage {
 	int COLLECTION_DIALOGUE__CONTEXT_REF = COMPOUND_DIALOGUE__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_DIALOGUE__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
+
+	/**
 	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,7 +675,7 @@ public interface PresentationDslPackage extends EPackage {
 	int COLLECTION_DIALOGUE__READONLY = COMPOUND_DIALOGUE__READONLY;
 
 	/**
-	 * The feature id for the '<em><b>Processes</b></em>' reference list.
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -603,7 +684,7 @@ public interface PresentationDslPackage extends EPackage {
 	int COLLECTION_DIALOGUE__PROCESSES = COMPOUND_DIALOGUE__PROCESSES;
 
 	/**
-	 * The feature id for the '<em><b>Dialogues</b></em>' reference list.
+	 * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -861,6 +942,15 @@ public interface PresentationDslPackage extends EPackage {
 	int INTERACTIVE_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
 
 	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTIVE_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
+
+	/**
 	 * The number of structural features of the '<em>Interactive Process</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -895,6 +985,15 @@ public interface PresentationDslPackage extends EPackage {
 	 * @ordered
 	 */
 	int LINK__CONTEXT_REF = MODEL_ELEMENT__CONTEXT_REF;
+
+	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__PRESENTATION_MODEL = MODEL_ELEMENT__PRESENTATION_MODEL;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -1112,6 +1211,17 @@ public interface PresentationDslPackage extends EPackage {
 	EReference getModelElement_ContextRef();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getPresentationModel <em>Presentation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Presentation Model</em>'.
+	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getPresentationModel()
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	EReference getModelElement_PresentationModel();
+
+	/**
 	 * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference <em>Named Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1228,10 +1338,10 @@ public interface PresentationDslPackage extends EPackage {
 	EAttribute getDialogue_Readonly();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue#getProcesses <em>Processes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue#getProcesses <em>Processes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Processes</em>'.
+	 * @return the meta object for the containment reference list '<em>Processes</em>'.
 	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue#getProcesses()
 	 * @see #getDialogue()
 	 * @generated
@@ -1310,10 +1420,10 @@ public interface PresentationDslPackage extends EPackage {
 	EClass getCompoundDialogue();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue#getDialogues <em>Dialogues</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue#getDialogues <em>Dialogues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dialogues</em>'.
+	 * @return the meta object for the containment reference list '<em>Dialogues</em>'.
 	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue#getDialogues()
 	 * @see #getCompoundDialogue()
 	 * @generated
@@ -1517,6 +1627,14 @@ public interface PresentationDslPackage extends EPackage {
 		EReference MODEL_ELEMENT__CONTEXT_REF = eINSTANCE.getModelElement_ContextRef();
 
 		/**
+		 * The meta object literal for the '<em><b>Presentation Model</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT__PRESENTATION_MODEL = eINSTANCE.getModelElement_PresentationModel();
+
+		/**
 		 * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.NamedReferenceImpl <em>Named Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1615,7 +1733,7 @@ public interface PresentationDslPackage extends EPackage {
 		EAttribute DIALOGUE__READONLY = eINSTANCE.getDialogue_Readonly();
 
 		/**
-		 * The meta object literal for the '<em><b>Processes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Processes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1691,7 +1809,7 @@ public interface PresentationDslPackage extends EPackage {
 		EClass COMPOUND_DIALOGUE = eINSTANCE.getCompoundDialogue();
 
 		/**
-		 * The meta object literal for the '<em><b>Dialogues</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Dialogues</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
