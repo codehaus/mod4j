@@ -44,11 +44,13 @@ public class ProjectProperties {
         dataModuleName = properties.getProperty("dataModuleName");
         businessModuleName = properties.getProperty("businessModuleName");
         serviceModuleName = properties.getProperty("serviceModuleName");
+        presentationModuleName = properties.getProperty("presentationModuleName");
         rootPackage = properties.getProperty("rootPackage");
         businessRootPackage = properties.getProperty("businessRootPackage");
         serviceRootPackage = properties.getProperty("serviceRootPackage");
         domainRootPackage = properties.getProperty("domainRootPackage");
         dataRootPackage = properties.getProperty("dataRootPackage");
+        presentationRootPackage = properties.getProperty("presentationRootPackage");
         srcGenPath = properties.getProperty("srcGenPath");
         resourceGenPath = properties.getProperty("resourceGenPath");
         srcManPath = properties.getProperty("srcManPath");
@@ -80,12 +82,16 @@ public class ProjectProperties {
     private static String serviceModuleName = "DEFAULT";
 
     private static String domainModuleName = "DEFAULT";
+    
+    private static String presentationModuleName = "DEFAULT";
 
     private static String rootPackage = "DEFAULT";
 
     private static String businessRootPackage = "DEFAULT";
 
     private static String serviceRootPackage = "DEFAULT";
+    
+    private static String presentationRootPackage = "DEFAULT";
 
     private static String domainRootPackage = "DEFAULT";
 
@@ -156,9 +162,17 @@ public class ProjectProperties {
     public static String getBusinessModuleName() {
         return businessModuleName;
     }
+    
+    public static String getPresentationModuleName() {
+        return presentationModuleName;
+    }
 
     public static String getServiceModuleName() {
         return serviceModuleName;
+    }
+
+    public static String getPresentationModulePath() {
+        return getApplicationPath() + "/" + getPresentationModuleName();
     }
 
     public static String getServiceModulePath() {
@@ -195,6 +209,14 @@ public class ProjectProperties {
 
     public static String getServiceRootPackageAsPath() {
         return getServiceRootPackage().replaceAll("\\.", "/");
+    }
+    
+    public static String getPresentationRootPackage() {
+        return presentationRootPackage;
+    }
+
+    public static String getPresentationRootPackageAsPath() {
+        return getPresentationRootPackage().replaceAll("\\.", "/");
     }
 
     public static String getDomainRootPackage() {
