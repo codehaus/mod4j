@@ -30,21 +30,29 @@
       <name>Mod4j commits mailinglist</name>
       <post>scm@mod4j.codehaus.org</post>
       <archive>http://markmail.org/browse/org.codehaus.mod4j.scm</archive>
+      <subscribe>http://xircles.codehaus.org/manage_email/scm@mod4j.codehaus.org</subscribe>
+      <unsubscribe>http://xircles.codehaus.org/manage_email/scm@mod4j.codehaus.org</unsubscribe>
     </mailingList>
     <mailingList>
       <name>Mod4j user mailinglist</name>
       <post>user@mod4j.codehaus.org </post>
       <archive>http://markmail.org/browse/org.codehaus.mod4j.user</archive>
+      <subscribe>http://xircles.codehaus.org/manage_email/user@mod4j.codehaus.org</subscribe>
+      <unsubscribe>http://xircles.codehaus.org/manage_email/user@mod4j.codehaus.org</unsubscribe>
     </mailingList>
     <mailingList>
       <name>Mod4j developer mailinglist</name>
       <post>dev@mod4j.codehaus.org</post>
       <archive>http://markmail.org/browse/org.codehaus.mod4j.dev</archive>
+      <subscribe>http://xircles.codehaus.org/manage_email/dev@mod4j.codehaus.org</subscribe>
+      <unsubscribe>http://xircles.codehaus.org/manage_email/dev@mod4j.codehaus.org</unsubscribe>
     </mailingList>
     <mailingList>
       <name>Mod4j announce mailinglist</name>
       <post>announce@mod4j.codehaus.org</post>
       <archive>http://markmail.org/browse/org.codehaus.mod4j.announce</archive>
+      <subscribe>http://xircles.codehaus.org/manage_email/announce@mod4j.codehaus.org</subscribe>
+      <unsubscribe>http://xircles.codehaus.org/manage_email/announce@mod4j.codehaus.org</unsubscribe>
     </mailingList>
   </mailingLists>
   <developers>
@@ -91,6 +99,7 @@
       <email>a.kleppe@klasse.nl</email>
       <name>Anneke Kleppe</name>
       <organization>Independent</organization>
+      <organizationUrl>http://www.klasse.nl</organizationUrl>
       <roles>
         <role>Contributed code for associations, originally writte for Octopus</role>
       </roles>
@@ -99,7 +108,7 @@
       <email>ron.veen@ordina.nl</email>
       <name>Ron Veen</name>
       <organization>Ordina</organization>
-      <organizationUrl>http://www.klasse.nl</organizationUrl>
+      <organizationUrl>http://www.ordina.nl</organizationUrl>
       <roles>
         <role>Wrote example code for the JSF code generator of the Presentation DSL</role>
       </roles>
