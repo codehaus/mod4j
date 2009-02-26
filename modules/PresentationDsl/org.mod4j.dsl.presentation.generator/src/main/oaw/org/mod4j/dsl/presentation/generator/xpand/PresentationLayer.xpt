@@ -1,0 +1,30 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+
+
+«DEFINE Generate FOR PresentationModel»
+    «print("MOD4J INFO: Running Presentation generator on model [" + this.name + "]")»
+    
+    «REM»TODO: Add generator steps here«ENDREM»
+
+«ENDDEFINE»
+
+«REM»
+    Generation of Maven configuration files. 
+«ENDREM»
+«DEFINE generateMavenConfiguration FOR PresentationModel»
+    «print("MOD4J INFO: Running Presentation Maven generator on model [" + this.name + "]")»
+    «EXPAND PresentationModulePom::createPresentationModulePom»
+«ENDDEFINE»
