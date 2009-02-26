@@ -86,6 +86,25 @@
       </roles>
     </developer>
   </developers>
+  <contributors>
+    <contributor>
+      <email>a.kleppe@klasse.nl</email>
+      <name>Anneke Kleppe</name>
+      <organization>Independent</organization>
+      <roles>
+        <role>Contributed code for associations, originally writte for Octopus</role>
+      </roles>
+    </contributor>
+    <contributor>
+      <email>ron.veen@ordina.nl</email>
+      <name>Ron Veen</name>
+      <organization>Ordina</organization>
+      <organizationUrl>http://www.klasse.nl</organizationUrl>
+      <roles>
+        <role>Wrote example code for the JSF code generator of the Presentation DSL</role>
+      </roles>
+    </contributor>
+  </contributors>
   <profiles>
     <profile>
       <id>dev-environment</id>
