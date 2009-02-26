@@ -1,4 +1,4 @@
-// $ANTLR 3.0 ..//org.mod4j.dsl.presentation.xtext/src-gen//org/mod4j/dsl/presentation/xtext/parser/PresentationDsl.g 2009-02-26 10:23:36
+// $ANTLR 3.0 ..//org.mod4j.dsl.presentation.xtext/src-gen//org/mod4j/dsl/presentation/xtext/parser/PresentationDsl.g 2009-02-26 13:45:50
 
 package org.mod4j.dsl.presentation.xtext.parser;
 
@@ -25,13 +25,13 @@ public class PresentationDslParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "'PresentationModel'", "'from'", "'import'", "'ContentForm'", "'using'", "'readonly'", "'true'", "'false'", "';'", "'Processes'", "'['", "']'", "'CompoundDialogue'", "'Dialogues'", "'CollectionDialogue'", "'AutomatedProcess'", "'InteractiveProcess'", "'FormElement'", "'references'", "'navigate'", "'Link'"
     };
-    public static final int RULE_ID=5;
-    public static final int RULE_STRING=4;
-    public static final int RULE_INT=6;
-    public static final int RULE_WS=7;
-    public static final int RULE_SL_COMMENT=9;
-    public static final int EOF=-1;
     public static final int RULE_ML_COMMENT=8;
+    public static final int RULE_ID=5;
+    public static final int RULE_WS=7;
+    public static final int EOF=-1;
+    public static final int RULE_INT=6;
+    public static final int RULE_STRING=4;
+    public static final int RULE_SL_COMMENT=9;
 
         public PresentationDslParser(TokenStream input) {
             super(input);
@@ -538,11 +538,11 @@ public class PresentationDslParser extends Parser {
                 {
                 int LA5_1 = input.LA(2);
 
-                if ( ((LA5_1>=25 && LA5_1<=26)) ) {
-                    alt5=2;
-                }
-                else if ( (LA5_1==13||LA5_1==22||LA5_1==24) ) {
+                if ( (LA5_1==13||LA5_1==22||LA5_1==24) ) {
                     alt5=1;
+                }
+                else if ( ((LA5_1>=25 && LA5_1<=26)) ) {
+                    alt5=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return result;}
