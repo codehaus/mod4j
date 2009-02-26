@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
-<!ENTITY emptysubclass-pattern SYSTEM "images/base-emptysubclass-pattern.jpg" NDATA JPG>
-<!ENTITY emptysubclass-domain SYSTEM "images/base-emptysubclass-domain.jpg" NDATA JPG>
-<!ENTITY emptysubclass-data SYSTEM "images/base-emptysubclass-data.jpg" NDATA JPG>
-<!ENTITY BusinessDomainModel-generated SYSTEM "images/BusinessDomainModel-generated.jpg" NDATA JPG>
-<!ENTITY BusinessDomainClass-generated SYSTEM "images/BusinessDomainClass-generated.jpg" NDATA JPG>
-<!ENTITY BusinessRule-generated SYSTEM "images/BusinessRule-generated.jpg" NDATA JPG>
-]>
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <book lang="en">
   <bookinfo><title>mod4j User Guide</title><authorgroup>
       <author>
@@ -170,7 +163,7 @@
           <title id="titleid">Empty subclass pattern</title>
           <mediaobject>
             <imageobject>
-              <imagedata entityref="emptysubclass-pattern"/>
+              <imagedata fileref="images/base-emptysubclass-pattern.jpg"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -206,7 +199,7 @@
       <title>Business Domain DSL generation for each Business Class</title>
       <mediaobject>
         <imageobject>
-          <imagedata entityref="BusinessDomainClass-generated"/>
+          <imagedata fileref="images/BusinessDomainClass-generated.jpg"/>
         </imageobject>
       </mediaobject>
     </figure>
@@ -221,7 +214,7 @@
       <title>Business Domain DSL generation for a Business Domain model.</title>
       <mediaobject>
         <imageobject>
-          <imagedata entityref="BusinessRule-generated"/>
+          <imagedata fileref="images/BusinessRule-generated.jpg"/>
         </imageobject>
       </mediaobject>
     </figure>
@@ -231,7 +224,7 @@
       <title>Business Domain DSL generation for a Business Domain model.</title>
       <mediaobject>
         <imageobject>
-          <imagedata entityref="BusinessDomainModel-generated"/>
+          <imagedata fileref="images/BusinessDomainModel-generated.jpg"/>
         </imageobject>
       </mediaobject>
     </figure>
@@ -275,7 +268,7 @@
             <title>Empty subclass pattern applied to the Domain Layer</title>
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-domain"/>
+                <imagedata fileref="images/base-emptysubclass-domain.jpg"/>
               </imageobject>
             </mediaobject>
           </figure>
@@ -296,12 +289,8 @@
             <title>Empty subclass pattern applied to the Data Layer</title>
             <mediaobject>
               <imageobject>
-                <imagedata entityref="emptysubclass-data" format="JPG"/>
+                <imagedata fileref="images/base-emptysubclass-data.jpg"/>
               </imageobject>
-              <!--              <imageobject>
-                <imagedata fileref="images/base-emptysubclass-data.gif" format="GIF"/>
-              </imageobject>
--->
             </mediaobject>
           </figure>
         </section>
