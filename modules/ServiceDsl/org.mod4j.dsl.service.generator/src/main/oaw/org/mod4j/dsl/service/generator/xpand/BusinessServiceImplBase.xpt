@@ -46,7 +46,7 @@
 	public class «javaDomainServiceBaseClass(name)» implements «javaDomainServiceBaseInterface(name)» {
 
 	«FOREACH this.uniqueBusinessClasses() AS cls -»
-		«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR "the" + javaDaoInterface(cls)»    
+		«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR javaDaoInterface(cls).toFirstLower()»    
 	«ENDFOREACH»
 
 
@@ -76,7 +76,7 @@
      * @return the «dto.businessClass()» created, possibly modified during creation.
      */
     public «javaDomainClass(dto.businessClass())» create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
-        return the«javaDaoInterface(dto.businessClass())».add(object);
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».add(object);
     }
 «ENDDEFINE»
 
@@ -89,7 +89,7 @@
      * @return 
      */
     public «javaDomainClass(dto.businessClass())»  read«this.dto.businessClass()»(Long id){
-        return the«javaDaoInterface(dto.businessClass())».retrieve(id);
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(id);
     }
 «ENDDEFINE»
 
@@ -102,7 +102,7 @@
      * @return the «businessClass(this.dto)» updated, possibly modified during update.
      */
     public «javaDomainClass(dto.businessClass())»  update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
-        return the«javaDaoInterface(dto.businessClass())».update(object);
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».update(object);
     }
 «ENDDEFINE»
 
@@ -112,7 +112,7 @@
      *            the id of the «dto.businessClass()» to delete.
      */
     public void delete«this.dto.businessClass()»(«businessClass(this.dto)» object){
-        the«javaDaoInterface(dto.businessClass())
+        «javaDaoInterface(dto.businessClass()).toFirstLower()
         ».delete(object);
     }
 «ENDDEFINE»
@@ -124,7 +124,7 @@
      * @return List<«dto.businessClass()»>
      */
     public List<«javaDomainClass(dto.businessClass())»>  listAll«this.dto.businessClass()»s(){
-        return the«javaDaoInterface(dto.businessClass())».listAll();
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».listAll();
     }
 «ENDDEFINE»
 
@@ -136,7 +136,7 @@
      * @return List<«Class»>
      */
     public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example) {
-        return this.the«javaDaoInterface(dto.businessClass())».findByExample(example);
+        return this.«javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example);
     }
 «ENDLET»
 «ENDDEFINE»
@@ -158,8 +158,8 @@
 		«IF (method.type == MethodType::REMOVEFROM) && (mult == "MANY") »
 		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) {
 			whole.removeFrom«method.rolename.toFirstUpper()»(part);
-			the«javaDaoInterface(method.main.businessClass())».update(whole);
-			the«javaDaoInterface(method.part.businessClass())».update(part);
+			«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
+			«javaDaoInterface(method.part.businessClass()).toFirstLower()».update(part);
 		}
 		«ENDIF»
 	«ENDLET»

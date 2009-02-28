@@ -49,10 +49,10 @@
     «ENDFOREACH»
 
     «FOREACH allServices AS service»
-    <bean id="«service.name»DomainService"
+    <bean id="«service.name.toFirstLower()»DomainService"
         class="«javaDomainServiceClassPath(service.name)»">
         «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS cls»
-        <property name="the«javaDaoInterface(cls)»" ref="«javaDaoInterface(cls).toFirstLower()»" />
+        <property name="«javaDaoInterface(cls).toFirstLower()»" ref="«javaDaoInterface(cls).toFirstLower()»" />
         «ENDFOREACH»
     </bean>
     «ENDFOREACH»

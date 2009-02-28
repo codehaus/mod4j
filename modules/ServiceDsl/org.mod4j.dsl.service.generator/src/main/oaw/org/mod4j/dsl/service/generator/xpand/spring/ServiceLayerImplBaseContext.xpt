@@ -40,7 +40,7 @@
     «FOREACH allServices AS service»
     <aop:config>
         <aop:pointcut id="«service.name»ServiceMethods" expression="execution(* «javaLocalServiceInterfacePath(service.name)».*(..))"/>
-        <aop:advisor advice-ref="txAdvice«service.name»Service" pointcut-ref="«service.name»ServiceMethods" order="30"/>
+        <aop:advisor advice-ref="txAdvice«service.name.toFirstLower()»Service" pointcut-ref="«service.name»ServiceMethods" order="30"/>
         <aop:aspect ref="loggingAspect">
             <aop:around pointcut-ref="«service.name»ServiceMethods" method="log" />
         </aop:aspect>
@@ -54,7 +54,7 @@
     <tx:jta-transaction-manager/>
 
     «FOREACH allServices AS service»
-    <tx:advice id="txAdvice«service.name»Service"
+    <tx:advice id="txAdvice«service.name.toFirstLower()»Service"
         transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="*" propagation="SUPPORTS" read-only="true" />
@@ -67,16 +67,16 @@
     
     <!-- Application Layer  -->
     «FOREACH allServices AS service»
-    <bean id="«service.name»Service"
+    <bean id="«service.name.toFirstLower()»Service"
         class="«javaLocalServiceClassPath(service.name)»">
-        <property name="the«javaDomainServiceInterface(service.name)»" ref="«javaDomainServiceInterface(service.name)»" />
+        <property name="«javaDomainServiceInterface(service.name).toFirstLower()»" ref="«javaDomainServiceInterface(service.name).toFirstLower()»" />
     	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-        <property name="the«javaTranslatorClass(dto.name)»" ref="«javaTranslatorClass(dto.name)»" />
+        <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
 	    «ENDFOREACH-»
     </bean>
     «ENDFOREACH»
   	«FOREACH allServices.findAllSubSymbols("DtoReference").name.toSet() AS dtoName -»
-    <bean id="«javaTranslatorClass(dtoName)»"
+    <bean id="«javaTranslatorClass(dtoName).toFirstLower()»"
         class="«javaTranslatorClassPath(dtoName)»">
     </bean>
     «ENDFOREACH»

@@ -3,24 +3,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     
     <aop:config>
-        <aop:pointcut expression="execution(* org.company.recordshop.service.OrderServiceModelLocalService.*(..))" id="OrderServiceModelServiceMethods"/>
-        <aop:advisor advice-ref="txAdviceOrderServiceModelService" order="30" pointcut-ref="OrderServiceModelServiceMethods"/>
+        <aop:pointcut expression="execution(* org.company.recordshop.service.OrderServiceModelLocalService.*(..))" id="orderServiceModelServiceMethods"/>
+        <aop:advisor advice-ref="txAdviceOrderServiceModelService" order="30" pointcut-ref="orderServiceModelServiceMethods"/>
         <aop:aspect ref="loggingAspect">
-            <aop:around method="log" pointcut-ref="OrderServiceModelServiceMethods"/>
+            <aop:around method="log" pointcut-ref="orderServiceModelServiceMethods"/>
         </aop:aspect>
         <aop:aspect ref="timingAspect">
-            <aop:around method="time" pointcut-ref="OrderServiceModelServiceMethods"/>
+            <aop:around method="time" pointcut-ref="orderServiceModelServiceMethods"/>
         </aop:aspect>
     </aop:config>
     
     <aop:config>
-        <aop:pointcut expression="execution(* org.company.recordshop.service.CustomerServiceModelLocalService.*(..))" id="CustomerServiceModelServiceMethods"/>
-        <aop:advisor advice-ref="txAdviceCustomerServiceModelService" order="30" pointcut-ref="CustomerServiceModelServiceMethods"/>
+        <aop:pointcut expression="execution(* org.company.recordshop.service.CustomerServiceModelLocalService.*(..))" id="customerServiceModelServiceMethods"/>
+        <aop:advisor advice-ref="txAdviceCustomerServiceModelService" order="30" pointcut-ref="customerServiceModelServiceMethods"/>
         <aop:aspect ref="loggingAspect">
-            <aop:around method="log" pointcut-ref="CustomerServiceModelServiceMethods"/>
+            <aop:around method="log" pointcut-ref="customerServiceModelServiceMethods"/>
         </aop:aspect>
         <aop:aspect ref="timingAspect">
-            <aop:around method="time" pointcut-ref="CustomerServiceModelServiceMethods"/>
+            <aop:around method="time" pointcut-ref="customerServiceModelServiceMethods"/>
         </aop:aspect>
     </aop:config>
     
@@ -67,26 +67,26 @@
     <!-- Application Layer  -->
     
     <bean class="org.company.recordshop.service.OrderServiceModelLocalServiceImpl" id="OrderServiceModelService">
-        <property name="theOrderServiceModelDomainService" ref="OrderServiceModelDomainService"/>
-        <property name="theOrderDtoTranslator" ref="OrderDtoTranslator"/>
-        <property name="theSimpleCustomerDtoTranslator" ref="SimpleCustomerDtoTranslator"/>
-        <property name="theOrderNumberAndDateDtoTranslator" ref="OrderNumberAndDateDtoTranslator"/>
+        <property name="orderServiceModelDomainService" ref="orderServiceModelDomainService"/>
+        <property name="orderDtoTranslator" ref="orderDtoTranslator"/>
+        <property name="simpleCustomerDtoTranslator" ref="simpleCustomerDtoTranslator"/>
+        <property name="orderNumberAndDateDtoTranslator" ref="orderNumberAndDateDtoTranslator"/>
     </bean>
     
     <bean class="org.company.recordshop.service.CustomerServiceModelLocalServiceImpl" id="CustomerServiceModelService">
-        <property name="theCustomerServiceModelDomainService" ref="CustomerServiceModelDomainService"/>
-        <property name="theSimpleCustomerDtoTranslator" ref="SimpleCustomerDtoTranslator"/>
-        <property name="theFullCustomerDtoTranslator" ref="FullCustomerDtoTranslator"/>
-        <property name="theOrderDtoTranslator" ref="OrderDtoTranslator"/>
+        <property name="customerServiceModelDomainService" ref="customerServiceModelDomainService"/>
+        <property name="simpleCustomerDtoTranslator" ref="simpleCustomerDtoTranslator"/>
+        <property name="fullCustomerDtoTranslator" ref="fullCustomerDtoTranslator"/>
+        <property name="orderDtoTranslator" ref="orderDtoTranslator"/>
     </bean>
     
-    <bean class="org.company.recordshop.service.dto.translators.OrderDtoTranslator" id="OrderDtoTranslator">
+    <bean class="org.company.recordshop.service.dto.translators.OrderDtoTranslator" id="orderDtoTranslator">
     </bean>
-    <bean class="org.company.recordshop.service.dto.translators.SimpleCustomerDtoTranslator" id="SimpleCustomerDtoTranslator">
+    <bean class="org.company.recordshop.service.dto.translators.SimpleCustomerDtoTranslator" id="simpleCustomerDtoTranslator">
     </bean>
-    <bean class="org.company.recordshop.service.dto.translators.OrderNumberAndDateDtoTranslator" id="OrderNumberAndDateDtoTranslator">
+    <bean class="org.company.recordshop.service.dto.translators.OrderNumberAndDateDtoTranslator" id="orderNumberAndDateDtoTranslator">
     </bean>
-    <bean class="org.company.recordshop.service.dto.translators.FullCustomerDtoTranslator" id="FullCustomerDtoTranslator">
+    <bean class="org.company.recordshop.service.dto.translators.FullCustomerDtoTranslator" id="fullCustomerDtoTranslator">
     </bean>
     
 </beans>

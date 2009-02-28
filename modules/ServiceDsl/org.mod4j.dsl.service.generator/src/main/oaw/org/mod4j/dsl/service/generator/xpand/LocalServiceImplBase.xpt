@@ -53,10 +53,10 @@
 	 */
 	abstract public class «javaLocalServiceBaseClass(name)» implements  «javaLocalServiceInterface(name)» {
 
-	«EXPAND FieldGetterSetter::field(javaDomainServiceInterface(name)) FOR "the" + javaDomainServiceInterface(name)»    
+	«EXPAND FieldGetterSetter::field(javaDomainServiceInterface(name)) FOR javaDomainServiceInterface(name).toFirstLower()»    
 
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	«EXPAND FieldGetterSetter::field(javaTranslatorClass(dto.name)) FOR "the" + javaTranslatorClass(dto.name)»    
+	«EXPAND FieldGetterSetter::field(javaTranslatorClass(dto.name)) FOR javaTranslatorClass(dto.name).toFirstLower()»    
 	«ENDFOREACH»
 
 
@@ -98,8 +98,8 @@
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
         «javaDomainClass(dto.businessClass())» result = null;
-	        result = the«javaDomainServiceInterface(model.name)».create«businessClass(this.dto)»(the«javaTranslatorClass(dto.name)».fromDto(object, null));
-        return the«javaTranslatorClass(dto.name)».toDto(result);
+	        result = «javaDomainServiceInterface(model.name).toFirstLower()».create«businessClass(this.dto)»(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, null));
+        return «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
     }
 «ENDDEFINE»
 
@@ -113,8 +113,8 @@
      */
     public «JavaType(this.dto)» «this.name»(Long id) {
         «javaDomainClass(dto.businessClass())» result =
-              the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(id);
-        return (result == null) ? null : the«javaTranslatorClass(dto.name)».toDto(result);
+              «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(id);
+        return (result == null) ? null : «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
     }
 «ENDDEFINE»
 
@@ -126,16 +126,16 @@
     
         «javaDomainClass(dto.businessClass())» result = null;
         try {
-            result = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+            result = «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
         } catch (IllegalArgumentException e) {
             throw new ServiceException("Can not update «businessClass(this.dto)» for «JavaType(this.dto)»", e);
         }
         if (result == null) throw new ServiceException("Can not update «businessClass(this.dto)» for «JavaType(this.dto)», because the corresponding «businessClass(this.dto)» does not exist.");
         
-        result = the«javaTranslatorClass(dto.name)».fromDto(object, result);
-        result = the«javaDomainServiceInterface(model.name)».update«businessClass(this.dto)»(result);
+        result = «javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, result);
+        result = «javaDomainServiceInterface(model.name).toFirstLower()».update«businessClass(this.dto)»(result);
         
-        return the«javaTranslatorClass(dto.name)».toDto(result);
+        return «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
     }
 «ENDDEFINE»
 
@@ -149,14 +149,14 @@
 		if (object == null) throw new ServiceException("Could not delete «this.dto.name» based on a null «JavaType(this.dto)»");
 		«javaDomainClass(dto.businessClass())» existing = null;
 		try {
-    		existing = the«javaDomainServiceInterface(model.name)».read«businessClass(this.dto)»(object.getId());
+    		existing = «javaDomainServiceInterface(model.name).toFirstLower()».read«businessClass(this.dto)»(object.getId());
     	} catch (IllegalArgumentException e) {
     	    throw new ServiceException("Could not delete «this.dto.name»", e);
     	}
 		if (existing == null) {
             throw new ServiceException("Could not delete «this.dto.name» because it does not exist.");
         }
-	    the«javaDomainServiceInterface(model.name)».delete«businessClass(this.dto)»(existing);
+	    «javaDomainServiceInterface(model.name).toFirstLower()».delete«businessClass(this.dto)»(existing);
     }
 «ENDDEFINE»
 
@@ -165,11 +165,11 @@
      * «description»
      */
     public List<«JavaType(this.dto)»> «this.name»( ) {
-		List<«this.dto.businessClass()»> all = the«javaDomainServiceInterface(model.name)».listAll«this.dto.businessClass()»s();
+		List<«this.dto.businessClass()»> all = «javaDomainServiceInterface(model.name).toFirstLower()».listAll«this.dto.businessClass()»s();
 		List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>();
 		
 		for («this.dto.businessClass()» object : all) {
-			«JavaType(this.dto)» item = the«javaTranslatorClass(dto.name)».toDto(object);
+			«JavaType(this.dto)» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
 			result.add(item);
 		}
 		return result;
@@ -187,11 +187,11 @@
 		List<«dtoType»> result = new ArrayList<«dtoType»>();
 
 		«this.dto.businessClass().javaDomainExampleClass()» bexample =
-		              the«javaTranslatorClass(dto.name)».exampleFromDto(example);
-		found = the«javaDomainServiceInterface(model.name)».find«Class»ByExample(bexample);
+		              «javaTranslatorClass(dto.name).toFirstLower()».exampleFromDto(example);
+		found = «javaDomainServiceInterface(model.name).toFirstLower()».find«Class»ByExample(bexample);
 		
 		for («Class» object : found) {
-			«dtoType» item = the«javaTranslatorClass(dto.name)».toDto(object);
+			«dtoType» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
 			result.add(item);
 		}
 		return result;
@@ -225,16 +225,16 @@
 			if( whole == null ) { 
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: parameter [whole] should not be null");
 			}
-			«method.part.businessClass()» partObject = the«javaDomainServiceInterface(this.name)».read«method.part.businessClass()»(part.getId());
+			«method.part.businessClass()» partObject = «javaDomainServiceInterface(this.name).toFirstLower()».read«method.part.businessClass()»(part.getId());
 			if(partObject == null) { 
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: cannot find business object for parameter [part]");
 			}
-			«method.main.businessClass()» wholeObject = the«javaDomainServiceInterface(this.name)».read«method.main.businessClass()»(whole.getId());
+			«method.main.businessClass()» wholeObject = «javaDomainServiceInterface(this.name).toFirstLower()».read«method.main.businessClass()»(whole.getId());
 			if(wholeObject == null) { 
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
 			}
 			
-			the«javaDomainServiceInterface(this.name)».removeFrom«method.rolename.toFirstUpper()»(partObject, wholeObject);
+			«javaDomainServiceInterface(this.name).toFirstLower()».removeFrom«method.rolename.toFirstUpper()»(partObject, wholeObject);
 		}
 		«ENDIF»
 	«ENDLET»
@@ -251,17 +251,17 @@
 			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
 			}
 
-		«this.part.businessClass()» partBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.part.businessClass()»(part.getId());
+		«this.part.businessClass()» partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
 		if(partBusinessObject == null) { 
 		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: cannot find business object for parameter [part]");
 		}
 
-		«this.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.main.businessClass()»(whole.getId());
+		«this.main.businessClass()» mainBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.main.businessClass()»(whole.getId());
 		if(mainBusinessObject  == null) { 
 		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
 		}
 
-		the«javaDomainServiceInterface(this.model.name)».addTo«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		«javaDomainServiceInterface(this.model.name).toFirstLower()».addTo«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
 		return ;
 	}
 «ENDDEFINE»
@@ -273,15 +273,15 @@
 			}
 		«this.part.businessClass()» partBusinessObject = null;
 		if( part != null ) {
-	        partBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.part.businessClass()»(part.getId());
+	        partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
 	    }
 
-		«this.main.businessClass()» mainBusinessObject = the«javaDomainServiceInterface(this.model.name)».read«this.main.businessClass()»(whole.getId());
+		«this.main.businessClass()» mainBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.main.businessClass()»(whole.getId());
 		if(mainBusinessObject  == null) { 
 		    throw new ServiceException("set«this.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
 		}
 
-		the«javaDomainServiceInterface(this.model.name)».set«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		«javaDomainServiceInterface(this.model.name).toFirstLower()».set«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
 		return ;
 	}
 «ENDDEFINE»
