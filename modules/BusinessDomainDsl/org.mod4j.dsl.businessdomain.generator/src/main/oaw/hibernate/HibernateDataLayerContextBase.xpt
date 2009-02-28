@@ -30,14 +30,14 @@
     xmlns:aop="http://www.springframework.org/schema/aop">
 
     <aop:config>
-        <aop:pointcut id="«getApplicationName()»DataMethods" 
+        <aop:pointcut id="«getApplicationName().toFirstLower()»DataMethods" 
                       expression="execution(* «getDaoImplPackage()».*DaoImpl.*(..))"/>
     
         <aop:aspect ref="loggingAspect">
-            <aop:around pointcut-ref="«getApplicationName()»DataMethods" method="log"/>
+            <aop:around pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="log"/>
         </aop:aspect>
         <aop:aspect ref="timingAspect">
-            <aop:around pointcut-ref="«getApplicationName()»DataMethods" method="time"/>
+            <aop:around pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="time"/>
         </aop:aspect>
     </aop:config>
 
