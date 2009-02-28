@@ -143,6 +143,10 @@
         <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
         <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
         <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
       </modules>
     </profile>
     <profile>
@@ -151,6 +155,7 @@
         <module>org.mod4j.buildtools</module>
         <module>org.mod4j.runtime.common</module>
         <module>org.mod4j.common</module>
+        <module>org.mod4j.mavenplugin</module>
         <module>Crossx/org.mod4j.crossx.mm</module>
         <module>Crossx/org.mod4j.crossx.broker</module>
         <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
@@ -172,7 +177,10 @@
         <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
         <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
         <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
-        <module>org.mod4j.mavenplugin</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
         <module>docs</module>
       </modules>
     </profile>
@@ -182,7 +190,8 @@
         <module>org.mod4j.buildtools</module>
         <module>org.mod4j.runtime.common</module>
         <module>org.mod4j.common</module>
-        <module>Crossx/org.mod4j.crossx.mm</module>
+        <module>org.mod4j.mavenplugin</module>
+	<module>Crossx/org.mod4j.crossx.mm</module>
         <module>Crossx/org.mod4j.crossx.broker</module>
         <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
                 </module>
@@ -203,7 +212,10 @@
         <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
         <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
         <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
-        <module>org.mod4j.mavenplugin</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
+        <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
         <module>Examples/RecordShop-ExampleProject</module>
       </modules>
     </profile>
