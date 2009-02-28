@@ -31,7 +31,7 @@
 
     <aop:config>
         <aop:pointcut id="«getApplicationName()»DataMethods" 
-                      expression="execution(* «getDaoPackage()».*DaoImpl.*(..))"/>
+                      expression="execution(* «getDaoImplPackage()».*DaoImpl.*(..))"/>
     
         <aop:aspect ref="loggingAspect">
             <aop:around pointcut-ref="«getApplicationName()»DataMethods" method="log"/>
