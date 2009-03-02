@@ -1,13 +1,12 @@
-<?xml version="1.0"?>
-<!DOCTYPE document PUBLIC
-  "-//Apache Software Foundation//DTD XDOC 1.0//EN"
-  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
     <!--
         Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size
         of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
         minimize the number of non-significant differences when comparing versions.
     -->
-<document>
     <properties>
         <title>Mod4j Developer Guide</title>
     </properties>
@@ -142,9 +141,11 @@
                         <q>Generate Model Code</q>
                         <br />
                         Normally you wouldn't need to add generated sources to the version control system (Subverson), but due
-                        to not being able for us to run to perform this step outside Eclipse we've decided -for now- to add the generated code
+                        to not being able for us to run to perform this step outside Eclipse we've decided -for now- to add the
+                        generated code
                         (src-gen
-                        folder) to Subversion. So the continuous integration build can build it and other modules can
+                        folder) to Subversion. So the continuous integration build can build it and other
+                        modules can
                         depend on it.
                         <br />
                     </li>
@@ -179,9 +180,11 @@
                         <code>modules/org.mod4j.mavenplugin</code>
                     </li>
                 </ol>
-                Now you have imported and generated the necessary modules. The DSL editors are ready to use. There
-                for you need
-                to activate the newly created editor in a second Eclipse instance. See next section "Modeling".
+                <p>
+                    Now you have imported and generated the necessary modules. The DSL editors are ready to use. There
+                    for you need
+                    to activate the newly created editor in a second Eclipse instance. See next section "Modeling".
+                </p>
             </subsection>
             <subsection name="Modeling">
                 <ol>
@@ -236,9 +239,12 @@
                         <br />
                         <code>RecordShop-service</code>
                     </li>
-                    <li>In the previous step the Q4E Maven plug-in not always recognizes the source folders correctly. Adjust the source
-                        folders manually if you encounter compilation failures. Right-click on the project to adjust the "Build
-                        Path" configuration. Add src/main/java, src/test/java, src/main/resources, generated-sources and
+                    <li>In the previous step the Q4E Maven plug-in not always recognizes the source folders correctly. Adjust
+                        the source
+                        folders manually if you encounter compilation failures. Right-click on the project to adjust
+                        the "Build
+                        Path" configuration. Add src/main/java, src/test/java, src/main/resources, generated-sources
+                        and
                         generated-resources to it.</li>
                     <li>
                         In the new Eclipse session you should be able to edit the .busmod, .sermod and .dtcmod model files in
