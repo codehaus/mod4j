@@ -11,8 +11,9 @@
             <item name="* Mod4j at Code Generation 2009" href="http://www.codegeneration.net/cg2009" />
             <item name="* Mod4j 1.0.0-beta-3 released" href="" />    
         </menu>
-        <menu name="Main" inherit="bottom">
+        <menu name="About Mod4j" inherit="bottom">
             <item name="Home" href="index.html"/>
+            <item name="Releases" href="releases/index.html"/>
         </menu>
         <menu name="User Docs" inherit="bottom">
             <item name="User Guide - pdf" href="documentation-parent/user-guide/mod4j-user-guide.pdf" />
