@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+    <!--
+        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size
+        of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
+        minimize the number of non-significant differences when comparing versions.
+    -->
+
+    <properties>
+        <title>Mod4j 1.0.0 Upgrade Steps</title>
+    </properties>
+    <body>
+        <section name="Mod4j 1.0.0 Upgrade Steps">
+
+            <p>The following upgrade steps are needed if you want to upgrade your project from Mod4j 1.0.0-beta-3 to Mod4j 1.0.0.</p>
+
+            <subsection name="BusinessDomain DSL">
+                <h4>Language improvements</h4>
+                <h4>Changes to Extension points</h4>
+            </subsection>
+
+        </section>
+    </body>
+</document>

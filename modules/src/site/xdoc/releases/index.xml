@@ -18,13 +18,13 @@
                 <tbody>
                     <tr>
                         <td>Mod4j 1.0.0</td>
-                        <td>Release notes</td>
-                        <td><a href="">Upgrade steps</a></td>
+                        <td><a href="1.0.0/releasenotes.html">Release Notes</a></td>
+                        <td><a href="1.0.0/upgradesteps.html">Upgrade Steps</a></td>
                     </tr>
                     <tr>
                         <td>Mod4j 1.0.0-beta-3</td>
                         <td>
-                            <a href="1.0.0-beta-3-relnotes.html">Release notes</a>
+                            <a href="1.0.0-beta-3/releasenotes.html">Release notes</a>
                         </td>
                         <td>-</td>
                     </tr>
