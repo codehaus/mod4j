@@ -48,5 +48,38 @@
         <checkFile value="org::mod4j::dsl::presentation::validation::CrossxChecks" />
         <emfAllChildrenSlot value="pmfModel" />
     </component>
+    
+    <!--TODO (if needed): Call the Xtend model-to-model transformation to complete the Presentation model.
+
+    <component id="complteSvc" class="oaw.xtend.XtendComponent">
+       <metaModel idRef="pmf"/>
+       <metaModel idRef="crossx"/>
+       <invoke value="org::mod4j::dsl::presentation::generator::xtend::CompletePmf::completeModelpmfModel)"/>
+    </component>
+    -->
+
+    <!-- TODO: Generation of sources and resources for the Presentation layer
+    
+    <component id="PresentationWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="pmf" />
+        <metaModel idRef="crossx"/>
+        <expand value="org::mod4j::dsl::presentatione::generator::xpand::PresentationLayer::Generate FOR pmfModel" />
+        <outlet path="${applicationPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+    -->
+    
+    <!-- 
+        Generation of Maven configuration files.
+    -->  
+    <component id="PresentationDslWorkflow-MavenConfigGenerator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="pmf" />
+        <expand value="org::mod4j::dsl::presentation::generator::xpand::PresentationLayer::generateMavenConfiguration FOR pmfModel"/>
+        <outlet path="${applicationPath}">
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
  
 </workflow>
