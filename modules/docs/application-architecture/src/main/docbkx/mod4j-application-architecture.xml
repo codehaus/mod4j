@@ -74,6 +74,11 @@
           <date>2002</date>
           <isbn>0-321-12742-0</isbn>
         </biblioentry>
+        <biblioentry id="spring25"><abbrev>Spring25</abbrev><authorgroup>
+            <author><firstname>Rod</firstname><surname>Johnson et al.</surname></author>
+          </authorgroup><title>java/j2ee Application Framework</title><subtitle>The Spring Framework
+            - Reference Documentation</subtitle><releaseinfo>Version
+              2.5</releaseinfo><copyright><year>2004-2007</year></copyright></biblioentry>
       </bibliography>
       <para/>
     </section>
@@ -298,7 +303,7 @@
               <entry>
                 <package>service</package>
               </entry>
-              <entry>Java classes implementing the service layer.</entry>
+              <entry>Interfaces and implementations of the service layer.</entry>
             </row>
             <row>
               <entry>
@@ -317,31 +322,33 @@
               <entry>
                 <package>business</package>
               </entry>
-              <entry>Java classes implementing Domain Services in the business layer.</entry>
+              <entry>Interfaces and implementations of the Domain Services in the business
+                layer.</entry>
             </row>
             <row>
               <entry>
                 <package>data</package>
               </entry>
-              <entry>Java classes implementing the business layer.</entry>
+              <entry>Interfaces that define the contracts of the Data Access Objects.</entry>
             </row>
             <row>
               <entry>
-                <package>data.spring.dao</package>
+                <package>data.spring.hibernate</package>
               </entry>
-              <entry>Java classes implementing the business layer.</entry>
+              <entry>Spring/Hibernate specific implementations of the Data Access Object interfaces
+                in the <package>data</package> package.</entry>
             </row>
             <row>
               <entry>
                 <package>domain</package>
               </entry>
-              <entry>Java classes implementing the business layer.</entry>
+              <entry>Domain Objects: POJO classes that implement the Domain Model.</entry>
             </row>
             <row>
               <entry>
                 <package>domain.businessrules</package>
               </entry>
-              <entry>Java classes implementing the business layer.</entry>
+              <entry>Java classes that implement Business Rules.</entry>
             </row>
           </tbody>
         </tgroup>
@@ -351,38 +358,15 @@
       <title>Spring</title>
       <para>The Spring framework is used as a general application framework. The objects making up
         the application are being wired up by the Spring framework based on a number of XML
-        configuration files, generally two per architectural layer. One of these contains the
-        generated configuration, the other is just once generated empty as a placeholder for
-        customizing the configuration by hand. From these two files a Spring context can be
-        constructed where the one, the <literal
-          >org.company.recordshop.service.applicationContextBase</literal>, is the parent of the
-        other, the <literal>org.company.recordshop.service.applicationContext</literal> . This can
-        be done by </para>
-      <programlisting><![CDATA[<bean
-    class="org.springframework.context.support.ClassPathXmlApplicationContext"
-    id="org.company.recordshop.service.applicationContext">
-    <constructor-arg>
-        <list>
-            <value>org/company/recordshop/service/applicationContext.xml</value>
-        </list>
-    </constructor-arg>
-    <constructor-arg>
-        <ref bean="org.company.recordshop.service.applicationContextBase" />
-    </constructor-arg>
-</bean>
-
-<bean
-    class="org.springframework.context.support.ClassPathXmlApplicationContext"
-    id="org.company.recordshop.service.applicationContextBase">
-    <constructor-arg>
-        <list>
-            <value>org/company/recordshop/service/applicationContextBase.xml</value>
-        </list>
-    </constructor-arg>
-    <constructor-arg>
-        <ref bean="org.company.recordshop.business.applicationContext" />
-    </constructor-arg>
-</bean>]]></programlisting>
+        configuration files, generally one per layer. The Spring
+          <classname>ContextSingletonBeanFactoryLocator</classname> class is used to create multiple
+        hierarchical Spring IoC container instances from these XML configuration files. For the
+        container of each layer, the container of the lower layer is the parent container. This
+        hierarchical container is then used as the parent container of a web application container.
+        In this way, containers and the beans contained in them, may be shared between several web
+        applications, and loaded only once. See section <citetitle>3.9 Glue code and the evil
+          singleton</citetitle> in <biblioref linkend="spring25"/> and the Javadoc for
+          <classname>ContextSingletonBeanFactoryLocator</classname> for more details.</para>
     </section>
     <section>
       <title>Hibernate</title>
