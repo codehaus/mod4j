@@ -61,7 +61,7 @@
         <emfAllChildrenSlot value="serviceModel" />
     </component>
 
-    <!-- Call the Xtend model-to-model transformation to complete the DTO model
+    <!-- Call the Xtend model-to-model transformation to complete the Service model
          with all properties derived from the business classes.
     -->
     <component id="complteSvc" class="oaw.xtend.XtendComponent">
