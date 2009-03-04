@@ -191,7 +191,7 @@
         <module>org.mod4j.runtime.common</module>
         <module>org.mod4j.common</module>
         <module>org.mod4j.mavenplugin</module>
-	<module>Crossx/org.mod4j.crossx.mm</module>
+        <module>Crossx/org.mod4j.crossx.mm</module>
         <module>Crossx/org.mod4j.crossx.broker</module>
         <module>BusinessDomainDsl/org.mod4j.dsl.businessdomain.mm
                 </module>
@@ -227,7 +227,19 @@
       <notifier>
         <type>mail</type>
         <configuration>
-          <address>dev@mod4j.codehaus.org</address>
+          <address>jos.warmer@ordina.nl</address>
+        </configuration>
+      </notifier>
+      <notifier>
+        <type>mail</type>
+        <configuration>
+          <address>eric.jan.malotaux@ordina.nl</address>
+        </configuration>
+      </notifier>
+      <notifier>
+        <type>mail</type>
+        <configuration>
+          <address>johan.vogelzang@ordina.nl</address>
         </configuration>
       </notifier>
     </notifiers>
