@@ -113,7 +113,7 @@ public class ProjectProperties {
 
     public static final String DAO_PACKAGE = "";
 
-    public static final String DAO_IMPL_PACKAGE = ".spring.hibernate";
+    public static final String DAO_IMPL_PACKAGE = ".hibernate.spring";
 
     public static final String DTO_PACKAGE = ".dto";
 
