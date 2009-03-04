@@ -14,6 +14,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE datalayercontextbase FOR BusinessDomainDsl::BusinessDomainModel»
@@ -58,9 +59,9 @@
         </property>
         <property name="mappingResources">
             <list>
-«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
-                <value>«clsName».hbm.xml</value>
-«ENDFOREACH»
+«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
+                <value>«getDomainRootPackageAsPath()»/«clsName».hbm.xml</value>
+«ENDFOREACH -»
             </list>
         </property>
         <property name="hibernateProperties">

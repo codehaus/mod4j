@@ -33,7 +33,7 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::BusinessClass»
-«FILE generate(getDataModuleName(), hibernateMappingFile(this.name) )»
+«FILE generate(getDataModuleName(), getDomainRootPackageAsPath() + "/" + hibernateMappingFile(this.name) )»
     
     «EXPAND header FOR this»
 
