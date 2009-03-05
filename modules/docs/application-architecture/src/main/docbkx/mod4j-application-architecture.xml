@@ -4,7 +4,9 @@
 <!ENTITY logical-view SYSTEM "images/logical-view.jpg" NDATA JPG>
 ]>
 <book lang="en">
-  <bookinfo><title>mod4j Application Architecture</title><author>
+  <bookinfo>
+    <title>mod4j Application Architecture</title>
+    <author>
       <firstname>Eric</firstname>
       <othername>Jan</othername>
       <surname>Malotaux</surname>
@@ -26,7 +28,8 @@
       <bibliography>
         <biblioentry id="busch96">
           <abbrev>Busch96</abbrev>
-          <title>Pattern-Oriented Software Architecture - A System of Patterns</title><authorgroup>
+          <title>Pattern-Oriented Software Architecture - A System of Patterns</title>
+          <authorgroup>
             <author>
               <firstname>Frank</firstname>
               <surname>Buschmann</surname>
@@ -47,17 +50,20 @@
               <surname>Stal</surname>
               <firstname>Michael</firstname>
             </author>
-          </authorgroup><publisher>
+          </authorgroup>
+          <publisher>
             <publishername>John Wiley &amp; Sons</publishername>
           </publisher>
           <date>1996</date>
         </biblioentry>
         <biblioentry id="evans03">
           <abbrev>Evans03</abbrev>
-          <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title><author>
+          <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title>
+          <author>
             <firstname>Eric</firstname>
             <surname>Evans</surname>
-          </author><publisher>
+          </author>
+          <publisher>
             <publishername>Addison-Wesley</publishername>
           </publisher>
           <date>2003</date>
@@ -68,17 +74,29 @@
           <author>
             <firstname>Martin</firstname>
             <surname>Fowler</surname>
-          </author><title>Patterns of Enterprise Application Architecture</title><publisher>
+          </author>
+          <title>Patterns of Enterprise Application Architecture</title>
+          <publisher>
             <publishername>Addison-Wesley</publishername>
           </publisher>
           <date>2002</date>
           <isbn>0-321-12742-0</isbn>
         </biblioentry>
-        <biblioentry id="spring25"><abbrev>Spring25</abbrev><authorgroup>
-            <author><firstname>Rod</firstname><surname>Johnson et al.</surname></author>
-          </authorgroup><title>java/j2ee Application Framework</title><subtitle>The Spring Framework
-            - Reference Documentation</subtitle><releaseinfo>Version
-              2.5</releaseinfo><copyright><year>2004-2007</year></copyright></biblioentry>
+        <biblioentry id="spring25">
+          <abbrev>Spring25</abbrev>
+          <authorgroup>
+            <author>
+              <firstname>Rod</firstname>
+              <surname>Johnson et al.</surname>
+            </author>
+          </authorgroup>
+          <title>java/j2ee Application Framework</title>
+          <subtitle>The Spring Framework - Reference Documentation</subtitle>
+          <releaseinfo>Version 2.5</releaseinfo>
+          <copyright>
+            <year>2004-2007</year>
+          </copyright>
+        </biblioentry>
       </bibliography>
       <para/>
     </section>
@@ -93,134 +111,141 @@
   </chapter>
   <chapter>
     <title>Logical View</title>
-    <para>This chapter describes the logical composition of the mod4j Reference Architecture. It
-      defines the layers, the component types in each layer and the responsibilities of these
-      component types.</para>
     <section>
       <title>Overview</title>
-      <para><figure>
+      <para>This chapter describes the logical composition of the mod4j Reference Architecture. It
+        defines the layers, the component types in each layer and the responsibilities of these
+        component types.</para>
+      <para>
+        <figure>
           <title>Logical view</title>
           <mediaobject>
             <imageobject>
               <imagedata fileref="images/logical-view.jpg" format="JPG"/>
             </imageobject>
           </mediaobject>
-        </figure>The <emphasis>Layers</emphasis> architectural pattern itself is described in
-          <biblioref linkend="busch96"/>. The <emphasis>Presentation Layer</emphasis> provides an
-        interface to the system to a human user, presenting information and interpreting actions of
-        the user. It uses the Service Layer to obtain the information or execute other operations
-        that the Service Layer offers. The <emphasis>Service Layer</emphasis> provides access to the
-        services of the Business Layer using a particular access protocol, like SOAP, EJB, RMI or
-        local method invocation. The <emphasis>Business Layer</emphasis> provides services that
-        implement functionality and business logic. The <emphasis>Data Layer</emphasis> provides
-        access to persistent data on behalf of the Business Layer. The <emphasis>Domain
-          Model</emphasis> consists of Objects that model the part of the world of interest to the
-        application. The next paragraphs describes the responsibilities and the structure of the
-        layers in more detail.</para>
+        </figure>
+      </para>
     </section>
     <section>
-      <title>Presentation Layer</title>
-      <para>The Presentation Layer contains components that present information to a user and
-        interprets his actions by executing functions of the system.Typical responsibilities of the
-        Presentation Layer include:</para>
-      <itemizedlist>
-        <listitem>
-          <para>Presenting data to the user. This implies mapping fields on a screen to attibutes of
-              <emphasis>Data Transfer Objects</emphasis> received from the Service Layer, formatting
-            of data, internationalisation en localisation of data.</para>
-        </listitem>
-        <listitem>
-          <para>Accepting data entered by the user. This implies applying simple validations on the
-            data entered and keeping track of this data.</para>
-        </listitem>
-      </itemizedlist>
-      <para>This Presentation Layer should not execute business functionality by itself, but instead
-        delegate that responsibility to the Service Layer by calling its operations. Data is
-        transferred to and from the Service Layer in the form of <emphasis>Data Transfer
-          Objects</emphasis>.</para>
-      <para>TODO: expand this section when the User Interface DSL is nearer to completion.</para>
-    </section>
-    <section>
-      <title>Service Layer</title>
-      <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is to isolate the
-        business layer from the various protocols in use for remotely invoking its service
-        operations. Examples of such protocols are SOAP or RESTful Web Services, messaging, EJB, RMI
-        or plain old local mehod calls. A service layer presents the interface of the business layer
-        in the form required for one particular access protocol. Therefore, a separate service layer
-        is needed for each protocol by which the system will be accessed. This makes it clear that
-        the presentation layer should not contain any business functionality, because that would
-        have to be duplicated for each separate service layer.</para>
-      <para>In addition, the service layer is reponsible for:<itemizedlist>
-          <listitem>
-            <para>authentication and authorisation of the calling identities</para>
-          </listitem>
-          <listitem>
-            <para>exposing a collection of <emphasis>Data Transfer Objects</emphasis> to be used for
-              transferring data between the service layer and its callers</para>
-          </listitem>
-          <listitem>
-            <para>translation of the information in the data transfer objects used for communication
-              with the presentation layer to and from <emphasis>Domain Model</emphasis> objects used
-              for communication with the business layer</para>
-          </listitem>
-          <listitem>
-            <para>making the call to each service operation an atomic (ACID) transaction.</para>
-          </listitem>
-        </itemizedlist></para>
+      <title>Layers</title>
+      <para>The <emphasis>Layers</emphasis> architectural pattern itself is described in <biblioref
+          linkend="busch96"/>. The <emphasis>Presentation Layer</emphasis> provides an interface to
+        the system to a human user, presenting information and interpreting actions of the user. It
+        uses the Service Layer to obtain the information or execute other operations that the
+        Service Layer offers. The <emphasis>Service Layer</emphasis> provides access to the services
+        of the Business Layer using a particular access protocol, like SOAP, EJB, RMI or local
+        method invocation. The <emphasis>Business Layer</emphasis> provides services that implement
+        functionality and business logic. The <emphasis>Data Layer</emphasis> provides access to
+        persistent data on behalf of the Business Layer. The <emphasis>Domain Model</emphasis>
+        consists of Objects that model the part of the world of interest to the application. The
+        next paragraphs describes the responsibilities and the structure of the layers in more
+        detail.</para>
       <section>
-        <title>Data Transfer Objects</title>
-        <para>TODO: describe the strategy of the Data Transfer Objects: scope, references, lazy
-          loading.</para>
+        <title>Presentation Layer</title>
+        <para>The Presentation Layer contains components that present information to a user and
+          interprets his actions by executing functions of the system.Typical responsibilities of
+          the Presentation Layer include:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Presenting data to the user. This implies mapping fields on a screen to attibutes
+              of <emphasis>Data Transfer Objects</emphasis> received from the Service Layer,
+              formatting of data, internationalisation en localisation of data.</para>
+          </listitem>
+          <listitem>
+            <para>Accepting data entered by the user. This implies applying simple validations on
+              the data entered and keeping track of this data.</para>
+          </listitem>
+        </itemizedlist>
+        <para>This Presentation Layer should not execute business functionality by itself, but
+          instead delegate that responsibility to the Service Layer by calling its operations. Data
+          is transferred to and from the Service Layer in the form of <emphasis>Data Transfer
+            Objects</emphasis>.</para>
+        <para>TODO: expand this section when the User Interface DSL is nearer to completion.</para>
       </section>
-    </section>
-    <section>
-      <title>Business Layer</title>
-      <para>The <emphasis>Business Layer</emphasis> is a <emphasis>facade</emphasis> for the
-          <emphasis>Domain Model</emphasis>. It exposed the business functionality of the
-        application in the form of methods, with arguments and return values from the domain model.
-        These methods:<itemizedlist>
-          <listitem>
-            <para>persist and retrieve domain objects by delegating to the <emphasis>Data
-                Layer</emphasis></para>
-          </listitem>
-          <listitem>
-            <para>delegate to domain model objects to execute reusable business functionality</para>
-          </listitem>
-          <listitem>
-            <para>implement business logic specific to a single business process</para>
-          </listitem>
-        </itemizedlist></para>
-    </section>
-    <section>
-      <title>Data Layer</title>
-      <para>The responsibility of the <emphasis>Data Layer</emphasis> is to persist and retrieve
-        data. The data is transferred between the data layer and its calling business layer in the
-        form of arguments and return values based on the domain model. The persistence logic is
-        dependent on the particular persistence technology in use, like a relational database,
-        textfiles, XML documents or an XML database, or another application that exposes services
-        for accessing data.</para>
-      <para>The data layer contains a number of data access objects, in principle one for each
-        domain model class. Each such object:<itemizedlist>
-          <listitem>
-            <para>Has CRUD-methods to create (C), retrieve (R), update (U) or delete (D) data
-              contained in one domain model object</para>
-          </listitem>
-          <listitem>
-            <para>Can have methods to retrieve a list of objects based on a query</para>
-          </listitem>
-          <listitem>
-            <para>Must transform data from the domain model to the format in which they are
-              persisted, and vice versa. When a relational database is used, this may be done with a
-              Object-Relational Mapping (ORM) framework, like <emphasis role="italic"
-                >Hibernate</emphasis> or <emphasis role="italic">Toplink</emphasis>.</para>
-          </listitem>
-          <listitem>
-            <para>Can offer paging facilities when a large result set may be retrieved.</para>
-          </listitem>
-          <listitem>
-            <para>May not maintain state.</para>
-          </listitem>
-        </itemizedlist></para>
+      <section>
+        <title>Service Layer</title>
+        <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is to isolate the
+          business layer from the various protocols in use for remotely invoking its service
+          operations. Examples of such protocols are SOAP or RESTful Web Services, messaging, EJB,
+          RMI or plain old local mehod calls. A service layer presents the interface of the business
+          layer in the form required for one particular access protocol. Therefore, a separate
+          service layer is needed for each protocol by which the system will be accessed. This makes
+          it clear that the presentation layer should not contain any business functionality,
+          because that would have to be duplicated for each separate service layer.</para>
+        <para>In addition, the service layer is reponsible for:<itemizedlist>
+            <listitem>
+              <para>authentication and authorisation of the calling identities</para>
+            </listitem>
+            <listitem>
+              <para>exposing a collection of <emphasis>Data Transfer Objects</emphasis> to be used
+                for transferring data between the service layer and its callers</para>
+            </listitem>
+            <listitem>
+              <para>translation of the information in the data transfer objects used for
+                communication with the presentation layer to and from <emphasis>Domain
+                  Model</emphasis> objects used for communication with the business layer</para>
+            </listitem>
+            <listitem>
+              <para>making the call to each service operation an atomic (ACID) transaction.</para>
+            </listitem>
+          </itemizedlist></para>
+        <section>
+          <title>Data Transfer Objects</title>
+          <para>TODO: describe the strategy of the Data Transfer Objects: scope, references, lazy
+            loading.</para>
+        </section>
+      </section>
+      <section>
+        <title>Business Layer</title>
+        <para>The <emphasis>Business Layer</emphasis> is a <emphasis>facade</emphasis> for the
+            <emphasis>Domain Model</emphasis>. It exposed the business functionality of the
+          application in the form of methods, with arguments and return values from the domain
+          model. These methods:<itemizedlist>
+            <listitem>
+              <para>persist and retrieve domain objects by delegating to the <emphasis>Data
+                  Layer</emphasis></para>
+            </listitem>
+            <listitem>
+              <para>delegate to domain model objects to execute reusable business
+                functionality</para>
+            </listitem>
+            <listitem>
+              <para>implement business logic specific to a single business process</para>
+            </listitem>
+          </itemizedlist></para>
+      </section>
+      <section>
+        <title>Data Layer</title>
+        <para>The responsibility of the <emphasis>Data Layer</emphasis> is to persist and retrieve
+          data. The data is transferred between the data layer and its calling business layer in the
+          form of arguments and return values based on the domain model. The persistence logic is
+          dependent on the particular persistence technology in use, like a relational database,
+          textfiles, XML documents or an XML database, or another application that exposes services
+          for accessing data.</para>
+        <para>The data layer contains a number of data access objects, in principle one for each
+          domain model class. Each such object:<itemizedlist>
+            <listitem>
+              <para>Has CRUD-methods to create (C), retrieve (R), update (U) or delete (D) data
+                contained in one domain model object</para>
+            </listitem>
+            <listitem>
+              <para>Can have methods to retrieve a list of objects based on a query</para>
+            </listitem>
+            <listitem>
+              <para>Must transform data from the domain model to the format in which they are
+                persisted, and vice versa. When a relational database is used, this may be done with
+                a Object-Relational Mapping (ORM) framework, like <emphasis role="italic"
+                  >Hibernate</emphasis> or <emphasis role="italic">Toplink</emphasis>.</para>
+            </listitem>
+            <listitem>
+              <para>Can offer paging facilities when a large result set may be retrieved.</para>
+            </listitem>
+            <listitem>
+              <para>May not maintain state.</para>
+            </listitem>
+          </itemizedlist></para>
+      </section>
     </section>
     <section>
       <title>Domain Model</title>
@@ -259,10 +284,9 @@
   </chapter>
   <chapter>
     <title>Implementation View</title>
-    <para>This chapter describes how the architectural layers described in the previous chapter are
-      implemented in the application generated by mod4j from the models. It describes which modules
-      are created, how the Java classes are organised in packages, which frameworks are being used
-      and in what way.</para>
+    <para>This chapter describes how the architectural layers described in the previous chapter
+      should be implemented. It describes how the code is divided into modules, how the Java classes
+      are organised in packages, which frameworks are being used and in what way.</para>
     <section>
       <title>Modules</title>
       <para>The application is implemented as a <emphasis role="italic">
@@ -273,9 +297,9 @@
         project.</para>
       <para>The names of the modules are formed by concatenating the mod4j Project Name, a dash
         ("-") and a keyword derived from the architectural layer the module implements. For a
-        hypothetical mod4j project "RecordShop", the module names would be: <literal
-          >RecordShop-service</literal>, <literal>RecordShop-business</literal>, <literal
-          >RecordShop-data</literal> and <literal>RecordShop-domain</literal>.</para>
+        hypothetical mod4j project "RecordShop", the module names would be:
+          <literal>RecordShop-service</literal>, <literal>RecordShop-business</literal>,
+          <literal>RecordShop-data</literal> and <literal>RecordShop-domain</literal>.</para>
       <para>The maven project can be built by maven from the command-line. Alternatively, the
         modules may be imported into Eclipse with the <emphasis role="italic">
           <ulink url="http://code.google.com/p/q4e/">Q4E</ulink>
@@ -333,7 +357,7 @@
             </row>
             <row>
               <entry>
-                <package>data.spring.hibernate</package>
+                <package>data.hibernate.spring</package>
               </entry>
               <entry>Spring/Hibernate specific implementations of the Data Access Object interfaces
                 in the <package>data</package> package.</entry>
@@ -358,19 +382,125 @@
       <title>Spring</title>
       <para>The Spring framework is used as a general application framework. The objects making up
         the application are being wired up by the Spring framework based on a number of XML
-        configuration files, generally one per layer. The Spring
-          <classname>ContextSingletonBeanFactoryLocator</classname> class is used to create multiple
-        hierarchical Spring IoC container instances from these XML configuration files. For the
-        container of each layer, the container of the lower layer is the parent container. This
-        hierarchical container is then used as the parent container of a web application container.
-        In this way, containers and the beans contained in them, may be shared between several web
-        applications, and loaded only once. See section <citetitle>3.9 Glue code and the evil
-          singleton</citetitle> in <biblioref linkend="spring25"/> and the Javadoc for
-          <classname>ContextSingletonBeanFactoryLocator</classname> for more details.</para>
+        configuration files, generally one per layer. The Spring <ulink
+          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html">
+          <classname>ContextSingletonBeanFactoryLocator</classname>
+        </ulink> class is used to create multiple hierarchical Spring IoC container instances, also
+        called bean factory or application context in Spring parlance, from these XML configuration
+        files. For the container of each layer, the container of the lower layer is the parent
+        container. <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/spring-config.jpg"/>
+          </imageobject>
+        </mediaobject></para>
+      <para>Beans defined in a direct or indirect parent context are visible in the child context,
+        but not vice versa. This hierarchical container is then used as the parent container of a
+        web application container. In this way, containers and the beans contained in them, may be
+        shared between several web applications, and loaded only once. Moreover, the hierarchical
+        composition of the container guarantees that dependencies between them are parallel to the
+        depencencies between the layers of the logical view. See section <ulink
+          url="http://static.springframework.org/spring/docs/2.5.x/reference/beans.html#beans-glue-code-and-singletons">
+          <citetitle>3.9 Glue code and the evil singleton</citetitle>
+        </ulink>in <biblioref linkend="spring25"/> and the Javadoc for <ulink
+          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html">
+          <classname>ContextSingletonBeanFactoryLocator</classname>
+        </ulink> for more details.</para>
     </section>
     <section>
       <title>Hibernate</title>
-      <para/>
+      <section>
+        <title>Mapping</title>
+        <para>Hibernate also offers a choice between mapping using JDK 5.0 annotations inside the
+          domain model classes being mapped, and mapping using one or more separate XML mapping
+          documents. We choose using XML mapping documents. The rationale is that we want to keep
+          persistance concerns strictly separate from pure business logic. This way we can more
+          easily change mapping strategies or even persistence frameworks.</para>
+        <para>Each persistent class is mapped in a separate XML document located in a directory
+          corresponding to the fully qualified Java package of the class being mapped, and with a
+          name constructed from the Java class name and a suffix ".hbm.xml". So, the fully qualified
+          path relative to the package root, for an XML mapping document for a persistent class
+          named <classname>org.company.recordshop.domain.Artist</classname> would be
+            <filename>org/company/recordshop/domain/Artist.hbm.xml</filename>.</para>
+      </section>
+      <section>
+        <title>Access strategy</title>
+        <para>Hibernate offers a choice between two strategies to access the fields of objects:
+            <emphasis>property access</emphasis>, which is the default, and <emphasis>field
+            access</emphasis>. We choose the second, <emphasis>field access</emphasis>. We prefer to
+          keep programmatic access to the state of the object separate from framework access. For
+          example, using a setter will trigger data validation, which is clearly not necessary when
+          populating an object from persistent store. And it might trigger data transformations for
+          derived fields.</para>
+      </section>
+      <section>
+        <title>Optimistic locking</title>
+        <para>The optimistic locking strategy is based on a <property>version</property> property,
+          with a negative <property>unsaved-value</property>. In the persisted class, this is a
+            <property>private int</property> field named <varname>version</varname>, initialized to
+          -1. Since this field is only used by Hibernate, there should be no methods to change
+          it.</para>
+      </section>
+      <section>
+        <title>Spring support</title>
+        <para>The Java implementations of the data access objects are based on the Spring <ulink
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/orm/hibernate3/support/HibernateDaoSupport.html">
+            <classname>HibernateDaoSupport</classname>
+          </ulink> and its <ulink
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/orm/hibernate3/HibernateTemplate.html">
+            <classname>HibernateTemplate</classname>
+          </ulink> helper. This implies that all Hibernate, SQL and JDBC exceptions will be
+          converted to an appropriate subclass of <ulink
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/dao/DataAccessException.html">
+            <classname>DataAccessException</classname>
+          </ulink>.</para>
+      </section>
+      <section>
+        <title>Enumerations</title>
+        <para>Java <property>enum</property>'s are mapped with a specific implementation
+            <classname>org.company.recordshop.data.GenericEnumUserType</classname> of the Hibernate
+          interface <ulink
+            url="http://www.hibernate.org/hib_docs/v3/api/org/hibernate/usertype/UserType.html">
+            <classname>org.hibernate.usertype.UserType</classname>
+          </ulink>. The following example illustrates this:<example>
+            <title>Enumeration mapping</title>
+            <programlisting><![CDATA[<property name="sexe">
+    <type name="org.company.recordshop.data.GenericEnumUserType">
+        <param name="enumClass">
+            org.company.recordshop.domain.SexeEnum
+        </param>
+    </type>
+</property>]]></programlisting>
+          </example>The <property>enumClass</property> must be a Java <property>enum</property>
+          class with a method <methodname>id</methodname> and a method <methodname>value(Integer
+            id)</methodname>. When an object with a enumeration property is persisted, the return
+          value of the <methodname>id</methodname> is stored in the database. When an object is
+          loaded from the database, the enumeration instance returned by the method
+            <methodname>value(Integer id)</methodname> with the persisted value as argument is set
+          as the value for the enumeration property.</para>
+      </section>
+      <section>
+        <title>Primary keys</title>
+        <para>Primary keys are instances of <classname>java.lang.Long</classname>. This field may be
+          modified only by Hibernate and therefore should not be modified by any method. A getter
+          may be useful.</para>
+      </section>
+    </section>
+    <section>
+      <title>Domain Model</title>
+      <section>
+        <title>equals and hashcode</title>
+        <para>All domain model classes must override the standard methods
+            <classname>equals</classname> and <methodname>hashcode</methodname> in a consistent way.
+          Two domain model class instances are considered equal if they are the same, or if they
+          belong to the same class and have the same value for their <property>id</property>
+          property. The hashcode could return the hashcode of the <property>id</property> property
+          if it is non-null, and the hashcode of the superclass if it is
+          <property>null</property>.</para>
+      </section>
+      <section>
+        <title>Business rules</title>
+        <para/>
+      </section>
     </section>
   </chapter>
 </book>
