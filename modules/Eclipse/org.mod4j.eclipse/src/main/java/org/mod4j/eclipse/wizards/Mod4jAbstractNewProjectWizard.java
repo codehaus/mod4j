@@ -238,39 +238,38 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		public String busmodSampleModelContents() {
             return 
-            "BusinessDomain SampleModel" + LF + 
+            "domain SampleModel ;" + LF + 
             "/*" + LF +
             " * This is an example model file." + LF +
             " */" + LF + LF +
             "\"The SampleClass\"" + LF +
-            "Class SampleClass [" + LF + 
+            "class SampleClass [" + LF + 
             "    string name;" + LF + "]" + LF;
         }
 		
 		public String dtcmodSampleModelContents() {
 		    return   
-		    "DataContract SampleDataContractModel" + LF +
+		    "datacontract SampleDataContractModel ;" + LF +
             "/*" + LF +
             " * This is an example model file." + LF +
             " */" + LF + LF +
             "\"Import needed BusinessClasses\"" + LF +
-		    "from SampleModel import SampleClass" + LF + LF +
+		    "from SampleModel import SampleClass ;" + LF + LF +
 		    "\"Data transfer object for SampleClass\"" + LF +
-		    "BusinessClassDto SampleDto base SampleClass [" + LF +
+		    "class SampleDto represents SampleClass [" + LF +
 		    "    name ;" + LF +
 		    "]";
 		}
 		
         public String sermodSampleModelContents() {
             return 
-            "Service SampleServiceModel" + LF +
+            "service SampleServiceModel ;" + LF +
             "/*" + LF +
             " * This is an example model file." + LF +
             " */" + LF + LF +
-            "\"Import needed dto's\"" + LF +
-            "from SampleDataContractModel import SampleDto" + LF + LF +
+            "from SampleDataContractModel import SampleDto ;" + LF + LF +
             "\"Create-, read- update- and delete service methods for SampleDto\"" + LF +
-            "crud for SampleDto;";
+            "for SampleDto crud;";
         }
 
     /**
