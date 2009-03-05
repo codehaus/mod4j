@@ -10,6 +10,7 @@
  *******************************************************************************/
 import scanning;
 import businessdomaindsl;
+import ecore; 
 
 extension org::mod4j::businessdomain::xtext::GenStyle reexport;
 
@@ -32,6 +33,14 @@ FontStyle fontstyle(String keyword, BusinessDomainDsl::Multiplicity ctx):
 	            createColor(0, 100, 0), createColor(255, 255, 255) );
 
 FontStyle fontstyle(String keyword, BusinessDomainDsl::DateTimeAccuracy ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 100, 0), createColor(255, 255, 255) );
+
+FontStyle fontstyle(String keyword, ecore::EEnumLiteral ctx):
+	createFontStyle(true, false, false, false,
+	            createColor(0, 100, 0), createColor(255, 255, 255) );
+
+FontStyle fontstyle(String keyword, ecore::EEnum ctx):
 	createFontStyle(true, false, false, false,
 	            createColor(0, 100, 0), createColor(255, 255, 255) );
 
