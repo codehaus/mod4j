@@ -4,9 +4,7 @@
 <!ENTITY logical-view SYSTEM "images/logical-view.jpg" NDATA JPG>
 ]>
 <book lang="en">
-  <bookinfo>
-    <title>mod4j Application Architecture</title>
-    <author>
+  <bookinfo><title>mod4j Application Architecture</title><author>
       <firstname>Eric</firstname>
       <othername>Jan</othername>
       <surname>Malotaux</surname>
@@ -28,8 +26,7 @@
       <bibliography>
         <biblioentry id="busch96">
           <abbrev>Busch96</abbrev>
-          <title>Pattern-Oriented Software Architecture - A System of Patterns</title>
-          <authorgroup>
+          <title>Pattern-Oriented Software Architecture - A System of Patterns</title><authorgroup>
             <author>
               <firstname>Frank</firstname>
               <surname>Buschmann</surname>
@@ -50,20 +47,17 @@
               <surname>Stal</surname>
               <firstname>Michael</firstname>
             </author>
-          </authorgroup>
-          <publisher>
+          </authorgroup><publisher>
             <publishername>John Wiley &amp; Sons</publishername>
           </publisher>
           <date>1996</date>
         </biblioentry>
         <biblioentry id="evans03">
           <abbrev>Evans03</abbrev>
-          <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title>
-          <author>
+          <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title><author>
             <firstname>Eric</firstname>
             <surname>Evans</surname>
-          </author>
-          <publisher>
+          </author><publisher>
             <publishername>Addison-Wesley</publishername>
           </publisher>
           <date>2003</date>
@@ -74,9 +68,7 @@
           <author>
             <firstname>Martin</firstname>
             <surname>Fowler</surname>
-          </author>
-          <title>Patterns of Enterprise Application Architecture</title>
-          <publisher>
+          </author><title>Patterns of Enterprise Application Architecture</title><publisher>
             <publishername>Addison-Wesley</publishername>
           </publisher>
           <date>2002</date>
@@ -89,9 +81,8 @@
               <firstname>Rod</firstname>
               <surname>Johnson et al.</surname>
             </author>
-          </authorgroup>
-          <title>java/j2ee Application Framework</title>
-          <subtitle>The Spring Framework - Reference Documentation</subtitle>
+          </authorgroup><title>java/j2ee Application Framework</title><subtitle>The Spring Framework
+            - Reference Documentation</subtitle>
           <releaseinfo>Version 2.5</releaseinfo>
           <copyright>
             <year>2004-2007</year>
@@ -297,9 +288,9 @@
         project.</para>
       <para>The names of the modules are formed by concatenating the mod4j Project Name, a dash
         ("-") and a keyword derived from the architectural layer the module implements. For a
-        hypothetical mod4j project "RecordShop", the module names would be:
-          <literal>RecordShop-service</literal>, <literal>RecordShop-business</literal>,
-          <literal>RecordShop-data</literal> and <literal>RecordShop-domain</literal>.</para>
+        hypothetical mod4j project "RecordShop", the module names would be: <literal
+          >RecordShop-service</literal>, <literal>RecordShop-business</literal>, <literal
+          >RecordShop-data</literal> and <literal>RecordShop-domain</literal>.</para>
       <para>The maven project can be built by maven from the command-line. Alternatively, the
         modules may be imported into Eclipse with the <emphasis role="italic">
           <ulink url="http://code.google.com/p/q4e/">Q4E</ulink>
@@ -383,7 +374,8 @@
       <para>The Spring framework is used as a general application framework. The objects making up
         the application are being wired up by the Spring framework based on a number of XML
         configuration files, generally one per layer. The Spring <ulink
-          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html">
+          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html"
+          >
           <classname>ContextSingletonBeanFactoryLocator</classname>
         </ulink> class is used to create multiple hierarchical Spring IoC container instances, also
         called bean factory or application context in Spring parlance, from these XML configuration
@@ -399,10 +391,12 @@
         shared between several web applications, and loaded only once. Moreover, the hierarchical
         composition of the container guarantees that dependencies between them are parallel to the
         depencencies between the layers of the logical view. See section <ulink
-          url="http://static.springframework.org/spring/docs/2.5.x/reference/beans.html#beans-glue-code-and-singletons">
+          url="http://static.springframework.org/spring/docs/2.5.x/reference/beans.html#beans-glue-code-and-singletons"
+          >
           <citetitle>3.9 Glue code and the evil singleton</citetitle>
         </ulink>in <biblioref linkend="spring25"/> and the Javadoc for <ulink
-          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html">
+          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html"
+          >
           <classname>ContextSingletonBeanFactoryLocator</classname>
         </ulink> for more details.</para>
     </section>
@@ -419,8 +413,8 @@
           corresponding to the fully qualified Java package of the class being mapped, and with a
           name constructed from the Java class name and a suffix ".hbm.xml". So, the fully qualified
           path relative to the package root, for an XML mapping document for a persistent class
-          named <classname>org.company.recordshop.domain.Artist</classname> would be
-            <filename>org/company/recordshop/domain/Artist.hbm.xml</filename>.</para>
+          named <classname>org.company.recordshop.domain.Artist</classname> would be <filename
+            >org/company/recordshop/domain/Artist.hbm.xml</filename>.</para>
       </section>
       <section>
         <title>Access strategy</title>
@@ -443,14 +437,17 @@
       <section>
         <title>Spring support</title>
         <para>The Java implementations of the data access objects are based on the Spring <ulink
-            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/orm/hibernate3/support/HibernateDaoSupport.html">
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/orm/hibernate3/support/HibernateDaoSupport.html"
+            >
             <classname>HibernateDaoSupport</classname>
           </ulink> and its <ulink
-            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/orm/hibernate3/HibernateTemplate.html">
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/orm/hibernate3/HibernateTemplate.html"
+            >
             <classname>HibernateTemplate</classname>
           </ulink> helper. This implies that all Hibernate, SQL and JDBC exceptions will be
           converted to an appropriate subclass of <ulink
-            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/dao/DataAccessException.html">
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/dao/DataAccessException.html"
+            >
             <classname>DataAccessException</classname>
           </ulink>.</para>
       </section>
@@ -471,7 +468,7 @@
     </type>
 </property>]]></programlisting>
           </example>The <property>enumClass</property> must be a Java <property>enum</property>
-          class with a method <methodname>id</methodname> and a method <methodname>value(Integer
+          class with a method <methodname>id()</methodname> and a method <methodname>value(Integer
             id)</methodname>. When an object with a enumeration property is persisted, the return
           value of the <methodname>id</methodname> is stored in the database. When an object is
           loaded from the database, the enumeration instance returned by the method
@@ -494,8 +491,8 @@
           Two domain model class instances are considered equal if they are the same, or if they
           belong to the same class and have the same value for their <property>id</property>
           property. The hashcode could return the hashcode of the <property>id</property> property
-          if it is non-null, and the hashcode of the superclass if it is
-          <property>null</property>.</para>
+          if it is non-null, and the hashcode of the superclass if it is <property
+          >null</property>.</para>
       </section>
       <section>
         <title>Business rules</title>

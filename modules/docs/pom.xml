@@ -70,6 +70,7 @@
                     <fopExtensions>1</fopExtensions>
                     <xincludeSupported>true</xincludeSupported>
                     <keepRelativeImageUris>1</keepRelativeImageUris>
+                    <ulinkShow>0</ulinkShow>
                 </configuration>
                 <executions>
                     <execution>
