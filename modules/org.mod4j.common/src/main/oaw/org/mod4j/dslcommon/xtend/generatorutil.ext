@@ -18,6 +18,9 @@ String timestamp() :
 boolean fileExist(String path) :
  JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.fileExist(java.lang.String);
 
+boolean shouldRegenerate(String path) :
+ JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.shouldRegenerate(java.lang.String);
+
 String javaClassName(String cls) :
  JAVA org.mod4j.dslcommon.generator.helpers.ModelHelpers.javaClassName(java.lang.String);
 

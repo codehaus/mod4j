@@ -28,20 +28,68 @@ public class GeneratedFile {
         this.extensionPoint = extension;
     }
 
-    private FileTrack owner;
+    protected FileTrack owner;
 
     public FileTrack getOwner() {
         return owner;
     }
 
-    private String moduleName;
+    protected boolean changed = false; 
+	protected boolean retained = false;
 
-    private String sourcePath;
+	/**
+	 * @return the changed
+	 */
+	public boolean isChanged() {
+		return changed;
+	}
 
-    // private String packagePathname;
+	/**
+	 * @param changed the changed to set
+	 */
+	public void setChanged(boolean changed) {
+		this.changed = changed;
+	}
+
+	/**
+	 * @return the retained
+	 */
+	public boolean isRetained() {
+		return retained;
+	}
+
+	/**
+	 * @param retained the retained to set
+	 */
+	public void setRetained(boolean retained) {
+		this.retained = retained;
+	}
+
+    
+    protected String moduleName;
+
+    protected String sourcePath;
+
+    protected long modifiedDate ;
+    
+    /**
+	 * @return the modifiedDate
+	 */
+	public long getModifiedDate() {
+		return modifiedDate;
+	}
+
+	/**
+	 * @param modifiedDate the modifiedDate to set
+	 */
+	public void setModifiedDate(long modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	// private String packagePathname;
     private boolean extensionPoint;
 
-    private FileType fileType = FileType.UNKNOWN;
+    protected FileType fileType = FileType.UNKNOWN;
 
     public FileType getFileType() {
         return fileType;

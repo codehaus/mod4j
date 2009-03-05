@@ -14,11 +14,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Map.Entry;
+
+import org.mod4j.common.generator.admin.FileTrack;
+import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.GeneratedFile;
 
 public class ModelHelpers {
 
@@ -75,9 +80,39 @@ public class ModelHelpers {
 
     public static boolean fileExist(String path) {
         File f = new File(path);
+        if( ! f.exists() ){
+        	return false;
+        }
         return f.exists();
     }
 
+    public static boolean shouldRegenerate(String path) {
+    	boolean exists = fileExist(path);
+    	if( ! exists ) {
+//        	System.err.println("REGENERATE: ! exists " + path + " ==> true");
+    		return true;
+    	}
+    	
+        File f = new File(path);
+        long modified = f.lastModified();
+        FileTrack current = FileTracker.getFileTracker().getCurrentTrack();
+        if( current == null ) {
+//        	System.err.println("REGENERATE: current == null " + path + " ==> false");
+        	return false;
+        }
+        GeneratedFile extension = current.getExtensionFile(path);
+        if( extension != null ) {
+//        	System.err.println("REGENERATE: extension != null " + path);
+	        long generated = extension.getModifiedDate();
+//        	System.err.println("modified : [" + DateFormat.getInstance().format(modified) + "] generated [" 
+//        			+ DateFormat.getInstance().format(generated) + "]" + " ==> " + (modified == generated));
+	        return ( modified == generated );
+        } else {
+//        	System.err.println("REGENERATE: end " + path + " ==> false");
+        	return false;
+        }
+    }
+    
     /**
      * @param cls
      * @return The name of the Java class for name cls

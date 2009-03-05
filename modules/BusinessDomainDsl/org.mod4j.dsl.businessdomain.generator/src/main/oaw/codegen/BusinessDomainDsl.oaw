@@ -56,7 +56,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::Root FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::NewDomainLayer::Root FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -68,7 +68,7 @@
     -->
     <component id="BusinessDomainWorkflow-DomainEextensionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::ExtensionPointGeneration FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::NewDomainLayer::ExtensionPointGeneration FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -81,7 +81,7 @@
      <component id="BusinessDomainWorkflow-DataLayerResourcesGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
         <metaModel idRef="crossx"/>
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genResources FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::NewDataLayer::genResources FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -93,7 +93,7 @@
     -->  
     <component id="BusinessDomainWorkflow-DataLayerDaoGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDao FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::NewDataLayer::genDao FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -105,7 +105,7 @@
     -->  
     <component id="BusinessDomainWorkflow-DataLayerExtentionPointsGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDaoExtensions FOR busModel" />
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::NewDataLayer::genDaoExtensions FOR busModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
@@ -117,10 +117,15 @@
     -->  
     <component id="BusinessDomainWorkflow-MavenConfigGenerator" class="org.openarchitectureware.xpand2.Generator">
         <metaModel idRef="bm" />
-        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::CreateMavenConfiguration FOR busModel"/>
+        <expand value="org::mod4j::dsl::businessdomain::generator::xpand::NewDomainLayer::CreateMavenConfiguration FOR busModel"/>
         <outlet path="${applicationPath}">
             <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
- 
+<!--
+	    <component id="busmodWriter" class="org.eclipse.mwe.emf.Writer">
+	        <uri value="${modelFile}.xml" />
+	        <modelSlot value="busModel" />
+	    </component>
+	    -->
 </workflow>

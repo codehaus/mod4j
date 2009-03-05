@@ -35,6 +35,16 @@ public class FileTrack {
         return resource;
     }
 
+    public GeneratedFile getExtensionFile(String name){
+    	String projectDir = project.getApplicationPath();
+    	for (GeneratedFile gen : extensionFiles) {
+			if( name.equals(projectDir + "/" + gen.getSourcePath())) {
+				return gen;
+			}
+		}
+    	return null;
+    }
+
     /**
      * Notify the ExtensionPointtracker that 'resource'is started
      * 
@@ -46,14 +56,30 @@ public class FileTrack {
         extensionFiles = new ArrayList<GeneratedFile>();
     }
 
-    public void generatedFile(String filename) {
+    public GeneratedFile generatedFile(String filename) {
+    	// Check whether the resource already exists
+    	for(GeneratedFile ext : generatedFiles){
+    		if( ext.getSourcePath().equals(filename)){
+    			return ext;
+    		}
+    	}
+    	// if not creat a new one
         GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, this, false);
         generatedFiles.add(gen);
+        return gen;
     }
 
-    public void extensionFile(String filename) {
+    public GeneratedFile extensionFile(String filename) {
+    	// Check whether the resource already exists
+    	for(GeneratedFile ext : extensionFiles){
+    		if( ext.getSourcePath().equals(filename)){
+    			return ext;
+    		}
+    	}
+    	// if not creat a new one
         GeneratedFile gen = new GeneratedFile(filename, FileType.UNKNOWN, this, true);
         extensionFiles.add(gen);
+        return gen;
     }
 
     public List<GeneratedFile> getGeneratedFiles() {

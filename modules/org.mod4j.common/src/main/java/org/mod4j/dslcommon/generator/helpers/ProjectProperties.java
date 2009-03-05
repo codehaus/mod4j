@@ -140,6 +140,22 @@ public class ProjectProperties {
     }
 
     public static String getApplicationPath() {
+    	if( applicationPath != null ){
+	    	if( applicationPath.startsWith("..")){
+	    		if( applicationPath.equals("..")) {
+             		int last = workDir.lastIndexOf("/");
+             		if( last == -1 ){
+                 		last = workDir.lastIndexOf("\\");
+             		}
+	            	if( last > -1){
+	            		return workDir.substring(0, last)  ;
+	            	}
+	    		} else {
+	        		int last = workDir.lastIndexOf("/");
+	        		return workDir.substring(0, last) + applicationPath.substring(2) ;
+	    		}
+	    	}
+    	}
         return workDir + "/" + applicationPath;
     }
 

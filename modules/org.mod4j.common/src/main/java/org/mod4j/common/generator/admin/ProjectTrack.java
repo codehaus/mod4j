@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class ProjectTrack {
 
-    private List<FileTrack> trackedFiles = new ArrayList<FileTrack>();
+//    private List<FileTrack> trackedFiles = new ArrayList<FileTrack>();
 
     private String projectPath = null;
 
@@ -45,6 +45,7 @@ public class ProjectTrack {
     }
 
     public FileTrack getTrack(String resource) {
+//    	System.err.println("GetTrack() ["+ resource + "]" ); 
         String localResource = resource;
         if (resource.startsWith("file:/")) {
             localResource = resource.substring(6);
@@ -54,11 +55,13 @@ public class ProjectTrack {
         }
         FileTrack result = tracks.get(localResource);
         if (result == null) {
+//        	System.err.println("      null" );
             result = new FileTrack(localResource);
             result.setProject(this);
             tracks.put(localResource, result);
         } else {
-            result.clear();
+//        	System.err.println("      found" );
+//            result.clear();
         }
         return result;
     }
