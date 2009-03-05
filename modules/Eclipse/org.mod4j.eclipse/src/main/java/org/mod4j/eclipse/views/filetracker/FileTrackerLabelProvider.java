@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.mod4j.eclipse.views.filetracker;
 
+import java.text.DateFormat;
 import java.util.Map;
 
 import org.eclipse.jface.viewers.LabelProvider;
@@ -50,7 +51,8 @@ public class FileTrackerLabelProvider extends LabelProvider {
             return f.getResource();
         } else if (element instanceof GeneratedFile) {
             GeneratedFile file = (GeneratedFile) element;
-            return file.getSourcePath();
+            return DateFormat.getInstance().format(file.getModifiedDate())  + 
+                   " [" + file.isChanged() + "," + file.isRetained() + "] "+ file.getSourcePath();
         }
         return element.toString();
     }

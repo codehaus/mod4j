@@ -30,6 +30,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -334,7 +335,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             Mod4jBuilder b = new Mod4jBuilder();
             b.startX();
             CrossxEnvironment.setStarted(true);
+     		FileTrackerView.myrefresh();
         }
+
     }
     public void startX() {
     	getConsole();
@@ -349,12 +352,35 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         for (int i = 0; i < projects.length; i++) {
             IProject project = projects[i];
             
-            System.err.println("Projects [" + project.getName() + "]");
+            System.err.println("startX Projects [" + project.getName() + "]");
 //            myProject = project;
             myloadCrossxInfo(project);
+            readFileTracker(project);
         }
         CrossxView.myrefresh();
     }
+    
+    QualifiedName FILETRACKER = new QualifiedName("org.mod4j.eclipse", "filetracker");
+
+	private void readFileTracker(IProject project) {
+       try {
+            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) || (!project.isOpen())) {
+                return;
+            }
+        } catch (CoreException e1) {
+        }
+        FileTracker.getFileTracker().readTracker(project.getWorkspace().getRoot().getLocation().toString()
+//		FileTracker.getFileTracker().readTracker(project.getLocation().toString()
+				+ "/" + "mod4jgenerator.xml");
+//		try {
+//			project.setSessionProperty(FILETRACKER, FileTracker.getFileTracker());
+//		} catch (CoreException e) {
+//			System.err.println("Mod4jBuilder::readFileTracker set session property fails");
+//			e.printStackTrace();
+//		}
+	}
+    
+    
 
     /**
      * Initializes the infomative output console for Crossx and the code generation. Also redirect the standard error
@@ -510,7 +536,13 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             // Get the relative applicationPath property and make it absolute
             String applicationPath = properties.get("applicationPath");
             String workDir = getProject().getLocation().toString();
-            String newAppPath = workDir + "/" + applicationPath;
+            String newAppPath ;
+        	if( applicationPath.startsWith("..")){
+        		int last = workDir.lastIndexOf("/");
+        		newAppPath = workDir.substring(0, last) + applicationPath.substring(2) ;
+        	} else {
+        		newAppPath = workDir + "/" + applicationPath;
+        	}
             properties.put("applicationPath", newAppPath);
             properties.put("workDir", workDir);
             properties.put("project", resource.getProject().getName());
@@ -530,6 +562,13 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                 EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model ["
                         + resource.getName() + "] \nerror: [" + e.getMessage() + "]");
             }
+            
+            // Tell filetracker to close current resource.
+            FileTracker.getFileTracker().finishResource(modelFilePath, newAppPath, projectPath);
+//            FileTracker.getFileTracker().writeTracker(getProject().getLocation().toString()
+//    				+ "/" + "mod4jgenerator.xml" );
+            FileTracker.getFileTracker().writeTracker(getProject().getWorkspace().getRoot().getLocation().toString()
+    				+ "/" + "mod4jgenerator.xml" );
         }
     }
 

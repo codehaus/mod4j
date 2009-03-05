@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.mod4j.eclipse.views.filetracker;
 
+import java.io.File;
+import java.text.DateFormat;
+import java.util.Date;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -19,6 +23,7 @@ import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
 import org.mod4j.common.generator.admin.FileTrack;
@@ -94,6 +99,15 @@ public class FileTrackerView extends ViewPart {
                     String name = gen.getSourcePath();
                     name = gen.getOwner().getProject().getApplicationPath() + "/" + name;
                     EclipseUtil.openFile(name);
+                    
+                    MessageConsoleStream console = EclipseUtil.findConsole("mod4j.projectbuilder");
+                    File file = new File(name);
+                    console.println("File [" + name + "]");
+                    console.println("    hashcode    [" + file.hashCode() + "]");
+                    console.println("    length      [" + file.length()   + "]");
+                    console.println("    lastModified[" + file.lastModified()+ "]");
+                    Date modified = new Date(file.lastModified());
+                    console.println("    lastModified[" + DateFormat.getInstance().format(modified) + "]");
                 } else {
                     EclipseUtil.showInformation("DoubleC;lick on unknown object: " + selection.toString());
                 }
