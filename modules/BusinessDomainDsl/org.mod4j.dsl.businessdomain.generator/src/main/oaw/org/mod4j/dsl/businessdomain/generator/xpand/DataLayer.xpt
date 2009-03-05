@@ -8,7 +8,7 @@
      Ordina - initial implementation
 «ENDREM»
 «IMPORT BusinessDomainDsl»
-«IMPORT hibernate»
+«IMPORT org::mod4j::dsl::businessdomain::generator::xpand::hibernate»
 
 «EXTENSION BusinessClass»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
