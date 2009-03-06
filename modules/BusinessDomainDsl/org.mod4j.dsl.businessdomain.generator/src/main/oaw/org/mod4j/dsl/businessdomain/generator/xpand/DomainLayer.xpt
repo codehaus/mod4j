@@ -10,6 +10,7 @@
 «IMPORT BusinessDomainDsl»
 «IMPORT maven»
 «IMPORT org::mod4j::dsl::businessdomain::generator::xpand::java»
+«IMPORT org::mod4j::dsl::businessdomain::generator::xpand::maven»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
@@ -90,8 +91,35 @@
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain Maven generator on model [" + this.name + "]")»
-    «EXPAND DslModelsModulePom::createDslModelsModulePom»
-    «EXPAND ParentPom::createParentPom»
-	«EXPAND DomainModulePom::createDomainModulePom»
-	«EXPAND DataModulePom::createDataModulePom»
+    «IF shouldRegenerate(getDslModelsModuleName() + "/pom.xml")»
+        «FILE extend( getDslModelsModuleName(), "pom.xml" )-»
+		    «EXPAND DslModelsModulePom::createDslModelsModulePom»
+		«ENDFILE»
+	«ELSE»
+		«retain(getDslModelsModuleName(), "pom.xml" )»
+	«ENDIF»
+	
+	«IF shouldRegenerate(getApplicationPath() + "/pom.xml")»
+		«FILE extend("", "pom.xml")»
+		    «EXPAND ParentPom::createParentPom»
+		«ENDFILE»
+	«ELSE»
+		«retain("", "pom.xml" )»
+	«ENDIF»
+
+    «IF shouldRegenerate(getDomainModulePath() + "/pom.xml")»
+        «FILE extend( getDomainModuleName(), "pom.xml" )-»
+			«EXPAND DomainModulePom::createDomainModulePom»
+		«ENDFILE»
+	«ELSE»
+		«retain(getDomainModuleName(), "pom.xml" )»
+	«ENDIF»
+
+    «IF fileExist(getDataModulePath() + "/pom.xml")»
+        «FILE extend( getDataModuleName(), "pom.xml" )-»
+			«EXPAND DataModulePom::createDataModulePom»
+		«ENDFILE»
+	«ELSE»
+		«retain(getDataModuleName(), "pom.xml" )»
+	«ENDIF»
 «ENDDEFINE»
