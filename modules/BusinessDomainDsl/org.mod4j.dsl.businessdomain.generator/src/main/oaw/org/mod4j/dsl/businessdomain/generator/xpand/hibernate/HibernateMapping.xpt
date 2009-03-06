@@ -33,9 +33,7 @@
 «ENDDEFINE»
 
 «DEFINE mapping FOR BusinessDomainDsl::BusinessClass»
-«FILE generate(getDataModuleName(), getDomainRootPackageAsPath() + "/" + hibernateMappingFile(this.name) )»
-    
-    «EXPAND header FOR this»
+   «EXPAND header FOR this»
 
     <hibernate-mapping
         default-access="field"
@@ -49,7 +47,6 @@
             «EXPAND subclassMapping FOR this -»    
         «ENDIF»
     </hibernate-mapping>
-«ENDFILE»
 «ENDDEFINE»
 
 «DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»

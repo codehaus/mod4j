@@ -15,7 +15,6 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE hibernateheader FOR BusinessDomainDsl::BusinessDomainModel»
-«FILE generate(getDataModuleName(), getDataRootPackageAsPath() + "/beanRefContext.xml")-»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -53,6 +52,5 @@
         <constructor-arg  value="Mod4jCommonContext.xml"/>
     </bean>
 </beans>
-«ENDFILE»
 «ENDDEFINE»
 

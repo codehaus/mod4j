@@ -15,7 +15,6 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE daoImplementationBase FOR BusinessDomainDsl::BusinessClass»
-«FILE generate(getDataModuleName(), javaPathFileName(javaDaoBaseClassPath(this.name) ))»
 /**
  * DO NOT MODIFY THIS FILE, CHANGES WILL BE AUTOMATICALLY OVERWRITTEN 
  *
@@ -103,5 +102,4 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
         return result;
      }
 }
-«ENDFILE»
 «ENDDEFINE»

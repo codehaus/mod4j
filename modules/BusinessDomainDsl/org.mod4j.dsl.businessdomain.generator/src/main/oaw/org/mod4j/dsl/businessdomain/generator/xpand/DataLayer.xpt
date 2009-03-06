@@ -12,28 +12,74 @@
 
 «EXTENSION BusinessClass»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE genResources FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain Hibernate generator on model [" + this.name + "]")»
-	«EXPAND HibernateConfiguration::hibernateheader     FOR this»
-	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
-    «EXPAND HibernateDataLayerContextBase::datalayercontextbase FOR this»
-    «EXPAND HibernateMapping::mapping                   FOREACH this.types.typeSelect(BusinessClass) »
+	«FILE generate(getDataModuleName(), getDataRootPackageAsPath() + "/beanRefContext.xml")-»
+		«EXPAND HibernateConfiguration::hibernateheader     FOR this»
+	«ENDFILE»
+	
+	«IF shouldRegenerate(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml"))»
+	    «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
+			«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
+		«ENDFILE»
+	«ELSE»
+	    «retain(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
+	«ENDIF»
+
+	«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContextBase.xml")-»
+    	«EXPAND HibernateDataLayerContextBase::datalayercontextbase FOR this»
+	«ENDFILE»
+
+   	«FOREACH this.types.typeSelect(BusinessClass) AS class»
+		«FILE generate(getDataModuleName(), getDomainRootPackageAsPath() + "/" + hibernateMappingFile(class.name) )»
+	    	«EXPAND HibernateMapping::mapping FOR class »
+		«ENDFILE»
+	«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE genDao FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain Enumerationtype and Dao generator on model [" + this.name + "]")»
-    «EXPAND GenericEnumUserType::createGenericEnumUserType FOR this»
-	«EXPAND DaoImplBase::daoImplementationBase  FOREACH
-	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
-	«EXPAND DaoInterfaceBase::daoInterfaceBase  FOREACH 
-	        this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
+    «FILE generate(getDataModuleName(), javaPathFileName(javaGenericEnumClassPath()) )»
+	    «EXPAND GenericEnumUserType::createGenericEnumUserType FOR this»
+	«ENDFILE»
+	
+	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
+		«FILE generate(getDataModuleName(), javaPathFileName(javaDaoBaseClassPath(class.name) ))»
+			«EXPAND DaoImplBase::daoImplementationBase  FOR class »
+		«ENDFILE»
+	«ENDFOREACH»
+
+	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
+		«FILE generate(getDataModuleName(), javaPathFileName(javaDaoBaseInterfacePath(this.name) ))»
+			«EXPAND DaoInterfaceBase::daoInterfaceBase  FOR class»
+		«ENDFILE»
+	«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE genDaoExtensions FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain Dao Extension points generator on model [" + this.name + "]")»
-    «EXPAND DaoImpl::daoImplementation  FOREACH
-            this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
-    «EXPAND DaoInterface::daoInterface  FOREACH 
-            this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls))»
+	«FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
+		«IF shouldRegenerate(fullExtendPath(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name) )))»
+			«FILE extend(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name) ))»
+			    «EXPAND DaoImpl::daoImplementation  FOR class»
+            «ENDFILE»
+		«ELSE»
+			«retain(getDataModuleName(), javaPathFileName(javaDaoClassPath(class.name) ))»
+        «ENDIF»
+    «ENDFOREACH»
+    
+    «FOREACH this.types.typeSelect(BusinessClass).select(cls|!isCompositePart(cls)) AS class»
+		«IF shouldRegenerate(fullExtendPath(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name))))»
+			«FILE extend(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name)))»
+			    «EXPAND DaoInterface::daoInterface  FOR class»
+			«ENDFILE»
+		«ELSE»
+		     «retain(getDataModuleName(), javaPathFileName( javaDaoInterfacePath(class.name)))»
+        «ENDIF»
+    «ENDFOREACH»
+            
 «ENDDEFINE»

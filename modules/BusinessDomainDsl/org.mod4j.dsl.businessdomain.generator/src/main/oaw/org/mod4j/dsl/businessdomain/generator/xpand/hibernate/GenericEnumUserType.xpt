@@ -15,7 +15,6 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createGenericEnumUserType FOR BusinessDomainDsl::BusinessDomainModel»
-    «FILE generate(getDataModuleName(), javaPathFileName(javaGenericEnumClassPath()) )»
 		/**
 		 * DO NOT MODIFY THIS FILE, CHANGES WILL BE AUTOMATICALLY OVERWRITTEN 
 		 *
@@ -215,5 +214,4 @@
 		        return original;
 		    }
 		}
-	«ENDFILE»
 «ENDDEFINE»

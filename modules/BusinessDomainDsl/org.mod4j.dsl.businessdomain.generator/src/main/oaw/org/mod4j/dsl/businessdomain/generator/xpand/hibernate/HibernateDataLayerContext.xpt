@@ -17,10 +17,6 @@
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
-«IF fileExist(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml"))»
-    «retain(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
-«ELSE»
-    «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()» by Mod4j --> 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -32,6 +28,4 @@
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:aop="http://www.springframework.org/schema/aop">
 </beans>
-«ENDFILE»
-«ENDIF»
 «ENDDEFINE»

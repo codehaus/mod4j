@@ -18,7 +18,6 @@
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE datalayercontextbase FOR BusinessDomainDsl::BusinessDomainModel»
-«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContextBase.xml")-»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()» by Mod4j --> 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -98,5 +97,4 @@
         </property>
     </bean>
 </beans>
-«ENDFILE»
 «ENDDEFINE»
