@@ -39,7 +39,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.ui.console.MessageConsoleStream;
-import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.Mod4jTracker;
+import org.mod4j.common.generator.admin.ProjectTrack;
 import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.crossx.mm.crossx.CrossxPackage;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
@@ -329,59 +330,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 //        }
     }
 
-    public static void initCrossx() {
-        System.err.println("Mod4jBuilder.initCrossx");
-        if (!CrossxEnvironment.isStarted()) {
-            Mod4jBuilder b = new Mod4jBuilder();
-            b.startX();
-            CrossxEnvironment.setStarted(true);
-     		FileTrackerView.myrefresh();
-        }
-
-    }
-    public void startX() {
-    	getConsole();
-    	System.err.println("Mod4jBuilder.startX()");
-// J        console = EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE);
-//        CrossxEnvironment.setPrintStream(EclipseUtil.findConsole("crossx.repository.startX"));
-        CrossxEnvironment.setPrintStream(getConsole());
-// J        System.setErr(new PrintStream(getConsole()));
-        dslExtensions = getExtensions();
-        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-        System.err.println("Number of projects [" + projects.length + "]");
-        for (int i = 0; i < projects.length; i++) {
-            IProject project = projects[i];
-            
-            System.err.println("startX Projects [" + project.getName() + "]");
-//            myProject = project;
-            myloadCrossxInfo(project);
-            readFileTracker(project);
-        }
-        CrossxView.myrefresh();
-    }
-    
-    QualifiedName FILETRACKER = new QualifiedName("org.mod4j.eclipse", "filetracker");
-
-	private void readFileTracker(IProject project) {
-       try {
-            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) || (!project.isOpen())) {
-                return;
-            }
-        } catch (CoreException e1) {
-        }
-        FileTracker.getFileTracker().readTracker(project.getWorkspace().getRoot().getLocation().toString()
-//		FileTracker.getFileTracker().readTracker(project.getLocation().toString()
-				+ "/" + "mod4jgenerator.xml");
-//		try {
-//			project.setSessionProperty(FILETRACKER, FileTracker.getFileTracker());
-//		} catch (CoreException e) {
-//			System.err.println("Mod4jBuilder::readFileTracker set session property fails");
-//			e.printStackTrace();
-//		}
-	}
-    
-    
-
     /**
      * Initializes the infomative output console for Crossx and the code generation. Also redirect the standard error
      * output to a console.
@@ -389,40 +337,78 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void startupOnInitialize() {
         System.err.println("Mod4jBuilder.startupOnInitialize");
         if (!initialized) {
-// J            console = EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE);
-// J            CrossxEnvironment.setPrintStream(EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE));
-            CrossxEnvironment.setPrintStream(getConsole());
-// J            System.setErr(new PrintStream(getConsole()));
+//            CrossxEnvironment.setPrintStream(getConsole());
             initialized = true;
-            start();
+            startX();
+            CrossxEnvironment.setStarted(true);
+            FileTrackerView.myrefresh();
         }
     }
 
-    public void start() {
-    	System.err.println("Mod4jBuilder.start()");
-        dslExtensions = Mod4jBuilder.getExtensions();
+    public static void initCrossx(String from) {
+        System.err.println("Mod4jBuilder.initCrossx from [" + from + "]");
+//        if (!CrossxEnvironment.isStarted()) {
+        if (!initialized) {
+     		initialized = true;
+            Mod4jBuilder b = new Mod4jBuilder();
+            b.startX();
+            CrossxEnvironment.setStarted(true);
+     		FileTrackerView.myrefresh();
+        }
+
+    }
+    
+    public void startX() {
+    	getConsole();
+    	System.err.println("Mod4jBuilder.startX()");
+        CrossxEnvironment.setPrintStream(getConsole());
+        dslExtensions = getExtensions();
         IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+        System.err.println("Number of projects [" + projects.length + "]");
         for (int i = 0; i < projects.length; i++) {
             IProject project = projects[i];
-            myloadCrossxInfo(project);
+            System.err.println("startX Projects [" + project.getName() + "]");
+            // Make sure the project is open and has the Mod4j nature.
+            try {
+                if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) || (!project.isOpen())) {
+                } else {
+                    myloadCrossxInfo(project);
+                    readFileTracker(project);
+                }
+            } catch (CoreException e1) {
+                System.err.println("Mod4jBuilder ERROR requesting nature [" + e1.getMessage() + "]");
+                e1.printStackTrace();
+            }
         }
+        CrossxView.myrefresh();
     }
+    
+//    public void start() {
+//    	System.err.println("Mod4jBuilder.start()");
+//        dslExtensions = Mod4jBuilder.getExtensions();
+//        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+//        for (int i = 0; i < projects.length; i++) {
+//            IProject project = projects[i];
+//            myloadCrossxInfo(project);
+//        }
+//    }
 
+    public static QualifiedName PROJECT_TRACKER = new QualifiedName("org.mod4j.eclipse", "filetracker");
+
+	private void readFileTracker(IProject project) {
+//        Mod4jTracker.getFileTracker().readTracker(project.getWorkspace().getRoot().getLocation().toString()
+//				+ "/" + "mod4jgenerator.xml");
+        ProjectTrack projectTrack = new ProjectTrack();
+        projectTrack.readProjectTracker(project.getLocation().toString() + "/" + "mod4jproject.xml");
+        Mod4jTracker.getFileTracker().addProjectTrack(projectTrack);
+	}
+    
     IProject currentProject = null;
     /**
      * Load the Crossx symbols from all crossx files in the project.
      * 
      */
     private void myloadCrossxInfo(IProject project) {
-        // Make sure the project is open and has the Mod4j nature.
-        try {
-            if ((!project.isAccessible()) || (!project.hasNature(Mod4jNature.NATURE_ID)) || (!project.isOpen())) {
-                return;
-            }
-        } catch (CoreException e1) {
-            System.err.println("Mod4jBuilder ERROR requesting nature [" + e1.getMessage() + "]");
-            e1.printStackTrace();
-        }
         // Run the visitor over the project to collect all Crossx information
         CrossxFindSymbolsResourceVisitor visitor = new CrossxFindSymbolsResourceVisitor();
         try {
@@ -431,7 +417,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             currentProject = null;
         } catch (Exception e) {
             System.err.println("Mod4jBuilder ERROR loadCrossxInfo [" + e.getMessage() + "]");
-            // TODO: handle exception
             e.printStackTrace();
         }
     }
@@ -550,7 +535,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             resource.getFullPath().toPortableString();
             // Notigy filetracker
             String projectPath = resource.getProject().getLocation().toString();
-            FileTracker.getFileTracker().initResource(modelFilePath, newAppPath, projectPath);
+            Mod4jTracker.getFileTracker().initResource(modelFilePath, newAppPath, projectPath);
 
             // Run the workflow
             Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
@@ -563,12 +548,11 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                         + resource.getName() + "] \nerror: [" + e.getMessage() + "]");
             }
             
-            // Tell filetracker to close current resource.
-            FileTracker.getFileTracker().finishResource(modelFilePath, newAppPath, projectPath);
-//            FileTracker.getFileTracker().writeTracker(getProject().getLocation().toString()
-//    				+ "/" + "mod4jgenerator.xml" );
-            FileTracker.getFileTracker().writeTracker(getProject().getWorkspace().getRoot().getLocation().toString()
-    				+ "/" + "mod4jgenerator.xml" );
+            // Tell filetracker to close current resource and save the current project track to file.
+            Mod4jTracker.getFileTracker().finishResource(modelFilePath, newAppPath, projectPath);
+            Mod4jTracker.getFileTracker().getCurrentProject().writeProjectTrack(
+            		getProject().getLocation().toString() + "/" + "mod4jproject.xml");
+
         }
     }
 

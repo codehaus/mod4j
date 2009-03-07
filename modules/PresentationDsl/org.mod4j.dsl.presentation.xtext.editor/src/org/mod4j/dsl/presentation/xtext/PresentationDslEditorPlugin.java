@@ -1,6 +1,7 @@
 package org.mod4j.dsl.presentation.xtext;
 
 import org.mod4j.dsl.presentation.xtext.PresentationDslUtilities;
+import org.mod4j.eclipse.builder.Mod4jBuilder;
 import org.openarchitectureware.xtext.AbstractXtextEditorPlugin;
 import org.openarchitectureware.xtext.LanguageUtilities;
 import org.osgi.framework.BundleContext;
@@ -24,4 +25,10 @@ public class PresentationDslEditorPlugin extends AbstractXtextEditorPlugin {
       super.stop(context);
       plugin = null;
    }
+   
+   protected void refreshPluginActions() {
+       super.refreshPluginActions();
+       Mod4jBuilder.initCrossx("PresentationDslEditor"); 
+   }
+
 }

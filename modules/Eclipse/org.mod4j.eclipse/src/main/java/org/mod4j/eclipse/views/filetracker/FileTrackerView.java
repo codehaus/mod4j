@@ -27,10 +27,11 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
 import org.mod4j.common.generator.admin.FileTrack;
-import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.common.generator.admin.GeneratedFile;
 import org.mod4j.common.generator.admin.ProjectTrack;
 import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
+import org.mod4j.eclipse.builder.Mod4jBuilder;
 import org.mod4j.eclipse.util.EclipseUtil;
 
 /**
@@ -70,7 +71,8 @@ public class FileTrackerView extends ViewPart {
         viewer.setContentProvider(new FileTrackerContentProvider());
         viewer.setLabelProvider(new FileTrackerLabelProvider());
         viewer.setSorter(new NameSorter());
-        input = FileTracker.getFileTracker();
+        Mod4jBuilder.initCrossx("FileTrackerView.createPartControl");
+        input = Mod4jTracker.getFileTracker();
         viewer.setInput(input);
         // viewer.setInput(getViewSite());
         hookDoubleClickAction();
@@ -132,13 +134,13 @@ public class FileTrackerView extends ViewPart {
         }
         if (Display.getCurrent() != null) {
             theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input,
-                    FileTracker.getFileTracker());
+                    Mod4jTracker.getFileTracker());
             theView.viewer.refresh();
         } else {
             Display.getDefault().asyncExec(new Runnable() {
                 public void run() {
                     theView.viewer.getContentProvider().inputChanged(theView.viewer, theView.input,
-                            FileTracker.getFileTracker());
+                            Mod4jTracker.getFileTracker());
                     theView.viewer.refresh();
                 }
             });

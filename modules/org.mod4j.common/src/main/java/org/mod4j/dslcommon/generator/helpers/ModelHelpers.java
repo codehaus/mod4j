@@ -22,7 +22,7 @@ import java.util.Properties;
 import java.util.Map.Entry;
 
 import org.mod4j.common.generator.admin.FileTrack;
-import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.common.generator.admin.GeneratedFile;
 
 public class ModelHelpers {
@@ -89,26 +89,26 @@ public class ModelHelpers {
     public static boolean shouldRegenerate(String path) {
     	boolean exists = fileExist(path);
     	if( ! exists ) {
-//        	System.err.println("REGENERATE: ! exists " + path + " ==> true");
+        	System.err.println("["+ path + "] REGENERATE: ! exists " + path + " ==> true");
     		return true;
     	}
     	
         File f = new File(path);
         long modified = f.lastModified();
-        FileTrack current = FileTracker.getFileTracker().getCurrentTrack();
+        FileTrack current = Mod4jTracker.getFileTracker().getCurrentTrack();
         if( current == null ) {
-//        	System.err.println("REGENERATE: current == null " + path + " ==> false");
+        	System.err.println("["+ path + "] REGENERATE: current == null " + path + " ==> false");
         	return false;
         }
         GeneratedFile extension = current.getExtensionFile(path);
         if( extension != null ) {
 //        	System.err.println("REGENERATE: extension != null " + path);
 	        long generated = extension.getModifiedDate();
-//        	System.err.println("modified : [" + DateFormat.getInstance().format(modified) + "] generated [" 
-//        			+ DateFormat.getInstance().format(generated) + "]" + " ==> " + (modified == generated));
+        	System.err.println("["+ path + "] modified : [" + DateFormat.getInstance().format(modified) + "] generated [" 
+        			+ DateFormat.getInstance().format(generated) + "]" + " ==> " + (modified == generated));
 	        return ( modified == generated );
         } else {
-//        	System.err.println("REGENERATE: end " + path + " ==> false");
+        	System.err.println("["+ path + "] REGENERATE: no track " + path + " ==> false");
         	return false;
         }
     }

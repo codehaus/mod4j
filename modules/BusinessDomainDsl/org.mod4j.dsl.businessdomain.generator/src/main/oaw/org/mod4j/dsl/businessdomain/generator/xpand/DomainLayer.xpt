@@ -91,7 +91,7 @@
 «ENDREM»
 «DEFINE CreateMavenConfiguration FOR BusinessDomainDsl::BusinessDomainModel»
 	«print("MOD4J INFO: Running Business Domain Maven generator on model [" + this.name + "]")»
-    «IF shouldRegenerate(getDslModelsModuleName() + "/pom.xml")»
+    «IF shouldRegenerate(getDslModelsModulePath() + "/pom.xml")»
         «FILE extend( getDslModelsModuleName(), "pom.xml" )-»
 		    «EXPAND DslModelsModulePom::createDslModelsModulePom»
 		«ENDFILE»
@@ -115,7 +115,7 @@
 		«retain(getDomainModuleName(), "pom.xml" )»
 	«ENDIF»
 
-    «IF fileExist(getDataModulePath() + "/pom.xml")»
+    «IF shouldRegenerate(getDataModulePath() + "/pom.xml")»
         «FILE extend( getDataModuleName(), "pom.xml" )-»
 			«EXPAND DataModulePom::createDataModulePom»
 		«ENDFILE»

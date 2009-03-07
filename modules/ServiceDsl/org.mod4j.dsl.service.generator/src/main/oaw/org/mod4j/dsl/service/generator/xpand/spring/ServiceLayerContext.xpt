@@ -17,10 +17,6 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 
 «DEFINE GenServiceLayerContext FOR ServiceModel»
-«IF fileExist(fullExtendPath(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml"))»
-    «extend(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
-«ELSE»
-	«FILE extend(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()»  by Mod4j -->
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -39,6 +35,5 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
         ">
-</beans>«ENDFILE»
-«ENDIF»
+</beans>
 «ENDDEFINE»

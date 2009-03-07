@@ -49,6 +49,9 @@ String getFileEncoding() :
 String getDslModelsModuleName() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDslModelsModuleName();
 
+String getDslModelsModulePath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getDslModelsModulePath();
+
 /* 
  * domain layer properties 
  */

@@ -19,7 +19,6 @@
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx» 
 
 «DEFINE BusinessServiceBase FOR ServiceModel»
-	«FILE generate(getBusinessModuleName(), javaPathFileName(javaDomainServiceBaseInterfacePath(name)))»
     /**
      * DO NOT MODIFY THIS FILE, CHANGES WILL BE AUTOMATICALLY OVERWRITTEN 
      *
@@ -60,7 +59,6 @@
 
     «EXPAND Associations FOR this»
 	}
-    «ENDFILE»
 «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»

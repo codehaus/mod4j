@@ -13,13 +13,29 @@
 «IMPORT org::mod4j::dsl::datacontract::generator::xpand::maven»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE Generate FOR DataContractModel»
 	«print("MOD4J INFO: Running Data Contract generator on model [" + this.name + "]")»
-    «EXPAND Enumeration::createEnumDto FOREACH enumerations»
-  	«EXPAND dtoBean::createDto FOREACH dtos»
-  	«EXPAND EnumTranslators::createTranslator FOREACH enumerations»
-  	«EXPAND Translators::createTranslator FOREACH dtos»
+    «FOREACH enumerations AS enum»
+		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(enum.name)))»
+		    «EXPAND Enumeration::createEnumDto FOR enum»
+		«ENDFILE»
+		«FILE generate(getServiceModuleName(), javaPathFileName(javaTranslatorClassPath(enum.name)))»
+		  	«EXPAND EnumTranslators::createTranslator FOR enum»
+		«ENDFILE»
+	«ENDFOREACH»
+	
+  	«FOREACH dtos AS dto»
+		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(dto.name)))»
+		  	«EXPAND dtoBean::createDto FOR dto»
+		«ENDFILE»
+		«FILE generate(getServiceModuleName(), javaPathFileName(javaTranslatorClassPath(dto.name)))»
+		  	«EXPAND Translators::createTranslator FOR dto»
+		«ENDFILE»
+	«ENDFOREACH»
 «ENDDEFINE»
 
 «REM»
@@ -27,5 +43,11 @@
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR DataContractModel»
 	«print("MOD4J INFO: Running Data Contract Maven generator on model [" + this.name + "]")»
-  	«EXPAND ServiceModulePom::createServiceModulePom»
+    «IF shouldRegenerate(getServiceModulePath() + "/pom.xml")»
+        «FILE extend( getServiceModuleName(), "pom.xml" )-»
+		  	«EXPAND ServiceModulePom::createServiceModulePom»
+		«ENDFILE»
+	«ELSE»
+		«retain(getServiceModuleName(), "pom.xml" )»
+	«ENDIF»
 «ENDDEFINE»

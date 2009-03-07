@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
 import org.mod4j.crossx.broker.CrossxEnvironment;
+import org.mod4j.eclipse.builder.Mod4jBuilder;
 
 /**
  * This defines the view of the CrosssxRepository.
@@ -60,18 +61,15 @@ public class CrossxView extends ViewPart {
     public void createPartControl(Composite parent) {
         viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
         drillDownAdapter = new DrillDownAdapter(viewer);
-        // viewer.setContentProvider(new CrossxContentProvider());
-        // viewer.setLabelProvider(new CrossxLabelProvider());
         viewer.setContentProvider(new CrossxContentProvider());
         viewer.setLabelProvider(new CrossxLabelProvider());
         viewer.setSorter(new NameSorter());
+        Mod4jBuilder.initCrossx("CrossxView.createPartControl");
         input = CrossxEnvironment.getAll();
         viewer.setInput(input);
         // viewer.setInput(getViewSite());
         // hookDoubleClickAction();
         viewer.refresh();
-//        this.setPartName("crossx repository" + i);
-//        i++;
     }
 
     private void hookDoubleClickAction() {

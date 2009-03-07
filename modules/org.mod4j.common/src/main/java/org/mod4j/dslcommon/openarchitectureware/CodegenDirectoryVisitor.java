@@ -14,7 +14,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.Map;
 
-import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 import org.mod4j.dslcommon.generator.helpers.StringHelpers;
 import org.mod4j.dslcommon.io.IDirectoryVisitor;
@@ -47,7 +47,7 @@ public class CodegenDirectoryVisitor implements IDirectoryVisitor {
         this.dsl = dsl;
         this.workDir = theWorkDir;
         this.standaloneSetup = standaloneSetup;
-        FileTracker.getFileTracker().initResource(theWorkDir);
+        Mod4jTracker.getFileTracker().initResource(theWorkDir);
         setupDsl();
     }
 

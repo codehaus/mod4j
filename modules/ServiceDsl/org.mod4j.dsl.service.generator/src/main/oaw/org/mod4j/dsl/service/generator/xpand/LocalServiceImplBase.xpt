@@ -17,11 +17,9 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
-«EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx» 
 
 «DEFINE LocalServiceImplBase FOR ServiceModel»
-	«FILE generate(getServiceModuleName(), javaPathFileName(javaLocalServiceBaseClassPath(name)))»
     /**
      * DO NOT MODIFY THIS FILE, CHANGES WILL BE AUTOMATICALLY OVERWRITTEN 
      *
@@ -85,7 +83,6 @@
 «ENDREM»
 	«EXPAND Associations FOR this»
 	}
-    «ENDFILE»
 «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»

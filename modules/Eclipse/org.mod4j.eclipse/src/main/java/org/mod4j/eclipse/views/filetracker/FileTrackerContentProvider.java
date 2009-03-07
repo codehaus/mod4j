@@ -16,12 +16,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.mod4j.common.generator.admin.FileTrack;
-import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.common.generator.admin.GeneratedFile;
 import org.mod4j.common.generator.admin.ProjectTrack;
+import org.mod4j.eclipse.builder.Mod4jBuilder;
 
 /**
  * JDomContentProvider :
@@ -32,8 +36,8 @@ public class FileTrackerContentProvider implements ITreeContentProvider {
         if (element instanceof ProjectTrack) {
             ProjectTrack ft = (ProjectTrack) element;
             return ft.getTracks().toArray();
-        } else if (element instanceof FileTracker) {
-            FileTracker ft = (FileTracker) element;
+        } else if (element instanceof Mod4jTracker) {
+            Mod4jTracker ft = (Mod4jTracker) element;
             return ft.getProjects().toArray();
         } else if (element instanceof FileTrack) {
             FileTrack f = (FileTrack) element;
@@ -50,7 +54,24 @@ public class FileTrackerContentProvider implements ITreeContentProvider {
     }
 
     public Object[] getElements(Object element) {
-        return getChildren(element);
+    	return getChildren(element);
+//    	List<ProjectTrack> result = new ArrayList<ProjectTrack>();
+//    	
+//        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+//        for (int i = 0; i < projects.length; i++) {
+//            IProject project = projects[i];
+//            System.err.println("FileTrackViewer project [" + project.getName() + "]");
+//            ProjectTrack p = null;
+//			try {
+//				p = (ProjectTrack)project.getSessionProperty(Mod4jBuilder.FILETRACKER);
+//			} catch (CoreException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//            result.add(p);
+//        }
+//    	
+//        return result.toArray();
     }
 
     public boolean hasChildren(Object element) {
@@ -65,6 +86,6 @@ public class FileTrackerContentProvider implements ITreeContentProvider {
     }
 
     public void inputChanged(Viewer viewer, Object old_input, Object new_input) {
-        viewer.refresh();
+//        viewer.refresh();
     }
 }

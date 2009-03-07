@@ -12,7 +12,6 @@
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
-«EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
@@ -21,10 +20,6 @@
 «ENDDEFINE»
 
 «DEFINE createTranslator FOR BusinessClassDto»
-«REM»
-    «FILE generate(javaPathFileName(getTranslatorsPackage(), javaTranslatorName(javaClassName(name))))»
-«ENDREM»
-	«FILE generate(getServiceModuleName(), javaPathFileName(javaTranslatorClassPath(name)))»
         /**
          * DO NOT MODIFY THIS FILE, CHANGES WILL BE AUTOMATICALLY OVERWRITTEN 
          *
@@ -170,7 +165,6 @@
               
               «EXPAND exampleFromDto FOR this»
           }
-    «ENDFILE»
 «ENDDEFINE»
 
 «DEFINE exampleFromDto FOR BusinessClassDto»

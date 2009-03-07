@@ -14,17 +14,52 @@
 «IMPORT org::mod4j::dsl::service::generator::xpand::spring»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE Generate FOR ServiceModel»
 	«print("MOD4J INFO: Running Service Business generator on model [" + this.name + "]")»
-    «EXPAND BusinessService::BusinessService FOR this»
-    «EXPAND BusinessServiceBase::BusinessServiceBase FOR this»
-  	«EXPAND BusinessServiceImplBase::BusinessServiceImplBase FOR this»
-  	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
+	«IF shouldRegenerate(fullExtendPath(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name))))»
+		«FILE extend(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name)))»
+		    «EXPAND BusinessService::BusinessService FOR this»
+		«ENDFILE»
+	«ELSE»
+	    «retain(getBusinessModuleName(), javaPathFileName(javaDomainServiceInterfacePath(name)) )»
+	«ENDIF»
+	
+	«FILE generate(getBusinessModuleName(), javaPathFileName(javaDomainServiceBaseInterfacePath(name)))»
+	    «EXPAND BusinessServiceBase::BusinessServiceBase FOR this»
+	«ENDFILE»
+	
+	«FILE generate(getBusinessModuleName(), javaDomainServiceBaseClassPath(name).javaPathFileName())»
+	  	«EXPAND BusinessServiceImplBase::BusinessServiceImplBase FOR this»
+	«ENDFILE»
+	
+	«IF shouldRegenerate(fullExtendPath(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name))))»
+	 	«FILE extend(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name)))» 
+		  	«EXPAND BusinessServiceImpl::BusinessServiceImpl FOR this»
+		«ENDFILE»
+	«ELSE»
+	    «retain(getBusinessModuleName(), javaPathFileName(javaDomainServiceClassPath(name)) )»
+	«ENDIF»
 
-    «EXPAND  BusinessLayerBeanRefContext::GenBeanRefContext FOR this» 
-    «EXPAND  BusinessLayerContext::GenBusinessLayerContext FOR this» 
-    «EXPAND  BusinessLayerContextImplBase::GenBusinessLayerContextImplBase FOR this» 
+	«FILE generate(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/beanRefContext.xml")»
+	    «EXPAND  BusinessLayerBeanRefContext::GenBeanRefContext FOR this» 
+	«ENDFILE»
+	
+	«IF shouldRegenerate(fullExtendPath(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml"))»
+	    «FILE extend(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
+	    	«EXPAND  BusinessLayerContext::GenBusinessLayerContext FOR this» 
+		«ENDFILE»
+	«ELSE»
+	    «retain(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
+	«ENDIF»
+	
+    «FILE generate(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContextBase.xml")»
+	    «EXPAND  BusinessLayerContextImplBase::GenBusinessLayerContextImplBase FOR this» 
+	«ENDFILE»
+	
 «ENDDEFINE»
 
 «REM»
@@ -32,5 +67,11 @@
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR ServiceModel»
 	«print("MOD4J INFO: Running Service maven generator on model [" + this.name + "]")»
-  	«EXPAND BusinessModulePom::createBusinessModulePom»
+    «IF shouldRegenerate(getBusinessModulePath() + "/pom.xml")»
+        «FILE extend( getBusinessModuleName(), "pom.xml" )-»
+		  	«EXPAND BusinessModulePom::createBusinessModulePom»
+		«ENDFILE»
+	«ELSE»
+		«retain(getBusinessModuleName(), "pom.xml" )»
+	«ENDIF»
 «ENDDEFINE»

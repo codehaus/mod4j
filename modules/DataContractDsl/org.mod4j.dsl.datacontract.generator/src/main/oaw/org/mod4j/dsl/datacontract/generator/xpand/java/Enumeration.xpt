@@ -12,50 +12,42 @@
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
-«EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createEnumDto FOR EnumerationDto»
-
-«REM»
-   «FILE generate(javaPathFileName(getDtoPackage(), javaClassName(name)))»
-«ENDREM»
-	«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(name)))»
-         
-        package «getDtoPackage()»;
-        
-        «EXPAND Imports::addImports FOR this»
-                
-       /**
-        * «description»
-        *
-        * Generated at: «timestamp()»
-        */
-       public enum «javaClassName(name)» {
-        
-            «FOREACH literals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
-                «enumlit.name.toUpperCase()»(«enumlit.value»)
-            «ENDFOREACH»;
+    package «getDtoPackage()»;
+    
+    «EXPAND Imports::addImports FOR this»
             
-            private static final Map<Integer, «javaClassName(name)»> lookup = new HashMap<Integer, «javaClassName(name)»>();
-            static {
-                for(«javaClassName(name)» s : EnumSet.allOf(«javaClassName(name)».class))
+   /**
+    * «description»
+    *
+    * Generated at: «timestamp()»
+    */
+   public enum «javaClassName(name)» {
+    
+        «FOREACH literals AS enumlit ITERATOR enumlitIter SEPARATOR "," »
+            «enumlit.name.toUpperCase()»(«enumlit.value»)
+        «ENDFOREACH»;
+        
+        private static final Map<Integer, «javaClassName(name)»> lookup = new HashMap<Integer, «javaClassName(name)»>();
+        static {
+            for(«javaClassName(name)» s : EnumSet.allOf(«javaClassName(name)».class))
                    lookup.put(s.id(), s);
             }
 
             private Integer id;
             
             private «javaClassName(name)»(Integer id) {
-                this.id = id;
-            }
-            
-            public Integer id() {
-                return id;
-            }
-            
-            public static «javaClassName(name)» value(Integer id) {
-                return lookup.get(id); 
-            }                  
+            this.id = id;
         }
-    «ENDFILE»
+        
+        public Integer id() {
+            return id;
+        }
+        
+        public static «javaClassName(name)» value(Integer id) {
+            return lookup.get(id); 
+        }                  
+    }
 «ENDDEFINE»

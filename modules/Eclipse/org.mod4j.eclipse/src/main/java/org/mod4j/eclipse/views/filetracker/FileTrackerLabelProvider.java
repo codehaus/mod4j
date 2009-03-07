@@ -16,7 +16,7 @@ import java.util.Map;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.mod4j.common.generator.admin.FileTrack;
-import org.mod4j.common.generator.admin.FileTracker;
+import org.mod4j.common.generator.admin.Mod4jTracker;
 import org.mod4j.common.generator.admin.FileType;
 import org.mod4j.common.generator.admin.GeneratedFile;
 import org.mod4j.common.generator.admin.ProjectTrack;
@@ -44,7 +44,7 @@ public class FileTrackerLabelProvider extends LabelProvider {
         if (element instanceof ProjectTrack) {
             ProjectTrack p = (ProjectTrack) element;
             return p.getProjectPath();
-        } else if (element instanceof FileTracker) {
+        } else if (element instanceof Mod4jTracker) {
             return "Generation overview";
         } else if (element instanceof FileTrack) {
             FileTrack f = (FileTrack) element;
@@ -60,7 +60,7 @@ public class FileTrackerLabelProvider extends LabelProvider {
     public Image getImage(Object element) {
         if (element instanceof ProjectTrack) {
             return UiHelper.projectImg;
-        } else if (element instanceof FileTracker) {
+        } else if (element instanceof Mod4jTracker) {
             return UiHelper.fileImg;
         } else if (element instanceof FileTrack) {
             FileTrack ft = (FileTrack) element;
