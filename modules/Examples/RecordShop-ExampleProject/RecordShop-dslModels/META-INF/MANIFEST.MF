@@ -15,4 +15,8 @@ Require-Bundle: org.openarchitectureware.dependencies,
  org.mod4j.dsl.datacontract.generator;bundle-version="1.0.0",
  org.mod4j.dsl.datacontract.mm;bundle-version="1.0.0",
  org.mod4j.dsl.datacontract.validation;bundle-version="1.0.0",
- org.mod4j.dsl.datacontract.xtext;bundle-version="1.0.0"
+ org.mod4j.dsl.datacontract.xtext;bundle-version="1.0.0",
+ org.mod4j.dsl.presentation.generator;bundle-version="1.0.0",
+ org.mod4j.dsl.presentation.mm;bundle-version="1.0.0",
+ org.mod4j.dsl.presentation.validation;bundle-version="1.0.0",
+ org.mod4j.dsl.presentation.xtext;bundle-version="1.0.0"

@@ -25,7 +25,7 @@
     <version>«getApplicationVersion()»</version>
     <name>«getApplicationName()»</name>
     <properties>
-        <mod4j.version>1.0.0-beta-3</mod4j.version>
+        <mod4j.version>1.0.0-beta-4</mod4j.version>
         <spring.version>2.5</spring.version>
         <generated-sources-dir>«getSrcGenPath()»</generated-sources-dir>
         <generated-resources-dir>«getResourceGenPath()»</generated-resources-dir>
@@ -202,6 +202,30 @@
             <dependency>
                 <groupId>org.mod4j</groupId>
                 <artifactId>mod4j-service-generator</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-presentation-xtext</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-presentation-validation</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-presentation-mm</artifactId>
+                <version>${mod4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mod4j</groupId>
+                <artifactId>mod4j-presentation-generator</artifactId>
                 <version>${mod4j.version}</version>
                 <scope>runtime</scope>
             </dependency>            

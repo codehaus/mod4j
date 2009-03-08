@@ -50,6 +50,7 @@ public class OutletDirectoryCleaner {
         String dataModuleName = result.get("dataModuleName");
         String businessModuleName = result.get("businessModuleName");
         String serviceModuleName = result.get("serviceModuleName");
+        String presentationModuleName = result.get("presentationModuleName");
         String srcGenPath = result.get("srcGenPath");
         String resourceGenPath = result.get("resourceGenPath");
         String srcManPath = result.get("srcManPath");
@@ -67,7 +68,9 @@ public class OutletDirectoryCleaner {
             absAppPath + "/" + businessModuleName + "/" + srcGenPath + ", " + 
             absAppPath + "/" + businessModuleName + "/" + resourceGenPath + ", " +
             absAppPath + "/" + serviceModuleName + "/" + srcGenPath + ", " + 
-            absAppPath + "/" + serviceModuleName + "/" + resourceGenPath;
+            absAppPath + "/" + serviceModuleName + "/" + resourceGenPath + ", " +
+            absAppPath + "/" + presentationModuleName + "/" + srcGenPath + ", " + 
+            absAppPath + "/" + presentationModuleName + "/" + resourceGenPath;
 
         if ((overwriteExtensionpoints != null) && overwriteExtensionpoints.equals("true")) {
             logger.info("cleaning extension points");
@@ -79,7 +82,9 @@ public class OutletDirectoryCleaner {
             absAppPath + "/" + businessModuleName + "/" + srcManPath + ", " + 
             absAppPath + "/" + businessModuleName + "/" + resourceManPath + ", " + 
             absAppPath + "/" + serviceModuleName + "/" + srcManPath + ", " + 
-            absAppPath + "/" + serviceModuleName + "/" + resourceManPath;
+            absAppPath + "/" + serviceModuleName + "/" + resourceManPath + ", " +
+            absAppPath + "/" + presentationModuleName + "/" + srcManPath + ", " + 
+            absAppPath + "/" + presentationModuleName + "/" + resourceManPath;
         }
         result.put("directories", directories);
         return result;
