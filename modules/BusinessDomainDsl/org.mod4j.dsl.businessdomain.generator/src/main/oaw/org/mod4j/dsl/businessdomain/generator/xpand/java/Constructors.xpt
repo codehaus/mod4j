@@ -17,7 +17,7 @@
     /**
      * Default no-argument constructor for «javaDomainBaseClass(this.name)» 
      */
-     protected  «javaDomainBaseClass(this.name)-» () {
+     protected  «javaDomainBaseClass(this.name) -» () {
         «IF superclass != null -»super();«ENDIF»
      }
 «ENDDEFINE»
@@ -26,7 +26,7 @@
     /**
      * Default no-argument constructor for «javaDomainClass(this.name)» 
      */
-    protected  «javaDomainClass(this.name)-» () {
+    protected  «javaDomainClass(this.name) -» () {
        «IF superclass != null -»super();«ENDIF»
     }
 «ENDDEFINE»
@@ -41,24 +41,24 @@
      «IF superclass != null -»
         super(«EXPAND addSuperArgumentList FOR this.superclass -»);
      «ENDIF»
-     «EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault) -»
+     «EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault || e.derived) -»
      «EXPAND NewBusinessRules::addBusinessRulesValidators FOR this»
         validation.validate();
     }
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList  FOR BusinessClass »
-    «FOREACH this.getAllProperties().reject(e|e.nullable || e.hasDefault) AS prop ITERATOR propIter SEPARATOR "," -»
-        «EXPAND addArgument FOR prop-»
+    «FOREACH this.getAllProperties().reject(e|e.nullable || e.hasDefault || e.derived) AS prop ITERATOR propIter SEPARATOR "," -»
+        «EXPAND addArgument FOR prop -»
     «ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR Property -»
-    «javaType(this)» «name-»
+    «javaType(this)» «name -»
 «ENDDEFINE»
 
 «DEFINE addArgument FOR EnumerationProperty»
-    «type.name» «name-»
+    «type.name» «name -»
 «ENDDEFINE»
 
 «DEFINE addConstructorAssignment FOR Property -»
@@ -67,7 +67,7 @@
 
 «DEFINE addSuperArgumentList FOR BusinessClass -»
     «IF superclass != null -»«EXPAND addSuperArgumentList FOR superclass -»«IF !properties.reject(e|e.nullable || e.hasDefault).isEmpty -», «ENDIF»«ENDIF»
-    «FOREACH properties.reject(e|e.nullable || e.hasDefault) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
+    «FOREACH properties.reject(e|e.nullable || e.hasDefault || e.derived) AS prop SEPARATOR "," -»«prop.name»«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE addCallToSuperOnlyMinimalConstructor (String classNameSuffix) FOR BusinessClass -»

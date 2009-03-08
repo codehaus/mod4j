@@ -59,7 +59,7 @@ Symbol toElement(BusinessClass cls) :
 
 addContructorOrder(Symbol s, BusinessClass cls) :
  s.properties.add( newProperty("ConstructorOrder", 
-                           cls.getAllProperties().reject(e|e.nullable || e.hasDefault).name.toString(",")  ));
+                           cls.getAllProperties().reject(e|e.nullable || e.hasDefault || e.derived).name.toString(",")  ));
 /** Create a new Symbol of type "Association" for 'ass'
  */
 crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
@@ -101,7 +101,7 @@ crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     result.setName(prop.name) ->
     result.setType("Property") ->
     result.properties.add(prop.toLiteralProperty())->
-    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) ? "true" : "false") ))->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
     result
     ;
@@ -111,7 +111,7 @@ crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     result.setName(prop.name) ->
     result.setType("Property") ->
     result.properties.add(prop.toLiteralProperty())->
-    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) ? "true" : "false") ))->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
     result
     ;

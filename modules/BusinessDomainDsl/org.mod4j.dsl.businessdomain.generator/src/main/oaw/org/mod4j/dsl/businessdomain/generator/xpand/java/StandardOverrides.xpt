@@ -49,7 +49,7 @@
         result.append("«getDomainRootPackage()».«javaDomainClass(name)»[");
         result.append("id=");
         result.append(getId());
-        «FOREACH getAllProperties() AS p»
+        «FOREACH getAllProperties().reject(e|e.derived) AS p»
             «EXPAND addAttribute FOR p -»
         «ENDFOREACH»
         result.append("]");

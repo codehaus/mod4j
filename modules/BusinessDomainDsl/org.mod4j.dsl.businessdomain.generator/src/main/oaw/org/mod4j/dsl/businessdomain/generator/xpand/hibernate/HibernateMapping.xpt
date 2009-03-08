@@ -83,7 +83,7 @@
 «ENDDEFINE»
 
 «DEFINE featureMappings FOR BusinessDomainDsl::BusinessClass»
-    «EXPAND mapping      FOREACH this.properties -»
+    «EXPAND mapping      FOREACH this.properties.reject(e|e.derived) -»
     «EXPAND mappingsTo   FOREACH this.associationsTo -»
     «EXPAND mappingsFrom FOREACH this.associationsFrom.select(a | a.bidirectional) -»
 «ENDDEFINE»

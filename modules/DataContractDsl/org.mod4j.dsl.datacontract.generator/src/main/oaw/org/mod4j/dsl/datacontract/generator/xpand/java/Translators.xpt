@@ -100,7 +100,7 @@
                   target.activateValidation(false);                 
                   
                   «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-                      «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»if (source.get«javaClassName(dataProperty.name)»() != null) {«ENDIF-»
+                      «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»if (source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null) {«ENDIF-»
                           «IF dataProperty.metaType == DtoEnumerationProperty -»
                               target.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
                           «ELSE -»

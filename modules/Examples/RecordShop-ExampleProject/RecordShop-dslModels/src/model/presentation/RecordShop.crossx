@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<crossx:ModelInfo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:crossx="http://www.mod4j.org/mod4j.crossx" xsi:schemaLocation="http://www.mod4j.org/mod4j.crossx java://org.mod4j.crossx.mm.crossx.CrossxPackage" modelname="RecordshopPresentation" resource="file:/F:/Projects/Ordina/Mod4J/trunk/modules/Examples/RecordShop-ExampleProject/RecordShop-dslModels/src/model/presentation/RecordShop.pmfmod" dslname="PresentationDsl">
-  <symbols name="ArtistDetail" type="Dialogue"/>
-  <symbols name="ArtistReadOnlyDetail" type="Dialogue"/>
-  <symbols name="ArtistCollection" type="Dialogue"/>
+<crossx:ModelInfo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:crossx="http://www.mod4j.org/mod4j.crossx" xsi:schemaLocation="http://www.mod4j.org/mod4j.crossx java://org.mod4j.crossx.mm.crossx.CrossxPackage" modelname="RecordshopPresentation" resource="file:/home/emalotau/Project/mod4j/trunk/modules/Examples/RecordShop-ExampleProject/RecordShop-dslModels/src/model/presentation/RecordShop.pmfmod" dslname="PresentationDsl">
+  <symbols name="ArtistDetail" type="Dialogue">
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="dialogueType" value="ContentForm"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="context" value="FullCustomerDto"/>
+  </symbols>
+  <symbols name="ArtistReadOnlyDetail" type="Dialogue">
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="dialogueType" value="ContentForm"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="context" value="FullCustomerDto"/>
+  </symbols>
+  <symbols name="ArtistCollection" type="Dialogue">
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="dialogueType" value="CollectionDialogue"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="context" value="FullCustomerDto"/>
+  </symbols>
 </crossx:ModelInfo>
