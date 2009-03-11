@@ -50,7 +50,8 @@ create Symbol toElement(BusinessClassDto dto) :
     this.properties.add( businessClassProperty(dto) )->
     this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))->
     this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))->
-    this.subSymbols.addAll(dto.properties.toElement() )
+    this.subSymbols.addAll(dto.properties.toElement()->
+    this.subSymbols.addAll(dto.associationReferences.toElement()) )
         ;
         
 crossx::Symbol toElement(DtoProperty prop) :
@@ -59,6 +60,14 @@ crossx::Symbol toElement(DtoProperty prop) :
     result.setType("Property") ->
     result.properties.add(prop.dataTypeToLiteralProperty())->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result
+    ;
+
+crossx::Symbol toElement(BusinessClassAssociationRoleReference ref) :
+    let result = new Symbol :
+    result.setName(ref.name) ->
+    result.setType("AssociationRoleReference") ->
+    result.properties.add(newProperty("ReferencedDto", ref.dtoType.name ))->
     result
     ;
 
