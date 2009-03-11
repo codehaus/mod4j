@@ -66,6 +66,21 @@ public class CrossxBroker {
     }
 
     /**
+     * Find all symbol names with type in 'symbolTypes' within models named 'modelname'
+     * 
+     * @param modelname
+     * @param symbolTypes
+     * @return
+     */
+    public static List<Symbol> findAllFromModel(String modelname, List<String> symbolTypes) {
+    	List<Symbol> result = new ArrayList<Symbol>();
+    	for (String symbolType : symbolTypes) {
+    		result.addAll(CrossxEnvironment.findAllFromModel(modelname, symbolType));
+    	}
+        return result;
+    }
+    
+    /**
      * Find all symbol names with type 'symbolType' within models named 'modelname' and within the project named 'project'
      * 
      * @param project

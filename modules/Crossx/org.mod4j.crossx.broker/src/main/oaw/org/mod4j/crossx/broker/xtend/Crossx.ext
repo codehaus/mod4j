@@ -20,6 +20,9 @@ Symbol lookupReference(ReferenceSymbolProperty ref) :
 List[Symbol] findAllFromModel(String modelname, String elemType) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.findAllFromModel(java.lang.String, java.lang.String) ;
 
+List[Symbol] findAllFromModel(String modelname, List[String] elemTypes) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllFromModel(java.lang.String, java.util.List) ;
+
 List[ModelInfo] findAllModels() :
   JAVA org.mod4j.crossx.broker.CrossxBroker.findAllModels() ;
 
