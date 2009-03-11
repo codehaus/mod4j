@@ -67,7 +67,7 @@ crossx::Symbol toElement(BusinessClassAssociationRoleReference ref) :
     let result = new Symbol :
     result.setName(ref.name) ->
     result.setType("AssociationRoleReference") ->
-    result.properties.add(newProperty("ReferencedDto", ref.dtoType.name ))->
+    result.properties.add(newRefProperty("ReferencedDto", ref.dtoType.datacontractModel.name, ref.dtoType.name, ref.dtoType.metaType.name.simpleName() ))->
     result
     ;
 
