@@ -4,22 +4,17 @@ PresentationModel RecordshopPresentation
 from RecordShopDataContract import FullCustomerDto
 
 "Customer ContentForm"  
-ContentForm CustomerDetail using FullCustomerDto  
-	formElement lastName 
-		named name;  
-	formElement emailAddress  
-		named email;
-	formElement age
-		named age;
-		readonly true;
+ContentForm CustomerDetail using FullCustomerDto
+	formElement lastName named name;  
+	formElement emailAddress named email;
+	formElement age	named age;
 
 "Customer ContentReadonlyForm" 
 ContentForm CustomerReadOnlyDetail using FullCustomerDto
 	readonly true; 
-	formElement lastName  
-		named lastName ;
+	formElement lastName named lastName ;
 	formElement sexe
-		named sexe;
+		named sexe readonly true;
 
 CollectionDialogue CustomerCollection using FullCustomerDto
 	  dialogues [ 
