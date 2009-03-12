@@ -8,25 +8,25 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dialogue Call</b></em>'.
+ * An implementation of the model object '<em><b>Association Role Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class DialogueCallImpl extends UIModelElementCallImpl implements DialogueCall {
+public class AssociationRoleReferenceImpl extends NamedReferenceImpl implements AssociationRoleReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DialogueCallImpl() {
+	protected AssociationRoleReferenceImpl() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public abstract class DialogueCallImpl extends UIModelElementCallImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.DIALOGUE_CALL;
+		return PresentationDslPackage.Literals.ASSOCIATION_ROLE_REFERENCE;
 	}
 
-} //DialogueCallImpl
+} //AssociationRoleReferenceImpl

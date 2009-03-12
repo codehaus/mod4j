@@ -1,0 +1,8 @@
+«IMPORT PresentationDsl»
+
+«DEFINE Root FOR Dialogue»
+«ENDDEFINE»
+
+«DEFINE Root FOR ContentForm-»
+«EXPAND ContentForm::Root-»
+«ENDDEFINE»

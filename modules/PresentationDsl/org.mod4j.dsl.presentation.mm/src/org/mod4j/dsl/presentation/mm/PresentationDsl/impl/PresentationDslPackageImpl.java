@@ -13,12 +13,14 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
@@ -27,7 +29,11 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
@@ -35,6 +41,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef;
 
 /**
@@ -56,7 +63,28 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass uiModelElementCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass uiModelElementRefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass associationRoleReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass masterDetailEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,7 +133,28 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass linkedDialogueCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass linkRefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkPathEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkStepEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,6 +169,13 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	 * @generated
 	 */
 	private EClass dialogueCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass directDialogueCallEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,8 +322,53 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUIModelElementCall() {
+		return uiModelElementCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUIModelElementRef() {
 		return uiModelElementRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAssociationRoleReference() {
+		return associationRoleReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMasterDetail() {
+		return masterDetailEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMasterDetail_Master() {
+		return (EReference)masterDetailEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMasterDetail_Detail() {
+		return (EReference)masterDetailEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -428,8 +529,62 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLinkedDialogueCall() {
+		return linkedDialogueCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkedDialogueCall_Link() {
+		return (EReference)linkedDialogueCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLinkRef() {
 		return linkRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLinkPath() {
+		return linkPathEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkPath_Steps() {
+		return (EReference)linkPathEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLinkStep() {
+		return linkStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLinkStep_Reference() {
+		return (EReference)linkStepEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -466,6 +621,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	 */
 	public EClass getDialogueCall() {
 		return dialogueCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDirectDialogueCall() {
+		return directDialogueCallEClass;
 	}
 
 	/**
@@ -647,6 +811,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 		dialogueCallEClass = createEClass(DIALOGUE_CALL);
 
+		directDialogueCallEClass = createEClass(DIRECT_DIALOGUE_CALL);
+
 		dtoPropertyReferenceEClass = createEClass(DTO_PROPERTY_REFERENCE);
 
 		externalReferenceEClass = createEClass(EXTERNAL_REFERENCE);
@@ -665,7 +831,20 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 		linkEClass = createEClass(LINK);
 
+		linkedDialogueCallEClass = createEClass(LINKED_DIALOGUE_CALL);
+		createEReference(linkedDialogueCallEClass, LINKED_DIALOGUE_CALL__LINK);
+
 		linkRefEClass = createEClass(LINK_REF);
+
+		linkPathEClass = createEClass(LINK_PATH);
+		createEReference(linkPathEClass, LINK_PATH__STEPS);
+
+		linkStepEClass = createEClass(LINK_STEP);
+		createEReference(linkStepEClass, LINK_STEP__REFERENCE);
+
+		masterDetailEClass = createEClass(MASTER_DETAIL);
+		createEReference(masterDetailEClass, MASTER_DETAIL__MASTER);
+		createEReference(masterDetailEClass, MASTER_DETAIL__DETAIL);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
@@ -688,7 +867,11 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 		uiModelElementEClass = createEClass(UI_MODEL_ELEMENT);
 
+		uiModelElementCallEClass = createEClass(UI_MODEL_ELEMENT_CALL);
+
 		uiModelElementRefEClass = createEClass(UI_MODEL_ELEMENT_REF);
+
+		associationRoleReferenceEClass = createEClass(ASSOCIATION_ROLE_REFERENCE);
 	}
 
 	/**
@@ -724,17 +907,24 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 		compoundDialogueEClass.getESuperTypes().add(this.getDialogue());
 		collectionDialogueEClass.getESuperTypes().add(this.getCompoundDialogue());
 		dialogueEClass.getESuperTypes().add(this.getUIModelElement());
-		dialogueCallEClass.getESuperTypes().add(this.getUIModelElementRef());
+		dialogueCallEClass.getESuperTypes().add(this.getUIModelElementCall());
+		directDialogueCallEClass.getESuperTypes().add(this.getDialogueCall());
 		dtoPropertyReferenceEClass.getESuperTypes().add(this.getNamedReference());
 		externalReferenceEClass.getESuperTypes().add(this.getNamedReference());
 		formEClass.getESuperTypes().add(this.getDialogue());
 		interactiveProcessEClass.getESuperTypes().add(this.getProcess());
 		linkEClass.getESuperTypes().add(this.getModelElement());
+		linkedDialogueCallEClass.getESuperTypes().add(this.getDialogueCall());
 		linkRefEClass.getESuperTypes().add(this.getNamedReference());
+		linkPathEClass.getESuperTypes().add(this.getLink());
+		linkStepEClass.getESuperTypes().add(this.getLink());
+		masterDetailEClass.getESuperTypes().add(this.getCompoundDialogue());
 		processEClass.getESuperTypes().add(this.getUIModelElement());
-		processCallEClass.getESuperTypes().add(this.getUIModelElementRef());
+		processCallEClass.getESuperTypes().add(this.getUIModelElementCall());
 		uiModelElementEClass.getESuperTypes().add(this.getModelElement());
+		uiModelElementCallEClass.getESuperTypes().add(this.getUIModelElementRef());
 		uiModelElementRefEClass.getESuperTypes().add(this.getNamedReference());
+		associationRoleReferenceEClass.getESuperTypes().add(this.getNamedReference());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(automatedProcessEClass, AutomatedProcess.class, "AutomatedProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -751,7 +941,9 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 		initEAttribute(getDialogue_Readonly(), ecorePackage.getEBoolean(), "readonly", "false", 0, 1, Dialogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDialogue_Processes(), this.getProcessCall(), null, "processes", null, 0, -1, Dialogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dialogueCallEClass, DialogueCall.class, "DialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dialogueCallEClass, DialogueCall.class, "DialogueCall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(directDialogueCallEClass, DirectDialogueCall.class, "DirectDialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dtoPropertyReferenceEClass, DtoPropertyReference.class, "DtoPropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -769,9 +961,24 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 		initEClass(interactiveProcessEClass, InteractiveProcess.class, "InteractiveProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(linkEClass, Link.class, "Link", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(linkEClass, this.getNamedReference(), "getTarget", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(linkedDialogueCallEClass, LinkedDialogueCall.class, "LinkedDialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLinkedDialogueCall_Link(), this.getLinkRef(), null, "link", null, 0, 1, LinkedDialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkRefEClass, LinkRef.class, "LinkRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(linkPathEClass, LinkPath.class, "LinkPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLinkPath_Steps(), this.getLinkRef(), null, "steps", null, 1, -1, LinkPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linkStepEClass, LinkStep.class, "LinkStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLinkStep_Reference(), this.getAssociationRoleReference(), null, "reference", null, 0, 1, LinkStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(masterDetailEClass, MasterDetail.class, "MasterDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMasterDetail_Master(), this.getDialogueCall(), null, "master", null, 1, 1, MasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMasterDetail_Detail(), this.getDialogueCall(), null, "detail", null, 1, 1, MasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -794,7 +1001,11 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 		initEClass(uiModelElementEClass, UIModelElement.class, "UIModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(uiModelElementCallEClass, UIModelElementCall.class, "UIModelElementCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(uiModelElementRefEClass, UIModelElementRef.class, "UIModelElementRef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

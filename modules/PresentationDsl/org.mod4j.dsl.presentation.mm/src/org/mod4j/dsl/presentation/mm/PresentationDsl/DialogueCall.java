@@ -14,8 +14,8 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  *
  *
  * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogueCall()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface DialogueCall extends UIModelElementRef {
+public interface DialogueCall extends UIModelElementCall {
 } // DialogueCall

@@ -26,15 +26,6 @@ public interface PresentationDslFactory extends EFactory {
 	PresentationDslFactory eINSTANCE = org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Link</em>'.
-	 * @generated
-	 */
-	Link createLink();
-
-	/**
 	 * Returns a new object of class '<em>Link Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,6 +33,24 @@ public interface PresentationDslFactory extends EFactory {
 	 * @generated
 	 */
 	LinkRef createLinkRef();
+
+	/**
+	 * Returns a new object of class '<em>Link Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Path</em>'.
+	 * @generated
+	 */
+	LinkPath createLinkPath();
+
+	/**
+	 * Returns a new object of class '<em>Link Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Step</em>'.
+	 * @generated
+	 */
+	LinkStep createLinkStep();
 
 	/**
 	 * Returns a new object of class '<em>Named Reference</em>'.
@@ -69,6 +78,33 @@ public interface PresentationDslFactory extends EFactory {
 	 * @generated
 	 */
 	ProcessCall createProcessCall();
+
+	/**
+	 * Returns a new object of class '<em>UI Model Element Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>UI Model Element Call</em>'.
+	 * @generated
+	 */
+	UIModelElementCall createUIModelElementCall();
+
+	/**
+	 * Returns a new object of class '<em>Association Role Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Association Role Reference</em>'.
+	 * @generated
+	 */
+	AssociationRoleReference createAssociationRoleReference();
+
+	/**
+	 * Returns a new object of class '<em>Master Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Master Detail</em>'.
+	 * @generated
+	 */
+	MasterDetail createMasterDetail();
 
 	/**
 	 * Returns a new object of class '<em>Dto Property Reference</em>'.
@@ -125,13 +161,13 @@ public interface PresentationDslFactory extends EFactory {
 	CollectionDialogue createCollectionDialogue();
 
 	/**
-	 * Returns a new object of class '<em>Dialogue Call</em>'.
+	 * Returns a new object of class '<em>Direct Dialogue Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dialogue Call</em>'.
+	 * @return a new object of class '<em>Direct Dialogue Call</em>'.
 	 * @generated
 	 */
-	DialogueCall createDialogueCall();
+	DirectDialogueCall createDirectDialogueCall();
 
 	/**
 	 * Returns a new object of class '<em>Interactive Process</em>'.
@@ -141,6 +177,15 @@ public interface PresentationDslFactory extends EFactory {
 	 * @generated
 	 */
 	InteractiveProcess createInteractiveProcess();
+
+	/**
+	 * Returns a new object of class '<em>Linked Dialogue Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Linked Dialogue Call</em>'.
+	 * @generated
+	 */
+	LinkedDialogueCall createLinkedDialogueCall();
 
 	/**
 	 * Returns a new object of class '<em>Automated Process</em>'.

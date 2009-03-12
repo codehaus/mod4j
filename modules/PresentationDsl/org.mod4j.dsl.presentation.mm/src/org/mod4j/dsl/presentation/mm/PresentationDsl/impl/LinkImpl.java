@@ -8,7 +8,9 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 
 import org.eclipse.emf.ecore.EClass;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
@@ -20,7 +22,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *
  * @generated
  */
-public class LinkImpl extends ModelElementImpl implements Link {
+public abstract class LinkImpl extends ModelElementImpl implements Link {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,6 +40,17 @@ public class LinkImpl extends ModelElementImpl implements Link {
 	@Override
 	protected EClass eStaticClass() {
 		return PresentationDslPackage.Literals.LINK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedReference getTarget() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } //LinkImpl

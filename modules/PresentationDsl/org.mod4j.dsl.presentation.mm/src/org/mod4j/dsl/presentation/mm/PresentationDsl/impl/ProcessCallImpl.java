@@ -20,7 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  *
  * @generated
  */
-public class ProcessCallImpl extends UIModelElementRefImpl implements ProcessCall {
+public class ProcessCallImpl extends UIModelElementCallImpl implements ProcessCall {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

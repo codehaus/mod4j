@@ -17,5 +17,5 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model
  * @generated
  */
-public interface ProcessCall extends UIModelElementRef {
+public interface ProcessCall extends UIModelElementCall {
 } // ProcessCall

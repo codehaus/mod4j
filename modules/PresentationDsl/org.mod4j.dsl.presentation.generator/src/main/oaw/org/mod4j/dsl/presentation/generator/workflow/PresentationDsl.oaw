@@ -93,4 +93,17 @@
         </outlet>
     </component>
  
+ 
+    <!--
+        Generation of JSF sources and resources
+    -->
+    <component id="PresentationWorkflow-DomainGenerator" class="org.openarchitectureware.xpand2.Generator">
+        <metaModel idRef="pmf" />
+        <expand value="org::mod4j::dsl::presentation::generator::xpand::jsf::Main::Root FOR pmfModel" />
+        <outlet path="${applicationPath}/">
+            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+        </outlet>
+    </component>
+ 
 </workflow>

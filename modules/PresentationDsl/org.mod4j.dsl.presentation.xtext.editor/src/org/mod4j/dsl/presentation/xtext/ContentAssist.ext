@@ -23,28 +23,56 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
 List[String] getFormElementReferenceProposals(emf::EObject ctx) : JAVA
     org.mod4j.dsl.presentation.xtext.Proposals.getFormElementReferenceProposals(org.eclipse.emf.ecore.EObject);
 
-List[String] getDialogueCallProposals(emf::EObject ctx) : JAVA
-    org.mod4j.dsl.presentation.xtext.Proposals.getDialogueCallProposals(org.eclipse.emf.ecore.EObject);
+List[String] getLinkReferenceProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.presentation.xtext.Proposals.getLinkReferenceProposals(org.eclipse.emf.ecore.EObject);
+
+List[String] getLinkStepReferencesProposals(emf::EObject ctx) : JAVA
+    org.mod4j.dsl.presentation.xtext.Proposals.getLinkStepReferencesProposals(org.eclipse.emf.ecore.EObject);
+
+List[String] getDialogueCallProposals(emf::EObject ctx, List[String] subTypes) : JAVA
+    org.mod4j.dsl.presentation.xtext.Proposals.getDialogueCallProposals(org.eclipse.emf.ecore.EObject, java.util.List);
+
+List[String] getLinkedDialogueCallProposals(emf::EObject ctx, List[String] subTypes) : JAVA
+    org.mod4j.dsl.presentation.xtext.Proposals.getLinkedDialogueCallProposals(org.eclipse.emf.ecore.EObject, java.util.List);
 
 /* proposals for Feature ExternalReference::modelname */
 List[Proposal] completeExternalReference_modelName(emf::EObject ctx, String prefix) :
 	findAllModelsInProject( ctx.getProjectName()).modelname .collect(x|newProposal(x)) ;
 
- 
 /* proposals for Feature ExternalReference::name */
 List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
-	findAllFromModel( ((PresentationDsl::ExternalReference)ctx).modelName, "Dto").name.
-	          collect(x|newProposal(x)); //.add(newProposal("empty"));
+	findAllFromModel( ((PresentationDsl::ExternalReference)ctx).modelName, { "Dto", "Dialogue", "Process", "Link" } ).name.
+	          collect(x|newProposal(x));
 
+/* proposals for Feature LinkRef::name */
+List[Proposal] completeLinkRef_name(emf::EObject ctx, String prefix) :
+	getLinkReferenceProposals(ctx).collect(x|newProposal(x));
+	
+/* proposals for LinkStep::reference */
+List[Proposal] completeLinkStep_reference(emf::EObject ctx, String prefix) :
+	getLinkStepReferencesProposals(ctx).collect(x|newProposal(x));
+	
 /* proposals for Feature FormElement::references */
 List[Proposal] completeFormElement_references(emf::EObject ctx, String prefix) :
 	getFormElementReferenceProposals(ctx).collect(x|newProposal(x));
 	
 List[Proposal] completeCollectionDialogue_dialogues(emf::EObject ctx, String prefix) :
-	getDialogueCallProposals(ctx).collect(x|newProposal(x));
+	getDialogueCallProposals(ctx, {}).collect(x|newProposal(x));
 
 List[Proposal] completeCompoundDialogue_dialogues(emf::EObject ctx, String prefix) :
-	getDialogueCallProposals(ctx).collect(x|newProposal(x));
+	getDialogueCallProposals(ctx, {}).collect(x|newProposal(x));
+	
+/* proposals for Feature MasterDetail::master */
+List[Proposal] completeMasterDetail_master(emf::EObject ctx, String prefix) :
+	getDialogueCallProposals(ctx, { "CollectionDialogue" }).collect(x|newProposal(x));
+
+/* proposals for Feature MasterDetail::detail */
+List[Proposal] completeMasterDetail_detail(emf::EObject ctx, String prefix) :
+	getDialogueCallProposals(ctx, {}).collect(x|newProposal(x));
+
+/* proposals for Feature LinkedDialogueCall::name */
+List[Proposal] completeLinkedDialogueCall_name(emf::EObject ctx, String prefix) :
+	getLinkedDialogueCallProposals(ctx, {}).collect(x|newProposal(x));
 	
 /** Filter out all proiposals that end with Description. 
  *  This eliminates the descritions from all proposals.
