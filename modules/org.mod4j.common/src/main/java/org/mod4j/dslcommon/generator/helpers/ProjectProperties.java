@@ -179,16 +179,16 @@ public class ProjectProperties {
         return businessModuleName;
     }
     
-    public static String getPresentationModuleName() {
-        return presentationModuleName;
+    public static String getPresentationModuleName(String targetPlatform) {
+        return presentationModuleName + (targetPlatform != null ? "-" + targetPlatform : "");
     }
 
     public static String getServiceModuleName() {
         return serviceModuleName;
     }
 
-    public static String getPresentationModulePath() {
-        return getApplicationPath() + "/" + getPresentationModuleName();
+    public static String getPresentationModulePath(String targetPlatform) {
+        return getApplicationPath() + "/" + getPresentationModuleName(targetPlatform);
     }
 
     public static String getServiceModulePath() {

@@ -143,11 +143,11 @@ String getTranslatorsPackage() :
 /* 
  * presentation layer properties 
  */
-String getPresentationModuleName() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationModuleName();
+String getPresentationModuleName(String targetPlatform) :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationModuleName(java.lang.String);
 
-String getPresentationModulePath() :
- JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationModulePath();
+String getPresentationModulePath(String targetPlatform) :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationModulePath(java.lang.String);
 
 String getPresentationRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationRootPackage();
