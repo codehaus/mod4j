@@ -7,7 +7,7 @@ from RecordShopDomainModel import Order;
 from RecordShopDomainModel import Record ;
 from RecordShopDomainModel import OrderLine;
 from RecordShopDomainModel import SexeEnum;
-from RecordShopDomainModel import RecordTypeEnum ;
+from RecordShopDomainModel import RecordTypeEnum ; 
   
     /*    
      * BusinessClass transfer objects 

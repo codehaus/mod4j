@@ -17,7 +17,7 @@ for OrderNumberAndDateDto crud ;
 method findOrdersByCustomer in [ SimpleCustomerDto customer ; ]
                             out OrderNumberAndDateList;
 
-"Find all orders for a given date"
+"Find all orders for a given date" 
 method findOrdersByDate in [ DateDto date; ] 
                         out OrderNumberAndDateList;
 

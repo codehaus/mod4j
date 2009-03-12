@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<crossx:ModelInfo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:crossx="http://www.mod4j.org/mod4j.crossx" xsi:schemaLocation="http://www.mod4j.org/mod4j.crossx java://org.mod4j.crossx.mm.crossx.CrossxPackage" modelname="CustomerModel" resource="file:/F:/Projects/Ordina/Mod4J/trunk/modules/Examples/RecordShop-ExampleProject/RecordShop-dslModels/src/model/presentation/Customer.pmfmod" dslname="PresentationDsl">
+  <symbols name="CustomerDetails" type="Dialogue">
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="dialogueType" value="ContentForm"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="context" value="SimpleCustomerDto"/>
+  </symbols>
+  <symbols name="FullCustomerDialogue" type="Dialogue">
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="dialogueType" value="CompoundDialogue"/>
+    <properties xsi:type="crossx:LiteralSymbolProperty" name="context" value="SimpleCustomerDto"/>
+  </symbols>
+</crossx:ModelInfo>

@@ -1,0 +1,16 @@
+"prachtig voorbeeld van een artiesten presentatiemodel"
+PresentationModel RecordshopArtistPresentation
+
+from RecordShopDataContract import ArtistDto     
+
+"Simple Artist Form"
+ContentForm ArtistForm using ArtistDto 
+	formElement age
+		named artistAge;
+
+CompoundDialogue ArtistCompound using ArtistDto 
+	readonly true;
+	dialogues [
+		ArtistForm;
+		
+	]
