@@ -1,5 +1,7 @@
 package org.mod4j.dsl.presentation.generator.java;
 
+import org.mod4j.common.generator.admin.Mod4jTracker;
+
 public class FileTracker {
 	
 	private FileTracker(){}
@@ -13,16 +15,11 @@ public class FileTracker {
      * @return
      */
     static public String generate(String moduleName, String filename) {
-        String result = null;
         if (filename.endsWith(".xhtml")) {
-            result = moduleName + "/WebContent/" + filename;
+        	return Mod4jTracker.generate(moduleName, "WebContent/" + filename);
         } 
-        if (result != null) {
-        	org.mod4j.common.generator.admin.FileTracker.generatedFile(result);
-        	return result;
-        }
         else {
-        	return org.mod4j.common.generator.admin.FileTracker.generate(moduleName, filename);
+        	return Mod4jTracker.generate(moduleName, filename);
         }
     }
 }
