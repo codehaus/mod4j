@@ -242,6 +242,12 @@
           <address>johan.vogelzang@ordina.nl</address>
         </configuration>
       </notifier>
+      <notifier>
+        <type>mail</type>
+        <configuration>
+          <address>jim.van.dam@hipes.nl</address>
+        </configuration>
+      </notifier>
     </notifiers>
   </ciManagement>
   <distributionManagement>
