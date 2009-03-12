@@ -45,12 +45,11 @@ public abstract class LinkImpl extends ModelElementImpl implements Link {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NamedReference getTarget() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// TODO: implement this method to get the Dto reference 
+		return null;
 	}
 
 } //LinkImpl
