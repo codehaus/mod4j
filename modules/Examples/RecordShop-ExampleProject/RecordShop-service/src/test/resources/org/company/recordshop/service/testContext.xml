@@ -78,6 +78,7 @@
         <property name="simpleCustomerDtoTranslator" ref="simpleCustomerDtoTranslator"/>
         <property name="fullCustomerDtoTranslator" ref="fullCustomerDtoTranslator"/>
         <property name="orderDtoTranslator" ref="orderDtoTranslator"/>
+        <property name="orderNumberAndDateDtoTranslator" ref="orderNumberAndDateDtoTranslator"/>
     </bean>
     
     <bean class="org.company.recordshop.service.dto.translators.OrderDtoTranslator" id="orderDtoTranslator">

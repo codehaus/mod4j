@@ -15,6 +15,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.AssertThrows;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -65,6 +66,26 @@ public class AssociationsServiceTest extends
 		createdOrder = orderServiceModelService.createOrder(order);
 	}
 
+	public void setupMore() {
+		OrderDto order2 = new OrderDto();
+		order2.setOrderNumber("ISO 002");
+		order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		OrderDto createdOrder2 = orderServiceModelService.createOrder(order2);
+		customerServiceModelService.addToOrders(createdOrder2, createdCustomer);
+
+		order2 = new OrderDto();
+		order2.setOrderNumber("ISO 003");
+		order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		createdOrder2 = orderServiceModelService.createOrder(order2);
+		customerServiceModelService.addToOrders(createdOrder2, createdCustomer);
+
+		order2 = new OrderDto();
+		order2.setOrderNumber("ISO 004");
+		order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		createdOrder2 = orderServiceModelService.createOrder(order2);
+		customerServiceModelService.addToOrders(createdOrder2, createdCustomer);
+	}
+
 	public void tearDown() {
 		createdCustomer = null;
 		createdOrder = null;
@@ -80,6 +101,33 @@ public class AssociationsServiceTest extends
 		for (SimpleCustomerDto simpleCustomerDto : all) {
 			int nr = simpleCustomerDto.getCustomerNr();
 			Assert.assertTrue((nr == 3) || (nr == 44) || (nr == 12345));
+		}
+		Assert.assertEquals(all.size(), 3);
+		tearDown();
+	}
+
+	@Test
+	public final void testGetFrom() {
+		setup();
+		setupMore();
+
+		List<SimpleCustomerDto> all = customerServiceModelService
+				.listAllCustomers();
+
+		for (SimpleCustomerDto simpleCustomerDto : all) {
+			int nr = simpleCustomerDto.getCustomerNr();
+			List<OrderNumberAndDateDto> orders = customerServiceModelService.getOrders(simpleCustomerDto);
+			if( createdCustomer.getId() == simpleCustomerDto.getId() ){
+				Assert.assertTrue(orders.size() == 3);
+				for (OrderNumberAndDateDto order : orders) {
+					OrderDto orderDto = new OrderDto();
+					orderDto.setId(order.getId());
+					SimpleCustomerDto customer = customerServiceModelService.getCustomer(orderDto);
+					Assert.assertTrue(simpleCustomerDto.getId() == customer.getId());
+				}
+			} else {
+				Assert.assertTrue(orders.size() == 0);
+			}
 		}
 		Assert.assertEquals(all.size(), 3);
 		tearDown();
