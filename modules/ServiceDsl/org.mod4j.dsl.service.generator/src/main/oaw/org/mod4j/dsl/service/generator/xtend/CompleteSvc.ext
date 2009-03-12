@@ -16,7 +16,8 @@ completeModel(ServiceModel model) :
 	model.methods.addAll( cruds.createMethod())->
 	model.methods.addAll( cruds.readMethod())->
 	model.methods.addAll( cruds.updateMethod())->
-	model.methods.addAll( cruds.deleteMethod())
+	model.methods.addAll( cruds.deleteMethod())->
+	model.methods.typeSelect(AssociationMethod).completeName()
     ;
     
 create SpecialMethod createMethod(CrudService crud) :
@@ -48,3 +49,11 @@ create SpecialMethod deleteMethod(CrudService crud) :
    setDto(crud.dto)
    ;
    
+completeName(AssociationMethod method) :
+	let assoc = getAssociation(method) : 
+	let mult = getPropertyValue(assoc, "Multiplicity") :
+    let name = ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() :
+    ((method.type == MethodType::GETFROM) ? method.setName("get" + method.rolename.toFirstUpper()) : null)->
+    ((method.type == MethodType::ADDTO  ) ? method.setName(name) : null)->
+    ((method.type == MethodType::REMOVEFROM) ? method.setName("removeFrom" + method.rolename.toFirstUpper()) : null)
+    ;

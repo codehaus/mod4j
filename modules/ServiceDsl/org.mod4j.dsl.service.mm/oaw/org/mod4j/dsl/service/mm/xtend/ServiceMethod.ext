@@ -2,6 +2,7 @@
  * Operations implemented in Java 
  */
 import ServiceDsl;
+import crossx;
 
 extension org::mod4j::crossx::broker::xtend::Crossx ;
 extension org::mod4j::dslcommon::xtend::generatorutil;
@@ -18,6 +19,15 @@ String JavaType(DtoReference dto) :
     )
 ;
 
+Set[Symbol] getAllBusinessClassDtoSymbols(ServiceModel model) :
+    let businessClassDtoSymbols = model.dtoReferences.select(dtoref | dtoref.dtoType() == "BusinessClassDto").
+        collect(dtoref| lookupSymbol(dtoref.modelname, dtoref.name, "Dto")) :
+    let businessClassListDtoSymbols = model.dtoReferences.select(dtoref | dtoref.dtoType() == "ListDto").
+        collect(dtoref|dtoref.baseDtoSymbol()) : // .select(symbol | symbol.type == "BusinessClassDto") :
+    businessClassListDtoSymbols.addAll(businessClassDtoSymbols)->
+    businessClassListDtoSymbols.toSet()
+    ;
+    
 /** Get the name of the businessclass for dto, returns "void" if the dto does not have a businessclass
  */
 String businessClass(DtoReference dto) :
@@ -26,10 +36,11 @@ String businessClass(DtoReference dto) :
     (businessClass == null) ? "void": businessClass
 ;
 
-String baseDto(DtoReference dto) :
+
+Symbol baseDtoSymbol(DtoReference dto) :
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
-    let base = dtoSymbol.getPropertyValue("baseDto") :
-    (base == null) ? "void" : base
+    let refSymbol = dtoSymbol.getReferenceProperty("BaseDto") :
+    (refSymbol == null) ? null : lookupReference(refSymbol)
 ;
 
 String dtoType(DtoReference dto) :
@@ -38,10 +49,9 @@ String dtoType(DtoReference dto) :
     (dtoType == null) ? "void": dtoType
 ;
 
-String dtoBase(DtoReference dto) :
-    let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
-    let dtoBase = dtoSymbol.getPropertyValue("businessClass") :
-    (dtoBase == null) ? "void": dtoBase
+String dtoBaseBusinessClass(DtoReference dto) :
+    let dtoBaseSymbol = dto.baseDtoSymbol() :
+    ((dtoBaseSymbol == null) ? "void": dtoBaseSymbol.getPropertyValue("businessClass")) 
 ;
 
 /** Find all method of a special type, 
@@ -56,7 +66,7 @@ List[SpecialMethod] uniqueMethods(ServiceModel model, MethodType typeToFind) :
 ;
 
 List[String] uniqueBusinessClasses(ServiceModel model) :
-    model.dtoReferences.select(dtoRef|dtoRef.dtoType() == "BusinessClassDto").dtoBase().toSet()
+    model.dtoReferences.select(dtoRef|dtoRef.dtoType() == "BusinessClassDto").businessClass().toSet()
 ;
 
 crossx::Symbol getAssociation(AssociationMethod method) :

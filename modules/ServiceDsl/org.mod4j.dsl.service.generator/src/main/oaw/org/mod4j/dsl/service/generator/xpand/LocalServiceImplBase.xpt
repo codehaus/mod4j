@@ -36,6 +36,14 @@
 
 	import «javaDomainServiceInterfacePath(name)»;
 
+	«FOREACH this.dtoReferences.select(e|e.dtoType() == "ListDto") AS dto -»
+	    «LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
+	        import «getServiceRootPackage()».dto.«baseDtoName»;
+	        import «javaTranslatorClassPath(baseDtoName)»;
+	    «ENDLET»
+	«ENDFOREACH»
+
+
 	«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»
 	import «getDtoPackage()».«javaClassName(dto.name)»;
 	«ENDFOREACH»
@@ -53,10 +61,21 @@
 
 	«EXPAND FieldGetterSetter::field(javaDomainServiceInterface(name)) FOR javaDomainServiceInterface(name).toFirstLower()»    
 
+	«REM»GETFROM
+	Replaced by the new Foreach after these two
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
 	«EXPAND FieldGetterSetter::field(javaTranslatorClass(dto.name)) FOR javaTranslatorClass(dto.name).toFirstLower()»    
 	«ENDFOREACH»
+	«FOREACH this.dtoReferences.select(dto|dto.dtoType() == "ListDto") AS dto -»
+	«LET dto.baseDtoSymbol().name AS dtoname»
+	«EXPAND FieldGetterSetter::field(javaTranslatorClass(dtoname)) FOR javaTranslatorClass(dtoname).toFirstLower()»    
+	«ENDLET»
+	«ENDFOREACH»
+	«ENDREM»
 
+	«FOREACH this.getAllBusinessClassDtoSymbols() AS classDtoSymbol»
+	«EXPAND FieldGetterSetter::field(javaTranslatorClass(classDtoSymbol.name)) FOR javaTranslatorClass(classDtoSymbol.name).toFirstLower()»    
+	«ENDFOREACH»
 
 	«FOREACH this.methods.typeSelect(SpecialMethod) AS method»
 		«IF method.type == MethodType::CREATE»
@@ -212,10 +231,19 @@
 				«EXPAND addToMethod FOR method»
 			«ENDIF»
 		«ENDIF»
+
+		«REM»The get method for multiplicity one or many«ENDREM»
+		«IF method.type == MethodType::GETFROM»
+			«IF (mult == "ONE") »
+				«EXPAND getOneMethod FOR method»
+			«ELSE»
+				«EXPAND getManyMethod FOR method»
+			«ENDIF»
+		«ENDIF»
 	
 		«REM»And the removeFrom method«ENDREM»
 		«IF method.type == MethodType::REMOVEFROM»
-		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole) {
+		public void «method.name»(«method.part.name» part, «method.main.name» whole) {
 			if( part == null ) { 
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: parameter [part] should not be null");
 			}
@@ -240,7 +268,7 @@
 «ENDDEFINE»
 
 «DEFINE addToMethod FOR AssociationMethod»
-	public void addTo«this.rolename.toFirstUpper()»(«this.part.name» part, «this.main.name» whole) {
+	public void «this.name»(«this.part.name» part, «this.main.name» whole) {
 			if( part == null ) { 
 			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [part] should not be null");
 			}
@@ -264,7 +292,7 @@
 «ENDDEFINE»
 
 «DEFINE setMethod FOR AssociationMethod»
-	public void set«this.rolename.toFirstUpper()»(«this.part.name» part, «this.main.name» whole) {
+	public void «this.name»(«this.part.name» part, «this.main.name» whole) {
 			if( whole == null ) { 
 			    throw new ServiceException("set«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
 			}
@@ -283,3 +311,44 @@
 	}
 «ENDDEFINE»
 
+«DEFINE getOneMethod FOR AssociationMethod»
+«LET javaDomainServiceInterface(this.model.name).toFirstLower() AS domainService»
+    public «JavaType(this.part)» «this.name»(«this.main.name» source){
+		if (source == null) {
+			throw new ServiceException(
+					"get«this.rolename.toFirstUpper()»: parameter [source] should not be null");
+		}
+		«this.part.businessClass()» target = null;
+
+		«this.main.businessClass()» sourceBusinessObject = «domainService».read«this.main.businessClass()»(source.getId());
+		if (sourceBusinessObject == null) {
+			throw new ServiceException(
+					"get«this.rolename.toFirstUpper()»: cannot find business object for parameter [source]");
+		}
+		target = «domainService».get«this.part.businessClass()»(sourceBusinessObject);
+		return «javaTranslatorClass(this.part.name).toFirstLower()».toDto(target);
+    }
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE getManyMethod FOR AssociationMethod»
+«LET javaDomainServiceInterface(this.model.name).toFirstLower() AS domainService»
+	public «JavaType(this.part)» «this.name»(«this.main.name» source){
+		if (source == null) {
+			throw new ServiceException(
+					"get«this.rolename.toFirstUpper()»: parameter [source] should not be null");
+		}
+		«this.main.businessClass()» businessSource = «domainService».read«this.main.businessClass()»(source.getId());
+		List<«this.part.dtoBaseBusinessClass()»> parts = «domainService».get«this.rolename.toFirstUpper()»(businessSource);
+
+		List<«this.part.baseDtoSymbol().name»> result = new ArrayList<«this.part.baseDtoSymbol().name»>();
+
+		for («this.part.dtoBaseBusinessClass()» element: parts) {
+			«this.part.baseDtoSymbol().name» item = «javaTranslatorClass(this.part.baseDtoSymbol().name).toFirstLower()».toDto(element);
+			result.add(item);
+		}
+
+		return result;
+    }
+«ENDLET»    
+«ENDDEFINE»

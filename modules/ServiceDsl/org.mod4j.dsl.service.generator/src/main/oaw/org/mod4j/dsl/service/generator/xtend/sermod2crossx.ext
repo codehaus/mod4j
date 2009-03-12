@@ -22,8 +22,11 @@ Symbol toSymbol(ServiceModel model) :
     result.setName(model.name) ->
     result.setType("Service")->
     result.properties.add( newProperty("UniqueBusinessClasses", model.uniqueBusinessClasses().toString(",")))->
-    result.subSymbols.addAll( model.methods.toSymbol() )->
-    result.subSymbols.addAll( model.dtoReferences.select(dto|dto.businessClass() != "void").toSymbol() )->
+    result.subSymbols.addAll( model.methods.typeSelect(AssociationMethod).toSymbol() )->
+    result.subSymbols.addAll( model.methods.typeSelect(SpecialMethod).toSymbol() )->
+    result.subSymbols.addAll( model.methods.typeSelect(CustomMethod).toSymbol() )->
+//    result.subSymbols.addAll( model.dtoReferences.select(dto|dto.businessClass() != "void").toSymbol() )->
+    result.subSymbols.addAll( model.getAllBusinessClassDtoSymbols().xtoSymbol() )->
     result
     ;
 
@@ -33,11 +36,46 @@ Symbol toSymbol(ServiceMethod method) :
     result.setType("ServiceMethod")
     ;
 
+Symbol toSymbol(SpecialMethod method) :
+    let result = new Symbol :
+    result.properties.add( newProperty("dto", method.dto.name) )->
+    result.properties.add( newProperty("methodType", "SpecialMethod") )->
+    result.setName(method.name) ->
+    result.setType("ServiceMethod")
+    ;
+
+Symbol toSymbol(AssociationMethod method) :
+    let result = new Symbol :
+    result.properties.add( newProperty("methodType", "AssociationMethod") )->
+    result.properties.add( newProperty("part", method.part.name) )->
+    result.properties.add( newProperty("whole", method.main.name) )->
+    result.setName(method.name) ->
+    result.setType("ServiceMethod")
+    ;
+
+Symbol toSymbol(CustomMethod method) :
+    let result = new Symbol :
+    result.properties.add( newProperty("methodType", "AssociationMethod") )->
+ //   result.properties.add( newProperty("part", method.part.name) )->
+ //   result.properties.add( newProperty("whole", method.main.name) )->
+    result.setName(method.name) ->
+    result.setType("ServiceMethod")
+    ;
+
 // Add a DTO nreference for all Dtyo's that have a busienssclass
 Symbol toSymbol(DtoReference dto) :
     let result = new Symbol :
     result.properties.add( newProperty("modelname", dto.modelname) )->
     result.setName(dto.name) ->
+    result.setType("DtoReference")
+    ;
+
+// Add a DTO nreference for all Dtyo's that have a busienssclass
+Symbol xtoSymbol(Symbol businessClassDtoSymbol) :
+    let result = new Symbol :
+    result.properties.add( newProperty("modelname", businessClassDtoSymbol.owner.modelname) )->
+    result.properties.add( newProperty("symboltype", businessClassDtoSymbol.owner.modelname) )->
+    result.setName(businessClassDtoSymbol.name) ->
     result.setType("DtoReference")
     ;
 

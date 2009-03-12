@@ -30,6 +30,7 @@
 	package «getBusinessRootPackage()»;
 
 	import java.util.List;
+	import java.util.ArrayList;
 «REM»Import the business class  and dao for aech base of each BusinessClassDto. 
      Ensure that doules are removed.
 «ENDREM»	
@@ -158,6 +159,18 @@
 			«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
 			«javaDaoInterface(method.part.businessClass()).toFirstLower()».update(part);
 		}
+		«ENDIF»
+		
+		«IF method.type == MethodType::GETFROM»
+			«IF (mult == "ONE")»
+			public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+			    return source.get«method.rolename.toFirstUpper()»();
+			}
+			«ELSE»			
+			public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+			    return new ArrayList<«method.part.dtoBaseBusinessClass()»>( source.get«method.rolename.toFirstUpper()»() );
+			}
+			«ENDIF»
 		«ENDIF»
 	«ENDLET»
 	«ENDLET»

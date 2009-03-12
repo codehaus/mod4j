@@ -150,11 +150,28 @@
 	«LET getPropertyValue(assoc, "Multiplicity") AS mult»
     «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
     	«IF method.type == MethodType::ADDTO»
+«REM»			
 	    public void «genName»(«method.part.name» part, «method.main.name» whole);
+«ENDREM»
+	    public void «method.name»(«method.part.name» part, «method.main.name» whole);
 		«ENDIF»
 		
 		«IF method.type == MethodType::REMOVEFROM»
-			public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
+«REM»			
+		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
+«ENDREM»
+			public void «method.name»(«method.part.name» part, «method.main.name» whole);
+		«ENDIF»
+	
+		«IF method.type == MethodType::GETFROM»
+			«IF (mult == "ONE")»
+«REM»			
+				public «JavaType(method.part)» get«method.rolename.toFirstUpper()»(«method.main.name» source);
+«ENDREM»
+				public «JavaType(method.part)» «method.name»(«method.main.name» source);
+			«ELSE»
+				public «JavaType(method.part)» «method.name»(«method.main.name» source);
+			«ENDIF»
 		«ENDIF»
 	
 	«ENDLET»

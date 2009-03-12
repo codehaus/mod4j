@@ -89,15 +89,19 @@ public class ModelHelpers {
     public static boolean shouldRegenerate(String path) {
     	boolean exists = fileExist(path);
     	if( ! exists ) {
-        	System.err.println("["+ path + "] REGENERATE: ! exists " + path + " ==> true");
+//        	System.err.println("["+ path + "] REGENERATE: ! exists " + path + " ==> true");
     		return true;
     	}
-    	
+
+    	// Do no regenerate exzisting pom.xml files
+    	if( path.endsWith("pom.xml")){
+    		return false;
+    	}
         File f = new File(path);
         long modified = f.lastModified();
         FileTrack current = Mod4jTracker.getFileTracker().getCurrentTrack();
         if( current == null ) {
-        	System.err.println("["+ path + "] REGENERATE: current == null " + path + " ==> false");
+//        	System.err.println("["+ path + "] REGENERATE: current == null " + path + " ==> false");
         	return false;
         }
         GeneratedFile extension = current.getExtensionFile(path);
@@ -108,7 +112,7 @@ public class ModelHelpers {
         			+ DateFormat.getInstance().format(generated) + "]" + " ==> " + (modified == generated));
 	        return ( modified == generated );
         } else {
-        	System.err.println("["+ path + "] REGENERATE: no track " + path + " ==> false");
+//        	System.err.println("["+ path + "] REGENERATE: no track " + path + " ==> false");
         	return false;
         }
     }

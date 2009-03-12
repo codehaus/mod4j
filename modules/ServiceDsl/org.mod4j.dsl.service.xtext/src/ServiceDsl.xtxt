@@ -27,26 +27,14 @@ AssociationMethod :
 	(description=STRING )?
     "for" main=[DtoReference]  "reference"  rolename=ID 
     type=AssociationMethodType
-    part=[DtoReference] ";"
+    part=[DtoReference]  ";"
 	;
 Enum SpecialMethodType [MethodType]:
      CREATE="create"  | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall" | FIND="find"
      ;
 
 Enum AssociationMethodType [MethodType] :
-     ADDTO="add" | REMOVEFROM="remove" // | GETFROM="get"
-     ;
-
-Enum AssociationToMethodType [MethodType] :
-     ADDTO="add" 
-     ;
-
-Enum AssociationFromMethodType [MethodType] :
-     REMOVEFROM="remove" 
-     ;
-
-Enum AssociationGetMethodType [MethodType] :
-     GETFROM="get" 
+     ADDTO="add" | REMOVEFROM="remove" | GETFROM="get"
      ;
 
 DtoReference:

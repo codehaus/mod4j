@@ -139,6 +139,14 @@
 		«IF method.type == MethodType::REMOVEFROM»
 		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
 		«ENDIF»
+
+		«IF method.type == MethodType::GETFROM»
+			«IF (mult == "ONE")»
+			public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
+			«ELSE»
+			public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
+			«ENDIF»
+		«ENDIF»
 	«ENDLET»
 	«ENDLET»
 	«ENDLET»
