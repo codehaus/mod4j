@@ -32,26 +32,36 @@ ContentForm :
 	"ContentForm" name = ID "using" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
 	(formElements += FormElement)*
-	("Processes" "[" (processes += ProcessCall)* "]" )?
+	("processes" "[" (processes += ProcessCall)* "]" )?
 	;
 	
 CompoundDialogue :
 	(description=STRING )?
 	"CompoundDialogue" name = ID "using" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
-	("Dialogues" "[" (dialogues += DialogueCall)* "]" )?
-	("Processes" "[" (processes += ProcessCall)* "]" )?  
+	("dialogues" "[" (dialogues += DialogueCall)* "]" )?
+	("processes" "[" (processes += ProcessCall)* "]" )?  
 	| CollectionDialogue
+	| MasterDetail
 	;
 		
 CollectionDialogue :
 	(description=STRING )?
 	"CollectionDialogue" name = ID "using" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
-	("Dialogues" "[" (dialogues += DialogueCall)* "]" )?
-	("Processes" "[" (processes += ProcessCall)* "]" )?
+	("dialogues" "[" (dialogues += DialogueCall)* "]" )?
+	("processes" "[" (processes += ProcessCall)* "]" )?
 	;
 	
+MasterDetail :
+	(description=STRING )?
+	"MasterDetail" name = ID "using" contextRef = [ExternalReference]
+	("readonly" ((readonly?="true") | "false") ";")?
+	"master" master = DialogueCall ";"
+	"detail" detail = DialogueCall ";"
+	("processes" "[" (processes += ProcessCall)* "]" )?
+	;
+
 Process :
 	AutomatedProcess | InteractiveProcess
 	;
@@ -67,22 +77,27 @@ InteractiveProcess :
 	;
 	
 FormElement :
-	"FormElement" name = ID 
-	"references" references = DtoPropertyReference
-	("readonly" ((readonly?="true") | "false") ";")?
+	"formElement" 
+	("navigate" LinkRef "to")? 
+	references = DtoPropertyReference 
+	"named" name = ID 
+	("readonly" ((readonly?="true") | "false") )?
+	";"
 	;
 		
-DtoPropertyReference :
-	name = ID ";"
-	;
-			
 DialogueCall :
-	("navigate" LinkRef)?
-	name = ID ";"
+	DirectDialogueCall | LinkedDialogueCall
+	;
+	
+LinkedDialogueCall :
+	"navigate" link = LinkRef "to" name = ID ";"
 	;
 
+DirectDialogueCall :
+	name = ID ";"
+	;
+	
 ProcessCall :
-	("navigate" LinkRef)?
 	name = ID ";"
 	;
 
@@ -91,6 +106,25 @@ LinkRef :
 	;
 	
 Link :
-	(description=STRING )?
-	"Link" name = ID "using" contextRef = [ExternalReference]
+	LinkStep | LinkPath
 	;
+	
+LinkStep :
+	(description=STRING )?
+	"LinkStep" name = ID "using" contextRef = [ExternalReference] 
+	"navigate" reference = AssociationRoleReference
+	;
+	
+LinkPath :
+	(description=STRING )?
+	"LinkPath" name = ID "using" contextRef = [ExternalReference]
+	;
+	
+DtoPropertyReference :
+	name = ID
+	;
+
+AssociationRoleReference :
+	name = ID
+	;
+	
