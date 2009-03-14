@@ -28,24 +28,7 @@
                 For a good understanding of the generated code it is useful to read this document.
             </p>
             <img src="images/mod4j-diagram-smaller.jpg" align="left" alt="" />
-            <subsection name="About Mod4j">
-                <ul>
-                    <li>
-                        <a href="guide-helping.html">Can I get involved?</a>
-                    </li>
-                    <li>
-                        <a href="developer-guide.html">The Mod4j developer guide</a>
-                    </li>
-                    <li>
-                        The Mod4j user guide (
-                        <a href="documentation-parent/user-guide/mod4j-user-guide.html">HTML</a>
-                        ,
-                        <a href="documentation-parent/user-guide/mod4j-user-guide.pdf">PDF</a>
-                        )
-                    </li>
-                </ul>
-            </subsection>
-
+            
             <subsection name="Getting started">
                 <ol>
                     <li>
