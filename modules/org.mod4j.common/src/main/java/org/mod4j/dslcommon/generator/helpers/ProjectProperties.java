@@ -55,6 +55,7 @@ public class ProjectProperties {
         resourceGenPath = properties.getProperty("resourceGenPath");
         srcManPath = properties.getProperty("srcManPath");
         resourceManPath = properties.getProperty("resourceManPath");
+        //environmentPropertiesFileName = properties.getProperty("environmentPropertiesFileName");
         fileEncoding = properties.getProperty("fileEncoding");
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
         hibernate_mapping_class_id_generator_class = properties
@@ -104,6 +105,8 @@ public class ProjectProperties {
     private static String srcManPath = "DEFAULT";
 
     private static String resourceManPath = "DEFAULT";
+    
+    private static final String environmentPropertiesFileName = "environment.properties";
 
     private static String fileEncoding = "ISO-8859-1";
 
@@ -126,6 +129,7 @@ public class ProjectProperties {
     private static String hibernate_mapping_class_id_generator_class = "native";
 
     private static String hibernate_mapping_inheritance_strategy = "table.per.concrete.class";
+    
 
     public static void setWorkDir(String dir) {
         workDir = dir;
@@ -293,6 +297,10 @@ public class ProjectProperties {
 
     public static String getResourceManPath() {
         return resourceManPath;
+    }
+    
+    public static String getEnvPropFileName() {
+        return environmentPropertiesFileName;
     }
 
     public static String getFileEncoding() {

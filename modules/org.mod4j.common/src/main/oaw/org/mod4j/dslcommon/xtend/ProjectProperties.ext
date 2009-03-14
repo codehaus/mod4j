@@ -43,6 +43,9 @@ String getResourceManPath() :
 String getRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getRootPackage();
 
+String getEnvPropFileName() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getEnvPropFileName();
+
 String getFileEncoding() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getFileEncoding();
 

@@ -30,6 +30,14 @@
 	    «retain(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
 	«ENDIF»
 
+    «IF !fileExist(fullExtendPath(getDataModuleName(), "/" + getEnvPropFileName()))»
+        «FILE extend(getDataModuleName(), "/" + getEnvPropFileName())»
+            «EXPAND HibernateDataLayerContextBase::environmentprops FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getDataModuleName(), "/" + getEnvPropFileName())»
+    «ENDIF»
+
 	«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContextBase.xml")-»
     	«EXPAND HibernateDataLayerContextBase::datalayercontextbase FOR this»
 	«ENDFILE»
