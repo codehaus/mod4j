@@ -17,15 +17,27 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>Mod4j 1.0.0</td>
-                        <td><a href="1.0.0/releasenotes.html">Release Notes</a></td>
-                        <td><a href="1.0.0/upgradesteps.html">Upgrade Steps</a></td>
+                        <td>Mod4j 1.0.0 </td>
+                        <td>?? April 2009</td>
+                        <td>
+                            <a href="1.0.0/releasenotes.html">Release Notes</a>
+                        </td>
+                        <td>
+                            <a href="1.0.0/upgradesteps.html">Upgrade Steps</a>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Mod4j 1.0.0-beta-3</td>
+                        <td>Mod4j 1.0.0-beta-3 (200902171456)</td>
+                        <td>17 February 2009</td>
                         <td>
                             <a href="1.0.0-beta-3/releasenotes.html">Release notes</a>
                         </td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Mod4j 0.9 </td>
+                        <td>June 2008</td>
+                        <td>First Business Domain DSL release</td>
                         <td>-</td>
                     </tr>
                 </tbody>
