@@ -6,6 +6,7 @@ from RecordShopDomainModel import Artist;
 from RecordShopDomainModel import Order;
 from RecordShopDomainModel import Record ;
 from RecordShopDomainModel import OrderLine;
+from RecordShopDomainModel import Product ;
 from RecordShopDomainModel import SexeEnum;
 from RecordShopDomainModel import RecordTypeEnum ; 
   
@@ -54,6 +55,8 @@ from RecordShopDomainModel import RecordTypeEnum ;
 		 artistName ;
 	]
 
+    class FullProduct represents Product
+    
     class FullRecordDto represents Record
     
     class SimpleRecordDto represents Record [

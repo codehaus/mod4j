@@ -94,6 +94,8 @@ class Product [
 
 	string productNumnber;
 	integer price;
+	boolean inStock default false;
+	boolean orderable;
 ]
 
 "Sexe enumeration."
