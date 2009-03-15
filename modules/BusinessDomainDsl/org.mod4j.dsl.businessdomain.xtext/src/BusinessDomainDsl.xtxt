@@ -84,6 +84,7 @@ Property:
     (BoolProperty | StringProperty | DateTimeProperty | IntegerProperty |
 	 DecimalProperty | EnumerationProperty) 
 	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
 //	("persistency" persistency=PersistencyMode)?
 	";"
 	;

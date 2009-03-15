@@ -412,11 +412,29 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EAttribute getProperty_Derived() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Writable() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EAttribute getProperty_Persistency() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -425,7 +443,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * @generated
 	 */
 	public EAttribute getProperty_HasDefault() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -434,7 +452,7 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 	 * @generated
 	 */
 	public EReference getProperty_OwningType() {
-		return (EReference)propertyEClass.getEStructuralFeatures().get(4);
+		return (EReference)propertyEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -995,6 +1013,8 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__DATA_TYPE);
 		createEAttribute(propertyEClass, PROPERTY__NULLABLE);
+		createEAttribute(propertyEClass, PROPERTY__DERIVED);
+		createEAttribute(propertyEClass, PROPERTY__WRITABLE);
 		createEAttribute(propertyEClass, PROPERTY__PERSISTENCY);
 		createEAttribute(propertyEClass, PROPERTY__HAS_DEFAULT);
 		createEReference(propertyEClass, PROPERTY__OWNING_TYPE);
@@ -1143,6 +1163,8 @@ public class BusinessDomainDslPackageImpl extends EPackageImpl implements Busine
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_DataType(), ecorePackage.getEString(), "dataType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Derived(), ecorePackage.getEBoolean(), "derived", "false", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Writable(), ecorePackage.getEBoolean(), "writable", "true", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Persistency(), this.getPersistencyMode(), "persistency", "ReadWrite", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", "false", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_OwningType(), this.getAbstractType(), this.getAbstractType_Properties(), "owningType", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -198,6 +198,11 @@ temp_EnumerationProperty=ruleEnumerationProperty {$result=temp_EnumerationProper
 
 (temp_nullable='nullable' )?
 
+((temp_derived='derived' )
+
+(temp_writable='writable' )?
+)?
+
 (';')
 )
 ;

@@ -75,7 +75,7 @@
 «ENDDEFINE»
 
 «DEFINE addBusinessRulesValidators FOR BusinessClass»
-    «EXPAND addPropertyValidator (this) FOREACH properties -»
+    «EXPAND addPropertyValidator (this) FOREACH properties.reject(e|e.derived) -»
     «FOREACH businessRules.typeSelect(BusinessRule) AS br -»
         validation.addValidator(new «javaBusinessRuleClass(br.name)»());
     «ENDFOREACH» 

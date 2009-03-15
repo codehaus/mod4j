@@ -22,22 +22,22 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
  */
 public class DtoStringPropertyImpl extends DtoDataPropertyImpl implements DtoStringProperty {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected DtoStringPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.DTO_STRING_PROPERTY;
-    }
+		return DataContractDslPackage.Literals.DTO_STRING_PROPERTY;
+	}
 
 } //DtoStringPropertyImpl

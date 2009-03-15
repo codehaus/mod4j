@@ -1,7 +1,6 @@
 package org.company.recordshop.domain;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotSame;
 
 import org.joda.time.DateTime;
 import org.junit.Test;

@@ -418,13 +418,31 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int PROPERTY__NULLABLE = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int PROPERTY__DERIVED = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__WRITABLE = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__PERSISTENCY = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int PROPERTY__PERSISTENCY = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Has Default</b></em>' attribute.
@@ -433,7 +451,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__HAS_DEFAULT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int PROPERTY__HAS_DEFAULT = MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Owning Type</b></em>' container reference.
@@ -442,7 +460,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__OWNING_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int PROPERTY__OWNING_TYPE = MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -451,7 +469,7 @@ public interface BusinessDomainDslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link BusinessDomainDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -656,6 +674,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BOOL_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int BOOL_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -747,6 +783,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int DATE_TIME_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int DATE_TIME_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -847,6 +901,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int ENUMERATION_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int ENUMERATION_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -947,6 +1019,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int INTEGER_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int INTEGER_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1056,6 +1146,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int STRING_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int STRING_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1174,6 +1282,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BLOB_BINARY_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int BLOB_BINARY_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB_BINARY_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,6 +1382,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int BLOB_TEXT_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int BLOB_TEXT_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB_TEXT_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1465,6 +1609,24 @@ public interface BusinessDomainDslPackage extends EPackage {
 	int DECIMAL_PROPERTY__NULLABLE = PROPERTY__NULLABLE;
 
 	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int DECIMAL_PROPERTY__DERIVED = PROPERTY__DERIVED;
+
+    /**
+	 * The feature id for the '<em><b>Writable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECIMAL_PROPERTY__WRITABLE = PROPERTY__WRITABLE;
+
+				/**
 	 * The feature id for the '<em><b>Persistency</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1901,6 +2063,28 @@ public interface BusinessDomainDslPackage extends EPackage {
 	EAttribute getProperty_Nullable();
 
 	/**
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.Property#isDerived <em>Derived</em>}'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Derived</em>'.
+	 * @see BusinessDomainDsl.Property#isDerived()
+	 * @see #getProperty()
+	 * @generated
+	 */
+    EAttribute getProperty_Derived();
+
+    /**
+	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.Property#isWritable <em>Writable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Writable</em>'.
+	 * @see BusinessDomainDsl.Property#isWritable()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Writable();
+
+				/**
 	 * Returns the meta object for the attribute '{@link BusinessDomainDsl.Property#getPersistency <em>Persistency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2683,6 +2867,22 @@ public interface BusinessDomainDslPackage extends EPackage {
 		EAttribute PROPERTY__NULLABLE = eINSTANCE.getProperty_Nullable();
 
 		/**
+		 * The meta object literal for the '<em><b>Derived</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+		 * @generated
+		 */
+        EAttribute PROPERTY__DERIVED = eINSTANCE.getProperty_Derived();
+
+        /**
+		 * The meta object literal for the '<em><b>Writable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__WRITABLE = eINSTANCE.getProperty_Writable();
+
+								/**
 		 * The meta object literal for the '<em><b>Persistency</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

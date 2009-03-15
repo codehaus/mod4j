@@ -17,6 +17,8 @@ package BusinessDomainDsl;
  * <ul>
  *   <li>{@link BusinessDomainDsl.Property#getDataType <em>Data Type</em>}</li>
  *   <li>{@link BusinessDomainDsl.Property#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Property#isDerived <em>Derived</em>}</li>
+ *   <li>{@link BusinessDomainDsl.Property#isWritable <em>Writable</em>}</li>
  *   <li>{@link BusinessDomainDsl.Property#getPersistency <em>Persistency</em>}</li>
  *   <li>{@link BusinessDomainDsl.Property#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link BusinessDomainDsl.Property#getOwningType <em>Owning Type</em>}</li>
@@ -81,6 +83,60 @@ public interface Property extends ModelElement {
 	void setNullable(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Derived</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Derived</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+	 * @return the value of the '<em>Derived</em>' attribute.
+	 * @see #setDerived(boolean)
+	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getProperty_Derived()
+	 * @model default="false"
+	 * @generated
+	 */
+    boolean isDerived();
+
+    /**
+	 * Sets the value of the '{@link BusinessDomainDsl.Property#isDerived <em>Derived</em>}' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Derived</em>' attribute.
+	 * @see #isDerived()
+	 * @generated
+	 */
+    void setDerived(boolean value);
+
+    /**
+	 * Returns the value of the '<em><b>Writable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Writable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Writable</em>' attribute.
+	 * @see #setWritable(boolean)
+	 * @see BusinessDomainDsl.BusinessDomainDslPackage#getProperty_Writable()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isWritable();
+
+				/**
+	 * Sets the value of the '{@link BusinessDomainDsl.Property#isWritable <em>Writable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Writable</em>' attribute.
+	 * @see #isWritable()
+	 * @generated
+	 */
+	void setWritable(boolean value);
+
+				/**
 	 * Returns the value of the '<em><b>Persistency</b></em>' attribute.
 	 * The default value is <code>"ReadWrite"</code>.
 	 * The literals are from the enumeration {@link BusinessDomainDsl.PersistencyMode}.

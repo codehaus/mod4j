@@ -4,8 +4,8 @@ extension org::openarchitectureware::xtext::parser::LinkerUtils;
 
 link(emf::EObject this) :
 	let all = allLocalElements() :
-		all.typeSelect(BusinessDomainDsl::Association).collect(e|e.link_target()) ->
 		all.typeSelect(BusinessDomainDsl::Association).collect(e|e.link_source()) ->
+		all.typeSelect(BusinessDomainDsl::Association).collect(e|e.link_target()) ->
 		all.typeSelect(BusinessDomainDsl::BusinessClass).collect(e|e.link_superclass()) ->
 		all.typeSelect(BusinessDomainDsl::UniqueRule).collect(e|e.link_properties()) ->
 		all.typeSelect(BusinessDomainDsl::EnumerationProperty).collect(e|e.link_type()) ->
@@ -14,17 +14,17 @@ link(emf::EObject this) :
 
 
 
-Void link_target(BusinessDomainDsl::Association this) :
-	(let ents = this.allVisibleElements().typeSelect(BusinessDomainDsl::AbstractBusinessClass) :
-
-		this.setTarget(ents.select(e|e.id() == this.parsedString("target")).first())
-);
-
-
 Void link_source(BusinessDomainDsl::Association this) :
 	(let ents = this.allVisibleElements().typeSelect(BusinessDomainDsl::BusinessClass) :
 
 		this.setSource(ents.select(e|e.id() == this.parsedString("source")).first())
+);
+
+
+Void link_target(BusinessDomainDsl::Association this) :
+	(let ents = this.allVisibleElements().typeSelect(BusinessDomainDsl::AbstractBusinessClass) :
+
+		this.setTarget(ents.select(e|e.id() == this.parsedString("target")).first())
 );
 
 

@@ -44,6 +44,8 @@
     <genClasses ecoreClass="BusinessDomainDsl.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/dataType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/writable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/persistency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BusinessDomainDsl.ecore#//Property/hasDefault"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BusinessDomainDsl.ecore#//Property/owningType"/>

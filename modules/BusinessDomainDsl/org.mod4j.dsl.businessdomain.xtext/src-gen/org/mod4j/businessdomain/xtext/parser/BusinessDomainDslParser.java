@@ -1,4 +1,4 @@
-// $ANTLR 3.0 ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g 2009-02-24 16:21:59
+// $ANTLR 3.0 ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g 2009-03-15 15:22:15
 
 package org.mod4j.businessdomain.xtext.parser;
 
@@ -23,19 +23,19 @@ import java.util.Map;
 import java.util.HashMap;
 public class BusinessDomainDslParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "'domain'", "';'", "'from'", "'import'", "'association'", "'<->'", "'->'", "'ordered'", "'many'", "'one'", "'class'", "'inherits'", "'['", "'rules'", "']'", "'enumeration'", "'='", "'unique'", "','", "'nullable'", "'boolean'", "'default'", "'true'", "'false'", "'string'", "'minlength'", "'maxlength'", "'regexp'", "'datetime'", "'integer'", "'min'", "'max'", "'decimal'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "'domain'", "';'", "'from'", "'import'", "'association'", "'<->'", "'->'", "'ordered'", "'many'", "'one'", "'class'", "'inherits'", "'['", "'rules'", "']'", "'enumeration'", "'='", "'unique'", "','", "'nullable'", "'derived'", "'writable'", "'boolean'", "'default'", "'true'", "'false'", "'string'", "'minlength'", "'maxlength'", "'regexp'", "'datetime'", "'integer'", "'min'", "'max'", "'decimal'"
     };
-    public static final int RULE_ML_COMMENT=8;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=7;
-    public static final int EOF=-1;
-    public static final int RULE_INT=6;
     public static final int RULE_STRING=4;
+    public static final int RULE_INT=6;
+    public static final int RULE_WS=7;
     public static final int RULE_SL_COMMENT=9;
+    public static final int EOF=-1;
+    public static final int RULE_ML_COMMENT=8;
 
         public BusinessDomainDslParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[61+1];
+            ruleMemo = new HashMap[63+1];
          }
         
 
@@ -296,6 +296,11 @@ public class BusinessDomainDslParser extends Parser {
                 case RULE_STRING:
                     {
                     switch ( input.LA(2) ) {
+                    case 14:
+                        {
+                        alt3=3;
+                        }
+                        break;
                     case 20:
                         {
                         alt3=1;
@@ -304,11 +309,6 @@ public class BusinessDomainDslParser extends Parser {
                     case 25:
                         {
                         alt3=2;
-                        }
-                        break;
-                    case 14:
-                        {
-                        alt3=3;
                         }
                         break;
 
@@ -1016,7 +1016,7 @@ public class BusinessDomainDslParser extends Parser {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)||LA10_0==30||LA10_0==34||(LA10_0>=38 && LA10_0<=39)||LA10_0==42) ) {
+                if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)||LA10_0==32||LA10_0==36||(LA10_0>=40 && LA10_0<=41)||LA10_0==44) ) {
                     alt10=1;
                 }
 
@@ -1447,11 +1447,11 @@ public class BusinessDomainDslParser extends Parser {
                 {
                 int LA15_1 = input.LA(2);
 
-                if ( (LA15_1==27) ) {
-                    alt15=2;
-                }
-                else if ( (LA15_1==RULE_ID) ) {
+                if ( (LA15_1==RULE_ID) ) {
                     alt15=1;
+                }
+                else if ( (LA15_1==27) ) {
+                    alt15=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return result;}
@@ -1801,11 +1801,13 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:354:1: ruleProperty returns [EObject result] : ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( ';' ) ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:354:1: ruleProperty returns [EObject result] : ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( (temp_derived= 'derived' ) (temp_writable= 'writable' )? )? ( ';' ) ) ;
     public EObject ruleProperty() throws RecognitionException {
         EObject result = null;
         int ruleProperty_StartIndex = input.index();
         Token temp_nullable=null;
+        Token temp_derived=null;
+        Token temp_writable=null;
         EObject temp_BoolProperty = null;
 
         EObject temp_StringProperty = null;
@@ -1821,8 +1823,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 12) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:355:4: ( ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( ';' ) ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:355:4: ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( ';' ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:355:4: ( ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( (temp_derived= 'derived' ) (temp_writable= 'writable' )? )? ( ';' ) ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:355:4: ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( (temp_derived= 'derived' ) (temp_writable= 'writable' )? )? ( ';' ) )
             {
             if ( backtracking==0 ) {
 
@@ -1830,8 +1832,8 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:359:1: ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( ';' ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:359:2: ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( ';' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:359:1: ( ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( (temp_derived= 'derived' ) (temp_writable= 'writable' )? )? ( ';' ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:359:2: ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) ) (temp_nullable= 'nullable' )? ( (temp_derived= 'derived' ) (temp_writable= 'writable' )? )? ( ';' )
             {
             // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:359:2: ( (temp_BoolProperty= ruleBoolProperty ) | (temp_StringProperty= ruleStringProperty ) | (temp_DateTimeProperty= ruleDateTimeProperty ) | (temp_IntegerProperty= ruleIntegerProperty ) | (temp_DecimalProperty= ruleDecimalProperty ) | (temp_EnumerationProperty= ruleEnumerationProperty ) )
             int alt19=6;
@@ -1839,12 +1841,22 @@ public class BusinessDomainDslParser extends Parser {
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
-                case 39:
+                case 41:
                     {
                     alt19=4;
                     }
                     break;
-                case 34:
+                case 40:
+                    {
+                    alt19=3;
+                    }
+                    break;
+                case 44:
+                    {
+                    alt19=5;
+                    }
+                    break;
+                case 36:
                     {
                     alt19=2;
                     }
@@ -1854,19 +1866,9 @@ public class BusinessDomainDslParser extends Parser {
                     alt19=6;
                     }
                     break;
-                case 30:
+                case 32:
                     {
                     alt19=1;
-                    }
-                    break;
-                case 42:
-                    {
-                    alt19=5;
-                    }
-                    break;
-                case 38:
-                    {
-                    alt19=3;
                     }
                     break;
                 default:
@@ -1879,27 +1881,27 @@ public class BusinessDomainDslParser extends Parser {
 
                 }
                 break;
-            case 30:
+            case 32:
                 {
                 alt19=1;
                 }
                 break;
-            case 34:
+            case 36:
                 {
                 alt19=2;
                 }
                 break;
-            case 38:
+            case 40:
                 {
                 alt19=3;
                 }
                 break;
-            case 39:
+            case 41:
                 {
                 alt19=4;
                 }
                 break;
-            case 42:
+            case 44:
                 {
                 alt19=5;
                 }
@@ -2096,13 +2098,69 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:387:1: ( ';' )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:387:2: ';'
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:387:1: ( (temp_derived= 'derived' ) (temp_writable= 'writable' )? )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
+
+            if ( (LA22_0==30) ) {
+                alt22=1;
+            }
+            switch (alt22) {
+                case 1 :
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:387:2: (temp_derived= 'derived' ) (temp_writable= 'writable' )?
+                    {
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:387:2: (temp_derived= 'derived' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:387:3: temp_derived= 'derived'
+                    {
+                    if ( backtracking==0 ) {
+                      ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(2)).eContents().get(0)),line(),start());
+                    }
+                    temp_derived=(Token)input.LT(1);
+                    match(input,30,FOLLOW_30_in_ruleProperty1007); if (failed) return result;
+                    if ( backtracking==0 ) {
+                      factory.set(result,"derived",true); ptm.ruleFinished(temp_derived,end()); 
+                    }
+
+                    }
+
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:390:1: (temp_writable= 'writable' )?
+                    int alt21=2;
+                    int LA21_0 = input.LA(1);
+
+                    if ( (LA21_0==31) ) {
+                        alt21=1;
+                    }
+                    switch (alt21) {
+                        case 1 :
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:390:2: temp_writable= 'writable'
+                            {
+                            if ( backtracking==0 ) {
+                              ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(2)).eContents().get(1)),line(),start());
+                            }
+                            temp_writable=(Token)input.LT(1);
+                            match(input,31,FOLLOW_31_in_ruleProperty1018); if (failed) return result;
+                            if ( backtracking==0 ) {
+                              factory.set(result,"writable",true); ptm.ruleFinished(temp_writable,end()); 
+                            }
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:394:1: ( ';' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:394:2: ';'
             {
             if ( backtracking==0 ) {
-              ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(2)),line(),start());
+              ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(3)),line(),start());
             }
-            match(input,11,FOLLOW_11_in_ruleProperty1004); if (failed) return result;
+            match(input,11,FOLLOW_11_in_ruleProperty1031); if (failed) return result;
             if ( backtracking==0 ) {
               ptm.ruleFinished(getLastToken(),end());
             }
@@ -2129,7 +2187,7 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleBoolProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:391:1: ruleBoolProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:398:1: ruleBoolProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? ) ;
     public EObject ruleBoolProperty() throws RecognitionException {
         EObject result = null;
         int ruleBoolProperty_StartIndex = input.index();
@@ -2141,8 +2199,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 13) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:392:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:392:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:399:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:399:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? )
             {
             if ( backtracking==0 ) {
 
@@ -2150,25 +2208,25 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:396:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:396:2: (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )?
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:403:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:403:2: (temp_description= RULE_STRING )? (temp_dataType= 'boolean' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )?
             {
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:396:2: (temp_description= RULE_STRING )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:403:2: (temp_description= RULE_STRING )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA21_0==RULE_STRING) ) {
-                alt21=1;
+            if ( (LA23_0==RULE_STRING) ) {
+                alt23=1;
             }
-            switch (alt21) {
+            switch (alt23) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:396:3: temp_description= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:403:3: temp_description= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(12)).eContents().get(1)).eContents().get(0)),line(),start());
                     }
                     temp_description=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleBoolProperty1031); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleBoolProperty1058); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"description",convert(temp_description),false); ptm.ruleFinished(temp_description,end()); 
                     }
@@ -2178,88 +2236,88 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:399:1: (temp_dataType= 'boolean' )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:399:2: temp_dataType= 'boolean'
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:406:1: (temp_dataType= 'boolean' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:406:2: temp_dataType= 'boolean'
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(12)).eContents().get(1)).eContents().get(1)),line(),start());
             }
             temp_dataType=(Token)input.LT(1);
-            match(input,30,FOLLOW_30_in_ruleBoolProperty1043); if (failed) return result;
+            match(input,32,FOLLOW_32_in_ruleBoolProperty1070); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"dataType",convert(temp_dataType),false); ptm.ruleFinished(temp_dataType,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:402:1: (temp_name= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:402:2: temp_name= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:409:1: (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:409:2: temp_name= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(12)).eContents().get(1)).eContents().get(2)),line(),start());
             }
             temp_name=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBoolProperty1054); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBoolProperty1081); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"name",convert(temp_name),false); ptm.ruleFinished(temp_name,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:405:1: ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:412:1: ( (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA23_0==31) ) {
-                alt23=1;
+            if ( (LA25_0==33) ) {
+                alt25=1;
             }
-            switch (alt23) {
+            switch (alt25) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:405:2: (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:412:2: (temp_hasDefault= 'default' ) ( (temp_defaultValue= 'true' ) | ( 'false' ) )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:405:2: (temp_hasDefault= 'default' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:405:3: temp_hasDefault= 'default'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:412:2: (temp_hasDefault= 'default' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:412:3: temp_hasDefault= 'default'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(12)).eContents().get(1)).eContents().get(3)).eContents().get(0)),line(),start());
                     }
                     temp_hasDefault=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleBoolProperty1066); if (failed) return result;
+                    match(input,33,FOLLOW_33_in_ruleBoolProperty1093); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"hasDefault",true); ptm.ruleFinished(temp_hasDefault,end()); 
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:408:1: ( (temp_defaultValue= 'true' ) | ( 'false' ) )
-                    int alt22=2;
-                    int LA22_0 = input.LA(1);
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:415:1: ( (temp_defaultValue= 'true' ) | ( 'false' ) )
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA22_0==32) ) {
-                        alt22=1;
+                    if ( (LA24_0==34) ) {
+                        alt24=1;
                     }
-                    else if ( (LA22_0==33) ) {
-                        alt22=2;
+                    else if ( (LA24_0==35) ) {
+                        alt24=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return result;}
                         NoViableAltException nvae =
-                            new NoViableAltException("408:1: ( (temp_defaultValue= 'true' ) | ( 'false' ) )", 22, 0, input);
+                            new NoViableAltException("415:1: ( (temp_defaultValue= 'true' ) | ( 'false' ) )", 24, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt22) {
+                    switch (alt24) {
                         case 1 :
-                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:408:2: (temp_defaultValue= 'true' )
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:415:2: (temp_defaultValue= 'true' )
                             {
-                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:408:2: (temp_defaultValue= 'true' )
-                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:408:3: temp_defaultValue= 'true'
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:415:2: (temp_defaultValue= 'true' )
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:415:3: temp_defaultValue= 'true'
                             {
                             if ( backtracking==0 ) {
                               ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(12)).eContents().get(1)).eContents().get(3)).eContents().get(1)).eContents().get(0)),line(),start());
                             }
                             temp_defaultValue=(Token)input.LT(1);
-                            match(input,32,FOLLOW_32_in_ruleBoolProperty1078); if (failed) return result;
+                            match(input,34,FOLLOW_34_in_ruleBoolProperty1105); if (failed) return result;
                             if ( backtracking==0 ) {
                               factory.set(result,"defaultValue",true); ptm.ruleFinished(temp_defaultValue,end()); 
                             }
@@ -2270,15 +2328,15 @@ public class BusinessDomainDslParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:411:1: ( 'false' )
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:418:1: ( 'false' )
                             {
-                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:411:1: ( 'false' )
-                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:411:2: 'false'
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:418:1: ( 'false' )
+                            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:418:2: 'false'
                             {
                             if ( backtracking==0 ) {
                               ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(12)).eContents().get(1)).eContents().get(3)).eContents().get(1)).eContents().get(1)),line(),start());
                             }
-                            match(input,33,FOLLOW_33_in_ruleBoolProperty1089); if (failed) return result;
+                            match(input,35,FOLLOW_35_in_ruleBoolProperty1116); if (failed) return result;
                             if ( backtracking==0 ) {
                               ptm.ruleFinished(getLastToken(),end());
                             }
@@ -2317,7 +2375,7 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleStringProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:417:1: ruleStringProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:424:1: ruleStringProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? ) ;
     public EObject ruleStringProperty() throws RecognitionException {
         EObject result = null;
         int ruleStringProperty_StartIndex = input.index();
@@ -2332,8 +2390,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 14) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:418:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:418:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:425:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:425:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? )
             {
             if ( backtracking==0 ) {
 
@@ -2341,25 +2399,25 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:422:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:422:2: (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )?
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:429:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:429:2: (temp_description= RULE_STRING )? (temp_dataType= 'string' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ( ( 'minlength' ) (temp_minLength= RULE_INT ) )? ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )? ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )?
             {
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:422:2: (temp_description= RULE_STRING )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:429:2: (temp_description= RULE_STRING )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA24_0==RULE_STRING) ) {
-                alt24=1;
+            if ( (LA26_0==RULE_STRING) ) {
+                alt26=1;
             }
-            switch (alt24) {
+            switch (alt26) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:422:3: temp_description= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:429:3: temp_description= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(0)),line(),start());
                     }
                     temp_description=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringProperty1121); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringProperty1148); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"description",convert(temp_description),false); ptm.ruleFinished(temp_description,end()); 
                     }
@@ -2369,67 +2427,67 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:425:1: (temp_dataType= 'string' )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:425:2: temp_dataType= 'string'
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:432:1: (temp_dataType= 'string' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:432:2: temp_dataType= 'string'
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(1)),line(),start());
             }
             temp_dataType=(Token)input.LT(1);
-            match(input,34,FOLLOW_34_in_ruleStringProperty1133); if (failed) return result;
+            match(input,36,FOLLOW_36_in_ruleStringProperty1160); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"dataType",convert(temp_dataType),false); ptm.ruleFinished(temp_dataType,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:428:1: (temp_name= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:428:2: temp_name= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:435:1: (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:435:2: temp_name= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(2)),line(),start());
             }
             temp_name=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStringProperty1144); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStringProperty1171); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"name",convert(temp_name),false); ptm.ruleFinished(temp_name,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:431:1: ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:1: ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA25_0==31) ) {
-                alt25=1;
+            if ( (LA27_0==33) ) {
+                alt27=1;
             }
-            switch (alt25) {
+            switch (alt27) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:431:2: (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:2: (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:431:2: (temp_hasDefault= 'default' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:431:3: temp_hasDefault= 'default'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:2: (temp_hasDefault= 'default' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:3: temp_hasDefault= 'default'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(3)).eContents().get(0)),line(),start());
                     }
                     temp_hasDefault=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleStringProperty1156); if (failed) return result;
+                    match(input,33,FOLLOW_33_in_ruleStringProperty1183); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"hasDefault",true); ptm.ruleFinished(temp_hasDefault,end()); 
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:434:1: (temp_defaultValue= RULE_STRING )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:434:2: temp_defaultValue= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:441:1: (temp_defaultValue= RULE_STRING )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:441:2: temp_defaultValue= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(3)).eContents().get(1)),line(),start());
                     }
                     temp_defaultValue=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringProperty1167); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringProperty1194); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"defaultValue",convert(temp_defaultValue),false); ptm.ruleFinished(temp_defaultValue,end()); 
                     }
@@ -2442,38 +2500,38 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:1: ( ( 'minlength' ) (temp_minLength= RULE_INT ) )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:445:1: ( ( 'minlength' ) (temp_minLength= RULE_INT ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA26_0==35) ) {
-                alt26=1;
+            if ( (LA28_0==37) ) {
+                alt28=1;
             }
-            switch (alt26) {
+            switch (alt28) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:2: ( 'minlength' ) (temp_minLength= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:445:2: ( 'minlength' ) (temp_minLength= RULE_INT )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:2: ( 'minlength' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:438:3: 'minlength'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:445:2: ( 'minlength' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:445:3: 'minlength'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(4)).eContents().get(0)),line(),start());
                     }
-                    match(input,35,FOLLOW_35_in_ruleStringProperty1180); if (failed) return result;
+                    match(input,37,FOLLOW_37_in_ruleStringProperty1207); if (failed) return result;
                     if ( backtracking==0 ) {
                       ptm.ruleFinished(getLastToken(),end());
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:440:1: (temp_minLength= RULE_INT )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:440:2: temp_minLength= RULE_INT
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:447:1: (temp_minLength= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:447:2: temp_minLength= RULE_INT
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(4)).eContents().get(1)),line(),start());
                     }
                     temp_minLength=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleStringProperty1189); if (failed) return result;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleStringProperty1216); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"minLength",convert(temp_minLength),false); ptm.ruleFinished(temp_minLength,end()); 
                     }
@@ -2486,38 +2544,38 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:444:1: ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:451:1: ( ( 'maxlength' ) (temp_maxLength= RULE_INT ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA27_0==36) ) {
-                alt27=1;
+            if ( (LA29_0==38) ) {
+                alt29=1;
             }
-            switch (alt27) {
+            switch (alt29) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:444:2: ( 'maxlength' ) (temp_maxLength= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:451:2: ( 'maxlength' ) (temp_maxLength= RULE_INT )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:444:2: ( 'maxlength' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:444:3: 'maxlength'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:451:2: ( 'maxlength' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:451:3: 'maxlength'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(5)).eContents().get(0)),line(),start());
                     }
-                    match(input,36,FOLLOW_36_in_ruleStringProperty1202); if (failed) return result;
+                    match(input,38,FOLLOW_38_in_ruleStringProperty1229); if (failed) return result;
                     if ( backtracking==0 ) {
                       ptm.ruleFinished(getLastToken(),end());
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:446:1: (temp_maxLength= RULE_INT )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:446:2: temp_maxLength= RULE_INT
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:453:1: (temp_maxLength= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:453:2: temp_maxLength= RULE_INT
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(5)).eContents().get(1)),line(),start());
                     }
                     temp_maxLength=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleStringProperty1211); if (failed) return result;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleStringProperty1238); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"maxLength",convert(temp_maxLength),false); ptm.ruleFinished(temp_maxLength,end()); 
                     }
@@ -2530,38 +2588,38 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:450:1: ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:457:1: ( ( 'regexp' ) (temp_regularExpression= RULE_STRING ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA28_0==37) ) {
-                alt28=1;
+            if ( (LA30_0==39) ) {
+                alt30=1;
             }
-            switch (alt28) {
+            switch (alt30) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:450:2: ( 'regexp' ) (temp_regularExpression= RULE_STRING )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:457:2: ( 'regexp' ) (temp_regularExpression= RULE_STRING )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:450:2: ( 'regexp' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:450:3: 'regexp'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:457:2: ( 'regexp' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:457:3: 'regexp'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(6)).eContents().get(0)),line(),start());
                     }
-                    match(input,37,FOLLOW_37_in_ruleStringProperty1224); if (failed) return result;
+                    match(input,39,FOLLOW_39_in_ruleStringProperty1251); if (failed) return result;
                     if ( backtracking==0 ) {
                       ptm.ruleFinished(getLastToken(),end());
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:452:1: (temp_regularExpression= RULE_STRING )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:452:2: temp_regularExpression= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:459:1: (temp_regularExpression= RULE_STRING )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:459:2: temp_regularExpression= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(13)).eContents().get(1)).eContents().get(6)).eContents().get(1)),line(),start());
                     }
                     temp_regularExpression=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringProperty1233); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringProperty1260); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"regularExpression",convert(temp_regularExpression),false); ptm.ruleFinished(temp_regularExpression,end()); 
                     }
@@ -2594,7 +2652,7 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleDateTimeProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:458:1: ruleDateTimeProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:465:1: ruleDateTimeProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ) ;
     public EObject ruleDateTimeProperty() throws RecognitionException {
         EObject result = null;
         int ruleDateTimeProperty_StartIndex = input.index();
@@ -2606,8 +2664,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 15) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:459:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:459:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:466:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:466:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? )
             {
             if ( backtracking==0 ) {
 
@@ -2615,25 +2673,25 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:463:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:463:2: (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )?
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:470:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:470:2: (temp_description= RULE_STRING )? (temp_dataType= 'datetime' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )?
             {
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:463:2: (temp_description= RULE_STRING )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:470:2: (temp_description= RULE_STRING )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA29_0==RULE_STRING) ) {
-                alt29=1;
+            if ( (LA31_0==RULE_STRING) ) {
+                alt31=1;
             }
-            switch (alt29) {
+            switch (alt31) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:463:3: temp_description= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:470:3: temp_description= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(14)).eContents().get(1)).eContents().get(0)),line(),start());
                     }
                     temp_description=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDateTimeProperty1265); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDateTimeProperty1292); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"description",convert(temp_description),false); ptm.ruleFinished(temp_description,end()); 
                     }
@@ -2643,67 +2701,67 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:466:1: (temp_dataType= 'datetime' )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:466:2: temp_dataType= 'datetime'
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:473:1: (temp_dataType= 'datetime' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:473:2: temp_dataType= 'datetime'
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(14)).eContents().get(1)).eContents().get(1)),line(),start());
             }
             temp_dataType=(Token)input.LT(1);
-            match(input,38,FOLLOW_38_in_ruleDateTimeProperty1277); if (failed) return result;
+            match(input,40,FOLLOW_40_in_ruleDateTimeProperty1304); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"dataType",convert(temp_dataType),false); ptm.ruleFinished(temp_dataType,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:469:1: (temp_name= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:469:2: temp_name= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:476:1: (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:476:2: temp_name= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(14)).eContents().get(1)).eContents().get(2)),line(),start());
             }
             temp_name=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDateTimeProperty1288); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDateTimeProperty1315); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"name",convert(temp_name),false); ptm.ruleFinished(temp_name,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:472:1: ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:479:1: ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING ) )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA30_0==31) ) {
-                alt30=1;
+            if ( (LA32_0==33) ) {
+                alt32=1;
             }
-            switch (alt30) {
+            switch (alt32) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:472:2: (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:479:2: (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_STRING )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:472:2: (temp_hasDefault= 'default' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:472:3: temp_hasDefault= 'default'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:479:2: (temp_hasDefault= 'default' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:479:3: temp_hasDefault= 'default'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(14)).eContents().get(1)).eContents().get(3)).eContents().get(0)),line(),start());
                     }
                     temp_hasDefault=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleDateTimeProperty1300); if (failed) return result;
+                    match(input,33,FOLLOW_33_in_ruleDateTimeProperty1327); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"hasDefault",true); ptm.ruleFinished(temp_hasDefault,end()); 
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:475:1: (temp_defaultValue= RULE_STRING )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:475:2: temp_defaultValue= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:482:1: (temp_defaultValue= RULE_STRING )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:482:2: temp_defaultValue= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(14)).eContents().get(1)).eContents().get(3)).eContents().get(1)),line(),start());
                     }
                     temp_defaultValue=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDateTimeProperty1311); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDateTimeProperty1338); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"defaultValue",convert(temp_defaultValue),false); ptm.ruleFinished(temp_defaultValue,end()); 
                     }
@@ -2736,7 +2794,7 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleIntegerProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:481:1: ruleIntegerProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:488:1: ruleIntegerProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? ) ;
     public EObject ruleIntegerProperty() throws RecognitionException {
         EObject result = null;
         int ruleIntegerProperty_StartIndex = input.index();
@@ -2750,8 +2808,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 16) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:482:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:482:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:489:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:489:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? )
             {
             if ( backtracking==0 ) {
 
@@ -2759,25 +2817,25 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:486:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:486:2: (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )?
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:493:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:493:2: (temp_description= RULE_STRING )? (temp_dataType= 'integer' ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )? ( ( 'min' ) (temp_minValue= RULE_INT ) )? ( ( 'max' ) (temp_maxValue= RULE_INT ) )?
             {
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:486:2: (temp_description= RULE_STRING )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:493:2: (temp_description= RULE_STRING )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_STRING) ) {
-                alt31=1;
+            if ( (LA33_0==RULE_STRING) ) {
+                alt33=1;
             }
-            switch (alt31) {
+            switch (alt33) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:486:3: temp_description= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:493:3: temp_description= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(0)),line(),start());
                     }
                     temp_description=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleIntegerProperty1343); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleIntegerProperty1370); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"description",convert(temp_description),false); ptm.ruleFinished(temp_description,end()); 
                     }
@@ -2787,67 +2845,67 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:489:1: (temp_dataType= 'integer' )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:489:2: temp_dataType= 'integer'
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:496:1: (temp_dataType= 'integer' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:496:2: temp_dataType= 'integer'
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(1)),line(),start());
             }
             temp_dataType=(Token)input.LT(1);
-            match(input,39,FOLLOW_39_in_ruleIntegerProperty1355); if (failed) return result;
+            match(input,41,FOLLOW_41_in_ruleIntegerProperty1382); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"dataType",convert(temp_dataType),false); ptm.ruleFinished(temp_dataType,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:492:1: (temp_name= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:492:2: temp_name= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:499:1: (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:499:2: temp_name= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(2)),line(),start());
             }
             temp_name=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleIntegerProperty1366); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleIntegerProperty1393); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"name",convert(temp_name),false); ptm.ruleFinished(temp_name,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:495:1: ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:1: ( (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT ) )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA32_0==31) ) {
-                alt32=1;
+            if ( (LA34_0==33) ) {
+                alt34=1;
             }
-            switch (alt32) {
+            switch (alt34) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:495:2: (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:2: (temp_hasDefault= 'default' ) (temp_defaultValue= RULE_INT )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:495:2: (temp_hasDefault= 'default' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:495:3: temp_hasDefault= 'default'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:2: (temp_hasDefault= 'default' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:3: temp_hasDefault= 'default'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(3)).eContents().get(0)),line(),start());
                     }
                     temp_hasDefault=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleIntegerProperty1378); if (failed) return result;
+                    match(input,33,FOLLOW_33_in_ruleIntegerProperty1405); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"hasDefault",true); ptm.ruleFinished(temp_hasDefault,end()); 
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:498:1: (temp_defaultValue= RULE_INT )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:498:2: temp_defaultValue= RULE_INT
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:505:1: (temp_defaultValue= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:505:2: temp_defaultValue= RULE_INT
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(3)).eContents().get(1)),line(),start());
                     }
                     temp_defaultValue=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerProperty1389); if (failed) return result;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerProperty1416); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"defaultValue",convert(temp_defaultValue),false); ptm.ruleFinished(temp_defaultValue,end()); 
                     }
@@ -2860,38 +2918,38 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:1: ( ( 'min' ) (temp_minValue= RULE_INT ) )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:509:1: ( ( 'min' ) (temp_minValue= RULE_INT ) )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA33_0==40) ) {
-                alt33=1;
+            if ( (LA35_0==42) ) {
+                alt35=1;
             }
-            switch (alt33) {
+            switch (alt35) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:2: ( 'min' ) (temp_minValue= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:509:2: ( 'min' ) (temp_minValue= RULE_INT )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:2: ( 'min' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:502:3: 'min'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:509:2: ( 'min' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:509:3: 'min'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(4)).eContents().get(0)),line(),start());
                     }
-                    match(input,40,FOLLOW_40_in_ruleIntegerProperty1402); if (failed) return result;
+                    match(input,42,FOLLOW_42_in_ruleIntegerProperty1429); if (failed) return result;
                     if ( backtracking==0 ) {
                       ptm.ruleFinished(getLastToken(),end());
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:504:1: (temp_minValue= RULE_INT )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:504:2: temp_minValue= RULE_INT
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:511:1: (temp_minValue= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:511:2: temp_minValue= RULE_INT
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(4)).eContents().get(1)),line(),start());
                     }
                     temp_minValue=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerProperty1411); if (failed) return result;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerProperty1438); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"minValue",convert(temp_minValue),false); ptm.ruleFinished(temp_minValue,end()); 
                     }
@@ -2904,38 +2962,38 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:508:1: ( ( 'max' ) (temp_maxValue= RULE_INT ) )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:515:1: ( ( 'max' ) (temp_maxValue= RULE_INT ) )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA34_0==41) ) {
-                alt34=1;
+            if ( (LA36_0==43) ) {
+                alt36=1;
             }
-            switch (alt34) {
+            switch (alt36) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:508:2: ( 'max' ) (temp_maxValue= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:515:2: ( 'max' ) (temp_maxValue= RULE_INT )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:508:2: ( 'max' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:508:3: 'max'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:515:2: ( 'max' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:515:3: 'max'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(5)).eContents().get(0)),line(),start());
                     }
-                    match(input,41,FOLLOW_41_in_ruleIntegerProperty1424); if (failed) return result;
+                    match(input,43,FOLLOW_43_in_ruleIntegerProperty1451); if (failed) return result;
                     if ( backtracking==0 ) {
                       ptm.ruleFinished(getLastToken(),end());
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:510:1: (temp_maxValue= RULE_INT )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:510:2: temp_maxValue= RULE_INT
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:517:1: (temp_maxValue= RULE_INT )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:517:2: temp_maxValue= RULE_INT
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(16)).eContents().get(1)).eContents().get(5)).eContents().get(1)),line(),start());
                     }
                     temp_maxValue=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerProperty1433); if (failed) return result;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerProperty1460); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"maxValue",convert(temp_maxValue),false); ptm.ruleFinished(temp_maxValue,end()); 
                     }
@@ -2968,7 +3026,7 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleDecimalProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:516:1: ruleDecimalProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:523:1: ruleDecimalProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) ) ;
     public EObject ruleDecimalProperty() throws RecognitionException {
         EObject result = null;
         int ruleDecimalProperty_StartIndex = input.index();
@@ -2978,8 +3036,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 17) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:517:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:517:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:524:4: ( ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:524:4: ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) )
             {
             if ( backtracking==0 ) {
 
@@ -2987,25 +3045,25 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:521:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:521:2: (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:528:1: ( (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:528:2: (temp_description= RULE_STRING )? (temp_dataType= 'decimal' ) (temp_name= RULE_ID )
             {
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:521:2: (temp_description= RULE_STRING )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:528:2: (temp_description= RULE_STRING )?
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA35_0==RULE_STRING) ) {
-                alt35=1;
+            if ( (LA37_0==RULE_STRING) ) {
+                alt37=1;
             }
-            switch (alt35) {
+            switch (alt37) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:521:3: temp_description= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:528:3: temp_description= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(17)).eContents().get(1)).eContents().get(0)),line(),start());
                     }
                     temp_description=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDecimalProperty1465); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDecimalProperty1492); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"description",convert(temp_description),false); ptm.ruleFinished(temp_description,end()); 
                     }
@@ -3015,28 +3073,28 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:524:1: (temp_dataType= 'decimal' )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:524:2: temp_dataType= 'decimal'
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:531:1: (temp_dataType= 'decimal' )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:531:2: temp_dataType= 'decimal'
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(17)).eContents().get(1)).eContents().get(1)),line(),start());
             }
             temp_dataType=(Token)input.LT(1);
-            match(input,42,FOLLOW_42_in_ruleDecimalProperty1477); if (failed) return result;
+            match(input,44,FOLLOW_44_in_ruleDecimalProperty1504); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"dataType",convert(temp_dataType),false); ptm.ruleFinished(temp_dataType,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:527:1: (temp_name= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:527:2: temp_name= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:534:1: (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:534:2: temp_name= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(17)).eContents().get(1)).eContents().get(2)),line(),start());
             }
             temp_name=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDecimalProperty1488); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDecimalProperty1515); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"name",convert(temp_name),false); ptm.ruleFinished(temp_name,end()); 
             }
@@ -3063,7 +3121,7 @@ public class BusinessDomainDslParser extends Parser {
 
 
     // $ANTLR start ruleEnumerationProperty
-    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:532:1: ruleEnumerationProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? ) ;
+    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:539:1: ruleEnumerationProperty returns [EObject result] : ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? ) ;
     public EObject ruleEnumerationProperty() throws RecognitionException {
         EObject result = null;
         int ruleEnumerationProperty_StartIndex = input.index();
@@ -3075,8 +3133,8 @@ public class BusinessDomainDslParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 18) ) { return result; }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:533:4: ( ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? ) )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:533:4: ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:540:4: ( ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? ) )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:540:4: ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? )
             {
             if ( backtracking==0 ) {
 
@@ -3084,25 +3142,25 @@ public class BusinessDomainDslParser extends Parser {
               				ptm.setModelElement(result);
               			 
             }
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:537:1: ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:537:2: (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )?
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:544:1: ( (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )? )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:544:2: (temp_description= RULE_STRING )? (temp_type= RULE_ID ) (temp_name= RULE_ID ) ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )?
             {
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:537:2: (temp_description= RULE_STRING )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:544:2: (temp_description= RULE_STRING )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA36_0==RULE_STRING) ) {
-                alt36=1;
+            if ( (LA38_0==RULE_STRING) ) {
+                alt38=1;
             }
-            switch (alt36) {
+            switch (alt38) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:537:3: temp_description= RULE_STRING
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:544:3: temp_description= RULE_STRING
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(18)).eContents().get(1)).eContents().get(0)),line(),start());
                     }
                     temp_description=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEnumerationProperty1517); if (failed) return result;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEnumerationProperty1544); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"description",convert(temp_description),false); ptm.ruleFinished(temp_description,end()); 
                     }
@@ -3112,67 +3170,67 @@ public class BusinessDomainDslParser extends Parser {
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:540:1: (temp_type= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:540:2: temp_type= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:547:1: (temp_type= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:547:2: temp_type= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(18)).eContents().get(1)).eContents().get(1)),line(),start());
             }
             temp_type=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationProperty1529); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationProperty1556); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"type",convert(temp_type),true); ptm.ruleFinished(temp_type,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:544:1: (temp_name= RULE_ID )
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:544:2: temp_name= RULE_ID
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:551:1: (temp_name= RULE_ID )
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:551:2: temp_name= RULE_ID
             {
             if ( backtracking==0 ) {
               ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(18)).eContents().get(1)).eContents().get(2)),line(),start());
             }
             temp_name=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationProperty1541); if (failed) return result;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationProperty1568); if (failed) return result;
             if ( backtracking==0 ) {
               factory.set(result,"name",convert(temp_name),false); ptm.ruleFinished(temp_name,end()); 
             }
 
             }
 
-            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:547:1: ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:554:1: ( (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID ) )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA37_0==31) ) {
-                alt37=1;
+            if ( (LA39_0==33) ) {
+                alt39=1;
             }
-            switch (alt37) {
+            switch (alt39) {
                 case 1 :
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:547:2: (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:554:2: (temp_hasDefault= 'default' ) (temp_defaultValueAsString= RULE_ID )
                     {
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:547:2: (temp_hasDefault= 'default' )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:547:3: temp_hasDefault= 'default'
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:554:2: (temp_hasDefault= 'default' )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:554:3: temp_hasDefault= 'default'
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(18)).eContents().get(1)).eContents().get(3)).eContents().get(0)),line(),start());
                     }
                     temp_hasDefault=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleEnumerationProperty1553); if (failed) return result;
+                    match(input,33,FOLLOW_33_in_ruleEnumerationProperty1580); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"hasDefault",true); ptm.ruleFinished(temp_hasDefault,end()); 
                     }
 
                     }
 
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:550:1: (temp_defaultValueAsString= RULE_ID )
-                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:550:2: temp_defaultValueAsString= RULE_ID
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:557:1: (temp_defaultValueAsString= RULE_ID )
+                    // ..//org.mod4j.dsl.businessdomain.xtext/src-gen//org/mod4j/businessdomain/xtext/parser/BusinessDomainDsl.g:557:2: temp_defaultValueAsString= RULE_ID
                     {
                     if ( backtracking==0 ) {
                       ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(18)).eContents().get(1)).eContents().get(3)).eContents().get(1)),line(),start());
                     }
                     temp_defaultValueAsString=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationProperty1564); if (failed) return result;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationProperty1591); if (failed) return result;
                     if ( backtracking==0 ) {
                       factory.set(result,"defaultValueAsString",convert(temp_defaultValueAsString),false); ptm.ruleFinished(temp_defaultValueAsString,end()); 
                     }
@@ -3240,8 +3298,8 @@ public class BusinessDomainDslParser extends Parser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClass472 = new BitSet(new long[]{0x0000000000600000L});
     public static final BitSet FOLLOW_21_in_ruleBusinessClass482 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClass491 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleBusinessClass504 = new BitSet(new long[]{0x000004C441800030L});
-    public static final BitSet FOLLOW_ruleProperty_in_ruleBusinessClass513 = new BitSet(new long[]{0x000004C441800030L});
+    public static final BitSet FOLLOW_22_in_ruleBusinessClass504 = new BitSet(new long[]{0x0000131101800030L});
+    public static final BitSet FOLLOW_ruleProperty_in_ruleBusinessClass513 = new BitSet(new long[]{0x0000131101800030L});
     public static final BitSet FOLLOW_23_in_ruleBusinessClass524 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_ruleBusinessClass531 = new BitSet(new long[]{0x0000000009000030L});
     public static final BitSet FOLLOW_ruleAbstractBusinessRule_in_ruleBusinessClass540 = new BitSet(new long[]{0x0000000009000030L});
@@ -3270,52 +3328,54 @@ public class BusinessDomainDslParser extends Parser {
     public static final BitSet FOLLOW_28_in_ruleUniqueRule854 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleUniqueRule863 = new BitSet(new long[]{0x0000000011000000L});
     public static final BitSet FOLLOW_24_in_ruleUniqueRule876 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolProperty_in_ruleProperty905 = new BitSet(new long[]{0x0000000020000800L});
-    public static final BitSet FOLLOW_ruleStringProperty_in_ruleProperty920 = new BitSet(new long[]{0x0000000020000800L});
-    public static final BitSet FOLLOW_ruleDateTimeProperty_in_ruleProperty935 = new BitSet(new long[]{0x0000000020000800L});
-    public static final BitSet FOLLOW_ruleIntegerProperty_in_ruleProperty950 = new BitSet(new long[]{0x0000000020000800L});
-    public static final BitSet FOLLOW_ruleDecimalProperty_in_ruleProperty965 = new BitSet(new long[]{0x0000000020000800L});
-    public static final BitSet FOLLOW_ruleEnumerationProperty_in_ruleProperty980 = new BitSet(new long[]{0x0000000020000800L});
-    public static final BitSet FOLLOW_29_in_ruleProperty994 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleProperty1004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleBoolProperty1031 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleBoolProperty1043 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBoolProperty1054 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_31_in_ruleBoolProperty1066 = new BitSet(new long[]{0x0000000300000000L});
-    public static final BitSet FOLLOW_32_in_ruleBoolProperty1078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleBoolProperty1089 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringProperty1121 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleStringProperty1133 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleStringProperty1144 = new BitSet(new long[]{0x0000003880000002L});
-    public static final BitSet FOLLOW_31_in_ruleStringProperty1156 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringProperty1167 = new BitSet(new long[]{0x0000003800000002L});
-    public static final BitSet FOLLOW_35_in_ruleStringProperty1180 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleStringProperty1189 = new BitSet(new long[]{0x0000003000000002L});
-    public static final BitSet FOLLOW_36_in_ruleStringProperty1202 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleStringProperty1211 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_37_in_ruleStringProperty1224 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringProperty1233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDateTimeProperty1265 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleDateTimeProperty1277 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDateTimeProperty1288 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_31_in_ruleDateTimeProperty1300 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDateTimeProperty1311 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleIntegerProperty1343 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleIntegerProperty1355 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleIntegerProperty1366 = new BitSet(new long[]{0x0000030080000002L});
-    public static final BitSet FOLLOW_31_in_ruleIntegerProperty1378 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerProperty1389 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_40_in_ruleIntegerProperty1402 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerProperty1411 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_41_in_ruleIntegerProperty1424 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerProperty1433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDecimalProperty1465 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleDecimalProperty1477 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDecimalProperty1488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleEnumerationProperty1517 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationProperty1529 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationProperty1541 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_31_in_ruleEnumerationProperty1553 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationProperty1564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolProperty_in_ruleProperty905 = new BitSet(new long[]{0x0000000060000800L});
+    public static final BitSet FOLLOW_ruleStringProperty_in_ruleProperty920 = new BitSet(new long[]{0x0000000060000800L});
+    public static final BitSet FOLLOW_ruleDateTimeProperty_in_ruleProperty935 = new BitSet(new long[]{0x0000000060000800L});
+    public static final BitSet FOLLOW_ruleIntegerProperty_in_ruleProperty950 = new BitSet(new long[]{0x0000000060000800L});
+    public static final BitSet FOLLOW_ruleDecimalProperty_in_ruleProperty965 = new BitSet(new long[]{0x0000000060000800L});
+    public static final BitSet FOLLOW_ruleEnumerationProperty_in_ruleProperty980 = new BitSet(new long[]{0x0000000060000800L});
+    public static final BitSet FOLLOW_29_in_ruleProperty994 = new BitSet(new long[]{0x0000000040000800L});
+    public static final BitSet FOLLOW_30_in_ruleProperty1007 = new BitSet(new long[]{0x0000000080000800L});
+    public static final BitSet FOLLOW_31_in_ruleProperty1018 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleProperty1031 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleBoolProperty1058 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleBoolProperty1070 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBoolProperty1081 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_33_in_ruleBoolProperty1093 = new BitSet(new long[]{0x0000000C00000000L});
+    public static final BitSet FOLLOW_34_in_ruleBoolProperty1105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleBoolProperty1116 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringProperty1148 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleStringProperty1160 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleStringProperty1171 = new BitSet(new long[]{0x000000E200000002L});
+    public static final BitSet FOLLOW_33_in_ruleStringProperty1183 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringProperty1194 = new BitSet(new long[]{0x000000E000000002L});
+    public static final BitSet FOLLOW_37_in_ruleStringProperty1207 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleStringProperty1216 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_38_in_ruleStringProperty1229 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleStringProperty1238 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_39_in_ruleStringProperty1251 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringProperty1260 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDateTimeProperty1292 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ruleDateTimeProperty1304 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDateTimeProperty1315 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_33_in_ruleDateTimeProperty1327 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDateTimeProperty1338 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleIntegerProperty1370 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleIntegerProperty1382 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleIntegerProperty1393 = new BitSet(new long[]{0x00000C0200000002L});
+    public static final BitSet FOLLOW_33_in_ruleIntegerProperty1405 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerProperty1416 = new BitSet(new long[]{0x00000C0000000002L});
+    public static final BitSet FOLLOW_42_in_ruleIntegerProperty1429 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerProperty1438 = new BitSet(new long[]{0x0000080000000002L});
+    public static final BitSet FOLLOW_43_in_ruleIntegerProperty1451 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerProperty1460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDecimalProperty1492 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_44_in_ruleDecimalProperty1504 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDecimalProperty1515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleEnumerationProperty1544 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationProperty1556 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationProperty1568 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_33_in_ruleEnumerationProperty1580 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationProperty1591 = new BitSet(new long[]{0x0000000000000002L});
 
 }

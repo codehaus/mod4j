@@ -384,7 +384,14 @@ temp_EnumerationProperty=ruleEnumerationProperty {$result=temp_EnumerationProper
 ({ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(1)),line(),start());}temp_nullable='nullable' {factory.set($result,"nullable",true); ptm.ruleFinished(temp_nullable,end()); }
 )?
 
-({ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(2)),line(),start());}';'{ptm.ruleFinished(getLastToken(),end());})
+(({ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(2)).eContents().get(0)),line(),start());}temp_derived='derived' {factory.set($result,"derived",true); ptm.ruleFinished(temp_derived,end()); }
+)
+
+({ptm.invokeRule(((EObject)((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(2)).eContents().get(1)),line(),start());}temp_writable='writable' {factory.set($result,"writable",true); ptm.ruleFinished(temp_writable,end()); }
+)?
+)?
+
+({ptm.invokeRule(((EObject)((EObject)((EObject)xtextfile.eContents().get(11)).eContents().get(1)).eContents().get(3)),line(),start());}';'{ptm.ruleFinished(getLastToken(),end());})
 )
 ;
 

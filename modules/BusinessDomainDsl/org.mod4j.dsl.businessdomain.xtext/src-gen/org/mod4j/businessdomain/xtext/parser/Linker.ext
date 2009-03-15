@@ -10,8 +10,8 @@ private Void internalLink(emf::EObject this) :
 
 
 private Void internalLink(BusinessDomainDsl::Association this) :
-	this.link_target()
- -> 	this.link_source()
+	this.link_source()
+ -> 	this.link_target()
 ;
 
 private Void internalLink(BusinessDomainDsl::BusinessClass this) :

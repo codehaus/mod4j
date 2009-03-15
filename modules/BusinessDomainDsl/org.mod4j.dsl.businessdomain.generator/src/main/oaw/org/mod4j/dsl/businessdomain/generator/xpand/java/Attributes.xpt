@@ -48,22 +48,47 @@
 
 «DEFINE addGetter FOR Property»
 	/**
-	*
-	* @return «name» («javaType(this)») «description»
-	*/
-	public «javaType(this)» get«name.toFirstUpper()» () {
-   		return this.«name»;
-	}
+	 * @return «name» («javaType(this)») «description»
+	 */
+    public «javaType(this)» get«name.toFirstUpper()» () {
+        return this.«name»;
+    }
+«ENDDEFINE»
+
+«DEFINE addAbstractGetter FOR Property»
+    /**
+     * @return «name» («javaType(this)») «description»
+     */
+    abstract public «javaType(this)» get«name.toFirstUpper()» ();
 «ENDDEFINE»
 
 «DEFINE addGetter FOR BoolProperty»
     /**
-    *
-    * @return «name» («javaType(this)») «description»
-    */
+     * @return «name» («javaType(this)») «description»
+     */
     public «javaType(this)» is«name.toFirstUpper()» () {
         return this.«name»;
     }
+«ENDDEFINE»
+
+«DEFINE addAbstractGetter FOR BoolProperty»
+    /**
+     * @return «name» («javaType(this)») «description»
+     */
+    public abstract «javaType(this)» is«name.toFirstUpper()» ();
+«ENDDEFINE»
+
+«DEFINE addSetter FOR Property»
+    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
+        this.«name» = «name»;
+        validation.validate();
+    }
+«ENDDEFINE»
+
+«DEFINE addAbstractSetter FOR Property»
+   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    abstract public void set«name.toFirstUpper()» (final «javaType(this)» «name»);
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR BlobBinaryProperty»
@@ -83,7 +108,7 @@
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR DateTimeProperty»
-	«EXPAND instanceVariable FOR this»
+ 	«EXPAND instanceVariable FOR this»
 «REM»	public static final String «name.toUpperCase()»_ACCURACY = "«accuracy»"; «ENDREM»
 «ENDDEFINE»
 
@@ -111,23 +136,15 @@
 
 «DEFINE addAttribute FOR StringProperty»	
 	«EXPAND instanceVariable FOR this» 
-	«IF regularExpression.length > 0»
-		public static final «javaType(this)» «name.toUpperCase()»_REGEXP = "«regularExpression»";
-	«ENDIF»
-	«IF minLength > -1»
-		public static final Integer «name.toUpperCase()»_MINLENGTH = «minLength»;
-	«ENDIF»
-	«IF maxLength > -1»
-		public static final Integer «name.toUpperCase()»_MAXLENGTH = «maxLength»;
-	«ENDIF»
-«ENDDEFINE»
-
-«DEFINE addSetter FOR Property»
-   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
-    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
-        this.«name» = «name»;
-        validation.validate();
-    }
+    «IF regularExpression.length > 0»
+        public static final «javaType(this)» «name.toUpperCase()»_REGEXP = "«regularExpression»";
+     «ENDIF»
+     «IF minLength > -1»
+         public static final Integer «name.toUpperCase()»_MINLENGTH = «minLength»;
+     «ENDIF»
+     «IF maxLength > -1»
+         public static final Integer «name.toUpperCase()»_MAXLENGTH = «maxLength»;
+     «ENDIF»
 «ENDDEFINE»
 
 «DEFINE addAttribute FOR Property»

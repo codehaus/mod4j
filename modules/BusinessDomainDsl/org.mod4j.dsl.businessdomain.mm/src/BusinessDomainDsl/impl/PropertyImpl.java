@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#isDerived <em>Derived</em>}</li>
+ *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#isWritable <em>Writable</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#getPersistency <em>Persistency</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link BusinessDomainDsl.impl.PropertyImpl#getOwningType <em>Owning Type</em>}</li>
@@ -80,6 +82,46 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 	protected boolean nullable = NULLABLE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isDerived() <em>Derived</em>}' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #isDerived()
+	 * @generated
+	 * @ordered
+	 */
+    protected static final boolean DERIVED_EDEFAULT = false;
+
+    /**
+	 * The cached value of the '{@link #isDerived() <em>Derived</em>}' attribute.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #isDerived()
+	 * @generated
+	 * @ordered
+	 */
+    protected boolean derived = DERIVED_EDEFAULT;
+
+    /**
+	 * The default value of the '{@link #isWritable() <em>Writable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWritable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean WRITABLE_EDEFAULT = true;
+
+				/**
+	 * The cached value of the '{@link #isWritable() <em>Writable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWritable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean writable = WRITABLE_EDEFAULT;
+
+				/**
 	 * The default value of the '{@link #getPersistency() <em>Persistency</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,6 +223,48 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public boolean isDerived() {
+		return derived;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public void setDerived(boolean newDerived) {
+		boolean oldDerived = derived;
+		derived = newDerived;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__DERIVED, oldDerived, derived));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isWritable() {
+		return writable;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWritable(boolean newWritable) {
+		boolean oldWritable = writable;
+		writable = newWritable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.PROPERTY__WRITABLE, oldWritable, writable));
+	}
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -319,6 +403,10 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 				return getDataType();
 			case BusinessDomainDslPackage.PROPERTY__NULLABLE:
 				return isNullable() ? Boolean.TRUE : Boolean.FALSE;
+			case BusinessDomainDslPackage.PROPERTY__DERIVED:
+				return isDerived() ? Boolean.TRUE : Boolean.FALSE;
+			case BusinessDomainDslPackage.PROPERTY__WRITABLE:
+				return isWritable() ? Boolean.TRUE : Boolean.FALSE;
 			case BusinessDomainDslPackage.PROPERTY__PERSISTENCY:
 				return getPersistency();
 			case BusinessDomainDslPackage.PROPERTY__HAS_DEFAULT:
@@ -342,6 +430,12 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 				return;
 			case BusinessDomainDslPackage.PROPERTY__NULLABLE:
 				setNullable(((Boolean)newValue).booleanValue());
+				return;
+			case BusinessDomainDslPackage.PROPERTY__DERIVED:
+				setDerived(((Boolean)newValue).booleanValue());
+				return;
+			case BusinessDomainDslPackage.PROPERTY__WRITABLE:
+				setWritable(((Boolean)newValue).booleanValue());
 				return;
 			case BusinessDomainDslPackage.PROPERTY__PERSISTENCY:
 				setPersistency((PersistencyMode)newValue);
@@ -370,6 +464,12 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 			case BusinessDomainDslPackage.PROPERTY__NULLABLE:
 				setNullable(NULLABLE_EDEFAULT);
 				return;
+			case BusinessDomainDslPackage.PROPERTY__DERIVED:
+				setDerived(DERIVED_EDEFAULT);
+				return;
+			case BusinessDomainDslPackage.PROPERTY__WRITABLE:
+				setWritable(WRITABLE_EDEFAULT);
+				return;
 			case BusinessDomainDslPackage.PROPERTY__PERSISTENCY:
 				setPersistency(PERSISTENCY_EDEFAULT);
 				return;
@@ -395,6 +495,10 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 				return DATA_TYPE_EDEFAULT == null ? dataType != null : !DATA_TYPE_EDEFAULT.equals(dataType);
 			case BusinessDomainDslPackage.PROPERTY__NULLABLE:
 				return nullable != NULLABLE_EDEFAULT;
+			case BusinessDomainDslPackage.PROPERTY__DERIVED:
+				return derived != DERIVED_EDEFAULT;
+			case BusinessDomainDslPackage.PROPERTY__WRITABLE:
+				return writable != WRITABLE_EDEFAULT;
 			case BusinessDomainDslPackage.PROPERTY__PERSISTENCY:
 				return persistency != PERSISTENCY_EDEFAULT;
 			case BusinessDomainDslPackage.PROPERTY__HAS_DEFAULT:
@@ -419,6 +523,10 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 		result.append(dataType);
 		result.append(", nullable: ");
 		result.append(nullable);
+		result.append(", derived: ");
+		result.append(derived);
+		result.append(", writable: ");
+		result.append(writable);
 		result.append(", persistency: ");
 		result.append(persistency);
 		result.append(", hasDefault: ");

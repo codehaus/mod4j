@@ -213,6 +213,14 @@
       <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="nullable" operator="BOOLASSIGN">
         <token xsi:type="xtext:Keyword" value="nullable"/>
       </children>
+      <children xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <children xsi:type="xtext:Assignment" feature="derived" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="derived"/>
+        </children>
+        <children xsi:type="xtext:Assignment" cardinality="OPTIONAL" feature="writable" operator="BOOLASSIGN">
+          <token xsi:type="xtext:Keyword" value="writable"/>
+        </children>
+      </children>
       <children xsi:type="xtext:Keyword" value=";"/>
     </content>
   </rules>
