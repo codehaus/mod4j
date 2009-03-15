@@ -80,9 +80,6 @@ context Property ERROR "The dataType of property [" + this.name + "] is not spec
 context Property ERROR "The name of Property ["+ name + "] must be more than one character long." :
     name.length > 1;
     
-context Property ERROR "The derived Property [" + name + "] is already implicitly nullable." :
-	derived implies !nullable;
-    
 context Property ERROR "The derived Property [" + name + "] cannot have a default value." :
 	derived implies !hasDefault;
  

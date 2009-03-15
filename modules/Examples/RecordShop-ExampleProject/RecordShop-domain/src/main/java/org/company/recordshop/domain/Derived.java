@@ -1,5 +1,5 @@
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Sat Mar 07 22:00:59 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Fri Mar 13 10:00:49 CET 2009
  */
 package org.company.recordshop.domain;
 
@@ -15,8 +15,12 @@ public class Derived extends DerivedImplBase {
     /**
      * Minimal constructor for Derived
      */
-    public Derived() {
-        super();
+    public Derived(
+
+    ) {
+        super(
+
+        );
     }
 
     /**
@@ -38,13 +42,13 @@ public class Derived extends DerivedImplBase {
      * @return third (DateTime)
      */
     public DateTime getThird() {
-        return new DateTime(1);
+        return new DateTime(3);
     }
 
     /**
-     * @return fourth (int)
+     * @return fourth (Integer)
      */
-    public int getFourth() {
+    public Integer getFourth() {
         return 4;
     }
 
@@ -56,13 +60,6 @@ public class Derived extends DerivedImplBase {
     }
 
     /**
-     * @param first
-     *            (String)
-     */
-    public void setFirst(final String first) {
-    }
-
-    /**
      * @param secondo
      *            (boolean)
      */
@@ -70,24 +67,22 @@ public class Derived extends DerivedImplBase {
     }
 
     /**
-     * @param third
-     *            (DateTime)
-     */
-    public void setThird(final DateTime third) {
-    }
-
-    /**
      * @param fourth
-     *            (int)
+     *            (Integer)
      */
-    public void setFourth(final int fourth) {
+    public void setFourth(final Integer fourth) {
     }
 
-    /**
-     * @param fifth
-     *            (float)
-     */
-    public void setFifth(final float fifth) {
+    @Override
+    public void setFifth(float fifth) {
+    }
+
+    @Override
+    public void setFirst(String first) {
+    }
+
+    @Override
+    public void setThird(DateTime third) {
     }
 
 }

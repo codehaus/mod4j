@@ -38,12 +38,12 @@ public class DerivedDaoTest extends AbstractDaoTestCase {
 
     @Test
     public void testGetThird() {
-        assertEquals(new DateTime(1), read.getThird());
+        assertEquals(new DateTime(3), read.getThird());
     }
 
     @Test
     public void testGetFourth() {
-        assertEquals(4, read.getFourth());
+        assertEquals(Integer.valueOf(4), read.getFourth());
     }
 
     @Test

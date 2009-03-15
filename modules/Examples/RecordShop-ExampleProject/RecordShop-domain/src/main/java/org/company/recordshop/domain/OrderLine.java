@@ -1,5 +1,6 @@
+
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in JavaBean.xpt at: Tue Feb 24 16:48:48 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Fri Mar 13 10:00:53 CET 2009
  */
 package org.company.recordshop.domain;
 

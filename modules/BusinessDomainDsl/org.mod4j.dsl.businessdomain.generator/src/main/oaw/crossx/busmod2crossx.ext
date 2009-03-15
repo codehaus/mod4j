@@ -103,6 +103,7 @@ crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     result.properties.add(prop.toLiteralProperty())->
     result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result.properties.add(newProperty("Writable", (prop.derived ? prop.writable : true) ? "true" : "false"))->
     result
     ;
     
@@ -113,6 +114,7 @@ crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     result.properties.add(prop.toLiteralProperty())->
     result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result.properties.add(newProperty("Writable", ( (prop.derived ? prop.writable : true) ? "true" : "false") ))->
     result
     ;
 

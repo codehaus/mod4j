@@ -2,19 +2,19 @@ domain TestDomainModel ;
 
 "Test derived attributes"
 class DerivedNotYetImplemented [
-    string first derived;
-    boolean secondo derived;
-    datetime third derived;
-    integer fourth derived;
-    decimal fifth derived;
+    string first derived writable;
+    boolean secondo derived writable;
+    datetime third derived writable;
+    integer fourth derived writable;
+    decimal fifth derived writable;
 ]
 
 "Test derived attributes"
 class Derived [
     string first derived;
-    boolean secondo derived;
-    datetime third derived;
-    integer fourth derived;
+    boolean secondo derived writable;
+    datetime third nullable derived;
+    integer fourth nullable derived writable;
     decimal fifth derived;
 ]
 

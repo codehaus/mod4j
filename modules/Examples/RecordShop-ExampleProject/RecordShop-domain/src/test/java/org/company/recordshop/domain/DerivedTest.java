@@ -53,13 +53,13 @@ public class DerivedTest {
     @Test
     public void testGetThird() {
         Derived derived = new Derived();
-        assertEquals(new DateTime(1), derived.getThird());
+        assertEquals(new DateTime(3), derived.getThird());
     }
 
     @Test
     public void testGetFourth() {
         Derived derived = new Derived();
-        assertEquals(4, derived.getFourth());
+        assertEquals(Integer.valueOf(4), derived.getFourth());
     }
 
     @Test

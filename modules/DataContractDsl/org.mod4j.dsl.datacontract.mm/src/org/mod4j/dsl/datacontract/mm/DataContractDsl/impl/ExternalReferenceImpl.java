@@ -36,232 +36,232 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
  */
 public class ExternalReferenceImpl extends ModelElementImpl implements ExternalReference {
     /**
-     * The default value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getModelname()
-     * @generated
-     * @ordered
-     */
+	 * @see #getModelname()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String MODELNAME_EDEFAULT = "";
 
     /**
-     * The cached value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getModelname() <em>Modelname</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getModelname()
-     * @generated
-     * @ordered
-     */
+	 * @see #getModelname()
+	 * @generated
+	 * @ordered
+	 */
     protected String modelname = MODELNAME_EDEFAULT;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected ExternalReferenceImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.EXTERNAL_REFERENCE;
-    }
+		return DataContractDslPackage.Literals.EXTERNAL_REFERENCE;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getModelname() {
-        return modelname;
-    }
+		return modelname;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setModelname(String newModelname) {
-        String oldModelname = modelname;
-        modelname = newModelname;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME, oldModelname, modelname));
-    }
+		String oldModelname = modelname;
+		modelname = newModelname;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME, oldModelname, modelname));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public DataContractModel getDatacontractModel() {
-        if (eContainerFeatureID != DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL) return null;
-        return (DataContractModel)eContainer();
-    }
+		if (eContainerFeatureID != DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL) return null;
+		return (DataContractModel)eContainer();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public NotificationChain basicSetDatacontractModel(DataContractModel newDatacontractModel, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL, msgs);
-        return msgs;
-    }
+		msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL, msgs);
+		return msgs;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setDatacontractModel(DataContractModel newDatacontractModel) {
-        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL && newDatacontractModel != null)) {
-            if (EcoreUtil.isAncestor(this, newDatacontractModel))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-            NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newDatacontractModel != null)
-                msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractModel.class, msgs);
-            msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
-    }
+		if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL && newDatacontractModel != null)) {
+			if (EcoreUtil.isAncestor(this, newDatacontractModel))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newDatacontractModel != null)
+				msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractModel.class, msgs);
+			msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                return basicSetDatacontractModel(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				return basicSetDatacontractModel(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractModel.class, msgs);
-        }
-        return super.eBasicRemoveFromContainerFeature(msgs);
-    }
+		switch (eContainerFeatureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__EXTERNAL_REFERENCES, DataContractModel.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
-                return getModelname();
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                return getDatacontractModel();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
+				return getModelname();
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				return getDatacontractModel();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
-                setModelname((String)newValue);
-                return;
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                setDatacontractModel((DataContractModel)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
+				setModelname((String)newValue);
+				return;
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				setDatacontractModel((DataContractModel)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-        switch (featureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
-                setModelname(MODELNAME_EDEFAULT);
-                return;
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                setDatacontractModel((DataContractModel)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
+				setModelname(MODELNAME_EDEFAULT);
+				return;
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				setDatacontractModel((DataContractModel)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
-                return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
-            case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
-                return getDatacontractModel() != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.EXTERNAL_REFERENCE__MODELNAME:
+				return MODELNAME_EDEFAULT == null ? modelname != null : !MODELNAME_EDEFAULT.equals(modelname);
+			case DataContractDslPackage.EXTERNAL_REFERENCE__DATACONTRACT_MODEL:
+				return getDatacontractModel() != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (modelname: ");
-        result.append(modelname);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (modelname: ");
+		result.append(modelname);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ExternalReferenceImpl
