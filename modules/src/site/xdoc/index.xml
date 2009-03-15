@@ -23,12 +23,13 @@
                 developers to
                 model various aspects of the application and generate code that strictly follows this reference
                 architecture.
-                The reference architecture is described in a separate document which can be found at
-                <a href="https://mod4j.smart-java.nl/docs/">https://mod4j.smart-java.nl/docs/</a>
-                For a good understanding of the generated code it is useful to read this document.
+                The reference architecture is described in a separate document. For a good understanding of the
+                generated code it is useful to read this document ->
+                <a href="documentation-parent/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
+                <a href="documentation-parent/application-architecture/mod4j-application-architecture.html">HTML</a> 
             </p>
             <img src="images/mod4j-diagram-small.png" align="left" alt="" />
-            
+
             <subsection name="Getting started">
                 <ol>
                     <li>
@@ -129,11 +130,10 @@
                     <b>RecordShop</b>
                     example project to your attention. This project contains a example of each of the Mod4j models above. So if
                     you want to learn the syntax and structure of the models, take a look at the RecordShop. The RecorodShop is
-                    a
-                    example project that we maintain during our development process. Features we implement in Mod4j are first
+                    an example project that we maintain during our development process. Features we implement in Mod4j are first
                     tested in the RecordShop.
                     <br />
-                    <a href="https://svn.smart-java.nl/mod4j/trunk/modules/Examples/RecordShop-ExampleProject">Here</a>
+                    <a href="http://svn.codehaus.org/mod4j/trunk/modules/Examples/RecordShop-ExampleProject">Here</a>
                     you can find the RecordShop sources and model files.
                 </p>
 
