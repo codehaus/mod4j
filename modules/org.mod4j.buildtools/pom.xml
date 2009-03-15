@@ -14,13 +14,4 @@
         <artifactId>mod4j</artifactId>
         <version>1.0.0-beta-4-SNAPSHOT</version>
     </parent>
-    <repositories>
-        <repository>
-            <id>project-repo</id>
-            <url>https://mod4j.smart-java.nl/repo</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
