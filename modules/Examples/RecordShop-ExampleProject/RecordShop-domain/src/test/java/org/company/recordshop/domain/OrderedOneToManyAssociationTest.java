@@ -28,6 +28,15 @@ public class OrderedOneToManyAssociationTest {
         assertEquals("one", from.getTarget().get(0).getProperty());
         assertEquals("two", from.getTarget().get(1).getProperty());
         assertEquals("three", from.getTarget().get(2).getProperty());
+
+        assertEquals(one.getSource(), from);
+        assertEquals(two.getSource(), from);
+        assertEquals(three.getSource(), from);
+
+        from.removeFromTarget(0);
+        assertEquals("two", from.getTarget().get(0).getProperty());
+        assertEquals("three", from.getTarget().get(1).getProperty());
+        assertEquals(one.getSource(), null);
     }
 
     @Test
