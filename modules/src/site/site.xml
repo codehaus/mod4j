@@ -29,6 +29,7 @@
         <menu ref="reports" inherit="bottom" />
     </body>
     <poweredBy>
+        <logo name="Ecipse Ready" href="http://www.eclipse.org/" img="images/eclipse-ready-logo.png" />
         <logo name="oXygen" href="http://www.oxygenxml.com/" img="images/oxygen-logo.jpg" />
         <logo name="Maven" href="http://maven.apache.org/" img="http://maven.apache.org/images/logos/maven-feather.png" />
     </poweredBy>
