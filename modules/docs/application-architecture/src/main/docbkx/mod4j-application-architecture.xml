@@ -132,111 +132,143 @@
         consists of Objects that model the part of the world of interest to the application. The
         next paragraphs describes the responsibilities and the structure of the layers in more
         detail.</para>
-      <section>
-        <title>Presentation Layer</title>
-        <para>The Presentation Layer contains components that present information to a user and
-          interprets his actions by executing functions of the system.Typical responsibilities of
-          the Presentation Layer include:</para>
-        <itemizedlist>
+    </section>
+    <section>
+      <title>Presentation Layer</title>
+      <para>The Presentation Layer contains components that present information to a user and
+        interprets his actions by executing functions of the system.Typical responsibilities of the
+        Presentation Layer include:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Presenting data to the user. This implies mapping fields on a screen to attibutes of
+              <emphasis>Data Transfer Objects</emphasis> received from the Service Layer, formatting
+            of data, internationalisation en localisation of data.</para>
+        </listitem>
+        <listitem>
+          <para>Accepting data entered by the user. This implies applying simple validations on the
+            data entered and keeping track of this data.</para>
+        </listitem>
+      </itemizedlist>
+      <para>This Presentation Layer should not execute business functionality by itself, but instead
+        delegate that responsibility to the Service Layer by calling its operations. Data is
+        transferred to and from the Service Layer in the form of <emphasis>Data Transfer
+          Objects</emphasis>.</para>
+      <para>TODO: expand this section when the User Interface DSL is nearer to completion.</para>
+    </section>
+    <section>
+      <title>Service Layer</title>
+      <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is to isolate the
+        business layer from the various protocols in use for remotely invoking its service
+        operations. Examples of such protocols are SOAP or RESTful Web Services, messaging, EJB, RMI
+        or plain old local mehod calls. A service layer presents the interface of the business layer
+        in the form required for one particular access protocol. Therefore, a separate service layer
+        is needed for each protocol by which the system will be accessed. This makes it clear that
+        the presentation layer should not contain any business functionality, because that would
+        have to be duplicated for each separate service layer. Code duplication is bad: it violates
+        the DRY (Don't Repeat Yourself) principle.<footnote>
+          <para>See for example: <ulink url="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself"
+              >http://en.wikipedia.org/wiki/Don&apos;t_repeat_yourself</ulink></para>
+        </footnote></para>
+      <para>In addition, the service layer is reponsible for:<itemizedlist>
           <listitem>
-            <para>Presenting data to the user. This implies mapping fields on a screen to attibutes
-              of <emphasis>Data Transfer Objects</emphasis> received from the Service Layer,
-              formatting of data, internationalisation en localisation of data.</para>
+            <para>authentication and authorisation of the calling identities</para>
           </listitem>
           <listitem>
-            <para>Accepting data entered by the user. This implies applying simple validations on
-              the data entered and keeping track of this data.</para>
+            <para>exposing a collection of <emphasis>Data Transfer Objects</emphasis> to be used for
+              transferring data between the service layer and its callers</para>
           </listitem>
-        </itemizedlist>
-        <para>This Presentation Layer should not execute business functionality by itself, but
-          instead delegate that responsibility to the Service Layer by calling its operations. Data
-          is transferred to and from the Service Layer in the form of <emphasis>Data Transfer
-            Objects</emphasis>.</para>
-        <para>TODO: expand this section when the User Interface DSL is nearer to completion.</para>
-      </section>
+          <listitem>
+            <para>translation of the information in the data transfer objects used for communication
+              with the presentation layer to and from <emphasis>Domain Model</emphasis> objects used
+              for communication with the business layer</para>
+          </listitem>
+          <listitem>
+            <para>making the call to each service operation an atomic (ACID) transaction.</para>
+          </listitem>
+        </itemizedlist></para>
       <section>
-        <title>Service Layer</title>
-        <para>The primary responsibility of the <emphasis>Service Layer</emphasis> is to isolate the
-          business layer from the various protocols in use for remotely invoking its service
-          operations. Examples of such protocols are SOAP or RESTful Web Services, messaging, EJB,
-          RMI or plain old local mehod calls. A service layer presents the interface of the business
-          layer in the form required for one particular access protocol. Therefore, a separate
-          service layer is needed for each protocol by which the system will be accessed. This makes
-          it clear that the presentation layer should not contain any business functionality,
-          because that would have to be duplicated for each separate service layer.</para>
-        <para>In addition, the service layer is reponsible for:<itemizedlist>
-            <listitem>
-              <para>authentication and authorisation of the calling identities</para>
-            </listitem>
-            <listitem>
-              <para>exposing a collection of <emphasis>Data Transfer Objects</emphasis> to be used
-                for transferring data between the service layer and its callers</para>
-            </listitem>
-            <listitem>
-              <para>translation of the information in the data transfer objects used for
-                communication with the presentation layer to and from <emphasis>Domain
-                  Model</emphasis> objects used for communication with the business layer</para>
-            </listitem>
-            <listitem>
-              <para>making the call to each service operation an atomic (ACID) transaction.</para>
-            </listitem>
-          </itemizedlist></para>
-        <section>
-          <title>Data Transfer Objects</title>
-          <para>TODO: describe the strategy of the Data Transfer Objects: scope, references, lazy
-            loading.</para>
-        </section>
+        <title>Data Transfer Objects</title>
+        <para>The purpose of Data Transfer Objects (DTO's) is to decouple the core of the
+          application from client applications, including the user interface, that communicate with
+          it. A collection of DTO's form a common vocabulary between the communicating applications.
+          In a SOA environment for instance, an application will commonly be required to communicate
+          with other applications using a common <emphasis>canonical datamodel</emphasis>, that is
+          defined outside of the control of the application we have to develop.</para>
+        <para>DTO's are very similar in structure to domain model classes. They have properties and
+          can have references to other DTO's. They do not have validators and no constructors with
+          mandatory fields. All properties are nullable.</para>
+        <para>For each DTO there is a correponding <classname>Translator</classname> class. A
+            <classname>Translator</classname> defines two methods: <methodname>toDto</methodname>
+          and <methodname>fromDto</methodname>. The <methodname>toDto</methodname> method translates
+          a domain model object into a DTO that is based on it. When a DTO has references to other
+          DTO's that corresponds to references of the domain model class, those object are also
+          translated, recursively. The translators operate within a transaction and therefore also
+          on objects connected to the same Hibernate session. That means that while traversing
+          associated domain object to translate into their corresponding DTO's, the translator may
+          cause Hibernate <emphasis>lazy loading</emphasis> to retrieve objects from the database
+          automatically.</para>
+        <para>The <methodname>fromDto</methodname> method translates the DTO into an instance of its
+          corresponding domain model class. If the DTO has references however, these are
+            <emphasis>not</emphasis> translated. There is a specific reason for this asymmetric
+          behaviour that has to do with passing DTO's corresponding to existing domain objects as an
+          arguments to services. In general, the client can manipulate objects referenced by a DTO
+          at will, adding, deleting or updating instances. Faithfully merging these intended changes
+          with an existing object retrieved from persistent storage would require the translator to
+          interpret the changes by comparing them to the state of the corresponding domain object,
+          including the referenced associated objects. This is at the moment considered too great a
+          challenge. A client of the application will have to send a DTO and its associated objects
+          by sending the DTO itself, and each of the deleted, changed of added associated objects by
+          calling separate specialised services that reflect the intended behaviour.</para>
       </section>
-      <section>
-        <title>Business Layer</title>
-        <para>The <emphasis>Business Layer</emphasis> is a <emphasis>facade</emphasis> for the
-            <emphasis>Domain Model</emphasis>. It exposed the business functionality of the
-          application in the form of methods, with arguments and return values from the domain
-          model. These methods:<itemizedlist>
-            <listitem>
-              <para>persist and retrieve domain objects by delegating to the <emphasis>Data
-                  Layer</emphasis></para>
-            </listitem>
-            <listitem>
-              <para>delegate to domain model objects to execute reusable business
-                functionality</para>
-            </listitem>
-            <listitem>
-              <para>implement business logic specific to a single business process</para>
-            </listitem>
-          </itemizedlist></para>
-      </section>
-      <section>
-        <title>Data Layer</title>
-        <para>The responsibility of the <emphasis>Data Layer</emphasis> is to persist and retrieve
-          data. The data is transferred between the data layer and its calling business layer in the
-          form of arguments and return values based on the domain model. The persistence logic is
-          dependent on the particular persistence technology in use, like a relational database,
-          textfiles, XML documents or an XML database, or another application that exposes services
-          for accessing data.</para>
-        <para>The data layer contains a number of data access objects, in principle one for each
-          domain model class. Each such object:<itemizedlist>
-            <listitem>
-              <para>Has CRUD-methods to create (C), retrieve (R), update (U) or delete (D) data
-                contained in one domain model object</para>
-            </listitem>
-            <listitem>
-              <para>Can have methods to retrieve a list of objects based on a query</para>
-            </listitem>
-            <listitem>
-              <para>Must transform data from the domain model to the format in which they are
-                persisted, and vice versa. When a relational database is used, this may be done with
-                a Object-Relational Mapping (ORM) framework, like <emphasis role="italic"
-                  >Hibernate</emphasis> or <emphasis role="italic">Toplink</emphasis>.</para>
-            </listitem>
-            <listitem>
-              <para>Can offer paging facilities when a large result set may be retrieved.</para>
-            </listitem>
-            <listitem>
-              <para>May not maintain state.</para>
-            </listitem>
-          </itemizedlist></para>
-      </section>
+    </section>
+    <section>
+      <title>Business Layer</title>
+      <para>The <emphasis>Business Layer</emphasis> is a <emphasis>facade</emphasis> for the
+          <emphasis>Domain Model</emphasis>. It exposed the business functionality of the
+        application in the form of methods, with arguments and return values from the domain model.
+        These methods:<itemizedlist>
+          <listitem>
+            <para>persist and retrieve domain objects by delegating to the <emphasis>Data
+                Layer</emphasis></para>
+          </listitem>
+          <listitem>
+            <para>delegate to domain model objects to execute reusable business functionality</para>
+          </listitem>
+          <listitem>
+            <para>implement business logic specific to a single business process</para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+    <section>
+      <title>Data Layer</title>
+      <para>The responsibility of the <emphasis>Data Layer</emphasis> is to persist and retrieve
+        data. The data is transferred between the data layer and its calling business layer in the
+        form of arguments and return values based on the domain model. The persistence logic is
+        dependent on the particular persistence technology in use, like a relational database,
+        textfiles, XML documents or an XML database, or another application that exposes services
+        for accessing data.</para>
+      <para>The data layer contains a number of data access objects, in principle one for each
+        domain model class. Each such object:<itemizedlist>
+          <listitem>
+            <para>Has CRUD-methods to create (C), retrieve (R), update (U) or delete (D) data
+              contained in one domain model object</para>
+          </listitem>
+          <listitem>
+            <para>Can have methods to retrieve a list of objects based on a query</para>
+          </listitem>
+          <listitem>
+            <para>Must transform data from the domain model to the format in which they are
+              persisted, and vice versa. This is done with <emphasis role="italic"
+                >Hibernate</emphasis> a Object-Relational Mapping (ORM) framework, like  or
+                <emphasis role="italic">Toplink</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Can offer paging facilities when a large result set may be retrieved.</para>
+          </listitem>
+          <listitem>
+            <para>May not maintain state.</para>
+          </listitem>
+        </itemizedlist></para>
     </section>
     <section>
       <title>Domain Model</title>
@@ -496,7 +528,18 @@
       </section>
       <section>
         <title>Business rules</title>
-        <para/>
+        <para>Business rules are implemented as separate classes, one class per business rule. The
+          business rule implementation are based on two interfaces from the Spring framework: <ulink
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/validation/Validator.html"
+              ><classname>Validator</classname></ulink> and <ulink
+            url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/validation/Errors.html"
+              ><classname>Errors</classname></ulink>, as described in the paragraph <ulink
+            url="http://static.springframework.org/spring/docs/2.5.x/reference/validation.html#validator"
+            >5.2 Validation using Spring's Validator interface</ulink> of <biblioref
+            linkend="spring25"/>. A difference between our approach and the one from the Spring
+          manual is, that we provide a separate validator for each business rule instead of one per
+          domain class. Of course many types of validators can easily be parameterised and re-used
+          in different situations.</para>
       </section>
     </section>
   </chapter>
