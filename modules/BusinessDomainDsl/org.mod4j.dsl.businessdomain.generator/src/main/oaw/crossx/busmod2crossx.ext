@@ -68,6 +68,7 @@ crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
     result.setType("Association")->
     result.properties.add( multiplicityProperty(ass.targetMultiplicity) )->
     result.properties.add( newProperty("BusinessClass", ass.target.name))->
+    result.properties.add( newProperty("ordered", ass.ordered.toString()))->
     result.properties.add( newRefProperty("Target", ass.model.name, ass.target.name, "BusinessClass"))->
     result;
 
