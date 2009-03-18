@@ -80,11 +80,13 @@ completeProperties(BusinessClassDto dto) :
 addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
     let symbol = lookupSymbol(assRef.dto.base.modelname, assRef.dto.base.name, "BusinessClass") :
     let prop = symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == assRef.name)).first() :
+    let ordered = prop.getPropertyValue("ordered") == "true" :
     let result = new DtoAssociationRoleProperty :
 //    print("DTO ASSOCIATION : "+ assRef.name + " for dto [" + assRef.dto.name + "]")->
     result.setName(prop.name)->
     result.setDataType(assRef.dtoType.name)->
     result.setDtoType(assRef.dtoType)->
+    result.setOrdered(ordered)->
     assRef.dto.properties.add(result)
    ;
     

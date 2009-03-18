@@ -32,7 +32,7 @@
      «FOREACH properties.typeSelect(DtoDataProperty).dataType.toSet() AS dataType -»
          «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType) -»
      «ENDFOREACH»
-     «IF associationReferences.reject(e|e.dtoType.metaType == BusinessClassDto).size > 0 -»
+     «IF properties.typeSelect(DtoAssociationRoleProperty).reject(e|e.dtoType.metaType == BusinessClassDto).size > 0 -»
          «EXPAND Imports::addImports FOR this -»
      «ENDIF»
      
@@ -49,8 +49,8 @@
          «FOREACH properties.typeSelect(DtoDataProperty).reject(e|e.metaType == DtoAssociationRoleProperty) AS dataProperty»
              «EXPAND Attributes::instanceVariable FOR dataProperty»
          «ENDFOREACH»
-         «FOREACH associationReferences AS assRef»
-              «EXPAND Attributes::instanceVariable(assRef.name) FOR assRef.dtoType»
+         «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»
+              «EXPAND Attributes::instanceVariableNew(assRef) FOR assRef.dtoType»
          «ENDFOREACH»
          «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
          «EXPAND Attributes::addIdAccessors FOR this»
@@ -58,8 +58,8 @@
              «EXPAND Attributes::addGetter FOR dataProperty»
              «EXPAND Attributes::addSetter FOR dataProperty»
          «ENDFOREACH»
-         «FOREACH associationReferences AS assRef»
-             «EXPAND Attributes::addAssociationRolAccessors(assRef.name) FOR assRef.dtoType»
+         «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»
+             «EXPAND Attributes::addAssociationRoleAccessors(assRef) FOR assRef.dtoType» 
          «ENDFOREACH»
      }
 «ENDDEFINE»

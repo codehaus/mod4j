@@ -36,7 +36,8 @@
          «FOREACH properties.typeSelect(DtoEnumerationProperty) AS enumDto -»
              import «getDtoPackage()».«javaClassName(enumDto.type.name)»;
          «ENDFOREACH»
-         «FOREACH associationReferences AS assRef -»    
+         «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -» 
+         	// NEW NEW NEW NEW 
              import «getDomainRootPackage()».«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»;
          «ENDFOREACH»  
          
@@ -124,7 +125,8 @@
               */
               public synchronized «javaClassName(name)» toDto(final «javaClassName(base.name)» source) {
               
-                  «FOREACH associationReferences AS assRef -»    
+                  «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -» 
+                  // NEW NEW NEW NEW
                       «EXPAND getBaseDtoName FOR assRef.dtoType»Translator «assRef.name»Translator = «EXPAND getBaseDtoName FOR assRef.dtoType»Translator.getInstance();
                   «ENDFOREACH»  
                  
@@ -147,7 +149,8 @@
                       «ENDIF -»
                   «ENDFOREACH»
                   translated.put(source, result);
-                  «FOREACH associationReferences AS assRef -»
+                  «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -»
+                      // NEW NEW NEW NEW 
                      «IF assRef.dtoType.metaType == ListDto -» «REM»2Many«ENDREM» 		              
  		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element: source.get«assRef.name.toFirstUpper()»()) {
 		                      result.addTo«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(element));
