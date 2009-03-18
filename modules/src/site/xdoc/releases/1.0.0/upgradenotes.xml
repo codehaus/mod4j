@@ -12,7 +12,7 @@
         <title>Mod4j 1.0.0 Upgrade Steps</title>
     </properties>
     <body>
-        <section name="Mod4j 1.0.0 Upgrade Steps">
+        <section name="Mod4j 1.0.0 Upgrade Notes">
 
             <p>The following upgrade steps are needed if you want to upgrade your project from Mod4j 1.0.0-beta-3 to Mod4j
                 1.0.0.</p>
