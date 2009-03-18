@@ -70,6 +70,7 @@
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoAssociationRoleProperty">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoAssociationRoleProperty/dtoType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoAssociationRoleProperty/ordered"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//ExternalReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//ExternalReference/modelname"/>
