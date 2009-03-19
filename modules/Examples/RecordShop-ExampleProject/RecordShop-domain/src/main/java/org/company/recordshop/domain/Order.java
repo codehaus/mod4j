@@ -28,4 +28,22 @@ public class Order extends OrderImplBase {
 		super(orderNumber);
 	}
 
+    /* (non-Javadoc)
+     * @see org.company.recordshop.domain.OrderImplBase#getTotalAmount()
+     */
+    @Override
+    public Float getTotalAmount() {
+       float totalAmount = 0;
+       for (OrderLine line : getOrderLines()){
+           totalAmount += line.getLineAmount();
+       }
+       return totalAmount;
+    }
+
+    @Override
+    public void setTotalAmount(Float totalAmount) {
+        // TODO Auto-generated method stub
+        
+    }
+
 }
