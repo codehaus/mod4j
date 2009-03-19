@@ -64,6 +64,7 @@
       <roles>
         <role>Project Lead</role>
       </roles>
+      <timezone>1</timezone>
     </developer>
     <developer>
       <name>Eric Jan Malotaux</name>
@@ -74,6 +75,7 @@
         <role>Architect</role>
         <role>Developer</role>
       </roles>
+      <timezone>1</timezone>
     </developer>
     <developer>
       <name>Johan Vogelzang</name>
@@ -83,6 +85,7 @@
       <roles>
         <role>Developer</role>
       </roles>
+      <timezone>1</timezone>
     </developer>
     <developer>
       <name>Jim van Dam</name>
@@ -92,6 +95,7 @@
       <roles>
         <role>Developer</role>
       </roles>
+      <timezone>1</timezone>
     </developer>
   </developers>
   <contributors>
