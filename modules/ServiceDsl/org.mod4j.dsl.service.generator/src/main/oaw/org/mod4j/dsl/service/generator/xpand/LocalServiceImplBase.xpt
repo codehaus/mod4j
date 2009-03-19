@@ -135,6 +135,7 @@
 «ENDDEFINE»
 
 «DEFINE UpdateMethod FOR SpecialMethod»
+«LET this.model.methods.typeSelect(SpecialMethod).select(m|m.type == MethodType::READ && (m.dto == this.dto)).first() AS readmethod»
     /**
      * {@inheritDoc}
      */
@@ -153,6 +154,7 @@
         
         return «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
     }
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE DeleteMethod FOR SpecialMethod»

@@ -16,6 +16,7 @@ extension org::mod4j::common::xtend::NameMapper;
 extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
 extension org::openarchitectureware::util::stdlib::elementprops;
 
+
 context DtoReference ERROR "DtoReference [" + this.name + "] not defined in model " + this.modelname:
        lookupSymbol(this.modelname, this.name, "Dto") != null;
        

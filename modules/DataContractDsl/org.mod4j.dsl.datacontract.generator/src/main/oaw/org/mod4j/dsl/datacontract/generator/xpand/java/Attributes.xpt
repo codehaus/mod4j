@@ -117,19 +117,7 @@
 	}
 
     «EXPAND addToCollection(associationRole.name) FOR this»
-
-	/**
-	 * Removes a single element from the «associationRole.name» collection.
-	 * 
-	 * @param element The element to be removed.
-	 */
-	public void removeFrom«associationRole.name.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
-
-		if (element == null) {
-			return;
-		}
-		this.«associationRole.name».remove(element);
-	}
+    «EXPAND removeFromCollection(associationRole.name) FOR this»
 «ENDDEFINE»
 
 «DEFINE addAssociationRoleAccessorsOrdered(DtoAssociationRoleProperty associationRole) FOR ListDto»
@@ -139,21 +127,12 @@
 	public List<«baseDto.name.toFirstUpper()»> get«associationRole.name.toFirstUpper()»() {
 		return Collections.unmodifiableList(this.«associationRole.name»);
 	}
-
+	
     «EXPAND addToCollection(associationRole.name) FOR this»
-
-	/** ORDERED
-	 * Removes a single element from the «associationRole.name» collection.
-	 * 
-	 * @param element The element to be removed.
-	 */
-	public void removeFrom«associationRole.name.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
-
-		if (element == null) {
-			return;
-		}
-		this.«associationRole.name».remove(element);
-	}
+    «EXPAND addToIndexCollection(associationRole.name) FOR this»
+«REM»
+    «EXPAND removeFromCollection(associationRole.name) FOR this»
+   «ENDREM»
 «ENDDEFINE»
 
 «DEFINE addAssociationRoleAccessors(DtoAssociationRoleProperty associationRole) FOR BusinessClassDto»
@@ -172,17 +151,58 @@
      }
 «ENDDEFINE»
 
-«DEFINE addToCollection(String associationRolName) FOR ListDto»
+«REM» Method to add an element to an association collection.
+      Works fro both ordered and unordered collections
+«ENDREM»
+«DEFINE addToCollection(String associationRoleName) FOR ListDto»
     /**
-     * Adds a single element to the «associationRolName» collection
+     * Adds a single element to the «associationRoleName» collection
      *
      * @param element The element to add.
      */
-    public void addTo«associationRolName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+    public void addTo«associationRoleName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
 
-        if (element == null || this.«associationRolName».contains(element)) {
+        if (element == null || this.«associationRoleName».contains(element)) {
             return;
         }
-        this.«associationRolName».add(element);
+        this.«associationRoleName».add(element);
     }
 «ENDDEFINE»
+
+«REM» Method to add an element at specified index to an ordered association collection.
+«ENDREM»
+«DEFINE addToIndexCollection(String associationRoleName) FOR ListDto»
+    /**
+     * Adds a single element to the «associationRoleName» collection at index 
+     *
+     * @param element The element to add.
+     *        index   The index where the element will be added
+     */
+    public void addTo«associationRoleName.toFirstUpper()»(int index, «baseDto.name.toFirstUpper()» element) {
+
+        if (element == null || this.«associationRoleName».contains(element)) {
+            return;
+        }
+        this.«associationRoleName».add(index, element);
+    }
+«ENDDEFINE»
+
+«REM» Method to remove an element from an association collection.
+      Works fro both ordered and unordered collections
+«ENDREM»
+«DEFINE removeFromCollection(String associationRoleName) FOR ListDto»
+	/**
+	 * Removes a single element from the «associationRoleName» collection.
+	 * 
+	 * @param element The element to be removed.
+	 */
+	public void removeFrom«associationRoleName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+
+		if (element == null) {
+			return;
+		}
+		this.«associationRoleName».remove(element);
+	}
+«ENDDEFINE»
+
+

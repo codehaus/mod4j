@@ -57,14 +57,23 @@ String dtoBaseBusinessClass(DtoReference dto) :
 /** Find all method of a special type, 
  */
 List[SpecialMethod] uniqueMethods(ServiceModel model, MethodType typeToFind) :
-	let createMethods = model.methods.typeSelect(SpecialMethod).select(m| m.type == typeToFind) :
- 	let uniqueNames = createMethods.name.toSet() :
- 	let uniqueBusinessClassesNew = createMethods.dto.businessClass().toSet() :
- 	let uniqueCreateMethodsNew = uniqueBusinessClassesNew.collect(cls| createMethods.selectFirst(m|m.dto.businessClass() == cls)) :
- 	let uniqueCreateMethods = uniqueNames.collect(unique | createMethods.selectFirst(m|m.name == unique)) :
- 	uniqueCreateMethodsNew
+	let specialMethods = model.methods.typeSelect(SpecialMethod).select(m| m.type == typeToFind) :
+ 	let uniqueNames = specialMethods.name.toSet() :
+ 	let uniqueBusinessClassesNew = specialMethods.dto.businessClass().toSet() :
+ 	let uniqueSpecialMethodsNew = uniqueBusinessClassesNew.collect(cls| specialMethods.selectFirst(m|m.dto.businessClass() == cls)) :
+//  let uniqueCreateMethods = uniqueNames.collect(unique | createMethods.selectFirst(m|m.name == unique)) :
+ 	uniqueSpecialMethodsNew
 ;
 
+SpecialMethod specialMethod(ServiceModel model, MethodType typeToFind, String businessClassName) :
+    let specialMethods = uniqueMethods(model, typeToFind) :
+    specialMethods.selectFirst(m | m.dto.businessClass().matches( businessClassName) )
+    ;
+
+CrudService crud(ServiceModel model, String businessClassName) :
+    model.crudServices.selectFirst(m | m.dto.businessClass().matches( businessClassName) )
+    ;
+    
 List[String] uniqueBusinessClasses(ServiceModel model) :
     model.dtoReferences.select(dtoRef|dtoRef.dtoType() == "BusinessClassDto").businessClass().toSet()
 ;
