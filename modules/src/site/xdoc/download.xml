@@ -15,9 +15,9 @@
 
         <section name="Download Mod4j">
             <p>
-                All the Mod4j DSL editors and features are published as one Eclipse plug-in to the Mod4j update site. Follow the
-                instructions
-                below to get it installed using the Eclipse Update Manager.  
+                All the Mod4j DSL editors are published as features to the Mod4j update site. Follow the
+                instructions below to
+                get them installed using the Eclipse Update Manager.
             </p>
             <p>
                 <b>
@@ -29,7 +29,7 @@
                 on the Getting Started page.
             </p>
             <p>
-                The Mod4j DSL Eclipse plug-in can be installed from the Mod4j update site:
+                The Mod4j DSL editors can be installed from the Mod4j update site:
                 <br />
                 <br />
                 <b>
