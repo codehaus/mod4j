@@ -19,12 +19,12 @@
                         .
                     </li>
                     <li>
-                        Install Eclipse Ganymede 3.4 SR1 for Java2EE Developers. You can download one from the Eclipse
+                        Install Eclipse Ganymede 3.4 SR1 for Java EE Developers. You can download one from the Eclipse
                         <a href="http://www.eclipse.org/downloads">download site.</a>
                         <br />
                     </li>
                     <li>
-                        Install, using the Update Manager, at least the following plugins into Eclipse:
+                        Install, using the Update Manager, at least the following plug-ins into Eclipse:
                         <ul>
                             <li>
                                 OpenArchitectureWare Eclipse 4.3.0 (4.3.0.20080508-1430PRD).
@@ -45,7 +45,7 @@
                         </ul>
                     </li>
                     <li>
-                        Make sure you start Eclipse with de right jdk, e.g on a linux system:
+                        Make sure you start Eclipse with the right jdk, e.g on a linux system:
                         <q>/path-to-eclipse-mod4j/Eclipse-europa/eclipse -vm
                             /path-to-jdk1.5.0_15/jre/bin/java</q>
                     </li>
