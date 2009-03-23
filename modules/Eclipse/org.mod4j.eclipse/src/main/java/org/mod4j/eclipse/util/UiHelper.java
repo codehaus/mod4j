@@ -68,7 +68,7 @@ public class UiHelper {
 
     public static Image mod4jImage = UiHelper.getImageFromString("mod4j.ico");
 
-    public static Image mod4jLogoImage = UiHelper.getImageFromString("mod4j-logo-color.gif");
+    public static Image mod4jLogoImage = UiHelper.getImageFromString("mod4j-logo.png");
 
     public static Image mod4jBusinessImage = UiHelper.getImageFromString("mod4j-business.ico");
 

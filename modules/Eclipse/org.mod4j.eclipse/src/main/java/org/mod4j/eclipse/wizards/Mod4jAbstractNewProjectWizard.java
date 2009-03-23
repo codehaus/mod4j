@@ -269,7 +269,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
             " */" + LF + LF +
             "from SampleDataContractModel import SampleDto ;" + LF + LF +
             "\"Create-, read- update- and delete service methods for SampleDto\"" + LF +
-            "for SampleDto crud;";
+            "crud SampleDto ;";
         }
 
     /**

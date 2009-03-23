@@ -35,7 +35,7 @@
             id="mod4j.crossx.broker.contribution1">
          <action
                label="Add/Remove Mod4j Nature"
-               icon="icons/mod4j.ico"
+               icon="icons/mod4j-bw.ico"
                class="org.mod4j.eclipse.builder.ToggleMod4jNatureAction"
                menubarPath="additions"
                enablesFor="+"
@@ -53,7 +53,7 @@
             allowMultiple="false"
             category="org.mod4j.eclipse.crossx"
             class="org.mod4j.eclipse.crossx.views.CrossxView"
-            icon="icons/mod4j.ico"
+            icon="icons/mod4j-bw.ico"
             id="org.mod4j.eclipse.crossx.views.CrossxView"
             name="Crossx">
       </view>
@@ -68,7 +68,7 @@
             allowMultiple="false"
             category="org.mod4j.eclipse.crossx"
             class="org.mod4j.eclipse.views.filetracker.FileTrackerView"
-            icon="icons/mod4j.ico"
+            icon="icons/mod4j-bw.ico"
             id="org.mod4j.eclipse.views.filetracker.FileTrackerView"
             name="Mod4j FileTracker">
       </view>
