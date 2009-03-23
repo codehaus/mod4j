@@ -74,6 +74,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 		if( console == null ){
 			console = EclipseUtil.findConsole(MOD4J_BUILDER_CONSOLE);
 	        System.setErr(new PrintStream(console));
+	        System.setOut(new PrintStream(console));
 		}
 		return console;
 	}
