@@ -281,7 +281,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         try {
             files.clear();
             getProject().accept(new CrossxSymbolGeneratorVisitor());
-            generateCrossxForAllFiles();
+            generateCrossxForAllFiles(monitor);
             getProject().accept(new Mod4jCodeGeneratorVisitor());
             FileTrackerView.myrefresh();
         } catch (CoreException e) {
@@ -305,12 +305,12 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         System.err.println("Mod4jBuilder: incremental build");
         files.clear();
         delta.accept(new CrossxGenerateSymbolDeltaVisitor());
-        generateCrossxForAllFiles();
+        generateCrossxForAllFiles(monitor);
         delta.accept(new Mod4jDeltaVisitor());
         FileTrackerView.myrefresh();
     }
 
-    private void generateCrossxForAllFiles() {
+    private void generateCrossxForAllFiles(IProgressMonitor monitor) {
 //        for (IResource resource : files) {
 //            generateCrossxSymbols(resource);
 //        }
@@ -334,6 +334,12 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
                 generateCrossxSymbols(resource);
             }
         }
+        try {
+			getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     /**
