@@ -4,14 +4,14 @@ datacontract RecordShopDataContract  ;
 from RecordShopDomainModel import Customer ;
 from RecordShopDomainModel import Artist;
 from RecordShopDomainModel import Order;
-from RecordShopDomainModel import Record ;
+from RecordShopDomainModel import Record ; 
 from RecordShopDomainModel import OrderLine;
-from RecordShopDomainModel import Product ;
-from RecordShopDomainModel import SexeEnum;
-from RecordShopDomainModel import RecordTypeEnum ; 
+from RecordShopDomainModel import Product ;  
+from RecordShopDomainModel import SexeEnum; 
+from RecordShopDomainModel import RecordTypeEnum ;   
   
-    /*    
-     * BusinessClass transfer objects 
+    /*     
+     * BusinessClass transfer objects  
      */
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
@@ -20,7 +20,7 @@ from RecordShopDomainModel import RecordTypeEnum ;
     "A simple Customer transfer object with a subset of Customer attributes."
 	class SimpleCustomerDto represents Customer [  
 	     customerNr; 
-	     lastName; 
+	     lastName;  
 	     firstName;
  	     blackListed;
  	     username; 
@@ -43,6 +43,16 @@ from RecordShopDomainModel import RecordTypeEnum ;
 	
 	"Full Order transfer object, containing all the Order attributes (no associations)"
 	class OrderDto represents Order 
+	
+	list OrderLinesDto contains OrderLineDto
+	
+	
+	class OrderWithOrderLinesDto represents Order [
+		orderNumber ; 
+		references [
+			orderLines as OrderLinesDto ; 
+		]
+	]
 	
 	"Full OrderLine transfer object, containing all the OrderLine attributes (no associations)"
 	class OrderLineDto represents OrderLine
