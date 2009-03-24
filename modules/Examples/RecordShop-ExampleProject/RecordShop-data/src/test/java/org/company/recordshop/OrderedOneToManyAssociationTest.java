@@ -116,89 +116,89 @@ public class OrderedOneToManyAssociationTest extends AbstractDaoTestCase {
         assertEquals("two", result.getTarget().get(2).getProperty());
     }
 
-    @Test
-    public void testOrderedBiDirectionalOneTwoThree() {
-        from.addToTargetBiDirectional(one);
-        from.addToTargetBiDirectional(two);
-        from.addToTargetBiDirectional(three);
-        flush();
-        clear();
-
-        One2ManyFrom result = fromDao.retrieve(from.getId());
-        assertEquals("one", result.getTargetBiDirectional().get(0).getProperty());
-        assertEquals("two", result.getTargetBiDirectional().get(1).getProperty());
-        assertEquals("three", result.getTargetBiDirectional().get(2).getProperty());
-    }
-
-    @Test
-    public void testOrderedBiDirectionalTwoThreeOne() {
-        from.addToTargetBiDirectional(two);
-        from.addToTargetBiDirectional(three);
-        from.addToTargetBiDirectional(one);
-        flush();
-        clear();
-
-        One2ManyFrom result = fromDao.retrieve(from.getId());
-        assertEquals("two", result.getTargetBiDirectional().get(0).getProperty());
-        assertEquals("three", result.getTargetBiDirectional().get(1).getProperty());
-        assertEquals("one", result.getTargetBiDirectional().get(2).getProperty());
-    }
-
-    @Test
-    public void testOrderedBiDirectionalThreeOneTwo() {
-        from.addToTargetBiDirectional(three);
-        from.addToTargetBiDirectional(one);
-        from.addToTargetBiDirectional(two);
-        flush();
-        clear();
-
-        One2ManyFrom result = fromDao.retrieve(from.getId());
-        assertEquals("three", result.getTargetBiDirectional().get(0).getProperty());
-        assertEquals("one", result.getTargetBiDirectional().get(1).getProperty());
-        assertEquals("two", result.getTargetBiDirectional().get(2).getProperty());
-    }
-
-    @Test
-    public void testOrderedBiDirectionalThreeTwoOne() {
-        from.addToTargetBiDirectional(three);
-        from.addToTargetBiDirectional(two);
-        from.addToTargetBiDirectional(one);
-        flush();
-        clear();
-
-        One2ManyFrom result = fromDao.retrieve(from.getId());
-        assertEquals("three", result.getTargetBiDirectional().get(0).getProperty());
-        assertEquals("two", result.getTargetBiDirectional().get(1).getProperty());
-        assertEquals("one", result.getTargetBiDirectional().get(2).getProperty());
-    }
-
-    @Test
-    public void testOrderedBiDirectionalTwoOneThree() {
-        from.addToTargetBiDirectional(two);
-        from.addToTargetBiDirectional(one);
-        from.addToTargetBiDirectional(three);
-        flush();
-        clear();
-
-        One2ManyFrom result = fromDao.retrieve(from.getId());
-        assertEquals("two", result.getTargetBiDirectional().get(0).getProperty());
-        assertEquals("one", result.getTargetBiDirectional().get(1).getProperty());
-        assertEquals("three", result.getTargetBiDirectional().get(2).getProperty());
-    }
-
-    @Test
-    public void testOrderedBiDirectionalOneThreeTwo() {
-        from.addToTargetBiDirectional(one);
-        from.addToTargetBiDirectional(three);
-        from.addToTargetBiDirectional(two);
-        flush();
-        clear();
-
-        One2ManyFrom result = fromDao.retrieve(from.getId());
-        assertEquals("one", result.getTargetBiDirectional().get(0).getProperty());
-        assertEquals("three", result.getTargetBiDirectional().get(1).getProperty());
-        assertEquals("two", result.getTargetBiDirectional().get(2).getProperty());
-    }
+//    @Test
+//    public void testOrderedBiDirectionalOneTwoThree() {
+//        from.addToTargetBiDirectional(one);
+//        from.addToTargetBiDirectional(two);
+//        from.addToTargetBiDirectional(three);
+//        flush();
+//        clear();
+//
+//        One2ManyFrom result = fromDao.retrieve(from.getId());
+//        assertEquals("one", result.getTargetBiDirectional().get(0).getProperty());
+//        assertEquals("two", result.getTargetBiDirectional().get(1).getProperty());
+//        assertEquals("three", result.getTargetBiDirectional().get(2).getProperty());
+//    }
+//
+//    @Test
+//    public void testOrderedBiDirectionalTwoThreeOne() {
+//        from.addToTargetBiDirectional(two);
+//        from.addToTargetBiDirectional(three);
+//        from.addToTargetBiDirectional(one);
+//        flush();
+//        clear();
+//
+//        One2ManyFrom result = fromDao.retrieve(from.getId());
+//        assertEquals("two", result.getTargetBiDirectional().get(0).getProperty());
+//        assertEquals("three", result.getTargetBiDirectional().get(1).getProperty());
+//        assertEquals("one", result.getTargetBiDirectional().get(2).getProperty());
+//    }
+//
+//    @Test
+//    public void testOrderedBiDirectionalThreeOneTwo() {
+//        from.addToTargetBiDirectional(three);
+//        from.addToTargetBiDirectional(one);
+//        from.addToTargetBiDirectional(two);
+//        flush();
+//        clear();
+//
+//        One2ManyFrom result = fromDao.retrieve(from.getId());
+//        assertEquals("three", result.getTargetBiDirectional().get(0).getProperty());
+//        assertEquals("one", result.getTargetBiDirectional().get(1).getProperty());
+//        assertEquals("two", result.getTargetBiDirectional().get(2).getProperty());
+//    }
+//
+//    @Test
+//    public void testOrderedBiDirectionalThreeTwoOne() {
+//        from.addToTargetBiDirectional(three);
+//        from.addToTargetBiDirectional(two);
+//        from.addToTargetBiDirectional(one);
+//        flush();
+//        clear();
+//
+//        One2ManyFrom result = fromDao.retrieve(from.getId());
+//        assertEquals("three", result.getTargetBiDirectional().get(0).getProperty());
+//        assertEquals("two", result.getTargetBiDirectional().get(1).getProperty());
+//        assertEquals("one", result.getTargetBiDirectional().get(2).getProperty());
+//    }
+//
+//    @Test
+//    public void testOrderedBiDirectionalTwoOneThree() {
+//        from.addToTargetBiDirectional(two);
+//        from.addToTargetBiDirectional(one);
+//        from.addToTargetBiDirectional(three);
+//        flush();
+//        clear();
+//
+//        One2ManyFrom result = fromDao.retrieve(from.getId());
+//        assertEquals("two", result.getTargetBiDirectional().get(0).getProperty());
+//        assertEquals("one", result.getTargetBiDirectional().get(1).getProperty());
+//        assertEquals("three", result.getTargetBiDirectional().get(2).getProperty());
+//    }
+//
+//    @Test
+//    public void testOrderedBiDirectionalOneThreeTwo() {
+//        from.addToTargetBiDirectional(one);
+//        from.addToTargetBiDirectional(three);
+//        from.addToTargetBiDirectional(two);
+//        flush();
+//        clear();
+//
+//        One2ManyFrom result = fromDao.retrieve(from.getId());
+//        assertEquals("one", result.getTargetBiDirectional().get(0).getProperty());
+//        assertEquals("three", result.getTargetBiDirectional().get(1).getProperty());
+//        assertEquals("two", result.getTargetBiDirectional().get(2).getProperty());
+//    }
 
     /**
      * The removeFromTarget should work before the objects are persisted.

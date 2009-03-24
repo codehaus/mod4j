@@ -40,27 +40,27 @@ public class OrderedManyToManyAssociationTest {
 		assertEquals("two", from.getTarget().get(2).getProperty());
 	}
 
-	@Test
-	public void testOrderedBiDirectionalOneTwoThree() {
-		from.addToTargetBiDirectional(one);
-		from.addToTargetBiDirectional(two);
-		from.addToTargetBiDirectional(three);
-		assertEquals("one", from.getTargetBiDirectional().get(0).getProperty());
-		assertEquals("two", from.getTargetBiDirectional().get(1).getProperty());
-		assertEquals("three", from.getTargetBiDirectional().get(2)
-				.getProperty());
-	}
-
-	@Test
-	public void testOrderedBiDirectionalThreeOneTwo() {
-		from.addToTargetBiDirectional(three);
-		from.addToTargetBiDirectional(one);
-		from.addToTargetBiDirectional(two);
-		assertEquals("three", from.getTargetBiDirectional().get(0)
-				.getProperty());
-		assertEquals("one", from.getTargetBiDirectional().get(1).getProperty());
-		assertEquals("two", from.getTargetBiDirectional().get(2).getProperty());
-	}
+//	@Test
+//	public void testOrderedBiDirectionalOneTwoThree() {
+//		from.addToTargetBiDirectional(one);
+//		from.addToTargetBiDirectional(two);
+//		from.addToTargetBiDirectional(three);
+//		assertEquals("one", from.getTargetBiDirectional().get(0).getProperty());
+//		assertEquals("two", from.getTargetBiDirectional().get(1).getProperty());
+//		assertEquals("three", from.getTargetBiDirectional().get(2)
+//				.getProperty());
+//	}
+//
+//	@Test
+//	public void testOrderedBiDirectionalThreeOneTwo() {
+//		from.addToTargetBiDirectional(three);
+//		from.addToTargetBiDirectional(one);
+//		from.addToTargetBiDirectional(two);
+//		assertEquals("three", from.getTargetBiDirectional().get(0)
+//				.getProperty());
+//		assertEquals("one", from.getTargetBiDirectional().get(1).getProperty());
+//		assertEquals("two", from.getTargetBiDirectional().get(2).getProperty());
+//	}
 
 	@Test
 	public void testRemoveFromTarget() {

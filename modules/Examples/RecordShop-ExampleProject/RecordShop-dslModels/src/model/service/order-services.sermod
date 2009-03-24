@@ -6,14 +6,19 @@ from RecordShopDataContract import SimpleCustomerDto;
 from RecordShopDataContract import OrderNumberAndDateList;
 from RecordShopDataContract import DateDto;
 from RecordShopDataContract import OrderNumberAndDateDto ;
- 
+from RecordShopDataContract import OrderWithOrderLinesDto ;
+from RecordShopDataContract import OrderLineDto ;
+  
+read   readCustomerAAA  for SimpleCustomerDto ;  
+  
 /* 
  * Create, read, update and delete services
  */
-for OrderDto crud ;
-for OrderNumberAndDateDto crud ;
- 
-"Find all Orders for a specific Customer"
+crud OrderDto ;
+crud OrderNumberAndDateDto ;
+//for OrderWithOrderLinesDto reference orderLines add OrderLineDto;
+   
+"Find all Orders for a specific Customer" 
 method findOrdersByCustomer in [ SimpleCustomerDto customer ; ]
                             out OrderNumberAndDateList;
 

@@ -2,6 +2,6 @@ service TestSVC;
 
 from TestDC import DerivedDto;
 
-for DerivedDto crud;
+crud DerivedDto ;
 
-for DerivedDto listall listAllDerived; 
+listall listAllDerived for DerivedDto ; 
