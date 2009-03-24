@@ -51,6 +51,11 @@ context Association ERROR "Association source role ["+ this.sourceRoleName +
      )
 ;
 
+// target role name conflicts with property name
+context Association ERROR "An ordered association source may not be bidirectional" :
+     this.ordered implies ( ! this.bidirectional )
+;
+
 // TODO: the test for an upper bound for the target multiplicity of "Many"
 // using string comparison is ugly. This must be improved!
 context Association ERROR "[" + this.targetRoleName + "/" + this.targetMultiplicity +

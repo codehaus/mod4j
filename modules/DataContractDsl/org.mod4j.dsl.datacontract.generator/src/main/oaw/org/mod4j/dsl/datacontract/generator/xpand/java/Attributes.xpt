@@ -130,9 +130,8 @@
 	
     «EXPAND addToCollection(associationRole.name) FOR this»
     «EXPAND addToIndexCollection(associationRole.name) FOR this»
-«REM»
     «EXPAND removeFromCollection(associationRole.name) FOR this»
-   «ENDREM»
+    «EXPAND removeFromIndexCollection(associationRole.name) FOR this»
 «ENDDEFINE»
 
 «DEFINE addAssociationRoleAccessors(DtoAssociationRoleProperty associationRole) FOR BusinessClassDto»
@@ -202,6 +201,20 @@
 			return;
 		}
 		this.«associationRoleName».remove(element);
+	}
+«ENDDEFINE»
+
+«REM» Method to remove an element from an association collection.
+      Works fro ordered collections
+«ENDREM»
+«DEFINE removeFromIndexCollection(String associationRoleName) FOR ListDto»
+	/** 
+	 * Removes a single element from the «associationRoleName» collection.
+	 * 
+	 * @param index The index of the element to be removed.
+	 */
+	public void removeFrom«associationRoleName.toFirstUpper()»(int index) {
+		this.«associationRoleName».remove(index);
 	}
 «ENDDEFINE»
 

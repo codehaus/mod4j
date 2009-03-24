@@ -61,16 +61,16 @@ Parameter:
     
 SpecialMethod:
 	(description=STRING )?
-    "for" dto = [DtoReference]
     type=SpecialMethodType
     name=ID
+    "for" dto = [DtoReference]
     ";"
     ;
     
 CrudService:
 	(description=STRING )?
-    "for" dto =[DtoReference]
-    name="crud"
+    name="crud" dto =[DtoReference]
+    
     ";"
     ;
 
