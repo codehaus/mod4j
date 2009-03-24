@@ -55,6 +55,6 @@ List[Property] allProperties(BusinessClass cls) :
  */
 List[Proposal] sortProposals(List[Proposal] proposalsToSort):
     proposalsToSort.reject(p | p.label.endsWith("Description"))
-    .select(p | p.setToInsert(p.toInsert + " ")->true)
+    .select(p | (! p.toInsert.endsWith(" ") ? p.setToInsert(p.toInsert + " ") : null)->true)
 	;
 

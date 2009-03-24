@@ -105,5 +105,5 @@ List[Proposal] completeAssociationMethod_description(emf::EObject ctx, String pr
  */
 List[Proposal] sortProposals(List[Proposal] proposalsToSort):
     proposalsToSort.reject(p | p.label.endsWith("Description"))
-    .select(p | p.setToInsert(p.toInsert + " ")->true)
+    .select(p | (! p.toInsert.endsWith(" ") ? p.setToInsert(p.toInsert + " ") : null)->true)
 	;
