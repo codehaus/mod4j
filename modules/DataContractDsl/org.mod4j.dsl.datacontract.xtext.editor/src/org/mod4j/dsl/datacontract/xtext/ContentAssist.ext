@@ -123,6 +123,6 @@ List[Proposal] completeEnumerationDto_description(emf::EObject ctx, String prefi
 List[Proposal] sortProposals(List[Proposal] proposalsToSort):
 	proposalsToSort.select( p | p.label != "BusinessClassPropertyReferenceName")
     .reject(p | p.label.endsWith("Description"))
-    .select(p | p.setToInsert(p.toInsert + " ")->true)
+    .select(p | (! p.toInsert.endsWith(" ") ? p.setToInsert(p.toInsert + " ") : null)->true)
 	;
 	
