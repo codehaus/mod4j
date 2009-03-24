@@ -64,13 +64,14 @@
         <checkFile value="org::mod4j::dsl::service::validation::checks::ServiceChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
+    <!--
     <component id="Service-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="ServiceDsl" />
        <metaModel idRef="crossx"/>
         <checkFile value="org::mod4j::dsl::service::validation::checks::CrossxChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
- 
+    -->
     <!-- Call the Xtend model-to-model transformation to complete the DTO model
          with all properties derived from the business classes.
     -->

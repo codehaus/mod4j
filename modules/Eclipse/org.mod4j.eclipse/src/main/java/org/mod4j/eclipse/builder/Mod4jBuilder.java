@@ -311,24 +311,29 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     }
 
     private void generateCrossxForAllFiles() {
+//        for (IResource resource : files) {
+//            generateCrossxSymbols(resource);
+//        }
         for (IResource resource : files) {
-            generateCrossxSymbols(resource);
+            if( resource.getName().endsWith(".busmod")){
+                generateCrossxSymbols(resource);
+            }
         }
-//        for (IResource resource : files) {
-//            if( resource.getName().endsWith(".busmod")){
-//                generateCrossxSymbols(resource);
-//            }
-//        }
-//        for (IResource resource : files) {
-//            if( resource.getName().endsWith(".dtcmod")){
-//                generateCrossxSymbols(resource);
-//            }
-//        }
-//        for (IResource resource : files) {
-//            if( resource.getName().endsWith(".sermod")){
-//                generateCrossxSymbols(resource);
-//            }
-//        }
+        for (IResource resource : files) {
+            if( resource.getName().endsWith(".dtcmod")){
+                generateCrossxSymbols(resource);
+            }
+        }
+        for (IResource resource : files) {
+            if( resource.getName().endsWith(".sermod")){
+                generateCrossxSymbols(resource);
+            }
+        }
+        for (IResource resource : files) {
+            if( resource.getName().endsWith(".pmfmod")){
+                generateCrossxSymbols(resource);
+            }
+        }
     }
 
     /**

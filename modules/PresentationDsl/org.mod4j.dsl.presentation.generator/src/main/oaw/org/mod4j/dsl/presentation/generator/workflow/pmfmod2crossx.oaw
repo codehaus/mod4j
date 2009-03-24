@@ -64,13 +64,14 @@
         <checkFile value="org::mod4j::dsl::presentation::validation::checks::PresentationChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
+    <!--
     <component id="Presentation-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="PresentationDsl" />
         <metaModel idRef="crossx"/>
         <checkFile value="org::mod4j::dsl::presentation::validation::checks::CrossxChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
- 
+    -->
     <!-- Call the Xtend model-to-model transformation to complete the Presentation model.
     <component id="compltePmf" class="oaw.xtend.XtendComponent">
        <metaModel idRef="PresentationDsl"/>

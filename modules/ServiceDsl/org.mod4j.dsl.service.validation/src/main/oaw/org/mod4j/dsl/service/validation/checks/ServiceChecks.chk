@@ -9,7 +9,7 @@
  *     Ordina - initial implementation
  *******************************************************************************/
 import ServiceDsl;
-import crossx;
+// import crossx;
 
 extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
 extension org::openarchitectureware::util::stdlib::elementprops;
