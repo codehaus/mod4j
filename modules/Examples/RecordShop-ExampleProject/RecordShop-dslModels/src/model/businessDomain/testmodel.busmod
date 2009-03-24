@@ -11,7 +11,7 @@ class DerivedNotYetImplemented [
 
 "Test derived attributes"
 class Derived [
-    string first derived;
+    string first derived; 
     boolean secondo derived writable;
     datetime third nullable derived;
     integer fourth nullable derived writable;
@@ -20,12 +20,12 @@ class Derived [
 
 "This class has no meaning in the recordshop application. Its purpose is to test
  uni-directional many-to-many associations"
-class Many2ManyFrom [
-    string property;
-]
+class Many2ManyFrom [  
+    string property; 
+] 
 
 "This class has no meaning in the recordshop application. Its purpose is to test
- uni-directional many-to-many associations"
+ uni-directional many-to-many associations" 
 class Many2ManyTo [
     string property; 
 ]
@@ -33,7 +33,7 @@ class Many2ManyTo [
 "This class has no meaning in the recordshop application. Its purpose is to test
  ordered one-to-many associations"
 class One2ManyFrom [
-    string property;
+    string property; 
 ]
 
 "This class has no meaning in the recordshop application. Its purpose is to test
@@ -55,6 +55,6 @@ association Many2ManyFrom fromEnd  many  -> many  Many2ManyTo toEnd ;
 "This Association has no meaning in the recordshop application. Its purpose is to test
  uni-directional many-to-many associations"
 association One2ManyFrom source  one  -> many  One2ManyOrderedTo  target ordered ;
-association One2ManyFrom source one  <-> many  One2ManyOrderedTo targetBiDirectional ordered ;
+association One2ManyFrom source one  <-> many  One2ManyOrderedTo targetBiDirectional ; //ordered ;
 association Many2ManyFrom many2manySource many  -> many  Many2ManyOrderedTo target ordered ; 
-association Many2ManyFrom many2manySource many  <-> many  Many2ManyOrderedTo targetBiDirectional ordered ; 
+association Many2ManyFrom many2manySource many  <-> many  Many2ManyOrderedTo targetBiDirectional ; 

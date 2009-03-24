@@ -1,29 +1,29 @@
-"The RecordShop domain model"
-domain RecordShopDomainModel ;
- 
-/*
- * Remarks...     
- */  
- 
-"A Person represents a legal person."
-class Person [
-
-    "First name of the person."  
-    string firstName ;
-    "Last name of the person."  
-    string lastName;
+   "The RecordShop dom ain model"
+domain RecordShopDomainModel ;  
+          
+/*        
+ * Remarks...                           
+ */        
+      
+"A Person represents a legal person."  
+class Person [ 
+   
+    "First name of the person."   
+    string firstName ; 
+    "Last name of the person."    
+    string lastName;   
     "The age of this person in years"
     integer age nullable ;      
-    "Number of ears (we allow Vulcans in this system)." 
-    integer numberOfEars default 2 min 0 max 4; 
+    "Number of ears (we allow Vulcans in this system)."  
+    integer numberOfEars default 2 min 0 max 4;   
     "Gender"    
-    SexeEnum sexe nullable;  
-    datetime birthDate ; 
-
-    rules [ 
+    SexeEnum sexe nullable;    
+    datetime birthDate ;   
+   
+    rules [   
         "The combination of first- and last name of a person must be unique"
         unique fullName [firstName, lastName]
-    ]
+    ] 
 ]
 
 "A Customer represents a Person who orders from the RecordShop."
@@ -35,14 +35,14 @@ class Customer inherits Person [
     boolean blackListed default false nullable;
     integer discountPercentage default 0 min 0 max 100 ;
     
-    rules [
+    rules [  
         "The customerNr must be unique"
         unique uniqueCustomerNr [customerNr] 
         
         "If Customer has one ear, he/she get a discount of 50 percent."  
         OneEarDiscount;  
         "Just another rule"
-        AnotherRule;
+        AnotherRule; 
     ]
 ]
 
@@ -98,7 +98,7 @@ class Product [
 	boolean orderable;
 ]
 
-"Sexe enumeration."
+"Sexe enumeration." 
 enumeration SexeEnum [
 
     female = 2;
@@ -117,9 +117,9 @@ association Customer customer one <-> many Order orders ;
 
 "One 2 Many unidirectional: An order consists of an ordered list of orderLines."
 association Order order one -> many OrderLine orderLines ordered ;
-
+ 
 "One 2 One bidirectional: An orderLine contains a record."
-association OrderLine orderLine one <-> one Record record ;
+association OrderLine orderLine  one <-> one Record record ;
 
 "Many to One bidirectional: A record is sold as a product."
 association Record  record many <-> one Product product ;
