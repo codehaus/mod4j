@@ -101,15 +101,6 @@ public class FileTrackerView extends ViewPart {
                     String name = gen.getSourcePath();
                     name = gen.getOwner().getProject().getApplicationPath() + "/" + name;
                     EclipseUtil.openFile(name);
-                    
-                    MessageConsoleStream console = EclipseUtil.findConsole("mod4j.projectbuilder");
-                    File file = new File(name);
-                    console.println("File [" + name + "]");
-                    console.println("    hashcode    [" + file.hashCode() + "]");
-                    console.println("    length      [" + file.length()   + "]");
-                    console.println("    lastModified[" + file.lastModified()+ "]");
-                    Date modified = new Date(file.lastModified());
-                    console.println("    lastModified[" + DateFormat.getInstance().format(modified) + "]");
                 } else {
                     EclipseUtil.showInformation("DoubleC;lick on unknown object: " + selection.toString());
                 }

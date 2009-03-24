@@ -13,6 +13,7 @@ package org.mod4j.eclipse.crossx.views;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
@@ -20,8 +21,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
+import org.mod4j.common.generator.admin.FileTrack;
+import org.mod4j.common.generator.admin.GeneratedFile;
+import org.mod4j.common.generator.admin.ProjectTrack;
 import org.mod4j.crossx.broker.CrossxEnvironment;
+import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.eclipse.builder.Mod4jBuilder;
+import org.mod4j.eclipse.util.EclipseUtil;
 
 /**
  * This defines the view of the CrosssxRepository.
@@ -68,14 +74,24 @@ public class CrossxView extends ViewPart {
         input = CrossxEnvironment.getAll();
         viewer.setInput(input);
         // viewer.setInput(getViewSite());
-        // hookDoubleClickAction();
+        hookDoubleClickAction();
         viewer.refresh();
     }
 
     private void hookDoubleClickAction() {
         viewer.addDoubleClickListener(new IDoubleClickListener() {
             public void doubleClick(DoubleClickEvent event) {
-                doubleClickAction.run();
+                Object elem = event.getSelection();
+                if (!(elem instanceof TreeSelection)) {
+                    return;
+                }
+                TreeSelection sel = (TreeSelection) elem;
+                Object selection = sel.getFirstElement();
+                if (selection instanceof ModelInfo) {
+                    ModelInfo ft = (ModelInfo) selection;
+                    String name = ft.getResource();
+                    EclipseUtil.openFile(name);
+                }
             }
         });
     }

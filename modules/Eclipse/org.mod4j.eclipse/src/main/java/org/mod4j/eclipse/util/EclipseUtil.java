@@ -300,6 +300,10 @@ public class EclipseUtil {
      */
     public static void openFile(String filename) {
 
+    	// take care of precdeing  stuff
+    	if( filename.startsWith("file:/") ){
+    		filename = filename.substring(6);
+    	}
         File fileToOpen = new File(filename);
 
         IPath path = new Path(filename);
