@@ -1,4 +1,4 @@
-domain TestDomainModel ;
+domain TestDomainModel;
 
 "Test derived attributes"
 class DerivedNotYetImplemented [
