@@ -66,7 +66,7 @@ List[Proposal] completeExternalReference_name(emf::EObject ctx, String prefix) :
 List[Proposal] completeBusinessClassDto_base(emf::EObject ctx, String prefix) :
     getBusinessClassBaseProposals(ctx).collect(p |  newProposal( p) );
 
-/* proposals for BusinessClassDto::base */
+/* proposals for EnumerationDto::base */
 List[Proposal] completeEnumerationDto_base(emf::EObject ctx, String prefix) :
     getEnumerationBaseProposals(ctx).collect(p |  newProposal( p) );
 
@@ -86,22 +86,6 @@ List[Proposal] completeBusinessClassAssociationRoleReference_dtoType(emf::EObjec
     ;
 
 	
-/* proposals for Feature DtoBooleanProperty::name */
-List[Proposal] completeDtoBooleanProperty_dataType(emf::EObject ctx, String prefix) :
-	{newProposal("boolean-1")};
-/* proposals for Feature DtoBooleanProperty::name */
-List[Proposal] completeDtoStringProperty_dataType(emf::EObject ctx, String prefix) :
-	{newProposal("string")};
-/* proposals for Feature DtoBooleanProperty::name */
-List[Proposal] completeDtoIntegerProperty_dataType(emf::EObject ctx, String prefix) :
-	{newProposal("integer")};
-/* proposals for Feature DtoBooleanProperty::name */
-List[Proposal] completeDtoDecimalProperty_dataType(emf::EObject ctx, String prefix) :
-	{newProposal("decimal")};
-/* proposals for Feature DtoBooleanProperty::name */
-List[Proposal] completeDtoDateTimeProperty_dataType(emf::EObject ctx, String prefix) :
-	{newProposal("datetime-1")};
-
 // GET RID OF ALL THE DESCRIPTION PROPOSALS
 /* proposals for Feature DataContractModel::description */
 List[Proposal] completeDataContractModel_description(emf::EObject ctx, String prefix) :
