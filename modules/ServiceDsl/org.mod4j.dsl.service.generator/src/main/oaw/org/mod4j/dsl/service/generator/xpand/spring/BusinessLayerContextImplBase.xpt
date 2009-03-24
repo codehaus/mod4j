@@ -50,9 +50,15 @@
     «FOREACH allServices AS service»
     <bean id="«service.name.toFirstLower()»DomainService"
         class="«javaDomainServiceClassPath(service.name)»">
-        «FOREACH service.getPropertyValue("UniqueBusinessClasses").split(",") AS cls»
-        <property name="«javaDaoInterface(cls).toFirstLower()»" ref="«javaDaoInterface(cls).toFirstLower()»" />
-        «ENDFOREACH»
+        «LET service.getPropertyValue("UniqueBusinessClasses") AS uniqueClasses»
+        «IF (uniqueClasses != null) && ( uniqueClasses.trim() != "" ) »
+	        «FOREACH uniqueClasses.split(",") AS cls»
+	        <property name="«javaDaoInterface(cls).toFirstLower()»" ref="«javaDaoInterface(cls).toFirstLower()»" />
+	        «ENDFOREACH»
+	    «ELSE»
+	        <!-- no classes defined in the application -->
+	    «ENDIF»
+        «ENDLET»
     </bean>
     «ENDFOREACH»
 

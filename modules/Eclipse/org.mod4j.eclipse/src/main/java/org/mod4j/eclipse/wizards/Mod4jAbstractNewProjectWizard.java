@@ -133,16 +133,17 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 									"org.mod4j.crossx.broker",
 									"org.mod4j.eclipse"
 							}, monitor);
+							String appname = mainPage.getApplicationNameFieldValue();
 							IContainer modelFolder = pr.getFolder(MODEL_DIR);
 							Mod4jProjectCreator.createFile("mod4j.properties", modelFolder, propertiesContents(), monitor);
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + BUSDOMAIN_PACKAGE);
-							String modelFileName = "SampleModel.busmod";
+							String modelFileName = appname + ".busmod";
 							Mod4jProjectCreator.createFile(modelFileName, modelFolder, busmodSampleModelContents(), monitor);
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + DATACONTRACT_PACKAGE);
-                            modelFileName = "SampleModel.dtcmod";
+                            modelFileName = appname + ".dtcmod";
                             Mod4jProjectCreator.createFile(modelFileName, modelFolder, dtcmodSampleModelContents(), monitor);
                             modelFolder = pr.getFolder(MODEL_DIR + "/" + SERVICE_PACKAGE);
-                            modelFileName = "SampleModel.sermod";
+                            modelFileName = appname + ".sermod";
                             Mod4jProjectCreator.createFile(modelFileName, modelFolder, sermodSampleModelContents(), monitor);
                         
                     } catch (CoreException e) {
@@ -238,38 +239,38 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		public String busmodSampleModelContents() {
             return 
-            "domain SampleModel ;" + LF + 
+            "domain " + mainPage.getApplicationNameFieldValue() + " ;" + LF + 
             "/*" + LF +
             " * This is an example model file." + LF +
-            " */" + LF + LF +
-            "\"The SampleClass\"" + LF +
-            "class SampleClass [" + LF + 
-            "    string name;" + LF + "]" + LF;
+            " */" + LF ;
+//            "\"The SampleClass\"" + LF +
+//            "class SampleClass [" + LF + 
+//            "    string name;" + LF + "]" + LF;
         }
 		
 		public String dtcmodSampleModelContents() {
 		    return   
-		    "datacontract SampleDataContractModel ;" + LF +
+		    "datacontract " + mainPage.getApplicationNameFieldValue() + " ;" + LF +
             "/*" + LF +
             " * This is an example model file." + LF +
-            " */" + LF + LF +
-            "\"Import needed BusinessClasses\"" + LF +
-		    "from SampleModel import SampleClass ;" + LF + LF +
-		    "\"Data transfer object for SampleClass\"" + LF +
-		    "class SampleDto represents SampleClass [" + LF +
-		    "    name ;" + LF +
-		    "]";
+            " */" + LF ;
+//            "\"Import needed BusinessClasses\"" + LF +
+//		    "from SampleModel import SampleClass ;" + LF + LF +
+//		    "\"Data transfer object for SampleClass\"" + LF +
+//		    "class SampleDto represents SampleClass [" + LF +
+//		    "    name ;" + LF +
+//		    "]";
 		}
 		
         public String sermodSampleModelContents() {
             return 
-            "service SampleServiceModel ;" + LF +
+            "service " + mainPage.getApplicationNameFieldValue() + " ;" + LF +
             "/*" + LF +
             " * This is an example model file." + LF +
-            " */" + LF + LF +
-            "from SampleDataContractModel import SampleDto ;" + LF + LF +
-            "\"Create-, read- update- and delete service methods for SampleDto\"" + LF +
-            "crud SampleDto ;";
+            " */" + LF ;
+//            "from SampleDataContractModel import SampleDto ;" + LF + LF +
+//            "\"Create-, read- update- and delete service methods for SampleDto\"" + LF +
+//            "crud SampleDto ;";
         }
 
     /**
