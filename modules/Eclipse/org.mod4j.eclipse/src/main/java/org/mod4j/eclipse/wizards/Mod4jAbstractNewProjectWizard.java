@@ -198,7 +198,6 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "#" + LF +
                     "####" + LF +
                     "dslModelsModuleName=" + getModelProjectName() + LF +
-                    "srcModelPath=src/model" + LF +
                     "" + LF +
                     "####" + LF +
                     "#" + LF +
@@ -239,38 +238,29 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 
 		public String busmodSampleModelContents() {
             return 
-            "domain " + mainPage.getApplicationNameFieldValue() + " ;" + LF + 
+            "domain " + mainPage.getApplicationNameFieldValue() + "DomainModel" + " ;" + LF +
+            LF +
             "/*" + LF +
-            " * This is an example model file." + LF +
+            " * The Business Domain model." + LF +
             " */" + LF ;
-//            "\"The SampleClass\"" + LF +
-//            "class SampleClass [" + LF + 
-//            "    string name;" + LF + "]" + LF;
         }
 		
 		public String dtcmodSampleModelContents() {
 		    return   
-		    "datacontract " + mainPage.getApplicationNameFieldValue() + " ;" + LF +
+		    "datacontract " + mainPage.getApplicationNameFieldValue() + "DataContractModel" + " ;" + LF +
+		    LF +
             "/*" + LF +
-            " * This is an example model file." + LF +
+            " * The Datacontract model." + LF +
             " */" + LF ;
-//            "\"Import needed BusinessClasses\"" + LF +
-//		    "from SampleModel import SampleClass ;" + LF + LF +
-//		    "\"Data transfer object for SampleClass\"" + LF +
-//		    "class SampleDto represents SampleClass [" + LF +
-//		    "    name ;" + LF +
-//		    "]";
 		}
 		
         public String sermodSampleModelContents() {
             return 
-            "service " + mainPage.getApplicationNameFieldValue() + " ;" + LF +
+            "service " + mainPage.getApplicationNameFieldValue() + "ServiceModel" + " ;" + LF +
+            LF +
             "/*" + LF +
-            " * This is an example model file." + LF +
+            " * The Service model." + LF +
             " */" + LF ;
-//            "from SampleDataContractModel import SampleDto ;" + LF + LF +
-//            "\"Create-, read- update- and delete service methods for SampleDto\"" + LF +
-//            "crud SampleDto ;";
         }
 
     /**

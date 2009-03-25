@@ -74,7 +74,7 @@ public class ProjectProperties {
 
     private static String dslModelsModuleName = "dslModels";
 
-    private static String srcModelPath = "src/model";
+    private static final String SRC_MODEL_PATH = "src/model";
 
     private static String dataModuleName = "DEFAULT";
 
@@ -280,7 +280,7 @@ public class ProjectProperties {
     }
 
     public static String getSrcModelPath() {
-        return srcModelPath;
+        return SRC_MODEL_PATH;
     }
 
     public static String getSrcGenPath() {
