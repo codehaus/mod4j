@@ -10,7 +10,7 @@
     <body>
 
         <section name="Mod4j Getting Started">
-            
+
             <subsection name="Setting up your environment">
                 <ol>
                     <li>
@@ -50,9 +50,16 @@
                             /path-to-jdk1.5.0_15/jre/bin/java</q>
                     </li>
                     <li>
-                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
-                        'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
-                        users UTF-8 is usually the platform encoding, and no change will be necessary.
+                        Take care of the following Workspace settings in Elipse:
+                        <br />
+                        - Make sure the 'Text file encoding' in Eclipse is set to 'UTF-8'. For Linux
+                        users UTF-8 is usually the
+                        default platform encoding, and no change will be necessary.
+                        <br />
+                        - Enable the option 'Refresh automatically'. While working with the Mod4j editors a lot of the
+                        (re)sources will be generated or regenerated. To keep the compiler happy its convenient to refresh your
+                        workspace automatically.
+                        You can verify and set both settings by navigating to 'Window -> Preferences... -> General -> Workspace'.
                     </li>
                     <li>
                         Install Apache Maven 2.0.9 or higher. For download and install instructions see the
