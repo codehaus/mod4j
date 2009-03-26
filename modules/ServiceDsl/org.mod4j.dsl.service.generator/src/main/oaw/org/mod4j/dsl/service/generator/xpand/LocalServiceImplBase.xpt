@@ -245,7 +245,7 @@
 	
 		«REM»And the removeFrom method«ENDREM»
 		«IF method.type == MethodType::REMOVEFROM»
-		public void «method.name»(«method.part.name» part, «method.main.name» whole) {
+		public void «method.name»(«method.main.name» whole, «method.part.name» part) {
 			if( part == null ) { 
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: parameter [part] should not be null");
 			}
@@ -261,7 +261,7 @@
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
 			}
 			
-			«javaDomainServiceInterface(this.name).toFirstLower()».removeFrom«method.rolename.toFirstUpper()»(partObject, wholeObject);
+			«javaDomainServiceInterface(this.name).toFirstLower()».removeFrom«method.rolename.toFirstUpper()»(wholeObject, partObject);
 		}
 		«ENDIF»
 	«ENDLET»
@@ -270,7 +270,7 @@
 «ENDDEFINE»
 
 «DEFINE addToMethod FOR AssociationMethod»
-	public void «this.name»(«this.part.name» part, «this.main.name» whole) {
+	public void «this.name»(«this.main.name» whole, «this.part.name» part) {
 			if( part == null ) { 
 			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [part] should not be null");
 			}
@@ -288,13 +288,13 @@
 		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
 		}
 
-		«javaDomainServiceInterface(this.model.name).toFirstLower()».addTo«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		«javaDomainServiceInterface(this.model.name).toFirstLower()».addTo«this.rolename.toFirstUpper()»(mainBusinessObject, partBusinessObject);
 		return ;
 	}
 «ENDDEFINE»
 
 «DEFINE setMethod FOR AssociationMethod»
-	public void «this.name»(«this.part.name» part, «this.main.name» whole) {
+	public void «this.name»(«this.main.name» whole, «this.part.name» part) {
 			if( whole == null ) { 
 			    throw new ServiceException("set«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
 			}
@@ -308,7 +308,7 @@
 		    throw new ServiceException("set«this.rolename.toFirstUpper()»: cannot find business object for parameter [whole]");
 		}
 
-		«javaDomainServiceInterface(this.model.name).toFirstLower()».set«this.rolename.toFirstUpper()»(partBusinessObject, mainBusinessObject);
+		«javaDomainServiceInterface(this.model.name).toFirstLower()».set«this.rolename.toFirstUpper()»(mainBusinessObject, partBusinessObject);
 		return ;
 	}
 «ENDDEFINE»

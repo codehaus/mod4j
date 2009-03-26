@@ -131,13 +131,20 @@
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
 	«LET getAssociation(method) AS assoc» 
 	«LET getPropertyValue(assoc, "Multiplicity") AS mult»
+	«LET getPropertyValue(assoc, "ordered") AS ordered»
     «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 		«IF method.type == MethodType::ADDTO»
-		public void «genName»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
+		public void «genName»(«method.main.businessClass()» whole, «method.part.businessClass()» part) ;
+			«IF ordered == "true" »
+			public void «genName»(«method.main.businessClass()» whole, int index, «method.part.businessClass()» part) ;
+			«ENDIF»
 		«ENDIF»
 	
 		«IF method.type == MethodType::REMOVEFROM»
-		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.businessClass()» part, «method.main.businessClass()» whole) ;
+		public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, «method.part.businessClass()» part) ;
+			«IF ordered == "true" »
+			public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) ;
+			«ENDIF»
 		«ENDIF»
 
 		«IF method.type == MethodType::GETFROM»
@@ -147,6 +154,8 @@
 			public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
 			«ENDIF»
 		«ENDIF»
+
+	«ENDLET»
 	«ENDLET»
 	«ENDLET»
 	«ENDLET»

@@ -153,14 +153,14 @@
 «REM»			
 	    public void «genName»(«method.part.name» part, «method.main.name» whole);
 «ENDREM»
-	    public void «method.name»(«method.part.name» part, «method.main.name» whole);
+	    public void «method.name»(«method.main.name» whole, «method.part.name» part);
 		«ENDIF»
 		
 		«IF method.type == MethodType::REMOVEFROM»
 «REM»			
 		public void removeFrom«method.rolename.toFirstUpper()»(«method.part.name» part, «method.main.name» whole);
 «ENDREM»
-			public void «method.name»(«method.part.name» part, «method.main.name» whole);
+			public void «method.name»(«method.main.name» whole, «method.part.name» part);
 		«ENDIF»
 	
 		«IF method.type == MethodType::GETFROM»
