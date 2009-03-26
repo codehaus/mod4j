@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.mod4j</groupId>
@@ -6,13 +7,20 @@
         <version>1.0.0-beta-4-SNAPSHOT</version>
     </parent>
     <groupId>org.mod4j.docs</groupId>
-    <artifactId>documentation-parent</artifactId>
+    <artifactId>documentation</artifactId>
     <name>Mod4j Documentation Parent</name>
     <version>1.0.0-beta-4-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
         <docbkx.src.dir>${basedir}/src/main/docbkx</docbkx.src.dir>
     </properties>
+    <distributionManagement>
+        <site>
+            <id>ftp.mod4j.org</id>
+            <name>The mod4j project website</name>
+            <url>ftp://ftp.mod4j.org/mod4j.org/mod4j.org/wwwroot/documentation/${project.version}</url>
+        </site>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
