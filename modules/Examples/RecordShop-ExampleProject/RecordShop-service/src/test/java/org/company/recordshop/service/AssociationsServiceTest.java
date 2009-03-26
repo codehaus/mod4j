@@ -71,19 +71,19 @@ public class AssociationsServiceTest extends
 		order2.setOrderNumber("ISO 002");
 		order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		OrderDto createdOrder2 = orderServiceModelService.createOrder(order2);
-		customerServiceModelService.addToOrders(createdOrder2, createdCustomer);
+		customerServiceModelService.addToOrders(createdCustomer, createdOrder2);
 
 		order2 = new OrderDto();
 		order2.setOrderNumber("ISO 003");
 		order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		createdOrder2 = orderServiceModelService.createOrder(order2);
-		customerServiceModelService.addToOrders(createdOrder2, createdCustomer);
+		customerServiceModelService.addToOrders(createdCustomer, createdOrder2);
 
 		order2 = new OrderDto();
 		order2.setOrderNumber("ISO 004");
 		order2.setOrderDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		createdOrder2 = orderServiceModelService.createOrder(order2);
-		customerServiceModelService.addToOrders(createdOrder2, createdCustomer);
+		customerServiceModelService.addToOrders(createdCustomer, createdOrder2);
 	}
 
 	public void tearDown() {
@@ -180,7 +180,7 @@ public class AssociationsServiceTest extends
 		setup();
 
 		Long id = createdOrder.getId();
-		customerServiceModelService.addToOrders(createdOrder, createdCustomer);
+		customerServiceModelService.addToOrders(createdCustomer, createdOrder);
 
 		OrderNumberAndDateDto o = orderServiceModelService
 				.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
@@ -196,7 +196,7 @@ public class AssociationsServiceTest extends
 
 		Long id = createdOrder.getId();
 		try {
-			customerServiceModelService.addToOrders(null, createdCustomer);
+			customerServiceModelService.addToOrders(createdCustomer, null);
 			Assert
 					.fail("Expecting Service Exception: Adding null order to customer");
 		} catch (ServiceException e) {
@@ -204,7 +204,7 @@ public class AssociationsServiceTest extends
 		}
 
 		try {
-			customerServiceModelService.addToOrders(createdOrder, null);
+			customerServiceModelService.addToOrders(null, createdOrder);
 			Assert
 					.fail("Expecting Service Exception: Adding order to null customer");
 		} catch (ServiceException e) {
@@ -213,8 +213,7 @@ public class AssociationsServiceTest extends
 
 		try {
 			createdOrder.setId(-1L);
-			customerServiceModelService.addToOrders(createdOrder,
-					createdCustomer);
+			customerServiceModelService.addToOrders(createdCustomer, createdOrder);
 			Assert
 					.fail("Expecting Service Exception: Adding order with incorrect id to customer");
 		} catch (ServiceException e) {
@@ -224,8 +223,7 @@ public class AssociationsServiceTest extends
 		try {
 			createdOrder.setId(id);
 			createdCustomer.setId(-1L);
-			customerServiceModelService.addToOrders(createdOrder,
-					createdCustomer);
+			customerServiceModelService.addToOrders(createdCustomer, createdOrder);
 			Assert
 					.fail("Expecting Service Exception: Adding order to customer with incorrect id");
 		} catch (ServiceException e) {
@@ -239,7 +237,7 @@ public class AssociationsServiceTest extends
 		setup();
 
 		Long id = createdOrder.getId();
-		customerServiceModelService.setCustomer(createdCustomer, createdOrder);
+		customerServiceModelService.setCustomer(createdOrder, createdCustomer);
 
 		OrderNumberAndDateDto o = orderServiceModelService
 				.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
@@ -250,7 +248,7 @@ public class AssociationsServiceTest extends
 		Assert.assertEquals(((OrderNumberAndDateDto) (orders.toArray()[0]))
 				.getId(), id);
 
-		customerServiceModelService.setCustomer(null, createdOrder);
+		customerServiceModelService.setCustomer(createdOrder, null);
 		o = orderServiceModelService
 				.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
 		Assert.assertNull(o.getCustomer());
@@ -266,7 +264,7 @@ public class AssociationsServiceTest extends
 		setup();
 
 		try {
-			customerServiceModelService.setCustomer(createdCustomer, null);
+			customerServiceModelService.setCustomer(null, createdCustomer);
 			Assert
 					.fail("Expecting Service Exception: Adding customer to null order");
 		} catch (ServiceException e) {
@@ -280,10 +278,10 @@ public class AssociationsServiceTest extends
 	public final void testRemoveOrder() {
 		setup();
 
-		customerServiceModelService.addToOrders(createdOrder, createdCustomer);
+		customerServiceModelService.addToOrders(createdCustomer, createdOrder);
 		OrderDto newOrder = orderServiceModelService
 				.readOrderAsOrderDto(createdOrder.getId());
-		customerServiceModelService.removeFromOrders(newOrder, createdCustomer);
+		customerServiceModelService.removeFromOrders(createdCustomer, newOrder);
 
 		OrderNumberAndDateDto o2 = orderServiceModelService
 				.readOrderAsOrderNumberAndDateDto(createdOrder.getId());
@@ -298,12 +296,12 @@ public class AssociationsServiceTest extends
 	public final void testRemoveOrderFailure() {
 		setup();
 
-		customerServiceModelService.addToOrders(createdOrder, createdCustomer);
+		customerServiceModelService.addToOrders(createdCustomer, createdOrder);
 		OrderDto newOrder = orderServiceModelService
 				.readOrderAsOrderDto(createdOrder.getId());
 
 		try {
-			customerServiceModelService.removeFromOrders(newOrder, null);
+			customerServiceModelService.removeFromOrders(null, newOrder);
 			Assert
 					.fail("Expecting Service Exception: Removing order from null customer");
 		} catch (ServiceException e) {
@@ -311,7 +309,7 @@ public class AssociationsServiceTest extends
 		}
 
 		try {
-			customerServiceModelService.removeFromOrders(null, createdCustomer);
+			customerServiceModelService.removeFromOrders(createdCustomer, null);
 			Assert
 					.fail("Expecting Service Exception: Removing null order from customer");
 		} catch (ServiceException e) {
