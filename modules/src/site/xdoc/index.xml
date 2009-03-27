@@ -22,11 +22,9 @@
                 The Mod4j DSL's and the corresponding code generators are based on a reference architecture. This allows
                 developers to
                 model various aspects of the application and generate code that strictly follows this reference
-                architecture.
-                The reference architecture is described in a separate document. For a good understanding of the
-                generated code it is useful to read this document ->
-                <a href="../documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
-                <a href="../documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.html">HTML</a> 
+                architecture. For a good understanding of the generated code it is useful to read the Application Architecture document ->
+                <a href="../documentation/${release.version.latest}/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
+                <a href="../documentation/${release.version.latest}/application-architecture/mod4j-application-architecture.html">HTML</a>. 
             </p>
             <img src="images/mod4j-diagram-small.png" align="left" alt="" />
 
