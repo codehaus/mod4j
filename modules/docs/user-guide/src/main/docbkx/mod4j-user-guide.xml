@@ -16,13 +16,34 @@
         <surname>Vogelzang</surname>
       </author>
     </authorgroup>
-    <releaseinfo>1.0 beta</releaseinfo>
+    <releaseinfo>1.0.0</releaseinfo>
     <copyright>
       <year>2009</year>
       <holder>Ordina and other Mod4j committer</holder>
     </copyright>
   </bookinfo>
-  <chapter>
+  <chapter id="intro">
+    <title>Introduction</title>
+    <section>
+      <title>Introduction</title>
+      <para>Mod4j (<emphasis role="italic">Modeling for Java</emphasis>) is an open source DSL-based
+        environment for developing administrative enterprise applications. It uses a collection of
+        DSL’s to model different parts of the architecture, combined with manually written code.
+        Currently Mod4j consists of four DSLs: the Business Domain DSL, Service DSL, Data Contract
+        DSL and Presentation DSL. The modeling environment is seamlessly integrated into the Eclipse
+        IDE which gives the developers one environment where they can easily switch back- and forth
+        between models and code. The different DSL’s used in Mod4j can be used independently, but if
+        they are used in collaboration they will be fully validated with each other. Apart from
+        integration in the Eclipse IDE, Mod4j also supports the use of Maven. That is, using the DSL
+        models as the source, the complete code generation process can be run automatically on a
+        build server without the need for Eclipse. This is a must for professional development and
+        fits well in current ways of working.</para>
+      <para>This document is the user guide for Mod4j. <xref linkend="intro"/> describes the guiding
+        principles that are used within Mod4j. Section XXX describes <xref linkend="Mod4jPrinciples"
+        />, describe the different DSL's of Mod4j.</para>
+    </section>
+  </chapter>
+  <chapter id="Mod4jPrinciples">
     <title>Mod4j Principles and Patterns</title>
     <section>
       <title>Principles</title>
@@ -50,31 +71,32 @@
               readable.</para>
           </listitem>
           <listitem>
-            <para><keycap>Generated code is never overwritten</keycap>, in other words <emphasis>the
-                model is always leading</emphasis>.</para>
+            <para><keycap>Generated code is strictly separated from handwritten code</keycap>, in
+              other words <emphasis>the model is always leading</emphasis> and code is always
+              regenerated from the model whenever the model changes. </para>
             <para>To ensure that generated code never needs to be overwritten the generated code is
               designed and generated with <emphasis>specific extension points</emphasis>. These
               extension points are the only places where handwritten code may be placed. In most
-              cases an extension point is in a separate file than the generates code. To help the
-              developer a first empty extension point file is usually created , but only when the
-              extension point file does not exist.</para>
+              cases an extension point is in a file separate from the generated code. To help the
+              developer a first empty extension point file is usually created. Extension points are
+              regenerated as long as no handwritten code has been added. Once handwritten code has
+              been added an extension point is not regenerated anymore.</para>
           </listitem>
           <listitem>
-            <para><keycap>Within Eclipse Mod4j support incremental code generation</keycap>. This
-              means that code is generated on a per model file basis. Effectively whenever a model
-              file is saved the code for this model file is generated automatically in the
-              background. There is no need for a separate code generation step. This code generation
-              step uses the standard Eclipse build structure. If the n 'build automatically' is set
-              this will happen. If a full build is requested all code will be regenerated. This
+            <para><keycap>Mod4j supports incremental code generation</keycap>. Code is generated on
+              a per model file basis. Effectively whenever a model file is saved the code for this
+              model file is generated automatically in the background. There is no need for a
+              separate code generation step. This code generation step uses the standard Eclipse
+              build structure. If the option 'build automatically' is set code generation will take
+              place automatically. If a full build is requested all code will be regenerated. This
               allows Eclipse users to work with models in the same way as with source code (i.e.
               Java class files).</para>
           </listitem>
           <listitem>
-            <para><keycap>Code generation through Maven.</keycap> Mod4j includes a Maven plugin that
-              support the code generation process in batch mode. This is used to run automatics
+            <para><keycap>Automatic builds through Maven.</keycap> Mod4j includes a Maven plugin
+              that support the code generation process in batch mode. This is used to run automatics
               builds based on the models. There is no need to checkin generated source code, just as
-              there is no need to checkin compiled Java classes. We support two ways of generating
-              code.</para>
+              there is no need to checkin compiled Java classes. </para>
           </listitem>
         </itemizedlist>
       </section>
@@ -111,90 +133,179 @@
     </section>
     <section>
       <title>Code Generation Patterns</title>
-      <para>The code generated by mod4j is designed to be extensible by handwritten code,. This
-        allows the developer maximum flexibility. These so-called extension points are designed in
-        such a way that a developer never needs to overwrite generated code, he always extends it.
-        This ensures that code can always be regenerated keeping the model as the source for
-        development during the lifetime of an application.</para>
-      <para>This section describes a number of code generation patterns that are used in the various
-        code generators. These patters are applied in the code generators of the various
-        DSLs.</para>
+      <para>The code generated by mod4j is designed to be extensible by handwritten code. This
+        provides the developer with maximum flexibility. These so-called extension points are
+        designed in such a way that a developer never needs to overwrite generated code, he always
+        extends it. This ensures that code can always be regenerated keeping the model as the source
+        for development during the lifetime of an application.</para>
+      <para>This section describes code generation patterns that are used in the various code
+        generators. </para>
       <section id="section-emptysubclass-pattern">
-        <title id="empty">Generation Gap Pattern or Empty Subclass Pattern</title>
-        <para>The problem is twofold:</para>
-        <itemizedlist>
-          <listitem>
-            <para>handwritten code may get lost when re-generating code from a model</para>
-          </listitem>
-          <listitem>
-            <para>generated code may sometimes not do exactly what is needed</para>
-          </listitem>
-        </itemizedlist>
-        <para>Solution:</para>
-        <para>Separate the handwritten and generated code in separate classes / files. Generate an
-          abstract base class that contains all code that is generated. Generate an empty subclass
-          in a separate file. In this way the generator may always regenerate the base class with
-          all generated code, while it will never regenerate the subclass file with handwritten
-          code.</para>
-        <para>The handwritten subclass file is used for two purposes:</para>
-        <itemizedlist>
-          <listitem>
-            <para>Extend the generated code in the base class with things that cannot be generated
-              from the model. In this case the base class usually defines something like an abstract
-              method such that this must be defined in the handwritten file</para>
-          </listitem>
-          <listitem>
-            <para>Overwrite a method in the generated base class. This allows a developer to
-              overrule the generated code. The system depends to a great extent on assumptions about
-              the generated code. Therefore the developer should be intimately aware of the
-              consequences and only use this in exceptional cases.</para>
-          </listitem>
-        </itemizedlist>
-        <para>The empty-subclass pattern is used at several places within Mod4j. It is a well known
-          pattern in Java code generation and allows a clear separation of generated and handwritten
-          code. Code generated for a Java class or java interface is done in two parts. An abstract
-          base class is generated which contains all the generated code. An empty concrete subclass
-          is generated. handwritten code should be put into this subclass.</para>
-        <para>The generator will always regenerate the abstract base class. The generator will only
-          generate the empty subclass once, if it is not there. In this way handwritten code is
-          never overwritten by the code generator.</para>
-        <para>The solution is shown in <xref linkend="emptysubclass-pattern"/>.</para>
-        <figure id="emptysubclass-pattern">
-          <title id="titleid">Empty subclass pattern</title>
+        <title id="empty">Generation Gap Pattern</title>
+        <para>The Generation Gap pattern is described at
+          http://www.research.ibm.com/designpatterns/pubs/gg.html by John Vlissides. The main
+          asopects of this pattern are:</para>
+        <section>
+          <title>Intent</title>
+          <para>The intent of the pattern is to be able to modify or extend generated code just once
+            no matter how many times it is regenerated. </para>
+        </section>
+        <section>
+          <title>Motivation</title>
+          <para>Having a computer generate code for you is usually preferable to writing it
+            yourself, provided the code it generates is * correct, * efficient enough, *
+            functionally complete, and * maintainable. The problem is twofold:</para>
+          <itemizedlist>
+            <listitem>
+              <para>handwritten code may get lost when re-generating code from a model</para>
+            </listitem>
+            <listitem>
+              <para>generated code may sometimes not do exactly what is needed</para>
+            </listitem>
+          </itemizedlist>
+        </section>
+        <section>
+          <title>Solution</title>
+          <para>Separate the handwritten and generated code in separate classes / files. Generate an
+            abstract base class that contains all code that is generated. Generate an empty subclass
+            in a separate file. In this way the generator may always regenerate the base class with
+            all generated code, while it will never regenerate the subclass file with handwritten
+            code.</para>
+          <para>The handwritten subclass file is used for two purposes:</para>
+          <itemizedlist>
+            <listitem>
+              <para>Extend the generated code in the base class with things that cannot be generated
+                from the model. In this case the base class usually defines something like an
+                abstract method such that this must be defined in the handwritten file</para>
+            </listitem>
+            <listitem>
+              <para>Overwrite a method in the generated base class. This allows a developer to
+                overrule the generated code. The system depends to a great extent on assumptions
+                about the generated code. Therefore the developer should be intimately aware of the
+                consequences and only use this in exceptional cases.</para>
+            </listitem>
+          </itemizedlist>
+          <para>The generation gap pattern is used at several places within Mod4j. It is a well
+            known pattern in Java code generation and allows for a clear separation of generated and
+            handwritten code. Code generation for a Java class or java interface is done in two
+            parts. An abstract base class is generated which contains all the generated code. An
+            empty concrete subclass is generated, in which handwritten code should added.</para>
+          <para>The generator will always regenerate the abstract base class. The generator will
+            only generate the empty subclass if it has not been manually changed. In this way
+            handwritten code is never overwritten by the code generator.</para>
+          <para>The solution is shown in <xref linkend="emptysubclass-pattern"/>.</para>
+          <figure id="emptysubclass-pattern">
+            <title id="titleid">Generation Gap Pattern</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/base-emptysubclass-pattern.jpg"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+          <para>There are a few properties of this solution that we need to be aware of:</para>
+          <orderedlist>
+            <listitem>
+              <para>The empty subclass isn't completely empty. It needs to include the public
+                constructors from the base class with a calls to super(). This means that whenever
+                the generated constructors change, the constructors in the subclass will be
+                outdated.</para>
+            </listitem>
+            <listitem>
+              <para>When the abstract base class is not generated anymore, the empty subclass will
+                become superfluous. It refers to a non-existing base class. The java compiler will
+                flag this as an error, and the developer needs to remove the subclass by
+                hand.</para>
+            </listitem>
+          </orderedlist>
+        </section>
+      </section>
+    </section>
+  </chapter>
+  <chapter>
+    <title>The Mod4j Eclipse environment</title>
+    <section>
+      <title>Mod4j Project</title>
+      <para>Mod4j models reside within an Eclipse Mod4j project. A Mod4j project has several
+        characteristics. First of all, such a project has a Mod4j nature, which tells Eclipse that
+        this project contains Mod4j DSL models. This nature triggers the Eclipse build system to run
+        on the model units in this project. Mod4j model files must reside in a Mod4j project </para>
+      <section>
+        <title>Mod4j new project wizard</title>
+        <para>To create a Mod4j project you can use the Mod4j Wizard. You can find this under the
+          menu option <keycap>File ==> New ==> Project ... ==> Mod4j ==> Mod4j Project</keycap>. You
+          can then define the project name and the project location. Within a Mod4j project the
+          folder src/model is special. All Mod4j models must reside within this folder. The default
+          structure below this folder is to make sub folders for business domain models, data
+          contract models and service models.</para>
+      </section>
+      <section>
+        <title>Mod4j new model wizard</title>
+        <para>Once e Mod4j project has been created you can create a new Mod4j model through the
+          menu option <keycap>New ==> Other... ==> Mod4j ==> Mod4j &lt;DSL name> Model
+          File</keycap>. Make sure you create the model files inside the src/model folder, or they
+          will be ignored.</para>
+      </section>
+      <section>
+        <title>Mod4j model editors</title>
+        <para>Once a Mod4j model is created it can be opened in the special model editor by double
+          clicking it. The model editors use syntax highlighting for keywords, where the color of
+          the keywords matches the color of the layer in the architectural overview. This helps you
+          to quickly know which type of model you are editing. An example of the Business Domain
+          Editor is shown below.</para>
+        <figure>
+          <title>Business Domain Model Editor</title>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/base-emptysubclass-pattern.jpg"/>
+              <imagedata fileref="images/business-domain-dsl-editor.bmp" scalefit="1" width="15cm"
+                contentwidth="15cm" depth="15cm" contentdepth="15cm"/>
             </imageobject>
           </mediaobject>
         </figure>
-        <para>There are a few properties of this solution that we need to be aware of:</para>
-        <orderedlist>
-          <listitem>
-            <para>The empty subclass isn't completely empty. It needs to include the public
-              constructors from the base class with a calls to super(). This means that whenever the
-              generated constructors change, the constructors in the subclass will be
-              outdated.</para>
-          </listitem>
-          <listitem>
-            <para>When the abstract base class is not generated anymore, the empty subclass will
-              become superfluous. It refers to a non-existing base class. The java compiler will
-              flag this as an error, and the developer needs to remove the subclass by hand.</para>
-          </listitem>
-        </orderedlist>
+        <para>The model editors also have code completion, which is of course triggered by tye
+          default Eclipse key combination <keycap>Ctrl-SPACE</keycap>. Errors in the models are
+          displayed in the Eclipse Problem View, thus working as expected in Eclipse. </para>
+      </section>
+      <section>
+        <title>Mod4j FileTracker View</title>
+        <para>For each model unit code is generated in a number of different files that may reside
+          inside different folders in projects. It is rather cumbersome to navigate through the
+          different projects to find the files that are generated. the FileTracker view, which can
+          be shown by the menu option <keycap>Window ==> Show View ==> Other ==> Mod4j ==> Mod4j
+            FileTracker</keycap>. The FileTracker view shows a tree with all model files. Under each
+          model file the list of files generated from the specific model is shown. A generated fiole
+          may be shown with a small G in the right lower corner, which indicates thatb this is a
+          generate3d file that will always be overwritten. Files without the G are extension points
+          and may be changed by hand. As lomng as these files are not chnaged by hand they will be
+          rfegenerated. When such a file is changed, manually the Mod4j builder will recognize this
+          and will not ovverwrite such a file.</para>
+        <para>Double clicking on the model file or on a generated will directly open the file,
+          provided that the project in which the file resides is available as an Eclipse project in
+          your workspace. For new proejcts you need to import the different projects as described in
+          REF. </para>
+      </section>
+      <section>
+        <title>Mod4j CrossX View</title>
+        <para>As describer in REF, the connection between the different models in different files is
+          supported by the CrossX component. To view the contents of the CrossX broker you can
+          select <keycap>Window ==> Show View ==> Other ==> Mod4j ==> CrossX</keycap>. For normal
+          usage of Mod4j, the CrossX View is not needed. Irt becomes useful when you are developing
+          your own DSL and need to check whether the right symbols are exported to CrossX from your
+          DSL. </para>
+        <para>Double clicking on the model file will directly open the file, provided that the
+          project in which the file resides is available as an Eclipse project in your workspace.
+          For new proejcts you need to import the different projects as described in REF. </para>
       </section>
     </section>
   </chapter>
   <chapter>
     <title>Business Domain DSL Reference</title>
-    <para>This chapter provides a description of all the concepts in the Business Domain DSL. each
+    <para>This chapter provides a description of all the concepts in the Business Domain DSL. Each
       concept is described by a definition which explains the business meaning of the concept, and a
       description of the code generated for the concept.</para>
-    <para>The Business Domain DSL is intended to be use for modeling the domain model of an
+    <para>The Business Domain DSL is intended to be used for modeling the domain model of an
       application. De Business Domain model consists of all domain classes, as understood by the
       business expert. Technical aspects do not belong in Business Domain models.</para>
-    <para>From a business domain model code is generated, conforming to the reference architecture
-      as describe in REF. As a consequence, the code will always conform perfectly to the
-      architecture, ensuring a high quality application.</para>
+    <para/>
     <figure>
       <title>Business Domain DSL generation for each Business Class</title>
       <mediaobject>
@@ -253,7 +364,7 @@
           architecture.</para>
         <section>
           <title>Domain Layer</title>
-          <para>In the domain code is generated according to the <emphasis>empty base class pattern
+          <para>In the domain code is generated according to the <emphasis>generation gap pattern
               </emphasis>(<xref linkend="section-emptysubclass-pattern"/>). For each business class
             two Java classes are generated. The first Java class is an abstract base class
             containing all generated code for the business class. All code generated for properties,
@@ -265,7 +376,7 @@
             This extension class is generated once and not overwritten, which ensures that all
             handwritten code is maintained at all times.</para>
           <figure id="figure-emptysubclass-domain">
-            <title>Empty subclass pattern applied to the Domain Layer</title>
+            <title>Generation Gap pattern applied to the Domain Layer</title>
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/base-emptysubclass-domain.jpg"/>
@@ -281,12 +392,12 @@
             file is generated for the application as a whole.</para>
           <para>A Dao (Data Access layer) is generated. The dao normally consists of one interface
             and an implementing class. To get a clean separation of generated and handwritten code
-            both of these use the empty subclass pattern. The result for a class called Person is
+            both of these use the generation gap pattern. The result for a class called Person is
             shown in figure <xref linkend="figure-emptysubclass-data"/>. Note that this is another
-            instance of the empty subclass pattern as described in <xref
+            instance of the generation gap pattern as described in <xref
               linkend="section-emptysubclass-pattern"/>.</para>
           <figure id="figure-emptysubclass-data">
-            <title>Empty subclass pattern applied to the Data Layer</title>
+            <title>Generation Gap pattern applied to the Data Layer</title>
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/base-emptysubclass-data.jpg"/>
@@ -363,8 +474,8 @@
         <title>Generated code</title>
         <para>For a property code is generated for both the domain and the data layer of the
           architecture.</para>
-        <para>As described before (REF) code is generated in the domain layer according to the Empty
-          base class pattern. For each business class an abstract base class is generated. This
+        <para>As described before (REF) code is generated in the domain layer according to the
+          generation gap pattern. For each business class an abstract base class is generated. This
           abstract bases class contains a field for each property and getter and setter methods to
           access the property.</para>
         <para>The description of an attribute is used to generate Javadoc comments in the code for
@@ -658,7 +769,7 @@
           called and validated whenever the object changes. If the rule is broken, a
           BusinessClassException is created and thrown. Developers do not need to handle these
           errors themselves.</para>
-        <para>See the empty-subclass pattern on how this is done in the code</para>
+        <para>See the generation gap pattern on how this is done in the code</para>
       </section>
     </section>
     <section>
@@ -963,7 +1074,7 @@
       </section>
     </section>
     <section>
-      <title>Create, Read, Update, Delete service methods</title>
+      <title>CRUD: Create, Read, Update, Delete service methods</title>
       <para>In a layered architecture certain types of service methods often occur in applications.
         Methods for creating, reading, updating and deleting (CRUD) business objects are often
         needed.</para>
@@ -1056,12 +1167,24 @@ public void deleteCustomer(SimpleCustomerDto object);
       <title>Reference methods</title>
       <section>
         <title>Definition</title>
-        <para>A reference method allows you to handle changing links between objects. There are two
-          types of reference methods. The add method allows adds an object to an association, the
-          remove removes an object from an association.</para>
-        <programlisting continuation="continues" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>add</keycap> OrderDto   ;
-<keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>remove</keycap> OrderDto; </programlisting>
-        <para>An .</para>
+        <para>A reference method allows you to handle changing links between objects. The links
+          between objects are defined in de business class DSL as associations. A reference method
+          can only be defined for a DTO that represents a business class. There are several types of
+          reference methods. The <emphasis role="italic">add</emphasis> method allows adds an object
+          to an association, the <emphasis role="italic">remove </emphasis>removes an object from an
+          association.</para>
+        <programlisting continuation="continues" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>add</keycap> OrderDto   ;</programlisting>
+        <para>The above <emphasis role="italic">add reference method </emphasis>defines a service
+          method that will add an Order object, represented by an OrderDto, to a Customer object,
+          represented as a SimpleCustomerDto.</para>
+        <programlisting continuation="continues" xml:space="preserve"><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>remove</keycap> OrderDto; </programlisting>
+        <para>The above <emphasis role="italic">remove reference method </emphasis>defines a service
+          method that will remove an Order object, represented by an OrderDto, from a Customer
+          object, represented as a SimpleCustomerDto.</para>
+        <programlisting><keycap>for</keycap> SimpleCustomerDto <keycap>reference</keycap> orders <keycap>get</keycap> ListOrderDto;</programlisting>
+        <para>The above <emphasis role="italic">get reference method</emphasis> defines a service
+          method that will get a collection of all Order objects, represented by an ListOrderDto, of
+          a Customer object, represented as a SimpleCustomerDto.</para>
       </section>
       <section>
         <title>Generated code</title>
