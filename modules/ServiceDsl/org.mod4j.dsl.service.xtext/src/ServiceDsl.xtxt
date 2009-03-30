@@ -25,7 +25,7 @@ ServiceModel:
 
 AssociationMethod :
 	(description=STRING )?
-    "for" main=[DtoReference]  "reference"  rolename=ID 
+    name = "for" main=[DtoReference]  "reference"  rolename=ID 
     type=AssociationMethodType
     part=[DtoReference]  ";"
 	;
@@ -69,8 +69,7 @@ SpecialMethod:
     
 CrudService:
 	(description=STRING )?
-    name="crud" dto =[DtoReference]
-    
+    "crud" dto =[DtoReference]
     ";"
     ;
 

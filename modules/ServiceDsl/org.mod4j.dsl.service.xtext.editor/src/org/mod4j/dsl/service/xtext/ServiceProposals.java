@@ -19,6 +19,8 @@ import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
+import org.openarchitectureware.xtext.parser.model.NodeUtil;
+import org.openarchitectureware.xtext.parser.parsetree.Node;
 
 public class ServiceProposals {
 
@@ -43,10 +45,24 @@ public class ServiceProposals {
         }
         if (ctx instanceof AssociationMethod) {
             method = ((AssociationMethod) ctx);
-            dto = method.getMain();
+            dto = method.getMain(); 
+//            Node node = NodeUtil.getNode(ctx);
+//            result.add("method [" + node.getLine() + "]");
+//            result.add("method [" + node.getStart() + "]");
+//            result.add("method [" + node.getEnd() + "]");
+//            result.add("method [" + node.getErrors() + "]");
+//            result.add("method [" + node.getToken().getText() + "]");
+//            result.add("method [" + node.getGrammarElement().toString() + "]");
+//            Node parent = node.getParent();
+//            result.add("method [" + parent.getModelElement() + "]");
+        } else {
+            result.add("ERROR: Not an association method");
+            return result;
         }
         if (dto == null) {
-            result.add("No code completion possible because of earlier errors");
+//            result.add("ctx [" + ctx.toString() + "]");
+//            result.add("ctx [" + ctx.getClass().getName() + "]");
+            result.add("ERROR: No code completion available");
             return result;
         }
         

@@ -18,7 +18,7 @@
          point="org.eclipse.ui.newWizards">
          
 		<wizard
-			category="org.mod4j.eclipse.wizards/org.mod4j.dsl.model"
+			category="org.mod4j.eclipse.wizards"
 			class="org.mod4j.dsl.presentation.xtext.wizards.NewPresentationDslFileWizard"
 			icon="icons/mod4j-presentation.ico"
 			id="org.mod4j.dsl.presentation.xtext.wizards.NewPresentationDslFileWizard"

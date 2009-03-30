@@ -18,11 +18,11 @@
          point="org.eclipse.ui.newWizards">
          
 		<wizard
-            category="org.mod4j.eclipse.wizards/org.mod4j.dsl.model" 
+            category="org.mod4j.eclipse.wizards" 
 			class="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
 			icon="icons/mod4j-business.ico"
 			id="org.mod4j.businessdomain.xtext.wizards.NewBusinessDomainDslFileWizard"
-			name="Mod4j BusinessDomain Model file">
+			name="Mod4j Business Domain Model file">
 		</wizard>
 	</extension>
 </plugin>

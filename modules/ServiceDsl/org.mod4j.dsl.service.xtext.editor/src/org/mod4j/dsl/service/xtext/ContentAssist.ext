@@ -79,6 +79,10 @@ List[Proposal] completeDtoReference_description(emf::EObject ctx, String prefix)
 List[Proposal] completeCrudService_description(emf::EObject ctx, String prefix) :
 	{};
 
+/* proposals for Feature CrudService::name */
+List[Proposal] completeCrudService_name(emf::EObject ctx, String prefix) :
+	{ newProposal("crud") };
+
 /* proposals for Feature ServiceMethod::description */
 List[Proposal] completeServiceMethod_description(emf::EObject ctx, String prefix) :
 	{};
