@@ -22,12 +22,12 @@
                 <tbody>
                     <tr>
                         <td>
-                            Application Architecture 1.0.0-beta-4-SNAPSHOT
+                            Application Architecture 1.0.1-SNAPSHOT
                             <a
-                                href="documentation/1.0.0-beta-4-SNAPSHOT/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                                href="documentation/1.0.1-SNAPSHOT/application-architecture/mod4j-application-architecture.pdf">PDF</a>
                             /
                             <a
-                                href="documentation/1.0.0-beta-4-SNAPSHOT/application-architecture/mod4j-application-architecture.html">HTML</a>
+                                href="documentation/1.0.1-SNAPSHOT/application-architecture/mod4j-application-architecture.html">HTML</a>
                         </td>
                     </tr>
                     <tr>
@@ -56,10 +56,10 @@
                 <tbody>
                     <tr>
                         <td>
-                            User Guide 1.0.0-beta-4-SNAPSHOT
-                            <a href="documentation/1.0.0-beta-4-SNAPSHOT/user-guide/mod4j-user-guide.pdf">PDF</a>
+                            User Guide 1.0.1-SNAPSHOT
+                            <a href="documentation/1.0.1-SNAPSHOT/user-guide/mod4j-user-guide.pdf">PDF</a>
                             /
-                            <a href="documentation/1.0.0-beta-4-SNAPSHOT/user-guide/mod4j-user-guide.html">HTML</a>
+                            <a href="documentation/1.0.1-SNAPSHOT/user-guide/mod4j-user-guide.html">HTML</a>
                         </td>
                     </tr>
                     <tr>
