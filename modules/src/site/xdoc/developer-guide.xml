@@ -141,7 +141,7 @@
                         <q>Generate Model Code</q>
                         <br />
                         Normally you wouldn't need to add generated sources to the version control system (Subverson), but due
-                        to not being able for us to run to perform this step outside Eclipse we've decided -for now- to add the
+                        to not being able for us to perform this step outside Eclipse we've decided -for now- to add the
                         generated code
                         (src-gen
                         folder) to Subversion. So the continuous integration build can build it and other
