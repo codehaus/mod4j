@@ -19,7 +19,7 @@
     <releaseinfo>1.0.0</releaseinfo>
     <copyright>
       <year>2009</year>
-      <holder>Ordina and other Mod4j committer</holder>
+      <holder>Ordina and other Mod4j committers</holder>
     </copyright>
   </bookinfo>
   <chapter id="intro">
@@ -741,7 +741,8 @@
               <glossterm>regexp</glossterm>
               <glossdef>
                 <para>Defines the format of the attributes value through a regular expression. The
-                  syntax of the regular expression is defined by REF.</para>
+                  syntax of the regular expression is defined by the Java regular
+                  expressions.</para>
               </glossdef></glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
