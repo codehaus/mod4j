@@ -43,204 +43,204 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class AbstractTypeImpl extends ModelElementImpl implements AbstractType {
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
 	protected EList<Property> properties;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected AbstractTypeImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return BusinessDomainDslPackage.Literals.ABSTRACT_TYPE;
-	}
+        return BusinessDomainDslPackage.Literals.ABSTRACT_TYPE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<Property> getProperties() {
-		if (properties == null) {
-			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES, BusinessDomainDslPackage.PROPERTY__OWNING_TYPE);
-		}
-		return properties;
-	}
+        if (properties == null) {
+            properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES, BusinessDomainDslPackage.PROPERTY__OWNING_TYPE);
+        }
+        return properties;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public BusinessDomainModel getModel() {
-		if (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL) return null;
-		return (BusinessDomainModel)eContainer();
-	}
+        if (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL) return null;
+        return (BusinessDomainModel)eContainer();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetModel(BusinessDomainModel newModel, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newModel, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setModel(BusinessDomainModel newModel) {
-		if (newModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL && newModel != null)) {
-			if (EcoreUtil.isAncestor(this, newModel))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newModel != null)
-				msgs = ((InternalEObject)newModel).eInverseAdd(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
-			msgs = basicSetModel(newModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, newModel, newModel));
-	}
+        if (newModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL && newModel != null)) {
+            if (EcoreUtil.isAncestor(this, newModel))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newModel != null)
+                msgs = ((InternalEObject)newModel).eInverseAdd(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
+            msgs = basicSetModel(newModel, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL, newModel, newModel));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetModel((BusinessDomainModel)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetModel((BusinessDomainModel)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				return basicSetModel(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return basicSetModel(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
-				return getProperties();
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				return getModel();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
+                return getProperties();
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return getModel();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends Property>)newValue);
-				return;
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				setModel((BusinessDomainModel)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
+                getProperties().clear();
+                getProperties().addAll((Collection<? extends Property>)newValue);
+                return;
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                setModel((BusinessDomainModel)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
-				getProperties().clear();
-				return;
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				setModel((BusinessDomainModel)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
+                getProperties().clear();
+                return;
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                setModel((BusinessDomainModel)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
-				return properties != null && !properties.isEmpty();
-			case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
-				return getModel() != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES:
+                return properties != null && !properties.isEmpty();
+            case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
+                return getModel() != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //AbstractTypeImpl

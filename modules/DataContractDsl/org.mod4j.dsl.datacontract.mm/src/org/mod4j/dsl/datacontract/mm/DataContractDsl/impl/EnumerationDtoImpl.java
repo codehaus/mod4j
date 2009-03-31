@@ -45,260 +45,260 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
  */
 public class EnumerationDtoImpl extends ModelElementImpl implements EnumerationDto {
 	/**
-	 * The cached value of the '{@link #getLiterals() <em>Literals</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getLiterals() <em>Literals</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLiterals()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLiterals()
+     * @generated
+     * @ordered
+     */
 	protected EList<EnumerationDtoLiteral> literals;
 
 	/**
-	 * The cached value of the '{@link #getBase() <em>Base</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getBase() <em>Base</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBase()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getBase()
+     * @generated
+     * @ordered
+     */
 	protected ExternalReference base;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected EnumerationDtoImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.ENUMERATION_DTO;
-	}
+        return DataContractDslPackage.Literals.ENUMERATION_DTO;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<EnumerationDtoLiteral> getLiterals() {
-		if (literals == null) {
-			literals = new EObjectContainmentEList<EnumerationDtoLiteral>(EnumerationDtoLiteral.class, this, DataContractDslPackage.ENUMERATION_DTO__LITERALS);
-		}
-		return literals;
-	}
+        if (literals == null) {
+            literals = new EObjectContainmentEList<EnumerationDtoLiteral>(EnumerationDtoLiteral.class, this, DataContractDslPackage.ENUMERATION_DTO__LITERALS);
+        }
+        return literals;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExternalReference getBase() {
-		if (base != null && base.eIsProxy()) {
-			InternalEObject oldBase = (InternalEObject)base;
-			base = (ExternalReference)eResolveProxy(oldBase);
-			if (base != oldBase) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.ENUMERATION_DTO__BASE, oldBase, base));
-			}
-		}
-		return base;
-	}
+        if (base != null && base.eIsProxy()) {
+            InternalEObject oldBase = (InternalEObject)base;
+            base = (ExternalReference)eResolveProxy(oldBase);
+            if (base != oldBase) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.ENUMERATION_DTO__BASE, oldBase, base));
+            }
+        }
+        return base;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExternalReference basicGetBase() {
-		return base;
-	}
+        return base;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setBase(ExternalReference newBase) {
-		ExternalReference oldBase = base;
-		base = newBase;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.ENUMERATION_DTO__BASE, oldBase, base));
-	}
+        ExternalReference oldBase = base;
+        base = newBase;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.ENUMERATION_DTO__BASE, oldBase, base));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DataContractModel getDatacontractModel() {
-		if (eContainerFeatureID != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL) return null;
-		return (DataContractModel)eContainer();
-	}
+        if (eContainerFeatureID != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL) return null;
+        return (DataContractModel)eContainer();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetDatacontractModel(DataContractModel newDatacontractModel, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDatacontractModel(DataContractModel newDatacontractModel) {
-		if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
-			if (EcoreUtil.isAncestor(this, newDatacontractModel))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newDatacontractModel != null)
-				msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS, DataContractModel.class, msgs);
-			msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
-	}
+        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
+            if (EcoreUtil.isAncestor(this, newDatacontractModel))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newDatacontractModel != null)
+                msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS, DataContractModel.class, msgs);
+            msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
-				return ((InternalEList<?>)getLiterals()).basicRemove(otherEnd, msgs);
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				return basicSetDatacontractModel(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
+                return ((InternalEList<?>)getLiterals()).basicRemove(otherEnd, msgs);
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                return basicSetDatacontractModel(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS, DataContractModel.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS, DataContractModel.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
-				return getLiterals();
-			case DataContractDslPackage.ENUMERATION_DTO__BASE:
-				if (resolve) return getBase();
-				return basicGetBase();
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				return getDatacontractModel();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
+                return getLiterals();
+            case DataContractDslPackage.ENUMERATION_DTO__BASE:
+                if (resolve) return getBase();
+                return basicGetBase();
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                return getDatacontractModel();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
-				getLiterals().clear();
-				getLiterals().addAll((Collection<? extends EnumerationDtoLiteral>)newValue);
-				return;
-			case DataContractDslPackage.ENUMERATION_DTO__BASE:
-				setBase((ExternalReference)newValue);
-				return;
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				setDatacontractModel((DataContractModel)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
+                getLiterals().clear();
+                getLiterals().addAll((Collection<? extends EnumerationDtoLiteral>)newValue);
+                return;
+            case DataContractDslPackage.ENUMERATION_DTO__BASE:
+                setBase((ExternalReference)newValue);
+                return;
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                setDatacontractModel((DataContractModel)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
-				getLiterals().clear();
-				return;
-			case DataContractDslPackage.ENUMERATION_DTO__BASE:
-				setBase((ExternalReference)null);
-				return;
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				setDatacontractModel((DataContractModel)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
+                getLiterals().clear();
+                return;
+            case DataContractDslPackage.ENUMERATION_DTO__BASE:
+                setBase((ExternalReference)null);
+                return;
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                setDatacontractModel((DataContractModel)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
-				return literals != null && !literals.isEmpty();
-			case DataContractDslPackage.ENUMERATION_DTO__BASE:
-				return base != null;
-			case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
-				return getDatacontractModel() != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.ENUMERATION_DTO__LITERALS:
+                return literals != null && !literals.isEmpty();
+            case DataContractDslPackage.ENUMERATION_DTO__BASE:
+                return base != null;
+            case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
+                return getDatacontractModel() != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //EnumerationDtoImpl

@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class BlobBinaryPropertyImpl extends PropertyImpl implements BlobBinaryProperty {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected BlobBinaryPropertyImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return BusinessDomainDslPackage.Literals.BLOB_BINARY_PROPERTY;
-	}
+        return BusinessDomainDslPackage.Literals.BLOB_BINARY_PROPERTY;
+    }
 
 } //BlobBinaryPropertyImpl
