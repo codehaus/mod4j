@@ -36,8 +36,8 @@
                 strictly follows this reference architecture.
                 The reference architecture is described in a separate document.
                 For a good understanding of the generated code it is useful to read this document ->
-                <a href="documentation-parent/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
-                <a href="documentation-parent/application-architecture/mod4j-application-architecture.html">HTML</a> 
+                <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
+                <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.html">HTML</a> 
             </p>
             <img src="images/mod4j-diagram-small.png" align="left" alt="" />
             <subsection name="Mod4j Vision">
