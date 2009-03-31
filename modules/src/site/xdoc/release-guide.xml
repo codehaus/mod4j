@@ -26,39 +26,19 @@
         <p>This section describes which prerequisites to full fill before you can start releasing.</p>
         <ol>
           <li>
-            To be able to deploy artifacts to our Maven repository at Codehaus, you'll need to add the following
-            server to your
-            local settings.xml:
+            To be able to deploy artifacts to our Maven repository at Codehaus and to be able to deploy the Mod4j project site,
+            you'll need to add the following
+            servers to your local settings.xml:
             <br />
-            <textarea rows="7" cols="80"><![CDATA[
+            <textarea rows="14" cols="80"><![CDATA[
  <!-- Mod4j Maven repositories at Codehaus-->
  <server>
      <id>dav.codehaus.org</id>
      <username>your Codehaus username</username>
      <password>your Codehaus password</password>
- </server>              ]]>
-            </textarea>
-            <br />
-            <br />
-          </li>
-          <li>
-            For deployment of the projec-site you'll need the ftp -username an -password for the Mod4j ftp-server.
-            <br />
-            Ftp-server name:
-            <b>ftp.mod4j.org</b>
-            <br />
-            Username:
-            <b>mod4j.org</b>
-            <br />
-            You should be familiar with the password that comes with the username.
-            <br />
-            With the Maven based release process also the project site will be deployed, for this to work you'll
-            need to add the
-            following
-            to your local settings.xml:
-            <br />
-            <textarea rows="7" cols="80"><![CDATA[
- <!-- Mod4j project site --> 
+ </server>
+ 
+  <!-- Mod4j project site --> 
  <server>
      <id>ftp.mod4j.org</id>
      <username>mod4j.org</username>
@@ -67,6 +47,15 @@
             </textarea>
             <br />
             <br />
+            For deployment of the project-site you'll need the ftp -username an -password for the Mod4j ftp-server.
+            <br />
+            Ftp-server name:
+            <b>ftp.mod4j.org</b>
+            <br />
+            Username:
+            <b>mod4j.org</b>
+            <br />
+            You should be familiar with the password that comes with the username.
           </li>
           <li>Svn command-client version 1.4.6 installed. Version 1.5.0 might work also, but higher versions lead
             to
