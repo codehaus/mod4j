@@ -8,7 +8,7 @@
     <url>http://mod4j.org</url>
     <properties>
         <oaw.version>4.3.0</oaw.version>
-        <release.version.latest>1.0.0-beta-3</release.version.latest>
+        <release.version.latest>1.0.0</release.version.latest>
     </properties>
     <scm>
         <connection>scm:svn:http://svn.codehaus.org/mod4j/trunk/modules</connection>
