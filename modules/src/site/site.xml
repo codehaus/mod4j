@@ -10,7 +10,7 @@
         <menu name="News" inherit="bottom">
             <item name="> Mod4j at JSpring 2009" href="news/news.html#Mod4j_at_JSpring_2009" />
             <item name="> Mod4j at Code Generation 2009" href="news/news.html#Mod4j_at_Code_Generation_2009" />
-            <item name="> Mod4j 1.0.0-beta-3 released" href="news/news.html#Mod4j_1.0.0-beta3_released" />
+            <item name="> Mod4j 1.0.0 released" href="news/news.html#Mod4j_1.0.0-beta3_released" />
             <item name="More news ..." href="news/news.html" />
         </menu>
         <menu name="About Mod4j" inherit="bottom">
