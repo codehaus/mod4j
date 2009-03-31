@@ -23,8 +23,8 @@
                 developers to
                 model various aspects of the application and generate code that strictly follows this reference
                 architecture. For a good understanding of the generated code it is useful to read the Application Architecture document ->
-                <a href="../documentation/${release.version.latest}/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
-                <a href="../documentation/${release.version.latest}/application-architecture/mod4j-application-architecture.html">HTML</a>. 
+                <a href="documentation/${release.version.latest}/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
+                <a href="documentation/${release.version.latest}/application-architecture/mod4j-application-architecture.html">HTML</a>. 
             </p>
             <img src="images/mod4j-diagram-small.png" align="left" alt="" />
 

@@ -1,184 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-    <!--
-        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size
-        of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
-        minimize the number of non-significant differences when comparing versions.
-    -->
+  <!--
+    Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size of 4
+    characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should minimize the
+    number of non-significant differences when comparing versions.
+  -->
 
-    <properties>
-        <title>Mod4j Release Guide</title>
-    </properties>
-    <body>
-        <section name="Mod4j Release Guide">
-            <p> The Release Guide gives instructions to developers of Mod4j for releasing a new version of Mod4j.
-                It tells what
-                steps to take for releasing and publishing the developed Eclipse features and plug-ins
-                to the Mod4j update site
-                and releasing Mod4j artifacts to the central Maven repository.
+  <properties>
+    <title>Mod4j Release Guide</title>
+  </properties>
+  <body>
+    <section name="Mod4j Release Guide">
+      <p> The Release Guide gives instructions to developers of Mod4j for releasing a new version of Mod4j.
+        It tells what
+        steps to
+        take for releasing and publishing the developed Eclipse features and plug-ins
+        to the Mod4j update site
+        and releasing Mod4j
+        artifacts to the central Maven repository.
             </p>
 
-            <subsection name="Prerequisites">
-                <p>This section describes which prerequisites to full fill before you can start releasing.</p>
-                <ol>
-                    <li>
-                        To be able to deploy artifacts to our Maven repository at Codehaus, you'll need to add the following
-                        server to your local settings.xml:
-                        <br />
-                        <textarea rows="7" cols="80"><![CDATA[
+      <subsection name="Prerequisites">
+        <p>This section describes which prerequisites to full fill before you can start releasing.</p>
+        <ol>
+          <li>
+            To be able to deploy artifacts to our Maven repository at Codehaus, you'll need to add the following
+            server to your
+            local settings.xml:
+            <br />
+            <textarea rows="7" cols="80"><![CDATA[
  <!-- Mod4j Maven repositories at Codehaus-->
  <server>
      <id>dav.codehaus.org</id>
      <username>your Codehaus username</username>
      <password>your Codehaus password</password>
  </server>              ]]>
-                        </textarea>
-                        <br />
-                        <br />
-                    </li>
-                    <li>
-                        For deployment of the projec-site you'll need the ftp -username an -password for the Mod4j ftp-server.
-                        <br />
-                        Ftp-server name:
-                        <b>ftp.mod4j.org</b>
-                        <br />
-                        Username:
-                        <b>mod4j.org</b>
-                        <br />
-                        You should be familiar with the password that comes with the username.
-                        <br />
-                        With the Maven based release process also the project site will be deployed, for this to work you'll
-                        need to add the following
-                        to your local settings.xml:
-                        <br />
-                        <textarea rows="7" cols="80"><![CDATA[
+            </textarea>
+            <br />
+            <br />
+          </li>
+          <li>
+            For deployment of the projec-site you'll need the ftp -username an -password for the Mod4j ftp-server.
+            <br />
+            Ftp-server name:
+            <b>ftp.mod4j.org</b>
+            <br />
+            Username:
+            <b>mod4j.org</b>
+            <br />
+            You should be familiar with the password that comes with the username.
+            <br />
+            With the Maven based release process also the project site will be deployed, for this to work you'll
+            need to add the
+            following
+            to your local settings.xml:
+            <br />
+            <textarea rows="7" cols="80"><![CDATA[
  <!-- Mod4j project site --> 
  <server>
      <id>ftp.mod4j.org</id>
      <username>mod4j.org</username>
      <password>The-obtained-password</password>
  </server>              ]]>
-                        </textarea>
-                        <br />
-                        <br />
+            </textarea>
+            <br />
+            <br />
+          </li>
+          <li>Svn command-client version 1.4.6 installed. Version 1.5.0 might work also, but higher versions lead
+            to
+            errors icw
+            maven-scm-provider. To check the version: open a command shell and type "svn --version".
                     </li>
-                    <li>Svn command-client version 1.4.6 installed. Version 1.5.0 might work also, but higher versions lead
-                        to
-                        errors icw maven-scm-provider. To check the version: open a command shell and type "svn --version".
-                    </li>
-                    <li>
-                        If you already have a checkout of the Mod4j sources that was done with a Subversion 1.4.x client you can pass this step and
-                        move on to next. Otherwise, perform a checkout of all the sources with the svn command-client. Open a command shell
-                        and type:
-                        <br />
-                        <b>
-                            <code>svn checkout https://svn.codehaus.org/mod4j/trunk/modules mod4j</code>
-                        </b>
-                    </li>
-                    <li>Go to the Mod4j Developer Guide and perform all import steps, to begin with step 2, from the section
-                        "Checking out, import into Eclipse, generating the DSL-editors"</li>
-                    <li>
-                        Now also import as Existing Project into Eclipse:
-                        <br />
-                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.businessdomain.feature
-                        </code>
-                        <br />
-                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.datacontract.feature
-                        </code>
-                        <br />
-                        <code>../modules/BusinessDomainDsl/org.mod4j.dsl.service.feature
-                        </code>
-                        and
-                        <br />
-                        <code>../modules/org.mod4j.updatesite</code>
-                    </li>
-                    <li>At this point your local checkout should be free of outstanding local modifications.</li>
-                </ol>
-            </subsection>
+          <li>
+            If you already have a checkout of the Mod4j sources that was done with a Subversion 1.4.x client you can pass this
+            step and
+            move on to next. Otherwise, perform a checkout of all the sources with the svn command-client. Open a
+            command shell
+            and type:
+            <br />
+            <b>
+              <code>svn checkout https://svn.codehaus.org/mod4j/trunk/modules mod4j</code>
+            </b>
+          </li>
+          <li>Go to the Mod4j Developer Guide and perform all import steps, to begin with step 2, from the section
+            "Checking
+            out, import into Eclipse, generating the DSL-editors"</li>
+          <li>
+            Now also import as Existing Project into Eclipse:
+            <br />
+            <code>../modules/BusinessDomainDsl/org.mod4j.dsl.businessdomain.feature
+            </code>
+            <br />
+            <code>../modules/BusinessDomainDsl/org.mod4j.dsl.datacontract.feature
+            </code>
+            <br />
+            <code>../modules/BusinessDomainDsl/org.mod4j.dsl.service.feature
+            </code>
+            and
+            <br />
+            <code>../modules/org.mod4j.updatesite</code>
+          </li>
+          <li>At this point your local checkout should be free of outstanding local modifications.</li>
+        </ol>
+      </subsection>
 
-            <subsection name="Release steps">
-                <ol>
-                    <li>
-                        Choose the release versionnr for the Mod4j Eclipse plug-ins. For example:
-                        <b>1.0.0.qualifier</b>
-                        . Check and adjust
-                        all version numbers in all Mod4j plug-ins (manifests, site.xml and feature.xml's).
-                        And
-                        commit.
+      <subsection name="Release steps">
+        <ol>
+          <li>
+            Choose the release versionnr for the Mod4j Eclipse plug-ins. For example:
+            <b>1.0.0.qualifier</b>
+            . Check and adjust
+            all version numbers in all Mod4j plug-ins (manifests, site.xml and feature.xml's).
+            And
+            commit.
+          </li>
+          <li>
+            Choose the release versionnr. for the Mod4j Maven modules. For example:
+            <b>1.0.0-beta-1</b>
+            (TODO: In future versions this must be equal to the version of the Mod4j Eclipse plug-ins. See Jira
+            issue:
+            http://jira.codehaus.org/browse/MODFORJ-53)
+          </li>
+          <li>
+            Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr. For example:
+            <br />
+            <code>
+              <b><![CDATA[<mod4j.version>1.0.0-beta-1</mod4j.version>]]></b>
+            </code>
+            And commit.
+          </li>
+          <li>Open de site.xml in the updatesite project.</li>
+          <li>Click on "Build All". Now the features and plugins folder in the updatesite project contains
+            the
+            files we need
+            to deploy to our updatesite (see next section).</li>
+          <li>
+            With the previous step a timebased releasenr is generated. For example:
+            <b>1.0.0.200812170807</b>
+          </li>
+          <li>
+            Release all Maven modules (including hybrid's). Open a commandbox and navigate to the Mod4j
+            parent-pom.
+            Enter the
+            following commands:
+            <br />
+            <code>
+              <b>mvn release:prepare -Pci</b>
+            </code>
+            (and enter the correct version numbers and tag when asked)
+            <br />
+            <code>
+              <b>mvn release:perform -Pci</b>
+            </code>
+          </li>
+          <li>With previous step all the Mod4j modules are deployed as Maven artifacts to Maven repository at
+            Codehaus and
+            the project site is deployed to mod4j.org. Within 4 hours the deployed Maven artifacts at
+            Codehaus are
+            automatically
+            synchronized with the central Maven repository (see:
+            http://repo1.maven.org/maven2/org/mod4j)\
                     </li>
-                    <li>
-                        Choose the release versionnr. for the Mod4j Maven modules. For example:
-                        <b>1.0.0-beta-1</b>
-                        (TODO: In future versions this must be equal to the version of the Mod4j Eclipse plug-ins. See Jira
-                        issue:
-                        http://jira.codehaus.org/browse/MODFORJ-53)
-                    </li>
-                    <li>
-                        Adjust the mod4j.version property in ParentPom.xpt with the Mod4j Maven versionnr. For example:
-                        <br />
-                        <code>
-                            <b><![CDATA[<mod4j.version>1.0.0-beta-1</mod4j.version>]]></b>
-                        </code>
-                        And commit.
-                    </li>
-                    <li>Open de site.xml in the updatesite project.</li>
-                    <li>Click on "Build All". Now the features and plugins folder in the updatesite project contains
-                        the
-                        files we need to deploy to our updatesite (see next section).</li>
-                    <li>
-                        With the previous step a timebased releasenr is generated. For example:
-                        <b>1.0.0.200812170807</b>
-                    </li>
-                    <li>
-                        Release all Maven modules (including hybrid's). Open a commandbox and navigate to the Mod4j
-                        parent-pom.
-                        Enter the following commands:
-                        <br />
-                        <code>
-                            <b>mvn release:prepare -Pci</b>
-                        </code>
-                        (and enter the correct version numbers and tag when asked)
-                        <br />
-                        <code>
-                            <b>mvn release:perform -Pci</b>
-                        </code>
-                    </li>
-                    <li>With previous step all the Mod4j modules are deployed as Maven artifacts to Maven repository at
-                        Codehaus and the project site is deployed to mod4j.org. Within 4 hours the deployed Maven artifacts at
-                        Codehaus are
-                        automatically synchronized with the central Maven repository (see:
-                        http://repo1.maven.org/maven2/org/mod4j)\
-                    </li>
-                </ol>
-            </subsection>
+        </ol>
+      </subsection>
 
-            <subsection name="Publishing the Mod4j DSL Eclipse plug-ins to the Mod4j updatesite">
-                <p>
-                    New versions of the Mod4j DSL Eclipse plug-in can be published on the Mod4j updatesite. We will publish
-                    all
-                    Mod4j DSL's as one feature based on several plug-ins.
+      <subsection name="Publishing the Mod4j DSL Eclipse plug-ins to the Mod4j updatesite">
+        <p>
+          New versions of the Mod4j DSL Eclipse plug-in can be published on the Mod4j updatesite. We will publish
+          all
+          Mod4j DSL's
+          as one feature based on several plug-ins.
                 </p>
-                <ol>
-                    <li>
-                        Use a ftp client copy the
-                        <code>features</code>
-                        folder,
-                        <code>plugins</code>
-                        folder and
-                        <code>site.xml</code>
-                        to:
-                        <br />
-                        <b>ftp.mod4j.org/mod4j.org/wwwroot/updatesite</b>
-                        <br />
-                        You should be familiar with the username and password for this site.
-                    </li>
-                    <li>Make an announcement on the mailinglist.</li>
-                    <li>Sit back and relax.</li>
-                </ol>
-            </subsection>
+        <ol>
+          <li>
+            Use a ftp client copy the
+            <code>features</code>
+            folder,
+            <code>plugins</code>
+            folder and
+            <code>site.xml</code>
+            to:
+            <br />
+            <b>ftp.mod4j.org/mod4j.org/wwwroot/updatesite</b>
+            <br />
+            You should be familiar with the username and password for this site.
+          </li>
+          <li>Make an announcement on the mailinglist.</li>
+          <li>Sit back and relax.</li>
+        </ol>
+      </subsection>
 
-        </section>
-    </body>
+      <subsection name="Post release steps">
+        <p>After the formal release you'll need to do some updates for the project site.</p>
+        <ul>
+          <li>Open the Mod4j parent pom and adjust the property "release.version.latest"</li>
+          <li>Save and commit</li>
+          <li>
+            Update the site by performing a
+            <b>
+              <code>mvn clean site site:deploy -N</code>
+            </b>
+          </li>
+        </ul>
+
+      </subsection>
+
+    </section>
+  </body>
 </document>

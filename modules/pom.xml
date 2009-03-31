@@ -270,7 +270,7 @@
         <site>
             <id>ftp.mod4j.org</id>
             <name>The mod4j project website</name>
-            <url>ftp://ftp.mod4j.org/mod4j.org/mod4j.org/wwwroot/projectsite</url>
+            <url>ftp://ftp.mod4j.org/mod4j.org/mod4j.org/wwwroot</url>
         </site>
     </distributionManagement>
     <issueManagement>
