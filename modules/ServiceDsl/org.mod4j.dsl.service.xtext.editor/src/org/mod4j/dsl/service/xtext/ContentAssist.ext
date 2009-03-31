@@ -103,6 +103,10 @@ List[Proposal] completeServiceModel_description(emf::EObject ctx, String prefix)
 List[Proposal] completeAssociationMethod_description(emf::EObject ctx, String prefix) :
 	{};
 
+/* proposals for Feature AssociationMethod::name */
+List[Proposal] completeAssociationMethod_name(emf::EObject ctx, String prefix) :
+	{};
+
 /** Filter out all proiposals that end with Description. 
  *  This eliminates the descritions from all proposals.
  *  Also put a space at the end of all proposals
