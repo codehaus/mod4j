@@ -17,7 +17,7 @@
             <p>
                 Mod4j (Modeling for Java) is an open source DSL-based environment for developing
                 administrative enterprise applications. 
-                It uses a collection of DSL’s to model different parts of the architecture, 
+                It uses a collection of DSL's to model different parts of the architecture, 
                 combined with manually written code. 
                 Currently Mod4j consists of four DSLs: the Business Domain DSL, Service DSL, 
                 Data Contract DSL and Presentation DSL. 
