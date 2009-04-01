@@ -16,6 +16,16 @@
 
             <p>The following upgrade steps are needed if you want to upgrade your project from Mod4j 1.0.0-beta-3 to Mod4j
                 1.0.0.</p>
+                
+            <subsection name="Upgrade Mod4j Eclipse plug-in ">
+                <ol>
+                    <li>Open Eclipse and un-install the previous installed Mod4j Eclipse plug-in.</li>
+                    <li>Then you can install the new version (1.0.0.200903311346) of the Mod4j Eclipse plug-in via the Mod4j update site: 
+                         <br/>
+                         <b>http://mod4j.org/updatesite</b>
+                    </li>
+                </ol>
+            </subsection>
 
             <subsection name="Business layer">
                 <h4>Naming of dao instance variables in domain services is changed.</h4>
