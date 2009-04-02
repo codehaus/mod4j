@@ -17,6 +17,7 @@
             <item name="Home" href="index.html" />
             <item name="Releases" href="releases/index.html" />
             <item name="Download" href="download.html" />
+            <item name="Professional Support" href="professional-support.html" />
         </menu>
         <menu name="User Docs" inherit="bottom">        
             <item name="Getting Started" href="gettingstarted.html" />
@@ -32,6 +33,7 @@
         </menu>
         <menu ref="parent" inherit="top" />
         <menu ref="reports" inherit="bottom" />
+        <menu name="Supported by" inherit="bottom"/>
     </body>
     <poweredBy>
         <logo name="Codehaus" href="http://xircles.codehaus.org/projects/mod4j" img="images/codehaus-logo.jpg" />
