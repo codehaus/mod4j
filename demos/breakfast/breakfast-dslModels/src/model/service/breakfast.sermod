@@ -1,5 +1,19 @@
 service breakfast;
 
-/*
- * The Service model.
- */
+from breakfast import StandardBreakfastDto;
+from breakfast import PartDto;
+from breakfast import PartListDto;
+from breakfast import ComestibleDto;
+
+crud StandardBreakfastDto;
+crud PartDto;
+crud ComestibleDto;
+
+listall listAllStandardBreakfast for StandardBreakfastDto;
+
+for StandardBreakfastDto reference parts add PartDto;
+for StandardBreakfastDto reference parts remove PartDto;
+for StandardBreakfastDto reference parts get PartListDto;
+
+for PartDto reference comestible add ComestibleDto;
+for PartDto reference comestible get ComestibleDto;

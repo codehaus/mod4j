@@ -1,5 +1,26 @@
 datacontract breakfast;
 
-/*
- * The Datacontract model.
- */
+from breakfastDM import StandardBreakfast;
+from breakfastDM import ServingStyle;
+from breakfastDM import Part;
+from breakfastDM import Comestible;
+
+class StandardBreakfastDto represents StandardBreakfast [
+    name; price; style;
+    references [
+        parts as PartListDto;
+    ]
+]
+list StandardBreakfastListDto contains StandardBreakfastDto
+
+class PartDto represents Part [
+    quantity;
+    references [
+        comestible as ComestibleDto;
+    ]
+]
+list PartListDto contains PartDto
+
+class ComestibleDto represents Comestible
+list ComestibleListDto contains ComestibleDto
+enumeration ServingStyleDto represents ServingStyle
