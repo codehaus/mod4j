@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectTrack ProjectPath="/home/emalotau/Project/refapp/trunk/breakfast/breakfast-dslModels" ApplicationPath="/home/emalotau/Project/refapp/trunk/breakfast">
+    <FileTrack resource="home/emalotau/Project/refapp/trunk/breakfast/breakfast-dslModels/src/model/service/breakfast.sermod">
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-business/generated-sources/com/rosa/breakfast/business/BreakfastDomainServiceBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-business/generated-sources/com/rosa/breakfast/business/BreakfastDomainServiceImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-business/generated-resources/com/rosa/breakfast/business/beanRefContext.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-business/generated-resources/com/rosa/breakfast/business/applicationContextBase.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-service/generated-sources/com/rosa/breakfast/service/BreakfastLocalService.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-service/generated-sources/com/rosa/breakfast/service/BreakfastLocalServiceImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-service/generated-resources/com/rosa/breakfast/service/beanRefContext.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-service/generated-resources/com/rosa/breakfast/service/applicationContextBase.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238611993000" sourcePath="breakfast-business/generated-sources/com/rosa/breakfast/business/BreakfastServiceModelDomainServiceBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238611993000" sourcePath="breakfast-business/generated-sources/com/rosa/breakfast/business/BreakfastServiceModelDomainServiceImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238611994000" sourcePath="breakfast-service/generated-sources/com/rosa/breakfast/service/BreakfastServiceModelLocalService.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238611994000" sourcePath="breakfast-service/generated-sources/com/rosa/breakfast/service/BreakfastServiceModelLocalServiceImplBase.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612613000" sourcePath="breakfast-business/src/main/java/com/rosa/breakfast/business/BreakfastDomainService.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612613000" sourcePath="breakfast-business/src/main/java/com/rosa/breakfast/business/BreakfastDomainServiceImpl.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612613000" sourcePath="breakfast-business/src/main/resources/com/rosa/breakfast/business/applicationContext.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612613000" sourcePath="breakfast-service/src/main/java/com/rosa/breakfast/service/BreakfastLocalServiceImpl.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612613000" sourcePath="breakfast-service/src/main/resources/com/rosa/breakfast/service/applicationContext.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-business/pom.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611993000" sourcePath="breakfast-business/src/main/java/com/rosa/breakfast/business/BreakfastServiceModelDomainService.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611993000" sourcePath="breakfast-business/src/main/java/com/rosa/breakfast/business/BreakfastServiceModelDomainServiceImpl.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-service/src/main/java/com/rosa/breakfast/service/BreakfastServiceModelLocalServiceImpl.java" />
+    </FileTrack>
+    <FileTrack resource="home/emalotau/Project/refapp/trunk/breakfast/breakfast-dslModels/src/model/datacontract/breakfast.dtcmod">
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-service/pom.xml" />
+    </FileTrack>
+    <FileTrack resource="home/emalotau/Project/refapp/trunk/breakfast/breakfast-dslModels/src/model/businessdomain/breakfast.busmod">
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612613000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/StandardBreakfastImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/ComestibleImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/PartImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/ServingStyle.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/StandardBreakfastExample.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/ComestibleExample.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-domain/generated-sources/com/rosa/breakfast/domain/PartExample.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-resources/com/rosa/breakfast/data/beanRefContext.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-resources/com/rosa/breakfast/data/applicationContextBase.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-resources/com/rosa/breakfast/domain/StandardBreakfast.hbm.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-resources/com/rosa/breakfast/domain/Comestible.hbm.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-resources/com/rosa/breakfast/domain/Part.hbm.xml" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/GenericEnumUserType.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/hibernate/spring/StandardBreakfastDaoImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/hibernate/spring/ComestibleDaoImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/hibernate/spring/PartDaoImplBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/BreakfastDMDaoBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/StandardBreakfastDaoBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/ComestibleDaoBase.java" />
+        <GeneratedFile extensionPoint="false" modifiedDate="1238612614000" sourcePath="breakfast-data/generated-sources/com/rosa/breakfast/data/PartDaoBase.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-domain/src/main/java/com/rosa/breakfast/domain/StandardBreakfast.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-domain/src/main/java/com/rosa/breakfast/domain/Comestible.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-domain/src/main/java/com/rosa/breakfast/domain/Part.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/resources/com/rosa/breakfast/data/applicationContext.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-data/src/main/resources//environment.properties" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/java/com/rosa/breakfast/data/hibernate/spring/StandardBreakfastDaoImpl.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/java/com/rosa/breakfast/data/hibernate/spring/ComestibleDaoImpl.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/java/com/rosa/breakfast/data/hibernate/spring/PartDaoImpl.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/java/com/rosa/breakfast/data/StandardBreakfastDao.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/java/com/rosa/breakfast/data/ComestibleDao.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238612614000" sourcePath="breakfast-data/src/main/java/com/rosa/breakfast/data/PartDao.java" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-dslModels/pom.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="pom.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-domain/pom.xml" />
+        <GeneratedFile extensionPoint="true" modifiedDate="1238611994000" sourcePath="breakfast-data/pom.xml" />
+    </FileTrack>
+</ProjectTrack>
+

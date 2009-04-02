@@ -1,0 +1,26 @@
+domain breakfastDM;
+
+class StandardBreakfast [
+    string name;
+    decimal price;
+    ServingStyle style;
+]
+association StandardBreakfast standard one -> many Part parts;
+association Part part many -> one Comestible comestible;
+
+enumeration ServingStyle [
+    SIMPLE = 1;
+    GRAND = 2;
+    DELUXE = 3;
+]
+
+class Comestible [
+    string name;
+    integer minimalQuantity;
+    decimal price;
+    string transportForm nullable;
+]
+
+class Part [
+    integer quantity;
+]
