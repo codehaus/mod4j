@@ -3,7 +3,7 @@
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>mod4j</name>
     <url>http://mod4j.org</url>
     <properties>
@@ -11,8 +11,8 @@
         <release.version.latest>1.0.0-beta-3</release.version.latest>
     </properties>
     <scm>
-        <connection>scm:svn:http://svn.codehaus.org/mod4j/tags/mod4j-1.0.0</connection>
-        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/tags/mod4j-1.0.0
+        <connection>scm:svn:http://svn.codehaus.org/mod4j/branches/mod4j-branche-1.0.0</connection>
+        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/branches/mod4j-branche-1.0.0
         </developerConnection>
     </scm>
     <organization>
