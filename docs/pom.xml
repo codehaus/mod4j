@@ -3,12 +3,12 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <groupId>org.mod4j.docs</groupId>
     <artifactId>documentation</artifactId>
     <name>Mod4j Documentation Parent</name>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <properties>
         <docbkx.src.dir>${basedir}/src/main/docbkx</docbkx.src.dir>
