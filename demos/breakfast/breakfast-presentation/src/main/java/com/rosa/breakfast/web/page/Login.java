@@ -2,9 +2,6 @@ package com.rosa.breakfast.web.page;
 
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.spring.injection.annot.SpringBean;
-
-import com.rosa.breakfast.service.BreakfastLocalService;
 
 public class Login extends BasePage {
 
@@ -24,6 +21,7 @@ public class Login extends BasePage {
 	}
 
 	private void init() {
+        add(new ItemForm("form", getModel()));
 
 	}
 

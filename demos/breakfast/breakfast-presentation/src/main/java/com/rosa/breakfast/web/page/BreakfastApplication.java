@@ -45,7 +45,7 @@ public class BreakfastApplication extends SpringWebApplication {
 	 * @see wicket.Application#getHomePage()
 	 */
 	public Class<? extends BasePage> getHomePage() {
-		return Login.class;
+		return ShowStandardBreakfast.class;
 	}
 
 }
