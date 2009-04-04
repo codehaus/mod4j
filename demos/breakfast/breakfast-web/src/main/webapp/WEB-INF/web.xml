@@ -3,5 +3,18 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Rosa's Breakfast</display-name>
+    <display-name>Rosa's Breakfast</display-name>
+    <context-param>
+        <param-name>parentContextKey</param-name>
+        <param-value>com.rosa.breakfast.service.Context</param-value>
+    </context-param>
+    <context-param>
+        <param-name>locatorFactorySelector</param-name>
+        <param-value>classpath*:/com/rosa/breakfast/*/beanRefContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
 </web-app>

@@ -3,6 +3,10 @@
 	<name>breakfast-web</name>
 	<comment></comment>
 	<projects>
+		<project>breakfast-service</project>
+		<project>breakfast-domain</project>
+		<project>breakfast-business</project>
+		<project>breakfast-data</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
