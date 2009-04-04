@@ -19,8 +19,8 @@
         <module>breakfast-domain</module>
         <module>breakfast-data</module>
         <module>breakfast-business</module>
-        <module>breakfast-service</module>       
-        <module>breakfast-presentation</module>
+        <module>breakfast-service</module>    
+        <module>breakfast-web</module>      
   </modules>
     <build>
         <resources>
@@ -35,9 +35,11 @@
             <testResource>
                 <directory>${basedir}/src/test/resources</directory>
             </testResource>
+            <!--
             <testResource>
                 <directory>${basedir}/${generated-resources-dir}</directory>
             </testResource>
+            -->
         </testResources>
         <plugins>
             <plugin>
@@ -396,6 +398,60 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-extensions</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-datetime</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-extensions</artifactId>
+                <version>${wicket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-spring</artifactId>
+                <version>${wicket.version}</version>
+                <!-- exclude spring framework that wicket pulls in -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.wicket</groupId>
+                <artifactId>wicket-spring-annot</artifactId>
+                <version>${wicket.version}</version>
+                <!-- exclude spring framework that wicket pulls in -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.14</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
