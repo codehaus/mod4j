@@ -1,57 +1,63 @@
 package com.rosa.breakfast.web.page;
 
+import java.util.Arrays;
+
 import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.StringValidator;
 
+import com.rosa.breakfast.service.BreakfastLocalService;
+import com.rosa.breakfast.service.dto.ServingStyleDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 
-
 public class ShowStandardBreakfast extends BasePage {
-
-	// private String personeelsNummer;
-
-	// @SpringBean
-	// private BreakfastLocalService breakfastService;
 
 	public ShowStandardBreakfast() {
 		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
 			protected Object load() {
-				StandardBreakfastDto standardBreakfast = new StandardBreakfastDto();
-				return standardBreakfast;
+				StandardBreakfastDto model = new StandardBreakfastDto();
+				model.setStyle(ServingStyleDto.SIMPLE);
+				return model;
 			}
 		}));
 		init();
 	}
 
 	private void init() {
-		add(new ItemForm("form", getModel()));
+		add(new StandardBreakfastForm("standardBreakfastForm", getModel()));
 
 	}
 
-	private class ItemForm extends Form {
+	private class StandardBreakfastForm extends Form {
 
-		public ItemForm(String id, IModel m) {
+		@SpringBean
+		BreakfastLocalService breakfastService;
+
+		public StandardBreakfastForm(String id, IModel m) {
 			super(id, m);
 
-			TextField name = new TextField("name");
-			name.setRequired(true);
-			name.add(StringValidator.maximumLength(40));
-			add(name);
+			add(new TextField("name").setRequired(true).add(
+					StringValidator.maximumLength(40)));
 
-			TextField price = new TextField("price");
-			price.setRequired(true);
-			price.add(StringValidator.maximumLength(10));
-			add(price);
+			add(new TextField("price").setRequired(true).setType(Float.class));
+
+			DropDownChoice style = new DropDownChoice("style", Arrays
+					.asList(ServingStyleDto.values()));
+			style.setRequired(true);
+			style.setNullValid(false);
+			add(style);
 
 			add(new Button("saveButton") {
 				public void onSubmit() {
 					StandardBreakfastDto StandardBreakfast = (StandardBreakfastDto) getForm()
 							.getModelObject();
+					breakfastService.createStandardBreakfast(StandardBreakfast);
 					setResponsePage(ShowStandardBreakfast.class);
 				}
 			});
@@ -63,5 +69,4 @@ public class ShowStandardBreakfast extends BasePage {
 
 		}
 	}
-
 }

@@ -20,17 +20,12 @@ public class BreakfastApplication extends SpringWebApplication {
 	}
 
 	/**
-	 * <ul>
-	 * <li>Annotated dependencies automatisch geinjecteerd tijdens object
-	 * creatie</li>
-	 * </ul>
+	 * Annotated dependencies automatisch geinjecteerd tijdens object.
 	 */
 	@Override
 	public void init() {
 		super.init();
-
 		addComponentInstantiationListener(new SpringComponentInjector(this));
-
 	}
 
 	/**

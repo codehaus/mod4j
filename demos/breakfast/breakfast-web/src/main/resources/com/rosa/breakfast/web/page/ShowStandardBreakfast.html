@@ -5,7 +5,7 @@
 			<td>Standard Breakfast</td>
 		</tr>
 	</table>
-	<form wicket:id="form">
+	<form wicket:id="standardBreakfastForm">
 	<table>
 		<tr>
 			<td><wicket:message key="ShowStandardBreakfast.Name">Name:</wicket:message></td>
@@ -16,14 +16,15 @@
 			<td><input type="text" wicket:id="price" /></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
-				<input class="button"
-					wicket:id="saveButton" type="submit" value="Ok"
-					wicket:message="value:EditFunctie.saveButton.Value" /> 
-				<input
-					class="button" wicket:id="cancelButton" type="submit" value="Cancel"
-					wicket:message="value:EditFunctie.cancelButton.Value" />
-			</td>
+			<td><wicket:message key="ShowStandardBreakfast.Style">Style:</wicket:message></td>
+			<td><select wicket:id="style" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input class="button"
+				wicket:id="saveButton" type="submit" value="Ok"
+				wicket:message="value:EditFunctie.saveButton.Value" /> <input
+				class="button" wicket:id="cancelButton" type="submit" value="Cancel"
+				wicket:message="value:EditFunctie.cancelButton.Value" /></td>
 		</tr>
 	</table>
 	</form>

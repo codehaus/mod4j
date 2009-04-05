@@ -4,6 +4,9 @@ class StandardBreakfast [
     string name;
     decimal price;
     ServingStyle style;
+    rules [
+        unique name [ name ]
+    ]
 ]
 association StandardBreakfast standard one -> many Part parts;
 association Part part many -> one Comestible comestible;
