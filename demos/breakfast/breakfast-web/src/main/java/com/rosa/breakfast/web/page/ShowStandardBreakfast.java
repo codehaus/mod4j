@@ -65,12 +65,9 @@ public class ShowStandardBreakfast extends BasePage {
 
 		public StandardBreakfastForm(String id, IModel m) {
 			super(id, m);
-
 			add(new TextField("name").setRequired(true).add(
 					StringValidator.maximumLength(40)));
-
 			add(new TextField("price").setRequired(true).setType(Float.class));
-
 			DropDownChoice style = new DropDownChoice("style", Arrays
 					.asList(ServingStyleDto.values()));
 			style.setRequired(true);
