@@ -15,19 +15,24 @@ public class ListStandardBreakfast extends BasePage {
 	private BreakfastLocalService service;
 
 	public ListStandardBreakfast() {
+		initialize();
+	}
+
+	private void initialize() {
 		add(new ListView("list", service.listAllStandardBreakfast()) {
 			protected void populateItem(ListItem item) {
 				final StandardBreakfastDto breakfast = (StandardBreakfastDto) item
 						.getModelObject();
 				item.add(new Link("edit") {
 					public void onClick() {
-						setResponsePage(new ShowStandardBreakfast(
+						setResponsePage(new EditStandardBreakfast(
 								ListStandardBreakfast.this, breakfast));
 					}
 				});
 				item.add(new Link("delete") {
 					public void onClick() {
 						service.deleteStandardBreakfast(breakfast);
+						detach();
 						setResponsePage(ListStandardBreakfast.class);
 					}
 				});
@@ -38,7 +43,7 @@ public class ListStandardBreakfast extends BasePage {
 		});
 		add(new Link("new") {
 			public void onClick() {
-				setResponsePage(new ShowStandardBreakfast(
+				setResponsePage(new EditStandardBreakfast(
 						ListStandardBreakfast.this, null));
 			}
 		});

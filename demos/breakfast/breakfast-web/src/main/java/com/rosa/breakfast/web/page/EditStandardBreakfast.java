@@ -17,12 +17,12 @@ import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ServingStyleDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 
-public class ShowStandardBreakfast extends BasePage {
+public class EditStandardBreakfast extends BasePage {
 
 	@SpringBean(name = "breakfastService")
 	BreakfastLocalService service;
 
-	public ShowStandardBreakfast(final WebPage back,
+	public EditStandardBreakfast(final WebPage back,
 			final StandardBreakfastDto sbf) {
 		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
 			protected Object load() {
