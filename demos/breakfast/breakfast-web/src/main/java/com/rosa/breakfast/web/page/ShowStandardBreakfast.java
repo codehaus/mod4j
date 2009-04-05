@@ -2,6 +2,7 @@ package com.rosa.breakfast.web.page;
 
 import java.util.Arrays;
 
+import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -18,26 +19,49 @@ import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 
 public class ShowStandardBreakfast extends BasePage {
 
-	public ShowStandardBreakfast() {
+	@SpringBean(name = "breakfastService")
+	BreakfastLocalService service;
+
+	public ShowStandardBreakfast(final WebPage back,
+			final StandardBreakfastDto sbf) {
 		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
 			protected Object load() {
-				StandardBreakfastDto model = new StandardBreakfastDto();
-				model.setStyle(ServingStyleDto.SIMPLE);
-				return model;
+				if (sbf == null) {
+					StandardBreakfastDto result = new StandardBreakfastDto();
+					result.setStyle(ServingStyleDto.SIMPLE);
+					return result;
+				}
+				return sbf;
 			}
 		}));
-		init();
+		init(back);
 	}
 
-	private void init() {
-		add(new StandardBreakfastForm("standardBreakfastForm", getModel()));
+	private void init(final WebPage back) {
+		Form form;
+		add(form = new StandardBreakfastForm("standardBreakfastForm",
+				getModel()));
+		form.add(new Button("saveButton") {
+			public void onSubmit() {
+				StandardBreakfastDto sbf = (StandardBreakfastDto) getForm()
+						.getModelObject();
+				if (sbf.getId() == null) {
+					service.createStandardBreakfast(sbf);
+				} else {
+					service.updateStandardBreakfast(sbf);
+				}
+				setResponsePage(ListStandardBreakfast.class);
+			}
+		});
+		form.add(new Button("cancelButton") {
+			public void onSubmit() {
+				setResponsePage(back);
+			}
+		}.setDefaultFormProcessing(false));
 
 	}
 
 	private class StandardBreakfastForm extends Form {
-
-		@SpringBean
-		BreakfastLocalService breakfastService;
 
 		public StandardBreakfastForm(String id, IModel m) {
 			super(id, m);
@@ -52,21 +76,6 @@ public class ShowStandardBreakfast extends BasePage {
 			style.setRequired(true);
 			style.setNullValid(false);
 			add(style);
-
-			add(new Button("saveButton") {
-				public void onSubmit() {
-					StandardBreakfastDto StandardBreakfast = (StandardBreakfastDto) getForm()
-							.getModelObject();
-					breakfastService.createStandardBreakfast(StandardBreakfast);
-					setResponsePage(ShowStandardBreakfast.class);
-				}
-			});
-			add(new Button("cancelButton") {
-				public void onSubmit() {
-					setResponsePage(ShowStandardBreakfast.class);
-				}
-			}.setDefaultFormProcessing(false));
-
 		}
 	}
 }

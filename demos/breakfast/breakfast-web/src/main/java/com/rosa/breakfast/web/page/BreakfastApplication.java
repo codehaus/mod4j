@@ -40,7 +40,7 @@ public class BreakfastApplication extends SpringWebApplication {
 	 * @see wicket.Application#getHomePage()
 	 */
 	public Class<? extends BasePage> getHomePage() {
-		return ShowStandardBreakfast.class;
+		return ListStandardBreakfast.class;
 	}
 
 }
