@@ -28,13 +28,18 @@ class PartDto represents Part [
 ]
 class ComestibleDto represents Comestible
 class AddressDto represents Address
+class BreakfastDto represents Breakfast
 
 list StandardBreakfastListDto contains StandardBreakfastDto
 list PartListDto contains PartDto
 list ComestibleListDto contains ComestibleDto
 list AddressListDto contains AddressDto
+list BreakfastListDto contains BreakfastDto
 
 class BreakfastOrderDto represents BreakfastOrder [
     discount; orderDate;
     references [
-        deliveryAddress as 
+        deliveryAddress as AddressDto;
+        breakfasts as BreakfastListDto;
+    ]
+]
