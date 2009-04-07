@@ -40,3 +40,12 @@ body {
   margin-left: 205px;
   padding-right: 10px;
 }
+
+table.bodyTable tr th { 
+    border-bottom: 1px solid #0079d6; 
+    border-top: 1px solid #0079d6; 
+}
+
+.button {
+	width: 100px;
+}

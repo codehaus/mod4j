@@ -137,6 +137,7 @@ table.bodyTable tr.b {
   border: 1px solid #999;
   overflow:auto
 }
+
 dt {
   padding: 4px 4px 4px 24px;
   color: #333333;
@@ -147,6 +148,7 @@ dt {
   background-repeat: no-repeat;
   background-position: left bottom;
 }
+
 .subsectionTitle {
   font-size: 13px;
   font-weight: bold;
