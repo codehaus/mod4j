@@ -10,6 +10,7 @@ crud PartDto;
 crud ComestibleDto;
 
 listall listAllStandardBreakfast for StandardBreakfastDto;
+listall listAllComestible for ComestibleDto;
 
 for StandardBreakfastDto reference parts add PartDto;
 for StandardBreakfastDto reference parts remove PartDto;
