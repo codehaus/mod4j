@@ -4,23 +4,37 @@ from breakfastDM import StandardBreakfast;
 from breakfastDM import ServingStyle;
 from breakfastDM import Part;
 from breakfastDM import Comestible;
+from breakfastDM import Customer;
+from breakfastDM import Address;
+from breakfastDM import BreakfastOrder;
+from breakfastDM import Breakfast;
+from breakfastDM import Change;
 
+/**
+ * Standard breakfast and friends.
+ */
+enumeration ServingStyleDto represents ServingStyle
 class StandardBreakfastDto represents StandardBreakfast [
     name; price; style;
     references [
         parts as PartListDto;
     ]
 ]
-list StandardBreakfastListDto contains StandardBreakfastDto
-
 class PartDto represents Part [
     quantity;
     references [
         comestible as ComestibleDto;
     ]
 ]
-list PartListDto contains PartDto
-
 class ComestibleDto represents Comestible
+class AddressDto represents Address
+
+list StandardBreakfastListDto contains StandardBreakfastDto
+list PartListDto contains PartDto
 list ComestibleListDto contains ComestibleDto
-enumeration ServingStyleDto represents ServingStyle
+list AddressListDto contains AddressDto
+
+class BreakfastOrderDto represents BreakfastOrder [
+    discount; orderDate;
+    references [
+        deliveryAddress as 

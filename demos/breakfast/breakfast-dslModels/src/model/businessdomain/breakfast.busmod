@@ -27,3 +27,35 @@ class Comestible [
 class Part [
     integer quantity;
 ]
+
+class Address [
+    string street;
+    string number;
+    string city nullable;
+    string postalCode nullable;
+    string telephone nullable;
+]
+
+class Customer [
+    integer accountNumber;
+]
+association Customer customer many -> one Address address;
+association Customer customer one -> many BreakfastOrder orders;
+
+class BreakfastOrder [
+    decimal discount;
+    datetime orderDate;
+]
+association BreakfastOrder order many -> one Address deliveryAddress;
+association BreakfastOrder order one -> many Breakfast breakfasts;
+
+class Breakfast [
+    integer number;
+]
+association Breakfast breakfast many -> one StandardBreakfast standard;
+association Breakfast breakfast one -> many Change changes;
+
+class Change [
+    integer quantity;
+]
+association Change change many -> one Comestible comestible;
