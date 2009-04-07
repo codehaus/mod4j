@@ -1,0 +1,38 @@
+<html xmlns:wicket>
+<wicket:extend>
+    <table>
+        <tr>
+            <td>Comestible</td>
+        </tr>
+    </table>
+    <form wicket:id="comestibleForm">
+    <table>
+        <tr>
+            <td><wicket:message key="EditComestible.Name">Name:</wicket:message></td>
+            <td><input type="text" wicket:id="name" /></td>
+        </tr>
+        <tr>
+            <td><wicket:message key="EditComestible.Price">Price:</wicket:message></td>
+            <td><input type="text" wicket:id="price" /></td>
+        </tr>
+        <tr>
+            <td><wicket:message key="EditComestible.MinimalQuantity">Min. #:</wicket:message></td>
+            <td><input type="text" wicket:id="minimalQuantity" /></td>
+        </tr>
+        <tr>
+            <td><wicket:message key="EditComestible.TransportForm">Transport:</wicket:message></td>
+            <td><input type="text" wicket:id="transportForm" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input class="button"
+                wicket:id="saveButton" type="submit" value="Ok"
+                wicket:message="value:EditFunctie.saveButton.Value" />
+            <input class="button" wicket:id="cancelButton" type="submit"
+                value="Cancel"
+                wicket:message="value:EditFunctie.cancelButton.Value" /></td>
+        </tr>
+    </table>
+    </form>
+	<div id="feedbackPanel"><span wicket:id="feedback"></span></div>
+</wicket:extend>
+</html>

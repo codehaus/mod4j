@@ -2,11 +2,14 @@
 <wicket:extend>
     <table>
         <tr>
-            <td>Standard Breakfast</td>
+            <td>Edit Standard Breakfast</td>
         </tr>
     </table>
     <form wicket:id="standardBreakfastForm">
     <table>
+    	<tr>
+    		<th>breakfast</th>
+    	</tr>
         <tr>
             <td><wicket:message key="EditStandardBreakfast.Name">Name:</wicket:message></td>
             <td><input type="text" wicket:id="name" /></td>
@@ -27,7 +30,32 @@
                 value="Cancel"
                 wicket:message="value:EditFunctie.cancelButton.Value" /></td>
         </tr>
+        <tr>
+        	<td colspan="2">
+		        <table>
+		        	<tr>
+		        		<th>breakfast contents</th>
+		        	</tr>
+		        	<tr>
+			        	<td>comestible name</td>
+			        	<td>quantity</td>
+		        	</tr>
+			        <tr wicket:id="list">
+				        <td wicket:id="name" />
+				        <td wicket:id="quantity" />
+				        <td><input type="button" value="Edit" wicket:id="edit" /></td>
+				        <td><input type="button" value="Delete" wicket:id="delete" /></td>
+			        </tr>
+	                <tr>
+			        	<td>
+			        		<input type="button" value="New" wicket:id="new" />
+			        	</td>
+			        </tr>
+		        </table>
+        	</td>
+        </tr>
     </table>
     </form>
+    <div id="feedbackPanel"><span wicket:id="feedback"></span></div>
 </wicket:extend>
 </html>

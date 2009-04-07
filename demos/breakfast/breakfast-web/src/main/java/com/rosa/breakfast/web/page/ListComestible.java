@@ -7,44 +7,45 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.rosa.breakfast.service.BreakfastLocalService;
-import com.rosa.breakfast.service.dto.StandardBreakfastDto;
+import com.rosa.breakfast.service.dto.ComestibleDto;
 
-public class ListStandardBreakfast extends BaseAppPage {
+public class ListComestible extends BaseAppPage {
 
 	@SpringBean(name = "breakfastService")
 	private BreakfastLocalService service;
 
-	public ListStandardBreakfast() {
+	public ListComestible() {
 		initialize();
 	}
 
 	private void initialize() {
-		add(new ListView("list", service.listAllStandardBreakfast()) {
+		add(new ListView("list", service.listAllComestible()) {
 			protected void populateItem(ListItem item) {
-				final StandardBreakfastDto breakfast = (StandardBreakfastDto) item
+				final ComestibleDto comestible = (ComestibleDto) item
 						.getModelObject();
 				item.add(new Link("edit") {
 					public void onClick() {
-						setResponsePage(new EditStandardBreakfast(
-								ListStandardBreakfast.this, breakfast));
+						setResponsePage(new EditComestible(
+								ListComestible.this, comestible));
 					}
 				});
 				item.add(new Link("delete") {
 					public void onClick() {
-						service.deleteStandardBreakfast(breakfast);
+						service.deleteComestible(comestible);
 						detach();
-						setResponsePage(ListStandardBreakfast.class);
+						setResponsePage(ListComestible.class);
 					}
 				});
-				item.add(new Label("name", breakfast.getName()));
-				item.add(new Label("price", breakfast.getPrice().toString()));
-				item.add(new Label("style", breakfast.getStyle().name()));
+				item.add(new Label("name", comestible.getName()));
+				item.add(new Label("price", comestible.getPrice().toString()));
+				item.add(new Label("minimalQuantity", comestible.getMinimalQuantity().toString()));
+				item.add(new Label("transportForm", comestible.getTransportForm()));
 			}
 		});
 		add(new Link("new") {
 			public void onClick() {
-				setResponsePage(new EditStandardBreakfast(
-						ListStandardBreakfast.this, null));
+				setResponsePage(new EditComestible(
+						ListComestible.this, null));
 			}
 		});
 	}

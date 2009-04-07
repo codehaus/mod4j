@@ -1,0 +1,29 @@
+<html xmlns:wicket>
+<wicket:extend>
+    <table border="1">
+        <thead>
+            <tr>
+                <td><b>Name</b></td>
+                <td><b>Price</b></td>
+                <td><b>Min. #</b></td>
+                <td><b>Transport</b></td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr wicket:id="list">
+                <td wicket:id="name" />
+                <td wicket:id="price" align="char" />
+                <td wicket:id="minimalQuantity" align="right" />
+                <td wicket:id="transportForm" />
+                <td><input type="button" value="Edit"
+                    wicket:id="edit" /></td>
+                <td><input type="button" value="Delete"
+                    wicket:id="delete" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <form><input type="button" value="New" wicket:id="new" /></form>
+</wicket:extend>
+</html>
