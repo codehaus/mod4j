@@ -177,15 +177,21 @@
             You should be familiar with the username and password for this site.
           </li>
           <li>Make an announcement on the mailinglist.</li>
-          <li>Sit back and relax.</li>
         </ol>
       </subsection>
 
       <subsection name="Post release steps">
-        <p>After the formal release you'll need to do some updates for the project site.</p>
+        <p>After the formal release you'll need to perform the following updates.</p>
+
+        <h5>Project site updates</h5>
         <ul>
           <li>Open the Mod4j parent pom and adjust the property "release.version.latest"</li>
-          <li>Save and commit</li>
+          <li>Fill the releasenotes.xml for the released version with a copy of the releansnotes in html from Jira</li>
+          <li>Add a new row to the table in ../modules/src/site/xdoc/releases/index.html for this release.</li>
+          <li>If it doesn exist already, create a new folder under ../modules/src/site/xdoc/releases with the name of the
+            the
+            next version to release. And add a empty releasenotes.xml and upradenotes.xml to it.</li>
+          <li>Save and commit your changes.</li>
           <li>
             Update the site by performing a
             <b>
@@ -194,8 +200,34 @@
           </li>
         </ul>
 
+        <h5>Prepare for next development phase</h5>
+        <ul>
+          <li>Adjust the versionnumber of all Mod4j Eclipse plug-ins (x.x.x.qaulifier)</li>
+          <li>
+            Open ../Examples/RecordShop-ExampleProject/pom.xml and adjust the property
+            <b>mod4j.version</b>
+            to the new released version.
+          </li>
+          <li>Save and commit your changes.</li>
+        </ul>
+
+        <h5>Create a new branch for bugfixing</h5>
+        <p>If the released involves a major or upgrade release a new branch must created based on the tag of the release.</p>
+        <ul>
+          <li>Checkout the tag of the release.</li>
+          <li>Open a commandshell and navigate to the root folder of the checkout above.</li>
+          <li>
+            Create the branch using the following command
+            <b>
+              <code>mvn release:branch -DbranchName=mod4j-branch-1.0 -DupdateBranchVersions=true
+                -DupdateWorkingCopyVersions=false -Pci</code>
+            </b>
+          </li>
+        </ul>
+
       </subsection>
 
+      <p>Sit back, put a big smile on your face and relax.</p>
     </section>
   </body>
 </document>
