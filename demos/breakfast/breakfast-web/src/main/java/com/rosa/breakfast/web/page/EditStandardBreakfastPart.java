@@ -16,6 +16,7 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.rosa.breakfast.domain.StandardBreakfast;
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 import com.rosa.breakfast.service.dto.PartDto;
@@ -75,12 +76,14 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 					service.setComestible(part, selectedComestible);
 					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
 					service.addToParts(breakfast, part);
-					setResponsePage(back);
+					breakfast = service.readStandardBreakfastAsStandardBreakfastDto(breakfast.getId());
+					setResponsePage(new EditStandardBreakfast(breakfast));
 				}
 			});
 			add(new Button("cancelButton") {
 				public void onSubmit() {
-					setResponsePage(back);
+					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
+					setResponsePage(new EditStandardBreakfast(breakfast));
 				}
 			}.setDefaultFormProcessing(false));
 		}

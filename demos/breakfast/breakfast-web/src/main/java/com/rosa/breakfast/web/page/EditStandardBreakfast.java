@@ -30,8 +30,27 @@ public class EditStandardBreakfast extends BaseAppPage {
 	@SpringBean(name = "breakfastService")
 	BreakfastLocalService service;
 
-	public EditStandardBreakfast(final WebPage back,
-			final StandardBreakfastDto sbf) {
+	private StandardBreakfastDto selectedStandardBreakfast;
+	
+	public EditStandardBreakfast(final Long id, String dummy) {
+		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
+			protected Object load() {
+				StandardBreakfastDto result = null;
+				if (id == null) {
+					result = new StandardBreakfastDto();
+					result.setStyle(ServingStyleDto.SIMPLE);
+					return result;
+				} else {
+					result = service.readStandardBreakfastAsStandardBreakfastDto(id);
+				}
+				selectedStandardBreakfast = result;
+				return result;
+			}
+		}));
+		init();
+	}
+
+	public EditStandardBreakfast(final StandardBreakfastDto sbf) {
 		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
 			protected Object load() {
 				if (sbf == null) {
@@ -39,13 +58,14 @@ public class EditStandardBreakfast extends BaseAppPage {
 					result.setStyle(ServingStyleDto.SIMPLE);
 					return result;
 				}
+				selectedStandardBreakfast = sbf;
 				return sbf;
 			}
 		}));
-		init(back);
+		init();
 	}
 
-	private void init(final WebPage back) {
+	private void init() {
 		Form form;
 		add(form = new StandardBreakfastForm("standardBreakfastForm",
 				getModel()));
@@ -63,7 +83,7 @@ public class EditStandardBreakfast extends BaseAppPage {
 		});
 		form.add(new Button("cancelButton") {
 			public void onSubmit() {
-				setResponsePage(back);
+				setResponsePage(ListStandardBreakfast.class);
 			}
 		}.setDefaultFormProcessing(false));
 		form.add(new ListView("list", new ArrayList<PartDto>(((StandardBreakfastDto)getModelObject()).getParts())) {
@@ -82,7 +102,7 @@ public class EditStandardBreakfast extends BaseAppPage {
 					public void onClick() {
 						service.deletePart(part);
 						detach();
-						setResponsePage(back);
+						setResponsePage(new EditStandardBreakfast(selectedStandardBreakfast.getId(), ""));
 					}
 				});
 

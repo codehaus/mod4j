@@ -25,8 +25,7 @@ public class ListStandardBreakfast extends BaseAppPage {
 						.getModelObject();
 				item.add(new Link("edit") {
 					public void onClick() {
-						setResponsePage(new EditStandardBreakfast(
-								ListStandardBreakfast.this, breakfast));
+						setResponsePage(new EditStandardBreakfast(breakfast));
 					}
 				});
 				item.add(new Link("delete") {
@@ -43,8 +42,7 @@ public class ListStandardBreakfast extends BaseAppPage {
 		});
 		add(new Link("new") {
 			public void onClick() {
-				setResponsePage(new EditStandardBreakfast(
-						ListStandardBreakfast.this, null));
+				setResponsePage(new EditStandardBreakfast(null, null));
 			}
 		});
 	}
