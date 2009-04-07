@@ -1,6 +1,5 @@
 package com.rosa.breakfast.web.page;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
@@ -69,16 +68,13 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 					PartDto part = (PartDto) getForm()
 							.getModelObject();
 					if (part.getId() == null) {
-						service.createPart(part);
+						part = service.createPart(part);
 					} else {
-						service.updatePart(part);
+						part = service.updatePart(part);
 					}
 					service.setComestible(part, selectedComestible);
-					// TODO
-					//StandardBreakfastDto breakfast = service.readStandardBreakfastAsStandardBreakfastDto(((StandardBreakfastDto)back.getModelObject()).getId());
-					//back.setModelObject(breakfast);
 					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
-					breakfast.addToParts(part);
+					service.addToParts(breakfast, part);
 					setResponsePage(back);
 				}
 			});
@@ -110,7 +106,6 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 			@Override
 			public List<ComestibleDto> getObject() {                  
 				List<ComestibleDto> allComestibles = service.listAllComestible();
-				//BeanUtils.sorteerLijstMetBeans(allAfdelingen, new String[] { "naam" }, BeanUtils.OPLOPEND);
 				return allComestibles;
 			}
 		};
