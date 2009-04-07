@@ -1,27 +1,30 @@
 <html xmlns:wicket>
 <wicket:extend>
-    <table border="1">
-        <thead>
-            <tr>
-                <td><b>Name</b></td>
-                <td><b>Price</b></td>
-                <td><b>Style</b></td>
-                <td> </td>
-                <td> </td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr wicket:id="list">
-                <td wicket:id="name" />
-                <td wicket:id="price" align="char" />
-                <td wicket:id="style" />
-                <td><input type="button" value="Edit"
-                    wicket:id="edit" /></td>
-                <td><input type="button" value="Delete"
-                    wicket:id="delete" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <form><input type="button" value="New" wicket:id="new" /></form>
+<div id="contentBox">
+<div class="section">
+<h3>Standard Breakfasts</h3>
+	<table border="1" class="bodyTable">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th><b>Price</b></th>
+				<th><b>Style</b></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr wicket:id="list">
+				<td wicket:id="name" />
+				<td wicket:id="price" align="char" />
+				<td wicket:id="style" />
+				<td><input type="button" value="Edit" wicket:id="edit" class="button" /></td>
+				<td><input type="button" value="Delete" wicket:id="delete" class="button" /></td>
+			</tr>
+		</tbody>
+	</table>
+	<form><input type="button" value="New" wicket:id="new" /></form>
+</div>
+</div>
 </wicket:extend>
 </html>

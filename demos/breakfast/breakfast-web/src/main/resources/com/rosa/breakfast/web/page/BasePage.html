@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns:wicket>
-	<head>
-		<link wicket:id="stylesheet"/>
-        <title>Rosa's Breakfast Service</title>
-    </head>
-    <body>
+<head>
+<link wicket:id="stylesheet1" />
+<link wicket:id="stylesheet2" />
+<link wicket:id="stylesheet3" />
+<title>Rosa's Breakfast Service</title>
+</head>
 
-		<div id="body">
-			<wicket:child />
-		</div>
-			    		
-    </body>
+<body class="composite">
+<div id="banner"><span id="bannerLeft"> mod4j </span>
+<div class="clear">
+<hr />
+</div>
+</div>
+<div id="breadcrumbs">
+<div class="xright"></div>
+<div class="clear">
+<hr />
+</div>
+</div>
+
+<div id="leftColumn">
+<div id="navcolumn">
+<h5>Rosa's News</h5>
+<ul>
+	<li class="none"><a href="#">> New: Deluxe breakfast </a></li>
+	<li class="none"><a href="#">More news ...</a></li>
+</ul>
+<h5>Order</h5>
+<ul>
+	<li class="none"><a href="#">Place an order</a></li>
+	<li class="none"><a href="#">Account</a></li>
+</ul>
+<h5>Maintain</h5>
+<ul>
+	<li class="none"><a href="">Standard Breakfasts</a></li>
+	<li class="none"><a href="">Comestibles</a></li>
+</ul>
+</div>
+</div>
+
+<div id="bodyColumn"><wicket:child /></div>
+<div class="clear">
+<hr />
+</div>
+
+<div id="footer">
+<div class="xright">&#169; 2009 Rosa</div>
+<div class="clear">
+<hr />
+</div>
+</div>
+</body>
 </html>
-
-       
