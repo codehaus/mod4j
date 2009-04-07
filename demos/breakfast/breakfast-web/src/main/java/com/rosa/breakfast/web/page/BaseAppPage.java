@@ -19,7 +19,7 @@ public abstract class BaseAppPage extends BasePage {
 	}
 
 	private void pagina() {
-		add(new Label("menuItemListStandardBreakfast", "List Standard breakfasts"));
-		add(new Label("menuItemListComestible", "List Comestibles"));
+		add(new Label("menuItemListStandardBreakfast", "Standard breakfasts"));
+		add(new Label("menuItemListComestible", "Comestibles"));
 	}
 }

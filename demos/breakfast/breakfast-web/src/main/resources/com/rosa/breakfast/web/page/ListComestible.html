@@ -1,14 +1,17 @@
 <html xmlns:wicket>
 <wicket:extend>
-    <table border="1">
+<div id="contentBox">
+<div class="section">
+<h3>Comestibles</h3>
+    <table border="1" class="bodyTable">
         <thead>
             <tr>
-                <td><b>Name</b></td>
-                <td><b>Price</b></td>
-                <td><b>Min. #</b></td>
-                <td><b>Transport</b></td>
-                <td> </td>
-                <td> </td>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Min. #</th>
+                <th>Transport</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -17,13 +20,13 @@
                 <td wicket:id="price" align="char" />
                 <td wicket:id="minimalQuantity" align="right" />
                 <td wicket:id="transportForm" />
-                <td><input type="button" value="Edit"
-                    wicket:id="edit" /></td>
-                <td><input type="button" value="Delete"
-                    wicket:id="delete" /></td>
+                <td class="butcol"><input type="button" value="Edit" wicket:id="edit" class="button" /></td>
+                <td class="butcol"><input type="button" value="Delete" wicket:id="delete" class="button" /></td>
             </tr>
         </tbody>
     </table>
-    <form><input type="button" value="New" wicket:id="new" /></form>
+    <form><input type="button" value="New" wicket:id="new" class="button" /></form>
+</div>
+</div>
 </wicket:extend>
 </html>
