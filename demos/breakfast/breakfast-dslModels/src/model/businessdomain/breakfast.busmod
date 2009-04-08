@@ -26,6 +26,9 @@ class Comestible [
 
 class Part [
     integer quantity;
+    rules [
+    	PartCheckMinimumQuantity;
+    ]
 ]
 
 class Address [
