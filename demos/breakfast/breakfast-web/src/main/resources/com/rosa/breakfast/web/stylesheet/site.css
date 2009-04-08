@@ -10,6 +10,7 @@ body {
   background-color:rgb(192,182,172); 
 }
 
+/* logo font Bauhaus 93 */
 #banner {
   height: 190px;
   background: url(images/mod4j-people-header.jpg) no-repeat;
@@ -80,3 +81,15 @@ h4 {
   font-size: 12px;
 }
 
+#feedbackPanel ul {
+  background-color: PeachPuff;
+  border: 1px solid DarkRed;
+}
+
+#feedbackPanel li {
+  color: DarkRed;
+  list-style-image: url(images/icon_error_sml.gif);
+  font-weight: bold;
+  vertical-align: middle;
+  padding: 3px;
+}
