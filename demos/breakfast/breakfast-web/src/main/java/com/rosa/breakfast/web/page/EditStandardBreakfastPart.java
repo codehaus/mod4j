@@ -77,13 +77,13 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
 					service.addToParts(breakfast, part);
 					breakfast = service.readStandardBreakfastAsStandardBreakfastDto(breakfast.getId());
-					setResponsePage(new EditStandardBreakfast(breakfast));
+					setResponsePage(new EditStandardBreakfast(breakfast, true));
 				}
 			});
 			add(new Button("cancelButton") {
 				public void onSubmit() {
 					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
-					setResponsePage(new EditStandardBreakfast(breakfast));
+					setResponsePage(new EditStandardBreakfast(breakfast, false));
 				}
 			}.setDefaultFormProcessing(false));
 		}

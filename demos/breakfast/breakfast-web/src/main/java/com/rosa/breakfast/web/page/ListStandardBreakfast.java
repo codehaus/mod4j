@@ -25,7 +25,7 @@ public class ListStandardBreakfast extends BaseAppPage {
 						.getModelObject();
 				item.add(new Link("edit") {
 					public void onClick() {
-						setResponsePage(new EditStandardBreakfast(breakfast));
+						setResponsePage(new EditStandardBreakfast(breakfast, false));
 					}
 				});
 				item.add(new Link("delete") {
@@ -37,12 +37,12 @@ public class ListStandardBreakfast extends BaseAppPage {
 				});
 				item.add(new Label("name", breakfast.getName()));
 				item.add(new Label("price", breakfast.getPrice().toString()));
-				item.add(new Label("style", breakfast.getStyle().name()));
+				item.add(new Label("style.name", breakfast.getStyle().name()));
 			}
 		});
 		add(new Link("new") {
 			public void onClick() {
-				setResponsePage(new EditStandardBreakfast(null, null));
+				setResponsePage(new EditStandardBreakfast());
 			}
 		});
 	}

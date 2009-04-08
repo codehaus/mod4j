@@ -3,7 +3,6 @@ package com.rosa.breakfast.web.page;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
@@ -18,8 +17,8 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.StringValidator;
+import org.springframework.dao.DataIntegrityViolationException;
 
-import com.rosa.breakfast.data.PartDao;
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.PartDto;
 import com.rosa.breakfast.service.dto.ServingStyleDto;
@@ -31,35 +30,24 @@ public class EditStandardBreakfast extends BaseAppPage {
 	BreakfastLocalService service;
 
 	private StandardBreakfastDto selectedStandardBreakfast;
-	
-	public EditStandardBreakfast(final Long id, String dummy) {
-		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
-			protected Object load() {
-				StandardBreakfastDto result = null;
-				if (id == null) {
-					result = new StandardBreakfastDto();
-					result.setStyle(ServingStyleDto.SIMPLE);
-					return result;
-				} else {
-					result = service.readStandardBreakfastAsStandardBreakfastDto(id);
-				}
-				selectedStandardBreakfast = result;
-				return result;
-			}
-		}));
-		init();
+
+	public EditStandardBreakfast() {
+		this(null, false);
 	}
 
-	public EditStandardBreakfast(final StandardBreakfastDto sbf) {
+	public EditStandardBreakfast(final StandardBreakfastDto sbf, final boolean refresh) {
 		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
 			protected Object load() {
-				if (sbf == null) {
-					StandardBreakfastDto result = new StandardBreakfastDto();
-					result.setStyle(ServingStyleDto.SIMPLE);
-					return result;
+				StandardBreakfastDto standardBreakfast = sbf;
+				if (refresh && standardBreakfast != null) {
+					standardBreakfast = service.readStandardBreakfastAsStandardBreakfastDto(standardBreakfast.getId());
 				}
-				selectedStandardBreakfast = sbf;
-				return sbf;
+				if (standardBreakfast == null) {
+					standardBreakfast = new StandardBreakfastDto();
+					standardBreakfast.setStyle(ServingStyleDto.SIMPLE);
+				}
+				selectedStandardBreakfast = standardBreakfast;
+				return standardBreakfast;
 			}
 		}));
 		init();
@@ -74,7 +62,12 @@ public class EditStandardBreakfast extends BaseAppPage {
 				StandardBreakfastDto sbf = (StandardBreakfastDto) getForm()
 						.getModelObject();
 				if (sbf.getId() == null) {
-					service.createStandardBreakfast(sbf);
+					try {
+						service.createStandardBreakfast(sbf);
+					} catch(DataIntegrityViolationException e) {
+						error("Standardbreakfast with name '" + sbf.getName() + "' already exists.");
+						return;
+					}
 				} else {
 					service.updateStandardBreakfast(sbf);
 				}
@@ -102,18 +95,20 @@ public class EditStandardBreakfast extends BaseAppPage {
 					public void onClick() {
 						service.deletePart(part);
 						detach();
-						setResponsePage(new EditStandardBreakfast(selectedStandardBreakfast.getId(), ""));
+						setResponsePage(new EditStandardBreakfast(selectedStandardBreakfast, true));
 					}
 				});
 
 			}
 		});
-		form.add(new Link("new") {
+		Link newLink = new Link("new") {
 			public void onClick() {
 				setResponsePage(new EditStandardBreakfastPart(
 						EditStandardBreakfast.this, null));
 			}
-		});
+		}; 
+		newLink.setEnabled(((StandardBreakfastDto)getModelObject()).getId() != null);
+		form.add(newLink);
 		add(new FeedbackPanel("feedback"));
 	}
 
