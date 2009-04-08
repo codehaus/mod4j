@@ -2,7 +2,6 @@ package com.rosa.breakfast.web.page;
 
 import java.util.List;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -16,20 +15,21 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import com.rosa.breakfast.domain.StandardBreakfast;
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 import com.rosa.breakfast.service.dto.PartDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
+import com.rosa.breakfast.web.util.DefaultFocusBehaviour;
 
+@SuppressWarnings("serial")
 public class EditStandardBreakfastPart extends BaseAppPage {
 
 	@SpringBean(name = "breakfastService")
 	BreakfastLocalService service;
 
-	private WebPage back;
+	private StandardBreakfastDto breakfast;
 
-	public EditStandardBreakfastPart(final WebPage back,
+	public EditStandardBreakfastPart(final StandardBreakfastDto breakfast,
 			final PartDto part) {
 		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
 			protected Object load() {
@@ -40,21 +40,20 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 				return part;
 			}
 		}));
-		this.back = back;
+		this.breakfast = breakfast;
 		init();
 	}
 
 	private void init() {
-		Form form = new StandardBreakfastForm("standardBreakfastForm", getModel());
-		add(form);
+		add(new StandardBreakfastPartForm("standardBreakfastForm", getModel()));
 		add(new FeedbackPanel("feedback"));
 	}
 
-	private class StandardBreakfastForm extends Form {
+	private class StandardBreakfastPartForm extends Form {
 		
 		private ComestibleDto selectedComestible;
 
-		public StandardBreakfastForm(String id, IModel m) {
+		public StandardBreakfastPartForm(String id, IModel m) {
 			super(id, m);
 			selectedComestible = ((PartDto)getModelObject()).getComestible();
 			final DropDownChoice comestibleChoice = new DropDownChoice("comestibles", new PropertyModel(this, "selectedComestible"), getAllComestibles());          
@@ -62,27 +61,28 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 			comestibleChoice.setOutputMarkupId(true);
 			comestibleChoice.setRequired(true);
 			comestibleChoice.setNullValid(false);
+			comestibleChoice.add(new DefaultFocusBehaviour());
 			add(comestibleChoice);
 			add(new TextField("quantity").setRequired(true).setType(Float.class));
 			add(new Button("saveButton") {
 				public void onSubmit() {
-					PartDto part = (PartDto) getForm()
-							.getModelObject();
+					PartDto part = (PartDto) getForm().getModelObject();
 					if (part.getId() == null) {
+						// create a new part
 						part = service.createPart(part);
 					} else {
+						// update a part
 						part = service.updatePart(part);
 					}
+					// create association between the part and the selected Comestible
 					service.setComestible(part, selectedComestible);
-					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
+					// create association between the standard breakfast and the part
 					service.addToParts(breakfast, part);
-					breakfast = service.readStandardBreakfastAsStandardBreakfastDto(breakfast.getId());
 					setResponsePage(new EditStandardBreakfast(breakfast, true));
 				}
 			});
 			add(new Button("cancelButton") {
 				public void onSubmit() {
-					StandardBreakfastDto breakfast = (StandardBreakfastDto)back.getModelObject();
 					setResponsePage(new EditStandardBreakfast(breakfast, false));
 				}
 			}.setDefaultFormProcessing(false));

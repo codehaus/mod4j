@@ -1,57 +1,54 @@
 <html xmlns:wicket>
 <wicket:extend>
-<div id="contentBox">
-<div class="section">
-    <h3>Edit Standard Breakfast</h3>
-    <form wicket:id="standardBreakfastForm">
-    <table>
-        <tr>
-            <td><wicket:message key="EditStandardBreakfast.Name">Name:</wicket:message></td>
-            <td><input type="text" wicket:id="name" /></td>
-        </tr>
-        <tr>
-            <td><wicket:message key="EditStandardBreakfast.Price">Price:</wicket:message></td>
-            <td><input type="text" wicket:id="price" /></td>
-        </tr>
-        <tr>
-            <td><wicket:message key="EditStandardBreakfast.Style">Style:</wicket:message></td>
-            <td><select wicket:id="style" /></td>
-        </tr>
-    </table>
+	<div id="contentBox">
+	<div class="section">
+	<h3>Edit Standard Breakfast</h3>
+	<form wicket:id="standardBreakfastForm">
+	<table>
+		<tr>
+			<td><wicket:message key="EditStandardBreakfast.Name">Name:</wicket:message></td>
+			<td><input type="text" wicket:id="name" /></td>
+		</tr>
+		<tr>
+			<td><wicket:message key="EditStandardBreakfast.Price">Price:</wicket:message></td>
+			<td><input type="text" wicket:id="price" /></td>
+		</tr>
+		<tr>
+			<td><wicket:message key="EditStandardBreakfast.Style">Style:</wicket:message></td>
+			<td><select wicket:id="style"></select></td>
+		</tr>
+	</table>
 
-    <div id="buts">
-        <input class="button"
-                    wicket:id="saveButton" type="submit" value="Ok"
-                    wicket:message="value:EditFunctie.saveButton.Value" />
-        <input class="button" wicket:id="cancelButton" type="submit"
-                    value="Cancel"
-                    wicket:message="value:EditFunctie.cancelButton.Value" />
-    </div>
+	<div id="buts">
+		<input class="button" wicket:id="saveButton" type="submit" value="Ok" wicket:message="value:EditFunctie.saveButton.Value" />
+		<input class="button" wicket:id="cancelButton" type="submit" value="Cancel" wicket:message="value:EditFunctie.cancelButton.Value" />
+	</div>
 
-    <h4>Breakfasts contents</h4>
+	<h4>Breakfasts contents</h4>
 
-    <table border="1" class="bodyTable">
-        <thead>
-        	<tr>
-	        	<th>Comestible</th>
-	        	<th>Quantity</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
-        	</tr>
-        </thead>
-        <tbody>
-	        <tr wicket:id="list">
-		        <td wicket:id="name" />
-		        <td wicket:id="quantity" />
-		        <td class="butcol"><input type="button" value="Edit" wicket:id="edit" class="button" /></td>
-		        <td class="butcol"><input type="button" value="Delete" wicket:id="delete" class="button" /></td>
-	        </tr>
-        </tbody>
-    </table>
-    <input type="button" value="New" wicket:id="new" class="button" />
-    </form>
-    <div id="feedbackPanel"><span wicket:id="feedback"></span></div>
-</div>
-</div>
+	<table border="1" class="bodyTable">
+		<thead>
+			<tr>
+				<th>Comestible</th>
+				<th>Quantity</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr wicket:id="list">
+				<td wicket:id="name" />
+				<td wicket:id="quantity" />
+				<td class="butcol"><input type="button" value="Edit"
+					wicket:id="edit" class="button" /></td>
+				<td class="butcol"><input type="button" value="Delete"
+					wicket:id="delete" class="button" /></td>
+			</tr>
+		</tbody>
+	</table>
+	<input style="width:130" type="button" value="Add comestible" wicket:id="add" class="button" /></form>
+	<div id="feedbackPanel"><span wicket:id="feedback"></span></div>
+	</div>
+	</div>
 </wicket:extend>
 </html>

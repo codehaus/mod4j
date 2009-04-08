@@ -9,6 +9,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 
+@SuppressWarnings("serial")
 public class ListComestible extends BaseAppPage {
 
 	@SpringBean(name = "breakfastService")

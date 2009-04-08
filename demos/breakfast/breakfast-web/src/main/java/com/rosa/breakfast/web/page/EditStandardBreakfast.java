@@ -23,7 +23,9 @@ import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.PartDto;
 import com.rosa.breakfast.service.dto.ServingStyleDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
+import com.rosa.breakfast.web.util.DefaultFocusBehaviour;
 
+@SuppressWarnings("serial")
 public class EditStandardBreakfast extends BaseAppPage {
 
 	@SpringBean(name = "breakfastService")
@@ -54,61 +56,7 @@ public class EditStandardBreakfast extends BaseAppPage {
 	}
 
 	private void init() {
-		Form form;
-		add(form = new StandardBreakfastForm("standardBreakfastForm",
-				getModel()));
-		form.add(new Button("saveButton") {
-			public void onSubmit() {
-				StandardBreakfastDto sbf = (StandardBreakfastDto) getForm()
-						.getModelObject();
-				if (sbf.getId() == null) {
-					try {
-						service.createStandardBreakfast(sbf);
-					} catch(DataIntegrityViolationException e) {
-						error("Standardbreakfast with name '" + sbf.getName() + "' already exists.");
-						return;
-					}
-				} else {
-					service.updateStandardBreakfast(sbf);
-				}
-				setResponsePage(ListStandardBreakfast.class);
-			}
-		});
-		form.add(new Button("cancelButton") {
-			public void onSubmit() {
-				setResponsePage(ListStandardBreakfast.class);
-			}
-		}.setDefaultFormProcessing(false));
-		form.add(new ListView("list", new ArrayList<PartDto>(((StandardBreakfastDto)getModelObject()).getParts())) {
-			protected void populateItem(ListItem item) {
-				final PartDto part = (PartDto) item
-						.getModelObject();
-				item.add(new Label("name", part.getComestible().getName()));
-				item.add(new Label("quantity", part.getQuantity().toString()));
-				item.add(new Link("edit") {
-					public void onClick() {
-						setResponsePage(new EditStandardBreakfastPart(
-								EditStandardBreakfast.this, part));
-					}
-				});
-				item.add(new Link("delete") {
-					public void onClick() {
-						service.deletePart(part);
-						detach();
-						setResponsePage(new EditStandardBreakfast(selectedStandardBreakfast, true));
-					}
-				});
-
-			}
-		});
-		Link newLink = new Link("new") {
-			public void onClick() {
-				setResponsePage(new EditStandardBreakfastPart(
-						EditStandardBreakfast.this, null));
-			}
-		}; 
-		newLink.setEnabled(((StandardBreakfastDto)getModelObject()).getId() != null);
-		form.add(newLink);
+		add(new StandardBreakfastForm("standardBreakfastForm", getModel()));
 		add(new FeedbackPanel("feedback"));
 	}
 
@@ -116,15 +64,69 @@ public class EditStandardBreakfast extends BaseAppPage {
 
 		public StandardBreakfastForm(String id, IModel m) {
 			super(id, m);
-			add(new TextField("name").setRequired(true).add(
-					StringValidator.maximumLength(40)));
+			// add textfields and dropdown
+			add(new TextField("name").setRequired(true).add(StringValidator.maximumLength(40)).add(new DefaultFocusBehaviour()));
 			add(new TextField("price").setRequired(true).setType(Float.class));
-			DropDownChoice style = new DropDownChoice("style", Arrays
-					.asList(ServingStyleDto.values()));
+
+			DropDownChoice style = new DropDownChoice("style", Arrays.asList(ServingStyleDto.values()));
 			style.setRequired(true);
 			style.setNullValid(false);
 			add(style);
+			
+			// add buttons
+			add(new Button("saveButton") {
+				public void onSubmit() {
+					StandardBreakfastDto sbf = (StandardBreakfastDto) getForm().getModelObject();
+					try {
+						if (sbf.getId() == null) {
+							service.createStandardBreakfast(sbf);
+						} else {
+							service.updateStandardBreakfast(sbf);
+						}
+					} catch(DataIntegrityViolationException e) {
+						error("Standardbreakfast with name '" + sbf.getName() + "' already exists.");
+						return;
+					}
+					setResponsePage(ListStandardBreakfast.class);
+				}
+			});
+			add(new Button("cancelButton") {
+				public void onSubmit() {
+					setResponsePage(ListStandardBreakfast.class);
+				}
+			}.setDefaultFormProcessing(false));
+			
+			// add comestibles table for this standard breakfast
+			add(new ListView("list", new ArrayList<PartDto>(((StandardBreakfastDto)getModelObject()).getParts())) {
+				protected void populateItem(ListItem item) {
+					final PartDto part = (PartDto) item
+					.getModelObject();
+					item.add(new Label("name", part.getComestible().getName()));
+					item.add(new Label("quantity", part.getQuantity().toString()));
+					item.add(new Link("edit") {
+						public void onClick() {
+							setResponsePage(new EditStandardBreakfastPart(selectedStandardBreakfast, part));
+						}
+					});
+					item.add(new Link("delete") {
+						public void onClick() {
+							service.deletePart(part);
+							detach();
+							setResponsePage(new EditStandardBreakfast(selectedStandardBreakfast, true));
+						}
+					});
+				}
+			});
+			// add add commestible button
+			Link add = new Link("add") {
+				public void onClick() {
+					setResponsePage(new EditStandardBreakfastPart(selectedStandardBreakfast, null));
+				}
+			}; 
+			// disable button if standard breakfast is not created yet
+			add.setEnabled(((StandardBreakfastDto)getModelObject()).getId() != null);
+			add(add);
 		}
 	}
-	
+
 }

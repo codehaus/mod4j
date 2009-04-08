@@ -3,9 +3,6 @@ package com.rosa.breakfast.web.page;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.Link;
-
-import com.rosa.breakfast.web.session.BreakfastSession;
 
 /**
  * Basepage is divided in a header, a body and a footer

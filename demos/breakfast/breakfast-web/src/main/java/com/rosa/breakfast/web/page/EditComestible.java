@@ -14,6 +14,7 @@ import org.apache.wicket.validation.validator.StringValidator;
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 
+@SuppressWarnings("serial")
 public class EditComestible extends BaseAppPage {
 
 	@SpringBean(name = "breakfastService")
