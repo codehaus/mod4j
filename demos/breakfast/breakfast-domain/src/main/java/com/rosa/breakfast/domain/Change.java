@@ -1,6 +1,6 @@
 
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Wed Apr 08 11:05:51 CEST 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Wed Apr 08 15:33:14 CEST 2009
  */
 package com.rosa.breakfast.domain;
 
@@ -16,6 +16,7 @@ public class Change extends ChangeImplBase {
 	 */
 	protected Change() {
 
+		
 	}
 
 	/**
