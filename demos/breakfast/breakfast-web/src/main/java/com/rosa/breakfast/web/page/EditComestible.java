@@ -13,6 +13,7 @@ import org.apache.wicket.validation.validator.StringValidator;
 
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
+import com.rosa.breakfast.web.util.DefaultFocusBehaviour;
 
 @SuppressWarnings("serial")
 public class EditComestible extends BaseAppPage {
@@ -63,10 +64,16 @@ public class EditComestible extends BaseAppPage {
 
 		public ComestibleForm(String id, IModel m) {
 			super(id, m);
-			add(new TextField("name").setRequired(true).add(
-					StringValidator.maximumLength(40)));
-			add(new TextField("price").setRequired(true).setType(Float.class));
-			add(new TextField("minimalQuantity").setRequired(true).setType(Integer.class));
+			add(new TextField("name")
+					.setRequired(true)
+					.add(StringValidator.maximumLength(40))
+					.add(new DefaultFocusBehaviour()));
+			add(new TextField("price")
+					.setRequired(true)
+					.setType(Float.class));
+			add(new TextField("minimalQuantity")
+					.setRequired(true)
+					.setType(Integer.class));
 			add(new TextField("transportForm"));
 		}
 	}
