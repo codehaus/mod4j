@@ -1,5 +1,7 @@
 package com.rosa.breakfast.web.page;
 
+import static com.rosa.breakfast.web.util.ResourceUtil.msg;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -84,7 +86,7 @@ public class EditStandardBreakfast extends BaseAppPage {
 							service.updateStandardBreakfast(sbf);
 						}
 					} catch(DataIntegrityViolationException e) {
-						error("Standardbreakfast with name '" + sbf.getName() + "' already exists.");
+						error(msg("editstandardbreakfast.error.duplicate.name", this, sbf.getName()));
 						return;
 					}
 					setResponsePage(ListStandardBreakfast.class);

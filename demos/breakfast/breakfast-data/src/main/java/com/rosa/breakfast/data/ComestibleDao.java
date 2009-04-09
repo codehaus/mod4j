@@ -13,4 +13,7 @@ package com.rosa.breakfast.data;
  * 
  */
 public interface ComestibleDao extends ComestibleDaoBase {
+	
+	public boolean isComestibleUsed(Long id);
+	
 }

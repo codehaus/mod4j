@@ -51,6 +51,10 @@ class ChangeDto represents Change [
     references [ comestible as ComestibleDto; ]
 ]
 
+custom IsComestibleUsed [
+	boolean isUsed; 
+]
+
 list StandardBreakfastListDto contains StandardBreakfastDto
 list PartListDto contains PartDto
 list BreakfastListDto contains BreakfastDto

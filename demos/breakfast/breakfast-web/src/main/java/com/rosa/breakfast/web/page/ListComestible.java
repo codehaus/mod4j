@@ -1,9 +1,12 @@
 package com.rosa.breakfast.web.page;
 
+import static com.rosa.breakfast.web.util.ResourceUtil.msg;
+
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.rosa.breakfast.service.BreakfastLocalService;
@@ -32,15 +35,24 @@ public class ListComestible extends BaseAppPage {
 				});
 				item.add(new Link("delete") {
 					public void onClick() {
-						service.deleteComestible(comestible);
-						detach();
-						setResponsePage(ListComestible.class);
+						// check if the comestible is used in a standard breakfast
+						if (service.isComestibleUsed(comestible).isIsUsed().booleanValue()) {
+							// if used show error message
+							error(msg("listcomestible.error.cannotdelete", this, comestible.getName()));
+							return;
+						} else {
+							// if not used delete comestible
+							service.deleteComestible(comestible);
+							detach();
+							setResponsePage(ListComestible.class);
+						}
 					}
 				});
 				item.add(new Label("name", comestible.getName()));
 				item.add(new Label("price", comestible.getPrice().toString()));
 				item.add(new Label("minimalQuantity", comestible.getMinimalQuantity().toString()));
 				item.add(new Label("transportForm", comestible.getTransportForm()));
+				item.add(new Label("isUsed", service.isComestibleUsed(comestible).isIsUsed().toString()));
 			}
 		});
 		add(new Link("new") {
@@ -49,5 +61,6 @@ public class ListComestible extends BaseAppPage {
 						ListComestible.this, null));
 			}
 		});
+		add(new FeedbackPanel("feedback"));
 	}
 }

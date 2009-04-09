@@ -12,4 +12,10 @@ public class BreakfastDomainServiceImpl extends BreakfastDomainServiceImplBase
 		implements
 			BreakfastDomainService {
 
+	public boolean isComestibleUsed(Long comestibleId) {
+		if (comestibleId != null) {
+			return comestibleDao.isComestibleUsed(comestibleId);
+		}
+		return false;
+	}
 }
