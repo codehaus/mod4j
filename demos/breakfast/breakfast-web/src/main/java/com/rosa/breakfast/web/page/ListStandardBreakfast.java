@@ -1,5 +1,7 @@
 package com.rosa.breakfast.web.page;
 
+import java.util.Iterator;
+
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
@@ -7,6 +9,7 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.rosa.breakfast.service.BreakfastLocalService;
+import com.rosa.breakfast.service.dto.PartDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 
 @SuppressWarnings("serial")
@@ -32,6 +35,9 @@ public class ListStandardBreakfast extends BaseAppPage {
 				// add delete button
 				item.add(new Link("delete") {
 					public void onClick() {
+						for (PartDto part: breakfast.getParts() ) {
+							service.deletePart(part);
+						}
 						service.deleteStandardBreakfast(breakfast);
 						detach();
 						setResponsePage(ListStandardBreakfast.class);
