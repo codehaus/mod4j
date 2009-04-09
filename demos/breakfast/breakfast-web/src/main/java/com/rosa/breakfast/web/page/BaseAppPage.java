@@ -1,22 +1,26 @@
 package com.rosa.breakfast.web.page;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.resources.StyleSheetReference;
 
 /**
  * Basepage is divided in a header, a body and a footer
  */
-public abstract class BaseAppPage extends BasePage {
-
-	public static final Log log = LogFactory.getLog(BaseAppPage.class);
+public abstract class BaseAppPage extends WebPage {
 
 	public BaseAppPage() {
-		pagina();
-	}
+		// add(new StyleSheetReference("stylesheet", BaseAppPage.class,
+		// "../stylesheet/breakfast.css"));
+		add(new StyleSheetReference("stylesheet1", BaseAppPage.class,
+				"../stylesheet/maven-base.css"));
+		add(new StyleSheetReference("stylesheet2", BaseAppPage.class,
+				"../stylesheet/maven-theme.css"));
+		add(new StyleSheetReference("stylesheet3", BaseAppPage.class,
+				"../stylesheet/site.css"));
 
-	private void pagina() {
 		add(new Label("menuItemListStandardBreakfast", "Standard breakfasts"));
 		add(new Label("menuItemListComestible", "Comestibles"));
 	}
+
 }
