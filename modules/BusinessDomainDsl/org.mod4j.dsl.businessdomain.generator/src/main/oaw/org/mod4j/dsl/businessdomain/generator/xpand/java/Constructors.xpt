@@ -13,12 +13,19 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
+«DEFINE createAddValidators FOR BusinessClass»
+	private void addValidators() {
+    «EXPAND NewBusinessRules::addBusinessRulesValidators FOR this»
+	}
+«ENDDEFINE»
+
 «DEFINE addDefaultImplBaseConstructor FOR BusinessClass »
     /**
      * Default no-argument constructor for «javaDomainBaseClass(this.name)» 
      */
      protected  «javaDomainBaseClass(this.name) -» () {
         «IF superclass != null -»super();«ENDIF»
+        addValidators();
      }
 «ENDDEFINE»
 
@@ -42,7 +49,7 @@
         super(«EXPAND addSuperArgumentList FOR this.superclass -»);
      «ENDIF»
      «EXPAND addConstructorAssignment FOREACH properties.reject(e|e.nullable || e.hasDefault || e.derived) -»
-     «EXPAND NewBusinessRules::addBusinessRulesValidators FOR this»
+     	addValidators();
         validation.validate();
     }
 «ENDDEFINE»

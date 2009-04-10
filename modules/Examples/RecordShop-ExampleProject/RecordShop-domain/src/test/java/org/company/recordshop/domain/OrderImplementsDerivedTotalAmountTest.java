@@ -1,6 +1,6 @@
 package org.company.recordshop.domain;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -9,11 +9,11 @@ public class OrderImplementsDerivedTotalAmountTest {
     @Test
     public void testGetTotalAmount() {
         
-        OrderLine orderline1 = new OrderLine();
-        OrderLine orderline2 = new OrderLine();
-        OrderLine orderline3 = new OrderLine();
-        OrderLine orderline4 = new OrderLine();
-        OrderLine orderline5 = new OrderLine();
+        OrderLine orderline1 = new OrderLine(1, "1", 0.0F);
+        OrderLine orderline2 = new OrderLine(2, "2", 0.0F);
+        OrderLine orderline3 = new OrderLine(3, "3", 0.0F);
+        OrderLine orderline4 = new OrderLine(4, "4", 0.0F);
+        OrderLine orderline5 = new OrderLine(5, "5", 0.0F);
         
         orderline1.setLineAmount(100.00F);
         orderline2.setLineAmount(200.00F);

@@ -53,9 +53,6 @@
             <testResource>
                 <directory>${basedir}/src/test/resources</directory>
             </testResource>
-            <testResource>
-                <directory>${basedir}/${generated-resources-dir}</directory>
-            </testResource>
         </testResources>
         <plugins>
             <plugin>

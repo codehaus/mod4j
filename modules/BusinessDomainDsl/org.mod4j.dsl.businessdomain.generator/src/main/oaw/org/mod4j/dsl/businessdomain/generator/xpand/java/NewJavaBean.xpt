@@ -80,6 +80,7 @@
  	«EXPAND Attributes::addAttribute FOREACH properties.reject(e|e.derived)»
  	«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
     «EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.bidirectional)»
+    «EXPAND Constructors::createAddValidators FOR this»
     «IF !properties.reject(e|e.nullable || e.hasDefault || e.derived).isEmpty»
         «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
     «ENDIF»
