@@ -1,7 +1,5 @@
 package com.rosa.breakfast.web.page;
 
-import java.util.Iterator;
-
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
@@ -15,45 +13,41 @@ import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 @SuppressWarnings("serial")
 public class ListStandardBreakfast extends BaseAppPage {
 
-	@SpringBean(name = "breakfastService")
-	private BreakfastLocalService service;
+    @SpringBean(name = "breakfastService")
+    private BreakfastLocalService service;
 
-	public ListStandardBreakfast() {
-		initialize();
-	}
-
-	private void initialize() {
-		add(new ListView("list", service.listAllStandardBreakfast()) {
-			protected void populateItem(ListItem item) {
-				final StandardBreakfastDto breakfast = (StandardBreakfastDto)item.getModelObject();
-				// add edit button
-				item.add(new Link("edit") {
-					public void onClick() {
-						setResponsePage(new EditStandardBreakfast(breakfast, false));
-					}
-				});
-				// add delete button
-				item.add(new Link("delete") {
-					public void onClick() {
-						for (PartDto part: breakfast.getParts() ) {
-							service.deletePart(part);
-						}
-						service.deleteStandardBreakfast(breakfast);
-						detach();
-						setResponsePage(ListStandardBreakfast.class);
-					}
-				});
-				// add labels
-				item.add(new Label("name", breakfast.getName()));
-				item.add(new Label("price", breakfast.getPrice().toString()));
-				item.add(new Label("style.name", breakfast.getStyle().name()));
-			}
-		});
-		// add new button
-		add(new Link("new") {
-			public void onClick() {
-				setResponsePage(new EditStandardBreakfast());
-			}
-		});
-	}
+    public ListStandardBreakfast() {
+        add(new ListView("list", service.listAllStandardBreakfast()) {
+            protected void populateItem(ListItem item) {
+                final StandardBreakfastDto breakfast = (StandardBreakfastDto) item.getModelObject();
+                // add edit button
+                item.add(new Link("edit") {
+                    public void onClick() {
+                        setResponsePage(new EditStandardBreakfast(breakfast, false));
+                    }
+                });
+                // add delete button
+                item.add(new Link("delete") {
+                    public void onClick() {
+                        for (PartDto part : breakfast.getParts()) {
+                            service.deletePart(part);
+                        }
+                        service.deleteStandardBreakfast(breakfast);
+                        detach();
+                        setResponsePage(ListStandardBreakfast.class);
+                    }
+                });
+                // add column values
+                item.add(new Label("name", breakfast.getName()));
+                item.add(new Label("price", breakfast.getPrice().toString()));
+                item.add(new Label("style.name", breakfast.getStyle().name()));
+            }
+        });
+        // add new button
+        add(new Link("new") {
+            public void onClick() {
+                setResponsePage(new EditStandardBreakfast());
+            }
+        });
+    }
 }

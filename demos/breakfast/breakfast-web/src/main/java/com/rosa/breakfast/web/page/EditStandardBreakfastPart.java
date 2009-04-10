@@ -14,10 +14,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.mod4j.runtime.exception.BusinessRuleException;
-import org.springframework.validation.BindException;
 
-import com.rosa.breakfast.domain.businessrules.PartCheckMinimumQuantity;
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 import com.rosa.breakfast.service.dto.PartDto;
@@ -27,95 +24,92 @@ import com.rosa.breakfast.web.util.DefaultFocusBehaviour;
 @SuppressWarnings("serial")
 public class EditStandardBreakfastPart extends BaseAppPage {
 
-	@SpringBean(name = "breakfastService")
-	BreakfastLocalService service;
+    @SpringBean(name = "breakfastService")
+    BreakfastLocalService service;
 
-	private StandardBreakfastDto breakfast;
+    private StandardBreakfastDto breakfast;
 
-	public EditStandardBreakfastPart(final StandardBreakfastDto breakfast,
-			final PartDto part) {
-		setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
-			protected Object load() {
-				if (part == null) {
-					PartDto result = new PartDto();
-					return result;
-				}
-				return part;
-			}
-		}));
-		this.breakfast = breakfast;
-		init();
-	}
+    public EditStandardBreakfastPart(final StandardBreakfastDto breakfast, final PartDto part) {
+        setModel(new CompoundPropertyModel(new LoadableDetachableModel() {
+            protected Object load() {
+                if (part == null) {
+                    PartDto result = new PartDto();
+                    return result;
+                }
+                return part;
+            }
+        }));
+        this.breakfast = breakfast;
 
-	private void init() {
-		add(new StandardBreakfastPartForm("standardBreakfastForm", getModel()));
-		add(new FeedbackPanel("feedback"));
-	}
+        add(new StandardBreakfastPartForm("standardBreakfastForm", getModel()));
+        add(new FeedbackPanel("feedback"));
+    }
 
-	private class StandardBreakfastPartForm extends Form {
-		
-		private ComestibleDto selectedComestible;
+    private class StandardBreakfastPartForm extends Form {
 
-		public StandardBreakfastPartForm(String id, IModel m) {
-			super(id, m);
-			selectedComestible = ((PartDto)getModelObject()).getComestible();
-			final DropDownChoice comestibleChoice = new DropDownChoice("comestibles", new PropertyModel(this, "selectedComestible"), getAllComestibles());          
-			comestibleChoice.setChoiceRenderer(new ComestibleChoiceRenderer());
-			comestibleChoice.setOutputMarkupId(true);
-			comestibleChoice.setRequired(true);
-			comestibleChoice.setNullValid(false);
-			comestibleChoice.add(new DefaultFocusBehaviour());
-			add(comestibleChoice);
-			add(new TextField("quantity").setRequired(true).setType(Float.class));
-			add(new Button("saveButton") {
-				public void onSubmit() {
-					PartDto part = (PartDto) getForm().getModelObject();
-					if (part.getId() == null) {
-						// create a new part
-						part = service.createPart(part);
-					} else {
-						// update a part
-						part = service.updatePart(part);
-					}
-					// create association between the part and the selected Comestible
-					service.setComestible(part, selectedComestible);
-					// create association between the standard breakfast and the part
-					service.addToParts(breakfast, part);
-					setResponsePage(new EditStandardBreakfast(breakfast, true));
-				}
-			});
-			add(new Button("cancelButton") {
-				public void onSubmit() {
-					setResponsePage(new EditStandardBreakfast(breakfast, false));
-				}
-			}.setDefaultFormProcessing(false));
-		}
-		
-	}
-	
-	private class ComestibleChoiceRenderer implements IChoiceRenderer {	
-		private static final long serialVersionUID = 1L;
+        private ComestibleDto selectedComestible;
 
-		public Object getDisplayValue(Object o) {
-			ComestibleDto comestible = (ComestibleDto) o;
-			return comestible.getName();
-		}
+        public StandardBreakfastPartForm(String id, IModel m) {
+            super(id, m);
+            selectedComestible = ((PartDto) getModelObject()).getComestible();
+            final DropDownChoice comestibleChoice = new DropDownChoice("comestibles", new PropertyModel(this,
+                    "selectedComestible"), getAllComestibles());
+            comestibleChoice.setChoiceRenderer(new ComestibleChoiceRenderer());
+            comestibleChoice.setOutputMarkupId(true);
+            comestibleChoice.setRequired(true);
+            comestibleChoice.setNullValid(false);
+            comestibleChoice.add(new DefaultFocusBehaviour());
+            add(comestibleChoice);
+            add(new TextField("quantity").setRequired(true).setType(Float.class));
+            add(new Button("saveButton") {
+                public void onSubmit() {
+                    PartDto part = (PartDto) getForm().getModelObject();
+                    if (part.getId() == null) {
+                        // create a new part
+                        part = service.createPart(part);
+                    } else {
+                        // update a part
+                        part = service.updatePart(part);
+                    }
+                    // create association between the part and the selected Comestible
+                    service.setComestible(part, selectedComestible);
+                    // create association between the standard breakfast and the part
+                    service.addToParts(breakfast, part);
+                    setResponsePage(new EditStandardBreakfast(breakfast, true));
+                }
+            });
+            add(new Button("cancelButton") {
+                public void onSubmit() {
+                    setResponsePage(new EditStandardBreakfast(breakfast, false));
+                }
+            }.setDefaultFormProcessing(false));
+        }
 
-		public String getIdValue(Object o, int i) {
-			ComestibleDto comestible = (ComestibleDto) o;
-			return comestible.getId() + "";
-		}
-	}
+    }
 
-	private IModel getAllComestibles() {
-		IModel comestibleChoices = new AbstractReadOnlyModel() {
-			@Override
-			public List<ComestibleDto> getObject() {                  
-				List<ComestibleDto> allComestibles = service.listAllComestible();
-				return allComestibles;
-			}
-		};
-		return comestibleChoices;
-	}
-	
+    private class ComestibleChoiceRenderer implements IChoiceRenderer {
+        private static final long serialVersionUID = 1L;
+
+        public Object getDisplayValue(Object o) {
+            ComestibleDto comestible = (ComestibleDto) o;
+            return comestible.getName();
+        }
+
+        public String getIdValue(Object o, int i) {
+            ComestibleDto comestible = (ComestibleDto) o;
+            return comestible.getId() + "";
+        }
+    }
+
+    private IModel getAllComestibles() {
+        IModel comestibleChoices = new AbstractReadOnlyModel() {
+            @Override
+            public List<ComestibleDto> getObject() {
+                List<ComestibleDto> allComestibles = service.listAllComestible();
+                return allComestibles;
+            }
+        };
+        return comestibleChoices;
+    }
+
 }

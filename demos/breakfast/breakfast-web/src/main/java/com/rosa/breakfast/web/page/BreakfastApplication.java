@@ -10,37 +10,36 @@ import com.rosa.breakfast.web.session.BreakfastSession;
 
 /**
  * Application object for the web application.
+ * 
  */
 public class BreakfastApplication extends SpringWebApplication {
 
-	/**
-	 * Constructor
-	 */
-	public BreakfastApplication() {
-	}
+    public BreakfastApplication() {
+    }
 
-	/**
-	 * Annotated dependencies automatisch geinjecteerd tijdens object.
-	 */
-	@Override
-	public void init() {
-		super.init();
-		addComponentInstantiationListener(new SpringComponentInjector(this));
-	}
+    /**
+     * @see org.apache.wicket.protocol.http.WebApplication#init()
+     */
+    @Override
+    public void init() {
+        super.init();
+        addComponentInstantiationListener(new SpringComponentInjector(this));
+    }
 
-	/**
-	 * Maak een eigen session object beschikbaar in de appl
-	 */
-	@Override
-	public final Session newSession(Request request, Response response) {
-		return new BreakfastSession(request);
-	}
+    /**
+     * @see org.apache.wicket.protocol.http.WebApplication#newSession(org.apache.wicket.Request,
+     *      org.apache.wicket.Response)
+     */
+    @Override
+    public final Session newSession(Request request, Response response) {
+        return new BreakfastSession(request);
+    }
 
-	/**
-	 * @see wicket.Application#getHomePage()
-	 */
-	public Class<? extends BaseAppPage> getHomePage() {
-		return ListStandardBreakfast.class;
-	}
+    /**
+     * @see org.apache.wicket.Application#getHomePage()
+     */
+    public Class<? extends BaseAppPage> getHomePage() {
+        return ListStandardBreakfast.class;
+    }
 
 }
