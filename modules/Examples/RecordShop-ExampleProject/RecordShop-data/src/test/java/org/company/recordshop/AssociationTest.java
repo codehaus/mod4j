@@ -114,7 +114,7 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     Record record01, record02, record03, record04, record05, record06, r07;
 
-    Product pr01, pr02, pr03, pr04;
+    Product pr01, pr02, pr03, pr04, pr05, pr06;
 
     Artist a01, a02, a03, a04;
 
@@ -157,18 +157,20 @@ public class AssociationTest extends AbstractDaoTestCase {
         record05 = createRecord(1, "rec 05", 2F);
         record06 = createRecord(1, "rec 06", 2F);
 
-        line01.setRecord(record01);
-        line02.setRecord(record02);
-        line03.setRecord(record03);
-        line04.setRecord(record04);
-        line05.setRecord(record05);
-        line06.setRecord(record06);
-
         pr01 = createProduct("product 01", 1);
         pr02 = createProduct("product 02", 2);
         pr03 = createProduct("product 03", 3);
         pr04 = createProduct("product 04", 4);
+        pr05 = createProduct("product 05", 5);
+        pr06 = createProduct("product 06", 6);
 
+        line01.setProduct(pr01);
+        line02.setProduct(pr02);
+        line03.setProduct(pr03);
+        line04.setProduct(pr04);
+        line05.setProduct(pr05);
+        line06.setProduct(pr06);
+        
         record01.setProduct(pr01);
         record02.setProduct(pr01);
         record03.setProduct(pr01);
@@ -332,16 +334,14 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     public void orderLineAssociations(Collection<OrderLine> orderLines) {
         for (OrderLine ol : orderLines) {
-            Record r = ol.getRecord();
-            assertNotNull(r);
-            assertSame("t3", ol, r.getOrderLine());
+            Product pr = ol.getProduct();
+            assertNotNull(pr);
+            assertSame("t3", ol, pr.getOrderLine());
         }
     }
 
     public void recordAssociations(Collection<Record> records) {
         for (Record r : records) {
-            assertNotNull(r.getOrderLine());
-            assertSame(r, r.getOrderLine().getRecord());
             if (r.getProduct() != null) {
                 assertTrue(r.getProduct().getRecord().contains(r));
             }
@@ -353,7 +353,9 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     public void productAssociations(Collection<Product> products) {
         for (Product p : products) {
-            for (Record r : p.getRecord()) {
+            assertNotNull(p.getOrderLine());
+            assertSame(p, p.getOrderLine().getProduct());
+        	for (Record r : p.getRecord()) {
                 assertSame("t4", p, r.getProduct());
             }
         }
@@ -427,9 +429,9 @@ public class AssociationTest extends AbstractDaoTestCase {
         assertTrue(c04.getOrders().contains(o05));
 
         // Move an element from one one2many at source side to another one
-        line01.setRecord(null);
-        assertNull(line01.getRecord());
-        assertNull(record01.getOrderLine());
+        line01.setProduct(null);
+        assertNull(line01.getProduct());
+        assertNull(pr01.getOrderLine());
     }
 
     public boolean existsOrderLineWithNumber(Set<OrderLine> orderlines, int num) {

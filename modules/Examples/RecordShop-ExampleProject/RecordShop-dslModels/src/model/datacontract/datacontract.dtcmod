@@ -65,7 +65,7 @@ from RecordShopDomainModel import RecordTypeEnum ;
 		 artistName ;
 	]
 
-    class FullProduct represents Product
+    class FullProductDto represents Product
     
     class FullRecordDto represents Record
     
@@ -80,7 +80,7 @@ from RecordShopDomainModel import RecordTypeEnum ;
 	    description;
 	    lineAmount;
 	    references [ 
-            record as FullRecordDto  ;    	        
+            product as FullProductDto;    	        
 	    ]
 	]
 
