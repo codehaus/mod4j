@@ -1,4 +1,4 @@
-package com.rosa.breakfast.web.session;
+package com.rosa.breakfast.web;
 
 import org.apache.wicket.Request;
 import org.apache.wicket.Session;

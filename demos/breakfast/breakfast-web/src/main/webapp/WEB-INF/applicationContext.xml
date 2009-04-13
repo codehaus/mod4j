@@ -8,5 +8,5 @@
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-    <bean id="wicketApplication" class="com.rosa.breakfast.web.page.BreakfastApplication" />
+    <bean id="wicketApplication" class="com.rosa.breakfast.web.BreakfastApplication" />
 </beans>
