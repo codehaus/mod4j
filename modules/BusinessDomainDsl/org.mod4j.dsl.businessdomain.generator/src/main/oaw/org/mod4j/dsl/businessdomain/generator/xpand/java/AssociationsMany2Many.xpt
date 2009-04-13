@@ -158,6 +158,7 @@
         «javaDomainClass(this.target.name)» result;
         result = removeFrom«this.targetRoleName.toFirstUpper()»(index);
         addTo«targetRoleName.toFirstUpper()»(index, element);
+        validation.validate();
         return result;
     }
 «ENDDEFINE»

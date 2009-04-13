@@ -25,7 +25,7 @@
     }
 
     /**
-     * Implements adding single element to a collection
+     * Set «targetRoleName»
      */
     public void set«targetRoleName.toFirstUpper()»(«javaDomainClass(target.name)» element) {
         if ( this.«targetRoleName» != element) {       // prevent infinite loop
@@ -41,6 +41,7 @@
                 element.set«sourceRoleName.toFirstUpper()»( («javaDomainClass(this.source.name)») this );
             }
 «ENDIF»
+            validation.validate();
         }
     }
 
@@ -94,19 +95,10 @@
                 element.set«targetRoleName.toFirstUpper()»( («javaDomainClass(target.name)») this );
             }
 «ENDIF»
+            validation.validate();
         }
     }
-«REM»
-    /**
-     * This operation should NOT be used by clients.
-     * It implements the correct setting of an element in an association.
-     * 
-     * @param element 
-     */
-    public void z_internalSet«sourceRoleName»(«javaClassName(source)» element) {
-        this.«sourceRoleName» = null;
-    }
-«ENDREM»
+
     /**
      * This operation should NOT be used by clients.
      * It implements the correct removal of an element in an association.

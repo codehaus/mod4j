@@ -78,7 +78,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     }
 
     protected Order createOrder(String orderId, int discount) {
-        Order result = new Order(orderId); // , ff);
+        Order result = new Order(orderId);
         result.setDiscountPercentage(discount);
         allOrders.add(result);
         orderDao.add(result);
@@ -86,7 +86,7 @@ public class AssociationTest extends AbstractDaoTestCase {
     }
 
     protected OrderLine createOrderLine(int i, String desc, Float ff) {
-        OrderLine result = new OrderLine(i, desc, ff);
+        OrderLine result = new OrderLine(i, desc);
         allOrderLines.add(result);
         orderLineDao.add(result);
         return result;

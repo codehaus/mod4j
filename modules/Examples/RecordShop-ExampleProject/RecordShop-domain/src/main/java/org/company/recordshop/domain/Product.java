@@ -24,7 +24,7 @@ public class Product extends ProductImplBase {
 	 * @param price (int) 
 	 * @param orderable (boolean) 
 	 */
-	public Product(String productNumnber, int price, boolean orderable) {
+	public Product(String productNumnber, float price, boolean orderable) {
 		super(productNumnber, price, orderable);
 	}
 

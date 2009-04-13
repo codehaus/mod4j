@@ -1,4 +1,4 @@
-   "The RecordShop dom ain model"
+"The RecordShop domain model"
 domain RecordShopDomainModel ;  
           
 /*        
@@ -85,15 +85,19 @@ class Order [
 
 class OrderLine [ 
 
-    integer lineNumber min 01 max 50 ;
+    integer lineNumber min 01 max 50;
+    integer quantity default 1;
     string description;
-    decimal lineAmount;
+    decimal lineAmount derived;
+    rules [
+    	CheckProductMinimumQuantity;
+    ]
 ]
 
 class Product [
 
 	string productNumnber;
-	integer price;
+	decimal price;
 	boolean inStock default false;
 	boolean orderable;
 	integer minimalQuantity default 1;

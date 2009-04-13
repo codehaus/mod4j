@@ -174,14 +174,14 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         Customer customer = new Customer("Johannes", "Vermeer", date(), 2);
 
         Order order = new Order("AA111");
-        order.addToOrderLines(new OrderLine(1, "verf", 30));
-        order.addToOrderLines(new OrderLine(2, "kwast", 20));
-        order.addToOrderLines(new OrderLine(3, "doek", 40));
+        order.addToOrderLines(new OrderLine(1, "verf"));
+        order.addToOrderLines(new OrderLine(2, "kwast"));
+        order.addToOrderLines(new OrderLine(3, "doek"));
 
         order = new Order("AA222");
-        order.addToOrderLines(new OrderLine(4, "rood", 2));
-        order.addToOrderLines(new OrderLine(5, "penseel", 3));
-        order.addToOrderLines(new OrderLine(6, "ezel", 110));
+        order.addToOrderLines(new OrderLine(4, "rood"));
+        order.addToOrderLines(new OrderLine(5, "penseel"));
+        order.addToOrderLines(new OrderLine(6, "ezel"));
         customer.addToOrders(order);
 
         customerDao.add(customer);

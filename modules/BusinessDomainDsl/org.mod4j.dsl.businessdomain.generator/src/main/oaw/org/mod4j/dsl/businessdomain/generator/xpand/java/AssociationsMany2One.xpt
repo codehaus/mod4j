@@ -40,6 +40,7 @@
                 element.z_internalAddTo«this.sourceRoleName.toFirstUpper()»( («javaDomainClass(this.source.name)»)this );
             }
 «ENDIF»
+            validation.validate();
         }
     }
 
@@ -90,6 +91,7 @@
         }
         element.z_internalSet«targetRoleName.toFirstUpper()»( («javaDomainClass(target.name)») this) ;
 «ENDIF»
+        validation.validate();
     }
     
     public void removeFrom«sourceRoleName.toFirstUpper()» («javaDomainClass(source.name)» element) {
@@ -100,6 +102,7 @@
 «IF bidirectional -»
         element.z_internalRemove«targetRoleName.toFirstUpper()» ( («javaDomainClass(target.name)») this) ;
 «ENDIF»
+        validation.validate();
     }
         
     /**

@@ -60,7 +60,7 @@
 «ENDREM»
 «DEFINE one2ManyAccessorsFrom FOR Association»
     /**
-     * Implements the setter of association end 
+     * Implements the getter of association end 
      * 
      * @param element 
      */
