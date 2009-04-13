@@ -84,6 +84,8 @@ public class EditStandardBreakfast extends BaseAppPage {
                             service.updateStandardBreakfast(sbf);
                         }
                     } catch (DataIntegrityViolationException e) {
+                        // TODO yuk! can't be a dao exception is leaking to the presentation layer. This should be
+                        // wrapped in a business rule exception
                         error(msg("editstandardbreakfast.error.duplicate.name", this, sbf.getName()));
                         return;
                     }

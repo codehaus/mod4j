@@ -13,13 +13,16 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.mod4j.runtime.exception.BusinessRuleException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.ObjectError;
 
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 import com.rosa.breakfast.service.dto.PartDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
-import com.rosa.breakfast.web.util.DefaultFocusBehaviour;
 
 @SuppressWarnings("serial")
 public class EditStandardBreakfastPart extends BaseAppPage {
@@ -64,18 +67,29 @@ public class EditStandardBreakfastPart extends BaseAppPage {
             add(new Button("saveButton") {
                 public void onSubmit() {
                     PartDto part = (PartDto) getForm().getModelObject();
-                    if (part.getId() == null) {
-                        // create a new part
-                        part = service.createPart(part);
-                    } else {
-                        // update a part
-                        part = service.updatePart(part);
+                    try {
+                        if (part.getId() == null) {
+                            // create a new part
+                            part = service.createPart(part);
+                        } else {
+                            // update a part
+                            part = service.updatePart(part);
+                        }
+                        // create association between the part and the selected Comestible
+                        service.setComestible(part, selectedComestible);
+                        // create association between the standard breakfast and the part
+                        service.addToParts(breakfast, part);
+                        setResponsePage(new EditStandardBreakfast(breakfast, true));
+                    } catch (BusinessRuleException bre) {
+                        // TODO these try catches should be in the requestcycle, so we don't have to catch the bre's
+                        // every a service method is called.
+                        BindException errors = (BindException) bre.getCause();
+                        for (Object obj : errors.getAllErrors()) {
+                            ObjectError objerr = (ObjectError) obj;
+                            error(new StringResourceModel(objerr.getCode(), this, null, objerr.getArguments())
+                                    .getString());
+                        }
                     }
-                    // create association between the part and the selected Comestible
-                    service.setComestible(part, selectedComestible);
-                    // create association between the standard breakfast and the part
-                    service.addToParts(breakfast, part);
-                    setResponsePage(new EditStandardBreakfast(breakfast, true));
                 }
             });
             add(new Button("cancelButton") {
@@ -84,7 +98,6 @@ public class EditStandardBreakfastPart extends BaseAppPage {
                 }
             }.setDefaultFormProcessing(false));
         }
-
     }
 
     private class ComestibleChoiceRenderer implements IChoiceRenderer {

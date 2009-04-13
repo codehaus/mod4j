@@ -1,13 +1,15 @@
 package com.rosa.breakfast.web.page;
 
-import static com.rosa.breakfast.web.util.ResourceUtil.msg;
-
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.mod4j.runtime.exception.BusinessRuleException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.ObjectError;
 
 import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
@@ -29,17 +31,19 @@ public class ListComestible extends BaseAppPage {
                 });
                 item.add(new Link("delete") {
                     public void onClick() {
-                        // TODO move this check to BL
-                        // check if the comestible is used in a standard breakfast
-                        if (service.isComestibleUsed(comestible).isIsUsed().booleanValue()) {
-                            // if used show error message
-                            error(msg("listcomestible.error.cannotdelete", this, comestible.getName()));
-                            return;
-                        } else {
-                            // if not used delete comestible
+                        try {
                             service.deleteComestible(comestible);
                             detach();
                             setResponsePage(ListComestible.class);
+                        } catch (BusinessRuleException bre) {
+                            // TODO these try catches should be in the requestcycle, so we don't have to catch the bre's
+                            // every a service method is called.
+                            BindException errors = (BindException) bre.getCause();
+                            for (Object obj : errors.getAllErrors()) {
+                                ObjectError objerr = (ObjectError) obj;
+                                error(new StringResourceModel(objerr.getCode(), this, null, objerr.getArguments())
+                                        .getString());
+                            }
                         }
                     }
                 });
