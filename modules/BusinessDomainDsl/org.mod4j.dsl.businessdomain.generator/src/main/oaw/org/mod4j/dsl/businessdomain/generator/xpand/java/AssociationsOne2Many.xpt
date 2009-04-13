@@ -126,8 +126,8 @@
             element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
         }
         element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
-        validation.validate();
     «ENDIF»
+        validation.validate();
         return true;
     }
 «ENDDEFINE»
@@ -147,8 +147,8 @@
             element.«getterFrom(this)»().z_internalRemoveFrom«targetRoleName»(element);
         }
         element.z_internalAddTo«sourceRoleName»( («javaDomainClass(source.name)»)((«javaDomainClass(source.name)»)this) );
-        validation.validate();
     «ENDIF»
+        validation.validate();
     }
 «ENDDEFINE»
 
@@ -211,8 +211,11 @@
      */
     public «javaDomainClass(this.target.name)» set«this.targetRoleName.toFirstUpper()»(int index, «javaDomainClass(target.name)» element) {
         «javaDomainClass(this.target.name)» result;
+        validation.setActive(false);
         result = removeFrom«this.targetRoleName.toFirstUpper()»(index);
         addTo«targetRoleName.toFirstUpper()»(index, element);
+        validation.setActive(true);
+        validation.validate();
         return result;
     }
 «ENDDEFINE»

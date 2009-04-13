@@ -156,8 +156,10 @@
      */
     public «javaDomainClass(this.target.name)» set«this.targetRoleName.toFirstUpper()»(int index, «javaDomainClass(target.name)» element) {
         «javaDomainClass(this.target.name)» result;
+        validation.setActive(false);
         result = removeFrom«this.targetRoleName.toFirstUpper()»(index);
         addTo«targetRoleName.toFirstUpper()»(index, element);
+        validation.setActive(true);
         validation.validate();
         return result;
     }

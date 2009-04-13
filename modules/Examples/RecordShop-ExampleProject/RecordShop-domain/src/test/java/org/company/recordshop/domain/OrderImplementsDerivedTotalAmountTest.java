@@ -27,7 +27,7 @@ public class OrderImplementsDerivedTotalAmountTest {
         orderline4.setProduct(pr04);
         orderline5.setProduct(pr05);
        
-        Order order = new Order();
+        Order order = new Order("1");
         order.addToOrderLines(orderline1);
         order.addToOrderLines(orderline2);
         order.addToOrderLines(orderline3);
