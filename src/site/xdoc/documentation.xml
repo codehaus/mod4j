@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+    <!--
+        Please edit this file with the Eclipse XML editor, set your XML editor to a line length of 128 characters, indent-size
+        of 4 characters and not using tab-characters, and format the file (Ctrl-Shift-F) before checking in. This should
+        minimize the number of non-significant differences when comparing versions.
+    -->
+
+    <properties>
+        <title>Mod4j documentation</title>
+    </properties>
+    <body>
+
+        <section name="Mod4j documentation">
+
+            <p>
+                <b>Mod4j Application Architecture</b>
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Application Architecture 1.0.0-beta-4-SNAPSHOT
+                            <a
+                                href="documentation/1.0.0-beta-4-SNAPSHOT/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                            /
+                            <a
+                                href="documentation/1.0.0-beta-4-SNAPSHOT/application-architecture/mod4j-application-architecture.html">HTML</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Application Architecture 1.0.0
+                            <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                            /
+                            <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.html">HTML</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Application Architecture 1.0.0-beta-3
+                            <a href="documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                            /
+                            <a href="documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.html">HTML</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                <b>Mod4j User Guide</b>
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            User Guide 1.0.0-beta-4-SNAPSHOT
+                            <a href="documentation/1.0.0-beta-4-SNAPSHOT/user-guide/mod4j-user-guide.pdf">PDF</a>
+                            /
+                            <a href="documentation/1.0.0-beta-4-SNAPSHOT/user-guide/mod4j-user-guide.html">HTML</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            User Guide 1.0.0
+                            <a href="documentation/1.0.0/user-guide/mod4j-user-guide.pdf">PDF</a>
+                            /
+                            <a href="documentation/1.0.0/user-guide/mod4j-user-guide.html">HTML</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            User Guide 1.0.0-beta-3
+                            <a href="documentation/1.0.0-beta-3/user-guide/mod4j-user-guide.pdf">PDF</a>
+                            /
+                            <a href="documentation/1.0.0-beta-3/user-guide/mod4j-user-guide.html">HTML</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </body>
+</document>
