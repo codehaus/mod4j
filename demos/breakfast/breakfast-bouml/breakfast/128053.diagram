@@ -1,0 +1,68 @@
+format 66
+
+classcanvas 128053 class_ref 128053 // Customer
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 309 31 2000
+end
+classcanvas 128181 class_ref 128181 // BreakfastOrder
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 3 4 2000
+end
+classcanvas 128437 class_ref 128949 // Breakfast
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 33 210 2000
+end
+classcanvas 128693 class_ref 129077 // StandardBreakfast
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 233 192 2000
+end
+classcanvas 128949 class_ref 129333 // Comestible
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 227 312 2000
+end
+classcanvas 129077 class_ref 129461 // Change
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 30 339 2000
+end
+classcanvas 129205 class_ref 129589 // Part
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 398 268 2000
+end
+relationcanvas 128309 relation_ref 128053 // <association>
+  from ref 128053 z 2001 to ref 128181
+  role_a_pos 177 52 3000 role_b_pos 244 52 3000
+  multiplicity_a_pos 177 82 3000 multiplicity_b_pos 291 82 3000
+end
+relationcanvas 128565 relation_ref 128181 // <composition>
+  from ref 128181 z 2001 to ref 128437
+  role_a_pos 94 187 3000 role_b_pos 95 154 3000
+  multiplicity_a_pos 59 187 3000 multiplicity_b_pos 68 154 3000
+end
+relationcanvas 128821 relation_ref 128309 // <unidirectional association>
+  from ref 128437 z 2001 to ref 128693
+  role_a_pos 169 214 3000 no_role_b
+  multiplicity_a_pos 213 246 3000 multiplicity_b_pos 151 246 3000
+end
+relationcanvas 129333 relation_ref 128437 // <unidirectional association>
+  from ref 128437 z 2001 to ref 129077
+  role_a_pos 95 316 3000 no_role_b
+  multiplicity_a_pos 70 316 3000 multiplicity_b_pos 68 272 3000
+end
+relationcanvas 129461 relation_ref 128565 // <unidirectional association>
+  from ref 129077 z 2001 to ref 128949
+  role_a_pos 160 344 3000 no_role_b
+  multiplicity_a_pos 209 374 3000 multiplicity_b_pos 150 374 3000
+end
+relationcanvas 129589 relation_ref 128693 // <unidirectional association>
+  from ref 128693 z 2001 to point 450 235
+  line 129973 z 2001 to ref 129205
+  role_a_pos 462 245 3000 no_role_b
+  multiplicity_a_pos 443 247 3000 multiplicity_b_pos 367 245 3000
+end
+relationcanvas 129717 relation_ref 128821 // <unidirectional association>
+  from ref 129205 z 2001 to point 452 365
+  line 129845 z 2001 to ref 128949
+  role_a_pos 379 345 3000 no_role_b
+  multiplicity_a_pos 383 371 3000 multiplicity_b_pos 458 323 3000
+end
+end

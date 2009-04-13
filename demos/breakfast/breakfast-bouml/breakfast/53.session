@@ -1,0 +1,18 @@
+window_sizes 1350 787 337 1007 573 136
+windows_style
+diagrams
+  active  classdiagram_ref 128053 // breakfast
+    529 472 100 4 0 0
+end
+show_stereotypes
+selected attribute_ref 130101 // quantity
+open
+  class_ref 128053 // Customer
+  class_ref 128181 // BreakfastOrder
+  class_ref 128949 // Breakfast
+  class_ref 129077 // StandardBreakfast
+  class_ref 129333 // Comestible
+  class_ref 129461 // Change
+  class_ref 129589 // Part
+end
+end
