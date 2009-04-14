@@ -2,6 +2,8 @@ package com.rosa.breakfast.web.page;
 
 import java.util.List;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -49,7 +51,7 @@ public class EditStandardBreakfastPart extends BaseAppPage {
 
         private ComestibleDto selectedComestible;
 
-        public StandardBreakfastPartForm(String id, IModel m) {
+    	public StandardBreakfastPartForm(String id, IModel m) {
             super(id, m);
             selectedComestible = ((PartDto) getModelObject()).getComestible();
             final DropDownChoice comestibleChoice = new DropDownChoice("comestibles", new PropertyModel(this,
@@ -58,9 +60,31 @@ public class EditStandardBreakfastPart extends BaseAppPage {
             comestibleChoice.setOutputMarkupId(true);
             comestibleChoice.setRequired(true);
             comestibleChoice.setNullValid(false);
-            comestibleChoice.add(new DefaultFocusBehaviour());
+            final TextField quantity = new TextField("quantity");
+            quantity.setOutputMarkupId(true);
+            //quantity.setRequired(true);
+            quantity.setType(Float.class);
+            
+            comestibleChoice.add(new AjaxFormComponentUpdatingBehavior("onchange") {
+				@Override
+				protected void onUpdate(AjaxRequestTarget target)
+				{
+					if (selectedComestible != null) {
+						quantity.setModelObject(new Float(selectedComestible.getMinimalQuantity()));
+						target.addComponent(quantity);
+					}
+				}
+			});
+
+            if (selectedComestible == null) {
+                comestibleChoice.add(new DefaultFocusBehaviour());
+            } else {
+            	comestibleChoice.setEnabled(false);
+            	quantity.add(new DefaultFocusBehaviour());
+            }
+
             add(comestibleChoice);
-            add(new TextField("quantity").setRequired(true).setType(Float.class));
+            add(quantity);
             add(new Button("saveButton") {
                 public void onSubmit() {
                     PartDto part = (PartDto) getForm().getModelObject();
@@ -78,9 +102,10 @@ public class EditStandardBreakfastPart extends BaseAppPage {
                     setResponsePage(new EditStandardBreakfast(breakfast, true));
                 }
             });
+            
             add(new Button("cancelButton") {
-                public void onSubmit() {
-                    setResponsePage(new EditStandardBreakfast(breakfast, false));
+            	public void onSubmit() {
+               		setResponsePage(new EditStandardBreakfast(breakfast, false));
                 }
             }.setDefaultFormProcessing(false));
         }

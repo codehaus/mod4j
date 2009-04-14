@@ -79,9 +79,9 @@ public class EditStandardBreakfast extends BaseAppPage {
                     StandardBreakfastDto sbf = (StandardBreakfastDto) getForm().getModelObject();
                     try {
                         if (sbf.getId() == null) {
-                            service.createStandardBreakfast(sbf);
+                        	sbf = service.createStandardBreakfast(sbf);
                         } else {
-                            service.updateStandardBreakfast(sbf);
+                        	sbf = service.updateStandardBreakfast(sbf);
                         }
                     } catch (DataIntegrityViolationException e) {
                         // TODO yuk! can't be a dao exception is leaking to the presentation layer. This should be
@@ -89,12 +89,12 @@ public class EditStandardBreakfast extends BaseAppPage {
                         error(msg("editstandardbreakfast.error.duplicate.name", this, sbf.getName()));
                         return;
                     }
-                    setResponsePage(ListStandardBreakfast.class);
+                    setResponsePage(new EditStandardBreakfast(sbf, true));
                 }
             });
-            add(new Button("cancelButton") {
+            add(new Button("backButton") {
                 public void onSubmit() {
-                    setResponsePage(ListStandardBreakfast.class);
+               		setResponsePage(ListStandardBreakfast.class);
                 }
             }.setDefaultFormProcessing(false));
 

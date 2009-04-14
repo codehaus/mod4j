@@ -31,6 +31,8 @@ public class BreakfastApplication extends SpringWebApplication {
     @Override
     public void init() {
         super.init();
+        // disable Wicket Ajax Debug mode
+        getDebugSettings().setAjaxDebugModeEnabled(false);
         addComponentInstantiationListener(new SpringComponentInjector(this));
     }
 
