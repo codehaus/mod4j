@@ -19,8 +19,8 @@
                 
             <subsection name="Upgrade Mod4j Eclipse plug-in ">
                 <ol>
-                    <li>Open Eclipse and un-install the previous installed Mod4j Eclipse plug-in.</li>
-                    <li>Now you can install the new version (1.0.1.200904132111) of the Mod4j Eclipse plug-in via the Mod4j update site: 
+                    <li>Open Eclipse and un-install all the previous installed Mod4j Eclipse features.</li>
+                    <li>Now you can install the new version (1.0.1.200904141521) of the Mod4j Eclipse features via the Mod4j update site: 
                          <br/>
                          <b>http://mod4j.org/updatesite</b>
                     </li>
