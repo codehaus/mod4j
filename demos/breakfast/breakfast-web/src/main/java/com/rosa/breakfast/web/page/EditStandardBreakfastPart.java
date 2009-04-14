@@ -62,7 +62,7 @@ public class EditStandardBreakfastPart extends BaseAppPage {
             comestibleChoice.setNullValid(false);
             final TextField quantity = new TextField("quantity");
             quantity.setOutputMarkupId(true);
-            //quantity.setRequired(true);
+            quantity.setRequired(true);
             quantity.setType(Float.class);
             
             comestibleChoice.add(new AjaxFormComponentUpdatingBehavior("onchange") {
