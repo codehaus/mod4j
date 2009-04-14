@@ -17,6 +17,7 @@ enumeration ServingStyle [
     DELUXE = 3;
 ]
 
+"Atricles of food."
 class Comestible [
     string name;
     integer minimalQuantity;
