@@ -14,6 +14,26 @@
     <body>
 
         <section name="*** News *** News *** News *** etc.">
+
+            <subsection name="Mod4j at Ordina's 'Innoveer jij mee' session (lang: dutch)">
+
+                <table>
+                    <tr>
+                        <td width="20">
+                            <img src="http://www.nljug.org/pages/events/content/jspring_2009/images/banner_v2.jpg" alt="Innoveer jij mee: Mod4j" />
+                        </td>
+                        <td>
+                            <p>
+                                Ordina J-Technologies nodigt je uit voor haar
+                                <a href="http://www.j-technologies.nl/default.asp/id,330/index.html">8-ste innoveerjijmee sessie.</a>
+                                Tijdens deze sessie zullen een aantal Mod4j members een demonstratie geven van het gebruik van
+                                Mod4j. Op maandag 27 april ben je van harte welkom in het kenniscentum van Ordina te Nieuwegein.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </subsection>
+
             <subsection name="Mod4j at JSpring 2009">
 
                 <table>
@@ -24,7 +44,8 @@
                         <td>
                             <p>
                                 Jos Warmer is conference keynote speaker at
-                                <a href="http://www.nljug.org/jspring">JSpring</a>, 15 April, Bussum, Netherlands.
+                                <a href="http://www.nljug.org/jspring">JSpring</a>
+                                , 15 April, Bussum, Netherlands.
                             </p>
                         </td>
                     </tr>
