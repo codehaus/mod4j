@@ -209,8 +209,18 @@ dat een application context een parent context heeft, waarvan de beans wel
 zichtbaar zijn in de child context, maar niet andersom. De parent context is
 volledig gegenereerd en de inhoud kan in de child context uitgebreid of
 overridden worden. De beide contexten worden aanelkaar geknoopt door een
-beanRefContext
+SingletonBeanFactoryLocator (Spring classname), geconfigureerd aparte XML
+configuratie file.
+
 (Mod4j DSL's_)
+
+De kern van een applicatie is een domein model, een model van de object typen
+waar de applicatie over gaat. Het domein model wordt gemodelleerd in de
+Business Domain DSL. Het UML model in figuur x (plaatje) is ontleend aan de
+applicatie die in "MDA..." (boek ref.) als voorbeeld werd gebruikt: "Rosa's
+Breakfast Service". In figuur x (plaatje) wordt hetzelfde model weergegeven in
+de Business Domain DSL van Mod4j.
+
 (Business Domain DSL)
 (Data Contract DSL)
 (Service DSL)
