@@ -27,6 +27,10 @@
                         <br />
                     </li>
                     <li>
+                        Use the update manager to install the Ecore Tools.  These can be found under the update manager tab Available Software ==> Ganymede Update Site
+                        ==> Models and Model Development ==> Ecore Tools.
+                    </li>
+                    <li>
                         Install, using the Update Manager, at least the following plugins into Eclipse:
                         <ul>
                             <li>
