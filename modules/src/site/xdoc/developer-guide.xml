@@ -22,7 +22,8 @@
                     </li>
                     <li>
                         Install Eclipse Ganymede 3.4 SR1 for Java2EE Developers. You can download one from the Eclipse
-                        <a href="http://www.eclipse.org/downloads">download site.</a>
+                        <a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR1/eclipse-jee-ganymede-SR1-win32.zip">download site</a>
+                        Note that this is not the latest Ganymede release (which is SR2), you need SR1.
                         <br />
                     </li>
                     <li>
