@@ -17,7 +17,8 @@
             <p>
                 All the Mod4j DSL editors are published as features to the Mod4j update site. Follow the
                 instructions below to
-                get them installed using the Eclipse Update Manager.
+                get
+                them installed using the Eclipse Update Manager.
             </p>
             <p>
                 <b>
@@ -50,6 +51,16 @@
                     features.
                 </li>
             </ol>
+
+            <subsection name="Presentation downloads">
+                <table>
+                    <tr>
+                        <td>
+                           Presentation <a href="mod4j-keynote-jspring2009.pdf">keynote session J-Spring 2009</a> by Jos Warmer 
+                        </td>
+                    </tr>
+                </table>
+            </subsection>
         </section>
     </body>
 </document>
