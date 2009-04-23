@@ -120,7 +120,9 @@ enumeration RecordTypeEnum [
 "One 2 Many bidirectional: A customer has a number of orders." 
 association Customer customer one <-> many Order orders ;
 
-"One 2 Many unidirectional: An order consists of an ordered list of orderLines."
+"One 2 Many unidirectional: An order consists of an ordered list of orderLines.
+This is a typical composite relation: An orderLine must be attached to an existing order. 
+When an order is deleted, also a cascading delete of all the orderLines attached to it must be performed."
 association Order order one -> many OrderLine orderLines ordered ;
  
 "One 2 One bidirectional: An orderLine contains a product."

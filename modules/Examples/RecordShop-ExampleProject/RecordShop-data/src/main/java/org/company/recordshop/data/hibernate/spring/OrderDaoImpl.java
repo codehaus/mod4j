@@ -4,6 +4,10 @@
 package org.company.recordshop.data.hibernate.spring;
 
 import org.company.recordshop.data.OrderDao;
+import org.company.recordshop.data.OrderLineDao;
+import org.company.recordshop.domain.Order;
+import org.company.recordshop.domain.OrderLine;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Order Data Access Object (DOA) Implementation. Responsible for Creating,
@@ -14,4 +18,22 @@ import org.company.recordshop.data.OrderDao;
  */
 public class OrderDaoImpl extends OrderDaoImplBase implements OrderDao {
 
+    @Autowired
+    private OrderLineDao orderlineDao;
+    
+    /** 
+     * Workaround for a cascading delete of all orderlines attached the order to delete.
+     * @see org.company.recordshop.data.hibernate.spring.OrderDaoImplBase#delete(org.company.recordshop.domain.Order)
+     */
+    @Override
+    public void delete(Order object) {
+        
+        
+        for (OrderLine line: object.getOrderLines()){
+            orderlineDao.delete(line);
+        }
+        super.delete(object);
+    }
+    
+    
 }
