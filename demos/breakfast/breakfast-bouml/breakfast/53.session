@@ -1,14 +1,15 @@
-window_sizes 1350 787 337 1007 573 136
+window_sizes 1350 787 337 1007 637 72
 windows_style
 diagrams
   active  classdiagram_ref 128053 // breakfast
-    529 472 100 4 0 0
+    699 496 100 4 6 0
 end
 show_stereotypes
-selected attribute_ref 130101 // quantity
+selected attribute_ref 131509 // DELUXE
 open
   class_ref 128053 // Customer
   class_ref 128181 // BreakfastOrder
+  class_ref 128821 // ServingStyle
   class_ref 128949 // Breakfast
   class_ref 129077 // StandardBreakfast
   class_ref 129333 // Comestible

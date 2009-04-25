@@ -1,6 +1,6 @@
 format 66
 "breakfast"
-  revision 4
+  revision 5
   modified_by 53 "emalotau"
 
 
@@ -224,15 +224,53 @@ format 66
       
     end
 
-    class 128821 "Style"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
+    class 128821 "ServingStyle"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}
+};
+"
+      java_decl "${comment}${@}${visibility}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
       explicit_switch_type ""
       
+      attribute 131253 "SIMPLE"
+	public type class_ref 128821 // ServingStyle
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 131381 "GRAND"
+	public type class_ref 128821 // ServingStyle
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 131509 "DELUXE"
+	public type class_ref 128821 // ServingStyle
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
     end
 
     class 128949 "Breakfast"
@@ -300,7 +338,7 @@ format 66
       end
 
       attribute 129333 "style"
-	private type class_ref 128821 // Style
+	private type class_ref 128821 // ServingStyle
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
