@@ -29,9 +29,6 @@ public class ListStandardBreakfast extends BaseAppPage {
                 // add delete button
                 item.add(new Link("delete") {
                     public void onClick() {
-                        for (PartDto part : breakfast.getParts()) {
-                            service.deletePart(part);
-                        }
                         service.deleteStandardBreakfast(breakfast);
                         detach();
                         setResponsePage(ListStandardBreakfast.class);
