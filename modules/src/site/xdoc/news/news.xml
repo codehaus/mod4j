@@ -15,12 +15,69 @@
 
         <section name="*** News *** News *** News *** etc.">
 
-            <subsection name="Mod4j at Ordina's 'Innoveer jij mee' session (lang: dutch)">
-
+            <subsection name="Mod4j at the Model Driven Experience 2009 (lang: dutch)">
                 <table>
                     <tr>
                         <td width="20">
-                            <img src="../images/j-technologies-logo.gif" alt="Ordina J-Technologies"/>
+                            <img src="http://www.telin.nl/uploadedImages/Telematica_Instituut/Expertise/Service_Architectures/SAlists/logo_Novay_payoff_PMS_C_klein.jpg" alt="Novay" />
+                        </td>
+                        <td>
+                            <p>
+                                Mod4j will attend
+                                <a href="http://www.telin.nl/index.cfm?ID=1508">The Model Driven Experience conference</a>
+                                , WTC Amsterdam, 04 juni 2009
+                                .
+                                <br/>
+                                <br/>
+                                Modelgedreven software ontwikkeling, Model Driven Development
+                                (MDD) in het Engels, wordt steeds vaker toegepast door software intensieve organisaties. De
+                                initiële scepsis na de lancering van het Model Driven Architecture (MDA) initiatief door OMG
+                                begint om te slaan in voorzichtig optimisme. Steeds meer organisaties onderkennen de voordelen
+                                van MDD t.o.v. traditionele software ontwikkelingsaanpakken, zoals kortere time-to-market,
+                                lagere onderhoudskosten, hogere kwaliteit en het verkleinen van de business - IT gap.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </subsection>
+
+            <subsection name="Mod4j at Code Generation 2009">
+                <table>
+                    <tr>
+                        <td width="20">
+                            <img src="http://www.codegeneration.net/cg2009/images/CG2009logo75x57.gif" alt="Code Generation 2009" />
+                        </td>
+                        <td>
+                            <p>
+                                Mod4j will attend
+                                <a href="http://www.codegeneration.net/cg2009">Code Generation 2009</a>
+                                , 16th - 18th June
+                                .
+                                Code Generation is an annual conference held in Cambridge, UK. The conference
+                                attrack's a
+                                public that is interested in various topics related to code generation, such as:
+                                <br />
+                                Domain-Specific Languages,
+                                Model-Driven Development (MDD), Model-Driven Architecture (MDA),
+                                Eclipse Modelling Tools, openArchitectureWare, Xtext etc.,
+                                Executable UML,
+                                Model-Driven Software
+                                Development (MDSD),
+                                Domain-Specific Modelling,
+                                Software
+                                Factories and Software Product Lines,
+                                Generative programming and other similar approaches.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </subsection>
+
+            <subsection name="Mod4j at Ordina's 'Innoveer jij mee' session (lang: dutch)">
+                <table>
+                    <tr>
+                        <td width="20">
+                            <img src="../images/j-technologies-logo.gif" alt="Ordina J-Technologies" />
                         </td>
                         <td>
                             <p>
@@ -52,40 +109,6 @@
                         </td>
                     </tr>
                 </table>
-            </subsection>
-
-            <subsection name="Mod4j at Code Generation 2009">
-
-                <table>
-                    <tr>
-                        <td width="20">
-                            <img src="http://www.codegeneration.net/cg2009/images/CG2009logo75x57.gif" alt="Code Generation 2009" />
-                        </td>
-                        <td>
-                            <p>
-                                Mod4j will attend
-                                <a href="http://www.codegeneration.net/cg2009">Code Generation 2009</a>
-                                , 16th - 18th June
-                                .
-                                Code Generation is an annual conference held in Cambridge, UK. The conference
-                                attrack's a
-                                public that is interested in various topics related to code generation, such as:
-                                <br />
-                                Domain-Specific Languages,
-                                Model-Driven Development (MDD), Model-Driven Architecture (MDA),
-                                Eclipse Modelling Tools, openArchitectureWare, Xtext etc.,
-                                Executable UML,
-                                Model-Driven Software
-                                Development (MDSD),
-                                Domain-Specific Modelling,
-                                Software
-                                Factories and Software Product Lines,
-                                Generative programming and other similar approaches.
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-
             </subsection>
 
             <subsection name="Mod4j 1.0.1 released">
