@@ -11,7 +11,7 @@
     Patched version of wagon-ftp. Wagon that gets and puts artifacts from and to remote server using FTP protocol
     This version is based on wagon 1.0-beta-2 and:
     - is patched with the patch that is attached to issue WAGON-148
-    - is fixed for issue WAGON-256
+    - is fixed for issue WAGON-254
   </description>
 
   <issueManagement>
