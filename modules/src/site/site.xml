@@ -18,7 +18,8 @@
         <menu name="About Mod4j" inherit="bottom">
             <item name="Home" href="index.html" />
             <item name="Releases" href="releases/index.html" />
-            <item name="Download" href="downloads/download.html" />
+            <item name="Downloads" href="downloads/download.html" />
+            <item name="Publications" href="downloads/publications.html" />
             <item name="Professional Support" href="professional-support.html" />
         </menu>
         <menu name="User Docs" inherit="bottom">        
