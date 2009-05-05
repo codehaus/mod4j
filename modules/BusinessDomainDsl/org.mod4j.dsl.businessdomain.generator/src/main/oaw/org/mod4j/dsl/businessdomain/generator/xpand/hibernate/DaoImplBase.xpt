@@ -71,8 +71,14 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
         return object;
     }
 
+   /**
+    * Update an existing object.
+    * With Hibernate persisted objects are automatically updated within the session, so nothing should happen here.
+    * 
+    * @param object The object to update.
+    * @return «javaDomainClass(this.name)»
+    **/ 
     public «javaDomainClass(this.name)» update(«javaDomainClass(this.name)» object) {
-        getHibernateTemplate().update(object);
         return object;
     }
 
