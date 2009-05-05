@@ -63,7 +63,7 @@
                         -> General -> Workspace'.
                     </li>
                     <li>
-                        Install Apache Maven 2.0.9 or higher. For download and install instructions see the
+                        Install Apache Maven 2.1.0 or higher. For download and install instructions see the
                         <a href="http://maven.apache.org">Apache Maven site</a>
                     </li>
                     <li>Install the Mod4j DSL Eclipse plug-in as described in the next section.</li>
