@@ -40,14 +40,12 @@ public class CompositeAssociationTest extends AbstractDaoTestCase {
        
        orderDao.update(savedOrder);
        flush();
-       clear();
        
        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Order_TABLE"));
        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "OrderLine_TABLE"));
        
        orderDao.delete(savedOrder);
        flush();
-       clear();
        
        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Order_TABLE"));
        assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "OrderLine_TABLE"));
