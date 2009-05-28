@@ -37,7 +37,6 @@
              import «getDtoPackage()».«javaClassName(enumDto.type.name)»;
          «ENDFOREACH»
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -» 
-         	// NEW NEW NEW NEW 
              import «getDomainRootPackage()».«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»;
          «ENDFOREACH»  
          
@@ -49,18 +48,23 @@
          public class «javaTranslatorName(javaClassName(name))» {
          
              /**
-           	  * Register for translated «javaClassName(base.name)» objects
+           	  * Thread-local register for translated «javaClassName(base.name)» objects
 	          */
-              private Map<«javaClassName(base.name)», «javaClassName(name)»> translated = new HashMap<«javaClassName(base.name)», «javaClassName(name)»>();
-              
+		      private static ThreadLocal<Map<«javaClassName(base.name)», «javaClassName(name)»>> translatedHolder = new ThreadLocal<Map<«javaClassName(base.name)», «javaClassName(name)»>>() {
+		          public Map<«javaClassName(base.name)», «javaClassName(name)»> initialValue() {
+		              return new HashMap<«javaClassName(base.name)», «javaClassName(name)»>();
+		          }
+		      };
+		      private Map<«javaClassName(base.name)», «javaClassName(name)»> getTranslated() {
+		          return translatedHolder.get();
+		      }
+
               «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
                   «IF dataProperty.metaType == DtoEnumerationProperty -»
-                      private «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator «dataProperty.name»Translator = «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator.getInstance();
+                      private «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator «dataProperty.name»Translator = new «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator();
                   «ENDIF»        
               «ENDFOREACH»
                                      
-              «EXPAND org::mod4j::dslcommon::xpand::java::Singleton::makeSingleton FOR javaTranslatorName(javaClassName(name)) -»
-         
              /**
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object. All properties in the dto will be mapped to the 
               * corresponding property in the <code>target</code> domain object. Association references in the dto 
@@ -73,7 +77,7 @@
               * @return {@link «javaClassName(base.name)»}, the resulting domain object.
               * @throws TranslatorException
               */
-              public synchronized «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorException {
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorException {
                  
                   if (source == null ) {
                       throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
@@ -123,19 +127,18 @@
               *
               * @return «javaClassName(name)» The {@link «javaClassName(name)»} object translated from source.
               */
-              public synchronized «javaClassName(name)» toDto(final «javaClassName(base.name)» source) {
+              public «javaClassName(name)» toDto(final «javaClassName(base.name)» source) {
               
                   «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -» 
-                  // NEW NEW NEW NEW
-                      «EXPAND getBaseDtoName FOR assRef.dtoType»Translator «assRef.name»Translator = «EXPAND getBaseDtoName FOR assRef.dtoType»Translator.getInstance();
+                      «EXPAND getBaseDtoName FOR assRef.dtoType»Translator «assRef.name»Translator = new «EXPAND getBaseDtoName FOR assRef.dtoType»Translator();
                   «ENDFOREACH»  
                  
                   if (source == null ) {
                       throw new TranslatorException("Argument source is null! Translation of a domain object can not be based on a null object.");
                   }
                   
-                  if (translated.containsKey((source))) {
-                      return translated.get(source);
+                  if (getTranslated().containsKey((source))) {
+                      return getTranslated().get(source);
                   }
  
                   «javaClassName(name)» result = new «javaClassName(name)»();
@@ -148,9 +151,8 @@
                           result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
                       «ENDIF -»
                   «ENDFOREACH»
-                  translated.put(source, result);
+                  getTranslated().put(source, result);
                   «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -»
-                      // NEW NEW NEW NEW 
                      «IF assRef.dtoType.metaType == ListDto -» «REM»2Many«ENDREM» 		              
  		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element: source.get«assRef.name.toFirstUpper()»()) {
 		                      result.addTo«assRef.name.toFirstUpper()»(«assRef.name»Translator.toDto(element));
@@ -161,7 +163,7 @@
 		                 }
 		             «ENDIF -»
 		          «ENDFOREACH»
-		          translated.remove(source);
+		          getTranslated().remove(source);
 
                   return result;
               }
