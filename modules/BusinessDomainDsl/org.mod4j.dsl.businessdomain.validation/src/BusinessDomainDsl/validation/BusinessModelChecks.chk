@@ -19,7 +19,7 @@ extension org::mod4j::dslcommon::xtend::generatorutil;
  */
 // identical target role names from this association's class
 context Association ERROR "Association target role ["+ this.targetRoleName + "] is not unique" :
-     this.model.associations.select(e|e.source == this.source).select(e|e!= this).
+     this.source.associationsTo.select(e|e!= this).
           forAll(e|e.targetRoleName != this.targetRoleName)
 ;
 
