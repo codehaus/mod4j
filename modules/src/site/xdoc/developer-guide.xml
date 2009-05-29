@@ -284,13 +284,21 @@
                 </ol>
             </subsection>
             <subsection name="First day procedure for Mod4j developers">
-                <p>As a new developer of Mod4j you'ĺl need to follow the next steps</p>
+                <p>As a new developer of Mod4j you will need to follow the next steps</p>
                 <ol>
-                    <li>Subscribe yourself to the developer mailinglist (dev@mod4j.codehaus.org) and post a short
-                        message to introduce your self to the other developers. So all developers know who you are and that
-                        there is a new developer active.</li>
-                    <li>Add yourself as notifier to the notifiers list of the ciManagement section in the parent-pom. So you will be
+                    <li>
+                        Subscribe yourself to the
+                        <a href="http://xircles.codehaus.org/manage_email/dev@mod4j.codehaus.org">developer mailinglist</a>
+                          (dev@mod4j.codehaus.org) and post a short
+                        message to introduce your self to the other developers. So all
+                        developers know who you are and that
+                        there is a new developer active.
+                    </li>
+                    <li>Add yourself as notifier to the notifiers list of the ciManagement section in the parent-pom. So you
+                        will be
                         notified by Continuum of build status changes.</li>
+                    <li>Make sure you're familiar with the different Maven profiles in the parent-pom. Its important to know
+                        which modules are effected when you're building with Maven.</li>
                 </ol>
             </subsection>
         </section>
