@@ -16,7 +16,7 @@ import org.springframework.test.annotation.ExpectedException;
 
 public class SimpleCustomerDtoTranslatorTest {
 
-    private SimpleCustomerDtoTranslator scTranslator = SimpleCustomerDtoTranslator.getInstance();
+    private SimpleCustomerDtoTranslator scTranslator = new SimpleCustomerDtoTranslator();
 
     @Test
     public void testCreateNewFromDtoSucceed() {
