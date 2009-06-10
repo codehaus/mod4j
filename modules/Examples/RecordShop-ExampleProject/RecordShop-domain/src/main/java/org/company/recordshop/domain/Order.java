@@ -1,6 +1,6 @@
 
 /**
- * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Fri Mar 13 10:00:53 CET 2009
+ * Extension point generated initially by Mod4j BusinessDomain DSL by BeanClassExtensionPoint in NewJavaBean.xpt at: Wed Jun 10 13:31:29 CEST 2009
  */
 package org.company.recordshop.domain;
 
@@ -28,7 +28,8 @@ public class Order extends OrderImplBase {
 		super(orderNumber);
 	}
 
-    /* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
      * @see org.company.recordshop.domain.OrderImplBase#getTotalAmount()
      */
     @Override
@@ -40,10 +41,11 @@ public class Order extends OrderImplBase {
        return totalAmount;
     }
 
-    @Override
-    public void setTotalAmount(Float totalAmount) {
-        // TODO Auto-generated method stub
-        
-    }
+	/**
+	 * @param totalAmount (Float) The total amount of the Order. Its value is derived from the summation of the OrderLine amounts
+	 */
+	public void setTotalAmount(final Float totalAmount) {
+		throw new UnsupportedOperationException("Not implemented");
+	}
 
 }
