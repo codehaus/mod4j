@@ -45,7 +45,8 @@ public class Order extends OrderImplBase {
 	 * @param totalAmount (Float) The total amount of the Order. Its value is derived from the summation of the OrderLine amounts
 	 */
 	public void setTotalAmount(final Float totalAmount) {
-		throw new UnsupportedOperationException("Not implemented");
+		// throw new UnsupportedOperationException("Not implemented");
+		// See: http://jira.codehaus.org/browse/MODFORJ-119
 	}
 
 }
