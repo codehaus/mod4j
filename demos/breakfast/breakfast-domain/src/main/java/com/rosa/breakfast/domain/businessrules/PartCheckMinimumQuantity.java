@@ -8,7 +8,7 @@ import org.springframework.validation.Errors;
 import com.rosa.breakfast.domain.Part;
 
 /**
- * 
+ * The quantity of a Part should be equal or greater then the minimalQuantity of the corresponding Comestible
  * 
  * This ExtensionPoint is intended to be manually changed by developers.
  * 
