@@ -4,13 +4,9 @@ from breakfastDM import StandardBreakfast;
 from breakfastDM import ServingStyle;
 from breakfastDM import Part;
 from breakfastDM import Comestible;
-from breakfastDM import Customer;
-from breakfastDM import Address;
-from breakfastDM import BreakfastOrder;
-from breakfastDM import Breakfast;
-from breakfastDM import Change;
 
 enumeration ServingStyleDto represents ServingStyle
+
 class StandardBreakfastDto represents StandardBreakfast [
     name; price; style;
     references [
@@ -24,32 +20,6 @@ class PartDto represents Part [
     ]
 ]
 class ComestibleDto represents Comestible
-class CustomerDto represents Customer [
-    accountNumber; 
-    references [
-        address as AddressDto;
-        orders as BreakfastOrderListDto;
-    ]
-]
-class AddressDto represents Address
-class BreakfastOrderDto represents BreakfastOrder [
-    discount; orderDate;
-    references [
-        deliveryAddress as AddressDto;
-        breakfasts as BreakfastListDto;
-    ]
-]
-class BreakfastDto represents Breakfast [
-    number;
-    references [
-        standard as StandardBreakfastDto;
-        changes as ChangeListDto;
-    ]
-]
-class ChangeDto represents Change [
-    quantity;
-    references [ comestible as ComestibleDto; ]
-]
 
 custom IsComestibleUsed [
 	boolean isUsed; 
@@ -57,6 +27,3 @@ custom IsComestibleUsed [
 
 list StandardBreakfastListDto contains StandardBreakfastDto
 list PartListDto contains PartDto
-list BreakfastListDto contains BreakfastDto
-list BreakfastOrderListDto contains BreakfastOrderDto
-list ChangeListDto contains ChangeDto
