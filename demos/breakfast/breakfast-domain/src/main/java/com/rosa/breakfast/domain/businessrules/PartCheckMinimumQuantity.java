@@ -19,7 +19,9 @@ public class PartCheckMinimumQuantity extends PartCheckMinimumQuantityImplBase {
      * {@inheritDoc}
      */
     public void validate(Object target, Errors errors) {
+    	
         Part part = (Part) target;
+        
         if (part.getComestible() != null) {
             if (part.getQuantity() < part.getComestible().getMinimalQuantity()) {
                 errors.rejectValue("quantity", "part.br.checkminimumquantity", new Object[] { Integer.toString(part
