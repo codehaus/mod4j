@@ -36,8 +36,8 @@ public class ListComestible extends BaseAppPage {
                 item.add(new Label("price", comestible.getPrice().toString()));
                 item.add(new Label("minimalQuantity", comestible.getMinimalQuantity().toString()));
                 item.add(new Label("transportForm", comestible.getTransportForm()));
-                item.add(new Label("isUsed", "true"));
-//                item.add(new Label("isUsed", service.isComestibleUsed(comestible).isIsUsed().toString()));
+                //item.add(new Label("isUsed", "true"));
+                item.add(new Label("isUsed", service.isComestibleUsed(comestible).isIsUsed().toString()));
             }
         });
         add(new Link("new") {
