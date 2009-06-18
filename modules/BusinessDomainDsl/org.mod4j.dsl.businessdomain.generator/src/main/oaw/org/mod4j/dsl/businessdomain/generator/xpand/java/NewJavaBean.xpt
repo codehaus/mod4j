@@ -87,7 +87,7 @@
     «EXPAND Constructors::addMinimalConstructor FOR this»
 	«EXPAND Attributes::addGetter FOREACH properties.reject(e|e.derived)»
 	«EXPAND Attributes::addSetter FOREACH properties.reject(e|e.derived)»
-    «EXPAND Attributes::addAbstractSetter FOREACH properties.select(e|e.derived)»
+    «EXPAND Attributes::addAbstractSetter FOREACH properties.select(e|e.derived && e.writable)»
     «EXPAND Attributes::addAbstractGetter FOREACH properties.select(e|e.derived)»
 	«EXPAND ValidationSupport::addValidationSwitch FOR this»
     }
@@ -118,8 +118,6 @@
         «EXPAND Constructors::addDefaultConstructor FOR this»    
     «ENDIF»
     «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
-    «EXPAND NewJavaBean::addGetter FOREACH properties.select(e|e.derived)»
-    «EXPAND NewJavaBean::addSetter FOREACH properties.select(e|e.derived)»
  	}	
 «ENDDEFINE»
 
@@ -154,31 +152,4 @@
     «FOREACH this.properties.select(p|p.hasDefault) AS p -»
         «p.name» = null;
     «ENDFOREACH -»
-«ENDDEFINE»
-
-«DEFINE addGetter FOR Property»
-    /**
-    * @return «name» («javaType(this)») «description»
-    */
-    public «javaType(this)» get«name.toFirstUpper()» () {        
-        throw new UnsupportedOperationException("Not implemented");
-    }
-«ENDDEFINE»
-
-«DEFINE addSetter FOR Property»
-   «EXPAND Javadoc::addSetterJavaDoc FOR this -»
-    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {      
-        throw new UnsupportedOperationException("Not implemented");
-    }
-«ENDDEFINE»
-
-
-«DEFINE addGetter FOR BoolProperty»
-    /**
-    *
-    * @return «name» («javaType(this)») «description»
-    */
-    public «javaType(this)» is«name.toFirstUpper()» () {     
-        throw new UnsupportedOperationException("Not implemented");
-    }
 «ENDDEFINE»

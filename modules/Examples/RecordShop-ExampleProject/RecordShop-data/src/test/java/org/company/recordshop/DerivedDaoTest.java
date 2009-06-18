@@ -51,27 +51,12 @@ public class DerivedDaoTest extends AbstractDaoTestCase {
         assertEquals(5.0F, read.getFifth(), 0.000001);
     }
     @Test
-    public void testSetFirst() {
-        read.setFirst("first");
-    }
-
-    @Test
     public void testSetSecondo() {
         read.setSecondo(true);
     }
 
     @Test
-    public void testSetThird() {
-        read.setThird(new DateTime());
-    }
-
-    @Test
     public void testSetFourth() {
         read.setFourth(4);
-    }
-
-    @Test
-    public void testSetFifth() {
-        read.setFifth(5.0F);
     }
 }

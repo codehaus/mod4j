@@ -10,28 +10,13 @@ import org.junit.Test;
 public class DerivedTest {
 
     @Test
-    public void testSetFirst() {
-        new Derived().setFirst("first");
-    }
-
-    @Test
     public void testSetSecondo() {
         new Derived().setSecondo(true);
     }
 
     @Test
-    public void testSetThird() {
-        new Derived().setThird(new DateTime());
-    }
-
-    @Test
     public void testSetFourth() {
         new Derived().setFourth(4);
-    }
-
-    @Test
-    public void testSetFifth() {
-        new Derived().setFifth(5.0F);
     }
 
     @Test
