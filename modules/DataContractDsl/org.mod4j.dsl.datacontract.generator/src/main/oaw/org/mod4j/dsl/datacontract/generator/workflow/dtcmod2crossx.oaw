@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<!--
  - Copyright (c) 2009 Ordina and committers to Mod4j
  - All rights reserved. This program and the accompanying materials
  - are made available under the terms of the Eclipse Public License v1.0
@@ -8,7 +8,7 @@
  -
  - Contributors:
  -     Ordina - initial implementation
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+ -->
 <workflow>
     <!--  
         This workflow takes a DataContractDsl model and extracts the Crossx model from it.
@@ -17,6 +17,8 @@
           - crossxfile : the file to which the crossx model will be written
           - project: the name of the project in which tyhe model resides
     -->
+    
+    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
 
     <property name="nsUriPrefix" value="appelmoes"/>
  
@@ -38,19 +40,26 @@
     </bean>
     
     <!-- 
-        Load the dsl model and store it in slot 'model' 
+        Load the dsl model and store it in slot 'model'
     -->
-    <component id="DataContractDsl-parser" class="org.mod4j.dsl.datacontract.xtext.parser.ParserComponent">
-        <modelFile value="${modelfile}"/>
-        <outputSlot value="model"/>
-    </component>
-
+    <if cond="${isEclipseSetup}">
+        <component id="dtcmod2crossx-modelfileReader" class="org.eclipse.mwe.emf.Reader">
+            <uri value="${modelfile}" />
+            <modelSlot value="model" />
+        </component>
+    </if>
+    <if cond="${isStandaloneSetup}"> 
+        <component id="dtcmod2crossx-modelfileParser" class="org.mod4j.dsl.datacontract.xtext.parser.ParserComponent">
+            <modelFile value="${modelfile}"/>
+            <outputSlot value="model"/>
+        </component>
+    </if>
+    
     <component id="DataContractWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="DataContractDsl" />
         <checkFile value="org::mod4j::dsl::datacontract::xtext::GenChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
-    
     <component id="DataContractWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="DataContractDsl" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />
@@ -78,8 +87,8 @@
        <outputSlot value="crossxModel"/>
     </component>
 
-    <!-- Is used to write the model. The model is put in the modelSlot 'model' -->
-    <component class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
+    <!-- Is used to write the model. The model is put in the modelSlot -->
+    <component id="dtcmod2crossx-model2Slot" class="org.mod4j.dslcommon.openarchitectureware.CrossxWorkflowComponent">
         <modelSlot value="crossxModel"/>
         <project value="${project}"/>
     </component>
@@ -88,10 +97,12 @@
          Last but not least, we write the Ecore model file. We specify the workflow slot where we expect the model
          as well as the file name of the to-be-written file. This stel isn't neccesary,
          but migtb be helpfulkl for debugging purposes to check what the Crosssx model looks like.
-    
-    <component class="org.eclipse.mwe.emf.Writer">
-        <uri value="${crossxfile}" />
-        <modelSlot value="crossxModel" />
-    </component>
     -->
+    <if cond="${isEclipseSetup}">
+        <component id="dtcmod2crossx-crossxfileWriter" class="org.eclipse.mwe.emf.Writer">
+            <uri value="${crossxfile}" />
+            <modelSlot value="crossxModel" />
+        </component>
+    </if>
+
 </workflow>
