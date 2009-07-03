@@ -252,7 +252,7 @@
             </notifier>
         </notifiers>
     </ciManagement>
-    <distributionManagement>
+    <distributionManagement> 
         <repository>
             <id>dav.codehaus.org</id>
             <name>Mod4j Central Maven Repository</name>
@@ -412,6 +412,7 @@
         </plugins>
     </reporting>
     <repositories>
+        <!-- This repository automatically sync's with the central Maven repository
         <repository>
             <id>codehaus-repo</id>
             <url>http://repository.codehaus.org</url>
@@ -419,6 +420,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        -->
         <repository>
             <id>codehaus.snapshots-repo</id>
             <url>http://snapshots.repository.codehaus.org</url>
