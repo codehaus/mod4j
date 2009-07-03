@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j</artifactId>
@@ -12,8 +11,8 @@
         <release.version.latest>1.0.1</release.version.latest>
     </properties>
     <scm>
-        <connection>scm:svn:http://svn.codehaus.org/mod4j/trunk/modules</connection>
-        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/trunk/modules
+        <connection>scm:svn:http://svn.codehaus.org/mod4j/branches/mod4j-branch-galileo</connection>
+        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/branches/mod4j-branch-galileo
         </developerConnection>
     </scm>
     <organization>
