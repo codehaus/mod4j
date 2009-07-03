@@ -11,8 +11,8 @@
         <release.version.latest>1.0.1</release.version.latest>
     </properties>
     <scm>
-        <connection>scm:svn:http://svn.codehaus.org/mod4j/branches/mod4j-branch-galileo</connection>
-        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/branches/mod4j-branch-galileo
+        <connection>scm:svn:http://svn.codehaus.org/mod4j/trunk/modules</connection>
+        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/trunk/modules
         </developerConnection>
     </scm>
     <organization>
