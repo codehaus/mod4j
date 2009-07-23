@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="org.jdom"
+   name="Jdom Plug-in"
+   version="1.0.0"
+   provider-name="Jdom.org">
+
+   <runtime>
+      <library name="jdom.jar">
+         <export name="*"/>
+      </library>
+      <library name="xmlutils.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+</plugin>
