@@ -32,129 +32,129 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
  */
 public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements DtoEnumerationProperty {
 	/**
-     * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
 	protected EnumerationDto type;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DtoEnumerationPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.DTO_ENUMERATION_PROPERTY;
-    }
+		return DataContractDslPackage.Literals.DTO_ENUMERATION_PROPERTY;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnumerationDto getType() {
-        if (type != null && type.eIsProxy()) {
-            InternalEObject oldType = (InternalEObject)type;
-            type = (EnumerationDto)eResolveProxy(oldType);
-            if (type != oldType) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE, oldType, type));
-            }
-        }
-        return type;
-    }
+		if (type != null && type.eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (EnumerationDto)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnumerationDto basicGetType() {
-        return type;
-    }
+		return type;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setType(EnumerationDto newType) {
-        EnumerationDto oldType = type;
-        type = newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE, oldType, type));
-    }
+		EnumerationDto oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE, oldType, type));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
-                if (resolve) return getType();
-                return basicGetType();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
-                setType((EnumerationDto)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
+				setType((EnumerationDto)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
-                setType((EnumerationDto)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
+				setType((EnumerationDto)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
-                return type != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
+				return type != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //DtoEnumerationPropertyImpl

@@ -37,133 +37,133 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
  */
 public class CustomDtoImpl extends DtoImpl implements CustomDto {
 	/**
-     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getProperties()
-     * @generated
-     * @ordered
-     */
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<DtoProperty> properties;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CustomDtoImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.CUSTOM_DTO;
-    }
+		return DataContractDslPackage.Literals.CUSTOM_DTO;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<DtoProperty> getProperties() {
-        if (properties == null) {
-            properties = new EObjectContainmentWithInverseEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.CUSTOM_DTO__PROPERTIES, DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO);
-        }
-        return properties;
-    }
+		if (properties == null) {
+			properties = new EObjectContainmentWithInverseEList<DtoProperty>(DtoProperty.class, this, DataContractDslPackage.CUSTOM_DTO__PROPERTIES, DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO);
+		}
+		return properties;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
-                return getProperties();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+				return getProperties();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
-                getProperties().clear();
-                getProperties().addAll((Collection<? extends DtoProperty>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends DtoProperty>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
-                getProperties().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+				getProperties().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
-                return properties != null && !properties.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case DataContractDslPackage.CUSTOM_DTO__PROPERTIES:
+				return properties != null && !properties.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //CustomDtoImpl

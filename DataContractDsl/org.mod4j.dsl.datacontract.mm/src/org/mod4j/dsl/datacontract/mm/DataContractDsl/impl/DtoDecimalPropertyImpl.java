@@ -22,22 +22,22 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty;
  */
 public class DtoDecimalPropertyImpl extends DtoDataPropertyImpl implements DtoDecimalProperty {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DtoDecimalPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return DataContractDslPackage.Literals.DTO_DECIMAL_PROPERTY;
-    }
+		return DataContractDslPackage.Literals.DTO_DECIMAL_PROPERTY;
+	}
 
 } //DtoDecimalPropertyImpl

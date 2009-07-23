@@ -18,12 +18,12 @@
           - project: the name of the project in which tyhe model resides
     -->
     
-    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+    <component class="org.eclipse.xtend.util.stdlib.ExtIssueReporter"/>
 
     <property name="nsUriPrefix" value="appelmoes"/>
  
     <!-- set up EMF for standalone execution -->
-    <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+    <bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
         <platformUri value=".."/>
     </bean>
 
@@ -31,11 +31,11 @@
         Add beans for the Dsl and the Crossx metamodels. Don't use the filenames of the ecore files, because they won't work when the
         plugins are exported and installed.
     -->
-    <bean class="org.mod4j.dsl.datacontract.xtext.MetaModelRegistration"/>
-    <bean id="DataContractDsl" class="oaw.type.emf.EmfMetaModel">
+    <bean class="org.mod4j.dsl.datacontract.xtext.DataContractStandaloneSetup"/>
+    <bean id="DataContractDsl" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />   
     </bean>
-    <bean id="crossx" class="oaw.type.emf.EmfMetaModel">
+    <bean id="crossx" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
     </bean>
     
@@ -43,24 +43,27 @@
         Load the dsl model and store it in slot 'model'
     -->
     <if cond="${isEclipseSetup}">
-        <component id="dtcmod2crossx-modelfileReader" class="org.eclipse.mwe.emf.Reader">
+        <component id="dtcmod2crossx-modelfileReader" class="org.eclipse.emf.mwe.utils.Reader">
             <uri value="${modelfile}" />
             <modelSlot value="model" />
         </component>
     </if>
+<!--  TODO Galileo
     <if cond="${isStandaloneSetup}"> 
         <component id="dtcmod2crossx-modelfileParser" class="org.mod4j.dsl.datacontract.xtext.parser.ParserComponent">
             <modelFile value="${modelfile}"/>
             <outputSlot value="model"/>
         </component>
     </if>
-    
-    <component id="DataContractWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
+-->    
+<!-- TODO Galileo: can be deleted I think
+    <component id="DataContractWorkflow-XtextChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="DataContractDsl" />
         <checkFile value="org::mod4j::dsl::datacontract::xtext::GenChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
-    <component id="DataContractWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+    -->
+    <component id="DataContractWorkflow-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="DataContractDsl" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />
         <emfAllChildrenSlot value="model" />
@@ -69,7 +72,7 @@
     <!-- Call the Xtend model-to-model transformation to complete the DTO model
          with all properties derived from the business classes.
     -->
-    <component id="complteDtc" class="oaw.xtend.XtendComponent">
+    <component id="complteDtc" class="org.eclipse.xtend.XtendComponent">
        <metaModel idRef="DataContractDsl"/>
        <metaModel idRef="crossx"/>
        <invoke value="org::mod4j::dsl::datacontract::generator::xtend::CompleteDtc::completeModel(model)"/>
@@ -79,7 +82,7 @@
         Call the Xtend model-to-model transformation that takes a DslModel as its input
         and returns a Crossx model in the outputSlot.
     -->
-    <component id="XtendComponent.dtcmodel2crossx" class="oaw.xtend.XtendComponent">
+    <component id="XtendComponent.dtcmodel2crossx" class="org.eclipse.xtend.XtendComponent">
        <metaModel idRef="DataContractDsl"/>
        <metaModel idRef="crossx"/>
        <globalVarDef name="nsUriPrefix" value="'${nsUriPrefix}'"/>
@@ -99,7 +102,7 @@
          but migtb be helpfulkl for debugging purposes to check what the Crosssx model looks like.
     -->
     <if cond="${isEclipseSetup}">
-        <component id="dtcmod2crossx-crossxfileWriter" class="org.eclipse.mwe.emf.Writer">
+        <component id="dtcmod2crossx-crossxfileWriter" class="org.eclipse.emf.mwe.utils.Writer">
             <uri value="${crossxfile}" />
             <modelSlot value="crossxModel" />
         </component>

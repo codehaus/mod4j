@@ -14,7 +14,7 @@
     <!-- 
         Initialize workflow and load properties
     -->
-    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+    <component class="org.eclipse.xtend.util.stdlib.ExtIssueReporter"/>
 
     <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
         <propertyFile value="${appPropFilePath}" />
@@ -22,35 +22,36 @@
         <project value="${project}" />
     </component>
 
-    <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+    <bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
         <platformUri value=".."/>
     </bean>
-    <bean class="org.mod4j.dsl.datacontract.xtext.MetaModelRegistration"/>
-    <bean id="dcm" class="oaw.type.emf.EmfMetaModel">
-		<metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />  
-	</bean>
-     <bean id="crossx" class="oaw.type.emf.EmfMetaModel">
+    <bean class="org.mod4j.dsl.datacontract.xtext.DataContractStandaloneSetup"/>
+    <bean id="dcm" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
+        <metaModelPackage value="org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage" />   
+    </bean>
+    <bean id="crossx" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
     </bean>
     
     <!--
         Parse the model file and validate syntax and model constraints
     -->
-    <component class="org.eclipse.mwe.emf.Reader">
+    <component class="org.eclipse.emf.mwe.utils.Reader">
         <uri value="${modelFile}" />
         <modelSlot value="dataContractModel" />
     </component>
-    <component id="DataContractWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
+<!-- TDOD Galileo can be deleted ?    <component id="DataContractWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="dcm" />
         <checkFile value="org::mod4j::dsl::datacontract::xtext::GenChecks" />
         <emfAllChildrenSlot value="dataContractModel" />
     </component>
-    <component id="DataContractWorkflow-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+-->
+    <component id="DataContractWorkflow-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="dcm" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />
         <emfAllChildrenSlot value="dataContractModel" />
     </component>
-    <component id="DataContractWorkflow-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
+    <component id="DataContractWorkflow-CrossxChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="dcm" />
         <metaModel idRef="crossx" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::CrossxChecks" />
@@ -60,7 +61,7 @@
     <!-- Call the Xtend model-to-model transformation to complete the DTO model
          with all properties derived from the business classes.
     -->
-    <component id="complteDtc" class="oaw.xtend.XtendComponent">
+    <component id="complteDtc" class="org.eclipse.xtend.XtendComponent">
        <metaModel idRef="dcm"/>
        <metaModel idRef="crossx"/>
        <invoke value="org::mod4j::dsl::datacontract::generator::xtend::CompleteDtc::completeModel(dataContractModel)"/>
@@ -69,24 +70,25 @@
     <!--
         Generation of sources and resources for the SERVICE layer
     -->
-    <component id="DataContractWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+    <component id="DataContractWorkflow-Generator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="dcm" />
         <metaModel idRef="crossx" />
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::Generate FOR dataContractModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
-            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
     
     <!-- 
         Generation of Maven configuration files.
     -->  
-    <component id="DataContractDslWorkflow-MavenConfigGenerator" class="org.openarchitectureware.xpand2.Generator">
+    <component id="DataContractDslWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="dcm" />
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::generateMavenConfiguration FOR dataContractModel"/>
         <outlet path="${applicationPath}">
-            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
      
