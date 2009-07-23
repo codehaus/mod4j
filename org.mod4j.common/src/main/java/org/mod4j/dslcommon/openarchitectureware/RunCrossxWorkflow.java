@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.mod4j.crossx.mm.crossx.ModelInfo;
-import org.openarchitectureware.workflow.WorkflowRunner;
-import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
+import org.eclipse.emf.mwe.core.WorkflowRunner;
+import org.eclipse.emf.mwe.core.monitor.NullProgressMonitor;
 
 public class RunCrossxWorkflow {
 

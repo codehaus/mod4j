@@ -225,7 +225,7 @@ public class NameMapper {
         return packageName + "." + javaDtoClass(classname);
     }
 
-    private static String javaDtoClass(String classname) {
+    public static String javaDtoClass(String classname) {
         return StringHelpers.firstCharToUpper(classname);
     }
 

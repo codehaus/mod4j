@@ -16,10 +16,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jdom.Document;
-import org.jdom.Element;
 import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
-import org.mod4j.dslcommon.xml.XmlUtil;
 
 public class Mod4jTracker {
 
