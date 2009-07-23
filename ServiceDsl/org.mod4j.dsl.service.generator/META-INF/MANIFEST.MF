@@ -8,7 +8,7 @@ Require-Bundle: org.mod4j.dsl.service.mm;bundle-version="1.1.0",
  org.mod4j.crossx.broker;bundle-version="1.1.0",
  org.mod4j.crossx.mm;bundle-version="1.1.0",
  org.mod4j.eclipse;bundle-version="1.1.0",
- org.openarchitectureware.dependencies
+ org.eclipse.xtend.util.stdlib;bundle-version="0.7.0"
 Bundle-Vendor: org.mod4j
 Export-Package: org.mod4j.dsl.service.generator.helpers,
  org.mod4j.dsl.service.generator.workflow,

@@ -55,7 +55,7 @@ Symbol toSymbol(AssociationMethod method) :
 
 Symbol toSymbol(CustomMethod method) :
     let result = new Symbol :
-    result.properties.add( newProperty("methodType", "AssociationMethod") )->
+    result.properties.add( newProperty("methodType", "CustomMethod") )->
  //   result.properties.add( newProperty("part", method.part.name) )->
  //   result.properties.add( newProperty("whole", method.main.name) )->
     result.setName(method.name) ->
