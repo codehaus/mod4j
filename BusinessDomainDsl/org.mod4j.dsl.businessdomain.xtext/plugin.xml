@@ -1,12 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.5"?>
+
 <plugin>
-   <extension
-         point="org.openarchitectureware.xtext.core.base.dynamic_package">
-   </extension>
-   <extension
-         point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            class="org.mod4j.businessdomain.xtext.resource.BusinessDomainDslResourceFactory"
-            type="busmod">
-      </parser>
-   </extension>
+
+
+
+
 </plugin>
