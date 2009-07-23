@@ -36,232 +36,232 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class EnumerationLiteralImpl extends ModelElementImpl implements EnumerationLiteral {
 	/**
-     * The default value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPersistedValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPersistedValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final int PERSISTED_VALUE_EDEFAULT = 0;
 
 	/**
-     * The cached value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPersistedValue() <em>Persisted Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPersistedValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPersistedValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected int persistedValue = PERSISTED_VALUE_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EnumerationLiteralImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.ENUMERATION_LITERAL;
-    }
+		return BusinessDomainDslPackage.Literals.ENUMERATION_LITERAL;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getPersistedValue() {
-        return persistedValue;
-    }
+		return persistedValue;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPersistedValue(int newPersistedValue) {
-        int oldPersistedValue = persistedValue;
-        persistedValue = newPersistedValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE, oldPersistedValue, persistedValue));
-    }
+		int oldPersistedValue = persistedValue;
+		persistedValue = newPersistedValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE, oldPersistedValue, persistedValue));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Enumeration getEnumeration() {
-        if (eContainerFeatureID != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION) return null;
-        return (Enumeration)eContainer();
-    }
+		if (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION) return null;
+		return (Enumeration)eContainer();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetEnumeration(Enumeration newEnumeration, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newEnumeration, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION, msgs);
-        return msgs;
-    }
+		msgs = eBasicSetContainer((InternalEObject)newEnumeration, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION, msgs);
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEnumeration(Enumeration newEnumeration) {
-        if (newEnumeration != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION && newEnumeration != null)) {
-            if (EcoreUtil.isAncestor(this, newEnumeration))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-            NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newEnumeration != null)
-                msgs = ((InternalEObject)newEnumeration).eInverseAdd(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
-            msgs = basicSetEnumeration(newEnumeration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION, newEnumeration, newEnumeration));
-    }
+		if (newEnumeration != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION && newEnumeration != null)) {
+			if (EcoreUtil.isAncestor(this, newEnumeration))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newEnumeration != null)
+				msgs = ((InternalEObject)newEnumeration).eInverseAdd(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
+			msgs = basicSetEnumeration(newEnumeration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION, newEnumeration, newEnumeration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetEnumeration((Enumeration)otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetEnumeration((Enumeration)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                return basicSetEnumeration(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				return basicSetEnumeration(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
-        }
-        return super.eBasicRemoveFromContainerFeature(msgs);
-    }
+		switch (eContainerFeatureID()) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                return new Integer(getPersistedValue());
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                return getEnumeration();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				return getPersistedValue();
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				return getEnumeration();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                setPersistedValue(((Integer)newValue).intValue());
-                return;
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                setEnumeration((Enumeration)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				setPersistedValue((Integer)newValue);
+				return;
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				setEnumeration((Enumeration)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                setPersistedValue(PERSISTED_VALUE_EDEFAULT);
-                return;
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                setEnumeration((Enumeration)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				setPersistedValue(PERSISTED_VALUE_EDEFAULT);
+				return;
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				setEnumeration((Enumeration)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                return persistedValue != PERSISTED_VALUE_EDEFAULT;
-            case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
-                return getEnumeration() != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
+				return persistedValue != PERSISTED_VALUE_EDEFAULT;
+			case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
+				return getEnumeration() != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (persistedValue: ");
-        result.append(persistedValue);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (persistedValue: ");
+		result.append(persistedValue);
+		result.append(')');
+		return result.toString();
+	}
 
 } //EnumerationLiteralImpl

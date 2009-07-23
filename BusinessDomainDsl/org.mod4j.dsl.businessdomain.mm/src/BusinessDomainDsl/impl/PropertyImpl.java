@@ -312,7 +312,7 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 	 * @generated
 	 */
 	public AbstractType getOwningType() {
-		if (eContainerFeatureID != BusinessDomainDslPackage.PROPERTY__OWNING_TYPE) return null;
+		if (eContainerFeatureID() != BusinessDomainDslPackage.PROPERTY__OWNING_TYPE) return null;
 		return (AbstractType)eContainer();
 	}
 
@@ -332,7 +332,7 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 	 * @generated
 	 */
 	public void setOwningType(AbstractType newOwningType) {
-		if (newOwningType != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.PROPERTY__OWNING_TYPE && newOwningType != null)) {
+		if (newOwningType != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.PROPERTY__OWNING_TYPE && newOwningType != null)) {
 			if (EcoreUtil.isAncestor(this, newOwningType))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -384,7 +384,7 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
 				return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.ABSTRACT_TYPE__PROPERTIES, AbstractType.class, msgs);
 		}
@@ -402,15 +402,15 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 			case BusinessDomainDslPackage.PROPERTY__DATA_TYPE:
 				return getDataType();
 			case BusinessDomainDslPackage.PROPERTY__NULLABLE:
-				return isNullable() ? Boolean.TRUE : Boolean.FALSE;
+				return isNullable();
 			case BusinessDomainDslPackage.PROPERTY__DERIVED:
-				return isDerived() ? Boolean.TRUE : Boolean.FALSE;
+				return isDerived();
 			case BusinessDomainDslPackage.PROPERTY__WRITABLE:
-				return isWritable() ? Boolean.TRUE : Boolean.FALSE;
+				return isWritable();
 			case BusinessDomainDslPackage.PROPERTY__PERSISTENCY:
 				return getPersistency();
 			case BusinessDomainDslPackage.PROPERTY__HAS_DEFAULT:
-				return isHasDefault() ? Boolean.TRUE : Boolean.FALSE;
+				return isHasDefault();
 			case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
 				return getOwningType();
 		}
@@ -429,19 +429,19 @@ public class PropertyImpl extends ModelElementImpl implements Property {
 				setDataType((String)newValue);
 				return;
 			case BusinessDomainDslPackage.PROPERTY__NULLABLE:
-				setNullable(((Boolean)newValue).booleanValue());
+				setNullable((Boolean)newValue);
 				return;
 			case BusinessDomainDslPackage.PROPERTY__DERIVED:
-				setDerived(((Boolean)newValue).booleanValue());
+				setDerived((Boolean)newValue);
 				return;
 			case BusinessDomainDslPackage.PROPERTY__WRITABLE:
-				setWritable(((Boolean)newValue).booleanValue());
+				setWritable((Boolean)newValue);
 				return;
 			case BusinessDomainDslPackage.PROPERTY__PERSISTENCY:
 				setPersistency((PersistencyMode)newValue);
 				return;
 			case BusinessDomainDslPackage.PROPERTY__HAS_DEFAULT:
-				setHasDefault(((Boolean)newValue).booleanValue());
+				setHasDefault((Boolean)newValue);
 				return;
 			case BusinessDomainDslPackage.PROPERTY__OWNING_TYPE:
 				setOwningType((AbstractType)newValue);

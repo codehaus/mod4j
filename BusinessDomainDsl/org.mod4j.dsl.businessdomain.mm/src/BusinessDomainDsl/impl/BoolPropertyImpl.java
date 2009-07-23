@@ -30,137 +30,137 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
 	/**
-     * The default value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isDefaultValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #isDefaultValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean DEFAULT_VALUE_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isDefaultValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #isDefaultValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean defaultValue = DEFAULT_VALUE_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected BoolPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return BusinessDomainDslPackage.Literals.BOOL_PROPERTY;
-    }
+		return BusinessDomainDslPackage.Literals.BOOL_PROPERTY;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isDefaultValue() {
-        return defaultValue;
-    }
+		return defaultValue;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setDefaultValue(boolean newDefaultValue) {
-        boolean oldDefaultValue = defaultValue;
-        defaultValue = newDefaultValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE, oldDefaultValue, defaultValue));
-    }
+		boolean oldDefaultValue = defaultValue;
+		defaultValue = newDefaultValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE, oldDefaultValue, defaultValue));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                return isDefaultValue() ? Boolean.TRUE : Boolean.FALSE;
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
+				return isDefaultValue();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue(((Boolean)newValue).booleanValue());
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
+				setDefaultValue((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue(DEFAULT_VALUE_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
+				setDefaultValue(DEFAULT_VALUE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                return defaultValue != DEFAULT_VALUE_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
+				return defaultValue != DEFAULT_VALUE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (defaultValue: ");
-        result.append(defaultValue);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (defaultValue: ");
+		result.append(defaultValue);
+		result.append(')');
+		return result.toString();
+	}
 
 } //BoolPropertyImpl
