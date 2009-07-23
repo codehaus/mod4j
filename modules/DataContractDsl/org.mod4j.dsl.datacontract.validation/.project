@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<!--  Eclipse project file  -->
 	<name>org.mod4j.dsl.datacontract.validation</name>
 	<comment></comment>
 	<projects>
