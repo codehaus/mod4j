@@ -10,6 +10,6 @@
  *******************************************************************************/
 import BusinessDomainDsl;
 
- 
-UniqueRule uniqueRule (Property property) :
-    ((BusinessClass)property.eContainer).businessRules.typeSelect(UniqueRule).select(e|e.properties.contains(property)).first();
+BusinessDomainDsl::UniqueRule uniqueRule (BusinessDomainDsl::Property property) :
+
+    ((BusinessDomainDsl::BusinessClass)property.eContainer).businessRules.typeSelect(BusinessDomainDsl::UniqueRule).select(e|e.properties.contains(property)).first();
