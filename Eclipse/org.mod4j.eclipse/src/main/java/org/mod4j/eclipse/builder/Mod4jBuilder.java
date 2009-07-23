@@ -349,7 +349,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void startupOnInitialize() {
         System.err.println("Mod4jBuilder.startupOnInitialize");
         if (!initialized) {
-//            CrossxEnvironment.setPrintStream(getConsole());
+            System.err.println("Mod4jBuilder.startupOnInitialize ! initalized");
+            CrossxEnvironment.setPrintStream(getConsole());
             initialized = true;
             startX();
             CrossxEnvironment.setStarted(true);
@@ -395,15 +396,15 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         CrossxView.myrefresh();
     }
     
-//    public void start() {
-//    	System.err.println("Mod4jBuilder.start()");
-//        dslExtensions = Mod4jBuilder.getExtensions();
-//        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-//        for (int i = 0; i < projects.length; i++) {
-//            IProject project = projects[i];
-//            myloadCrossxInfo(project);
-//        }
-//    }
+    public void start() {
+    	System.err.println("Mod4jBuilder.start()");
+        dslExtensions = Mod4jBuilder.getExtensions();
+        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+        for (int i = 0; i < projects.length; i++) {
+            IProject project = projects[i];
+            myloadCrossxInfo(project);
+        }
+    }
 
     public static QualifiedName PROJECT_TRACKER = new QualifiedName("org.mod4j.eclipse", "filetracker");
 
@@ -475,13 +476,14 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
 
             String workDir = getProject().getLocation().toString();
-            OutletDirectoryCleaner genWf = new OutletDirectoryCleaner();
-            try {
-                genWf.clean(workDir, propertiesFilePath);
-            } catch (Mod4jWorkflowException e) {
-                System.err.println("Mod4j: workflow error while cleaning directory for project ["
-                        + getProject().getName() + "]");
-            }
+            // TODO Galileo: directory cleaner does not work yet
+//            OutletDirectoryCleaner genWf = new OutletDirectoryCleaner();
+//            try {
+//                genWf.clean(workDir, propertiesFilePath);
+//            } catch (Mod4jWorkflowException e) {
+//                System.err.println("Mod4j: workflow error while cleaning directory for project ["
+//                        + getProject().getName() + "]");
+//            }
         }
         System.err.println("END clean directories");
     }
