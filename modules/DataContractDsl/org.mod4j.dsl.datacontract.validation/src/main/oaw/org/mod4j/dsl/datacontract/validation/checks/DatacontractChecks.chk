@@ -1,3 +1,4 @@
+// Add line 1 
 import DataContractDsl;
 
 extension org::mod4j::dslcommon::xtend::generatorutil;
@@ -5,8 +6,6 @@ extension org::mod4j::dslcommon::xtend::generatorutil;
 //context DtoProperty ERROR "Property " + this.name + " must have a type [" + this.metaType.name + "]" :
 //    ((this.customDto != null) && (this.metaType == "DataContractDsl::DtoProperty")) ? false : true;
 
-//context DtoProperty ERROR "Property " + this.name + " may not have a type [" + this.metaType.name + "]" :
-//    ((this.businessClassDto != null) && (this.metaType.name != "DataContractDsl::DtoProperty")) ? false : true;
 
 context Dto ERROR "The name of Dto "+ this.name + " must be unique" :
 	this.datacontractModel.dtos.forAll(e|(e != this) implies (!e.name.equalsIgnoreCase(this.name)) )
