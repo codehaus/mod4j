@@ -11,7 +11,7 @@
          Cleaning of output directories.
     -->
     <component id="DirCleaner" class="org.eclipse.emf.mwe.utils.DirectoryCleaner">
-        <directories value="${directories}"/>
+        <directory value="${directories}"/>
     </component>
  
 </workflow>
