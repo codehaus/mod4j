@@ -10,6 +10,7 @@
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="sermod"
+            icon="icons/mod4j-service.ico"
             id="org.mod4j.dsl.service.xtext.Service"
             name="Service Editor">
         </editor>
