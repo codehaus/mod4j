@@ -55,18 +55,7 @@
         </component>
     </if>
     -->
-<!--    
-    <component id="busmod2crossx-xtextChecks" class="org.openarchitectureware.check.CheckComponent">
-        <metaModel idRef="BusinessDomainDsl" />
-        <checkFile value="org::mod4j::businessdomain::xtext::GenChecks" />
-        <emfAllChildrenSlot value="model" />
-    </component>
-    <component id="busmod2crossx-validationChecks" class="org.openarchitectureware.check.CheckComponent">
-        <metaModel idRef="BusinessDomainDsl" />
-        <checkFile value="BusinessDomainDsl::validation::BusinessModelChecks" />
-        <emfAllChildrenSlot value="model" />
-    </component>
- -->
+
      <component id="busmod2crossx-validationChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="BusinessDomainDsl" />
         <checkFile value="BusinessDomainDsl::validation::BusinessModelChecks" />

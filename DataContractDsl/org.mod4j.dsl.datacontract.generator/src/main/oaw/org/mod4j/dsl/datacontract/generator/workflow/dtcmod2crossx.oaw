@@ -56,13 +56,7 @@
         </component>
     </if>
 -->    
-<!-- TODO Galileo: can be deleted I think
-    <component id="DataContractWorkflow-XtextChecks" class="org.eclipse.xtend.check.CheckComponent">
-        <metaModel idRef="DataContractDsl" />
-        <checkFile value="org::mod4j::dsl::datacontract::xtext::GenChecks" />
-        <emfAllChildrenSlot value="model" />
-    </component>
-    -->
+
     <component id="DataContractWorkflow-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="DataContractDsl" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />

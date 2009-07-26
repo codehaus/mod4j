@@ -40,12 +40,7 @@
         <uri value="${modelFile}" />
         <modelSlot value="dataContractModel" />
     </component>
-<!-- TDOD Galileo can be deleted ?    <component id="DataContractWorkflow-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
-        <metaModel idRef="dcm" />
-        <checkFile value="org::mod4j::dsl::datacontract::xtext::GenChecks" />
-        <emfAllChildrenSlot value="dataContractModel" />
-    </component>
--->
+
     <component id="DataContractWorkflow-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="dcm" />
         <checkFile value="org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks" />

@@ -47,12 +47,12 @@ Symbol toElement(EnumerationLiteral lit) :
 
 Symbol toElement(BusinessClass cls) :
     let result = new Symbol :
-    print("MOD4J DEBUG : BusinessClass.toElement[" + cls.name + "]")->
+//    print("MOD4J DEBUG : BusinessClass.toElement[" + cls.name + "]")->
     result.setName(cls.name) ->
     result.setType("BusinessClass")->
     result.subSymbols.addAll(cls.properties.toElement() )->
     (cls.superclass != null ? result.subSymbols.addAll( cls.superclass.properties.toElement()): null)->
-    print("MOD4J DEBUG : BusinessClass.all associations [" + cls.getAllAssociationsTo() +  "]")->
+//    print("MOD4J DEBUG : BusinessClass.all associations [" + cls.getAllAssociationsTo() +  "]")->
     result.subSymbols.addAll( cls.getAllAssociationsTo().toSymbol() )->
     result.subSymbols.addAll( cls.getAllAssociationsFrom().select(e|e.bidirectional).fromSymbol() )->
     result.addContructorOrder(cls)->
@@ -66,7 +66,7 @@ addContructorOrder(Symbol s, BusinessClass cls) :
  */
 crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
     let result = new Symbol :
-    print("MOD4J DEBUG : Association.toSymbol[" + ass.name+ "]")->
+//    print("MOD4J DEBUG : Association.toSymbol[" + ass.name+ "]")->
     result.setName(ass.targetRoleName )->
     result.setType("Association")->
     result.properties.add( multiplicityProperty(ass.targetMultiplicity) )->
@@ -77,7 +77,7 @@ crossx::Symbol toSymbol(BusinessDomainDsl::Association ass) :
 
 crossx::Symbol fromSymbol(BusinessDomainDsl::Association ass) :
     let result = new Symbol :
-    print("MOD4J DEBUG : Association.fromSymbol[" + ass.name+ "]")->
+//    print("MOD4J DEBUG : Association.fromSymbol[" + ass.name+ "]")->
     result.setName(ass.sourceRoleName )->
     result.setType("Association")->
     result.properties.add( multiplicityProperty(ass.sourceMultiplicity) )->
