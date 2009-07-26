@@ -477,13 +477,13 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
             String workDir = getProject().getLocation().toString();
             // TODO Galileo: directory cleaner does not work yet
-//            OutletDirectoryCleaner genWf = new OutletDirectoryCleaner();
-//            try {
-//                genWf.clean(workDir, propertiesFilePath);
-//            } catch (Mod4jWorkflowException e) {
-//                System.err.println("Mod4j: workflow error while cleaning directory for project ["
-//                        + getProject().getName() + "]");
-//            }
+            OutletDirectoryCleaner genWf = new OutletDirectoryCleaner();
+            try {
+                genWf.clean(workDir, propertiesFilePath);
+            } catch (Mod4jWorkflowException e) {
+                System.err.println("Mod4j: workflow error while cleaning directory for project ["
+                        + getProject().getName() + "]");
+            }
         }
         System.err.println("END clean directories");
     }
