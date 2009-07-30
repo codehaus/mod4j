@@ -654,10 +654,12 @@
         <para>Attributes are part of a domain class and defined within the scope of their class. The
           example class person looks as follows.</para>
         <programlisting continuation="continues" linenumbering="numbered" xml:space="preserve"><keycap>class</keycap> Person [
-    <keycap>string</keycap>   name;  <keycap>default</keycap> "the default name"
-                    <keycap>minlength</keycap> 3  <keycap>maxlength</keycap> 10 
-      <keycap>              regexp</keycap> "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
-      <keycap>              nullable</keycap> ;
+    <keycap>string</keycap>   name
+                  <keycap>derived</keycap> [ <keycap>writable</keycap> ]
+                  <keycap>default</keycap> "the default name"
+                  <keycap>minlength</keycap> 3  <keycap>maxlength</keycap> 10 
+                  <keycap>regexp</keycap> "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
+                  <keycap>nullable</keycap> ;
     <keycap>integer</keycap>  numberOfEars;    // optional constraints
     <keycap>datetime</keycap> birthdate;       // optional constraints
     <keycap>decimal</keycap>  length;          // optional constraints
@@ -680,6 +682,17 @@
           sections.</para>
         <para>Each instance of a domain class has its own values for each attribute. These values
           always need to conform to all the rules specified for the domain class.</para>
+        <para>An attribute can be defined as <emphasis>derived</emphasis>, which means that its
+          value is not set directly, but derived from the values of other attributes. The derivation
+          algorithm must be provided by manually implementing the corresponding
+            <emphasis>getter</emphasis> method in the extension point Java class. Normally the
+          derivation algorithm only works one way, so that the derived property is read-only, whichs
+          means that there is no setter for it. A subset of all possible derivation algorithms work
+          both ways, so that the values of the attributes can be derived from the value of the
+          derived attribute. This can be specified by adding the keyword
+            <emphasis>writable</emphasis>. For derived attributes, the reverse derivation algorithm
+          must be provided by manually implementing the corresponding <emphasis>setter</emphasis>
+          method in the extension point for the enclosing class.</para>
       </section>
       <section>
         <title>Generated code</title>
@@ -701,6 +714,11 @@
           explanation of nullable and default value), the attribute is added as a parameter to the
           constructor of the class. This ensures that an object of this class will always be
           correct.</para>
+        <para>For <emphasis>derived</emphasis> attributes the getter in the generated abstract base
+          class is generated <emphasis>abstract</emphasis>, which forces the developer to provide a
+          concrete implementation in the extension point. A abstract getter method is only generated
+          when the derived attribute is also declare <emphasis>writable</emphasis>, which forces the
+          developer to also provide a concrete implementation in the extension point.</para>
         <section>
           <title>String Attribute</title>
           <para>A string attribute is completely denoted as shown below. Note that all constraints
