@@ -253,24 +253,24 @@
 «ENDDEFINE»
 
 «DEFINE many2manyMappingTo FOR Association -»
-        <set name="«this.targetRoleName»" table="«this.source.name»_«this.target.name»">
-            <key column="«this.source.name»_ID" not-null="true" />
-            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.target.name»_ID" />
+        <set name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
+            <key column="«this.sourceRoleName»_ID" not-null="true" />
+            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.targetRoleName»_ID" />
         </set>
 «ENDDEFINE»
 
 «DEFINE orderedMany2manyMappingTo FOR Association -»
-        <list name="«this.targetRoleName»" table="«this.source.name»_«this.target.name»">
-            <key column="«this.source.name»_ID" not-null="true" />
+        <list name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
+            <key column="«this.sourceRoleName»_ID" not-null="true" />
             <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
-            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.target.name»_ID" />
+            <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.targetRoleName»_ID" />
         </list>
 «ENDDEFINE»
 
 
 «DEFINE many2manyMappingFrom FOR Association -»
-        <set name="«this.sourceRoleName»" inverse="true" table="«this.source.name»_«this.target.name»">
-            <key column="«this.target.name»_ID" not-null="true" />
-            <many-to-many class="«javaDomainClass(this.source.name)»" column="«this.source.name»_ID" />
+        <set name="«this.sourceRoleName»" inverse="true" table="«this.sourceRoleName»_«this.targetRoleName»">
+            <key column="«this.targetRoleName»_ID" not-null="true" />
+            <many-to-many class="«javaDomainClass(this.source.name)»" column="«this.sourceRoleName»_ID" />
         </set>
 «ENDDEFINE»
