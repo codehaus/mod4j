@@ -112,8 +112,6 @@ public class ProjectProperties {
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 
-    // TODO remove public static final String BUSINESSRULES_PACKAGE = "businessrules";
-
     public static final String DAO_PACKAGE = "";
 
     public static final String DAO_IMPL_PACKAGE = ".hibernate.spring";
