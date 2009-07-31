@@ -476,7 +476,6 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             String propertiesFilePath = EclipseUtil.resource2FullPathnameString(propertiesFile);
 
             String workDir = getProject().getLocation().toString();
-            // TODO Galileo: directory cleaner does not work yet
             OutletDirectoryCleaner genWf = new OutletDirectoryCleaner();
             try {
                 genWf.clean(workDir, propertiesFilePath);
