@@ -162,11 +162,11 @@
                     </li>
                     <li>
                         You need to generate the code for Xtext and Xtext.ui projects: Right-click the file
-                        <code>org.mod4j.dsl.businessdomain.xtext/src/genXtextEditor.oaw,
+                        <code>org.mod4j.dsl.businessdomain.xtext/src/org.mod4j.dsl.businessdomain.xtext/GenerateBusinessdomain.mwe,
                         </code>
                         and choose
                         <br />
-                        <q>Run As -> oAW Workflow</q>
+                        <q>Run As -> MWE Workflow</q>
                         from the context-menu.
                     </li>
                     <li>
