@@ -18,7 +18,7 @@ import java.io.Reader;
 import org.jdom.Document;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
-// TODO Format not done in Galileo yet
+
 // import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
@@ -85,9 +85,9 @@ public class XmlUtil {
 //            outputter.setFormat(format);
             if (indent != null) {
 
-                // TODO outputter .setIndent(indent); // use four space indent
+                outputter .setIndent(indent); // use four space indent
             }
-            // TODO outputter .setNewlines(newLines);
+            outputter .setNewlines(newLines);
             outputter.output(doc, stream);
         } catch (IOException exc) {
             exc.printStackTrace();
