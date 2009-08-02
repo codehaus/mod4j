@@ -21,11 +21,6 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.openarchitectureware.base.oawBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
 			<name>mod4j.crossx.broker.CrossxBuilder</name>
 			<arguments>
 			</arguments>
@@ -40,7 +35,6 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.mod4j.crossx.broker.CrossxNature</nature>
-		<nature>org.openarchitectureware.base.oawNature</nature>
 		<nature>org.mod4j.eclipse.Mod4jNature</nature>
 	</natures>
 </projectDescription>
