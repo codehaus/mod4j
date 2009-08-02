@@ -21,34 +21,35 @@
                         .
                     </li>
                     <li>
-                        Install Eclipse Ganymede 3.4 SR1 for Java2EE Developers. You can download one from the Eclipse
+                        Install Eclipse 3.5 (Galileo) + TMF Xtext 0.7.1 from the Itemis download site. 
                         <a
-                            href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR1/eclipse-jee-ganymede-SR1-win32.zip">download site</a>
-                        Note that this is not the latest Ganymede release (which is SR2), you need SR1.
+                            href="http://xtext.itemis.com/xtext/language=en/23947/downloads">download site</a>
+                        Note that this is the official Galileo release with ANTLR plugins added for use with Xtext..
                         <br />
                     </li>
                     <li>
                         Use the update manager to install the Ecore Tools. These can be found under the update manager tab
-                        Available Software ==> Ganymede Update Site
-                        ==> Models and Model Development ==> Ecore Tools.
+                        Available Software ==> Galileo ==> Modeling ==> Ecore Tools.
                     </li>
                     <li>
                         Install, using the Update Manager, at least the following plugins into Eclipse:
                         <ul>
                             <li>
-                                OpenArchitectureWare Eclipse 4.3.0 (4.3.0.20080508-1430PRD).
+                                Eclipse IAM (Integration for Apache Maven), formerly called Q4E.
                                 <b>
                                     Update site:
-                                    <code>http://www.openarchitectureware.org/updatesite/milestone/4.3.0/
+                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite-iam/
                                     </code>
+                                    When installing select the following features: Core, Enabling, Tooling.
                                 </b>
                             </li>
                             <li>
-                                QforEclipse 0.8.1 Eclipse plugin for Maven2 projects.
+                                Subversion, plugin for integration with SVN.
                                 <b>
                                     Update site:
-                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite
+                                    <code>http://subclipse.tigris.org/update_1.6.x
                                     </code>
+                                    When installing select all features.
                                 </b>
                             </li>
                         </ul>
@@ -111,6 +112,9 @@
                         <code>modules/org.mod4j.common</code>
                         and
                         <br />
+                        <code>modules/jdom</code>
+                        and
+                        <br />
                         <code>modules/org.mod4j.updatesite</code>
                         and
                         <br />
@@ -157,7 +161,7 @@
                         <br />
                     </li>
                     <li>
-                        You need to generate the code for Xtext and Xtext Editor projects: Right-click the file
+                        You need to generate the code for Xtext and Xtext.ui projects: Right-click the file
                         <code>org.mod4j.dsl.businessdomain.xtext/src/genXtextEditor.oaw,
                         </code>
                         and choose
