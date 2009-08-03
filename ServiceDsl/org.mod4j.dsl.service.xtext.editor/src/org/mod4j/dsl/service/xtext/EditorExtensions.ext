@@ -1,9 +1,0 @@
-import ServiceDsl;
-
-extension org::mod4j::dsl::service::xtext::Extensions reexport;
-extension org::mod4j::dsl::service::xtext::GenEditorExtensions reexport;
-
-/*
- * use this file to overwrite the label() and the image()
- * extension for your model elements
- */
