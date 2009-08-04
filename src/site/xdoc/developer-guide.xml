@@ -19,44 +19,69 @@
                         Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from the
                         <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
+                        <br/><br/>
                     </li>
                     <li>
-                        Install Eclipse 3.5 (Galileo) + TMF Xtext 0.7.1 from the Itemis download site. 
-                        <a
-                            href="http://xtext.itemis.com/xtext/language=en/23947/downloads">download site</a>
-                        Note that this is the official Galileo release with ANTLR plugins added for use with Xtext..
-                        <br />
+                        Install Eclipse 3.5 (Galileo) for Java EE developers. You can download one from the
+                        <a href="http://www.eclipse.org/downloads">Eclipse download site</a>
+                        .
+                        <br/><br/>
                     </li>
                     <li>
-                        Use the update manager to install the Ecore Tools. These can be found under the update manager tab
-                        Available Software ==> Galileo ==> Modeling ==> Ecore Tools.
-                    </li>
-                    <li>
-                        Install, using the Update Manager, at least the following plugins into Eclipse:
-                        <ul>
-                            <li>
-                                Eclipse IAM (Integration for Apache Maven), formerly called Q4E.
-                                <b>
-                                    Update site:
-                                    <code>http://q4e.googlecode.com/svn/trunk/updatesite-iam/
-                                    </code>
-                                    When installing select the following features: Core, Enabling, Tooling.
-                                </b>
-                            </li>
-                            <li>
-                                Subversion, plugin for integration with SVN.
-                                <b>
-                                    Update site:
-                                    <code>http://subclipse.tigris.org/update_1.6.x
-                                    </code>
-                                    When installing select all features.
-                                </b>
-                            </li>
-                        </ul>
+                        Install, using the Update Manager in Eclipse, at least the following plug-ins into Eclipse:
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Eclise plug-in</th>
+                                    <th>Features to select when installing</th>
+                                    <th>Update site</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>Eclipse Xtext and Xpand plug-ins</td>
+                                <td>
+                                    <b> - Xtext Antlr Support 0.7.1</b>
+                                    <br />
+                                    <b> - TMF XTEXT SDK (Incubation) 0.7.1</b>
+                                    <br />
+                                    <b> - M2T XPAND SDK (Incubation) 0.7.1</b>
+                                </td>
+                                <td>
+                                    <b>
+                                        <code>http://download.itemis.com/updates/releases</code>
+                                    </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eclipse IAM (Integration for Apache Maven), formerly called Q4E</td>
+                                <td>
+                                    <b>Core, Enabling, Tooling</b>
+                                </td>
+                                <td>
+                                    <b>
+                                        <code>http://q4e.googlecode.com/svn/trunk/updatesite-iam</code>
+                                    </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Subversion, plug-in for integration with SVN</td>
+                                <td>
+                                    Select all features
+                                </td>
+                                <td>
+                                    <b>
+                                        <code>http://subclipse.tigris.org/update_1.6.x</code>
+                                    </b>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
                     </li>
                     <li> Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
                         'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
-                        users UTF-8 is usually the platform encoding, and no change will be necessary. </li>
+                        users UTF-8 is usually the platform encoding, and no change will be necessary.
+                        <br/><br/>
+                    </li>
                     <li>
                         Install Apache Maven 2.1.0 or higher. For download and install instructions see the
                         <a href="http://maven.apache.org">Apache Maven site</a>
@@ -112,9 +137,6 @@
                         <code>modules/org.mod4j.common</code>
                         and
                         <br />
-                        <code>modules/jdom</code>
-                        and
-                        <br />
                         <code>modules/org.mod4j.updatesite</code>
                         and
                         <br />
@@ -136,7 +158,7 @@
                         <br />
                         <code>org.mod4j.dsl.businessdomain.xtext</code>
                         <br />
-                        <code>org.mod4j.dsl.businessdomain.xtext.editor</code>
+                        <code>org.mod4j.dsl.businessdomain.xtext.ui</code>
                     </li>
                     <li>
                         If you need to (re)generate the modelcode from a meta model, for instance the BusinessDomani meta model:
@@ -200,6 +222,7 @@
             </subsection>
             <subsection name="Modeling">
                 <ol>
+
                     <li>
                         Be sure you start a second Eclipse instance with the right memory settings. Add the following arguments
                         in the "Arguments" tab, see Run > Run Configurations...
@@ -212,7 +235,7 @@
                     </li>
                     <li>
                         To start the second Eclipse instance: Right-click the module
-                        <code>org.mod4j.dsl.businessdomain.xtext.editor</code>
+                        <code>org.mod4j.dsl.businessdomain.xtext.ui</code>
                         and choose
                         <q>Run As -> Eclipse Application</q>
                         from the context menu.
@@ -251,7 +274,7 @@
                         <br />
                         <code>RecordShop-service</code>
                     </li>
-                    <li>In the previous step the Q4E Maven plug-in not always recognizes the source folders correctly. Adjust
+                    <li>In the previous step the IAM Maven plug-in not always recognizes the source folders correctly. Adjust
                         the source
                         folders manually if you encounter compilation failures. Right-click on the project to adjust
                         the "Build
@@ -293,7 +316,7 @@
                     <li>
                         Subscribe yourself to the
                         <a href="http://xircles.codehaus.org/manage_email/dev@mod4j.codehaus.org">developer mailinglist</a>
-                          (dev@mod4j.codehaus.org) and post a short
+                        (dev@mod4j.codehaus.org) and post a short
                         message to introduce your self to the other developers. So all
                         developers know who you are and that
                         there is a new developer active.
