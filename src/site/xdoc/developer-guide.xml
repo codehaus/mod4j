@@ -19,13 +19,15 @@
                         Make sure you've installed Java JDK version 5 (1.5.0_15 or higher). You can download one from the
                         <a href="http://java.sun.com/javase/downloads/index.jsp">Sun download site</a>
                         .
-                        <br/><br/>
+                        <br />
+                        <br />
                     </li>
                     <li>
                         Install Eclipse 3.5 (Galileo) for Java EE developers. You can download one from the
                         <a href="http://www.eclipse.org/downloads">Eclipse download site</a>
                         .
-                        <br/><br/>
+                        <br />
+                        <br />
                     </li>
                     <li>
                         Install, using the Update Manager in Eclipse, at least the following plug-ins into Eclipse:
@@ -75,12 +77,43 @@
                                 </td>
                             </tr>
                         </table>
-                        <br/>
+                        <br />
                     </li>
-                    <li> Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
+                    <li>
+                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can verify and set this in the field
                         'Text file encoding' by navigating to 'Window -> Preferences... -> General -> Workspace'. For Linux
                         users UTF-8 is usually the platform encoding, and no change will be necessary.
-                        <br/><br/>
+                        <br />
+                        <br />
+                    </li>
+                    <li>
+                        Set XML editor preferences. Navigate to 'Window -> Preferences -> XML -> XML Files -> XML Editor' and
+                        <ul>
+                            <li>
+                                Set Line width: to
+                                <b>128</b>
+                            </li>
+                            <li>
+                                Enable Indent using spaces, with a
+                                <b>Indentation size</b>
+                                of
+                                <b>4</b>
+                                <br />
+                                <br />
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Import our Eclipse code formatter for Java. You can download and save the configuration file
+                        <code>smartjava_eclipse_formatter.xml</code>
+                        <a href="http://svn.codehaus.org/mod4j/trunk/modules/org.mod4j.buildtools/src/main/resources/"> here</a>
+                        .
+                        <br />
+                        In Eclipse navigate to Window -> Preferences -> Java -> Code Style -> Formatter and choose
+                        <b>Import</b>
+                        . Select the file <code>smartjava_eclipse_formatter.xml</code>.
+                        <br />
+                        <br />
                     </li>
                     <li>
                         Install Apache Maven 2.1.0 or higher. For download and install instructions see the
@@ -121,11 +154,17 @@
                         for information on how to do this.
                     </li>
                     <li>
-                        Choose "Import" > "
+                        Choose
+                        <b>Import</b>
+                        >
                         <b>Existing Project into Workspace</b>
-                        " and Browse to the
+                        and Browse to the
                         <code>../modules/Crossx</code>
-                        folder. After choosing "Ok and "Finish" the following modules are imported in your workspace:
+                        folder. After choosing
+                        <b>Ok</b>
+                        and
+                        <b>Finish</b>
+                        the following modules are imported in your workspace:
                         <br />
                         <code>org.mod4j.crossx.mm</code>
                         <br />
@@ -143,12 +182,17 @@
                         <code>modules/Eclipse/org.mod4j.eclipse</code>
                     </li>
                     <li>
-                        Choose "Import" > "
+                        Choose
+                        <b>Import</b>
+                        >
                         <b>Existing Project into Workspace</b>
-                        " and Browse to the
+                        and Browse to the
                         <code>../modules/BusinessDomainDsl</code>
-                        folder.
-                        After choosing "Ok" and "Finish" the following modules are imported in your workspace:
+                        folder. After choosing
+                        <b>Ok</b>
+                        and
+                        <b>Finish</b>
+                        the following modules are imported in your workspace:
                         <br />
                         <code>org.mod4j.dsl.businessdomain.generator</code>
                         <br />
@@ -175,11 +219,9 @@
                         <br />
                         Normally you wouldn't need to add generated sources to the version control system (Subverson), but due
                         to not being able for us to perform this step outside Eclipse we've decided -for now- to add the
-                        generated code
-                        (src-gen
-                        folder) to Subversion. So the continuous integration build can build it and other
-                        modules can
-                        depend on it.
+                        generated code (src-gen folder) to Subversion. So the continuous integration build can build it and
+                        other
+                        modules can depend on it.
                         <br />
                     </li>
                     <li>
@@ -204,9 +246,19 @@
                         <b>Maven Project</b>
                         :
                         <br />
-                        Choose "Import" > "Maven2 Project" > "Next" and Browse to the
+                        Choose
+                        <b>Import</b>
+                        >
+                        <b>Maven2 Project</b>
+                        >
+                        <b>Next</b>
+                        and Browse to the
                         <code>modules/org.mod4j.runtime.common</code>
-                        folder. Then choose "Ok' and "Finish".
+                        folder. Then choose
+                        <b>Ok</b>
+                        and
+                        <b>Finish</b>
+                        .
                         <br />
                         Do the same with:
                         <br />
@@ -225,7 +277,12 @@
 
                     <li>
                         Be sure you start a second Eclipse instance with the right memory settings. Add the following arguments
-                        in the "Arguments" tab, see Run > Run Configurations...
+                        in the
+                        <b>Arguments</b>
+                        tab, see
+                        <b>Run</b>
+                        >
+                        <b>Run Configurations...</b>
                         <br />
                         Add to Vm arguments:
                         <q>-Xms512m -Xmx512m -XX:PermSize=512m -XX:MaxPermSize=512m</q>
@@ -241,13 +298,21 @@
                         from the context menu.
                     </li>
                     <li>
-                        Choose "Import" > "
+                        Choose
+                        <b>Import</b>
+                        >
                         <b>Existing Project into Workspace</b>
-                        " and Browse to the
+                        and Browse to the
                         <code>../modules/Examples/RecordShop-ExampleProject/RecordShop-dslModels
                         </code>
                         folder.
-                        After choosing "Ok" and "Finish" the following modules are imported in your workspace:
+                        After choosing
+                        <b>Ok</b>
+                        and
+                        <b>
+                            Finish
+                        </b>
+                        the following modules are imported in your workspace:
                         <br />
                         <code>RecordShop-dslModels</code>
                     </li>
@@ -256,15 +321,27 @@
                         <b>Maven Project</b>
                         :
                         <br />
-                        Choose "Import" > "Maven2 Project" > "Next" and Browse to the
+                        Choose
+                        <b>Import</b>
+                        >
+                        <b>Maven2 Project</b>
+                        >
+                        <b>Next</b>
+                        and Browse to the
                         <code>../modules/Examples/RecordShop-ExampleProject</code>
-                        folder. Then choose "Ok'
+                        folder. Then choose
+                        <b>Ok</b>
                         <br />
                         Uncheck the RecordShop-dslModels module (you already imported this one in the previous step)
                         and klick
-                        "Finish".
+                        <b>Finish</b>
+                        .
                         <br />
-                        After choosing "Ok" and "Finish" the following modules are imported in your workspace:
+                        After choosing
+                        <b>Ok</b>
+                        and
+                        <b>Finish</b>
+                        the following modules are imported in your workspace:
                         <br />
                         <code>RecordShop-domain</code>
                         <br />
