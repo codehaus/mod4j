@@ -22,15 +22,12 @@ import org.eclipse.xtext.scoping.IScopedElement;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.scoping.impl.ScopedElement;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
-import org.mod4j.crossx.broker.CrossxEnvironment;
-import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
-import org.mod4j.eclipse.util.EclipseUtil;
 
 public class DataContractScopeProvider extends AbstractDeclarativeScopeProvider {
 
