@@ -87,14 +87,14 @@ at http://www.eclipse.org.
          unpack="false"/>
 
    <plugin
-         id="org.mod4j.dsl.datacontract.xtext.editor"
+         id="org.mod4j.eclipse"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.mod4j.eclipse"
+         id="org.mod4j.dsl.datacontract.xtext.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

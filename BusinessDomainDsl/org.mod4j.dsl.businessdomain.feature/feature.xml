@@ -89,14 +89,14 @@ at http://www.eclipse.org.
          unpack="false"/>
 
    <plugin
-         id="org.mod4j.dsl.businessdomain.xtext.editor"
+         id="org.mod4j.common"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.mod4j.common"
+         id="org.mod4j.dsl.businessdomain.xtext.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
