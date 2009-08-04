@@ -10,9 +10,5 @@ Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,
  org.mod4j.dsl.service.mm.ServiceDsl.impl,
  org.mod4j.dsl.service.mm.ServiceDsl.util,
  org.mod4j.dsl.service.mm.xtend
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.mod4j.crossx.broker;bundle-version="1.1.0",
- org.mod4j.crossx.mm;bundle-version="1.1.0",
- org.mod4j.common;bundle-version="1.1.0"
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport
 Eclipse-LazyStart: true
