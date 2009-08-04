@@ -20,6 +20,7 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
 // import org.jdom.output.Format;
+import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 /**
@@ -78,16 +79,11 @@ public class XmlUtil {
     public static void writeDocument(Document doc, FileOutputStream stream, boolean newLines, String indent) {
         try {
             XMLOutputter outputter = new XMLOutputter();
-            // TODO Format not in Galileo yet
-//            Format format = Format.getPrettyFormat();
-//            format.setIndent(indent);
-//            
-//            outputter.setFormat(format);
+            Format format = Format.getPrettyFormat();
             if (indent != null) {
-
-                outputter .setIndent(indent); // use four space indent
+                format.setIndent(indent);
             }
-            outputter .setNewlines(newLines);
+            outputter.setFormat(format);
             outputter.output(doc, stream);
         } catch (IOException exc) {
             exc.printStackTrace();
