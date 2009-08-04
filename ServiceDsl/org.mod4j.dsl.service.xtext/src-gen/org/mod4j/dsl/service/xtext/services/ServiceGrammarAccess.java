@@ -488,45 +488,46 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		private final EnumLiteralDeclaration cFINDEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
 		private final Keyword cFINDFindKeyword_5_0 = (Keyword)cFINDEnumLiteralDeclaration_5.eContents().get(0);
 		
-		//enum SpecialMethodType returns MethodType : CREATE = "create" | READ = "read" | UPDATE =
-		//"update" | DELETE = "delete" | LISTALL = "listall" | FIND = "find" ;
+		//enum SpecialMethodType returns MethodType:
+		//  CREATE="create" | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall" |
+		//  FIND="find";
 		public EnumRule getRule() { return rule; }
 
-		//CREATE = "create" | READ = "read" | UPDATE = "update" | DELETE = "delete" | LISTALL = "listall" |
-		//FIND = "find"
+		//CREATE="create" | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall" |
+		//FIND="find"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//CREATE = "create"
+		//CREATE="create"
 		public EnumLiteralDeclaration getCREATEEnumLiteralDeclaration_0() { return cCREATEEnumLiteralDeclaration_0; }
 
 		//"create"
 		public Keyword getCREATECreateKeyword_0_0() { return cCREATECreateKeyword_0_0; }
 
-		//READ = "read"
+		//READ="read"
 		public EnumLiteralDeclaration getREADEnumLiteralDeclaration_1() { return cREADEnumLiteralDeclaration_1; }
 
 		//"read"
 		public Keyword getREADReadKeyword_1_0() { return cREADReadKeyword_1_0; }
 
-		//UPDATE = "update"
+		//UPDATE="update"
 		public EnumLiteralDeclaration getUPDATEEnumLiteralDeclaration_2() { return cUPDATEEnumLiteralDeclaration_2; }
 
 		//"update"
 		public Keyword getUPDATEUpdateKeyword_2_0() { return cUPDATEUpdateKeyword_2_0; }
 
-		//DELETE = "delete"
+		//DELETE="delete"
 		public EnumLiteralDeclaration getDELETEEnumLiteralDeclaration_3() { return cDELETEEnumLiteralDeclaration_3; }
 
 		//"delete"
 		public Keyword getDELETEDeleteKeyword_3_0() { return cDELETEDeleteKeyword_3_0; }
 
-		//LISTALL = "listall"
+		//LISTALL="listall"
 		public EnumLiteralDeclaration getLISTALLEnumLiteralDeclaration_4() { return cLISTALLEnumLiteralDeclaration_4; }
 
 		//"listall"
 		public Keyword getLISTALLListallKeyword_4_0() { return cLISTALLListallKeyword_4_0; }
 
-		//FIND = "find"
+		//FIND="find"
 		public EnumLiteralDeclaration getFINDEnumLiteralDeclaration_5() { return cFINDEnumLiteralDeclaration_5; }
 
 		//"find"
@@ -543,26 +544,26 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		private final EnumLiteralDeclaration cGETFROMEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cGETFROMGetKeyword_2_0 = (Keyword)cGETFROMEnumLiteralDeclaration_2.eContents().get(0);
 		
-		//enum AssociationMethodType returns MethodType : ADDTO = "add" | REMOVEFROM = "remove" |
-		//GETFROM = "get" ;
+		//enum AssociationMethodType returns MethodType:
+		//  ADDTO="add" | REMOVEFROM="remove" | GETFROM="get";
 		public EnumRule getRule() { return rule; }
 
-		//ADDTO = "add" | REMOVEFROM = "remove" | GETFROM = "get"
+		//ADDTO="add" | REMOVEFROM="remove" | GETFROM="get"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//ADDTO = "add"
+		//ADDTO="add"
 		public EnumLiteralDeclaration getADDTOEnumLiteralDeclaration_0() { return cADDTOEnumLiteralDeclaration_0; }
 
 		//"add"
 		public Keyword getADDTOAddKeyword_0_0() { return cADDTOAddKeyword_0_0; }
 
-		//REMOVEFROM = "remove"
+		//REMOVEFROM="remove"
 		public EnumLiteralDeclaration getREMOVEFROMEnumLiteralDeclaration_1() { return cREMOVEFROMEnumLiteralDeclaration_1; }
 
 		//"remove"
 		public Keyword getREMOVEFROMRemoveKeyword_1_0() { return cREMOVEFROMRemoveKeyword_1_0; }
 
-		//GETFROM = "get"
+		//GETFROM="get"
 		public EnumLiteralDeclaration getGETFROMEnumLiteralDeclaration_2() { return cGETFROMEnumLiteralDeclaration_2; }
 
 		//"get"
@@ -643,8 +644,9 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		return getAssociationMethodAccess().getRule();
 	}
 
-	//enum SpecialMethodType returns MethodType : CREATE = "create" | READ = "read" | UPDATE =
-	//"update" | DELETE = "delete" | LISTALL = "listall" | FIND = "find" ;
+	//enum SpecialMethodType returns MethodType:
+	//  CREATE="create" | READ="read" | UPDATE="update" | DELETE="delete" | LISTALL="listall" |
+	//  FIND="find";
 	public SpecialMethodTypeElements getSpecialMethodTypeAccess() {
 		return (unknownRuleSpecialMethodType != null) ? unknownRuleSpecialMethodType : (unknownRuleSpecialMethodType = new SpecialMethodTypeElements());
 	}
@@ -653,8 +655,8 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		return getSpecialMethodTypeAccess().getRule();
 	}
 
-	//enum AssociationMethodType returns MethodType : ADDTO = "add" | REMOVEFROM = "remove" |
-	//GETFROM = "get" ;
+	//enum AssociationMethodType returns MethodType:
+	//  ADDTO="add" | REMOVEFROM="remove" | GETFROM="get";
 	public AssociationMethodTypeElements getAssociationMethodTypeAccess() {
 		return (unknownRuleAssociationMethodType != null) ? unknownRuleAssociationMethodType : (unknownRuleAssociationMethodType = new AssociationMethodTypeElements());
 	}
@@ -731,38 +733,38 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 	}
 
 	//terminal ID:
-	//  "^" ? ( "a" .. "z" | "A" .. "Z" | "_" ) ( "a" .. "z" | "A" .. "Z" | "_" | "0" .. "9" ) *;
+	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
-	//  "0" .. "9" +;
+	//  "0".."9"+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
-	//  "\"" ( "\\" ( "b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\" ) | ! ( "\\" | "\"" ) ) * "\"" | "\'" ( "\\" ( "b" |
-	//  "t" | "n" | "f" | "r" | "\"" | "\'" | "\\" ) | ! ( "\\" | "\'" ) ) * "\'";
+	//  "\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" |
+	//  "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
-	//  "/ *" -> "* /";
+	//  "/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
-	//  "//" ! ( "\n" | "\r" ) * ( "\r" ? "\n" ) ?;
+	//  "//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
-	//  ( " " | "\t" | "\r" | "\n" ) +;
+	//  (" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
