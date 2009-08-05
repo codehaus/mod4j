@@ -16,7 +16,7 @@ Require-Bundle: org.mod4j.dsl.service.mm;bundle-version="1.1.0",
  org.eclipse.ui
 Eclipse-LazyStart: true
 Bundle-Vendor: mod4j.org
-Bundle-Activator: org.mod4j.dsl.service.xtext.internal.ServiceActivator
+Bundle-Activator: org.mod4j.dsl.service.xtext.Mod4jServiceActivator
 Export-Package: org.mod4j.dsl.service.xtext,
  org.mod4j.dsl.service.xtext.contentassist,
  org.mod4j.dsl.service.xtext.contentassist.antlr,
