@@ -184,11 +184,15 @@ public class Mod4jProjectCreator  {
 			maniContent.append("Require-Bundle: ");
 			// bundles
 			if (requiredBundles != null && requiredBundles.length > 0) {
-				for (String entry : requiredBundles) {
-					maniContent.append(" " + entry + ",\n");
-				}
+			    for (int i = 0; i < requiredBundles.length; i++) {
+                    String entry = requiredBundles[i];
+                    if( i == requiredBundles.length - 1) {
+                        maniContent.append(" " + entry + "\n");
+                    } else {
+                        maniContent.append(" " + entry + ",\n");
+                    }
+                }
 			}
-			maniContent.append(" org.openarchitectureware.dependencies\n");
 			// packages
 			if (exportedPackages != null && !exportedPackages.isEmpty()) {
 				maniContent.append("Require-Bundle: " + exportedPackages.get(0));
