@@ -21,25 +21,17 @@
 	«FILE generate(getDataModuleName(), getDataRootPackageAsPath() + "/beanRefContext.xml")-»
 		«EXPAND HibernateConfiguration::hibernateheader     FOR this»
 	«ENDFILE»
-	
-	«IF shouldRegenerate(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml"))»
-	    «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
-			«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
-		«ENDFILE»
-	«ELSE»
-	    «retain(getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")»
-	«ENDIF»
 
     «IF !fileExist(fullExtendPath(getDataModuleName(), "/" + getEnvPropFileName()))»
         «FILE extend(getDataModuleName(), "/" + getEnvPropFileName())»
-            «EXPAND HibernateDataLayerContextBase::environmentprops FOR this»
+            «EXPAND HibernateDataLayerContext::environmentprops FOR this»
         «ENDFILE»
     «ELSE»
         «retain(getDataModuleName(), "/" + getEnvPropFileName())»
     «ENDIF»
 
-	«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContextBase.xml")-»
-    	«EXPAND HibernateDataLayerContextBase::datalayercontextbase FOR this»
+	«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")-»
+    	«EXPAND HibernateDataLayerContext::datalayercontextbase FOR this»
 	«ENDFILE»
 
    	«FOREACH this.types.typeSelect(BusinessClass) AS class»

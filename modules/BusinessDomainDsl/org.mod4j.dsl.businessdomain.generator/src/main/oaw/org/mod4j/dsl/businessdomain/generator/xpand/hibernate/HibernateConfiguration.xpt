@@ -31,18 +31,6 @@
             </list>
         </constructor-arg>
         <constructor-arg>
-            <ref bean="«getDataRootPackage()».ContextBase"/>
-        </constructor-arg>
-    </bean>
-
-    <bean id="«getDataRootPackage()».ContextBase"
-        class="org.springframework.context.support.ClassPathXmlApplicationContext">
-        <constructor-arg>
-            <list>
-                <value>/«getDataRootPackageAsPath()»/applicationContextBase.xml</value>
-            </list>
-        </constructor-arg>
-        <constructor-arg>
             <ref bean="mod4jCommonContext"/>
         </constructor-arg>
     </bean>

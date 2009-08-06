@@ -581,9 +581,7 @@
               </listitem>
               <listitem>
                 <para>Spring configuration files are generated (beanRefContext.xml and
-                  applicationContextbase.xml) for the application as a whole. This is done using the
-                  spring variant of the generation gap pattern as described in <xref
-                    linkend="section-generation-gap-pattern"/></para>
+                  applicationContext.xml) for the application as a whole.</para>
               </listitem>
               <listitem>
                 <para>A Dao (Data Access Object) is generated. The dao normally consists of one

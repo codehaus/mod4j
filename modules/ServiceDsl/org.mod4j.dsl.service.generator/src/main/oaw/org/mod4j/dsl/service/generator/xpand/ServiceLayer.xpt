@@ -39,16 +39,8 @@
 	«FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/beanRefContext.xml")»
 	    «EXPAND  ServiceLayerBeanRefContext::GenBeanRefContext FOR this» 
 	«ENDFILE»
-	
-	«IF shouldRegenerate(fullExtendPath(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml"))»
-		«FILE extend(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
-		    «EXPAND  ServiceLayerContext::GenServiceLayerContext FOR this» 
-		«ENDFILE»
-	«ELSE»
-	    «retain(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
-    «ENDIF»
 
-	«FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContextBase.xml")»
+	«FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
 	    «EXPAND  ServiceLayerImplBaseContext::GenServiceLayerImplBaseContext FOR this» 
 	«ENDFILE»
   

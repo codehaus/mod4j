@@ -31,18 +31,6 @@
             </list>
         </constructor-arg>
         <constructor-arg>
-            <ref bean="«getBusinessRootPackage()».ContextBase"/>
-        </constructor-arg>
-    </bean>
-    
-    <bean id="«getBusinessRootPackage()».ContextBase"
-		class="org.springframework.context.support.ClassPathXmlApplicationContext">
-        <constructor-arg>
-            <list>
-                <value>/«getBusinessRootPackageAsPath()»/applicationContextBase.xml</value>
-            </list>
-        </constructor-arg>
-        <constructor-arg>
             <ref bean="«getDataRootPackage()».Context"/>
         </constructor-arg>
     </bean>

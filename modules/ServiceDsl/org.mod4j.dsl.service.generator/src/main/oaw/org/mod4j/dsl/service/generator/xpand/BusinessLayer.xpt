@@ -48,15 +48,7 @@
 	    «EXPAND  BusinessLayerBeanRefContext::GenBeanRefContext FOR this» 
 	«ENDFILE»
 	
-	«IF shouldRegenerate(fullExtendPath(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml"))»
-	    «FILE extend(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
-	    	«EXPAND  BusinessLayerContext::GenBusinessLayerContext FOR this» 
-		«ENDFILE»
-	«ELSE»
-	    «retain(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
-	«ENDIF»
-	
-    «FILE generate(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContextBase.xml")»
+    «FILE generate(getBusinessModuleName(), getBusinessRootPackageAsPath() + "/applicationContext.xml")»
 	    «EXPAND  BusinessLayerContextImplBase::GenBusinessLayerContextImplBase FOR this» 
 	«ENDFILE»
 	
