@@ -97,6 +97,16 @@
             </roles>
             <timezone>1</timezone>
         </developer>
+        <developer>
+            <name>Vincent Lussenburg</name>
+            <email>vincent.lussenburg@gmail.com</email>
+            <organization>Ordina</organization>
+            <organizationUrl>http://www.ordina.nl</organizationUrl>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>1</timezone>
+        </developer>
     </developers>
     <contributors>
         <contributor>
@@ -247,6 +257,12 @@
                 <type>mail</type>
                 <configuration>
                     <address>jim.van.dam@hipes.nl</address>
+                </configuration>
+            </notifier>
+            <notifier>
+                <type>mail</type>
+                <configuration>
+                    <address>vincent.lussenburg@gmail.com</address>
                 </configuration>
             </notifier>
         </notifiers>
