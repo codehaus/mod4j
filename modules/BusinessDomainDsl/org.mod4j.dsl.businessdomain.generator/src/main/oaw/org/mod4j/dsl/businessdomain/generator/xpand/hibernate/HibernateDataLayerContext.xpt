@@ -17,16 +17,14 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
-«DEFINE datalayercontextbase FOR BusinessDomainDsl::BusinessDomainModel»
+«DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated at «timestamp()» by Mod4j --> 
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
-    xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:aop="http://www.springframework.org/schema/aop">
 
     <aop:config>
@@ -49,41 +47,6 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 «ENDFOREACH»
-
-    <!-- hibernate wiring -->
-    <bean id="sessionFactory"
-        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-        <property name="dataSource">
-            <ref local="dataSource" />
-        </property>
-        <property name="mappingResources">
-            <list>
-«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
-                <value>«getDomainRootPackageAsPath()»/«clsName».hbm.xml</value>
-«ENDFOREACH -»
-            </list>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.cache.use_second_level_cache">true</prop>
-                <prop key="hibernate.cache.use_query_cache">true</prop>
-                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
-                <prop key="hibernate.hbm2ddl.auto">«getHibernate_hbm2ddl_auto()»</prop>
-            </props>
-        </property>
-    </bean>
-
-    <bean id="dataSource"
-        class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/«getApplicationName()»DS" />
-        <property name="lookupOnStartup" value="false" />
-        <property name="cache" value="true" />
-        <property name="proxyInterface" value="javax.sql.DataSource" />
-    </bean>
-
     <bean
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
@@ -105,4 +68,57 @@ hibernate.dialect=org.hibernate.dialect.DerbyDialect
 #hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
 #hibernate.dialect=org.hibernate.dialect.Oracle9Dialect
 #hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+«ENDDEFINE»
+
+«DEFINE sessionFactoryContext FOR BusinessDomainDsl::BusinessDomainModel»
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at «timestamp()» by Mod4j --> 
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+    <!-- hibernate wiring -->
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+        <property name="mappingResources">
+            <list>
+«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
+                <value>«getDomainRootPackageAsPath()»/«clsName».hbm.xml</value>
+«ENDFOREACH -»
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+                <prop key="hibernate.hbm2ddl.auto">«getHibernate_hbm2ddl_auto()»</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
+«ENDDEFINE»
+
+«DEFINE dataSourceContext FOR BusinessDomainDsl::BusinessDomainModel»
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at «timestamp()» by Mod4j --> 
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="dataSource"
+        class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/«getApplicationName()»DS" />
+        <property name="lookupOnStartup" value="false" />
+        <property name="cache" value="true" />
+        <property name="proxyInterface" value="javax.sql.DataSource" />
+    </bean>
+</beans>
 «ENDDEFINE»

@@ -28,6 +28,8 @@
         <constructor-arg>
             <list>
                 <value>/«getDataRootPackageAsPath()»/applicationContext.xml</value>
+                <value>/«getDataRootPackageAsPath()»/dataSourceContext.xml</value>
+                <value>/«getDataRootPackageAsPath()»/sessionFactoryContext.xml</value>
             </list>
         </constructor-arg>
         <constructor-arg>

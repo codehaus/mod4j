@@ -31,8 +31,24 @@
     «ENDIF»
 
 	«FILE generate( getDataModuleName(), getDataRootPackageAsPath() + "/applicationContext.xml")-»
-    	«EXPAND HibernateDataLayerContext::datalayercontextbase FOR this»
+    	«EXPAND HibernateDataLayerContext::datalayercontext FOR this»
 	«ENDFILE»
+	
+	«IF shouldRegenerate(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml"))»
+        «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
+            «EXPAND HibernateDataLayerContext::sessionFactoryContext FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getDataModuleName(), getDataRootPackageAsPath() + "/sessionFactoryContext.xml")»
+    «ENDIF»
+    
+    «IF shouldRegenerate(fullExtendPath(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml"))»
+        «FILE extend(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml")»
+            «EXPAND HibernateDataLayerContext::dataSourceContext FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getDataModuleName(), getDataRootPackageAsPath() + "/dataSourceContext.xml")»
+    «ENDIF»
 
    	«FOREACH this.types.typeSelect(BusinessClass) AS class»
 		«FILE generate(getDataModuleName(), getDomainRootPackageAsPath() + "/" + hibernateMappingFile(class.name) )»
