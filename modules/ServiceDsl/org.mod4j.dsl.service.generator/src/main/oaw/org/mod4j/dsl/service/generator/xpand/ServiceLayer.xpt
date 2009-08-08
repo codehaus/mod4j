@@ -43,6 +43,23 @@
 	«FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/applicationContext.xml")»
 	    «EXPAND  ServiceLayerImplBaseContext::GenServiceLayerImplBaseContext FOR this» 
 	«ENDFILE»
+    
+    «IF shouldRegenerate(fullExtendPath(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml"))»
+        «FILE extend(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml")»
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at «timestamp()»  by Mod4j -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+            <tx:jta-transaction-manager/>
+</beans>
+        «ENDFILE»
+    «ELSE»
+        «retain(getServiceModuleName(), getServiceRootPackageAsPath() + "/transactionManagerContext.xml")»
+    «ENDIF»
   
 «ENDDEFINE»
 

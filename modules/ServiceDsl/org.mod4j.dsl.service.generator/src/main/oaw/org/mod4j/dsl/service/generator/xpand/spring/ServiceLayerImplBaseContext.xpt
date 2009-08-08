@@ -50,8 +50,6 @@
     </aop:config>
     «ENDFOREACH»
 
-    <tx:jta-transaction-manager/>
-
     «FOREACH allServices AS service»
     <tx:advice id="txAdvice«service.name.toFirstLower()»Service"
         transaction-manager="transactionManager">

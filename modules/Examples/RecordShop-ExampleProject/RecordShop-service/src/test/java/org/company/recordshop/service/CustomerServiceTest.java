@@ -24,6 +24,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 		"/org/company/recordshop/data/applicationContext.xml",
 		"/org/company/recordshop/business/applicationContext.xml",
         "/org/company/recordshop/service/testDataSourceContext.xml",
+        "/org/company/recordshop/service/transactionManagerContext.xml",
 		"/org/company/recordshop/service/testContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class CustomerServiceTest extends
