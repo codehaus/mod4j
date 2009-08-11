@@ -427,6 +427,11 @@
         </repository>
         -->
         <repository>
+            <id>mod4j-m2-repository</id>
+            <name>Mod4j Maven Repository</name>
+            <url>http://dist.codehaus.org/mod4j/m2-repo</url>
+        </repository>
+        <repository>
             <id>codehaus.snapshots-repo</id>
             <url>http://snapshots.repository.codehaus.org</url>
             <snapshots>
