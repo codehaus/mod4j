@@ -21,10 +21,6 @@
         </resources>
     </build>
     <dependencies>
-         <dependency>
-            <groupId>org.openarchitectureware</groupId>
-            <artifactId>oaw-dependencies</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-datacontract-mm</artifactId>

@@ -109,7 +109,7 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
      * Add all default extensions to the dslExtension list. The default extensions are: <br>
      * 1- BusinesDomainDsl (Mod4j) <br>
      * 2- DataContractDsl (Mod4j) <br>
-     * 3- ServiceDsl (Mod4j)
+     * 3- ServiceDsl (Mod4j) <br>
      * 4- PresentationDsl (Mod4j)
      */
     private void addDefaultDslExtensions() {
@@ -129,10 +129,14 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
                 "org/mod4j/dsl/service/generator/workflow/sermod2crossx.oaw",
                 "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorPropertiesFileName));
         
-        dslExtensions.add(new DslExtension("Mod4j", "PresentationDsl",
+        /*
+         * TODO Enable when PresentationDsl is ready
+         * 
+         * dslExtensions.add(new DslExtension("Mod4j", "PresentationDsl",
                 "org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage", ".pmfmod", 
                 "org/mod4j/dsl/presentation/generator/workflow/pmfmod2crossx.oaw",
                 "org/mod4j/dsl/presentation/generator/workflow/PresentationDsl.oaw", generatorPropertiesFileName));
+        */
     }
 
     /**

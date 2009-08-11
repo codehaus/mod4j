@@ -25,9 +25,7 @@
         <dependency>
             <groupId>org.eclipse.emf</groupId>
             <artifactId>ecore</artifactId>
-            <!--  TODO: version should be 2.3.2.v20080251830 -->
-            <version>2.4.0</version>
-            <type>jar</type>
+            <version>2.5.0</version>
         </dependency>
     </dependencies>
 </project>

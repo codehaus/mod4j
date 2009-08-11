@@ -40,13 +40,20 @@
     </bean>
     
     <!-- Load the Dsl modelfile and store it in slot 'model' -->
+    <component id="service2crossx-modelfileReader" class="org.eclipse.xtext.MweReader" 
+	            uri="${modelfile}"
+	            outputSlot="model">
+		<register class="org.mod4j.dsl.service.xtext.ServiceStandaloneSetup"/>
+	</component>
+
+<!--    
     <if cond="${isEclipseSetup}">
         <component class="org.eclipse.emf.mwe.utils.Reader">
             <uri value="${modelfile}" />
             <modelSlot value="model" />
         </component>
     </if>
-<!-- TODO Galileo
+ TODO Galileo
     <if cond="${isStandaloneSetup}">
         <component id="ServiceDsl-parser" class="org.mod4j.dsl.service.xtext.parser.ParserComponent">
             <modelFile value="${modelfile}"/>

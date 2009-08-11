@@ -42,13 +42,20 @@
     <!-- 
         Load the dsl model and store it in slot 'model'
     -->
+    <component id="dtcmod2crossx-modelfileReader" class="org.eclipse.xtext.MweReader" 
+	            uri="${modelfile}"
+	            outputSlot="model">
+		<register class="org.mod4j.dsl.datacontract.xtext.DataContractStandaloneSetup"/>
+	</component>
+
+<!--    
     <if cond="${isEclipseSetup}">
         <component id="dtcmod2crossx-modelfileReader" class="org.eclipse.emf.mwe.utils.Reader">
             <uri value="${modelfile}" />
             <modelSlot value="model" />
         </component>
     </if>
-<!--  TODO Galileo
+  TODO Galileo
     <if cond="${isStandaloneSetup}"> 
         <component id="dtcmod2crossx-modelfileParser" class="org.mod4j.dsl.datacontract.xtext.parser.ParserComponent">
             <modelFile value="${modelfile}"/>
