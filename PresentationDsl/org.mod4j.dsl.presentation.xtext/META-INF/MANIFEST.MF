@@ -2,15 +2,27 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PresentationDsl Plug-in
 Bundle-SymbolicName: org.mod4j.dsl.presentation.xtext;singleton:=true
-Bundle-Version: 1.0.0
-Require-Bundle: org.openarchitectureware.dependencies;visibility:=reexport,
- org.antlr;visibility:=reexport,
- org.openarchitectureware.xtext.core.base;visibility:=reexport,
- org.openarchitectureware.xtext.generator,
- org.mod4j.crossx.broker;bundle-version="1.1.0",
+Bundle-Version: 1.1.0.qualifier
+Require-Bundle: org.mod4j.crossx.broker;bundle-version="1.1.0",
  org.mod4j.crossx.mm;bundle-version="1.1.0",
- org.mod4j.dsl.presentation.mm;bundle-version="1.1.0"
+ org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
+ org.eclipse.xtext,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.xtext.log4j;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtend,
+ com.ibm.icu;bundle-version="4.0.1",
+ de.itemis.xtext.antlr;bundle-version="0.7.0",
+ org.mod4j.common;bundle-version="1.1.0"
 Eclipse-LazyStart: true
 Export-Package: org.mod4j.dsl.presentation.xtext,
- org.mod4j.dsl.presentation.xtext.parser
-
+ org.mod4j.dsl.presentation.xtext.services,
+ org.mod4j.dsl.presentation.xtext.parseTreeConstruction,
+ org.mod4j.dsl.presentation.xtext.validation,
+ org.mod4j.dsl.presentation.xtext.parser.antlr
