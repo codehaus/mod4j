@@ -22,22 +22,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class DtoPropertyReferenceImpl extends NamedReferenceImpl implements DtoPropertyReference {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DtoPropertyReferenceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.DTO_PROPERTY_REFERENCE;
-	}
+        return PresentationDslPackage.Literals.DTO_PROPERTY_REFERENCE;
+    }
 
 } //DtoPropertyReferenceImpl

@@ -3,16 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: org.mod4j.dsl.presentation.xtext.generator
 Bundle-SymbolicName: org.mod4j.dsl.presentation.generator;singleton:=true
 Bundle-Version: 1.0.0
-Require-Bundle: org.mod4j.dsl.presentation.xtext,
- org.openarchitectureware.xtext.core,
- org.antlr,
- org.openarchitectureware.xtext.core.base,
- org.openarchitectureware.xtext.editor.base,
- org.openarchitectureware.xtext.generator,
- org.openarchitectureware.dependencies,
- org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
- org.mod4j.dsl.presentation.validation;bundle-version="1.1.0",
+Require-Bundle: org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
  org.mod4j.common;bundle-version="1.1.0",
  org.mod4j.crossx.broker;bundle-version="1.1.0",
- org.mod4j.crossx.mm;bundle-version="1.1.0",
- org.mod4j.eclipse;bundle-version="1.1.0"
+ org.mod4j.crossx.mm;bundle-version="1.1.0"
+Export-Package: org.mod4j.dsl.presentation.generator.workflow

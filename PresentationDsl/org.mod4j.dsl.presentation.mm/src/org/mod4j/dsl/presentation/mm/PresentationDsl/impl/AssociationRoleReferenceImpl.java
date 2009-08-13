@@ -22,22 +22,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class AssociationRoleReferenceImpl extends NamedReferenceImpl implements AssociationRoleReference {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected AssociationRoleReferenceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.ASSOCIATION_ROLE_REFERENCE;
-	}
+        return PresentationDslPackage.Literals.ASSOCIATION_ROLE_REFERENCE;
+    }
 
 } //AssociationRoleReferenceImpl

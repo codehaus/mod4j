@@ -22,22 +22,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class InteractiveProcessImpl extends ProcessImpl implements InteractiveProcess {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected InteractiveProcessImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.INTERACTIVE_PROCESS;
-	}
+        return PresentationDslPackage.Literals.INTERACTIVE_PROCESS;
+    }
 
 } //InteractiveProcessImpl

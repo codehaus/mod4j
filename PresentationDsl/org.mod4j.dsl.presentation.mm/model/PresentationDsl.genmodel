@@ -11,17 +11,54 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//ContentForm">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ContentForm/formElements"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//CompoundDialogue"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//CompoundDialogue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//CompoundDialogue/dialogues"/>
+    </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//CollectionDialogue"/>
-    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Dialogue"/>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Dialogue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Dialogue/readonly"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Dialogue/processes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//DialogueCall"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DirectDialogueCall"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/modelName"/>
+    </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//Form"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//FormElement"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//FormElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//FormElement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//FormElement/readonly"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/form"/>
+    </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//InteractiveProcess"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//Link"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Link">
+      <genOperations ecoreOperation="PresentationDsl.ecore#//Link/getTarget"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//LinkedDialogueCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkedDialogueCall/link"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//LinkRef"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//LinkPath">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkPath/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//LinkStep">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkStep/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//MasterDetail">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//MasterDetail/master"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//MasterDetail/detail"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ModelElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElement/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ModelElement/contextRef"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ModelElement/presentationModel"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//NamedReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//NamedReference/name"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//PresentationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//PresentationModel/name"/>
@@ -30,14 +67,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/externalReferences"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall"/>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
-    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/modelName"/>
-    </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//DialogueReference"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//DtoReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall"/>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElementRef"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//AssociationRoleReference"/>
   </genPackages>
 </genmodel:GenModel>

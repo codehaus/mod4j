@@ -20,10 +20,10 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
 public interface Link extends ModelElement {
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
+     * @model kind="operation"
+     * @generated
+     */
 	NamedReference getTarget();
 } // Link

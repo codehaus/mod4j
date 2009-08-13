@@ -46,284 +46,284 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
  */
 public class PresentationModelImpl extends EObjectImpl implements PresentationModel {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
 	protected static final String NAME_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
 	protected String name = NAME_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
 	protected static final String DESCRIPTION_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
 	protected String description = DESCRIPTION_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getElements()
+     * @generated
+     * @ordered
+     */
 	protected EList<ModelElement> elements;
 
 	/**
-	 * The cached value of the '{@link #getExternalReferences() <em>External References</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getExternalReferences() <em>External References</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExternalReferences()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getExternalReferences()
+     * @generated
+     * @ordered
+     */
 	protected EList<ExternalReference> externalReferences;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PresentationModelImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.PRESENTATION_MODEL;
-	}
+        return PresentationDslPackage.Literals.PRESENTATION_MODEL;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getName() {
-		return name;
-	}
+        return name;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__NAME, oldName, name));
-	}
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__NAME, oldName, name));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getDescription() {
-		return description;
-	}
+        return description;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION, oldDescription, description));
-	}
+        String oldDescription = description;
+        description = newDescription;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION, oldDescription, description));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<ModelElement> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL);
-		}
-		return elements;
-	}
+        if (elements == null) {
+            elements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL);
+        }
+        return elements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<ExternalReference> getExternalReferences() {
-		if (externalReferences == null) {
-			externalReferences = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this, PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES);
-		}
-		return externalReferences;
-	}
+        if (externalReferences == null) {
+            externalReferences = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this, PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES);
+        }
+        return externalReferences;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-			case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
-				return ((InternalEList<?>)getExternalReferences()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
+                return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+            case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
+                return ((InternalEList<?>)getExternalReferences()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case PresentationDslPackage.PRESENTATION_MODEL__NAME:
-				return getName();
-			case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
-				return getDescription();
-			case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
-				return getElements();
-			case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
-				return getExternalReferences();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.PRESENTATION_MODEL__NAME:
+                return getName();
+            case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
+                return getDescription();
+            case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
+                return getElements();
+            case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
+                return getExternalReferences();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case PresentationDslPackage.PRESENTATION_MODEL__NAME:
-				setName((String)newValue);
-				return;
-			case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
-			case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends ModelElement>)newValue);
-				return;
-			case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
-				getExternalReferences().clear();
-				getExternalReferences().addAll((Collection<? extends ExternalReference>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.PRESENTATION_MODEL__NAME:
+                setName((String)newValue);
+                return;
+            case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
+                setDescription((String)newValue);
+                return;
+            case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
+                getElements().clear();
+                getElements().addAll((Collection<? extends ModelElement>)newValue);
+                return;
+            case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
+                getExternalReferences().clear();
+                getExternalReferences().addAll((Collection<? extends ExternalReference>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.PRESENTATION_MODEL__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
-				getElements().clear();
-				return;
-			case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
-				getExternalReferences().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.PRESENTATION_MODEL__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
+                setDescription(DESCRIPTION_EDEFAULT);
+                return;
+            case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
+                getElements().clear();
+                return;
+            case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
+                getExternalReferences().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.PRESENTATION_MODEL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
-				return elements != null && !elements.isEmpty();
-			case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
-				return externalReferences != null && !externalReferences.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.PRESENTATION_MODEL__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+            case PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION:
+                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+            case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
+                return elements != null && !elements.isEmpty();
+            case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
+                return externalReferences != null && !externalReferences.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", description: ");
-		result.append(description);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (name: ");
+        result.append(name);
+        result.append(", description: ");
+        result.append(description);
+        result.append(')');
+        return result.toString();
+    }
 
 } //PresentationModelImpl

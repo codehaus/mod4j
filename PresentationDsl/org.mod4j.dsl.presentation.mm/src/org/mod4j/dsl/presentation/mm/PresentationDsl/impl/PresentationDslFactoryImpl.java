@@ -49,285 +49,285 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  */
 public class PresentationDslFactoryImpl extends EFactoryImpl implements PresentationDslFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static PresentationDslFactory init() {
-		try {
-			PresentationDslFactory thePresentationDslFactory = (PresentationDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/pmfmod"); 
-			if (thePresentationDslFactory != null) {
-				return thePresentationDslFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new PresentationDslFactoryImpl();
-	}
+        try {
+            PresentationDslFactory thePresentationDslFactory = (PresentationDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.mod4j.org/pmfmod"); 
+            if (thePresentationDslFactory != null) {
+                return thePresentationDslFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new PresentationDslFactoryImpl();
+    }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public PresentationDslFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case PresentationDslPackage.AUTOMATED_PROCESS: return createAutomatedProcess();
-			case PresentationDslPackage.CONTENT_FORM: return createContentForm();
-			case PresentationDslPackage.COMPOUND_DIALOGUE: return createCompoundDialogue();
-			case PresentationDslPackage.COLLECTION_DIALOGUE: return createCollectionDialogue();
-			case PresentationDslPackage.DIRECT_DIALOGUE_CALL: return createDirectDialogueCall();
-			case PresentationDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
-			case PresentationDslPackage.EXTERNAL_REFERENCE: return createExternalReference();
-			case PresentationDslPackage.FORM: return createForm();
-			case PresentationDslPackage.FORM_ELEMENT: return createFormElement();
-			case PresentationDslPackage.INTERACTIVE_PROCESS: return createInteractiveProcess();
-			case PresentationDslPackage.LINKED_DIALOGUE_CALL: return createLinkedDialogueCall();
-			case PresentationDslPackage.LINK_REF: return createLinkRef();
-			case PresentationDslPackage.LINK_PATH: return createLinkPath();
-			case PresentationDslPackage.LINK_STEP: return createLinkStep();
-			case PresentationDslPackage.MASTER_DETAIL: return createMasterDetail();
-			case PresentationDslPackage.NAMED_REFERENCE: return createNamedReference();
-			case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
-			case PresentationDslPackage.PROCESS_CALL: return createProcessCall();
-			case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
-			case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: return createAssociationRoleReference();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case PresentationDslPackage.AUTOMATED_PROCESS: return createAutomatedProcess();
+            case PresentationDslPackage.CONTENT_FORM: return createContentForm();
+            case PresentationDslPackage.COMPOUND_DIALOGUE: return createCompoundDialogue();
+            case PresentationDslPackage.COLLECTION_DIALOGUE: return createCollectionDialogue();
+            case PresentationDslPackage.DIRECT_DIALOGUE_CALL: return createDirectDialogueCall();
+            case PresentationDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
+            case PresentationDslPackage.EXTERNAL_REFERENCE: return createExternalReference();
+            case PresentationDslPackage.FORM: return createForm();
+            case PresentationDslPackage.FORM_ELEMENT: return createFormElement();
+            case PresentationDslPackage.INTERACTIVE_PROCESS: return createInteractiveProcess();
+            case PresentationDslPackage.LINKED_DIALOGUE_CALL: return createLinkedDialogueCall();
+            case PresentationDslPackage.LINK_REF: return createLinkRef();
+            case PresentationDslPackage.LINK_PATH: return createLinkPath();
+            case PresentationDslPackage.LINK_STEP: return createLinkStep();
+            case PresentationDslPackage.MASTER_DETAIL: return createMasterDetail();
+            case PresentationDslPackage.NAMED_REFERENCE: return createNamedReference();
+            case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
+            case PresentationDslPackage.PROCESS_CALL: return createProcessCall();
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
+            case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: return createAssociationRoleReference();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public LinkRef createLinkRef() {
-		LinkRefImpl linkRef = new LinkRefImpl();
-		return linkRef;
-	}
+        LinkRefImpl linkRef = new LinkRefImpl();
+        return linkRef;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public LinkPath createLinkPath() {
-		LinkPathImpl linkPath = new LinkPathImpl();
-		return linkPath;
-	}
+        LinkPathImpl linkPath = new LinkPathImpl();
+        return linkPath;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public LinkStep createLinkStep() {
-		LinkStepImpl linkStep = new LinkStepImpl();
-		return linkStep;
-	}
+        LinkStepImpl linkStep = new LinkStepImpl();
+        return linkStep;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NamedReference createNamedReference() {
-		NamedReferenceImpl namedReference = new NamedReferenceImpl();
-		return namedReference;
-	}
+        NamedReferenceImpl namedReference = new NamedReferenceImpl();
+        return namedReference;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public PresentationModel createPresentationModel() {
-		PresentationModelImpl presentationModel = new PresentationModelImpl();
-		return presentationModel;
-	}
+        PresentationModelImpl presentationModel = new PresentationModelImpl();
+        return presentationModel;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ProcessCall createProcessCall() {
-		ProcessCallImpl processCall = new ProcessCallImpl();
-		return processCall;
-	}
+        ProcessCallImpl processCall = new ProcessCallImpl();
+        return processCall;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public UIModelElementCall createUIModelElementCall() {
-		UIModelElementCallImpl uiModelElementCall = new UIModelElementCallImpl();
-		return uiModelElementCall;
-	}
+        UIModelElementCallImpl uiModelElementCall = new UIModelElementCallImpl();
+        return uiModelElementCall;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public AssociationRoleReference createAssociationRoleReference() {
-		AssociationRoleReferenceImpl associationRoleReference = new AssociationRoleReferenceImpl();
-		return associationRoleReference;
-	}
+        AssociationRoleReferenceImpl associationRoleReference = new AssociationRoleReferenceImpl();
+        return associationRoleReference;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public MasterDetail createMasterDetail() {
-		MasterDetailImpl masterDetail = new MasterDetailImpl();
-		return masterDetail;
-	}
+        MasterDetailImpl masterDetail = new MasterDetailImpl();
+        return masterDetail;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DtoPropertyReference createDtoPropertyReference() {
-		DtoPropertyReferenceImpl dtoPropertyReference = new DtoPropertyReferenceImpl();
-		return dtoPropertyReference;
-	}
+        DtoPropertyReferenceImpl dtoPropertyReference = new DtoPropertyReferenceImpl();
+        return dtoPropertyReference;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExternalReference createExternalReference() {
-		ExternalReferenceImpl externalReference = new ExternalReferenceImpl();
-		return externalReference;
-	}
+        ExternalReferenceImpl externalReference = new ExternalReferenceImpl();
+        return externalReference;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Form createForm() {
-		FormImpl form = new FormImpl();
-		return form;
-	}
+        FormImpl form = new FormImpl();
+        return form;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ContentForm createContentForm() {
-		ContentFormImpl contentForm = new ContentFormImpl();
-		return contentForm;
-	}
+        ContentFormImpl contentForm = new ContentFormImpl();
+        return contentForm;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CompoundDialogue createCompoundDialogue() {
-		CompoundDialogueImpl compoundDialogue = new CompoundDialogueImpl();
-		return compoundDialogue;
-	}
+        CompoundDialogueImpl compoundDialogue = new CompoundDialogueImpl();
+        return compoundDialogue;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CollectionDialogue createCollectionDialogue() {
-		CollectionDialogueImpl collectionDialogue = new CollectionDialogueImpl();
-		return collectionDialogue;
-	}
+        CollectionDialogueImpl collectionDialogue = new CollectionDialogueImpl();
+        return collectionDialogue;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DirectDialogueCall createDirectDialogueCall() {
-		DirectDialogueCallImpl directDialogueCall = new DirectDialogueCallImpl();
-		return directDialogueCall;
-	}
+        DirectDialogueCallImpl directDialogueCall = new DirectDialogueCallImpl();
+        return directDialogueCall;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public InteractiveProcess createInteractiveProcess() {
-		InteractiveProcessImpl interactiveProcess = new InteractiveProcessImpl();
-		return interactiveProcess;
-	}
+        InteractiveProcessImpl interactiveProcess = new InteractiveProcessImpl();
+        return interactiveProcess;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public LinkedDialogueCall createLinkedDialogueCall() {
-		LinkedDialogueCallImpl linkedDialogueCall = new LinkedDialogueCallImpl();
-		return linkedDialogueCall;
-	}
+        LinkedDialogueCallImpl linkedDialogueCall = new LinkedDialogueCallImpl();
+        return linkedDialogueCall;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public AutomatedProcess createAutomatedProcess() {
-		AutomatedProcessImpl automatedProcess = new AutomatedProcessImpl();
-		return automatedProcess;
-	}
+        AutomatedProcessImpl automatedProcess = new AutomatedProcessImpl();
+        return automatedProcess;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public FormElement createFormElement() {
-		FormElementImpl formElement = new FormElementImpl();
-		return formElement;
-	}
+        FormElementImpl formElement = new FormElementImpl();
+        return formElement;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public PresentationDslPackage getPresentationDslPackage() {
-		return (PresentationDslPackage)getEPackage();
-	}
+        return (PresentationDslPackage)getEPackage();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * @deprecated
+     * @generated
+     */
 	@Deprecated
 	public static PresentationDslPackage getPackage() {
-		return PresentationDslPackage.eINSTANCE;
-	}
+        return PresentationDslPackage.eINSTANCE;
+    }
 
 } //PresentationDslFactoryImpl

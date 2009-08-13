@@ -33,104 +33,104 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class LinkPathImpl extends LinkImpl implements LinkPath {
 	/**
-	 * The cached value of the '{@link #getSteps() <em>Steps</em>}' reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getSteps() <em>Steps</em>}' reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSteps()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSteps()
+     * @generated
+     * @ordered
+     */
 	protected EList<LinkRef> steps;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected LinkPathImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.LINK_PATH;
-	}
+        return PresentationDslPackage.Literals.LINK_PATH;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<LinkRef> getSteps() {
-		if (steps == null) {
-			steps = new EObjectResolvingEList<LinkRef>(LinkRef.class, this, PresentationDslPackage.LINK_PATH__STEPS);
-		}
-		return steps;
-	}
+        if (steps == null) {
+            steps = new EObjectResolvingEList<LinkRef>(LinkRef.class, this, PresentationDslPackage.LINK_PATH__STEPS);
+        }
+        return steps;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case PresentationDslPackage.LINK_PATH__STEPS:
-				return getSteps();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.LINK_PATH__STEPS:
+                return getSteps();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case PresentationDslPackage.LINK_PATH__STEPS:
-				getSteps().clear();
-				getSteps().addAll((Collection<? extends LinkRef>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.LINK_PATH__STEPS:
+                getSteps().clear();
+                getSteps().addAll((Collection<? extends LinkRef>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.LINK_PATH__STEPS:
-				getSteps().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.LINK_PATH__STEPS:
+                getSteps().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.LINK_PATH__STEPS:
-				return steps != null && !steps.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.LINK_PATH__STEPS:
+                return steps != null && !steps.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //LinkPathImpl

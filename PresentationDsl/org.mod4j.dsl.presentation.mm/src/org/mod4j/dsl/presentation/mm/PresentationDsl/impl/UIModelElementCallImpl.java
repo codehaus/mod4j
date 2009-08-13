@@ -29,22 +29,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  */
 public class UIModelElementCallImpl extends UIModelElementRefImpl implements UIModelElementCall {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected UIModelElementCallImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.UI_MODEL_ELEMENT_CALL;
-	}
+        return PresentationDslPackage.Literals.UI_MODEL_ELEMENT_CALL;
+    }
 
 } //UIModelElementCallImpl
