@@ -10,6 +10,7 @@
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="pmfmod"
+            icon="icons/mod4j-presentation.ico"
             id="org.mod4j.dsl.presentation.xtext.Presentation"
             name="Presentation Editor">
         </editor>
