@@ -22,27 +22,10 @@ public class MyDataContractCheckValidator extends DataContractCheckValidator {
 	}
 	
 	protected void configure() {
-		addCheckFile("org::mod4j::dsl::datacontract::xtext::validation::CrossxChecks1", CheckType.FAST);
+//        addCheckFile("org::mod4j::dsl::datacontract::xtext::validation::CrossxChecks1", CheckType.FAST);
+        addCheckFile("org::mod4j::dsl::datacontract::validation::checks::CrossxChecks", CheckType.FAST);
 		addCheckFile("org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks", CheckType.FAST);
-//		addCheckFile("org::mod4j::dsl::datacontract::xtext::validation::DataContractFastChecks", CheckType.FAST);
-//		addCheckFile("org::mod4j::dsl::datacontract::xtext::validation::DataContractChecks", CheckType.NORMAL);
-//		addCheckFile("org::mod4j::dsl::datacontract::xtext::validation::DataContractExpensiveChecks", CheckType.EXPENSIVE);
 	}
-	
-//	protected void configure() {
-//		registerCrossx();
-//		CheckEValidatorAdapter val = new CheckEValidatorAdapter(DataContractDslPackage.eINSTANCE);
-//		val.addCheckFile(new CheckFileWithContext("org::mod4j::dsl::datacontract::validation::checks::DatacontractChecks"));
-////		val.addCheckFile(new CheckFileWithContext("org::mod4j::dsl::datacontract::validation::checks::CrossxChecks"));
-////		val.addCheckFile(new CheckFileWithContext("org::mod4j::dsl::datacontract::xtext::validation::DatacontractChecks"));
-//		val.addCheckFile(new CheckFileWithContext("org::mod4j::dsl::datacontract::xtext::validation::CrossxChecks1"));
-//		EValidator.Registry.INSTANCE.put(DataContractDslPackage.eINSTANCE,val);
-//
-////		CheckEValidatorAdapter val2 = new CheckEValidatorAdapter(CrossxPackage.eINSTANCE);
-////		val2.addCheckFile(new CheckFileWithContext("org::mod4j::dsl::datacontract::xtext::validation::CrossxChecks"));
-////		EValidator.Registry.INSTANCE.put(CrossxPackage.eINSTANCE,val2);
-//
-//	}
 	
 	protected void registerCrossx() {
 		// Create a resource set to hold the resources.
