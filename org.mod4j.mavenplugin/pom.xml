@@ -49,7 +49,7 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.eclipse</groupId>
+            <groupId>org.mod4j.org.eclipse</groupId>
             <artifactId>xpand</artifactId>
             <version>0.7.1</version>
             <scope>runtime</scope>

@@ -56,17 +56,29 @@
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.emf.mwe</groupId>
+            <groupId>org.mod4j.org.eclipse.emf.mwe</groupId>
             <artifactId>core</artifactId>
             <version>0.7.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mod4j.org.eclipse.core</groupId>
+                    <artifactId>runtime</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.emf.mwe</groupId>
+            <groupId>org.mod4j.org.eclipse.emf.mwe</groupId>
             <artifactId>utils</artifactId>
             <version>0.7.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mod4j.org.eclipse.core</groupId>
+                    <artifactId>runtime</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.xtend.util</groupId>
+            <groupId>org.mod4j.org.eclipse.xtend.util</groupId>
             <artifactId>stdlib</artifactId>
             <version>0.7.1</version>
         </dependency>

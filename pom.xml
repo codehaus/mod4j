@@ -7,7 +7,6 @@
     <name>mod4j</name>
     <url>http://mod4j.org</url>
     <properties>
-        <oaw.version>4.3.0</oaw.version>
         <release.version.latest>1.0.1</release.version.latest>
     </properties>
     <scm>
@@ -426,11 +425,6 @@
             </snapshots>
         </repository>
         -->
-        <repository>
-            <id>mod4j-m2-repository</id>
-            <name>Mod4j Maven Repository</name>
-            <url>http://dist.codehaus.org/mod4j/m2-repo</url>
-        </repository>
         <repository>
             <id>codehaus.snapshots-repo</id>
             <url>http://snapshots.repository.codehaus.org</url>

@@ -66,12 +66,12 @@
             <version>1.1.0-beta-1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse</groupId>
+            <groupId>org.mod4j.org.eclipse</groupId>
             <artifactId>xtext</artifactId>
             <version>0.7.1</version>
             <exclusions>
                 <exclusion>
-                    <groupId>com.google</groupId>
+                    <groupId>org.mod4j.com.google</groupId>
                     <artifactId>guice</artifactId>
                 </exclusion>
             </exclusions>
@@ -82,17 +82,17 @@
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>com.google.inject</groupId>
+            <groupId>org.mod4j.com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>1.0-XTEXT-PATCHED</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.xtext</groupId>
+            <groupId>org.mod4j.org.eclipse.xtext</groupId>
             <artifactId>xtend</artifactId>
             <version>0.7.1</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.eclipse.xtext.ui</groupId>
+                    <groupId>org.mod4j.org.eclipse.xtext.ui</groupId>
                     <artifactId>core</artifactId>
                 </exclusion>
             </exclusions>
