@@ -74,7 +74,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         flush();
 
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        assertEquals(222, simpleJdbcTemplate.queryForInt("select customernr from Customer_TABLE where id = ?", customer
+        assertEquals(222, simpleJdbcTemplate.queryForInt("select customer_nr from Customer_TABLE where id = ?", customer
                 .getId()));
     }
 

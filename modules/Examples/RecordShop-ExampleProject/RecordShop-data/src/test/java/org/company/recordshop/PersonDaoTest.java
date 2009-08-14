@@ -37,10 +37,10 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		personDao.add(person);
 		flush();
 		assertEquals("Johannes", simpleJdbcTemplate.queryForObject(
-				"select firstName from person_table where id = ?",
+				"select first_Name from person_table where id = ?",
 				String.class, person.getId()));
 		assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
-				"select lastName from person_table where id = ?", String.class,
+				"select last_Name from person_table where id = ?", String.class,
 				person.getId()));
 		assertNull(simpleJdbcTemplate.queryForObject(
 				"select sexe from person_table where id = ?", Integer.class,

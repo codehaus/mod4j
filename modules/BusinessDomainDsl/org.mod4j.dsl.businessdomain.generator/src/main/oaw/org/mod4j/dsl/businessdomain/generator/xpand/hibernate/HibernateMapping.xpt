@@ -51,10 +51,9 @@
 
 «DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»
     <class name="«javaDomainClass(this.name)»"
-           table="«javaDomainClass(this.name)»_TABLE"
            optimistic-lock="version">
         <cache usage="read-write" />
-        <id name="id" column="id" type="java.lang.Long">
+        <id name="id" type="java.lang.Long">
             <generator class="«getHibernate_mapping_class_id_generator_class()»" />
         </id>
         <version name="version" unsaved-value="negative" />
@@ -65,7 +64,6 @@
 «DEFINE concreteClassMapping FOR BusinessDomainDsl::BusinessClass -»
     <union-subclass
         name="«javaDomainClass(this.name)»"
-        table="«javaDomainClass(this.name)»_TABLE"
         extends="«javaDomainClass(this.superclass.name)»">
         «EXPAND featureMappings FOR this -»
     </union-subclass>
@@ -74,10 +72,7 @@
 «DEFINE subclassMapping FOR BusinessDomainDsl::BusinessClass -»
     <joined-subclass
         name="«javaDomainClass(name)»"
-        table="«javaDomainClass(name)»_TABLE"
         extends="«javaDomainClass(superclass.name)»">
-        
-        <key column="«superclass.name»_ID" /> 
         «EXPAND featureMappings FOR this -»
     </joined-subclass>
 «ENDDEFINE»
@@ -176,11 +171,9 @@
 
 «DEFINE one2manyMappingTo FOR Association -»
 		<!-- one2manyMappingTo -->
-        <set name="«this.targetRoleName»" inverse="false"
+        <set name="«this.targetRoleName»"
             cascade="save-update">
-            <key>
-                <column name="«this.sourceRoleName»_ID" />
-            </key>
+            <key column="«this.sourceRoleName»_ID"/>
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
              />
@@ -189,11 +182,9 @@
 
 «DEFINE orderedOne2manyMappingTo FOR Association -»
         <!-- orderedOne2manyMappingTo -->
-        <list name="«this.targetRoleName»" inverse="false"
+        <list name="«this.targetRoleName»"
             cascade="save-update">
-            <key>
-                <column name="«this.sourceRoleName»_ID" />
-            </key>
+            <key column="«this.sourceRoleName»_ID"/>
             <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
@@ -224,11 +215,9 @@
 «ENDREM»
 «DEFINE many2oneMappingFrom FOR Association -»
         <!-- many2oneMappingFrom -->
-        <set name="«this.sourceRoleName»" inverse="false"
+        <set name="«this.sourceRoleName»" inverse="true"
             cascade="save-update">
-            <key>
-                <column name="«this.targetRoleName»_ID" />
-            </key>
+            <key column="«this.targetRoleName»_ID"/>
             <one-to-many
                 class="«javaDomainClass(this.source.name)»" 
              />
