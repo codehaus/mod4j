@@ -4,7 +4,6 @@ Bundle-Name: DataContractDsl xtext
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext;singleton:=true
 Bundle-Version: 1.1.0.qualifier
 Require-Bundle: org.mod4j.common;bundle-version="1.1.0",
- org.mod4j.dsl.datacontract.validation;bundle-version="1.1.0",
  org.mod4j.dsl.datacontract.mm;bundle-version="1.1.0",
  org.mod4j.crossx.mm;bundle-version="1.1.0",
  org.mod4j.crossx.broker;bundle-version="1.1.0",
@@ -20,7 +19,8 @@ Require-Bundle: org.mod4j.common;bundle-version="1.1.0",
  org.antlr.runtime,
  org.eclipse.xtend,
  com.ibm.icu;bundle-version="4.0.1",
- de.itemis.xtext.antlr;bundle-version="0.7.0"
+ de.itemis.xtext.antlr;bundle-version="0.7.0",
+ org.mod4j.dsl.datacontract.validation;bundle-version="1.1.0"
 Export-Package: org.mod4j.dsl.datacontract.xtext,
  org.mod4j.dsl.datacontract.xtext.formatting,
  org.mod4j.dsl.datacontract.xtext.parseTreeConstruction,
