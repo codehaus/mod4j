@@ -1,18 +1,15 @@
 package org.mod4j.runtime.hibernate;
 
-import java.util.logging.Logger;
-
 import org.apache.commons.logging.Log;
-import org.hibernate.cfg.DefaultNamingStrategy;
+import org.apache.commons.logging.LogFactory;
 import org.hibernate.cfg.ImprovedNamingStrategy;
 import org.hibernate.cfg.NamingStrategy;
 
 /**
  * @author Eric Jan Malotaux
- * 
  */
 public class Mod4jNamingStrategy extends ImprovedNamingStrategy {
-     private static Logger logger = Logger.getLogger("Mod4jNamingStrategy");
+    private static Log logger = LogFactory.getLog(Mod4jNamingStrategy.class);
 
     /**
      * A convenient singleton instance
@@ -24,98 +21,148 @@ public class Mod4jNamingStrategy extends ImprovedNamingStrategy {
      */
     @Override
     public String classToTableName(String className) {
-        logger.info("className=" + className);
         String result = super.classToTableName(className) + "_table";
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("className=" + className);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String collectionTableName(String ownerEntity, String ownerEntityTable, String associatedEntity,
             String associatedEntityTable, String propertyName) {
-        logger.info("ownerEntity=" + ownerEntity);
-        logger.info("ownerEntityTable=" + ownerEntityTable);
-        logger.info("associatedEntity=" + associatedEntity);
-        logger.info("associatedEntityTable=" + associatedEntityTable);
-        logger.info("propertyName=" + propertyName);
-        String collectionTableName = super.collectionTableName(ownerEntity, ownerEntityTable, associatedEntity, associatedEntityTable, propertyName);
-        logger.info("result=" + collectionTableName);
+        String collectionTableName = super.collectionTableName(ownerEntity, ownerEntityTable, associatedEntity,
+                associatedEntityTable, propertyName);
+        if (logger.isDebugEnabled()) {
+            logger.debug("ownerEntity=" + ownerEntity);
+            logger.debug("ownerEntityTable=" + ownerEntityTable);
+            logger.debug("associatedEntity=" + associatedEntity);
+            logger.debug("associatedEntityTable=" + associatedEntityTable);
+            logger.debug("propertyName=" + propertyName);
+            logger.debug("result=" + collectionTableName);
+        }
         return collectionTableName;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String columnName(String columnName) {
-        logger.info("columnName=" + columnName);
         String result = super.columnName(columnName);
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("columnName=" + columnName);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public String foreignKeyColumnName(String propertyName, String  propertyEntityName, String propertyTableName,
+    public String foreignKeyColumnName(String propertyName, String propertyEntityName, String propertyTableName,
             String referencedColumnName) {
-        logger.info("propertyName=" + propertyName);
-        logger.info("propertyEntityName=" + propertyEntityName);
-        logger.info("propertyTableName=" + propertyTableName);
-        logger.info("referencedColumnName=" + referencedColumnName);
-        String result = super.foreignKeyColumnName(propertyName, propertyEntityName, propertyTableName, referencedColumnName);
-        logger.info("result=" + result);
+        String result = super.foreignKeyColumnName(propertyName, propertyEntityName, propertyTableName,
+                referencedColumnName);
+        if (logger.isDebugEnabled()) {
+            logger.debug("propertyName=" + propertyName);
+            logger.debug("propertyEntityName=" + propertyEntityName);
+            logger.debug("propertyTableName=" + propertyTableName);
+            logger.debug("referencedColumnName=" + referencedColumnName);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String joinKeyColumnName(String joinedColumn, String joinedTable) {
-        logger.info("joinedColumn=" + joinedColumn);
-        logger.info("joinedTable=" + joinedTable);
         String result = super.joinKeyColumnName(joinedColumn, joinedTable);
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("joinedColumn=" + joinedColumn);
+            logger.debug("joinedTable=" + joinedTable);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String logicalCollectionColumnName(String columnName, String propertyName, String referencedColumn) {
-        logger.info("columnName=" + columnName);
-        logger.info("propertyName=" + propertyName);
-        logger.info("referencedColumn=" + referencedColumn);
         String result = super.logicalCollectionColumnName(columnName, propertyName, referencedColumn);
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("columnName=" + columnName);
+            logger.debug("propertyName=" + propertyName);
+            logger.debug("referencedColumn=" + referencedColumn);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String logicalCollectionTableName(String tableName, String ownerEntityTable, String associatedEntityTable,
             String propertyName) {
-        logger.info("tableName=" + tableName);
-        logger.info("ownerEntityTable=" + ownerEntityTable);
-        logger.info("associatedEntityTable=" + associatedEntityTable);
-        logger.info("propertyName=" + propertyName);
-        String result = super.logicalCollectionTableName(tableName, ownerEntityTable, associatedEntityTable, propertyName);
-        logger.info("result=" + result);
+        String result = super.logicalCollectionTableName(tableName, ownerEntityTable, associatedEntityTable,
+                propertyName);
+        if (logger.isDebugEnabled()) {
+            logger.debug("tableName=" + tableName);
+            logger.debug("ownerEntityTable=" + ownerEntityTable);
+            logger.debug("associatedEntityTable=" + associatedEntityTable);
+            logger.debug("propertyName=" + propertyName);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String logicalColumnName(String columnName, String propertyName) {
-        logger.info("columnName=" + columnName);
-        logger.info("propertyName=" + propertyName);
         String result = super.logicalColumnName(columnName, propertyName);
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("columnName=" + columnName);
+            logger.debug("propertyName=" + propertyName);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String propertyToColumnName(String propertyName) {
-        logger.info("propertyName=" + propertyName);
         String result = super.propertyToColumnName(propertyName);
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("propertyName=" + propertyName);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String tableName(String tableName) {
-        logger.info("tableName=" + tableName);
         String result = super.tableName(tableName);
-        logger.info("result=" + result);
+        if (logger.isDebugEnabled()) {
+            logger.debug("tableName=" + tableName);
+            logger.debug("result=" + result);
+        }
         return result;
     }
 }
