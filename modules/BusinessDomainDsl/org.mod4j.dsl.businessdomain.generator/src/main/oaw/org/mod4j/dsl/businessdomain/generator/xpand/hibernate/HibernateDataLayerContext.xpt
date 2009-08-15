@@ -47,6 +47,21 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 «ENDFOREACH»
+
+    <!--
+        Locations of the Hibernate mapping files. To be referenced by the
+        session factory
+    -->
+    <bean id="mappingResources" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
+                <value>«getDomainRootPackageAsPath()»/«clsName».hbm.xml</value>
+«ENDFOREACH -»
+            </list>
+        </constructor-arg>
+    </bean>
+    
     <bean
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
@@ -81,16 +96,12 @@ hibernate.dialect=org.hibernate.dialect.DerbyDialect
     <!-- hibernate wiring -->
     <bean id="sessionFactory"
         class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-        <property name="dataSource">
-            <ref bean="dataSource" />
-        </property>
-        <property name="mappingResources">
-            <list>
-«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName -»
-                <value>«getDomainRootPackageAsPath()»/«clsName».hbm.xml</value>
-«ENDFOREACH -»
-            </list>
-        </property>
+        <property name="dataSource" ref="dataSource" />
+        <!--
+            The "mappingResources" bean referenced is a list defined in the
+            generated "applicationContext.xml" in "generated-resources".
+        -->
+        <property name="mappingResources" ref="mappingResources"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -101,6 +112,9 @@ hibernate.dialect=org.hibernate.dialect.DerbyDialect
                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
                 <prop key="hibernate.hbm2ddl.auto">«getHibernate_hbm2ddl_auto()»</prop>
             </props>
+        </property>
+        <property name="namingStrategy">
+            <bean class="org.mod4j.runtime.hibernate.Mod4jNamingStrategy" />
         </property>
     </bean>
 </beans>
