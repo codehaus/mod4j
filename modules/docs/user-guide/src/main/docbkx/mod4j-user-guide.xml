@@ -202,22 +202,6 @@
               </imageobject>
             </mediaobject>
           </figure>
-          <para>For Spring configuration files the generatuion gap pattern looks slightly different
-            because we cannot use inheritance. Instead we generate two confuguratioon files, one
-            which has all generated inf9ormation, one which is used to contain handwritten
-            configuratioin information. A third configuration file glues both of these together by
-            referring to both of them. This is shown in figure <xref linkend="generation-gap-spring"
-            /></para>
-          <para>
-            <figure id="generation-gap-spring">
-              <title>Generation Gap pattern applied to Spring Configuration files</title>
-              <mediaobject>
-                <imageobject>
-                  <imagedata fileref="images/generation-gap-pattern-spring.jpg"/>
-                </imageobject>
-              </mediaobject>
-            </figure>
-          </para>
           <para>There are a few properties of this solution that we need to be aware of:</para>
           <orderedlist>
             <listitem>
@@ -1316,8 +1300,7 @@
           in <xref linkend="section-generation-gap-pattern"/>. This allows the developer to add
           manual code when this is needed.</para>
         <para>For the service and business layers in the architecture Spring configuration files are
-          generated. This is done using the generation gap pattern as described in <xref
-            linkend="generation-gap-spring"/>.</para>
+          generated.</para>
       </section>
     </section>
     <section>
