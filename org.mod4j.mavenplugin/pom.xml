@@ -122,7 +122,6 @@
             <scope>runtime</scope>
             <optional>false</optional>
         </dependency>
-        <!-- TODO enable when ready
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-presentation-generator</artifactId>
@@ -137,7 +136,6 @@
             <scope>runtime</scope>
             <optional>false</optional>
         </dependency>
-        -->
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-broker</artifactId>
