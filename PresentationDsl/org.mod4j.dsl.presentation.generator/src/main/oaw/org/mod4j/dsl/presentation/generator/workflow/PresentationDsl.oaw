@@ -72,8 +72,8 @@
         <metaModel idRef="crossx"/>
         <expand value="org::mod4j::dsl::presentation::generator::xpand::PresentationLayer::Generate FOR pmfModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.openarchitectureware.xpand2.output.JavaBeautifier" />
-            <postprocessor class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
     -->
@@ -84,7 +84,8 @@
     <component id="PresentationDslWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="pmf" />
         <expand value="org::mod4j::dsl::presentation::generator::xpand::PresentationLayer::generateMavenConfiguration FOR pmfModel"/>
-        <outlet path="${applicationPath}">
+        <outlet path="${applicationPath}/">
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
