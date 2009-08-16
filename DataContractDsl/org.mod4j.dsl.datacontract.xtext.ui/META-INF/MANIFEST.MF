@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Presentation xtext
-Bundle-SymbolicName: org.mod4j.dsl.presentation.xtext.ui;singleton:=true
+Bundle-Name: DataContract xtext
+Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.ui;singleton:=true
 Bundle-Version: 1.1.0.qualifier
-Require-Bundle: org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
- org.mod4j.dsl.presentation.xtext;bundle-version="1.1.0",
+Require-Bundle: org.mod4j.dsl.datacontract.mm;bundle-version="1.1.0",
+ org.mod4j.dsl.datacontract.xtext;bundle-version="1.1.0",
  org.mod4j.crossx.broker;bundle-version="1.1.0",
  org.mod4j.crossx.mm;bundle-version="1.1.0",
  org.mod4j.eclipse;bundle-version="1.1.0",
@@ -16,12 +16,12 @@ Require-Bundle: org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
  org.eclipse.ui.editors
 Eclipse-LazyStart: true
 Bundle-Vendor: mod4j.org
-Bundle-Activator: org.mod4j.dsl.presentation.xtext.Mod4jPresentationActivator
-Export-Package: org.mod4j.dsl.presentation.xtext,
- org.mod4j.dsl.presentation.xtext.contentassist,
- org.mod4j.dsl.presentation.xtext.contentassist.antlr,
- org.mod4j.dsl.presentation.xtext.contentassist.antlr.internal,
- org.mod4j.dsl.presentation.xtext.internal,
- org.mod4j.dsl.presentation.xtext.labeling,
- org.mod4j.dsl.presentation.xtext.outline
+Bundle-Activator: org.mod4j.dsl.datacontract.xtext.Mod4jDataContractActivator
+Export-Package: org.mod4j.dsl.datacontract.xtext,
+ org.mod4j.dsl.datacontract.xtext.contentassist,
+ org.mod4j.dsl.datacontract.xtext.contentassist.antlr,
+ org.mod4j.dsl.datacontract.xtext.contentassist.antlr.internal,
+ org.mod4j.dsl.datacontract.xtext.internal,
+ org.mod4j.dsl.datacontract.xtext.labeling,
+ org.mod4j.dsl.datacontract.xtext.outline
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
