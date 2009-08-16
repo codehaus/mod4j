@@ -108,7 +108,7 @@ public class ProjectProperties {
     
     private static final String environmentPropertiesFileName = "environment.properties";
 
-    private static String fileEncoding = "ISO-8859-1";
+    private static String fileEncoding = "UTF-8";
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
 

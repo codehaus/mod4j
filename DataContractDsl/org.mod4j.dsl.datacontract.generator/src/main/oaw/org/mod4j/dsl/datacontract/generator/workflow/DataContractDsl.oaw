@@ -68,6 +68,7 @@
     <component id="DataContractWorkflow-Generator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="dcm" />
         <metaModel idRef="crossx" />
+        <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::Generate FOR dataContractModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
@@ -80,6 +81,7 @@
     -->  
     <component id="DataContractDslWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="dcm" />
+        <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::datacontract::generator::xpand::ServiceLayer::generateMavenConfiguration FOR dataContractModel"/>
         <outlet path="${applicationPath}">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />

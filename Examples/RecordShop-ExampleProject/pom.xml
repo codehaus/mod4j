@@ -13,6 +13,7 @@
         <spring.version>2.5</spring.version>
         <generated-sources-dir>generated-sources</generated-sources-dir>
         <generated-resources-dir>generated-resources</generated-resources-dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
         <module>RecordShop-dslModels</module>

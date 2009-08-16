@@ -68,7 +68,8 @@
     -->
     <component id="ServiceWorkflow-Generator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="sm" />
-       <metaModel idRef="crossx"/>
+        <metaModel idRef="crossx"/>
+        <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::Generate FOR serviceModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
@@ -81,7 +82,8 @@
     -->
     <component id="ServiceWorkflow-Generator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="sm" />
-       <metaModel idRef="crossx"/>
+        <metaModel idRef="crossx"/>
+        <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::ServiceLayer::Generate FOR serviceModel" />
         <outlet path="${applicationPath}/">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
@@ -94,6 +96,7 @@
     -->  
     <component id="ServiceDslWorkflow-MavenConfigGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="sm" />
+        <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::generateMavenConfiguration FOR serviceModel"/>
         <outlet path="${applicationPath}">
             <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />

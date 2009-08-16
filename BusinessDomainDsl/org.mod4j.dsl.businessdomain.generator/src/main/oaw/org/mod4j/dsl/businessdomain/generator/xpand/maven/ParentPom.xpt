@@ -29,6 +29,7 @@
         <spring.version>2.5</spring.version>
         <generated-sources-dir>«getSrcGenPath()»</generated-sources-dir>
         <generated-resources-dir>«getResourceGenPath()»</generated-resources-dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
         <module>«getDslModelsModuleName()»</module>

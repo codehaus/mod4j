@@ -8,6 +8,7 @@
     <url>http://mod4j.org</url>
     <properties>
         <release.version.latest>1.0.1</release.version.latest>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <scm>
         <connection>scm:svn:http://svn.codehaus.org/mod4j/branches/mod4j-branch-galileo</connection>
