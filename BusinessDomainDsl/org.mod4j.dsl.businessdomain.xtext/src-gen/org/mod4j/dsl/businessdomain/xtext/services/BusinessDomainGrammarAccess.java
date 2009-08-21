@@ -1111,25 +1111,26 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final EnumLiteralDeclaration cZeroOneEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cZeroOneOneKeyword_1_0 = (Keyword)cZeroOneEnumLiteralDeclaration_1.eContents().get(0);
 		
-		//enum Multiplicity returns Multiplicity : ZeroMany = "many" | ZeroOne = "one" ; 
+		//enum Multiplicity:
+		//  ZeroMany="many" | ZeroOne="one"; 
 		//
 		//  
 		//            // | OneMany="1..*" | One="1..1"
 		public EnumRule getRule() { return rule; }
 
-		//ZeroMany = "many" | ZeroOne = "one" 
+		//ZeroMany="many" | ZeroOne="one" 
 		//
 		//  
 		//            // | OneMany="1..*" | One="1..1"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//ZeroMany = "many"
+		//ZeroMany="many"
 		public EnumLiteralDeclaration getZeroManyEnumLiteralDeclaration_0() { return cZeroManyEnumLiteralDeclaration_0; }
 
 		//"many"
 		public Keyword getZeroManyManyKeyword_0_0() { return cZeroManyManyKeyword_0_0; }
 
-		//ZeroOne = "one" 
+		//ZeroOne="one" 
 		//            // | OneMany="1..*" | One="1..1"
 		public EnumLiteralDeclaration getZeroOneEnumLiteralDeclaration_1() { return cZeroOneEnumLiteralDeclaration_1; }
 
@@ -1155,51 +1156,52 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final EnumLiteralDeclaration cMillisecondEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
 		private final Keyword cMillisecondMillisecondKeyword_6_0 = (Keyword)cMillisecondEnumLiteralDeclaration_6.eContents().get(0);
 		
-		//enum DateTimeAccuracy returns DateTimeAccuracy : Month = "month" | Year = "year" | Day = "day" |
-		//Hour = "hour" | Minute = "minute" | Second = "second" | Millisecond = "millisecond" ;
+		//enum DateTimeAccuracy:
+		//  Month="month" | Year="year" | Day="day" | Hour="hour" | Minute="minute" | Second="second" |
+		//  Millisecond="millisecond";
 		public EnumRule getRule() { return rule; }
 
-		//Month = "month" | Year = "year" | Day = "day" | Hour = "hour" | Minute = "minute" | Second = "second" |
-		//Millisecond = "millisecond"
+		//Month="month" | Year="year" | Day="day" | Hour="hour" | Minute="minute" | Second="second" |
+		//Millisecond="millisecond"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Month = "month"
+		//Month="month"
 		public EnumLiteralDeclaration getMonthEnumLiteralDeclaration_0() { return cMonthEnumLiteralDeclaration_0; }
 
 		//"month"
 		public Keyword getMonthMonthKeyword_0_0() { return cMonthMonthKeyword_0_0; }
 
-		//Year = "year"
+		//Year="year"
 		public EnumLiteralDeclaration getYearEnumLiteralDeclaration_1() { return cYearEnumLiteralDeclaration_1; }
 
 		//"year"
 		public Keyword getYearYearKeyword_1_0() { return cYearYearKeyword_1_0; }
 
-		//Day = "day"
+		//Day="day"
 		public EnumLiteralDeclaration getDayEnumLiteralDeclaration_2() { return cDayEnumLiteralDeclaration_2; }
 
 		//"day"
 		public Keyword getDayDayKeyword_2_0() { return cDayDayKeyword_2_0; }
 
-		//Hour = "hour"
+		//Hour="hour"
 		public EnumLiteralDeclaration getHourEnumLiteralDeclaration_3() { return cHourEnumLiteralDeclaration_3; }
 
 		//"hour"
 		public Keyword getHourHourKeyword_3_0() { return cHourHourKeyword_3_0; }
 
-		//Minute = "minute"
+		//Minute="minute"
 		public EnumLiteralDeclaration getMinuteEnumLiteralDeclaration_4() { return cMinuteEnumLiteralDeclaration_4; }
 
 		//"minute"
 		public Keyword getMinuteMinuteKeyword_4_0() { return cMinuteMinuteKeyword_4_0; }
 
-		//Second = "second"
+		//Second="second"
 		public EnumLiteralDeclaration getSecondEnumLiteralDeclaration_5() { return cSecondEnumLiteralDeclaration_5; }
 
 		//"second"
 		public Keyword getSecondSecondKeyword_5_0() { return cSecondSecondKeyword_5_0; }
 
-		//Millisecond = "millisecond"
+		//Millisecond="millisecond"
 		public EnumLiteralDeclaration getMillisecondEnumLiteralDeclaration_6() { return cMillisecondEnumLiteralDeclaration_6; }
 
 		//"millisecond"
@@ -1216,10 +1218,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final EnumLiteralDeclaration cNoneEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cNoneNONEKeyword_2_0 = (Keyword)cNoneEnumLiteralDeclaration_2.eContents().get(0);
 		
-		//enum PersistencyMode returns PersistencyMode : ReadWrite | Read | None = "NONE" ;
+		//enum PersistencyMode:
+		//  ReadWrite | Read | None="NONE";
 		public EnumRule getRule() { return rule; }
 
-		//ReadWrite | Read | None = "NONE"
+		//ReadWrite | Read | None="NONE"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ReadWrite
@@ -1234,7 +1237,7 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//"Read"
 		public Keyword getReadReadKeyword_1_0() { return cReadReadKeyword_1_0; }
 
-		//None = "NONE"
+		//None="NONE"
 		public EnumLiteralDeclaration getNoneEnumLiteralDeclaration_2() { return cNoneEnumLiteralDeclaration_2; }
 
 		//"NONE"
@@ -1327,7 +1330,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		return getAssociationAccess().getRule();
 	}
 
-	//enum Multiplicity returns Multiplicity : ZeroMany = "many" | ZeroOne = "one" ; 
+	//enum Multiplicity:
+	//  ZeroMany="many" | ZeroOne="one"; 
 	//
 	//  
 	//            // | OneMany="1..*" | One="1..1"
@@ -1460,8 +1464,9 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		return getDateTimePropertyAccess().getRule();
 	}
 
-	//enum DateTimeAccuracy returns DateTimeAccuracy : Month = "month" | Year = "year" | Day = "day" |
-	//Hour = "hour" | Minute = "minute" | Second = "second" | Millisecond = "millisecond" ;
+	//enum DateTimeAccuracy:
+	//  Month="month" | Year="year" | Day="day" | Hour="hour" | Minute="minute" | Second="second" |
+	//  Millisecond="millisecond";
 	public DateTimeAccuracyElements getDateTimeAccuracyAccess() {
 		return (unknownRuleDateTimeAccuracy != null) ? unknownRuleDateTimeAccuracy : (unknownRuleDateTimeAccuracy = new DateTimeAccuracyElements());
 	}
@@ -1508,7 +1513,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		return getEnumerationPropertyAccess().getRule();
 	}
 
-	//enum PersistencyMode returns PersistencyMode : ReadWrite | Read | None = "NONE" ;
+	//enum PersistencyMode:
+	//  ReadWrite | Read | None="NONE";
 	public PersistencyModeElements getPersistencyModeAccess() {
 		return (unknownRulePersistencyMode != null) ? unknownRulePersistencyMode : (unknownRulePersistencyMode = new PersistencyModeElements());
 	}
@@ -1518,38 +1524,38 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 
 	//terminal ID:
-	//  "^" ? ( "a" .. "z" | "A" .. "Z" | "_" ) ( "a" .. "z" | "A" .. "Z" | "_" | "0" .. "9" ) *;
+	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
-	//  "0" .. "9" +;
+	//  "0".."9"+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
-	//  "\"" ( "\\" ( "b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\" ) | ! ( "\\" | "\"" ) ) * "\"" | "\'" ( "\\" ( "b" |
-	//  "t" | "n" | "f" | "r" | "\"" | "\'" | "\\" ) | ! ( "\\" | "\'" ) ) * "\'";
+	//  "\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" |
+	//  "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
-	//  "/ *" -> "* /";
+	//  "/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
-	//  "//" ! ( "\n" | "\r" ) * ( "\r" ? "\n" ) ?;
+	//  "//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
-	//  ( " " | "\t" | "\r" | "\n" ) +;
+	//  (" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
