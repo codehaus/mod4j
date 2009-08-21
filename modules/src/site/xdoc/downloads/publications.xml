@@ -15,10 +15,13 @@
 
         <section name="Publications about Mod4j">
             <p>
-                On a regular basis the Mod4j project team gives presentations or write poapers about various aspects
+                On a regular basis the Mod4j project team gives presentations or write papers about various aspects
                 of Mod4j and the underlying concepts. This page provides links to downloads of these publications.
             </p>
                 <ol>
+                    <li>Article <a href="../pdf/JAV_MOD4j_1159451.pdf">Model Driven Development met Mod4j</a> by Eric Jan Malotaux, published in Java Magazine 2009/3, June
+                    2009. In Dutch.
+                    </li>
                     <li>Presentation <a href="../pdf/mod4j-keynote-jspring2009.pdf">Mod4j: Modeling for java</a> by Jos Warmer, keynote session at J-Spring 2009, the Dutch Java Users group (NLJUG) conference.
                         Slides are in english.
                     </li>
