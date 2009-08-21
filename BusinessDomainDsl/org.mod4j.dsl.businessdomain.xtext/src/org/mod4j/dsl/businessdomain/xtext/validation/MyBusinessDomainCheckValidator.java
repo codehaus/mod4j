@@ -18,8 +18,11 @@ public class MyBusinessDomainCheckValidator extends BusinessDomainCheckValidator
 	}
 	
 	protected void configure() {
-		addCheckFile("org::mod4j::dsl::businessdomain::xtext::validation::BusinessModelChecks", CheckType.FAST);
-		addCheckFile("org::mod4j::dsl::businessdomain::xtext::validation::CrossxChecks", CheckType.FAST);
+//      addCheckFile("org::mod4j::dsl::businessdomain::xtext::validation::BusinessModelChecks", CheckType.FAST);
+//      addCheckFile("org::mod4j::dsl::businessdomain::xtext::validation::CrossxChecks", CheckType.FAST);
+
+      addCheckFile("BusinessDomainDsl::validation::BusinessModelChecks", CheckType.FAST);
+      addCheckFile("BusinessDomainDsl::validation::CrossxChecks", CheckType.FAST);
 
 //		val.addCheckFile(new CheckFileWithContext("BusinessDomainDsl::validation::BusinessModelChecks"));
 //		val.addCheckFile(new CheckFileWithContext("BusinessDomainDsl::validation::CrossxChecks"));
