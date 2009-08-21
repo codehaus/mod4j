@@ -223,10 +223,6 @@
     «javaClassName(name) -»
 «ENDDEFINE»
 
-«DEFINE getBaseDtoName FOR ListDto -»
-    «javaClassName(baseDto.name) -»
-«ENDDEFINE»
-
 «DEFINE getBaseDtoBaseName FOR Dto -»
     «REM»Nothing to generate for this superclass«ENDREM»
 «ENDDEFINE»
