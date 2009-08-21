@@ -109,7 +109,7 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
      * @generated
      */
     public CustomMethod getMethod() {
-        if (eContainerFeatureID != ServiceDslPackage.PARAMETER__METHOD) return null;
+        if (eContainerFeatureID() != ServiceDslPackage.PARAMETER__METHOD) return null;
         return (CustomMethod)eContainer();
     }
 
@@ -129,7 +129,7 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
      * @generated
      */
     public void setMethod(CustomMethod newMethod) {
-        if (newMethod != eInternalContainer() || (eContainerFeatureID != ServiceDslPackage.PARAMETER__METHOD && newMethod != null)) {
+        if (newMethod != eInternalContainer() || (eContainerFeatureID() != ServiceDslPackage.PARAMETER__METHOD && newMethod != null)) {
             if (EcoreUtil.isAncestor(this, newMethod))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -181,7 +181,7 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case ServiceDslPackage.PARAMETER__METHOD:
                 return eInternalContainer().eInverseRemove(this, ServiceDslPackage.CUSTOM_METHOD__IN_PARAMETERS, CustomMethod.class, msgs);
         }

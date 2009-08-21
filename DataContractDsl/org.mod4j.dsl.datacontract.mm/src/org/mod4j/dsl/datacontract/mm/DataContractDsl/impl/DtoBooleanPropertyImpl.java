@@ -22,22 +22,22 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty;
  */
 public class DtoBooleanPropertyImpl extends DtoDataPropertyImpl implements DtoBooleanProperty {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DtoBooleanPropertyImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.DTO_BOOLEAN_PROPERTY;
-	}
+        return DataContractDslPackage.Literals.DTO_BOOLEAN_PROPERTY;
+    }
 
 } //DtoBooleanPropertyImpl

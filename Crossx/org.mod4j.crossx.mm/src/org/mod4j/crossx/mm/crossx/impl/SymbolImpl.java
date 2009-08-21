@@ -196,7 +196,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
      * @generated
      */
     public ModelInfo getOwner() {
-        if (eContainerFeatureID != CrossxPackage.SYMBOL__OWNER) return null;
+        if (eContainerFeatureID() != CrossxPackage.SYMBOL__OWNER) return null;
         return (ModelInfo)eContainer();
     }
 
@@ -216,7 +216,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
      * @generated
      */
     public void setOwner(ModelInfo newOwner) {
-        if (newOwner != eInternalContainer() || (eContainerFeatureID != CrossxPackage.SYMBOL__OWNER && newOwner != null)) {
+        if (newOwner != eInternalContainer() || (eContainerFeatureID() != CrossxPackage.SYMBOL__OWNER && newOwner != null)) {
             if (EcoreUtil.isAncestor(this, newOwner))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -272,7 +272,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case CrossxPackage.SYMBOL__OWNER:
                 return eInternalContainer().eInverseRemove(this, CrossxPackage.MODEL_INFO__SYMBOLS, ModelInfo.class, msgs);
         }

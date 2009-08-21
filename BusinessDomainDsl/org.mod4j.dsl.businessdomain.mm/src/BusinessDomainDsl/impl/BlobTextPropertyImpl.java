@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class BlobTextPropertyImpl extends PropertyImpl implements BlobTextProperty {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected BlobTextPropertyImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return BusinessDomainDslPackage.Literals.BLOB_TEXT_PROPERTY;
-	}
+        return BusinessDomainDslPackage.Literals.BLOB_TEXT_PROPERTY;
+    }
 
 } //BlobTextPropertyImpl

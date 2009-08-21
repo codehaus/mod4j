@@ -35,165 +35,165 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
  */
 public class DtoImpl extends ModelElementImpl implements Dto {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DtoImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.DTO;
-	}
+        return DataContractDslPackage.Literals.DTO;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DataContractModel getDatacontractModel() {
-		if (eContainerFeatureID() != DataContractDslPackage.DTO__DATACONTRACT_MODEL) return null;
-		return (DataContractModel)eContainer();
-	}
+        if (eContainerFeatureID() != DataContractDslPackage.DTO__DATACONTRACT_MODEL) return null;
+        return (DataContractModel)eContainer();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetDatacontractModel(DataContractModel newDatacontractModel, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.DTO__DATACONTRACT_MODEL, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newDatacontractModel, DataContractDslPackage.DTO__DATACONTRACT_MODEL, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDatacontractModel(DataContractModel newDatacontractModel) {
-		if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
-			if (EcoreUtil.isAncestor(this, newDatacontractModel))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newDatacontractModel != null)
-				msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__DTOS, DataContractModel.class, msgs);
-			msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
-	}
+        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
+            if (EcoreUtil.isAncestor(this, newDatacontractModel))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newDatacontractModel != null)
+                msgs = ((InternalEObject)newDatacontractModel).eInverseAdd(this, DataContractDslPackage.DATA_CONTRACT_MODEL__DTOS, DataContractModel.class, msgs);
+            msgs = basicSetDatacontractModel(newDatacontractModel, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO__DATACONTRACT_MODEL, newDatacontractModel, newDatacontractModel));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetDatacontractModel((DataContractModel)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				return basicSetDatacontractModel(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                return basicSetDatacontractModel(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__DTOS, DataContractModel.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID()) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__DTOS, DataContractModel.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				return getDatacontractModel();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                return getDatacontractModel();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				setDatacontractModel((DataContractModel)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                setDatacontractModel((DataContractModel)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				setDatacontractModel((DataContractModel)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                setDatacontractModel((DataContractModel)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
-				return getDatacontractModel() != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
+                return getDatacontractModel() != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //DtoImpl

@@ -109,7 +109,7 @@ public class CrudServiceImpl extends ModelElementImpl implements CrudService {
      * @generated
      */
     public ServiceModel getModel() {
-        if (eContainerFeatureID != ServiceDslPackage.CRUD_SERVICE__MODEL) return null;
+        if (eContainerFeatureID() != ServiceDslPackage.CRUD_SERVICE__MODEL) return null;
         return (ServiceModel)eContainer();
     }
 
@@ -129,7 +129,7 @@ public class CrudServiceImpl extends ModelElementImpl implements CrudService {
      * @generated
      */
     public void setModel(ServiceModel newModel) {
-        if (newModel != eInternalContainer() || (eContainerFeatureID != ServiceDslPackage.CRUD_SERVICE__MODEL && newModel != null)) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID() != ServiceDslPackage.CRUD_SERVICE__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -181,7 +181,7 @@ public class CrudServiceImpl extends ModelElementImpl implements CrudService {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case ServiceDslPackage.CRUD_SERVICE__MODEL:
                 return eInternalContainer().eInverseRemove(this, ServiceDslPackage.SERVICE_MODEL__CRUD_SERVICES, ServiceModel.class, msgs);
         }

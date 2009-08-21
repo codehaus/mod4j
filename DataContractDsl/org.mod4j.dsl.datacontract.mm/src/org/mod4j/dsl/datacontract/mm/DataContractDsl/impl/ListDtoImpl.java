@@ -42,177 +42,177 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
  */
 public class ListDtoImpl extends DtoImpl implements ListDto {
 	/**
-	 * The cached value of the '{@link #getBaseDto() <em>Base Dto</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getBaseDto() <em>Base Dto</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseDto()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getBaseDto()
+     * @generated
+     * @ordered
+     */
 	protected Dto baseDto;
 
 	/**
-	 * The cached value of the '{@link #getSelectedProperties() <em>Selected Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getSelectedProperties() <em>Selected Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectedProperties()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSelectedProperties()
+     * @generated
+     * @ordered
+     */
 	protected EList<DtoPropertyReference> selectedProperties;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ListDtoImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.LIST_DTO;
-	}
+        return DataContractDslPackage.Literals.LIST_DTO;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Dto getBaseDto() {
-		if (baseDto != null && baseDto.eIsProxy()) {
-			InternalEObject oldBaseDto = (InternalEObject)baseDto;
-			baseDto = (Dto)eResolveProxy(oldBaseDto);
-			if (baseDto != oldBaseDto) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.LIST_DTO__BASE_DTO, oldBaseDto, baseDto));
-			}
-		}
-		return baseDto;
-	}
+        if (baseDto != null && baseDto.eIsProxy()) {
+            InternalEObject oldBaseDto = (InternalEObject)baseDto;
+            baseDto = (Dto)eResolveProxy(oldBaseDto);
+            if (baseDto != oldBaseDto) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataContractDslPackage.LIST_DTO__BASE_DTO, oldBaseDto, baseDto));
+            }
+        }
+        return baseDto;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Dto basicGetBaseDto() {
-		return baseDto;
-	}
+        return baseDto;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setBaseDto(Dto newBaseDto) {
-		Dto oldBaseDto = baseDto;
-		baseDto = newBaseDto;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.LIST_DTO__BASE_DTO, oldBaseDto, baseDto));
-	}
+        Dto oldBaseDto = baseDto;
+        baseDto = newBaseDto;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.LIST_DTO__BASE_DTO, oldBaseDto, baseDto));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<DtoPropertyReference> getSelectedProperties() {
-		if (selectedProperties == null) {
-			selectedProperties = new EObjectContainmentEList<DtoPropertyReference>(DtoPropertyReference.class, this, DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES);
-		}
-		return selectedProperties;
-	}
+        if (selectedProperties == null) {
+            selectedProperties = new EObjectContainmentEList<DtoPropertyReference>(DtoPropertyReference.class, this, DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES);
+        }
+        return selectedProperties;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
-				return ((InternalEList<?>)getSelectedProperties()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
+                return ((InternalEList<?>)getSelectedProperties()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DataContractDslPackage.LIST_DTO__BASE_DTO:
-				if (resolve) return getBaseDto();
-				return basicGetBaseDto();
-			case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
-				return getSelectedProperties();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.LIST_DTO__BASE_DTO:
+                if (resolve) return getBaseDto();
+                return basicGetBaseDto();
+            case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
+                return getSelectedProperties();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DataContractDslPackage.LIST_DTO__BASE_DTO:
-				setBaseDto((Dto)newValue);
-				return;
-			case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
-				getSelectedProperties().clear();
-				getSelectedProperties().addAll((Collection<? extends DtoPropertyReference>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.LIST_DTO__BASE_DTO:
+                setBaseDto((Dto)newValue);
+                return;
+            case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
+                getSelectedProperties().clear();
+                getSelectedProperties().addAll((Collection<? extends DtoPropertyReference>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.LIST_DTO__BASE_DTO:
-				setBaseDto((Dto)null);
-				return;
-			case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
-				getSelectedProperties().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.LIST_DTO__BASE_DTO:
+                setBaseDto((Dto)null);
+                return;
+            case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
+                getSelectedProperties().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DataContractDslPackage.LIST_DTO__BASE_DTO:
-				return baseDto != null;
-			case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
-				return selectedProperties != null && !selectedProperties.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case DataContractDslPackage.LIST_DTO__BASE_DTO:
+                return baseDto != null;
+            case DataContractDslPackage.LIST_DTO__SELECTED_PROPERTIES:
+                return selectedProperties != null && !selectedProperties.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //ListDtoImpl

@@ -7,61 +7,61 @@ package org.mod4j.dsl.businessdomain.xtext.contentassist.antlr.internal;
 import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.Lexer;
 }
 
-T11 : '<->' ;
-T12 : '->' ;
-T13 : 'true' ;
-T14 : 'false' ;
-T15 : 'many' ;
-T16 : 'one' ;
-T17 : 'domain' ;
-T18 : ';' ;
-T19 : 'from' ;
-T20 : 'import' ;
-T21 : 'association' ;
-T22 : 'ordered' ;
-T23 : 'class' ;
-T24 : '[' ;
-T25 : ']' ;
-T26 : 'inherits' ;
-T27 : 'rules' ;
-T28 : 'enumeration' ;
-T29 : '=' ;
-T30 : 'unique' ;
-T31 : ',' ;
-T32 : 'nullable' ;
-T33 : 'derived' ;
-T34 : 'writable' ;
-T35 : 'boolean' ;
-T36 : 'default' ;
-T37 : 'string' ;
-T38 : 'minlength' ;
-T39 : 'maxlength' ;
-T40 : 'regexp' ;
-T41 : 'datetime' ;
-T42 : 'integer' ;
-T43 : 'min' ;
-T44 : 'max' ;
+T11 : '->' ;
+T12 : 'false' ;
+T13 : 'many' ;
+T14 : 'one' ;
+T15 : 'domain' ;
+T16 : ';' ;
+T17 : 'from' ;
+T18 : 'import' ;
+T19 : 'association' ;
+T20 : 'class' ;
+T21 : '[' ;
+T22 : ']' ;
+T23 : 'inherits' ;
+T24 : 'rules' ;
+T25 : 'enumeration' ;
+T26 : '=' ;
+T27 : 'unique' ;
+T28 : ',' ;
+T29 : 'minlength' ;
+T30 : 'maxlength' ;
+T31 : 'regexp' ;
+T32 : 'min' ;
+T33 : 'max' ;
+T34 : '<->' ;
+T35 : 'ordered' ;
+T36 : 'nullable' ;
+T37 : 'derived' ;
+T38 : 'writable' ;
+T39 : 'boolean' ;
+T40 : 'default' ;
+T41 : 'true' ;
+T42 : 'string' ;
+T43 : 'datetime' ;
+T44 : 'integer' ;
 T45 : 'decimal' ;
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2040
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4167
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2042
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4169
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2044
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4171
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2046
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4173
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2048
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4175
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2050
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4177
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 2052
+// $ANTLR src "../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g" 4179
 RULE_ANY_OTHER : .;
 
 

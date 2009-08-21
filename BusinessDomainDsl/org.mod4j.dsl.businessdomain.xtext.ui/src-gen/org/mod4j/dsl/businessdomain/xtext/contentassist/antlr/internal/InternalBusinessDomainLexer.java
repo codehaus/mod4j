@@ -65,10 +65,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT11() throws RecognitionException {
         try {
             int _type = T11;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:10:5: ( '<->' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:10:7: '<->'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:10:5: ( '->' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:10:7: '->'
             {
-            match("<->"); 
+            match("->"); 
 
 
             }
@@ -84,10 +84,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT12() throws RecognitionException {
         try {
             int _type = T12;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:11:5: ( '->' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:11:7: '->'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:11:5: ( 'false' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:11:7: 'false'
             {
-            match("->"); 
+            match("false"); 
 
 
             }
@@ -103,10 +103,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT13() throws RecognitionException {
         try {
             int _type = T13;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:12:5: ( 'true' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:12:7: 'true'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:12:5: ( 'many' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:12:7: 'many'
             {
-            match("true"); 
+            match("many"); 
 
 
             }
@@ -122,10 +122,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT14() throws RecognitionException {
         try {
             int _type = T14;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:13:5: ( 'false' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:13:7: 'false'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:13:5: ( 'one' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:13:7: 'one'
             {
-            match("false"); 
+            match("one"); 
 
 
             }
@@ -141,10 +141,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT15() throws RecognitionException {
         try {
             int _type = T15;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:14:5: ( 'many' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:14:7: 'many'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:14:5: ( 'domain' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:14:7: 'domain'
             {
-            match("many"); 
+            match("domain"); 
 
 
             }
@@ -160,11 +160,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT16() throws RecognitionException {
         try {
             int _type = T16;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:15:5: ( 'one' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:15:7: 'one'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:15:5: ( ';' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:15:7: ';'
             {
-            match("one"); 
-
+            match(';'); 
 
             }
 
@@ -179,10 +178,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT17() throws RecognitionException {
         try {
             int _type = T17;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:16:5: ( 'domain' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:16:7: 'domain'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:16:5: ( 'from' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:16:7: 'from'
             {
-            match("domain"); 
+            match("from"); 
 
 
             }
@@ -198,10 +197,11 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT18() throws RecognitionException {
         try {
             int _type = T18;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:5: ( ';' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:7: ';'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:5: ( 'import' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:17:7: 'import'
             {
-            match(';'); 
+            match("import"); 
+
 
             }
 
@@ -216,10 +216,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT19() throws RecognitionException {
         try {
             int _type = T19;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:18:5: ( 'from' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:18:7: 'from'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:18:5: ( 'association' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:18:7: 'association'
             {
-            match("from"); 
+            match("association"); 
 
 
             }
@@ -235,10 +235,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT20() throws RecognitionException {
         try {
             int _type = T20;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:19:5: ( 'import' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:19:7: 'import'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:19:5: ( 'class' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:19:7: 'class'
             {
-            match("import"); 
+            match("class"); 
 
 
             }
@@ -254,11 +254,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT21() throws RecognitionException {
         try {
             int _type = T21;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:5: ( 'association' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:7: 'association'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:5: ( '[' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:20:7: '['
             {
-            match("association"); 
-
+            match('['); 
 
             }
 
@@ -273,11 +272,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT22() throws RecognitionException {
         try {
             int _type = T22;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:21:5: ( 'ordered' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:21:7: 'ordered'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:21:5: ( ']' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:21:7: ']'
             {
-            match("ordered"); 
-
+            match(']'); 
 
             }
 
@@ -292,10 +290,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT23() throws RecognitionException {
         try {
             int _type = T23;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:22:5: ( 'class' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:22:7: 'class'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:22:5: ( 'inherits' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:22:7: 'inherits'
             {
-            match("class"); 
+            match("inherits"); 
 
 
             }
@@ -311,10 +309,11 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT24() throws RecognitionException {
         try {
             int _type = T24;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:23:5: ( '[' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:23:7: '['
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:23:5: ( 'rules' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:23:7: 'rules'
             {
-            match('['); 
+            match("rules"); 
+
 
             }
 
@@ -329,10 +328,11 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT25() throws RecognitionException {
         try {
             int _type = T25;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:24:5: ( ']' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:24:7: ']'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:24:5: ( 'enumeration' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:24:7: 'enumeration'
             {
-            match(']'); 
+            match("enumeration"); 
+
 
             }
 
@@ -347,11 +347,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT26() throws RecognitionException {
         try {
             int _type = T26;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:25:5: ( 'inherits' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:25:7: 'inherits'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:25:5: ( '=' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:25:7: '='
             {
-            match("inherits"); 
-
+            match('='); 
 
             }
 
@@ -366,10 +365,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT27() throws RecognitionException {
         try {
             int _type = T27;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:26:5: ( 'rules' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:26:7: 'rules'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:26:5: ( 'unique' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:26:7: 'unique'
             {
-            match("rules"); 
+            match("unique"); 
 
 
             }
@@ -385,11 +384,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT28() throws RecognitionException {
         try {
             int _type = T28;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:27:5: ( 'enumeration' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:27:7: 'enumeration'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:27:5: ( ',' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:27:7: ','
             {
-            match("enumeration"); 
-
+            match(','); 
 
             }
 
@@ -404,10 +402,11 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT29() throws RecognitionException {
         try {
             int _type = T29;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:28:5: ( '=' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:28:7: '='
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:28:5: ( 'minlength' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:28:7: 'minlength'
             {
-            match('='); 
+            match("minlength"); 
+
 
             }
 
@@ -422,10 +421,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT30() throws RecognitionException {
         try {
             int _type = T30;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:29:5: ( 'unique' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:29:7: 'unique'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:29:5: ( 'maxlength' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:29:7: 'maxlength'
             {
-            match("unique"); 
+            match("maxlength"); 
 
 
             }
@@ -441,10 +440,11 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT31() throws RecognitionException {
         try {
             int _type = T31;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:30:5: ( ',' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:30:7: ','
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:30:5: ( 'regexp' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:30:7: 'regexp'
             {
-            match(','); 
+            match("regexp"); 
+
 
             }
 
@@ -459,10 +459,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT32() throws RecognitionException {
         try {
             int _type = T32;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:31:5: ( 'nullable' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:31:7: 'nullable'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:31:5: ( 'min' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:31:7: 'min'
             {
-            match("nullable"); 
+            match("min"); 
 
 
             }
@@ -478,10 +478,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT33() throws RecognitionException {
         try {
             int _type = T33;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:32:5: ( 'derived' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:32:7: 'derived'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:32:5: ( 'max' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:32:7: 'max'
             {
-            match("derived"); 
+            match("max"); 
 
 
             }
@@ -497,10 +497,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT34() throws RecognitionException {
         try {
             int _type = T34;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:33:5: ( 'writable' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:33:7: 'writable'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:33:5: ( '<->' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:33:7: '<->'
             {
-            match("writable"); 
+            match("<->"); 
 
 
             }
@@ -516,10 +516,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT35() throws RecognitionException {
         try {
             int _type = T35;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:34:5: ( 'boolean' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:34:7: 'boolean'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:34:5: ( 'ordered' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:34:7: 'ordered'
             {
-            match("boolean"); 
+            match("ordered"); 
 
 
             }
@@ -535,10 +535,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT36() throws RecognitionException {
         try {
             int _type = T36;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:35:5: ( 'default' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:35:7: 'default'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:35:5: ( 'nullable' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:35:7: 'nullable'
             {
-            match("default"); 
+            match("nullable"); 
 
 
             }
@@ -554,10 +554,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT37() throws RecognitionException {
         try {
             int _type = T37;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:36:5: ( 'string' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:36:7: 'string'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:36:5: ( 'derived' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:36:7: 'derived'
             {
-            match("string"); 
+            match("derived"); 
 
 
             }
@@ -573,10 +573,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT38() throws RecognitionException {
         try {
             int _type = T38;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:37:5: ( 'minlength' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:37:7: 'minlength'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:37:5: ( 'writable' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:37:7: 'writable'
             {
-            match("minlength"); 
+            match("writable"); 
 
 
             }
@@ -592,10 +592,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT39() throws RecognitionException {
         try {
             int _type = T39;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:38:5: ( 'maxlength' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:38:7: 'maxlength'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:38:5: ( 'boolean' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:38:7: 'boolean'
             {
-            match("maxlength"); 
+            match("boolean"); 
 
 
             }
@@ -611,10 +611,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT40() throws RecognitionException {
         try {
             int _type = T40;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:39:5: ( 'regexp' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:39:7: 'regexp'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:39:5: ( 'default' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:39:7: 'default'
             {
-            match("regexp"); 
+            match("default"); 
 
 
             }
@@ -630,10 +630,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT41() throws RecognitionException {
         try {
             int _type = T41;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:40:5: ( 'datetime' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:40:7: 'datetime'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:40:5: ( 'true' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:40:7: 'true'
             {
-            match("datetime"); 
+            match("true"); 
 
 
             }
@@ -649,10 +649,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT42() throws RecognitionException {
         try {
             int _type = T42;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:41:5: ( 'integer' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:41:7: 'integer'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:41:5: ( 'string' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:41:7: 'string'
             {
-            match("integer"); 
+            match("string"); 
 
 
             }
@@ -668,10 +668,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT43() throws RecognitionException {
         try {
             int _type = T43;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:42:5: ( 'min' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:42:7: 'min'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:42:5: ( 'datetime' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:42:7: 'datetime'
             {
-            match("min"); 
+            match("datetime"); 
 
 
             }
@@ -687,10 +687,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mT44() throws RecognitionException {
         try {
             int _type = T44;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:43:5: ( 'max' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:43:7: 'max'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:43:5: ( 'integer' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:43:7: 'integer'
             {
-            match("max"); 
+            match("integer"); 
 
 
             }
@@ -725,10 +725,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2040:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2040:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4167:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4167:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2040:11: ( '^' )?
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4167:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -737,7 +737,7 @@ public class InternalBusinessDomainLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2040:11: '^'
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4167:11: '^'
                     {
                     match('^'); 
 
@@ -756,7 +756,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2040:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4167:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -804,10 +804,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2042:10: ( ( '0' .. '9' )+ )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2042:12: ( '0' .. '9' )+
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4169:10: ( ( '0' .. '9' )+ )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4169:12: ( '0' .. '9' )+
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2042:12: ( '0' .. '9' )+
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4169:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -821,7 +821,7 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2042:13: '0' .. '9'
+            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4169:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -851,10 +851,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -866,16 +866,16 @@ public class InternalBusinessDomainLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("2044:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
+                    new NoViableAltException("4171:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -891,7 +891,7 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -908,7 +908,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -934,10 +934,10 @@ public class InternalBusinessDomainLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -953,7 +953,7 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -970,7 +970,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2044:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4171:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1012,12 +1012,12 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2046:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2046:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4173:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4173:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2046:24: ( options {greedy=false; } : . )*
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4173:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1042,7 +1042,7 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2046:52: .
+            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4173:52: .
             	    {
             	    matchAny(); 
 
@@ -1070,12 +1070,12 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1088,7 +1088,7 @@ public class InternalBusinessDomainLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1109,7 +1109,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:40: ( ( '\\r' )? '\\n' )?
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1118,9 +1118,9 @@ public class InternalBusinessDomainLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:41: ( '\\r' )? '\\n'
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:41: ( '\\r' )?
+                    // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1129,7 +1129,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2048:41: '\\r'
+                            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4175:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1159,10 +1159,10 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2050:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2050:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4177:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4177:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2050:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4177:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1215,8 +1215,8 @@ public class InternalBusinessDomainLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2052:16: ( . )
-            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:2052:18: .
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4179:16: ( . )
+            // ../org.mod4j.dsl.businessdomain.xtext.ui/src-gen/org/mod4j/dsl/businessdomain/xtext/contentassist/antlr/internal/InternalBusinessDomain.g:4179:18: .
             {
             matchAny(); 
 
@@ -1234,58 +1234,45 @@ public class InternalBusinessDomainLexer extends Lexer {
         int alt12=42;
         int LA12_0 = input.LA(1);
 
-        if ( (LA12_0=='<') ) {
+        if ( (LA12_0=='-') ) {
             int LA12_1 = input.LA(2);
 
-            if ( (LA12_1=='-') ) {
+            if ( (LA12_1=='>') ) {
                 alt12=1;
             }
             else {
                 alt12=42;}
         }
-        else if ( (LA12_0=='-') ) {
-            int LA12_2 = input.LA(2);
+        else if ( (LA12_0=='f') ) {
+            switch ( input.LA(2) ) {
+            case 'r':
+                {
+                int LA12_32 = input.LA(3);
 
-            if ( (LA12_2=='>') ) {
-                alt12=2;
-            }
-            else {
-                alt12=42;}
-        }
-        else if ( (LA12_0=='t') ) {
-            int LA12_3 = input.LA(2);
-
-            if ( (LA12_3=='r') ) {
-                int LA12_33 = input.LA(3);
-
-                if ( (LA12_33=='u') ) {
+                if ( (LA12_32=='o') ) {
                     int LA12_66 = input.LA(4);
 
-                    if ( (LA12_66=='e') ) {
+                    if ( (LA12_66=='m') ) {
                         int LA12_92 = input.LA(5);
 
                         if ( ((LA12_92>='0' && LA12_92<='9')||(LA12_92>='A' && LA12_92<='Z')||LA12_92=='_'||(LA12_92>='a' && LA12_92<='z')) ) {
                             alt12=36;
                         }
                         else {
-                            alt12=3;}
+                            alt12=7;}
                     }
                     else {
                         alt12=36;}
                 }
                 else {
                     alt12=36;}
-            }
-            else {
-                alt12=36;}
-        }
-        else if ( (LA12_0=='f') ) {
-            switch ( input.LA(2) ) {
+                }
+                break;
             case 'a':
                 {
-                int LA12_35 = input.LA(3);
+                int LA12_33 = input.LA(3);
 
-                if ( (LA12_35=='l') ) {
+                if ( (LA12_33=='l') ) {
                     int LA12_67 = input.LA(4);
 
                     if ( (LA12_67=='s') ) {
@@ -1298,33 +1285,10 @@ public class InternalBusinessDomainLexer extends Lexer {
                                 alt12=36;
                             }
                             else {
-                                alt12=4;}
+                                alt12=2;}
                         }
                         else {
                             alt12=36;}
-                    }
-                    else {
-                        alt12=36;}
-                }
-                else {
-                    alt12=36;}
-                }
-                break;
-            case 'r':
-                {
-                int LA12_36 = input.LA(3);
-
-                if ( (LA12_36=='o') ) {
-                    int LA12_68 = input.LA(4);
-
-                    if ( (LA12_68=='m') ) {
-                        int LA12_94 = input.LA(5);
-
-                        if ( ((LA12_94>='0' && LA12_94<='9')||(LA12_94>='A' && LA12_94<='Z')||LA12_94=='_'||(LA12_94>='a' && LA12_94<='z')) ) {
-                            alt12=36;
-                        }
-                        else {
-                            alt12=9;}
                     }
                     else {
                         alt12=36;}
@@ -1339,20 +1303,20 @@ public class InternalBusinessDomainLexer extends Lexer {
         }
         else if ( (LA12_0=='m') ) {
             switch ( input.LA(2) ) {
-            case 'a':
+            case 'i':
                 {
-                switch ( input.LA(3) ) {
-                case 'x':
-                    {
+                int LA12_35 = input.LA(3);
+
+                if ( (LA12_35=='n') ) {
                     switch ( input.LA(4) ) {
                     case 'l':
                         {
-                        int LA12_95 = input.LA(5);
+                        int LA12_94 = input.LA(5);
 
-                        if ( (LA12_95=='e') ) {
-                            int LA12_123 = input.LA(6);
+                        if ( (LA12_94=='e') ) {
+                            int LA12_122 = input.LA(6);
 
-                            if ( (LA12_123=='n') ) {
+                            if ( (LA12_122=='n') ) {
                                 int LA12_146 = input.LA(7);
 
                                 if ( (LA12_146=='g') ) {
@@ -1368,7 +1332,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                                 alt12=36;
                                             }
                                             else {
-                                                alt12=29;}
+                                                alt12=19;}
                                         }
                                         else {
                                             alt12=36;}
@@ -1453,46 +1417,44 @@ public class InternalBusinessDomainLexer extends Lexer {
                         }
                         break;
                     default:
-                        alt12=34;}
+                        alt12=22;}
 
-                    }
-                    break;
+                }
+                else {
+                    alt12=36;}
+                }
+                break;
+            case 'a':
+                {
+                switch ( input.LA(3) ) {
                 case 'n':
                     {
-                    int LA12_70 = input.LA(4);
+                    int LA12_69 = input.LA(4);
 
-                    if ( (LA12_70=='y') ) {
-                        int LA12_97 = input.LA(5);
+                    if ( (LA12_69=='y') ) {
+                        int LA12_96 = input.LA(5);
 
-                        if ( ((LA12_97>='0' && LA12_97<='9')||(LA12_97>='A' && LA12_97<='Z')||LA12_97=='_'||(LA12_97>='a' && LA12_97<='z')) ) {
+                        if ( ((LA12_96>='0' && LA12_96<='9')||(LA12_96>='A' && LA12_96<='Z')||LA12_96=='_'||(LA12_96>='a' && LA12_96<='z')) ) {
                             alt12=36;
                         }
                         else {
-                            alt12=5;}
+                            alt12=3;}
                     }
                     else {
                         alt12=36;}
                     }
                     break;
-                default:
-                    alt12=36;}
-
-                }
-                break;
-            case 'i':
-                {
-                int LA12_38 = input.LA(3);
-
-                if ( (LA12_38=='n') ) {
+                case 'x':
+                    {
                     switch ( input.LA(4) ) {
                     case 'l':
                         {
-                        int LA12_98 = input.LA(5);
+                        int LA12_97 = input.LA(5);
 
-                        if ( (LA12_98=='e') ) {
-                            int LA12_125 = input.LA(6);
+                        if ( (LA12_97=='e') ) {
+                            int LA12_124 = input.LA(6);
 
-                            if ( (LA12_125=='n') ) {
+                            if ( (LA12_124=='n') ) {
                                 int LA12_147 = input.LA(7);
 
                                 if ( (LA12_147=='g') ) {
@@ -1508,7 +1470,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                                 alt12=36;
                                             }
                                             else {
-                                                alt12=28;}
+                                                alt12=20;}
                                         }
                                         else {
                                             alt12=36;}
@@ -1593,11 +1555,13 @@ public class InternalBusinessDomainLexer extends Lexer {
                         }
                         break;
                     default:
-                        alt12=33;}
+                        alt12=23;}
 
-                }
-                else {
+                    }
+                    break;
+                default:
                     alt12=36;}
+
                 }
                 break;
             default:
@@ -1608,16 +1572,16 @@ public class InternalBusinessDomainLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'n':
                 {
-                int LA12_39 = input.LA(3);
+                int LA12_37 = input.LA(3);
 
-                if ( (LA12_39=='e') ) {
-                    int LA12_72 = input.LA(4);
+                if ( (LA12_37=='e') ) {
+                    int LA12_71 = input.LA(4);
 
-                    if ( ((LA12_72>='0' && LA12_72<='9')||(LA12_72>='A' && LA12_72<='Z')||LA12_72=='_'||(LA12_72>='a' && LA12_72<='z')) ) {
+                    if ( ((LA12_71>='0' && LA12_71<='9')||(LA12_71>='A' && LA12_71<='Z')||LA12_71=='_'||(LA12_71>='a' && LA12_71<='z')) ) {
                         alt12=36;
                     }
                     else {
-                        alt12=6;}
+                        alt12=4;}
                 }
                 else {
                     alt12=36;}
@@ -1625,18 +1589,18 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'r':
                 {
-                int LA12_40 = input.LA(3);
+                int LA12_38 = input.LA(3);
 
-                if ( (LA12_40=='d') ) {
-                    int LA12_73 = input.LA(4);
+                if ( (LA12_38=='d') ) {
+                    int LA12_72 = input.LA(4);
 
-                    if ( (LA12_73=='e') ) {
-                        int LA12_101 = input.LA(5);
+                    if ( (LA12_72=='e') ) {
+                        int LA12_100 = input.LA(5);
 
-                        if ( (LA12_101=='r') ) {
-                            int LA12_126 = input.LA(6);
+                        if ( (LA12_100=='r') ) {
+                            int LA12_125 = input.LA(6);
 
-                            if ( (LA12_126=='e') ) {
+                            if ( (LA12_125=='e') ) {
                                 int LA12_148 = input.LA(7);
 
                                 if ( (LA12_148=='d') ) {
@@ -1646,7 +1610,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                         alt12=36;
                                     }
                                     else {
-                                        alt12=12;}
+                                        alt12=25;}
                                 }
                                 else {
                                     alt12=36;}
@@ -1673,6 +1637,41 @@ public class InternalBusinessDomainLexer extends Lexer {
             case 'e':
                 {
                 switch ( input.LA(3) ) {
+                case 'r':
+                    {
+                    int LA12_73 = input.LA(4);
+
+                    if ( (LA12_73=='i') ) {
+                        int LA12_101 = input.LA(5);
+
+                        if ( (LA12_101=='v') ) {
+                            int LA12_126 = input.LA(6);
+
+                            if ( (LA12_126=='e') ) {
+                                int LA12_149 = input.LA(7);
+
+                                if ( (LA12_149=='d') ) {
+                                    int LA12_170 = input.LA(8);
+
+                                    if ( ((LA12_170>='0' && LA12_170<='9')||(LA12_170>='A' && LA12_170<='Z')||LA12_170=='_'||(LA12_170>='a' && LA12_170<='z')) ) {
+                                        alt12=36;
+                                    }
+                                    else {
+                                        alt12=27;}
+                                }
+                                else {
+                                    alt12=36;}
+                            }
+                            else {
+                                alt12=36;}
+                        }
+                        else {
+                            alt12=36;}
+                    }
+                    else {
+                        alt12=36;}
+                    }
+                    break;
                 case 'c':
                     {
                     int LA12_74 = input.LA(4);
@@ -1684,12 +1683,12 @@ public class InternalBusinessDomainLexer extends Lexer {
                             int LA12_127 = input.LA(6);
 
                             if ( (LA12_127=='a') ) {
-                                int LA12_149 = input.LA(7);
+                                int LA12_150 = input.LA(7);
 
-                                if ( (LA12_149=='l') ) {
-                                    int LA12_170 = input.LA(8);
+                                if ( (LA12_150=='l') ) {
+                                    int LA12_171 = input.LA(8);
 
-                                    if ( ((LA12_170>='0' && LA12_170<='9')||(LA12_170>='A' && LA12_170<='Z')||LA12_170=='_'||(LA12_170>='a' && LA12_170<='z')) ) {
+                                    if ( ((LA12_171>='0' && LA12_171<='9')||(LA12_171>='A' && LA12_171<='Z')||LA12_171=='_'||(LA12_171>='a' && LA12_171<='z')) ) {
                                         alt12=36;
                                     }
                                     else {
@@ -1719,51 +1718,16 @@ public class InternalBusinessDomainLexer extends Lexer {
                             int LA12_128 = input.LA(6);
 
                             if ( (LA12_128=='l') ) {
-                                int LA12_150 = input.LA(7);
-
-                                if ( (LA12_150=='t') ) {
-                                    int LA12_171 = input.LA(8);
-
-                                    if ( ((LA12_171>='0' && LA12_171<='9')||(LA12_171>='A' && LA12_171<='Z')||LA12_171=='_'||(LA12_171>='a' && LA12_171<='z')) ) {
-                                        alt12=36;
-                                    }
-                                    else {
-                                        alt12=26;}
-                                }
-                                else {
-                                    alt12=36;}
-                            }
-                            else {
-                                alt12=36;}
-                        }
-                        else {
-                            alt12=36;}
-                    }
-                    else {
-                        alt12=36;}
-                    }
-                    break;
-                case 'r':
-                    {
-                    int LA12_76 = input.LA(4);
-
-                    if ( (LA12_76=='i') ) {
-                        int LA12_104 = input.LA(5);
-
-                        if ( (LA12_104=='v') ) {
-                            int LA12_129 = input.LA(6);
-
-                            if ( (LA12_129=='e') ) {
                                 int LA12_151 = input.LA(7);
 
-                                if ( (LA12_151=='d') ) {
+                                if ( (LA12_151=='t') ) {
                                     int LA12_172 = input.LA(8);
 
                                     if ( ((LA12_172>='0' && LA12_172<='9')||(LA12_172>='A' && LA12_172<='Z')||LA12_172=='_'||(LA12_172>='a' && LA12_172<='z')) ) {
                                         alt12=36;
                                     }
                                     else {
-                                        alt12=23;}
+                                        alt12=30;}
                                 }
                                 else {
                                     alt12=36;}
@@ -1785,25 +1749,25 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'o':
                 {
-                int LA12_42 = input.LA(3);
+                int LA12_40 = input.LA(3);
 
-                if ( (LA12_42=='m') ) {
-                    int LA12_77 = input.LA(4);
+                if ( (LA12_40=='m') ) {
+                    int LA12_76 = input.LA(4);
 
-                    if ( (LA12_77=='a') ) {
-                        int LA12_105 = input.LA(5);
+                    if ( (LA12_76=='a') ) {
+                        int LA12_104 = input.LA(5);
 
-                        if ( (LA12_105=='i') ) {
-                            int LA12_130 = input.LA(6);
+                        if ( (LA12_104=='i') ) {
+                            int LA12_129 = input.LA(6);
 
-                            if ( (LA12_130=='n') ) {
+                            if ( (LA12_129=='n') ) {
                                 int LA12_152 = input.LA(7);
 
                                 if ( ((LA12_152>='0' && LA12_152<='9')||(LA12_152>='A' && LA12_152<='Z')||LA12_152=='_'||(LA12_152>='a' && LA12_152<='z')) ) {
                                     alt12=36;
                                 }
                                 else {
-                                    alt12=7;}
+                                    alt12=5;}
                             }
                             else {
                                 alt12=36;}
@@ -1820,18 +1784,18 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'a':
                 {
-                int LA12_43 = input.LA(3);
+                int LA12_41 = input.LA(3);
 
-                if ( (LA12_43=='t') ) {
-                    int LA12_78 = input.LA(4);
+                if ( (LA12_41=='t') ) {
+                    int LA12_77 = input.LA(4);
 
-                    if ( (LA12_78=='e') ) {
-                        int LA12_106 = input.LA(5);
+                    if ( (LA12_77=='e') ) {
+                        int LA12_105 = input.LA(5);
 
-                        if ( (LA12_106=='t') ) {
-                            int LA12_131 = input.LA(6);
+                        if ( (LA12_105=='t') ) {
+                            int LA12_130 = input.LA(6);
 
-                            if ( (LA12_131=='i') ) {
+                            if ( (LA12_130=='i') ) {
                                 int LA12_153 = input.LA(7);
 
                                 if ( (LA12_153=='m') ) {
@@ -1844,7 +1808,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                             alt12=36;
                                         }
                                         else {
-                                            alt12=31;}
+                                            alt12=33;}
                                     }
                                     else {
                                         alt12=36;}
@@ -1870,34 +1834,40 @@ public class InternalBusinessDomainLexer extends Lexer {
 
         }
         else if ( (LA12_0==';') ) {
-            alt12=8;
+            alt12=6;
         }
         else if ( (LA12_0=='i') ) {
             switch ( input.LA(2) ) {
             case 'n':
                 {
                 switch ( input.LA(3) ) {
-                case 't':
+                case 'h':
                     {
-                    int LA12_79 = input.LA(4);
+                    int LA12_78 = input.LA(4);
 
-                    if ( (LA12_79=='e') ) {
-                        int LA12_107 = input.LA(5);
+                    if ( (LA12_78=='e') ) {
+                        int LA12_106 = input.LA(5);
 
-                        if ( (LA12_107=='g') ) {
-                            int LA12_132 = input.LA(6);
+                        if ( (LA12_106=='r') ) {
+                            int LA12_131 = input.LA(6);
 
-                            if ( (LA12_132=='e') ) {
+                            if ( (LA12_131=='i') ) {
                                 int LA12_154 = input.LA(7);
 
-                                if ( (LA12_154=='r') ) {
+                                if ( (LA12_154=='t') ) {
                                     int LA12_175 = input.LA(8);
 
-                                    if ( ((LA12_175>='0' && LA12_175<='9')||(LA12_175>='A' && LA12_175<='Z')||LA12_175=='_'||(LA12_175>='a' && LA12_175<='z')) ) {
-                                        alt12=36;
+                                    if ( (LA12_175=='s') ) {
+                                        int LA12_193 = input.LA(9);
+
+                                        if ( ((LA12_193>='0' && LA12_193<='9')||(LA12_193>='A' && LA12_193<='Z')||LA12_193=='_'||(LA12_193>='a' && LA12_193<='z')) ) {
+                                            alt12=36;
+                                        }
+                                        else {
+                                            alt12=13;}
                                     }
                                     else {
-                                        alt12=32;}
+                                        alt12=36;}
                                 }
                                 else {
                                     alt12=36;}
@@ -1912,33 +1882,27 @@ public class InternalBusinessDomainLexer extends Lexer {
                         alt12=36;}
                     }
                     break;
-                case 'h':
+                case 't':
                     {
-                    int LA12_80 = input.LA(4);
+                    int LA12_79 = input.LA(4);
 
-                    if ( (LA12_80=='e') ) {
-                        int LA12_108 = input.LA(5);
+                    if ( (LA12_79=='e') ) {
+                        int LA12_107 = input.LA(5);
 
-                        if ( (LA12_108=='r') ) {
-                            int LA12_133 = input.LA(6);
+                        if ( (LA12_107=='g') ) {
+                            int LA12_132 = input.LA(6);
 
-                            if ( (LA12_133=='i') ) {
+                            if ( (LA12_132=='e') ) {
                                 int LA12_155 = input.LA(7);
 
-                                if ( (LA12_155=='t') ) {
+                                if ( (LA12_155=='r') ) {
                                     int LA12_176 = input.LA(8);
 
-                                    if ( (LA12_176=='s') ) {
-                                        int LA12_194 = input.LA(9);
-
-                                        if ( ((LA12_194>='0' && LA12_194<='9')||(LA12_194>='A' && LA12_194<='Z')||LA12_194=='_'||(LA12_194>='a' && LA12_194<='z')) ) {
-                                            alt12=36;
-                                        }
-                                        else {
-                                            alt12=16;}
+                                    if ( ((LA12_176>='0' && LA12_176<='9')||(LA12_176>='A' && LA12_176<='Z')||LA12_176=='_'||(LA12_176>='a' && LA12_176<='z')) ) {
+                                        alt12=36;
                                     }
                                     else {
-                                        alt12=36;}
+                                        alt12=34;}
                                 }
                                 else {
                                     alt12=36;}
@@ -1960,25 +1924,25 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'm':
                 {
-                int LA12_46 = input.LA(3);
+                int LA12_44 = input.LA(3);
 
-                if ( (LA12_46=='p') ) {
-                    int LA12_81 = input.LA(4);
+                if ( (LA12_44=='p') ) {
+                    int LA12_80 = input.LA(4);
 
-                    if ( (LA12_81=='o') ) {
-                        int LA12_109 = input.LA(5);
+                    if ( (LA12_80=='o') ) {
+                        int LA12_108 = input.LA(5);
 
-                        if ( (LA12_109=='r') ) {
-                            int LA12_134 = input.LA(6);
+                        if ( (LA12_108=='r') ) {
+                            int LA12_133 = input.LA(6);
 
-                            if ( (LA12_134=='t') ) {
+                            if ( (LA12_133=='t') ) {
                                 int LA12_156 = input.LA(7);
 
                                 if ( ((LA12_156>='0' && LA12_156<='9')||(LA12_156>='A' && LA12_156<='Z')||LA12_156=='_'||(LA12_156>='a' && LA12_156<='z')) ) {
                                     alt12=36;
                                 }
                                 else {
-                                    alt12=10;}
+                                    alt12=8;}
                             }
                             else {
                                 alt12=36;}
@@ -1998,21 +1962,21 @@ public class InternalBusinessDomainLexer extends Lexer {
 
         }
         else if ( (LA12_0=='a') ) {
-            int LA12_10 = input.LA(2);
+            int LA12_8 = input.LA(2);
 
-            if ( (LA12_10=='s') ) {
-                int LA12_47 = input.LA(3);
+            if ( (LA12_8=='s') ) {
+                int LA12_45 = input.LA(3);
 
-                if ( (LA12_47=='s') ) {
-                    int LA12_82 = input.LA(4);
+                if ( (LA12_45=='s') ) {
+                    int LA12_81 = input.LA(4);
 
-                    if ( (LA12_82=='o') ) {
-                        int LA12_110 = input.LA(5);
+                    if ( (LA12_81=='o') ) {
+                        int LA12_109 = input.LA(5);
 
-                        if ( (LA12_110=='c') ) {
-                            int LA12_135 = input.LA(6);
+                        if ( (LA12_109=='c') ) {
+                            int LA12_134 = input.LA(6);
 
-                            if ( (LA12_135=='i') ) {
+                            if ( (LA12_134=='i') ) {
                                 int LA12_157 = input.LA(7);
 
                                 if ( (LA12_157=='a') ) {
@@ -2034,7 +1998,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                                         alt12=36;
                                                     }
                                                     else {
-                                                        alt12=11;}
+                                                        alt12=9;}
                                                 }
                                                 else {
                                                     alt12=36;}
@@ -2067,25 +2031,25 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=36;}
         }
         else if ( (LA12_0=='c') ) {
-            int LA12_11 = input.LA(2);
+            int LA12_9 = input.LA(2);
 
-            if ( (LA12_11=='l') ) {
-                int LA12_48 = input.LA(3);
+            if ( (LA12_9=='l') ) {
+                int LA12_46 = input.LA(3);
 
-                if ( (LA12_48=='a') ) {
-                    int LA12_83 = input.LA(4);
+                if ( (LA12_46=='a') ) {
+                    int LA12_82 = input.LA(4);
 
-                    if ( (LA12_83=='s') ) {
-                        int LA12_111 = input.LA(5);
+                    if ( (LA12_82=='s') ) {
+                        int LA12_110 = input.LA(5);
 
-                        if ( (LA12_111=='s') ) {
-                            int LA12_136 = input.LA(6);
+                        if ( (LA12_110=='s') ) {
+                            int LA12_135 = input.LA(6);
 
-                            if ( ((LA12_136>='0' && LA12_136<='9')||(LA12_136>='A' && LA12_136<='Z')||LA12_136=='_'||(LA12_136>='a' && LA12_136<='z')) ) {
+                            if ( ((LA12_135>='0' && LA12_135<='9')||(LA12_135>='A' && LA12_135<='Z')||LA12_135=='_'||(LA12_135>='a' && LA12_135<='z')) ) {
                                 alt12=36;
                             }
                             else {
-                                alt12=13;}
+                                alt12=10;}
                         }
                         else {
                             alt12=36;}
@@ -2100,31 +2064,31 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=36;}
         }
         else if ( (LA12_0=='[') ) {
-            alt12=14;
+            alt12=11;
         }
         else if ( (LA12_0==']') ) {
-            alt12=15;
+            alt12=12;
         }
         else if ( (LA12_0=='r') ) {
             switch ( input.LA(2) ) {
             case 'u':
                 {
-                int LA12_51 = input.LA(3);
+                int LA12_49 = input.LA(3);
 
-                if ( (LA12_51=='l') ) {
-                    int LA12_84 = input.LA(4);
+                if ( (LA12_49=='l') ) {
+                    int LA12_83 = input.LA(4);
 
-                    if ( (LA12_84=='e') ) {
-                        int LA12_112 = input.LA(5);
+                    if ( (LA12_83=='e') ) {
+                        int LA12_111 = input.LA(5);
 
-                        if ( (LA12_112=='s') ) {
-                            int LA12_137 = input.LA(6);
+                        if ( (LA12_111=='s') ) {
+                            int LA12_136 = input.LA(6);
 
-                            if ( ((LA12_137>='0' && LA12_137<='9')||(LA12_137>='A' && LA12_137<='Z')||LA12_137=='_'||(LA12_137>='a' && LA12_137<='z')) ) {
+                            if ( ((LA12_136>='0' && LA12_136<='9')||(LA12_136>='A' && LA12_136<='Z')||LA12_136=='_'||(LA12_136>='a' && LA12_136<='z')) ) {
                                 alt12=36;
                             }
                             else {
-                                alt12=17;}
+                                alt12=14;}
                         }
                         else {
                             alt12=36;}
@@ -2138,25 +2102,25 @@ public class InternalBusinessDomainLexer extends Lexer {
                 break;
             case 'e':
                 {
-                int LA12_52 = input.LA(3);
+                int LA12_50 = input.LA(3);
 
-                if ( (LA12_52=='g') ) {
-                    int LA12_85 = input.LA(4);
+                if ( (LA12_50=='g') ) {
+                    int LA12_84 = input.LA(4);
 
-                    if ( (LA12_85=='e') ) {
-                        int LA12_113 = input.LA(5);
+                    if ( (LA12_84=='e') ) {
+                        int LA12_112 = input.LA(5);
 
-                        if ( (LA12_113=='x') ) {
-                            int LA12_138 = input.LA(6);
+                        if ( (LA12_112=='x') ) {
+                            int LA12_137 = input.LA(6);
 
-                            if ( (LA12_138=='p') ) {
+                            if ( (LA12_137=='p') ) {
                                 int LA12_160 = input.LA(7);
 
                                 if ( ((LA12_160>='0' && LA12_160<='9')||(LA12_160>='A' && LA12_160<='Z')||LA12_160=='_'||(LA12_160>='a' && LA12_160<='z')) ) {
                                     alt12=36;
                                 }
                                 else {
-                                    alt12=30;}
+                                    alt12=21;}
                             }
                             else {
                                 alt12=36;}
@@ -2176,21 +2140,21 @@ public class InternalBusinessDomainLexer extends Lexer {
 
         }
         else if ( (LA12_0=='e') ) {
-            int LA12_15 = input.LA(2);
+            int LA12_13 = input.LA(2);
 
-            if ( (LA12_15=='n') ) {
-                int LA12_53 = input.LA(3);
+            if ( (LA12_13=='n') ) {
+                int LA12_51 = input.LA(3);
 
-                if ( (LA12_53=='u') ) {
-                    int LA12_86 = input.LA(4);
+                if ( (LA12_51=='u') ) {
+                    int LA12_85 = input.LA(4);
 
-                    if ( (LA12_86=='m') ) {
-                        int LA12_114 = input.LA(5);
+                    if ( (LA12_85=='m') ) {
+                        int LA12_113 = input.LA(5);
 
-                        if ( (LA12_114=='e') ) {
-                            int LA12_139 = input.LA(6);
+                        if ( (LA12_113=='e') ) {
+                            int LA12_138 = input.LA(6);
 
-                            if ( (LA12_139=='r') ) {
+                            if ( (LA12_138=='r') ) {
                                 int LA12_161 = input.LA(7);
 
                                 if ( (LA12_161=='a') ) {
@@ -2212,7 +2176,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                                         alt12=36;
                                                     }
                                                     else {
-                                                        alt12=18;}
+                                                        alt12=15;}
                                                 }
                                                 else {
                                                     alt12=36;}
@@ -2245,31 +2209,31 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=36;}
         }
         else if ( (LA12_0=='=') ) {
-            alt12=19;
+            alt12=16;
         }
         else if ( (LA12_0=='u') ) {
-            int LA12_17 = input.LA(2);
+            int LA12_15 = input.LA(2);
 
-            if ( (LA12_17=='n') ) {
-                int LA12_55 = input.LA(3);
+            if ( (LA12_15=='n') ) {
+                int LA12_53 = input.LA(3);
 
-                if ( (LA12_55=='i') ) {
-                    int LA12_87 = input.LA(4);
+                if ( (LA12_53=='i') ) {
+                    int LA12_86 = input.LA(4);
 
-                    if ( (LA12_87=='q') ) {
-                        int LA12_115 = input.LA(5);
+                    if ( (LA12_86=='q') ) {
+                        int LA12_114 = input.LA(5);
 
-                        if ( (LA12_115=='u') ) {
-                            int LA12_140 = input.LA(6);
+                        if ( (LA12_114=='u') ) {
+                            int LA12_139 = input.LA(6);
 
-                            if ( (LA12_140=='e') ) {
+                            if ( (LA12_139=='e') ) {
                                 int LA12_162 = input.LA(7);
 
                                 if ( ((LA12_162>='0' && LA12_162<='9')||(LA12_162>='A' && LA12_162<='Z')||LA12_162=='_'||(LA12_162>='a' && LA12_162<='z')) ) {
                                     alt12=36;
                                 }
                                 else {
-                                    alt12=20;}
+                                    alt12=17;}
                             }
                             else {
                                 alt12=36;}
@@ -2287,24 +2251,33 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=36;}
         }
         else if ( (LA12_0==',') ) {
-            alt12=21;
+            alt12=18;
+        }
+        else if ( (LA12_0=='<') ) {
+            int LA12_17 = input.LA(2);
+
+            if ( (LA12_17=='-') ) {
+                alt12=24;
+            }
+            else {
+                alt12=42;}
         }
         else if ( (LA12_0=='n') ) {
-            int LA12_19 = input.LA(2);
+            int LA12_18 = input.LA(2);
 
-            if ( (LA12_19=='u') ) {
-                int LA12_57 = input.LA(3);
+            if ( (LA12_18=='u') ) {
+                int LA12_56 = input.LA(3);
 
-                if ( (LA12_57=='l') ) {
-                    int LA12_88 = input.LA(4);
+                if ( (LA12_56=='l') ) {
+                    int LA12_87 = input.LA(4);
 
-                    if ( (LA12_88=='l') ) {
-                        int LA12_116 = input.LA(5);
+                    if ( (LA12_87=='l') ) {
+                        int LA12_115 = input.LA(5);
 
-                        if ( (LA12_116=='a') ) {
-                            int LA12_141 = input.LA(6);
+                        if ( (LA12_115=='a') ) {
+                            int LA12_140 = input.LA(6);
 
-                            if ( (LA12_141=='b') ) {
+                            if ( (LA12_140=='b') ) {
                                 int LA12_163 = input.LA(7);
 
                                 if ( (LA12_163=='l') ) {
@@ -2317,7 +2290,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                             alt12=36;
                                         }
                                         else {
-                                            alt12=22;}
+                                            alt12=26;}
                                     }
                                     else {
                                         alt12=36;}
@@ -2341,21 +2314,21 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=36;}
         }
         else if ( (LA12_0=='w') ) {
-            int LA12_20 = input.LA(2);
+            int LA12_19 = input.LA(2);
 
-            if ( (LA12_20=='r') ) {
-                int LA12_58 = input.LA(3);
+            if ( (LA12_19=='r') ) {
+                int LA12_57 = input.LA(3);
 
-                if ( (LA12_58=='i') ) {
-                    int LA12_89 = input.LA(4);
+                if ( (LA12_57=='i') ) {
+                    int LA12_88 = input.LA(4);
 
-                    if ( (LA12_89=='t') ) {
-                        int LA12_117 = input.LA(5);
+                    if ( (LA12_88=='t') ) {
+                        int LA12_116 = input.LA(5);
 
-                        if ( (LA12_117=='a') ) {
-                            int LA12_142 = input.LA(6);
+                        if ( (LA12_116=='a') ) {
+                            int LA12_141 = input.LA(6);
 
-                            if ( (LA12_142=='b') ) {
+                            if ( (LA12_141=='b') ) {
                                 int LA12_164 = input.LA(7);
 
                                 if ( (LA12_164=='l') ) {
@@ -2368,7 +2341,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                             alt12=36;
                                         }
                                         else {
-                                            alt12=24;}
+                                            alt12=28;}
                                     }
                                     else {
                                         alt12=36;}
@@ -2392,21 +2365,21 @@ public class InternalBusinessDomainLexer extends Lexer {
                 alt12=36;}
         }
         else if ( (LA12_0=='b') ) {
-            int LA12_21 = input.LA(2);
+            int LA12_20 = input.LA(2);
 
-            if ( (LA12_21=='o') ) {
-                int LA12_59 = input.LA(3);
+            if ( (LA12_20=='o') ) {
+                int LA12_58 = input.LA(3);
 
-                if ( (LA12_59=='o') ) {
-                    int LA12_90 = input.LA(4);
+                if ( (LA12_58=='o') ) {
+                    int LA12_89 = input.LA(4);
 
-                    if ( (LA12_90=='l') ) {
-                        int LA12_118 = input.LA(5);
+                    if ( (LA12_89=='l') ) {
+                        int LA12_117 = input.LA(5);
 
-                        if ( (LA12_118=='e') ) {
-                            int LA12_143 = input.LA(6);
+                        if ( (LA12_117=='e') ) {
+                            int LA12_142 = input.LA(6);
 
-                            if ( (LA12_143=='a') ) {
+                            if ( (LA12_142=='a') ) {
                                 int LA12_165 = input.LA(7);
 
                                 if ( (LA12_165=='n') ) {
@@ -2416,7 +2389,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                         alt12=36;
                                     }
                                     else {
-                                        alt12=25;}
+                                        alt12=29;}
                                 }
                                 else {
                                     alt12=36;}
@@ -2426,6 +2399,33 @@ public class InternalBusinessDomainLexer extends Lexer {
                         }
                         else {
                             alt12=36;}
+                    }
+                    else {
+                        alt12=36;}
+                }
+                else {
+                    alt12=36;}
+            }
+            else {
+                alt12=36;}
+        }
+        else if ( (LA12_0=='t') ) {
+            int LA12_21 = input.LA(2);
+
+            if ( (LA12_21=='r') ) {
+                int LA12_59 = input.LA(3);
+
+                if ( (LA12_59=='u') ) {
+                    int LA12_90 = input.LA(4);
+
+                    if ( (LA12_90=='e') ) {
+                        int LA12_118 = input.LA(5);
+
+                        if ( ((LA12_118>='0' && LA12_118<='9')||(LA12_118>='A' && LA12_118<='Z')||LA12_118=='_'||(LA12_118>='a' && LA12_118<='z')) ) {
+                            alt12=36;
+                        }
+                        else {
+                            alt12=31;}
                     }
                     else {
                         alt12=36;}
@@ -2458,7 +2458,7 @@ public class InternalBusinessDomainLexer extends Lexer {
                                     alt12=36;
                                 }
                                 else {
-                                    alt12=27;}
+                                    alt12=32;}
                             }
                             else {
                                 alt12=36;}

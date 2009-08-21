@@ -101,7 +101,7 @@ public class DtoReferenceImpl extends ModelElementImpl implements DtoReference {
      * @generated
      */
     public ServiceModel getModel() {
-        if (eContainerFeatureID != ServiceDslPackage.DTO_REFERENCE__MODEL) return null;
+        if (eContainerFeatureID() != ServiceDslPackage.DTO_REFERENCE__MODEL) return null;
         return (ServiceModel)eContainer();
     }
 
@@ -121,7 +121,7 @@ public class DtoReferenceImpl extends ModelElementImpl implements DtoReference {
      * @generated
      */
     public void setModel(ServiceModel newModel) {
-        if (newModel != eInternalContainer() || (eContainerFeatureID != ServiceDslPackage.DTO_REFERENCE__MODEL && newModel != null)) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID() != ServiceDslPackage.DTO_REFERENCE__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -173,7 +173,7 @@ public class DtoReferenceImpl extends ModelElementImpl implements DtoReference {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case ServiceDslPackage.DTO_REFERENCE__MODEL:
                 return eInternalContainer().eInverseRemove(this, ServiceDslPackage.SERVICE_MODEL__DTO_REFERENCES, ServiceModel.class, msgs);
         }

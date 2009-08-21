@@ -22,22 +22,22 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty;
  */
 public class DtoDateTimePropertyImpl extends DtoDataPropertyImpl implements DtoDateTimeProperty {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DtoDateTimePropertyImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return DataContractDslPackage.Literals.DTO_DATE_TIME_PROPERTY;
-	}
+        return DataContractDslPackage.Literals.DTO_DATE_TIME_PROPERTY;
+    }
 
 } //DtoDateTimePropertyImpl
