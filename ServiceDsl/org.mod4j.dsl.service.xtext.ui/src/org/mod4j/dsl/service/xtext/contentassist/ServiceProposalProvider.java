@@ -8,8 +8,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
-import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 import org.mod4j.crossx.broker.CrossxEnvironment;
@@ -49,7 +47,6 @@ public class ServiceProposalProvider extends AbstractServiceProposalProvider {
 	public void completeDtoReference_Modelname(EObject model, Assignment assignment, 
 			ContentAssistContext context, ICompletionProposalAcceptor acceptor) 
 	{
-		DtoReference ref = (DtoReference)model;
     	List<ModelInfo> models = CrossxEnvironment.findAllModelsInProject( EclipseUtil.getProjectName(model));
 		
 		for (ModelInfo minfo : models ) {

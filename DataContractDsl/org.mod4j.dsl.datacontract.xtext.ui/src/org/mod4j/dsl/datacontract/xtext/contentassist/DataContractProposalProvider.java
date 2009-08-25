@@ -3,22 +3,17 @@
 */
 package org.mod4j.dsl.datacontract.xtext.contentassist;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.scoping.IScopedElement;
-import org.eclipse.xtext.scoping.impl.ScopedElement;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 import org.mod4j.crossx.broker.CrossxEnvironment;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassDto;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
 import org.mod4j.dsl.datacontract.xtext.contentassist.AbstractDataContractProposalProvider;
 import org.mod4j.eclipse.util.EclipseUtil;
@@ -48,7 +43,6 @@ public class DataContractProposalProvider extends AbstractDataContractProposalPr
 	public void completeExternalReference_Modelname(EObject model, Assignment assignment, 
 			ContentAssistContext context, ICompletionProposalAcceptor acceptor) 
 	{
-		ExternalReference ref = (ExternalReference)model;
     	List<ModelInfo> models = CrossxEnvironment.findAllModelsInProject( EclipseUtil.getProjectName(model));
 		
 		for (ModelInfo minfo : models ) {
