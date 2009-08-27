@@ -87,7 +87,7 @@ TODO Uncomment when OAW issue is solved. See: http://www.openarchitectureware.or
         <dependency>
             <groupId>org.mod4j.org.eclipse</groupId>
             <artifactId>xtext</artifactId>
-            <version>0.7.1</version>
+            <version>0.7.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.mod4j.com.google</groupId>
@@ -108,7 +108,7 @@ TODO Uncomment when OAW issue is solved. See: http://www.openarchitectureware.or
         <dependency>
             <groupId>org.mod4j.org.eclipse.xtext</groupId>
             <artifactId>xtend</artifactId>
-            <version>0.7.1</version>
+            <version>0.7.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.mod4j.org.eclipse.xtext.ui</groupId>
