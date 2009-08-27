@@ -48,13 +48,13 @@
         <uri value="${modelFile}" />
         <modelSlot value="busModel" />
     </component>
-
+<!--
     <component id="BusinessDomainWorkflow-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="bm" />
         <checkFile value="BusinessDomainDsl::validation::BusinessModelChecks" />
         <emfAllChildrenSlot value="busModel" />
     </component>
-
+-->
 
     <!--
         Generation of Domain sources and resources

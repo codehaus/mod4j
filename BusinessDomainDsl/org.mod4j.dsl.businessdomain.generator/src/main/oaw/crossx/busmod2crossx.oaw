@@ -46,12 +46,13 @@
 		<register class="org.mod4j.dsl.businessdomain.xtext.BusinessDomainStandaloneSetup"/>
 	</component>
 
+<!--
     <component id="busmod2crossx-validationChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="BusinessDomainDsl" />
         <checkFile value="BusinessDomainDsl::validation::BusinessModelChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
- 
+-->    
     <!-- Call the Xtend model-to-model transformation that takes a BusinessDomainModel as its input
          and returns a Crossx model in the outputSlot
     -->
