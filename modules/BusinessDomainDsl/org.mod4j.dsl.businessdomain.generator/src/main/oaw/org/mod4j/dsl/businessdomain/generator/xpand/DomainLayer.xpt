@@ -19,6 +19,7 @@
 
 
 «DEFINE Root FOR BusinessDomainDsl::BusinessDomainModel »
+
 	«print("MOD4J INFO: Running Business Domain generator on model [" + this.name + "]")»
 «REM»
 	«model  ( this.name()                  )»

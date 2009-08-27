@@ -59,7 +59,7 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      * @generated
      */
 	public BusinessClass getBusinessClass() {
-        if (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS) return null;
+        if (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS) return null;
         return (BusinessClass)eContainer();
     }
 
@@ -79,7 +79,7 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      * @generated
      */
 	public void setBusinessClass(BusinessClass newBusinessClass) {
-        if (newBusinessClass != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS && newBusinessClass != null)) {
+        if (newBusinessClass != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS && newBusinessClass != null)) {
             if (EcoreUtil.isAncestor(this, newBusinessClass))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -131,7 +131,7 @@ public class AbstractBusinessRuleImpl extends ModelElementImpl implements Abstra
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.ABSTRACT_BUSINESS_RULE__BUSINESS_CLASS:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_CLASS__BUSINESS_RULES, BusinessClass.class, msgs);
         }

@@ -226,9 +226,9 @@ public class StringPropertyImpl extends PropertyImpl implements StringProperty {
             case BusinessDomainDslPackage.STRING_PROPERTY__REGULAR_EXPRESSION:
                 return getRegularExpression();
             case BusinessDomainDslPackage.STRING_PROPERTY__MIN_LENGTH:
-                return new Integer(getMinLength());
+                return getMinLength();
             case BusinessDomainDslPackage.STRING_PROPERTY__MAX_LENGTH:
-                return new Integer(getMaxLength());
+                return getMaxLength();
             case BusinessDomainDslPackage.STRING_PROPERTY__DEFAULT_VALUE:
                 return getDefaultValue();
         }
@@ -247,10 +247,10 @@ public class StringPropertyImpl extends PropertyImpl implements StringProperty {
                 setRegularExpression((String)newValue);
                 return;
             case BusinessDomainDslPackage.STRING_PROPERTY__MIN_LENGTH:
-                setMinLength(((Integer)newValue).intValue());
+                setMinLength((Integer)newValue);
                 return;
             case BusinessDomainDslPackage.STRING_PROPERTY__MAX_LENGTH:
-                setMaxLength(((Integer)newValue).intValue());
+                setMaxLength((Integer)newValue);
                 return;
             case BusinessDomainDslPackage.STRING_PROPERTY__DEFAULT_VALUE:
                 setDefaultValue((String)newValue);

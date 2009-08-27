@@ -152,7 +152,7 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
                 if (resolve) return getDtoType();
                 return basicGetDtoType();
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED:
-                return isOrdered() ? Boolean.TRUE : Boolean.FALSE;
+                return isOrdered();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -169,7 +169,7 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
                 setDtoType((Dto)newValue);
                 return;
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED:
-                setOrdered(((Boolean)newValue).booleanValue());
+                setOrdered((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

@@ -22,22 +22,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef;
  */
 public abstract class UIModelElementRefImpl extends NamedReferenceImpl implements UIModelElementRef {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected UIModelElementRefImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.UI_MODEL_ELEMENT_REF;
-	}
+        return PresentationDslPackage.Literals.UI_MODEL_ELEMENT_REF;
+    }
 
 } //UIModelElementRefImpl

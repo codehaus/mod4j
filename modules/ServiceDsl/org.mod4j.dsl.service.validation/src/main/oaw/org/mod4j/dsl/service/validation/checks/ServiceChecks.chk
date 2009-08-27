@@ -12,7 +12,7 @@ import ServiceDsl;
 // import crossx;
 
 extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
-extension org::openarchitectureware::util::stdlib::elementprops;
+extension org::eclipse::xtend::util::stdlib::elementprops;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 
 context DtoReference ERROR "The name of an imported element must be unique" :

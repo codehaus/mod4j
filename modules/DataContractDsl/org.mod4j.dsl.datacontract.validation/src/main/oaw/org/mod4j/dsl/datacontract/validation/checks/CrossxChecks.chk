@@ -9,29 +9,30 @@
  *     Ordina - initial implementation
  *******************************************************************************/
 
-import DataContractDsl;
-import crossx; 
+import org::mod4j::dsl::datacontract::mm::DataContractDsl;
+import org::mod4j::crossx::mm::crossx;  
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
-extension org::openarchitectureware::util::stdlib::elementprops;
+extension org::eclipse::xtend::util::stdlib::elementprops;
+extension org::mod4j::dslcommon::xtend::generatorutil;
 
-context ExternalReference ERROR "BusinessClass or Enumeration [" + this.name + "] not defined in model [" + this.modelname + "]":
+context DataContractDsl::ExternalReference ERROR "BusinessClass or Enumeration [" + this.name + "] not defined in model [" + this.modelname + "]":
        ( lookupSymbol(this.modelname, this.name, "BusinessClass") != null ) 
        ||
        ( lookupSymbol(this.modelname, this.name, "Enumeration") != null) ;
 
-context BusinessClassPropertyReference ERROR "Property [" + this.name + "] must be defined in the corresponding business class" :
+context DataContractDsl::BusinessClassPropertyReference ERROR "Property [" + this.name + "] must be defined in the corresponding business class" :
     let sym1 = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
                                          "Property", this.name) :
     (sym1 != null) ;
     
-context BusinessClassAssociationRoleReference ERROR 
+context DataContractDsl::BusinessClassAssociationRoleReference ERROR 
     "[" + this.name + "] must be a role name in an association for [" + this.dto.base.name  + "]":
     let symbol = lookupSymbolWithSubsymbol(dto.base.modelname, dto.base.name, "BusinessClass",
                                          "Association", this.name) :
     symbol != null;
     
-context BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
+context DataContractDsl::BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
     let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
     let props = (symbol == null ? {} : symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) ):
     let prop = (props == null ? null : props.first() ):
@@ -57,7 +58,7 @@ context BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
 	        (
 	            let expected = getPropertyValue(prop, "BusinessClass") :
 	            let baseDto  =((DataContractDsl::ListDto)this.dtoType) .baseDto :
-	            if baseDto.metaType != BusinessClassDto then
+	            if baseDto.metaType != DataContractDsl::BusinessClassDto then
 	            (
 	                this.setProperty("ERROR", "base type of  ListDto [" + this.dtoType.name + "] must be a BusinessClassDto")->
 	                false
@@ -75,7 +76,7 @@ context BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
 	)
     ;
  
- context BusinessClassDto ERROR this.getProperty("ERROR") :
+ context DataContractDsl::BusinessClassDto ERROR this.getProperty("ERROR") :
 	if this.propertyReferences.isEmpty then (
         let classSymbol = lookupSymbol(this.base.modelname, this.base.name, "BusinessClass") :
         let propSymbols = (classSymbol == null ? {} : classSymbol.subSymbols.select(s|s.type.matches("Property") ) ):

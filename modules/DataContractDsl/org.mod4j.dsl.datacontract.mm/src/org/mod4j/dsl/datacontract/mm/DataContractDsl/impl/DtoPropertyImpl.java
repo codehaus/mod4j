@@ -166,7 +166,7 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * @generated
      */
 	public BusinessClassDto getBusinessClassDto() {
-        if (eContainerFeatureID != DataContractDslPackage.DTO_PROPERTY__BUSINESS_CLASS_DTO) return null;
+        if (eContainerFeatureID() != DataContractDslPackage.DTO_PROPERTY__BUSINESS_CLASS_DTO) return null;
         return (BusinessClassDto)eContainer();
     }
 
@@ -186,7 +186,7 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * @generated
      */
 	public void setBusinessClassDto(BusinessClassDto newBusinessClassDto) {
-        if (newBusinessClassDto != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.DTO_PROPERTY__BUSINESS_CLASS_DTO && newBusinessClassDto != null)) {
+        if (newBusinessClassDto != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.DTO_PROPERTY__BUSINESS_CLASS_DTO && newBusinessClassDto != null)) {
             if (EcoreUtil.isAncestor(this, newBusinessClassDto))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -207,7 +207,7 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * @generated
      */
 	public CustomDto getCustomDto() {
-        if (eContainerFeatureID != DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO) return null;
+        if (eContainerFeatureID() != DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO) return null;
         return (CustomDto)eContainer();
     }
 
@@ -227,7 +227,7 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      * @generated
      */
 	public void setCustomDto(CustomDto newCustomDto) {
-        if (newCustomDto != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO && newCustomDto != null)) {
+        if (newCustomDto != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO && newCustomDto != null)) {
             if (EcoreUtil.isAncestor(this, newCustomDto))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -348,7 +348,7 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case DataContractDslPackage.DTO_PROPERTY__BUSINESS_CLASS_DTO:
                 return eInternalContainer().eInverseRemove(this, DataContractDslPackage.BUSINESS_CLASS_DTO__PROPERTIES, BusinessClassDto.class, msgs);
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
@@ -372,11 +372,11 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
             case DataContractDslPackage.DTO_PROPERTY__CUSTOM_DTO:
                 return getCustomDto();
             case DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION:
-                return isMandatoryForCreation() ? Boolean.TRUE : Boolean.FALSE;
+                return isMandatoryForCreation();
             case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
-                return isNullable() ? Boolean.TRUE : Boolean.FALSE;
+                return isNullable();
             case DataContractDslPackage.DTO_PROPERTY__WRITABLE:
-                return isWritable() ? Boolean.TRUE : Boolean.FALSE;
+                return isWritable();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -399,13 +399,13 @@ public class DtoPropertyImpl extends ModelElementImpl implements DtoProperty {
                 setCustomDto((CustomDto)newValue);
                 return;
             case DataContractDslPackage.DTO_PROPERTY__MANDATORY_FOR_CREATION:
-                setMandatoryForCreation(((Boolean)newValue).booleanValue());
+                setMandatoryForCreation((Boolean)newValue);
                 return;
             case DataContractDslPackage.DTO_PROPERTY__NULLABLE:
-                setNullable(((Boolean)newValue).booleanValue());
+                setNullable((Boolean)newValue);
                 return;
             case DataContractDslPackage.DTO_PROPERTY__WRITABLE:
-                setWritable(((Boolean)newValue).booleanValue());
+                setWritable((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

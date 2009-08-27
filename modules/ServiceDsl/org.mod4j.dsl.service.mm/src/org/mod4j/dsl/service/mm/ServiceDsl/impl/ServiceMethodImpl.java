@@ -102,7 +102,7 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
      * @generated
      */
     public ServiceModel getModel() {
-        if (eContainerFeatureID != ServiceDslPackage.SERVICE_METHOD__MODEL) return null;
+        if (eContainerFeatureID() != ServiceDslPackage.SERVICE_METHOD__MODEL) return null;
         return (ServiceModel)eContainer();
     }
 
@@ -122,7 +122,7 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
      * @generated
      */
     public void setModel(ServiceModel newModel) {
-        if (newModel != eInternalContainer() || (eContainerFeatureID != ServiceDslPackage.SERVICE_METHOD__MODEL && newModel != null)) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID() != ServiceDslPackage.SERVICE_METHOD__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -174,7 +174,7 @@ public class ServiceMethodImpl extends ModelElementImpl implements ServiceMethod
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case ServiceDslPackage.SERVICE_METHOD__MODEL:
                 return eInternalContainer().eInverseRemove(this, ServiceDslPackage.SERVICE_MODEL__METHODS, ServiceModel.class, msgs);
         }

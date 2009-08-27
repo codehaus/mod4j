@@ -2,11 +2,4 @@
    
    
    
-   <extension
-         point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            class="org.mod4j.dsl.presentation.xtext.resource.PresentationDslResourceFactory"
-            type="pmfmod">
-      </parser>
-   </extension>
 </plugin>

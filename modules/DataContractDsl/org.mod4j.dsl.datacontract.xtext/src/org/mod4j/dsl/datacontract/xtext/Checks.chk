@@ -1,9 +1,0 @@
-import DataContractDsl;
-
-extension org::mod4j::dsl::datacontract::xtext::Extensions;
-/*
- * This check file is used by the parser
- * and by the editor. Add your constraints here!
- */
-
-

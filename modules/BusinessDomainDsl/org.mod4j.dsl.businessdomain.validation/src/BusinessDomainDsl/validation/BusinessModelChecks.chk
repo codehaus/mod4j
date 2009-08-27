@@ -78,9 +78,12 @@ context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
      e != this implies e.name != this.name) ;
 
 context Property ERROR "The dataType of property [" + this.name + "] is not specified.":
-    this.metaType == EnumerationProperty
-    ?    true
-    :    dataType.length > 1;
+//      true; 
+//	print("METATYPE ==> " + this.metaType.name)->
+    ((this.metaType.name.endsWith("EnumerationPropertyImpl"))
+//    ((this.metaType.isAssignableFrom(EnumerationProperty) )
+    ?    (true)
+    :    (dataType.length > 1));
 
 context Property ERROR "The name of Property ["+ name + "] must be more than one character long." :
     name.length > 1;

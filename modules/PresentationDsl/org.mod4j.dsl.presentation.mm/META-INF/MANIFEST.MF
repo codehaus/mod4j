@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.mod4j.dsl.presentation.mm;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.1.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Eclipse-RegisterBuddy: org.mod4j.common
 Export-Package: org.mod4j.dsl.presentation.mm.PresentationDsl,
  org.mod4j.dsl.presentation.mm.PresentationDsl.impl,
  org.mod4j.dsl.presentation.mm.PresentationDsl.util

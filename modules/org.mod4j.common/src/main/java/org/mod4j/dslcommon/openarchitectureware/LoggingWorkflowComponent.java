@@ -10,12 +10,10 @@
  *******************************************************************************/
 package org.mod4j.dslcommon.openarchitectureware;
 
-import org.mod4j.crossx.broker.CrossxEnvironment;
-import org.mod4j.crossx.mm.crossx.ModelInfo;
-import org.openarchitectureware.workflow.WorkflowContext;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.lib.WorkflowComponentWithModelSlot;
-import org.openarchitectureware.workflow.monitor.ProgressMonitor;
+import org.eclipse.emf.mwe.core.WorkflowContext;
+import org.eclipse.emf.mwe.core.issues.Issues;
+import org.eclipse.emf.mwe.core.lib.WorkflowComponentWithModelSlot;
+import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
 
 /* 
  * Workflow component to write a Crossx model to an XML file.
@@ -32,7 +30,8 @@ public class LoggingWorkflowComponent extends WorkflowComponentWithModelSlot {
      * @see org.openarchitectureware.workflow.WorkflowComponent#invoke(org.openarchitectureware.workflow.WorkflowContext,
      *      org.openarchitectureware.workflow.monitor.ProgressMonitor, org.openarchitectureware.workflow.issues.Issues)
      */
-    public void invoke(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
+	@Override
+    public void invokeInternal(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
 
         String message = getModelSlot();
 

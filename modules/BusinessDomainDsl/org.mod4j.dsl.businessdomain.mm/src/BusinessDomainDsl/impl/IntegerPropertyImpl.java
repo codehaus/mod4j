@@ -182,11 +182,11 @@ public class IntegerPropertyImpl extends PropertyImpl implements IntegerProperty
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.INTEGER_PROPERTY__MIN_VALUE:
-                return new Integer(getMinValue());
+                return getMinValue();
             case BusinessDomainDslPackage.INTEGER_PROPERTY__MAX_VALUE:
-                return new Integer(getMaxValue());
+                return getMaxValue();
             case BusinessDomainDslPackage.INTEGER_PROPERTY__DEFAULT_VALUE:
-                return new Integer(getDefaultValue());
+                return getDefaultValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -200,13 +200,13 @@ public class IntegerPropertyImpl extends PropertyImpl implements IntegerProperty
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.INTEGER_PROPERTY__MIN_VALUE:
-                setMinValue(((Integer)newValue).intValue());
+                setMinValue((Integer)newValue);
                 return;
             case BusinessDomainDslPackage.INTEGER_PROPERTY__MAX_VALUE:
-                setMaxValue(((Integer)newValue).intValue());
+                setMaxValue((Integer)newValue);
                 return;
             case BusinessDomainDslPackage.INTEGER_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue(((Integer)newValue).intValue());
+                setDefaultValue((Integer)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

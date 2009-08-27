@@ -13,9 +13,10 @@ import crossx;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::common::xtend::NameMapper;
-extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
-extension org::openarchitectureware::util::stdlib::elementprops;
 
+extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
+extension org::mod4j::dslcommon::xtend::generatorutil;
+extension org::eclipse::xtend::util::stdlib::elementprops;
 
 context DtoReference ERROR "DtoReference [" + this.name + "] not defined in model " + this.modelname:
        lookupSymbol(this.modelname, this.name, "Dto") != null;

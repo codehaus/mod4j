@@ -34,133 +34,133 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class ContentFormImpl extends FormImpl implements ContentForm {
 	/**
-	 * The cached value of the '{@link #getFormElements() <em>Form Elements</em>}' reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getFormElements() <em>Form Elements</em>}' reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFormElements()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getFormElements()
+     * @generated
+     * @ordered
+     */
 	protected EList<FormElement> formElements;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ContentFormImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.CONTENT_FORM;
-	}
+        return PresentationDslPackage.Literals.CONTENT_FORM;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<FormElement> getFormElements() {
-		if (formElements == null) {
-			formElements = new EObjectWithInverseResolvingEList<FormElement>(FormElement.class, this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, PresentationDslPackage.FORM_ELEMENT__FORM);
-		}
-		return formElements;
-	}
+        if (formElements == null) {
+            formElements = new EObjectWithInverseResolvingEList<FormElement>(FormElement.class, this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, PresentationDslPackage.FORM_ELEMENT__FORM);
+        }
+        return formElements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFormElements()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getFormElements()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
-				return ((InternalEList<?>)getFormElements()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
+                return ((InternalEList<?>)getFormElements()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
-				return getFormElements();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
+                return getFormElements();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
-				getFormElements().clear();
-				getFormElements().addAll((Collection<? extends FormElement>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
+                getFormElements().clear();
+                getFormElements().addAll((Collection<? extends FormElement>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
-				getFormElements().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
+                getFormElements().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
-				return formElements != null && !formElements.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
+                return formElements != null && !formElements.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //ContentFormImpl

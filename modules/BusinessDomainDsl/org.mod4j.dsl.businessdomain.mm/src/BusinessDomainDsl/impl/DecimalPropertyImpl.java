@@ -266,15 +266,15 @@ public class DecimalPropertyImpl extends PropertyImpl implements DecimalProperty
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MIN_VALUE:
-                return new Float(getMinValue());
+                return getMinValue();
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MAX_VALUE:
-                return new Float(getMaxValue());
+                return getMaxValue();
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MIN_INCLUSIVE:
-                return isMinInclusive() ? Boolean.TRUE : Boolean.FALSE;
+                return isMinInclusive();
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MAX_INCLUSIVE:
-                return isMaxInclusive() ? Boolean.TRUE : Boolean.FALSE;
+                return isMaxInclusive();
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__DEFAULT_VALUE:
-                return new Float(getDefaultValue());
+                return getDefaultValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -288,19 +288,19 @@ public class DecimalPropertyImpl extends PropertyImpl implements DecimalProperty
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MIN_VALUE:
-                setMinValue(((Float)newValue).floatValue());
+                setMinValue((Float)newValue);
                 return;
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MAX_VALUE:
-                setMaxValue(((Float)newValue).floatValue());
+                setMaxValue((Float)newValue);
                 return;
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MIN_INCLUSIVE:
-                setMinInclusive(((Boolean)newValue).booleanValue());
+                setMinInclusive((Boolean)newValue);
                 return;
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__MAX_INCLUSIVE:
-                setMaxInclusive(((Boolean)newValue).booleanValue());
+                setMaxInclusive((Boolean)newValue);
                 return;
             case BusinessDomainDslPackage.DECIMAL_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue(((Float)newValue).floatValue());
+                setDefaultValue((Float)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

@@ -98,7 +98,7 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                return isDefaultValue() ? Boolean.TRUE : Boolean.FALSE;
+                return isDefaultValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -112,7 +112,7 @@ public class BoolPropertyImpl extends PropertyImpl implements BoolProperty {
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.BOOL_PROPERTY__DEFAULT_VALUE:
-                setDefaultValue(((Boolean)newValue).booleanValue());
+                setDefaultValue((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

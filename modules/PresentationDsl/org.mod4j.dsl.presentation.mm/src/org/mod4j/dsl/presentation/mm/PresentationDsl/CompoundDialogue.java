@@ -28,18 +28,18 @@ import org.eclipse.emf.common.util.EList;
 public interface CompoundDialogue extends Dialogue {
 
 	/**
-	 * Returns the value of the '<em><b>Dialogues</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Dialogues</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dialogues</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dialogues</em>' containment reference list.
-	 * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getCompoundDialogue_Dialogues()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Dialogues</em>' containment reference list.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getCompoundDialogue_Dialogues()
+     * @model containment="true"
+     * @generated
+     */
 	EList<DialogueCall> getDialogues();
 } // CompoundDialogue

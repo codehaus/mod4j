@@ -98,7 +98,7 @@ public class EnumerationDtoLiteralImpl extends ModelElementImpl implements Enume
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE:
-                return new Integer(getValue());
+                return getValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -112,7 +112,7 @@ public class EnumerationDtoLiteralImpl extends ModelElementImpl implements Enume
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case DataContractDslPackage.ENUMERATION_DTO_LITERAL__VALUE:
-                setValue(((Integer)newValue).intValue());
+                setValue((Integer)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

@@ -71,7 +71,7 @@ public class BusinessClassAssociationRoleReferenceImpl extends ModelElementImpl 
      * @generated
      */
 	public BusinessClassDto getDto() {
-        if (eContainerFeatureID != DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO) return null;
+        if (eContainerFeatureID() != DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO) return null;
         return (BusinessClassDto)eContainer();
     }
 
@@ -91,7 +91,7 @@ public class BusinessClassAssociationRoleReferenceImpl extends ModelElementImpl 
      * @generated
      */
 	public void setDto(BusinessClassDto newDto) {
-        if (newDto != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO && newDto != null)) {
+        if (newDto != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO && newDto != null)) {
             if (EcoreUtil.isAncestor(this, newDto))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -181,7 +181,7 @@ public class BusinessClassAssociationRoleReferenceImpl extends ModelElementImpl 
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case DataContractDslPackage.BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE__DTO:
                 return eInternalContainer().eInverseRemove(this, DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES, BusinessClassDto.class, msgs);
         }

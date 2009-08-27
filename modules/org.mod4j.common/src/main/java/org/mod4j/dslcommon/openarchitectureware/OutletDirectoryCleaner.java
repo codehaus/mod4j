@@ -19,6 +19,7 @@ import org.mod4j.dslcommon.io.Files;
 
 public class OutletDirectoryCleaner {
 
+	org.eclipse.emf.mwe.utils.DirectoryCleaner s;
     private final Log logger = LogFactory.getLog(getClass());
 
     private static final String DIRCLEAN_WORKFLOW_FILE = "org/mod4j/dslcommon/workflow/DirectoryClean.oaw";
@@ -36,12 +37,15 @@ public class OutletDirectoryCleaner {
 
         Map<String, String> properties = initializeWorkflowProperties(workDir, propertiesFilePath);
         String wfFile = Files.findFile(DIRCLEAN_WORKFLOW_FILE);
+        wfFile = DIRCLEAN_WORKFLOW_FILE;
 
         logger.info("Cleaning outlet directories.");
         new Mod4jWorkflowRunner().runWorkflow(wfFile, properties);
     }
 
-    private Map<String, String> initializeWorkflowProperties(String workDir, String propertiesFilePath) {
+    protected String directories = null;
+    
+    protected Map<String, String> initializeWorkflowProperties(String workDir, String propertiesFilePath) {
 
         Map<String, String> result = ModelHelpers.getProperties(propertiesFilePath);
 
@@ -60,7 +64,7 @@ public class OutletDirectoryCleaner {
         // Get the relative applicationPath property and make it absolute
         String absAppPath = workDir + "/" + applicationPath;
 
-        String directories = 
+        directories = 
             absAppPath + "/" + dataModuleName + "/" + srcGenPath + ", " + 
             absAppPath + "/" + dataModuleName + "/" + resourceGenPath + ", " + 
             absAppPath + "/" + domainModuleName + "/" + srcGenPath + ", " + 
@@ -89,5 +93,13 @@ public class OutletDirectoryCleaner {
         result.put("directories", directories);
         return result;
     }
+
+	public String getDirectories() {
+		return directories;
+	}
+
+	public void setDirectories(String directories) {
+		this.directories = directories;
+	}
 
 }

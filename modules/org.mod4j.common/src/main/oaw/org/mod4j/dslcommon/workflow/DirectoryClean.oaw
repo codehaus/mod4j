@@ -5,13 +5,13 @@
     <!-- 
          Initialize the issues reporting feature of oAW
     -->
-    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+    <component class="org.eclipse.xtend.util.stdlib.ExtIssueReporter"/>
 
     <!--
          Cleaning of output directories.
     -->
-    <component id="DirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner">
-        <directories value="${directories}"/>
+    <component id="DirCleaner" class="org.eclipse.emf.mwe.utils.DirectoryCleaner">
+        <directory value="${directories}"/>
     </component>
  
 </workflow>

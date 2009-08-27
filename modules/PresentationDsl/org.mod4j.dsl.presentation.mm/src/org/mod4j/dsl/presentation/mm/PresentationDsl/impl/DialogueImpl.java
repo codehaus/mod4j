@@ -37,184 +37,184 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  */
 public abstract class DialogueImpl extends UIModelElementImpl implements Dialogue {
 	/**
-	 * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isReadonly()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #isReadonly()
+     * @generated
+     * @ordered
+     */
 	protected static final boolean READONLY_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isReadonly()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #isReadonly()
+     * @generated
+     * @ordered
+     */
 	protected boolean readonly = READONLY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProcesses() <em>Processes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getProcesses() <em>Processes</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProcesses()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getProcesses()
+     * @generated
+     * @ordered
+     */
 	protected EList<ProcessCall> processes;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DialogueImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.DIALOGUE;
-	}
+        return PresentationDslPackage.Literals.DIALOGUE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public boolean isReadonly() {
-		return readonly;
-	}
+        return readonly;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setReadonly(boolean newReadonly) {
-		boolean oldReadonly = readonly;
-		readonly = newReadonly;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.DIALOGUE__READONLY, oldReadonly, readonly));
-	}
+        boolean oldReadonly = readonly;
+        readonly = newReadonly;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.DIALOGUE__READONLY, oldReadonly, readonly));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<ProcessCall> getProcesses() {
-		if (processes == null) {
-			processes = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES);
-		}
-		return processes;
-	}
+        if (processes == null) {
+            processes = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES);
+        }
+        return processes;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PresentationDslPackage.DIALOGUE__PROCESSES:
-				return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.DIALOGUE__PROCESSES:
+                return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case PresentationDslPackage.DIALOGUE__READONLY:
-				return isReadonly() ? Boolean.TRUE : Boolean.FALSE;
-			case PresentationDslPackage.DIALOGUE__PROCESSES:
-				return getProcesses();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.DIALOGUE__READONLY:
+                return isReadonly();
+            case PresentationDslPackage.DIALOGUE__PROCESSES:
+                return getProcesses();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case PresentationDslPackage.DIALOGUE__READONLY:
-				setReadonly(((Boolean)newValue).booleanValue());
-				return;
-			case PresentationDslPackage.DIALOGUE__PROCESSES:
-				getProcesses().clear();
-				getProcesses().addAll((Collection<? extends ProcessCall>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.DIALOGUE__READONLY:
+                setReadonly((Boolean)newValue);
+                return;
+            case PresentationDslPackage.DIALOGUE__PROCESSES:
+                getProcesses().clear();
+                getProcesses().addAll((Collection<? extends ProcessCall>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.DIALOGUE__READONLY:
-				setReadonly(READONLY_EDEFAULT);
-				return;
-			case PresentationDslPackage.DIALOGUE__PROCESSES:
-				getProcesses().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.DIALOGUE__READONLY:
+                setReadonly(READONLY_EDEFAULT);
+                return;
+            case PresentationDslPackage.DIALOGUE__PROCESSES:
+                getProcesses().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.DIALOGUE__READONLY:
-				return readonly != READONLY_EDEFAULT;
-			case PresentationDslPackage.DIALOGUE__PROCESSES:
-				return processes != null && !processes.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.DIALOGUE__READONLY:
+                return readonly != READONLY_EDEFAULT;
+            case PresentationDslPackage.DIALOGUE__PROCESSES:
+                return processes != null && !processes.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (readonly: ");
-		result.append(readonly);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (readonly: ");
+        result.append(readonly);
+        result.append(')');
+        return result.toString();
+    }
 
 } //DialogueImpl

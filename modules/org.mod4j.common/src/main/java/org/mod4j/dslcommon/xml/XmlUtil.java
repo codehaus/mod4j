@@ -18,6 +18,8 @@ import java.io.Reader;
 import org.jdom.Document;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+
+// import org.jdom.output.Format;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
@@ -78,14 +80,10 @@ public class XmlUtil {
         try {
             XMLOutputter outputter = new XMLOutputter();
             Format format = Format.getPrettyFormat();
-            format.setIndent(indent);
-            
-            outputter.setFormat(format);
             if (indent != null) {
-
-                // TODO outputter .setIndent(indent); // use four space indent
+                format.setIndent(indent);
             }
-            // TODO outputter .setNewlines(newLines);
+            outputter.setFormat(format);
             outputter.output(doc, stream);
         } catch (IOException exc) {
             exc.printStackTrace();

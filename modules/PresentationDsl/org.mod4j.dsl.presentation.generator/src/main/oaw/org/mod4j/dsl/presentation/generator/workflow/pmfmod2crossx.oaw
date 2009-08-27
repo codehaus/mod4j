@@ -18,12 +18,12 @@
           - project: the name of the project in which tyhe model resides
     -->
 
-    <component class="org.openarchitectureware.util.stdlib.ExtIssueReporter"/>
+    <component class="org.eclipse.xtend.util.stdlib.ExtIssueReporter"/>
 
     <property name="nsUriPrefix" value="appelmoes"/>
 
     <!-- set up EMF for standalone execution -->
-    <bean class="org.eclipse.mwe.emf.StandaloneSetup" >
+    <bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
         <platformUri value=".."/>
     </bean>
 
@@ -31,39 +31,29 @@
          Don't use the filenames of the ecore files, because they won't work when the
          plugins are exported and installed.
     -->
-    <bean class="org.mod4j.dsl.presentation.xtext.MetaModelRegistration"/>
-    <bean id="PresentationDsl" class="oaw.type.emf.EmfMetaModel">
+    <bean class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetup"/>
+    <bean id="PresentationDsl" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage" />   
     </bean>
-    <bean id="crossx" class="oaw.type.emf.EmfMetaModel">
+
+    <bean id="crossx" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
         <metaModelPackage value="org.mod4j.crossx.mm.crossx.CrossxPackage" />   
     </bean>
 
     <!-- Load the Dsl modelfile and store it in slot 'model' -->
-    <if cond="${isEclipseSetup}">
-        <component class="org.eclipse.mwe.emf.Reader">
-            <uri value="${modelfile}" />
-            <modelSlot value="model" />
-        </component>
-    </if>
-    <if cond="${isStandaloneSetup}">
-        <component id="PresentationDsl-parser" class="org.mod4j.dsl.presentation.xtext.parser.ParserComponent">
-            <modelFile value="${modelfile}"/>
-            <outputSlot value="model"/>
-        </component>
-    </if>
+    <component id="pmfmod2crossx-modelfileReader" class="org.eclipse.xtext.MweReader" 
+	            uri="${modelfile}"
+	            outputSlot="model">
+		<register class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetup"/>
+	</component>
     
-    <component id="Presentation-XtextChecks" class="org.openarchitectureware.check.CheckComponent">
-        <metaModel idRef="PresentationDsl" />
-        <checkFile value="org::mod4j::dsl::presentation::xtext::GenChecks" />
-        <emfAllChildrenSlot value="model" />
-    </component>
-    <component id="Presentation-ModelChecks" class="org.openarchitectureware.check.CheckComponent">
+    <component id="Presentation-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="PresentationDsl" />
         <metaModel idRef="crossx"/>
         <checkFile value="org::mod4j::dsl::presentation::validation::checks::PresentationChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
+
     <!--
     <component id="Presentation-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="PresentationDsl" />
@@ -83,7 +73,7 @@
     <!-- Call the Xtend model-to-model transformation that takes a Presentation Model as its input
          and returns a Crossx model in the outputSlot
     -->
-    <component id="XtendComponent.presentationmodel2crossx" class="oaw.xtend.XtendComponent">
+    <component id="XtendComponent.presentationmodel2crossx" class="org.eclipse.xtend.XtendComponent">
        <!-- again, we need the two meta models introduced above; we reference them using XML's idRef mechanism -->
        <metaModel idRef="PresentationDsl"/>
        <metaModel idRef="crossx"/>
@@ -104,7 +94,7 @@
          the Crosssx model looks like.
     -->
     <if cond="${isEclipseSetup}">
-	    <component class="org.eclipse.mwe.emf.Writer">
+	    <component class="org.eclipse.emf.mwe.utils.Writer">
 	        <uri value="${crossxfile}" />
 	        <modelSlot value="crossxModel" />
 	    </component>

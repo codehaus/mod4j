@@ -48,7 +48,7 @@ public class Mod4WorklowRunnerTest {
         Mod4jWorkflowRunner workflowRunner = new Mod4jWorkflowRunner();
         File testFile = new File(TESTDIR + "/dummyFile.txt");
         properties.put("directories", TESTDIR);
-        wfFile = "src/test/resources/TestWorkflowCleaner.oaw";
+        wfFile = "org/mod4j/dslcommon/workflow/DirectoryClean.oaw";
 
         try {
             if (testFile.exists() || testFile.createNewFile()) {

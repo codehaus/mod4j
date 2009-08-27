@@ -275,7 +275,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
             case DataContractDslPackage.BUSINESS_CLASS_DTO__ASSOCIATION_REFERENCES:
                 return getAssociationReferences();
             case DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE:
-                return isCreatable() ? Boolean.TRUE : Boolean.FALSE;
+                return isCreatable();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -305,7 +305,7 @@ public class BusinessClassDtoImpl extends DtoImpl implements BusinessClassDto {
                 getAssociationReferences().addAll((Collection<? extends BusinessClassAssociationRoleReference>)newValue);
                 return;
             case DataContractDslPackage.BUSINESS_CLASS_DTO__CREATABLE:
-                setCreatable(((Boolean)newValue).booleanValue());
+                setCreatable((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

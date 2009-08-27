@@ -101,7 +101,7 @@ public class EnumerationLiteralImpl extends ModelElementImpl implements Enumerat
      * @generated
      */
 	public Enumeration getEnumeration() {
-        if (eContainerFeatureID != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION) return null;
+        if (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION) return null;
         return (Enumeration)eContainer();
     }
 
@@ -121,7 +121,7 @@ public class EnumerationLiteralImpl extends ModelElementImpl implements Enumerat
      * @generated
      */
 	public void setEnumeration(Enumeration newEnumeration) {
-        if (newEnumeration != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION && newEnumeration != null)) {
+        if (newEnumeration != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION && newEnumeration != null)) {
             if (EcoreUtil.isAncestor(this, newEnumeration))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -173,7 +173,7 @@ public class EnumerationLiteralImpl extends ModelElementImpl implements Enumerat
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.ENUMERATION__ENUMERATION_LITERALS, Enumeration.class, msgs);
         }
@@ -189,7 +189,7 @@ public class EnumerationLiteralImpl extends ModelElementImpl implements Enumerat
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                return new Integer(getPersistedValue());
+                return getPersistedValue();
             case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
                 return getEnumeration();
         }
@@ -205,7 +205,7 @@ public class EnumerationLiteralImpl extends ModelElementImpl implements Enumerat
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case BusinessDomainDslPackage.ENUMERATION_LITERAL__PERSISTED_VALUE:
-                setPersistedValue(((Integer)newValue).intValue());
+                setPersistedValue((Integer)newValue);
                 return;
             case BusinessDomainDslPackage.ENUMERATION_LITERAL__ENUMERATION:
                 setEnumeration((Enumeration)newValue);

@@ -139,7 +139,7 @@ public class EnumerationDtoImpl extends ModelElementImpl implements EnumerationD
      * @generated
      */
 	public DataContractModel getDatacontractModel() {
-        if (eContainerFeatureID != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL) return null;
+        if (eContainerFeatureID() != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL) return null;
         return (DataContractModel)eContainer();
     }
 
@@ -159,7 +159,7 @@ public class EnumerationDtoImpl extends ModelElementImpl implements EnumerationD
      * @generated
      */
 	public void setDatacontractModel(DataContractModel newDatacontractModel) {
-        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
+        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
             if (EcoreUtil.isAncestor(this, newDatacontractModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -213,7 +213,7 @@ public class EnumerationDtoImpl extends ModelElementImpl implements EnumerationD
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case DataContractDslPackage.ENUMERATION_DTO__DATACONTRACT_MODEL:
                 return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__ENUMERATIONS, DataContractModel.class, msgs);
         }

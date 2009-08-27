@@ -2,7 +2,7 @@
 PresentationModel CustomerModel
 
 from RecordShopDataContract import SimpleCustomerDto
-from RecordShopOrderingPresentation  import OrderAndDateCollection 
+//from RecordShopOrderingPresentation  import OrderAndDateCollection 
 
 ContentForm CustomerDetails using SimpleCustomerDto
 	formElement lastName named name;

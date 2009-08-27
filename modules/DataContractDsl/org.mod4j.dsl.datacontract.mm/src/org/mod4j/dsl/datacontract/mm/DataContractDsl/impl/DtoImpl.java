@@ -59,7 +59,7 @@ public class DtoImpl extends ModelElementImpl implements Dto {
      * @generated
      */
 	public DataContractModel getDatacontractModel() {
-        if (eContainerFeatureID != DataContractDslPackage.DTO__DATACONTRACT_MODEL) return null;
+        if (eContainerFeatureID() != DataContractDslPackage.DTO__DATACONTRACT_MODEL) return null;
         return (DataContractModel)eContainer();
     }
 
@@ -79,7 +79,7 @@ public class DtoImpl extends ModelElementImpl implements Dto {
      * @generated
      */
 	public void setDatacontractModel(DataContractModel newDatacontractModel) {
-        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID != DataContractDslPackage.DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
+        if (newDatacontractModel != eInternalContainer() || (eContainerFeatureID() != DataContractDslPackage.DTO__DATACONTRACT_MODEL && newDatacontractModel != null)) {
             if (EcoreUtil.isAncestor(this, newDatacontractModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -131,7 +131,7 @@ public class DtoImpl extends ModelElementImpl implements Dto {
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case DataContractDslPackage.DTO__DATACONTRACT_MODEL:
                 return eInternalContainer().eInverseRemove(this, DataContractDslPackage.DATA_CONTRACT_MODEL__DTOS, DataContractModel.class, msgs);
         }

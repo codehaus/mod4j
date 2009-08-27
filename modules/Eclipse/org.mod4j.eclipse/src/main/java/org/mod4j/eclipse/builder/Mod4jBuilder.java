@@ -12,6 +12,7 @@ package org.mod4j.eclipse.builder;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -349,7 +350,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
     protected void startupOnInitialize() {
         System.err.println("Mod4jBuilder.startupOnInitialize");
         if (!initialized) {
-//            CrossxEnvironment.setPrintStream(getConsole());
+            System.err.println("Mod4jBuilder.startupOnInitialize ! initalized");
+            CrossxEnvironment.setPrintStream(getConsole());
             initialized = true;
             startX();
             CrossxEnvironment.setStarted(true);
@@ -395,15 +397,15 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
         CrossxView.myrefresh();
     }
     
-//    public void start() {
-//    	System.err.println("Mod4jBuilder.start()");
-//        dslExtensions = Mod4jBuilder.getExtensions();
-//        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-//        for (int i = 0; i < projects.length; i++) {
-//            IProject project = projects[i];
-//            myloadCrossxInfo(project);
-//        }
-//    }
+    public void start() {
+    	System.err.println("Mod4jBuilder.start()");
+        dslExtensions = Mod4jBuilder.getExtensions();
+        IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+        for (int i = 0; i < projects.length; i++) {
+            IProject project = projects[i];
+            myloadCrossxInfo(project);
+        }
+    }
 
     public static QualifiedName PROJECT_TRACKER = new QualifiedName("org.mod4j.eclipse", "filetracker");
 
@@ -550,10 +552,14 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             Mod4jTracker.getFileTracker().initResource(modelFilePath, newAppPath, projectPath);
 
             // Run the workflow
-            Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
+            Mod4jEclipseWorkflowRunner genWf = new Mod4jEclipseWorkflowRunner();
             try {
+                Date start = new Date(System.currentTimeMillis());
                 genWf.runWorkflow(genName, properties);
-            } catch (Mod4jWorkflowException e) {
+                Date end = new Date(System.currentTimeMillis());
+                System.err.println("================== " + start.toString() + ": generate [" + resource.getName() + "]");
+                System.err.println("================== " + end.toString() );
+            } catch (Mod4jEclipseWorkflowException e) {
                 System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName()
                         + "] error: [" + e.getMessage() + "]");
                 EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model ["

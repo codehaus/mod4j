@@ -498,7 +498,7 @@ public class AssociationImpl extends ModelElementImpl implements Association {
      * @generated
      */
 	public BusinessDomainModel getModel() {
-        if (eContainerFeatureID != BusinessDomainDslPackage.ASSOCIATION__MODEL) return null;
+        if (eContainerFeatureID() != BusinessDomainDslPackage.ASSOCIATION__MODEL) return null;
         return (BusinessDomainModel)eContainer();
     }
 
@@ -518,7 +518,7 @@ public class AssociationImpl extends ModelElementImpl implements Association {
      * @generated
      */
 	public void setModel(BusinessDomainModel newModel) {
-        if (newModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ASSOCIATION__MODEL && newModel != null)) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ASSOCIATION__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -582,7 +582,7 @@ public class AssociationImpl extends ModelElementImpl implements Association {
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__ASSOCIATIONS, BusinessDomainModel.class, msgs);
         }
@@ -612,11 +612,11 @@ public class AssociationImpl extends ModelElementImpl implements Association {
             case BusinessDomainDslPackage.ASSOCIATION__TARGET_MULTIPLICITY:
                 return getTargetMultiplicity();
             case BusinessDomainDslPackage.ASSOCIATION__COMPOSITE:
-                return isComposite() ? Boolean.TRUE : Boolean.FALSE;
+                return isComposite();
             case BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL:
-                return isBidirectional() ? Boolean.TRUE : Boolean.FALSE;
+                return isBidirectional();
             case BusinessDomainDslPackage.ASSOCIATION__ORDERED:
-                return isOrdered() ? Boolean.TRUE : Boolean.FALSE;
+                return isOrdered();
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 return getModel();
         }
@@ -650,13 +650,13 @@ public class AssociationImpl extends ModelElementImpl implements Association {
                 setTargetMultiplicity((Multiplicity)newValue);
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__COMPOSITE:
-                setComposite(((Boolean)newValue).booleanValue());
+                setComposite((Boolean)newValue);
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__BIDIRECTIONAL:
-                setBidirectional(((Boolean)newValue).booleanValue());
+                setBidirectional((Boolean)newValue);
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__ORDERED:
-                setOrdered(((Boolean)newValue).booleanValue());
+                setOrdered((Boolean)newValue);
                 return;
             case BusinessDomainDslPackage.ASSOCIATION__MODEL:
                 setModel((BusinessDomainModel)newValue);

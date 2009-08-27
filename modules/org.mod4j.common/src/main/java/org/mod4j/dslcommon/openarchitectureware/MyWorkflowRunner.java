@@ -24,18 +24,20 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openarchitectureware.workflow.ConfigurationException;
-import org.openarchitectureware.workflow.Workflow;
-import org.openarchitectureware.workflow.WorkflowContext;
-import org.openarchitectureware.workflow.WorkflowContextDefaultImpl;
-import org.openarchitectureware.workflow.WorkflowRunner;
-import org.openarchitectureware.workflow.ast.util.WorkflowFactory;
-import org.openarchitectureware.workflow.customizer.WorkflowCustomization;
-import org.openarchitectureware.workflow.issues.Issue;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.issues.IssuesImpl;
-import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
-import org.openarchitectureware.workflow.monitor.ProgressMonitor;
+import org.eclipse.emf.mwe.core.ConfigurationException;
+import org.eclipse.emf.mwe.core.WorkflowContext;
+import org.eclipse.emf.mwe.core.WorkflowContextDefaultImpl;
+import org.eclipse.emf.mwe.core.WorkflowRunner;
+import org.eclipse.emf.mwe.core.customizer.WorkflowCustomization;
+import org.eclipse.emf.mwe.core.issues.Issues;
+import org.eclipse.emf.mwe.core.issues.IssuesImpl;
+import org.eclipse.emf.mwe.core.issues.MWEDiagnostic;
+import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
+import org.eclipse.emf.mwe.core.monitor.NullProgressMonitor;
+
+import org.eclipse.emf.mwe.internal.core.ast.util.WorkflowFactory;
+import org.eclipse.emf.mwe.internal.core.Workflow;
+
 
 	/**
 	 * Main class to run a workflow.
@@ -365,9 +367,9 @@ import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 
 		private void logIssues(final Log logger, final Issues issues) {
 			// log any configuration warning messages
-			Issue[] issueArray = issues.getWarnings();
+			MWEDiagnostic[] issueArray = issues.getWarnings();
 			for (int i = 0; i < issueArray.length; i++) {
-				final Issue issue = issueArray[i];
+				final MWEDiagnostic issue = issueArray[i];
 				myLogWarn("07" + issue.toString());
 			}
 
@@ -375,7 +377,7 @@ import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 			if (issues.hasErrors()) {
 				issueArray = issues.getErrors();
 				for (int i = 0; i < issueArray.length; i++) {
-					final Issue issue = issueArray[i];
+					final MWEDiagnostic issue = issueArray[i];
 					myLogError(issue.toString());
 				}
 			}

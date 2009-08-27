@@ -10,14 +10,19 @@
  *******************************************************************************/
 package org.mod4j.dslcommon.openarchitectureware;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openarchitectureware.workflow.WorkflowRunner;
-import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
-
+import org.eclipse.emf.mwe.core.WorkflowRunner;
+import org.eclipse.emf.mwe.core.monitor.NullProgressMonitor;
+//import org.eclipse.emf.mwe.core.resources.CachingResourceLoaderImpl;
+//import org.eclipse.emf.mwe.core.resources.OsgiResourceLoader;
+//import org.eclipse.emf.mwe.core.resources.ResourceLoader;
+//import org.eclipse.emf.mwe.core.resources.ResourceLoaderFactory;
+//import org.mod4j.common.generator.admin.FileTrack;
 /**
  * @author johan
  * 
@@ -37,6 +42,7 @@ public class Mod4jWorkflowRunner {
      */
     public void runWorkflow(final String wfFile, final Map<String, String> properties) throws Mod4jWorkflowException {
 
+
         Map<String, Object> slotContents = new HashMap<String, Object>();
         WorkflowRunner runner = new WorkflowRunner();
 
@@ -47,6 +53,21 @@ public class Mod4jWorkflowRunner {
 
         logger.info("Running workflow [" + wfFile + "] with properties : \n" + propertiesListing); 
 
+        Date date = new Date(System.currentTimeMillis());
+//        System.err.println("03 ================== " + date.toString() + ": workflow [" + wfFile + "]");
+//        ResourceLoader loader = ResourceLoaderFactory.getCurrentThreadResourceLoader();
+//        
+//        System.err.println("Classloader: " + (loader == null ? "NULL" : loader.toString() ) ) ;
+//        if( loader == null ){
+//              CachingResourceLoaderImpl crl = new CachingResourceLoaderImpl(
+//                      new OsgiResourceLoader("org.mod4j.common", FileTrack.class.getClassLoader() )
+//              ); 
+//    
+//              ResourceLoaderFactory.setCurrentThreadResourceLoader(crl);
+//        }
+//
+//        date = new Date(System.currentTimeMillis());
+        System.err.println("04 ================== " + date.toString() + ": workflow [" + wfFile + "]");
         if (!runner.run(wfFile, new NullProgressMonitor(), properties, slotContents)) {
             logger.error("--------------------------------------------------------------------------------------");
             logger.error("------- ERROR(S) detected while running workflow : [" + wfFile + "] ");
@@ -54,6 +75,8 @@ public class Mod4jWorkflowRunner {
             logger.error("--------------------------------------------------------------------------------------");
             throw new Mod4jWorkflowException("ERROR(S) detected while running workflow :" + wfFile);
         }
+        date = new Date(System.currentTimeMillis());
+        System.err.println("05 ================== " + date.toString() + ": workflow [" + wfFile + "]");
         logger.info("--------------------------------------------------------------------------");
         logger.info("-------- Workflow SUCCESSFUL! ");
         logger.info("--------------------------------------------------------------------------");

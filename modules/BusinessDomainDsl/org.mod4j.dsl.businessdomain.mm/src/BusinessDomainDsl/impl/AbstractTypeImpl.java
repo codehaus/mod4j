@@ -89,7 +89,7 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
      * @generated
      */
 	public BusinessDomainModel getModel() {
-        if (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL) return null;
+        if (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL) return null;
         return (BusinessDomainModel)eContainer();
     }
 
@@ -109,7 +109,7 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
      * @generated
      */
 	public void setModel(BusinessDomainModel newModel) {
-        if (newModel != eInternalContainer() || (eContainerFeatureID != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL && newModel != null)) {
+        if (newModel != eInternalContainer() || (eContainerFeatureID() != BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL && newModel != null)) {
             if (EcoreUtil.isAncestor(this, newModel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
@@ -166,7 +166,7 @@ public abstract class AbstractTypeImpl extends ModelElementImpl implements Abstr
      */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID) {
+        switch (eContainerFeatureID()) {
             case BusinessDomainDslPackage.ABSTRACT_TYPE__MODEL:
                 return eInternalContainer().eInverseRemove(this, BusinessDomainDslPackage.BUSINESS_DOMAIN_MODEL__TYPES, BusinessDomainModel.class, msgs);
         }

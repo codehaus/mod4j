@@ -22,22 +22,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
  */
 public abstract class UIModelElementImpl extends ModelElementImpl implements UIModelElement {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected UIModelElementImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.UI_MODEL_ELEMENT;
-	}
+        return PresentationDslPackage.Literals.UI_MODEL_ELEMENT;
+    }
 
 } //UIModelElementImpl

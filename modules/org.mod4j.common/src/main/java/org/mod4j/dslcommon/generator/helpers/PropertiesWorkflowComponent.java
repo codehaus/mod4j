@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.mod4j.dslcommon.generator.helpers;
 
-import org.openarchitectureware.workflow.WorkflowContext;
-import org.openarchitectureware.workflow.issues.Issues;
-import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent;
-import org.openarchitectureware.workflow.monitor.ProgressMonitor;
+import org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent;
+import org.eclipse.emf.mwe.core.WorkflowContext;
+import org.eclipse.emf.mwe.core.issues.Issues;
+import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
 
 /* 
  * Workflow component to read a properties files
@@ -28,7 +28,8 @@ public class PropertiesWorkflowComponent extends AbstractWorkflowComponent {
      * @see org.openarchitectureware.workflow.WorkflowComponent#invoke(org.openarchitectureware.workflow.WorkflowContext,
      *      org.openarchitectureware.workflow.monitor.ProgressMonitor, org.openarchitectureware.workflow.issues.Issues)
      */
-    public void invoke(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
+	@Override
+    public void invokeInternal(WorkflowContext wfCxt, ProgressMonitor arg1, Issues arg2) {
         System.err.println("PropertiesWorkflowComponent: Found property slot [" + getPropertyFile() + "]");
         ProjectProperties.setPropertiesFile(getPropertyFile());
         ProjectProperties.setWorkDir(getWorkDir());

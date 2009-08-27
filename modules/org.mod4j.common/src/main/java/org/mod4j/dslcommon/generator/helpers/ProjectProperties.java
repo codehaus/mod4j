@@ -108,11 +108,9 @@ public class ProjectProperties {
     
     private static final String environmentPropertiesFileName = "environment.properties";
 
-    private static String fileEncoding = "ISO-8859-1";
+    private static String fileEncoding = "UTF-8";
 
     public static final String IMPLBASE_SUFFIX = "ImplBase";
-
-    // TODO remove public static final String BUSINESSRULES_PACKAGE = "businessrules";
 
     public static final String DAO_PACKAGE = "";
 

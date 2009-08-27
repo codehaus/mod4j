@@ -32,190 +32,190 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class ExternalReferenceImpl extends NamedReferenceImpl implements ExternalReference {
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDescription()
+     * @generated
+     * @ordered
+     */
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModelName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getModelName()
+     * @generated
+     * @ordered
+     */
 	protected static final String MODEL_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModelName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getModelName()
+     * @generated
+     * @ordered
+     */
 	protected String modelName = MODEL_NAME_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ExternalReferenceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PresentationDslPackage.Literals.EXTERNAL_REFERENCE;
-	}
+        return PresentationDslPackage.Literals.EXTERNAL_REFERENCE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getDescription() {
-		return description;
-	}
+        return description;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION, oldDescription, description));
-	}
+        String oldDescription = description;
+        description = newDescription;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION, oldDescription, description));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getModelName() {
-		return modelName;
-	}
+        return modelName;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setModelName(String newModelName) {
-		String oldModelName = modelName;
-		modelName = newModelName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME, oldModelName, modelName));
-	}
+        String oldModelName = modelName;
+        modelName = newModelName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME, oldModelName, modelName));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-				return getDescription();
-			case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
-				return getModelName();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
+                return getDescription();
+            case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
+                return getModelName();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
-			case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
-				setModelName((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
+                setDescription((String)newValue);
+                return;
+            case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
+                setModelName((String)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
-				setModelName(MODEL_NAME_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
+                setDescription(DESCRIPTION_EDEFAULT);
+                return;
+            case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
+                setModelName(MODEL_NAME_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
-				return MODEL_NAME_EDEFAULT == null ? modelName != null : !MODEL_NAME_EDEFAULT.equals(modelName);
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
+                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+            case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
+                return MODEL_NAME_EDEFAULT == null ? modelName != null : !MODEL_NAME_EDEFAULT.equals(modelName);
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (description: ");
-		result.append(description);
-		result.append(", modelName: ");
-		result.append(modelName);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (description: ");
+        result.append(description);
+        result.append(", modelName: ");
+        result.append(modelName);
+        result.append(')');
+        return result.toString();
+    }
 
 } //ExternalReferenceImpl
