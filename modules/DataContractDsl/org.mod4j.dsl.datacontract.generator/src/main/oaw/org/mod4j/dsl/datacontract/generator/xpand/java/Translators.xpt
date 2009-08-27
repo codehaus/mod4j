@@ -38,7 +38,7 @@
          «ENDFOREACH»
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef -» 
              import «getDomainRootPackage()».«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»;
-         «ENDFOREACH»  
+         «ENDFOREACH»
          
         /**
          * Translator for translating «javaClassName(base.name)» domain objects from- and to «javaClassName(name)» data transfer objects. 
@@ -64,6 +64,14 @@
                       private «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator «dataProperty.name»Translator = new «javaClassName(((DtoEnumerationProperty)dataProperty).type.name)»Translator();
                   «ENDIF»        
               «ENDFOREACH»
+         
+             /**
+              * Convenience method for calling {@link #fromDto(«javaClassName(name)», «javaClassName(base.name)»)} with a null target
+              * argument.
+              */
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws TranslatorException {
+                  return fromDto(source, null);
+              }         
                                      
              /**
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object. All properties in the dto will be mapped to the 
