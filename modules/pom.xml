@@ -223,12 +223,10 @@
                 <module>ServiceDsl/org.mod4j.dsl.service.xtext</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.validation</module>
                 <module>ServiceDsl/org.mod4j.dsl.service.generator</module>
-                <!-- TODO enable when ready
                 <module>PresentationDsl/org.mod4j.dsl.presentation.mm</module>
                 <module>PresentationDsl/org.mod4j.dsl.presentation.xtext</module>
                 <module>PresentationDsl/org.mod4j.dsl.presentation.validation</module>
                 <module>PresentationDsl/org.mod4j.dsl.presentation.generator</module>
-                -->
                 <module>Examples/RecordShop-ExampleProject</module>
             </modules>
         </profile>
