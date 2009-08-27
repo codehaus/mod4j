@@ -61,6 +61,9 @@
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»
              «EXPAND Attributes::addAssociationRoleAccessors(assRef) FOR assRef.dtoType» 
          «ENDFOREACH»
+        «EXPAND StandardOverrides::addEqualsMethod FOR this»
+        «EXPAND StandardOverrides::addHashCodeMethod FOR this»
+        «EXPAND StandardOverrides::addToStringMethod FOR this»
      }
 «ENDDEFINE»
 
