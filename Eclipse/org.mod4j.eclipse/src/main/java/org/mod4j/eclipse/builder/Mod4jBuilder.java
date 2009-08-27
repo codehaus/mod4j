@@ -12,6 +12,7 @@ package org.mod4j.eclipse.builder;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -551,10 +552,14 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             Mod4jTracker.getFileTracker().initResource(modelFilePath, newAppPath, projectPath);
 
             // Run the workflow
-            Mod4jWorkflowRunner genWf = new Mod4jWorkflowRunner();
+            Mod4jEclipseWorkflowRunner genWf = new Mod4jEclipseWorkflowRunner();
             try {
+                Date start = new Date(System.currentTimeMillis());
                 genWf.runWorkflow(genName, properties);
-            } catch (Mod4jWorkflowException e) {
+                Date end = new Date(System.currentTimeMillis());
+                System.err.println("================== " + start.toString() + ": generate [" + resource.getName() + "]");
+                System.err.println("================== " + end.toString() );
+            } catch (Mod4jEclipseWorkflowException e) {
                 System.err.println("Mod4j: workflow error while generating code for DSL Model [" + resource.getName()
                         + "] error: [" + e.getMessage() + "]");
                 EclipseUtil.showError("Mod4j: workflow error while generating code for DSL Model ["

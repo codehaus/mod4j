@@ -18,8 +18,8 @@ public class MyServiceCheckValidator extends ServiceCheckValidator {
 	}
 	
 	protected void configure() {
-		addCheckFile("org::mod4j::dsl::service::xtext::validation::ServiceChecks", CheckType.FAST);
-		addCheckFile("org::mod4j::dsl::service::xtext::validation::CrossxChecks", CheckType.FAST);
+		addCheckFile("org::mod4j::dsl::service::validation::checks::ServiceChecks", CheckType.FAST);
+		addCheckFile("org::mod4j::dsl::service::validation::checks::CrossxChecks", CheckType.FAST);
 
 	}
 

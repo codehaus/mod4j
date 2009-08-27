@@ -36,13 +36,13 @@ public class BusinessDomainExecutableExtensionFactory implements IExecutableExte
 	}
 	
 	public Object create() throws CoreException {
-		org.mod4j.dsl.businessdomain.xtext.internal.BusinessDomainActivator instance = org.mod4j.dsl.businessdomain.xtext.internal.BusinessDomainActivator.getInstance();
+		org.mod4j.dsl.businessdomain.xtext.Mod4jBusinessDomainActivator instance = org.mod4j.dsl.businessdomain.xtext.Mod4jBusinessDomainActivator.getInstance();
 		if (instance == null)
 			throw new IllegalStateException("The bundle has not yet been activated. Make sure the Manifest.MF contains 'Bundle-ActivationPolicy: lazy'.");
 		Bundle bundle = instance.getBundle();
 		try {
 			final Class<?> clazz = bundle.loadClass(clazzName);
-			final Injector injector = org.mod4j.dsl.businessdomain.xtext.internal.BusinessDomainActivator.getInstance().getInjector("org.mod4j.dsl.businessdomain.xtext.BusinessDomain");
+			final Injector injector = org.mod4j.dsl.businessdomain.xtext.Mod4jBusinessDomainActivator.getInstance().getInjector("org.mod4j.dsl.businessdomain.xtext.BusinessDomain");
 			final Object result = injector.getInstance(clazz);
 			if (result instanceof IExecutableExtension)
 				((IExecutableExtension) result).setInitializationData(config, null, null);

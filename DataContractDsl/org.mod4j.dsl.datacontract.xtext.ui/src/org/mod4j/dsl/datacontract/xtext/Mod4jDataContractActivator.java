@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Replaces the generated DataContractActivator   in the src-gen folder
+ * Replaces the generated DataContractActivator in the src-gen folder
  * Added an initialization call to crossx.
  * 
  * Note that the MANIFEST.MF has been changed to use this class as the BundleActivator
