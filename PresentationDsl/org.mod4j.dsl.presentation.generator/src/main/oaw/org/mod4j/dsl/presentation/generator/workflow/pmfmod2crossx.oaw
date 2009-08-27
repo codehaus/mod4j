@@ -46,20 +46,6 @@
 	            outputSlot="model">
 		<register class="org.mod4j.dsl.presentation.xtext.PresentationStandaloneSetup"/>
 	</component>
-<!--
-    <if cond="${isEclipseSetup}">
-        <component class="org.eclipse.mwe.emf.Reader">
-            <uri value="${modelfile}" />
-            <modelSlot value="model" />
-        </component>
-    </if>
-    <if cond="${isStandaloneSetup}">
-        <component id="PresentationDsl-parser" class="org.mod4j.dsl.presentation.xtext.parser.ParserComponent">
-            <modelFile value="${modelfile}"/>
-            <outputSlot value="model"/>
-        </component>
-    </if>
--->
     
     <component id="Presentation-ModelChecks" class="org.eclipse.xtend.check.CheckComponent">
         <metaModel idRef="PresentationDsl" />
@@ -67,6 +53,7 @@
         <checkFile value="org::mod4j::dsl::presentation::validation::checks::PresentationChecks" />
         <emfAllChildrenSlot value="model" />
     </component>
+
     <!--
     <component id="Presentation-CrossxChecks" class="org.openarchitectureware.check.CheckComponent">
         <metaModel idRef="PresentationDsl" />
