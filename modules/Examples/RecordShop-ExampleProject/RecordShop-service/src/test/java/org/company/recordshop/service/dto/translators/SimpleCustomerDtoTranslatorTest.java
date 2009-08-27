@@ -29,20 +29,16 @@ public class SimpleCustomerDtoTranslatorTest {
         simpleCust.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
         OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto();
+        orderDto.setOrderNumber("1");
         orderDto.setCustomer(simpleCust);
 
         simpleCust.addToOrders(orderDto);
 
-        try {
-            Customer newCust = scTranslator.fromDto(simpleCust, null);
-            assertTrue("Firstname of Customer should be Vincent.", newCust.getFirstName().equals("Vincent"));
-            assertTrue("CustomerNr should be 1234", newCust.getCustomerNr() == 1234);
-            assertTrue("Associations dto's in dto's are not translated so Orders should be empty.", newCust.getOrders()
-                    .isEmpty());
-        } catch (TranslatorException e) {
-            fail("Did not expected to catch a TranslatorMisMatchException. Message :" + e.getMessage());
-        }
-
+        Customer newCust = scTranslator.fromDto(simpleCust, null);
+        assertTrue("Firstname of Customer should be Vincent.", newCust.getFirstName().equals("Vincent"));
+        assertTrue("CustomerNr should be 1234", newCust.getCustomerNr() == 1234);
+        assertTrue("Associations dto's in dto's are not translated so Orders should be empty.", newCust.getOrders()
+                .isEmpty());
     }
 
     @Test
@@ -87,16 +83,16 @@ public class SimpleCustomerDtoTranslatorTest {
 
     @Test
     @ExpectedException(TranslatorException.class)
-    public void testFromDtoWithNullsFail(){
-        
+    public void testFromDtoWithNullsFail() {
+
         SimpleCustomerDto custDto = new SimpleCustomerDto();
-        
+
         try {
             scTranslator.fromDto(custDto, null);
             fail();
         } catch (TranslatorException te) {
-            assertTrue("Translation of a dto with null values for non-nullable attributes should fail ", te.getMessage().contains(
-            "Can not translate dto to Customer when non-nullable attribute"));
+            assertTrue("Translation of a dto with null values for non-nullable attributes should fail ", te
+                    .getMessage().contains("Can not translate dto to Customer when non-nullable attribute"));
         }
     }
 }
