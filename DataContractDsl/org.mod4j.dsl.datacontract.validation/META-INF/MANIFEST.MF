@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Mod4j DataContract DSL validation
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.validation; singleton:=true
 Bundle-Version: 1.1.0.qualifier
+Eclipse-RegisterBuddy: org.mod4j.common
 Require-Bundle: org.mod4j.crossx.broker;bundle-version="1.1.0",
  org.mod4j.dsl.datacontract.mm,
  org.mod4j.common;bundle-version="1.1.0",

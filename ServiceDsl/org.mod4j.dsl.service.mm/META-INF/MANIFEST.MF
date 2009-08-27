@@ -6,6 +6,7 @@ Bundle-Version: 1.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: mod4j.org
 Bundle-Localization: plugin
+Eclipse-RegisterBuddy: org.mod4j.common
 Export-Package: org.mod4j.dsl.service.mm.ServiceDsl,
  org.mod4j.dsl.service.mm.ServiceDsl.impl,
  org.mod4j.dsl.service.mm.ServiceDsl.util,

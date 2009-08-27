@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DataContract xtext
 Bundle-SymbolicName: org.mod4j.dsl.datacontract.xtext.ui;singleton:=true
 Bundle-Version: 1.1.0.qualifier
+Eclipse-RegisterBuddy: org.mod4j.common
 Require-Bundle: org.mod4j.dsl.datacontract.mm;bundle-version="1.1.0",
  org.mod4j.dsl.datacontract.xtext;bundle-version="1.1.0",
  org.mod4j.crossx.broker;bundle-version="1.1.0",
