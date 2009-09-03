@@ -20,10 +20,8 @@
         <module>breakfast-domain</module>
         <module>breakfast-data</module>
         <module>breakfast-business</module>
-        <module>breakfast-service</module>       
-    <!-- TODO Enable the following module when ready.
-        <module>breakfast-presentation</module>
-    -->
+        <module>breakfast-service</module>
+        <module>breakfast-web</module>
     </modules>
     <build>
         <resources>
