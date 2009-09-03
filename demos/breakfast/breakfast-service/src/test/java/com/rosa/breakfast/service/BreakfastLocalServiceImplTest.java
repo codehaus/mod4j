@@ -19,11 +19,9 @@ import com.rosa.breakfast.service.dto.ServingStyleDto;
 import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 
 @ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
-		"/com/rosa/breakfast/data/applicationContextBase.xml",
 		"/com/rosa/breakfast/data/applicationContext.xml",
-		"/com/rosa/breakfast/business/applicationContextBase.xml",
+		"/com/rosa/breakfast/data/sessionFactoryContext.xml",
 		"/com/rosa/breakfast/business/applicationContext.xml",
-		"/com/rosa/breakfast/service/applicationContextBase.xml",
 		"/com/rosa/breakfast/service/applicationContext.xml",
 		"/com/rosa/breakfast/service/testDataSourceContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
