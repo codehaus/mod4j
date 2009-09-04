@@ -9,12 +9,14 @@
 	      Ordina - initial implementation
 «ENDREM»
 «IMPORT DataContractDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createEnumDto FOR EnumerationDto»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j DatcontractDsl generator: Enumeration.xpt") FOR this»
     package «getDtoPackage()»;
     
     «EXPAND Imports::addImports FOR this»

@@ -8,9 +8,9 @@
      Ordina - initial implementation
 «ENDREM»
 «IMPORT BusinessDomainDsl»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
 
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
-
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
@@ -19,7 +19,7 @@
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated at «timestamp()» by Mod4j --> 
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: HibernateDatlayerContext.xpt") FOR this»
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
@@ -87,7 +87,7 @@ hibernate.dialect=org.hibernate.dialect.DerbyDialect
 
 «DEFINE sessionFactoryContext FOR BusinessDomainDsl::BusinessDomainModel»
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated at «timestamp()» by Mod4j --> 
+«EXPAND XmlComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: HibernateDatalayerContext.xpt") FOR this» 
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
@@ -122,7 +122,7 @@ hibernate.dialect=org.hibernate.dialect.DerbyDialect
 
 «DEFINE dataSourceContext FOR BusinessDomainDsl::BusinessDomainModel»
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated at «timestamp()» by Mod4j --> 
+«EXPAND XmlComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: HibernateDatalayerContext.xpt") FOR this» 
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="

@@ -8,6 +8,7 @@
      Ordina - initial implementation
 «ENDREM»
 «IMPORT BusinessDomainDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
@@ -15,6 +16,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
 «DEFINE createEnum FOR Enumeration»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: Enumeration.xpt") FOR this»
     package «getDomainRootPackage()»;
     
     «EXPAND Imports::addImports FOR this»
@@ -22,7 +24,6 @@
    /**
     * «description»
     *
-    * Generated at: «timestamp()»
     */
    public enum «name» {
     

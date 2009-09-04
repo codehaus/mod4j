@@ -10,6 +10,7 @@
 «ENDREM»
 «IMPORT ServiceDsl»
 «IMPORT crossx»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
 
 «EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
@@ -21,7 +22,7 @@
 «DEFINE GenServiceLayerImplBaseContext FOR ServiceModel»
 «LET findAllSymbols(getProject(),  "Service") AS allServices»
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated at «timestamp()»  by Mod4j -->
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j ServiceDsl generator: ServiceLayerImplBaseContext.xpt") FOR this»
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
@@ -49,7 +50,6 @@
         </aop:aspect>
     </aop:config>
     «ENDFOREACH»
-
     «FOREACH allServices AS service»
     <tx:advice id="txAdvice«service.name.toFirstLower()»Service"
         transaction-manager="transactionManager">
