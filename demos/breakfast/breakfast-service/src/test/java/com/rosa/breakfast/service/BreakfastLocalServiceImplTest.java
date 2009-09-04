@@ -23,7 +23,7 @@ import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 		"/com/rosa/breakfast/data/sessionFactoryContext.xml",
 		"/com/rosa/breakfast/business/applicationContext.xml",
 		"/com/rosa/breakfast/service/applicationContext.xml",
-		"/com/rosa/breakfast/service/testDataSourceContext.xml" })
+		"/com/rosa/breakfast/service/testContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class BreakfastLocalServiceImplTest extends
 		AbstractTransactionalJUnit4SpringContextTests {
