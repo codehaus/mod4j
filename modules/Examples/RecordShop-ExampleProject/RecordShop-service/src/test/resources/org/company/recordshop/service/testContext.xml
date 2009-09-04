@@ -1,100 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated at Wed Dec 03 11:05:47 CET 2008  by Mod4j -->
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
-    
-    <aop:config>
-        <aop:pointcut expression="execution(* org.company.recordshop.service.OrderServiceModelLocalService.*(..))" id="orderServiceModelServiceMethods"/>
-        <aop:advisor advice-ref="txAdviceOrderServiceModelService" order="30" pointcut-ref="orderServiceModelServiceMethods"/>
-        <aop:aspect ref="loggingAspect">
-            <aop:around method="log" pointcut-ref="orderServiceModelServiceMethods"/>
-        </aop:aspect>
-        <aop:aspect ref="timingAspect">
-            <aop:around method="time" pointcut-ref="orderServiceModelServiceMethods"/>
-        </aop:aspect>
-    </aop:config>
-    
-    <aop:config>
-        <aop:pointcut expression="execution(* org.company.recordshop.service.CustomerServiceModelLocalService.*(..))" id="customerServiceModelServiceMethods"/>
-        <aop:advisor advice-ref="txAdviceCustomerServiceModelService" order="30" pointcut-ref="customerServiceModelServiceMethods"/>
-        <aop:aspect ref="loggingAspect">
-            <aop:around method="log" pointcut-ref="customerServiceModelServiceMethods"/>
-        </aop:aspect>
-        <aop:aspect ref="timingAspect">
-            <aop:around method="time" pointcut-ref="customerServiceModelServiceMethods"/>
-        </aop:aspect>
-    </aop:config>
-    
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	   http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName">
+            <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:derby:target/recordshopdb;create=true
+            </value>
+        </property>
+    </bean>
+
+
     <!--  Transaction management. We want to test out-of-container. -->
     <bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="transactionManager">
         <property name="sessionFactory">
-            <ref bean="sessionFactory"/>
+            <ref bean="sessionFactory" />
         </property>
     </bean>
-    
-    <tx:advice id="txAdviceOrderServiceModelService" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="findOrdersByCustomer" propagation="REQUIRED"/>
-            <tx:method name="findOrdersByDate" propagation="REQUIRED"/>
-            <tx:method name="createOrder" propagation="REQUIRED"/>
-            <tx:method name="readOrderAsOrderDto" propagation="REQUIRED"/>
-            <tx:method name="updateOrder" propagation="REQUIRED"/>
-            <tx:method name="deleteOrder" propagation="REQUIRED"/>
-            
-        </tx:attributes>
-    </tx:advice>
-    
-    <tx:advice id="txAdviceCustomerServiceModelService" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="readOrder" propagation="REQUIRED"/>
-            <tx:method name="createCustomer" propagation="REQUIRED"/>
-            <tx:method name="readCustomer" propagation="REQUIRED"/>
-            <tx:method name="updateCustomer" propagation="REQUIRED"/>
-            <tx:method name="deleteCustomer" propagation="REQUIRED"/>
-            <tx:method name="addToOrders" propagation="REQUIRED"/>
-            <tx:method name="findCustomerByUniqueKey" propagation="REQUIRED"/>
-            <tx:method name="findCustomerByName" propagation="REQUIRED"/>
-            <tx:method name="createCustomer" propagation="REQUIRED"/>
-            <tx:method name="readCustomerAsFullCustomerDto" propagation="REQUIRED"/>
-            <tx:method name="updateCustomer" propagation="REQUIRED"/>
-            <tx:method name="deleteCustomer" propagation="REQUIRED"/>
-            
-        </tx:attributes>
-    </tx:advice>
-
-   
-    <!-- Application Layer  -->
-    
-    <bean class="org.company.recordshop.service.TestSVCLocalServiceImpl" id="testSVCService">
-        <property name="testSVCDomainService" ref="testSVCDomainService"/>
-        <property name="derivedDtoTranslator" ref="derivedDtoTranslator"/>
-    </bean>
-    
-    <bean class="org.company.recordshop.service.OrderServiceModelLocalServiceImpl" id="OrderServiceModelService">
-        <property name="orderServiceModelDomainService" ref="orderServiceModelDomainService"/>
-        <property name="orderDtoTranslator" ref="orderDtoTranslator"/>
-        <property name="simpleCustomerDtoTranslator" ref="simpleCustomerDtoTranslator"/>
-        <property name="orderNumberAndDateDtoTranslator" ref="orderNumberAndDateDtoTranslator"/>
-    </bean>
-    
-    <bean class="org.company.recordshop.service.CustomerServiceModelLocalServiceImpl" id="CustomerServiceModelService">
-        <property name="customerServiceModelDomainService" ref="customerServiceModelDomainService"/>
-        <property name="simpleCustomerDtoTranslator" ref="simpleCustomerDtoTranslator"/>
-        <property name="fullCustomerDtoTranslator" ref="fullCustomerDtoTranslator"/>
-        <property name="orderDtoTranslator" ref="orderDtoTranslator"/>
-        <property name="orderNumberAndDateDtoTranslator" ref="orderNumberAndDateDtoTranslator"/>
-    </bean>
-    
-    <bean class="org.company.recordshop.service.dto.translators.DerivedDtoTranslator" id="derivedDtoTranslator">
-    </bean>
-    <bean class="org.company.recordshop.service.dto.translators.OrderDtoTranslator" id="orderDtoTranslator">
-    </bean>
-    <bean class="org.company.recordshop.service.dto.translators.SimpleCustomerDtoTranslator" id="simpleCustomerDtoTranslator">
-    </bean>
-    <bean class="org.company.recordshop.service.dto.translators.OrderNumberAndDateDtoTranslator" id="orderNumberAndDateDtoTranslator">
-    </bean>
-    <bean class="org.company.recordshop.service.dto.translators.FullCustomerDtoTranslator" id="fullCustomerDtoTranslator">
-    </bean>
-    
 </beans>

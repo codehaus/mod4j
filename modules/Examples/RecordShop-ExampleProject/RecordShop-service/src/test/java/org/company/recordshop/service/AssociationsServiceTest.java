@@ -24,9 +24,8 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 		"/org/company/recordshop/data/sessionFactoryContext.xml",
 		"/org/company/recordshop/data/applicationContext.xml",
 		"/org/company/recordshop/business/applicationContext.xml",
-        "/org/company/recordshop/service/testDataSourceContext.xml",
-        "/org/company/recordshop/service/transactionManagerContext.xml",
-		"/org/company/recordshop/service/testContext.xml"})
+		"/org/company/recordshop/service/applicationContext.xml",
+        "/org/company/recordshop/service/testContext.xml"})
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class AssociationsServiceTest extends
 		AbstractTransactionalJUnit4SpringContextTests {
