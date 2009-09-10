@@ -22,11 +22,11 @@ public class DerivedDtoTranslatorTest {
 	@Test
 	public void testFromDto() {
 		DerivedDto dto = new DerivedDto();
-		dto.setFirst("second");
+		//dto.setFirst("second");
 		dto.setSecondo(false);
-		dto.setThird(new DateTime(4));
+		//dto.setThird(new DateTime(4));
 		dto.setFourth(5);
-		dto.setFifth(6.0F);
+		//dto.setFifth(6.0F);
 		Derived target = translator.fromDto(dto, null);
 		assertEquals("first", target.getFirst());
 		assertEquals(true, target.isSecondo());
@@ -38,10 +38,10 @@ public class DerivedDtoTranslatorTest {
 	@Test
 	public void testToDto() {
 		DerivedDto dto = translator.toDto(new Derived());
-		assertEquals("first", dto.getFirst());
+		//assertEquals("first", dto.getFirst());
 		assertTrue(dto.isSecondo());
-		assertEquals(new DateTime(3), dto.getThird());
+		//assertEquals(new DateTime(3), dto.getThird());
 		assertEquals(4L, dto.getFourth().intValue());
-		assertEquals(5.0F, dto.getFifth(), 0.0D);
+		//assertEquals(5.0F, dto.getFifth(), 0.0D);
 	}
 }
