@@ -10,7 +10,6 @@ public class ToStringTest {
     @Test
     public void testToString() {
         Customer customer = new Customer("Ludwig", "Wittgenstein", new DateTime(0L), 1);
-        customer.setAge(100);
         customer.setDiscountPercentage(17);
         customer.setEmailAddress("Ludwig.Wittgenstein@mod4j.org");
         customer.setNumberOfEars(3);
@@ -18,7 +17,7 @@ public class ToStringTest {
         customer.setUsername("lwittgen");
         assertEquals(
                 "org.company.recordshop.domain.Customer[id=null,firstName=Ludwig," +
-                "lastName=Wittgenstein,age=100,numberOfEars=3,sexe=MALE," +
+                "lastName=Wittgenstein,numberOfEars=3,sexe=MALE," +
                 "birthDate=1970-01-01T01:00:00.000+01:00,customerNr=1," +
                 "username=lwittgen,emailAddress=Ludwig.Wittgenstein@mod4j.org," +
                 "blackListed=false,discountPercentage=17]",

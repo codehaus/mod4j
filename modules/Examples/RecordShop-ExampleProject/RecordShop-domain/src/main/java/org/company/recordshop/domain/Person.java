@@ -5,6 +5,8 @@
 package org.company.recordshop.domain;
 
 import org.joda.time.DateTime;
+import org.joda.time.Interval;
+import org.joda.time.Years;
 
 /**
  * A Person represents a legal person.
@@ -29,5 +31,13 @@ public class Person extends PersonImplBase {
 	public Person(String firstName, String lastName, DateTime birthDate) {
 		super(firstName, lastName, birthDate);
 	}
+
+	@Override
+	public int getAge() {
+		
+        return Years.yearsBetween(birthDate, new DateTime()).getYears();
+	}
+
+	
 
 }
