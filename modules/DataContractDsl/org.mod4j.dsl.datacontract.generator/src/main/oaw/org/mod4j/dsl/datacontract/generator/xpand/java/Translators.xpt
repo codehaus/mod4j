@@ -110,16 +110,14 @@
                   «ENDIF» 
                   target.activateValidation(false);                 
                   
-                  «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-                      «IF dataProperty.writable -»
-                          «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»if (source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null) {«ENDIF-»
-                              «IF dataProperty.metaType == DtoEnumerationProperty -»
-                                  target.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
-                              «ELSE -»
-                                      target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
-                              «ENDIF -»
-                          «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»}«ENDIF»
-                      «ENDIF -»
+                  «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
+                      «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»if (source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null) {«ENDIF-»
+                          «IF dataProperty.metaType == DtoEnumerationProperty -»
+                              target.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
+                          «ELSE -»
+                                  target.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                          «ENDIF -»
+                      «IF !dataProperty.nullable && !dataProperty.mandatoryForCreation»}«ENDIF»
                   «ENDFOREACH»
                   target.activateValidation(true);
 
@@ -152,7 +150,7 @@
                   «javaClassName(name)» result = new «javaClassName(name)»();
                  
                   result.setId(source.getId());
-                  «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
+                  «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
                           result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.toDto(source.get«javaClassName(dataProperty.name)»()));
                       «ELSE -»
@@ -200,16 +198,16 @@
           throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
       }
 
-      «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty -»
-          «IF dataProperty.metaType == DtoEnumerationProperty -»
-              if( source.get«javaClassName(dataProperty.name)»() != null ){
-                  result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
-              }
-          «ELSE -»
-              if( source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null ){
-                  result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
-              }
-          «ENDIF -»
+      «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
+              «IF dataProperty.metaType == DtoEnumerationProperty -»
+                  if( source.get«javaClassName(dataProperty.name)»() != null ){
+                      result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.fromDto(source.get«javaClassName(dataProperty.name)»()));
+                  }
+              «ELSE -»
+                  if( source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»() != null ){
+                      result.set«javaClassName(dataProperty.name)»(source.«getterPrefix(dataProperty)»«javaClassName(dataProperty.name)»());
+                  }
+              «ENDIF -»
       «ENDFOREACH»
       return result;
   }

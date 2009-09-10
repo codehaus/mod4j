@@ -53,8 +53,10 @@
          «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
          «EXPAND Attributes::addIdAccessors FOR this»
          «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
+              «IF dataProperty.writable -»
+                 «EXPAND Attributes::addSetter FOR dataProperty»
+             «ENDIF»
              «EXPAND Attributes::addGetter FOR dataProperty»
-             «EXPAND Attributes::addSetter FOR dataProperty»
          «ENDFOREACH»
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»
              «EXPAND Attributes::addAssociationRoleAccessors(assRef) FOR assRef.dtoType» 
