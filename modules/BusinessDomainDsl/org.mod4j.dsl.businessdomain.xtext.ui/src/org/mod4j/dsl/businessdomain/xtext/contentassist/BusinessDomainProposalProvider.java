@@ -14,6 +14,8 @@ import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 
 import BusinessDomainDsl.BusinessClass;
+import BusinessDomainDsl.EnumerationLiteral;
+import BusinessDomainDsl.EnumerationProperty;
 import BusinessDomainDsl.Property;
 import BusinessDomainDsl.UniqueRule;
 
@@ -21,6 +23,20 @@ import BusinessDomainDsl.UniqueRule;
  * see http://wiki.eclipse.org/Xtext/Documentation#Content_Assist on how to customize content assistant
  */
 public class BusinessDomainProposalProvider extends AbstractBusinessDomainProposalProvider {
+        
+    @Override
+    public void completeEnumerationProperty_DefaultValueAsString(EObject model, Assignment assignment, ContentAssistContext context,
+            ICompletionProposalAcceptor acceptor) {
+        
+        EnumerationProperty enumProp = (EnumerationProperty) model;
+        List<EnumerationLiteral> enumList = enumProp.getType().getEnumerationLiterals();
+        for (EnumerationLiteral enumLiteral : enumList){
+            String proposal = enumLiteral.getName();
+            proposal = getValueConverter().toString(proposal, "reference");
+            ICompletionProposal completionProposal = createCompletionProposal(proposal, context);
+            acceptor.accept(completionProposal);
+        }
+    } 
 
     @Override
     public void completeUniqueRule_Properties(EObject model, Assignment assignment, ContentAssistContext context,
