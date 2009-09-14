@@ -53,7 +53,6 @@ public class CustomerServiceTest extends
 		Assert.assertTrue(foundCustomer.getCustomerNr() == 12345);
 		Assert.assertEquals(foundCustomer.getFirstName(), "Alfred");
 		Assert.assertEquals(foundCustomer.getLastName(), "Sloan");
-		Assert.assertNull(foundCustomer.getSexe());
 		Assert.assertTrue(foundCustomer.getOrders().isEmpty());
 	}
 

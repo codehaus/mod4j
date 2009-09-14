@@ -8,7 +8,7 @@ public class ToStringForDtoTest {
 
 	@Test
 	public void testToStringWithNullProperties() {
-		SimpleCustomerDto customer = new SimpleCustomerDto();
+		SimpleCustomerDto customer = new SimpleCustomerDto(false);
 		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto"
 				+ "[id=null,customerNr=null,lastName=null,firstName=null,"
 				+ "blackListed=null,username=null,sexe=null,birthDate=null,"
@@ -17,7 +17,7 @@ public class ToStringForDtoTest {
 
 	@Test
 	public void testToStringWithSomeProperties() {
-		SimpleCustomerDto customer = new SimpleCustomerDto();
+		SimpleCustomerDto customer = new SimpleCustomerDto(false);
 		customer.setId(1L);
 		customer.setBlackListed(true);
 		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto"
@@ -28,8 +28,8 @@ public class ToStringForDtoTest {
 
 	@Test
 	public void testToStringWithOrders() {
-		SimpleCustomerDto customer = new SimpleCustomerDto();
-		OrderNumberAndDateDto order = new OrderNumberAndDateDto();
+		SimpleCustomerDto customer = new SimpleCustomerDto(false);
+		OrderNumberAndDateDto order = new OrderNumberAndDateDto(false);
 		order.setId(1L);
 		order.setOrderNumber("1");
 		customer.addToOrders(order);

@@ -1,21 +1,21 @@
 "The RecordShop data contract."
 datacontract RecordShopDataContract  ; 
   
-from RecordShopDomainModel import Customer ;
+from RecordShopDomainModel import Customer;
 from RecordShopDomainModel import Artist;
 from RecordShopDomainModel import Order;
-from RecordShopDomainModel import Record ; 
+from RecordShopDomainModel import Record; 
 from RecordShopDomainModel import OrderLine;
-from RecordShopDomainModel import Product ;  
-from RecordShopDomainModel import SexeEnum; 
-from RecordShopDomainModel import RecordTypeEnum ;   
+from RecordShopDomainModel import Product;
+from RecordShopDomainModel import SexeEnum;
+from RecordShopDomainModel import RecordTypeEnum;   
   
     /*     
      * BusinessClass transfer objects  
      */
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
-	class FullCustomerDto represents Customer 
+	class FullCustomerDto represents Customer
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	class SimpleCustomerDto represents Customer [  
@@ -25,9 +25,9 @@ from RecordShopDomainModel import RecordTypeEnum ;
  	     blackListed;
  	     username; 
 	     sexe;  
-	     birthDate ;
+	     birthDate;
 	     references [  
-	         orders as OrderNumberAndDateList ;
+	         orders as OrderNumberAndDateList;
 	     ]    
 	]  
 	
@@ -36,7 +36,7 @@ from RecordShopDomainModel import RecordTypeEnum ;
 	     orderNumber;  
 	     orderDate;
 	     references [
-	         customer as SimpleCustomerDto ;  
+	         customer as SimpleCustomerDto;  
 	         
 	     ]
 	]
@@ -48,7 +48,7 @@ from RecordShopDomainModel import RecordTypeEnum ;
 	
 	
 	class OrderWithOrderLinesDto represents Order [
-		orderNumber ; 
+		orderNumber; 
 		references [
 			orderLines as OrderLinesDto ; 
 		]
@@ -57,7 +57,7 @@ from RecordShopDomainModel import RecordTypeEnum ;
 	"Full OrderLine transfer object, containing all the OrderLine attributes (no associations)"
 	class OrderLineDto represents OrderLine
 	
-	"The Artist transfer object."  
+	"The Artist transfer object."
 	class ArtistDto represents Artist [ 
 	     firstName ;
 	     lastName ; 

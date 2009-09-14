@@ -37,9 +37,15 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoPropertyReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoPropertyReference/referredProperty"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoDataProperty"/>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoStringProperty"/>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoBooleanProperty"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoDataProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoDataProperty/hasDefault"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoStringProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoStringProperty/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoBooleanProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoBooleanProperty/defaultValue"/>
+    </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//EnumerationDto">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//EnumerationDto/literals"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//EnumerationDto/base"/>
@@ -55,12 +61,19 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//CustomDto">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//CustomDto/properties"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoIntegerProperty"/>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoDecimalProperty"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoIntegerProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoIntegerProperty/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoDecimalProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoDecimalProperty/defaultValue"/>
+    </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoEnumerationProperty">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoEnumerationProperty/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoEnumerationProperty/defaultValueAsString"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoDateTimeProperty"/>
+    <genClasses ecoreClass="DataContractDsl.ecore#//DtoDateTimeProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoDateTimeProperty/defaultValue"/>
+    </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//BusinessClassPropertyReference">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassPropertyReference/dto"/>
     </genClasses>

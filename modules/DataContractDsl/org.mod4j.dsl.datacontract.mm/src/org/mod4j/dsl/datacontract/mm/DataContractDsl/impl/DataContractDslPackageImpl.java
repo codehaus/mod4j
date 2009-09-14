@@ -479,6 +479,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoDataProperty_HasDefault() {
+        return (EAttribute)dtoDataPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -488,6 +497,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoStringProperty_DefaultValue() {
+        return (EAttribute)dtoStringPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -496,6 +514,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoBooleanProperty_DefaultValue() {
+        return (EAttribute)dtoBooleanPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -605,6 +632,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoIntegerProperty_DefaultValue() {
+        return (EAttribute)dtoIntegerPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -613,6 +649,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoDecimalProperty_DefaultValue() {
+        return (EAttribute)dtoDecimalPropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -632,6 +677,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoEnumerationProperty_DefaultValueAsString() {
+        return (EAttribute)dtoEnumerationPropertyEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -640,6 +694,15 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDtoDateTimeProperty_DefaultValue() {
+        return (EAttribute)dtoDateTimePropertyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -797,10 +860,13 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         createEReference(dtoPropertyReferenceEClass, DTO_PROPERTY_REFERENCE__REFERRED_PROPERTY);
 
         dtoDataPropertyEClass = createEClass(DTO_DATA_PROPERTY);
+        createEAttribute(dtoDataPropertyEClass, DTO_DATA_PROPERTY__HAS_DEFAULT);
 
         dtoStringPropertyEClass = createEClass(DTO_STRING_PROPERTY);
+        createEAttribute(dtoStringPropertyEClass, DTO_STRING_PROPERTY__DEFAULT_VALUE);
 
         dtoBooleanPropertyEClass = createEClass(DTO_BOOLEAN_PROPERTY);
+        createEAttribute(dtoBooleanPropertyEClass, DTO_BOOLEAN_PROPERTY__DEFAULT_VALUE);
 
         enumerationDtoEClass = createEClass(ENUMERATION_DTO);
         createEReference(enumerationDtoEClass, ENUMERATION_DTO__LITERALS);
@@ -818,13 +884,17 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         createEReference(customDtoEClass, CUSTOM_DTO__PROPERTIES);
 
         dtoIntegerPropertyEClass = createEClass(DTO_INTEGER_PROPERTY);
+        createEAttribute(dtoIntegerPropertyEClass, DTO_INTEGER_PROPERTY__DEFAULT_VALUE);
 
         dtoDecimalPropertyEClass = createEClass(DTO_DECIMAL_PROPERTY);
+        createEAttribute(dtoDecimalPropertyEClass, DTO_DECIMAL_PROPERTY__DEFAULT_VALUE);
 
         dtoEnumerationPropertyEClass = createEClass(DTO_ENUMERATION_PROPERTY);
         createEReference(dtoEnumerationPropertyEClass, DTO_ENUMERATION_PROPERTY__TYPE);
+        createEAttribute(dtoEnumerationPropertyEClass, DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING);
 
         dtoDateTimePropertyEClass = createEClass(DTO_DATE_TIME_PROPERTY);
+        createEAttribute(dtoDateTimePropertyEClass, DTO_DATE_TIME_PROPERTY__DEFAULT_VALUE);
 
         businessClassPropertyReferenceEClass = createEClass(BUSINESS_CLASS_PROPERTY_REFERENCE);
         createEReference(businessClassPropertyReferenceEClass, BUSINESS_CLASS_PROPERTY_REFERENCE__DTO);
@@ -923,10 +993,13 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEReference(getDtoPropertyReference_ReferredProperty(), this.getDtoProperty(), null, "referredProperty", null, 0, 1, DtoPropertyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoDataPropertyEClass, DtoDataProperty.class, "DtoDataProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoDataProperty_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", "false", 0, 1, DtoDataProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoStringPropertyEClass, DtoStringProperty.class, "DtoStringProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoStringProperty_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, DtoStringProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoBooleanPropertyEClass, DtoBooleanProperty.class, "DtoBooleanProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoBooleanProperty_DefaultValue(), ecorePackage.getEBooleanObject(), "defaultValue", null, 0, 1, DtoBooleanProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(enumerationDtoEClass, EnumerationDto.class, "EnumerationDto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getEnumerationDto_Literals(), this.getEnumerationDtoLiteral(), null, "literals", null, 0, -1, EnumerationDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -944,13 +1017,17 @@ public class DataContractDslPackageImpl extends EPackageImpl implements DataCont
         initEReference(getCustomDto_Properties(), this.getDtoProperty(), this.getDtoProperty_CustomDto(), "properties", null, 0, -1, CustomDto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoIntegerPropertyEClass, DtoIntegerProperty.class, "DtoIntegerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoIntegerProperty_DefaultValue(), ecorePackage.getEIntegerObject(), "defaultValue", null, 0, 1, DtoIntegerProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoDecimalPropertyEClass, DtoDecimalProperty.class, "DtoDecimalProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoDecimalProperty_DefaultValue(), ecorePackage.getEBigDecimal(), "defaultValue", null, 0, 1, DtoDecimalProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoEnumerationPropertyEClass, DtoEnumerationProperty.class, "DtoEnumerationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDtoEnumerationProperty_Type(), this.getEnumerationDto(), null, "type", null, 0, 1, DtoEnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDtoEnumerationProperty_DefaultValueAsString(), ecorePackage.getEString(), "defaultValueAsString", null, 0, 1, DtoEnumerationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoDateTimePropertyEClass, DtoDateTimeProperty.class, "DtoDateTimeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDtoDateTimeProperty_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, DtoDateTimeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(businessClassPropertyReferenceEClass, BusinessClassPropertyReference.class, "BusinessClassPropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getBusinessClassPropertyReference_Dto(), this.getBusinessClassDto(), this.getBusinessClassDto_PropertyReferences(), "dto", null, 0, 1, BusinessClassPropertyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

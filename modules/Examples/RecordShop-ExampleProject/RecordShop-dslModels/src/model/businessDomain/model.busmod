@@ -18,7 +18,7 @@ class Person [
     "Number of ears (we allow Vulcans in this system)."  
     integer numberOfEars default 2 min 0 max 4;   
     "Gender"       
-    SexeEnum sexe nullable;    
+    SexeEnum sexe default MALE nullable;    
    
     rules [   
         "The combination of first- and last name of a person must be unique"
@@ -37,8 +37,7 @@ class Customer inherits Person [
     
     rules [  
         "The customerNr must be unique" 
-        unique uniqueCustomerNr [customerNr] 
-        
+        unique uniqueCustomerNr [customerNr]
         "If Customer has one ear, he/she get a discount of 50 percent."  
         OneEarDiscount;  
         "Just another rule"
@@ -106,8 +105,8 @@ class Product [
 "Sexe enumeration." 
 enumeration SexeEnum [
 
-    female = 2;
-    male = 3;
+    FEMALE = 2;
+    MALE = 3;
 ]
 
 enumeration RecordTypeEnum [

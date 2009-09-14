@@ -45,6 +45,11 @@ import org.mod4j.dsl.datacontract.xtext.services.DataContractGrammarAccess;
     protected Grammar getGrammar() {
     	return grammarAccess.getGrammar();
     }
+    
+    @Override
+    protected String getValueForTokenName(String tokenName) {
+    	return tokenName;
+    }
 
 }
 

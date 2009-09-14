@@ -12,7 +12,7 @@
 
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
-«DEFINE instanceVariable FOR DtoProperty»
+«DEFINE instanceVariable FOR DtoDataProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
     private «javaType(this)» «name»;
 «ENDDEFINE»

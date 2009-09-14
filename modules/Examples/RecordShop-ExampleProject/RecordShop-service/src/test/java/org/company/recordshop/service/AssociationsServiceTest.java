@@ -138,7 +138,6 @@ public class AssociationsServiceTest extends
 		c.setFirstName("Johan");
 		c.setLastName("Vogelzang");
 		c.setCustomerNr(1);
-		c.setBlackListed(false);
         c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 		c = new SimpleCustomerDto();
@@ -156,13 +155,13 @@ public class AssociationsServiceTest extends
 		
 //        assertEquals(3, countRowsInTable("Customer_TABLE"));
 
-        SimpleCustomerDto example  = new SimpleCustomerDto();
+        SimpleCustomerDto example  = new SimpleCustomerDto(false); //false -> Don't want attributes be initialized with default values.
         List<SimpleCustomerDto> result = customerServiceModelService.findCustomers(example);
         assertEquals(3, result.size());
         
         example.setBlackListed(false);
         result = customerServiceModelService.findCustomers(example);
-        assertEquals(1, result.size());
+        assertEquals(3, result.size());
         
         example.setBlackListed(true);
         result = customerServiceModelService.findCustomers(example);

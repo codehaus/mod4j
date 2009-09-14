@@ -68,7 +68,8 @@ DataContractDsl::DtoProperty toDtoProperty(Symbol symbol, BusinessClassDto dto) 
     }
     ;
     
-/** Add DtoProperty objects to 'dto' for each External PropertyReference in 'dto'
+/** 
+ * Add DtoProperty objects to 'dto' for each External PropertyReference in 'dto'
  */    
 completeProperties(BusinessClassDto dto) :
     let symbol = lookupSymbol(dto.base.modelname, dto.base.name, "BusinessClass") :
@@ -90,8 +91,9 @@ addDtoAssociationRoles(BusinessClassAssociationRoleReference assRef) :
     assRef.dto.properties.add(result)
    ;
     
-/** Create a new DtoProperty for 'ref''
- *  'symbols' is the list of Symbols from Crossx containing the "Property" definitions
+/**
+ * Create a new DtoProperty for 'ref''
+ * 'symbols' is the list of Symbols from Crossx containing the "Property" definitions
  */
 DataContractDsl::DtoProperty referencesToDtoProperty(BusinessClassPropertyReference ref, List[Symbol] symbols ) :
     let symbol = symbols.select(s| s.name == ref.name).first() :
@@ -116,8 +118,14 @@ DataContractDsl::DtoBooleanProperty newBooleanProperty(Symbol symbol) :
     let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     let nullable = symbol.getPropertyValue("Nullable") :
     let writable = symbol.getPropertyValue("Writable") :
+    let hasDefault = symbol.getPropertyValue("HasDefault") :
+    let defaultValue = symbol.getPropertyValue("DefaultValue") :
     result.setName(symbol.name)->
     result.setDataType("boolean")->
+    if (hasDefault == "true"  && defaultValue != null) then (
+        result.setHasDefault(true)->
+        result.setDefaultValue(defaultValue == "true")
+    )->
     result.setMandatoryForCreation( mandatory == "true" )->
     result.setNullable( nullable == "true" )->
     result.setWritable( writable == "true" )->
@@ -128,8 +136,14 @@ DataContractDsl::DtoStringProperty newStringProperty(Symbol symbol) :
     let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     let nullable = symbol.getPropertyValue("Nullable") :
     let writable = symbol.getPropertyValue("Writable") :
+    let hasDefault = symbol.getPropertyValue("HasDefault") :    
+    let defaultValue = symbol.getPropertyValue("DefaultValue") :
     result.setName(symbol.name)->
     result.setDataType("string")->
+    if (hasDefault == "true"  && defaultValue != null) then (
+        result.setHasDefault(true)->
+        result.setDefaultValue(defaultValue)
+    )->
     result.setMandatoryForCreation( mandatory == "true" )->
     result.setNullable( nullable == "true" )->
     result.setWritable( writable == "true" )->
@@ -140,14 +154,21 @@ DataContractDsl::DtoIntegerProperty newIntegerProperty(Symbol symbol) :
     let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     let nullable = symbol.getPropertyValue("Nullable") :
     let writable = symbol.getPropertyValue("Writable") :
+    let hasDefault = symbol.getPropertyValue("HasDefault") :
+    let defaultValue = symbol.getPropertyValue("DefaultValue") :
     result.setName(symbol.name)->
     result.setDataType("integer")->
+    if (hasDefault == "true"  && defaultValue != null) then (
+        result.setHasDefault(true)->
+        result.setDefaultValue(defaultValue.asInteger())
+    )->
     result.setMandatoryForCreation( mandatory == "true" )->
     result.setNullable( nullable == "true" )->
     result.setWritable( writable == "true" )->
     result;
     
 DataContractDsl::DtoDecimalProperty newDecimalProperty(Symbol symbol) :
+    //TODO: Pass default value. Defaults for DecimalProperty not supported yet.
     let result = new DtoDecimalProperty :
     let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     let nullable = symbol.getPropertyValue("Nullable") :
@@ -164,8 +185,15 @@ DataContractDsl::DtoDateTimeProperty newDateTimeProperty(Symbol symbol) :
     let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     let nullable = symbol.getPropertyValue("Nullable") :
     let writable = symbol.getPropertyValue("Writable") :
+    let hasDefault = symbol.getPropertyValue("HasDefault") :    
+    let defaultValue = symbol.getPropertyValue("DefaultValue") :
     result.setName(symbol.name)->
     result.setDataType("datetime")->
+    if defaultValue != null then result.setDefaultValue(defaultValue)->
+    if (hasDefault == "true"  && defaultValue != null) then (
+        result.setHasDefault(true)->
+        result.setDefaultValue(defaultValue)
+    )->
     result.setMandatoryForCreation( mandatory == "true" )->
     result.setNullable( nullable == "true" )->
     result.setWritable( writable == "true" )->
@@ -180,11 +208,17 @@ DataContractDsl::DtoEnumerationProperty newEnumProperty(Symbol symbol, BusinessC
     let mandatory = symbol.getPropertyValue("MandatoryForCreation") :
     let nullable = symbol.getPropertyValue("Nullable") :
     let writable = symbol.getPropertyValue("Writable") :
+    let hasDefault = symbol.getPropertyValue("HasDefault") :    
+    let defaultValue = symbol.getPropertyValue("DefaultValue") :
     result.setDataType( symbol.getPropertyValue("DataType") )->
     ( if enum != null then (
           result.setName(symbol.name)->
           result.setType(enum)->
           result.setDataType(enum.name)->
+          if (hasDefault == "true"  && defaultValue != null) then (
+              result.setHasDefault(true)->
+              result.setDefaultValueAsString(defaultValue)
+          )->
           result.setMandatoryForCreation( mandatory == "true" )->
           result.setWritable( writable == "true" )->
           result.setNullable( nullable == "true" )

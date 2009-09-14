@@ -109,6 +109,59 @@ crossx::Symbol toElement(BusinessDomainDsl::Property prop) :
     result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
     result.properties.add(newProperty("Writable", (prop.derived ? prop.writable : true) ? "true" : "false"))->
+    result.properties.add(newProperty("HasDefault", (prop.hasDefault ? "true" : "false") ))->
+    result
+    ;
+
+crossx::Symbol toElement(BusinessDomainDsl::StringProperty prop) :
+    let result = new Symbol :
+    result.setName(prop.name) ->
+    result.setType("Property") ->
+    result.properties.add(prop.toLiteralProperty())->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
+    result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result.properties.add(newProperty("Writable", ( (prop.derived ? prop.writable : true) ? "true" : "false") ))->
+    result.properties.add(newProperty("HasDefault", (prop.hasDefault ? "true" : "false") ))->
+    (prop.hasDefault ? result.properties.add(newProperty("DefaultValue", prop.defaultValue)) : false)->
+    result
+    ;
+
+crossx::Symbol toElement(BusinessDomainDsl::IntegerProperty prop) :
+    let result = new Symbol :
+    result.setName(prop.name) ->
+    result.setType("Property") ->
+    result.properties.add(prop.toLiteralProperty())->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
+    result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result.properties.add(newProperty("Writable", ( (prop.derived ? prop.writable : true) ? "true" : "false") ))->
+    result.properties.add(newProperty("HasDefault", (prop.hasDefault ? "true" : "false") ))->
+    (prop.hasDefault ? result.properties.add(newProperty("DefaultValue", prop.defaultValue.toString())) : false)->
+    result
+    ;
+
+crossx::Symbol toElement(BusinessDomainDsl::BoolProperty prop) :
+    let result = new Symbol :
+    result.setName(prop.name) ->
+    result.setType("Property") ->
+    result.properties.add(prop.toLiteralProperty())->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
+    result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result.properties.add(newProperty("Writable", ( (prop.derived ? prop.writable : true) ? "true" : "false") ))->
+    result.properties.add(newProperty("HasDefault", (prop.hasDefault ? "true" : "false") ))->
+    (prop.hasDefault ? result.properties.add(newProperty("DefaultValue", prop.defaultValue.toString())) : false)->
+    result
+    ;
+
+crossx::Symbol toElement(BusinessDomainDsl::DateTimeProperty prop) :
+    let result = new Symbol :
+    result.setName(prop.name) ->
+    result.setType("Property") ->
+    result.properties.add(prop.toLiteralProperty())->
+    result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
+    result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
+    result.properties.add(newProperty("Writable", ( (prop.derived ? prop.writable : true) ? "true" : "false") ))->
+    result.properties.add(newProperty("HasDefault", (prop.hasDefault ? "true" : "false") ))->
+    (prop.hasDefault ? result.properties.add(newProperty("DefaultValue", prop.defaultValue)) : false)->
     result
     ;
     
@@ -120,17 +173,13 @@ crossx::Symbol toElement(BusinessDomainDsl::EnumerationProperty prop) :
     result.properties.add(newProperty("MandatoryForCreation", ( (!prop.nullable) && (!prop.hasDefault) && (!prop.derived) ? "true" : "false") ))->
     result.properties.add(newProperty("Nullable", ( (prop.nullable) ? "true" : "false") ))->
     result.properties.add(newProperty("Writable", ( (prop.derived ? prop.writable : true) ? "true" : "false") ))->
+    result.properties.add(newProperty("HasDefault", (prop.hasDefault ? "true" : "false") ))->
+    (prop.hasDefault ? result.properties.add(newProperty("DefaultValue", prop.defaultValueAsString)) : false)->
     result
     ;
-
+    
 crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::Property prop) :
 	newProperty("DataType", prop.dataType);
 
 crossx::LiteralSymbolProperty toLiteralProperty(BusinessDomainDsl::EnumerationProperty prop) :
     newProperty("DataType", prop.type.name)  ;
-    
-
-
-
-    
-    

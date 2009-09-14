@@ -42,9 +42,9 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
 				"select last_Name from person_table where id = ?", String.class,
 				person.getId()));
-		assertNull(simpleJdbcTemplate.queryForObject(
-				"select sexe from person_table where id = ?", Integer.class,
-				person.getId()));
+        assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
+                "select last_name from person_table where id = ?", String.class,
+                person.getId()));
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		flush();
 		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Person_TABLE"));
-		assertNull(simpleJdbcTemplate.queryForObject(
-				"select sexe from person_table where id = ?", Integer.class,
+		assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
+				"select last_name from person_table where id = ?", String.class,
 				pers.getId()));
 	}
 

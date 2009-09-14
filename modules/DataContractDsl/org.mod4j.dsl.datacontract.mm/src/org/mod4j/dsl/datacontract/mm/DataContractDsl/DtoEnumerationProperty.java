@@ -16,6 +16,7 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getType <em>Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getDefaultValueAsString <em>Default Value As String</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,5 +50,31 @@ public interface DtoEnumerationProperty extends DtoDataProperty {
      * @generated
      */
 	void setType(EnumerationDto value);
+
+    /**
+     * Returns the value of the '<em><b>Default Value As String</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Value As String</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Default Value As String</em>' attribute.
+     * @see #setDefaultValueAsString(String)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoEnumerationProperty_DefaultValueAsString()
+     * @model
+     * @generated
+     */
+    String getDefaultValueAsString();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getDefaultValueAsString <em>Default Value As String</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Default Value As String</em>' attribute.
+     * @see #getDefaultValueAsString()
+     * @generated
+     */
+    void setDefaultValueAsString(String value);
 
 } // DtoEnumerationProperty

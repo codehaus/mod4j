@@ -25,6 +25,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl#getDefaultValueAsString <em>Default Value As String</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +43,25 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
 	protected EnumerationDto type;
 
 	/**
+     * The default value of the '{@link #getDefaultValueAsString() <em>Default Value As String</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultValueAsString()
+     * @generated
+     * @ordered
+     */
+    protected static final String DEFAULT_VALUE_AS_STRING_EDEFAULT = null;
+    /**
+     * The cached value of the '{@link #getDefaultValueAsString() <em>Default Value As String</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultValueAsString()
+     * @generated
+     * @ordered
+     */
+    protected String defaultValueAsString = DEFAULT_VALUE_AS_STRING_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -100,6 +120,27 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getDefaultValueAsString() {
+        return defaultValueAsString;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDefaultValueAsString(String newDefaultValueAsString) {
+        String oldDefaultValueAsString = defaultValueAsString;
+        defaultValueAsString = newDefaultValueAsString;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING, oldDefaultValueAsString, defaultValueAsString));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -109,6 +150,8 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
                 if (resolve) return getType();
                 return basicGetType();
+            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
+                return getDefaultValueAsString();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -123,6 +166,9 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
         switch (featureID) {
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
                 setType((EnumerationDto)newValue);
+                return;
+            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
+                setDefaultValueAsString((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -139,6 +185,9 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
                 setType((EnumerationDto)null);
                 return;
+            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
+                setDefaultValueAsString(DEFAULT_VALUE_AS_STRING_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -153,8 +202,26 @@ public class DtoEnumerationPropertyImpl extends DtoDataPropertyImpl implements D
         switch (featureID) {
             case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__TYPE:
                 return type != null;
+            case DataContractDslPackage.DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING:
+                return DEFAULT_VALUE_AS_STRING_EDEFAULT == null ? defaultValueAsString != null : !DEFAULT_VALUE_AS_STRING_EDEFAULT.equals(defaultValueAsString);
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (defaultValueAsString: ");
+        result.append(defaultValueAsString);
+        result.append(')');
+        return result.toString();
     }
 
 } //DtoEnumerationPropertyImpl

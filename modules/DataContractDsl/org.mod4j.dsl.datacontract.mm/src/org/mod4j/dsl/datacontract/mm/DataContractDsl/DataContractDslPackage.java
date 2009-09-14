@@ -635,13 +635,22 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_DATA_PROPERTY__WRITABLE = DTO_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATA_PROPERTY__HAS_DEFAULT = DTO_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Data Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_DATA_PROPERTY_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 0;
+	int DTO_DATA_PROPERTY_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoStringPropertyImpl <em>Dto String Property</em>}' class.
@@ -726,13 +735,31 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_STRING_PROPERTY__WRITABLE = DTO_DATA_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_STRING_PROPERTY__HAS_DEFAULT = DTO_DATA_PROPERTY__HAS_DEFAULT;
+
+    /**
+     * The feature id for the '<em><b>Default Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_STRING_PROPERTY__DEFAULT_VALUE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto String Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_STRING_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+	int DTO_STRING_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoBooleanPropertyImpl <em>Dto Boolean Property</em>}' class.
@@ -817,13 +844,31 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_BOOLEAN_PROPERTY__WRITABLE = DTO_DATA_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_BOOLEAN_PROPERTY__HAS_DEFAULT = DTO_DATA_PROPERTY__HAS_DEFAULT;
+
+    /**
+     * The feature id for the '<em><b>Default Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_BOOLEAN_PROPERTY__DEFAULT_VALUE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Boolean Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_BOOLEAN_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+	int DTO_BOOLEAN_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoImpl <em>Enumeration Dto</em>}' class.
@@ -1073,13 +1118,31 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_INTEGER_PROPERTY__WRITABLE = DTO_DATA_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_INTEGER_PROPERTY__HAS_DEFAULT = DTO_DATA_PROPERTY__HAS_DEFAULT;
+
+    /**
+     * The feature id for the '<em><b>Default Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_INTEGER_PROPERTY__DEFAULT_VALUE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Integer Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_INTEGER_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+	int DTO_INTEGER_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDecimalPropertyImpl <em>Dto Decimal Property</em>}' class.
@@ -1164,13 +1227,31 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_DECIMAL_PROPERTY__WRITABLE = DTO_DATA_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DECIMAL_PROPERTY__HAS_DEFAULT = DTO_DATA_PROPERTY__HAS_DEFAULT;
+
+    /**
+     * The feature id for the '<em><b>Default Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DECIMAL_PROPERTY__DEFAULT_VALUE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Decimal Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_DECIMAL_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+	int DTO_DECIMAL_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl <em>Dto Enumeration Property</em>}' class.
@@ -1255,6 +1336,15 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_ENUMERATION_PROPERTY__WRITABLE = DTO_DATA_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ENUMERATION_PROPERTY__HAS_DEFAULT = DTO_DATA_PROPERTY__HAS_DEFAULT;
+
+    /**
      * The feature id for the '<em><b>Type</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1264,13 +1354,22 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_ENUMERATION_PROPERTY__TYPE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
+     * The feature id for the '<em><b>Default Value As String</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Dto Enumeration Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_ENUMERATION_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
+	int DTO_ENUMERATION_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 2;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDateTimePropertyImpl <em>Dto Date Time Property</em>}' class.
@@ -1355,13 +1454,31 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_DATE_TIME_PROPERTY__WRITABLE = DTO_DATA_PROPERTY__WRITABLE;
 
 	/**
+     * The feature id for the '<em><b>Has Default</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATE_TIME_PROPERTY__HAS_DEFAULT = DTO_DATA_PROPERTY__HAS_DEFAULT;
+
+    /**
+     * The feature id for the '<em><b>Default Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_DATE_TIME_PROPERTY__DEFAULT_VALUE = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Dto Date Time Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_DATE_TIME_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 0;
+	int DTO_DATE_TIME_PROPERTY_FEATURE_COUNT = DTO_DATA_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl <em>Business Class Property Reference</em>}' class.
@@ -1898,6 +2015,17 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getDtoDataProperty();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty#isHasDefault <em>Has Default</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Has Default</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty#isHasDefault()
+     * @see #getDtoDataProperty()
+     * @generated
+     */
+    EAttribute getDtoDataProperty_HasDefault();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty <em>Dto String Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1908,6 +2036,17 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getDtoStringProperty();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty#getDefaultValue <em>Default Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty#getDefaultValue()
+     * @see #getDtoStringProperty()
+     * @generated
+     */
+    EAttribute getDtoStringProperty_DefaultValue();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty <em>Dto Boolean Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1918,6 +2057,17 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getDtoBooleanProperty();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty#getDefaultValue <em>Default Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoBooleanProperty#getDefaultValue()
+     * @see #getDtoBooleanProperty()
+     * @generated
+     */
+    EAttribute getDtoBooleanProperty_DefaultValue();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto <em>Enumeration Dto</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2045,6 +2195,17 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getDtoIntegerProperty();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty#getDefaultValue <em>Default Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty#getDefaultValue()
+     * @see #getDtoIntegerProperty()
+     * @generated
+     */
+    EAttribute getDtoIntegerProperty_DefaultValue();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty <em>Dto Decimal Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2055,6 +2216,17 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getDtoDecimalProperty();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty#getDefaultValue <em>Default Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDecimalProperty#getDefaultValue()
+     * @see #getDtoDecimalProperty()
+     * @generated
+     */
+    EAttribute getDtoDecimalProperty_DefaultValue();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty <em>Dto Enumeration Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2076,6 +2248,17 @@ public interface DataContractDslPackage extends EPackage {
 	EReference getDtoEnumerationProperty_Type();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getDefaultValueAsString <em>Default Value As String</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Value As String</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoEnumerationProperty#getDefaultValueAsString()
+     * @see #getDtoEnumerationProperty()
+     * @generated
+     */
+    EAttribute getDtoEnumerationProperty_DefaultValueAsString();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty <em>Dto Date Time Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2086,6 +2269,17 @@ public interface DataContractDslPackage extends EPackage {
 	EClass getDtoDateTimeProperty();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty#getDefaultValue <em>Default Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Value</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDateTimeProperty#getDefaultValue()
+     * @see #getDtoDateTimeProperty()
+     * @generated
+     */
+    EAttribute getDtoDateTimeProperty_DefaultValue();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyReference <em>Business Class Property Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2439,6 +2633,14 @@ public interface DataContractDslPackage extends EPackage {
 		EClass DTO_DATA_PROPERTY = eINSTANCE.getDtoDataProperty();
 
 		/**
+         * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_DATA_PROPERTY__HAS_DEFAULT = eINSTANCE.getDtoDataProperty_HasDefault();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoStringPropertyImpl <em>Dto String Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2449,6 +2651,14 @@ public interface DataContractDslPackage extends EPackage {
 		EClass DTO_STRING_PROPERTY = eINSTANCE.getDtoStringProperty();
 
 		/**
+         * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_STRING_PROPERTY__DEFAULT_VALUE = eINSTANCE.getDtoStringProperty_DefaultValue();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoBooleanPropertyImpl <em>Dto Boolean Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2459,6 +2669,14 @@ public interface DataContractDslPackage extends EPackage {
 		EClass DTO_BOOLEAN_PROPERTY = eINSTANCE.getDtoBooleanProperty();
 
 		/**
+         * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_BOOLEAN_PROPERTY__DEFAULT_VALUE = eINSTANCE.getDtoBooleanProperty_DefaultValue();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.EnumerationDtoImpl <em>Enumeration Dto</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2565,6 +2783,14 @@ public interface DataContractDslPackage extends EPackage {
 		EClass DTO_INTEGER_PROPERTY = eINSTANCE.getDtoIntegerProperty();
 
 		/**
+         * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_INTEGER_PROPERTY__DEFAULT_VALUE = eINSTANCE.getDtoIntegerProperty_DefaultValue();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDecimalPropertyImpl <em>Dto Decimal Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2575,6 +2801,14 @@ public interface DataContractDslPackage extends EPackage {
 		EClass DTO_DECIMAL_PROPERTY = eINSTANCE.getDtoDecimalProperty();
 
 		/**
+         * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_DECIMAL_PROPERTY__DEFAULT_VALUE = eINSTANCE.getDtoDecimalProperty_DefaultValue();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoEnumerationPropertyImpl <em>Dto Enumeration Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2593,6 +2827,14 @@ public interface DataContractDslPackage extends EPackage {
 		EReference DTO_ENUMERATION_PROPERTY__TYPE = eINSTANCE.getDtoEnumerationProperty_Type();
 
 		/**
+         * The meta object literal for the '<em><b>Default Value As String</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_ENUMERATION_PROPERTY__DEFAULT_VALUE_AS_STRING = eINSTANCE.getDtoEnumerationProperty_DefaultValueAsString();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDateTimePropertyImpl <em>Dto Date Time Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2603,6 +2845,14 @@ public interface DataContractDslPackage extends EPackage {
 		EClass DTO_DATE_TIME_PROPERTY = eINSTANCE.getDtoDateTimeProperty();
 
 		/**
+         * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_DATE_TIME_PROPERTY__DEFAULT_VALUE = eINSTANCE.getDtoDateTimeProperty_DefaultValue();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.BusinessClassPropertyReferenceImpl <em>Business Class Property Reference</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

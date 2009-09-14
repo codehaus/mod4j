@@ -1,21 +1,20 @@
 "The RecordShop Customer Service Model. Contains all services needed to maintain Customers."
 service CustomerServiceModel   ;
           
-from RecordShopDataContract import SimpleCustomerDto  ;         
-from RecordShopDataContract import UniqueCustomerDto ;
-from RecordShopDataContract import StringDto    ;
-from RecordShopDataContract import SimpleCustomerList  ;  
-from RecordShopDataContract import FullCustomerDto   ; 
-from RecordShopDataContract import OrderDto   ; 
-from RecordShopDataContract import OrderNumberAndDateList ;
-from   RecordShopDataContract   import OrderWithOrderLinesDto ;  
-from RecordShopDataContract import OrderLineDto  ;
+from RecordShopDataContract import SimpleCustomerDto;         
+from RecordShopDataContract import UniqueCustomerDto;
+from RecordShopDataContract import StringDto;
+from RecordShopDataContract import SimpleCustomerList;  
+from RecordShopDataContract import FullCustomerDto; 
+from RecordShopDataContract import OrderDto; 
+from RecordShopDataContract import OrderNumberAndDateList;
+from RecordShopDataContract import OrderWithOrderLinesDto;  
+from RecordShopDataContract import OrderLineDto;
 
-    
 read readOrder     for OrderDto ; 
 read readOrderLine for OrderLineDto  ;               
-for OrderDto reference orderLines add OrderLineDto ;              
-for OrderDto reference orderLines remove OrderLineDto ;
+for OrderDto reference orderLines add OrderLineDto ;
+for OrderDto reference orderLines remove OrderLineDto;
             
 "All crud servuices needed for FullCustomer"           
 crud FullCustomerDto ;    
@@ -37,8 +36,7 @@ for SimpleCustomerDto reference orders remove OrderDto   ;
 for SimpleCustomerDto reference orders get OrderNumberAndDateList ;
 for OrderDto reference customer  get  SimpleCustomerDto ;
 
-for OrderDto reference customer add SimpleCustomerDto  ;           
-
+for OrderDto reference customer add SimpleCustomerDto;
     
 "test" 
 method voidreturn in [ OrderDto ord; ] ; 

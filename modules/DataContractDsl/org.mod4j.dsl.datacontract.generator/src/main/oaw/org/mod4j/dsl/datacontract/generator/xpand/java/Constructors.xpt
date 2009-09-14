@@ -18,8 +18,32 @@
     /**
      * Default no-argument constructor for «javaClassName(name)» 
      */
-     public  «javaClassName(name)-» () {
+     public  «javaClassName(name) -» () {
          super();
+     }
+«ENDDEFINE»
+
+«DEFINE addDefaultNoArgSetDefaultsConstructor FOR Dto»
+    /**
+     * Default no-argument constructor.
+     * Contstructs a «javaClassName(name)» initialized with default values. 
+     */
+     public  «javaClassName(name) -» () {
+         super();
+         setDefaults();
+     }
+«ENDDEFINE»
+
+«DEFINE addDefaultsSwitchConstructor FOR Dto»
+    /**
+     * Constructs a «javaClassName(name)» with or without initializing default values.
+     * @param setDefaults 
+     */
+     public «javaClassName(name)-» (boolean setDefaults) {
+         super();
+         if (setDefaults){
+             setDefaults();
+         }
      }
 «ENDDEFINE»
 

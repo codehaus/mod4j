@@ -47,9 +47,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//DtoProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredProperty" eType="#//DtoProperty"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoDataProperty" eSuperTypes="#//DtoProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoStringProperty" eSuperTypes="#//DtoDataProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoBooleanProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoDataProperty" eSuperTypes="#//DtoProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoStringProperty" eSuperTypes="#//DtoDataProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoBooleanProperty" eSuperTypes="#//DtoDataProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationDto" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//EnumerationDtoLiteral" containment="true"/>
@@ -68,12 +75,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//DtoProperty" containment="true" eOpposite="#//DtoProperty/customDto"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoIntegerProperty" eSuperTypes="#//DtoDataProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoDecimalProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoIntegerProperty" eSuperTypes="#//DtoDataProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoDecimalProperty" eSuperTypes="#//DtoDataProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoEnumerationProperty" eSuperTypes="#//DtoDataProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//EnumerationDto"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DtoDateTimeProperty" eSuperTypes="#//DtoDataProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoDateTimeProperty" eSuperTypes="#//DtoDataProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BusinessClassPropertyReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dto" eType="#//BusinessClassDto"
         eOpposite="#//BusinessClassDto/propertyReferences"/>
