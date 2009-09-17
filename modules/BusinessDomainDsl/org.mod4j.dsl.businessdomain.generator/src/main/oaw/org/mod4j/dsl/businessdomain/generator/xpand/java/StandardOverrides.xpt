@@ -25,7 +25,8 @@
         if (!(object instanceof «javaDomainBaseClass(this.name)»)) {
             return false;
         }
-        return getId() == null ? false : getId().equals(((«javaDomainBaseClass(this.name)»)object).getId());
+        boolean result = ((getId() == null) ? false : getId().equals(((«javaDomainBaseClass(this.name)»)object).getId()));
+        return result;
     }
 «ENDDEFINE»
 
@@ -35,7 +36,8 @@
      */
     @Override
     public int hashCode() {
-        return getId() == null ? super.hashCode() : getId().hashCode();
+        int result = ((getId() == null) ? super.hashCode() : getId().hashCode());
+        return result;
     }
 «ENDDEFINE»
 

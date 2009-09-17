@@ -34,7 +34,8 @@
      */
     @Override
     public int hashCode() {
-        return getId() == null ? super.hashCode() : getId().hashCode();
+        int result = ((getId() == null) ? super.hashCode() : getId().hashCode());
+        return result;
     }
 «ENDDEFINE»
 

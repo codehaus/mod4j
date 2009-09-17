@@ -46,16 +46,32 @@ from RecordShopDomainModel import RecordTypeEnum;
 	
 	list OrderLinesDto contains OrderLineDto
 	
+	class CustomerWithOrdersAndOrderLines represents Customer [
+	    firstName;
+	    lastName;
+	    birthDate;
+	    customerNr;
+	    references [ orders as OrdersWithOrderLines; ]
+	]
+	
+	list OrdersWithOrderLines contains OrderWithOrderLinesDto
 	
 	class OrderWithOrderLinesDto represents Order [
 		orderNumber; 
 		references [
-			orderLines as OrderLinesDto ; 
+			orderLines as OrderLinesDto ;
 		]
 	]
 	
 	"Full OrderLine transfer object, containing all the OrderLine attributes (no associations)"
-	class OrderLineDto represents OrderLine
+	class OrderLineDto represents OrderLine [
+	   lineNumber;
+	   quantity;
+	   description;
+	   references [
+           product as FullProductDto;
+       ]
+	]
 	
 	"The Artist transfer object."
 	class ArtistDto represents Artist [ 

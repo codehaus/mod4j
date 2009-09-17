@@ -236,8 +236,8 @@ public class AssociationTest extends AbstractDaoTestCase {
 
     public Product lookup(Collection<Product> coll, String name) {
         for (Product product : coll) {
-            if (product.getProductNumnber() != null) {
-                if (product.getProductNumnber().equals(name)) {
+            if (product.getProductNumber() != null) {
+                if (product.getProductNumber().equals(name)) {
                     return product;
                 }
             } else {

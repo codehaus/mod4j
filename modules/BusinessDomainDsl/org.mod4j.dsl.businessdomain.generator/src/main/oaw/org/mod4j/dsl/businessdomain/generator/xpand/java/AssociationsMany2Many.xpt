@@ -14,6 +14,24 @@
 
 «DEFINE many2ManyAccessorsTo FOR Association»
     /**
+     * @param id
+     *        id of the collection element to return
+     *
+     * @return «targetRoleName» («getCollectionInterface()»<«target.name»>)
+     *         with the given id.
+     */
+    public «target.name» get«targetRoleName.toFirstUpper()» (Long id) {
+        if (id == null) {
+            return null;
+        }
+        for («target.name» «target.name.toFirstLower()»:  «targetRoleName») {
+            if (id.equals(«target.name.toFirstLower()».getId())) {
+                return «target.name.toFirstLower()»;
+            }
+        }
+        return null;
+    }
+    /**
      * @return «targetRoleName» («getCollectionInterface()»<«target.name»>).
      */
     public «getCollectionInterface()»<«target.name»> get«targetRoleName.toFirstUpper()» () {

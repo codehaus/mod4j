@@ -57,6 +57,7 @@
          «ELSE»
              «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
          «ENDIF»
+         «EXPAND Constructors::addIdConstructor FOR this»
          «EXPAND Attributes::addIdAccessors FOR this»
          «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
               «IF dataProperty.writable -»

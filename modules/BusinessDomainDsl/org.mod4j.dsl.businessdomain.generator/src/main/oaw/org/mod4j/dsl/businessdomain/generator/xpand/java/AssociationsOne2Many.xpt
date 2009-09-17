@@ -19,7 +19,25 @@
 «ENDREM»
 «DEFINE one2ManyAccessorsTo FOR Association»
     /**
-     * @return «targetRoleName» (List<«target.name»>) 
+     * @param id
+     *        id of the collection element to return
+     *
+     * @return «targetRoleName» («javaDomainClass(target.name)»)
+     *         with the given id.
+     */
+    public «javaDomainClass(target.name)» get«targetRoleName.toFirstUpper()» (Long id) {
+        if (id == null) {
+            return null;
+        }
+        for («javaDomainClass(target.name)» «javaDomainClass(target.name).toFirstLower()»:  «targetRoleName») {
+            if (id.equals(«javaDomainClass(target.name).toFirstLower()».getId())) {
+                return «javaDomainClass(target.name).toFirstLower()»;
+            }
+        }
+        return null;
+    }
+    /**
+     * @return «targetRoleName» («getCollectionInterface()»<«target.name»>) 
      */
     public «getCollectionInterface()»<«javaDomainClass(target.name)»> get«targetRoleName.toFirstUpper()» () {
         return Collections.unmodifiable«getCollectionInterface()»(this.«targetRoleName»);

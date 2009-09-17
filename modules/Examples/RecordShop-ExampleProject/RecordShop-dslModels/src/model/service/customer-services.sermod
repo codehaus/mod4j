@@ -10,6 +10,7 @@ from RecordShopDataContract import OrderDto;
 from RecordShopDataContract import OrderNumberAndDateList;
 from RecordShopDataContract import OrderWithOrderLinesDto;  
 from RecordShopDataContract import OrderLineDto;
+from RecordShopDataContract import CustomerWithOrdersAndOrderLines;
 
 read readOrder     for OrderDto ; 
 read readOrderLine for OrderLineDto  ;               
@@ -17,7 +18,9 @@ for OrderDto reference orderLines add OrderLineDto ;
 for OrderDto reference orderLines remove OrderLineDto;
             
 "All crud servuices needed for FullCustomer"           
-crud FullCustomerDto ;    
+crud FullCustomerDto ;
+
+crud CustomerWithOrdersAndOrderLines;
            
 /*              
  * Explicit definded crud servicemethods         

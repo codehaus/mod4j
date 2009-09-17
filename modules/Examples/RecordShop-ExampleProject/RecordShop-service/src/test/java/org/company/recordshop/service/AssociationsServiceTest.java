@@ -152,8 +152,6 @@ public class AssociationsServiceTest extends
 		c.setCustomerNr(3);
         c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
-		
-//        assertEquals(3, countRowsInTable("Customer_TABLE"));
 
         SimpleCustomerDto example  = new SimpleCustomerDto(false); //false -> Don't want attributes be initialized with default values.
         List<SimpleCustomerDto> result = customerServiceModelService.findCustomers(example);

@@ -95,7 +95,7 @@ class OrderLine [
 
 class Product [
 
-	string productNumnber;
+	string productNumber;
 	decimal price;
 	boolean inStock default false;
 	boolean orderable;
