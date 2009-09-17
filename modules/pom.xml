@@ -230,6 +230,12 @@
                 <module>Examples/RecordShop-ExampleProject</module>
             </modules>
         </profile>
+	    <profile>
+            <id>recordshop-only</id>
+            <modules>
+                <module>Examples/RecordShop-ExampleProject</module>
+            </modules>
+        </profile>
     </profiles>
     <ciManagement>
         <system>continuum</system>
