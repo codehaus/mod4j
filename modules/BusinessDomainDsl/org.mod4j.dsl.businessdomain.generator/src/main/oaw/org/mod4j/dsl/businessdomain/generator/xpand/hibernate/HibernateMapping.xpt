@@ -229,6 +229,7 @@
 		<!-- one2oneMappingTo -->
         <many-to-one name="«targetRoleName»" 
                     column="«this.targetRoleName»_ID"
+                    cascade="save-update"
                     unique="true"
                     class="«javaDomainClass(this.target.name)»"
          /> 
