@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+
+    <persistence-unit name="XDSLAdmin">
+        <provider>org.jpox.jpa.PersistenceProviderImpl</provider>
+        <class>nl.ordina.mod4j.rbs.dao.model.Function</class>
+        <class>nl.ordina.mod4j.rbs.dao.model.IPAddress</class>
+        <class>nl.ordina.mod4j.rbs.dao.model.Permission</class>
+        <class>nl.ordina.mod4j.rbs.dao.model.Role</class>
+        <class>nl.ordina.mod4j.rbs.dao.model.Service</class>
+        <class>nl.ordina.mod4j.rbs.dao.model.Client</class>
+        <class>nl.ordina.mod4j.rbs.dao.model.User</class>
+        <properties>
+            <!--property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.jdo.option.ConnectionURL" value="jdbc:mysql://localhost:3306/test"/>
+            <property name="javax.jdo.option.ConnectionUserName" value="test"/>
+            <property name="javax.jdo.option.ConnectionPassword" value="test"/-->
+            <property name="javax.jdo.option.ConnectionDriverName" value="oracle.jdbc.driver.OracleDriver"/>
+            <property name="javax.jdo.option.ConnectionURL" value="jdbc:oracle:thin:@oracle-dev.wisdom.nl:1521:XDSL"/>
+            <property name="javax.jdo.option.ConnectionUserName" value="xdsl_owner"/>
+            <property name="javax.jdo.option.ConnectionPassword" value="B1tstream"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

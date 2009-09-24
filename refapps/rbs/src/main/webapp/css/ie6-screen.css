@@ -1,0 +1,25 @@
+div.frameLeft,
+div.frameRight {
+	display:inline;
+}
+
+div.tableWrapper div.topleft {
+	top:38px;
+	left:0;
+}
+
+div.tableWrapper div.topright {
+	top:38px;
+	right:0;
+}
+
+div.tableWrapper.vertical div.topleft {
+	top:38px;
+	left:0;
+}		
+
+div.tableWrapper.vertical div.topright {
+	top:38px;
+	right:-1px;
+}	
+

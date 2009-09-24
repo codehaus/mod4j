@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:wicket>
+<head>
+	<wicket:panel wicket:id="htmlHeader"/>
+</head>
+<body>
+
+	<div class="frameTop">
+		<a class="logo" href="#" wicket:id="logo">terug naar de homepage</a>
+	</div>
+
+	<div class="frame">
+		<h1 wicket:id="pageTitle">No Title</h1>
+		
+		<div class="frameLeft">
+			<div class="menu">
+				<ul>
+					<li wicket:id="menu">
+						<a href="#" wicket:id="link"><span wicket:id="name"/></a>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="frameRight">
+			<wicket:child/>
+		</div>
+		
+	</div>
+	
+	<div class="frameBottom">
+		<div class="footerContent">&nbsp;</div>
+	</div>
+
+</body>
+</html>

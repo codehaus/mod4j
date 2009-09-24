@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+<body>
+<wicket:extend>
+	<span wicket:id="formMsgs"/>
+	<form wicket:id="frmComestibles">
+		<div class="navigator">
+			<span wicket:id="navigator"></span>
+		</div>
+		<div class="tableWrapper horizontal">
+			<table class="horizontal">
+				<caption>
+					<wicket:message key="lbl.comestibles"/>
+					<span wicket:id="ajaxIndicator"/>
+				</caption>
+				<thead>
+					<tr>
+						<th><wicket:message key="lbl.name"/></th>
+						<th><wicket:message key="lbl.minimalQuantity"/></th>
+						<th><wicket:message key="lbl.price"/></th>
+						<th><wicket:message key="lbl.transportForm"/></th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody wicket:id="container">
+					<tr wicket:id="comestibles">
+						<td><a href="#" wicket:id="view"><span wicket:id="name"/></a></td>
+						<td align="right"><span wicket:id="minimalQuantity"/></td>
+						<td align="right"><span wicket:id="price"/></td>
+						<td><span wicket:id="transportForm"/></td>
+						<td><input type="checkbox" wicket:id="selected"/></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4">
+							<input type="submit" wicket:id="new" value="New"/>
+							<input type="submit" wicket:id="resetAll" value="Reset All"/>
+							<input type="submit" wicket:id="delete" value="Delete"/>
+							<input type="submit" wicket:id="cancel" value="Cancel"/>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="tableBottom"></div>
+			<div class="topleft"></div>
+			<div class="topright"></div>	
+		</div>
+	</form>
+</wicket:extend>
+</body>
+</html>

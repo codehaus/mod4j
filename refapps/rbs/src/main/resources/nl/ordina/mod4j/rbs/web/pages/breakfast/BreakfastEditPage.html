@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+<body>
+<wicket:extend>
+	<span wicket:id="formMsgs"/>
+	<form wicket:id="frmBreakfast">
+		<div class="tableWrapper vertical">
+		<table class="vertical">
+			<caption>
+				<wicket:message key="lbl.breakfast"/>
+				<span wicket:id="ajaxIndicator"/>
+			</caption>
+			<tbody>
+				<tr>
+					<th><wicket:message key="lbl.name"/></th>
+					<td><input type="text" wicket:id="name"/></td>
+					<td><span wicket:id="nameMsgs"/></td>
+				</tr>
+				<tr>
+					<th><wicket:message key="lbl.price"/></th>
+					<td><input type="text" wicket:id="price"/></td>
+					<td><span wicket:id="priceMsgs"/></td>
+				</tr>
+				<tr>
+					<th><wicket:message key="lbl.servingStyle"/></th>
+					<td><select wicket:id="servingStyle"/></td>
+					<td><span wicket:id="servingStyleMsgs"/></td>
+				</tr>
+				<tr>
+					<th><wicket:message key="lbl.comestibles"/></th>
+					<td colspan="2">
+						<form wicket:id="frmComestibles">
+							<span wicket:id="formMsgs"/>
+							<table>
+								<tbody>
+									<tr>
+										<th><wicket:message key="lbl.quantity"/></th>
+										<th><wicket:message key="lbl.name"/></th>
+										<th>&nbsp;</th>
+									</tr>
+									<tr wicket:id="comestibles">
+										<td wicket:id="quantity"/>
+										<td wicket:id="comestible.name"/>
+										<td><input type="checkbox" wicket:id="selected"/></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="4">
+											<input type="submit" wicket:id="add" value="Add"/>
+											<input type="submit" wicket:id="delete" value="Delete"/>
+											<input type="submit" wicket:id="reset" value="Reset"/>
+											<div wicket:id="comestibleWindow"/>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3">
+						<input type="submit" wicket:id="save" value="Save"/>
+						<input type="submit" wicket:id="delete" value="Delete"/>
+						<input type="submit" wicket:id="cancel" value="Cancel"/>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	<div class="tableBottom"></div>
+	<div class="topleft"></div>
+	<div class="topright"></div>
+		</div>
+	</form>
+</wicket:extend>
+</body>
+</html>

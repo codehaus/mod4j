@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/" xml:lang="nl" lang="nl">
+<wicket:panel>
+	<span wicket:id="formMsgs"/>
+	<form wicket:id="frmComestible">
+		<table class="vertical">
+			<tr>
+				<th><wicket:message key="lbl.name"/></th>
+				<td><select wicket:id="comestible"/></td>
+				<td><span wicket:id="comestibleMsgs"/></td>
+			</tr>
+			<tr>
+				<th><wicket:message key="lbl.quantity"/></th>
+				<td><input type="text" wicket:id="quantity"/></td>
+				<td><span wicket:id="quantityMsgs"/></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="submit" wicket:id="add" value="Add"/>
+					<input type="submit" wicket:id="cancel" value="Cancel"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</wicket:panel>
+</html>

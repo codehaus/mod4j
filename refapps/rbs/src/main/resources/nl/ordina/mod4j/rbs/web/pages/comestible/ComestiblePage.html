@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+<body>
+<wicket:extend>
+	<div class="tableWrapper vertical">
+	<table class="vertical">
+		<caption><wicket:message key="lbl.comestible"/></caption>
+		<tbody>
+			<tr>
+				<th><wicket:message key="lbl.name"/></th>
+				<td><span wicket:id="name"/></td>
+			</tr>
+			<tr>
+				<th><wicket:message key="lbl.minimalQuantity"/></th>
+				<td><span wicket:id="minimalQuantity"/></td>
+			</tr>
+			<tr>
+				<th><wicket:message key="lbl.price"/></th>
+				<td><span wicket:id="price"/></td>
+			</tr>
+			<tr>
+				<th><wicket:message key="lbl.transportForm"/></th>
+				<td><span wicket:id="transportForm"/></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2"><a href="#" wicket:id="edit"><wicket:message key="cmd.edit"/></a>&nbsp;<a href="#" wicket:id="back"><wicket:message key="cmd.back"/></a></td>
+			</tr>
+		</tfoot>
+	</table>
+	<div class="tableBottom"></div>
+	<div class="topleft"></div>
+	<div class="topright"></div>
+	</div>
+</wicket:extend>
+</body>
+</html>
