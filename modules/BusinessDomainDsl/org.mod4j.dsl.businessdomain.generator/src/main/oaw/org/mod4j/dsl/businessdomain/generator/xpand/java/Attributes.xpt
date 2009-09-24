@@ -91,6 +91,42 @@
     abstract public void set«name.toFirstUpper()» (final «javaType(this)» «name»);
 «ENDDEFINE»
 
+«REM» Add an empty gtter method: used for derived attributes.
+«ENDREM»
+«DEFINE addEmptyGetter FOR Property»
+	/**
+	 * @return «name» («javaType(this)») «description»
+	 */
+   	@Override
+    public «javaType(this)» get«name.toFirstUpper()» () {
+		// TODO Mod4j: add derivation rule for derived attribute «name»
+        return «javaDefaultValue(this)»;
+    }
+«ENDDEFINE»
+
+«REM» Add an empty getter method: used for derived attributes.
+«ENDREM»
+«DEFINE addEmptyGetter FOR BoolProperty»
+    /**
+     * @return «name» («javaType(this)») «description»
+     */
+    public «javaType(this)» is«name.toFirstUpper()» () {
+		// TODO Mod4j: add derivation rule for derived attribute «name»
+        return «javaDefaultValue(this)»;
+    }
+«ENDDEFINE»
+
+«REM» Add an empty setter method: used for writable derived attributes.
+«ENDREM»
+«DEFINE addEmptySetter FOR Property»
+    «EXPAND Javadoc::addSetterJavaDoc FOR this -»
+    public void set«name.toFirstUpper()» (final «javaType(this)» «name») {
+		// TODO Mod4j: add setter rule for writable derived attribute «name»
+        validation.validate();
+    }
+«ENDDEFINE»
+
+
 «DEFINE addAttribute FOR BlobBinaryProperty»
     «EXPAND instanceVariable FOR this»
 «ENDDEFINE»

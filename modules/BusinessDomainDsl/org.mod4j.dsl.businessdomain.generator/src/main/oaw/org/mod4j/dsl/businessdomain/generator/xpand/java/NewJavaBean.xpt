@@ -97,7 +97,7 @@
 	«REM»No generation of AbstracTypes other then BusinessClasses«ENDREM»
 «ENDDEFINE»
 
-«DEFINE BeanClassExtensionPoint FOR BusinessClass»
+«DEFINE BeanClassExtensionPoint FOR BusinessClass-»
     «EXPAND JavaComments::extensionPointHeader ("Mod4j BusinessDomainDsl generator: NewJavaBean.xpt") FOR this»
 
 	package «getDomainRootPackage()»;
@@ -120,6 +120,9 @@
         «EXPAND Constructors::addDefaultConstructor FOR this»    
     «ENDIF»
     «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
+
+    «EXPAND Attributes::addEmptyGetter FOREACH properties.select(e|e.derived)»
+    «EXPAND Attributes::addEmptySetter FOREACH properties.select(e|e.derived && e.writable)»
  	}	
 «ENDDEFINE»
 

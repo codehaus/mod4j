@@ -28,6 +28,9 @@ String javaType(Property p) :
 String javaNullableType(Property p) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaNullableType(BusinessDomainDsl.Property);
 
+String javaDefaultValue(Property p) :
+ JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.javaDefaultValue(BusinessDomainDsl.Property);
+
 boolean hasSubclasses(BusinessClass clazz) :
  JAVA org.mod4j.businessdomain.generator.helpers.BusinessClassHelpers.hasSubclasses(BusinessDomainDsl.BusinessClass);
 
