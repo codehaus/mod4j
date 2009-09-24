@@ -1,23 +1,37 @@
 domain TestDomainModel;
-
+ 
 "Test derived attributes"
 class DerivedNotYetImplemented [
     string first derived writable;
     boolean secondo derived writable;
     datetime third derived writable;
-    integer fourth derived writable;
-    decimal fifth derived writable;
+    integer fourth derived writable; 
+    decimal fifth derived writable; 
 ]
 
 "Test derived attributes"
-class Derived [
+class Derived [     
     string first derived; 
     boolean secondo derived writable;
     datetime third nullable derived;
     integer fourth nullable derived writable;
     decimal fifth derived;
 ]
+ 
+"Test derived attributes"
+class MyDerived [ 
+    string first derived; 
+    boolean secondo derived writable;
+    datetime third nullable derived;
+    integer fourth nullable derived writable;
+    decimal fifth derived;
+	Color clr derived writable;      
+]
 
+enumeration Color [ 
+    red = 0;
+    blue = 1;
+]
 "This class has no meaning in the recordshop application. Its purpose is to test
  uni-directional many-to-many associations"
 class Many2ManyFrom [  
