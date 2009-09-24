@@ -19,15 +19,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-@ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
-		"/org/company/recordshop/data/sessionFactoryContext.xml",
-		"/org/company/recordshop/data/applicationContext.xml",
-		"/org/company/recordshop/business/applicationContext.xml",
-		"/org/company/recordshop/service/applicationContext.xml",
-        "/org/company/recordshop/service/testContext.xml"})
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-public class CustomerServiceTest extends
-		AbstractTransactionalJUnit4SpringContextTests {
+public class CustomerServiceTest extends AbstractServiceTestCase {
 
 	@Autowired
 	CustomerServiceModelLocalService customerServiceModelService;
@@ -140,7 +132,8 @@ public class CustomerServiceTest extends
 
 		FullCustomerDto result = customerServiceModelService
 				.createCustomer(custDto);
-		result.setDiscountPercentage(100); // Wondering who wrote this test ;)
+		flush();
+		result.setDiscountPercentage(100);
 		customerServiceModelService.updateCustomer(result);
 		result = customerServiceModelService
 				.readCustomerAsFullCustomerDto(result.getId());
