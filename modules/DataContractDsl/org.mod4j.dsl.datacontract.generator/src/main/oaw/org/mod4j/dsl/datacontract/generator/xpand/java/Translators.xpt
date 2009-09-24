@@ -100,7 +100,7 @@
                   «IF this.creatable -»
                       if (target == null) {
                           if (source.getId() != null) {
-                              throw new TranslatorException("Can not translate a dto with existng id to a new domain object.");
+                              throw new TranslatorException("Can not translate a dto with existng id to a new domain object. Dto: "+ source.toString());
                           }
                           target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                       }
@@ -130,10 +130,11 @@
                   «ENDFOREACH» 
                   getTranslated().put(source, target);
                   «FOREACH  associationReferences AS assRef -»
-                     «IF assRef.dtoType.metaType == ListDto -»        
-		                  /*
-		                   * Avoid changing the collection underneath an active iterator.
-		                   */
+                  
+                         /*
+                          * Synchronize «assRef.name.toFirstUpper()» association.
+                          */
+   «REM»2Many«ENDREM» «IF assRef.dtoType.metaType == ListDto -»        
 		                  Set<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»> toBeRemoved = new HashSet<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»>();
 		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element : target.get«assRef.name.toFirstUpper()»()) {
 		                      if (!source.get«assRef.name.toFirstUpper()»().contains(
@@ -141,7 +142,7 @@
 		                          toBeRemoved.add(element);
 		                      }
 		                  }
-                         «REM»2Many«ENDREM»
+		                  /* Objects to be removed */
 		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element : toBeRemoved) {
 		                      target.removeFrom«assRef.name.toFirstUpper()»(element);
 		                  }
@@ -154,9 +155,17 @@
 		                          «assRef.name»Translator.fromDto(element, target.get«assRef.name.toFirstUpper()»(element.getId()));
 		                      }
 		                  }
-                     «ELSE»
-                         «REM»2One«ENDREM» 
-                         target.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.fromDto(source.get«assRef.name.toFirstUpper()»()));
+   «REM»2One«ENDREM» «ELSE»
+                         if (source.get«assRef.name.toFirstUpper()»() == null && target.get«assRef.name.toFirstUpper()»() != null) {
+                             /* Delete associated object */
+                             target.set«assRef.name.toFirstUpper()»(null);
+                         } else if (source.get«assRef.name.toFirstUpper()»() != null && target.get«assRef.name.toFirstUpper()»() == null) {
+                             /* Add a new associated object */
+                             target.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.fromDto(source.get«assRef.name.toFirstUpper()»()));
+                         } else if (source.get«assRef.name.toFirstUpper()»() != null && target.get«assRef.name.toFirstUpper()»() != null) {
+                             /* Update an existing associated object */
+                             target.set«assRef.name.toFirstUpper()»(«assRef.name»Translator.fromDto(source.get«assRef.name.toFirstUpper()»(), target.get«assRef.name.toFirstUpper()»()));
+                         }
                      «ENDIF»
                   «ENDFOREACH»
                   getTranslated().remove(source);
