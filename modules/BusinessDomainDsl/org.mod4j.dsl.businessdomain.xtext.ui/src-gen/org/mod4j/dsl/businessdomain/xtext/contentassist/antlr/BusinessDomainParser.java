@@ -42,7 +42,7 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 		if (nameMappings == null) {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				{
-					put(grammarAccess.getBusinessDomainModelAccess().getAlternatives_5(), "rule__BusinessDomainModel__Alternatives_5");
+					put(grammarAccess.getBusinessDomainModelAccess().getAlternatives_4(), "rule__BusinessDomainModel__Alternatives_4");
 					put(grammarAccess.getAssociationAccess().getAlternatives_5(), "rule__Association__Alternatives_5");
 					put(grammarAccess.getAbstractBusinessRuleAccess().getAlternatives(), "rule__AbstractBusinessRule__Alternatives");
 					put(grammarAccess.getPropertyAccess().getAlternatives_0(), "rule__Property__Alternatives_0");
@@ -51,7 +51,6 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDateTimeAccuracyAccess().getAlternatives(), "rule__DateTimeAccuracy__Alternatives");
 					put(grammarAccess.getPersistencyModeAccess().getAlternatives(), "rule__PersistencyMode__Alternatives");
 					put(grammarAccess.getBusinessDomainModelAccess().getGroup(), "rule__BusinessDomainModel__Group__0");
-					put(grammarAccess.getBusinessClassReferenceAccess().getGroup(), "rule__BusinessClassReference__Group__0");
 					put(grammarAccess.getAssociationAccess().getGroup(), "rule__Association__Group__0");
 					put(grammarAccess.getBusinessClassAccess().getGroup(), "rule__BusinessClass__Group__0");
 					put(grammarAccess.getBusinessClassAccess().getGroup_3(), "rule__BusinessClass__Group_3__0");
@@ -82,12 +81,9 @@ public class BusinessDomainParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumerationPropertyAccess().getGroup_3(), "rule__EnumerationProperty__Group_3__0");
 					put(grammarAccess.getBusinessDomainModelAccess().getDescriptionAssignment_0(), "rule__BusinessDomainModel__DescriptionAssignment_0");
 					put(grammarAccess.getBusinessDomainModelAccess().getNameAssignment_2(), "rule__BusinessDomainModel__NameAssignment_2");
-					put(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4(), "rule__BusinessDomainModel__TypesAssignment_4");
-					put(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_5_0(), "rule__BusinessDomainModel__TypesAssignment_5_0");
-					put(grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_5_1(), "rule__BusinessDomainModel__EnumerationsAssignment_5_1");
-					put(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_5_2(), "rule__BusinessDomainModel__AssociationsAssignment_5_2");
-					put(grammarAccess.getBusinessClassReferenceAccess().getReferredModelAssignment_1(), "rule__BusinessClassReference__ReferredModelAssignment_1");
-					put(grammarAccess.getBusinessClassReferenceAccess().getNameAssignment_3(), "rule__BusinessClassReference__NameAssignment_3");
+					put(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4_0(), "rule__BusinessDomainModel__TypesAssignment_4_0");
+					put(grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_4_1(), "rule__BusinessDomainModel__EnumerationsAssignment_4_1");
+					put(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_4_2(), "rule__BusinessDomainModel__AssociationsAssignment_4_2");
 					put(grammarAccess.getAssociationAccess().getDescriptionAssignment_0(), "rule__Association__DescriptionAssignment_0");
 					put(grammarAccess.getAssociationAccess().getSourceAssignment_2(), "rule__Association__SourceAssignment_2");
 					put(grammarAccess.getAssociationAccess().getSourceRoleNameAssignment_3(), "rule__Association__SourceRoleNameAssignment_3");

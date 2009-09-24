@@ -132,13 +132,13 @@ ruleBusinessDomainModel returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getBusinessDomainModelAccess().getSemicolonKeyword_3(), null); 
     }
-(	
+((	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassReferenceParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_4_0_0(), currentNode); 
 	    }
-	    lv_types_4=ruleBusinessClassReference 
+	    lv_types_4=ruleBusinessClass 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBusinessDomainModelRule().getType().getClassifier());
@@ -146,28 +146,7 @@ ruleBusinessDomainModel returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "types", lv_types_4, "BusinessClassReference", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-)*((	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_5_0_0(), currentNode); 
-	    }
-	    lv_types_5=ruleBusinessClass 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBusinessDomainModelRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "types", lv_types_5, "BusinessClass", currentNode);
+	       		add($current, "types", lv_types_4, "BusinessClass", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -179,9 +158,9 @@ ruleBusinessDomainModel returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_5_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0(), currentNode); 
 	    }
-	    lv_enumerations_6=ruleEnumeration 
+	    lv_enumerations_5=ruleEnumeration 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBusinessDomainModelRule().getType().getClassifier());
@@ -189,7 +168,7 @@ ruleBusinessDomainModel returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "enumerations", lv_enumerations_6, "Enumeration", currentNode);
+	       		add($current, "enumerations", lv_enumerations_5, "Enumeration", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -201,9 +180,9 @@ ruleBusinessDomainModel returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_5_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_4_2_0(), currentNode); 
 	    }
-	    lv_associations_7=ruleAssociation 
+	    lv_associations_6=ruleAssociation 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBusinessDomainModelRule().getType().getClassifier());
@@ -211,7 +190,7 @@ ruleBusinessDomainModel returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "associations", lv_associations_7, "Association", currentNode);
+	       		add($current, "associations", lv_associations_6, "Association", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -219,79 +198,6 @@ ruleBusinessDomainModel returns [EObject current=null]
 	    }
 	
 ))*);
-
-
-
-
-
-// Entry rule entryRuleBusinessClassReference
-entryRuleBusinessClassReference returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getBusinessClassReferenceRule(), currentNode); }
-	 iv_ruleBusinessClassReference=ruleBusinessClassReference 
-	 { $current=$iv_ruleBusinessClassReference.current; } 
-	 EOF 
-;
-
-// Rule BusinessClassReference
-ruleBusinessClassReference returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-('from' 
-    {
-        createLeafNode(grammarAccess.getBusinessClassReferenceAccess().getFromKeyword_0(), null); 
-    }
-(	
-	
-	    lv_referredModel_1=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getBusinessClassReferenceAccess().getReferredModelIDTerminalRuleCall_1_0(), "referredModel"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBusinessClassReferenceRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "referredModel", lv_referredModel_1, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)'import' 
-    {
-        createLeafNode(grammarAccess.getBusinessClassReferenceAccess().getImportKeyword_2(), null); 
-    }
-(	
-	
-	    lv_name_3=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getBusinessClassReferenceAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBusinessClassReferenceRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "name", lv_name_3, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)';' 
-    {
-        createLeafNode(grammarAccess.getBusinessClassReferenceAccess().getSemicolonKeyword_4(), null); 
-    }
-);
 
 
 

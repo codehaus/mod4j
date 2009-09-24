@@ -26,19 +26,17 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTypesBusinessClassReferenceParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
-		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
-		private final Assignment cTypesAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
-		private final RuleCall cTypesBusinessClassParserRuleCall_5_0_0 = (RuleCall)cTypesAssignment_5_0.eContents().get(0);
-		private final Assignment cEnumerationsAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
-		private final RuleCall cEnumerationsEnumerationParserRuleCall_5_1_0 = (RuleCall)cEnumerationsAssignment_5_1.eContents().get(0);
-		private final Assignment cAssociationsAssignment_5_2 = (Assignment)cAlternatives_5.eContents().get(2);
-		private final RuleCall cAssociationsAssociationParserRuleCall_5_2_0 = (RuleCall)cAssociationsAssignment_5_2.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cTypesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cTypesBusinessClassParserRuleCall_4_0_0 = (RuleCall)cTypesAssignment_4_0.eContents().get(0);
+		private final Assignment cEnumerationsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cEnumerationsEnumerationParserRuleCall_4_1_0 = (RuleCall)cEnumerationsAssignment_4_1.eContents().get(0);
+		private final Assignment cAssociationsAssignment_4_2 = (Assignment)cAlternatives_4.eContents().get(2);
+		private final RuleCall cAssociationsAssociationParserRuleCall_4_2_0 = (RuleCall)cAssociationsAssignment_4_2.eContents().get(0);
 		
 		//BusinessDomainModel:
-		//  description=STRING? "domain" name=ID ";" types+=BusinessClassReference* (types+=
-		//  BusinessClass|enumerations+=Enumeration|associations+=Association)*; 
+		//  description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
+		//  Enumeration|associations+=Association)*; 
 		//
 		/// *******************************************************************************
 		// * Copyright (c) 2009 Ordina and committers to Mod4j
@@ -50,10 +48,27 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		// * Contributors:
 		// *     Ordina - initial implementation
 		// ******************************************************************************* /
+		//
+		//  
+		//	  
+		//	        
+		////	(types+= BusinessClassReference)*
+		//	                
+		//	          
+		//	      
+		//	 
+		//	
+		//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+		////BusinessClassReference:
+		////    "from" referredModel=ID "import" name=ID  ";" 
+		////    ;
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "domain" name=ID ";" types+=BusinessClassReference* (types+=
-		//BusinessClass|enumerations+=Enumeration|associations+=Association)*
+		//description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
+		//Enumeration|associations+=Association)* 
+		//	  
+		//	        
+		////	(types+= BusinessClassReference)*
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -71,75 +86,31 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//";"
+		//";"   
+		////	(types+= BusinessClassReference)*
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 
-		//types+=BusinessClassReference*
-		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
-
-		//BusinessClassReference
-		public RuleCall getTypesBusinessClassReferenceParserRuleCall_4_0() { return cTypesBusinessClassReferenceParserRuleCall_4_0; }
-
-		//(types+=BusinessClass|enumerations+=Enumeration|associations+=Association)*
-		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+		//(types+=BusinessClass|enumerations+=Enumeration|associations+=Association)* 
+		////	(types+= BusinessClassReference)*
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//types+=BusinessClass
-		public Assignment getTypesAssignment_5_0() { return cTypesAssignment_5_0; }
+		public Assignment getTypesAssignment_4_0() { return cTypesAssignment_4_0; }
 
 		//BusinessClass
-		public RuleCall getTypesBusinessClassParserRuleCall_5_0_0() { return cTypesBusinessClassParserRuleCall_5_0_0; }
+		public RuleCall getTypesBusinessClassParserRuleCall_4_0_0() { return cTypesBusinessClassParserRuleCall_4_0_0; }
 
 		//enumerations+=Enumeration
-		public Assignment getEnumerationsAssignment_5_1() { return cEnumerationsAssignment_5_1; }
+		public Assignment getEnumerationsAssignment_4_1() { return cEnumerationsAssignment_4_1; }
 
 		//Enumeration
-		public RuleCall getEnumerationsEnumerationParserRuleCall_5_1_0() { return cEnumerationsEnumerationParserRuleCall_5_1_0; }
+		public RuleCall getEnumerationsEnumerationParserRuleCall_4_1_0() { return cEnumerationsEnumerationParserRuleCall_4_1_0; }
 
 		//associations+=Association
-		public Assignment getAssociationsAssignment_5_2() { return cAssociationsAssignment_5_2; }
+		public Assignment getAssociationsAssignment_4_2() { return cAssociationsAssignment_4_2; }
 
 		//Association
-		public RuleCall getAssociationsAssociationParserRuleCall_5_2_0() { return cAssociationsAssociationParserRuleCall_5_2_0; }
-	}
-
-	public class BusinessClassReferenceElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BusinessClassReference");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFromKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cReferredModelAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cReferredModelIDTerminalRuleCall_1_0 = (RuleCall)cReferredModelAssignment_1.eContents().get(0);
-		private final Keyword cImportKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//BusinessClassReference:
-		//  "from" referredModel=ID "import" name=ID ";";
-		public ParserRule getRule() { return rule; }
-
-		//"from" referredModel=ID "import" name=ID ";"
-		public Group getGroup() { return cGroup; }
-
-		//"from"
-		public Keyword getFromKeyword_0() { return cFromKeyword_0; }
-
-		//referredModel=ID
-		public Assignment getReferredModelAssignment_1() { return cReferredModelAssignment_1; }
-
-		//ID
-		public RuleCall getReferredModelIDTerminalRuleCall_1_0() { return cReferredModelIDTerminalRuleCall_1_0; }
-
-		//"import"
-		public Keyword getImportKeyword_2() { return cImportKeyword_2; }
-
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public RuleCall getAssociationsAssociationParserRuleCall_4_2_0() { return cAssociationsAssociationParserRuleCall_4_2_0; }
 	}
 
 	public class AssociationElements implements IParserRuleAccess {
@@ -174,7 +145,11 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
 		//  sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
 		//  Multiplicity target=[AbstractBusinessClass] targetRoleName=ID ordered?="ordered"?
-		//  ";";
+		//  ";"; 
+		//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+		////BusinessClassReference:
+		////    "from" referredModel=ID "import" name=ID  ";" 
+		////    ;
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
@@ -1245,7 +1220,6 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	}
 	
 	private BusinessDomainModelElements pBusinessDomainModel;
-	private BusinessClassReferenceElements pBusinessClassReference;
 	private AssociationElements pAssociation;
 	private MultiplicityElements unknownRuleMultiplicity;
 	private BusinessClassElements pBusinessClass;
@@ -1286,8 +1260,8 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 
 	
 	//BusinessDomainModel:
-	//  description=STRING? "domain" name=ID ";" types+=BusinessClassReference* (types+=
-	//  BusinessClass|enumerations+=Enumeration|associations+=Association)*; 
+	//  description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
+	//  Enumeration|associations+=Association)*; 
 	//
 	/// *******************************************************************************
 	// * Copyright (c) 2009 Ordina and committers to Mod4j
@@ -1299,6 +1273,20 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 	// * Contributors:
 	// *     Ordina - initial implementation
 	// ******************************************************************************* /
+	//
+	//  
+	//	  
+	//	        
+	////	(types+= BusinessClassReference)*
+	//	                
+	//	          
+	//	      
+	//	 
+	//	
+	//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+	////BusinessClassReference:
+	////    "from" referredModel=ID "import" name=ID  ";" 
+	////    ;
 	public BusinessDomainModelElements getBusinessDomainModelAccess() {
 		return (pBusinessDomainModel != null) ? pBusinessDomainModel : (pBusinessDomainModel = new BusinessDomainModelElements());
 	}
@@ -1307,21 +1295,15 @@ public class BusinessDomainGrammarAccess implements IGrammarAccess {
 		return getBusinessDomainModelAccess().getRule();
 	}
 
-	//BusinessClassReference:
-	//  "from" referredModel=ID "import" name=ID ";";
-	public BusinessClassReferenceElements getBusinessClassReferenceAccess() {
-		return (pBusinessClassReference != null) ? pBusinessClassReference : (pBusinessClassReference = new BusinessClassReferenceElements());
-	}
-	
-	public ParserRule getBusinessClassReferenceRule() {
-		return getBusinessClassReferenceAccess().getRule();
-	}
-
 	//Association:
 	//  description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
 	//  sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
 	//  Multiplicity target=[AbstractBusinessClass] targetRoleName=ID ordered?="ordered"?
-	//  ";";
+	//  ";"; 
+	//// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+	////BusinessClassReference:
+	////    "from" referredModel=ID "import" name=ID  ";" 
+	////    ;
 	public AssociationElements getAssociationAccess() {
 		return (pAssociation != null) ? pAssociation : (pAssociation = new AssociationElements());
 	}

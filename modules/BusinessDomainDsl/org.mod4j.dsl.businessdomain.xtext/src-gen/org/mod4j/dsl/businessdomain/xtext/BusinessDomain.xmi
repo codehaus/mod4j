@@ -20,36 +20,17 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=";"/>
-        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="types" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
-        </tokens>
         <tokens xsi:type="xtext:Alternatives" cardinality="*">
           <groups xsi:type="xtext:Assignment" feature="types" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
           </groups>
           <groups xsi:type="xtext:Assignment" feature="enumerations" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
           </groups>
           <groups xsi:type="xtext:Assignment" feature="associations" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
           </groups>
         </tokens>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="BusinessClassReference">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//BusinessClassReference"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="from"/>
-        <tokens xsi:type="xtext:Assignment" feature="referredModel" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value="import"/>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Association">
@@ -73,7 +54,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" feature="sourceMultiplicity" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
         <tokens xsi:type="xtext:Alternatives">
           <groups xsi:type="xtext:Assignment" feature="bidirectional" operator="?=">
@@ -82,7 +63,7 @@
           <groups xsi:type="xtext:Keyword" value="->"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" feature="targetMultiplicity" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" feature="target" operator="=">
           <terminal xsi:type="xtext:CrossReference">
@@ -141,13 +122,13 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="properties" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="rules"/>
           <tokens xsi:type="xtext:Keyword" value="["/>
           <tokens xsi:type="xtext:Assignment" cardinality="*" feature="businessRules" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
           </tokens>
           <tokens xsi:type="xtext:Keyword" value="]"/>
         </tokens>
@@ -168,7 +149,7 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Assignment" cardinality="+" feature="enumerationLiterals" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
@@ -195,8 +176,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/busmod#//AbstractBusinessRule"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="BusinessRule">
@@ -254,12 +235,12 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
-          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
-          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="nullable" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="nullable"/>

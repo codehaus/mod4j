@@ -83,33 +83,6 @@ finally {
 
 
 
-// Entry rule entryRuleBusinessClassReference
-entryRuleBusinessClassReference :
-{ before(grammarAccess.getBusinessClassReferenceRule()); }
-	 ruleBusinessClassReference
-{ after(grammarAccess.getBusinessClassReferenceRule()); } 
-	 EOF 
-;
-
-// Rule BusinessClassReference
-ruleBusinessClassReference 
-    @init {
-		int stackSize = keepStackSize();
-    }
- :
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getGroup()); }
-(rule__BusinessClassReference__Group__0)
-{ after(grammarAccess.getBusinessClassReferenceAccess().getGroup()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleAssociation
 entryRuleAssociation :
 { before(grammarAccess.getAssociationRule()); }
@@ -512,27 +485,27 @@ finally {
 
 
 
-rule__BusinessDomainModel__Alternatives_5
+rule__BusinessDomainModel__Alternatives_4
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_5_0()); }
-(rule__BusinessDomainModel__TypesAssignment_5_0)
-{ after(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_5_0()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4_0()); }
+(rule__BusinessDomainModel__TypesAssignment_4_0)
+{ after(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4_0()); }
 )
 
     |(
-{ before(grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_5_1()); }
-(rule__BusinessDomainModel__EnumerationsAssignment_5_1)
-{ after(grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_5_1()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_4_1()); }
+(rule__BusinessDomainModel__EnumerationsAssignment_4_1)
+{ after(grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_4_1()); }
 )
 
     |(
-{ before(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_5_2()); }
-(rule__BusinessDomainModel__AssociationsAssignment_5_2)
-{ after(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_5_2()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_4_2()); }
+(rule__BusinessDomainModel__AssociationsAssignment_4_2)
+{ after(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_4_2()); }
 )
 
 ;
@@ -766,134 +739,9 @@ rule__BusinessDomainModel__Group__4
     }
 :
 (
-{ before(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4()); }
-(rule__BusinessDomainModel__TypesAssignment_4)*
-{ after(grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4()); }
-)
-
-	rule__BusinessDomainModel__Group__5
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BusinessDomainModel__Group__5
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessDomainModelAccess().getAlternatives_5()); }
-(rule__BusinessDomainModel__Alternatives_5)*
-{ after(grammarAccess.getBusinessDomainModelAccess().getAlternatives_5()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-rule__BusinessClassReference__Group__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getFromKeyword_0()); }
-
-	'from' 
-
-{ after(grammarAccess.getBusinessClassReferenceAccess().getFromKeyword_0()); }
-)
-
-	rule__BusinessClassReference__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BusinessClassReference__Group__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getReferredModelAssignment_1()); }
-(rule__BusinessClassReference__ReferredModelAssignment_1)
-{ after(grammarAccess.getBusinessClassReferenceAccess().getReferredModelAssignment_1()); }
-)
-
-	rule__BusinessClassReference__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BusinessClassReference__Group__2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getImportKeyword_2()); }
-
-	'import' 
-
-{ after(grammarAccess.getBusinessClassReferenceAccess().getImportKeyword_2()); }
-)
-
-	rule__BusinessClassReference__Group__3
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BusinessClassReference__Group__3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getNameAssignment_3()); }
-(rule__BusinessClassReference__NameAssignment_3)
-{ after(grammarAccess.getBusinessClassReferenceAccess().getNameAssignment_3()); }
-)
-
-	rule__BusinessClassReference__Group__4
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BusinessClassReference__Group__4
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getSemicolonKeyword_4()); }
-
-	';' 
-
-{ after(grammarAccess.getBusinessClassReferenceAccess().getSemicolonKeyword_4()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getAlternatives_4()); }
+(rule__BusinessDomainModel__Alternatives_4)*
+{ after(grammarAccess.getBusinessDomainModelAccess().getAlternatives_4()); }
 )
 
 ;
@@ -3011,14 +2859,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BusinessDomainModel__TypesAssignment_4
+rule__BusinessDomainModel__TypesAssignment_4_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassReferenceParserRuleCall_4_0()); }
-	ruleBusinessClassReference{ after(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassReferenceParserRuleCall_4_0()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_4_0_0()); }
+	ruleBusinessClass{ after(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_4_0_0()); }
 )
 
 ;
@@ -3026,14 +2874,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BusinessDomainModel__TypesAssignment_5_0
+rule__BusinessDomainModel__EnumerationsAssignment_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_5_0_0()); }
-	ruleBusinessClass{ after(grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_5_0_0()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0()); }
+	ruleEnumeration{ after(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0()); }
 )
 
 ;
@@ -3041,59 +2889,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BusinessDomainModel__EnumerationsAssignment_5_1
+rule__BusinessDomainModel__AssociationsAssignment_4_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_5_1_0()); }
-	ruleEnumeration{ after(grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_5_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BusinessDomainModel__AssociationsAssignment_5_2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_5_2_0()); }
-	ruleAssociation{ after(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_5_2_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BusinessClassReference__ReferredModelAssignment_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getReferredModelIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getBusinessClassReferenceAccess().getReferredModelIDTerminalRuleCall_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BusinessClassReference__NameAssignment_3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBusinessClassReferenceAccess().getNameIDTerminalRuleCall_3_0()); }
-	RULE_ID{ after(grammarAccess.getBusinessClassReferenceAccess().getNameIDTerminalRuleCall_3_0()); }
+{ before(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_4_2_0()); }
+	ruleAssociation{ after(grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_4_2_0()); }
 )
 
 ;

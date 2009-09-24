@@ -17,16 +17,16 @@ import "platform:/resource/org.mod4j.crossx.mm/model/crossx.ecore"
 BusinessDomainModel :
 	(description=STRING )?
 	"domain" name = ID ";"
-	(types+= BusinessClassReference)*
+//	(types+= BusinessClassReference)*
 	( (types        += BusinessClass) |
 	  (enumerations += Enumeration)   |
 	  (associations += Association)
 	 )*
 	;
-
-BusinessClassReference:
-    "from" referredModel=ID "import" name=ID  ";" 
-    ;
+// COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+//BusinessClassReference:
+//    "from" referredModel=ID "import" name=ID  ";" 
+//    ;
     
 Association:
 	(description=STRING )?

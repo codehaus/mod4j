@@ -33,21 +33,20 @@ protected class ThisRootNode extends RootToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new BusinessDomainModel_Group(this, this, 0, inst);
-			case 1: return new BusinessClassReference_Group(this, this, 1, inst);
-			case 2: return new Association_Group(this, this, 2, inst);
-			case 3: return new BusinessClass_Group(this, this, 3, inst);
-			case 4: return new Enumeration_Group(this, this, 4, inst);
-			case 5: return new EnumerationLiteral_Group(this, this, 5, inst);
-			case 6: return new AbstractBusinessRule_Alternatives(this, this, 6, inst);
-			case 7: return new BusinessRule_Group(this, this, 7, inst);
-			case 8: return new UniqueRule_Group(this, this, 8, inst);
-			case 9: return new Property_Group(this, this, 9, inst);
-			case 10: return new BoolProperty_Group(this, this, 10, inst);
-			case 11: return new StringProperty_Group(this, this, 11, inst);
-			case 12: return new DateTimeProperty_Group(this, this, 12, inst);
-			case 13: return new IntegerProperty_Group(this, this, 13, inst);
-			case 14: return new DecimalProperty_Group(this, this, 14, inst);
-			case 15: return new EnumerationProperty_Group(this, this, 15, inst);
+			case 1: return new Association_Group(this, this, 1, inst);
+			case 2: return new BusinessClass_Group(this, this, 2, inst);
+			case 3: return new Enumeration_Group(this, this, 3, inst);
+			case 4: return new EnumerationLiteral_Group(this, this, 4, inst);
+			case 5: return new AbstractBusinessRule_Alternatives(this, this, 5, inst);
+			case 6: return new BusinessRule_Group(this, this, 6, inst);
+			case 7: return new UniqueRule_Group(this, this, 7, inst);
+			case 8: return new Property_Group(this, this, 8, inst);
+			case 9: return new BoolProperty_Group(this, this, 9, inst);
+			case 10: return new StringProperty_Group(this, this, 10, inst);
+			case 11: return new DateTimeProperty_Group(this, this, 11, inst);
+			case 12: return new IntegerProperty_Group(this, this, 12, inst);
+			case 13: return new DecimalProperty_Group(this, this, 13, inst);
+			case 14: return new EnumerationProperty_Group(this, this, 14, inst);
 			default: return null;
 		}	
 	}	
@@ -57,8 +56,8 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule BusinessDomainModel ****************
  *
  * BusinessDomainModel:
- *   description=STRING? "domain" name=ID ";" types+=BusinessClassReference* (types+=
- *   BusinessClass|enumerations+=Enumeration|associations+=Association)*; 
+ *   description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
+ *   Enumeration|associations+=Association)*; 
  * 
  * / *******************************************************************************
  *  * Copyright (c) 2009 Ordina and committers to Mod4j
@@ -70,11 +69,28 @@ protected class ThisRootNode extends RootToken {
  *  * Contributors:
  *  *     Ordina - initial implementation
  *  ******************************************************************************* /
+ * 
+ *   
+ * 	  
+ * 	        
+ * //	(types+= BusinessClassReference)*
+ * 	                
+ * 	          
+ * 	      
+ * 	 
+ * 	
+ * // COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+ * //BusinessClassReference:
+ * //    "from" referredModel=ID "import" name=ID  ";" 
+ * //    ;
  *
  **/
 
-// description=STRING? "domain" name=ID ";" types+=BusinessClassReference* (types+=
-// BusinessClass|enumerations+=Enumeration|associations+=Association)*
+// description=STRING? "domain" name=ID ";" (types+=BusinessClass|enumerations+=
+// Enumeration|associations+=Association)* 
+// 	  
+// 	        
+// //	(types+= BusinessClassReference)*
 protected class BusinessDomainModel_Group extends GroupToken {
 	
 	public BusinessDomainModel_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -87,9 +103,8 @@ protected class BusinessDomainModel_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessDomainModel_Alternatives_5(parent, this, 0, inst);
-			case 1: return new BusinessDomainModel_TypesAssignment_4(parent, this, 1, inst);
-			case 2: return new BusinessDomainModel_SemicolonKeyword_3(parent, this, 2, inst);
+			case 0: return new BusinessDomainModel_Alternatives_4(parent, this, 0, inst);
+			case 1: return new BusinessDomainModel_SemicolonKeyword_3(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -181,7 +196,8 @@ protected class BusinessDomainModel_NameAssignment_2 extends AssignmentToken  {
 
 }
 
-// ";"
+// ";"   
+// //	(types+= BusinessClassReference)*
 protected class BusinessDomainModel_SemicolonKeyword_3 extends KeywordToken  {
 	
 	public BusinessDomainModel_SemicolonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -201,65 +217,23 @@ protected class BusinessDomainModel_SemicolonKeyword_3 extends KeywordToken  {
 		
 }
 
-// types+=BusinessClassReference*
-protected class BusinessDomainModel_TypesAssignment_4 extends AssignmentToken  {
-	
-	public BusinessDomainModel_TypesAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4();
-	}
+// (types+=BusinessClass|enumerations+=Enumeration|associations+=Association)* 
+// //	(types+= BusinessClassReference)*
+protected class BusinessDomainModel_Alternatives_4 extends AlternativesToken {
 
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BusinessClassReference_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("types",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("types");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getBusinessClassReferenceRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassReferenceParserRuleCall_4_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BusinessDomainModel_TypesAssignment_4(parent, next, actIndex, consumed);
-			case 1: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// (types+=BusinessClass|enumerations+=Enumeration|associations+=Association)*
-protected class BusinessDomainModel_Alternatives_5 extends AlternativesToken {
-
-	public BusinessDomainModel_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessDomainModel_Alternatives_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getBusinessDomainModelAccess().getAlternatives_5();
+		return grammarAccess.getBusinessDomainModelAccess().getAlternatives_4();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessDomainModel_TypesAssignment_5_0(parent, this, 0, inst);
-			case 1: return new BusinessDomainModel_EnumerationsAssignment_5_1(parent, this, 1, inst);
-			case 2: return new BusinessDomainModel_AssociationsAssignment_5_2(parent, this, 2, inst);
+			case 0: return new BusinessDomainModel_TypesAssignment_4_0(parent, this, 0, inst);
+			case 1: return new BusinessDomainModel_EnumerationsAssignment_4_1(parent, this, 1, inst);
+			case 2: return new BusinessDomainModel_AssociationsAssignment_4_2(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -267,14 +241,14 @@ protected class BusinessDomainModel_Alternatives_5 extends AlternativesToken {
 }
 
 // types+=BusinessClass
-protected class BusinessDomainModel_TypesAssignment_5_0 extends AssignmentToken  {
+protected class BusinessDomainModel_TypesAssignment_4_0 extends AssignmentToken  {
 	
-	public BusinessDomainModel_TypesAssignment_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessDomainModel_TypesAssignment_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_5_0();
+		return grammarAccess.getBusinessDomainModelAccess().getTypesAssignment_4_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -291,7 +265,7 @@ protected class BusinessDomainModel_TypesAssignment_5_0 extends AssignmentToken 
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBusinessClassRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_5_0_0(); 
+				element = grammarAccess.getBusinessDomainModelAccess().getTypesBusinessClassParserRuleCall_4_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -302,23 +276,22 @@ protected class BusinessDomainModel_TypesAssignment_5_0 extends AssignmentToken 
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BusinessDomainModel_Alternatives_5(parent, next, actIndex, consumed);
-			case 1: return new BusinessDomainModel_TypesAssignment_4(parent, next, actIndex, consumed);
-			case 2: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new BusinessDomainModel_Alternatives_4(parent, next, actIndex, consumed);
+			case 1: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // enumerations+=Enumeration
-protected class BusinessDomainModel_EnumerationsAssignment_5_1 extends AssignmentToken  {
+protected class BusinessDomainModel_EnumerationsAssignment_4_1 extends AssignmentToken  {
 	
-	public BusinessDomainModel_EnumerationsAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessDomainModel_EnumerationsAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_5_1();
+		return grammarAccess.getBusinessDomainModelAccess().getEnumerationsAssignment_4_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -335,7 +308,7 @@ protected class BusinessDomainModel_EnumerationsAssignment_5_1 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getEnumerationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_5_1_0(); 
+				element = grammarAccess.getBusinessDomainModelAccess().getEnumerationsEnumerationParserRuleCall_4_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -346,23 +319,22 @@ protected class BusinessDomainModel_EnumerationsAssignment_5_1 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BusinessDomainModel_Alternatives_5(parent, next, actIndex, consumed);
-			case 1: return new BusinessDomainModel_TypesAssignment_4(parent, next, actIndex, consumed);
-			case 2: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new BusinessDomainModel_Alternatives_4(parent, next, actIndex, consumed);
+			case 1: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // associations+=Association
-protected class BusinessDomainModel_AssociationsAssignment_5_2 extends AssignmentToken  {
+protected class BusinessDomainModel_AssociationsAssignment_4_2 extends AssignmentToken  {
 	
-	public BusinessDomainModel_AssociationsAssignment_5_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessDomainModel_AssociationsAssignment_4_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_5_2();
+		return grammarAccess.getBusinessDomainModelAccess().getAssociationsAssignment_4_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -379,7 +351,7 @@ protected class BusinessDomainModel_AssociationsAssignment_5_2 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getAssociationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_5_2_0(); 
+				element = grammarAccess.getBusinessDomainModelAccess().getAssociationsAssociationParserRuleCall_4_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -390,9 +362,8 @@ protected class BusinessDomainModel_AssociationsAssignment_5_2 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BusinessDomainModel_Alternatives_5(parent, next, actIndex, consumed);
-			case 1: return new BusinessDomainModel_TypesAssignment_4(parent, next, actIndex, consumed);
-			case 2: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new BusinessDomainModel_Alternatives_4(parent, next, actIndex, consumed);
+			case 1: return new BusinessDomainModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -403,169 +374,17 @@ protected class BusinessDomainModel_AssociationsAssignment_5_2 extends Assignmen
 /************ end Rule BusinessDomainModel ****************/
 
 
-/************ begin Rule BusinessClassReference ****************
- *
- * BusinessClassReference:
- *   "from" referredModel=ID "import" name=ID ";";
- *
- **/
-
-// "from" referredModel=ID "import" name=ID ";"
-protected class BusinessClassReference_Group extends GroupToken {
-	
-	public BusinessClassReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getBusinessClassReferenceAccess().getGroup();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BusinessClassReference_SemicolonKeyword_4(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getBusinessClassReferenceRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// "from"
-protected class BusinessClassReference_FromKeyword_0 extends KeywordToken  {
-	
-	public BusinessClassReference_FromKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassReferenceAccess().getFromKeyword_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
-// referredModel=ID
-protected class BusinessClassReference_ReferredModelAssignment_1 extends AssignmentToken  {
-	
-	public BusinessClassReference_ReferredModelAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessClassReferenceAccess().getReferredModelAssignment_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BusinessClassReference_FromKeyword_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("referredModel",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("referredModel");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getBusinessClassReferenceAccess().getReferredModelIDTerminalRuleCall_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "import"
-protected class BusinessClassReference_ImportKeyword_2 extends KeywordToken  {
-	
-	public BusinessClassReference_ImportKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassReferenceAccess().getImportKeyword_2();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BusinessClassReference_ReferredModelAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// name=ID
-protected class BusinessClassReference_NameAssignment_3 extends AssignmentToken  {
-	
-	public BusinessClassReference_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessClassReferenceAccess().getNameAssignment_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BusinessClassReference_ImportKeyword_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getBusinessClassReferenceAccess().getNameIDTerminalRuleCall_3_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ";"
-protected class BusinessClassReference_SemicolonKeyword_4 extends KeywordToken  {
-	
-	public BusinessClassReference_SemicolonKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassReferenceAccess().getSemicolonKeyword_4();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BusinessClassReference_NameAssignment_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule BusinessClassReference ****************/
-
-
 /************ begin Rule Association ****************
  *
  * Association:
  *   description=STRING? "association" source=[BusinessClass] sourceRoleName=ID
  *   sourceMultiplicity=Multiplicity (bidirectional?="<->"|"->") targetMultiplicity=
  *   Multiplicity target=[AbstractBusinessClass] targetRoleName=ID ordered?="ordered"?
- *   ";";
+ *   ";"; 
+ * // COMMETNED OUT: import does not work correctly, therefore should not be possible at all.
+ * //BusinessClassReference:
+ * //    "from" referredModel=ID "import" name=ID  ";" 
+ * //    ;
  *
  **/
 
