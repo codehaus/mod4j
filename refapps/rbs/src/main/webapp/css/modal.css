@@ -1,9 +1,0 @@
-div.wicket-mask-dark {	
-	opacity: 0.4!important; 
-	-moz-opacity:0.4!important;  
-	background-color: black!important; 
-	filter: alpha(opacity=40)!important; 
-}
-div.wicket-modal div.w_content_3 {
-	border:none!important;
-}
