@@ -43,7 +43,7 @@ context Association ERROR "Association target role ["+ this.targetRoleName +
      this.source.properties.forAll(e|e.name != this.targetRoleName)
 ;
 
-// target role name conflicts with property name
+// source role name conflicts with property name
 context Association ERROR "Association source role ["+ this.sourceRoleName + 
                           "] conflicts with property from target class [" + this.target.name + "]" :
      this.bidirectional implies (
@@ -51,7 +51,7 @@ context Association ERROR "Association source role ["+ this.sourceRoleName +
      )
 ;
 
-// target role name conflicts with property name
+// ordered and bidirectional associations do not go together
 context Association ERROR "An ordered association source may not be bidirectional" :
      this.ordered implies ( ! this.bidirectional )
 ;
@@ -78,8 +78,6 @@ context Property ERROR "Name of Attribute [" + this.name + "] is not unique":
      e != this implies e.name != this.name) ;
 
 context Property ERROR "The dataType of property [" + this.name + "] is not specified.":
-//      true; 
-//	print("METATYPE ==> " + this.metaType.name)->
     ((this.metaType.name.endsWith("EnumerationPropertyImpl"))
 //    ((this.metaType.isAssignableFrom(EnumerationProperty) )
     ?    (true)
