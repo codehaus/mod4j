@@ -42,7 +42,8 @@
         <aop:pointcut id="«service.name»ServiceMethods" expression="execution(* «javaLocalServiceInterfacePath(service.name)».*(..))"/>
         <aop:advisor advice-ref="txAdvice«service.name.toFirstLower()»Service" pointcut-ref="«service.name»ServiceMethods" order="30"/>
         <aop:aspect ref="loggingAspect">
-            <aop:around pointcut-ref="«service.name»ServiceMethods" method="log" />
+            <aop:before pointcut-ref="«service.name»ServiceMethods" method="logBefore" />
+            <aop:after pointcut-ref="«service.name»ServiceMethods" method="logAfter" />
         </aop:aspect>
         <aop:aspect ref="timingAspect">
             <aop:around pointcut-ref="«service.name»ServiceMethods"

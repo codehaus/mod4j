@@ -39,12 +39,11 @@
         <aop:pointcut id="«service.name»BusinessMethods"
             expression="execution(* «javaDomainServiceClassPath(service.name)».*(..))" />
         <aop:aspect ref="loggingAspect">
-            <aop:around pointcut-ref="«service.name»BusinessMethods"
-                method="log" />
+            <aop:before pointcut-ref="«service.name»BusinessMethods" method="logBefore" />
+            <aop:after pointcut-ref="«service.name»BusinessMethods" method="logAfter" />
         </aop:aspect>
         <aop:aspect ref="timingAspect">
-            <aop:around pointcut-ref="«service.name»BusinessMethods"
-                method="time" />
+            <aop:around pointcut-ref="«service.name»BusinessMethods" method="time" />
         </aop:aspect>
     </aop:config>
     «ENDFOREACH»

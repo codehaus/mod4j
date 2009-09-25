@@ -11,14 +11,26 @@ import org.springframework.core.Ordered;
  * @author Philippe Tjon-a-Hen
  */
 public class TimingAspect implements Ordered {
-    private final static Log log = LogFactory.getLog(TimingAspect.class);
 
-    public Object time(ProceedingJoinPoint call) throws Throwable {
-        long startTimer = System.currentTimeMillis();
-        Object point = call.proceed();
-        log.trace("Execution of method [" + call.getTarget().getClass().getName() + "." + call.getSignature().getName()
-                + "] in " + (System.currentTimeMillis() - startTimer) + " milliseconds");
-        return point;
+    /**
+     * Logs the delta between entry and exit of an advised method.
+     * 
+     * @param call The intercepted {@link ProceedingJoinPoint}.
+     * @return The object the intercepted method call returns.
+     * @throws Throwable Any {@link Throwable} thrown by the intercepted method call.
+     */
+    public Object time(final ProceedingJoinPoint call) throws Throwable {
+        final long startTimer = System.currentTimeMillis();
+
+        try {
+            return call.proceed();
+        } finally {
+            final Log log = LogFactory.getLog(call.getTarget().getClass());
+            if (log.isTraceEnabled()) {
+                final long delta = System.currentTimeMillis() - startTimer;
+                log.trace("Execution of method [" + call.getSignature().getName() + "] in " + delta + " milliseconds");
+            }
+        }
     }
 
     private int order;
@@ -30,7 +42,12 @@ public class TimingAspect implements Ordered {
         return order;
     }
 
-    public void setOrder(int order) {
+    /**
+     * Allows the order of this aspect to be set.
+     * 
+     * @param order the order to set.
+     */
+    public void setOrder(final int order) {
         this.order = order;
     }
 

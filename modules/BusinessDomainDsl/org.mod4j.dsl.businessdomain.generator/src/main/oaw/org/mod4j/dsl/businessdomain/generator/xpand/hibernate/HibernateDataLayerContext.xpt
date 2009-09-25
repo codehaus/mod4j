@@ -32,7 +32,8 @@
                       expression="execution(* «getDaoImplPackage()».*DaoImpl.*(..))"/>
     
         <aop:aspect ref="loggingAspect">
-            <aop:around pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="log"/>
+            <aop:before pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="logBefore" />
+            <aop:after pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="logAfter" />
         </aop:aspect>
         <aop:aspect ref="timingAspect">
             <aop:around pointcut-ref="«getApplicationName().toFirstLower()»DataMethods" method="time"/>
