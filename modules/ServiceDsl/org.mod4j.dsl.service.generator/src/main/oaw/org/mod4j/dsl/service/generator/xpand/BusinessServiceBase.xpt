@@ -76,10 +76,10 @@
 «DEFINE ReadMethod FOR SpecialMethod»
     /**
      * Read an existing «dto.businessClass()».
-     * 
-     * @param object
+     * «description»
+     * @param id
      *            the id of the «dto.businessClass()» to read.
-     * @return 
+     * @return «javaDomainClass(dto.businessClass())»
      */
     public «javaDomainClass(dto.businessClass())» read«this.dto.businessClass()»(Long id);
 «ENDDEFINE»
@@ -87,7 +87,7 @@
 «DEFINE UpdateMethod FOR SpecialMethod»
    /**
      * Update an existing «businessClass(this.dto)».
-     * 
+     * «description»
      * @param object
      *            the representation of the modified «businessClass(this.dto)».
      * @return the «businessClass(this.dto)» updated, possibly modified during update.
@@ -97,8 +97,10 @@
 
 «DEFINE DeleteMethod FOR SpecialMethod»
     /**
-     * @param id
-     *            the id of the «javaDomainClass(dto.businessClass())» to delete.
+     * Delete an «javaDomainClass(dto.businessClass())»
+     * «description»
+     * @param object
+     *            the «javaDomainClass(dto.businessClass())» object to delete.
      */
     public void delete«dto.businessClass()»(«javaDomainClass(dto.businessClass())» object);
 «ENDDEFINE»
@@ -106,7 +108,7 @@
 «DEFINE ListallMethod FOR SpecialMethod»
     /**
      * Read all existing «dto.businessClass()».
-     * 
+     * «description» 
      * @return List<«javaDomainClass(dto.businessClass())»>
      */
     public List<«javaDomainClass(dto.businessClass())»> listAll«this.dto.businessClass()»s();
@@ -115,8 +117,10 @@
 «DEFINE FindMethod FOR SpecialMethod»
 «LET javaDomainClass(dto.businessClass()) AS Class»
     /**
-     * Find all «Class» that look like the «dto.name».
-     * 
+     * Find all «Class» obejcts that look like the example object.
+     * «description»
+     * @param example
+     *            The object to which the result objects must conform.
      * @return List<«Class»>
      */
     public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example);
@@ -131,24 +135,72 @@
 	«LET getPropertyValue(assoc, "ordered") AS ordered»
     «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 		«IF method.type == MethodType::ADDTO»
-		public void «genName»(«method.main.businessClass()» whole, «method.part.businessClass()» part) ;
+			/**
+			 * Add a «method.part.businessClass()» to an «method.main.businessClass()» object.
+			 * «method.description»
+		     * @param whole
+		     *            The object to which to add.
+		     * @param part
+		     *            The object that is added to the whole.
+			 */
+			public void «genName»(«method.main.businessClass()» whole, «method.part.businessClass()» part) ;
 			«IF ordered == "true" »
-			public void «genName»(«method.main.businessClass()» whole, int index, «method.part.businessClass()» part) ;
+				/**
+				 * Add a «method.part.businessClass()» to an «method.main.businessClass()» object at a specific index.
+				 * «method.description»
+			     * @param whole
+			     *            The object to which to add.
+			     * @param index
+			     *            The location where the part should be added.
+			     * @param part
+			     *            The object that is added to the whole.
+				 */
+				public void «genName»(«method.main.businessClass()» whole, int index, «method.part.businessClass()» part) ;
 			«ENDIF»
 		«ENDIF»
 	
 		«IF method.type == MethodType::REMOVEFROM»
-		public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, «method.part.businessClass()» part) ;
+		    /**
+		     * Remove an «method.part.businessClass()» from an «method.main.businessClass()»
+		     * «method.description»
+		     * @param whole
+		     *            The object from which to remove.
+		     * @param part
+		     *            The object that is removed from the whole.
+		     */
+			public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, «method.part.businessClass()» part) ;
 			«IF ordered == "true" »
-			public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) ;
+			    /**
+			     * Remove an «method.part.businessClass()» from an «method.main.businessClass()»
+			     * «method.description»
+			     * @param whole
+			     *            The object from which to remove.
+			     * @param index
+			     *            The location of the object to be removed.
+			     */
+				public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) ;
 			«ENDIF»
 		«ENDIF»
 
 		«IF method.type == MethodType::GETFROM»
 			«IF (mult == "ONE")»
-			public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
+	    	    /**
+	    	     * Get the «method.part.businessClass()» from an «method.main.businessClass()»
+			     * «method.description»
+			     * @param source
+			     *            The object from which to get the «method.part.businessClass()»
+			     * @return «method.part.businessClass()»
+	    	     */
+				public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
 			«ELSE»
-			public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
+	    	    /**
+	    	     * Get the «method.part.dtoBaseBusinessClass()» from «method.main.businessClass()»
+			     * «method.description»
+			     * @param source
+			     *            The object from which to get the «method.part.dtoBaseBusinessClass()»
+			     * @return List<«method.part.dtoBaseBusinessClass()»>
+	    	     */
+				public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
 			«ENDIF»
 		«ENDIF»
 

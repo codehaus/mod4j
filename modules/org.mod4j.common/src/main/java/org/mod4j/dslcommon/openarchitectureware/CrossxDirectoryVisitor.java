@@ -92,7 +92,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
     }
 
     // TODO extensions import from other files
-    private static final String CROSSX_EXTENSION = ".crossx";
+    private static final String CROSSX_EXTENSION = ".crossx~";
 
     private void generateCrossxSymbols(File file) throws Mod4jWorkflowException {
         if (oawWorkflow == null) {

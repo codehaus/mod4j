@@ -103,11 +103,7 @@
 
 «DEFINE ReadMethod FOR SpecialMethod»
     /**
-     * Read an existing «this.dto.name».
-     * 
-     * @param object
-     *            the id of the «this.dto.name» to read.
-     * @return 
+     * {@inheritDoc}
      */
     public «JavaType(this.dto)» «this.name»(Long id) {
         «javaDomainClass(dto.businessClass())» result =
@@ -141,8 +137,7 @@
 
 «DEFINE DeleteMethod FOR SpecialMethod»
     /**
-     * @param object
-     *            The «this.dto.name» object to delete.
+     * {@inheritDoc}
      */
     public void «this.name»(«JavaType(this.dto)» object){
 		
@@ -162,7 +157,7 @@
 
 «DEFINE ListallMethod FOR SpecialMethod»
     /**
-     * «description»
+     * {@inheritDoc}
      */
     public List<«JavaType(this.dto)»> «this.name»( ) {
 		List<«this.dto.businessClass()»> all = «javaDomainServiceInterface(model.name).toFirstLower()».listAll«this.dto.businessClass()»s();
@@ -180,7 +175,7 @@
 «LET JavaType(this.dto) AS dtoType»
 «LET javaDomainClass(this.dto.businessClass()) AS Class»
     /**
-     * «description»
+     * {@inheritDoc}
      */
 	public List<«dtoType»> «this.name»(«dtoType» example) {
 		List<«Class»> found = null;
@@ -202,7 +197,7 @@
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
-    // Association related service method
+// Association related service methods
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
 	«LET getAssociation(method) AS assoc» 
     «LET getPropertyValue(assoc, "Multiplicity") AS mult»
@@ -227,6 +222,9 @@
 	
 		«REM»And the removeFrom method«ENDREM»
 		«IF method.type == MethodType::REMOVEFROM»
+	    /**
+	     * {@inheritDoc}
+	     */
 		public void «method.name»(«method.main.name» whole, «method.part.name» part) {
 			if( part == null ) { 
 			    throw new ServiceException("removeFrom«method.rolename.toFirstUpper()»: parameter [part] should not be null");
@@ -252,13 +250,16 @@
 «ENDDEFINE»
 
 «DEFINE addToMethod FOR AssociationMethod»
+    /**
+     * {@inheritDoc}
+     */
 	public void «this.name»(«this.main.name» whole, «this.part.name» part) {
-			if( part == null ) { 
-			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [part] should not be null");
-			}
-			if( whole == null ) { 
-			    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
-			}
+		if( part == null ) { 
+		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [part] should not be null");
+		}
+		if( whole == null ) { 
+		    throw new ServiceException("addTo«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
+		}
 
 		«this.part.businessClass()» partBusinessObject = «javaDomainServiceInterface(this.model.name).toFirstLower()».read«this.part.businessClass()»(part.getId());
 		if(partBusinessObject == null) { 
@@ -276,6 +277,9 @@
 «ENDDEFINE»
 
 «DEFINE setMethod FOR AssociationMethod»
+    /**
+     * {@inheritDoc}
+     */
 	public void «this.name»(«this.main.name» whole, «this.part.name» part) {
 			if( whole == null ) { 
 			    throw new ServiceException("set«this.rolename.toFirstUpper()»: parameter [whole] should not be null");
@@ -297,6 +301,9 @@
 
 «DEFINE getOneMethod FOR AssociationMethod»
 «LET javaDomainServiceInterface(this.model.name).toFirstLower() AS domainService»
+    /**
+     * {@inheritDoc}
+     */
     public «JavaType(this.part)» «this.name»(«this.main.name» source){
 		if (source == null) {
 			throw new ServiceException(
@@ -317,6 +324,9 @@
 
 «DEFINE getManyMethod FOR AssociationMethod»
 «LET javaDomainServiceInterface(this.model.name).toFirstLower() AS domainService»
+    /**
+     * {@inheritDoc}
+     */
 	public «JavaType(this.part)» «this.name»(«this.main.name» source){
 		if (source == null) {
 			throw new ServiceException(

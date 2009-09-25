@@ -92,7 +92,7 @@
          point="org.eclipse.ui.ide.resourceFilters">
       <filter
             selected="true"
-            pattern="*.crossx">
+            pattern="*.crossx~">
       </filter>
    </extension>
    <extension

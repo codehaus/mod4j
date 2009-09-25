@@ -69,13 +69,19 @@
 «ENDDEFINE»
 
 «DEFINE CustomMethod FOR CustomMethod»
-		/** 
-		 * Description: «this.description»
-	     * @params «this.inParameters.name»
-	     * @return «this.output.name»
-	     */
-	    public «JavaType(this.output)» «this.name» ( «EXPAND Parameter FOREACH this.inParameters SEPARATOR ','» );
-«ENDDEFINE»
+«LET JavaType(this.output) AS returnType»
+	/** 
+	 * Description: «this.description»
+	 «FOREACH inParameters AS param-»
+	 * @param «param.name» A custom parameter
+	 «ENDFOREACH-»
+	«IF returnType == "void"-» «ELSE-» 
+	 * @return «returnType» 
+	«ENDIF-»
+     */
+    public «JavaType(this.output)» «this.name» ( «EXPAND Parameter FOREACH this.inParameters SEPARATOR ','» );
+ «ENDLET»
+ «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»
 «JavaType(type)»  «this.name»
@@ -85,7 +91,6 @@
     /**
      * Create a new «this.dto.name».
      * «description»
-     *
      * @param object 
      *            The «this.dto.name» to create.
      * @return the «this.dto.name» created, possibly modified during creation.
@@ -97,10 +102,9 @@
     /**
      * Read an existing «this.dto.name».
      * «description»
-     *
-     * @param object 
+     * @param id
      *            The id of the «this.dto.name» to read.
-     * @return 
+     * @return The «this.dto.name» with id, or null if no object with id exists.
      */
     public «JavaType(this.dto)» «this.name»(Long id);
 «ENDDEFINE»
@@ -109,7 +113,6 @@
     /**
      * Update an existing «this.dto.name».
      * «description»
-     * 
      * @param object
      *            The «this.dto.name» containing the modifications for the corresponding «JavaType(this.dto)»
      * @return the «this.dto.name» updated, possibly modified during update.
@@ -119,52 +122,87 @@
 
 «DEFINE DeleteMethod FOR SpecialMethod»
     /**
+     * Delete an existing «this.dto.name».
      * «description»
-     *
-     * @param id
-     *            The id of the «this.dto.name» to delete.
+     * @param object
+     *            The «this.dto.name» object to delete.
      */
     public void «this.name»(«JavaType(this.dto)» object);
 «ENDDEFINE»
 
 «DEFINE ListallMethod FOR SpecialMethod»
     /**
+     * Return a list of all objects of type «JavaType(this.dto)»
      * «description»
+     * @return the list of all «JavaType(this.dto)» objects.
      */
     public List<«JavaType(this.dto)»> «this.name»( );
 «ENDDEFINE»
 
 «DEFINE FindMethod FOR SpecialMethod»
     /**
-     * Find method: «description»
+     * Find alle objects of type «JavaType(this.dto)» that conform to the example object
+     * «description»
+     * @param example
+     *            The objects to which the result objects need to conform.
+     * @return the list of all «JavaType(this.dto)» objects conforming to the example object.
      */
     public List<«JavaType(this.dto)»> «this.name»(«JavaType(this.dto)» example);
 «ENDDEFINE»
 
 «DEFINE Associations FOR ServiceModel»
 	«FOREACH this.methods.typeSelect(AssociationMethod) AS method»
-	«LET getAssociation(method) AS assoc» 
-	«LET getPropertyValue(assoc, "Multiplicity") AS mult»
-    «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
-    	«IF method.type == MethodType::ADDTO»
-            public void «method.name»(«method.main.name» whole, «method.part.name» part);
-		«ENDIF»
-		
-		«IF method.type == MethodType::REMOVEFROM»
-            public void «method.name»(«method.main.name» whole, «method.part.name» part);
-		«ENDIF»
-	
-		«IF method.type == MethodType::GETFROM»
-			«IF (mult == "ONE")»
-                public «JavaType(method.part)» «method.name»(«method.main.name» source);
-			«ELSE»
-                public «JavaType(method.part)» «method.name»(«method.main.name» source);
+		«LET getAssociation(method) AS assoc» 
+		«LET getPropertyValue(assoc, "Multiplicity") AS mult»
+	    «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
+	    	«IF method.type == MethodType::ADDTO»
+	    	    /**
+	    	     * Add an «method.part.name» to an «method.main.name»
+			     * «method.description»
+			     * @param whole
+			     *            The object to which to add.
+			     * @param part
+			     *            The object that is added to the whole.
+	    	     */
+	            public void «method.name»(«method.main.name» whole, «method.part.name» part);
 			«ENDIF»
-		«ENDIF»
-	
-	«ENDLET»
-	«ENDLET»
-	«ENDLET»
+			
+			«IF method.type == MethodType::REMOVEFROM»
+	    	    /**
+	    	     * Remove an «method.part.name» from an «method.main.name»
+			     * «method.description»
+			     * @param whole
+			     *            The object from which to remove.
+			     * @param part
+			     *            The object that is removed from the whole.
+	    	     */
+	            public void «method.name»(«method.main.name» whole, «method.part.name» part);
+			«ENDIF»
+		
+			«IF method.type == MethodType::GETFROM»
+				«IF (mult == "ONE")»
+		    	    /**
+		    	     * Get the «method.part.name» from an «method.main.name»
+				     * «method.description»
+				     * @param source
+				     *            The object from which to get the «method.part.name»
+				     * @return «JavaType(method.part)» 
+		    	     */
+	                public «JavaType(method.part)» «method.name»(«method.main.name» source);
+				«ELSE»
+		    	    /**
+		    	     * Get the «method.part.name» from «method.main.name»
+				     * «method.description»
+				     * @param source
+				     *            The object from which to get the «method.part.name»
+				     * @return «JavaType(method.part)» 
+		    	     */
+	                public «JavaType(method.part)» «method.name»(«method.main.name» source);
+				«ENDIF»
+			«ENDIF»
+		«ENDLET»
+		«ENDLET»
+		«ENDLET»
 	«ENDFOREACH»
 «ENDDEFINE»
 

@@ -64,6 +64,8 @@ import org.mod4j.eclipse.views.filetracker.FileTrackerView;
  */
 public class Mod4jBuilder extends IncrementalProjectBuilder {
 
+    private static final String MOD4JPROJECT_FILENAME = "mod4jproject.xml~";
+
     private static final String MOD4J_BUILDER_CONSOLE = "mod4j.projectbuilder";
 
 	protected MessageConsoleStream console = null;
@@ -86,7 +88,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
     public static final String bundleName = "org.mod4j.eclipse";
 
-    public static final String CROSSX_EXTENSION = ".crossx";
+    public static final String CROSSX_EXTENSION = ".crossx~";
 
     public static final String MODEL_DIR = "src/model";
 
@@ -413,7 +415,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 //        Mod4jTracker.getFileTracker().readTracker(project.getWorkspace().getRoot().getLocation().toString()
 //				+ "/" + "mod4jgenerator.xml");
         ProjectTrack projectTrack = new ProjectTrack();
-        projectTrack.readProjectTracker(project.getLocation().toString() + "/" + "mod4jproject.xml");
+        projectTrack.readProjectTracker(project.getLocation().toString() + "/" + MOD4JPROJECT_FILENAME);
         Mod4jTracker.getFileTracker().addProjectTrack(projectTrack);
 	}
     
@@ -569,7 +571,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             // Tell filetracker to close current resource and save the current project track to file.
             Mod4jTracker.getFileTracker().finishResource(modelFilePath, newAppPath, projectPath);
             Mod4jTracker.getFileTracker().getCurrentProject().writeProjectTrack(
-            		getProject().getLocation().toString() + "/" + "mod4jproject.xml");
+            		getProject().getLocation().toString() + "/" + MOD4JPROJECT_FILENAME);
 
         }
     }

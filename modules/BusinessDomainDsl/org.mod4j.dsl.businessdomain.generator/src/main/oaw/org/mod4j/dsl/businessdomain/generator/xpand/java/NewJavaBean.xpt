@@ -140,6 +140,9 @@
      */
     public final class «javaDomainExampleClass(name)» extends «javaDomainClass(name)» {
         
+        /**
+         * Minimal public constructor
+         */
         public «javaDomainExampleClass(name)»() {
             activateValidation(false);
             «EXPAND addNullSetters FOR this -»

@@ -64,11 +64,7 @@
 
 «DEFINE CreateMethod FOR SpecialMethod»
     /**
-     * Create a new «dto.businessClass()».
-     * 
-     * @param object
-     *            the «dto.businessClass()» to create.
-     * @return the «dto.businessClass()» created, possibly modified during creation.
+     * {@inheritDoc} 
      */
     public «javaDomainClass(dto.businessClass())» create«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».add(object);
@@ -77,11 +73,7 @@
 
 «DEFINE ReadMethod FOR SpecialMethod»
     /**
-     * Read an existing «dto.businessClass()».
-     * 
-     * @param object
-     *            the id of the «dto.businessClass()» to read.
-     * @return 
+     * {@inheritDoc} 
      */
     public «javaDomainClass(dto.businessClass())»  read«this.dto.businessClass()»(Long id){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».retrieve(id);
@@ -89,12 +81,8 @@
 «ENDDEFINE»
 
 «DEFINE UpdateMethod FOR SpecialMethod»
-   /**
-     * Update an existing «dto.businessClass()».
-     * 
-     * @param object
-     *            the representation of the modified «businessClass(this.dto)».
-     * @return the «businessClass(this.dto)» updated, possibly modified during update.
+    /**
+     * {@inheritDoc} 
      */
     public «javaDomainClass(dto.businessClass())»  update«this.dto.businessClass()»(«javaDomainClass(dto.businessClass())» object) {
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».update(object);
@@ -103,8 +91,7 @@
 
 «DEFINE DeleteMethod FOR SpecialMethod»
     /**
-     * @param id
-     *            the id of the «dto.businessClass()» to delete.
+     * {@inheritDoc} 
      */
     public void delete«this.dto.businessClass()»(«businessClass(this.dto)» object){
         «javaDaoInterface(dto.businessClass()).toFirstLower()
@@ -114,9 +101,7 @@
 
 «DEFINE ListallMethod FOR SpecialMethod»
     /**
-     * List all «dto.businessClass()»s.
-     * 
-     * @return List<«dto.businessClass()»>
+     * {@inheritDoc} 
      */
     public List<«javaDomainClass(dto.businessClass())»>  listAll«this.dto.businessClass()»s(){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».listAll();
@@ -126,9 +111,7 @@
 «DEFINE FindMethod FOR SpecialMethod»
 «LET javaDomainClass(dto.businessClass()) AS Class»
     /**
-     * Find all «Class» that look like the «dto.name».
-     * 
-     * @return List<«Class»>
+     * {@inheritDoc} 
      */
     public List<«Class»> find«Class»ByExample(«javaDomainExampleClass(dto.businessClass())» example) {
         return this.«javaDaoInterface(dto.businessClass()).toFirstLower()».findByExample(example);
@@ -145,42 +128,60 @@
     «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 		«REM»The addTo method«ENDREM»	
 		«IF method.type == MethodType::ADDTO»
-		public void «genName»(«method.main.businessClass()» whole, «method.part.businessClass()» part) {
-			whole.«genName»(part);
-			«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
-		}
+		    /**
+		     * {@inheritDoc} 
+		     */
+			public void «genName»(«method.main.businessClass()» whole, «method.part.businessClass()» part) {
+				whole.«genName»(part);
+				«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
+			}
 			«IF ordered == "true" »
-			public void «genName»(«method.main.businessClass()» whole, int index, «method.part.businessClass()» part) {
-                whole.«genName»(index, part); 
-	            «javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
-	        }
+			    /**
+			     * {@inheritDoc} 
+			     */
+				public void «genName»(«method.main.businessClass()» whole, int index, «method.part.businessClass()» part) {
+	                whole.«genName»(index, part); 
+		            «javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
+		        }
 			«ENDIF»
 		«ENDIF»
 	
 		«REM»The removefrom method«ENDREM»	
 		«IF (method.type == MethodType::REMOVEFROM) && (mult == "MANY") »
-		public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, «method.part.businessClass()» part) {
-			whole.removeFrom«method.rolename.toFirstUpper()»(part);
-			«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
-			«javaDaoInterface(method.part.businessClass()).toFirstLower()».update(part);
-		}
-			«IF ordered == "true" »
-			public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) {
-				whole.removeFrom«method.rolename.toFirstUpper()»(index);
+		    /**
+		     * {@inheritDoc} 
+		     */
+			public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, «method.part.businessClass()» part) {
+				whole.removeFrom«method.rolename.toFirstUpper()»(part);
 				«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
+				«javaDaoInterface(method.part.businessClass()).toFirstLower()».update(part);
 			}
+			«IF ordered == "true" »
+			    /**
+			     * {@inheritDoc} 
+			     */
+				public void removeFrom«method.rolename.toFirstUpper()»(«method.main.businessClass()» whole, int index) {
+					whole.removeFrom«method.rolename.toFirstUpper()»(index);
+					«javaDaoInterface(method.main.businessClass()).toFirstLower()».update(whole);
+				}
 			«ENDIF»
 		«ENDIF»
 		
 		«IF method.type == MethodType::GETFROM»
 			«IF (mult == "ONE")»
-			public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
-			    return source.get«method.rolename.toFirstUpper()»();
-			}
+			    /**
+			     * {@inheritDoc} 
+			     */
+				public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+				    return source.get«method.rolename.toFirstUpper()»();
+				}
 			«ELSE»			
-			public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
-			    return new ArrayList<«method.part.dtoBaseBusinessClass()»>( source.get«method.rolename.toFirstUpper()»() );
-			}
+			    /**
+			     * {@inheritDoc} 
+			     */
+				public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+				    return new ArrayList<«method.part.dtoBaseBusinessClass()»>( source.get«method.rolename.toFirstUpper()»() );
+				}
 			«ENDIF»
 		«ENDIF»
 		

@@ -56,7 +56,7 @@ public interface «javaDaoBaseInterface(this.name)» {
      * 
      * @param object
      *                the «javaDomainClass(this.name)» to store/update
-     * @return
+     * @return the updated object
      */
     «javaDomainClass(this.name)» update(«javaDomainClass(this.name)» object);
 
@@ -79,6 +79,8 @@ public interface «javaDaoBaseInterface(this.name)» {
      * Selects «javaDomainClass(this.name)»s from the database that matches an
      * example object using Query-by-Example(QBE).
      * 
+     * @param example
+     *                the example object to which the result objects need to conform
      * @return a List of «javaDomainClass(this.name)» objects.
      */
     List<«javaDomainClass(this.name)»> findByExample(«javaDomainExampleClass(this.name)» example);

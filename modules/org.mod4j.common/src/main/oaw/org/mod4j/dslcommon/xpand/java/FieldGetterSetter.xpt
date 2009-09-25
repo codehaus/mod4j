@@ -37,3 +37,24 @@
 	    return this.«this»;
 	}
 «ENDDEFINE»
+
+«REM»
+    identical to the filed() operation, but with inheritedDoc as comment.
+«ENDREM»
+«DEFINE fieldInherited(String type) FOR String »
+	protected «type» «this»;
+	
+    /**
+     * {@inheritDoc}
+	 */
+	public void set«this.toFirstUpper()»(«type» object) {
+	    this.«this» = object;
+    }
+	
+    /**
+     * {@inheritDoc}
+	 */
+	public «type» get«this.toFirstUpper()»() {
+	    return this.«this»;
+	}
+«ENDDEFINE»

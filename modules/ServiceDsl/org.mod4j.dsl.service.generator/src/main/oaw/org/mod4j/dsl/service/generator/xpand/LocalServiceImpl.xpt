@@ -29,17 +29,17 @@
 	import «javaDomainServiceInterfacePath(name)»;
 	import «javaLocalServiceBaseClassPath(name)»;
 	«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»
-	import «getDtoPackage()».«javaClassName(dto.name)»;
+		import «getDtoPackage()».«javaClassName(dto.name)»;
 	«ENDFOREACH»
 	«FOREACH this.dtoReferences.select(e|e.dtoType() == "ListDto") AS dto -»
-	«LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
-	import «getServiceRootPackage()».dto.«baseDtoName»;
-	«ENDLET»
+		«LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
+		import «getServiceRootPackage()».dto.«baseDtoName»;
+		«ENDLET»
 	«ENDFOREACH»
 
 	«FOREACH this.dtoReferences.select(dto|dto.businessClass() != "void") AS dto -»
-	import «javaTranslatorClassPath(dto.name)»;
-	import «javaDomainClassPath(dto.businessClass())»;
+		import «javaTranslatorClassPath(dto.name)»;
+		import «javaDomainClassPath(dto.businessClass())»;
 	«ENDFOREACH»
 	
 	/**
@@ -48,9 +48,8 @@
 	public class «javaLocalServiceClass(name)» extends  «javaLocalServiceBaseClass(name)» {
 
 	«FOREACH this.methods.typeSelect(CustomMethod) AS method»
-		/** «this.description»
-	     * @params «method.inParameters.name»
-	     * @return «method.output.name»
+		/** 
+	     * {@inheritDoc}
 	     */
 	    public «JavaType(method.output)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "») {
 	        «IF method.output == null »
