@@ -12,13 +12,14 @@ import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.BusinessRuleException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @author Eric Jan Malotaux
  */
 public class CustomerValidationTest extends AbstractDaoTestCase {
 
-	@Autowired
+	@Autowired @Qualifier("default")
 	private CustomerDao customerDao;
 
 	protected DateTime date() {

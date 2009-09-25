@@ -29,6 +29,7 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @author Jos Warmer
@@ -36,7 +37,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class AssociationTest extends AbstractDaoTestCase {
 
-    @Autowired
+    @Autowired @Qualifier("default")
     private CustomerDao customerDao;
 
     @Autowired

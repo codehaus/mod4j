@@ -9,9 +9,10 @@ import org.company.recordshop.domain.Customer;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class EqualsTest extends AbstractDaoTestCase {
-    @Autowired
+    @Autowired @Qualifier("default")
     private CustomerDao customerDao;
 
     @Test

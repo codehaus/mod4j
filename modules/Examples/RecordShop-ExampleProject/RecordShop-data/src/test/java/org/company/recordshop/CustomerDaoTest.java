@@ -19,6 +19,7 @@ import org.company.recordshop.domain.SexeEnum;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
@@ -33,7 +34,7 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         }
     }
 
-    @Autowired
+    @Autowired @Qualifier("default")
     private CustomerDao customerDao;
 
 	protected DateTime date() {
