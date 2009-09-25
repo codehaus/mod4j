@@ -42,9 +42,21 @@
 	 */
 	abstract public class «javaDomainServiceBaseClass(name)» implements «javaDomainServiceBaseInterface(name)» {
 
-	«FOREACH this.uniqueBusinessClasses() AS cls -»
-		«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR javaDaoInterface(cls).toFirstLower()»    
-	«ENDFOREACH»
+  «FOREACH this.uniqueBusinessClasses() AS cls»
+      private final «javaDaoInterface(cls)» «javaDaoInterface(cls).toFirstLower()»;
+  «ENDFOREACH»
+
+  public «javaDomainServiceBaseClass(name)»
+    (
+	  «FOREACH this.uniqueBusinessClasses() AS cls SEPARATOR ','»
+	    final «javaDaoInterface(cls)» «javaDaoInterface(cls).toFirstLower()»
+		  «REM»«EXPAND FieldGetterSetter::field(javaDaoInterface(cls)) FOR javaDaoInterface(cls).toFirstLower()»«ENDREM»
+	  «ENDFOREACH»	  
+	  ) {
+	  «FOREACH this.uniqueBusinessClasses() AS cls»
+      this.«javaDaoInterface(cls).toFirstLower()» = «javaDaoInterface(cls).toFirstLower()»;
+    «ENDFOREACH»
+	 }
 
 
 	«EXPAND  CreateMethod  FOREACH this.uniqueMethods(MethodType::CREATE) »

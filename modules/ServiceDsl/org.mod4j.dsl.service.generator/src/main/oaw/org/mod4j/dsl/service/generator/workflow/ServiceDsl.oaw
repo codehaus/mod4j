@@ -72,7 +72,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::Generate FOR serviceModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier"  configFile="/org/mod4j/dsl/service/generator/workflow/code_formatter.properties"  />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
@@ -86,7 +86,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::ServiceLayer::Generate FOR serviceModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier"  configFile="/org/mod4j/dsl/service/generator/workflow/code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
@@ -99,7 +99,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::service::generator::xpand::BusinessLayer::generateMavenConfiguration FOR serviceModel"/>
         <outlet path="${applicationPath}">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier"  configFile="/org/mod4j/dsl/service/generator/workflow/code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>

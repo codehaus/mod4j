@@ -64,7 +64,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::Root FOR busModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" configFile="code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
@@ -77,7 +77,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DomainLayer::ExtensionPointGeneration FOR busModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" configFile="code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
@@ -91,7 +91,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genResources FOR busModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" configFile="code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
@@ -104,7 +104,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDao FOR busModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" configFile="code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
@@ -117,7 +117,7 @@
         <fileEncoding value="${fileEncoding}"/>
         <expand value="org::mod4j::dsl::businessdomain::generator::xpand::DataLayer::genDaoExtensions FOR busModel" />
         <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" configFile="code_formatter.properties" />
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>

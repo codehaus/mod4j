@@ -29,6 +29,7 @@ import «javaDaoBaseInterfacePath(this.name)»;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
 import org.springframework.orm.hibernate3.HibernateCallback;
@@ -43,6 +44,10 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  */
 public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport implements «javaDaoBaseInterface(this.name)» {
 
+ 	  public «javaDaoBaseClass(this.name)»(final SessionFactory sessionFactory) {
+		    setSessionFactory(sessionFactory);
+	  }
+	  
     public «javaDomainClass(this.name)» retrieve(Long id) {
         Object o = getHibernateTemplate().get(«javaDomainClass(this.name)».class, id);
         if (o == null) {

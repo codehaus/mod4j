@@ -64,20 +64,11 @@
     «ENDFOREACH»
     
     <!-- Application Layer  -->
-    «FOREACH allServices AS service»
-    <bean id="«service.name.toFirstLower()»Service"
-        class="«javaLocalServiceClassPath(service.name)»">
-        <property name="«javaDomainServiceInterface(service.name).toFirstLower()»" ref="«javaDomainServiceInterface(service.name).toFirstLower()»" />
-    	«FOREACH findAllSubSymbols(service, "DtoReference") AS dto -»
-        <property name="«javaTranslatorClass(dto.name).toFirstLower()»" ref="«javaTranslatorClass(dto.name).toFirstLower()»" />
-	    «ENDFOREACH-»
-    </bean>
-    «ENDFOREACH»
-  	«FOREACH allServices.findAllSubSymbols("DtoReference").name.toSet() AS dtoName -»
-    <bean id="«javaTranslatorClass(dtoName).toFirstLower()»"
-        class="«javaTranslatorClassPath(dtoName)»">
-    </bean>
-    «ENDFOREACH»
+    <!-- Enable autowiring via @Autowire annotations -->
+    <context:annotation-config />
+
+    <!-- Scan for components in a package (and its subpackages)  -->
+    <context:component-scan base-package="«getServiceRootPackage()»" />
 </beans>
 «ENDLET»
 «ENDDEFINE»

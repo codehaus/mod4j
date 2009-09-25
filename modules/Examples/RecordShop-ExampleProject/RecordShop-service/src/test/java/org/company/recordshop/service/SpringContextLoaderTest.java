@@ -43,7 +43,7 @@ public class SpringContextLoaderTest {
 		BeanFactoryReference reference = locator
 				.useBeanFactory("org.company.recordshop.service.Context");
 		CustomerServiceModelLocalService service = (CustomerServiceModelLocalService) reference
-				.getFactory().getBean("customerServiceModelService");
+				.getFactory().getBean("customerServiceModelLocalServiceImpl");
 	}
 
 	@Test

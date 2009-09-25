@@ -19,12 +19,14 @@
 
 «DEFINE datalayercontext FOR BusinessDomainDsl::BusinessDomainModel»
 <?xml version="1.0" encoding="UTF-8"?>
-«EXPAND XmlComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: HibernateDatlayerContext.xpt") FOR this»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: HibernateDataLayerContext.xpt") FOR this»
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+    xmlns:context="http://www.springframework.org/schema/context"
     xmlns:aop="http://www.springframework.org/schema/aop">
 
     <aop:config>
@@ -42,12 +44,12 @@
 
     <!--  Data layer part of infrastructure -->
 
-«FOREACH findAllSymbols( getProject(), "BusinessClass" ).name AS clsName»
-    <bean id="«clsName.toFirstLower()»Dao"
-        class="«getDaoImplPackage()».«clsName»DaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-«ENDFOREACH»
+    <!-- Enable autowiring via @Autowire annotations -->
+    <context:annotation-config />
+
+    <!-- Scan for components in a package (and its subpackages)  -->
+    <context:component-scan base-package="«getDataRootPackage()»" />
+
 
     <!--
         Locations of the Hibernate mapping files. To be referenced by the

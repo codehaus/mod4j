@@ -27,9 +27,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+    xmlns:context="http://www.springframework.org/schema/context"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:aop="http://www.springframework.org/schema/aop">
 
@@ -48,20 +50,11 @@
     </aop:config>
     «ENDFOREACH»
 
-    «FOREACH allServices AS service»
-    <bean id="«service.name.toFirstLower()»DomainService"
-        class="«javaDomainServiceClassPath(service.name)»">
-        «LET service.getPropertyValue("UniqueBusinessClasses") AS uniqueClasses»
-        «IF (uniqueClasses != null) && ( uniqueClasses.trim() != "" ) »
-	        «FOREACH uniqueClasses.split(",") AS cls»
-	        <property name="«javaDaoInterface(cls).toFirstLower()»" ref="«javaDaoInterface(cls).toFirstLower()»" />
-	        «ENDFOREACH»
-	    «ELSE»
-	        <!-- no classes defined in the application -->
-	    «ENDIF»
-        «ENDLET»
-    </bean>
-    «ENDFOREACH»
+    <!-- Enable autowiring via @Autowire annotations -->
+    <context:annotation-config />
+
+    <!-- Scan for components in a package (and its subpackages)  -->
+    <context:component-scan base-package="«getBusinessRootPackage()»" />
 
 </beans>
 «ENDLET»
