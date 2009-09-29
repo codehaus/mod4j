@@ -136,16 +136,24 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 							String appname = mainPage.getApplicationNameFieldValue();
 							IContainer modelFolder = pr.getFolder(MODEL_DIR);
 							Mod4jProjectCreator.createFile("mod4j.properties", modelFolder, propertiesContents(), monitor);
+							boolean createSamples = mainPage.shouldCreateSamples() ;
+							String modelFileName ;
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + BUSDOMAIN_PACKAGE);
-							String modelFileName = appname + ".busmod";
-							Mod4jProjectCreator.createFile(modelFileName, modelFolder, busmodSampleModelContents(), monitor);
+							
+							if( createSamples ){
+    							modelFileName = appname + ".busmod";
+    							Mod4jProjectCreator.createFile(modelFileName, modelFolder, busmodSampleModelContents(), monitor);
+							}
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + DATACONTRACT_PACKAGE);
-                            modelFileName = appname + ".dtcmod";
-                            Mod4jProjectCreator.createFile(modelFileName, modelFolder, dtcmodSampleModelContents(), monitor);
+                            if( createSamples ){
+                                modelFileName = appname + ".dtcmod";
+                                Mod4jProjectCreator.createFile(modelFileName, modelFolder, dtcmodSampleModelContents(), monitor);
+                            }
                             modelFolder = pr.getFolder(MODEL_DIR + "/" + SERVICE_PACKAGE);
-                            modelFileName = appname + ".sermod";
-                            Mod4jProjectCreator.createFile(modelFileName, modelFolder, sermodSampleModelContents(), monitor);
-                        
+                            if( createSamples ){
+                                modelFileName = appname + ".sermod";
+                                Mod4jProjectCreator.createFile(modelFileName, modelFolder, sermodSampleModelContents(), monitor);
+                            }
                     } catch (CoreException e) {
                         mainPage.setErrorMessage(e.getLocalizedMessage());
                     }

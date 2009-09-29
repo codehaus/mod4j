@@ -24,10 +24,14 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
@@ -116,10 +120,14 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	        composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
 	        createProjectNameGroup(composite);
+	        
 	        locationArea = new ProjectContentsLocationArea(getErrorReporter(), composite);
 	        if(initialApplicationNameFieldValue != null) {
 				locationArea.updateProjectName(getModelProjectName());
 			}
+	        
+            createSampleButton(composite);
+	        
 
 			// Scale the button based on the rest of the dialog
 			setButtonLayoutData(locationArea.getBrowseButton());
@@ -209,10 +217,10 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 
             applicationNameField.addListener(SWT.Modify, nameModifyListener);
 	                
-	        // new package label
-	        Label packageNameLabel = new Label(projectGroup, SWT.NONE);
-	        packageNameLabel.setText("Root package");
-	        packageNameLabel.setFont(parent.getFont());
+            // new package label
+            Label packageNameLabel = new Label(projectGroup, SWT.NONE);
+            packageNameLabel.setText("Root package");
+            packageNameLabel.setFont(parent.getFont());
 
 	        // new package name entry field
 	        packageNameField = new Text(projectGroup, SWT.BORDER);
@@ -221,7 +229,8 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	        packageNameField.setLayoutData(packagedata);
 	        packageNameField.setFont(parent.getFont());
 
-	        // Set the initial value first before listener
+             
+            // Set the initial value first before listener
 	        // to avoid handling an event during the creation.
 	        if (initialPackageNameFieldValue != null) {
 				packageNameField.setText(initialPackageNameFieldValue);
@@ -229,8 +238,39 @@ public class Mod4jWizardNewProjectCreationPage extends WizardPage { //WizardNewP
 	        packageNameField.addListener(SWT.Modify, nameModifyListener);
 
 	    }
+	    
+	    Button createSamplesButton;
+	    /**
+	     * Creates the "Other" group. This is typically a child of the "Control"
+	     * group.
+	     */
+	    void createSampleButton(Composite parent) {
 
+	      /* Create the controls */
+	      createSamplesButton = new Button(parent, SWT.CHECK);
+	      createSamplesButton.setText("Create sample model files");
 
+	      /* Add the listeners */
+//	      enabledButton.addSelectionListener(new SelectionAdapter() {
+//	          
+//	        boolean current = true;
+//	        public void widgetSelected(SelectionEvent event) {
+//	            setExampleWidgetEnabled();
+//	            if( current ) {
+//	                enabledButton.setSelection(false);
+//	            } else {
+//                    enabledButton.setSelection(false);
+//	            }
+//	        }
+//	      });
+
+	      /* Set the default state */
+	      createSamplesButton.setSelection(true);
+	    }
+
+	    public boolean shouldCreateSamples() {
+	        return createSamplesButton.getSelection();
+	    }
 	    /**
 	     * Returns the current project location path as entered by 
 	     * the user, or its anticipated initial value.
