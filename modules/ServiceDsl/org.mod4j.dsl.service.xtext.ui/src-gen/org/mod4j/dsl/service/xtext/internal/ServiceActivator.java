@@ -7,7 +7,6 @@ package org.mod4j.dsl.service.xtext.internal;
 import org.eclipse.xtext.ui.common.service.UIPluginModule;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.mod4j.eclipse.builder.Mod4jBuilder;
 import org.osgi.framework.BundleContext;
 
 import com.google.inject.Guice;
@@ -47,7 +46,5 @@ public class ServiceActivator extends AbstractUIPlugin {
 	protected UIPluginModule createUIPluginModule() {
 		return new UIPluginModule(this);
 	}
-	
-
 	
 }

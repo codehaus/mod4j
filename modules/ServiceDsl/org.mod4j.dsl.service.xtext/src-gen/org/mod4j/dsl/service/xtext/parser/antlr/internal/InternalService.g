@@ -531,15 +531,15 @@ ruleCustomMethod returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getCustomMethodAccess().getInKeyword_3_0(), null); 
     }
-'[' 
+'(' 
     {
-        createLeafNode(grammarAccess.getCustomMethodAccess().getLeftSquareBracketKeyword_3_1(), null); 
+        createLeafNode(grammarAccess.getCustomMethodAccess().getLeftParenthesisKeyword_3_1(), null); 
     }
-((	
+(	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getCustomMethodAccess().getInParametersParameterParserRuleCall_3_2_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getCustomMethodAccess().getInParametersParameterParserRuleCall_3_2_0(), currentNode); 
 	    }
 	    lv_inParameters_5=ruleParameter 
 	    {
@@ -556,13 +556,34 @@ ruleCustomMethod returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)';' 
+)(',' 
     {
-        createLeafNode(grammarAccess.getCustomMethodAccess().getSemicolonKeyword_3_2_1(), null); 
+        createLeafNode(grammarAccess.getCustomMethodAccess().getCommaKeyword_3_3_0(), null); 
     }
-)*']' 
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getCustomMethodAccess().getInParametersParameterParserRuleCall_3_3_1_0(), currentNode); 
+	    }
+	    lv_inParameters_7=ruleParameter 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getCustomMethodRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "inParameters", lv_inParameters_7, "Parameter", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+))*')' 
     {
-        createLeafNode(grammarAccess.getCustomMethodAccess().getRightSquareBracketKeyword_3_3(), null); 
+        createLeafNode(grammarAccess.getCustomMethodAccess().getRightParenthesisKeyword_3_4(), null); 
     }
 )?('out' 
     {
@@ -611,25 +632,9 @@ ruleParameter returns [EObject current=null]
     }:
 ((	
 	
-		
-		{
-			if ($current==null) {
-	            $current = factory.create(grammarAccess.getParameterRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-        }
-	RULE_ID
+	    lv_description_0=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_0_0(), "type"); 
-	}
-
-		// TODO assign feature to currentNode
-	
-)(	
-	
-	    lv_name_1=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+		createLeafNode(grammarAccess.getParameterAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
 	}
  
 	    {
@@ -639,7 +644,43 @@ ruleParameter returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_1, "ID", lastConsumedNode);
+	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+)?(	
+	
+		
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getParameterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_1_0(), "type"); 
+	}
+
+		// TODO assign feature to currentNode
+	
+)(	
+	
+	    lv_name_2=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getParameterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_2, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

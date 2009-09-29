@@ -15,39 +15,40 @@ T15 : 'from' ;
 T16 : 'import' ;
 T17 : 'method' ;
 T18 : 'in' ;
-T19 : '[' ;
-T20 : ']' ;
-T21 : 'out' ;
-T22 : 'crud' ;
-T23 : 'create' ;
-T24 : 'read' ;
-T25 : 'update' ;
-T26 : 'delete' ;
-T27 : 'listall' ;
-T28 : 'find' ;
-T29 : 'add' ;
-T30 : 'remove' ;
-T31 : 'get' ;
+T19 : '(' ;
+T20 : ',' ;
+T21 : ')' ;
+T22 : 'out' ;
+T23 : 'crud' ;
+T24 : 'create' ;
+T25 : 'read' ;
+T26 : 'update' ;
+T27 : 'delete' ;
+T28 : 'listall' ;
+T29 : 'find' ;
+T30 : 'add' ;
+T31 : 'remove' ;
+T32 : 'get' ;
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 897
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 938
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 899
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 940
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 901
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 942
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 903
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 944
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 905
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 946
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 907
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 948
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 909
+// $ANTLR src "../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g" 950
 RULE_ANY_OTHER : .;
 
 

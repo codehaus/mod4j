@@ -263,12 +263,14 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cInKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
-		private final Assignment cInParametersAssignment_3_2_0 = (Assignment)cGroup_3_2.eContents().get(0);
-		private final RuleCall cInParametersParameterParserRuleCall_3_2_0_0 = (RuleCall)cInParametersAssignment_3_2_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_2_1 = (Keyword)cGroup_3_2.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cInParametersAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cInParametersParameterParserRuleCall_3_2_0 = (RuleCall)cInParametersAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cInParametersAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cInParametersParameterParserRuleCall_3_3_1_0 = (RuleCall)cInParametersAssignment_3_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cOutKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cOutputAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -277,12 +279,12 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//CustomMethod:
-		//  description=STRING? "method" name=ID ("in" "[" (inParameters+=Parameter ";")* "]")? (
-		//  "out" output=[DtoReference])? ";";
+		//  description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
+		//  inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";";
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "method" name=ID ("in" "[" (inParameters+=Parameter ";")* "]")? (
-		//"out" output=[DtoReference])? ";"
+		//description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
+		//inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -300,29 +302,35 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//("in" "[" (inParameters+=Parameter ";")* "]")?
+		//("in" "(" inParameters+=Parameter ("," inParameters+=Parameter)* ")")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"in"
 		public Keyword getInKeyword_3_0() { return cInKeyword_3_0; }
 
-		//"["
-		public Keyword getLeftSquareBracketKeyword_3_1() { return cLeftSquareBracketKeyword_3_1; }
-
-		//(inParameters+=Parameter ";")*
-		public Group getGroup_3_2() { return cGroup_3_2; }
+		//"("
+		public Keyword getLeftParenthesisKeyword_3_1() { return cLeftParenthesisKeyword_3_1; }
 
 		//inParameters+=Parameter
-		public Assignment getInParametersAssignment_3_2_0() { return cInParametersAssignment_3_2_0; }
+		public Assignment getInParametersAssignment_3_2() { return cInParametersAssignment_3_2; }
 
 		//Parameter
-		public RuleCall getInParametersParameterParserRuleCall_3_2_0_0() { return cInParametersParameterParserRuleCall_3_2_0_0; }
+		public RuleCall getInParametersParameterParserRuleCall_3_2_0() { return cInParametersParameterParserRuleCall_3_2_0; }
 
-		//";"
-		public Keyword getSemicolonKeyword_3_2_1() { return cSemicolonKeyword_3_2_1; }
+		//("," inParameters+=Parameter)*
+		public Group getGroup_3_3() { return cGroup_3_3; }
 
-		//"]"
-		public Keyword getRightSquareBracketKeyword_3_3() { return cRightSquareBracketKeyword_3_3; }
+		//","
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
+
+		//inParameters+=Parameter
+		public Assignment getInParametersAssignment_3_3_1() { return cInParametersAssignment_3_3_1; }
+
+		//Parameter
+		public RuleCall getInParametersParameterParserRuleCall_3_3_1_0() { return cInParametersParameterParserRuleCall_3_3_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_3_4() { return cRightParenthesisKeyword_3_4; }
 
 		//("out" output=[DtoReference])?
 		public Group getGroup_4() { return cGroup_4; }
@@ -346,33 +354,41 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 	public class ParameterElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cTypeDtoReferenceCrossReference_0_0 = (CrossReference)cTypeAssignment_0.eContents().get(0);
-		private final RuleCall cTypeDtoReferenceIDTerminalRuleCall_0_0_1 = (RuleCall)cTypeDtoReferenceCrossReference_0_0.eContents().get(1);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTypeDtoReferenceCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
+		private final RuleCall cTypeDtoReferenceIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeDtoReferenceCrossReference_1_0.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Parameter:
-		//  type=[DtoReference] name=ID;
+		//  description=STRING? type=[DtoReference] name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//type=[DtoReference] name=ID
+		//description=STRING? type=[DtoReference] name=ID
 		public Group getGroup() { return cGroup; }
 
+		//description=STRING?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
+
 		//type=[DtoReference]
-		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
 
 		//[DtoReference]
-		public CrossReference getTypeDtoReferenceCrossReference_0_0() { return cTypeDtoReferenceCrossReference_0_0; }
+		public CrossReference getTypeDtoReferenceCrossReference_1_0() { return cTypeDtoReferenceCrossReference_1_0; }
 
 		//ID
-		public RuleCall getTypeDtoReferenceIDTerminalRuleCall_0_0_1() { return cTypeDtoReferenceIDTerminalRuleCall_0_0_1; }
+		public RuleCall getTypeDtoReferenceIDTerminalRuleCall_1_0_1() { return cTypeDtoReferenceIDTerminalRuleCall_1_0_1; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
 
 	public class SpecialMethodElements implements IParserRuleAccess {
@@ -692,8 +708,8 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 	}
 
 	//CustomMethod:
-	//  description=STRING? "method" name=ID ("in" "[" (inParameters+=Parameter ";")* "]")? (
-	//  "out" output=[DtoReference])? ";";
+	//  description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
+	//  inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";";
 	public CustomMethodElements getCustomMethodAccess() {
 		return (pCustomMethod != null) ? pCustomMethod : (pCustomMethod = new CustomMethodElements());
 	}
@@ -703,7 +719,7 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 	}
 
 	//Parameter:
-	//  type=[DtoReference] name=ID;
+	//  description=STRING? type=[DtoReference] name=ID;
 	public ParameterElements getParameterAccess() {
 		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
 	}

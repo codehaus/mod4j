@@ -157,14 +157,17 @@
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="in"/>
-          <tokens xsi:type="xtext:Keyword" value="["/>
+          <tokens xsi:type="xtext:Keyword" value="("/>
+          <tokens xsi:type="xtext:Assignment" feature="inParameters" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+          </tokens>
           <tokens xsi:type="xtext:Group" cardinality="*">
+            <tokens xsi:type="xtext:Keyword" value=","/>
             <tokens xsi:type="xtext:Assignment" feature="inParameters" operator="+=">
               <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
             </tokens>
-            <tokens xsi:type="xtext:Keyword" value=";"/>
           </tokens>
-          <tokens xsi:type="xtext:Keyword" value="]"/>
+          <tokens xsi:type="xtext:Keyword" value=")"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="out"/>
@@ -185,6 +188,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/service#//Parameter"/>
       </type>
       <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="description" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
