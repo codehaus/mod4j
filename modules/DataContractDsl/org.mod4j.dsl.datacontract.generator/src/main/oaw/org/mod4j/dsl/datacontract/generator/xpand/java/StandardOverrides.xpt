@@ -49,6 +49,9 @@
         result.append("«getDtoPackage()».«javaClassName(name)»[");
         result.append("id=");
         result.append(getId());
+        result.append(",");
+        result.append("version=");
+        result.append(getVersion());
         «FOREACH properties AS p»
             «EXPAND addAttribute FOR p -»
         «ENDFOREACH»

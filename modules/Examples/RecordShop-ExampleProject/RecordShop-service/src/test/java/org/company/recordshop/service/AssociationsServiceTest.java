@@ -119,8 +119,7 @@ public class AssociationsServiceTest extends
 			if( createdCustomer.getId() == simpleCustomerDto.getId() ){
 				Assert.assertTrue(orders.size() == 3);
 				for (OrderNumberAndDateDto order : orders) {
-					OrderDto orderDto = new OrderDto();
-					orderDto.setId(order.getId());
+					OrderDto orderDto = new OrderDto(order.getId(), order.getVersion());
 					SimpleCustomerDto customer = customerServiceModelService.getCustomer(orderDto);
 					Assert.assertTrue(simpleCustomerDto.getId() == customer.getId());
 				}
@@ -208,8 +207,7 @@ public class AssociationsServiceTest extends
 		}
 
 		try {
-			createdOrder.setId(-1L);
-			customerServiceModelService.addToOrders(createdCustomer, createdOrder);
+			customerServiceModelService.addToOrders(createdCustomer, new OrderDto(-1L, 0));
 			Assert
 					.fail("Expecting Service Exception: Adding order with incorrect id to customer");
 		} catch (ServiceException e) {
@@ -217,9 +215,7 @@ public class AssociationsServiceTest extends
 		}
 
 		try {
-			createdOrder.setId(id);
-			createdCustomer.setId(-1L);
-			customerServiceModelService.addToOrders(createdCustomer, createdOrder);
+			customerServiceModelService.addToOrders(new SimpleCustomerDto(-1L, 0), createdOrder);
 			Assert
 					.fail("Expecting Service Exception: Adding order to customer with incorrect id");
 		} catch (ServiceException e) {

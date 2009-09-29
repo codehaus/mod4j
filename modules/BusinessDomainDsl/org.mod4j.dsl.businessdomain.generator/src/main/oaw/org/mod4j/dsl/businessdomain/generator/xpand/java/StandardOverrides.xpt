@@ -51,6 +51,9 @@
         result.append("«getDomainRootPackage()».«javaDomainClass(name)»[");
         result.append("id=");
         result.append(getId());
+        result.append(",");
+        result.append("version=");
+        result.append(getVersion());        
         «FOREACH getAllProperties().reject(e|e.derived) AS p»
             «EXPAND addAttribute FOR p -»
         «ENDFOREACH»
