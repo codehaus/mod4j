@@ -24,6 +24,22 @@ import BusinessDomainDsl.UniqueRule;
  */
 public class BusinessDomainProposalProvider extends AbstractBusinessDomainProposalProvider {
         
+    /**
+     * Get rid of the "Name - ID" default proposals
+     */
+    @Override
+    protected boolean doCreateIdProposals(){
+        return false;
+    }
+
+    /**
+     * Get rid of the "Description" default proposals
+     */
+    @Override
+    protected boolean doCreateStringProposals(){
+        return false;
+    }
+
     @Override
     public void completeEnumerationProperty_DefaultValueAsString(EObject model, Assignment assignment, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
