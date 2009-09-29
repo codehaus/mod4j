@@ -49,13 +49,11 @@ CustomMethod:
 	(description=STRING )?
 	"method"
 	name=ID
-	("in" "(" (inParameters+=Parameter)
-	          ("," inParameters+=Parameter )* ")" )?
+	("in" "[" (inParameters+=Parameter ";")* "]" )?
 	("out" output=[DtoReference] )?
     ";" ;
      
 Parameter:
-	(description=STRING )?
     type=[DtoReference]
     name=ID 
     ;

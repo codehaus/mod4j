@@ -39,22 +39,18 @@ ExternalReference :
 BusinessClassDto :
     (description=STRING)?
     "class" name=ID "represents" base=[ExternalReference]
-    (
-        ( ";" )
-        |
-	    ( "[" (propertyReferences += BusinessClassPropertyReference)+  
-	      ( "references" "["
-	      		(associationReferences += BusinessClassAssociationRoleReference)+
-	        "]"
-	      )?
-	    
-	    "]")
-	)
+    ( "[" (propertyReferences += BusinessClassPropertyReference)+  
+      ( "references" "["
+      		(associationReferences += BusinessClassAssociationRoleReference)+
+        "]"
+      )?
+    
+    "]")?
     ;    
     
 EnumerationDto :
     (description=STRING)?
-    "enumeration" name=ID "represents" base=[ExternalReference] ";"
+    "enumeration" name=ID "represents" base=[ExternalReference]
     ; 
     
 BusinessClassPropertyReference :
@@ -68,7 +64,7 @@ BusinessClassAssociationRoleReference :
     
 ListDto :
     (description=STRING)?
-    "list" name=ID "contains" baseDto=[Dto] ";"
+    "list" name=ID "contains" baseDto=[Dto] 
     ;    
 CustomDto :
     (description=STRING)?

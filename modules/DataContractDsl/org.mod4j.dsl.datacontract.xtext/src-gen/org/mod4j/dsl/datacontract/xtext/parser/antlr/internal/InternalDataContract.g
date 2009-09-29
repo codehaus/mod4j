@@ -423,22 +423,17 @@ ruleBusinessClassDto returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-)(';' 
+)('[' 
     {
-        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getSemicolonKeyword_5_0(), null); 
-    }
-
-    |('[' 
-    {
-        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_0(), null); 
+        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_0(), null); 
     }
 (	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_0(), currentNode); 
 	    }
-	    lv_propertyReferences_7=ruleBusinessClassPropertyReference 
+	    lv_propertyReferences_6=ruleBusinessClassPropertyReference 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBusinessClassDtoRule().getType().getClassifier());
@@ -446,7 +441,7 @@ ruleBusinessClassDto returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "propertyReferences", lv_propertyReferences_7, "BusinessClassPropertyReference", currentNode);
+	       		add($current, "propertyReferences", lv_propertyReferences_6, "BusinessClassPropertyReference", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -455,19 +450,19 @@ ruleBusinessClassDto returns [EObject current=null]
 	
 )+('references' 
     {
-        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_1_2_0(), null); 
+        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_2_0(), null); 
     }
 '[' 
     {
-        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_2_1(), null); 
+        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_2_1(), null); 
     }
 (	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_2_2_0(), currentNode); 
 	    }
-	    lv_associationReferences_10=ruleBusinessClassAssociationRoleReference 
+	    lv_associationReferences_9=ruleBusinessClassAssociationRoleReference 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBusinessClassDtoRule().getType().getClassifier());
@@ -475,7 +470,7 @@ ruleBusinessClassDto returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "associationReferences", lv_associationReferences_10, "BusinessClassAssociationRoleReference", currentNode);
+	       		add($current, "associationReferences", lv_associationReferences_9, "BusinessClassAssociationRoleReference", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -484,13 +479,13 @@ ruleBusinessClassDto returns [EObject current=null]
 	
 )+']' 
     {
-        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_2_3(), null); 
+        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_2_3(), null); 
     }
 )?']' 
     {
-        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_3(), null); 
+        createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_3(), null); 
     }
-)));
+)?);
 
 
 
@@ -575,11 +570,7 @@ ruleEnumerationDto returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-)';' 
-    {
-        createLeafNode(grammarAccess.getEnumerationDtoAccess().getSemicolonKeyword_5(), null); 
-    }
-);
+));
 
 
 
@@ -774,11 +765,7 @@ ruleListDto returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-)';' 
-    {
-        createLeafNode(grammarAccess.getListDtoAccess().getSemicolonKeyword_5(), null); 
-    }
-);
+));
 
 
 

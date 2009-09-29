@@ -31,10 +31,8 @@ public class EqualsForDtoTest {
 	
 	@Test
 	public void testEqualsWithIds() {
-		SimpleCustomerDto one = new SimpleCustomerDto();
-		SimpleCustomerDto two = new SimpleCustomerDto();
-		one.setId(1L);
-		two.setId(1L);
+		SimpleCustomerDto one = new SimpleCustomerDto(1L, 1);
+		SimpleCustomerDto two = new SimpleCustomerDto(1L, 1);
 		assertNotSame(one, two);
 		assertTrue(one.equals(two));
 		assertTrue(two.equals(one));
@@ -43,10 +41,8 @@ public class EqualsForDtoTest {
 	
 	@Test
 	public void testNotEqualsWithIds() {
-		SimpleCustomerDto one = new SimpleCustomerDto();
-		SimpleCustomerDto two = new SimpleCustomerDto();
-		one.setId(1L);
-		two.setId(2L);
+		SimpleCustomerDto one = new SimpleCustomerDto(1L, 1);
+		SimpleCustomerDto two = new SimpleCustomerDto(2L, 1);
 		assertNotSame(one, two);
 		assertFalse(one.equals(two));
 		assertFalse(two.equals(one));

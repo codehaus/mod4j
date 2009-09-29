@@ -44,13 +44,12 @@ public class DataContractParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getDataContractModelAccess().getAlternatives_5(), "rule__DataContractModel__Alternatives_5");
 					put(grammarAccess.getDtoAccess().getAlternatives(), "rule__Dto__Alternatives");
-					put(grammarAccess.getBusinessClassDtoAccess().getAlternatives_5(), "rule__BusinessClassDto__Alternatives_5");
 					put(grammarAccess.getDtoPropertyAccess().getAlternatives_0(), "rule__DtoProperty__Alternatives_0");
 					put(grammarAccess.getDataContractModelAccess().getGroup(), "rule__DataContractModel__Group__0");
 					put(grammarAccess.getExternalReferenceAccess().getGroup(), "rule__ExternalReference__Group__0");
 					put(grammarAccess.getBusinessClassDtoAccess().getGroup(), "rule__BusinessClassDto__Group__0");
-					put(grammarAccess.getBusinessClassDtoAccess().getGroup_5_1(), "rule__BusinessClassDto__Group_5_1__0");
-					put(grammarAccess.getBusinessClassDtoAccess().getGroup_5_1_2(), "rule__BusinessClassDto__Group_5_1_2__0");
+					put(grammarAccess.getBusinessClassDtoAccess().getGroup_5(), "rule__BusinessClassDto__Group_5__0");
+					put(grammarAccess.getBusinessClassDtoAccess().getGroup_5_2(), "rule__BusinessClassDto__Group_5_2__0");
 					put(grammarAccess.getEnumerationDtoAccess().getGroup(), "rule__EnumerationDto__Group__0");
 					put(grammarAccess.getBusinessClassPropertyReferenceAccess().getGroup(), "rule__BusinessClassPropertyReference__Group__0");
 					put(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getGroup(), "rule__BusinessClassAssociationRoleReference__Group__0");
@@ -74,8 +73,8 @@ public class DataContractParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBusinessClassDtoAccess().getDescriptionAssignment_0(), "rule__BusinessClassDto__DescriptionAssignment_0");
 					put(grammarAccess.getBusinessClassDtoAccess().getNameAssignment_2(), "rule__BusinessClassDto__NameAssignment_2");
 					put(grammarAccess.getBusinessClassDtoAccess().getBaseAssignment_4(), "rule__BusinessClassDto__BaseAssignment_4");
-					put(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1(), "rule__BusinessClassDto__PropertyReferencesAssignment_5_1_1");
-					put(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesAssignment_5_1_2_2(), "rule__BusinessClassDto__AssociationReferencesAssignment_5_1_2_2");
+					put(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1(), "rule__BusinessClassDto__PropertyReferencesAssignment_5_1");
+					put(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesAssignment_5_2_2(), "rule__BusinessClassDto__AssociationReferencesAssignment_5_2_2");
 					put(grammarAccess.getEnumerationDtoAccess().getDescriptionAssignment_0(), "rule__EnumerationDto__DescriptionAssignment_0");
 					put(grammarAccess.getEnumerationDtoAccess().getNameAssignment_2(), "rule__EnumerationDto__NameAssignment_2");
 					put(grammarAccess.getEnumerationDtoAccess().getBaseAssignment_4(), "rule__EnumerationDto__BaseAssignment_4");

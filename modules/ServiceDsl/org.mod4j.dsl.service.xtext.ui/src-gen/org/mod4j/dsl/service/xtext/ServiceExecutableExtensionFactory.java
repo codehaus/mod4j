@@ -36,13 +36,13 @@ public class ServiceExecutableExtensionFactory implements IExecutableExtensionFa
 	}
 	
 	public Object create() throws CoreException {
-		org.mod4j.dsl.service.xtext.internal.ServiceActivator instance = org.mod4j.dsl.service.xtext.internal.ServiceActivator.getInstance();
+		org.mod4j.dsl.service.xtext.Mod4jServiceActivator instance = org.mod4j.dsl.service.xtext.Mod4jServiceActivator.getInstance();
 		if (instance == null)
 			throw new IllegalStateException("The bundle has not yet been activated. Make sure the Manifest.MF contains 'Bundle-ActivationPolicy: lazy'.");
 		Bundle bundle = instance.getBundle();
 		try {
 			final Class<?> clazz = bundle.loadClass(clazzName);
-			final Injector injector = org.mod4j.dsl.service.xtext.internal.ServiceActivator.getInstance().getInjector("org.mod4j.dsl.service.xtext.Service");
+			final Injector injector = org.mod4j.dsl.service.xtext.Mod4jServiceActivator.getInstance().getInjector("org.mod4j.dsl.service.xtext.Service");
 			final Object result = injector.getInstance(clazz);
 			if (result instanceof IExecutableExtension)
 				((IExecutableExtension) result).setInitializationData(config, null, null);

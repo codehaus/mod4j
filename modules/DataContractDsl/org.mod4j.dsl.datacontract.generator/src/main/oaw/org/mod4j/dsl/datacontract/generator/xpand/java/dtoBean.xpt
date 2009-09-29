@@ -44,6 +44,7 @@
      public class «javaClassName(name)» implements Serializable {
      
          «EXPAND Attributes::addIdAttribute FOR this»
+         «EXPAND Attributes::addVersionAttribute FOR this»
          «FOREACH properties.typeSelect(DtoDataProperty).reject(e|e.metaType == DtoAssociationRoleProperty) AS dataProperty»
              «EXPAND Attributes::instanceVariable FOR dataProperty»
          «ENDFOREACH»
@@ -57,8 +58,9 @@
          «ELSE»
              «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
          «ENDIF»
-         «EXPAND Constructors::addIdConstructor FOR this»
+         «EXPAND Constructors::addIdAndVersionConstructor FOR this»
          «EXPAND Attributes::addIdAccessors FOR this»
+         «EXPAND Attributes::addVersionAccessors FOR this»
          «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
               «IF dataProperty.writable -»
                  «EXPAND Attributes::addSetter FOR dataProperty»
@@ -99,7 +101,7 @@
          «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
              «EXPAND Attributes::instanceVariable FOR dataProperty»
          «ENDFOREACH»
-         «EXPAND Constructors::addDefaultNoArgConstructor FOR this»
+         «EXPAND Constructors::addCustomDtoConstructor FOR this»
          «FOREACH properties.typeSelect(DtoDataProperty) AS dataProperty»
              «EXPAND Attributes::addGetter FOR dataProperty»
              «EXPAND Attributes::addSetter FOR dataProperty»

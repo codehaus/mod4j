@@ -30,20 +30,20 @@ public class SimpleCustomerDtoTranslatorTest {
 	@Test
 	public void testCreateNewFromDtoSucceed() {
 
-		SimpleCustomerDto simpleCust = new SimpleCustomerDto();
+		SimpleCustomerDto simpleCust = new SimpleCustomerDto(0L, 0);
 		simpleCust.setFirstName("Vincent");
 		simpleCust.setLastName("Van Gogh");
 		simpleCust.setCustomerNr(1234);
 		simpleCust.setSexe(SexeEnumDto.MALE);
 		simpleCust.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
-		OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto();
+		OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto(0L, 0);
 		orderDto.setOrderNumber("1");
 		orderDto.setCustomer(simpleCust);
 
 		simpleCust.addToOrders(orderDto);
 
-		Customer newCust = scTranslator.fromDto(simpleCust, null);
+		Customer newCust = scTranslator.fromDto(simpleCust);
 		assertEquals("Vincent", newCust.getFirstName());
 		assertEquals(1234, newCust.getCustomerNr());
 		assertEquals(1, newCust.getOrders().size());
@@ -110,7 +110,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		/**
 		 * Remove an order from the DTO to see if it gets removed from the DO.
 		 */
-		customerDto.removeFromOrders(new OrderNumberAndDateDto(1L));
+		customerDto.removeFromOrders(new OrderNumberAndDateDto(1L, 1));
 		customer = scTranslator.fromDto(customerDto, customer);
 		checkCustomer(customer, new String[] { "2" });
 
@@ -166,7 +166,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		SimpleCustomerDto custDto = new SimpleCustomerDto();
 
 		try {
-			scTranslator.fromDto(custDto, null);
+			scTranslator.fromDto(custDto);
 			fail();
 		} catch (TranslatorException te) {
 			assertTrue(
