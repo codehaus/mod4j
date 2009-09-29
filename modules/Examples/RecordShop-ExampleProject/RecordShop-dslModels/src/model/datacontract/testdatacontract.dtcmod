@@ -3,4 +3,4 @@ datacontract TestRecordShopDataContract  ;
 
 from TestDomainModel import Derived;
 
-class DerivedDto represents Derived
+class DerivedDto represents Derived;

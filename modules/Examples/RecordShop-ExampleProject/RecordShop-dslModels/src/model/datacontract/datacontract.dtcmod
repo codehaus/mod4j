@@ -15,7 +15,7 @@ from RecordShopDomainModel import RecordTypeEnum;
      */
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
-	class FullCustomerDto represents Customer
+	class FullCustomerDto represents Customer;
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	class SimpleCustomerDto represents Customer [  
@@ -42,9 +42,9 @@ from RecordShopDomainModel import RecordTypeEnum;
 	]
 	
 	"Full Order transfer object, containing all the Order attributes (no associations)"
-	class OrderDto represents Order 
+	class OrderDto represents Order ;
 	
-	list OrderLinesDto contains OrderLineDto
+	list OrderLinesDto contains OrderLineDto;
 	
 	class CustomerWithOrdersAndOrderLines represents Customer [
 	    firstName;
@@ -54,7 +54,7 @@ from RecordShopDomainModel import RecordTypeEnum;
 	    references [ orders as OrdersWithOrderLines; ]
 	]
 	
-	list OrdersWithOrderLines contains OrderWithOrderLinesDto
+	list OrdersWithOrderLines contains OrderWithOrderLinesDto ;
 	
 	class OrderWithOrderLinesDto represents Order [
 		orderNumber; 
@@ -81,9 +81,9 @@ from RecordShopDomainModel import RecordTypeEnum;
 		 artistName ;
 	]
 
-    class FullProductDto represents Product
+    class FullProductDto represents Product;
     
-    class FullRecordDto represents Record
+    class FullRecordDto represents Record;
     
     class SimpleRecordDto represents Record [
         asin;
@@ -104,10 +104,10 @@ from RecordShopDomainModel import RecordTypeEnum;
      * Lists of transfer objects 
      */
 	"List of SimpleCustomerDto's."
-	list SimpleCustomerList contains  SimpleCustomerDto 
+	list SimpleCustomerList contains  SimpleCustomerDto ;
 	"List of OrdersNumberAndDateDto's."
-	list OrderNumberAndDateList contains  OrderNumberAndDateDto
-	list OrderList contains  OrderDto
+	list OrderNumberAndDateList contains  OrderNumberAndDateDto;
+	list OrderList contains  OrderDto;
 	
 	/*
 	 * Custom transfer objects
@@ -135,7 +135,7 @@ from RecordShopDomainModel import RecordTypeEnum;
     /* 
      * Enumeration Dto's
      */
-	enumeration sexeEnumDto represents  SexeEnum
-	enumeration RecordTypeEnumDto represents RecordTypeEnum 
-	enumeration lowerRecordTypeEnumDto represents RecordTypeEnum  
+	enumeration sexeEnumDto represents  SexeEnum;
+	enumeration RecordTypeEnumDto represents RecordTypeEnum ;
+	enumeration lowerRecordTypeEnumDto represents RecordTypeEnum  ;
 	
