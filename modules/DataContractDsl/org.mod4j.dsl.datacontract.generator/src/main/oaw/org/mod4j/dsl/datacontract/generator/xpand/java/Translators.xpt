@@ -65,70 +65,53 @@
               «ENDFOREACH»
          
              /**
-              «IF this.creatable»
-              * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object.
-              * A new domain object will be created passed to the {@link #fromDto(FullCustomerDto, Customer)}.
-              «ELSE»
-              * A TranslatorException is thrown, since this DTO does not contain all the mandatory properties of the referenced {@link «javaClassName(base.name)»}. 
-              * Therefore, the DTO must always be based on an existing {@link «javaClassName(base.name)»}.
-              «ENDIF».
-              *
-              * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
-              * @return {@link «javaClassName(base.name)»}, the resulting domain object.
-              * @throws TranslatorException
+              * Convenience method for calling {@link #fromDto(«javaClassName(name)», «javaClassName(base.name)»)} with a null target
+              * argument.
               */
               public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws TranslatorException {
-                  «REM»A DTO is NOT creatable if it does not contain all mandatory properties of the domain object. See CompleteDtc.ext. «ENDREM»
-                  «IF this.creatable -»
-                      if (getTranslated().containsKey((source))) {
-                          return («javaClassName(base.name)») getTranslated().get(source);
-                      }              
-              
-                      if (source.getId() != null) {
-                          throw new TranslatorException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
-                      }
-                   
-                      «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
-                                    
-                      return fromDto(source, target);
-                  «ELSE -»
-                      throw new TranslatorException("Translation of this source dto must be based on a existing domain object. Dto: " + source.toString());
-                  «ENDIF»
+                  return fromDto(source, null);
               }         
                                      
              /**
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object. All properties in the dto will be mapped to the 
               * corresponding property in the <code>target</code> domain object. 
+              * If the given <code>target</code> parameter is null, a«IF this.creatable» new domain object will be created and returned«ELSE»TranslatorException is thrown«ENDIF».
               *
-              * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
-              * @param target The {@link «javaClassName(base.name)»} object translated from source, may not be {@code null}.
+              * @param source The {@link «javaClassName(name)»} object to translate.
+              * @param target The {@link «javaClassName(base.name)»} object translated from source.
+              *
               * @return {@link «javaClassName(base.name)»}, the resulting domain object.
               * @throws TranslatorException
               */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target) throws TranslatorException {
-
-                  if (getTranslated().containsKey((source))) {
-                      return («javaClassName(base.name)») getTranslated().get(source);
-                  }
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, «javaClassName(base.name)» target) throws TranslatorException {
                  
                   if (source == null ) {
                       throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
                   }
-
-                  if (target == null) {
-                      throw new TranslatorException("Argument target is null! Translation of a dto can not be based on a null domain object.");
-                  }
-                  
-                  // This seems duplicate, but bare in mind that both Ids could be null! The first check is for nulls, the second for id equality.
-                  if (source.getId() != target.getId() && !source.getId().equals(target.getId())) {
-                      throw new TranslatorException("Can not translate a dto to a domain object when the id of the dto differs from the id of the domain object.");
-                  }
-                  
-                  validateVersion(source, target);                  
                   
                   «FOREACH properties.select(e|e.mandatoryForCreation) AS nonNullableProp-»
                       if (source.«getterPrefix(nonNullableProp)»«javaClassName(nonNullableProp.name)»() == null) throw new TranslatorException("Can not translate dto to «javaClassName(base.name)» when non-nullable attribute «nonNullableProp.name» is null.");
                   «ENDFOREACH»
+                  
+                  if (getTranslated().containsKey((source))) {
+                      return («javaClassName(base.name)») getTranslated().get(source);
+                  }
+                                    
+                  «IF this.creatable -»
+                      if (target == null) {
+                          if (source.getId() != null) {
+                              throw new TranslatorException("Can not translate a dto with existng id to a new domain object. Dto: "+ source.toString());
+                          }
+                          target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
+                      }
+                  «ELSE -»
+                      if (target == null ) {
+                          throw new TranslatorException("Argument target is null! Translation of this source dto must be based on a existing target domain object.");
+                      }
+                      if ((source.getId() == null) || (source.getId().equals(target.getId()) == false)) {
+                          throw new TranslatorException("Can not translate a dto to a domain object when the id of the dto differs from the id of the domain object.");
+                      }
+                  «ENDIF»
                   
                   target.activateValidation(false);                 
                   
@@ -155,7 +138,7 @@
 		                  Set<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»> toBeRemoved = new HashSet<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»>();
 		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element : target.get«assRef.name.toFirstUpper()»()) {
 		                      if (!source.get«assRef.name.toFirstUpper()»().contains(
-		                              new «EXPAND getBaseDtoName FOR assRef.dtoType -»(element.getId(), element.getVersion()))) {
+		                              new «EXPAND getBaseDtoName FOR assRef.dtoType -»(element.getId()))) {
 		                          toBeRemoved.add(element);
 		                      }
 		                  }
@@ -201,15 +184,16 @@
               * @return «javaClassName(name)» The {@link «javaClassName(name)»} object translated from source.
               */
               public «javaClassName(name)» toDto(final «javaClassName(base.name)» source) {
-                  if (getTranslated().containsKey((source))) {
-                      return («javaClassName(name)») getTranslated().get(source);
-                  }
                  
                   if (source == null ) {
                       throw new TranslatorException("Argument source is null! Translation of a domain object can not be based on a null object.");
                   }
                   
-                  «javaClassName(name)» result = new «javaClassName(name)»(source.getId(), source.getVersion());
+                  if (getTranslated().containsKey((source))) {
+                      return («javaClassName(name)») getTranslated().get(source);
+                  }
+ 
+                  «javaClassName(name)» result = new «javaClassName(name)»(source.getId());
                   «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»
                       «IF dataProperty.metaType == DtoEnumerationProperty -»
                           result.set«javaClassName(dataProperty.name)»(«dataProperty.name»Translator.toDto(source.get«javaClassName(dataProperty.name)»()));
@@ -239,31 +223,7 @@
               }
               
               «EXPAND exampleFromDto FOR this»
-          
-          
-          /**
-		    * Validate that the version of the DTO and the business object are valid.
-		    * The DTO may only have a version if the domain object also has a version.
-		    * When they both have a version and the DTO version is less, another user
-		    * has updated the domain object in the meantime, if it is equal, all is
-		    * well. If it is more, an unexpected situation occurs: the DTOs is more new
-		    * then the domain object: this is not possible.
-		    * 
-		    * @param source
-		    *            The DTO.
-		    * @param target
-		    *            The domain object target.
-		    */
-		   private void validateVersion(final «javaClassName(name)» source, final «javaClassName(base.name)» target) {
-		       final Integer sourceVersion = source.getVersion();
-		       final Integer targetVersion = target.getVersion();
-                       if (sourceVersion != targetVersion && !sourceVersion.equals(targetVersion)) {
-		           throw new TranslatorException("Versions of source and target do not match for dto " + source + 
-                                                         ", source is " + sourceVersion + 
-                                                         ", target is " + targetVersion + ".");
-		       }
-		   }
-           }
+          }
 «ENDDEFINE»
 
 «DEFINE exampleFromDto FOR BusinessClassDto»

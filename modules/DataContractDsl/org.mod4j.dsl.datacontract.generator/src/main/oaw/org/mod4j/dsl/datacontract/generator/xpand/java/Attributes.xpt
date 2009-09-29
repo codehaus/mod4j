@@ -56,7 +56,7 @@
     /**
      *  id: The identifier of this object.
      */
-     private final Long id;
+     private Long id;
 «ENDDEFINE»
 
 «DEFINE addIdAccessors FOR Dto»
@@ -67,21 +67,12 @@
      public Long getId() {
          return this.id;
      }
-«ENDDEFINE»
-
-«DEFINE addVersionAttribute FOR Dto»
     /**
-     *  version: The version of this object.
+     *
+     * @param id (Long) The identifier of this object.
      */
-     private final Integer version;
-«ENDDEFINE»
-
-«DEFINE addVersionAccessors FOR Dto»
-    /**
-     * @return version (Integer) The version of this object.
-     */
-     public Integer getVersion() {
-         return this.version;
+     public void setId(Long id) {
+         this.id = id;
      }
 «ENDDEFINE»
 

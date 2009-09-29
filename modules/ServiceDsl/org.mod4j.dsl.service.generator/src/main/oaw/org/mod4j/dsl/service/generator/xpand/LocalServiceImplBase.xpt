@@ -96,7 +96,7 @@
      */
     public «JavaType(this.dto)» «this.name»(«JavaType(this.dto)» object){
         «javaDomainClass(dto.businessClass())» result = null;
-	        result = «javaDomainServiceInterface(model.name).toFirstLower()».create«businessClass(this.dto)»(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object));
+	        result = «javaDomainServiceInterface(model.name).toFirstLower()».create«businessClass(this.dto)»(«javaTranslatorClass(dto.name).toFirstLower()».fromDto(object, null));
         return «javaTranslatorClass(dto.name).toFirstLower()».toDto(result);
     }
 «ENDDEFINE»

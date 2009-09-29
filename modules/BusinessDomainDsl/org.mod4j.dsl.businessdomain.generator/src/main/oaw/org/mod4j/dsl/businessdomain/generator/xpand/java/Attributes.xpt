@@ -200,8 +200,10 @@
      *  id: The identifier of this object.
      */
      private Long id;
+     
+     @SuppressWarnings("unused")
+     private int version = -1;
 «ENDDEFINE»
-
 
 «DEFINE addIdAccessors FOR BusinessClass»
     /**
@@ -210,21 +212,5 @@
     */
      public Long getId() {
         return this.id;
-    }
-«ENDDEFINE»
-
-«DEFINE addVersionAttribute FOR BusinessClass»
-     /**
-       * version: The version of this object 
-       */
-     private int version = -1;
-«ENDDEFINE»
-
-«DEFINE addVersionAccessors FOR BusinessClass»
-    /**
-    * @return version (Integer) The version of this object.
-    */
-     public Integer getVersion() {
-        return this.version;
     }
 «ENDDEFINE»

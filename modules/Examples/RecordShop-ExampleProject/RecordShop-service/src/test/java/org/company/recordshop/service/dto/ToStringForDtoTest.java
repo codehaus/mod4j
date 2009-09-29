@@ -18,33 +18,26 @@ public class ToStringForDtoTest {
 	@Test
 	public void testToStringWithSomeProperties() {
 		SimpleCustomerDto customer = new SimpleCustomerDto(false);
+		customer.setId(1L);
 		customer.setBlackListed(true);
 		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto"
-				+ "[id=null,version=null,customerNr=null,lastName=null,firstName=null,"
+				+ "[id=1,customerNr=null,lastName=null,firstName=null,"
 				+ "blackListed=true,username=null,sexe=null,birthDate=null,"
 				+ "orders=[]]", customer.toString());
 	}
-	
-	@Test
-	public void testToStringWithId() {
-		SimpleCustomerDto customer = new SimpleCustomerDto(1L, 0);
-		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto"
-				+ "[id=1,version=0,customerNr=null,lastName=null,firstName=null,"
-				+ "blackListed=true,username=null,sexe=null,birthDate=null,"
-				+ "orders=[]]", customer.toString());
-	}	
 
 	@Test
 	public void testToStringWithOrders() {
 		SimpleCustomerDto customer = new SimpleCustomerDto(false);
 		OrderNumberAndDateDto order = new OrderNumberAndDateDto(false);
+		order.setId(1L);
 		order.setOrderNumber("1");
 		customer.addToOrders(order);
 		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto[" +
-				"id=null,version=null,customerNr=null,lastName=null,firstName=null," +
+				"id=null,customerNr=null,lastName=null,firstName=null," +
 				"blackListed=null,username=null,sexe=null,birthDate=null,orders=[" +
 				"org.company.recordshop.service.dto.OrderNumberAndDateDto[" +
-				"id=null,orderNumber=1,orderDate=null,customer=null]]]",
+				"id=1,orderNumber=1,orderDate=null,customer=null]]]",
 				customer.toString());
 	}
 }
