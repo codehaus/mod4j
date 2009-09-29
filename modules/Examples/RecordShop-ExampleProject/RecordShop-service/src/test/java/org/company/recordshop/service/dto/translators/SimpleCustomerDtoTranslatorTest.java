@@ -30,14 +30,14 @@ public class SimpleCustomerDtoTranslatorTest {
 	@Test
 	public void testCreateNewFromDtoSucceed() {
 
-		SimpleCustomerDto simpleCust = new SimpleCustomerDto(0L, 0);
+		SimpleCustomerDto simpleCust = new SimpleCustomerDto();
 		simpleCust.setFirstName("Vincent");
 		simpleCust.setLastName("Van Gogh");
 		simpleCust.setCustomerNr(1234);
 		simpleCust.setSexe(SexeEnumDto.MALE);
 		simpleCust.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
-		OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto(0L, 0);
+		OrderNumberAndDateDto orderDto = new OrderNumberAndDateDto();
 		orderDto.setOrderNumber("1");
 		orderDto.setCustomer(simpleCust);
 

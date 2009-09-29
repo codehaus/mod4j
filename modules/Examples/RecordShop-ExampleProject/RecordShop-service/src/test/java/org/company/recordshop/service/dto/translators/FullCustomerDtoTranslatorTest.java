@@ -27,7 +27,7 @@ public class FullCustomerDtoTranslatorTest {
         fullCustDto.setSexe(SexeEnumDto.MALE);
 
         try {
-            Customer newCust = scTranslator.fromDto(fullCustDto, null);
+            Customer newCust = scTranslator.fromDto(fullCustDto);
             assertTrue("Firstname of Customer should be Vincent.", newCust.getFirstName().equals("Vincent"));
             assertTrue("CustomerNr should be 1234", newCust.getCustomerNr() == 1234);
             assertTrue("Associations dto's in dto's are not translated so Orders should be empty.", newCust.getOrders()
@@ -52,7 +52,7 @@ public class FullCustomerDtoTranslatorTest {
         fullCustDto.setDiscountPercentage(-1); // Illegal
 
         try {
-            scTranslator.fromDto(fullCustDto, null);
+            scTranslator.fromDto(fullCustDto);
             fail("Tanslation of a illegal attirbute value should thrown a BusinessRuleException.");
         } catch (BusinessRuleException e) {
            

@@ -83,10 +83,18 @@
                       if (getTranslated().containsKey((source))) {
                           return («javaClassName(base.name)») getTranslated().get(source);
                       }              
+
+                      if (source == null ) {
+                          throw new TranslatorException("Argument source is null! Translation of a domain object can not be based on a null object.");
+                      }
               
                       if (source.getId() != null) {
                           throw new TranslatorException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
                       }
+
+                      «FOREACH properties.select(e|e.mandatoryForCreation) AS nonNullableProp-»
+                          if (source.«getterPrefix(nonNullableProp)»«javaClassName(nonNullableProp.name)»() == null) throw new TranslatorException("Can not translate dto to «javaClassName(base.name)» when non-nullable attribute «nonNullableProp.name» is null.");
+                      «ENDFOREACH»
                    
                       «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                                     
@@ -119,16 +127,18 @@
                       throw new TranslatorException("Argument target is null! Translation of a dto can not be based on a null domain object.");
                   }
                   
-                  // This seems duplicate, but bare in mind that both Ids could be null! The first check is for nulls, the second for id equality.
-                  if (source.getId() != target.getId() && !source.getId().equals(target.getId())) {
-                      throw new TranslatorException("Can not translate a dto to a domain object when the id of the dto differs from the id of the domain object.");
-                  }
-                  
-                  validateVersion(source, target);                  
-                  
                   «FOREACH properties.select(e|e.mandatoryForCreation) AS nonNullableProp-»
                       if (source.«getterPrefix(nonNullableProp)»«javaClassName(nonNullableProp.name)»() == null) throw new TranslatorException("Can not translate dto to «javaClassName(base.name)» when non-nullable attribute «nonNullableProp.name» is null.");
                   «ENDFOREACH»
+
+                  final boolean equals = (source.getId() == null) ? target.getId() == null
+                                                                  : source.getId().equals(target.getId());
+
+                  if (!equals) {
+                      throw new TranslatorException("Can not translate a dto to a domain object when the id of the dto differs from the id of the domain object.");
+                  }
+                  
+                  validateVersion(source, target);
                   
                   target.activateValidation(false);                 
                   
@@ -257,7 +267,12 @@
 		   private void validateVersion(final «javaClassName(name)» source, final «javaClassName(base.name)» target) {
 		       final Integer sourceVersion = source.getVersion();
 		       final Integer targetVersion = target.getVersion();
-                       if (sourceVersion != targetVersion && !sourceVersion.equals(targetVersion)) {
+
+                       // FIXME the DTO translator should not know that -1 is the default unpersisted value!
+                       final boolean equals = (sourceVersion == null) ? targetVersion == -1
+                                                                      : sourceVersion.equals(targetVersion);
+
+		       if (!equals) {
 		           throw new TranslatorException("Versions of source and target do not match for dto " + source + 
                                                          ", source is " + sourceVersion + 
                                                          ", target is " + targetVersion + ".");
