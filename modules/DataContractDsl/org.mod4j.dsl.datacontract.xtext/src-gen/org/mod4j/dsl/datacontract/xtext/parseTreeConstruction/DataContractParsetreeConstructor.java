@@ -695,9 +695,9 @@ protected class ExternalReference_SemicolonKeyword_5 extends KeywordToken  {
 /************ begin Rule BusinessClassDto ****************
  *
  * BusinessClassDto:
- *   description=STRING? "class" name=ID "represents" base=[ExternalReference] ("["
+ *   description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
  *   propertyReferences+=BusinessClassPropertyReference+ ("references" "["
- *   associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?; 
+ *   associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"); 
  * 
  *     
  * 
@@ -717,9 +717,9 @@ protected class ExternalReference_SemicolonKeyword_5 extends KeywordToken  {
  *
  **/
 
-// description=STRING? "class" name=ID "represents" base=[ExternalReference] ("["
+// description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
 // propertyReferences+=BusinessClassPropertyReference+ ("references" "["
-// associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?
+// associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")
 protected class BusinessClassDto_Group extends GroupToken {
 	
 	public BusinessClassDto_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -732,8 +732,7 @@ protected class BusinessClassDto_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_Group_5(parent, this, 0, inst);
-			case 1: return new BusinessClassDto_BaseAssignment_4(parent, this, 1, inst);
+			case 0: return new BusinessClassDto_Alternatives_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -879,21 +878,63 @@ protected class BusinessClassDto_BaseAssignment_4 extends AssignmentToken  {
 
 }
 
-// ("[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
-// associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?
-protected class BusinessClassDto_Group_5 extends GroupToken {
-	
-	public BusinessClassDto_Group_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// ";"|"[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+// associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
+protected class BusinessClassDto_Alternatives_5 extends AlternativesToken {
+
+	public BusinessClassDto_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
-	public Group getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getGroup_5();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getBusinessClassDtoAccess().getAlternatives_5();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_RightSquareBracketKeyword_5_3(parent, this, 0, inst);
+			case 0: return new BusinessClassDto_SemicolonKeyword_5_0(parent, this, 0, inst);
+			case 1: return new BusinessClassDto_Group_5_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ";"
+protected class BusinessClassDto_SemicolonKeyword_5_0 extends KeywordToken  {
+	
+	public BusinessClassDto_SemicolonKeyword_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBusinessClassDtoAccess().getSemicolonKeyword_5_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BusinessClassDto_BaseAssignment_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+// associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
+protected class BusinessClassDto_Group_5_1 extends GroupToken {
+	
+	public BusinessClassDto_Group_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getBusinessClassDtoAccess().getGroup_5_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BusinessClassDto_RightSquareBracketKeyword_5_1_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -901,14 +942,14 @@ protected class BusinessClassDto_Group_5 extends GroupToken {
 }
 
 // "["
-protected class BusinessClassDto_LeftSquareBracketKeyword_5_0 extends KeywordToken  {
+protected class BusinessClassDto_LeftSquareBracketKeyword_5_1_0 extends KeywordToken  {
 	
-	public BusinessClassDto_LeftSquareBracketKeyword_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_LeftSquareBracketKeyword_5_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_0();
+		return grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -921,14 +962,14 @@ protected class BusinessClassDto_LeftSquareBracketKeyword_5_0 extends KeywordTok
 }
 
 // propertyReferences+=BusinessClassPropertyReference+
-protected class BusinessClassDto_PropertyReferencesAssignment_5_1 extends AssignmentToken  {
+protected class BusinessClassDto_PropertyReferencesAssignment_5_1_1 extends AssignmentToken  {
 	
-	public BusinessClassDto_PropertyReferencesAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_PropertyReferencesAssignment_5_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1();
+		return grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesAssignment_5_1_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -945,7 +986,7 @@ protected class BusinessClassDto_PropertyReferencesAssignment_5_1 extends Assign
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBusinessClassPropertyReferenceRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_0(); 
+				element = grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -956,8 +997,8 @@ protected class BusinessClassDto_PropertyReferencesAssignment_5_1 extends Assign
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BusinessClassDto_PropertyReferencesAssignment_5_1(parent, next, actIndex, consumed);
-			case 1: return new BusinessClassDto_LeftSquareBracketKeyword_5_0(parent, next, actIndex, consumed);
+			case 0: return new BusinessClassDto_PropertyReferencesAssignment_5_1_1(parent, next, actIndex, consumed);
+			case 1: return new BusinessClassDto_LeftSquareBracketKeyword_5_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -965,19 +1006,19 @@ protected class BusinessClassDto_PropertyReferencesAssignment_5_1 extends Assign
 
 // ("references" "[" associationReferences+=BusinessClassAssociationRoleReference+ "]"
 // )?
-protected class BusinessClassDto_Group_5_2 extends GroupToken {
+protected class BusinessClassDto_Group_5_1_2 extends GroupToken {
 	
-	public BusinessClassDto_Group_5_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_Group_5_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Group getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getGroup_5_2();
+		return grammarAccess.getBusinessClassDtoAccess().getGroup_5_1_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_RightSquareBracketKeyword_5_2_3(parent, this, 0, inst);
+			case 0: return new BusinessClassDto_RightSquareBracketKeyword_5_1_2_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -985,19 +1026,19 @@ protected class BusinessClassDto_Group_5_2 extends GroupToken {
 }
 
 // "references"
-protected class BusinessClassDto_ReferencesKeyword_5_2_0 extends KeywordToken  {
+protected class BusinessClassDto_ReferencesKeyword_5_1_2_0 extends KeywordToken  {
 	
-	public BusinessClassDto_ReferencesKeyword_5_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_ReferencesKeyword_5_1_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_2_0();
+		return grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_1_2_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_PropertyReferencesAssignment_5_1(parent, this, 0, inst);
+			case 0: return new BusinessClassDto_PropertyReferencesAssignment_5_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1005,19 +1046,19 @@ protected class BusinessClassDto_ReferencesKeyword_5_2_0 extends KeywordToken  {
 }
 
 // "["
-protected class BusinessClassDto_LeftSquareBracketKeyword_5_2_1 extends KeywordToken  {
+protected class BusinessClassDto_LeftSquareBracketKeyword_5_1_2_1 extends KeywordToken  {
 	
-	public BusinessClassDto_LeftSquareBracketKeyword_5_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_LeftSquareBracketKeyword_5_1_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_2_1();
+		return grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_2_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_ReferencesKeyword_5_2_0(parent, this, 0, inst);
+			case 0: return new BusinessClassDto_ReferencesKeyword_5_1_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1025,14 +1066,14 @@ protected class BusinessClassDto_LeftSquareBracketKeyword_5_2_1 extends KeywordT
 }
 
 // associationReferences+=BusinessClassAssociationRoleReference+
-protected class BusinessClassDto_AssociationReferencesAssignment_5_2_2 extends AssignmentToken  {
+protected class BusinessClassDto_AssociationReferencesAssignment_5_1_2_2 extends AssignmentToken  {
 	
-	public BusinessClassDto_AssociationReferencesAssignment_5_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_AssociationReferencesAssignment_5_1_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesAssignment_5_2_2();
+		return grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesAssignment_5_1_2_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -1049,7 +1090,7 @@ protected class BusinessClassDto_AssociationReferencesAssignment_5_2_2 extends A
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBusinessClassAssociationRoleReferenceRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_2_2_0(); 
+				element = grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1060,27 +1101,27 @@ protected class BusinessClassDto_AssociationReferencesAssignment_5_2_2 extends A
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BusinessClassDto_AssociationReferencesAssignment_5_2_2(parent, next, actIndex, consumed);
-			case 1: return new BusinessClassDto_LeftSquareBracketKeyword_5_2_1(parent, next, actIndex, consumed);
+			case 0: return new BusinessClassDto_AssociationReferencesAssignment_5_1_2_2(parent, next, actIndex, consumed);
+			case 1: return new BusinessClassDto_LeftSquareBracketKeyword_5_1_2_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "]"
-protected class BusinessClassDto_RightSquareBracketKeyword_5_2_3 extends KeywordToken  {
+protected class BusinessClassDto_RightSquareBracketKeyword_5_1_2_3 extends KeywordToken  {
 	
-	public BusinessClassDto_RightSquareBracketKeyword_5_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_RightSquareBracketKeyword_5_1_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_2_3();
+		return grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_2_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_AssociationReferencesAssignment_5_2_2(parent, this, 0, inst);
+			case 0: return new BusinessClassDto_AssociationReferencesAssignment_5_1_2_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1089,25 +1130,26 @@ protected class BusinessClassDto_RightSquareBracketKeyword_5_2_3 extends Keyword
 
 
 // "]"
-protected class BusinessClassDto_RightSquareBracketKeyword_5_3 extends KeywordToken  {
+protected class BusinessClassDto_RightSquareBracketKeyword_5_1_3 extends KeywordToken  {
 	
-	public BusinessClassDto_RightSquareBracketKeyword_5_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BusinessClassDto_RightSquareBracketKeyword_5_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_3();
+		return grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BusinessClassDto_Group_5_2(parent, this, 0, inst);
-			case 1: return new BusinessClassDto_PropertyReferencesAssignment_5_1(parent, this, 1, inst);
+			case 0: return new BusinessClassDto_Group_5_1_2(parent, this, 0, inst);
+			case 1: return new BusinessClassDto_PropertyReferencesAssignment_5_1_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
 }
+
 
 
 
@@ -1117,11 +1159,11 @@ protected class BusinessClassDto_RightSquareBracketKeyword_5_3 extends KeywordTo
 /************ begin Rule EnumerationDto ****************
  *
  * EnumerationDto:
- *   description=STRING? "enumeration" name=ID "represents" base=[ExternalReference];
+ *   description=STRING? "enumeration" name=ID "represents" base=[ExternalReference] ";";
  *
  **/
 
-// description=STRING? "enumeration" name=ID "represents" base=[ExternalReference]
+// description=STRING? "enumeration" name=ID "represents" base=[ExternalReference] ";"
 protected class EnumerationDto_Group extends GroupToken {
 	
 	public EnumerationDto_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1134,7 +1176,7 @@ protected class EnumerationDto_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new EnumerationDto_BaseAssignment_4(parent, this, 0, inst);
+			case 0: return new EnumerationDto_SemicolonKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1278,6 +1320,26 @@ protected class EnumerationDto_BaseAssignment_4 extends AssignmentToken  {
 		return null;
 	}
 
+}
+
+// ";"
+protected class EnumerationDto_SemicolonKeyword_5 extends KeywordToken  {
+	
+	public EnumerationDto_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getEnumerationDtoAccess().getSemicolonKeyword_5();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new EnumerationDto_BaseAssignment_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
 }
 
 
@@ -1511,11 +1573,11 @@ protected class BusinessClassAssociationRoleReference_SemicolonKeyword_3 extends
 /************ begin Rule ListDto ****************
  *
  * ListDto:
- *   description=STRING? "list" name=ID "contains" baseDto=[Dto];
+ *   description=STRING? "list" name=ID "contains" baseDto=[Dto] ";";
  *
  **/
 
-// description=STRING? "list" name=ID "contains" baseDto=[Dto]
+// description=STRING? "list" name=ID "contains" baseDto=[Dto] ";"
 protected class ListDto_Group extends GroupToken {
 	
 	public ListDto_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1528,7 +1590,7 @@ protected class ListDto_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ListDto_BaseDtoAssignment_4(parent, this, 0, inst);
+			case 0: return new ListDto_SemicolonKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1672,6 +1734,26 @@ protected class ListDto_BaseDtoAssignment_4 extends AssignmentToken  {
 		return null;
 	}
 
+}
+
+// ";"
+protected class ListDto_SemicolonKeyword_5 extends KeywordToken  {
+	
+	public ListDto_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getListDtoAccess().getSemicolonKeyword_5();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ListDto_BaseDtoAssignment_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
 }
 
 

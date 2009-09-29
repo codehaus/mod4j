@@ -195,22 +195,24 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		private final Assignment cBaseAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cBaseExternalReferenceCrossReference_4_0 = (CrossReference)cBaseAssignment_4.eContents().get(0);
 		private final RuleCall cBaseExternalReferenceIDTerminalRuleCall_4_0_1 = (RuleCall)cBaseExternalReferenceCrossReference_4_0.eContents().get(1);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cLeftSquareBracketKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cPropertyReferencesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_0 = (RuleCall)cPropertyReferencesAssignment_5_1.eContents().get(0);
-		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
-		private final Keyword cReferencesKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_5_2_1 = (Keyword)cGroup_5_2.eContents().get(1);
-		private final Assignment cAssociationReferencesAssignment_5_2_2 = (Assignment)cGroup_5_2.eContents().get(2);
-		private final RuleCall cAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_2_2_0 = (RuleCall)cAssociationReferencesAssignment_5_2_2.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_5_2_3 = (Keyword)cGroup_5_2.eContents().get(3);
-		private final Keyword cRightSquareBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Keyword cSemicolonKeyword_5_0 = (Keyword)cAlternatives_5.eContents().get(0);
+		private final Group cGroup_5_1 = (Group)cAlternatives_5.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Assignment cPropertyReferencesAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
+		private final RuleCall cPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0 = (RuleCall)cPropertyReferencesAssignment_5_1_1.eContents().get(0);
+		private final Group cGroup_5_1_2 = (Group)cGroup_5_1.eContents().get(2);
+		private final Keyword cReferencesKeyword_5_1_2_0 = (Keyword)cGroup_5_1_2.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_5_1_2_1 = (Keyword)cGroup_5_1_2.eContents().get(1);
+		private final Assignment cAssociationReferencesAssignment_5_1_2_2 = (Assignment)cGroup_5_1_2.eContents().get(2);
+		private final RuleCall cAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0 = (RuleCall)cAssociationReferencesAssignment_5_1_2_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5_1_2_3 = (Keyword)cGroup_5_1_2.eContents().get(3);
+		private final Keyword cRightSquareBracketKeyword_5_1_3 = (Keyword)cGroup_5_1.eContents().get(3);
 		
 		//BusinessClassDto:
-		//  description=STRING? "class" name=ID "represents" base=[ExternalReference] ("["
+		//  description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
 		//  propertyReferences+=BusinessClassPropertyReference+ ("references" "["
-		//  associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?; 
+		//  associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"); 
 		//
 		//    
 		//
@@ -229,9 +231,9 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		////    "from" modelname=ID "enumeration" name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "class" name=ID "represents" base=[ExternalReference] ("["
+		//description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
 		//propertyReferences+=BusinessClassPropertyReference+ ("references" "["
-		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?
+		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -261,40 +263,47 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getBaseExternalReferenceIDTerminalRuleCall_4_0_1() { return cBaseExternalReferenceIDTerminalRuleCall_4_0_1; }
 
-		//("[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
-		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?
-		public Group getGroup_5() { return cGroup_5; }
+		//";"|"[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_0() { return cSemicolonKeyword_5_0; }
+
+		//"[" propertyReferences+=BusinessClassPropertyReference+ ("references" "["
+		//associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"
+		public Group getGroup_5_1() { return cGroup_5_1; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_5_0() { return cLeftSquareBracketKeyword_5_0; }
+		public Keyword getLeftSquareBracketKeyword_5_1_0() { return cLeftSquareBracketKeyword_5_1_0; }
 
 		//propertyReferences+=BusinessClassPropertyReference+
-		public Assignment getPropertyReferencesAssignment_5_1() { return cPropertyReferencesAssignment_5_1; }
+		public Assignment getPropertyReferencesAssignment_5_1_1() { return cPropertyReferencesAssignment_5_1_1; }
 
 		//BusinessClassPropertyReference
-		public RuleCall getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_0() { return cPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_0; }
+		public RuleCall getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0() { return cPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0; }
 
 		//("references" "[" associationReferences+=BusinessClassAssociationRoleReference+ "]"
 		//)?
-		public Group getGroup_5_2() { return cGroup_5_2; }
+		public Group getGroup_5_1_2() { return cGroup_5_1_2; }
 
 		//"references"
-		public Keyword getReferencesKeyword_5_2_0() { return cReferencesKeyword_5_2_0; }
+		public Keyword getReferencesKeyword_5_1_2_0() { return cReferencesKeyword_5_1_2_0; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_5_2_1() { return cLeftSquareBracketKeyword_5_2_1; }
+		public Keyword getLeftSquareBracketKeyword_5_1_2_1() { return cLeftSquareBracketKeyword_5_1_2_1; }
 
 		//associationReferences+=BusinessClassAssociationRoleReference+
-		public Assignment getAssociationReferencesAssignment_5_2_2() { return cAssociationReferencesAssignment_5_2_2; }
+		public Assignment getAssociationReferencesAssignment_5_1_2_2() { return cAssociationReferencesAssignment_5_1_2_2; }
 
 		//BusinessClassAssociationRoleReference
-		public RuleCall getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_2_2_0() { return cAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_2_2_0; }
+		public RuleCall getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0() { return cAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_5_2_3() { return cRightSquareBracketKeyword_5_2_3; }
+		public Keyword getRightSquareBracketKeyword_5_1_2_3() { return cRightSquareBracketKeyword_5_1_2_3; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_5_3() { return cRightSquareBracketKeyword_5_3; }
+		public Keyword getRightSquareBracketKeyword_5_1_3() { return cRightSquareBracketKeyword_5_1_3; }
 	}
 
 	public class EnumerationDtoElements implements IParserRuleAccess {
@@ -309,12 +318,13 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		private final Assignment cBaseAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cBaseExternalReferenceCrossReference_4_0 = (CrossReference)cBaseAssignment_4.eContents().get(0);
 		private final RuleCall cBaseExternalReferenceIDTerminalRuleCall_4_0_1 = (RuleCall)cBaseExternalReferenceCrossReference_4_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EnumerationDto:
-		//  description=STRING? "enumeration" name=ID "represents" base=[ExternalReference];
+		//  description=STRING? "enumeration" name=ID "represents" base=[ExternalReference] ";";
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "enumeration" name=ID "represents" base=[ExternalReference]
+		//description=STRING? "enumeration" name=ID "represents" base=[ExternalReference] ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -343,6 +353,9 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 
 		//ID
 		public RuleCall getBaseExternalReferenceIDTerminalRuleCall_4_0_1() { return cBaseExternalReferenceIDTerminalRuleCall_4_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class BusinessClassPropertyReferenceElements implements IParserRuleAccess {
@@ -421,12 +434,13 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		private final Assignment cBaseDtoAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cBaseDtoDtoCrossReference_4_0 = (CrossReference)cBaseDtoAssignment_4.eContents().get(0);
 		private final RuleCall cBaseDtoDtoIDTerminalRuleCall_4_0_1 = (RuleCall)cBaseDtoDtoCrossReference_4_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ListDto:
-		//  description=STRING? "list" name=ID "contains" baseDto=[Dto];
+		//  description=STRING? "list" name=ID "contains" baseDto=[Dto] ";";
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "list" name=ID "contains" baseDto=[Dto]
+		//description=STRING? "list" name=ID "contains" baseDto=[Dto] ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -455,6 +469,9 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 
 		//ID
 		public RuleCall getBaseDtoDtoIDTerminalRuleCall_4_0_1() { return cBaseDtoDtoIDTerminalRuleCall_4_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class CustomDtoElements implements IParserRuleAccess {
@@ -929,9 +946,9 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	}
 
 	//BusinessClassDto:
-	//  description=STRING? "class" name=ID "represents" base=[ExternalReference] ("["
+	//  description=STRING? "class" name=ID "represents" base=[ExternalReference] (";"|"["
 	//  propertyReferences+=BusinessClassPropertyReference+ ("references" "["
-	//  associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]")?; 
+	//  associationReferences+=BusinessClassAssociationRoleReference+ "]")? "]"); 
 	//
 	//    
 	//
@@ -957,7 +974,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	}
 
 	//EnumerationDto:
-	//  description=STRING? "enumeration" name=ID "represents" base=[ExternalReference];
+	//  description=STRING? "enumeration" name=ID "represents" base=[ExternalReference] ";";
 	public EnumerationDtoElements getEnumerationDtoAccess() {
 		return (pEnumerationDto != null) ? pEnumerationDto : (pEnumerationDto = new EnumerationDtoElements());
 	}
@@ -987,7 +1004,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	}
 
 	//ListDto:
-	//  description=STRING? "list" name=ID "contains" baseDto=[Dto];
+	//  description=STRING? "list" name=ID "contains" baseDto=[Dto] ";";
 	public ListDtoElements getListDtoAccess() {
 		return (pListDto != null) ? pListDto : (pListDto = new ListDtoElements());
 	}

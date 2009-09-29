@@ -80,20 +80,23 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
-        <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Keyword" value="["/>
-          <tokens xsi:type="xtext:Assignment" cardinality="+" feature="propertyReferences" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
-          </tokens>
-          <tokens xsi:type="xtext:Group" cardinality="?">
-            <tokens xsi:type="xtext:Keyword" value="references"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value=";"/>
+          <groups xsi:type="xtext:Group">
             <tokens xsi:type="xtext:Keyword" value="["/>
-            <tokens xsi:type="xtext:Assignment" cardinality="+" feature="associationReferences" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+            <tokens xsi:type="xtext:Assignment" cardinality="+" feature="propertyReferences" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+            </tokens>
+            <tokens xsi:type="xtext:Group" cardinality="?">
+              <tokens xsi:type="xtext:Keyword" value="references"/>
+              <tokens xsi:type="xtext:Keyword" value="["/>
+              <tokens xsi:type="xtext:Assignment" cardinality="+" feature="associationReferences" operator="+=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+              </tokens>
+              <tokens xsi:type="xtext:Keyword" value="]"/>
             </tokens>
             <tokens xsi:type="xtext:Keyword" value="]"/>
-          </tokens>
-          <tokens xsi:type="xtext:Keyword" value="]"/>
+          </groups>
         </tokens>
       </alternatives>
     </rules>
@@ -118,6 +121,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="BusinessClassPropertyReference">
@@ -172,6 +176,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CustomDto">
