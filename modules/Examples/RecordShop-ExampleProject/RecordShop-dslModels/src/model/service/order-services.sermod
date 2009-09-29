@@ -19,10 +19,10 @@ crud OrderNumberAndDateDto ;
 //for OrderWithOrderLinesDto reference orderLines add OrderLineDto;
    
 "Find all Orders for a specific Customer" 
-method findOrdersByCustomer in [ SimpleCustomerDto customer ; ]
+method findOrdersByCustomer in ( SimpleCustomerDto customer )
                             out OrderNumberAndDateList;
 
 "Find all orders for a given date" 
-method findOrdersByDate in [ DateDto date; ] 
+method findOrdersByDate in ( DateDto date )
                         out OrderNumberAndDateList;
 
