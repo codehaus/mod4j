@@ -11,8 +11,8 @@ public class ToStringForDtoTest {
 		SimpleCustomerDto customer = new SimpleCustomerDto(false);
 		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto"
 				+ "[id=null,customerNr=null,lastName=null,firstName=null,"
-				+ "blackListed=null,username=null,sexe=null,birthDate=null,"
-				+ "orders=[]]", customer.toString());
+				+ "blackListed=null,username=null,sexe=null,birthDate=null]",
+				customer.toString());
 	}
 
 	@Test
@@ -22,8 +22,8 @@ public class ToStringForDtoTest {
 		customer.setBlackListed(true);
 		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto"
 				+ "[id=1,customerNr=null,lastName=null,firstName=null,"
-				+ "blackListed=true,username=null,sexe=null,birthDate=null,"
-				+ "orders=[]]", customer.toString());
+				+ "blackListed=true,username=null,sexe=null,birthDate=null]",
+				customer.toString());
 	}
 
 	@Test
@@ -33,11 +33,9 @@ public class ToStringForDtoTest {
 		order.setId(1L);
 		order.setOrderNumber("1");
 		customer.addToOrders(order);
-		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto[" +
-				"id=null,customerNr=null,lastName=null,firstName=null," +
-				"blackListed=null,username=null,sexe=null,birthDate=null,orders=[" +
-				"org.company.recordshop.service.dto.OrderNumberAndDateDto[" +
-				"id=1,orderNumber=1,orderDate=null,customer=null]]]",
+		assertEquals("org.company.recordshop.service.dto.SimpleCustomerDto["
+				+ "id=null,customerNr=null,lastName=null,firstName=null,"
+				+ "blackListed=null,username=null,sexe=null,birthDate=null]",
 				customer.toString());
 	}
 }

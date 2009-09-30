@@ -15,7 +15,9 @@ public class ToStringTest {
 		customer.setEmailAddress("Ludwig.Wittgenstein@mod4j.org");
 		customer.setNumberOfEars(3);
 		customer.setSexe(SexeEnum.MALE);
-		customer.setUsername("lwittgen");
+		customer.setUsername("lwittgen");		
+		customer.addToOrders(new Order("1"));
+		
 		assertEquals(
 				"org.company.recordshop.domain.Customer[id=null," +
 				"firstName=Ludwig," +

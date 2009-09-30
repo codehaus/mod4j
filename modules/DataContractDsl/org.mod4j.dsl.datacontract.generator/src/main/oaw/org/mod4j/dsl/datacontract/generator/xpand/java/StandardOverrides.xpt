@@ -12,33 +12,6 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
-«DEFINE addEqualsMethod FOR BusinessClassDto »
-    /**
-     * equals method for «javaClassName(this.name)» 
-     */
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (!(object instanceof «javaClassName(this.name)»)) {
-            return false;
-        }
-        return getId() == null ? false : getId().equals(((«javaClassName(this.name)»)object).getId());
-    }
-«ENDDEFINE»
-
-«DEFINE addHashCodeMethod FOR BusinessClassDto »
-    /**
-     * hashCode method for «javaClassName(this.name)» 
-     */
-    @Override
-    public int hashCode() {
-        int result = ((getId() == null) ? super.hashCode() : getId().hashCode());
-        return result;
-    }
-«ENDDEFINE»
-
 «DEFINE addToStringMethod FOR BusinessClassDto»
     /**
      * toString method for «javaClassName(name)»
@@ -49,7 +22,7 @@
         result.append("«getDtoPackage()».«javaClassName(name)»[");
         result.append("id=");
         result.append(getId());
-        «FOREACH properties AS p»
+        «FOREACH properties.reject(e|e.metaType == DtoAssociationRoleProperty) AS p»
             «EXPAND addAttribute FOR p -»
         «ENDFOREACH»
         result.append("]");

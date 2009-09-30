@@ -73,8 +73,6 @@
         «EXPAND ValidationSupport::addValidationInstance FOR this»
         «EXPAND Attributes::addIdAttribute FOR this»	
         «EXPAND Attributes::addIdAccessors FOR this»
-        «EXPAND StandardOverrides::addEqualsMethod FOR this»
-        «EXPAND StandardOverrides::addHashCodeMethod FOR this»
     «ENDIF»
     «EXPAND StandardOverrides::addToStringMethod FOR this»
  	«EXPAND Attributes::addAttribute FOREACH properties.reject(e|e.derived)»

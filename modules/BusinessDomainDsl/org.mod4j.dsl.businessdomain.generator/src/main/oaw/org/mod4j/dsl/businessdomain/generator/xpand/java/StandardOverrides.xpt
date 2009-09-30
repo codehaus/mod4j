@@ -13,34 +13,6 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
-«DEFINE addEqualsMethod FOR BusinessClass »
-    /**
-     * equals method for «javaDomainBaseClass(this.name)» 
-     */
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (!(object instanceof «javaDomainBaseClass(this.name)»)) {
-            return false;
-        }
-        boolean result = ((getId() == null) ? false : getId().equals(((«javaDomainBaseClass(this.name)»)object).getId()));
-        return result;
-    }
-«ENDDEFINE»
-
-«DEFINE addHashCodeMethod FOR BusinessClass »
-    /**
-     * hashCode method for «javaDomainBaseClass(this.name)» 
-     */
-    @Override
-    public int hashCode() {
-        int result = ((getId() == null) ? super.hashCode() : getId().hashCode());
-        return result;
-    }
-«ENDDEFINE»
-
 «DEFINE addToStringMethod FOR BusinessClass»
     /**
      * toString method for «javaDomainBaseClass(name)»

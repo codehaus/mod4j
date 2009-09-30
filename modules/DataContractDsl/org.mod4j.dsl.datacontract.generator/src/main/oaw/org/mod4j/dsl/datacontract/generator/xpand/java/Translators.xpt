@@ -137,8 +137,7 @@
    «REM»2Many«ENDREM» «IF assRef.dtoType.metaType == ListDto -»        
 		                  Set<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»> toBeRemoved = new HashSet<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»>();
 		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element : target.get«assRef.name.toFirstUpper()»()) {
-		                      if (!source.get«assRef.name.toFirstUpper()»().contains(
-		                              new «EXPAND getBaseDtoName FOR assRef.dtoType -»(element.getId()))) {
+		                      if (source.get«assRef.name.toFirstUpper()»(element.getId()) == null) {
 		                          toBeRemoved.add(element);
 		                      }
 		                  }
