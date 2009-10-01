@@ -69,7 +69,7 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCollectionDialogueAccess().getGroup_7(), "rule__CollectionDialogue__Group_7__0");
 					put(grammarAccess.getMasterDetailAccess().getGroup(), "rule__MasterDetail__Group__0");
 					put(grammarAccess.getMasterDetailAccess().getGroup_5(), "rule__MasterDetail__Group_5__0");
-					put(grammarAccess.getMasterDetailAccess().getGroup_12(), "rule__MasterDetail__Group_12__0");
+					put(grammarAccess.getMasterDetailAccess().getGroup_10(), "rule__MasterDetail__Group_10__0");
 					put(grammarAccess.getAutomatedProcessAccess().getGroup(), "rule__AutomatedProcess__Group__0");
 					put(grammarAccess.getInteractiveProcessAccess().getGroup(), "rule__InteractiveProcess__Group__0");
 					put(grammarAccess.getFormElementAccess().getGroup(), "rule__FormElement__Group__0");
@@ -108,8 +108,8 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMasterDetailAccess().getContextRefAssignment_4(), "rule__MasterDetail__ContextRefAssignment_4");
 					put(grammarAccess.getMasterDetailAccess().getReadonlyAssignment_5_1_0(), "rule__MasterDetail__ReadonlyAssignment_5_1_0");
 					put(grammarAccess.getMasterDetailAccess().getMasterAssignment_7(), "rule__MasterDetail__MasterAssignment_7");
-					put(grammarAccess.getMasterDetailAccess().getDetailAssignment_10(), "rule__MasterDetail__DetailAssignment_10");
-					put(grammarAccess.getMasterDetailAccess().getProcessesAssignment_12_2(), "rule__MasterDetail__ProcessesAssignment_12_2");
+					put(grammarAccess.getMasterDetailAccess().getDetailAssignment_9(), "rule__MasterDetail__DetailAssignment_9");
+					put(grammarAccess.getMasterDetailAccess().getProcessesAssignment_10_2(), "rule__MasterDetail__ProcessesAssignment_10_2");
 					put(grammarAccess.getAutomatedProcessAccess().getDescriptionAssignment_0(), "rule__AutomatedProcess__DescriptionAssignment_0");
 					put(grammarAccess.getAutomatedProcessAccess().getNameAssignment_2(), "rule__AutomatedProcess__NameAssignment_2");
 					put(grammarAccess.getAutomatedProcessAccess().getContextRefAssignment_4(), "rule__AutomatedProcess__ContextRefAssignment_4");

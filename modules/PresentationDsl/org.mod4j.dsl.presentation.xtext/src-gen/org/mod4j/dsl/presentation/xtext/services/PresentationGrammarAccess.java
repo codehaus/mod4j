@@ -575,27 +575,25 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cMasterKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cMasterAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cMasterDialogueCallParserRuleCall_7_0 = (RuleCall)cMasterAssignment_7.eContents().get(0);
-		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cDetailKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cDetailAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cDetailDialogueCallParserRuleCall_10_0 = (RuleCall)cDetailAssignment_10.eContents().get(0);
-		private final Keyword cSemicolonKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cProcessesKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
-		private final Assignment cProcessesAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
-		private final RuleCall cProcessesProcessCallParserRuleCall_12_2_0 = (RuleCall)cProcessesAssignment_12_2.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_12_3 = (Keyword)cGroup_12.eContents().get(3);
+		private final Keyword cDetailKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDetailAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDetailDialogueCallParserRuleCall_9_0 = (RuleCall)cDetailAssignment_9.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cProcessesKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cProcessesAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cProcessesProcessCallParserRuleCall_10_2_0 = (RuleCall)cProcessesAssignment_10_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_10_3 = (Keyword)cGroup_10.eContents().get(3);
 		
 		//MasterDetail:
 		//  description=STRING? "MasterDetail" name=ID "using" contextRef=[ExternalReference] (
-		//  "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall ";" "detail"
-		//  detail=DialogueCall ";" ("processes" "[" processes+=ProcessCall* "]")?;
+		//  "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall "detail"
+		//  detail=DialogueCall ("processes" "[" processes+=ProcessCall* "]")?;
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "MasterDetail" name=ID "using" contextRef=[ExternalReference] (
-		//"readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall ";" "detail"
-		//detail=DialogueCall ";" ("processes" "[" processes+=ProcessCall* "]")?
+		//"readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall "detail"
+		//detail=DialogueCall ("processes" "[" processes+=ProcessCall* "]")?
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -655,38 +653,32 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//DialogueCall
 		public RuleCall getMasterDialogueCallParserRuleCall_7_0() { return cMasterDialogueCallParserRuleCall_7_0; }
 
-		//";"
-		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
-
 		//"detail"
-		public Keyword getDetailKeyword_9() { return cDetailKeyword_9; }
+		public Keyword getDetailKeyword_8() { return cDetailKeyword_8; }
 
 		//detail=DialogueCall
-		public Assignment getDetailAssignment_10() { return cDetailAssignment_10; }
+		public Assignment getDetailAssignment_9() { return cDetailAssignment_9; }
 
 		//DialogueCall
-		public RuleCall getDetailDialogueCallParserRuleCall_10_0() { return cDetailDialogueCallParserRuleCall_10_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_11() { return cSemicolonKeyword_11; }
+		public RuleCall getDetailDialogueCallParserRuleCall_9_0() { return cDetailDialogueCallParserRuleCall_9_0; }
 
 		//("processes" "[" processes+=ProcessCall* "]")?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_10() { return cGroup_10; }
 
 		//"processes"
-		public Keyword getProcessesKeyword_12_0() { return cProcessesKeyword_12_0; }
+		public Keyword getProcessesKeyword_10_0() { return cProcessesKeyword_10_0; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_12_1() { return cLeftSquareBracketKeyword_12_1; }
+		public Keyword getLeftSquareBracketKeyword_10_1() { return cLeftSquareBracketKeyword_10_1; }
 
 		//processes+=ProcessCall*
-		public Assignment getProcessesAssignment_12_2() { return cProcessesAssignment_12_2; }
+		public Assignment getProcessesAssignment_10_2() { return cProcessesAssignment_10_2; }
 
 		//ProcessCall
-		public RuleCall getProcessesProcessCallParserRuleCall_12_2_0() { return cProcessesProcessCallParserRuleCall_12_2_0; }
+		public RuleCall getProcessesProcessCallParserRuleCall_10_2_0() { return cProcessesProcessCallParserRuleCall_10_2_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_12_3() { return cRightSquareBracketKeyword_12_3; }
+		public Keyword getRightSquareBracketKeyword_10_3() { return cRightSquareBracketKeyword_10_3; }
 	}
 
 	public class ProcessElements implements IParserRuleAccess {
@@ -1312,8 +1304,8 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	//MasterDetail:
 	//  description=STRING? "MasterDetail" name=ID "using" contextRef=[ExternalReference] (
-	//  "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall ";" "detail"
-	//  detail=DialogueCall ";" ("processes" "[" processes+=ProcessCall* "]")?;
+	//  "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall "detail"
+	//  detail=DialogueCall ("processes" "[" processes+=ProcessCall* "]")?;
 	public MasterDetailElements getMasterDetailAccess() {
 		return (pMasterDetail != null) ? pMasterDetail : (pMasterDetail = new MasterDetailElements());
 	}

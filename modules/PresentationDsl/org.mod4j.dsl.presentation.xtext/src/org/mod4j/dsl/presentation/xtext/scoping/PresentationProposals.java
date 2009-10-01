@@ -49,7 +49,7 @@ public class PresentationProposals {
         }
 
         Symbol sym = CrossxBroker.lookupSymbol(dtoRef.getModelName(), dtoRef.getName(), "Dto");
-        for (Symbol sub : CrossxBroker.findAllSubSymbols(sym, "Property")) {
+        for (Symbol sub : CrossxBroker.findAllSubSymbols(sym, "DataProperty")) {
         	result.add(sub.getName());
         }
         return result;
@@ -136,7 +136,7 @@ public class PresentationProposals {
      *            The context within xText for which the proposals is created
      * @return
      */
-    static public List<String> getDialogueCallProposals(EObject ctx, List<String> subTypes) {
+    static public List<String> getDirectDialogueCallProposals(EObject ctx, List<String> subTypes) {
         List<String> result = new ArrayList<String>();
         ExternalReference dtoRef = null;
         if (ctx == null) {

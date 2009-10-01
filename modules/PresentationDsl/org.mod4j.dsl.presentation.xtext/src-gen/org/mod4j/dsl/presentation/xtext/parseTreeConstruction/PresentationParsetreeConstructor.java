@@ -2407,14 +2407,14 @@ protected class CollectionDialogue_RightSquareBracketKeyword_7_3 extends Keyword
  *
  * MasterDetail:
  *   description=STRING? "MasterDetail" name=ID "using" contextRef=[ExternalReference] (
- *   "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall ";" "detail"
- *   detail=DialogueCall ";" ("processes" "[" processes+=ProcessCall* "]")?;
+ *   "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall "detail"
+ *   detail=DialogueCall ("processes" "[" processes+=ProcessCall* "]")?;
  *
  **/
 
 // description=STRING? "MasterDetail" name=ID "using" contextRef=[ExternalReference] (
-// "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall ";" "detail"
-// detail=DialogueCall ";" ("processes" "[" processes+=ProcessCall* "]")?
+// "readonly" (readonly?="true"|"false") ";")? "master" master=DialogueCall "detail"
+// detail=DialogueCall ("processes" "[" processes+=ProcessCall* "]")?
 protected class MasterDetail_Group extends GroupToken {
 	
 	public MasterDetail_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2427,8 +2427,8 @@ protected class MasterDetail_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MasterDetail_Group_12(parent, this, 0, inst);
-			case 1: return new MasterDetail_SemicolonKeyword_11(parent, this, 1, inst);
+			case 0: return new MasterDetail_Group_10(parent, this, 0, inst);
+			case 1: return new MasterDetail_DetailAssignment_9(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -2771,15 +2771,15 @@ protected class MasterDetail_MasterAssignment_7 extends AssignmentToken  {
 	}	
 }
 
-// ";"
-protected class MasterDetail_SemicolonKeyword_8 extends KeywordToken  {
+// "detail"
+protected class MasterDetail_DetailKeyword_8 extends KeywordToken  {
 	
-	public MasterDetail_SemicolonKeyword_8(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_DetailKeyword_8(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getSemicolonKeyword_8();
+		return grammarAccess.getMasterDetailAccess().getDetailKeyword_8();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -2791,35 +2791,15 @@ protected class MasterDetail_SemicolonKeyword_8 extends KeywordToken  {
 		
 }
 
-// "detail"
-protected class MasterDetail_DetailKeyword_9 extends KeywordToken  {
-	
-	public MasterDetail_DetailKeyword_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getDetailKeyword_9();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new MasterDetail_SemicolonKeyword_8(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 // detail=DialogueCall
-protected class MasterDetail_DetailAssignment_10 extends AssignmentToken  {
+protected class MasterDetail_DetailAssignment_9 extends AssignmentToken  {
 	
-	public MasterDetail_DetailAssignment_10(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_DetailAssignment_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getDetailAssignment_10();
+		return grammarAccess.getMasterDetailAccess().getDetailAssignment_9();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -2836,7 +2816,7 @@ protected class MasterDetail_DetailAssignment_10 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getDialogueCallRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getMasterDetailAccess().getDetailDialogueCallParserRuleCall_10_0(); 
+				element = grammarAccess.getMasterDetailAccess().getDetailDialogueCallParserRuleCall_9_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -2847,46 +2827,26 @@ protected class MasterDetail_DetailAssignment_10 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new MasterDetail_DetailKeyword_9(parent, next, actIndex, consumed);
+			case 0: return new MasterDetail_DetailKeyword_8(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
-}
-
-// ";"
-protected class MasterDetail_SemicolonKeyword_11 extends KeywordToken  {
-	
-	public MasterDetail_SemicolonKeyword_11(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getSemicolonKeyword_11();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new MasterDetail_DetailAssignment_10(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
 }
 
 // ("processes" "[" processes+=ProcessCall* "]")?
-protected class MasterDetail_Group_12 extends GroupToken {
+protected class MasterDetail_Group_10 extends GroupToken {
 	
-	public MasterDetail_Group_12(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_Group_10(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Group getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getGroup_12();
+		return grammarAccess.getMasterDetailAccess().getGroup_10();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MasterDetail_RightSquareBracketKeyword_12_3(parent, this, 0, inst);
+			case 0: return new MasterDetail_RightSquareBracketKeyword_10_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2894,19 +2854,19 @@ protected class MasterDetail_Group_12 extends GroupToken {
 }
 
 // "processes"
-protected class MasterDetail_ProcessesKeyword_12_0 extends KeywordToken  {
+protected class MasterDetail_ProcessesKeyword_10_0 extends KeywordToken  {
 	
-	public MasterDetail_ProcessesKeyword_12_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_ProcessesKeyword_10_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getProcessesKeyword_12_0();
+		return grammarAccess.getMasterDetailAccess().getProcessesKeyword_10_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MasterDetail_SemicolonKeyword_11(parent, this, 0, inst);
+			case 0: return new MasterDetail_DetailAssignment_9(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2914,19 +2874,19 @@ protected class MasterDetail_ProcessesKeyword_12_0 extends KeywordToken  {
 }
 
 // "["
-protected class MasterDetail_LeftSquareBracketKeyword_12_1 extends KeywordToken  {
+protected class MasterDetail_LeftSquareBracketKeyword_10_1 extends KeywordToken  {
 	
-	public MasterDetail_LeftSquareBracketKeyword_12_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_LeftSquareBracketKeyword_10_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getLeftSquareBracketKeyword_12_1();
+		return grammarAccess.getMasterDetailAccess().getLeftSquareBracketKeyword_10_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MasterDetail_ProcessesKeyword_12_0(parent, this, 0, inst);
+			case 0: return new MasterDetail_ProcessesKeyword_10_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2934,14 +2894,14 @@ protected class MasterDetail_LeftSquareBracketKeyword_12_1 extends KeywordToken 
 }
 
 // processes+=ProcessCall*
-protected class MasterDetail_ProcessesAssignment_12_2 extends AssignmentToken  {
+protected class MasterDetail_ProcessesAssignment_10_2 extends AssignmentToken  {
 	
-	public MasterDetail_ProcessesAssignment_12_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_ProcessesAssignment_10_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getProcessesAssignment_12_2();
+		return grammarAccess.getMasterDetailAccess().getProcessesAssignment_10_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -2958,7 +2918,7 @@ protected class MasterDetail_ProcessesAssignment_12_2 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getProcessCallRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getMasterDetailAccess().getProcessesProcessCallParserRuleCall_12_2_0(); 
+				element = grammarAccess.getMasterDetailAccess().getProcessesProcessCallParserRuleCall_10_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -2969,28 +2929,28 @@ protected class MasterDetail_ProcessesAssignment_12_2 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new MasterDetail_ProcessesAssignment_12_2(parent, next, actIndex, consumed);
-			case 1: return new MasterDetail_LeftSquareBracketKeyword_12_1(parent, next, actIndex, consumed);
+			case 0: return new MasterDetail_ProcessesAssignment_10_2(parent, next, actIndex, consumed);
+			case 1: return new MasterDetail_LeftSquareBracketKeyword_10_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "]"
-protected class MasterDetail_RightSquareBracketKeyword_12_3 extends KeywordToken  {
+protected class MasterDetail_RightSquareBracketKeyword_10_3 extends KeywordToken  {
 	
-	public MasterDetail_RightSquareBracketKeyword_12_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MasterDetail_RightSquareBracketKeyword_10_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMasterDetailAccess().getRightSquareBracketKeyword_12_3();
+		return grammarAccess.getMasterDetailAccess().getRightSquareBracketKeyword_10_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MasterDetail_ProcessesAssignment_12_2(parent, this, 0, inst);
-			case 1: return new MasterDetail_LeftSquareBracketKeyword_12_1(parent, this, 1, inst);
+			case 0: return new MasterDetail_ProcessesAssignment_10_2(parent, this, 0, inst);
+			case 1: return new MasterDetail_LeftSquareBracketKeyword_10_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	

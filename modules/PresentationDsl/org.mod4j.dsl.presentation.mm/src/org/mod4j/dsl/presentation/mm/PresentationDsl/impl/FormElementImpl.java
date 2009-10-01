@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -82,16 +83,6 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
      * @ordered
      */
 	protected boolean readonly = READONLY_EDEFAULT;
-	/**
-     * The cached value of the '{@link #getForm() <em>Form</em>}' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #getForm()
-     * @generated
-     * @ordered
-     */
-	protected ContentForm form;
-
 	/**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,24 +188,8 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
      * @generated
      */
 	public ContentForm getForm() {
-        if (form != null && form.eIsProxy()) {
-            InternalEObject oldForm = (InternalEObject)form;
-            form = (ContentForm)eResolveProxy(oldForm);
-            if (form != oldForm) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PresentationDslPackage.FORM_ELEMENT__FORM, oldForm, form));
-            }
-        }
-        return form;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public ContentForm basicGetForm() {
-        return form;
+        if (eContainerFeatureID() != PresentationDslPackage.FORM_ELEMENT__FORM) return null;
+        return (ContentForm)eContainer();
     }
 
 	/**
@@ -223,12 +198,7 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
      * @generated
      */
 	public NotificationChain basicSetForm(ContentForm newForm, NotificationChain msgs) {
-        ContentForm oldForm = form;
-        form = newForm;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__FORM, oldForm, newForm);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
+        msgs = eBasicSetContainer((InternalEObject)newForm, PresentationDslPackage.FORM_ELEMENT__FORM, msgs);
         return msgs;
     }
 
@@ -238,10 +208,12 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
      * @generated
      */
 	public void setForm(ContentForm newForm) {
-        if (newForm != form) {
+        if (newForm != eInternalContainer() || (eContainerFeatureID() != PresentationDslPackage.FORM_ELEMENT__FORM && newForm != null)) {
+            if (EcoreUtil.isAncestor(this, newForm))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (form != null)
-                msgs = ((InternalEObject)form).eInverseRemove(this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, ContentForm.class, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
             if (newForm != null)
                 msgs = ((InternalEObject)newForm).eInverseAdd(this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, ContentForm.class, msgs);
             msgs = basicSetForm(newForm, msgs);
@@ -260,8 +232,8 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.FORM_ELEMENT__FORM:
-                if (form != null)
-                    msgs = ((InternalEObject)form).eInverseRemove(this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, ContentForm.class, msgs);
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
                 return basicSetForm((ContentForm)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -283,6 +255,20 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
+            case PresentationDslPackage.FORM_ELEMENT__FORM:
+                return eInternalContainer().eInverseRemove(this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, ContentForm.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -297,8 +283,7 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
             case PresentationDslPackage.FORM_ELEMENT__READONLY:
                 return isReadonly();
             case PresentationDslPackage.FORM_ELEMENT__FORM:
-                if (resolve) return getForm();
-                return basicGetForm();
+                return getForm();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -366,7 +351,7 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
             case PresentationDslPackage.FORM_ELEMENT__READONLY:
                 return readonly != READONLY_EDEFAULT;
             case PresentationDslPackage.FORM_ELEMENT__FORM:
-                return form != null;
+                return getForm() != null;
         }
         return super.eIsSet(featureID);
     }

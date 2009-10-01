@@ -16,7 +16,6 @@ Require-Bundle: org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
  org.eclipse.ui,
  org.eclipse.ui.editors
 Eclipse-LazyStart: true
-Bundle-Vendor: mod4j.org
 Export-Package: org.mod4j.dsl.presentation.xtext,
  org.mod4j.dsl.presentation.xtext.contentassist,
  org.mod4j.dsl.presentation.xtext.contentassist.antlr,

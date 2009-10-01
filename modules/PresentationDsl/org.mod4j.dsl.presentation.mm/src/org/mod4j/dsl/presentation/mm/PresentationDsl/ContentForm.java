@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ContentForm extends Form {
 
 	/**
-     * Returns the value of the '<em><b>Form Elements</b></em>' reference list.
+     * Returns the value of the '<em><b>Form Elements</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement}.
      * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm <em>Form</em>}'.
      * <!-- begin-user-doc -->
@@ -37,10 +37,10 @@ public interface ContentForm extends Form {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Form Elements</em>' reference list.
+     * @return the value of the '<em>Form Elements</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getContentForm_FormElements()
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm
-     * @model opposite="form"
+     * @model opposite="form" containment="true"
      * @generated
      */
 	EList<FormElement> getFormElements();

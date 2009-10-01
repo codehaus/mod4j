@@ -247,12 +247,10 @@
         <tokens xsi:type="xtext:Assignment" feature="master" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value=";"/>
         <tokens xsi:type="xtext:Keyword" value="detail"/>
         <tokens xsi:type="xtext:Assignment" feature="detail" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value=";"/>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="processes"/>
           <tokens xsi:type="xtext:Keyword" value="["/>

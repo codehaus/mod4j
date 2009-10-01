@@ -6,7 +6,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AutomatedProcess" eSuperTypes="#//Process"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Form">
     <eStructuralFeatures xsi:type="ecore:EReference" name="formElements" upperBound="-1"
-        eType="#//FormElement" eOpposite="#//FormElement/form"/>
+        eType="#//FormElement" containment="true" eOpposite="#//FormElement/form"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"

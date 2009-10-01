@@ -1,11 +1,6 @@
 grammar org.mod4j.dsl.presentation.xtext.Presentation with org.eclipse.xtext.common.Terminals
 
 import "platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.ecore"
-import "platform:/resource/org.mod4j.crossx.mm/model/crossx.ecore"
-
-//preventMMGeneration
-
-//importMetamodel "http://www.mod4j.org/pmfmod" ;
 
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
@@ -62,8 +57,8 @@ MasterDetail :
 	(description=STRING )?
 	"MasterDetail" name = ID "using" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
-	"master" master = DialogueCall ";"
-	"detail" detail = DialogueCall ";"
+	"master" master = DialogueCall
+	"detail" detail = DialogueCall
 	("processes" "[" (processes += ProcessCall)* "]" )?
 	;
 

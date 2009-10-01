@@ -540,7 +540,7 @@ public interface PresentationDslPackage extends EPackage {
 	int CONTENT_FORM__PROCESSES = FORM__PROCESSES;
 
 	/**
-     * The feature id for the '<em><b>Form Elements</b></em>' reference list.
+     * The feature id for the '<em><b>Form Elements</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -953,7 +953,7 @@ public interface PresentationDslPackage extends EPackage {
 	int FORM_ELEMENT__READONLY = 2;
 
 	/**
-     * The feature id for the '<em><b>Form</b></em>' reference.
+     * The feature id for the '<em><b>Form</b></em>' container reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -1873,10 +1873,10 @@ public interface PresentationDslPackage extends EPackage {
 	EClass getContentForm();
 
 	/**
-     * Returns the meta object for the reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements <em>Form Elements</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements <em>Form Elements</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Form Elements</em>'.
+     * @return the meta object for the containment reference list '<em>Form Elements</em>'.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements()
      * @see #getContentForm()
      * @generated
@@ -1978,10 +1978,10 @@ public interface PresentationDslPackage extends EPackage {
 	EAttribute getFormElement_Readonly();
 
 	/**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm <em>Form</em>}'.
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm <em>Form</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Form</em>'.
+     * @return the meta object for the container reference '<em>Form</em>'.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm()
      * @see #getFormElement()
      * @generated
@@ -2375,7 +2375,7 @@ public interface PresentationDslPackage extends EPackage {
 		EClass CONTENT_FORM = eINSTANCE.getContentForm();
 
 		/**
-         * The meta object literal for the '<em><b>Form Elements</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Form Elements</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
          * @generated
@@ -2465,7 +2465,7 @@ public interface PresentationDslPackage extends EPackage {
 		EAttribute FORM_ELEMENT__READONLY = eINSTANCE.getFormElement_Readonly();
 
 		/**
-         * The meta object literal for the '<em><b>Form</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Form</b></em>' container reference feature.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
          * @generated

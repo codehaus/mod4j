@@ -3,6 +3,8 @@
 */
 package org.mod4j.dsl.presentation.xtext.contentassist;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -10,6 +12,10 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
+import org.mod4j.crossx.broker.CrossxBroker;
+import org.mod4j.crossx.mm.crossx.ModelInfo;
+import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.xtext.scoping.PresentationProposals;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
@@ -32,14 +38,36 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
         return false;
     }
 
-    @Override
-    public void completeFormElement_References(EObject model, Assignment assignment, ContentAssistContext context,
-            ICompletionProposalAcceptor acceptor) {
-//        List<String> propoals = PresentationProposals.getFormElementReferenceProposals(model);
-//        for (String name : propoals) {
-//            propose(name, context, acceptor);
-//        }
-        propose("hallo", context, acceptor);
+    /**
+     * collect the DtoProperties belonging to the Dto in the context of the given FormElement
+     */
+    @Override public void completeDtoPropertyReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> propoals = PresentationProposals.getFormElementReferenceProposals(model);
+        for (String name : propoals) {
+            propose(name, context, acceptor);
+        }
+    }
+
+    @Override public void completeDirectDialogueCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> propoals = PresentationProposals.getDirectDialogueCallProposals(model, Collections.EMPTY_LIST);
+        for (String name : propoals) {
+            propose(name, context, acceptor);
+        }
+    }
+    
+    @Override public void completeExternalReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<ModelInfo> models = CrossxBroker.findAllModels( Arrays.asList("PresentationDsl", "DataContractDsl") );
+        for (ModelInfo foundModel : models) {
+            propose(foundModel.getModelname(), context, acceptor);
+        }
+    }
+
+    @Override public void completeExternalReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        ExternalReference externalReference = (ExternalReference)model;
+        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Dto", "Dialogue", "Process", "Link"));
+        for (Symbol symbol : symbols) {
+            propose(symbol.getName(), context, acceptor);
+        }
     }
     
     /** Create and register the proposal
