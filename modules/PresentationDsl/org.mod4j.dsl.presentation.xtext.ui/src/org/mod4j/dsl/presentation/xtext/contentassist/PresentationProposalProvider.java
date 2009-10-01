@@ -3,10 +3,56 @@
 */
 package org.mod4j.dsl.presentation.xtext.contentassist;
 
-import org.mod4j.dsl.presentation.xtext.contentassist.AbstractPresentationProposalProvider;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
+import org.mod4j.dsl.presentation.xtext.scoping.PresentationProposals;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class PresentationProposalProvider extends AbstractPresentationProposalProvider {
 
+    /**
+     * Get rid of the "Name - ID" default proposals
+     */
+    @Override
+    protected boolean doCreateIdProposals(){
+        return false;
+    }
+
+    /**
+     * Get rid of the "Description" default proposals
+     */
+    @Override
+    protected boolean doCreateStringProposals(){
+        return false;
+    }
+
+    @Override
+    public void completeFormElement_References(EObject model, Assignment assignment, ContentAssistContext context,
+            ICompletionProposalAcceptor acceptor) {
+//        List<String> propoals = PresentationProposals.getFormElementReferenceProposals(model);
+//        for (String name : propoals) {
+//            propose(name, context, acceptor);
+//        }
+        propose("hallo", context, acceptor);
+    }
+    
+    /** Create and register the proposal
+     * 
+     * @param name
+     * @param context
+     * @param acceptor
+     */
+    public void propose(String name, ContentAssistContext context, ICompletionProposalAcceptor acceptor){
+        String proposal = name;
+        proposal = getValueConverter().toString(proposal, "reference");
+        ICompletionProposal completionProposal = createCompletionProposal(proposal, context);
+        acceptor.accept(completionProposal);
+    }
+    
 }

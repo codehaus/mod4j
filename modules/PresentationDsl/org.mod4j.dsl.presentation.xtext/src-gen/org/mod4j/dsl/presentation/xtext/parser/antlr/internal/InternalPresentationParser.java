@@ -25,14 +25,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'PresentationModel'", "'from'", "'import'", "'ContentForm'", "'using'", "'readonly'", "'true'", "'false'", "';'", "'processes'", "'['", "']'", "'CompoundDialogue'", "'dialogues'", "'CollectionDialogue'", "'MasterDetail'", "'master'", "'detail'", "'AutomatedProcess'", "'InteractiveProcess'", "'formElement'", "'named'", "'navigate'", "'to'", "'LinkStep'", "'LinkPath'"
     };
-    public static final int RULE_ML_COMMENT=7;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=9;
-    public static final int EOF=-1;
-    public static final int RULE_INT=6;
     public static final int RULE_STRING=4;
     public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=6;
+    public static final int RULE_WS=9;
     public static final int RULE_SL_COMMENT=8;
+    public static final int EOF=-1;
+    public static final int RULE_ML_COMMENT=7;
 
         public InternalPresentationParser(TokenStream input) {
             super(input);
@@ -479,11 +479,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 {
                 int LA4_1 = input.LA(2);
 
-                if ( ((LA4_1>=35 && LA4_1<=36)) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_1==14||LA4_1==23||(LA4_1>=25 && LA4_1<=26)||(LA4_1>=29 && LA4_1<=30)) ) {
+                if ( (LA4_1==14||LA4_1==23||(LA4_1>=25 && LA4_1<=26)||(LA4_1>=29 && LA4_1<=30)) ) {
                     alt4=1;
+                }
+                else if ( ((LA4_1>=35 && LA4_1<=36)) ) {
+                    alt4=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -631,11 +631,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 {
                 int LA5_1 = input.LA(2);
 
-                if ( ((LA5_1>=29 && LA5_1<=30)) ) {
-                    alt5=2;
-                }
-                else if ( (LA5_1==14||LA5_1==23||(LA5_1>=25 && LA5_1<=26)) ) {
+                if ( (LA5_1==14||LA5_1==23||(LA5_1>=25 && LA5_1<=26)) ) {
                     alt5=1;
+                }
+                else if ( ((LA5_1>=29 && LA5_1<=30)) ) {
+                    alt5=2;
                 }
                 else {
                     NoViableAltException nvae =

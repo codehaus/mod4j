@@ -45,6 +45,11 @@ import org.mod4j.dsl.presentation.xtext.services.PresentationGrammarAccess;
     protected Grammar getGrammar() {
     	return grammarAccess.getGrammar();
     }
+    
+    @Override
+    protected String getValueForTokenName(String tokenName) {
+    	return tokenName;
+    }
 
 }
 
