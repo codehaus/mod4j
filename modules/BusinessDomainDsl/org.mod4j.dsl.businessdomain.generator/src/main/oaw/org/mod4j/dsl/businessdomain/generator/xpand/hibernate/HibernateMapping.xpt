@@ -47,7 +47,7 @@
         «ELSEIF getHibernate_InheritanceMappingStrategy() == "table.per.subclass"»
             «EXPAND subclassMapping FOR this -»    
         «ENDIF»
-    </hibernate-mapping>
+</hibernate-mapping>
 «ENDDEFINE»
 
 «DEFINE rootClassMapping FOR BusinessDomainDsl::BusinessClass -»
@@ -171,9 +171,9 @@
 «ENDDEFINE»
 
 «DEFINE one2manyMappingTo FOR Association -»
-		<!-- one2manyMappingTo -->
+		<!-- one2manyMappingTo«IF bidirectional», bi-directional«ENDIF»-->
         <set name="«this.targetRoleName»"
-            cascade="save-update">
+            cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
             <key column="«this.sourceRoleName»_ID"/>
             <one-to-many
                 class="«javaDomainClass(this.target.name)»" 
@@ -182,9 +182,9 @@
 «ENDDEFINE»
 
 «DEFINE orderedOne2manyMappingTo FOR Association -»
-        <!-- orderedOne2manyMappingTo -->
+        <!-- orderedOne2manyMappingTo «IF bidirectional», bi-directional«ENDIF»-->
         <list name="«this.targetRoleName»"
-            cascade="save-update">
+            cascade="save-update" «IF bidirectional»inverse="true"«ENDIF»>
             <key column="«this.sourceRoleName»_ID"/>
             <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
             <one-to-many
@@ -197,7 +197,7 @@
      This is generat3ed in the target class.
 «ENDREM»
 «DEFINE one2manyMappingFrom FOR Association -»
-		<!-- one2manyMappingFrom -->
+		<!-- one2manyMappingFrom, bi-directional -->
         <many-to-one name="«sourceRoleName»"
             class="«javaDomainClass(this.source.name)»"
             not-null="false" column="«this.sourceRoleName»_ID" />
@@ -215,7 +215,7 @@
      This is generat3ed in the target class.
 «ENDREM»
 «DEFINE many2oneMappingFrom FOR Association -»
-        <!-- many2oneMappingFrom -->
+        <!-- many2oneMappingFrom, bi-directional -->
         <set name="«this.sourceRoleName»" inverse="true"
             cascade="save-update">
             <key column="«this.targetRoleName»_ID"/>
@@ -236,7 +236,7 @@
 «ENDDEFINE»
 
 «DEFINE one2oneMappingFrom FOR Association -»
-		<!-- one2oneMappingFrom -->
+		<!-- one2oneMappingFrom, bi-directional -->
         <one-to-one name="«sourceRoleName»" 
                     property-ref="«targetRoleName»"
                     class="«javaDomainClass(this.source.name)»"
@@ -244,6 +244,7 @@
 «ENDDEFINE»
 
 «DEFINE many2manyMappingTo FOR Association -»
+        <!-- many2manyMappingTo -->
         <set name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
             <key column="«this.sourceRoleName»_ID" not-null="true" />
             <many-to-many class="«javaDomainClass(this.target.name)»" column="«this.targetRoleName»_ID" />
@@ -251,6 +252,7 @@
 «ENDDEFINE»
 
 «DEFINE orderedMany2manyMappingTo FOR Association -»
+        <!-- orderedMany2manyMappingTo -->
         <list name="«this.targetRoleName»" table="«this.sourceRoleName»_«this.targetRoleName»">
             <key column="«this.sourceRoleName»_ID" not-null="true" />
             <list-index column="orderFor«sourceRoleName.toFirstUpper()»" />
@@ -260,6 +262,7 @@
 
 
 «DEFINE many2manyMappingFrom FOR Association -»
+        <!-- many2manyMappingFrom, bi-directional -->
         <set name="«this.sourceRoleName»" inverse="true" table="«this.sourceRoleName»_«this.targetRoleName»">
             <key column="«this.targetRoleName»_ID" not-null="true" />
             <many-to-many class="«javaDomainClass(this.source.name)»" column="«this.sourceRoleName»_ID" />
