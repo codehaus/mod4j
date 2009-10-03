@@ -116,7 +116,7 @@
      * @return «baseDto.name.toFirstLower()» («baseDto.name.toFirstUpper()»)
      *         with the given id.
      */
-    public «baseDto.name.toFirstUpper()» get«associationRole.name.toFirstUpper()» (Long id) {
+    public «baseDto.name.toFirstUpper()» getFrom«associationRole.name.toFirstUpper()» (Long id) {
         if (id == null) {
             return null;
         }
@@ -146,7 +146,7 @@
      * @return «baseDto.name.toFirstLower()» («baseDto.name.toFirstUpper()»)
      *         with the given id.
      */
-    public «baseDto.name.toFirstUpper()» get«associationRole.name.toFirstUpper()» (Long id) {
+    public «baseDto.name.toFirstUpper()» getFrom«associationRole.name.toFirstUpper()» (Long id) {
         if (id == null) {
             return null;
         }

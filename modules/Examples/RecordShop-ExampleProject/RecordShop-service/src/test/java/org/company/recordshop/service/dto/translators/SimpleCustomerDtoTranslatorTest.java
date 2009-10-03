@@ -110,7 +110,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		/**
 		 * Remove an order from the DTO to see if it gets removed from the DO.
 		 */
-		customerDto.removeFromOrders(customerDto.getOrders(1L));
+		customerDto.removeFromOrders(customerDto.getFromOrders(1L));
 		customer = scTranslator.fromDto(customerDto, customer);
 		checkCustomer(customer, new String[] { "2" });
 

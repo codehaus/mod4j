@@ -25,7 +25,7 @@
      * @return «targetRoleName» («javaDomainClass(target.name)»)
      *         with the given id.
      */
-    public «javaDomainClass(target.name)» get«targetRoleName.toFirstUpper()» (Long id) {
+    public «javaDomainClass(target.name)» getFrom«targetRoleName.toFirstUpper()» (Long id) {
         if (id == null) {
             return null;
         }
