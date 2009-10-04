@@ -30,6 +30,14 @@
                     </li>
                 </ol>
             </subsection>
+            <subsection name="Remove hand-written applicationContext.xml files">
+                <p>The generation of Spring configuration files has changed. A file named 'applicationContext.xml' is now
+                generated in 'generated-resources' followed by the package root directory for each module. In the previous
+                versions a file with the same name was generated just once under 'src/main/resources'. This last file will
+                conflict on the classpath with the generated one. The file 'applicationContext.xml' under 'src/main/resources'
+                will have to be removed.
+                </p>
+            </subsection>
         </section>
     </body>
 </document>
