@@ -134,8 +134,9 @@
                          /*
                           * Synchronize «assRef.name.toFirstUpper()» association.
                           */
-   «REM»2Many«ENDREM» «IF assRef.dtoType.metaType == ListDto -»        
-		                  Set<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»> toBeRemoved = new HashSet<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»>();
+   «REM»2Many«ENDREM» «IF assRef.dtoType.metaType == ListDto -»
+   		                  Set<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»> toBeRemoved = new HashSet<«EXPAND getBaseDtoBaseName FOR assRef.dtoType -»>();
+		                  /* Avoid changing the collection underneath an active iterator. */
 		                  for («EXPAND getBaseDtoBaseName FOR assRef.dtoType -» element : target.get«assRef.name.toFirstUpper()»()) {
 		                      if (source.getFrom«assRef.name.toFirstUpper()»(element.getId()) == null) {
 		                          toBeRemoved.add(element);
