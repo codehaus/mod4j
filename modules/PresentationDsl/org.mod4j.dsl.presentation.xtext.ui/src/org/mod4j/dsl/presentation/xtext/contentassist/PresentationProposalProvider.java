@@ -3,6 +3,7 @@
 */
 package org.mod4j.dsl.presentation.xtext.contentassist;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -67,6 +68,55 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
         List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Dto", "Dialogue", "Process", "Link"));
         for (Symbol symbol : symbols) {
             propose(symbol.getName(), context, acceptor);
+        }
+    }
+    
+    @Override public void completeAssociationRoleReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getLinkStepReferencesProposals(model);
+        for (String name : names) {
+            propose(name, context, acceptor);
+        }
+    }
+    
+    @Override public void completeLinkRef_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getLinkReferenceProposals(model);
+        for (String name : names) {
+            propose(name, context, acceptor);
+        }
+    }
+
+    @Override public void complete_DirectDialogueCall(EObject model, org.eclipse.xtext.RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getDirectDialogueCallProposals(model, new ArrayList<String>());        
+        for (String name : names) {
+            propose(name, context, acceptor);
+        }
+    }
+    
+    @Override public void complete_LinkedDialogueCall(EObject model, org.eclipse.xtext.RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getLinkedDialogueCallProposals(model, new ArrayList<String>());        
+        for (String name : names) {
+            propose(name, context, acceptor);
+        }
+    }
+
+    @Override public void completeLinkedDialogueCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getLinkedDialogueCallProposals(model, new ArrayList<String>());        
+        for (String name : names) {
+            propose(name, context, acceptor);
+        }
+    }
+    
+    @Override public void completeDirectProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getProcessCallProposals(model, new ArrayList<String>());        
+        for (String name : names) {
+            propose(name, context, acceptor);
+        }
+    }
+
+    @Override public void completeLinkedProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        List<String> names = PresentationProposals.getLinkedProcessCallProposals(model, new ArrayList<String>());        
+        for (String name : names) {
+            propose(name, context, acceptor);
         }
     }
     

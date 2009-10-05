@@ -69,11 +69,13 @@ Process :
 AutomatedProcess :
 	(description=STRING )?
 	"AutomatedProcess" name = ID "using" contextRef = [ExternalReference]
+	("steps" "[" (processElements += UICall)* "]")?
 	;
 
 InteractiveProcess :
 	(description=STRING )?
 	"InteractiveProcess" name = ID "using" contextRef = [ExternalReference]
+	("steps" "[" (processElements += UICall)* "]")?
 	;
 	
 FormElement :
@@ -86,21 +88,29 @@ FormElement :
 	;
 		
 DialogueCall :
-	DirectDialogueCall | LinkedDialogueCall
+	(DirectDialogueCall | LinkedDialogueCall) ("alias" alias = ID)? ";"
 	;
 	
 LinkedDialogueCall :
-	"navigate" link = LinkRef "to" name = ID ";"
+	"navigate" link = LinkRef "to" name = ID
 	;
 
 DirectDialogueCall :
-	name = ID ";"
+	name = ID
 	;
 	
 ProcessCall :
-	name = ID ";"
+	(DirectProcessCall | LinkedProcessCall) ("alias" alias = ID)? ";"
 	;
 
+LinkedProcessCall :
+	"navigate" link = LinkRef "to" name = ID 
+	;
+
+DirectProcessCall :
+	name = ID
+	;
+	
 LinkRef :
 	name = ID
 	;
@@ -126,5 +136,13 @@ DtoPropertyReference :
 
 AssociationRoleReference :
 	name = ID
+	;
+	
+UICall :
+	UIModelElementCall
+	;
+	
+UIModelElementCall :
+	"dialogue" DialogueCall | "process" ProcessCall
 	;
 	

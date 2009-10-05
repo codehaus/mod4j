@@ -1248,7 +1248,40 @@ ruleAutomatedProcess returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-));
+)('steps' 
+    {
+        createLeafNode(grammarAccess.getAutomatedProcessAccess().getStepsKeyword_5_0(), null); 
+    }
+'[' 
+    {
+        createLeafNode(grammarAccess.getAutomatedProcessAccess().getLeftSquareBracketKeyword_5_1(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessAccess().getProcessElementsUICallParserRuleCall_5_2_0(), currentNode); 
+	    }
+	    lv_processElements_7=ruleUICall 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAutomatedProcessRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "processElements", lv_processElements_7, "UICall", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+)*']' 
+    {
+        createLeafNode(grammarAccess.getAutomatedProcessAccess().getRightSquareBracketKeyword_5_3(), null); 
+    }
+)?);
 
 
 
@@ -1333,7 +1366,40 @@ ruleInteractiveProcess returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-));
+)('steps' 
+    {
+        createLeafNode(grammarAccess.getInteractiveProcessAccess().getStepsKeyword_5_0(), null); 
+    }
+'[' 
+    {
+        createLeafNode(grammarAccess.getInteractiveProcessAccess().getLeftSquareBracketKeyword_5_1(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getInteractiveProcessAccess().getProcessElementsUICallParserRuleCall_5_2_0(), currentNode); 
+	    }
+	    lv_processElements_7=ruleUICall 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getInteractiveProcessRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "processElements", lv_processElements_7, "UICall", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+)*']' 
+    {
+        createLeafNode(grammarAccess.getInteractiveProcessAccess().getRightSquareBracketKeyword_5_3(), null); 
+    }
+)?);
 
 
 
@@ -1458,9 +1524,9 @@ ruleDialogueCall returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(
+((
     { 
-        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getDirectDialogueCallParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getDirectDialogueCallParserRuleCall_0_0(), currentNode); 
     }
     this_DirectDialogueCall_0=ruleDirectDialogueCall
     { 
@@ -1470,12 +1536,40 @@ ruleDialogueCall returns [EObject current=null]
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getLinkedDialogueCallParserRuleCall_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getLinkedDialogueCallParserRuleCall_0_1(), currentNode); 
     }
     this_LinkedDialogueCall_1=ruleLinkedDialogueCall
     { 
         $current = $this_LinkedDialogueCall_1.current; 
         currentNode = currentNode.getParent();
+    }
+)('alias' 
+    {
+        createLeafNode(grammarAccess.getDialogueCallAccess().getAliasKeyword_1_0(), null); 
+    }
+(	
+	
+	    lv_alias_3=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getDialogueCallAccess().getAliasIDTerminalRuleCall_1_1_0(), "alias"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDialogueCallRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "alias", lv_alias_3, "ID", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+))?';' 
+    {
+        createLeafNode(grammarAccess.getDialogueCallAccess().getSemicolonKeyword_2(), null); 
     }
 );
 
@@ -1547,11 +1641,7 @@ ruleLinkedDialogueCall returns [EObject current=null]
 	        }
 	    }
 	
-)';' 
-    {
-        createLeafNode(grammarAccess.getLinkedDialogueCallAccess().getSemicolonKeyword_4(), null); 
-    }
-);
+));
 
 
 
@@ -1572,11 +1662,11 @@ ruleDirectDialogueCall returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((	
+(	
 	
 	    lv_name_0=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getDirectDialogueCallAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+		createLeafNode(grammarAccess.getDirectDialogueCallAccess().getNameIDTerminalRuleCall_0(), "name"); 
 	}
  
 	    {
@@ -1592,10 +1682,6 @@ ruleDirectDialogueCall returns [EObject current=null]
 	        }
 	    }
 	
-)';' 
-    {
-        createLeafNode(grammarAccess.getDirectDialogueCallAccess().getSemicolonKeyword_1(), null); 
-    }
 );
 
 
@@ -1617,16 +1703,154 @@ ruleProcessCall returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((	
+((
+    { 
+        currentNode=createCompositeNode(grammarAccess.getProcessCallAccess().getDirectProcessCallParserRuleCall_0_0(), currentNode); 
+    }
+    this_DirectProcessCall_0=ruleDirectProcessCall
+    { 
+        $current = $this_DirectProcessCall_0.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getProcessCallAccess().getLinkedProcessCallParserRuleCall_0_1(), currentNode); 
+    }
+    this_LinkedProcessCall_1=ruleLinkedProcessCall
+    { 
+        $current = $this_LinkedProcessCall_1.current; 
+        currentNode = currentNode.getParent();
+    }
+)('alias' 
+    {
+        createLeafNode(grammarAccess.getProcessCallAccess().getAliasKeyword_1_0(), null); 
+    }
+(	
 	
-	    lv_name_0=	RULE_ID
+	    lv_alias_3=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getProcessCallAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+		createLeafNode(grammarAccess.getProcessCallAccess().getAliasIDTerminalRuleCall_1_1_0(), "alias"); 
 	}
  
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getProcessCallRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "alias", lv_alias_3, "ID", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+))?';' 
+    {
+        createLeafNode(grammarAccess.getProcessCallAccess().getSemicolonKeyword_2(), null); 
+    }
+);
+
+
+
+
+
+// Entry rule entryRuleLinkedProcessCall
+entryRuleLinkedProcessCall returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getLinkedProcessCallRule(), currentNode); }
+	 iv_ruleLinkedProcessCall=ruleLinkedProcessCall 
+	 { $current=$iv_ruleLinkedProcessCall.current; } 
+	 EOF 
+;
+
+// Rule LinkedProcessCall
+ruleLinkedProcessCall returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+('navigate' 
+    {
+        createLeafNode(grammarAccess.getLinkedProcessCallAccess().getNavigateKeyword_0(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getLinkedProcessCallAccess().getLinkLinkRefParserRuleCall_1_0(), currentNode); 
+	    }
+	    lv_link_1=ruleLinkRef 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getLinkedProcessCallRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		set($current, "link", lv_link_1, "LinkRef", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+)'to' 
+    {
+        createLeafNode(grammarAccess.getLinkedProcessCallAccess().getToKeyword_2(), null); 
+    }
+(	
+	
+	    lv_name_3=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getLinkedProcessCallAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getLinkedProcessCallRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_3, "ID", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+));
+
+
+
+
+
+// Entry rule entryRuleDirectProcessCall
+entryRuleDirectProcessCall returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getDirectProcessCallRule(), currentNode); }
+	 iv_ruleDirectProcessCall=ruleDirectProcessCall 
+	 { $current=$iv_ruleDirectProcessCall.current; } 
+	 EOF 
+;
+
+// Rule DirectProcessCall
+ruleDirectProcessCall returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	
+	
+	    lv_name_0=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getDirectProcessCallAccess().getNameIDTerminalRuleCall_0(), "name"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getDirectProcessCallRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        
@@ -1637,10 +1861,6 @@ ruleProcessCall returns [EObject current=null]
 	        }
 	    }
 	
-)';' 
-    {
-        createLeafNode(grammarAccess.getProcessCallAccess().getSemicolonKeyword_1(), null); 
-    }
 );
 
 
@@ -2000,6 +2220,84 @@ ruleAssociationRoleReference returns [EObject current=null]
 	    }
 	
 );
+
+
+
+
+
+// Entry rule entryRuleUICall
+entryRuleUICall returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getUICallRule(), currentNode); }
+	 iv_ruleUICall=ruleUICall 
+	 { $current=$iv_ruleUICall.current; } 
+	 EOF 
+;
+
+// Rule UICall
+ruleUICall returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+
+    { 
+        currentNode=createCompositeNode(grammarAccess.getUICallAccess().getUIModelElementCallParserRuleCall(), currentNode); 
+    }
+    this_UIModelElementCall_0=ruleUIModelElementCall
+    { 
+        $current = $this_UIModelElementCall_0.current; 
+        currentNode = currentNode.getParent();
+    }
+;
+
+
+
+
+
+// Entry rule entryRuleUIModelElementCall
+entryRuleUIModelElementCall returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getUIModelElementCallRule(), currentNode); }
+	 iv_ruleUIModelElementCall=ruleUIModelElementCall 
+	 { $current=$iv_ruleUIModelElementCall.current; } 
+	 EOF 
+;
+
+// Rule UIModelElementCall
+ruleUIModelElementCall returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(('dialogue' 
+    {
+        createLeafNode(grammarAccess.getUIModelElementCallAccess().getDialogueKeyword_0_0(), null); 
+    }
+
+    { 
+        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0_1(), currentNode); 
+    }
+    this_DialogueCall_1=ruleDialogueCall
+    { 
+        $current = $this_DialogueCall_1.current; 
+        currentNode = currentNode.getParent();
+    }
+)
+    |('process' 
+    {
+        createLeafNode(grammarAccess.getUIModelElementCallAccess().getProcessKeyword_1_0(), null); 
+    }
+
+    { 
+        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1_1(), currentNode); 
+    }
+    this_ProcessCall_3=ruleProcessCall
+    { 
+        $current = $this_ProcessCall_3.current; 
+        currentNode = currentNode.getParent();
+    }
+));
 
 
 

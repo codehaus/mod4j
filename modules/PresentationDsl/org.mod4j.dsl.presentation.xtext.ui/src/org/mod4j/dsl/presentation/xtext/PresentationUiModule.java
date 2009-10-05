@@ -3,9 +3,14 @@
  */
 package org.mod4j.dsl.presentation.xtext;
 
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
+import org.mod4j.dsl.presentation.xtext.highlighting.PresentationLexicalHighlightingConfiguration;
+
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class PresentationUiModule extends org.mod4j.dsl.presentation.xtext.AbstractPresentationUiModule {
-
+    public Class<? extends ILexicalHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
+        return PresentationLexicalHighlightingConfiguration.class;
+    }
 }

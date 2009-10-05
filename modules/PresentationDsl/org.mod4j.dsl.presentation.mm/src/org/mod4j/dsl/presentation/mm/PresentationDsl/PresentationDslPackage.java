@@ -67,52 +67,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getModelElement()
      * @generated
      */
-	int MODEL_ELEMENT = 18;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MODEL_ELEMENT__NAME = 0;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MODEL_ELEMENT__DESCRIPTION = 1;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MODEL_ELEMENT__CONTEXT_REF = 2;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MODEL_ELEMENT__PRESENTATION_MODEL = 3;
-
-	/**
-     * The number of structural features of the '<em>Model Element</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MODEL_ELEMENT_FEATURE_COUNT = 4;
+	int MODEL_ELEMENT = 21;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementImpl <em>UI Model Element</em>}' class.
@@ -122,52 +77,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElement()
      * @generated
      */
-	int UI_MODEL_ELEMENT = 23;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT__CONTEXT_REF = MODEL_ELEMENT__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT__PRESENTATION_MODEL = MODEL_ELEMENT__PRESENTATION_MODEL;
-
-	/**
-     * The number of structural features of the '<em>UI Model Element</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int UI_MODEL_ELEMENT = 26;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkImpl <em>Link</em>}' class.
@@ -177,7 +87,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLink()
      * @generated
      */
-	int LINK = 12;
+	int LINK = 14;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl <em>Presentation Model</em>}' class.
@@ -187,7 +97,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getPresentationModel()
      * @generated
      */
-	int PRESENTATION_MODEL = 20;
+	int PRESENTATION_MODEL = 23;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueImpl <em>Dialogue</em>}' class.
@@ -197,7 +107,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDialogue()
      * @generated
      */
-	int DIALOGUE = 4;
+	int DIALOGUE = 5;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl <em>Process</em>}' class.
@@ -207,52 +117,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcess()
      * @generated
      */
-	int PROCESS = 21;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS__NAME = UI_MODEL_ELEMENT__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS__DESCRIPTION = UI_MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
-
-	/**
-     * The number of structural features of the '<em>Process</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int PROCESS = 24;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormImpl <em>Form</em>}' class.
@@ -262,7 +127,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getForm()
      * @generated
      */
-	int FORM = 9;
+	int FORM = 11;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ContentFormImpl <em>Content Form</em>}' class.
@@ -272,7 +137,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getContentForm()
      * @generated
      */
-	int CONTENT_FORM = 1;
+	int CONTENT_FORM = 2;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.CompoundDialogueImpl <em>Compound Dialogue</em>}' class.
@@ -282,7 +147,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getCompoundDialogue()
      * @generated
      */
-	int COMPOUND_DIALOGUE = 2;
+	int COMPOUND_DIALOGUE = 3;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.CollectionDialogueImpl <em>Collection Dialogue</em>}' class.
@@ -292,7 +157,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getCollectionDialogue()
      * @generated
      */
-	int COLLECTION_DIALOGUE = 3;
+	int COLLECTION_DIALOGUE = 4;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.InteractiveProcessImpl <em>Interactive Process</em>}' class.
@@ -302,7 +167,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getInteractiveProcess()
      * @generated
      */
-	int INTERACTIVE_PROCESS = 11;
+	int INTERACTIVE_PROCESS = 13;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl <em>Automated Process</em>}' class.
@@ -312,394 +177,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getAutomatedProcess()
      * @generated
      */
-	int AUTOMATED_PROCESS = 0;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int AUTOMATED_PROCESS__NAME = PROCESS__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int AUTOMATED_PROCESS__DESCRIPTION = PROCESS__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int AUTOMATED_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int AUTOMATED_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
-
-	/**
-     * The number of structural features of the '<em>Automated Process</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int AUTOMATED_PROCESS_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE__NAME = UI_MODEL_ELEMENT__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE__DESCRIPTION = UI_MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE__READONLY = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE__PROCESSES = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-     * The number of structural features of the '<em>Dialogue</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM__NAME = DIALOGUE__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM__DESCRIPTION = DIALOGUE__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM__CONTEXT_REF = DIALOGUE__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM__READONLY = DIALOGUE__READONLY;
-
-	/**
-     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM__PROCESSES = DIALOGUE__PROCESSES;
-
-	/**
-     * The number of structural features of the '<em>Form</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM_FEATURE_COUNT = DIALOGUE_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__NAME = FORM__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__DESCRIPTION = FORM__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__CONTEXT_REF = FORM__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__PRESENTATION_MODEL = FORM__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__READONLY = FORM__READONLY;
-
-	/**
-     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__PROCESSES = FORM__PROCESSES;
-
-	/**
-     * The feature id for the '<em><b>Form Elements</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM__FORM_ELEMENTS = FORM_FEATURE_COUNT + 0;
-
-	/**
-     * The number of structural features of the '<em>Content Form</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int CONTENT_FORM_FEATURE_COUNT = FORM_FEATURE_COUNT + 1;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__NAME = DIALOGUE__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__DESCRIPTION = DIALOGUE__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__CONTEXT_REF = DIALOGUE__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__READONLY = DIALOGUE__READONLY;
-
-	/**
-     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__PROCESSES = DIALOGUE__PROCESSES;
-
-	/**
-     * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE__DIALOGUES = DIALOGUE_FEATURE_COUNT + 0;
-
-	/**
-     * The number of structural features of the '<em>Compound Dialogue</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COMPOUND_DIALOGUE_FEATURE_COUNT = DIALOGUE_FEATURE_COUNT + 1;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__NAME = COMPOUND_DIALOGUE__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__DESCRIPTION = COMPOUND_DIALOGUE__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__CONTEXT_REF = COMPOUND_DIALOGUE__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__READONLY = COMPOUND_DIALOGUE__READONLY;
-
-	/**
-     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__PROCESSES = COMPOUND_DIALOGUE__PROCESSES;
-
-	/**
-     * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE__DIALOGUES = COMPOUND_DIALOGUE__DIALOGUES;
-
-	/**
-     * The number of structural features of the '<em>Collection Dialogue</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int COLLECTION_DIALOGUE_FEATURE_COUNT = COMPOUND_DIALOGUE_FEATURE_COUNT + 0;
+	int AUTOMATED_PROCESS = 1;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.NamedReferenceImpl <em>Named Reference</em>}' class.
@@ -709,7 +187,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getNamedReference()
      * @generated
      */
-	int NAMED_REFERENCE = 19;
+	int NAMED_REFERENCE = 22;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -737,7 +215,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getFormElement()
      * @generated
      */
-	int FORM_ELEMENT = 10;
+	int FORM_ELEMENT = 12;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExternalReferenceImpl <em>External Reference</em>}' class.
@@ -747,7 +225,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExternalReference()
      * @generated
      */
-	int EXTERNAL_REFERENCE = 8;
+	int EXTERNAL_REFERENCE = 10;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
@@ -757,35 +235,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDtoPropertyReference()
      * @generated
      */
-	int DTO_PROPERTY_REFERENCE = 7;
-
-	/**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementRefImpl <em>UI Model Element Ref</em>}' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementRefImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElementRef()
-     * @generated
-     */
-	int UI_MODEL_ELEMENT_REF = 25;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT_REF__NAME = NAMED_REFERENCE__NAME;
-
-	/**
-     * The number of structural features of the '<em>UI Model Element Ref</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT_REF_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
+	int DTO_PROPERTY_REFERENCE = 9;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl <em>UI Model Element Call</em>}' class.
@@ -795,25 +245,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElementCall()
      * @generated
      */
-	int UI_MODEL_ELEMENT_CALL = 24;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT_CALL__NAME = UI_MODEL_ELEMENT_REF__NAME;
-
-	/**
-     * The number of structural features of the '<em>UI Model Element Call</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int UI_MODEL_ELEMENT_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_REF_FEATURE_COUNT + 0;
+	int UI_MODEL_ELEMENT_CALL = 27;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueCallImpl <em>Dialogue Call</em>}' class.
@@ -823,25 +255,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDialogueCall()
      * @generated
      */
-	int DIALOGUE_CALL = 5;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE_CALL__NAME = UI_MODEL_ELEMENT_CALL__NAME;
-
-	/**
-     * The number of structural features of the '<em>Dialogue Call</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+	int DIALOGUE_CALL = 6;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectDialogueCallImpl <em>Direct Dialogue Call</em>}' class.
@@ -851,214 +265,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDirectDialogueCall()
      * @generated
      */
-	int DIRECT_DIALOGUE_CALL = 6;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIRECT_DIALOGUE_CALL__NAME = DIALOGUE_CALL__NAME;
-
-	/**
-     * The number of structural features of the '<em>Direct Dialogue Call</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIRECT_DIALOGUE_CALL_FEATURE_COUNT = DIALOGUE_CALL_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__NAME = NAMED_REFERENCE__NAME;
-
-	/**
-     * The number of structural features of the '<em>Dto Property Reference</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int EXTERNAL_REFERENCE__NAME = NAMED_REFERENCE__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int EXTERNAL_REFERENCE__DESCRIPTION = NAMED_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Model Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int EXTERNAL_REFERENCE__MODEL_NAME = NAMED_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-     * The number of structural features of the '<em>External Reference</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int EXTERNAL_REFERENCE_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 2;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM_ELEMENT__NAME = 0;
-
-	/**
-     * The feature id for the '<em><b>References</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM_ELEMENT__REFERENCES = 1;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM_ELEMENT__READONLY = 2;
-
-	/**
-     * The feature id for the '<em><b>Form</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM_ELEMENT__FORM = 3;
-
-	/**
-     * The number of structural features of the '<em>Form Element</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int FORM_ELEMENT_FEATURE_COUNT = 4;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int INTERACTIVE_PROCESS__NAME = PROCESS__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int INTERACTIVE_PROCESS__DESCRIPTION = PROCESS__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int INTERACTIVE_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int INTERACTIVE_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
-
-	/**
-     * The number of structural features of the '<em>Interactive Process</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int INTERACTIVE_PROCESS_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK__CONTEXT_REF = MODEL_ELEMENT__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK__PRESENTATION_MODEL = MODEL_ELEMENT__PRESENTATION_MODEL;
-
-	/**
-     * The number of structural features of the '<em>Link</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int DIRECT_DIALOGUE_CALL = 7;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkedDialogueCallImpl <em>Linked Dialogue Call</em>}' class.
@@ -1068,34 +275,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkedDialogueCall()
      * @generated
      */
-	int LINKED_DIALOGUE_CALL = 13;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINKED_DIALOGUE_CALL__NAME = DIALOGUE_CALL__NAME;
-
-	/**
-     * The feature id for the '<em><b>Link</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINKED_DIALOGUE_CALL__LINK = DIALOGUE_CALL_FEATURE_COUNT + 0;
-
-	/**
-     * The number of structural features of the '<em>Linked Dialogue Call</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINKED_DIALOGUE_CALL_FEATURE_COUNT = DIALOGUE_CALL_FEATURE_COUNT + 1;
+	int LINKED_DIALOGUE_CALL = 15;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkRefImpl <em>Link Ref</em>}' class.
@@ -1105,25 +285,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkRef()
      * @generated
      */
-	int LINK_REF = 14;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_REF__NAME = NAMED_REFERENCE__NAME;
-
-	/**
-     * The number of structural features of the '<em>Link Ref</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_REF_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
+	int LINK_REF = 17;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkPathImpl <em>Link Path</em>}' class.
@@ -1133,61 +295,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkPath()
      * @generated
      */
-	int LINK_PATH = 15;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_PATH__NAME = LINK__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_PATH__DESCRIPTION = LINK__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_PATH__CONTEXT_REF = LINK__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_PATH__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Steps</b></em>' reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_PATH__STEPS = LINK_FEATURE_COUNT + 0;
-
-	/**
-     * The number of structural features of the '<em>Link Path</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_PATH_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+	int LINK_PATH = 18;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkStepImpl <em>Link Step</em>}' class.
@@ -1197,61 +305,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkStep()
      * @generated
      */
-	int LINK_STEP = 16;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_STEP__NAME = LINK__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_STEP__DESCRIPTION = LINK__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_STEP__CONTEXT_REF = LINK__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_STEP__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Reference</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_STEP__REFERENCE = LINK_FEATURE_COUNT + 0;
-
-	/**
-     * The number of structural features of the '<em>Link Step</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LINK_STEP_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+	int LINK_STEP = 19;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.
@@ -1261,7 +315,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessCall()
      * @generated
      */
-	int PROCESS_CALL = 22;
+	int PROCESS_CALL = 25;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MasterDetailImpl <em>Master Detail</em>}' class.
@@ -1271,160 +325,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getMasterDetail()
      * @generated
      */
-	int MASTER_DETAIL = 17;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__NAME = COMPOUND_DIALOGUE__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__DESCRIPTION = COMPOUND_DIALOGUE__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__CONTEXT_REF = COMPOUND_DIALOGUE__CONTEXT_REF;
-
-	/**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Readonly</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__READONLY = COMPOUND_DIALOGUE__READONLY;
-
-	/**
-     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__PROCESSES = COMPOUND_DIALOGUE__PROCESSES;
-
-	/**
-     * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__DIALOGUES = COMPOUND_DIALOGUE__DIALOGUES;
-
-	/**
-     * The feature id for the '<em><b>Master</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__MASTER = COMPOUND_DIALOGUE_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Detail</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL__DETAIL = COMPOUND_DIALOGUE_FEATURE_COUNT + 1;
-
-	/**
-     * The number of structural features of the '<em>Master Detail</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int MASTER_DETAIL_FEATURE_COUNT = COMPOUND_DIALOGUE_FEATURE_COUNT + 2;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PRESENTATION_MODEL__NAME = 0;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PRESENTATION_MODEL__DESCRIPTION = 1;
-
-	/**
-     * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PRESENTATION_MODEL__ELEMENTS = 2;
-
-	/**
-     * The feature id for the '<em><b>External References</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PRESENTATION_MODEL__EXTERNAL_REFERENCES = 3;
-
-	/**
-     * The number of structural features of the '<em>Presentation Model</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PRESENTATION_MODEL_FEATURE_COUNT = 4;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS_CALL__NAME = UI_MODEL_ELEMENT_CALL__NAME;
-
-	/**
-     * The number of structural features of the '<em>Process Call</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int PROCESS_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+	int MASTER_DETAIL = 20;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AssociationRoleReferenceImpl <em>Association Role Reference</em>}' class.
@@ -1434,7 +335,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getAssociationRoleReference()
      * @generated
      */
-	int ASSOCIATION_ROLE_REFERENCE = 26;
+	int ASSOCIATION_ROLE_REFERENCE = 0;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1454,7 +355,1261 @@ public interface PresentationDslPackage extends EPackage {
      */
 	int ASSOCIATION_ROLE_REFERENCE_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
 
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MODEL_ELEMENT__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MODEL_ELEMENT__DESCRIPTION = 1;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MODEL_ELEMENT__CONTEXT_REF = 2;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MODEL_ELEMENT__PRESENTATION_MODEL = 3;
+
+    /**
+     * The number of structural features of the '<em>Model Element</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MODEL_ELEMENT_FEATURE_COUNT = 4;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT__NAME = MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT__CONTEXT_REF = MODEL_ELEMENT__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT__PRESENTATION_MODEL = MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The number of structural features of the '<em>UI Model Element</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS__NAME = UI_MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS__DESCRIPTION = UI_MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__PROCESS_ELEMENTS = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Process</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int AUTOMATED_PROCESS__NAME = PROCESS__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int AUTOMATED_PROCESS__DESCRIPTION = PROCESS__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int AUTOMATED_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int AUTOMATED_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AUTOMATED_PROCESS__PROCESS_ELEMENTS = PROCESS__PROCESS_ELEMENTS;
+
+    /**
+     * The number of structural features of the '<em>Automated Process</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int AUTOMATED_PROCESS_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE__NAME = UI_MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE__DESCRIPTION = UI_MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE__READONLY = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE__PROCESSES = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Dialogue</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM__NAME = DIALOGUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM__DESCRIPTION = DIALOGUE__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM__CONTEXT_REF = DIALOGUE__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM__READONLY = DIALOGUE__READONLY;
+
+    /**
+     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM__PROCESSES = DIALOGUE__PROCESSES;
+
+    /**
+     * The number of structural features of the '<em>Form</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM_FEATURE_COUNT = DIALOGUE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__NAME = FORM__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__DESCRIPTION = FORM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__CONTEXT_REF = FORM__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__PRESENTATION_MODEL = FORM__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__READONLY = FORM__READONLY;
+
+    /**
+     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__PROCESSES = FORM__PROCESSES;
+
+    /**
+     * The feature id for the '<em><b>Form Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM__FORM_ELEMENTS = FORM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Content Form</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int CONTENT_FORM_FEATURE_COUNT = FORM_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__NAME = DIALOGUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__DESCRIPTION = DIALOGUE__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__CONTEXT_REF = DIALOGUE__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__READONLY = DIALOGUE__READONLY;
+
+    /**
+     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__PROCESSES = DIALOGUE__PROCESSES;
+
+    /**
+     * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE__DIALOGUES = DIALOGUE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Compound Dialogue</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COMPOUND_DIALOGUE_FEATURE_COUNT = DIALOGUE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__NAME = COMPOUND_DIALOGUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__DESCRIPTION = COMPOUND_DIALOGUE__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__CONTEXT_REF = COMPOUND_DIALOGUE__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__READONLY = COMPOUND_DIALOGUE__READONLY;
+
+    /**
+     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__PROCESSES = COMPOUND_DIALOGUE__PROCESSES;
+
+    /**
+     * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE__DIALOGUES = COMPOUND_DIALOGUE__DIALOGUES;
+
+    /**
+     * The number of structural features of the '<em>Collection Dialogue</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int COLLECTION_DIALOGUE_FEATURE_COUNT = COMPOUND_DIALOGUE_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl <em>UI Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUICall()
+     * @generated
+     */
+    int UI_CALL = 28;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UI_CALL__NAME = NAMED_REFERENCE__NAME;
+
+    /**
+     * The number of structural features of the '<em>UI Call</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UI_CALL_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT_CALL__NAME = UI_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UI_MODEL_ELEMENT_CALL__ALIAS = UI_CALL_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>UI Model Element Call</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int UI_MODEL_ELEMENT_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE_CALL__NAME = UI_MODEL_ELEMENT_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIALOGUE_CALL__ALIAS = UI_MODEL_ELEMENT_CALL__ALIAS;
+
+    /**
+     * The number of structural features of the '<em>Dialogue Call</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIRECT_DIALOGUE_CALL__NAME = DIALOGUE_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIRECT_DIALOGUE_CALL__ALIAS = DIALOGUE_CALL__ALIAS;
+
+    /**
+     * The number of structural features of the '<em>Direct Dialogue Call</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DIRECT_DIALOGUE_CALL_FEATURE_COUNT = DIALOGUE_CALL_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkedProcessCallImpl <em>Linked Process Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkedProcessCallImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkedProcessCall()
+     * @generated
+     */
+    int LINKED_PROCESS_CALL = 16;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS_CALL__NAME = UI_MODEL_ELEMENT_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS_CALL__ALIAS = UI_MODEL_ELEMENT_CALL__ALIAS;
+
+    /**
+     * The number of structural features of the '<em>Process Call</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PROCESS_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+
 	/**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectProcessCallImpl <em>Direct Process Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectProcessCallImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDirectProcessCall()
+     * @generated
+     */
+    int DIRECT_PROCESS_CALL = 8;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIRECT_PROCESS_CALL__NAME = PROCESS_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIRECT_PROCESS_CALL__ALIAS = PROCESS_CALL__ALIAS;
+
+    /**
+     * The number of structural features of the '<em>Direct Process Call</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIRECT_PROCESS_CALL_FEATURE_COUNT = PROCESS_CALL_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DTO_PROPERTY_REFERENCE__NAME = NAMED_REFERENCE__NAME;
+
+    /**
+     * The number of structural features of the '<em>Dto Property Reference</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int EXTERNAL_REFERENCE__NAME = NAMED_REFERENCE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int EXTERNAL_REFERENCE__DESCRIPTION = NAMED_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Model Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int EXTERNAL_REFERENCE__MODEL_NAME = NAMED_REFERENCE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>External Reference</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int EXTERNAL_REFERENCE_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM_ELEMENT__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>References</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM_ELEMENT__REFERENCES = 1;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM_ELEMENT__READONLY = 2;
+
+    /**
+     * The feature id for the '<em><b>Form</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM_ELEMENT__FORM = 3;
+
+    /**
+     * The number of structural features of the '<em>Form Element</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int FORM_ELEMENT_FEATURE_COUNT = 4;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int INTERACTIVE_PROCESS__NAME = PROCESS__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int INTERACTIVE_PROCESS__DESCRIPTION = PROCESS__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int INTERACTIVE_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int INTERACTIVE_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTERACTIVE_PROCESS__PROCESS_ELEMENTS = PROCESS__PROCESS_ELEMENTS;
+
+    /**
+     * The number of structural features of the '<em>Interactive Process</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int INTERACTIVE_PROCESS_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK__NAME = MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK__CONTEXT_REF = MODEL_ELEMENT__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK__PRESENTATION_MODEL = MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The number of structural features of the '<em>Link</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINKED_DIALOGUE_CALL__NAME = DIALOGUE_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_DIALOGUE_CALL__ALIAS = DIALOGUE_CALL__ALIAS;
+
+    /**
+     * The feature id for the '<em><b>Link</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINKED_DIALOGUE_CALL__LINK = DIALOGUE_CALL_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Linked Dialogue Call</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINKED_DIALOGUE_CALL_FEATURE_COUNT = DIALOGUE_CALL_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_PROCESS_CALL__NAME = PROCESS_CALL__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_PROCESS_CALL__ALIAS = PROCESS_CALL__ALIAS;
+
+    /**
+     * The feature id for the '<em><b>Link</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_PROCESS_CALL__LINK = PROCESS_CALL_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Linked Process Call</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_PROCESS_CALL_FEATURE_COUNT = PROCESS_CALL_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_REF__NAME = NAMED_REFERENCE__NAME;
+
+    /**
+     * The number of structural features of the '<em>Link Ref</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_REF_FEATURE_COUNT = NAMED_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_PATH__NAME = LINK__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_PATH__DESCRIPTION = LINK__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_PATH__CONTEXT_REF = LINK__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_PATH__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Steps</b></em>' reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_PATH__STEPS = LINK_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Link Path</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_PATH_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_STEP__NAME = LINK__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_STEP__DESCRIPTION = LINK__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_STEP__CONTEXT_REF = LINK__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_STEP__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Reference</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_STEP__REFERENCE = LINK_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Link Step</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int LINK_STEP_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__NAME = COMPOUND_DIALOGUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__DESCRIPTION = COMPOUND_DIALOGUE__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__CONTEXT_REF = COMPOUND_DIALOGUE__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Readonly</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__READONLY = COMPOUND_DIALOGUE__READONLY;
+
+    /**
+     * The feature id for the '<em><b>Processes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__PROCESSES = COMPOUND_DIALOGUE__PROCESSES;
+
+    /**
+     * The feature id for the '<em><b>Dialogues</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__DIALOGUES = COMPOUND_DIALOGUE__DIALOGUES;
+
+    /**
+     * The feature id for the '<em><b>Master</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__MASTER = COMPOUND_DIALOGUE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Detail</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL__DETAIL = COMPOUND_DIALOGUE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Master Detail</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int MASTER_DETAIL_FEATURE_COUNT = COMPOUND_DIALOGUE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PRESENTATION_MODEL__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PRESENTATION_MODEL__DESCRIPTION = 1;
+
+    /**
+     * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PRESENTATION_MODEL__ELEMENTS = 2;
+
+    /**
+     * The feature id for the '<em><b>External References</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PRESENTATION_MODEL__EXTERNAL_REFERENCES = 3;
+
+    /**
+     * The number of structural features of the '<em>Presentation Model</em>' class.
+     * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+	int PRESENTATION_MODEL_FEATURE_COUNT = 4;
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement <em>UI Model Element</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1475,16 +1630,27 @@ public interface PresentationDslPackage extends EPackage {
 	EClass getUIModelElementCall();
 
 	/**
-     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef <em>UI Model Element Ref</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getAlias <em>Alias</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for class '<em>UI Model Element Ref</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alias</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getAlias()
+     * @see #getUIModelElementCall()
      * @generated
      */
-	EClass getUIModelElementRef();
+    EAttribute getUIModelElementCall_Alias();
 
-	/**
+    /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall <em>UI Call</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>UI Call</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UICall
+     * @generated
+     */
+    EClass getUICall();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference <em>Association Role Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1729,6 +1895,27 @@ public interface PresentationDslPackage extends EPackage {
 	EReference getLinkedDialogueCall_Link();
 
 	/**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall <em>Linked Process Call</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Linked Process Call</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall
+     * @generated
+     */
+    EClass getLinkedProcessCall();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall#getLink <em>Link</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Link</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall#getLink()
+     * @see #getLinkedProcessCall()
+     * @generated
+     */
+    EReference getLinkedProcessCall_Link();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef <em>Link Ref</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1770,10 +1957,10 @@ public interface PresentationDslPackage extends EPackage {
 	EClass getLinkStep();
 
 	/**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep#getReference <em>Reference</em>}'.
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep#getReference <em>Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Reference</em>'.
+     * @return the meta object for the containment reference '<em>Reference</em>'.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep#getReference()
      * @see #getLinkStep()
      * @generated
@@ -1833,6 +2020,16 @@ public interface PresentationDslPackage extends EPackage {
 	EClass getDirectDialogueCall();
 
 	/**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall <em>Direct Process Call</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Direct Process Call</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall
+     * @generated
+     */
+    EClass getDirectProcessCall();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process <em>Process</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1843,6 +2040,17 @@ public interface PresentationDslPackage extends EPackage {
 	EClass getProcess();
 
 	/**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getProcessElements <em>Process Elements</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Process Elements</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getProcessElements()
+     * @see #getProcess()
+     * @generated
+     */
+    EReference getProcess_ProcessElements();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall <em>Process Call</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2031,16 +2239,24 @@ public interface PresentationDslPackage extends EPackage {
 		EClass UI_MODEL_ELEMENT_CALL = eINSTANCE.getUIModelElementCall();
 
 		/**
-         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementRefImpl <em>UI Model Element Ref</em>}' class.
+         * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementRefImpl
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElementRef()
+         * <!-- end-user-doc -->
          * @generated
          */
-		EClass UI_MODEL_ELEMENT_REF = eINSTANCE.getUIModelElementRef();
+        EAttribute UI_MODEL_ELEMENT_CALL__ALIAS = eINSTANCE.getUIModelElementCall_Alias();
 
-		/**
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl <em>UI Call</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUICall()
+         * @generated
+         */
+        EClass UI_CALL = eINSTANCE.getUICall();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AssociationRoleReferenceImpl <em>Association Role Reference</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2243,6 +2459,24 @@ public interface PresentationDslPackage extends EPackage {
 		EReference LINKED_DIALOGUE_CALL__LINK = eINSTANCE.getLinkedDialogueCall_Link();
 
 		/**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkedProcessCallImpl <em>Linked Process Call</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkedProcessCallImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkedProcessCall()
+         * @generated
+         */
+        EClass LINKED_PROCESS_CALL = eINSTANCE.getLinkedProcessCall();
+
+        /**
+         * The meta object literal for the '<em><b>Link</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference LINKED_PROCESS_CALL__LINK = eINSTANCE.getLinkedProcessCall_Link();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkRefImpl <em>Link Ref</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2281,7 +2515,7 @@ public interface PresentationDslPackage extends EPackage {
 		EClass LINK_STEP = eINSTANCE.getLinkStep();
 
 		/**
-         * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Reference</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
          * @generated
@@ -2335,6 +2569,16 @@ public interface PresentationDslPackage extends EPackage {
 		EClass DIRECT_DIALOGUE_CALL = eINSTANCE.getDirectDialogueCall();
 
 		/**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectProcessCallImpl <em>Direct Process Call</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectProcessCallImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDirectProcessCall()
+         * @generated
+         */
+        EClass DIRECT_PROCESS_CALL = eINSTANCE.getDirectProcessCall();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl <em>Process</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2345,6 +2589,14 @@ public interface PresentationDslPackage extends EPackage {
 		EClass PROCESS = eINSTANCE.getProcess();
 
 		/**
+         * The meta object literal for the '<em><b>Process Elements</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROCESS__PROCESS_ELEMENTS = eINSTANCE.getProcess_ProcessElements();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

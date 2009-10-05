@@ -9,9 +9,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
@@ -21,9 +19,8 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
@@ -33,15 +30,16 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,6 +98,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
 	protected PresentationDslSwitch<Adapter> modelSwitch =
 		new PresentationDslSwitch<Adapter>() {
             @Override
+            public Adapter caseAssociationRoleReference(AssociationRoleReference object) {
+                return createAssociationRoleReferenceAdapter();
+            }
+            @Override
             public Adapter caseAutomatedProcess(AutomatedProcess object) {
                 return createAutomatedProcessAdapter();
             }
@@ -128,6 +130,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createDirectDialogueCallAdapter();
             }
             @Override
+            public Adapter caseDirectProcessCall(DirectProcessCall object) {
+                return createDirectProcessCallAdapter();
+            }
+            @Override
             public Adapter caseDtoPropertyReference(DtoPropertyReference object) {
                 return createDtoPropertyReferenceAdapter();
             }
@@ -154,6 +160,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseLinkedDialogueCall(LinkedDialogueCall object) {
                 return createLinkedDialogueCallAdapter();
+            }
+            @Override
+            public Adapter caseLinkedProcessCall(LinkedProcessCall object) {
+                return createLinkedProcessCallAdapter();
             }
             @Override
             public Adapter caseLinkRef(LinkRef object) {
@@ -200,12 +210,8 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createUIModelElementCallAdapter();
             }
             @Override
-            public Adapter caseUIModelElementRef(UIModelElementRef object) {
-                return createUIModelElementRefAdapter();
-            }
-            @Override
-            public Adapter caseAssociationRoleReference(AssociationRoleReference object) {
-                return createAssociationRoleReferenceAdapter();
+            public Adapter caseUICall(UICall object) {
+                return createUICallAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -256,20 +262,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef <em>UI Model Element Ref</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall <em>UI Call</em>}'.
      * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UICall
      * @generated
      */
-	public Adapter createUIModelElementRefAdapter() {
+    public Adapter createUICallAdapter() {
         return null;
     }
 
-	/**
+    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference <em>Association Role Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -396,6 +402,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall <em>Linked Process Call</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall
+     * @generated
+     */
+    public Adapter createLinkedProcessCallAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef <em>Link Ref</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -480,6 +500,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall <em>Direct Process Call</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall
+     * @generated
+     */
+    public Adapter createDirectProcessCallAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process <em>Process</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
