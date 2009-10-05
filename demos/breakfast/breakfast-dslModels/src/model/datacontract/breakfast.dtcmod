@@ -5,12 +5,12 @@ from breakfastDM import ServingStyle;
 from breakfastDM import Part;
 from breakfastDM import Comestible;
 
-enumeration ServingStyleDto represents ServingStyle
+enumeration ServingStyleDto represents ServingStyle;
 
 class StandardBreakfastDto represents StandardBreakfast [
     name; price; style;
     references [
-        parts as PartListDto;
+        parts as PartListDto; 
     ]
 ]
 class PartDto represents Part [
@@ -19,11 +19,11 @@ class PartDto represents Part [
         comestible as ComestibleDto;
     ]
 ]
-class ComestibleDto represents Comestible
+class ComestibleDto represents Comestible;
 
 custom IsComestibleUsed [
 	boolean isUsed; 
 ]
 
-list StandardBreakfastListDto contains StandardBreakfastDto
-list PartListDto contains PartDto
+list StandardBreakfastListDto contains StandardBreakfastDto;
+list PartListDto contains PartDto;
