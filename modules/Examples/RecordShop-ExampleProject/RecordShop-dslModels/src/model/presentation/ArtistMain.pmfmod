@@ -12,5 +12,4 @@ CompoundDialogue ArtistCompound using ArtistDto
 	readonly true;
 	dialogues [
 		ArtistForm;
-		
 	]

@@ -2,17 +2,17 @@
 PresentationModel CustomerModel
 
 from RecordShopDataContract import SimpleCustomerDto
-//from RecordShopOrderingPresentation  import OrderAndDateCollection 
+from RecordShopOrderingPresentation  import OrderAndDateCollection 
+from RecordShopOrderingPresentation  import OrderAndDateForm
 
 ContentForm CustomerDetails using SimpleCustomerDto
 	formElement lastName named name;
 	formElement birthDate named birthDate;
-	formElement customerNr  named nr;
+	formElement customerNr named nr;
 
 ContentForm CustomerExtra using SimpleCustomerDto
 	formElement sexe named sexe;
 	formElement firstName named firstName;
-
 	
 CompoundDialogue FullCustomerDialogue using SimpleCustomerDto 
 	dialogues [ 
@@ -20,7 +20,19 @@ CompoundDialogue FullCustomerDialogue using SimpleCustomerDto
 		navigate CustomerOrders to OrderAndDateCollection;
 		CustomerExtra;
 	]
+	processes [
+		HandleCustomer;
+	]
 
 LinkStep CustomerOrders using SimpleCustomerDto 
 	navigate orders  
-	
+
+AutomatedProcess HandleCustomer using SimpleCustomerDto
+
+InteractiveProcess ManageCustomer using SimpleCustomerDto
+	steps [
+		dialogue navigate CustomerOrders to OrderAndDateCollection;
+		dialogue CustomerDetails;
+		process ManageCustomer;
+		]
+
