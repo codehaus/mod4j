@@ -7,6 +7,6 @@ Eclipse-RegisterBuddy: org.mod4j.common
 Require-Bundle: org.mod4j.crossx.broker;bundle-version="1.1.0",
  org.mod4j.dsl.datacontract.mm,
  org.mod4j.common;bundle-version="1.1.0",
- org.eclipse.xtend.util.stdlib;bundle-version="0.7.1"
+ org.eclipse.xtend.util.stdlib;bundle-version="0.7.2"
 Bundle-Vendor: mod4j.org
 Export-Package: org.mod4j.dsl.datacontract.validation.checks

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
@@ -21,9 +20,8 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
@@ -33,6 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
@@ -40,9 +39,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,12 +66,12 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass uiModelElementRefEClass = null;
+    private EClass uiCallEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -137,6 +136,13 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass linkedProcessCallEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -178,6 +184,13 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 	private EClass directDialogueCallEClass = null;
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass directProcessCallEClass = null;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -321,14 +334,23 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getUIModelElementRef() {
-        return uiModelElementRefEClass;
+    public EAttribute getUIModelElementCall_Alias() {
+        return (EAttribute)uiModelElementCallEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getUICall() {
+        return uiCallEClass;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -537,6 +559,24 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getLinkedProcessCall() {
+        return linkedProcessCallEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getLinkedProcessCall_Link() {
+        return (EReference)linkedProcessCallEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -627,6 +667,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDirectProcessCall() {
+        return directProcessCallEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -635,6 +684,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getProcess_ProcessElements() {
+        return (EReference)processEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -788,6 +846,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         isCreated = true;
 
         // Create classes and their features
+        associationRoleReferenceEClass = createEClass(ASSOCIATION_ROLE_REFERENCE);
+
         automatedProcessEClass = createEClass(AUTOMATED_PROCESS);
 
         contentFormEClass = createEClass(CONTENT_FORM);
@@ -805,6 +865,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         dialogueCallEClass = createEClass(DIALOGUE_CALL);
 
         directDialogueCallEClass = createEClass(DIRECT_DIALOGUE_CALL);
+
+        directProcessCallEClass = createEClass(DIRECT_PROCESS_CALL);
 
         dtoPropertyReferenceEClass = createEClass(DTO_PROPERTY_REFERENCE);
 
@@ -826,6 +888,9 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         linkedDialogueCallEClass = createEClass(LINKED_DIALOGUE_CALL);
         createEReference(linkedDialogueCallEClass, LINKED_DIALOGUE_CALL__LINK);
+
+        linkedProcessCallEClass = createEClass(LINKED_PROCESS_CALL);
+        createEReference(linkedProcessCallEClass, LINKED_PROCESS_CALL__LINK);
 
         linkRefEClass = createEClass(LINK_REF);
 
@@ -855,16 +920,16 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(presentationModelEClass, PRESENTATION_MODEL__EXTERNAL_REFERENCES);
 
         processEClass = createEClass(PROCESS);
+        createEReference(processEClass, PROCESS__PROCESS_ELEMENTS);
 
         processCallEClass = createEClass(PROCESS_CALL);
 
         uiModelElementEClass = createEClass(UI_MODEL_ELEMENT);
 
         uiModelElementCallEClass = createEClass(UI_MODEL_ELEMENT_CALL);
+        createEAttribute(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__ALIAS);
 
-        uiModelElementRefEClass = createEClass(UI_MODEL_ELEMENT_REF);
-
-        associationRoleReferenceEClass = createEClass(ASSOCIATION_ROLE_REFERENCE);
+        uiCallEClass = createEClass(UI_CALL);
     }
 
 	/**
@@ -895,6 +960,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         // Set bounds for type parameters
 
         // Add supertypes to classes
+        associationRoleReferenceEClass.getESuperTypes().add(this.getNamedReference());
         automatedProcessEClass.getESuperTypes().add(this.getProcess());
         contentFormEClass.getESuperTypes().add(this.getForm());
         compoundDialogueEClass.getESuperTypes().add(this.getDialogue());
@@ -902,12 +968,14 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         dialogueEClass.getESuperTypes().add(this.getUIModelElement());
         dialogueCallEClass.getESuperTypes().add(this.getUIModelElementCall());
         directDialogueCallEClass.getESuperTypes().add(this.getDialogueCall());
+        directProcessCallEClass.getESuperTypes().add(this.getProcessCall());
         dtoPropertyReferenceEClass.getESuperTypes().add(this.getNamedReference());
         externalReferenceEClass.getESuperTypes().add(this.getNamedReference());
         formEClass.getESuperTypes().add(this.getDialogue());
         interactiveProcessEClass.getESuperTypes().add(this.getProcess());
         linkEClass.getESuperTypes().add(this.getModelElement());
         linkedDialogueCallEClass.getESuperTypes().add(this.getDialogueCall());
+        linkedProcessCallEClass.getESuperTypes().add(this.getProcessCall());
         linkRefEClass.getESuperTypes().add(this.getNamedReference());
         linkPathEClass.getESuperTypes().add(this.getLink());
         linkStepEClass.getESuperTypes().add(this.getLink());
@@ -915,15 +983,16 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         processEClass.getESuperTypes().add(this.getUIModelElement());
         processCallEClass.getESuperTypes().add(this.getUIModelElementCall());
         uiModelElementEClass.getESuperTypes().add(this.getModelElement());
-        uiModelElementCallEClass.getESuperTypes().add(this.getUIModelElementRef());
-        uiModelElementRefEClass.getESuperTypes().add(this.getNamedReference());
-        associationRoleReferenceEClass.getESuperTypes().add(this.getNamedReference());
+        uiModelElementCallEClass.getESuperTypes().add(this.getUICall());
+        uiCallEClass.getESuperTypes().add(this.getNamedReference());
 
         // Initialize classes and features; add operations and parameters
+        initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(automatedProcessEClass, AutomatedProcess.class, "AutomatedProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(contentFormEClass, ContentForm.class, "ContentForm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getContentForm_FormElements(), this.getFormElement(), this.getFormElement_Form(), "formElements", null, 0, -1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getContentForm_FormElements(), this.getFormElement(), this.getFormElement_Form(), "formElements", null, 0, -1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(compoundDialogueEClass, CompoundDialogue.class, "CompoundDialogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getCompoundDialogue_Dialogues(), this.getDialogueCall(), null, "dialogues", null, 0, -1, CompoundDialogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -938,6 +1007,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(directDialogueCallEClass, DirectDialogueCall.class, "DirectDialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(directProcessCallEClass, DirectProcessCall.class, "DirectProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         initEClass(dtoPropertyReferenceEClass, DtoPropertyReference.class, "DtoPropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(externalReferenceEClass, ExternalReference.class, "ExternalReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -950,7 +1021,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEAttribute(getFormElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getFormElement_References(), this.getDtoPropertyReference(), null, "references", null, 0, 1, FormElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFormElement_Readonly(), ecorePackage.getEBoolean(), "readonly", "false", 0, 1, FormElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getFormElement_Form(), this.getContentForm(), this.getContentForm_FormElements(), "form", null, 1, 1, FormElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getFormElement_Form(), this.getContentForm(), this.getContentForm_FormElements(), "form", null, 1, 1, FormElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(interactiveProcessEClass, InteractiveProcess.class, "InteractiveProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -961,13 +1032,16 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEClass(linkedDialogueCallEClass, LinkedDialogueCall.class, "LinkedDialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getLinkedDialogueCall_Link(), this.getLinkRef(), null, "link", null, 0, 1, LinkedDialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(linkedProcessCallEClass, LinkedProcessCall.class, "LinkedProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getLinkedProcessCall_Link(), this.getLinkRef(), null, "link", null, 0, 1, LinkedProcessCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
         initEClass(linkRefEClass, LinkRef.class, "LinkRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(linkPathEClass, LinkPath.class, "LinkPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getLinkPath_Steps(), this.getLinkRef(), null, "steps", null, 1, -1, LinkPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(linkStepEClass, LinkStep.class, "LinkStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getLinkStep_Reference(), this.getAssociationRoleReference(), null, "reference", null, 0, 1, LinkStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLinkStep_Reference(), this.getAssociationRoleReference(), null, "reference", null, 0, 1, LinkStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(masterDetailEClass, MasterDetail.class, "MasterDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getMasterDetail_Master(), this.getDialogueCall(), null, "master", null, 1, 1, MasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -989,16 +1063,16 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getPresentationModel_ExternalReferences(), this.getExternalReference(), null, "externalReferences", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(processEClass, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, "Process", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getProcess_ProcessElements(), this.getUICall(), null, "processElements", null, 0, -1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(processCallEClass, ProcessCall.class, "ProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(processCallEClass, ProcessCall.class, "ProcessCall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(uiModelElementEClass, UIModelElement.class, "UIModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(uiModelElementCallEClass, UIModelElementCall.class, "UIModelElementCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getUIModelElementCall_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(uiModelElementRefEClass, UIModelElementRef.class, "UIModelElementRef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(uiCallEClass, UICall.class, "UICall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         // Create resource
         createResource(eNS_URI);

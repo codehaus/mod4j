@@ -14,7 +14,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  *
  *
  * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcessCall()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ProcessCall extends UIModelElementCall {

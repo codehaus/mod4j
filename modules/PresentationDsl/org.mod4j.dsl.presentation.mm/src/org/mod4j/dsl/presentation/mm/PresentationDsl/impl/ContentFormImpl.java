@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -34,7 +35,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  */
 public class ContentFormImpl extends FormImpl implements ContentForm {
 	/**
-     * The cached value of the '{@link #getFormElements() <em>Form Elements</em>}' reference list.
+     * The cached value of the '{@link #getFormElements() <em>Form Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #getFormElements()
@@ -69,7 +70,7 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
      */
 	public EList<FormElement> getFormElements() {
         if (formElements == null) {
-            formElements = new EObjectWithInverseResolvingEList<FormElement>(FormElement.class, this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, PresentationDslPackage.FORM_ELEMENT__FORM);
+            formElements = new EObjectContainmentWithInverseEList<FormElement>(FormElement.class, this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, PresentationDslPackage.FORM_ELEMENT__FORM);
         }
         return formElements;
     }

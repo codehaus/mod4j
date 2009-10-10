@@ -97,7 +97,7 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
      * Delete one orderline from each order, Update and check.
      */
     @Test
-    public void testUpdateRemovedOrderLines() throws Exception {
+    public void testUpdateRemovedOrderLines() {
 
         CustomerWithOrdersAndOrderLines createdCustomer = customerServiceModelService.createCustomer(customerDto);
         flush();
@@ -155,6 +155,7 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
             assertEquals(3, updatedOrderDto.getOrderLines().size());
             for (OrderLineDto orderLineDto : updatedOrderDto.getOrderLines()) {
                 if (orderLineDto.getLineNumber() == 3) {
+                    //TODO MODFORJ-144 assertTrue(orderLineDto.getId() > 0);
                     assertTrue("ORDER-NEW-ORDERLINE-3".equals(orderLineDto.getDescription()));    
                 }
             }

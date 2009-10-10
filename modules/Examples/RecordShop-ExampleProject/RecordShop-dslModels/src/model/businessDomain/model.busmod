@@ -26,6 +26,13 @@ class Person [
     ] 
 ]
 
+class Address [
+    string streetName;
+    string houseNumber;
+    string zipcode regexp "\\\\d{5}(-\\\\d{4})?";
+    string city;  
+]
+
 "A Customer represents a Person who orders from the RecordShop."
 class Customer inherits Person [
     
@@ -115,7 +122,7 @@ enumeration RecordTypeEnum [
     DVD = 4;
     BLUERAY = 5;
 ]
- 
+
 "One 2 Many bidirectional: A customer has a number of orders." 
 association Customer customer one <-> many Order orders ;
 
@@ -123,18 +130,21 @@ association Customer customer one <-> many Order orders ;
 This is a typical composite relation: An orderLine must be attached to an existing order. 
 When an order is deleted, also a cascading delete of all the orderLines attached to it must be performed."
 association Order order one -> many OrderLine orderLines ordered ;
- 
+
 "One 2 One bidirectional: An orderLine contains a product."
 association OrderLine orderLine  one <-> one Product product ;
 
 "Many to One bidirectional: A record is sold as a product."
 association Record  record many <-> one Product product ;
 
-"Many to Many bidirectional: A records have been made by zero or more contributors."
+"Many to Many bidirectional: Records have been made by zero or more contributors."
 association Record records many <-> many Artist contributors ;
 
-"Many to Many unidirectional: A product has been bought by zero or more buyers."
+"Many to Many unidirectional: Products have been bought by zero or more buyers."
 association Product product many -> many Customer buyers ;
+
+"Many to One unidirectional: Customers have one invoiceAddress" 
+association Customer customers many -> one Address invoiceAddress;
 
 "Tests"
 association Person person one -> many Artist relatedTo ; 

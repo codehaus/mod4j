@@ -20,8 +20,8 @@ context BusinessClass ERROR "Businessclass [" + this.name + "] already defined i
        ! classExists(this.name);
 */
 
-context ExternalReference ERROR "NOT exists model " + this.modelName  + " dto " + this.name :
-       lookupSymbol(this.modelName, this.name, "Dto") != null;
+context ExternalReference ERROR "there is no model " + this.modelName  + " that contains " + this.name :
+       !findAllFromModel(this.modelName, this.name, { "Dto", "Dialogue", "Process", "Link" } ).isEmpty;
 /*
 context Dialogue ERROR "01 Context reference [" + this.contextRef.name + "] not defined in model " + this.contextRef.modelName :
        lookupSymbol(this.contextRef.modelName, this.contextRef.name, "Dto") != null;

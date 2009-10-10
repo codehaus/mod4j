@@ -110,7 +110,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		/**
 		 * Remove an order from the DTO to see if it gets removed from the DO.
 		 */
-		customerDto.removeFromOrders(new OrderNumberAndDateDto(1L, 1));
+		customerDto.removeFromOrders(customerDto.getFromOrders(1L));
 		customer = scTranslator.fromDto(customerDto, customer);
 		checkCustomer(customer, new String[] { "2" });
 
@@ -125,7 +125,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		customer = repository.get(repository.save(customer));
 		checkCustomer(customer, new String[] { "2", "3" });
 
-		//TODO: Also update one or more orders.
+		// TODO: Also update one or more orders.
 	}
 
 	private void checkCustomer(Customer customer, String[] orderNumbers) {
@@ -154,8 +154,8 @@ public class SimpleCustomerDtoTranslatorTest {
 		}
 		return customerDto;
 	}
-	
-	private CustomerWithOrdersAndOrderLines createCustomerDto () {
+
+	private CustomerWithOrdersAndOrderLines createCustomerDto() {
 		CustomerWithOrdersAndOrderLines result = new CustomerWithOrdersAndOrderLines();
 		return result;
 	}

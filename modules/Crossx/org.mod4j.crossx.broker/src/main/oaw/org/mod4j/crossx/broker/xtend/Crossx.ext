@@ -23,6 +23,9 @@ List[crossx::Symbol] findAllFromModel(String modelname, String elemType) :
 List[crossx::Symbol] findAllFromModel(String modelname, List[String] elemTypes) :
   JAVA org.mod4j.crossx.broker.CrossxBroker.findAllFromModel(java.lang.String, java.util.List) ;
 
+List[crossx::Symbol] findAllFromModel(String modelname, String symbolName, List[String] elemTypes) :
+  JAVA org.mod4j.crossx.broker.CrossxBroker.findAllFromModel(java.lang.String, java.lang.String, java.util.List) ;
+
 List[crossx::ModelInfo] findAllModels() :
   JAVA org.mod4j.crossx.broker.CrossxBroker.findAllModels() ;
 

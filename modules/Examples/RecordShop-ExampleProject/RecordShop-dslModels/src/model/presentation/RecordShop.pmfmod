@@ -2,6 +2,8 @@
 PresentationModel RecordshopPresentation
 
 from RecordShopDataContract import FullCustomerDto
+from RecordShopDataContract import SimpleCustomerDto
+from CustomerModel import CustomerDetails
 
 "Customer ContentForm"  
 ContentForm CustomerDetail using FullCustomerDto
@@ -19,7 +21,8 @@ ContentForm CustomerReadOnlyDetail using FullCustomerDto
 CollectionDialogue CustomerCollection using FullCustomerDto
 	  dialogues [ 
 	  	CustomerReadOnlyDetail;
-	  	CustomerDetail;
 	  ]
 
-		
+MasterDetail CustomerMD using FullCustomerDto
+	master CustomerCollection ;
+	detail CustomerDetail ;

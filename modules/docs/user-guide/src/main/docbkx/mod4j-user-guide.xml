@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4/EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY mod4j "<ulink url='http://www.mod4j.org/'>Mod4j</ulink>">
+]>
 <book lang="en">
-  <bookinfo><title>mod4j User Guide</title><authorgroup>
+  <bookinfo>
+    <title>&mod4j; User Guide</title>
+    <authorgroup>
       <author>
         <firstname>Jos</firstname>
         <surname>Warmer</surname>
@@ -16,50 +20,67 @@
         <surname>Vogelzang</surname>
       </author>
     </authorgroup>
-    <releaseinfo>1.0.0</releaseinfo>
+    <releaseinfo>&version;</releaseinfo>
     <copyright>
       <year>2009</year>
-      <holder>Ordina and other Mod4j committers</holder>
+      <holder>Ordina and other &mod4j; committers</holder>
     </copyright>
   </bookinfo>
   <chapter id="intro">
     <title>Introduction</title>
     <section>
       <title>Introduction</title>
-      <para>Mod4j (<emphasis role="italic">Modeling for Java</emphasis>) is an open source DSL-based
-        environment for developing administrative enterprise applications. It uses a collection of
-        DSL’s to model different parts of the architecture, combined with manually written code.
-        Currently Mod4j consists of four DSLs: the Business Domain DSL, Service DSL, Data Contract
-        DSL and Presentation DSL. The modeling environment is seamlessly integrated into the Eclipse
-        IDE which gives the developers one environment where they can easily switch back- and forth
-        between models and code. The different DSL’s used in Mod4j can be used independently, but if
-        they are used in collaboration they will be fully validated with each other. Apart from
-        integration in the Eclipse IDE, Mod4j also supports the use of Maven. That is, using the DSL
-        models as the source, the complete code generation process can be run automatically on a
-        build server without the need for Eclipse. This is a must for professional development and
-        fits well in current ways of working.</para>
-      <para>This document is the user guide for Mod4j. <xref linkend="intro"/> describes the guiding
-        principles that are used within Mod4j. Section XXX describes <xref linkend="Mod4jPrinciples"
-        />, describe the different DSL's of Mod4j.</para>
+      <para>&mod4j; (<emphasis role="italic">Modeling for Java</emphasis>) is an open source
+        DSL-based environment for developing administrative enterprise applications. It uses a
+        collection of DSL’s to model different parts of the architecture, combined with manually
+        written code. Currently &mod4j; consists of four DSLs: the Business Domain DSL, Service
+        DSL, Data Contract DSL and Presentation DSL. The modeling environment is seamlessly
+        integrated into the Eclipse IDE which gives the developers one environment where they can
+        easily switch back- and forth between models and code. The different DSL’s used in
+        &mod4j; can be used independently, but if they are used in collaboration they will be
+        fully validated with each other. Apart from integration in the Eclipse IDE, &mod4j; also
+        supports the use of Maven. That is, using the DSL models as the source, the complete code
+        generation process can be run automatically on a build server without the need for Eclipse.
+        This is a must for professional development and fits well in current ways of working.</para>
+      <para>This document is the user guide for &mod4j;. <xref linkend="intro"/> describes the
+        guiding principles that are used within &mod4j;. Section XXX describes <xref
+          linkend="Mod4jPrinciples"/>, describe the different DSL's of &mod4j;.</para>
+    </section>
+    <section>
+      <title>References</title>
+      <anchor id="bibliography"/>
+      <bibliography>
+        <biblioentry id="mod4j-app-arch">
+          <abbrev>mod4j-app-arch</abbrev>
+          <title>&mod4j; Application Architecture</title>
+          <author>
+            <firstname>Eric</firstname>
+            <othername>Jan</othername>
+            <surname>Malotaux</surname>
+          </author>
+          <date>2009</date>
+        </biblioentry>
+      </bibliography>
     </section>
   </chapter>
   <chapter id="Mod4jPrinciples">
-    <title>Mod4j Principles and Patterns</title>
+    <title>&mod4j; Principles and Patterns</title>
     <section>
       <title>Principles</title>
-      <para>It is important to understand the principles behind the mod4j project. These principles
-        have guided how the DSL's are designed and how they should be used.</para>
+      <para>It is important to understand the principles behind the &mod4j; project. These
+        principles have guided how the DSL's are designed and how they should be used.</para>
       <section>
         <title>Code Generation Principles</title>
-        <para>Code generation has been around for a long time. Mod4j takes in account many of the
-          lessons learned. The following principles are guiding the Mod4j development.</para>
+        <para>Code generation has been around for a long time. &mod4j; takes in account many of
+          the lessons learned. The following principles are guiding the &mod4j;
+          development.</para>
         <itemizedlist>
           <listitem>
-            <para><keycap>Generated code must be clear and readable</keycap>. Using Mod4j should not
-              be a lifetime commitment. Therefore the source code must be at least as good as
-              handwritten code. This allows projects to continue development with the generated code
-              instead of the DSL models. Note that this surely isn't the recommended way, but we
-              like the freedom this gives.</para>
+            <para><keycap>Generated code must be clear and readable</keycap>. Using &mod4j;
+              should not be a lifetime commitment. Therefore the source code must be at least as
+              good as handwritten code. This allows projects to continue development with the
+              generated code instead of the DSL models. Note that this surely isn't the recommended
+              way, but we like the freedom this gives.</para>
             <para>Another reason for generating clear and readable code is that we do not have
               debuggers at the model level. This would be great, but the tools to develop
               model-level debuggers are not available (yet, we hope). Therefore code needs to be
@@ -93,16 +114,16 @@
               Java class files).</para>
           </listitem>
           <listitem>
-            <para><keycap>Automatic builds through Maven.</keycap> Mod4j includes a Maven plugin
-              that support the code generation process in batch mode. This is used to run automatics
-              builds based on the models. There is no need to checkin generated source code, just as
-              there is no need to checkin compiled Java classes. </para>
+            <para><keycap>Automatic builds through Maven.</keycap> &mod4j; includes a Maven
+              plugin that support the code generation process in batch mode. This is used to run
+              automatics builds based on the models. There is no need to checkin generated source
+              code, just as there is no need to checkin compiled Java classes. </para>
           </listitem>
         </itemizedlist>
       </section>
       <section>
         <title>Modeling Principles</title>
-        <para>Modeling in Mod4j is guided by a set of principles:<itemizedlist>
+        <para>Modeling in &mod4j; is guided by a set of principles:<itemizedlist>
             <listitem>
               <para><keycap>The goal of a model is to generate code.</keycap> Thus, everything in a
                 model is used in some way to generate code. We don't do modeling for the sake of
@@ -133,7 +154,7 @@
     </section>
     <section>
       <title>Code Generation Patterns</title>
-      <para>The code generated by mod4j is designed to be extensible by handwritten code. This
+      <para>The code generated by &mod4j; is designed to be extensible by handwritten code. This
         provides the developer with maximum flexibility. These so-called extension points are
         designed in such a way that a developer never needs to overwrite generated code, he always
         extends it. This ensures that code can always be regenerated keeping the model as the source
@@ -144,7 +165,7 @@
         <title>Generation Gap Pattern</title>
         <para>The Generation Gap pattern is described at
           http://www.research.ibm.com/designpatterns/pubs/gg.html by John Vlissides. The main
-          asopects of this pattern are:</para>
+          aspects of this pattern are:</para>
         <section>
           <title>Intent</title>
           <para>The intent of the pattern is to be able to modify or extend generated code just once
@@ -185,11 +206,12 @@
                 consequences and only use this in exceptional cases.</para>
             </listitem>
           </itemizedlist>
-          <para>The generation gap pattern is used at several places within Mod4j. It is a well
-            known pattern in Java code generation and allows for a clear separation of generated and
-            handwritten code. Code generation for a Java class or java interface is done in two
-            parts. An abstract base class is generated which contains all the generated code. An
-            empty concrete subclass is generated, in which handwritten code should added.</para>
+          <para>The generation gap pattern is used at several places within &mod4j;. It is a
+            well known pattern in Java code generation and allows for a clear separation of
+            generated and handwritten code. Code generation for a Java class or java interface is
+            done in two parts. An abstract base class is generated which contains all the generated
+            code. An empty concrete subclass is generated, in which handwritten code should
+            added.</para>
           <para>The generator will always regenerate the abstract base class. The generator will
             only generate the empty subclass if it has not been manually changed. In this way
             handwritten code is never overwritten by the code generator.</para>
@@ -222,86 +244,88 @@
     </section>
   </chapter>
   <chapter id="chapter-eclipse">
-    <title>The Mod4j Eclipse environment</title>
+    <title>The &mod4j; Eclipse environment</title>
     <section>
-      <title>Mod4j Project</title>
-      <para>Mod4j models reside within an Eclipse Mod4j project. A Mod4j project has several
-        characteristics. First of all, such a project has a Mod4j nature, which tells Eclipse that
-        this project contains Mod4j DSL models. This nature triggers the Eclipse build system to run
-        on the model units in this project. Mod4j model files must reside in a Mod4j project </para>
+      <title>&mod4j; Project</title>
+      <para>&mod4j; models reside within an Eclipse &mod4j; project. A &mod4j; project
+        has several characteristics. First of all, such a project has a &mod4j; nature, which
+        tells Eclipse that this project contains &mod4j; DSL models. This nature triggers the
+        Eclipse build system to run on the model units in this project. &mod4j; model files must
+        reside in a &mod4j; project </para>
       <section>
-        <title>Mod4j New Project Wizard</title>
-        <para>To create a Mod4j project you can use the Mod4j Wizard. You can find this under the
-          menu option <keycap>File ==> New ==> Project ... ==> Mod4j ==> Mod4j Project</keycap>. You
-          can then define the project name and the project location. Within a Mod4j project the
-          folder src/model is special. All Mod4j models must reside within this folder. The default
-          structure below this folder is to make sub folders for business domain models, data
-          contract models and service models.</para>
+        <title>&mod4j; New Project Wizard</title>
+        <para>To create a &mod4j; project you can use the &mod4j; Wizard. You can find this
+          under the menu option <keycap>File ==> New ==> Project ... ==> Mod4j ==> Mod4j
+            Project</keycap>. You can then define the project name and the project location. Within
+          a &mod4j; project the folder src/model is special. All &mod4j; models must reside
+          within this folder. The default structure below this folder is to make sub folders for
+          business domain models, data contract models and service models.</para>
       </section>
       <section>
-        <title>Mod4j New Model Wizard</title>
-        <para>Once e Mod4j project has been created you can create a new Mod4j model through the
-          menu option <keycap>New ==> Other... ==> Mod4j ==> Mod4j &lt;DSL name> Model
-          File</keycap>. Make sure you create the model files inside the src/model folder, or they
-          will be ignored.</para>
+        <title>&mod4j; New Model Wizard</title>
+        <para>Once e &mod4j; project has been created you can create a new &mod4j; model
+          through the menu option <keycap>New ==> Other... ==> Mod4j ==> Mod4j &lt;DSL name>
+            Model File</keycap>. Make sure you create the model files inside the src/model folder,
+          or they will be ignored.</para>
       </section>
       <section>
-        <title>Mod4j Model Editors</title>
-        <para>Once a Mod4j model is created it can be opened in the special model editor by double
-          clicking it. The model editors use syntax highlighting for keywords, where the color of
-          the keywords matches the color of the layer in the architectural overview. Each editors
-          has a different keyword color. This helps you to quickly know which type of model you are
-          editing.</para>
+        <title>&mod4j; Model Editors</title>
+        <para>Once a &mod4j; model is created it can be opened in the special model editor by
+          double clicking it. The model editors use syntax highlighting for keywords, where the
+          color of the keywords matches the color of the layer in the architectural overview. Each
+          editors has a different keyword color. This helps you to quickly know which type of model
+          you are editing.</para>
         <para>The model editors also have code completion, which is of course triggered by tye
           default Eclipse key combination <keycap>Ctrl-SPACE</keycap>. Errors in the models are
           displayed in the Eclipse Problem View, thus working as expected in Eclipse. </para>
       </section>
       <section>
-        <title>Mod4j FileTracker View</title>
+        <title>&mod4j; FileTracker View</title>
         <para>For each model unit code is generated in a number of different files that may reside
           inside different folders in projects. It is rather cumbersome to navigate through the
           different projects to find the files that are generated. the FileTracker view, which can
           be shown by the menu option <keycap>Window ==> Show View ==> Other ==> Mod4j ==> Mod4j
             FileTracker</keycap>. The FileTracker view shows a tree with all model files. Under each
-          model file the list of files generated from the specific model is shown. A generated fiole
-          may be shown with a small G in the right lower corner, which indicates thatb this is a
+          model file the list of files generated from the specific model is shown. A generated file
+          may be shown with a small G in the right lower corner, which indicates that this is a
           generate3d file that will always be overwritten. Files without the G are extension points
-          and may be changed by hand. As lomng as these files are not chnaged by hand they will be
-          rfegenerated. When such a file is changed, manually the Mod4j builder will recognize this
-          and will not ovverwrite such a file.</para>
+          and may be changed by hand. As long as these files are not changed by hand they will be
+          regenerated. When such a file is changed, manually the &mod4j; builder will recognize
+          this and will not overwrite such a file.</para>
         <para>Double clicking on the model file or on a generated will directly open the file,
           provided that the project in which the file resides is available as an Eclipse project in
           your workspace. For new projects you first need to import the different projects as
           described in <xref linkend="chapter-code-generation"/>. </para>
       </section>
       <section>
-        <title>Mod4j CrossX View</title>
+        <title>&mod4j; CrossX View</title>
         <para>As described in <xref linkend="chapter-crossx"/>, the connection between the different
           models in different files is supported by the CrossX component. To view the contents of
           the CrossX broker you can select <keycap>Window ==> Show View ==> Other ==> Mod4j ==>
-            CrossX</keycap>. For normal usage of Mod4j, the CrossX View is not needed. Irt becomes
-          useful when you are developing your own DSL and need to check whether the right symbols
-          are exported to CrossX from your DSL. </para>
+            CrossX</keycap>. For normal usage of &mod4j;, the CrossX View is not needed. It
+          becomes useful when you are developing your own DSL and need to check whether the right
+          symbols are exported to CrossX from your DSL. </para>
         <para>Double clicking on the model file will directly open the file, provided that the
           project in which the file resides is available as an Eclipse project in your workspace.
-          For new proejcts you need to import the different projects as described in <xref
+          For new projects you need to import the different projects as described in <xref
             linkend="chapter-code-generation"/>. </para>
       </section>
     </section>
   </chapter>
   <chapter id="chapter-code-generation">
-    <title>Mod4j Code Generation</title>
+    <title>&mod4j; Code Generation</title>
     <section>
       <title>Structure of Generated Code</title>
-      <para>Code generation in Mod4j follows a well-defined structure, which is derived from the
-        layers in the application architecture.</para>
-      <para>From the various models in Mod4j code is generated to so-called <emphasis role="italic"
-          >modules</emphasis>. Each module represents a layer of the architecture.The names of the
-        modules are derived from the application name. For example, if the application name is
-          <emphasis role="italic">RecordShop</emphasis> the modules used in Mod4j are:<itemizedlist>
+      <para>Code generation in &mod4j; follows a well-defined structure, which is derived from
+        the layers in the application architecture.</para>
+      <para>From the various models in &mod4j; code is generated to so-called <emphasis
+          role="italic">modules</emphasis>. Each module represents a layer of the architecture. The
+        names of the modules are derived from the application name. For example, if the application
+        name is <emphasis role="italic">RecordShop</emphasis> the modules used in &mod4j; are:<itemizedlist>
           <listitem>
             <para><emphasis role="italic">RecordsShop-dslModels</emphasis>: this is the project that
-              contains all of the the Mod4j models., No code is generated into this project.</para>
+              contains all of the &mod4j; models., No code is generated into this
+              project.</para>
           </listitem>
           <listitem>
             <para><emphasis role="italic">RecordShop-domain</emphasis>: this project contains code
@@ -327,15 +351,15 @@
             <para><emphasis role="italic">RecordShop-presentation</emphasis>: this project contains
               code for the presentation layer of the architecture. Code is generated from the
               presentation DSL. Note that the presentation DSL is not part of the 1.0.0 release of
-              Mod4j.</para>
+              &mod4j;.</para>
           </listitem>
         </itemizedlist></para>
       <para>Each modules is a Maven module and includes a Maven <emphasis role="italic">pom.xml
         </emphasis>file that describes the build structure of the module. The location of the
         modules is defined in the Mod4j.properties files which is described in <xref
           linkend="section-mod4j-properties"/>.</para>
-      <para>The structure of the modulkes in the filesystem is important, because all of the modules
-        need to use the same parent pom.xml file. The stucture is as follows:</para>
+      <para>The structure of the modules in the file system is important, because all of the modules
+        need to use the same parent pom.xml file. The structure is as follows:</para>
       <programlisting>main-folder
     pom.xml                            -- the parent pom for all modules
     RecordShop-dslModels
@@ -351,26 +375,67 @@
     RecordShop-presentation
         pom.xml      </programlisting>
       <para>The project can be built by running maven (mvn clean install) in the main-folder. </para>
-      <para>To work with the generated modules in Eclipse Mod4j uses the Eclipse plugin Q4E. The q4e
-        plugin allows an Eclipse user to import maven projects as Eclipse rpojects. It takes care of
-        keeping all Eclipse settings in sync with the pom.xml file. The <emphasis role="italic"
-          >getting started </emphasis>guide om the Mod4j project site describes how to isntall q4e
-        and how to run maven on a newly created project. </para>
+      <para>To work with the generated modules in Eclipse &mod4j; uses the Eclipse plugin Q4E.
+        The q4e plugin allows an Eclipse user to import maven projects as Eclipse projects. It takes
+        care of keeping all Eclipse settings in sync with the pom.xml file. The <emphasis
+          role="italic">getting started </emphasis>guide om the &mod4j; project site describes
+        how to install q4e and how to run maven on a newly created project. </para>
       <warning>
         <para>Within Eclipse the default location of projects is directly in the workspace folder.
-          The coinsequence of this is that the parent pom for a Mod4j project will reside in the
-          workspace fo0lder. This becomes a problem when you are working with more than one Mod4j
-          project. The parent pom for each of the Mod4j projects will have the same location. To
-          avoid these promblems, we advise to create Mod4j projects outside the Eclipse workspace.
-        </para>
+          The consequence of this is that the parent pom for a &mod4j; project will reside in
+          the workspace fo0lder. This becomes a problem when you are working with more than one
+          &mod4j; project. The parent pom for each of the &mod4j; projects will have the
+          same location. To avoid these problems, we advise to create &mod4j; projects outside
+          the Eclipse workspace. </para>
       </warning>
+    </section>
+    <section>
+      <title>Spring configuration</title>
+      <para>As explained in the <biblioref linkend="mod4j-app-arch"/>, each maven module
+        corresponding with an architectural layer, except the domain layer, has its own Spring
+        configuration. The contexts are created and tied together by a <ulink
+          url="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/context/access/ContextSingletonBeanFactoryLocator.html">
+          <classname>ContextSingletonBeanFactoryLocator</classname>
+        </ulink>, configured by a set of <filename>beanRefContext.xml</filename> files. The
+        configuration is separated into parts that are always generated, and parts that are
+        generated just once as a convenience for the developer, and after that never overwritten
+        because they are intended to be maintained manually. The generated parts are generated into
+        a file named <filename>applicationContext.xml</filename> in the directory corresponding to
+        the root package for each module in the source folder <filename class="directory"
+          >generated-resources</filename>. The manually maintained files are generated just once
+        into the directory corresponding to the root package for each module in the source folder
+          <filename class="directory">src/main/resources</filename>. The manually maintained
+        configuration files contain those configuration items that depend on the environment where
+        the application will be deployed and therefore cannot be known in advance. Currently there
+        are three such configuration files:<orderedlist>
+          <listitem>
+            <para><filename>dataSourceContext.xml</filename> in the data module.</para>
+          </listitem>
+          <listitem>
+            <para><filename>sessionFactoryContext.xml</filename> in the data module.</para>
+          </listitem>
+          <listitem>
+            <para><filename>transactionManagerContext.xml</filename> in the service module.</para>
+          </listitem>
+        </orderedlist>It is quite probable that in the future more specialised environment dependent
+        configuration files will be introduced, for instance for JMS queues et cetera.</para>
+      <para>This separation of Spring configuration files between modules, and between generated and
+        manual parts tries to benefit from knowledge available in the model on the one hand, and
+        flexibility needed to adapt to the environment on the other hand. The generated setup will
+        be sufficient for simple cases. When a more complicated configuration is needed, the
+        developer will have to created his own, but he can still use most of the generated parts. In
+        that case he will probably substitute his own <filename>beanRefContext.xml</filename> for
+        the generated ones and assemble the contexts there. Just one
+          <filename>beanRefContext.xml</filename> will probably be easier to maintain by hand than
+        the several generated ones.</para>
     </section>
     <section id="section-mod4j-properties">
       <title>Tuning the Code Generation Properties </title>
-      <para> Inside the <emphasis role="italic">src/model </emphasis>folder of the Mod4j project a
-        file named <emphasis role="italic">mod4j.properties </emphasis>is generated by the new mod4j
-        project wizard. This files contains a number of properties that can be used to tune the
-        Mod4j code generation. This file has a number of sections which are explained below. </para>
+      <para> Inside the <emphasis role="italic">src/model </emphasis>folder of the &mod4j;
+        project a file named <emphasis role="italic">mod4j.properties </emphasis>is generated by the
+        new &mod4j; project wizard. This files contains a number of properties that can be used
+        to tune the &mod4j; code generation. This file has a number of sections which are
+        explained below. </para>
       <bridgehead>Application properties</bridgehead>
       <para>Default encoding for generated XML files </para>
       <programlisting>      fileEncoding=UTF-8</programlisting>
@@ -378,29 +443,29 @@
       <programlisting>      applicationName=RecordShop</programlisting>
       <para>The version of the application, this is used by Maven </para>
       <programlisting>      applicationVersion=1.0-SNAPSHOT</programlisting>
-      <para>The main location of the project, this has only be t3esteed wth the value "..", be awars
-        of any other value you use. </para>
+      <para>The main location of the project, this has only been tested with the value "..", be
+        aware of any other value you use. </para>
       <programlisting>      applicationPath=..</programlisting>
       <para>The name of the root package for the generated code. </para>
       <programlisting>      rootPackage=org.company.recordshop</programlisting>
       <para>The folder where Java sources are (re)generated. Files generated in this folder are
-        always regenerated, thus they shuld never be changed by hand. Aslo, there is no need to
+        always regenerated, thus they should never be changed by hand. Also, there is no need to
         checkin these generated files in SVN or other version control system. The files are
-        regenerated anyway by both the Eclispe and the Maven buidelr. </para>
+        regenerated anyway by both the Eclipse and the Maven builder. </para>
       <programlisting>      srcGenPath=generated-sources</programlisting>
       <para> The folder where resources are (re)generated. This has the same function as the
           <emphasis role="italic">srcGenPath</emphasis>, but for non Java files. </para>
       <programlisting>     resourceGenPath=generated-resources</programlisting>
       <para>The folder where Java extension points are generated. These are the Java files where
         code may be added by hand. Any file changed after generation will not be regenerated. From
-        this folder all manually chnaged files need to checked in, unchanged files should not be
+        this folder all manually changed files need to checked in, unchanged files should not be
         checked in. </para>
       <programlisting>      srcManPath=src/main/java</programlisting>
       <para>The folder where non-Java extension points are generated. Works identically to <emphasis
           role="italic">srcManPath</emphasis> .</para>
       <programlisting>      resourceManPath=src/main/resources</programlisting>
       <bridgehead>Dsl Models properties</bridgehead>
-      <para>The name of the module that contains the Mod4j models. </para>
+      <para>The name of the module that contains the &mod4j; models. </para>
       <programlisting>      dslModelsModuleName=RecordShop-dslModels</programlisting>
       <bridgehead>Domain module properties</bridgehead>
       <para>The name of the module that contains the code for the domain layer. </para>
@@ -442,26 +507,26 @@
   </chapter>
   <chapter id="chapter-crossx">
     <title>CrossX</title>
-    <para>Each model file is edited and processed seperately. However information from one model
+    <para>Each model file is edited and processed separately. However information from one model
       file is often needed in another model file. To support the inter model referencing and
-      validation we developed a speciifc component called CrossX. CrossX acts as a symbol table for
+      validation we developed a specific component called CrossX. CrossX acts as a symbol table for
       model information. Each model exports symbolic information about a subset of its model
-      elements to CrossX. Whenever a reference to a model element in another model is neede this is
+      elements to CrossX. Whenever a reference to a model element in another model is needed this is
       looked up in CrossX.</para>
-    <para>CrossX is integrated into the Mod4j Eclipse builder. When the CrossX builder is called on
-      a model file it will extract the CrossX information from the model file. This information is
-      stored in memory in the CrossX broker. It keeps track of which resource information has come
-      from. If a model file changes, the information from that model files is replaced by the newly
-      exported information. </para>
+    <para>CrossX is integrated into the &mod4j; Eclipse builder. When the CrossX builder is
+      called on a model file it will extract the CrossX information from the model file. This
+      information is stored in memory in the CrossX broker. It keeps track of which resource
+      information has come from. If a model file changes, the information from that model files is
+      replaced by the newly exported information. </para>
     <para>The CrossX information is also stored in a .crossx file. These files are used to
       initialize the CrossX broker at Eclipse startup, to ensure that not all models need to be
       processed again. </para>
-    <para>The CrossX View can be used to examine the contents of the CrosssX broker inside Eclipse.
+    <para>The CrossX View can be used to examine the contents of the CrossX broker inside Eclipse.
       If it shows empty you need to rebuild your project (see issues below) CrossX will only process
-      projects that have a Mod4j nature. </para>
-    <para>Users of Mod4j will ususally not need to do anything wth CroissX, it quietly does its work
-      in the background. For developers of CrossX it is imprtant to understand the inner working,
-      which will be described in the developer guide.</para>
+      projects that have a &mod4j; nature. </para>
+    <para>Users of &mod4j; will usually not need to do anything with CrossX, it quietly does its
+      work in the background. For developers of CrossX it is important to understand the inner
+      working, which will be described in the developer guide.</para>
   </chapter>
   <chapter>
     <title>Business Domain DSL Reference</title>
@@ -480,7 +545,7 @@
       </mediaobject>
     </figure>
     <para>As you can see in the figure, eight files are generated for each domain class. At the
-      domain level the generation gap pattern is used to generate two files. At the data layer a Dao
+      domain level the generation gap pattern is used to generate two files. At the data layer a DAO
       class always has a separate interface. To allow manual additions, a double generation gap
       pattern is used where both the interface and the class can be extended. Next to the Java files
       a Hibernate mapping file is generated containing the mapping for the specified class.</para>
@@ -564,16 +629,29 @@
                 <para>A hibernate mapping file is generated for each domain class.</para>
               </listitem>
               <listitem>
-                <para>Spring configuration files are generated (beanRefContext.xml and
-                  applicationContext.xml) for the application as a whole.</para>
-              </listitem>
-              <listitem>
-                <para>A Dao (Data Access Object) is generated. The dao normally consists of one
+                <para>A DAO (Data Access Object) is generated. The DAO normally consists of one
                   interface and an implementing class. To get a clean separation of generated and
                   handwritten code both of these use the generation gap pattern. The result for a
                   class called Person is shown in figure <xref linkend="figure-emptysubclass-data"
                   />. Note that this is another instance of the generation gap pattern as described
                   in <xref linkend="section-generation-gap-pattern"/>.</para>
+              </listitem>
+              <listitem>
+                <para>Spring configuration files are generated (beanRefContext.xml and
+                  applicationContext.xml) for the DAOs mentioned in the previous bullet. These files
+                  are generated in the <filename class="directory">generated-resources</filename>
+                  directory. Two other Spring configuration files are generated just once in
+                    <filename class="directory">src/main/resource</filename> and never overwritten:
+                    <filename>dataSourceContext.xml</filename>, containing a JNDI data source
+                  definition suitable for deployment in an application server, and
+                    <filename>sessionFactoryContext.xml</filename>, containing a definition of a
+                  Hibernate session factory bean. These files are generated just once to help
+                  developers get up and running quickly. They will never be overwritten, and are
+                  intended to be maintained manually by the developer. The reason for this is that
+                  data sources and session factories are generally dependent on the environment
+                  where the application will be deployed, and so cannot be known beforehand. The
+                  generated <filename>beanRefContext.xml</filename> contains references to these
+                  files.</para>
               </listitem>
             </itemizedlist>
           </para>
@@ -613,9 +691,9 @@
           <title>Data Layer</title>
           <para>In the data layer code is generated in the hibernate mapping files using the
             hibernate support for inheritance.</para>
-          <para>In the Dao package, a regular Dao Java file is generated. There is no inheritance
-            relationship between the class and its superclass in the Dao code. The Dao files
-            contains methods for accesing the database as shown below.</para>
+          <para>In the DAO package, a regular DAO Java file is generated. There is no inheritance
+            relationship between the class and its superclass in the DAO code. The DAO files
+            contains methods for accessing the database as shown below.</para>
           <para><programlisting><emphasis role="bold">public </emphasis><emphasis role="bold">interface </emphasis>CustomerDaoBase {
     	Customer retrieve(Long id);
     	Customer add(Customer object);
@@ -668,7 +746,7 @@
           value is not set directly, but derived from the values of other attributes. The derivation
           algorithm must be provided by manually implementing the corresponding
             <emphasis>getter</emphasis> method in the extension point Java class. Normally the
-          derivation algorithm only works one way, so that the derived property is read-only, whichs
+          derivation algorithm only works one way, so that the derived property is read-only, which
           means that there is no setter for it. A subset of all possible derivation algorithms work
           both ways, so that the values of the attributes can be derived from the value of the
           derived attribute. This can be specified by adding the keyword
@@ -724,33 +802,38 @@
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may be changed later on in the objects
                   lifetime.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>minlength</glossterm>
               <glossdef>
                 <para>Defines the minimal number of characters of this attributes value.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>maxlenght</glossterm>
               <glossdef>
                 <para>Defined the maximum number of characters of this attributes value. The value
                   of <emphasis>maxlength</emphasis> must always be higher or equal to value of
                     <emphasis>minlength</emphasis>..</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>regexp</glossterm>
               <glossdef>
                 <para>Defines the format of the attributes value through a regular expression. The
                   syntax of the regular expression is defined by the Java regular
                   expressions.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
               <glossdef>
                 <para>The nullable property specifies that this attribute does not have to have a
                   value. If nullable is not specified, the attribute must always have a defined
                   value..</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
           </glosslist>
           <section>
             <title>Generated code</title>
@@ -779,18 +862,20 @@
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may change later on in the Objects
                   lifetime.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
               <glossdef>
                 <para>The nullable property specifies that this attribute does not have to have a
                   value. If nullable is no specified, the attribute must always have a defined
                   value.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
           </glosslist>
           <section>
             <title>Generated code</title>
-            <para>A boolean attribute is implemented by a java Boolean field. If the boollean
+            <para>A boolean attribute is implemented by a java Boolean field. If the boolean
               attribute is not <emphasis>nullable</emphasis> the getter and setters use a Java
                 <emphasis>boolean</emphasis>, if the attribute is nullable the getter and setters
               use a <emphasis>Boolean</emphasis>.</para>
@@ -816,26 +901,30 @@
                   object is being created. The value may change later on in the Objects lifetime. If
                   the <emphasis>min</emphasis> and/or <emphasis>max</emphasis> properties are
                   specified the default value must conform to these properties.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>min</glossterm>
               <glossdef>
                 <para>Defines the minimal value of this attribute.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>max</glossterm>
               <glossdef>
                 <para>Defines the maximum value of this attribute. The value of
                     <emphasis>max</emphasis> must always be greater or equal to the value of
                     <emphasis>min</emphasis>.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
               <glossdef>
                 <para>The nullable property specifies that this attribute does not have to have a
                   value. If nullable is no specified, the attribute must always have a defined
                   value.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
           </glosslist>
           <section>
             <title>Generated code</title>
@@ -864,26 +953,30 @@
                 <para>Defines the default value of this attribute. This value is assigned when the
                   object is being created. The value may change later on during the objects
                   lifetime.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>min</glossterm>
               <glossdef>
                 <para>Defines the minimal value of this attribute.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>max</glossterm>
               <glossdef>
                 <para>Defines the maximum value of this attribute. The value of
                     <emphasis>max</emphasis> must always be greater or equal to the value of
                     <emphasis>min</emphasis>.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
               <glossdef>
                 <para>The nullable property specifies that this attribute does not have to have a
                   value. If nullable is no specified, the attribute must always have a defined
                   value.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
           </glosslist>
           <section>
             <title>Generated code</title>
@@ -912,19 +1005,22 @@
                 <para>Defines the accuracy of the datetime attribute. The possible values are year,
                   month, day, hour, minute, second, millisecond. In the above example the accuracy
                   is defined as day.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>default</glossterm>
               <glossdef>
                 <para>Defines the default value of this attribute.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
             <glossentry>
               <glossterm>nullable</glossterm>
               <glossdef>
                 <para>The nullable property specifies that this attribute does not have to have a
                   value. If nullable is no specified, the attribute must always have a defined
                   value.</para>
-              </glossdef></glossentry>
+              </glossdef>
+            </glossentry>
           </glosslist>
           <section>
             <title>Generated code</title>
@@ -947,7 +1043,7 @@
 ]
 </programlisting>
       <para>The "= 1" defines the numeric value that is used for the enumeration literal in the code
-        and the database. This is mandatory, because it is often neccesary to retain previous values
+        and the database. This is mandatory, because it is often necessary to retain previous values
         when you need to address existing encoding schemes for enumerations, or when you are adding
         enumeration literals during development.</para>
       <section>
@@ -1009,15 +1105,15 @@
 <keycap>association</keycap> Order     order     <emphasis role="bold">one</emphasis>    -&gt; <emphasis role="bold">many</emphasis> OrderLine orderLines <emphasis role="bold">ordered</emphasis>;
 <keycap>association</keycap> OrderLine orderline <emphasis role="bold">many</emphasis>   -&gt; <emphasis role="bold">one</emphasis>  Record    record     ;
 <emphasis role="bold">association</emphasis> Record    records   <emphasis role="bold">many</emphasis>  &lt;-&gt; <emphasis role="bold">many</emphasis> Artist    contributors ;</programlisting>
-      <para>This example shows one bidirectional association, which uses the &lt;-&gt; syntax and
-        one unidirectional association using the -&gt; syntax.</para>
+      <para>This example shows one bidirectional association, which uses the &lt;-&gt;
+        syntax and one unidirectional association using the -&gt; syntax.</para>
       <para>The qualifiers <emphasis role="bold">one</emphasis> and <emphasis role="bold"
           >many</emphasis> denote the multiplicity of the association at the side of the object
         closest to it.</para>
       <para>The <emphasis role="bold">ordered </emphasis>keyword states that the association is
-        ordered (not sorted!). The <emphasis role="bold">ordered</emphasis>keyword can only occurr
-        at the target (righthand side) of an association. This means that each element has an index
-        in the relation to the source (left hand side) element. Ordered associations are currently
+        ordered (not sorted!). The <emphasis role="bold">ordered</emphasis>keyword can only occur at
+        the target (right hand side) of an association. This means that each element has an index in
+        the relation to the source (left hand side) element. Ordered associations are currently
         restricted to unidirectional associations only.</para>
       <section>
         <title>Generated code</title>
@@ -1265,7 +1361,7 @@
       <section>
         <title>Generated code</title>
         <para>For an enumeration dto a Java <emphasis role="italic">enum </emphasis>class is
-          generated. Also, a translator calss is generated with method to translate the enumeration
+          generated. Also, a translator class is generated with method to translate the enumeration
           dto to its domain enumeration and vice versa.</para>
       </section>
     </section>
@@ -1299,8 +1395,28 @@
         <para>The generation of these service classes uses the generation gap pattern as described
           in <xref linkend="section-generation-gap-pattern"/>. This allows the developer to add
           manual code when this is needed.</para>
-        <para>For the service and business layers in the architecture Spring configuration files are
-          generated.</para>
+        <para>For the service and business layers in the architecture three Spring configuration
+          files are generated:<orderedlist>
+            <listitem>
+              <para>
+                <filename>applicationContext.xml</filename> containing bean definitions for the
+                services including transaction handling. Generated in <filename class="directory"
+                  >generated-resources</filename> and always overwritten.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <filename>transactionManagerContext.xml</filename> containing a transaction manager
+                bean. Generated just once in <filename class="directory"
+                  >src/main/resources</filename> and never overwritten. The transaction manager is
+                generally dependent on the environment where the application is deployed and
+                therefore is the responsibility of the developer.</para>
+            </listitem>
+            <listitem>
+              <para>
+                <filename>beanRefContext.xml</filename> containing a definition of a context
+                assembled from the above two files.</para>
+            </listitem>
+          </orderedlist></para>
       </section>
     </section>
     <section>
@@ -1320,8 +1436,8 @@
           service method results in the generation of a corresponding Java method inside the service
           class.</para>
         <para>As there is no knowledge of the functionality of a custom method, the implementation
-          of a custom method must nbe done by hand. The generation gap pattern is used on the
-          service class to introduce an extension point where this can be done.</para>
+          of a custom method must be done by hand. The generation gap pattern is used on the service
+          class to introduce an extension point where this can be done.</para>
       </section>
     </section>
     <section>

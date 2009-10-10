@@ -2,11 +2,12 @@ package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -16,10 +17,13 @@ import org.company.recordshop.domain.CustomerExample;
 import org.company.recordshop.domain.Order;
 import org.company.recordshop.domain.OrderLine;
 import org.company.recordshop.domain.SexeEnum;
+import org.hibernate.exception.ConstraintViolationException;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Jos Warmer
@@ -33,12 +37,18 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         }
     }
 
+    public class OrderlineComparator implements Comparator<OrderLine> {
+        public int compare(OrderLine one, OrderLine other) {
+            return one.getLineNumber() - other.getLineNumber();
+        }
+    }
+
     @Autowired
     private CustomerDao customerDao;
 
-	protected DateTime date() {
-		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
-	}
+    protected DateTime date() {
+        return new DateTime(2008, 11, 6, 0, 0, 0, 0);
+    }
 
     /**
      * Test method for {@link CustomerDao#retrieve(int)}.
@@ -73,8 +83,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         flush();
 
         assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        assertEquals(222, simpleJdbcTemplate.queryForInt("select customer_nr from Customer_TABLE where id = ?", customer
-                .getId()));
+        assertEquals(222, simpleJdbcTemplate.queryForInt("select customer_nr from Customer_TABLE where id = ?",
+                customer.getId()));
     }
 
     /**
@@ -161,13 +171,34 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     }
 
     /**
+     * Basic Collection pattern test (inverse="true"). Test method for deleting a customer with orders added. </br>
+     * Model code: <code>association Customer customer one <-> many Order orders;</code> </br> Its a bi-directional
+     * one-to-many relation without notion of composite- or aggregate-root concept. Tests when a Customer with an
+     * existing order is deleted, an ConstraintViolationException is thrown.
+     */
+    @Test
+    @ExpectedException(ConstraintViolationException.class)
+    public void testDeleteWithOrders() {
+        Customer customer = new Customer("John", "Stayshort", new DateTime("1980-01-01"), 12345);
+        Order order = new Order("54321");
+        customer.addToOrders(order);
+        customerDao.add(customer);
+        flush();
+        clear();
+        assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Order_TABLE"));
+        customerDao.delete(customer);
+        flush();
+        fail("Expected a ConstraintViolationException");
+        /*
+         * DELETE on table 'CUSTOMER_TABLE' caused a violation of foreign key constraint 'FK75A2F39DAE33DD38' for key
+         * (557056)
+         */
+    }
+
+    /**
      * Test method for {@link CustomerDao#update(Customer)} with orders added.
      */
-    /*
-     * Eric Jan Malotaux(2008-05-22): this test generates a weird SQLDataException: A truncation error was encountered
-     * trying to shrink VARCHAR () FOR BIT DATA 'XX-RESOLVE-XX' to length 255. Find out what that means, fix it and
-     * re-enable this test. @Test
-     */
+    @Test
     public void testAddWithOrders() {
         Customer customer = new Customer("Johannes", "Vermeer", date(), 2);
 
@@ -175,32 +206,41 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         order.addToOrderLines(new OrderLine(1, "verf"));
         order.addToOrderLines(new OrderLine(2, "kwast"));
         order.addToOrderLines(new OrderLine(3, "doek"));
+        customer.addToOrders(order);
 
         order = new Order("AA222");
-        order.addToOrderLines(new OrderLine(4, "rood"));
-        order.addToOrderLines(new OrderLine(5, "penseel"));
-        order.addToOrderLines(new OrderLine(6, "ezel"));
+        order.addToOrderLines(new OrderLine(7, "rood"));
+        order.addToOrderLines(new OrderLine(8, "penseel"));
+        order.addToOrderLines(new OrderLine(9, "ezel"));
         customer.addToOrders(order);
 
         customerDao.add(customer);
         flush();
 
         Customer saved = customerDao.retrieve(customer.getId());
-        Set<Order> orders = saved.getOrders();
-        assertEquals(1, orders.size());
+        Set<Order> savedOrders = saved.getOrders();
+        assertEquals(2, savedOrders.size());
 
-        for (Iterator<Order> i = orders.iterator(); i.hasNext();) {
-            Order o = i.next();
-            assertEquals("2", o.getOrderNumber());
-            List<OrderLine> lines = o.getOrderLines();
-            assertEquals(3, lines.size());
-            Iterator<OrderLine> j = lines.iterator();
-            OrderLine line = (OrderLine) j.next();
-            assertEquals(1, line.getLineNumber());
-            line = (OrderLine) j.next();
-            assertEquals(2, line.getLineNumber());
-            line = (OrderLine) j.next();
-            assertEquals(3, line.getLineNumber());
+        int sum;
+        for (Order o : savedOrders) {
+            if (o.getOrderNumber().equals("AA111")) {
+                ArrayList<OrderLine> lines = new ArrayList<OrderLine>(o.getOrderLines());
+                assertEquals(3, lines.size());
+                sum = 0;
+                for (OrderLine line : lines) {
+                    sum = sum + line.getLineNumber();
+                }
+                assertEquals(6, sum); // 1+2+3
+            }
+            if (o.getOrderNumber().equals("AA222")) {
+                ArrayList<OrderLine> lines = new ArrayList<OrderLine>(o.getOrderLines());
+                assertEquals(3, lines.size());
+                sum = 0;
+                for (OrderLine line : lines) {
+                    sum = sum + line.getLineNumber();
+                }
+                assertTrue(sum == 24); // 7+8+9
+            }
         }
     }
 

@@ -232,6 +232,7 @@ public class OrderedOneToManyAssociationTest extends AbstractDaoTestCase {
         flush();
         clear();
         from = fromDao.retrieve(from.getId());
+        two = from.getFromTarget(two.getId());
         from.removeFromTarget(two);
         assertEquals(2, from.getTarget().size());
 
@@ -244,7 +245,7 @@ public class OrderedOneToManyAssociationTest extends AbstractDaoTestCase {
         assertEquals("three", from.getTarget().get(1).getProperty());
 
         from.addToTarget(two);
-        from.removeFromTarget(one);
+        from.removeFromTarget(from.getFromTarget(one.getId()));
         flush();
         clear();
 

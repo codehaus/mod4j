@@ -23,9 +23,14 @@
                         <br />
                     </li>
                     <li>
-                        Install Eclipse 3.5 (Galileo) for Java EE developers. You can download one from the
+                        Install
+                        <b>Eclipse 3.5 SR1 (Galileo) for Java EE developers</b>
+                        . You can download one from the
                         <a href="http://www.eclipse.org/downloads">Eclipse download site</a>
-                        .
+                        . If you've already installed Eclipse Galileo, you can check if it is the right version, by checking
+                        the
+                        About box from the menu: Help -> About Eclipse. Somewhat surprisingly you should see "Eclipse Java EE
+                        IDE for Web Developers."
                         <br />
                         <br />
                     </li>
@@ -57,7 +62,10 @@
                             <tr>
                                 <td>Ecore Tools. (For graphical modeling of our meta-models)</td>
                                 <td>
-                                    Choose <b>Modeling</b> and then <b>Ecore Tools SDK</b>
+                                    Choose
+                                    <b>Modeling</b>
+                                    and then
+                                    <b>Ecore Tools SDK</b>
                                 </td>
                                 <td>
                                     <code>Galileo - http://download.eclipse.org/releases/galileo</code>
@@ -120,7 +128,9 @@
                         <br />
                         In Eclipse navigate to Window -> Preferences -> Java -> Code Style -> Formatter and choose
                         <b>Import</b>
-                        . Select the file <code>smartjava_eclipse_formatter.xml</code>.
+                        . Select the file
+                        <code>smartjava_eclipse_formatter.xml</code>
+                        .
                         <br />
                         <br />
                     </li>

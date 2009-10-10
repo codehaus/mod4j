@@ -3,10 +3,11 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PresentationDsl"
     nsURI="http://www.mod4j.org/pmfmod" nsPrefix="pmfmod">
+  <eClassifiers xsi:type="ecore:EClass" name="AssociationRoleReference" eSuperTypes="#//NamedReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="AutomatedProcess" eSuperTypes="#//Process"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Form">
     <eStructuralFeatures xsi:type="ecore:EReference" name="formElements" upperBound="-1"
-        eType="#//FormElement" eOpposite="#//FormElement/form"/>
+        eType="#//FormElement" containment="true" eOpposite="#//FormElement/form"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"
@@ -21,6 +22,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" abstract="true" eSuperTypes="#//UIModelElementCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="DirectDialogueCall" eSuperTypes="#//DialogueCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectProcessCall" eSuperTypes="#//ProcessCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//NamedReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" eSuperTypes="#//NamedReference">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -43,13 +45,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//LinkRef"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkedProcessCall" eSuperTypes="#//ProcessCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//LinkRef"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//NamedReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="LinkPath" eSuperTypes="#//Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
         eType="#//LinkRef"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkStep" eSuperTypes="#//Link">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//AssociationRoleReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//AssociationRoleReference"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MasterDetail" eSuperTypes="#//CompoundDialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="master" lowerBound="1"
@@ -75,10 +82,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
         eType="#//ExternalReference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//UIModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//UIModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processElements" upperBound="-1"
+        eType="#//UICall" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" abstract="true" eSuperTypes="#//UIModelElementCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UIModelElementCall" eSuperTypes="#//UIModelElementRef"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UIModelElementRef" abstract="true" eSuperTypes="#//NamedReference"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AssociationRoleReference" eSuperTypes="#//NamedReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UIModelElementCall" eSuperTypes="#//UICall">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//NamedReference"/>
 </ecore:EPackage>

@@ -118,6 +118,24 @@
 «ENDDEFINE»
 
 «DEFINE addAssociationRoleAccessorsUnOrdered(DtoAssociationRoleProperty associationRole) FOR ListDto»
+    /**
+     * @param id
+     *        id of the collection element to return
+     *
+     * @return «baseDto.name.toFirstLower()» («baseDto.name.toFirstUpper()»)
+     *         with the given id.
+     */
+    public «baseDto.name.toFirstUpper()» getFrom«associationRole.name.toFirstUpper()» (Long id) {
+        if (id == null) {
+            return null;
+        }
+        for («baseDto.name.toFirstUpper()» «baseDto.name.toFirstLower()»: this.«associationRole.name») {
+            if (id.equals(«baseDto.name.toFirstLower()».getId())) {
+                return «baseDto.name.toFirstLower()»;
+            }
+        }
+        return null;
+    }
 	/**
 	 * @return «associationRole.name» (Set<«baseDto.name.toFirstUpper()»>) 
 	 */
@@ -130,6 +148,25 @@
 «ENDDEFINE»
 
 «DEFINE addAssociationRoleAccessorsOrdered(DtoAssociationRoleProperty associationRole) FOR ListDto»
+    /**
+     * @param id
+     *        id of the collection element to return
+     *
+     * @return «baseDto.name.toFirstLower()» («baseDto.name.toFirstUpper()»)
+     *         with the given id.
+     */
+    public «baseDto.name.toFirstUpper()» getFrom«associationRole.name.toFirstUpper()» (Long id) {
+        if (id == null) {
+            return null;
+        }
+        for («baseDto.name.toFirstUpper()» «baseDto.name.toFirstLower()»: this.«associationRole.name») {
+            if (id.equals(«baseDto.name.toFirstLower()».getId())) {
+                return «baseDto.name.toFirstLower()»;
+            }
+        }
+        return null;
+    }
+    
 	/** ORDERED
 	 * @return «associationRole.name» (List<«baseDto.name.toFirstUpper()»>) 
 	 */

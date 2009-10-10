@@ -109,7 +109,7 @@ public interface FormElement extends EObject {
 	void setReadonly(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Form</b></em>' reference.
+     * Returns the value of the '<em><b>Form</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements <em>Form Elements</em>}'.
      * <!-- begin-user-doc -->
 	 * <p>
@@ -117,20 +117,20 @@ public interface FormElement extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Form</em>' reference.
+     * @return the value of the '<em>Form</em>' container reference.
      * @see #setForm(ContentForm)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getFormElement_Form()
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements
-     * @model opposite="formElements" required="true"
+     * @model opposite="formElements" required="true" transient="false"
      * @generated
      */
 	ContentForm getForm();
 
 	/**
-     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm <em>Form</em>}' reference.
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm <em>Form</em>}' container reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Form</em>' reference.
+     * @param value the new value of the '<em>Form</em>' container reference.
      * @see #getForm()
      * @generated
      */

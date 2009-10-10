@@ -71,15 +71,6 @@ public interface PresentationDslFactory extends EFactory {
 	PresentationModel createPresentationModel();
 
 	/**
-     * Returns a new object of class '<em>Process Call</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Process Call</em>'.
-     * @generated
-     */
-	ProcessCall createProcessCall();
-
-	/**
      * Returns a new object of class '<em>UI Model Element Call</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +161,15 @@ public interface PresentationDslFactory extends EFactory {
 	DirectDialogueCall createDirectDialogueCall();
 
 	/**
+     * Returns a new object of class '<em>Direct Process Call</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Direct Process Call</em>'.
+     * @generated
+     */
+    DirectProcessCall createDirectProcessCall();
+
+    /**
      * Returns a new object of class '<em>Interactive Process</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,6 +188,15 @@ public interface PresentationDslFactory extends EFactory {
 	LinkedDialogueCall createLinkedDialogueCall();
 
 	/**
+     * Returns a new object of class '<em>Linked Process Call</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Linked Process Call</em>'.
+     * @generated
+     */
+    LinkedProcessCall createLinkedProcessCall();
+
+    /**
      * Returns a new object of class '<em>Automated Process</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

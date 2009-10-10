@@ -20,7 +20,7 @@
      * @return «targetRoleName» («getCollectionInterface()»<«target.name»>)
      *         with the given id.
      */
-    public «target.name» get«targetRoleName.toFirstUpper()» (Long id) {
+    public «target.name» getFrom«targetRoleName.toFirstUpper()» (Long id) {
         if (id == null) {
             return null;
         }

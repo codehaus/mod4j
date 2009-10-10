@@ -20,6 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
@@ -33,6 +34,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
@@ -85,26 +87,27 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
 	@Override
 	public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
+            case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: return createAssociationRoleReference();
             case PresentationDslPackage.AUTOMATED_PROCESS: return createAutomatedProcess();
             case PresentationDslPackage.CONTENT_FORM: return createContentForm();
             case PresentationDslPackage.COMPOUND_DIALOGUE: return createCompoundDialogue();
             case PresentationDslPackage.COLLECTION_DIALOGUE: return createCollectionDialogue();
             case PresentationDslPackage.DIRECT_DIALOGUE_CALL: return createDirectDialogueCall();
+            case PresentationDslPackage.DIRECT_PROCESS_CALL: return createDirectProcessCall();
             case PresentationDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
             case PresentationDslPackage.EXTERNAL_REFERENCE: return createExternalReference();
             case PresentationDslPackage.FORM: return createForm();
             case PresentationDslPackage.FORM_ELEMENT: return createFormElement();
             case PresentationDslPackage.INTERACTIVE_PROCESS: return createInteractiveProcess();
             case PresentationDslPackage.LINKED_DIALOGUE_CALL: return createLinkedDialogueCall();
+            case PresentationDslPackage.LINKED_PROCESS_CALL: return createLinkedProcessCall();
             case PresentationDslPackage.LINK_REF: return createLinkRef();
             case PresentationDslPackage.LINK_PATH: return createLinkPath();
             case PresentationDslPackage.LINK_STEP: return createLinkStep();
             case PresentationDslPackage.MASTER_DETAIL: return createMasterDetail();
             case PresentationDslPackage.NAMED_REFERENCE: return createNamedReference();
             case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
-            case PresentationDslPackage.PROCESS_CALL: return createProcessCall();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
-            case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: return createAssociationRoleReference();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -158,16 +161,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
 	public PresentationModel createPresentationModel() {
         PresentationModelImpl presentationModel = new PresentationModelImpl();
         return presentationModel;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public ProcessCall createProcessCall() {
-        ProcessCallImpl processCall = new ProcessCallImpl();
-        return processCall;
     }
 
 	/**
@@ -272,6 +265,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DirectProcessCall createDirectProcessCall() {
+        DirectProcessCallImpl directProcessCall = new DirectProcessCallImpl();
+        return directProcessCall;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -291,6 +294,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LinkedProcessCall createLinkedProcessCall() {
+        LinkedProcessCallImpl linkedProcessCall = new LinkedProcessCallImpl();
+        return linkedProcessCall;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

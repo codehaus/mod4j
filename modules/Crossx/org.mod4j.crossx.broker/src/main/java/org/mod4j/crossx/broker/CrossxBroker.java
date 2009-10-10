@@ -79,6 +79,25 @@ public class CrossxBroker {
     	}
         return result;
     }
+
+    /**
+     * Find all symbols with type in 'symbolTypes' within models named 'modelname' with name 'symbolName'
+     * 
+     * @param modelname
+     * @param symbolName
+     * @param symbolTypes
+     * @return
+     */
+    public static List<Symbol> findAllFromModel(String modelname, String symbolName, List<String> symbolTypes) {
+        List<Symbol> result = new ArrayList<Symbol>();
+        for (String symbolType : symbolTypes) {
+            Symbol symbol = CrossxEnvironment.lookupSymbol(modelname, symbolName, symbolType);
+            if (symbol != null) {
+                result.add(symbol);
+            }
+        }
+        return result;
+    }
     
     /**
      * Find all symbol names with type 'symbolType' within models named 'modelname' and within the project named 'project'
@@ -102,6 +121,17 @@ public class CrossxBroker {
         return CrossxEnvironment.findAllModels();
     }
 
+    public static List<ModelInfo> findAllModels(List<String> types) {
+        List<ModelInfo> all = CrossxEnvironment.findAllModels();
+        List<ModelInfo> filtered = new ArrayList<ModelInfo>();
+        for (ModelInfo modelInfo : all) {
+            if (types.contains(modelInfo.getDslname())) {
+                filtered.add(modelInfo);
+            }
+        }
+        return filtered;
+    }
+    
     /**
      * Find all models within project with name 'project'
      * 

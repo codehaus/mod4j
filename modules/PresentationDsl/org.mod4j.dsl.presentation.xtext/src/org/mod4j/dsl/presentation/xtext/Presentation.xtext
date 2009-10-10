@@ -2,10 +2,6 @@ grammar org.mod4j.dsl.presentation.xtext.Presentation with org.eclipse.xtext.com
 
 import "platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.ecore"
 
-//preventMMGeneration
-
-//importMetamodel "http://www.mod4j.org/pmfmod" ;
-
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
 PresentationModel :
@@ -61,8 +57,8 @@ MasterDetail :
 	(description=STRING )?
 	"MasterDetail" name = ID "using" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
-	"master" master = DialogueCall ";"
-	"detail" detail = DialogueCall ";"
+	"master" master = DialogueCall
+	"detail" detail = DialogueCall
 	("processes" "[" (processes += ProcessCall)* "]" )?
 	;
 
@@ -73,11 +69,13 @@ Process :
 AutomatedProcess :
 	(description=STRING )?
 	"AutomatedProcess" name = ID "using" contextRef = [ExternalReference]
+	("steps" "[" (processElements += UICall)* "]")?
 	;
 
 InteractiveProcess :
 	(description=STRING )?
 	"InteractiveProcess" name = ID "using" contextRef = [ExternalReference]
+	("steps" "[" (processElements += UICall)* "]")?
 	;
 	
 FormElement :
@@ -90,21 +88,29 @@ FormElement :
 	;
 		
 DialogueCall :
-	DirectDialogueCall | LinkedDialogueCall
+	(DirectDialogueCall | LinkedDialogueCall) ("alias" alias = ID)? ";"
 	;
 	
 LinkedDialogueCall :
-	"navigate" link = LinkRef "to" name = ID ";"
+	"navigate" link = LinkRef "to" name = ID
 	;
 
 DirectDialogueCall :
-	name = ID ";"
+	name = ID
 	;
 	
 ProcessCall :
-	name = ID ";"
+	(DirectProcessCall | LinkedProcessCall) ("alias" alias = ID)? ";"
 	;
 
+LinkedProcessCall :
+	"navigate" link = LinkRef "to" name = ID 
+	;
+
+DirectProcessCall :
+	name = ID
+	;
+	
 LinkRef :
 	name = ID
 	;
@@ -130,5 +136,13 @@ DtoPropertyReference :
 
 AssociationRoleReference :
 	name = ID
+	;
+	
+UICall :
+	UIModelElementCall
+	;
+	
+UIModelElementCall :
+	"dialogue" DialogueCall | "process" ProcessCall
 	;
 	
