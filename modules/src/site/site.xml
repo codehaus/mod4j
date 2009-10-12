@@ -31,8 +31,8 @@
             <item name="All versions" href="documentation.html"/>
         </menu>
         <menu name="Mod4j Developer Docs" inherit="bottom">
-            <item name="Developer Guide" href="developer-guide.html" />
-            <item name="Release Guide" href="release-guide.html" />
+            <item name="Developer Guide" href="developer-guides/developer-guide.html" />
+            <item name="Release Guide" href="developer-guides/release-guide.html" />
         </menu>
         <menu ref="parent" inherit="top" />
         <menu ref="reports" inherit="bottom" />
