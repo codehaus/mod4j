@@ -16,66 +16,88 @@
         <section name="Mod4j documentation">
 
             <p>
-                <b>Mod4j Application Architecture</b>
+                <b>Mod4j 1.1.0-beta-1-SNAPSHOT</b>
             </p>
             <table>
                 <tbody>
                     <tr>
                         <td>
-                            Application Architecture 1.1.0-beta-1-SNAPSHOT
-                            <a
-                                href="documentation/1.1.0-beta-1-SNAPSHOT/application-architecture/mod4j-application-architecture.pdf">PDF</a>
-                            /
-                            <a
-                                href="documentation/1.1.0-beta-1-SNAPSHOT/application-architecture/mod4j-application-architecture.html">HTML</a>
+                            <a href="releases/1.1.0/gettingstarted.html">Mod4j Getting Started 1.1.0</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Application Architecture 1.0.0
-                            <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                            Mod4j Application Architecture 1.1.0-beta-1-SNAPSHOT
+                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/application-architecture/mod4j-application-architecture.pdf">
+                                PDF</a>
                             /
-                            <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.html">HTML</a>
+                            <a
+                                href="documentation/1.1.0-beta-1-SNAPSHOT/application-architecture/mod4j-application-architecture.html">
+                                HTML</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Application Architecture 1.0.0-beta-3
-                            <a href="documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                            Mod4j User Guide 1.1.0-beta-1-SNAPSHOT
+                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/user-guide/mod4j-user-guide.pdf">PDF</a>
                             /
-                            <a href="documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.html">HTML</a>
+                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/user-guide/mod4j-user-guide.html">HTML</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
             <p>
-                <b>Mod4j User Guide</b>
+                <b>Mod4j 1.0.0</b>
             </p>
             <table>
                 <tbody>
                     <tr>
                         <td>
-                            User Guide 1.1.0-beta-1-SNAPSHOT
-                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/user-guide/mod4j-user-guide.pdf">PDF</a>
-                            /
-                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/user-guide/mod4j-user-guide.html">HTML</a>
+                            <a href="releases/1.0.1/gettingstarted.html">Mod4j Getting Started 1.0.1</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            User Guide 1.0.0
-                            <a href="documentation/1.0.0/user-guide/mod4j-user-guide.pdf">PDF</a>
+                            Mod4j User Guide 1.0.1
+                            <a href="documentation/1.0.1/user-guide/mod4j-user-guide.pdf">PDF</a>
                             /
-                            <a href="documentation/1.0.0/user-guide/mod4j-user-guide.html">HTML</a>
+                            <a href="documentation/1.0.1/user-guide/mod4j-user-guide.html">HTML</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            User Guide 1.0.0-beta-3
+                            Mod4j Application Architecture 1.0.1
+                            <a href="documentation/1.0.1/application-architecture/mod4j-application-architecture.pdf">PDF</a>
+                            /
+                            <a href="documentation/1.0.1/application-architecture/mod4j-application-architecture.html">HTML
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                <b>Mod4j 1.0.0-beta3</b>
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Mod4j User Guide 1.0.0-beta-3
                             <a href="documentation/1.0.0-beta-3/user-guide/mod4j-user-guide.pdf">PDF</a>
                             /
                             <a href="documentation/1.0.0-beta-3/user-guide/mod4j-user-guide.html">HTML</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mod4j Application Architecture 1.0.0-beta-3
+                            <a href="documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.pdf">PDF
+                            </a>
+                            /
+                            <a href="documentation/1.0.0-beta-3/application-architecture/mod4j-application-architecture.html">
+                                HTML</a>
                         </td>
                     </tr>
                 </tbody>
