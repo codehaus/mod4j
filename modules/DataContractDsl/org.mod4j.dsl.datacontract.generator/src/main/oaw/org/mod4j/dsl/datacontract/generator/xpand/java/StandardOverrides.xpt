@@ -22,6 +22,9 @@
         result.append("«getDtoPackage()».«javaClassName(name)»[");
         result.append("id=");
         result.append(getId());
+        result.append(",");
+        result.append("version=");
+        result.append(getVersion());
         «FOREACH properties.reject(e|e.metaType == DtoAssociationRoleProperty) AS p»
             «EXPAND addAttribute FOR p -»
         «ENDFOREACH»

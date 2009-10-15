@@ -27,7 +27,7 @@ public class DerivedDtoTranslatorTest {
 		//dto.setThird(new DateTime(4));
 		dto.setFourth(5);
 		//dto.setFifth(6.0F);
-		Derived target = translator.fromDto(dto, null);
+		Derived target = translator.fromDto(dto);
 		assertEquals("first", target.getFirst());
 		assertEquals(true, target.isSecondo());
 		assertEquals(new DateTime(3), target.getThird());

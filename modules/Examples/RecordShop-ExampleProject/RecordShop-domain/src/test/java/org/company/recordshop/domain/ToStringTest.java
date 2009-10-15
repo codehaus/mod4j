@@ -20,6 +20,7 @@ public class ToStringTest {
 		
 		assertEquals(
 				"org.company.recordshop.domain.Customer[id=null," +
+				"version=-1," +
 				"firstName=Ludwig," +
 				"lastName=Wittgenstein," +
 				"birthDate=1970-01-01T01:00:00.000+01:00," +

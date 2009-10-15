@@ -43,7 +43,7 @@ public class SimpleCustomerDtoTranslatorTest {
 
 		simpleCust.addToOrders(orderDto);
 
-		Customer newCust = scTranslator.fromDto(simpleCust, null);
+		Customer newCust = scTranslator.fromDto(simpleCust);
 		assertEquals("Vincent", newCust.getFirstName());
 		assertEquals(1234, newCust.getCustomerNr());
 		assertEquals(1, newCust.getOrders().size());
@@ -166,7 +166,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		SimpleCustomerDto custDto = new SimpleCustomerDto();
 
 		try {
-			scTranslator.fromDto(custDto, null);
+			scTranslator.fromDto(custDto);
 			fail();
 		} catch (TranslatorException te) {
 			assertTrue(

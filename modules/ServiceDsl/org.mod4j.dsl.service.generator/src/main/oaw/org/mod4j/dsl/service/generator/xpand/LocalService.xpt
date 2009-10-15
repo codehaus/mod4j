@@ -73,7 +73,7 @@
 	/** 
 	 * Description: «this.description»
 	 «FOREACH inParameters AS param-»
-	 * @param «param.name» : «param.description»
+	 * @param «param.name» A custom parameter
 	 «ENDFOREACH-»
 	«IF returnType == "void"-» «ELSE-» 
 	 * @return «returnType» 

@@ -71,8 +71,10 @@
         
     «IF superclass == null »
         «EXPAND ValidationSupport::addValidationInstance FOR this»
-        «EXPAND Attributes::addIdAttribute FOR this»	
+        «EXPAND Attributes::addIdAttribute FOR this»
         «EXPAND Attributes::addIdAccessors FOR this»
+        «EXPAND Attributes::addVersionAttribute FOR this»
+        «EXPAND Attributes::addVersionAccessors FOR this»	
     «ENDIF»
     «EXPAND StandardOverrides::addToStringMethod FOR this»
  	«EXPAND Attributes::addAttribute FOREACH properties.reject(e|e.derived)»

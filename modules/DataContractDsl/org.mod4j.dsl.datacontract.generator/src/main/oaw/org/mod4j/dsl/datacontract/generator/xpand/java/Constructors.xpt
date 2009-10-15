@@ -20,6 +20,9 @@
      */
      public  «javaClassName(name) -» () {
          super();
+         // Not based on an existing object, so id and version are set to null.
+         this.id = null;
+         this.version = null;
      }
 «ENDDEFINE»
 
@@ -30,6 +33,9 @@
      */
      public  «javaClassName(name) -» () {
          super();
+         // Not based on an existing object, so id and version are set to null.
+         this.id = null;
+         this.version = null;
          setDefaults();
      }
 «ENDDEFINE»
@@ -41,19 +47,35 @@
      */
      public «javaClassName(name)-» (boolean setDefaults) {
          super();
+         // Not based on an existing object, so id and version are set to null.
+         this.id = null;
+         this.version = null;
          if (setDefaults){
              setDefaults();
          }
      }
 «ENDDEFINE»
 
-«DEFINE addIdConstructor FOR Dto»
+«DEFINE addIdAndVersionConstructor FOR Dto»
     /**
-     * Constructor taking an id for «javaClassName(name)» 
+     * Constructor for use by the DTO Translator.
+     *
+     * @param id The ID of the referenced business object.
+     * @param version Theversion of the referenced business object.
      */
-     public  «javaClassName(name)-» (Long id) {
+     public «javaClassName(name)-» (final Long id, final Integer version) {
          super();
          this.id = id;
+         this.version = version;
+     }
+«ENDDEFINE»
+
+«DEFINE addCustomDtoConstructor FOR Dto»
+    /**
+     * Default no-argument constructor for a custom DTO.
+     */
+     public  «javaClassName(name) -» () {
+         super();
      }
 «ENDDEFINE»
 
