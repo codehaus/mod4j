@@ -9,7 +9,7 @@
     -->
     <body>
 
-        <section name="Mod4j Getting Started">
+        <section name="Mod4j 1.0 Getting Started">
 
             <subsection name="Setting up your environment">
                 <ol>
@@ -101,16 +101,16 @@
                     You can create the following Mod4j models in your project:
                     <br />
                     <br />
-                    <img src="images/mod4j-business.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-business.ico" align="left" alt="" />
                     BusinessDomain model
                     <br />
-                    <img src="images/mod4j-datacontract.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-datacontract.ico" align="left" alt="" />
                     DataContract model
                     <br />
-                    <img src="images/mod4j-service.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-service.ico" align="left" alt="" />
                     Service model
                     <br />
-                    <img src="images/mod4j-presentation.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-presentation.ico" align="left" alt="" />
                     Presentation model -- NOT AVAILABLE YET
                 </p>
 

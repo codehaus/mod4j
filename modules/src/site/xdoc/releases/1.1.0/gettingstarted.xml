@@ -9,7 +9,7 @@
     -->
     <body>
 
-        <section name="Mod4j Getting Started">
+        <section name="Mod4j 1.1 Getting Started">
 
             <subsection name="Setting up your environment">
                 <ol>
@@ -106,12 +106,32 @@
                         <br />
                     </li>
                     <li>
-                        Make sure the text file encoding in Eclipse is set to 'UTF-8'. You can
-                        verify and set this in the field
-                        'Text file encoding' by navigating to
-                        'Window -> Preferences... -> General -> Workspace'. For Linux users
-                        UTF-8 is
-                        usually the platform encoding, and no change will be necessary.
+                        Take care of the following Workspace settings in Eclipse:
+                        <br />
+                        - Set the
+                        <b>Text file encoding</b>
+                        in Eclipse to
+                        <b>UTF-8</b>
+                        . For Linux users UTF-8 is usually the default
+                        platform encoding, and no change will be necessary.
+                        <br />
+                        - Enable the option
+                        <b>Refresh automatically</b>
+                        . While working with the Mod4j editors a lot of the
+                        (re)sources will be generated or regenerated. To
+                        keep
+                        the compiler happy its convenient to refresh your
+                        workspace automatically.
+                        <br />
+                        You can verify and set both settings by navigating to
+                        <b>Window</b>
+                        >
+                        <b>Preferences...</b>
+                        >
+                        <b>General</b>
+                        >
+                        <b>Workspace</b>
+                        .
                         <br />
                         <br />
                     </li>
@@ -130,17 +150,17 @@
                     You can create the following Mod4j models in your project:
                     <br />
                     <br />
-                    <img src="images/mod4j-business.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-business.ico" align="left" alt="" />
                     BusinessDomain model
                     <br />
-                    <img src="images/mod4j-datacontract.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-datacontract.ico" align="left" alt="" />
                     DataContract
                     model
                     <br />
-                    <img src="images/mod4j-service.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-service.ico" align="left" alt="" />
                     Service model
                     <br />
-                    <img src="images/mod4j-presentation.ico" align="left" alt="" />
+                    <img src="../../images/mod4j-presentation.ico" align="left" alt="" />
                     Presentation
                     model -- NOT AVAILABLE YET
                 </p>
@@ -339,14 +359,10 @@
                         <b>Finish</b>
                     </li>
                     <li>
-                        In the previous step the Q4E Maven plug-in not always recognizes the source
-                        folders correctly. Adjust the
-                        source folders manually if you encounter
-                        compilation failures. Right-click on the project to adjust the
-                        "Build Path"
-                        configuration. Add
-                        <code>src/main/java, src/test/java, src/main/resources,
-                            generated-sources</code>
+                        In the previous step the IAM Maven plug-in not always recognizes the source folders correctly. If you
+                        encounter compilation failures, adjust the source folders manually. Right-click on the project to adjust
+                        the "Build Path" configuration. Add
+                        <code>src/main/java, src/test/java, src/main/resources, generated-sources</code>
                         and
                         <code>generated-resources</code>
                         to it.
