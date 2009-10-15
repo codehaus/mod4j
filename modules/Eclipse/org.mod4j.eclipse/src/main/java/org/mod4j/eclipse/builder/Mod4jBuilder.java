@@ -471,7 +471,9 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             IResource propertiesFile = getProject().findMember(propertyFilename);
             if (propertiesFile == null) {
                 EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
-                        + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+                        + "] in project [" + getProject().getName() + "] not found, cannot clean output diectories.");
+                System.err.println("Mod4j ERROR: Code generation properties file [" + propertyFilename
+                        + "] in project [" + getProject().getName() + "] not found, cannot clean output diectories.");
                 return;
             }
 
@@ -483,7 +485,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             try {
                 genWf.clean(workDir, propertiesFilePath);
             } catch (Mod4jWorkflowException e) {
-                System.err.println("Mod4j: workflow error while cleaning directory for project ["
+                System.err.println("Mod4j: workflow ERROR while cleaning directory for project ["
                         + getProject().getName() + "]");
             }
         }
@@ -516,6 +518,8 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
             IResource propertiesFile = getProject().findMember(propertyFilename);
             if (propertiesFile == null) {
                 EclipseUtil.showWarning("Mod4j: code generation properties file [" + propertyFilename
+                        + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
+                System.err.println("Mod4j ERROR: code generation properties file [" + propertyFilename
                         + "] in project [" + getProject().getName() + "] not found, cannot generate code.");
                 return;
             }

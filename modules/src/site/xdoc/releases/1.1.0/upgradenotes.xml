@@ -30,6 +30,13 @@
                     </li>
                 </ol>
             </subsection>
+            <subsection name="Changes in Maven cnofiguration">
+                <p>With this release Mod4j has improved the Maven configuration for your application. Therefore you'll need to
+                </p>
+                <ol>
+                    <li></li>
+                </ol>
+            </subsection>
             <subsection name="Remove hand-written applicationContext.xml files">
                 <p>The generation of Spring configuration files has changed. A file named 'applicationContext.xml' is now
                 generated in 'generated-resources' followed by the package root directory for each module. In the previous

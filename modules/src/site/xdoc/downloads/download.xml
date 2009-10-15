@@ -25,9 +25,8 @@
                     <big> Prerequisites</big>
                 </b>
                 <br />
-                Its assumed that you've followed the installation instructions in
-                <a href="../gettingstarted.html">"Setting up your environment"</a>
-                on the Getting Started page.
+                Its assumed that you've followed the installation instructions in <b>Setting up your environment</b>
+                on the <b>Getting Started page</b>.
             </p>
             <p>
                 The Mod4j DSL editors can be installed from the Mod4j update site:
