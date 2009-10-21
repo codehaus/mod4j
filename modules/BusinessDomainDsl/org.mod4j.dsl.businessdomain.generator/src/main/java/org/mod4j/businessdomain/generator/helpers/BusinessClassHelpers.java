@@ -206,7 +206,7 @@ public class BusinessClassHelpers {
     }
 
     public static String javaDefaultValue(DecimalProperty p) {
-        return "0";
+        return p.isNullable() ? "null" : "0";
     }
 
 	public static List<Property> getAllProperties(BusinessClass cls) {
