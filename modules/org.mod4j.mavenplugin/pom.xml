@@ -14,9 +14,6 @@
     <version>1.1.0-beta-1-SNAPSHOT</version>
     <description>The Mod4j Maven plug-in makes it possible to build Mod4j model projects outside the Eclipse IDE.
     </description>
-    <prerequisites>
-        <maven>2.0.9</maven>
-    </prerequisites>
     <inceptionYear>2008</inceptionYear>
     <developers>
         <developer>
