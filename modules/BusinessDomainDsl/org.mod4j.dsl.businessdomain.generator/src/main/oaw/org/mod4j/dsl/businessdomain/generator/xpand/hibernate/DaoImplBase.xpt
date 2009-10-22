@@ -77,6 +77,7 @@ public class «javaDaoBaseClass(this.name)» extends HibernateDaoSupport impleme
     * @return «javaDomainClass(this.name)»
     **/ 
     public «javaDomainClass(this.name)» update(«javaDomainClass(this.name)» object) {
+        getHibernateTemplate().flush();
         return object;
     }
 

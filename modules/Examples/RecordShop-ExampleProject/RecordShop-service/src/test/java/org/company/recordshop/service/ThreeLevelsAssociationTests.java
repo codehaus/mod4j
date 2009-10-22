@@ -155,7 +155,7 @@ public class ThreeLevelsAssociationTests extends AbstractServiceTestCase {
             assertEquals(3, updatedOrderDto.getOrderLines().size());
             for (OrderLineDto orderLineDto : updatedOrderDto.getOrderLines()) {
                 if (orderLineDto.getLineNumber() == 3) {
-                    //TODO MODFORJ-144 assertTrue(orderLineDto.getId() > 0);
+                    assertTrue(orderLineDto.getId() > 0);
                     assertTrue("ORDER-NEW-ORDERLINE-3".equals(orderLineDto.getDescription()));    
                 }
             }
