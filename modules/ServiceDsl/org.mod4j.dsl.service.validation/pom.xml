@@ -3,11 +3,11 @@
     <parent>
         <groupId>org.mod4j</groupId>
         <artifactId>mod4j</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0-SNAPSHOT</version>
     </parent>
     <groupId>org.mod4j</groupId>
     <artifactId>mod4j-service-validation</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>This Eclipse plug-in project contains the ServiceDsl validation sources.</description>
     <build>
@@ -24,12 +24,12 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-service-mm</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mod4j.crossx</groupId>
             <artifactId>mod4j-crossx-broker</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
