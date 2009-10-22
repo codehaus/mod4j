@@ -2,7 +2,7 @@
 <feature
       id="mod4j.businessdomain.feature"
       label="Mod4j BusinessDomain Feature"
-      version="1.0.0.qualifier"
+      version="1.1.0.qualifier"
       provider-name="org.mod4j">
 
    <description url="http://mod4j.org">
