@@ -69,11 +69,12 @@
                 <p>
                     All changes apply to the
                     <b>parent-pom</b>
-                    (../pom.xml) of your application. The parent-pom is located at the root
+                    of your application. The parent-pom (pom.xml) is located at the root
                     of
                     your
                     project (if you didn't change
-                    its location).
+                    its
+                    location).
                 </p>
                 <ol>
                     <li>
@@ -166,16 +167,16 @@ class FullCustomerDto represents Customer;
 
 enumeration RecordTypeEnumDto represents RecordTypeEnum;]]>
                         </textarea>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                     </li>
                     <li>
                         The declaration of all
                         <b>custom methods</b>
                         in the
-                    <b>
-                        service
-                    </b>
+                        <b>
+                            Service
+                        </b>
                         models now takes a comma-separated argument list,
                         surrounded by round parentheses (instead of square
                         brackets).
@@ -185,9 +186,28 @@ enumeration RecordTypeEnumDto represents RecordTypeEnum;]]>
 method addToOrders in (OrderDto order, SimpleCustomerDto customer) 
                    out OrderDto; ]]>
                         </textarea>
+                        <br />
+                        <br />
                     </li>
                 </ul>
 
+            </subsection>
+            <subsection name="Known Issues">
+                <ul>
+                    <li>
+                        Due to issue
+                        <a href="http://jira.codehaus.org/browse/MODFORJ-145">MODFORJ-145</a>
+                        all occurring backslashes in
+                        <b>regexp</b>
+                        properties in the
+                        <b>BusinessDomain</b>
+                        models, must be escaped three times. See the following example:
+                        <br />
+                        <textarea rows="2" cols="85" ><![CDATA[
+string emailAddress regexp "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}$";]]>
+                        </textarea>
+                    </li>
+                </ul>
             </subsection>
 
         </section>
