@@ -67,19 +67,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Ecore Tools. (For graphical modeling of our meta-models)</td>
-                                <td>
-                                    Choose
-                                    <b>Modeling</b>
-                                    and then
-                                    <b>Ecore Tools SDK</b>
-                                </td>
-                                <td>
-                                    <code>Galileo -
-                                        http://download.eclipse.org/releases/galileo</code>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Eclipse IAM (Integration for Apache Maven), formerly called
                                     Q4E</td>
                                 <td>
