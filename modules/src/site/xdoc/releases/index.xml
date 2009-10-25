@@ -17,6 +17,16 @@
             <table>
                 <tbody>
                     <tr>
+                        <td>Mod4j 1.1.0 (200910221325)</td>
+                        <td>
+                            <a href="1.1.1/releasenotes.html">Release Notes</a>
+                        </td>
+                        <td>
+                            <a href="1.1.1/upgradenotes.html">Upgrade Notes</a>
+                        </td>
+                        <td>22 October 2009</td>
+                    </tr>
+                    <tr>
                         <td>Mod4j 1.0.1 (200904141521)</td>
                         <td>
                             <a href="1.0.1/releasenotes.html">Release Notes</a>
