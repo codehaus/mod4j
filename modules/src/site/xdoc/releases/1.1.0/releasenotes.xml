@@ -25,19 +25,25 @@
             </p>
             <ul>
                 <li>
-                    Upgrade to Eclipse Galileo.
+                    <b>Upgrade to Eclipse Galileo</b>
                     <br />
                     We have migrated all our sources to Eclipse Galileo. This includes the migration from OpenArchitectureWare
                     to the new TMF XTEXT and M2T XPAND Eclipse projects.
                 </li>
                 <li>
-                    Upgrade to Apache Maven 2.1.0
+                    <b>Upgrade to Apache Maven 2.1.0</b>
                     <br />
                     To take advantage of new Maven version, we moved on to
                     <a href="http://maven.apache.org/release-notes-2.1.x.html">Maven 2.1.0</a>
                     .
                 </li>
-                <li>Enhancements for Spring and Hibernate. For more details scroll down to the Release Notes List.</li>
+                <li>
+                <b>
+                    Enhancements for Spring and Hibernate
+                </b>
+                    <br />
+                    For more details scroll down to the Release Notes List.
+                </li>
             </ul>
 
             <subsection name="How to upgrade">
