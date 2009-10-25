@@ -31,18 +31,18 @@
                     to the new TMF XTEXT and M2T XPAND Eclipse projects.
                 </li>
                 <li>
+                <b>
+                    Enhancements for Spring and Hibernate
+                </b>
+                    <br />
+                    Several issues have been fixed. For more details scroll down to the Release Notes List.
+                </li>
+                                <li>
                     <b>Upgrade to Apache Maven 2.1.0</b>
                     <br />
                     To take advantage of new Maven version, we moved on to
                     <a href="http://maven.apache.org/release-notes-2.1.x.html">Maven 2.1.0</a>
                     .
-                </li>
-                <li>
-                <b>
-                    Enhancements for Spring and Hibernate
-                </b>
-                    <br />
-                    For more details scroll down to the Release Notes List.
                 </li>
             </ul>
 
