@@ -126,6 +126,16 @@
                         Install Apache Maven 2.1.0 or higher. For download and install instructions
                         see the
                         <a href="http://maven.apache.org">Apache Maven site</a>
+                        <br />
+                        <br />
+                    </li>
+                    <li>
+                        Due to known issue
+                        <a href="http://jira.codehaus.org/browse/MODFORJ-146">MODFORJ-146</a>,
+                        all users should check if the path to their local Maven repository contains any spaces. If so, they
+                        should apply one of the provided
+                        <a href="http://jira.codehaus.org/browse/MODFORJ-146">workarounds</a>
+                        as described in this issue.
                     </li>
                 </ol>
             </subsection>
