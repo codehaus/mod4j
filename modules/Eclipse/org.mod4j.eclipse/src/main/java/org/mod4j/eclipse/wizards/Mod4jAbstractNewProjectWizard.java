@@ -192,7 +192,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 			        "####" + LF +
 			        "fileEncoding=UTF-8" + LF +
 			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
-					"applicationVersion=1.0-SNAPSHOT" + LF +
+					"applicationVersion=1.1.0-SNAPSHOT" + LF +
 					"applicationPath=.." + LF +
                     "srcGenPath=generated-sources" + LF +
                     "resourceGenPath=generated-resources" + LF +
