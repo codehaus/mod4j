@@ -44,7 +44,7 @@
                 <li>Choose the option "Search for new features to install" and click on "Next".</li>
                 <li>To create a new remote site for Mod4j, click on "New Remote Site".</li>
                 <li>Enter a Name: "Mod4j update site"</li>
-                <li>Enter the URL: http://mod4j.org/updatesite and click on "OK"</li>
+                <li>Enter the URL: http://mod4j.org/updatesite/3.5 and click on "OK"</li>
                 <li>
                     Next you can select the Mod4j features of your choice. Complete the wizard to install the chosen
                     features.
