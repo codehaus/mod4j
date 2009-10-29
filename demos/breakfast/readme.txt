@@ -30,7 +30,7 @@ To see the Rosa's Breakfast web application in action follow the steps below.
     Navigate to Resources > Connection Pools and create a new Connection Pool with the
     following properties:
     Name: DerbyPool
-    DataSource ClassName: org.apache.derby.jdbc.ClientDataSource
+    DataSource ClassName: org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource
     Resource Type: javax.sql.DataSource
  
  8- In the GlassFish admin conslole add a JDBC Resource:
