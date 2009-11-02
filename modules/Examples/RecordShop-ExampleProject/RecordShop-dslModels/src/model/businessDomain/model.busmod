@@ -23,7 +23,7 @@ class Person [
     rules [   
         "The combination of first- and last name of a person must be unique"
         unique fullName [firstName, lastName]
-    ] 
+    ]  
 ]
 
 class Address [
@@ -97,7 +97,7 @@ class OrderLine [
     decimal lineAmount derived;
     rules [
     	CheckProductMinimumQuantity;
-    ]
+    ] 
 ]
 
 class Product [

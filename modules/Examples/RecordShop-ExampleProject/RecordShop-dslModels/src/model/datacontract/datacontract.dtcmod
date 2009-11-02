@@ -8,7 +8,7 @@ from RecordShopDomainModel import Record;
 from RecordShopDomainModel import OrderLine;
 from RecordShopDomainModel import Product;
 from RecordShopDomainModel import SexeEnum;
-from RecordShopDomainModel import RecordTypeEnum;   
+from RecordShopDomainModel import RecordTypeEnum;    
   
     /*     
      * BusinessClass transfer objects  
@@ -82,6 +82,15 @@ from RecordShopDomainModel import RecordTypeEnum;
 	]
 
     class FullProductDto represents Product;
+    
+    class ProductWithCustomersDto represents Product [
+        productNumber ;
+        orderable;  
+        price;
+        references [
+            buyers as SimpleCustomerList;
+        ]
+    ]
     
     class FullRecordDto represents Record;
     
