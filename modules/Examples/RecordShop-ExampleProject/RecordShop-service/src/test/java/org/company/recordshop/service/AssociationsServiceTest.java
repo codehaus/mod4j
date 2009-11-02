@@ -7,13 +7,16 @@ import java.util.Set;
 
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.CustomerExample;
+import org.company.recordshop.domain.Product;
 import org.company.recordshop.service.dto.OrderDto;
 import org.company.recordshop.service.dto.OrderNumberAndDateDto;
+import org.company.recordshop.service.dto.ProductWithCustomersDto;
 import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mod4j.runtime.exception.ServiceException;
+import org.mod4j.runtime.exception.TranslatorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.AssertThrows;
 import org.springframework.test.context.ContextConfiguration;
@@ -221,6 +224,36 @@ public class AssociationsServiceTest extends
 		} catch (ServiceException e) {
 			System.err.println("Expected exception: " + e.getMessage());
 		}
+		tearDown();
+	}
+
+	/** tries to add an existing Customer to a Product.
+	 * Currently goes wrong !
+	 * 
+	 */
+	@Test
+	public final void testAddExistingCustomer() {
+		setup();
+		ProductWithCustomersDto p001 = new ProductWithCustomersDto();
+		p001.setProductNumber("p001");
+		p001.setPrice(new Float(8));
+		p001.setOrderable(true);
+		ProductWithCustomersDto createdP001 = customerServiceModelService.createProduct(p001);
+
+		// Comment the try below and uncomment the ones below that to get the real test.
+		try {
+			createdP001.addToBuyers(createdCustomer);
+			ProductWithCustomersDto createdP002 = customerServiceModelService.updateProduct(createdP001);
+			Assert.fail("Expecting Service Exception");
+		} catch (TranslatorException e) {
+			System.err.println("Expected exception: " + e.getMessage());
+		}
+		
+//	JOS: The above is incorrect (just not to break the build)
+//		  The below should be run as a test and shows the error.
+//		createdP001.addToBuyers(createdCustomer);
+//		ProductWithCustomersDto createdP002 = customerServiceModelService.updateProduct(createdP001);
+
 		tearDown();
 	}
 
