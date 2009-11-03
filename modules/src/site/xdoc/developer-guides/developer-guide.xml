@@ -12,7 +12,9 @@
     </properties>
     <body>
         <section name="Mod4j Developer Guide">
-            <p> This Developer Guide helps developers of the Mod4j project to get started with coding and modeling.</p>
+            <p> This Developer Guide helps developers of the Mod4j project to get started with coding and modeling. If you are
+                an user of Mod4j you should follow the Getting Started from the user docs. See menu > User Docs > Getting
+                Started.</p>
             <subsection name="Getting started">
                 <ol>
                     <li>
