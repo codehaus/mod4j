@@ -32,9 +32,8 @@
                 This allows developers to model various aspects of the application and generate code that
                 strictly follows this reference architecture.
                 The reference architecture is described in a separate document.
-                For a good understanding of the generated code it is useful to read this document ->
-                <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.pdf">PDF</a> or
-                <a href="documentation/1.0.0/application-architecture/mod4j-application-architecture.html">HTML</a> 
+                For a good understanding of the generated code it is useful to read this 
+                <a href="documentation.html">document</a>.
             </p>
             <img src="images/mod4j-diagram-small.png" align="left" alt="" />
             <subsection name="Mod4j Vision">

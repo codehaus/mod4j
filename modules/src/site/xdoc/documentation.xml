@@ -16,7 +16,7 @@
         <section name="Mod4j documentation">
 
             <p>
-                <b>Mod4j 1.1.0-beta-1-SNAPSHOT</b>
+                <b>Mod4j 1.1.0</b>
             </p>
             <table>
                 <tbody>
@@ -27,21 +27,21 @@
                     </tr>
                     <tr>
                         <td>
-                            Mod4j Application Architecture 1.1.0-beta-1-SNAPSHOT
-                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/application-architecture/mod4j-application-architecture.pdf">
+                            Mod4j Application Architecture 1.1.0
+                            <a href="documentation/1.1.0/application-architecture/mod4j-application-architecture.pdf">
                                 PDF</a>
                             /
                             <a
-                                href="documentation/1.1.0-beta-1-SNAPSHOT/application-architecture/mod4j-application-architecture.html">
+                                href="documentation/1.1.0/application-architecture/mod4j-application-architecture.html">
                                 HTML</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Mod4j User Guide 1.1.0-beta-1-SNAPSHOT
-                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/user-guide/mod4j-user-guide.pdf">PDF</a>
+                            Mod4j User Guide 1.1.0
+                            <a href="documentation/1.1.0/user-guide/mod4j-user-guide.pdf">PDF</a>
                             /
-                            <a href="documentation/1.1.0-beta-1-SNAPSHOT/user-guide/mod4j-user-guide.html">HTML</a>
+                            <a href="documentation/1.1.0/user-guide/mod4j-user-guide.html">HTML</a>
                         </td>
                     </tr>
                 </tbody>
