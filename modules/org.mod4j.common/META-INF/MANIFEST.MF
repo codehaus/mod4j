@@ -16,7 +16,6 @@ Export-Package: .,
  org.mod4j.dslcommon.xpand.java,
  org.mod4j.dslcommon.xtend
 Require-Bundle: 
- org.apache.commons.cli,
  org.jdom;bundle-version="1.0.0",
  org.mod4j.crossx.broker;bundle-version="1.1.0",
  org.mod4j.crossx.mm;bundle-version="1.1.0",
