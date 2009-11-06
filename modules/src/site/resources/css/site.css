@@ -48,3 +48,11 @@ table.bodyTable tr.a {
 table.bodyTable tr.b {
   background-color: #eee;
 }
+
+a:link {
+  color:#5d2f92;
+}
+a:visited  {
+  color:#5d2f92;
+}
+

@@ -131,7 +131,8 @@
                     </li>
                     <li>
                         Due to known issue
-                        <a href="http://jira.codehaus.org/browse/MODFORJ-146">MODFORJ-146</a>,
+                        <a href="http://jira.codehaus.org/browse/MODFORJ-146">MODFORJ-146</a>
+                        ,
                         all users should check if the path to their local Maven repository contains any spaces. If so, they
                         should apply one of the provided
                         <a href="http://jira.codehaus.org/browse/MODFORJ-146">workarounds</a>
@@ -176,7 +177,9 @@
                     RecordShop.
                     <br />
                     <a href="http://svn.codehaus.org/mod4j/trunk/modules/Examples/RecordShop-ExampleProject">Here</a>
-                    you can find the RecordShop sources and model files.
+                    you can find the
+                    <a href="http://svn.codehaus.org/mod4j/trunk/modules/Examples/RecordShop-ExampleProject">RecordShop sources</a>
+                    and model files.
                 </p>
 
                 <ol>
