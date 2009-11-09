@@ -8,15 +8,6 @@
 	  Contributors:
 	      Ordina - initial implementation
 «ENDREM»
-«IMPORT ServiceDsl»
-«IMPORT crossx»
-
-«EXTENSION org::mod4j::dsl::service::mm::xtend::ServiceMethod»
-«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
-«EXTENSION org::mod4j::common::xtend::NameMapper»
-«EXTENSION org::mod4j::common::xtend::FileTracker»
-«EXTENSION org::mod4j::crossx::broker::xtend::Crossx» 
 
 «DEFINE field(String type) FOR String »
 	protected «type» «this»;

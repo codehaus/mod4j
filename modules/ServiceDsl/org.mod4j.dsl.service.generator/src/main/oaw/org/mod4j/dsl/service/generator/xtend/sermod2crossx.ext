@@ -74,7 +74,7 @@ Symbol toSymbol(DtoReference dto) :
 Symbol xtoSymbol(Symbol businessClassDtoSymbol) :
     let result = new Symbol :
     result.properties.add( newProperty("modelname", businessClassDtoSymbol.owner.modelname) )->
-    result.properties.add( newProperty("symboltype", businessClassDtoSymbol.owner.modelname) )->
+    result.properties.add( newProperty("symboltype", businessClassDtoSymbol.type) )->
     result.setName(businessClassDtoSymbol.name) ->
     result.setType("DtoReference")
     ;
