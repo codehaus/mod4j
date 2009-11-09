@@ -15,7 +15,8 @@ read   readCustomerAAA  for SimpleCustomerDto ;
  * Create, read, update and delete services
  */
 crud OrderDto ;
-crud OrderNumberAndDateDto ;
+crud OrderNumberAndDateDto ;  
+crud OrderWithOrderLinesDto;
 //for OrderWithOrderLinesDto reference orderLines add OrderLineDto;
    
 "Find all Orders for a specific Customer" 

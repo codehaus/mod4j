@@ -22,10 +22,32 @@ import org.company.recordshop.service.dto.SimpleCustomerDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.mod4j.runtime.exception.TranslatorException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
-public class SimpleCustomerDtoTranslatorTest {
+@ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
+		"/org/company/recordshop/data/sessionFactoryContext.xml",
+		"/org/company/recordshop/data/applicationContext.xml",
+		"/org/company/recordshop/business/applicationContext.xml",
+		"/org/company/recordshop/service/applicationContext.xml",
+        "/org/company/recordshop/service/testContext.xml"})
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
+public class SimpleCustomerDtoTranslatorTest  extends
+AbstractTransactionalJUnit4SpringContextTests {
 
-	private SimpleCustomerDtoTranslator scTranslator = new SimpleCustomerDtoTranslator();
+	@Autowired
+	protected SimpleCustomerDtoTranslator simpleCustomerDtoTranslator ;//= new SimpleCustomerDtoTranslator();
+
+	public SimpleCustomerDtoTranslator getSimpleCustomerDtoTranslator() {
+		return simpleCustomerDtoTranslator;
+	}
+
+	public void setSimpleCustomerDtoTranslator(
+			SimpleCustomerDtoTranslator simpleCustomerDtoTranslator) {
+		this.simpleCustomerDtoTranslator = simpleCustomerDtoTranslator;
+	}
 
 	@Test
 	public void testCreateNewFromDtoSucceed() {
@@ -43,7 +65,7 @@ public class SimpleCustomerDtoTranslatorTest {
 
 		simpleCust.addToOrders(orderDto);
 
-		Customer newCust = scTranslator.fromDto(simpleCust);
+		Customer newCust = simpleCustomerDtoTranslator.fromDto(simpleCust);
 		assertEquals("Vincent", newCust.getFirstName());
 		assertEquals(1234, newCust.getCustomerNr());
 		assertEquals(1, newCust.getOrders().size());
@@ -53,7 +75,7 @@ public class SimpleCustomerDtoTranslatorTest {
 	@Test
 	public void testCreateNewFromDtoFail() {
 		try {
-			scTranslator.fromDto(null, null);
+			simpleCustomerDtoTranslator.fromDto(null, null);
 			fail("Did not expected to succesfull translate a null dto!");
 		} catch (TranslatorException te) {
 			assertTrue(
@@ -74,7 +96,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		Order order = new Order("1111");
 		cust.addToOrders(order);
 
-		SimpleCustomerDto customerDto = scTranslator.toDto(cust);
+		SimpleCustomerDto customerDto = simpleCustomerDtoTranslator.toDto(cust);
 
 		assertTrue("CustomerNr must be eqaul to 4321", customerDto
 				.getCustomerNr() == 4321);
@@ -97,7 +119,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		/**
 		 * Translate it to a DO and check.
 		 */
-		Customer customer = scTranslator.fromDto(customerDto);
+		Customer customer = simpleCustomerDtoTranslator.fromDto(customerDto);
 		checkCustomer(customer, new String[] { "1", "2" });
 
 		/**
@@ -105,13 +127,13 @@ public class SimpleCustomerDtoTranslatorTest {
 		 * objects. Then transform to a DTO again.
 		 */
 		customer = repository.get(repository.save(customer));
-		customerDto = scTranslator.toDto(customer);
+		customerDto = simpleCustomerDtoTranslator.toDto(customer);
 
 		/**
 		 * Remove an order from the DTO to see if it gets removed from the DO.
 		 */
 		customerDto.removeFromOrders(customerDto.getFromOrders(1L));
-		customer = scTranslator.fromDto(customerDto, customer);
+		customer = simpleCustomerDtoTranslator.fromDto(customerDto, customer);
 		checkCustomer(customer, new String[] { "2" });
 
 		/**
@@ -121,7 +143,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		orderDto.setOrderNumber("3");
 		orderDto.setCustomer(customerDto);
 		customerDto.addToOrders(orderDto);
-		customer = scTranslator.fromDto(customerDto, customer);
+		customer = simpleCustomerDtoTranslator.fromDto(customerDto, customer);
 		customer = repository.get(repository.save(customer));
 		checkCustomer(customer, new String[] { "2", "3" });
 
@@ -166,7 +188,7 @@ public class SimpleCustomerDtoTranslatorTest {
 		SimpleCustomerDto custDto = new SimpleCustomerDto();
 
 		try {
-			scTranslator.fromDto(custDto);
+			simpleCustomerDtoTranslator.fromDto(custDto);
 			fail();
 		} catch (TranslatorException te) {
 			assertTrue(

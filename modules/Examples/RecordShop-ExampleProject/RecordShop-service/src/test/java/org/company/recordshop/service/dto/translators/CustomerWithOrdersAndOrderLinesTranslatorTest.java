@@ -19,8 +19,20 @@ import org.company.recordshop.service.dto.OrderLineDto;
 import org.company.recordshop.service.dto.OrderWithOrderLinesDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
-public class CustomerWithOrdersAndOrderLinesTranslatorTest {
+@ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
+		"/org/company/recordshop/data/sessionFactoryContext.xml",
+		"/org/company/recordshop/data/applicationContext.xml",
+		"/org/company/recordshop/business/applicationContext.xml",
+		"/org/company/recordshop/service/applicationContext.xml",
+        "/org/company/recordshop/service/testContext.xml"})
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
+public class CustomerWithOrdersAndOrderLinesTranslatorTest  extends
+AbstractTransactionalJUnit4SpringContextTests{
 
 	public class OrderDtoComparator implements
 			Comparator<OrderWithOrderLinesDto> {
@@ -38,7 +50,13 @@ public class CustomerWithOrdersAndOrderLinesTranslatorTest {
 		}
 	}
 
-	private CustomerWithOrdersAndOrderLinesTranslator translator = new CustomerWithOrdersAndOrderLinesTranslator();
+	@Autowired
+	CustomerWithOrdersAndOrderLinesTranslator customerWithOrdersAndOrderLinesTranslator; // = new CustomerWithOrdersAndOrderLinesTranslator();
+
+	public void setCustomerWithOrdersAndOrderLinesTranslator(
+			CustomerWithOrdersAndOrderLinesTranslator customerWithOrdersAndOrderLinesTranslator) {
+		this.customerWithOrdersAndOrderLinesTranslator = customerWithOrdersAndOrderLinesTranslator;
+	}
 
 	@Test
 	public void testFromDtoWithTwoLevelsOfReferences() throws Exception {
@@ -52,7 +70,7 @@ public class CustomerWithOrdersAndOrderLinesTranslatorTest {
 		/**
 		 * Translate it to a DO and check.
 		 */
-		Customer created = translator.fromDto(dto);
+		Customer created = customerWithOrdersAndOrderLinesTranslator.fromDto(dto);
 		checkCustomer(created, new String[] { "1", "2" }, new String[] { "3",
 				"4" });
 		/**
@@ -60,8 +78,8 @@ public class CustomerWithOrdersAndOrderLinesTranslatorTest {
 		 * objects. Then transform to a DTO again.
 		 */
 		Customer saved = repository.get(repository.save(created));
-		dto = translator.toDto(saved);
-		translator.fromDto(dto, saved);
+		dto = customerWithOrdersAndOrderLinesTranslator.toDto(saved);
+		customerWithOrdersAndOrderLinesTranslator.fromDto(dto, saved);
 		checkCustomer(saved, new String[] { "1", "2" },
 				new String[] { "3", "4" });
 
@@ -73,14 +91,14 @@ public class CustomerWithOrdersAndOrderLinesTranslatorTest {
 		Collections.sort(orderList, new OrderDtoComparator());
 		orderList.get(0).removeFromOrderLines(0);
 		orderList.get(1).removeFromOrderLines(0);
-		translator.fromDto(dto, saved);
+		customerWithOrdersAndOrderLinesTranslator.fromDto(dto, saved);
 		checkCustomer(saved, new String[] { "1", "2" }, new String[] { "4" });
 		/**
 		 * Add a new orderline to each order and check.
 		 */
 		orderList.get(0).addToOrderLines(createOrderLine(5, "5"));
 		orderList.get(1).addToOrderLines(createOrderLine(5, "5"));
-		translator.fromDto(dto, saved);
+		customerWithOrdersAndOrderLinesTranslator.fromDto(dto, saved);
 		checkCustomer(saved, new String[] { "1", "2" }, new String[] { "4", "5"});
 	}
 

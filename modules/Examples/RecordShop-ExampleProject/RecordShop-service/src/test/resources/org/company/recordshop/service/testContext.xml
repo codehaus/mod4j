@@ -23,4 +23,9 @@
             <ref bean="sessionFactory" />
         </property>
     </bean>
+    
+    <bean class="org.company.recordshop.service.dto.translators.CustomerWithOrdersAndOrderLinesTranslatorTest" id="customerWithOrdersAndOrderLinesTranslatorTest">
+		<property name="customerWithOrdersAndOrderLinesTranslator" ref="customerWithOrdersAndOrderLinesTranslator"/>
+    </bean>
+    
 </beans>
