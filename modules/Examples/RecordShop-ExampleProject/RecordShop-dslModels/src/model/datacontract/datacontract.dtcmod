@@ -16,6 +16,8 @@ from RecordShopDomainModel import RecordTypeEnum;
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	class FullCustomerDto represents Customer;
+	
+	list ArtistListDto contains ArtistDto;
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	class SimpleCustomerDto represents Customer [  
@@ -28,6 +30,7 @@ from RecordShopDomainModel import RecordTypeEnum;
 	     birthDate;
 	     references [  
 	         orders as OrderNumberAndDateList;
+	         idols as ArtistListDto;
 	     ]    
 	]  
 	

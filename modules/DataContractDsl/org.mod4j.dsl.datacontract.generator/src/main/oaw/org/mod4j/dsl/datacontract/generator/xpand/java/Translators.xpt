@@ -178,15 +178,15 @@
                           * Synchronize «assRef.name.toFirstUpper()» association.
                           */
    «REM»2Many«ENDREM» «IF assRef.dtoType.metaType == ListDto -»
-   		                  Set<«assRefBusinessClass»> toBeRemoved = new HashSet<«assRefBusinessClass»>();
+   		                  Set<«assRefBusinessClass»> «assRef.name»ToBeRemoved = new HashSet<«assRefBusinessClass»>();
 		                  /* Avoid changing the collection underneath an active iterator. */
 		                  for («assRefBusinessClass» element : target.get«assRef.name.toFirstUpper()»()) {
 		                      if (source.getFrom«assRef.name.toFirstUpper()»(element.getId()) == null) {
-		                          toBeRemoved.add(element);
+		                          «assRef.name»ToBeRemoved.add(element);
 		                      }
 		                  }
 		                  /* Objects to be removed */
-		                  for («assRefBusinessClass» element : toBeRemoved) {
+		                  for («assRefBusinessClass» element : «assRef.name»ToBeRemoved) {
 		                      target.removeFrom«assRef.name.toFirstUpper()»(element);
 		                  }
 		                  for («assRefDto» element : source.get«assRef.name.toFirstUpper()»()) {
@@ -196,15 +196,13 @@
 		                      } else {
 		                  «REM»start new code«ENDREM»
 								/* An existing object to be updated */
-				//				buyersTranslator.fromDto(element, target.getFromBuyers(element
-				//						.getId()));
 								if( target.getFrom«assRef.name.toFirstUpper()»(element.getId())  == null ){
-									// element is not in target yet, read it from the store, update and add to target
+									// Element is not in target yet, read it from the store, update and add to target
 									«assRefBusinessClass» original = «assRefBusinessClass.toFirstLower()»Dao.retrieve(element.getId());
 									«assRefBusinessClass» updated = «assRefTranslator».fromDto(element, original);
 									target.addTo«assRef.name.toFirstUpper()»(updated);
 								} else {
-									// element is in target already, use this object and update it. No need to add to the collection
+									// Element is in target already, use this object and update it. No need to add to the collection
 		                          «assRefTranslator».fromDto(element, target.getFrom«assRef.name.toFirstUpper()»(element.getId()));
 								}
 							}

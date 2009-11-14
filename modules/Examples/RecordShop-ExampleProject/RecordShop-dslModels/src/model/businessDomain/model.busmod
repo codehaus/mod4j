@@ -146,5 +146,6 @@ association Product product many -> many Customer buyers ;
 "Many to One unidirectional: Customers have one invoiceAddress" 
 association Customer customers many -> one Address invoiceAddress;
 
+association Customer customer many -> many Artist idols;
 "Tests"
 association Person person one -> many Artist relatedTo ; 
