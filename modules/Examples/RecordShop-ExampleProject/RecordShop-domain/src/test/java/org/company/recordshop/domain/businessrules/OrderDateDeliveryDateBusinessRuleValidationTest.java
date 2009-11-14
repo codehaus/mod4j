@@ -40,7 +40,7 @@ public class OrderDateDeliveryDateBusinessRuleValidationTest {
             fail("A BusinessRuleException should be thrown!");
         
         } catch (BusinessRuleException e) {
-            assertTrue( e.getMessage().contains("deliveryDate: 1970-01-01T01:00:00.001+01:00 may not preceed orderDate"));
+            assertTrue( e.getMessage().contains("may not preceed orderDate"));
         }
     }
     
@@ -60,7 +60,7 @@ public class OrderDateDeliveryDateBusinessRuleValidationTest {
             fail("A BusinessRuleException should be thrown!");
         
         } catch (BusinessRuleException e) {
-            assertTrue( e.getMessage().contains("deliveryDate: 1970-01-01T01:00:00.001+01:00 may not preceed orderDate"));
+            assertTrue( e.getMessage().contains("may not preceed orderDate"));
         }
     }
 
