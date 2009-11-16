@@ -14,6 +14,7 @@ from RecordShopDataContract import CustomerWithOrdersAndOrderLines;
 
 from RecordShopDataContract import ProductWithCustomersDto;
 from RecordShopDataContract import FullProductDto;
+from RecordShopDataContract import ArtistDto;
 
 read readOrder     for OrderDto ; 
 read readOrderLine for OrderLineDto  ;               
