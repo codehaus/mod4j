@@ -17,11 +17,7 @@ import java.util.List;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
-import org.mod4j.dsl.service.mm.ServiceDsl.ServiceMethod;
-import org.mod4j.dslcommon.generator.helpers.ProjectProperties;
-import org.mod4j.dslcommon.generator.helpers.StringHelpers;
 
-import com.sun.java_cup.internal.sym;
 
 public class ServiceUtil {
 
