@@ -1,20 +1,22 @@
 "Everything Customer related"
-PresentationModel CustomerModel
+presentation CustomerModel;
 
-from RecordShopDataContract import SimpleCustomerDto
-from RecordShopOrderingPresentation  import OrderAndDateCollection 
-from RecordShopOrderingPresentation  import OrderAndDateForm
+from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopOrderingPresentation  import OrderAndDateCollection ;
+from RecordShopOrderingPresentation  import OrderAndDateForm;
 
-ContentForm CustomerDetails using SimpleCustomerDto
-	formElement lastName named name;
-	formElement birthDate named birthDate;
-	formElement customerNr named nr;
+ContentForm CustomerDetails context SimpleCustomerDto [
+	element lastName label name;
+	element birthDate label birthDate;
+	element customerNr label nr;
+]
 
-ContentForm CustomerExtra using SimpleCustomerDto
-	formElement sexe named sexe;
-	formElement firstName named firstName;
+ContentForm CustomerExtra context SimpleCustomerDto [
+	element sexe label sexe;
+	element firstName label firstName;
+]
 	
-CompoundDialogue FullCustomerDialogue using SimpleCustomerDto 
+CompoundDialogue FullCustomerDialogue context SimpleCustomerDto 
 	dialogues [ 
 		CustomerDetails;
 		navigate CustomerOrders to OrderAndDateCollection;
@@ -24,12 +26,12 @@ CompoundDialogue FullCustomerDialogue using SimpleCustomerDto
 		HandleCustomer;
 	]
 
-LinkStep CustomerOrders using SimpleCustomerDto 
+LinkStep CustomerOrders context SimpleCustomerDto 
 	navigate orders  
 
-AutomatedProcess HandleCustomer using SimpleCustomerDto
+AutomatedProcess HandleCustomer context SimpleCustomerDto
 
-InteractiveProcess ManageCustomer using SimpleCustomerDto
+InteractiveProcess ManageCustomer context SimpleCustomerDto
 	steps [
 		dialogue navigate CustomerOrders to OrderAndDateCollection;
 		dialogue CustomerDetails;

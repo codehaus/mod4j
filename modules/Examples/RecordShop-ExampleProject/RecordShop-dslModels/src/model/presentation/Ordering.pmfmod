@@ -1,24 +1,27 @@
 "alle UI die met orders te maken heeft"
-PresentationModel RecordShopOrderingPresentation
+presentation RecordShopOrderingPresentation;
 
-from RecordShopDataContract import OrderDto 
-from RecordShopDataContract import OrderNumberAndDateDto 
+from RecordShopDataContract import OrderDto ;
+from RecordShopDataContract import OrderNumberAndDateDto ;
 
-ContentForm OrderMainDetails using OrderDto 
-	formElement orderNumber
-		named ordernr;
-	formElement orderDate
-		named date;
-	formElement totalAmount  
-		named amount
+ContentForm OrderMainDetails context OrderDto [
+	element orderNumber
+		label ordernr;
+	element orderDate
+		label date;
+	element totalAmount  
+		label amount
 		readonly true;  
+]
 	
-ContentForm OrderAndDateForm using OrderNumberAndDateDto
-	readonly true;
-	formElement orderNumber named number;
-	formElement orderDate named date;
+ContentForm OrderAndDateForm context OrderNumberAndDateDto [
+    readonly true; 
+	element orderNumber label number;
+	element orderDate label date;
+]
 	
-CollectionDialogue OrderAndDateCollection using OrderNumberAndDateDto 
+CollectionDialogue OrderAndDateCollection context OrderNumberAndDateDto [
 	dialogues [
 		OrderAndDateForm;
 	]
+]
