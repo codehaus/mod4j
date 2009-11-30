@@ -6,13 +6,13 @@ import "platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.e
 
 PresentationModel :
 	(description=STRING )?
-	"PresentationModel" name = ID
+	"presentation" name = ID ";"
 	(externalReferences += ExternalReference)*
 	(elements += ModelElement)*
 	;
 
 ExternalReference :
-    "from" modelName = ID "import" name = ID 
+    "from" modelName = ID "import" name = ID ";"
 	;
 	
 ModelElement :
@@ -29,33 +29,39 @@ Dialogue :
 	
 ContentForm :
 	(description=STRING )?
-	"ContentForm" name = ID "using" contextRef = [ExternalReference]
-	("readonly" ((readonly?="true") | "false") ";")?
-	(formElements += FormElement)*
-	("processes" "[" (processes += ProcessCall)* "]" )?
+	"ContentForm" name = ID "context" contextRef = [ExternalReference]
+	"["
+		("readonly" ((readonly?="true") | "false") ";")?
+		(formElements += FormElement)*
+		("processes" "[" (processes += ProcessCall)* "]" )?
+	"]"
 	;
 	
 CompoundDialogue :
 	(description=STRING )?
-	"CompoundDialogue" name = ID "using" contextRef = [ExternalReference]
+	"CompoundDialogue" name = ID "context" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
-	("dialogues" "[" (dialogues += DialogueCall)* "]" )?
-	("processes" "[" (processes += ProcessCall)* "]" )?  
-	| CollectionDialogue
-	| MasterDetail
+	
+		("dialogues" "[" (dialogues += DialogueCall)* "]" )?
+		("processes" "[" (processes += ProcessCall)* "]" )?  
+		| CollectionDialogue
+		| MasterDetail
+	
 	;
 		
 CollectionDialogue :
 	(description=STRING )?
-	"CollectionDialogue" name = ID "using" contextRef = [ExternalReference]
-	("readonly" ((readonly?="true") | "false") ";")?
-	("dialogues" "[" (dialogues += DialogueCall)* "]" )?
-	("processes" "[" (processes += ProcessCall)* "]" )?
+	"CollectionDialogue" name = ID "context" contextRef = [ExternalReference]
+	"["
+		("readonly" ((readonly?="true") | "false") ";")?
+		("dialogues" "[" (dialogues += DialogueCall)* "]" )?
+		("processes" "[" (processes += ProcessCall)* "]" )?
+	"]"
 	;
 	
 MasterDetail :
 	(description=STRING )?
-	"MasterDetail" name = ID "using" contextRef = [ExternalReference]
+	"MasterDetail" name = ID "context" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
 	"master" master = DialogueCall
 	"detail" detail = DialogueCall
@@ -68,21 +74,21 @@ Process :
 	
 AutomatedProcess :
 	(description=STRING )?
-	"AutomatedProcess" name = ID "using" contextRef = [ExternalReference]
+	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
 	("steps" "[" (processElements += UICall)* "]")?
 	;
 
 InteractiveProcess :
 	(description=STRING )?
-	"InteractiveProcess" name = ID "using" contextRef = [ExternalReference]
+	"InteractiveProcess" name = ID "context" contextRef = [ExternalReference]
 	("steps" "[" (processElements += UICall)* "]")?
 	;
 	
 FormElement :
-	"formElement" 
+	"element" 
 //	("navigate" LinkRef "to")? 
 	references = DtoPropertyReference 
-	"named" name = ID 
+	"label" name = ID 
 	("readonly" ((readonly?="true") | "false") )?
 	";"
 	;
@@ -121,13 +127,13 @@ Link :
 	
 LinkStep :
 	(description=STRING )?
-	"LinkStep" name = ID "using" contextRef = [ExternalReference] 
+	"LinkStep" name = ID "context" contextRef = [ExternalReference] 
 	"navigate" reference = AssociationRoleReference
 	;
 	
 LinkPath :
 	(description=STRING )?
-	"LinkPath" name = ID "using" contextRef = [ExternalReference]
+	"LinkPath" name = ID "context" contextRef = [ExternalReference]
 	;
 	
 DtoPropertyReference :

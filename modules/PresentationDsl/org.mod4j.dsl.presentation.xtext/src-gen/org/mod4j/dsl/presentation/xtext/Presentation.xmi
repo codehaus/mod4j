@@ -12,10 +12,11 @@
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="description" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="PresentationModel"/>
+        <tokens xsi:type="xtext:Keyword" value="presentation"/>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="externalReferences" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
         </tokens>
@@ -37,6 +38,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ModelElement">
@@ -78,7 +80,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -87,6 +89,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="readonly"/>
           <tokens xsi:type="xtext:Alternatives">
@@ -108,6 +111,7 @@
           </tokens>
           <tokens xsi:type="xtext:Keyword" value="]"/>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CompoundDialogue">
@@ -123,7 +127,7 @@
           <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </tokens>
-          <tokens xsi:type="xtext:Keyword" value="using"/>
+          <tokens xsi:type="xtext:Keyword" value="context"/>
           <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
@@ -175,7 +179,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -184,6 +188,7 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="readonly"/>
           <tokens xsi:type="xtext:Alternatives">
@@ -210,6 +215,7 @@
           </tokens>
           <tokens xsi:type="xtext:Keyword" value="]"/>
         </tokens>
+        <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="MasterDetail">
@@ -224,7 +230,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -282,7 +288,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -313,7 +319,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -337,11 +343,11 @@
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//FormElement"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="formElement"/>
+        <tokens xsi:type="xtext:Keyword" value="element"/>
         <tokens xsi:type="xtext:Assignment" feature="references" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="named"/>
+        <tokens xsi:type="xtext:Keyword" value="label"/>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
@@ -468,7 +474,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -495,7 +501,7 @@
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="using"/>
+        <tokens xsi:type="xtext:Keyword" value="context"/>
         <tokens xsi:type="xtext:Assignment" feature="contextRef" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
