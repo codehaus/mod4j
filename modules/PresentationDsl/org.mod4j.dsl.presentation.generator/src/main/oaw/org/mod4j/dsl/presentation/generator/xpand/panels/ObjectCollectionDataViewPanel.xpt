@@ -1,0 +1,178 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+ 
+«DEFINE GenerateObjectCollectionDataViewPanel FOR ContentForm -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+//import com.rosa.breakfast.web.page.EditStandardBreakfast;
+//import com.rosa.breakfast.web.page.ListStandardBreakfast;
+//import com.rosa.breakfast.web.page.EditStandardBreakfast;
+import «javaDtoClassPath(this.contextRef.name)»;
+«FOREACH this.formElements.dataProperty AS dp»
+	«IF dp.isEnumeration»
+	import «javaDtoClassPath(dp.dataType)»;
+	«ENDIF»
+«ENDFOREACH»
+
+import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
+//import com.rosas.web.pages.breakfast.BreakfastPage;
+//import com.rosas.web.pages.breakfast.BreakfastsEditPage;
+import nl.ordina.wicket.ext.models.SortedListItemPropertyModel;
+import nl.ordina.wicket.ext.models.SortedListPropertyModel;
+
+import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.markup.html.form.DropDownChoice;
+import org.apache.wicket.markup.html.form.IChoiceRenderer;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.repeater.Item;
+import org.apache.wicket.markup.repeater.OddEvenItem;
+import org.apache.wicket.markup.repeater.data.DataView;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.ResourceModel;
+import org.apache.wicket.util.convert.IConverter;
+
+/**
+ * A panel that shows a list of «this.contextRef.name», not editable.
+ */
+@SuppressWarnings("serial")
+public class «this.name»CollectionDataViewPanel  extends Panel implements «this.contextRef.name»ListListener
+{
+    «EXPAND dataView FOR this»
+	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
+	
+	/**
+	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
+	 * This allows the panel to be used in different pages with different behavior.
+	 * @param listener The listener to be added
+	 */
+	public void addListener(«this.contextRef.name»ListListener listener ){
+		listeners.add(listener);
+	}
+	
+
+	public «this.name»CollectionDataViewPanel(String id, «this.contextRef.name»DataProvider dataProvider, Integer maxItemsPerPage)
+	{
+	    super(id);
+		WebMarkupContainer container = (WebMarkupContainer)new WebMarkupContainer("container");
+		container.setOutputMarkupId(true);
+		DataView<«this.contextRef.name»> breakfasts = new «this.contextRef.name»DataView("breakfasts", dataProvider);
+		breakfasts.setItemsPerPage(maxItemsPerPage);
+		container.add(breakfasts);
+		add(container);
+		add(new AjaxPagingNavigator("navigator",breakfasts));
+//		add(new BookmarkablePageLink<Object>("edit",BreakfastsEditPage.class));
+	}
+
+	public void on«this.contextRef.name»Cancel(«this.contextRef.name» breakfast) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void on«this.contextRef.name»Delete(«this.contextRef.name» breakfast) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void on«this.contextRef.name»Edit(«this.contextRef.name» breakfast) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void on«this.contextRef.name»Save(«this.contextRef.name» breakfast) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void on«this.contextRef.name»Selected(«this.contextRef.name» breakfast) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
+«ENDDEFINE»
+
+«DEFINE dataView FOR ContentForm»
+	private class «this.contextRef.name»DataView extends	DataView<«this.contextRef.name»> {
+		private «this.contextRef.name»DataView(String id, IDataProvider<«this.contextRef.name»> dataProvider) {
+			super(id, dataProvider);
+		}
+
+		@Override
+		protected void populateItem(final Item<«this.contextRef.name»> item)
+		{
+			item.setModel(new CompoundPropertyModel<«this.contextRef.name»>(item.getModelObject()));
+			Link<«this.contextRef.name»> link = 
+				new Link<«this.contextRef.name»>("view",item.getModel())
+				{
+					@Override
+					public void onClick()
+					{
+						if( ! listeners.isEmpty() ){
+							for («this.contextRef.name»ListListener listener : listeners) {
+								listener.on«this.contextRef.name»Selected(getModel().getObject());
+							}
+						} else {
+//							setResponsePage(new BreakfastPage(getModel()));
+						}
+					}
+				}
+			;
+			
+			item.add(link);
+    
+	«LET this.formElements.toList() AS list»
+	«LET list.first() AS first»
+	    «EXPAND firstCell FOR first »
+		«FOREACH list AS fe»
+		    «EXPAND cell(first) FOR fe»
+		«ENDFOREACH»
+	«ENDLET»
+	«ENDLET»
+
+            item.add(new Link("edit") {
+                public void onClick() {
+                    // setResponsePage(new EditStandardBreakfast(breakfast, false));
+                }
+            });
+		}
+
+		@Override
+		protected Item<«this.contextRef.name»> newItem(String id, int index, IModel<«this.contextRef.name»> model)
+		{
+			return new OddEvenItem<«this.contextRef.name»>(id,index,model);
+		}
+	}
+«ENDDEFINE»
+
+«DEFINE firstCell FOR FormElement»
+		link.add(new Label("«this.dataProperty.name»"));
+«ENDDEFINE»
+
+«DEFINE cell(FormElement first) FOR FormElement»
+	«IF this != first»
+		item.add(new Label("«this.dataProperty.name»"));
+	«ENDIF»
+«REM» Should Float6 beb handled as: (and why?)
+		item.add(new Label("price", new PropertyModel<Float>(item.getModel().getObject(), "price")) );
+«ENDREM»
+
+«ENDDEFINE»

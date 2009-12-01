@@ -1,0 +1,66 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GenerateDataProvider FOR ContentForm -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DataProvider.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import java.util.Iterator;
+
+import «javaDtoClassPath(this.contextRef.name)»;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.LoadableDetachableModel;
+
+import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(this, "Create") )»;
+
+/**
+ * Dataprovider for StandardBreakfastDto list which takes the list of objects from a service.
+ * @author jwa11799
+ *
+ */
+@SuppressWarnings("serial")
+public class «this.contextRef.name»DataProvider implements IDataProvider<«this.contextRef.name»> {
+    private static final Log log = LogFactory.getLog(«this.contextRef.name»DataProvider.class);
+
+    private «javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service;
+
+    /**
+     * Create a new «this.contextRef.name»DataProvider 
+     * @param service The service from which the list of «this.contextRef.name» is retrieved.
+     */
+    public «this.contextRef.name»DataProvider(«javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service) {
+        this.service = service;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Iterator iterator(int first, int count) {
+        return service.«findListAllMethodFor(this)»().iterator();
+    }
+
+    public IModel<«this.contextRef.name»> model(«this.contextRef.name» object) {
+        final Long id = object.getId();
+        return new LoadableDetachableModel<«this.contextRef.name»>() {
+            protected «this.contextRef.name» load() {
+
+                return service.«findReadMethodFor(this)»(id);
+            }
+        };
+    }
+
+    public int size() {
+        return service.«findListAllMethodFor(this)»().size();
+    }
+
+    public void detach() {
+    }
+
+}
+«ENDDEFINE»

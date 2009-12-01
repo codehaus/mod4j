@@ -41,6 +41,17 @@
     	    «EXPAND ObjectPanelListener::GenerateObjectListener FOR cf»
 		«ENDFILE»
 		
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "DataProvider"))»
+    	    «EXPAND DataProvider::GenerateDataProvider FOR cf»
+		«ENDFILE»
+
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "CollectionDataViewPanel"))»
+    	    «EXPAND ObjectCollectionDataViewPanel::GenerateObjectCollectionDataViewPanel FOR cf»
+		«ENDFILE»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "CollectionDataViewPanel.html")»
+    	    «EXPAND ObjectCollectionDataViewPanelHtml::GenerateObjectCollectionDataViewPanelHtml FOR cf»
+		«ENDFILE»
+
 		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "SwapEditPanel"))»
     	    «EXPAND ObjectSwapPanel::GenerateObjectSwapPanel FOR cf»
 		«ENDFILE»

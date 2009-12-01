@@ -2,6 +2,7 @@ import PresentationDsl;
 import crossx;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dslcommon::xtend::ProjectProperties;
 
 String businessClassName(ContentForm form) :
     lookupSymbol(form.contextRef.modelName, 
@@ -11,17 +12,34 @@ String businessClassName(ContentForm form) :
 ;
 
 String findCreateMethodFor(ContentForm form) :
-    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
     select( method | method.getPropertyValue("methodType").endsWith("Create") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
     
 String findUpdateMethodFor(ContentForm form) :
-    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
     select( method | method.getPropertyValue("methodType").endsWith("UPDATE") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
     
 String findDeleteMethodFor(ContentForm form) :
-    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
     select( method | method.getPropertyValue("methodType").endsWith("DELETE") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
     
 String findReadMethodFor(ContentForm form) :
-    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
     select( method | method.getPropertyValue("methodType").endsWith("READ") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findListAllMethodFor(ContentForm form) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("LISTALL") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findSpecialMethod(ContentForm form, String methodType) :
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findSpecialMethodInService(ContentForm form, String methodType, String serviceName) :
+    findAllSymbols(getProject(), "Service").select(s | s.name.endsWith(serviceName)).findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+// returns the name of a service that contains a special method of "methodType" for the referred DTO in "form"
+String findServiceWithMethod(ContentForm form, String methodType) :
+    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(form, methodType, s.name) != null ).first().name;
+ 

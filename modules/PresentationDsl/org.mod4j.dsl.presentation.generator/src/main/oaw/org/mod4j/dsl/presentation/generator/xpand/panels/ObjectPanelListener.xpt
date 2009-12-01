@@ -10,7 +10,7 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectPanelListener.xpt") FOR this»
 package «getPresentationRootPackage()».panels;
 
-import «getDtoPackage()».«this.contextRef.name»;
+import «javaDtoClassPath(this.contextRef.name)»;
 
 public interface «this.contextRef.name»ListListener {
 

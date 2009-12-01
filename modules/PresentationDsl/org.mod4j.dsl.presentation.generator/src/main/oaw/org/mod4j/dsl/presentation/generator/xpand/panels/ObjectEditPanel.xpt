@@ -50,16 +50,14 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.PatternValidator;
 import org.apache.wicket.validation.validator.RangeValidator;
 
-//import com.rosas.service.dto.StandardBreakfastDto;
-import «getDtoPackage()».«this.contextRef.name»;
+import «javaDtoClassPath(this.contextRef.name)»;
+
 «FOREACH this.formElements.dataProperty AS dp»
 	«IF dp.isEnumeration»
 	import «javaDtoClassPath(dp.dataType)»;
 	«ENDIF»
 «ENDFOREACH»
-//  «businessClassName(this)»
-// import «getServiceRootPackage()».«javaLocalServiceInterface(businessClassName(this))»;
-import «getServiceRootPackage()».BreakfastLocalService;
+import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(this, "Create") )»;
 
 //import com.rosas.web.standard.ComestibleComparator;
 
@@ -82,9 +80,9 @@ public class «this.name»EditPanelWithListener extends Panel {
 		listeners.add(listener);
 	}
 	
-	@SpringBean(name = "breakfastService")
+	@SpringBean(name = "«findServiceWithMethod(this, "Create").toFirstLower()»Service")
 //    «javaLocalServiceInterface(this.contextRef.name)» «this.contextRef.name»Service;
-    BreakfastLocalService breakfastLocalService;
+    «javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service;
     
     protected IModel<«this.contextRef.name»> localModel ;
     Form<«this.contextRef.name»> form = null;
@@ -152,9 +150,9 @@ public class «this.name»EditPanelWithListener extends Panel {
 		try {
 			«this.contextRef.name» element = localModel.getObject();
 			if( element.getId() == null ) { 				// new element
-				breakfastLocalService.«findCreateMethodFor(this)»(element);
+				service.«findCreateMethodFor(this)»(element);
 			} else { 										// existing element
-				breakfastLocalService.«findUpdateMethodFor(this)»(element);
+				service.«findUpdateMethodFor(this)»(element);
 			}
 		} catch (Exception e) {
 		    error(e.getMessage());
@@ -168,7 +166,7 @@ public class «this.name»EditPanelWithListener extends Panel {
 	private void deleteAction() {
 		try {
 			«this.contextRef.name» element = localModel.getObject();
-		    breakfastLocalService.«findDeleteMethodFor(this)»(element);
+		    service.«findDeleteMethodFor(this)»(element);
 		    localModel.setObject(null);
 		    form.clearInput();
 		} catch (Exception e) {

@@ -10,15 +10,9 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
 package «getPresentationRootPackage()».panels;
 
-import «getDtoPackage()».«this.contextRef.name»;
-//import com.rosas.service.dto.PartDto;
-//import com.rosas.service.dto.ServingStyleDto;
+import «javaDtoClassPath(this.contextRef.name)»;
 import java.util.ArrayList;
 import java.util.List;
-
-//import com.rosas.web.standard.ComestibleComparator;
-//import com.rosas.web.standard.MoneyConverter;
-//import nl.ordina.wicket.ext.models.SortedListPropertyModel;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
