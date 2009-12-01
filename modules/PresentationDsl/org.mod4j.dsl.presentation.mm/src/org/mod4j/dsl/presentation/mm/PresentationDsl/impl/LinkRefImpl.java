@@ -20,7 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *
  * @generated
  */
-public class LinkRefImpl extends NamedReferenceImpl implements LinkRef {
+public class LinkRefImpl extends ModelElementImpl implements LinkRef {
 	/**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

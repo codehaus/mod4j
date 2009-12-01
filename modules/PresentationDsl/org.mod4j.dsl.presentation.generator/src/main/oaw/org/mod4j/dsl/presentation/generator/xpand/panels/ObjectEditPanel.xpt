@@ -1,0 +1,227 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+ 
+«DEFINE GenerateObjectEditPanel FOR ContentForm -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import nl.ordina.wicket.ext.components.AjaxEditableLabel;
+import nl.ordina.wicket.ext.components.AjaxIndicator;
+import nl.ordina.wicket.ext.components.AjaxUpdatingBehaviour;
+import nl.ordina.wicket.ext.components.ComponentsFeedbackMessageFilter;
+import nl.ordina.wicket.ext.components.FieldFeedbackPanel;
+import nl.ordina.wicket.ext.components.FormFeedbackPanel;
+import nl.ordina.wicket.ext.components.ConfirmAjaxButton;
+import nl.ordina.wicket.ext.components.IndicatingAjaxButton;
+import nl.ordina.wicket.ext.components.ModalWindow;
+import nl.ordina.wicket.ext.models.CheckBoxObjectModelPartDto;
+import nl.ordina.wicket.ext.models.SortedListPropertyModel;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
+import org.apache.wicket.behavior.SimpleAttributeModifier;
+import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.markup.html.form.DropDownChoice;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.IChoiceRenderer;
+import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.model.ResourceModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.validator.PatternValidator;
+import org.apache.wicket.validation.validator.RangeValidator;
+
+//import com.rosas.service.dto.StandardBreakfastDto;
+import «getDtoPackage()».«this.contextRef.name»;
+«FOREACH this.formElements.dataProperty AS dp»
+	«IF dp.isEnumeration»
+	import «javaDtoClassPath(dp.dataType)»;
+	«ENDIF»
+«ENDFOREACH»
+//  «businessClassName(this)»
+// import «getServiceRootPackage()».«javaLocalServiceInterface(businessClassName(this))»;
+import «getServiceRootPackage()».BreakfastLocalService;
+
+//import com.rosas.web.standard.ComestibleComparator;
+
+/**
+ * A reusable panee that allows the used to edit an object.
+ * The object may be ean existing one or a new one.
+ */
+@SuppressWarnings("serial")
+public class «this.name»EditPanelWithListener extends Panel {
+	private Log log = LogFactory.getLog(getClass());
+
+	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
+	
+	/**
+	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
+	 * This allows the panel to be used in different pages with different behavior.
+	 * @param listener The listener to be added
+	 */
+	public void addListener(«this.contextRef.name»ListListener listener ){
+		listeners.add(listener);
+	}
+	
+	@SpringBean(name = "breakfastService")
+//    «javaLocalServiceInterface(this.contextRef.name)» «this.contextRef.name»Service;
+    BreakfastLocalService breakfastLocalService;
+    
+    protected IModel<«this.contextRef.name»> localModel ;
+    Form<«this.contextRef.name»> form = null;
+
+    public «this.name»EditPanelWithListener(String id, final IModel<«this.contextRef.name»> model) {
+        super(id);
+        boolean isNew = (model.getObject() != null)
+        				&& ((model.getObject()).getId() == null);
+        localModel = model;
+        form = new Form<«this.contextRef.name»>("frm«this.contextRef.name»", model);
+
+        Button save = new Button("save", new ResourceModel("cmd.save")) {
+            @Override
+            public void onSubmit() {
+                saveAction();
+				for («this.contextRef.name»ListListener listener : listeners) {
+					listener.on«this.contextRef.name»Save(model.getObject());
+				}
+            }
+        };
+        
+        Button delete = new Button("delete", new ResourceModel("cmd.delete")) {
+            @Override
+            public void onSubmit() {
+                deleteAction();
+				for («this.contextRef.name»ListListener listener : listeners) {
+					listener.on«this.contextRef.name»Delete(model.getObject());
+				}
+            }
+        };
+        delete.setDefaultFormProcessing(false);
+        delete.setVisible(!isNew);
+        delete.add( new SimpleAttributeModifier("onclick", "return confirm('"
+                        + getLocalizer().getString("msg.confirm", this) + "');"));
+ 
+        Button cancel = new Button("cancel", new ResourceModel("cmd.cancel")) {
+            @Override
+            public void onSubmit() {
+            	form.clearInput();
+				for («this.contextRef.name»ListListener listener : listeners) {
+					listener.on«this.contextRef.name»Cancel(model.getObject());
+				}
+             }
+        };
+        cancel.setDefaultFormProcessing(false);
+        form.setDefaultButton(save);
+        FormFeedbackPanel formMsgs = new FormFeedbackPanel("formMsgs",
+                new ComponentsFeedbackMessageFilter(form, save, delete, cancel));
+        formMsgs.setOutputMarkupId(true);
+
+    «EXPAND addWicketComponent FOREACH this.formElements»
+        form.add(new AjaxIndicator("ajaxIndicator"));
+ 
+        form.add(save);
+        form.add(delete);
+        form.add(cancel);
+        add(formMsgs);
+        add(form);
+    }
+
+	/**
+	 * 
+	 */
+	private void saveAction() {
+		try {
+			«this.contextRef.name» element = localModel.getObject();
+			if( element.getId() == null ) { 				// new element
+				breakfastLocalService.«findCreateMethodFor(this)»(element);
+			} else { 										// existing element
+				breakfastLocalService.«findUpdateMethodFor(this)»(element);
+			}
+		} catch (Exception e) {
+		    error(e.getMessage());
+		    log.error("", e);
+		}
+	}
+
+	/**
+	 * 
+	 */
+	private void deleteAction() {
+		try {
+			«this.contextRef.name» element = localModel.getObject();
+		    breakfastLocalService.«findDeleteMethodFor(this)»(element);
+		    localModel.setObject(null);
+		    form.clearInput();
+		} catch (Exception e) {
+		    error(e.getMessage());
+		    log.error("", e);
+		}
+	}
+
+}
+«ENDDEFINE»
+
+«DEFINE addWicketComponent FOR FormElement»
+«LET this.dataProperty.name.toFirstLower() AS varName»
+    // «varName»
+    «IF this.dataProperty.dataType.equalsIgnoreCase("string")»
+        TextField<String> «varName» = new TextField<String>("«this.dataProperty.name»");
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
+        «varName».setRequired(true);
+
+        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
+        «varName»Msgs.setOutputMarkupId(true);
+        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
+        form.add(«varName»);
+        form.add(«varName»Msgs);
+    «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("decimal")»
+        TextField<Float> «varName» = new TextField<Float>("«this.dataProperty.name»", Float.class);
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
+        «varName».setRequired(true);
+
+        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
+        «varName»Msgs.setOutputMarkupId(true);
+        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
+        form.add(«varName»);
+        form.add(«varName»Msgs);
+    «ELSEIF this.dataProperty.isEnumeration»
+        DropDownChoice<«this.dataProperty.dataType»> «varName» = new DropDownChoice<ServingStyleDto>("«this.dataProperty.name»", Arrays.asList(«this.dataProperty.dataType».values()),
+        		new IChoiceRenderer<«this.dataProperty.dataType»>() {
+		            public Object getDisplayValue(«this.dataProperty.dataType» o) {
+		                return o.toString();
+		            }
+		
+		            public String getIdValue(«this.dataProperty.dataType» o, int index) {
+		                return o.name();
+		            }
+		        });
+        «varName».setNullValid(true);
+        «varName».setRequired(true);
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«varName»", this)));
+        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
+        «varName»Msgs.setOutputMarkupId(true);
+        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
+        form.add(«varName»);
+        form.add(«varName»Msgs);
+    «ENDIF»
+«ENDLET»
+«ENDDEFINE»

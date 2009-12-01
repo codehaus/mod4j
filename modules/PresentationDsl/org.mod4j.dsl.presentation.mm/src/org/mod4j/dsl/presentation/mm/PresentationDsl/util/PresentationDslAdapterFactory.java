@@ -16,6 +16,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
@@ -33,6 +34,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
@@ -118,6 +120,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createCollectionDialogueAdapter();
             }
             @Override
+            public Adapter caseDataProperty(DataProperty object) {
+                return createDataPropertyAdapter();
+            }
+            @Override
             public Adapter caseDialogue(Dialogue object) {
                 return createDialogueAdapter();
             }
@@ -182,12 +188,12 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createMasterDetailAdapter();
             }
             @Override
-            public Adapter caseModelElement(ModelElement object) {
-                return createModelElementAdapter();
+            public Adapter caseModelElementWithContext(ModelElementWithContext object) {
+                return createModelElementWithContextAdapter();
             }
             @Override
-            public Adapter caseNamedReference(NamedReference object) {
-                return createNamedReferenceAdapter();
+            public Adapter caseModelElement(ModelElement object) {
+                return createModelElementAdapter();
             }
             @Override
             public Adapter casePresentationModel(PresentationModel object) {
@@ -304,6 +310,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext <em>Model Element With Context</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext
+     * @generated
+     */
+    public Adapter createModelElementWithContextAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference <em>External Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -342,20 +362,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
 	public Adapter createModelElementAdapter() {
-        return null;
-    }
-
-	/**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference <em>Named Reference</em>}'.
-     * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference
-     * @generated
-     */
-	public Adapter createNamedReferenceAdapter() {
         return null;
     }
 
@@ -598,6 +604,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty <em>Data Property</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty
+     * @generated
+     */
+    public Adapter createDataPropertyAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess <em>Interactive Process</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

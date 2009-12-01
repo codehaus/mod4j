@@ -12,9 +12,6 @@
 
 <workflow>
 
-    <!-- Initialize the issues reporting feature of oAW
-         TODO 3 May 2008 : Check whether this is still neccesary
-    -->
     <component class="org.eclipse.xtend.util.stdlib.ExtIssueReporter"/>
 
     <component class="org.mod4j.dslcommon.generator.helpers.PropertiesWorkflowComponent">
@@ -56,18 +53,18 @@
         <emfAllChildrenSlot value="pmfModel" />
     </component>
     
-    <!--TODO (if needed): Call the Xtend model-to-model transformation to complete the Presentation model.
+    <!--Call the Xtend model-to-model transformation to complete the Presentation model. -->
 
-    <component id="compltePmf" class="oaw.xtend.XtendComponent">
+    <component id="compltePmf" class="org.eclipse.xtend.XtendComponent">
        <metaModel idRef="pmf"/>
        <metaModel idRef="crossx"/>
-       <invoke value="org::mod4j::dsl::presentation::generator::xtend::CompletePmf::completeModelpmfModel)"/>
+       <invoke value="org::mod4j::dsl::presentation::generator::xtend::CompletePmf::completeModel(pmfModel)"/>
     </component>
-    -->
-
-    <!-- TODO: Generation of sources and resources for the Presentation layer
     
-    <component id="PresentationWorkflow-Generator" class="org.openarchitectureware.xpand2.Generator">
+
+    <!-- Generation of sources and resources for the Presentation layer -->
+    
+    <component id="PresentationWorkflow-Generator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="pmf" />
         <metaModel idRef="crossx"/>
         <fileEncoding value="${fileEncoding}"/>
@@ -77,7 +74,7 @@
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
-    -->
+    
     
     <!-- 
         Generation of Maven configuration files.
@@ -95,7 +92,6 @@
  
     <!--
         Generation of JSF sources and resources
-    -->
     <component id="PresentationWorkflow-DomainGenerator" class="org.eclipse.xpand2.Generator">
         <metaModel idRef="pmf" />
         <fileEncoding value="${fileEncoding}"/>
@@ -105,5 +101,6 @@
             <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
         </outlet>
     </component>
+    -->
  
 </workflow>

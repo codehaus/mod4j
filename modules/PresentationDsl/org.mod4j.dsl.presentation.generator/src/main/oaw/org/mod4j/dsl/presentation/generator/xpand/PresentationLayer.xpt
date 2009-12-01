@@ -10,15 +10,46 @@
 «ENDREM»
 «IMPORT PresentationDsl»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
 
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
-
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE Generate FOR PresentationModel»
     «print("MOD4J INFO: Running Presentation generator on model [" + this.name + "]")»
     
-    «REM»TODO: Add generator steps here«ENDREM»
+    «FOREACH this.elements.typeSelect(ContentForm) AS cf»
+		«REM»The ViewPanel Java and HTML«ENDREM»
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "PanelWithListener"))»
+    	    «EXPAND ObjectPanel::GenerateObjectPanel FOR cf»
+		«ENDFILE»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "PanelWithListener.html")»
+    	    «EXPAND ObjectPanelHtml::GenerateObjectPanelHtml FOR cf»
+		«ENDFILE»
 
+		«REM»The Edit Panel Java and HTML«ENDREM»
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "EditPanelWithListener"))»
+    	    «EXPAND ObjectEditPanel::GenerateObjectEditPanel FOR cf»
+		«ENDFILE»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "EditPanelWithListener.html")»
+    	    «EXPAND ObjectEditPanelHtml::GenerateObjectEditPanelHtml FOR cf»
+		«ENDFILE»
+				
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "ListListener"))»
+    	    «EXPAND ObjectPanelListener::GenerateObjectListener FOR cf»
+		«ENDFILE»
+		
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "SwapEditPanel"))»
+    	    «EXPAND ObjectSwapPanel::GenerateObjectSwapPanel FOR cf»
+		«ENDFILE»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "SwapEditPanel.html")»
+    	    «EXPAND ObjectSwapPanelHtml::GenerateObjectSwapPanelHtml FOR cf»
+		«ENDFILE»
+		
+				
+	«ENDFOREACH»
 «ENDDEFINE»
 
 «REM»

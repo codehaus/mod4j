@@ -21,16 +21,16 @@ import java.util.ArrayList;
 
 public class InternalPresentationParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'PresentationModel'", "'from'", "'import'", "'ContentForm'", "'using'", "'readonly'", "';'", "'processes'", "'['", "']'", "'CompoundDialogue'", "'dialogues'", "'CollectionDialogue'", "'MasterDetail'", "'master'", "'detail'", "'AutomatedProcess'", "'steps'", "'InteractiveProcess'", "'formElement'", "'named'", "'alias'", "'navigate'", "'to'", "'LinkStep'", "'LinkPath'", "'dialogue'", "'process'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'presentation'", "';'", "'from'", "'import'", "'ContentForm'", "'context'", "'['", "']'", "'readonly'", "'processes'", "'CompoundDialogue'", "'dialogues'", "'CollectionDialogue'", "'MasterDetail'", "'master'", "'detail'", "'AutomatedProcess'", "'steps'", "'InteractiveProcess'", "'element'", "'label'", "'alias'", "'navigate'", "'to'", "'LinkStep'", "'LinkPath'", "'dialogue'", "'process'", "'true'"
     };
+    public static final int RULE_ML_COMMENT=7;
     public static final int RULE_ID=5;
+    public static final int RULE_WS=9;
+    public static final int EOF=-1;
+    public static final int RULE_INT=6;
     public static final int RULE_STRING=4;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=6;
-    public static final int RULE_WS=9;
     public static final int RULE_SL_COMMENT=8;
-    public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=7;
 
         public InternalPresentationParser(TokenStream input) {
             super(input);
@@ -211,20 +211,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end ruleExternalReference
 
 
-    // $ANTLR start entryRuleModelElement
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:114:1: entryRuleModelElement : ruleModelElement EOF ;
-    public final void entryRuleModelElement() throws RecognitionException {
+    // $ANTLR start entryRuleModelElementWithContext
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:114:1: entryRuleModelElementWithContext : ruleModelElementWithContext EOF ;
+    public final void entryRuleModelElementWithContext() throws RecognitionException {
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:114:23: ( ruleModelElement EOF )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:115:1: ruleModelElement EOF
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:114:34: ( ruleModelElementWithContext EOF )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:115:1: ruleModelElementWithContext EOF
             {
-             before(grammarAccess.getModelElementRule()); 
-            pushFollow(FOLLOW_ruleModelElement_in_entryRuleModelElement180);
-            ruleModelElement();
+             before(grammarAccess.getModelElementWithContextRule()); 
+            pushFollow(FOLLOW_ruleModelElementWithContext_in_entryRuleModelElementWithContext180);
+            ruleModelElementWithContext();
             _fsp--;
 
-             after(grammarAccess.getModelElementRule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModelElement187); 
+             after(grammarAccess.getModelElementWithContextRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModelElementWithContext187); 
 
             }
 
@@ -237,34 +237,34 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end entryRuleModelElement
+    // $ANTLR end entryRuleModelElementWithContext
 
 
-    // $ANTLR start ruleModelElement
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:122:1: ruleModelElement : ( ( rule__ModelElement__Alternatives ) ) ;
-    public final void ruleModelElement() throws RecognitionException {
+    // $ANTLR start ruleModelElementWithContext
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:122:1: ruleModelElementWithContext : ( ( rule__ModelElementWithContext__Alternatives ) ) ;
+    public final void ruleModelElementWithContext() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:126:2: ( ( ( rule__ModelElement__Alternatives ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:127:1: ( ( rule__ModelElement__Alternatives ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:126:2: ( ( ( rule__ModelElementWithContext__Alternatives ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:127:1: ( ( rule__ModelElementWithContext__Alternatives ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:127:1: ( ( rule__ModelElement__Alternatives ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:128:1: ( rule__ModelElement__Alternatives )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:127:1: ( ( rule__ModelElementWithContext__Alternatives ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:128:1: ( rule__ModelElementWithContext__Alternatives )
             {
-             before(grammarAccess.getModelElementAccess().getAlternatives()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:129:1: ( rule__ModelElement__Alternatives )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:129:2: rule__ModelElement__Alternatives
+             before(grammarAccess.getModelElementWithContextAccess().getAlternatives()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:129:1: ( rule__ModelElementWithContext__Alternatives )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:129:2: rule__ModelElementWithContext__Alternatives
             {
-            pushFollow(FOLLOW_rule__ModelElement__Alternatives_in_ruleModelElement214);
-            rule__ModelElement__Alternatives();
+            pushFollow(FOLLOW_rule__ModelElementWithContext__Alternatives_in_ruleModelElementWithContext214);
+            rule__ModelElementWithContext__Alternatives();
             _fsp--;
 
 
             }
 
-             after(grammarAccess.getModelElementAccess().getAlternatives()); 
+             after(grammarAccess.getModelElementWithContextAccess().getAlternatives()); 
 
             }
 
@@ -283,7 +283,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end ruleModelElement
+    // $ANTLR end ruleModelElementWithContext
 
 
     // $ANTLR start entryRuleUIModelElement
@@ -2080,9 +2080,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end ruleUIModelElementCall
 
 
-    // $ANTLR start rule__ModelElement__Alternatives
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:789:1: rule__ModelElement__Alternatives : ( ( ruleUIModelElement ) | ( ruleLink ) );
-    public final void rule__ModelElement__Alternatives() throws RecognitionException {
+    // $ANTLR start rule__ModelElementWithContext__Alternatives
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:789:1: rule__ModelElementWithContext__Alternatives : ( ( ruleUIModelElement ) | ( ruleLink ) );
+    public final void rule__ModelElementWithContext__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -2094,7 +2094,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 {
                 int LA1_1 = input.LA(2);
 
-                if ( (LA1_1==15||LA1_1==22||(LA1_1>=24 && LA1_1<=25)||LA1_1==28||LA1_1==30) ) {
+                if ( (LA1_1==16||LA1_1==22||(LA1_1>=24 && LA1_1<=25)||LA1_1==28||LA1_1==30) ) {
                     alt1=1;
                 }
                 else if ( ((LA1_1>=36 && LA1_1<=37)) ) {
@@ -2102,13 +2102,13 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("789:1: rule__ModelElement__Alternatives : ( ( ruleUIModelElement ) | ( ruleLink ) );", 1, 1, input);
+                        new NoViableAltException("789:1: rule__ModelElementWithContext__Alternatives : ( ( ruleUIModelElement ) | ( ruleLink ) );", 1, 1, input);
 
                     throw nvae;
                 }
                 }
                 break;
-            case 15:
+            case 16:
             case 22:
             case 24:
             case 25:
@@ -2126,7 +2126,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("789:1: rule__ModelElement__Alternatives : ( ( ruleUIModelElement ) | ( ruleLink ) );", 1, 0, input);
+                    new NoViableAltException("789:1: rule__ModelElementWithContext__Alternatives : ( ( ruleUIModelElement ) | ( ruleLink ) );", 1, 0, input);
 
                 throw nvae;
             }
@@ -2138,12 +2138,12 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:794:1: ( ruleUIModelElement )
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:795:1: ruleUIModelElement
                     {
-                     before(grammarAccess.getModelElementAccess().getUIModelElementParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleUIModelElement_in_rule__ModelElement__Alternatives1689);
+                     before(grammarAccess.getModelElementWithContextAccess().getUIModelElementParserRuleCall_0()); 
+                    pushFollow(FOLLOW_ruleUIModelElement_in_rule__ModelElementWithContext__Alternatives1689);
                     ruleUIModelElement();
                     _fsp--;
 
-                     after(grammarAccess.getModelElementAccess().getUIModelElementParserRuleCall_0()); 
+                     after(grammarAccess.getModelElementWithContextAccess().getUIModelElementParserRuleCall_0()); 
 
                     }
 
@@ -2156,12 +2156,12 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:800:6: ( ruleLink )
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:801:1: ruleLink
                     {
-                     before(grammarAccess.getModelElementAccess().getLinkParserRuleCall_1()); 
-                    pushFollow(FOLLOW_ruleLink_in_rule__ModelElement__Alternatives1706);
+                     before(grammarAccess.getModelElementWithContextAccess().getLinkParserRuleCall_1()); 
+                    pushFollow(FOLLOW_ruleLink_in_rule__ModelElementWithContext__Alternatives1706);
                     ruleLink();
                     _fsp--;
 
-                     after(grammarAccess.getModelElementAccess().getLinkParserRuleCall_1()); 
+                     after(grammarAccess.getModelElementWithContextAccess().getLinkParserRuleCall_1()); 
 
                     }
 
@@ -2182,7 +2182,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ModelElement__Alternatives
+    // $ANTLR end rule__ModelElementWithContext__Alternatives
 
 
     // $ANTLR start rule__UIModelElement__Alternatives
@@ -2202,7 +2202,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 if ( (LA2_1==28||LA2_1==30) ) {
                     alt2=2;
                 }
-                else if ( (LA2_1==15||LA2_1==22||(LA2_1>=24 && LA2_1<=25)) ) {
+                else if ( (LA2_1==16||LA2_1==22||(LA2_1>=24 && LA2_1<=25)) ) {
                     alt2=1;
                 }
                 else {
@@ -2213,7 +2213,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 }
                 }
                 break;
-            case 15:
+            case 16:
             case 22:
             case 24:
             case 25:
@@ -2305,7 +2305,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 if ( (LA3_1==22||(LA3_1>=24 && LA3_1<=25)) ) {
                     alt3=2;
                 }
-                else if ( (LA3_1==15) ) {
+                else if ( (LA3_1==16) ) {
                     alt3=1;
                 }
                 else {
@@ -2316,7 +2316,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 }
                 }
                 break;
-            case 15:
+            case 16:
                 {
                 alt3=1;
                 }
@@ -2389,14 +2389,14 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__Dialogue__Alternatives
 
 
-    // $ANTLR start rule__ContentForm__Alternatives_5_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:855:1: rule__ContentForm__Alternatives_5_1 : ( ( ( rule__ContentForm__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) );
-    public final void rule__ContentForm__Alternatives_5_1() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Alternatives_6_1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:855:1: rule__ContentForm__Alternatives_6_1 : ( ( ( rule__ContentForm__ReadonlyAssignment_6_1_0 ) ) | ( 'false' ) );
+    public final void rule__ContentForm__Alternatives_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:859:1: ( ( ( rule__ContentForm__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:859:1: ( ( ( rule__ContentForm__ReadonlyAssignment_6_1_0 ) ) | ( 'false' ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2408,29 +2408,29 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("855:1: rule__ContentForm__Alternatives_5_1 : ( ( ( rule__ContentForm__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) );", 4, 0, input);
+                    new NoViableAltException("855:1: rule__ContentForm__Alternatives_6_1 : ( ( ( rule__ContentForm__ReadonlyAssignment_6_1_0 ) ) | ( 'false' ) );", 4, 0, input);
 
                 throw nvae;
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:860:1: ( ( rule__ContentForm__ReadonlyAssignment_5_1_0 ) )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:860:1: ( ( rule__ContentForm__ReadonlyAssignment_6_1_0 ) )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:860:1: ( ( rule__ContentForm__ReadonlyAssignment_5_1_0 ) )
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:861:1: ( rule__ContentForm__ReadonlyAssignment_5_1_0 )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:860:1: ( ( rule__ContentForm__ReadonlyAssignment_6_1_0 ) )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:861:1: ( rule__ContentForm__ReadonlyAssignment_6_1_0 )
                     {
-                     before(grammarAccess.getContentFormAccess().getReadonlyAssignment_5_1_0()); 
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:862:1: ( rule__ContentForm__ReadonlyAssignment_5_1_0 )
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:862:2: rule__ContentForm__ReadonlyAssignment_5_1_0
+                     before(grammarAccess.getContentFormAccess().getReadonlyAssignment_6_1_0()); 
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:862:1: ( rule__ContentForm__ReadonlyAssignment_6_1_0 )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:862:2: rule__ContentForm__ReadonlyAssignment_6_1_0
                     {
-                    pushFollow(FOLLOW_rule__ContentForm__ReadonlyAssignment_5_1_0_in_rule__ContentForm__Alternatives_5_11836);
-                    rule__ContentForm__ReadonlyAssignment_5_1_0();
+                    pushFollow(FOLLOW_rule__ContentForm__ReadonlyAssignment_6_1_0_in_rule__ContentForm__Alternatives_6_11836);
+                    rule__ContentForm__ReadonlyAssignment_6_1_0();
                     _fsp--;
 
 
                     }
 
-                     after(grammarAccess.getContentFormAccess().getReadonlyAssignment_5_1_0()); 
+                     after(grammarAccess.getContentFormAccess().getReadonlyAssignment_6_1_0()); 
 
                     }
 
@@ -2443,9 +2443,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:866:6: ( 'false' )
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:867:1: 'false'
                     {
-                     before(grammarAccess.getContentFormAccess().getFalseKeyword_5_1_1()); 
-                    match(input,11,FOLLOW_11_in_rule__ContentForm__Alternatives_5_11855); 
-                     after(grammarAccess.getContentFormAccess().getFalseKeyword_5_1_1()); 
+                     before(grammarAccess.getContentFormAccess().getFalseKeyword_6_1_1()); 
+                    match(input,11,FOLLOW_11_in_rule__ContentForm__Alternatives_6_11855); 
+                     after(grammarAccess.getContentFormAccess().getFalseKeyword_6_1_1()); 
 
                     }
 
@@ -2466,7 +2466,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Alternatives_5_1
+    // $ANTLR end rule__ContentForm__Alternatives_6_1
 
 
     // $ANTLR start rule__CompoundDialogue__Alternatives
@@ -2686,14 +2686,14 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__CompoundDialogue__Alternatives_0_5_1
 
 
-    // $ANTLR start rule__CollectionDialogue__Alternatives_5_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:931:1: rule__CollectionDialogue__Alternatives_5_1 : ( ( ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) );
-    public final void rule__CollectionDialogue__Alternatives_5_1() throws RecognitionException {
+    // $ANTLR start rule__CollectionDialogue__Alternatives_6_1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:931:1: rule__CollectionDialogue__Alternatives_6_1 : ( ( ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 ) ) | ( 'false' ) );
+    public final void rule__CollectionDialogue__Alternatives_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:935:1: ( ( ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:935:1: ( ( ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 ) ) | ( 'false' ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2705,29 +2705,29 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("931:1: rule__CollectionDialogue__Alternatives_5_1 : ( ( ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) );", 7, 0, input);
+                    new NoViableAltException("931:1: rule__CollectionDialogue__Alternatives_6_1 : ( ( ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 ) ) | ( 'false' ) );", 7, 0, input);
 
                 throw nvae;
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:936:1: ( ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 ) )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:936:1: ( ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 ) )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:936:1: ( ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 ) )
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:937:1: ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:936:1: ( ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 ) )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:937:1: ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 )
                     {
-                     before(grammarAccess.getCollectionDialogueAccess().getReadonlyAssignment_5_1_0()); 
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:938:1: ( rule__CollectionDialogue__ReadonlyAssignment_5_1_0 )
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:938:2: rule__CollectionDialogue__ReadonlyAssignment_5_1_0
+                     before(grammarAccess.getCollectionDialogueAccess().getReadonlyAssignment_6_1_0()); 
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:938:1: ( rule__CollectionDialogue__ReadonlyAssignment_6_1_0 )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:938:2: rule__CollectionDialogue__ReadonlyAssignment_6_1_0
                     {
-                    pushFollow(FOLLOW_rule__CollectionDialogue__ReadonlyAssignment_5_1_0_in_rule__CollectionDialogue__Alternatives_5_12009);
-                    rule__CollectionDialogue__ReadonlyAssignment_5_1_0();
+                    pushFollow(FOLLOW_rule__CollectionDialogue__ReadonlyAssignment_6_1_0_in_rule__CollectionDialogue__Alternatives_6_12009);
+                    rule__CollectionDialogue__ReadonlyAssignment_6_1_0();
                     _fsp--;
 
 
                     }
 
-                     after(grammarAccess.getCollectionDialogueAccess().getReadonlyAssignment_5_1_0()); 
+                     after(grammarAccess.getCollectionDialogueAccess().getReadonlyAssignment_6_1_0()); 
 
                     }
 
@@ -2740,9 +2740,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:942:6: ( 'false' )
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:943:1: 'false'
                     {
-                     before(grammarAccess.getCollectionDialogueAccess().getFalseKeyword_5_1_1()); 
-                    match(input,11,FOLLOW_11_in_rule__CollectionDialogue__Alternatives_5_12028); 
-                     after(grammarAccess.getCollectionDialogueAccess().getFalseKeyword_5_1_1()); 
+                     before(grammarAccess.getCollectionDialogueAccess().getFalseKeyword_6_1_1()); 
+                    match(input,11,FOLLOW_11_in_rule__CollectionDialogue__Alternatives_6_12028); 
+                     after(grammarAccess.getCollectionDialogueAccess().getFalseKeyword_6_1_1()); 
 
                     }
 
@@ -2763,7 +2763,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__CollectionDialogue__Alternatives_5_1
+    // $ANTLR end rule__CollectionDialogue__Alternatives_6_1
 
 
     // $ANTLR start rule__MasterDetail__Alternatives_5_1
@@ -2860,11 +2860,11 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 {
                 int LA9_1 = input.LA(2);
 
-                if ( (LA9_1==28) ) {
-                    alt9=1;
-                }
-                else if ( (LA9_1==30) ) {
+                if ( (LA9_1==30) ) {
                     alt9=2;
+                }
+                else if ( (LA9_1==28) ) {
+                    alt9=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2945,14 +2945,14 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__Process__Alternatives
 
 
-    // $ANTLR start rule__FormElement__Alternatives_4_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1001:1: rule__FormElement__Alternatives_4_1 : ( ( ( rule__FormElement__ReadonlyAssignment_4_1_0 ) ) | ( 'false' ) );
-    public final void rule__FormElement__Alternatives_4_1() throws RecognitionException {
+    // $ANTLR start rule__FormElement__Alternatives_5_1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1001:1: rule__FormElement__Alternatives_5_1 : ( ( ( rule__FormElement__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) );
+    public final void rule__FormElement__Alternatives_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1005:1: ( ( ( rule__FormElement__ReadonlyAssignment_4_1_0 ) ) | ( 'false' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1005:1: ( ( ( rule__FormElement__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2964,29 +2964,29 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1001:1: rule__FormElement__Alternatives_4_1 : ( ( ( rule__FormElement__ReadonlyAssignment_4_1_0 ) ) | ( 'false' ) );", 10, 0, input);
+                    new NoViableAltException("1001:1: rule__FormElement__Alternatives_5_1 : ( ( ( rule__FormElement__ReadonlyAssignment_5_1_0 ) ) | ( 'false' ) );", 10, 0, input);
 
                 throw nvae;
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1006:1: ( ( rule__FormElement__ReadonlyAssignment_4_1_0 ) )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1006:1: ( ( rule__FormElement__ReadonlyAssignment_5_1_0 ) )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1006:1: ( ( rule__FormElement__ReadonlyAssignment_4_1_0 ) )
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1007:1: ( rule__FormElement__ReadonlyAssignment_4_1_0 )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1006:1: ( ( rule__FormElement__ReadonlyAssignment_5_1_0 ) )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1007:1: ( rule__FormElement__ReadonlyAssignment_5_1_0 )
                     {
-                     before(grammarAccess.getFormElementAccess().getReadonlyAssignment_4_1_0()); 
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1008:1: ( rule__FormElement__ReadonlyAssignment_4_1_0 )
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1008:2: rule__FormElement__ReadonlyAssignment_4_1_0
+                     before(grammarAccess.getFormElementAccess().getReadonlyAssignment_5_1_0()); 
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1008:1: ( rule__FormElement__ReadonlyAssignment_5_1_0 )
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1008:2: rule__FormElement__ReadonlyAssignment_5_1_0
                     {
-                    pushFollow(FOLLOW_rule__FormElement__ReadonlyAssignment_4_1_0_in_rule__FormElement__Alternatives_4_12164);
-                    rule__FormElement__ReadonlyAssignment_4_1_0();
+                    pushFollow(FOLLOW_rule__FormElement__ReadonlyAssignment_5_1_0_in_rule__FormElement__Alternatives_5_12164);
+                    rule__FormElement__ReadonlyAssignment_5_1_0();
                     _fsp--;
 
 
                     }
 
-                     after(grammarAccess.getFormElementAccess().getReadonlyAssignment_4_1_0()); 
+                     after(grammarAccess.getFormElementAccess().getReadonlyAssignment_5_1_0()); 
 
                     }
 
@@ -2999,9 +2999,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1012:6: ( 'false' )
                     // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1013:1: 'false'
                     {
-                     before(grammarAccess.getFormElementAccess().getFalseKeyword_4_1_1()); 
-                    match(input,11,FOLLOW_11_in_rule__FormElement__Alternatives_4_12183); 
-                     after(grammarAccess.getFormElementAccess().getFalseKeyword_4_1_1()); 
+                     before(grammarAccess.getFormElementAccess().getFalseKeyword_5_1_1()); 
+                    match(input,11,FOLLOW_11_in_rule__FormElement__Alternatives_5_12183); 
+                     after(grammarAccess.getFormElementAccess().getFalseKeyword_5_1_1()); 
 
                     }
 
@@ -3022,7 +3022,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__FormElement__Alternatives_4_1
+    // $ANTLR end rule__FormElement__Alternatives_5_1
 
 
     // $ANTLR start rule__DialogueCall__Alternatives_0
@@ -3193,11 +3193,11 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 {
                 int LA13_1 = input.LA(2);
 
-                if ( (LA13_1==37) ) {
-                    alt13=2;
-                }
-                else if ( (LA13_1==36) ) {
+                if ( (LA13_1==36) ) {
                     alt13=1;
+                }
+                else if ( (LA13_1==37) ) {
+                    alt13=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -3429,21 +3429,21 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__PresentationModel__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1133:1: rule__PresentationModel__Group__1 : ( 'PresentationModel' ) rule__PresentationModel__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1133:1: rule__PresentationModel__Group__1 : ( 'presentation' ) rule__PresentationModel__Group__2 ;
     public final void rule__PresentationModel__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1137:1: ( ( 'PresentationModel' ) rule__PresentationModel__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1138:1: ( 'PresentationModel' ) rule__PresentationModel__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1137:1: ( ( 'presentation' ) rule__PresentationModel__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1138:1: ( 'presentation' ) rule__PresentationModel__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1138:1: ( 'PresentationModel' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1139:1: 'PresentationModel'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1138:1: ( 'presentation' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1139:1: 'presentation'
             {
-             before(grammarAccess.getPresentationModelAccess().getPresentationModelKeyword_1()); 
+             before(grammarAccess.getPresentationModelAccess().getPresentationKeyword_1()); 
             match(input,12,FOLLOW_12_in_rule__PresentationModel__Group__12456); 
-             after(grammarAccess.getPresentationModelAccess().getPresentationModelKeyword_1()); 
+             after(grammarAccess.getPresentationModelAccess().getPresentationKeyword_1()); 
 
             }
 
@@ -3520,52 +3520,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__PresentationModel__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1171:1: rule__PresentationModel__Group__3 : ( ( rule__PresentationModel__ExternalReferencesAssignment_3 )* ) rule__PresentationModel__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1171:1: rule__PresentationModel__Group__3 : ( ';' ) rule__PresentationModel__Group__4 ;
     public final void rule__PresentationModel__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1175:1: ( ( ( rule__PresentationModel__ExternalReferencesAssignment_3 )* ) rule__PresentationModel__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1176:1: ( ( rule__PresentationModel__ExternalReferencesAssignment_3 )* ) rule__PresentationModel__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1175:1: ( ( ';' ) rule__PresentationModel__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1176:1: ( ';' ) rule__PresentationModel__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1176:1: ( ( rule__PresentationModel__ExternalReferencesAssignment_3 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1177:1: ( rule__PresentationModel__ExternalReferencesAssignment_3 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1176:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1177:1: ';'
             {
-             before(grammarAccess.getPresentationModelAccess().getExternalReferencesAssignment_3()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1178:1: ( rule__PresentationModel__ExternalReferencesAssignment_3 )*
-            loop16:
-            do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
-
-                if ( (LA16_0==13) ) {
-                    alt16=1;
-                }
-
-
-                switch (alt16) {
-            	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1178:2: rule__PresentationModel__ExternalReferencesAssignment_3
-            	    {
-            	    pushFollow(FOLLOW_rule__PresentationModel__ExternalReferencesAssignment_3_in_rule__PresentationModel__Group__32531);
-            	    rule__PresentationModel__ExternalReferencesAssignment_3();
-            	    _fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop16;
-                }
-            } while (true);
-
-             after(grammarAccess.getPresentationModelAccess().getExternalReferencesAssignment_3()); 
+             before(grammarAccess.getPresentationModelAccess().getSemicolonKeyword_3()); 
+            match(input,13,FOLLOW_13_in_rule__PresentationModel__Group__32532); 
+             after(grammarAccess.getPresentationModelAccess().getSemicolonKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__PresentationModel__Group__4_in_rule__PresentationModel__Group__32541);
+            pushFollow(FOLLOW_rule__PresentationModel__Group__4_in_rule__PresentationModel__Group__32542);
             rule__PresentationModel__Group__4();
             _fsp--;
 
@@ -3588,36 +3561,36 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__PresentationModel__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1189:1: rule__PresentationModel__Group__4 : ( ( rule__PresentationModel__ElementsAssignment_4 )* ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1191:1: rule__PresentationModel__Group__4 : ( ( rule__PresentationModel__ExternalReferencesAssignment_4 )* ) rule__PresentationModel__Group__5 ;
     public final void rule__PresentationModel__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1193:1: ( ( ( rule__PresentationModel__ElementsAssignment_4 )* ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1194:1: ( ( rule__PresentationModel__ElementsAssignment_4 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1195:1: ( ( ( rule__PresentationModel__ExternalReferencesAssignment_4 )* ) rule__PresentationModel__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1196:1: ( ( rule__PresentationModel__ExternalReferencesAssignment_4 )* ) rule__PresentationModel__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1194:1: ( ( rule__PresentationModel__ElementsAssignment_4 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1195:1: ( rule__PresentationModel__ElementsAssignment_4 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1196:1: ( ( rule__PresentationModel__ExternalReferencesAssignment_4 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1197:1: ( rule__PresentationModel__ExternalReferencesAssignment_4 )*
             {
-             before(grammarAccess.getPresentationModelAccess().getElementsAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1196:1: ( rule__PresentationModel__ElementsAssignment_4 )*
-            loop17:
+             before(grammarAccess.getPresentationModelAccess().getExternalReferencesAssignment_4()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1198:1: ( rule__PresentationModel__ExternalReferencesAssignment_4 )*
+            loop16:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA17_0==RULE_STRING||LA17_0==15||LA17_0==22||(LA17_0>=24 && LA17_0<=25)||LA17_0==28||LA17_0==30||(LA17_0>=36 && LA17_0<=37)) ) {
-                    alt17=1;
+                if ( (LA16_0==14) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt16) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1196:2: rule__PresentationModel__ElementsAssignment_4
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1198:2: rule__PresentationModel__ExternalReferencesAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__PresentationModel__ElementsAssignment_4_in_rule__PresentationModel__Group__42569);
-            	    rule__PresentationModel__ElementsAssignment_4();
+            	    pushFollow(FOLLOW_rule__PresentationModel__ExternalReferencesAssignment_4_in_rule__PresentationModel__Group__42570);
+            	    rule__PresentationModel__ExternalReferencesAssignment_4();
             	    _fsp--;
 
 
@@ -3625,13 +3598,17 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop16;
                 }
             } while (true);
 
-             after(grammarAccess.getPresentationModelAccess().getElementsAssignment_4()); 
+             after(grammarAccess.getPresentationModelAccess().getExternalReferencesAssignment_4()); 
 
             }
+
+            pushFollow(FOLLOW_rule__PresentationModel__Group__5_in_rule__PresentationModel__Group__42580);
+            rule__PresentationModel__Group__5();
+            _fsp--;
 
 
             }
@@ -3651,26 +3628,90 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__PresentationModel__Group__4
 
 
+    // $ANTLR start rule__PresentationModel__Group__5
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1209:1: rule__PresentationModel__Group__5 : ( ( rule__PresentationModel__ElementsAssignment_5 )* ) ;
+    public final void rule__PresentationModel__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1213:1: ( ( ( rule__PresentationModel__ElementsAssignment_5 )* ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1214:1: ( ( rule__PresentationModel__ElementsAssignment_5 )* )
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1214:1: ( ( rule__PresentationModel__ElementsAssignment_5 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1215:1: ( rule__PresentationModel__ElementsAssignment_5 )*
+            {
+             before(grammarAccess.getPresentationModelAccess().getElementsAssignment_5()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1216:1: ( rule__PresentationModel__ElementsAssignment_5 )*
+            loop17:
+            do {
+                int alt17=2;
+                int LA17_0 = input.LA(1);
+
+                if ( (LA17_0==RULE_STRING||LA17_0==16||LA17_0==22||(LA17_0>=24 && LA17_0<=25)||LA17_0==28||LA17_0==30||(LA17_0>=36 && LA17_0<=37)) ) {
+                    alt17=1;
+                }
+
+
+                switch (alt17) {
+            	case 1 :
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1216:2: rule__PresentationModel__ElementsAssignment_5
+            	    {
+            	    pushFollow(FOLLOW_rule__PresentationModel__ElementsAssignment_5_in_rule__PresentationModel__Group__52608);
+            	    rule__PresentationModel__ElementsAssignment_5();
+            	    _fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop17;
+                }
+            } while (true);
+
+             after(grammarAccess.getPresentationModelAccess().getElementsAssignment_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__PresentationModel__Group__5
+
+
     // $ANTLR start rule__ExternalReference__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1216:1: rule__ExternalReference__Group__0 : ( 'from' ) rule__ExternalReference__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1238:1: rule__ExternalReference__Group__0 : ( 'from' ) rule__ExternalReference__Group__1 ;
     public final void rule__ExternalReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1220:1: ( ( 'from' ) rule__ExternalReference__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1221:1: ( 'from' ) rule__ExternalReference__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1242:1: ( ( 'from' ) rule__ExternalReference__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1243:1: ( 'from' ) rule__ExternalReference__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1221:1: ( 'from' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1222:1: 'from'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1243:1: ( 'from' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1244:1: 'from'
             {
              before(grammarAccess.getExternalReferenceAccess().getFromKeyword_0()); 
-            match(input,13,FOLLOW_13_in_rule__ExternalReference__Group__02615); 
+            match(input,14,FOLLOW_14_in_rule__ExternalReference__Group__02656); 
              after(grammarAccess.getExternalReferenceAccess().getFromKeyword_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ExternalReference__Group__1_in_rule__ExternalReference__Group__02625);
+            pushFollow(FOLLOW_rule__ExternalReference__Group__1_in_rule__ExternalReference__Group__02666);
             rule__ExternalReference__Group__1();
             _fsp--;
 
@@ -3693,23 +3734,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1236:1: rule__ExternalReference__Group__1 : ( ( rule__ExternalReference__ModelNameAssignment_1 ) ) rule__ExternalReference__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1258:1: rule__ExternalReference__Group__1 : ( ( rule__ExternalReference__ModelNameAssignment_1 ) ) rule__ExternalReference__Group__2 ;
     public final void rule__ExternalReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1240:1: ( ( ( rule__ExternalReference__ModelNameAssignment_1 ) ) rule__ExternalReference__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1241:1: ( ( rule__ExternalReference__ModelNameAssignment_1 ) ) rule__ExternalReference__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1262:1: ( ( ( rule__ExternalReference__ModelNameAssignment_1 ) ) rule__ExternalReference__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1263:1: ( ( rule__ExternalReference__ModelNameAssignment_1 ) ) rule__ExternalReference__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1241:1: ( ( rule__ExternalReference__ModelNameAssignment_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1242:1: ( rule__ExternalReference__ModelNameAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1263:1: ( ( rule__ExternalReference__ModelNameAssignment_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1264:1: ( rule__ExternalReference__ModelNameAssignment_1 )
             {
              before(grammarAccess.getExternalReferenceAccess().getModelNameAssignment_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1243:1: ( rule__ExternalReference__ModelNameAssignment_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1243:2: rule__ExternalReference__ModelNameAssignment_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1265:1: ( rule__ExternalReference__ModelNameAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1265:2: rule__ExternalReference__ModelNameAssignment_1
             {
-            pushFollow(FOLLOW_rule__ExternalReference__ModelNameAssignment_1_in_rule__ExternalReference__Group__12653);
+            pushFollow(FOLLOW_rule__ExternalReference__ModelNameAssignment_1_in_rule__ExternalReference__Group__12694);
             rule__ExternalReference__ModelNameAssignment_1();
             _fsp--;
 
@@ -3720,7 +3761,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__ExternalReference__Group__2_in_rule__ExternalReference__Group__12662);
+            pushFollow(FOLLOW_rule__ExternalReference__Group__2_in_rule__ExternalReference__Group__12703);
             rule__ExternalReference__Group__2();
             _fsp--;
 
@@ -3743,25 +3784,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1254:1: rule__ExternalReference__Group__2 : ( 'import' ) rule__ExternalReference__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1276:1: rule__ExternalReference__Group__2 : ( 'import' ) rule__ExternalReference__Group__3 ;
     public final void rule__ExternalReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1258:1: ( ( 'import' ) rule__ExternalReference__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1259:1: ( 'import' ) rule__ExternalReference__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1280:1: ( ( 'import' ) rule__ExternalReference__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1281:1: ( 'import' ) rule__ExternalReference__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1259:1: ( 'import' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1260:1: 'import'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1281:1: ( 'import' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1282:1: 'import'
             {
              before(grammarAccess.getExternalReferenceAccess().getImportKeyword_2()); 
-            match(input,14,FOLLOW_14_in_rule__ExternalReference__Group__22691); 
+            match(input,15,FOLLOW_15_in_rule__ExternalReference__Group__22732); 
              after(grammarAccess.getExternalReferenceAccess().getImportKeyword_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ExternalReference__Group__3_in_rule__ExternalReference__Group__22701);
+            pushFollow(FOLLOW_rule__ExternalReference__Group__3_in_rule__ExternalReference__Group__22742);
             rule__ExternalReference__Group__3();
             _fsp--;
 
@@ -3784,23 +3825,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1274:1: rule__ExternalReference__Group__3 : ( ( rule__ExternalReference__NameAssignment_3 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1296:1: rule__ExternalReference__Group__3 : ( ( rule__ExternalReference__NameAssignment_3 ) ) rule__ExternalReference__Group__4 ;
     public final void rule__ExternalReference__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1278:1: ( ( ( rule__ExternalReference__NameAssignment_3 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1279:1: ( ( rule__ExternalReference__NameAssignment_3 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1300:1: ( ( ( rule__ExternalReference__NameAssignment_3 ) ) rule__ExternalReference__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1301:1: ( ( rule__ExternalReference__NameAssignment_3 ) ) rule__ExternalReference__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1279:1: ( ( rule__ExternalReference__NameAssignment_3 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1280:1: ( rule__ExternalReference__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1301:1: ( ( rule__ExternalReference__NameAssignment_3 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1302:1: ( rule__ExternalReference__NameAssignment_3 )
             {
              before(grammarAccess.getExternalReferenceAccess().getNameAssignment_3()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1281:1: ( rule__ExternalReference__NameAssignment_3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1281:2: rule__ExternalReference__NameAssignment_3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1303:1: ( rule__ExternalReference__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1303:2: rule__ExternalReference__NameAssignment_3
             {
-            pushFollow(FOLLOW_rule__ExternalReference__NameAssignment_3_in_rule__ExternalReference__Group__32729);
+            pushFollow(FOLLOW_rule__ExternalReference__NameAssignment_3_in_rule__ExternalReference__Group__32770);
             rule__ExternalReference__NameAssignment_3();
             _fsp--;
 
@@ -3810,6 +3851,10 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
              after(grammarAccess.getExternalReferenceAccess().getNameAssignment_3()); 
 
             }
+
+            pushFollow(FOLLOW_rule__ExternalReference__Group__4_in_rule__ExternalReference__Group__32779);
+            rule__ExternalReference__Group__4();
+            _fsp--;
 
 
             }
@@ -3829,21 +3874,58 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__ExternalReference__Group__3
 
 
+    // $ANTLR start rule__ExternalReference__Group__4
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1314:1: rule__ExternalReference__Group__4 : ( ';' ) ;
+    public final void rule__ExternalReference__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1318:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1319:1: ( ';' )
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1319:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1320:1: ';'
+            {
+             before(grammarAccess.getExternalReferenceAccess().getSemicolonKeyword_4()); 
+            match(input,13,FOLLOW_13_in_rule__ExternalReference__Group__42808); 
+             after(grammarAccess.getExternalReferenceAccess().getSemicolonKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__ExternalReference__Group__4
+
+
     // $ANTLR start rule__ContentForm__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1299:1: rule__ContentForm__Group__0 : ( ( rule__ContentForm__DescriptionAssignment_0 )? ) rule__ContentForm__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1343:1: rule__ContentForm__Group__0 : ( ( rule__ContentForm__DescriptionAssignment_0 )? ) rule__ContentForm__Group__1 ;
     public final void rule__ContentForm__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1303:1: ( ( ( rule__ContentForm__DescriptionAssignment_0 )? ) rule__ContentForm__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1304:1: ( ( rule__ContentForm__DescriptionAssignment_0 )? ) rule__ContentForm__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1347:1: ( ( ( rule__ContentForm__DescriptionAssignment_0 )? ) rule__ContentForm__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1348:1: ( ( rule__ContentForm__DescriptionAssignment_0 )? ) rule__ContentForm__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1304:1: ( ( rule__ContentForm__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1305:1: ( rule__ContentForm__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1348:1: ( ( rule__ContentForm__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1349:1: ( rule__ContentForm__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getContentFormAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1306:1: ( rule__ContentForm__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1350:1: ( rule__ContentForm__DescriptionAssignment_0 )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -3852,9 +3934,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt18) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1306:2: rule__ContentForm__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1350:2: rule__ContentForm__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__ContentForm__DescriptionAssignment_0_in_rule__ContentForm__Group__02771);
+                    pushFollow(FOLLOW_rule__ContentForm__DescriptionAssignment_0_in_rule__ContentForm__Group__02853);
                     rule__ContentForm__DescriptionAssignment_0();
                     _fsp--;
 
@@ -3868,7 +3950,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group__1_in_rule__ContentForm__Group__02781);
+            pushFollow(FOLLOW_rule__ContentForm__Group__1_in_rule__ContentForm__Group__02863);
             rule__ContentForm__Group__1();
             _fsp--;
 
@@ -3891,25 +3973,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1317:1: rule__ContentForm__Group__1 : ( 'ContentForm' ) rule__ContentForm__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1361:1: rule__ContentForm__Group__1 : ( 'ContentForm' ) rule__ContentForm__Group__2 ;
     public final void rule__ContentForm__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1321:1: ( ( 'ContentForm' ) rule__ContentForm__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1322:1: ( 'ContentForm' ) rule__ContentForm__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1365:1: ( ( 'ContentForm' ) rule__ContentForm__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1366:1: ( 'ContentForm' ) rule__ContentForm__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1322:1: ( 'ContentForm' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1323:1: 'ContentForm'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1366:1: ( 'ContentForm' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1367:1: 'ContentForm'
             {
              before(grammarAccess.getContentFormAccess().getContentFormKeyword_1()); 
-            match(input,15,FOLLOW_15_in_rule__ContentForm__Group__12810); 
+            match(input,16,FOLLOW_16_in_rule__ContentForm__Group__12892); 
              after(grammarAccess.getContentFormAccess().getContentFormKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group__2_in_rule__ContentForm__Group__12820);
+            pushFollow(FOLLOW_rule__ContentForm__Group__2_in_rule__ContentForm__Group__12902);
             rule__ContentForm__Group__2();
             _fsp--;
 
@@ -3932,23 +4014,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1337:1: rule__ContentForm__Group__2 : ( ( rule__ContentForm__NameAssignment_2 ) ) rule__ContentForm__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1381:1: rule__ContentForm__Group__2 : ( ( rule__ContentForm__NameAssignment_2 ) ) rule__ContentForm__Group__3 ;
     public final void rule__ContentForm__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1341:1: ( ( ( rule__ContentForm__NameAssignment_2 ) ) rule__ContentForm__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1342:1: ( ( rule__ContentForm__NameAssignment_2 ) ) rule__ContentForm__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1385:1: ( ( ( rule__ContentForm__NameAssignment_2 ) ) rule__ContentForm__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1386:1: ( ( rule__ContentForm__NameAssignment_2 ) ) rule__ContentForm__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1342:1: ( ( rule__ContentForm__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1343:1: ( rule__ContentForm__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1386:1: ( ( rule__ContentForm__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1387:1: ( rule__ContentForm__NameAssignment_2 )
             {
              before(grammarAccess.getContentFormAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1344:1: ( rule__ContentForm__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1344:2: rule__ContentForm__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1388:1: ( rule__ContentForm__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1388:2: rule__ContentForm__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__ContentForm__NameAssignment_2_in_rule__ContentForm__Group__22848);
+            pushFollow(FOLLOW_rule__ContentForm__NameAssignment_2_in_rule__ContentForm__Group__22930);
             rule__ContentForm__NameAssignment_2();
             _fsp--;
 
@@ -3959,7 +4041,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group__3_in_rule__ContentForm__Group__22857);
+            pushFollow(FOLLOW_rule__ContentForm__Group__3_in_rule__ContentForm__Group__22939);
             rule__ContentForm__Group__3();
             _fsp--;
 
@@ -3982,25 +4064,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1355:1: rule__ContentForm__Group__3 : ( 'using' ) rule__ContentForm__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1399:1: rule__ContentForm__Group__3 : ( 'context' ) rule__ContentForm__Group__4 ;
     public final void rule__ContentForm__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1359:1: ( ( 'using' ) rule__ContentForm__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1360:1: ( 'using' ) rule__ContentForm__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1403:1: ( ( 'context' ) rule__ContentForm__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1404:1: ( 'context' ) rule__ContentForm__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1360:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1361:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1404:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1405:1: 'context'
             {
-             before(grammarAccess.getContentFormAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__ContentForm__Group__32886); 
-             after(grammarAccess.getContentFormAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getContentFormAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__ContentForm__Group__32968); 
+             after(grammarAccess.getContentFormAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group__4_in_rule__ContentForm__Group__32896);
+            pushFollow(FOLLOW_rule__ContentForm__Group__4_in_rule__ContentForm__Group__32978);
             rule__ContentForm__Group__4();
             _fsp--;
 
@@ -4023,23 +4105,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1375:1: rule__ContentForm__Group__4 : ( ( rule__ContentForm__ContextRefAssignment_4 ) ) rule__ContentForm__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1419:1: rule__ContentForm__Group__4 : ( ( rule__ContentForm__ContextRefAssignment_4 ) ) rule__ContentForm__Group__5 ;
     public final void rule__ContentForm__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1379:1: ( ( ( rule__ContentForm__ContextRefAssignment_4 ) ) rule__ContentForm__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1380:1: ( ( rule__ContentForm__ContextRefAssignment_4 ) ) rule__ContentForm__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1423:1: ( ( ( rule__ContentForm__ContextRefAssignment_4 ) ) rule__ContentForm__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1424:1: ( ( rule__ContentForm__ContextRefAssignment_4 ) ) rule__ContentForm__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1380:1: ( ( rule__ContentForm__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1381:1: ( rule__ContentForm__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1424:1: ( ( rule__ContentForm__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1425:1: ( rule__ContentForm__ContextRefAssignment_4 )
             {
              before(grammarAccess.getContentFormAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1382:1: ( rule__ContentForm__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1382:2: rule__ContentForm__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1426:1: ( rule__ContentForm__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1426:2: rule__ContentForm__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__ContentForm__ContextRefAssignment_4_in_rule__ContentForm__Group__42924);
+            pushFollow(FOLLOW_rule__ContentForm__ContextRefAssignment_4_in_rule__ContentForm__Group__43006);
             rule__ContentForm__ContextRefAssignment_4();
             _fsp--;
 
@@ -4050,7 +4132,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group__5_in_rule__ContentForm__Group__42933);
+            pushFollow(FOLLOW_rule__ContentForm__Group__5_in_rule__ContentForm__Group__43015);
             rule__ContentForm__Group__5();
             _fsp--;
 
@@ -4073,45 +4155,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1393:1: rule__ContentForm__Group__5 : ( ( rule__ContentForm__Group_5__0 )? ) rule__ContentForm__Group__6 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1437:1: rule__ContentForm__Group__5 : ( '[' ) rule__ContentForm__Group__6 ;
     public final void rule__ContentForm__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1397:1: ( ( ( rule__ContentForm__Group_5__0 )? ) rule__ContentForm__Group__6 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1398:1: ( ( rule__ContentForm__Group_5__0 )? ) rule__ContentForm__Group__6
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1441:1: ( ( '[' ) rule__ContentForm__Group__6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1442:1: ( '[' ) rule__ContentForm__Group__6
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1398:1: ( ( rule__ContentForm__Group_5__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1399:1: ( rule__ContentForm__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1442:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1443:1: '['
             {
-             before(grammarAccess.getContentFormAccess().getGroup_5()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1400:1: ( rule__ContentForm__Group_5__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
-
-            if ( (LA19_0==17) ) {
-                alt19=1;
-            }
-            switch (alt19) {
-                case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1400:2: rule__ContentForm__Group_5__0
-                    {
-                    pushFollow(FOLLOW_rule__ContentForm__Group_5__0_in_rule__ContentForm__Group__52961);
-                    rule__ContentForm__Group_5__0();
-                    _fsp--;
-
-
-                    }
-                    break;
+             before(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_5()); 
+            match(input,18,FOLLOW_18_in_rule__ContentForm__Group__53044); 
+             after(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_5()); 
 
             }
 
-             after(grammarAccess.getContentFormAccess().getGroup_5()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__ContentForm__Group__6_in_rule__ContentForm__Group__52971);
+            pushFollow(FOLLOW_rule__ContentForm__Group__6_in_rule__ContentForm__Group__53054);
             rule__ContentForm__Group__6();
             _fsp--;
 
@@ -4134,52 +4196,45 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1411:1: rule__ContentForm__Group__6 : ( ( rule__ContentForm__FormElementsAssignment_6 )* ) rule__ContentForm__Group__7 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1457:1: rule__ContentForm__Group__6 : ( ( rule__ContentForm__Group_6__0 )? ) rule__ContentForm__Group__7 ;
     public final void rule__ContentForm__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1415:1: ( ( ( rule__ContentForm__FormElementsAssignment_6 )* ) rule__ContentForm__Group__7 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1416:1: ( ( rule__ContentForm__FormElementsAssignment_6 )* ) rule__ContentForm__Group__7
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1461:1: ( ( ( rule__ContentForm__Group_6__0 )? ) rule__ContentForm__Group__7 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1462:1: ( ( rule__ContentForm__Group_6__0 )? ) rule__ContentForm__Group__7
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1416:1: ( ( rule__ContentForm__FormElementsAssignment_6 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1417:1: ( rule__ContentForm__FormElementsAssignment_6 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1462:1: ( ( rule__ContentForm__Group_6__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1463:1: ( rule__ContentForm__Group_6__0 )?
             {
-             before(grammarAccess.getContentFormAccess().getFormElementsAssignment_6()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1418:1: ( rule__ContentForm__FormElementsAssignment_6 )*
-            loop20:
-            do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+             before(grammarAccess.getContentFormAccess().getGroup_6()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1464:1: ( rule__ContentForm__Group_6__0 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-                if ( (LA20_0==31) ) {
-                    alt20=1;
-                }
-
-
-                switch (alt20) {
-            	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1418:2: rule__ContentForm__FormElementsAssignment_6
-            	    {
-            	    pushFollow(FOLLOW_rule__ContentForm__FormElementsAssignment_6_in_rule__ContentForm__Group__62999);
-            	    rule__ContentForm__FormElementsAssignment_6();
-            	    _fsp--;
+            if ( (LA19_0==20) ) {
+                alt19=1;
+            }
+            switch (alt19) {
+                case 1 :
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1464:2: rule__ContentForm__Group_6__0
+                    {
+                    pushFollow(FOLLOW_rule__ContentForm__Group_6__0_in_rule__ContentForm__Group__63082);
+                    rule__ContentForm__Group_6__0();
+                    _fsp--;
 
 
-            	    }
-            	    break;
-
-            	default :
-            	    break loop20;
-                }
-            } while (true);
-
-             after(grammarAccess.getContentFormAccess().getFormElementsAssignment_6()); 
+                    }
+                    break;
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group__7_in_rule__ContentForm__Group__63009);
+             after(grammarAccess.getContentFormAccess().getGroup_6()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__ContentForm__Group__7_in_rule__ContentForm__Group__63092);
             rule__ContentForm__Group__7();
             _fsp--;
 
@@ -4202,43 +4257,54 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__Group__7
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1429:1: rule__ContentForm__Group__7 : ( ( rule__ContentForm__Group_7__0 )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1475:1: rule__ContentForm__Group__7 : ( ( rule__ContentForm__FormElementsAssignment_7 )* ) rule__ContentForm__Group__8 ;
     public final void rule__ContentForm__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1433:1: ( ( ( rule__ContentForm__Group_7__0 )? ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1434:1: ( ( rule__ContentForm__Group_7__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1479:1: ( ( ( rule__ContentForm__FormElementsAssignment_7 )* ) rule__ContentForm__Group__8 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1480:1: ( ( rule__ContentForm__FormElementsAssignment_7 )* ) rule__ContentForm__Group__8
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1434:1: ( ( rule__ContentForm__Group_7__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1435:1: ( rule__ContentForm__Group_7__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1480:1: ( ( rule__ContentForm__FormElementsAssignment_7 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1481:1: ( rule__ContentForm__FormElementsAssignment_7 )*
             {
-             before(grammarAccess.getContentFormAccess().getGroup_7()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1436:1: ( rule__ContentForm__Group_7__0 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+             before(grammarAccess.getContentFormAccess().getFormElementsAssignment_7()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1482:1: ( rule__ContentForm__FormElementsAssignment_7 )*
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-            if ( (LA21_0==19) ) {
-                alt21=1;
+                if ( (LA20_0==RULE_STRING||LA20_0==31) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1482:2: rule__ContentForm__FormElementsAssignment_7
+            	    {
+            	    pushFollow(FOLLOW_rule__ContentForm__FormElementsAssignment_7_in_rule__ContentForm__Group__73120);
+            	    rule__ContentForm__FormElementsAssignment_7();
+            	    _fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
+
+             after(grammarAccess.getContentFormAccess().getFormElementsAssignment_7()); 
+
             }
-            switch (alt21) {
-                case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1436:2: rule__ContentForm__Group_7__0
-                    {
-                    pushFollow(FOLLOW_rule__ContentForm__Group_7__0_in_rule__ContentForm__Group__73037);
-                    rule__ContentForm__Group_7__0();
-                    _fsp--;
 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getContentFormAccess().getGroup_7()); 
-
-            }
+            pushFollow(FOLLOW_rule__ContentForm__Group__8_in_rule__ContentForm__Group__73130);
+            rule__ContentForm__Group__8();
+            _fsp--;
 
 
             }
@@ -4258,27 +4324,47 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__ContentForm__Group__7
 
 
-    // $ANTLR start rule__ContentForm__Group_5__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1462:1: rule__ContentForm__Group_5__0 : ( 'readonly' ) rule__ContentForm__Group_5__1 ;
-    public final void rule__ContentForm__Group_5__0() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Group__8
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1493:1: rule__ContentForm__Group__8 : ( ( rule__ContentForm__Group_8__0 )? ) rule__ContentForm__Group__9 ;
+    public final void rule__ContentForm__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1466:1: ( ( 'readonly' ) rule__ContentForm__Group_5__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1467:1: ( 'readonly' ) rule__ContentForm__Group_5__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1497:1: ( ( ( rule__ContentForm__Group_8__0 )? ) rule__ContentForm__Group__9 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1498:1: ( ( rule__ContentForm__Group_8__0 )? ) rule__ContentForm__Group__9
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1467:1: ( 'readonly' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1468:1: 'readonly'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1498:1: ( ( rule__ContentForm__Group_8__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1499:1: ( rule__ContentForm__Group_8__0 )?
             {
-             before(grammarAccess.getContentFormAccess().getReadonlyKeyword_5_0()); 
-            match(input,17,FOLLOW_17_in_rule__ContentForm__Group_5__03089); 
-             after(grammarAccess.getContentFormAccess().getReadonlyKeyword_5_0()); 
+             before(grammarAccess.getContentFormAccess().getGroup_8()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1500:1: ( rule__ContentForm__Group_8__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
+
+            if ( (LA21_0==21) ) {
+                alt21=1;
+            }
+            switch (alt21) {
+                case 1 :
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1500:2: rule__ContentForm__Group_8__0
+                    {
+                    pushFollow(FOLLOW_rule__ContentForm__Group_8__0_in_rule__ContentForm__Group__83158);
+                    rule__ContentForm__Group_8__0();
+                    _fsp--;
+
+
+                    }
+                    break;
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group_5__1_in_rule__ContentForm__Group_5__03099);
-            rule__ContentForm__Group_5__1();
+             after(grammarAccess.getContentFormAccess().getGroup_8()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__ContentForm__Group__9_in_rule__ContentForm__Group__83168);
+            rule__ContentForm__Group__9();
             _fsp--;
 
 
@@ -4296,75 +4382,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Group_5__0
+    // $ANTLR end rule__ContentForm__Group__8
 
 
-    // $ANTLR start rule__ContentForm__Group_5__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1482:1: rule__ContentForm__Group_5__1 : ( ( rule__ContentForm__Alternatives_5_1 ) ) rule__ContentForm__Group_5__2 ;
-    public final void rule__ContentForm__Group_5__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1486:1: ( ( ( rule__ContentForm__Alternatives_5_1 ) ) rule__ContentForm__Group_5__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1487:1: ( ( rule__ContentForm__Alternatives_5_1 ) ) rule__ContentForm__Group_5__2
-            {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1487:1: ( ( rule__ContentForm__Alternatives_5_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1488:1: ( rule__ContentForm__Alternatives_5_1 )
-            {
-             before(grammarAccess.getContentFormAccess().getAlternatives_5_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1489:1: ( rule__ContentForm__Alternatives_5_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1489:2: rule__ContentForm__Alternatives_5_1
-            {
-            pushFollow(FOLLOW_rule__ContentForm__Alternatives_5_1_in_rule__ContentForm__Group_5__13127);
-            rule__ContentForm__Alternatives_5_1();
-            _fsp--;
-
-
-            }
-
-             after(grammarAccess.getContentFormAccess().getAlternatives_5_1()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__ContentForm__Group_5__2_in_rule__ContentForm__Group_5__13136);
-            rule__ContentForm__Group_5__2();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__ContentForm__Group_5__1
-
-
-    // $ANTLR start rule__ContentForm__Group_5__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1500:1: rule__ContentForm__Group_5__2 : ( ';' ) ;
-    public final void rule__ContentForm__Group_5__2() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Group__9
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1511:1: rule__ContentForm__Group__9 : ( ']' ) ;
+    public final void rule__ContentForm__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1504:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1505:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1515:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1516:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1505:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1506:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1516:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1517:1: ']'
             {
-             before(grammarAccess.getContentFormAccess().getSemicolonKeyword_5_2()); 
-            match(input,18,FOLLOW_18_in_rule__ContentForm__Group_5__23165); 
-             after(grammarAccess.getContentFormAccess().getSemicolonKeyword_5_2()); 
+             before(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_9()); 
+            match(input,19,FOLLOW_19_in_rule__ContentForm__Group__93197); 
+             after(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_9()); 
 
             }
 
@@ -4383,30 +4419,30 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Group_5__2
+    // $ANTLR end rule__ContentForm__Group__9
 
 
-    // $ANTLR start rule__ContentForm__Group_7__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1525:1: rule__ContentForm__Group_7__0 : ( 'processes' ) rule__ContentForm__Group_7__1 ;
-    public final void rule__ContentForm__Group_7__0() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Group_6__0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1550:1: rule__ContentForm__Group_6__0 : ( 'readonly' ) rule__ContentForm__Group_6__1 ;
+    public final void rule__ContentForm__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1529:1: ( ( 'processes' ) rule__ContentForm__Group_7__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1530:1: ( 'processes' ) rule__ContentForm__Group_7__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1554:1: ( ( 'readonly' ) rule__ContentForm__Group_6__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1555:1: ( 'readonly' ) rule__ContentForm__Group_6__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1530:1: ( 'processes' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1531:1: 'processes'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1555:1: ( 'readonly' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1556:1: 'readonly'
             {
-             before(grammarAccess.getContentFormAccess().getProcessesKeyword_7_0()); 
-            match(input,19,FOLLOW_19_in_rule__ContentForm__Group_7__03207); 
-             after(grammarAccess.getContentFormAccess().getProcessesKeyword_7_0()); 
+             before(grammarAccess.getContentFormAccess().getReadonlyKeyword_6_0()); 
+            match(input,20,FOLLOW_20_in_rule__ContentForm__Group_6__03253); 
+             after(grammarAccess.getContentFormAccess().getReadonlyKeyword_6_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group_7__1_in_rule__ContentForm__Group_7__03217);
-            rule__ContentForm__Group_7__1();
+            pushFollow(FOLLOW_rule__ContentForm__Group_6__1_in_rule__ContentForm__Group_6__03263);
+            rule__ContentForm__Group_6__1();
             _fsp--;
 
 
@@ -4424,30 +4460,39 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Group_7__0
+    // $ANTLR end rule__ContentForm__Group_6__0
 
 
-    // $ANTLR start rule__ContentForm__Group_7__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1545:1: rule__ContentForm__Group_7__1 : ( '[' ) rule__ContentForm__Group_7__2 ;
-    public final void rule__ContentForm__Group_7__1() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Group_6__1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1570:1: rule__ContentForm__Group_6__1 : ( ( rule__ContentForm__Alternatives_6_1 ) ) rule__ContentForm__Group_6__2 ;
+    public final void rule__ContentForm__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1549:1: ( ( '[' ) rule__ContentForm__Group_7__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1550:1: ( '[' ) rule__ContentForm__Group_7__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1574:1: ( ( ( rule__ContentForm__Alternatives_6_1 ) ) rule__ContentForm__Group_6__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1575:1: ( ( rule__ContentForm__Alternatives_6_1 ) ) rule__ContentForm__Group_6__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1550:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1551:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1575:1: ( ( rule__ContentForm__Alternatives_6_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1576:1: ( rule__ContentForm__Alternatives_6_1 )
             {
-             before(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_7_1()); 
-            match(input,20,FOLLOW_20_in_rule__ContentForm__Group_7__13246); 
-             after(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_7_1()); 
+             before(grammarAccess.getContentFormAccess().getAlternatives_6_1()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1577:1: ( rule__ContentForm__Alternatives_6_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1577:2: rule__ContentForm__Alternatives_6_1
+            {
+            pushFollow(FOLLOW_rule__ContentForm__Alternatives_6_1_in_rule__ContentForm__Group_6__13291);
+            rule__ContentForm__Alternatives_6_1();
+            _fsp--;
+
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group_7__2_in_rule__ContentForm__Group_7__13256);
-            rule__ContentForm__Group_7__2();
+             after(grammarAccess.getContentFormAccess().getAlternatives_6_1()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__ContentForm__Group_6__2_in_rule__ContentForm__Group_6__13300);
+            rule__ContentForm__Group_6__2();
             _fsp--;
 
 
@@ -4465,24 +4510,143 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Group_7__1
+    // $ANTLR end rule__ContentForm__Group_6__1
 
 
-    // $ANTLR start rule__ContentForm__Group_7__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1565:1: rule__ContentForm__Group_7__2 : ( ( rule__ContentForm__ProcessesAssignment_7_2 )* ) rule__ContentForm__Group_7__3 ;
-    public final void rule__ContentForm__Group_7__2() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Group_6__2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1588:1: rule__ContentForm__Group_6__2 : ( ';' ) ;
+    public final void rule__ContentForm__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1569:1: ( ( ( rule__ContentForm__ProcessesAssignment_7_2 )* ) rule__ContentForm__Group_7__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1570:1: ( ( rule__ContentForm__ProcessesAssignment_7_2 )* ) rule__ContentForm__Group_7__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1592:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1593:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1570:1: ( ( rule__ContentForm__ProcessesAssignment_7_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1571:1: ( rule__ContentForm__ProcessesAssignment_7_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1593:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1594:1: ';'
             {
-             before(grammarAccess.getContentFormAccess().getProcessesAssignment_7_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1572:1: ( rule__ContentForm__ProcessesAssignment_7_2 )*
+             before(grammarAccess.getContentFormAccess().getSemicolonKeyword_6_2()); 
+            match(input,13,FOLLOW_13_in_rule__ContentForm__Group_6__23329); 
+             after(grammarAccess.getContentFormAccess().getSemicolonKeyword_6_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__ContentForm__Group_6__2
+
+
+    // $ANTLR start rule__ContentForm__Group_8__0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1613:1: rule__ContentForm__Group_8__0 : ( 'processes' ) rule__ContentForm__Group_8__1 ;
+    public final void rule__ContentForm__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1617:1: ( ( 'processes' ) rule__ContentForm__Group_8__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1618:1: ( 'processes' ) rule__ContentForm__Group_8__1
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1618:1: ( 'processes' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1619:1: 'processes'
+            {
+             before(grammarAccess.getContentFormAccess().getProcessesKeyword_8_0()); 
+            match(input,21,FOLLOW_21_in_rule__ContentForm__Group_8__03371); 
+             after(grammarAccess.getContentFormAccess().getProcessesKeyword_8_0()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__ContentForm__Group_8__1_in_rule__ContentForm__Group_8__03381);
+            rule__ContentForm__Group_8__1();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__ContentForm__Group_8__0
+
+
+    // $ANTLR start rule__ContentForm__Group_8__1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1633:1: rule__ContentForm__Group_8__1 : ( '[' ) rule__ContentForm__Group_8__2 ;
+    public final void rule__ContentForm__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1637:1: ( ( '[' ) rule__ContentForm__Group_8__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1638:1: ( '[' ) rule__ContentForm__Group_8__2
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1638:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1639:1: '['
+            {
+             before(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_8_1()); 
+            match(input,18,FOLLOW_18_in_rule__ContentForm__Group_8__13410); 
+             after(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_8_1()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__ContentForm__Group_8__2_in_rule__ContentForm__Group_8__13420);
+            rule__ContentForm__Group_8__2();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__ContentForm__Group_8__1
+
+
+    // $ANTLR start rule__ContentForm__Group_8__2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1653:1: rule__ContentForm__Group_8__2 : ( ( rule__ContentForm__ProcessesAssignment_8_2 )* ) rule__ContentForm__Group_8__3 ;
+    public final void rule__ContentForm__Group_8__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1657:1: ( ( ( rule__ContentForm__ProcessesAssignment_8_2 )* ) rule__ContentForm__Group_8__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1658:1: ( ( rule__ContentForm__ProcessesAssignment_8_2 )* ) rule__ContentForm__Group_8__3
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1658:1: ( ( rule__ContentForm__ProcessesAssignment_8_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1659:1: ( rule__ContentForm__ProcessesAssignment_8_2 )*
+            {
+             before(grammarAccess.getContentFormAccess().getProcessesAssignment_8_2()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1660:1: ( rule__ContentForm__ProcessesAssignment_8_2 )*
             loop22:
             do {
                 int alt22=2;
@@ -4495,10 +4659,10 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
                 switch (alt22) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1572:2: rule__ContentForm__ProcessesAssignment_7_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1660:2: rule__ContentForm__ProcessesAssignment_8_2
             	    {
-            	    pushFollow(FOLLOW_rule__ContentForm__ProcessesAssignment_7_2_in_rule__ContentForm__Group_7__23284);
-            	    rule__ContentForm__ProcessesAssignment_7_2();
+            	    pushFollow(FOLLOW_rule__ContentForm__ProcessesAssignment_8_2_in_rule__ContentForm__Group_8__23448);
+            	    rule__ContentForm__ProcessesAssignment_8_2();
             	    _fsp--;
 
 
@@ -4510,12 +4674,12 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
                 }
             } while (true);
 
-             after(grammarAccess.getContentFormAccess().getProcessesAssignment_7_2()); 
+             after(grammarAccess.getContentFormAccess().getProcessesAssignment_8_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ContentForm__Group_7__3_in_rule__ContentForm__Group_7__23294);
-            rule__ContentForm__Group_7__3();
+            pushFollow(FOLLOW_rule__ContentForm__Group_8__3_in_rule__ContentForm__Group_8__23458);
+            rule__ContentForm__Group_8__3();
             _fsp--;
 
 
@@ -4533,25 +4697,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Group_7__2
+    // $ANTLR end rule__ContentForm__Group_8__2
 
 
-    // $ANTLR start rule__ContentForm__Group_7__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1583:1: rule__ContentForm__Group_7__3 : ( ']' ) ;
-    public final void rule__ContentForm__Group_7__3() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__Group_8__3
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1671:1: rule__ContentForm__Group_8__3 : ( ']' ) ;
+    public final void rule__ContentForm__Group_8__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1587:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1588:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1675:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1676:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1588:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1589:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1676:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1677:1: ']'
             {
-             before(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_7_3()); 
-            match(input,21,FOLLOW_21_in_rule__ContentForm__Group_7__33323); 
-             after(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_7_3()); 
+             before(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_8_3()); 
+            match(input,19,FOLLOW_19_in_rule__ContentForm__Group_8__33487); 
+             after(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_8_3()); 
 
             }
 
@@ -4570,24 +4734,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__Group_7__3
+    // $ANTLR end rule__ContentForm__Group_8__3
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1610:1: rule__CompoundDialogue__Group_0__0 : ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? ) rule__CompoundDialogue__Group_0__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1698:1: rule__CompoundDialogue__Group_0__0 : ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? ) rule__CompoundDialogue__Group_0__1 ;
     public final void rule__CompoundDialogue__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1614:1: ( ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? ) rule__CompoundDialogue__Group_0__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1615:1: ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? ) rule__CompoundDialogue__Group_0__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1702:1: ( ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? ) rule__CompoundDialogue__Group_0__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1703:1: ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? ) rule__CompoundDialogue__Group_0__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1615:1: ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1616:1: ( rule__CompoundDialogue__DescriptionAssignment_0_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1703:1: ( ( rule__CompoundDialogue__DescriptionAssignment_0_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1704:1: ( rule__CompoundDialogue__DescriptionAssignment_0_0 )?
             {
              before(grammarAccess.getCompoundDialogueAccess().getDescriptionAssignment_0_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1617:1: ( rule__CompoundDialogue__DescriptionAssignment_0_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1705:1: ( rule__CompoundDialogue__DescriptionAssignment_0_0 )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -4596,9 +4760,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt23) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1617:2: rule__CompoundDialogue__DescriptionAssignment_0_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1705:2: rule__CompoundDialogue__DescriptionAssignment_0_0
                     {
-                    pushFollow(FOLLOW_rule__CompoundDialogue__DescriptionAssignment_0_0_in_rule__CompoundDialogue__Group_0__03366);
+                    pushFollow(FOLLOW_rule__CompoundDialogue__DescriptionAssignment_0_0_in_rule__CompoundDialogue__Group_0__03530);
                     rule__CompoundDialogue__DescriptionAssignment_0_0();
                     _fsp--;
 
@@ -4612,7 +4776,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__1_in_rule__CompoundDialogue__Group_0__03376);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__1_in_rule__CompoundDialogue__Group_0__03540);
             rule__CompoundDialogue__Group_0__1();
             _fsp--;
 
@@ -4635,25 +4799,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1628:1: rule__CompoundDialogue__Group_0__1 : ( 'CompoundDialogue' ) rule__CompoundDialogue__Group_0__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1716:1: rule__CompoundDialogue__Group_0__1 : ( 'CompoundDialogue' ) rule__CompoundDialogue__Group_0__2 ;
     public final void rule__CompoundDialogue__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1632:1: ( ( 'CompoundDialogue' ) rule__CompoundDialogue__Group_0__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1633:1: ( 'CompoundDialogue' ) rule__CompoundDialogue__Group_0__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1720:1: ( ( 'CompoundDialogue' ) rule__CompoundDialogue__Group_0__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1721:1: ( 'CompoundDialogue' ) rule__CompoundDialogue__Group_0__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1633:1: ( 'CompoundDialogue' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1634:1: 'CompoundDialogue'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1721:1: ( 'CompoundDialogue' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1722:1: 'CompoundDialogue'
             {
              before(grammarAccess.getCompoundDialogueAccess().getCompoundDialogueKeyword_0_1()); 
-            match(input,22,FOLLOW_22_in_rule__CompoundDialogue__Group_0__13405); 
+            match(input,22,FOLLOW_22_in_rule__CompoundDialogue__Group_0__13569); 
              after(grammarAccess.getCompoundDialogueAccess().getCompoundDialogueKeyword_0_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__2_in_rule__CompoundDialogue__Group_0__13415);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__2_in_rule__CompoundDialogue__Group_0__13579);
             rule__CompoundDialogue__Group_0__2();
             _fsp--;
 
@@ -4676,23 +4840,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1648:1: rule__CompoundDialogue__Group_0__2 : ( ( rule__CompoundDialogue__NameAssignment_0_2 ) ) rule__CompoundDialogue__Group_0__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1736:1: rule__CompoundDialogue__Group_0__2 : ( ( rule__CompoundDialogue__NameAssignment_0_2 ) ) rule__CompoundDialogue__Group_0__3 ;
     public final void rule__CompoundDialogue__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1652:1: ( ( ( rule__CompoundDialogue__NameAssignment_0_2 ) ) rule__CompoundDialogue__Group_0__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1653:1: ( ( rule__CompoundDialogue__NameAssignment_0_2 ) ) rule__CompoundDialogue__Group_0__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1740:1: ( ( ( rule__CompoundDialogue__NameAssignment_0_2 ) ) rule__CompoundDialogue__Group_0__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1741:1: ( ( rule__CompoundDialogue__NameAssignment_0_2 ) ) rule__CompoundDialogue__Group_0__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1653:1: ( ( rule__CompoundDialogue__NameAssignment_0_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1654:1: ( rule__CompoundDialogue__NameAssignment_0_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1741:1: ( ( rule__CompoundDialogue__NameAssignment_0_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1742:1: ( rule__CompoundDialogue__NameAssignment_0_2 )
             {
              before(grammarAccess.getCompoundDialogueAccess().getNameAssignment_0_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1655:1: ( rule__CompoundDialogue__NameAssignment_0_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1655:2: rule__CompoundDialogue__NameAssignment_0_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1743:1: ( rule__CompoundDialogue__NameAssignment_0_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1743:2: rule__CompoundDialogue__NameAssignment_0_2
             {
-            pushFollow(FOLLOW_rule__CompoundDialogue__NameAssignment_0_2_in_rule__CompoundDialogue__Group_0__23443);
+            pushFollow(FOLLOW_rule__CompoundDialogue__NameAssignment_0_2_in_rule__CompoundDialogue__Group_0__23607);
             rule__CompoundDialogue__NameAssignment_0_2();
             _fsp--;
 
@@ -4703,7 +4867,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__3_in_rule__CompoundDialogue__Group_0__23452);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__3_in_rule__CompoundDialogue__Group_0__23616);
             rule__CompoundDialogue__Group_0__3();
             _fsp--;
 
@@ -4726,25 +4890,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1666:1: rule__CompoundDialogue__Group_0__3 : ( 'using' ) rule__CompoundDialogue__Group_0__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1754:1: rule__CompoundDialogue__Group_0__3 : ( 'context' ) rule__CompoundDialogue__Group_0__4 ;
     public final void rule__CompoundDialogue__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1670:1: ( ( 'using' ) rule__CompoundDialogue__Group_0__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1671:1: ( 'using' ) rule__CompoundDialogue__Group_0__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1758:1: ( ( 'context' ) rule__CompoundDialogue__Group_0__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1759:1: ( 'context' ) rule__CompoundDialogue__Group_0__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1671:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1672:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1759:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1760:1: 'context'
             {
-             before(grammarAccess.getCompoundDialogueAccess().getUsingKeyword_0_3()); 
-            match(input,16,FOLLOW_16_in_rule__CompoundDialogue__Group_0__33481); 
-             after(grammarAccess.getCompoundDialogueAccess().getUsingKeyword_0_3()); 
+             before(grammarAccess.getCompoundDialogueAccess().getContextKeyword_0_3()); 
+            match(input,17,FOLLOW_17_in_rule__CompoundDialogue__Group_0__33645); 
+             after(grammarAccess.getCompoundDialogueAccess().getContextKeyword_0_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__4_in_rule__CompoundDialogue__Group_0__33491);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__4_in_rule__CompoundDialogue__Group_0__33655);
             rule__CompoundDialogue__Group_0__4();
             _fsp--;
 
@@ -4767,23 +4931,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1686:1: rule__CompoundDialogue__Group_0__4 : ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) ) rule__CompoundDialogue__Group_0__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1774:1: rule__CompoundDialogue__Group_0__4 : ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) ) rule__CompoundDialogue__Group_0__5 ;
     public final void rule__CompoundDialogue__Group_0__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1690:1: ( ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) ) rule__CompoundDialogue__Group_0__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1691:1: ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) ) rule__CompoundDialogue__Group_0__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1778:1: ( ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) ) rule__CompoundDialogue__Group_0__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1779:1: ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) ) rule__CompoundDialogue__Group_0__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1691:1: ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1692:1: ( rule__CompoundDialogue__ContextRefAssignment_0_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1779:1: ( ( rule__CompoundDialogue__ContextRefAssignment_0_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1780:1: ( rule__CompoundDialogue__ContextRefAssignment_0_4 )
             {
              before(grammarAccess.getCompoundDialogueAccess().getContextRefAssignment_0_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1693:1: ( rule__CompoundDialogue__ContextRefAssignment_0_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1693:2: rule__CompoundDialogue__ContextRefAssignment_0_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1781:1: ( rule__CompoundDialogue__ContextRefAssignment_0_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1781:2: rule__CompoundDialogue__ContextRefAssignment_0_4
             {
-            pushFollow(FOLLOW_rule__CompoundDialogue__ContextRefAssignment_0_4_in_rule__CompoundDialogue__Group_0__43519);
+            pushFollow(FOLLOW_rule__CompoundDialogue__ContextRefAssignment_0_4_in_rule__CompoundDialogue__Group_0__43683);
             rule__CompoundDialogue__ContextRefAssignment_0_4();
             _fsp--;
 
@@ -4794,7 +4958,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__5_in_rule__CompoundDialogue__Group_0__43528);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__5_in_rule__CompoundDialogue__Group_0__43692);
             rule__CompoundDialogue__Group_0__5();
             _fsp--;
 
@@ -4817,31 +4981,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1704:1: rule__CompoundDialogue__Group_0__5 : ( ( rule__CompoundDialogue__Group_0_5__0 )? ) rule__CompoundDialogue__Group_0__6 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1792:1: rule__CompoundDialogue__Group_0__5 : ( ( rule__CompoundDialogue__Group_0_5__0 )? ) rule__CompoundDialogue__Group_0__6 ;
     public final void rule__CompoundDialogue__Group_0__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1708:1: ( ( ( rule__CompoundDialogue__Group_0_5__0 )? ) rule__CompoundDialogue__Group_0__6 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1709:1: ( ( rule__CompoundDialogue__Group_0_5__0 )? ) rule__CompoundDialogue__Group_0__6
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1796:1: ( ( ( rule__CompoundDialogue__Group_0_5__0 )? ) rule__CompoundDialogue__Group_0__6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1797:1: ( ( rule__CompoundDialogue__Group_0_5__0 )? ) rule__CompoundDialogue__Group_0__6
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1709:1: ( ( rule__CompoundDialogue__Group_0_5__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1710:1: ( rule__CompoundDialogue__Group_0_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1797:1: ( ( rule__CompoundDialogue__Group_0_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1798:1: ( rule__CompoundDialogue__Group_0_5__0 )?
             {
              before(grammarAccess.getCompoundDialogueAccess().getGroup_0_5()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1711:1: ( rule__CompoundDialogue__Group_0_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1799:1: ( rule__CompoundDialogue__Group_0_5__0 )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==17) ) {
+            if ( (LA24_0==20) ) {
                 alt24=1;
             }
             switch (alt24) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1711:2: rule__CompoundDialogue__Group_0_5__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1799:2: rule__CompoundDialogue__Group_0_5__0
                     {
-                    pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_5__0_in_rule__CompoundDialogue__Group_0__53556);
+                    pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_5__0_in_rule__CompoundDialogue__Group_0__53720);
                     rule__CompoundDialogue__Group_0_5__0();
                     _fsp--;
 
@@ -4855,7 +5019,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__6_in_rule__CompoundDialogue__Group_0__53566);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__6_in_rule__CompoundDialogue__Group_0__53730);
             rule__CompoundDialogue__Group_0__6();
             _fsp--;
 
@@ -4878,20 +5042,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1722:1: rule__CompoundDialogue__Group_0__6 : ( ( rule__CompoundDialogue__Group_0_6__0 )? ) rule__CompoundDialogue__Group_0__7 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1810:1: rule__CompoundDialogue__Group_0__6 : ( ( rule__CompoundDialogue__Group_0_6__0 )? ) rule__CompoundDialogue__Group_0__7 ;
     public final void rule__CompoundDialogue__Group_0__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1726:1: ( ( ( rule__CompoundDialogue__Group_0_6__0 )? ) rule__CompoundDialogue__Group_0__7 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1727:1: ( ( rule__CompoundDialogue__Group_0_6__0 )? ) rule__CompoundDialogue__Group_0__7
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1814:1: ( ( ( rule__CompoundDialogue__Group_0_6__0 )? ) rule__CompoundDialogue__Group_0__7 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1815:1: ( ( rule__CompoundDialogue__Group_0_6__0 )? ) rule__CompoundDialogue__Group_0__7
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1727:1: ( ( rule__CompoundDialogue__Group_0_6__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1728:1: ( rule__CompoundDialogue__Group_0_6__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1815:1: ( ( rule__CompoundDialogue__Group_0_6__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1816:1: ( rule__CompoundDialogue__Group_0_6__0 )?
             {
              before(grammarAccess.getCompoundDialogueAccess().getGroup_0_6()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1729:1: ( rule__CompoundDialogue__Group_0_6__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1817:1: ( rule__CompoundDialogue__Group_0_6__0 )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -4900,9 +5064,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt25) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1729:2: rule__CompoundDialogue__Group_0_6__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1817:2: rule__CompoundDialogue__Group_0_6__0
                     {
-                    pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__0_in_rule__CompoundDialogue__Group_0__63594);
+                    pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__0_in_rule__CompoundDialogue__Group_0__63758);
                     rule__CompoundDialogue__Group_0_6__0();
                     _fsp--;
 
@@ -4916,7 +5080,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__7_in_rule__CompoundDialogue__Group_0__63604);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0__7_in_rule__CompoundDialogue__Group_0__63768);
             rule__CompoundDialogue__Group_0__7();
             _fsp--;
 
@@ -4939,31 +5103,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0__7
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1740:1: rule__CompoundDialogue__Group_0__7 : ( ( rule__CompoundDialogue__Group_0_7__0 )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1828:1: rule__CompoundDialogue__Group_0__7 : ( ( rule__CompoundDialogue__Group_0_7__0 )? ) ;
     public final void rule__CompoundDialogue__Group_0__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1744:1: ( ( ( rule__CompoundDialogue__Group_0_7__0 )? ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1745:1: ( ( rule__CompoundDialogue__Group_0_7__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1832:1: ( ( ( rule__CompoundDialogue__Group_0_7__0 )? ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1833:1: ( ( rule__CompoundDialogue__Group_0_7__0 )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1745:1: ( ( rule__CompoundDialogue__Group_0_7__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1746:1: ( rule__CompoundDialogue__Group_0_7__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1833:1: ( ( rule__CompoundDialogue__Group_0_7__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1834:1: ( rule__CompoundDialogue__Group_0_7__0 )?
             {
              before(grammarAccess.getCompoundDialogueAccess().getGroup_0_7()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1747:1: ( rule__CompoundDialogue__Group_0_7__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1835:1: ( rule__CompoundDialogue__Group_0_7__0 )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( (LA26_0==19) ) {
+            if ( (LA26_0==21) ) {
                 alt26=1;
             }
             switch (alt26) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1747:2: rule__CompoundDialogue__Group_0_7__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1835:2: rule__CompoundDialogue__Group_0_7__0
                     {
-                    pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__0_in_rule__CompoundDialogue__Group_0__73632);
+                    pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__0_in_rule__CompoundDialogue__Group_0__73796);
                     rule__CompoundDialogue__Group_0_7__0();
                     _fsp--;
 
@@ -4996,25 +5160,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_5__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1773:1: rule__CompoundDialogue__Group_0_5__0 : ( 'readonly' ) rule__CompoundDialogue__Group_0_5__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1861:1: rule__CompoundDialogue__Group_0_5__0 : ( 'readonly' ) rule__CompoundDialogue__Group_0_5__1 ;
     public final void rule__CompoundDialogue__Group_0_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1777:1: ( ( 'readonly' ) rule__CompoundDialogue__Group_0_5__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1778:1: ( 'readonly' ) rule__CompoundDialogue__Group_0_5__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1865:1: ( ( 'readonly' ) rule__CompoundDialogue__Group_0_5__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1866:1: ( 'readonly' ) rule__CompoundDialogue__Group_0_5__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1778:1: ( 'readonly' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1779:1: 'readonly'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1866:1: ( 'readonly' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1867:1: 'readonly'
             {
              before(grammarAccess.getCompoundDialogueAccess().getReadonlyKeyword_0_5_0()); 
-            match(input,17,FOLLOW_17_in_rule__CompoundDialogue__Group_0_5__03684); 
+            match(input,20,FOLLOW_20_in_rule__CompoundDialogue__Group_0_5__03848); 
              after(grammarAccess.getCompoundDialogueAccess().getReadonlyKeyword_0_5_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_5__1_in_rule__CompoundDialogue__Group_0_5__03694);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_5__1_in_rule__CompoundDialogue__Group_0_5__03858);
             rule__CompoundDialogue__Group_0_5__1();
             _fsp--;
 
@@ -5037,23 +5201,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_5__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1793:1: rule__CompoundDialogue__Group_0_5__1 : ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) ) rule__CompoundDialogue__Group_0_5__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1881:1: rule__CompoundDialogue__Group_0_5__1 : ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) ) rule__CompoundDialogue__Group_0_5__2 ;
     public final void rule__CompoundDialogue__Group_0_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1797:1: ( ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) ) rule__CompoundDialogue__Group_0_5__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1798:1: ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) ) rule__CompoundDialogue__Group_0_5__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1885:1: ( ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) ) rule__CompoundDialogue__Group_0_5__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1886:1: ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) ) rule__CompoundDialogue__Group_0_5__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1798:1: ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1799:1: ( rule__CompoundDialogue__Alternatives_0_5_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1886:1: ( ( rule__CompoundDialogue__Alternatives_0_5_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1887:1: ( rule__CompoundDialogue__Alternatives_0_5_1 )
             {
              before(grammarAccess.getCompoundDialogueAccess().getAlternatives_0_5_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1800:1: ( rule__CompoundDialogue__Alternatives_0_5_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1800:2: rule__CompoundDialogue__Alternatives_0_5_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1888:1: ( rule__CompoundDialogue__Alternatives_0_5_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1888:2: rule__CompoundDialogue__Alternatives_0_5_1
             {
-            pushFollow(FOLLOW_rule__CompoundDialogue__Alternatives_0_5_1_in_rule__CompoundDialogue__Group_0_5__13722);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Alternatives_0_5_1_in_rule__CompoundDialogue__Group_0_5__13886);
             rule__CompoundDialogue__Alternatives_0_5_1();
             _fsp--;
 
@@ -5064,7 +5228,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_5__2_in_rule__CompoundDialogue__Group_0_5__13731);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_5__2_in_rule__CompoundDialogue__Group_0_5__13895);
             rule__CompoundDialogue__Group_0_5__2();
             _fsp--;
 
@@ -5087,20 +5251,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_5__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1811:1: rule__CompoundDialogue__Group_0_5__2 : ( ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1899:1: rule__CompoundDialogue__Group_0_5__2 : ( ';' ) ;
     public final void rule__CompoundDialogue__Group_0_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1815:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1816:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1903:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1904:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1816:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1817:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1904:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1905:1: ';'
             {
              before(grammarAccess.getCompoundDialogueAccess().getSemicolonKeyword_0_5_2()); 
-            match(input,18,FOLLOW_18_in_rule__CompoundDialogue__Group_0_5__23760); 
+            match(input,13,FOLLOW_13_in_rule__CompoundDialogue__Group_0_5__23924); 
              after(grammarAccess.getCompoundDialogueAccess().getSemicolonKeyword_0_5_2()); 
 
             }
@@ -5124,25 +5288,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_6__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1836:1: rule__CompoundDialogue__Group_0_6__0 : ( 'dialogues' ) rule__CompoundDialogue__Group_0_6__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1924:1: rule__CompoundDialogue__Group_0_6__0 : ( 'dialogues' ) rule__CompoundDialogue__Group_0_6__1 ;
     public final void rule__CompoundDialogue__Group_0_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1840:1: ( ( 'dialogues' ) rule__CompoundDialogue__Group_0_6__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1841:1: ( 'dialogues' ) rule__CompoundDialogue__Group_0_6__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1928:1: ( ( 'dialogues' ) rule__CompoundDialogue__Group_0_6__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1929:1: ( 'dialogues' ) rule__CompoundDialogue__Group_0_6__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1841:1: ( 'dialogues' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1842:1: 'dialogues'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1929:1: ( 'dialogues' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1930:1: 'dialogues'
             {
              before(grammarAccess.getCompoundDialogueAccess().getDialoguesKeyword_0_6_0()); 
-            match(input,23,FOLLOW_23_in_rule__CompoundDialogue__Group_0_6__03802); 
+            match(input,23,FOLLOW_23_in_rule__CompoundDialogue__Group_0_6__03966); 
              after(grammarAccess.getCompoundDialogueAccess().getDialoguesKeyword_0_6_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__1_in_rule__CompoundDialogue__Group_0_6__03812);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__1_in_rule__CompoundDialogue__Group_0_6__03976);
             rule__CompoundDialogue__Group_0_6__1();
             _fsp--;
 
@@ -5165,25 +5329,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_6__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1856:1: rule__CompoundDialogue__Group_0_6__1 : ( '[' ) rule__CompoundDialogue__Group_0_6__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1944:1: rule__CompoundDialogue__Group_0_6__1 : ( '[' ) rule__CompoundDialogue__Group_0_6__2 ;
     public final void rule__CompoundDialogue__Group_0_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1860:1: ( ( '[' ) rule__CompoundDialogue__Group_0_6__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1861:1: ( '[' ) rule__CompoundDialogue__Group_0_6__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1948:1: ( ( '[' ) rule__CompoundDialogue__Group_0_6__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1949:1: ( '[' ) rule__CompoundDialogue__Group_0_6__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1861:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1862:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1949:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1950:1: '['
             {
              before(grammarAccess.getCompoundDialogueAccess().getLeftSquareBracketKeyword_0_6_1()); 
-            match(input,20,FOLLOW_20_in_rule__CompoundDialogue__Group_0_6__13841); 
+            match(input,18,FOLLOW_18_in_rule__CompoundDialogue__Group_0_6__14005); 
              after(grammarAccess.getCompoundDialogueAccess().getLeftSquareBracketKeyword_0_6_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__2_in_rule__CompoundDialogue__Group_0_6__13851);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__2_in_rule__CompoundDialogue__Group_0_6__14015);
             rule__CompoundDialogue__Group_0_6__2();
             _fsp--;
 
@@ -5206,20 +5370,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_6__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1876:1: rule__CompoundDialogue__Group_0_6__2 : ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* ) rule__CompoundDialogue__Group_0_6__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1964:1: rule__CompoundDialogue__Group_0_6__2 : ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* ) rule__CompoundDialogue__Group_0_6__3 ;
     public final void rule__CompoundDialogue__Group_0_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1880:1: ( ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* ) rule__CompoundDialogue__Group_0_6__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1881:1: ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* ) rule__CompoundDialogue__Group_0_6__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1968:1: ( ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* ) rule__CompoundDialogue__Group_0_6__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1969:1: ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* ) rule__CompoundDialogue__Group_0_6__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1881:1: ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1882:1: ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1969:1: ( ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1970:1: ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )*
             {
              before(grammarAccess.getCompoundDialogueAccess().getDialoguesAssignment_0_6_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1883:1: ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1971:1: ( rule__CompoundDialogue__DialoguesAssignment_0_6_2 )*
             loop27:
             do {
                 int alt27=2;
@@ -5232,9 +5396,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
                 switch (alt27) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1883:2: rule__CompoundDialogue__DialoguesAssignment_0_6_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1971:2: rule__CompoundDialogue__DialoguesAssignment_0_6_2
             	    {
-            	    pushFollow(FOLLOW_rule__CompoundDialogue__DialoguesAssignment_0_6_2_in_rule__CompoundDialogue__Group_0_6__23879);
+            	    pushFollow(FOLLOW_rule__CompoundDialogue__DialoguesAssignment_0_6_2_in_rule__CompoundDialogue__Group_0_6__24043);
             	    rule__CompoundDialogue__DialoguesAssignment_0_6_2();
             	    _fsp--;
 
@@ -5251,7 +5415,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__3_in_rule__CompoundDialogue__Group_0_6__23889);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_6__3_in_rule__CompoundDialogue__Group_0_6__24053);
             rule__CompoundDialogue__Group_0_6__3();
             _fsp--;
 
@@ -5274,20 +5438,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_6__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1894:1: rule__CompoundDialogue__Group_0_6__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1982:1: rule__CompoundDialogue__Group_0_6__3 : ( ']' ) ;
     public final void rule__CompoundDialogue__Group_0_6__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1898:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1899:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1986:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1987:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1899:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1900:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1987:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1988:1: ']'
             {
              before(grammarAccess.getCompoundDialogueAccess().getRightSquareBracketKeyword_0_6_3()); 
-            match(input,21,FOLLOW_21_in_rule__CompoundDialogue__Group_0_6__33918); 
+            match(input,19,FOLLOW_19_in_rule__CompoundDialogue__Group_0_6__34082); 
              after(grammarAccess.getCompoundDialogueAccess().getRightSquareBracketKeyword_0_6_3()); 
 
             }
@@ -5311,25 +5475,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_7__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1921:1: rule__CompoundDialogue__Group_0_7__0 : ( 'processes' ) rule__CompoundDialogue__Group_0_7__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2009:1: rule__CompoundDialogue__Group_0_7__0 : ( 'processes' ) rule__CompoundDialogue__Group_0_7__1 ;
     public final void rule__CompoundDialogue__Group_0_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1925:1: ( ( 'processes' ) rule__CompoundDialogue__Group_0_7__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1926:1: ( 'processes' ) rule__CompoundDialogue__Group_0_7__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2013:1: ( ( 'processes' ) rule__CompoundDialogue__Group_0_7__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2014:1: ( 'processes' ) rule__CompoundDialogue__Group_0_7__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1926:1: ( 'processes' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1927:1: 'processes'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2014:1: ( 'processes' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2015:1: 'processes'
             {
              before(grammarAccess.getCompoundDialogueAccess().getProcessesKeyword_0_7_0()); 
-            match(input,19,FOLLOW_19_in_rule__CompoundDialogue__Group_0_7__03962); 
+            match(input,21,FOLLOW_21_in_rule__CompoundDialogue__Group_0_7__04126); 
              after(grammarAccess.getCompoundDialogueAccess().getProcessesKeyword_0_7_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__1_in_rule__CompoundDialogue__Group_0_7__03972);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__1_in_rule__CompoundDialogue__Group_0_7__04136);
             rule__CompoundDialogue__Group_0_7__1();
             _fsp--;
 
@@ -5352,25 +5516,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_7__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1941:1: rule__CompoundDialogue__Group_0_7__1 : ( '[' ) rule__CompoundDialogue__Group_0_7__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2029:1: rule__CompoundDialogue__Group_0_7__1 : ( '[' ) rule__CompoundDialogue__Group_0_7__2 ;
     public final void rule__CompoundDialogue__Group_0_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1945:1: ( ( '[' ) rule__CompoundDialogue__Group_0_7__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1946:1: ( '[' ) rule__CompoundDialogue__Group_0_7__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2033:1: ( ( '[' ) rule__CompoundDialogue__Group_0_7__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2034:1: ( '[' ) rule__CompoundDialogue__Group_0_7__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1946:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1947:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2034:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2035:1: '['
             {
              before(grammarAccess.getCompoundDialogueAccess().getLeftSquareBracketKeyword_0_7_1()); 
-            match(input,20,FOLLOW_20_in_rule__CompoundDialogue__Group_0_7__14001); 
+            match(input,18,FOLLOW_18_in_rule__CompoundDialogue__Group_0_7__14165); 
              after(grammarAccess.getCompoundDialogueAccess().getLeftSquareBracketKeyword_0_7_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__2_in_rule__CompoundDialogue__Group_0_7__14011);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__2_in_rule__CompoundDialogue__Group_0_7__14175);
             rule__CompoundDialogue__Group_0_7__2();
             _fsp--;
 
@@ -5393,20 +5557,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_7__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1961:1: rule__CompoundDialogue__Group_0_7__2 : ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* ) rule__CompoundDialogue__Group_0_7__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2049:1: rule__CompoundDialogue__Group_0_7__2 : ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* ) rule__CompoundDialogue__Group_0_7__3 ;
     public final void rule__CompoundDialogue__Group_0_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1965:1: ( ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* ) rule__CompoundDialogue__Group_0_7__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1966:1: ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* ) rule__CompoundDialogue__Group_0_7__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2053:1: ( ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* ) rule__CompoundDialogue__Group_0_7__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2054:1: ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* ) rule__CompoundDialogue__Group_0_7__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1966:1: ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1967:1: ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2054:1: ( ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2055:1: ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )*
             {
              before(grammarAccess.getCompoundDialogueAccess().getProcessesAssignment_0_7_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1968:1: ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2056:1: ( rule__CompoundDialogue__ProcessesAssignment_0_7_2 )*
             loop28:
             do {
                 int alt28=2;
@@ -5419,9 +5583,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
                 switch (alt28) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1968:2: rule__CompoundDialogue__ProcessesAssignment_0_7_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2056:2: rule__CompoundDialogue__ProcessesAssignment_0_7_2
             	    {
-            	    pushFollow(FOLLOW_rule__CompoundDialogue__ProcessesAssignment_0_7_2_in_rule__CompoundDialogue__Group_0_7__24039);
+            	    pushFollow(FOLLOW_rule__CompoundDialogue__ProcessesAssignment_0_7_2_in_rule__CompoundDialogue__Group_0_7__24203);
             	    rule__CompoundDialogue__ProcessesAssignment_0_7_2();
             	    _fsp--;
 
@@ -5438,7 +5602,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__3_in_rule__CompoundDialogue__Group_0_7__24049);
+            pushFollow(FOLLOW_rule__CompoundDialogue__Group_0_7__3_in_rule__CompoundDialogue__Group_0_7__24213);
             rule__CompoundDialogue__Group_0_7__3();
             _fsp--;
 
@@ -5461,20 +5625,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__Group_0_7__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1979:1: rule__CompoundDialogue__Group_0_7__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2067:1: rule__CompoundDialogue__Group_0_7__3 : ( ']' ) ;
     public final void rule__CompoundDialogue__Group_0_7__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1983:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1984:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2071:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2072:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1984:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:1985:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2072:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2073:1: ']'
             {
              before(grammarAccess.getCompoundDialogueAccess().getRightSquareBracketKeyword_0_7_3()); 
-            match(input,21,FOLLOW_21_in_rule__CompoundDialogue__Group_0_7__34078); 
+            match(input,19,FOLLOW_19_in_rule__CompoundDialogue__Group_0_7__34242); 
              after(grammarAccess.getCompoundDialogueAccess().getRightSquareBracketKeyword_0_7_3()); 
 
             }
@@ -5498,20 +5662,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2006:1: rule__CollectionDialogue__Group__0 : ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? ) rule__CollectionDialogue__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2094:1: rule__CollectionDialogue__Group__0 : ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? ) rule__CollectionDialogue__Group__1 ;
     public final void rule__CollectionDialogue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2010:1: ( ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? ) rule__CollectionDialogue__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2011:1: ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? ) rule__CollectionDialogue__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2098:1: ( ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? ) rule__CollectionDialogue__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2099:1: ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? ) rule__CollectionDialogue__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2011:1: ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2012:1: ( rule__CollectionDialogue__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2099:1: ( ( rule__CollectionDialogue__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2100:1: ( rule__CollectionDialogue__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getCollectionDialogueAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2013:1: ( rule__CollectionDialogue__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2101:1: ( rule__CollectionDialogue__DescriptionAssignment_0 )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -5520,9 +5684,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt29) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2013:2: rule__CollectionDialogue__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2101:2: rule__CollectionDialogue__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__CollectionDialogue__DescriptionAssignment_0_in_rule__CollectionDialogue__Group__04121);
+                    pushFollow(FOLLOW_rule__CollectionDialogue__DescriptionAssignment_0_in_rule__CollectionDialogue__Group__04285);
                     rule__CollectionDialogue__DescriptionAssignment_0();
                     _fsp--;
 
@@ -5536,7 +5700,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__1_in_rule__CollectionDialogue__Group__04131);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__1_in_rule__CollectionDialogue__Group__04295);
             rule__CollectionDialogue__Group__1();
             _fsp--;
 
@@ -5559,25 +5723,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2024:1: rule__CollectionDialogue__Group__1 : ( 'CollectionDialogue' ) rule__CollectionDialogue__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2112:1: rule__CollectionDialogue__Group__1 : ( 'CollectionDialogue' ) rule__CollectionDialogue__Group__2 ;
     public final void rule__CollectionDialogue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2028:1: ( ( 'CollectionDialogue' ) rule__CollectionDialogue__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2029:1: ( 'CollectionDialogue' ) rule__CollectionDialogue__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2116:1: ( ( 'CollectionDialogue' ) rule__CollectionDialogue__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2117:1: ( 'CollectionDialogue' ) rule__CollectionDialogue__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2029:1: ( 'CollectionDialogue' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2030:1: 'CollectionDialogue'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2117:1: ( 'CollectionDialogue' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2118:1: 'CollectionDialogue'
             {
              before(grammarAccess.getCollectionDialogueAccess().getCollectionDialogueKeyword_1()); 
-            match(input,24,FOLLOW_24_in_rule__CollectionDialogue__Group__14160); 
+            match(input,24,FOLLOW_24_in_rule__CollectionDialogue__Group__14324); 
              after(grammarAccess.getCollectionDialogueAccess().getCollectionDialogueKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__2_in_rule__CollectionDialogue__Group__14170);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__2_in_rule__CollectionDialogue__Group__14334);
             rule__CollectionDialogue__Group__2();
             _fsp--;
 
@@ -5600,23 +5764,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2044:1: rule__CollectionDialogue__Group__2 : ( ( rule__CollectionDialogue__NameAssignment_2 ) ) rule__CollectionDialogue__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2132:1: rule__CollectionDialogue__Group__2 : ( ( rule__CollectionDialogue__NameAssignment_2 ) ) rule__CollectionDialogue__Group__3 ;
     public final void rule__CollectionDialogue__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2048:1: ( ( ( rule__CollectionDialogue__NameAssignment_2 ) ) rule__CollectionDialogue__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2049:1: ( ( rule__CollectionDialogue__NameAssignment_2 ) ) rule__CollectionDialogue__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2136:1: ( ( ( rule__CollectionDialogue__NameAssignment_2 ) ) rule__CollectionDialogue__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2137:1: ( ( rule__CollectionDialogue__NameAssignment_2 ) ) rule__CollectionDialogue__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2049:1: ( ( rule__CollectionDialogue__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2050:1: ( rule__CollectionDialogue__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2137:1: ( ( rule__CollectionDialogue__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2138:1: ( rule__CollectionDialogue__NameAssignment_2 )
             {
              before(grammarAccess.getCollectionDialogueAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2051:1: ( rule__CollectionDialogue__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2051:2: rule__CollectionDialogue__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2139:1: ( rule__CollectionDialogue__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2139:2: rule__CollectionDialogue__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__CollectionDialogue__NameAssignment_2_in_rule__CollectionDialogue__Group__24198);
+            pushFollow(FOLLOW_rule__CollectionDialogue__NameAssignment_2_in_rule__CollectionDialogue__Group__24362);
             rule__CollectionDialogue__NameAssignment_2();
             _fsp--;
 
@@ -5627,7 +5791,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__3_in_rule__CollectionDialogue__Group__24207);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__3_in_rule__CollectionDialogue__Group__24371);
             rule__CollectionDialogue__Group__3();
             _fsp--;
 
@@ -5650,25 +5814,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2062:1: rule__CollectionDialogue__Group__3 : ( 'using' ) rule__CollectionDialogue__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2150:1: rule__CollectionDialogue__Group__3 : ( 'context' ) rule__CollectionDialogue__Group__4 ;
     public final void rule__CollectionDialogue__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2066:1: ( ( 'using' ) rule__CollectionDialogue__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2067:1: ( 'using' ) rule__CollectionDialogue__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2154:1: ( ( 'context' ) rule__CollectionDialogue__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2155:1: ( 'context' ) rule__CollectionDialogue__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2067:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2068:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2155:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2156:1: 'context'
             {
-             before(grammarAccess.getCollectionDialogueAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__CollectionDialogue__Group__34236); 
-             after(grammarAccess.getCollectionDialogueAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getCollectionDialogueAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__CollectionDialogue__Group__34400); 
+             after(grammarAccess.getCollectionDialogueAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__4_in_rule__CollectionDialogue__Group__34246);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__4_in_rule__CollectionDialogue__Group__34410);
             rule__CollectionDialogue__Group__4();
             _fsp--;
 
@@ -5691,23 +5855,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2082:1: rule__CollectionDialogue__Group__4 : ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) ) rule__CollectionDialogue__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2170:1: rule__CollectionDialogue__Group__4 : ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) ) rule__CollectionDialogue__Group__5 ;
     public final void rule__CollectionDialogue__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2086:1: ( ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) ) rule__CollectionDialogue__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2087:1: ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) ) rule__CollectionDialogue__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2174:1: ( ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) ) rule__CollectionDialogue__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2175:1: ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) ) rule__CollectionDialogue__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2087:1: ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2088:1: ( rule__CollectionDialogue__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2175:1: ( ( rule__CollectionDialogue__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2176:1: ( rule__CollectionDialogue__ContextRefAssignment_4 )
             {
              before(grammarAccess.getCollectionDialogueAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2089:1: ( rule__CollectionDialogue__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2089:2: rule__CollectionDialogue__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2177:1: ( rule__CollectionDialogue__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2177:2: rule__CollectionDialogue__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__CollectionDialogue__ContextRefAssignment_4_in_rule__CollectionDialogue__Group__44274);
+            pushFollow(FOLLOW_rule__CollectionDialogue__ContextRefAssignment_4_in_rule__CollectionDialogue__Group__44438);
             rule__CollectionDialogue__ContextRefAssignment_4();
             _fsp--;
 
@@ -5718,7 +5882,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__5_in_rule__CollectionDialogue__Group__44283);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__5_in_rule__CollectionDialogue__Group__44447);
             rule__CollectionDialogue__Group__5();
             _fsp--;
 
@@ -5741,45 +5905,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2100:1: rule__CollectionDialogue__Group__5 : ( ( rule__CollectionDialogue__Group_5__0 )? ) rule__CollectionDialogue__Group__6 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2188:1: rule__CollectionDialogue__Group__5 : ( '[' ) rule__CollectionDialogue__Group__6 ;
     public final void rule__CollectionDialogue__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2104:1: ( ( ( rule__CollectionDialogue__Group_5__0 )? ) rule__CollectionDialogue__Group__6 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2105:1: ( ( rule__CollectionDialogue__Group_5__0 )? ) rule__CollectionDialogue__Group__6
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2192:1: ( ( '[' ) rule__CollectionDialogue__Group__6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2193:1: ( '[' ) rule__CollectionDialogue__Group__6
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2105:1: ( ( rule__CollectionDialogue__Group_5__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2106:1: ( rule__CollectionDialogue__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2193:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2194:1: '['
             {
-             before(grammarAccess.getCollectionDialogueAccess().getGroup_5()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2107:1: ( rule__CollectionDialogue__Group_5__0 )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
-
-            if ( (LA30_0==17) ) {
-                alt30=1;
-            }
-            switch (alt30) {
-                case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2107:2: rule__CollectionDialogue__Group_5__0
-                    {
-                    pushFollow(FOLLOW_rule__CollectionDialogue__Group_5__0_in_rule__CollectionDialogue__Group__54311);
-                    rule__CollectionDialogue__Group_5__0();
-                    _fsp--;
-
-
-                    }
-                    break;
+             before(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_5()); 
+            match(input,18,FOLLOW_18_in_rule__CollectionDialogue__Group__54476); 
+             after(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_5()); 
 
             }
 
-             after(grammarAccess.getCollectionDialogueAccess().getGroup_5()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__6_in_rule__CollectionDialogue__Group__54321);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__6_in_rule__CollectionDialogue__Group__54486);
             rule__CollectionDialogue__Group__6();
             _fsp--;
 
@@ -5802,31 +5946,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2118:1: rule__CollectionDialogue__Group__6 : ( ( rule__CollectionDialogue__Group_6__0 )? ) rule__CollectionDialogue__Group__7 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2208:1: rule__CollectionDialogue__Group__6 : ( ( rule__CollectionDialogue__Group_6__0 )? ) rule__CollectionDialogue__Group__7 ;
     public final void rule__CollectionDialogue__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2122:1: ( ( ( rule__CollectionDialogue__Group_6__0 )? ) rule__CollectionDialogue__Group__7 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2123:1: ( ( rule__CollectionDialogue__Group_6__0 )? ) rule__CollectionDialogue__Group__7
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2212:1: ( ( ( rule__CollectionDialogue__Group_6__0 )? ) rule__CollectionDialogue__Group__7 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2213:1: ( ( rule__CollectionDialogue__Group_6__0 )? ) rule__CollectionDialogue__Group__7
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2123:1: ( ( rule__CollectionDialogue__Group_6__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2124:1: ( rule__CollectionDialogue__Group_6__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2213:1: ( ( rule__CollectionDialogue__Group_6__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2214:1: ( rule__CollectionDialogue__Group_6__0 )?
             {
              before(grammarAccess.getCollectionDialogueAccess().getGroup_6()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2125:1: ( rule__CollectionDialogue__Group_6__0 )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2215:1: ( rule__CollectionDialogue__Group_6__0 )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA31_0==23) ) {
-                alt31=1;
+            if ( (LA30_0==20) ) {
+                alt30=1;
             }
-            switch (alt31) {
+            switch (alt30) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2125:2: rule__CollectionDialogue__Group_6__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2215:2: rule__CollectionDialogue__Group_6__0
                     {
-                    pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__0_in_rule__CollectionDialogue__Group__64349);
+                    pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__0_in_rule__CollectionDialogue__Group__64514);
                     rule__CollectionDialogue__Group_6__0();
                     _fsp--;
 
@@ -5840,7 +5984,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group__7_in_rule__CollectionDialogue__Group__64359);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__7_in_rule__CollectionDialogue__Group__64524);
             rule__CollectionDialogue__Group__7();
             _fsp--;
 
@@ -5863,31 +6007,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group__7
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2136:1: rule__CollectionDialogue__Group__7 : ( ( rule__CollectionDialogue__Group_7__0 )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2226:1: rule__CollectionDialogue__Group__7 : ( ( rule__CollectionDialogue__Group_7__0 )? ) rule__CollectionDialogue__Group__8 ;
     public final void rule__CollectionDialogue__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2140:1: ( ( ( rule__CollectionDialogue__Group_7__0 )? ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2141:1: ( ( rule__CollectionDialogue__Group_7__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2230:1: ( ( ( rule__CollectionDialogue__Group_7__0 )? ) rule__CollectionDialogue__Group__8 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2231:1: ( ( rule__CollectionDialogue__Group_7__0 )? ) rule__CollectionDialogue__Group__8
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2141:1: ( ( rule__CollectionDialogue__Group_7__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2142:1: ( rule__CollectionDialogue__Group_7__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2231:1: ( ( rule__CollectionDialogue__Group_7__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2232:1: ( rule__CollectionDialogue__Group_7__0 )?
             {
              before(grammarAccess.getCollectionDialogueAccess().getGroup_7()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2143:1: ( rule__CollectionDialogue__Group_7__0 )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2233:1: ( rule__CollectionDialogue__Group_7__0 )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA32_0==19) ) {
-                alt32=1;
+            if ( (LA31_0==23) ) {
+                alt31=1;
             }
-            switch (alt32) {
+            switch (alt31) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2143:2: rule__CollectionDialogue__Group_7__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2233:2: rule__CollectionDialogue__Group_7__0
                     {
-                    pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__0_in_rule__CollectionDialogue__Group__74387);
+                    pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__0_in_rule__CollectionDialogue__Group__74552);
                     rule__CollectionDialogue__Group_7__0();
                     _fsp--;
 
@@ -5900,6 +6044,10 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
              after(grammarAccess.getCollectionDialogueAccess().getGroup_7()); 
 
             }
+
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__8_in_rule__CollectionDialogue__Group__74562);
+            rule__CollectionDialogue__Group__8();
+            _fsp--;
 
 
             }
@@ -5919,27 +6067,47 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__CollectionDialogue__Group__7
 
 
-    // $ANTLR start rule__CollectionDialogue__Group_5__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2169:1: rule__CollectionDialogue__Group_5__0 : ( 'readonly' ) rule__CollectionDialogue__Group_5__1 ;
-    public final void rule__CollectionDialogue__Group_5__0() throws RecognitionException {
+    // $ANTLR start rule__CollectionDialogue__Group__8
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2244:1: rule__CollectionDialogue__Group__8 : ( ( rule__CollectionDialogue__Group_8__0 )? ) rule__CollectionDialogue__Group__9 ;
+    public final void rule__CollectionDialogue__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2173:1: ( ( 'readonly' ) rule__CollectionDialogue__Group_5__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2174:1: ( 'readonly' ) rule__CollectionDialogue__Group_5__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2248:1: ( ( ( rule__CollectionDialogue__Group_8__0 )? ) rule__CollectionDialogue__Group__9 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2249:1: ( ( rule__CollectionDialogue__Group_8__0 )? ) rule__CollectionDialogue__Group__9
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2174:1: ( 'readonly' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2175:1: 'readonly'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2249:1: ( ( rule__CollectionDialogue__Group_8__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2250:1: ( rule__CollectionDialogue__Group_8__0 )?
             {
-             before(grammarAccess.getCollectionDialogueAccess().getReadonlyKeyword_5_0()); 
-            match(input,17,FOLLOW_17_in_rule__CollectionDialogue__Group_5__04439); 
-             after(grammarAccess.getCollectionDialogueAccess().getReadonlyKeyword_5_0()); 
+             before(grammarAccess.getCollectionDialogueAccess().getGroup_8()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2251:1: ( rule__CollectionDialogue__Group_8__0 )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
+
+            if ( (LA32_0==21) ) {
+                alt32=1;
+            }
+            switch (alt32) {
+                case 1 :
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2251:2: rule__CollectionDialogue__Group_8__0
+                    {
+                    pushFollow(FOLLOW_rule__CollectionDialogue__Group_8__0_in_rule__CollectionDialogue__Group__84590);
+                    rule__CollectionDialogue__Group_8__0();
+                    _fsp--;
+
+
+                    }
+                    break;
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_5__1_in_rule__CollectionDialogue__Group_5__04449);
-            rule__CollectionDialogue__Group_5__1();
+             after(grammarAccess.getCollectionDialogueAccess().getGroup_8()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group__9_in_rule__CollectionDialogue__Group__84600);
+            rule__CollectionDialogue__Group__9();
             _fsp--;
 
 
@@ -5957,75 +6125,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__CollectionDialogue__Group_5__0
+    // $ANTLR end rule__CollectionDialogue__Group__8
 
 
-    // $ANTLR start rule__CollectionDialogue__Group_5__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2189:1: rule__CollectionDialogue__Group_5__1 : ( ( rule__CollectionDialogue__Alternatives_5_1 ) ) rule__CollectionDialogue__Group_5__2 ;
-    public final void rule__CollectionDialogue__Group_5__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2193:1: ( ( ( rule__CollectionDialogue__Alternatives_5_1 ) ) rule__CollectionDialogue__Group_5__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2194:1: ( ( rule__CollectionDialogue__Alternatives_5_1 ) ) rule__CollectionDialogue__Group_5__2
-            {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2194:1: ( ( rule__CollectionDialogue__Alternatives_5_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2195:1: ( rule__CollectionDialogue__Alternatives_5_1 )
-            {
-             before(grammarAccess.getCollectionDialogueAccess().getAlternatives_5_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2196:1: ( rule__CollectionDialogue__Alternatives_5_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2196:2: rule__CollectionDialogue__Alternatives_5_1
-            {
-            pushFollow(FOLLOW_rule__CollectionDialogue__Alternatives_5_1_in_rule__CollectionDialogue__Group_5__14477);
-            rule__CollectionDialogue__Alternatives_5_1();
-            _fsp--;
-
-
-            }
-
-             after(grammarAccess.getCollectionDialogueAccess().getAlternatives_5_1()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_5__2_in_rule__CollectionDialogue__Group_5__14486);
-            rule__CollectionDialogue__Group_5__2();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__CollectionDialogue__Group_5__1
-
-
-    // $ANTLR start rule__CollectionDialogue__Group_5__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2207:1: rule__CollectionDialogue__Group_5__2 : ( ';' ) ;
-    public final void rule__CollectionDialogue__Group_5__2() throws RecognitionException {
+    // $ANTLR start rule__CollectionDialogue__Group__9
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2262:1: rule__CollectionDialogue__Group__9 : ( ']' ) ;
+    public final void rule__CollectionDialogue__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2211:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2212:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2266:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2267:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2212:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2213:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2267:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2268:1: ']'
             {
-             before(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_5_2()); 
-            match(input,18,FOLLOW_18_in_rule__CollectionDialogue__Group_5__24515); 
-             after(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_5_2()); 
+             before(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_9()); 
+            match(input,19,FOLLOW_19_in_rule__CollectionDialogue__Group__94629); 
+             after(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_9()); 
 
             }
 
@@ -6044,29 +6162,29 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__CollectionDialogue__Group_5__2
+    // $ANTLR end rule__CollectionDialogue__Group__9
 
 
     // $ANTLR start rule__CollectionDialogue__Group_6__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2232:1: rule__CollectionDialogue__Group_6__0 : ( 'dialogues' ) rule__CollectionDialogue__Group_6__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2301:1: rule__CollectionDialogue__Group_6__0 : ( 'readonly' ) rule__CollectionDialogue__Group_6__1 ;
     public final void rule__CollectionDialogue__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2236:1: ( ( 'dialogues' ) rule__CollectionDialogue__Group_6__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2237:1: ( 'dialogues' ) rule__CollectionDialogue__Group_6__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2305:1: ( ( 'readonly' ) rule__CollectionDialogue__Group_6__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2306:1: ( 'readonly' ) rule__CollectionDialogue__Group_6__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2237:1: ( 'dialogues' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2238:1: 'dialogues'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2306:1: ( 'readonly' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2307:1: 'readonly'
             {
-             before(grammarAccess.getCollectionDialogueAccess().getDialoguesKeyword_6_0()); 
-            match(input,23,FOLLOW_23_in_rule__CollectionDialogue__Group_6__04557); 
-             after(grammarAccess.getCollectionDialogueAccess().getDialoguesKeyword_6_0()); 
+             before(grammarAccess.getCollectionDialogueAccess().getReadonlyKeyword_6_0()); 
+            match(input,20,FOLLOW_20_in_rule__CollectionDialogue__Group_6__04685); 
+             after(grammarAccess.getCollectionDialogueAccess().getReadonlyKeyword_6_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__1_in_rule__CollectionDialogue__Group_6__04567);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__1_in_rule__CollectionDialogue__Group_6__04695);
             rule__CollectionDialogue__Group_6__1();
             _fsp--;
 
@@ -6089,25 +6207,34 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group_6__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2252:1: rule__CollectionDialogue__Group_6__1 : ( '[' ) rule__CollectionDialogue__Group_6__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2321:1: rule__CollectionDialogue__Group_6__1 : ( ( rule__CollectionDialogue__Alternatives_6_1 ) ) rule__CollectionDialogue__Group_6__2 ;
     public final void rule__CollectionDialogue__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2256:1: ( ( '[' ) rule__CollectionDialogue__Group_6__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2257:1: ( '[' ) rule__CollectionDialogue__Group_6__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2325:1: ( ( ( rule__CollectionDialogue__Alternatives_6_1 ) ) rule__CollectionDialogue__Group_6__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2326:1: ( ( rule__CollectionDialogue__Alternatives_6_1 ) ) rule__CollectionDialogue__Group_6__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2257:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2258:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2326:1: ( ( rule__CollectionDialogue__Alternatives_6_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2327:1: ( rule__CollectionDialogue__Alternatives_6_1 )
             {
-             before(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_6_1()); 
-            match(input,20,FOLLOW_20_in_rule__CollectionDialogue__Group_6__14596); 
-             after(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_6_1()); 
+             before(grammarAccess.getCollectionDialogueAccess().getAlternatives_6_1()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2328:1: ( rule__CollectionDialogue__Alternatives_6_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2328:2: rule__CollectionDialogue__Alternatives_6_1
+            {
+            pushFollow(FOLLOW_rule__CollectionDialogue__Alternatives_6_1_in_rule__CollectionDialogue__Group_6__14723);
+            rule__CollectionDialogue__Alternatives_6_1();
+            _fsp--;
+
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__2_in_rule__CollectionDialogue__Group_6__14606);
+             after(grammarAccess.getCollectionDialogueAccess().getAlternatives_6_1()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__2_in_rule__CollectionDialogue__Group_6__14732);
             rule__CollectionDialogue__Group_6__2();
             _fsp--;
 
@@ -6130,54 +6257,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group_6__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2272:1: rule__CollectionDialogue__Group_6__2 : ( ( rule__CollectionDialogue__DialoguesAssignment_6_2 )* ) rule__CollectionDialogue__Group_6__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2339:1: rule__CollectionDialogue__Group_6__2 : ( ';' ) ;
     public final void rule__CollectionDialogue__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2276:1: ( ( ( rule__CollectionDialogue__DialoguesAssignment_6_2 )* ) rule__CollectionDialogue__Group_6__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2277:1: ( ( rule__CollectionDialogue__DialoguesAssignment_6_2 )* ) rule__CollectionDialogue__Group_6__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2343:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2344:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2277:1: ( ( rule__CollectionDialogue__DialoguesAssignment_6_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2278:1: ( rule__CollectionDialogue__DialoguesAssignment_6_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2344:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2345:1: ';'
             {
-             before(grammarAccess.getCollectionDialogueAccess().getDialoguesAssignment_6_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2279:1: ( rule__CollectionDialogue__DialoguesAssignment_6_2 )*
-            loop33:
-            do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
-
-                if ( (LA33_0==RULE_ID||LA33_0==34) ) {
-                    alt33=1;
-                }
-
-
-                switch (alt33) {
-            	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2279:2: rule__CollectionDialogue__DialoguesAssignment_6_2
-            	    {
-            	    pushFollow(FOLLOW_rule__CollectionDialogue__DialoguesAssignment_6_2_in_rule__CollectionDialogue__Group_6__24634);
-            	    rule__CollectionDialogue__DialoguesAssignment_6_2();
-            	    _fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop33;
-                }
-            } while (true);
-
-             after(grammarAccess.getCollectionDialogueAccess().getDialoguesAssignment_6_2()); 
+             before(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_6_2()); 
+            match(input,13,FOLLOW_13_in_rule__CollectionDialogue__Group_6__24761); 
+             after(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_6_2()); 
 
             }
-
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_6__3_in_rule__CollectionDialogue__Group_6__24644);
-            rule__CollectionDialogue__Group_6__3();
-            _fsp--;
 
 
             }
@@ -6197,63 +6293,26 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__CollectionDialogue__Group_6__2
 
 
-    // $ANTLR start rule__CollectionDialogue__Group_6__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2290:1: rule__CollectionDialogue__Group_6__3 : ( ']' ) ;
-    public final void rule__CollectionDialogue__Group_6__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2294:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2295:1: ( ']' )
-            {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2295:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2296:1: ']'
-            {
-             before(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_6_3()); 
-            match(input,21,FOLLOW_21_in_rule__CollectionDialogue__Group_6__34673); 
-             after(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_6_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__CollectionDialogue__Group_6__3
-
-
     // $ANTLR start rule__CollectionDialogue__Group_7__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2317:1: rule__CollectionDialogue__Group_7__0 : ( 'processes' ) rule__CollectionDialogue__Group_7__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2364:1: rule__CollectionDialogue__Group_7__0 : ( 'dialogues' ) rule__CollectionDialogue__Group_7__1 ;
     public final void rule__CollectionDialogue__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2321:1: ( ( 'processes' ) rule__CollectionDialogue__Group_7__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2322:1: ( 'processes' ) rule__CollectionDialogue__Group_7__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2368:1: ( ( 'dialogues' ) rule__CollectionDialogue__Group_7__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2369:1: ( 'dialogues' ) rule__CollectionDialogue__Group_7__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2322:1: ( 'processes' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2323:1: 'processes'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2369:1: ( 'dialogues' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2370:1: 'dialogues'
             {
-             before(grammarAccess.getCollectionDialogueAccess().getProcessesKeyword_7_0()); 
-            match(input,19,FOLLOW_19_in_rule__CollectionDialogue__Group_7__04717); 
-             after(grammarAccess.getCollectionDialogueAccess().getProcessesKeyword_7_0()); 
+             before(grammarAccess.getCollectionDialogueAccess().getDialoguesKeyword_7_0()); 
+            match(input,23,FOLLOW_23_in_rule__CollectionDialogue__Group_7__04803); 
+             after(grammarAccess.getCollectionDialogueAccess().getDialoguesKeyword_7_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__1_in_rule__CollectionDialogue__Group_7__04727);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__1_in_rule__CollectionDialogue__Group_7__04813);
             rule__CollectionDialogue__Group_7__1();
             _fsp--;
 
@@ -6276,25 +6335,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group_7__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2337:1: rule__CollectionDialogue__Group_7__1 : ( '[' ) rule__CollectionDialogue__Group_7__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2384:1: rule__CollectionDialogue__Group_7__1 : ( '[' ) rule__CollectionDialogue__Group_7__2 ;
     public final void rule__CollectionDialogue__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2341:1: ( ( '[' ) rule__CollectionDialogue__Group_7__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2342:1: ( '[' ) rule__CollectionDialogue__Group_7__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2388:1: ( ( '[' ) rule__CollectionDialogue__Group_7__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2389:1: ( '[' ) rule__CollectionDialogue__Group_7__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2342:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2343:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2389:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2390:1: '['
             {
              before(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_7_1()); 
-            match(input,20,FOLLOW_20_in_rule__CollectionDialogue__Group_7__14756); 
+            match(input,18,FOLLOW_18_in_rule__CollectionDialogue__Group_7__14842); 
              after(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_7_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__2_in_rule__CollectionDialogue__Group_7__14766);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__2_in_rule__CollectionDialogue__Group_7__14852);
             rule__CollectionDialogue__Group_7__2();
             _fsp--;
 
@@ -6317,36 +6376,36 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group_7__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2357:1: rule__CollectionDialogue__Group_7__2 : ( ( rule__CollectionDialogue__ProcessesAssignment_7_2 )* ) rule__CollectionDialogue__Group_7__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2404:1: rule__CollectionDialogue__Group_7__2 : ( ( rule__CollectionDialogue__DialoguesAssignment_7_2 )* ) rule__CollectionDialogue__Group_7__3 ;
     public final void rule__CollectionDialogue__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2361:1: ( ( ( rule__CollectionDialogue__ProcessesAssignment_7_2 )* ) rule__CollectionDialogue__Group_7__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2362:1: ( ( rule__CollectionDialogue__ProcessesAssignment_7_2 )* ) rule__CollectionDialogue__Group_7__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2408:1: ( ( ( rule__CollectionDialogue__DialoguesAssignment_7_2 )* ) rule__CollectionDialogue__Group_7__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2409:1: ( ( rule__CollectionDialogue__DialoguesAssignment_7_2 )* ) rule__CollectionDialogue__Group_7__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2362:1: ( ( rule__CollectionDialogue__ProcessesAssignment_7_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2363:1: ( rule__CollectionDialogue__ProcessesAssignment_7_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2409:1: ( ( rule__CollectionDialogue__DialoguesAssignment_7_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2410:1: ( rule__CollectionDialogue__DialoguesAssignment_7_2 )*
             {
-             before(grammarAccess.getCollectionDialogueAccess().getProcessesAssignment_7_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2364:1: ( rule__CollectionDialogue__ProcessesAssignment_7_2 )*
-            loop34:
+             before(grammarAccess.getCollectionDialogueAccess().getDialoguesAssignment_7_2()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2411:1: ( rule__CollectionDialogue__DialoguesAssignment_7_2 )*
+            loop33:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA34_0==RULE_ID||LA34_0==34) ) {
-                    alt34=1;
+                if ( (LA33_0==RULE_ID||LA33_0==34) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt34) {
+                switch (alt33) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2364:2: rule__CollectionDialogue__ProcessesAssignment_7_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2411:2: rule__CollectionDialogue__DialoguesAssignment_7_2
             	    {
-            	    pushFollow(FOLLOW_rule__CollectionDialogue__ProcessesAssignment_7_2_in_rule__CollectionDialogue__Group_7__24794);
-            	    rule__CollectionDialogue__ProcessesAssignment_7_2();
+            	    pushFollow(FOLLOW_rule__CollectionDialogue__DialoguesAssignment_7_2_in_rule__CollectionDialogue__Group_7__24880);
+            	    rule__CollectionDialogue__DialoguesAssignment_7_2();
             	    _fsp--;
 
 
@@ -6354,15 +6413,15 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop33;
                 }
             } while (true);
 
-             after(grammarAccess.getCollectionDialogueAccess().getProcessesAssignment_7_2()); 
+             after(grammarAccess.getCollectionDialogueAccess().getDialoguesAssignment_7_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__3_in_rule__CollectionDialogue__Group_7__24804);
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_7__3_in_rule__CollectionDialogue__Group_7__24890);
             rule__CollectionDialogue__Group_7__3();
             _fsp--;
 
@@ -6385,20 +6444,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__Group_7__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2375:1: rule__CollectionDialogue__Group_7__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2422:1: rule__CollectionDialogue__Group_7__3 : ( ']' ) ;
     public final void rule__CollectionDialogue__Group_7__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2379:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2380:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2426:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2427:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2380:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2381:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2427:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2428:1: ']'
             {
              before(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_7_3()); 
-            match(input,21,FOLLOW_21_in_rule__CollectionDialogue__Group_7__34833); 
+            match(input,19,FOLLOW_19_in_rule__CollectionDialogue__Group_7__34919); 
              after(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_7_3()); 
 
             }
@@ -6421,21 +6480,208 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__CollectionDialogue__Group_7__3
 
 
+    // $ANTLR start rule__CollectionDialogue__Group_8__0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2449:1: rule__CollectionDialogue__Group_8__0 : ( 'processes' ) rule__CollectionDialogue__Group_8__1 ;
+    public final void rule__CollectionDialogue__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2453:1: ( ( 'processes' ) rule__CollectionDialogue__Group_8__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2454:1: ( 'processes' ) rule__CollectionDialogue__Group_8__1
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2454:1: ( 'processes' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2455:1: 'processes'
+            {
+             before(grammarAccess.getCollectionDialogueAccess().getProcessesKeyword_8_0()); 
+            match(input,21,FOLLOW_21_in_rule__CollectionDialogue__Group_8__04963); 
+             after(grammarAccess.getCollectionDialogueAccess().getProcessesKeyword_8_0()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_8__1_in_rule__CollectionDialogue__Group_8__04973);
+            rule__CollectionDialogue__Group_8__1();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__CollectionDialogue__Group_8__0
+
+
+    // $ANTLR start rule__CollectionDialogue__Group_8__1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2469:1: rule__CollectionDialogue__Group_8__1 : ( '[' ) rule__CollectionDialogue__Group_8__2 ;
+    public final void rule__CollectionDialogue__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2473:1: ( ( '[' ) rule__CollectionDialogue__Group_8__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2474:1: ( '[' ) rule__CollectionDialogue__Group_8__2
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2474:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2475:1: '['
+            {
+             before(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_8_1()); 
+            match(input,18,FOLLOW_18_in_rule__CollectionDialogue__Group_8__15002); 
+             after(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_8_1()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_8__2_in_rule__CollectionDialogue__Group_8__15012);
+            rule__CollectionDialogue__Group_8__2();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__CollectionDialogue__Group_8__1
+
+
+    // $ANTLR start rule__CollectionDialogue__Group_8__2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2489:1: rule__CollectionDialogue__Group_8__2 : ( ( rule__CollectionDialogue__ProcessesAssignment_8_2 )* ) rule__CollectionDialogue__Group_8__3 ;
+    public final void rule__CollectionDialogue__Group_8__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2493:1: ( ( ( rule__CollectionDialogue__ProcessesAssignment_8_2 )* ) rule__CollectionDialogue__Group_8__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2494:1: ( ( rule__CollectionDialogue__ProcessesAssignment_8_2 )* ) rule__CollectionDialogue__Group_8__3
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2494:1: ( ( rule__CollectionDialogue__ProcessesAssignment_8_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2495:1: ( rule__CollectionDialogue__ProcessesAssignment_8_2 )*
+            {
+             before(grammarAccess.getCollectionDialogueAccess().getProcessesAssignment_8_2()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2496:1: ( rule__CollectionDialogue__ProcessesAssignment_8_2 )*
+            loop34:
+            do {
+                int alt34=2;
+                int LA34_0 = input.LA(1);
+
+                if ( (LA34_0==RULE_ID||LA34_0==34) ) {
+                    alt34=1;
+                }
+
+
+                switch (alt34) {
+            	case 1 :
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2496:2: rule__CollectionDialogue__ProcessesAssignment_8_2
+            	    {
+            	    pushFollow(FOLLOW_rule__CollectionDialogue__ProcessesAssignment_8_2_in_rule__CollectionDialogue__Group_8__25040);
+            	    rule__CollectionDialogue__ProcessesAssignment_8_2();
+            	    _fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop34;
+                }
+            } while (true);
+
+             after(grammarAccess.getCollectionDialogueAccess().getProcessesAssignment_8_2()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__CollectionDialogue__Group_8__3_in_rule__CollectionDialogue__Group_8__25050);
+            rule__CollectionDialogue__Group_8__3();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__CollectionDialogue__Group_8__2
+
+
+    // $ANTLR start rule__CollectionDialogue__Group_8__3
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2507:1: rule__CollectionDialogue__Group_8__3 : ( ']' ) ;
+    public final void rule__CollectionDialogue__Group_8__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2511:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2512:1: ( ']' )
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2512:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2513:1: ']'
+            {
+             before(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_8_3()); 
+            match(input,19,FOLLOW_19_in_rule__CollectionDialogue__Group_8__35079); 
+             after(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_8_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__CollectionDialogue__Group_8__3
+
+
     // $ANTLR start rule__MasterDetail__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2402:1: rule__MasterDetail__Group__0 : ( ( rule__MasterDetail__DescriptionAssignment_0 )? ) rule__MasterDetail__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2534:1: rule__MasterDetail__Group__0 : ( ( rule__MasterDetail__DescriptionAssignment_0 )? ) rule__MasterDetail__Group__1 ;
     public final void rule__MasterDetail__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2406:1: ( ( ( rule__MasterDetail__DescriptionAssignment_0 )? ) rule__MasterDetail__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2407:1: ( ( rule__MasterDetail__DescriptionAssignment_0 )? ) rule__MasterDetail__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2538:1: ( ( ( rule__MasterDetail__DescriptionAssignment_0 )? ) rule__MasterDetail__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2539:1: ( ( rule__MasterDetail__DescriptionAssignment_0 )? ) rule__MasterDetail__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2407:1: ( ( rule__MasterDetail__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2408:1: ( rule__MasterDetail__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2539:1: ( ( rule__MasterDetail__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2540:1: ( rule__MasterDetail__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getMasterDetailAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2409:1: ( rule__MasterDetail__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2541:1: ( rule__MasterDetail__DescriptionAssignment_0 )?
             int alt35=2;
             int LA35_0 = input.LA(1);
 
@@ -6444,9 +6690,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt35) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2409:2: rule__MasterDetail__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2541:2: rule__MasterDetail__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__MasterDetail__DescriptionAssignment_0_in_rule__MasterDetail__Group__04876);
+                    pushFollow(FOLLOW_rule__MasterDetail__DescriptionAssignment_0_in_rule__MasterDetail__Group__05122);
                     rule__MasterDetail__DescriptionAssignment_0();
                     _fsp--;
 
@@ -6460,7 +6706,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__1_in_rule__MasterDetail__Group__04886);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__1_in_rule__MasterDetail__Group__05132);
             rule__MasterDetail__Group__1();
             _fsp--;
 
@@ -6483,25 +6729,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2420:1: rule__MasterDetail__Group__1 : ( 'MasterDetail' ) rule__MasterDetail__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2552:1: rule__MasterDetail__Group__1 : ( 'MasterDetail' ) rule__MasterDetail__Group__2 ;
     public final void rule__MasterDetail__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2424:1: ( ( 'MasterDetail' ) rule__MasterDetail__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2425:1: ( 'MasterDetail' ) rule__MasterDetail__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2556:1: ( ( 'MasterDetail' ) rule__MasterDetail__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2557:1: ( 'MasterDetail' ) rule__MasterDetail__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2425:1: ( 'MasterDetail' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2426:1: 'MasterDetail'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2557:1: ( 'MasterDetail' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2558:1: 'MasterDetail'
             {
              before(grammarAccess.getMasterDetailAccess().getMasterDetailKeyword_1()); 
-            match(input,25,FOLLOW_25_in_rule__MasterDetail__Group__14915); 
+            match(input,25,FOLLOW_25_in_rule__MasterDetail__Group__15161); 
              after(grammarAccess.getMasterDetailAccess().getMasterDetailKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__2_in_rule__MasterDetail__Group__14925);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__2_in_rule__MasterDetail__Group__15171);
             rule__MasterDetail__Group__2();
             _fsp--;
 
@@ -6524,23 +6770,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2440:1: rule__MasterDetail__Group__2 : ( ( rule__MasterDetail__NameAssignment_2 ) ) rule__MasterDetail__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2572:1: rule__MasterDetail__Group__2 : ( ( rule__MasterDetail__NameAssignment_2 ) ) rule__MasterDetail__Group__3 ;
     public final void rule__MasterDetail__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2444:1: ( ( ( rule__MasterDetail__NameAssignment_2 ) ) rule__MasterDetail__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2445:1: ( ( rule__MasterDetail__NameAssignment_2 ) ) rule__MasterDetail__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2576:1: ( ( ( rule__MasterDetail__NameAssignment_2 ) ) rule__MasterDetail__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2577:1: ( ( rule__MasterDetail__NameAssignment_2 ) ) rule__MasterDetail__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2445:1: ( ( rule__MasterDetail__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2446:1: ( rule__MasterDetail__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2577:1: ( ( rule__MasterDetail__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2578:1: ( rule__MasterDetail__NameAssignment_2 )
             {
              before(grammarAccess.getMasterDetailAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2447:1: ( rule__MasterDetail__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2447:2: rule__MasterDetail__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2579:1: ( rule__MasterDetail__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2579:2: rule__MasterDetail__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__MasterDetail__NameAssignment_2_in_rule__MasterDetail__Group__24953);
+            pushFollow(FOLLOW_rule__MasterDetail__NameAssignment_2_in_rule__MasterDetail__Group__25199);
             rule__MasterDetail__NameAssignment_2();
             _fsp--;
 
@@ -6551,7 +6797,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__3_in_rule__MasterDetail__Group__24962);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__3_in_rule__MasterDetail__Group__25208);
             rule__MasterDetail__Group__3();
             _fsp--;
 
@@ -6574,25 +6820,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2458:1: rule__MasterDetail__Group__3 : ( 'using' ) rule__MasterDetail__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2590:1: rule__MasterDetail__Group__3 : ( 'context' ) rule__MasterDetail__Group__4 ;
     public final void rule__MasterDetail__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2462:1: ( ( 'using' ) rule__MasterDetail__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2463:1: ( 'using' ) rule__MasterDetail__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2594:1: ( ( 'context' ) rule__MasterDetail__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2595:1: ( 'context' ) rule__MasterDetail__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2463:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2464:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2595:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2596:1: 'context'
             {
-             before(grammarAccess.getMasterDetailAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__MasterDetail__Group__34991); 
-             after(grammarAccess.getMasterDetailAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getMasterDetailAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__MasterDetail__Group__35237); 
+             after(grammarAccess.getMasterDetailAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__4_in_rule__MasterDetail__Group__35001);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__4_in_rule__MasterDetail__Group__35247);
             rule__MasterDetail__Group__4();
             _fsp--;
 
@@ -6615,23 +6861,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2478:1: rule__MasterDetail__Group__4 : ( ( rule__MasterDetail__ContextRefAssignment_4 ) ) rule__MasterDetail__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2610:1: rule__MasterDetail__Group__4 : ( ( rule__MasterDetail__ContextRefAssignment_4 ) ) rule__MasterDetail__Group__5 ;
     public final void rule__MasterDetail__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2482:1: ( ( ( rule__MasterDetail__ContextRefAssignment_4 ) ) rule__MasterDetail__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2483:1: ( ( rule__MasterDetail__ContextRefAssignment_4 ) ) rule__MasterDetail__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2614:1: ( ( ( rule__MasterDetail__ContextRefAssignment_4 ) ) rule__MasterDetail__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2615:1: ( ( rule__MasterDetail__ContextRefAssignment_4 ) ) rule__MasterDetail__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2483:1: ( ( rule__MasterDetail__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2484:1: ( rule__MasterDetail__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2615:1: ( ( rule__MasterDetail__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2616:1: ( rule__MasterDetail__ContextRefAssignment_4 )
             {
              before(grammarAccess.getMasterDetailAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2485:1: ( rule__MasterDetail__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2485:2: rule__MasterDetail__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2617:1: ( rule__MasterDetail__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2617:2: rule__MasterDetail__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__MasterDetail__ContextRefAssignment_4_in_rule__MasterDetail__Group__45029);
+            pushFollow(FOLLOW_rule__MasterDetail__ContextRefAssignment_4_in_rule__MasterDetail__Group__45275);
             rule__MasterDetail__ContextRefAssignment_4();
             _fsp--;
 
@@ -6642,7 +6888,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__5_in_rule__MasterDetail__Group__45038);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__5_in_rule__MasterDetail__Group__45284);
             rule__MasterDetail__Group__5();
             _fsp--;
 
@@ -6665,31 +6911,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2496:1: rule__MasterDetail__Group__5 : ( ( rule__MasterDetail__Group_5__0 )? ) rule__MasterDetail__Group__6 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2628:1: rule__MasterDetail__Group__5 : ( ( rule__MasterDetail__Group_5__0 )? ) rule__MasterDetail__Group__6 ;
     public final void rule__MasterDetail__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2500:1: ( ( ( rule__MasterDetail__Group_5__0 )? ) rule__MasterDetail__Group__6 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2501:1: ( ( rule__MasterDetail__Group_5__0 )? ) rule__MasterDetail__Group__6
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2632:1: ( ( ( rule__MasterDetail__Group_5__0 )? ) rule__MasterDetail__Group__6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2633:1: ( ( rule__MasterDetail__Group_5__0 )? ) rule__MasterDetail__Group__6
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2501:1: ( ( rule__MasterDetail__Group_5__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2502:1: ( rule__MasterDetail__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2633:1: ( ( rule__MasterDetail__Group_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2634:1: ( rule__MasterDetail__Group_5__0 )?
             {
              before(grammarAccess.getMasterDetailAccess().getGroup_5()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2503:1: ( rule__MasterDetail__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2635:1: ( rule__MasterDetail__Group_5__0 )?
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==17) ) {
+            if ( (LA36_0==20) ) {
                 alt36=1;
             }
             switch (alt36) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2503:2: rule__MasterDetail__Group_5__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2635:2: rule__MasterDetail__Group_5__0
                     {
-                    pushFollow(FOLLOW_rule__MasterDetail__Group_5__0_in_rule__MasterDetail__Group__55066);
+                    pushFollow(FOLLOW_rule__MasterDetail__Group_5__0_in_rule__MasterDetail__Group__55312);
                     rule__MasterDetail__Group_5__0();
                     _fsp--;
 
@@ -6703,7 +6949,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__6_in_rule__MasterDetail__Group__55076);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__6_in_rule__MasterDetail__Group__55322);
             rule__MasterDetail__Group__6();
             _fsp--;
 
@@ -6726,25 +6972,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2514:1: rule__MasterDetail__Group__6 : ( 'master' ) rule__MasterDetail__Group__7 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2646:1: rule__MasterDetail__Group__6 : ( 'master' ) rule__MasterDetail__Group__7 ;
     public final void rule__MasterDetail__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2518:1: ( ( 'master' ) rule__MasterDetail__Group__7 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2519:1: ( 'master' ) rule__MasterDetail__Group__7
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2650:1: ( ( 'master' ) rule__MasterDetail__Group__7 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2651:1: ( 'master' ) rule__MasterDetail__Group__7
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2519:1: ( 'master' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2520:1: 'master'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2651:1: ( 'master' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2652:1: 'master'
             {
              before(grammarAccess.getMasterDetailAccess().getMasterKeyword_6()); 
-            match(input,26,FOLLOW_26_in_rule__MasterDetail__Group__65105); 
+            match(input,26,FOLLOW_26_in_rule__MasterDetail__Group__65351); 
              after(grammarAccess.getMasterDetailAccess().getMasterKeyword_6()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__7_in_rule__MasterDetail__Group__65115);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__7_in_rule__MasterDetail__Group__65361);
             rule__MasterDetail__Group__7();
             _fsp--;
 
@@ -6767,23 +7013,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__7
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2534:1: rule__MasterDetail__Group__7 : ( ( rule__MasterDetail__MasterAssignment_7 ) ) rule__MasterDetail__Group__8 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2666:1: rule__MasterDetail__Group__7 : ( ( rule__MasterDetail__MasterAssignment_7 ) ) rule__MasterDetail__Group__8 ;
     public final void rule__MasterDetail__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2538:1: ( ( ( rule__MasterDetail__MasterAssignment_7 ) ) rule__MasterDetail__Group__8 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2539:1: ( ( rule__MasterDetail__MasterAssignment_7 ) ) rule__MasterDetail__Group__8
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2670:1: ( ( ( rule__MasterDetail__MasterAssignment_7 ) ) rule__MasterDetail__Group__8 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2671:1: ( ( rule__MasterDetail__MasterAssignment_7 ) ) rule__MasterDetail__Group__8
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2539:1: ( ( rule__MasterDetail__MasterAssignment_7 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2540:1: ( rule__MasterDetail__MasterAssignment_7 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2671:1: ( ( rule__MasterDetail__MasterAssignment_7 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2672:1: ( rule__MasterDetail__MasterAssignment_7 )
             {
              before(grammarAccess.getMasterDetailAccess().getMasterAssignment_7()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2541:1: ( rule__MasterDetail__MasterAssignment_7 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2541:2: rule__MasterDetail__MasterAssignment_7
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2673:1: ( rule__MasterDetail__MasterAssignment_7 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2673:2: rule__MasterDetail__MasterAssignment_7
             {
-            pushFollow(FOLLOW_rule__MasterDetail__MasterAssignment_7_in_rule__MasterDetail__Group__75143);
+            pushFollow(FOLLOW_rule__MasterDetail__MasterAssignment_7_in_rule__MasterDetail__Group__75389);
             rule__MasterDetail__MasterAssignment_7();
             _fsp--;
 
@@ -6794,7 +7040,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__8_in_rule__MasterDetail__Group__75152);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__8_in_rule__MasterDetail__Group__75398);
             rule__MasterDetail__Group__8();
             _fsp--;
 
@@ -6817,25 +7063,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__8
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2552:1: rule__MasterDetail__Group__8 : ( 'detail' ) rule__MasterDetail__Group__9 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2684:1: rule__MasterDetail__Group__8 : ( 'detail' ) rule__MasterDetail__Group__9 ;
     public final void rule__MasterDetail__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2556:1: ( ( 'detail' ) rule__MasterDetail__Group__9 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2557:1: ( 'detail' ) rule__MasterDetail__Group__9
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2688:1: ( ( 'detail' ) rule__MasterDetail__Group__9 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2689:1: ( 'detail' ) rule__MasterDetail__Group__9
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2557:1: ( 'detail' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2558:1: 'detail'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2689:1: ( 'detail' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2690:1: 'detail'
             {
              before(grammarAccess.getMasterDetailAccess().getDetailKeyword_8()); 
-            match(input,27,FOLLOW_27_in_rule__MasterDetail__Group__85181); 
+            match(input,27,FOLLOW_27_in_rule__MasterDetail__Group__85427); 
              after(grammarAccess.getMasterDetailAccess().getDetailKeyword_8()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__9_in_rule__MasterDetail__Group__85191);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__9_in_rule__MasterDetail__Group__85437);
             rule__MasterDetail__Group__9();
             _fsp--;
 
@@ -6858,23 +7104,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__9
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2572:1: rule__MasterDetail__Group__9 : ( ( rule__MasterDetail__DetailAssignment_9 ) ) rule__MasterDetail__Group__10 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2704:1: rule__MasterDetail__Group__9 : ( ( rule__MasterDetail__DetailAssignment_9 ) ) rule__MasterDetail__Group__10 ;
     public final void rule__MasterDetail__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2576:1: ( ( ( rule__MasterDetail__DetailAssignment_9 ) ) rule__MasterDetail__Group__10 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2577:1: ( ( rule__MasterDetail__DetailAssignment_9 ) ) rule__MasterDetail__Group__10
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2708:1: ( ( ( rule__MasterDetail__DetailAssignment_9 ) ) rule__MasterDetail__Group__10 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2709:1: ( ( rule__MasterDetail__DetailAssignment_9 ) ) rule__MasterDetail__Group__10
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2577:1: ( ( rule__MasterDetail__DetailAssignment_9 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2578:1: ( rule__MasterDetail__DetailAssignment_9 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2709:1: ( ( rule__MasterDetail__DetailAssignment_9 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2710:1: ( rule__MasterDetail__DetailAssignment_9 )
             {
              before(grammarAccess.getMasterDetailAccess().getDetailAssignment_9()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2579:1: ( rule__MasterDetail__DetailAssignment_9 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2579:2: rule__MasterDetail__DetailAssignment_9
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2711:1: ( rule__MasterDetail__DetailAssignment_9 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2711:2: rule__MasterDetail__DetailAssignment_9
             {
-            pushFollow(FOLLOW_rule__MasterDetail__DetailAssignment_9_in_rule__MasterDetail__Group__95219);
+            pushFollow(FOLLOW_rule__MasterDetail__DetailAssignment_9_in_rule__MasterDetail__Group__95465);
             rule__MasterDetail__DetailAssignment_9();
             _fsp--;
 
@@ -6885,7 +7131,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group__10_in_rule__MasterDetail__Group__95228);
+            pushFollow(FOLLOW_rule__MasterDetail__Group__10_in_rule__MasterDetail__Group__95474);
             rule__MasterDetail__Group__10();
             _fsp--;
 
@@ -6908,31 +7154,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group__10
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2590:1: rule__MasterDetail__Group__10 : ( ( rule__MasterDetail__Group_10__0 )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2722:1: rule__MasterDetail__Group__10 : ( ( rule__MasterDetail__Group_10__0 )? ) ;
     public final void rule__MasterDetail__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2594:1: ( ( ( rule__MasterDetail__Group_10__0 )? ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2595:1: ( ( rule__MasterDetail__Group_10__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2726:1: ( ( ( rule__MasterDetail__Group_10__0 )? ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2727:1: ( ( rule__MasterDetail__Group_10__0 )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2595:1: ( ( rule__MasterDetail__Group_10__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2596:1: ( rule__MasterDetail__Group_10__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2727:1: ( ( rule__MasterDetail__Group_10__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2728:1: ( rule__MasterDetail__Group_10__0 )?
             {
              before(grammarAccess.getMasterDetailAccess().getGroup_10()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2597:1: ( rule__MasterDetail__Group_10__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2729:1: ( rule__MasterDetail__Group_10__0 )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
-            if ( (LA37_0==19) ) {
+            if ( (LA37_0==21) ) {
                 alt37=1;
             }
             switch (alt37) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2597:2: rule__MasterDetail__Group_10__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2729:2: rule__MasterDetail__Group_10__0
                     {
-                    pushFollow(FOLLOW_rule__MasterDetail__Group_10__0_in_rule__MasterDetail__Group__105256);
+                    pushFollow(FOLLOW_rule__MasterDetail__Group_10__0_in_rule__MasterDetail__Group__105502);
                     rule__MasterDetail__Group_10__0();
                     _fsp--;
 
@@ -6965,25 +7211,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_5__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2629:1: rule__MasterDetail__Group_5__0 : ( 'readonly' ) rule__MasterDetail__Group_5__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2761:1: rule__MasterDetail__Group_5__0 : ( 'readonly' ) rule__MasterDetail__Group_5__1 ;
     public final void rule__MasterDetail__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2633:1: ( ( 'readonly' ) rule__MasterDetail__Group_5__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2634:1: ( 'readonly' ) rule__MasterDetail__Group_5__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2765:1: ( ( 'readonly' ) rule__MasterDetail__Group_5__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2766:1: ( 'readonly' ) rule__MasterDetail__Group_5__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2634:1: ( 'readonly' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2635:1: 'readonly'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2766:1: ( 'readonly' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2767:1: 'readonly'
             {
              before(grammarAccess.getMasterDetailAccess().getReadonlyKeyword_5_0()); 
-            match(input,17,FOLLOW_17_in_rule__MasterDetail__Group_5__05314); 
+            match(input,20,FOLLOW_20_in_rule__MasterDetail__Group_5__05560); 
              after(grammarAccess.getMasterDetailAccess().getReadonlyKeyword_5_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group_5__1_in_rule__MasterDetail__Group_5__05324);
+            pushFollow(FOLLOW_rule__MasterDetail__Group_5__1_in_rule__MasterDetail__Group_5__05570);
             rule__MasterDetail__Group_5__1();
             _fsp--;
 
@@ -7006,23 +7252,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_5__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2649:1: rule__MasterDetail__Group_5__1 : ( ( rule__MasterDetail__Alternatives_5_1 ) ) rule__MasterDetail__Group_5__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2781:1: rule__MasterDetail__Group_5__1 : ( ( rule__MasterDetail__Alternatives_5_1 ) ) rule__MasterDetail__Group_5__2 ;
     public final void rule__MasterDetail__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2653:1: ( ( ( rule__MasterDetail__Alternatives_5_1 ) ) rule__MasterDetail__Group_5__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2654:1: ( ( rule__MasterDetail__Alternatives_5_1 ) ) rule__MasterDetail__Group_5__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2785:1: ( ( ( rule__MasterDetail__Alternatives_5_1 ) ) rule__MasterDetail__Group_5__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2786:1: ( ( rule__MasterDetail__Alternatives_5_1 ) ) rule__MasterDetail__Group_5__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2654:1: ( ( rule__MasterDetail__Alternatives_5_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2655:1: ( rule__MasterDetail__Alternatives_5_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2786:1: ( ( rule__MasterDetail__Alternatives_5_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2787:1: ( rule__MasterDetail__Alternatives_5_1 )
             {
              before(grammarAccess.getMasterDetailAccess().getAlternatives_5_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2656:1: ( rule__MasterDetail__Alternatives_5_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2656:2: rule__MasterDetail__Alternatives_5_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2788:1: ( rule__MasterDetail__Alternatives_5_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2788:2: rule__MasterDetail__Alternatives_5_1
             {
-            pushFollow(FOLLOW_rule__MasterDetail__Alternatives_5_1_in_rule__MasterDetail__Group_5__15352);
+            pushFollow(FOLLOW_rule__MasterDetail__Alternatives_5_1_in_rule__MasterDetail__Group_5__15598);
             rule__MasterDetail__Alternatives_5_1();
             _fsp--;
 
@@ -7033,7 +7279,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group_5__2_in_rule__MasterDetail__Group_5__15361);
+            pushFollow(FOLLOW_rule__MasterDetail__Group_5__2_in_rule__MasterDetail__Group_5__15607);
             rule__MasterDetail__Group_5__2();
             _fsp--;
 
@@ -7056,20 +7302,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_5__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2667:1: rule__MasterDetail__Group_5__2 : ( ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2799:1: rule__MasterDetail__Group_5__2 : ( ';' ) ;
     public final void rule__MasterDetail__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2671:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2672:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2803:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2804:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2672:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2673:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2804:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2805:1: ';'
             {
              before(grammarAccess.getMasterDetailAccess().getSemicolonKeyword_5_2()); 
-            match(input,18,FOLLOW_18_in_rule__MasterDetail__Group_5__25390); 
+            match(input,13,FOLLOW_13_in_rule__MasterDetail__Group_5__25636); 
              after(grammarAccess.getMasterDetailAccess().getSemicolonKeyword_5_2()); 
 
             }
@@ -7093,25 +7339,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_10__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2692:1: rule__MasterDetail__Group_10__0 : ( 'processes' ) rule__MasterDetail__Group_10__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2824:1: rule__MasterDetail__Group_10__0 : ( 'processes' ) rule__MasterDetail__Group_10__1 ;
     public final void rule__MasterDetail__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2696:1: ( ( 'processes' ) rule__MasterDetail__Group_10__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2697:1: ( 'processes' ) rule__MasterDetail__Group_10__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2828:1: ( ( 'processes' ) rule__MasterDetail__Group_10__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2829:1: ( 'processes' ) rule__MasterDetail__Group_10__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2697:1: ( 'processes' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2698:1: 'processes'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2829:1: ( 'processes' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2830:1: 'processes'
             {
              before(grammarAccess.getMasterDetailAccess().getProcessesKeyword_10_0()); 
-            match(input,19,FOLLOW_19_in_rule__MasterDetail__Group_10__05432); 
+            match(input,21,FOLLOW_21_in_rule__MasterDetail__Group_10__05678); 
              after(grammarAccess.getMasterDetailAccess().getProcessesKeyword_10_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group_10__1_in_rule__MasterDetail__Group_10__05442);
+            pushFollow(FOLLOW_rule__MasterDetail__Group_10__1_in_rule__MasterDetail__Group_10__05688);
             rule__MasterDetail__Group_10__1();
             _fsp--;
 
@@ -7134,25 +7380,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_10__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2712:1: rule__MasterDetail__Group_10__1 : ( '[' ) rule__MasterDetail__Group_10__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2844:1: rule__MasterDetail__Group_10__1 : ( '[' ) rule__MasterDetail__Group_10__2 ;
     public final void rule__MasterDetail__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2716:1: ( ( '[' ) rule__MasterDetail__Group_10__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2717:1: ( '[' ) rule__MasterDetail__Group_10__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2848:1: ( ( '[' ) rule__MasterDetail__Group_10__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2849:1: ( '[' ) rule__MasterDetail__Group_10__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2717:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2718:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2849:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2850:1: '['
             {
              before(grammarAccess.getMasterDetailAccess().getLeftSquareBracketKeyword_10_1()); 
-            match(input,20,FOLLOW_20_in_rule__MasterDetail__Group_10__15471); 
+            match(input,18,FOLLOW_18_in_rule__MasterDetail__Group_10__15717); 
              after(grammarAccess.getMasterDetailAccess().getLeftSquareBracketKeyword_10_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group_10__2_in_rule__MasterDetail__Group_10__15481);
+            pushFollow(FOLLOW_rule__MasterDetail__Group_10__2_in_rule__MasterDetail__Group_10__15727);
             rule__MasterDetail__Group_10__2();
             _fsp--;
 
@@ -7175,20 +7421,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_10__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2732:1: rule__MasterDetail__Group_10__2 : ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* ) rule__MasterDetail__Group_10__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2864:1: rule__MasterDetail__Group_10__2 : ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* ) rule__MasterDetail__Group_10__3 ;
     public final void rule__MasterDetail__Group_10__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2736:1: ( ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* ) rule__MasterDetail__Group_10__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2737:1: ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* ) rule__MasterDetail__Group_10__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2868:1: ( ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* ) rule__MasterDetail__Group_10__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2869:1: ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* ) rule__MasterDetail__Group_10__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2737:1: ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2738:1: ( rule__MasterDetail__ProcessesAssignment_10_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2869:1: ( ( rule__MasterDetail__ProcessesAssignment_10_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2870:1: ( rule__MasterDetail__ProcessesAssignment_10_2 )*
             {
              before(grammarAccess.getMasterDetailAccess().getProcessesAssignment_10_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2739:1: ( rule__MasterDetail__ProcessesAssignment_10_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2871:1: ( rule__MasterDetail__ProcessesAssignment_10_2 )*
             loop38:
             do {
                 int alt38=2;
@@ -7201,9 +7447,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
                 switch (alt38) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2739:2: rule__MasterDetail__ProcessesAssignment_10_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2871:2: rule__MasterDetail__ProcessesAssignment_10_2
             	    {
-            	    pushFollow(FOLLOW_rule__MasterDetail__ProcessesAssignment_10_2_in_rule__MasterDetail__Group_10__25509);
+            	    pushFollow(FOLLOW_rule__MasterDetail__ProcessesAssignment_10_2_in_rule__MasterDetail__Group_10__25755);
             	    rule__MasterDetail__ProcessesAssignment_10_2();
             	    _fsp--;
 
@@ -7220,7 +7466,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__MasterDetail__Group_10__3_in_rule__MasterDetail__Group_10__25519);
+            pushFollow(FOLLOW_rule__MasterDetail__Group_10__3_in_rule__MasterDetail__Group_10__25765);
             rule__MasterDetail__Group_10__3();
             _fsp--;
 
@@ -7243,20 +7489,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__Group_10__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2750:1: rule__MasterDetail__Group_10__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2882:1: rule__MasterDetail__Group_10__3 : ( ']' ) ;
     public final void rule__MasterDetail__Group_10__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2754:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2755:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2886:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2887:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2755:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2756:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2887:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2888:1: ']'
             {
              before(grammarAccess.getMasterDetailAccess().getRightSquareBracketKeyword_10_3()); 
-            match(input,21,FOLLOW_21_in_rule__MasterDetail__Group_10__35548); 
+            match(input,19,FOLLOW_19_in_rule__MasterDetail__Group_10__35794); 
              after(grammarAccess.getMasterDetailAccess().getRightSquareBracketKeyword_10_3()); 
 
             }
@@ -7280,20 +7526,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2777:1: rule__AutomatedProcess__Group__0 : ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? ) rule__AutomatedProcess__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2909:1: rule__AutomatedProcess__Group__0 : ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? ) rule__AutomatedProcess__Group__1 ;
     public final void rule__AutomatedProcess__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2781:1: ( ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? ) rule__AutomatedProcess__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2782:1: ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? ) rule__AutomatedProcess__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2913:1: ( ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? ) rule__AutomatedProcess__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2914:1: ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? ) rule__AutomatedProcess__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2782:1: ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2783:1: ( rule__AutomatedProcess__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2914:1: ( ( rule__AutomatedProcess__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2915:1: ( rule__AutomatedProcess__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getAutomatedProcessAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2784:1: ( rule__AutomatedProcess__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2916:1: ( rule__AutomatedProcess__DescriptionAssignment_0 )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -7302,9 +7548,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt39) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2784:2: rule__AutomatedProcess__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2916:2: rule__AutomatedProcess__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__AutomatedProcess__DescriptionAssignment_0_in_rule__AutomatedProcess__Group__05591);
+                    pushFollow(FOLLOW_rule__AutomatedProcess__DescriptionAssignment_0_in_rule__AutomatedProcess__Group__05837);
                     rule__AutomatedProcess__DescriptionAssignment_0();
                     _fsp--;
 
@@ -7318,7 +7564,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group__1_in_rule__AutomatedProcess__Group__05601);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group__1_in_rule__AutomatedProcess__Group__05847);
             rule__AutomatedProcess__Group__1();
             _fsp--;
 
@@ -7341,25 +7587,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2795:1: rule__AutomatedProcess__Group__1 : ( 'AutomatedProcess' ) rule__AutomatedProcess__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2927:1: rule__AutomatedProcess__Group__1 : ( 'AutomatedProcess' ) rule__AutomatedProcess__Group__2 ;
     public final void rule__AutomatedProcess__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2799:1: ( ( 'AutomatedProcess' ) rule__AutomatedProcess__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2800:1: ( 'AutomatedProcess' ) rule__AutomatedProcess__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2931:1: ( ( 'AutomatedProcess' ) rule__AutomatedProcess__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2932:1: ( 'AutomatedProcess' ) rule__AutomatedProcess__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2800:1: ( 'AutomatedProcess' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2801:1: 'AutomatedProcess'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2932:1: ( 'AutomatedProcess' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2933:1: 'AutomatedProcess'
             {
              before(grammarAccess.getAutomatedProcessAccess().getAutomatedProcessKeyword_1()); 
-            match(input,28,FOLLOW_28_in_rule__AutomatedProcess__Group__15630); 
+            match(input,28,FOLLOW_28_in_rule__AutomatedProcess__Group__15876); 
              after(grammarAccess.getAutomatedProcessAccess().getAutomatedProcessKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group__2_in_rule__AutomatedProcess__Group__15640);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group__2_in_rule__AutomatedProcess__Group__15886);
             rule__AutomatedProcess__Group__2();
             _fsp--;
 
@@ -7382,23 +7628,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2815:1: rule__AutomatedProcess__Group__2 : ( ( rule__AutomatedProcess__NameAssignment_2 ) ) rule__AutomatedProcess__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2947:1: rule__AutomatedProcess__Group__2 : ( ( rule__AutomatedProcess__NameAssignment_2 ) ) rule__AutomatedProcess__Group__3 ;
     public final void rule__AutomatedProcess__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2819:1: ( ( ( rule__AutomatedProcess__NameAssignment_2 ) ) rule__AutomatedProcess__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2820:1: ( ( rule__AutomatedProcess__NameAssignment_2 ) ) rule__AutomatedProcess__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2951:1: ( ( ( rule__AutomatedProcess__NameAssignment_2 ) ) rule__AutomatedProcess__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2952:1: ( ( rule__AutomatedProcess__NameAssignment_2 ) ) rule__AutomatedProcess__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2820:1: ( ( rule__AutomatedProcess__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2821:1: ( rule__AutomatedProcess__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2952:1: ( ( rule__AutomatedProcess__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2953:1: ( rule__AutomatedProcess__NameAssignment_2 )
             {
              before(grammarAccess.getAutomatedProcessAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2822:1: ( rule__AutomatedProcess__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2822:2: rule__AutomatedProcess__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2954:1: ( rule__AutomatedProcess__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2954:2: rule__AutomatedProcess__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__AutomatedProcess__NameAssignment_2_in_rule__AutomatedProcess__Group__25668);
+            pushFollow(FOLLOW_rule__AutomatedProcess__NameAssignment_2_in_rule__AutomatedProcess__Group__25914);
             rule__AutomatedProcess__NameAssignment_2();
             _fsp--;
 
@@ -7409,7 +7655,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group__3_in_rule__AutomatedProcess__Group__25677);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group__3_in_rule__AutomatedProcess__Group__25923);
             rule__AutomatedProcess__Group__3();
             _fsp--;
 
@@ -7432,25 +7678,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2833:1: rule__AutomatedProcess__Group__3 : ( 'using' ) rule__AutomatedProcess__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2965:1: rule__AutomatedProcess__Group__3 : ( 'context' ) rule__AutomatedProcess__Group__4 ;
     public final void rule__AutomatedProcess__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2837:1: ( ( 'using' ) rule__AutomatedProcess__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2838:1: ( 'using' ) rule__AutomatedProcess__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2969:1: ( ( 'context' ) rule__AutomatedProcess__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2970:1: ( 'context' ) rule__AutomatedProcess__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2838:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2839:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2970:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2971:1: 'context'
             {
-             before(grammarAccess.getAutomatedProcessAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__AutomatedProcess__Group__35706); 
-             after(grammarAccess.getAutomatedProcessAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getAutomatedProcessAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__AutomatedProcess__Group__35952); 
+             after(grammarAccess.getAutomatedProcessAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group__4_in_rule__AutomatedProcess__Group__35716);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group__4_in_rule__AutomatedProcess__Group__35962);
             rule__AutomatedProcess__Group__4();
             _fsp--;
 
@@ -7473,23 +7719,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2853:1: rule__AutomatedProcess__Group__4 : ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) ) rule__AutomatedProcess__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2985:1: rule__AutomatedProcess__Group__4 : ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) ) rule__AutomatedProcess__Group__5 ;
     public final void rule__AutomatedProcess__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2857:1: ( ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) ) rule__AutomatedProcess__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2858:1: ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) ) rule__AutomatedProcess__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2989:1: ( ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) ) rule__AutomatedProcess__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2990:1: ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) ) rule__AutomatedProcess__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2858:1: ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2859:1: ( rule__AutomatedProcess__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2990:1: ( ( rule__AutomatedProcess__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2991:1: ( rule__AutomatedProcess__ContextRefAssignment_4 )
             {
              before(grammarAccess.getAutomatedProcessAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2860:1: ( rule__AutomatedProcess__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2860:2: rule__AutomatedProcess__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2992:1: ( rule__AutomatedProcess__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2992:2: rule__AutomatedProcess__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__AutomatedProcess__ContextRefAssignment_4_in_rule__AutomatedProcess__Group__45744);
+            pushFollow(FOLLOW_rule__AutomatedProcess__ContextRefAssignment_4_in_rule__AutomatedProcess__Group__45990);
             rule__AutomatedProcess__ContextRefAssignment_4();
             _fsp--;
 
@@ -7500,7 +7746,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group__5_in_rule__AutomatedProcess__Group__45753);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group__5_in_rule__AutomatedProcess__Group__45999);
             rule__AutomatedProcess__Group__5();
             _fsp--;
 
@@ -7523,20 +7769,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2871:1: rule__AutomatedProcess__Group__5 : ( ( rule__AutomatedProcess__Group_5__0 )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3003:1: rule__AutomatedProcess__Group__5 : ( ( rule__AutomatedProcess__Group_5__0 )? ) ;
     public final void rule__AutomatedProcess__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2875:1: ( ( ( rule__AutomatedProcess__Group_5__0 )? ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2876:1: ( ( rule__AutomatedProcess__Group_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3007:1: ( ( ( rule__AutomatedProcess__Group_5__0 )? ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3008:1: ( ( rule__AutomatedProcess__Group_5__0 )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2876:1: ( ( rule__AutomatedProcess__Group_5__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2877:1: ( rule__AutomatedProcess__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3008:1: ( ( rule__AutomatedProcess__Group_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3009:1: ( rule__AutomatedProcess__Group_5__0 )?
             {
              before(grammarAccess.getAutomatedProcessAccess().getGroup_5()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2878:1: ( rule__AutomatedProcess__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3010:1: ( rule__AutomatedProcess__Group_5__0 )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -7545,9 +7791,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt40) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2878:2: rule__AutomatedProcess__Group_5__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3010:2: rule__AutomatedProcess__Group_5__0
                     {
-                    pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__0_in_rule__AutomatedProcess__Group__55781);
+                    pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__0_in_rule__AutomatedProcess__Group__56027);
                     rule__AutomatedProcess__Group_5__0();
                     _fsp--;
 
@@ -7580,25 +7826,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group_5__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2900:1: rule__AutomatedProcess__Group_5__0 : ( 'steps' ) rule__AutomatedProcess__Group_5__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3032:1: rule__AutomatedProcess__Group_5__0 : ( 'steps' ) rule__AutomatedProcess__Group_5__1 ;
     public final void rule__AutomatedProcess__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2904:1: ( ( 'steps' ) rule__AutomatedProcess__Group_5__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2905:1: ( 'steps' ) rule__AutomatedProcess__Group_5__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3036:1: ( ( 'steps' ) rule__AutomatedProcess__Group_5__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3037:1: ( 'steps' ) rule__AutomatedProcess__Group_5__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2905:1: ( 'steps' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2906:1: 'steps'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3037:1: ( 'steps' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3038:1: 'steps'
             {
              before(grammarAccess.getAutomatedProcessAccess().getStepsKeyword_5_0()); 
-            match(input,29,FOLLOW_29_in_rule__AutomatedProcess__Group_5__05829); 
+            match(input,29,FOLLOW_29_in_rule__AutomatedProcess__Group_5__06075); 
              after(grammarAccess.getAutomatedProcessAccess().getStepsKeyword_5_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__1_in_rule__AutomatedProcess__Group_5__05839);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__1_in_rule__AutomatedProcess__Group_5__06085);
             rule__AutomatedProcess__Group_5__1();
             _fsp--;
 
@@ -7621,25 +7867,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group_5__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2920:1: rule__AutomatedProcess__Group_5__1 : ( '[' ) rule__AutomatedProcess__Group_5__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3052:1: rule__AutomatedProcess__Group_5__1 : ( '[' ) rule__AutomatedProcess__Group_5__2 ;
     public final void rule__AutomatedProcess__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2924:1: ( ( '[' ) rule__AutomatedProcess__Group_5__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2925:1: ( '[' ) rule__AutomatedProcess__Group_5__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3056:1: ( ( '[' ) rule__AutomatedProcess__Group_5__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3057:1: ( '[' ) rule__AutomatedProcess__Group_5__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2925:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2926:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3057:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3058:1: '['
             {
              before(grammarAccess.getAutomatedProcessAccess().getLeftSquareBracketKeyword_5_1()); 
-            match(input,20,FOLLOW_20_in_rule__AutomatedProcess__Group_5__15868); 
+            match(input,18,FOLLOW_18_in_rule__AutomatedProcess__Group_5__16114); 
              after(grammarAccess.getAutomatedProcessAccess().getLeftSquareBracketKeyword_5_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__2_in_rule__AutomatedProcess__Group_5__15878);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__2_in_rule__AutomatedProcess__Group_5__16124);
             rule__AutomatedProcess__Group_5__2();
             _fsp--;
 
@@ -7662,20 +7908,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group_5__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2940:1: rule__AutomatedProcess__Group_5__2 : ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* ) rule__AutomatedProcess__Group_5__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3072:1: rule__AutomatedProcess__Group_5__2 : ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* ) rule__AutomatedProcess__Group_5__3 ;
     public final void rule__AutomatedProcess__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2944:1: ( ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* ) rule__AutomatedProcess__Group_5__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2945:1: ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* ) rule__AutomatedProcess__Group_5__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3076:1: ( ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* ) rule__AutomatedProcess__Group_5__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3077:1: ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* ) rule__AutomatedProcess__Group_5__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2945:1: ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2946:1: ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3077:1: ( ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3078:1: ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )*
             {
              before(grammarAccess.getAutomatedProcessAccess().getProcessElementsAssignment_5_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2947:1: ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3079:1: ( rule__AutomatedProcess__ProcessElementsAssignment_5_2 )*
             loop41:
             do {
                 int alt41=2;
@@ -7688,9 +7934,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
                 switch (alt41) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2947:2: rule__AutomatedProcess__ProcessElementsAssignment_5_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3079:2: rule__AutomatedProcess__ProcessElementsAssignment_5_2
             	    {
-            	    pushFollow(FOLLOW_rule__AutomatedProcess__ProcessElementsAssignment_5_2_in_rule__AutomatedProcess__Group_5__25906);
+            	    pushFollow(FOLLOW_rule__AutomatedProcess__ProcessElementsAssignment_5_2_in_rule__AutomatedProcess__Group_5__26152);
             	    rule__AutomatedProcess__ProcessElementsAssignment_5_2();
             	    _fsp--;
 
@@ -7707,7 +7953,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__3_in_rule__AutomatedProcess__Group_5__25916);
+            pushFollow(FOLLOW_rule__AutomatedProcess__Group_5__3_in_rule__AutomatedProcess__Group_5__26162);
             rule__AutomatedProcess__Group_5__3();
             _fsp--;
 
@@ -7730,20 +7976,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__Group_5__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2958:1: rule__AutomatedProcess__Group_5__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3090:1: rule__AutomatedProcess__Group_5__3 : ( ']' ) ;
     public final void rule__AutomatedProcess__Group_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2962:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2963:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3094:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3095:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2963:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2964:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3095:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3096:1: ']'
             {
              before(grammarAccess.getAutomatedProcessAccess().getRightSquareBracketKeyword_5_3()); 
-            match(input,21,FOLLOW_21_in_rule__AutomatedProcess__Group_5__35945); 
+            match(input,19,FOLLOW_19_in_rule__AutomatedProcess__Group_5__36191); 
              after(grammarAccess.getAutomatedProcessAccess().getRightSquareBracketKeyword_5_3()); 
 
             }
@@ -7767,20 +8013,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2985:1: rule__InteractiveProcess__Group__0 : ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? ) rule__InteractiveProcess__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3117:1: rule__InteractiveProcess__Group__0 : ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? ) rule__InteractiveProcess__Group__1 ;
     public final void rule__InteractiveProcess__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2989:1: ( ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? ) rule__InteractiveProcess__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2990:1: ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? ) rule__InteractiveProcess__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3121:1: ( ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? ) rule__InteractiveProcess__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3122:1: ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? ) rule__InteractiveProcess__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2990:1: ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2991:1: ( rule__InteractiveProcess__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3122:1: ( ( rule__InteractiveProcess__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3123:1: ( rule__InteractiveProcess__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getInteractiveProcessAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2992:1: ( rule__InteractiveProcess__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3124:1: ( rule__InteractiveProcess__DescriptionAssignment_0 )?
             int alt42=2;
             int LA42_0 = input.LA(1);
 
@@ -7789,9 +8035,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt42) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:2992:2: rule__InteractiveProcess__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3124:2: rule__InteractiveProcess__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__InteractiveProcess__DescriptionAssignment_0_in_rule__InteractiveProcess__Group__05988);
+                    pushFollow(FOLLOW_rule__InteractiveProcess__DescriptionAssignment_0_in_rule__InteractiveProcess__Group__06234);
                     rule__InteractiveProcess__DescriptionAssignment_0();
                     _fsp--;
 
@@ -7805,7 +8051,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group__1_in_rule__InteractiveProcess__Group__05998);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group__1_in_rule__InteractiveProcess__Group__06244);
             rule__InteractiveProcess__Group__1();
             _fsp--;
 
@@ -7828,25 +8074,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3003:1: rule__InteractiveProcess__Group__1 : ( 'InteractiveProcess' ) rule__InteractiveProcess__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3135:1: rule__InteractiveProcess__Group__1 : ( 'InteractiveProcess' ) rule__InteractiveProcess__Group__2 ;
     public final void rule__InteractiveProcess__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3007:1: ( ( 'InteractiveProcess' ) rule__InteractiveProcess__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3008:1: ( 'InteractiveProcess' ) rule__InteractiveProcess__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3139:1: ( ( 'InteractiveProcess' ) rule__InteractiveProcess__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3140:1: ( 'InteractiveProcess' ) rule__InteractiveProcess__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3008:1: ( 'InteractiveProcess' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3009:1: 'InteractiveProcess'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3140:1: ( 'InteractiveProcess' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3141:1: 'InteractiveProcess'
             {
              before(grammarAccess.getInteractiveProcessAccess().getInteractiveProcessKeyword_1()); 
-            match(input,30,FOLLOW_30_in_rule__InteractiveProcess__Group__16027); 
+            match(input,30,FOLLOW_30_in_rule__InteractiveProcess__Group__16273); 
              after(grammarAccess.getInteractiveProcessAccess().getInteractiveProcessKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group__2_in_rule__InteractiveProcess__Group__16037);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group__2_in_rule__InteractiveProcess__Group__16283);
             rule__InteractiveProcess__Group__2();
             _fsp--;
 
@@ -7869,23 +8115,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3023:1: rule__InteractiveProcess__Group__2 : ( ( rule__InteractiveProcess__NameAssignment_2 ) ) rule__InteractiveProcess__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3155:1: rule__InteractiveProcess__Group__2 : ( ( rule__InteractiveProcess__NameAssignment_2 ) ) rule__InteractiveProcess__Group__3 ;
     public final void rule__InteractiveProcess__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3027:1: ( ( ( rule__InteractiveProcess__NameAssignment_2 ) ) rule__InteractiveProcess__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3028:1: ( ( rule__InteractiveProcess__NameAssignment_2 ) ) rule__InteractiveProcess__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3159:1: ( ( ( rule__InteractiveProcess__NameAssignment_2 ) ) rule__InteractiveProcess__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3160:1: ( ( rule__InteractiveProcess__NameAssignment_2 ) ) rule__InteractiveProcess__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3028:1: ( ( rule__InteractiveProcess__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3029:1: ( rule__InteractiveProcess__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3160:1: ( ( rule__InteractiveProcess__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3161:1: ( rule__InteractiveProcess__NameAssignment_2 )
             {
              before(grammarAccess.getInteractiveProcessAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3030:1: ( rule__InteractiveProcess__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3030:2: rule__InteractiveProcess__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3162:1: ( rule__InteractiveProcess__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3162:2: rule__InteractiveProcess__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__InteractiveProcess__NameAssignment_2_in_rule__InteractiveProcess__Group__26065);
+            pushFollow(FOLLOW_rule__InteractiveProcess__NameAssignment_2_in_rule__InteractiveProcess__Group__26311);
             rule__InteractiveProcess__NameAssignment_2();
             _fsp--;
 
@@ -7896,7 +8142,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group__3_in_rule__InteractiveProcess__Group__26074);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group__3_in_rule__InteractiveProcess__Group__26320);
             rule__InteractiveProcess__Group__3();
             _fsp--;
 
@@ -7919,25 +8165,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3041:1: rule__InteractiveProcess__Group__3 : ( 'using' ) rule__InteractiveProcess__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3173:1: rule__InteractiveProcess__Group__3 : ( 'context' ) rule__InteractiveProcess__Group__4 ;
     public final void rule__InteractiveProcess__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3045:1: ( ( 'using' ) rule__InteractiveProcess__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3046:1: ( 'using' ) rule__InteractiveProcess__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3177:1: ( ( 'context' ) rule__InteractiveProcess__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3178:1: ( 'context' ) rule__InteractiveProcess__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3046:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3047:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3178:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3179:1: 'context'
             {
-             before(grammarAccess.getInteractiveProcessAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__InteractiveProcess__Group__36103); 
-             after(grammarAccess.getInteractiveProcessAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getInteractiveProcessAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__InteractiveProcess__Group__36349); 
+             after(grammarAccess.getInteractiveProcessAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group__4_in_rule__InteractiveProcess__Group__36113);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group__4_in_rule__InteractiveProcess__Group__36359);
             rule__InteractiveProcess__Group__4();
             _fsp--;
 
@@ -7960,23 +8206,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3061:1: rule__InteractiveProcess__Group__4 : ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) ) rule__InteractiveProcess__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3193:1: rule__InteractiveProcess__Group__4 : ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) ) rule__InteractiveProcess__Group__5 ;
     public final void rule__InteractiveProcess__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3065:1: ( ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) ) rule__InteractiveProcess__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3066:1: ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) ) rule__InteractiveProcess__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3197:1: ( ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) ) rule__InteractiveProcess__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3198:1: ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) ) rule__InteractiveProcess__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3066:1: ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3067:1: ( rule__InteractiveProcess__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3198:1: ( ( rule__InteractiveProcess__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3199:1: ( rule__InteractiveProcess__ContextRefAssignment_4 )
             {
              before(grammarAccess.getInteractiveProcessAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3068:1: ( rule__InteractiveProcess__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3068:2: rule__InteractiveProcess__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3200:1: ( rule__InteractiveProcess__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3200:2: rule__InteractiveProcess__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__InteractiveProcess__ContextRefAssignment_4_in_rule__InteractiveProcess__Group__46141);
+            pushFollow(FOLLOW_rule__InteractiveProcess__ContextRefAssignment_4_in_rule__InteractiveProcess__Group__46387);
             rule__InteractiveProcess__ContextRefAssignment_4();
             _fsp--;
 
@@ -7987,7 +8233,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group__5_in_rule__InteractiveProcess__Group__46150);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group__5_in_rule__InteractiveProcess__Group__46396);
             rule__InteractiveProcess__Group__5();
             _fsp--;
 
@@ -8010,20 +8256,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3079:1: rule__InteractiveProcess__Group__5 : ( ( rule__InteractiveProcess__Group_5__0 )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3211:1: rule__InteractiveProcess__Group__5 : ( ( rule__InteractiveProcess__Group_5__0 )? ) ;
     public final void rule__InteractiveProcess__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3083:1: ( ( ( rule__InteractiveProcess__Group_5__0 )? ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3084:1: ( ( rule__InteractiveProcess__Group_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3215:1: ( ( ( rule__InteractiveProcess__Group_5__0 )? ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3216:1: ( ( rule__InteractiveProcess__Group_5__0 )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3084:1: ( ( rule__InteractiveProcess__Group_5__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3085:1: ( rule__InteractiveProcess__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3216:1: ( ( rule__InteractiveProcess__Group_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3217:1: ( rule__InteractiveProcess__Group_5__0 )?
             {
              before(grammarAccess.getInteractiveProcessAccess().getGroup_5()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3086:1: ( rule__InteractiveProcess__Group_5__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3218:1: ( rule__InteractiveProcess__Group_5__0 )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -8032,9 +8278,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
             }
             switch (alt43) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3086:2: rule__InteractiveProcess__Group_5__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3218:2: rule__InteractiveProcess__Group_5__0
                     {
-                    pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__0_in_rule__InteractiveProcess__Group__56178);
+                    pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__0_in_rule__InteractiveProcess__Group__56424);
                     rule__InteractiveProcess__Group_5__0();
                     _fsp--;
 
@@ -8067,25 +8313,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group_5__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3108:1: rule__InteractiveProcess__Group_5__0 : ( 'steps' ) rule__InteractiveProcess__Group_5__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3240:1: rule__InteractiveProcess__Group_5__0 : ( 'steps' ) rule__InteractiveProcess__Group_5__1 ;
     public final void rule__InteractiveProcess__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3112:1: ( ( 'steps' ) rule__InteractiveProcess__Group_5__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3113:1: ( 'steps' ) rule__InteractiveProcess__Group_5__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3244:1: ( ( 'steps' ) rule__InteractiveProcess__Group_5__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3245:1: ( 'steps' ) rule__InteractiveProcess__Group_5__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3113:1: ( 'steps' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3114:1: 'steps'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3245:1: ( 'steps' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3246:1: 'steps'
             {
              before(grammarAccess.getInteractiveProcessAccess().getStepsKeyword_5_0()); 
-            match(input,29,FOLLOW_29_in_rule__InteractiveProcess__Group_5__06226); 
+            match(input,29,FOLLOW_29_in_rule__InteractiveProcess__Group_5__06472); 
              after(grammarAccess.getInteractiveProcessAccess().getStepsKeyword_5_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__1_in_rule__InteractiveProcess__Group_5__06236);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__1_in_rule__InteractiveProcess__Group_5__06482);
             rule__InteractiveProcess__Group_5__1();
             _fsp--;
 
@@ -8108,25 +8354,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group_5__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3128:1: rule__InteractiveProcess__Group_5__1 : ( '[' ) rule__InteractiveProcess__Group_5__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3260:1: rule__InteractiveProcess__Group_5__1 : ( '[' ) rule__InteractiveProcess__Group_5__2 ;
     public final void rule__InteractiveProcess__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3132:1: ( ( '[' ) rule__InteractiveProcess__Group_5__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3133:1: ( '[' ) rule__InteractiveProcess__Group_5__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3264:1: ( ( '[' ) rule__InteractiveProcess__Group_5__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3265:1: ( '[' ) rule__InteractiveProcess__Group_5__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3133:1: ( '[' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3134:1: '['
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3265:1: ( '[' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3266:1: '['
             {
              before(grammarAccess.getInteractiveProcessAccess().getLeftSquareBracketKeyword_5_1()); 
-            match(input,20,FOLLOW_20_in_rule__InteractiveProcess__Group_5__16265); 
+            match(input,18,FOLLOW_18_in_rule__InteractiveProcess__Group_5__16511); 
              after(grammarAccess.getInteractiveProcessAccess().getLeftSquareBracketKeyword_5_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__2_in_rule__InteractiveProcess__Group_5__16275);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__2_in_rule__InteractiveProcess__Group_5__16521);
             rule__InteractiveProcess__Group_5__2();
             _fsp--;
 
@@ -8149,20 +8395,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group_5__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3148:1: rule__InteractiveProcess__Group_5__2 : ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* ) rule__InteractiveProcess__Group_5__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3280:1: rule__InteractiveProcess__Group_5__2 : ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* ) rule__InteractiveProcess__Group_5__3 ;
     public final void rule__InteractiveProcess__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3152:1: ( ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* ) rule__InteractiveProcess__Group_5__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3153:1: ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* ) rule__InteractiveProcess__Group_5__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3284:1: ( ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* ) rule__InteractiveProcess__Group_5__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3285:1: ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* ) rule__InteractiveProcess__Group_5__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3153:1: ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3154:1: ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3285:1: ( ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )* )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3286:1: ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )*
             {
              before(grammarAccess.getInteractiveProcessAccess().getProcessElementsAssignment_5_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3155:1: ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )*
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3287:1: ( rule__InteractiveProcess__ProcessElementsAssignment_5_2 )*
             loop44:
             do {
                 int alt44=2;
@@ -8175,9 +8421,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
                 switch (alt44) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3155:2: rule__InteractiveProcess__ProcessElementsAssignment_5_2
+            	    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3287:2: rule__InteractiveProcess__ProcessElementsAssignment_5_2
             	    {
-            	    pushFollow(FOLLOW_rule__InteractiveProcess__ProcessElementsAssignment_5_2_in_rule__InteractiveProcess__Group_5__26303);
+            	    pushFollow(FOLLOW_rule__InteractiveProcess__ProcessElementsAssignment_5_2_in_rule__InteractiveProcess__Group_5__26549);
             	    rule__InteractiveProcess__ProcessElementsAssignment_5_2();
             	    _fsp--;
 
@@ -8194,7 +8440,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__3_in_rule__InteractiveProcess__Group_5__26313);
+            pushFollow(FOLLOW_rule__InteractiveProcess__Group_5__3_in_rule__InteractiveProcess__Group_5__26559);
             rule__InteractiveProcess__Group_5__3();
             _fsp--;
 
@@ -8217,20 +8463,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__Group_5__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3166:1: rule__InteractiveProcess__Group_5__3 : ( ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3298:1: rule__InteractiveProcess__Group_5__3 : ( ']' ) ;
     public final void rule__InteractiveProcess__Group_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3170:1: ( ( ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3171:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3302:1: ( ( ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3303:1: ( ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3171:1: ( ']' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3172:1: ']'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3303:1: ( ']' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3304:1: ']'
             {
              before(grammarAccess.getInteractiveProcessAccess().getRightSquareBracketKeyword_5_3()); 
-            match(input,21,FOLLOW_21_in_rule__InteractiveProcess__Group_5__36342); 
+            match(input,19,FOLLOW_19_in_rule__InteractiveProcess__Group_5__36588); 
              after(grammarAccess.getInteractiveProcessAccess().getRightSquareBracketKeyword_5_3()); 
 
             }
@@ -8254,25 +8500,45 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3193:1: rule__FormElement__Group__0 : ( 'formElement' ) rule__FormElement__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3325:1: rule__FormElement__Group__0 : ( ( rule__FormElement__DescriptionAssignment_0 )? ) rule__FormElement__Group__1 ;
     public final void rule__FormElement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3197:1: ( ( 'formElement' ) rule__FormElement__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3198:1: ( 'formElement' ) rule__FormElement__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3329:1: ( ( ( rule__FormElement__DescriptionAssignment_0 )? ) rule__FormElement__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3330:1: ( ( rule__FormElement__DescriptionAssignment_0 )? ) rule__FormElement__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3198:1: ( 'formElement' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3199:1: 'formElement'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3330:1: ( ( rule__FormElement__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3331:1: ( rule__FormElement__DescriptionAssignment_0 )?
             {
-             before(grammarAccess.getFormElementAccess().getFormElementKeyword_0()); 
-            match(input,31,FOLLOW_31_in_rule__FormElement__Group__06386); 
-             after(grammarAccess.getFormElementAccess().getFormElementKeyword_0()); 
+             before(grammarAccess.getFormElementAccess().getDescriptionAssignment_0()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3332:1: ( rule__FormElement__DescriptionAssignment_0 )?
+            int alt45=2;
+            int LA45_0 = input.LA(1);
+
+            if ( (LA45_0==RULE_STRING) ) {
+                alt45=1;
+            }
+            switch (alt45) {
+                case 1 :
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3332:2: rule__FormElement__DescriptionAssignment_0
+                    {
+                    pushFollow(FOLLOW_rule__FormElement__DescriptionAssignment_0_in_rule__FormElement__Group__06631);
+                    rule__FormElement__DescriptionAssignment_0();
+                    _fsp--;
+
+
+                    }
+                    break;
 
             }
 
-            pushFollow(FOLLOW_rule__FormElement__Group__1_in_rule__FormElement__Group__06396);
+             after(grammarAccess.getFormElementAccess().getDescriptionAssignment_0()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__FormElement__Group__1_in_rule__FormElement__Group__06641);
             rule__FormElement__Group__1();
             _fsp--;
 
@@ -8295,34 +8561,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3213:1: rule__FormElement__Group__1 : ( ( rule__FormElement__ReferencesAssignment_1 ) ) rule__FormElement__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3343:1: rule__FormElement__Group__1 : ( 'element' ) rule__FormElement__Group__2 ;
     public final void rule__FormElement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3217:1: ( ( ( rule__FormElement__ReferencesAssignment_1 ) ) rule__FormElement__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3218:1: ( ( rule__FormElement__ReferencesAssignment_1 ) ) rule__FormElement__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3347:1: ( ( 'element' ) rule__FormElement__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3348:1: ( 'element' ) rule__FormElement__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3218:1: ( ( rule__FormElement__ReferencesAssignment_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3219:1: ( rule__FormElement__ReferencesAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3348:1: ( 'element' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3349:1: 'element'
             {
-             before(grammarAccess.getFormElementAccess().getReferencesAssignment_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3220:1: ( rule__FormElement__ReferencesAssignment_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3220:2: rule__FormElement__ReferencesAssignment_1
-            {
-            pushFollow(FOLLOW_rule__FormElement__ReferencesAssignment_1_in_rule__FormElement__Group__16424);
-            rule__FormElement__ReferencesAssignment_1();
-            _fsp--;
-
+             before(grammarAccess.getFormElementAccess().getElementKeyword_1()); 
+            match(input,31,FOLLOW_31_in_rule__FormElement__Group__16670); 
+             after(grammarAccess.getFormElementAccess().getElementKeyword_1()); 
 
             }
 
-             after(grammarAccess.getFormElementAccess().getReferencesAssignment_1()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__FormElement__Group__2_in_rule__FormElement__Group__16433);
+            pushFollow(FOLLOW_rule__FormElement__Group__2_in_rule__FormElement__Group__16680);
             rule__FormElement__Group__2();
             _fsp--;
 
@@ -8345,25 +8602,34 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3231:1: rule__FormElement__Group__2 : ( 'named' ) rule__FormElement__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3363:1: rule__FormElement__Group__2 : ( ( rule__FormElement__ReferencesAssignment_2 ) ) rule__FormElement__Group__3 ;
     public final void rule__FormElement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3235:1: ( ( 'named' ) rule__FormElement__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3236:1: ( 'named' ) rule__FormElement__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3367:1: ( ( ( rule__FormElement__ReferencesAssignment_2 ) ) rule__FormElement__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3368:1: ( ( rule__FormElement__ReferencesAssignment_2 ) ) rule__FormElement__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3236:1: ( 'named' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3237:1: 'named'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3368:1: ( ( rule__FormElement__ReferencesAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3369:1: ( rule__FormElement__ReferencesAssignment_2 )
             {
-             before(grammarAccess.getFormElementAccess().getNamedKeyword_2()); 
-            match(input,32,FOLLOW_32_in_rule__FormElement__Group__26462); 
-             after(grammarAccess.getFormElementAccess().getNamedKeyword_2()); 
+             before(grammarAccess.getFormElementAccess().getReferencesAssignment_2()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3370:1: ( rule__FormElement__ReferencesAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3370:2: rule__FormElement__ReferencesAssignment_2
+            {
+            pushFollow(FOLLOW_rule__FormElement__ReferencesAssignment_2_in_rule__FormElement__Group__26708);
+            rule__FormElement__ReferencesAssignment_2();
+            _fsp--;
+
 
             }
 
-            pushFollow(FOLLOW_rule__FormElement__Group__3_in_rule__FormElement__Group__26472);
+             after(grammarAccess.getFormElementAccess().getReferencesAssignment_2()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__FormElement__Group__3_in_rule__FormElement__Group__26717);
             rule__FormElement__Group__3();
             _fsp--;
 
@@ -8386,34 +8652,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3251:1: rule__FormElement__Group__3 : ( ( rule__FormElement__NameAssignment_3 ) ) rule__FormElement__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3381:1: rule__FormElement__Group__3 : ( 'label' ) rule__FormElement__Group__4 ;
     public final void rule__FormElement__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3255:1: ( ( ( rule__FormElement__NameAssignment_3 ) ) rule__FormElement__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3256:1: ( ( rule__FormElement__NameAssignment_3 ) ) rule__FormElement__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3385:1: ( ( 'label' ) rule__FormElement__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3386:1: ( 'label' ) rule__FormElement__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3256:1: ( ( rule__FormElement__NameAssignment_3 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3257:1: ( rule__FormElement__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3386:1: ( 'label' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3387:1: 'label'
             {
-             before(grammarAccess.getFormElementAccess().getNameAssignment_3()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3258:1: ( rule__FormElement__NameAssignment_3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3258:2: rule__FormElement__NameAssignment_3
-            {
-            pushFollow(FOLLOW_rule__FormElement__NameAssignment_3_in_rule__FormElement__Group__36500);
-            rule__FormElement__NameAssignment_3();
-            _fsp--;
-
+             before(grammarAccess.getFormElementAccess().getLabelKeyword_3()); 
+            match(input,32,FOLLOW_32_in_rule__FormElement__Group__36746); 
+             after(grammarAccess.getFormElementAccess().getLabelKeyword_3()); 
 
             }
 
-             after(grammarAccess.getFormElementAccess().getNameAssignment_3()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__FormElement__Group__4_in_rule__FormElement__Group__36509);
+            pushFollow(FOLLOW_rule__FormElement__Group__4_in_rule__FormElement__Group__36756);
             rule__FormElement__Group__4();
             _fsp--;
 
@@ -8436,45 +8693,34 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3269:1: rule__FormElement__Group__4 : ( ( rule__FormElement__Group_4__0 )? ) rule__FormElement__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3401:1: rule__FormElement__Group__4 : ( ( rule__FormElement__LabelAssignment_4 ) ) rule__FormElement__Group__5 ;
     public final void rule__FormElement__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3273:1: ( ( ( rule__FormElement__Group_4__0 )? ) rule__FormElement__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3274:1: ( ( rule__FormElement__Group_4__0 )? ) rule__FormElement__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3405:1: ( ( ( rule__FormElement__LabelAssignment_4 ) ) rule__FormElement__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3406:1: ( ( rule__FormElement__LabelAssignment_4 ) ) rule__FormElement__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3274:1: ( ( rule__FormElement__Group_4__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3275:1: ( rule__FormElement__Group_4__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3406:1: ( ( rule__FormElement__LabelAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3407:1: ( rule__FormElement__LabelAssignment_4 )
             {
-             before(grammarAccess.getFormElementAccess().getGroup_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3276:1: ( rule__FormElement__Group_4__0 )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+             before(grammarAccess.getFormElementAccess().getLabelAssignment_4()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3408:1: ( rule__FormElement__LabelAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3408:2: rule__FormElement__LabelAssignment_4
+            {
+            pushFollow(FOLLOW_rule__FormElement__LabelAssignment_4_in_rule__FormElement__Group__46784);
+            rule__FormElement__LabelAssignment_4();
+            _fsp--;
 
-            if ( (LA45_0==17) ) {
-                alt45=1;
-            }
-            switch (alt45) {
-                case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3276:2: rule__FormElement__Group_4__0
-                    {
-                    pushFollow(FOLLOW_rule__FormElement__Group_4__0_in_rule__FormElement__Group__46537);
-                    rule__FormElement__Group_4__0();
-                    _fsp--;
-
-
-                    }
-                    break;
 
             }
 
-             after(grammarAccess.getFormElementAccess().getGroup_4()); 
+             after(grammarAccess.getFormElementAccess().getLabelAssignment_4()); 
 
             }
 
-            pushFollow(FOLLOW_rule__FormElement__Group__5_in_rule__FormElement__Group__46547);
+            pushFollow(FOLLOW_rule__FormElement__Group__5_in_rule__FormElement__Group__46793);
             rule__FormElement__Group__5();
             _fsp--;
 
@@ -8497,23 +8743,47 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3287:1: rule__FormElement__Group__5 : ( ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3419:1: rule__FormElement__Group__5 : ( ( rule__FormElement__Group_5__0 )? ) rule__FormElement__Group__6 ;
     public final void rule__FormElement__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3291:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3292:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3423:1: ( ( ( rule__FormElement__Group_5__0 )? ) rule__FormElement__Group__6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3424:1: ( ( rule__FormElement__Group_5__0 )? ) rule__FormElement__Group__6
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3292:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3293:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3424:1: ( ( rule__FormElement__Group_5__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3425:1: ( rule__FormElement__Group_5__0 )?
             {
-             before(grammarAccess.getFormElementAccess().getSemicolonKeyword_5()); 
-            match(input,18,FOLLOW_18_in_rule__FormElement__Group__56576); 
-             after(grammarAccess.getFormElementAccess().getSemicolonKeyword_5()); 
+             before(grammarAccess.getFormElementAccess().getGroup_5()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3426:1: ( rule__FormElement__Group_5__0 )?
+            int alt46=2;
+            int LA46_0 = input.LA(1);
+
+            if ( (LA46_0==20) ) {
+                alt46=1;
+            }
+            switch (alt46) {
+                case 1 :
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3426:2: rule__FormElement__Group_5__0
+                    {
+                    pushFollow(FOLLOW_rule__FormElement__Group_5__0_in_rule__FormElement__Group__56821);
+                    rule__FormElement__Group_5__0();
+                    _fsp--;
+
+
+                    }
+                    break;
 
             }
+
+             after(grammarAccess.getFormElementAccess().getGroup_5()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__FormElement__Group__6_in_rule__FormElement__Group__56831);
+            rule__FormElement__Group__6();
+            _fsp--;
 
 
             }
@@ -8533,72 +8803,22 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__FormElement__Group__5
 
 
-    // $ANTLR start rule__FormElement__Group_4__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3318:1: rule__FormElement__Group_4__0 : ( 'readonly' ) rule__FormElement__Group_4__1 ;
-    public final void rule__FormElement__Group_4__0() throws RecognitionException {
+    // $ANTLR start rule__FormElement__Group__6
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3437:1: rule__FormElement__Group__6 : ( ';' ) ;
+    public final void rule__FormElement__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3322:1: ( ( 'readonly' ) rule__FormElement__Group_4__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3323:1: ( 'readonly' ) rule__FormElement__Group_4__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3441:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3442:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3323:1: ( 'readonly' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3324:1: 'readonly'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3442:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3443:1: ';'
             {
-             before(grammarAccess.getFormElementAccess().getReadonlyKeyword_4_0()); 
-            match(input,17,FOLLOW_17_in_rule__FormElement__Group_4__06624); 
-             after(grammarAccess.getFormElementAccess().getReadonlyKeyword_4_0()); 
-
-            }
-
-            pushFollow(FOLLOW_rule__FormElement__Group_4__1_in_rule__FormElement__Group_4__06634);
-            rule__FormElement__Group_4__1();
-            _fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__FormElement__Group_4__0
-
-
-    // $ANTLR start rule__FormElement__Group_4__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3338:1: rule__FormElement__Group_4__1 : ( ( rule__FormElement__Alternatives_4_1 ) ) ;
-    public final void rule__FormElement__Group_4__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3342:1: ( ( ( rule__FormElement__Alternatives_4_1 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3343:1: ( ( rule__FormElement__Alternatives_4_1 ) )
-            {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3343:1: ( ( rule__FormElement__Alternatives_4_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3344:1: ( rule__FormElement__Alternatives_4_1 )
-            {
-             before(grammarAccess.getFormElementAccess().getAlternatives_4_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3345:1: ( rule__FormElement__Alternatives_4_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3345:2: rule__FormElement__Alternatives_4_1
-            {
-            pushFollow(FOLLOW_rule__FormElement__Alternatives_4_1_in_rule__FormElement__Group_4__16662);
-            rule__FormElement__Alternatives_4_1();
-            _fsp--;
-
-
-            }
-
-             after(grammarAccess.getFormElementAccess().getAlternatives_4_1()); 
+             before(grammarAccess.getFormElementAccess().getSemicolonKeyword_6()); 
+            match(input,13,FOLLOW_13_in_rule__FormElement__Group__66860); 
+             after(grammarAccess.getFormElementAccess().getSemicolonKeyword_6()); 
 
             }
 
@@ -8617,27 +8837,114 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__FormElement__Group_4__1
+    // $ANTLR end rule__FormElement__Group__6
+
+
+    // $ANTLR start rule__FormElement__Group_5__0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3470:1: rule__FormElement__Group_5__0 : ( 'readonly' ) rule__FormElement__Group_5__1 ;
+    public final void rule__FormElement__Group_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3474:1: ( ( 'readonly' ) rule__FormElement__Group_5__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3475:1: ( 'readonly' ) rule__FormElement__Group_5__1
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3475:1: ( 'readonly' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3476:1: 'readonly'
+            {
+             before(grammarAccess.getFormElementAccess().getReadonlyKeyword_5_0()); 
+            match(input,20,FOLLOW_20_in_rule__FormElement__Group_5__06910); 
+             after(grammarAccess.getFormElementAccess().getReadonlyKeyword_5_0()); 
+
+            }
+
+            pushFollow(FOLLOW_rule__FormElement__Group_5__1_in_rule__FormElement__Group_5__06920);
+            rule__FormElement__Group_5__1();
+            _fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__FormElement__Group_5__0
+
+
+    // $ANTLR start rule__FormElement__Group_5__1
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3490:1: rule__FormElement__Group_5__1 : ( ( rule__FormElement__Alternatives_5_1 ) ) ;
+    public final void rule__FormElement__Group_5__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3494:1: ( ( ( rule__FormElement__Alternatives_5_1 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3495:1: ( ( rule__FormElement__Alternatives_5_1 ) )
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3495:1: ( ( rule__FormElement__Alternatives_5_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3496:1: ( rule__FormElement__Alternatives_5_1 )
+            {
+             before(grammarAccess.getFormElementAccess().getAlternatives_5_1()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3497:1: ( rule__FormElement__Alternatives_5_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3497:2: rule__FormElement__Alternatives_5_1
+            {
+            pushFollow(FOLLOW_rule__FormElement__Alternatives_5_1_in_rule__FormElement__Group_5__16948);
+            rule__FormElement__Alternatives_5_1();
+            _fsp--;
+
+
+            }
+
+             after(grammarAccess.getFormElementAccess().getAlternatives_5_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__FormElement__Group_5__1
 
 
     // $ANTLR start rule__DialogueCall__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3359:1: rule__DialogueCall__Group__0 : ( ( rule__DialogueCall__Alternatives_0 ) ) rule__DialogueCall__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3511:1: rule__DialogueCall__Group__0 : ( ( rule__DialogueCall__Alternatives_0 ) ) rule__DialogueCall__Group__1 ;
     public final void rule__DialogueCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3363:1: ( ( ( rule__DialogueCall__Alternatives_0 ) ) rule__DialogueCall__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3364:1: ( ( rule__DialogueCall__Alternatives_0 ) ) rule__DialogueCall__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3515:1: ( ( ( rule__DialogueCall__Alternatives_0 ) ) rule__DialogueCall__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3516:1: ( ( rule__DialogueCall__Alternatives_0 ) ) rule__DialogueCall__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3364:1: ( ( rule__DialogueCall__Alternatives_0 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3365:1: ( rule__DialogueCall__Alternatives_0 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3516:1: ( ( rule__DialogueCall__Alternatives_0 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3517:1: ( rule__DialogueCall__Alternatives_0 )
             {
              before(grammarAccess.getDialogueCallAccess().getAlternatives_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3366:1: ( rule__DialogueCall__Alternatives_0 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3366:2: rule__DialogueCall__Alternatives_0
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3518:1: ( rule__DialogueCall__Alternatives_0 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3518:2: rule__DialogueCall__Alternatives_0
             {
-            pushFollow(FOLLOW_rule__DialogueCall__Alternatives_0_in_rule__DialogueCall__Group__06700);
+            pushFollow(FOLLOW_rule__DialogueCall__Alternatives_0_in_rule__DialogueCall__Group__06986);
             rule__DialogueCall__Alternatives_0();
             _fsp--;
 
@@ -8648,7 +8955,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DialogueCall__Group__1_in_rule__DialogueCall__Group__06709);
+            pushFollow(FOLLOW_rule__DialogueCall__Group__1_in_rule__DialogueCall__Group__06995);
             rule__DialogueCall__Group__1();
             _fsp--;
 
@@ -8671,31 +8978,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DialogueCall__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3377:1: rule__DialogueCall__Group__1 : ( ( rule__DialogueCall__Group_1__0 )? ) rule__DialogueCall__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3529:1: rule__DialogueCall__Group__1 : ( ( rule__DialogueCall__Group_1__0 )? ) rule__DialogueCall__Group__2 ;
     public final void rule__DialogueCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3381:1: ( ( ( rule__DialogueCall__Group_1__0 )? ) rule__DialogueCall__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3382:1: ( ( rule__DialogueCall__Group_1__0 )? ) rule__DialogueCall__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3533:1: ( ( ( rule__DialogueCall__Group_1__0 )? ) rule__DialogueCall__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3534:1: ( ( rule__DialogueCall__Group_1__0 )? ) rule__DialogueCall__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3382:1: ( ( rule__DialogueCall__Group_1__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3383:1: ( rule__DialogueCall__Group_1__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3534:1: ( ( rule__DialogueCall__Group_1__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3535:1: ( rule__DialogueCall__Group_1__0 )?
             {
              before(grammarAccess.getDialogueCallAccess().getGroup_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3384:1: ( rule__DialogueCall__Group_1__0 )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3536:1: ( rule__DialogueCall__Group_1__0 )?
+            int alt47=2;
+            int LA47_0 = input.LA(1);
 
-            if ( (LA46_0==33) ) {
-                alt46=1;
+            if ( (LA47_0==33) ) {
+                alt47=1;
             }
-            switch (alt46) {
+            switch (alt47) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3384:2: rule__DialogueCall__Group_1__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3536:2: rule__DialogueCall__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__DialogueCall__Group_1__0_in_rule__DialogueCall__Group__16737);
+                    pushFollow(FOLLOW_rule__DialogueCall__Group_1__0_in_rule__DialogueCall__Group__17023);
                     rule__DialogueCall__Group_1__0();
                     _fsp--;
 
@@ -8709,7 +9016,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__DialogueCall__Group__2_in_rule__DialogueCall__Group__16747);
+            pushFollow(FOLLOW_rule__DialogueCall__Group__2_in_rule__DialogueCall__Group__17033);
             rule__DialogueCall__Group__2();
             _fsp--;
 
@@ -8732,20 +9039,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DialogueCall__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3395:1: rule__DialogueCall__Group__2 : ( ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3547:1: rule__DialogueCall__Group__2 : ( ';' ) ;
     public final void rule__DialogueCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3399:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3400:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3551:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3552:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3400:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3401:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3552:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3553:1: ';'
             {
              before(grammarAccess.getDialogueCallAccess().getSemicolonKeyword_2()); 
-            match(input,18,FOLLOW_18_in_rule__DialogueCall__Group__26776); 
+            match(input,13,FOLLOW_13_in_rule__DialogueCall__Group__27062); 
              after(grammarAccess.getDialogueCallAccess().getSemicolonKeyword_2()); 
 
             }
@@ -8769,25 +9076,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DialogueCall__Group_1__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3420:1: rule__DialogueCall__Group_1__0 : ( 'alias' ) rule__DialogueCall__Group_1__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3572:1: rule__DialogueCall__Group_1__0 : ( 'alias' ) rule__DialogueCall__Group_1__1 ;
     public final void rule__DialogueCall__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3424:1: ( ( 'alias' ) rule__DialogueCall__Group_1__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3425:1: ( 'alias' ) rule__DialogueCall__Group_1__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3576:1: ( ( 'alias' ) rule__DialogueCall__Group_1__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3577:1: ( 'alias' ) rule__DialogueCall__Group_1__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3425:1: ( 'alias' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3426:1: 'alias'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3577:1: ( 'alias' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3578:1: 'alias'
             {
              before(grammarAccess.getDialogueCallAccess().getAliasKeyword_1_0()); 
-            match(input,33,FOLLOW_33_in_rule__DialogueCall__Group_1__06818); 
+            match(input,33,FOLLOW_33_in_rule__DialogueCall__Group_1__07104); 
              after(grammarAccess.getDialogueCallAccess().getAliasKeyword_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__DialogueCall__Group_1__1_in_rule__DialogueCall__Group_1__06828);
+            pushFollow(FOLLOW_rule__DialogueCall__Group_1__1_in_rule__DialogueCall__Group_1__07114);
             rule__DialogueCall__Group_1__1();
             _fsp--;
 
@@ -8810,23 +9117,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DialogueCall__Group_1__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3440:1: rule__DialogueCall__Group_1__1 : ( ( rule__DialogueCall__AliasAssignment_1_1 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3592:1: rule__DialogueCall__Group_1__1 : ( ( rule__DialogueCall__AliasAssignment_1_1 ) ) ;
     public final void rule__DialogueCall__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3444:1: ( ( ( rule__DialogueCall__AliasAssignment_1_1 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3445:1: ( ( rule__DialogueCall__AliasAssignment_1_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3596:1: ( ( ( rule__DialogueCall__AliasAssignment_1_1 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3597:1: ( ( rule__DialogueCall__AliasAssignment_1_1 ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3445:1: ( ( rule__DialogueCall__AliasAssignment_1_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3446:1: ( rule__DialogueCall__AliasAssignment_1_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3597:1: ( ( rule__DialogueCall__AliasAssignment_1_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3598:1: ( rule__DialogueCall__AliasAssignment_1_1 )
             {
              before(grammarAccess.getDialogueCallAccess().getAliasAssignment_1_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3447:1: ( rule__DialogueCall__AliasAssignment_1_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3447:2: rule__DialogueCall__AliasAssignment_1_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3599:1: ( rule__DialogueCall__AliasAssignment_1_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3599:2: rule__DialogueCall__AliasAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__DialogueCall__AliasAssignment_1_1_in_rule__DialogueCall__Group_1__16856);
+            pushFollow(FOLLOW_rule__DialogueCall__AliasAssignment_1_1_in_rule__DialogueCall__Group_1__17142);
             rule__DialogueCall__AliasAssignment_1_1();
             _fsp--;
 
@@ -8856,25 +9163,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedDialogueCall__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3461:1: rule__LinkedDialogueCall__Group__0 : ( 'navigate' ) rule__LinkedDialogueCall__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3613:1: rule__LinkedDialogueCall__Group__0 : ( 'navigate' ) rule__LinkedDialogueCall__Group__1 ;
     public final void rule__LinkedDialogueCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3465:1: ( ( 'navigate' ) rule__LinkedDialogueCall__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3466:1: ( 'navigate' ) rule__LinkedDialogueCall__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3617:1: ( ( 'navigate' ) rule__LinkedDialogueCall__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3618:1: ( 'navigate' ) rule__LinkedDialogueCall__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3466:1: ( 'navigate' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3467:1: 'navigate'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3618:1: ( 'navigate' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3619:1: 'navigate'
             {
              before(grammarAccess.getLinkedDialogueCallAccess().getNavigateKeyword_0()); 
-            match(input,34,FOLLOW_34_in_rule__LinkedDialogueCall__Group__06895); 
+            match(input,34,FOLLOW_34_in_rule__LinkedDialogueCall__Group__07181); 
              after(grammarAccess.getLinkedDialogueCallAccess().getNavigateKeyword_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkedDialogueCall__Group__1_in_rule__LinkedDialogueCall__Group__06905);
+            pushFollow(FOLLOW_rule__LinkedDialogueCall__Group__1_in_rule__LinkedDialogueCall__Group__07191);
             rule__LinkedDialogueCall__Group__1();
             _fsp--;
 
@@ -8897,23 +9204,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedDialogueCall__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3481:1: rule__LinkedDialogueCall__Group__1 : ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) ) rule__LinkedDialogueCall__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3633:1: rule__LinkedDialogueCall__Group__1 : ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) ) rule__LinkedDialogueCall__Group__2 ;
     public final void rule__LinkedDialogueCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3485:1: ( ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) ) rule__LinkedDialogueCall__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3486:1: ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) ) rule__LinkedDialogueCall__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3637:1: ( ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) ) rule__LinkedDialogueCall__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3638:1: ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) ) rule__LinkedDialogueCall__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3486:1: ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3487:1: ( rule__LinkedDialogueCall__LinkAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3638:1: ( ( rule__LinkedDialogueCall__LinkAssignment_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3639:1: ( rule__LinkedDialogueCall__LinkAssignment_1 )
             {
              before(grammarAccess.getLinkedDialogueCallAccess().getLinkAssignment_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3488:1: ( rule__LinkedDialogueCall__LinkAssignment_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3488:2: rule__LinkedDialogueCall__LinkAssignment_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3640:1: ( rule__LinkedDialogueCall__LinkAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3640:2: rule__LinkedDialogueCall__LinkAssignment_1
             {
-            pushFollow(FOLLOW_rule__LinkedDialogueCall__LinkAssignment_1_in_rule__LinkedDialogueCall__Group__16933);
+            pushFollow(FOLLOW_rule__LinkedDialogueCall__LinkAssignment_1_in_rule__LinkedDialogueCall__Group__17219);
             rule__LinkedDialogueCall__LinkAssignment_1();
             _fsp--;
 
@@ -8924,7 +9231,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkedDialogueCall__Group__2_in_rule__LinkedDialogueCall__Group__16942);
+            pushFollow(FOLLOW_rule__LinkedDialogueCall__Group__2_in_rule__LinkedDialogueCall__Group__17228);
             rule__LinkedDialogueCall__Group__2();
             _fsp--;
 
@@ -8947,25 +9254,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedDialogueCall__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3499:1: rule__LinkedDialogueCall__Group__2 : ( 'to' ) rule__LinkedDialogueCall__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3651:1: rule__LinkedDialogueCall__Group__2 : ( 'to' ) rule__LinkedDialogueCall__Group__3 ;
     public final void rule__LinkedDialogueCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3503:1: ( ( 'to' ) rule__LinkedDialogueCall__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3504:1: ( 'to' ) rule__LinkedDialogueCall__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3655:1: ( ( 'to' ) rule__LinkedDialogueCall__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3656:1: ( 'to' ) rule__LinkedDialogueCall__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3504:1: ( 'to' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3505:1: 'to'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3656:1: ( 'to' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3657:1: 'to'
             {
              before(grammarAccess.getLinkedDialogueCallAccess().getToKeyword_2()); 
-            match(input,35,FOLLOW_35_in_rule__LinkedDialogueCall__Group__26971); 
+            match(input,35,FOLLOW_35_in_rule__LinkedDialogueCall__Group__27257); 
              after(grammarAccess.getLinkedDialogueCallAccess().getToKeyword_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkedDialogueCall__Group__3_in_rule__LinkedDialogueCall__Group__26981);
+            pushFollow(FOLLOW_rule__LinkedDialogueCall__Group__3_in_rule__LinkedDialogueCall__Group__27267);
             rule__LinkedDialogueCall__Group__3();
             _fsp--;
 
@@ -8988,23 +9295,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedDialogueCall__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3519:1: rule__LinkedDialogueCall__Group__3 : ( ( rule__LinkedDialogueCall__NameAssignment_3 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3671:1: rule__LinkedDialogueCall__Group__3 : ( ( rule__LinkedDialogueCall__NameAssignment_3 ) ) ;
     public final void rule__LinkedDialogueCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3523:1: ( ( ( rule__LinkedDialogueCall__NameAssignment_3 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3524:1: ( ( rule__LinkedDialogueCall__NameAssignment_3 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3675:1: ( ( ( rule__LinkedDialogueCall__NameAssignment_3 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3676:1: ( ( rule__LinkedDialogueCall__NameAssignment_3 ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3524:1: ( ( rule__LinkedDialogueCall__NameAssignment_3 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3525:1: ( rule__LinkedDialogueCall__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3676:1: ( ( rule__LinkedDialogueCall__NameAssignment_3 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3677:1: ( rule__LinkedDialogueCall__NameAssignment_3 )
             {
              before(grammarAccess.getLinkedDialogueCallAccess().getNameAssignment_3()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3526:1: ( rule__LinkedDialogueCall__NameAssignment_3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3526:2: rule__LinkedDialogueCall__NameAssignment_3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3678:1: ( rule__LinkedDialogueCall__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3678:2: rule__LinkedDialogueCall__NameAssignment_3
             {
-            pushFollow(FOLLOW_rule__LinkedDialogueCall__NameAssignment_3_in_rule__LinkedDialogueCall__Group__37009);
+            pushFollow(FOLLOW_rule__LinkedDialogueCall__NameAssignment_3_in_rule__LinkedDialogueCall__Group__37295);
             rule__LinkedDialogueCall__NameAssignment_3();
             _fsp--;
 
@@ -9034,23 +9341,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ProcessCall__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3544:1: rule__ProcessCall__Group__0 : ( ( rule__ProcessCall__Alternatives_0 ) ) rule__ProcessCall__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3696:1: rule__ProcessCall__Group__0 : ( ( rule__ProcessCall__Alternatives_0 ) ) rule__ProcessCall__Group__1 ;
     public final void rule__ProcessCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3548:1: ( ( ( rule__ProcessCall__Alternatives_0 ) ) rule__ProcessCall__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3549:1: ( ( rule__ProcessCall__Alternatives_0 ) ) rule__ProcessCall__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3700:1: ( ( ( rule__ProcessCall__Alternatives_0 ) ) rule__ProcessCall__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3701:1: ( ( rule__ProcessCall__Alternatives_0 ) ) rule__ProcessCall__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3549:1: ( ( rule__ProcessCall__Alternatives_0 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3550:1: ( rule__ProcessCall__Alternatives_0 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3701:1: ( ( rule__ProcessCall__Alternatives_0 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3702:1: ( rule__ProcessCall__Alternatives_0 )
             {
              before(grammarAccess.getProcessCallAccess().getAlternatives_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3551:1: ( rule__ProcessCall__Alternatives_0 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3551:2: rule__ProcessCall__Alternatives_0
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3703:1: ( rule__ProcessCall__Alternatives_0 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3703:2: rule__ProcessCall__Alternatives_0
             {
-            pushFollow(FOLLOW_rule__ProcessCall__Alternatives_0_in_rule__ProcessCall__Group__07051);
+            pushFollow(FOLLOW_rule__ProcessCall__Alternatives_0_in_rule__ProcessCall__Group__07337);
             rule__ProcessCall__Alternatives_0();
             _fsp--;
 
@@ -9061,7 +9368,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__ProcessCall__Group__1_in_rule__ProcessCall__Group__07060);
+            pushFollow(FOLLOW_rule__ProcessCall__Group__1_in_rule__ProcessCall__Group__07346);
             rule__ProcessCall__Group__1();
             _fsp--;
 
@@ -9084,31 +9391,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ProcessCall__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3562:1: rule__ProcessCall__Group__1 : ( ( rule__ProcessCall__Group_1__0 )? ) rule__ProcessCall__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3714:1: rule__ProcessCall__Group__1 : ( ( rule__ProcessCall__Group_1__0 )? ) rule__ProcessCall__Group__2 ;
     public final void rule__ProcessCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3566:1: ( ( ( rule__ProcessCall__Group_1__0 )? ) rule__ProcessCall__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3567:1: ( ( rule__ProcessCall__Group_1__0 )? ) rule__ProcessCall__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3718:1: ( ( ( rule__ProcessCall__Group_1__0 )? ) rule__ProcessCall__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3719:1: ( ( rule__ProcessCall__Group_1__0 )? ) rule__ProcessCall__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3567:1: ( ( rule__ProcessCall__Group_1__0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3568:1: ( rule__ProcessCall__Group_1__0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3719:1: ( ( rule__ProcessCall__Group_1__0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3720:1: ( rule__ProcessCall__Group_1__0 )?
             {
              before(grammarAccess.getProcessCallAccess().getGroup_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3569:1: ( rule__ProcessCall__Group_1__0 )?
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3721:1: ( rule__ProcessCall__Group_1__0 )?
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA47_0==33) ) {
-                alt47=1;
+            if ( (LA48_0==33) ) {
+                alt48=1;
             }
-            switch (alt47) {
+            switch (alt48) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3569:2: rule__ProcessCall__Group_1__0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3721:2: rule__ProcessCall__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__ProcessCall__Group_1__0_in_rule__ProcessCall__Group__17088);
+                    pushFollow(FOLLOW_rule__ProcessCall__Group_1__0_in_rule__ProcessCall__Group__17374);
                     rule__ProcessCall__Group_1__0();
                     _fsp--;
 
@@ -9122,7 +9429,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__ProcessCall__Group__2_in_rule__ProcessCall__Group__17098);
+            pushFollow(FOLLOW_rule__ProcessCall__Group__2_in_rule__ProcessCall__Group__17384);
             rule__ProcessCall__Group__2();
             _fsp--;
 
@@ -9145,20 +9452,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ProcessCall__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3580:1: rule__ProcessCall__Group__2 : ( ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3732:1: rule__ProcessCall__Group__2 : ( ';' ) ;
     public final void rule__ProcessCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3584:1: ( ( ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3585:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3736:1: ( ( ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3737:1: ( ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3585:1: ( ';' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3586:1: ';'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3737:1: ( ';' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3738:1: ';'
             {
              before(grammarAccess.getProcessCallAccess().getSemicolonKeyword_2()); 
-            match(input,18,FOLLOW_18_in_rule__ProcessCall__Group__27127); 
+            match(input,13,FOLLOW_13_in_rule__ProcessCall__Group__27413); 
              after(grammarAccess.getProcessCallAccess().getSemicolonKeyword_2()); 
 
             }
@@ -9182,25 +9489,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ProcessCall__Group_1__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3605:1: rule__ProcessCall__Group_1__0 : ( 'alias' ) rule__ProcessCall__Group_1__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3757:1: rule__ProcessCall__Group_1__0 : ( 'alias' ) rule__ProcessCall__Group_1__1 ;
     public final void rule__ProcessCall__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3609:1: ( ( 'alias' ) rule__ProcessCall__Group_1__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3610:1: ( 'alias' ) rule__ProcessCall__Group_1__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3761:1: ( ( 'alias' ) rule__ProcessCall__Group_1__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3762:1: ( 'alias' ) rule__ProcessCall__Group_1__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3610:1: ( 'alias' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3611:1: 'alias'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3762:1: ( 'alias' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3763:1: 'alias'
             {
              before(grammarAccess.getProcessCallAccess().getAliasKeyword_1_0()); 
-            match(input,33,FOLLOW_33_in_rule__ProcessCall__Group_1__07169); 
+            match(input,33,FOLLOW_33_in_rule__ProcessCall__Group_1__07455); 
              after(grammarAccess.getProcessCallAccess().getAliasKeyword_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__ProcessCall__Group_1__1_in_rule__ProcessCall__Group_1__07179);
+            pushFollow(FOLLOW_rule__ProcessCall__Group_1__1_in_rule__ProcessCall__Group_1__07465);
             rule__ProcessCall__Group_1__1();
             _fsp--;
 
@@ -9223,23 +9530,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ProcessCall__Group_1__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3625:1: rule__ProcessCall__Group_1__1 : ( ( rule__ProcessCall__AliasAssignment_1_1 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3777:1: rule__ProcessCall__Group_1__1 : ( ( rule__ProcessCall__AliasAssignment_1_1 ) ) ;
     public final void rule__ProcessCall__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3629:1: ( ( ( rule__ProcessCall__AliasAssignment_1_1 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3630:1: ( ( rule__ProcessCall__AliasAssignment_1_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3781:1: ( ( ( rule__ProcessCall__AliasAssignment_1_1 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3782:1: ( ( rule__ProcessCall__AliasAssignment_1_1 ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3630:1: ( ( rule__ProcessCall__AliasAssignment_1_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3631:1: ( rule__ProcessCall__AliasAssignment_1_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3782:1: ( ( rule__ProcessCall__AliasAssignment_1_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3783:1: ( rule__ProcessCall__AliasAssignment_1_1 )
             {
              before(grammarAccess.getProcessCallAccess().getAliasAssignment_1_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3632:1: ( rule__ProcessCall__AliasAssignment_1_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3632:2: rule__ProcessCall__AliasAssignment_1_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3784:1: ( rule__ProcessCall__AliasAssignment_1_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3784:2: rule__ProcessCall__AliasAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__ProcessCall__AliasAssignment_1_1_in_rule__ProcessCall__Group_1__17207);
+            pushFollow(FOLLOW_rule__ProcessCall__AliasAssignment_1_1_in_rule__ProcessCall__Group_1__17493);
             rule__ProcessCall__AliasAssignment_1_1();
             _fsp--;
 
@@ -9269,25 +9576,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedProcessCall__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3646:1: rule__LinkedProcessCall__Group__0 : ( 'navigate' ) rule__LinkedProcessCall__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3798:1: rule__LinkedProcessCall__Group__0 : ( 'navigate' ) rule__LinkedProcessCall__Group__1 ;
     public final void rule__LinkedProcessCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3650:1: ( ( 'navigate' ) rule__LinkedProcessCall__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3651:1: ( 'navigate' ) rule__LinkedProcessCall__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3802:1: ( ( 'navigate' ) rule__LinkedProcessCall__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3803:1: ( 'navigate' ) rule__LinkedProcessCall__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3651:1: ( 'navigate' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3652:1: 'navigate'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3803:1: ( 'navigate' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3804:1: 'navigate'
             {
              before(grammarAccess.getLinkedProcessCallAccess().getNavigateKeyword_0()); 
-            match(input,34,FOLLOW_34_in_rule__LinkedProcessCall__Group__07246); 
+            match(input,34,FOLLOW_34_in_rule__LinkedProcessCall__Group__07532); 
              after(grammarAccess.getLinkedProcessCallAccess().getNavigateKeyword_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkedProcessCall__Group__1_in_rule__LinkedProcessCall__Group__07256);
+            pushFollow(FOLLOW_rule__LinkedProcessCall__Group__1_in_rule__LinkedProcessCall__Group__07542);
             rule__LinkedProcessCall__Group__1();
             _fsp--;
 
@@ -9310,23 +9617,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedProcessCall__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3666:1: rule__LinkedProcessCall__Group__1 : ( ( rule__LinkedProcessCall__LinkAssignment_1 ) ) rule__LinkedProcessCall__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3818:1: rule__LinkedProcessCall__Group__1 : ( ( rule__LinkedProcessCall__LinkAssignment_1 ) ) rule__LinkedProcessCall__Group__2 ;
     public final void rule__LinkedProcessCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3670:1: ( ( ( rule__LinkedProcessCall__LinkAssignment_1 ) ) rule__LinkedProcessCall__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3671:1: ( ( rule__LinkedProcessCall__LinkAssignment_1 ) ) rule__LinkedProcessCall__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3822:1: ( ( ( rule__LinkedProcessCall__LinkAssignment_1 ) ) rule__LinkedProcessCall__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3823:1: ( ( rule__LinkedProcessCall__LinkAssignment_1 ) ) rule__LinkedProcessCall__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3671:1: ( ( rule__LinkedProcessCall__LinkAssignment_1 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3672:1: ( rule__LinkedProcessCall__LinkAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3823:1: ( ( rule__LinkedProcessCall__LinkAssignment_1 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3824:1: ( rule__LinkedProcessCall__LinkAssignment_1 )
             {
              before(grammarAccess.getLinkedProcessCallAccess().getLinkAssignment_1()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3673:1: ( rule__LinkedProcessCall__LinkAssignment_1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3673:2: rule__LinkedProcessCall__LinkAssignment_1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3825:1: ( rule__LinkedProcessCall__LinkAssignment_1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3825:2: rule__LinkedProcessCall__LinkAssignment_1
             {
-            pushFollow(FOLLOW_rule__LinkedProcessCall__LinkAssignment_1_in_rule__LinkedProcessCall__Group__17284);
+            pushFollow(FOLLOW_rule__LinkedProcessCall__LinkAssignment_1_in_rule__LinkedProcessCall__Group__17570);
             rule__LinkedProcessCall__LinkAssignment_1();
             _fsp--;
 
@@ -9337,7 +9644,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkedProcessCall__Group__2_in_rule__LinkedProcessCall__Group__17293);
+            pushFollow(FOLLOW_rule__LinkedProcessCall__Group__2_in_rule__LinkedProcessCall__Group__17579);
             rule__LinkedProcessCall__Group__2();
             _fsp--;
 
@@ -9360,25 +9667,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedProcessCall__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3684:1: rule__LinkedProcessCall__Group__2 : ( 'to' ) rule__LinkedProcessCall__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3836:1: rule__LinkedProcessCall__Group__2 : ( 'to' ) rule__LinkedProcessCall__Group__3 ;
     public final void rule__LinkedProcessCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3688:1: ( ( 'to' ) rule__LinkedProcessCall__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3689:1: ( 'to' ) rule__LinkedProcessCall__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3840:1: ( ( 'to' ) rule__LinkedProcessCall__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3841:1: ( 'to' ) rule__LinkedProcessCall__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3689:1: ( 'to' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3690:1: 'to'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3841:1: ( 'to' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3842:1: 'to'
             {
              before(grammarAccess.getLinkedProcessCallAccess().getToKeyword_2()); 
-            match(input,35,FOLLOW_35_in_rule__LinkedProcessCall__Group__27322); 
+            match(input,35,FOLLOW_35_in_rule__LinkedProcessCall__Group__27608); 
              after(grammarAccess.getLinkedProcessCallAccess().getToKeyword_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkedProcessCall__Group__3_in_rule__LinkedProcessCall__Group__27332);
+            pushFollow(FOLLOW_rule__LinkedProcessCall__Group__3_in_rule__LinkedProcessCall__Group__27618);
             rule__LinkedProcessCall__Group__3();
             _fsp--;
 
@@ -9401,23 +9708,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedProcessCall__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3704:1: rule__LinkedProcessCall__Group__3 : ( ( rule__LinkedProcessCall__NameAssignment_3 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3856:1: rule__LinkedProcessCall__Group__3 : ( ( rule__LinkedProcessCall__NameAssignment_3 ) ) ;
     public final void rule__LinkedProcessCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3708:1: ( ( ( rule__LinkedProcessCall__NameAssignment_3 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3709:1: ( ( rule__LinkedProcessCall__NameAssignment_3 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3860:1: ( ( ( rule__LinkedProcessCall__NameAssignment_3 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3861:1: ( ( rule__LinkedProcessCall__NameAssignment_3 ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3709:1: ( ( rule__LinkedProcessCall__NameAssignment_3 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3710:1: ( rule__LinkedProcessCall__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3861:1: ( ( rule__LinkedProcessCall__NameAssignment_3 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3862:1: ( rule__LinkedProcessCall__NameAssignment_3 )
             {
              before(grammarAccess.getLinkedProcessCallAccess().getNameAssignment_3()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3711:1: ( rule__LinkedProcessCall__NameAssignment_3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3711:2: rule__LinkedProcessCall__NameAssignment_3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3863:1: ( rule__LinkedProcessCall__NameAssignment_3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3863:2: rule__LinkedProcessCall__NameAssignment_3
             {
-            pushFollow(FOLLOW_rule__LinkedProcessCall__NameAssignment_3_in_rule__LinkedProcessCall__Group__37360);
+            pushFollow(FOLLOW_rule__LinkedProcessCall__NameAssignment_3_in_rule__LinkedProcessCall__Group__37646);
             rule__LinkedProcessCall__NameAssignment_3();
             _fsp--;
 
@@ -9447,31 +9754,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3729:1: rule__LinkStep__Group__0 : ( ( rule__LinkStep__DescriptionAssignment_0 )? ) rule__LinkStep__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3881:1: rule__LinkStep__Group__0 : ( ( rule__LinkStep__DescriptionAssignment_0 )? ) rule__LinkStep__Group__1 ;
     public final void rule__LinkStep__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3733:1: ( ( ( rule__LinkStep__DescriptionAssignment_0 )? ) rule__LinkStep__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3734:1: ( ( rule__LinkStep__DescriptionAssignment_0 )? ) rule__LinkStep__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3885:1: ( ( ( rule__LinkStep__DescriptionAssignment_0 )? ) rule__LinkStep__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3886:1: ( ( rule__LinkStep__DescriptionAssignment_0 )? ) rule__LinkStep__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3734:1: ( ( rule__LinkStep__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3735:1: ( rule__LinkStep__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3886:1: ( ( rule__LinkStep__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3887:1: ( rule__LinkStep__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getLinkStepAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3736:1: ( rule__LinkStep__DescriptionAssignment_0 )?
-            int alt48=2;
-            int LA48_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3888:1: ( rule__LinkStep__DescriptionAssignment_0 )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( (LA48_0==RULE_STRING) ) {
-                alt48=1;
+            if ( (LA49_0==RULE_STRING) ) {
+                alt49=1;
             }
-            switch (alt48) {
+            switch (alt49) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3736:2: rule__LinkStep__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3888:2: rule__LinkStep__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__LinkStep__DescriptionAssignment_0_in_rule__LinkStep__Group__07402);
+                    pushFollow(FOLLOW_rule__LinkStep__DescriptionAssignment_0_in_rule__LinkStep__Group__07688);
                     rule__LinkStep__DescriptionAssignment_0();
                     _fsp--;
 
@@ -9485,7 +9792,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkStep__Group__1_in_rule__LinkStep__Group__07412);
+            pushFollow(FOLLOW_rule__LinkStep__Group__1_in_rule__LinkStep__Group__07698);
             rule__LinkStep__Group__1();
             _fsp--;
 
@@ -9508,25 +9815,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3747:1: rule__LinkStep__Group__1 : ( 'LinkStep' ) rule__LinkStep__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3899:1: rule__LinkStep__Group__1 : ( 'LinkStep' ) rule__LinkStep__Group__2 ;
     public final void rule__LinkStep__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3751:1: ( ( 'LinkStep' ) rule__LinkStep__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3752:1: ( 'LinkStep' ) rule__LinkStep__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3903:1: ( ( 'LinkStep' ) rule__LinkStep__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3904:1: ( 'LinkStep' ) rule__LinkStep__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3752:1: ( 'LinkStep' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3753:1: 'LinkStep'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3904:1: ( 'LinkStep' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3905:1: 'LinkStep'
             {
              before(grammarAccess.getLinkStepAccess().getLinkStepKeyword_1()); 
-            match(input,36,FOLLOW_36_in_rule__LinkStep__Group__17441); 
+            match(input,36,FOLLOW_36_in_rule__LinkStep__Group__17727); 
              after(grammarAccess.getLinkStepAccess().getLinkStepKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkStep__Group__2_in_rule__LinkStep__Group__17451);
+            pushFollow(FOLLOW_rule__LinkStep__Group__2_in_rule__LinkStep__Group__17737);
             rule__LinkStep__Group__2();
             _fsp--;
 
@@ -9549,23 +9856,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3767:1: rule__LinkStep__Group__2 : ( ( rule__LinkStep__NameAssignment_2 ) ) rule__LinkStep__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3919:1: rule__LinkStep__Group__2 : ( ( rule__LinkStep__NameAssignment_2 ) ) rule__LinkStep__Group__3 ;
     public final void rule__LinkStep__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3771:1: ( ( ( rule__LinkStep__NameAssignment_2 ) ) rule__LinkStep__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3772:1: ( ( rule__LinkStep__NameAssignment_2 ) ) rule__LinkStep__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3923:1: ( ( ( rule__LinkStep__NameAssignment_2 ) ) rule__LinkStep__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3924:1: ( ( rule__LinkStep__NameAssignment_2 ) ) rule__LinkStep__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3772:1: ( ( rule__LinkStep__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3773:1: ( rule__LinkStep__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3924:1: ( ( rule__LinkStep__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3925:1: ( rule__LinkStep__NameAssignment_2 )
             {
              before(grammarAccess.getLinkStepAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3774:1: ( rule__LinkStep__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3774:2: rule__LinkStep__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3926:1: ( rule__LinkStep__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3926:2: rule__LinkStep__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__LinkStep__NameAssignment_2_in_rule__LinkStep__Group__27479);
+            pushFollow(FOLLOW_rule__LinkStep__NameAssignment_2_in_rule__LinkStep__Group__27765);
             rule__LinkStep__NameAssignment_2();
             _fsp--;
 
@@ -9576,7 +9883,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkStep__Group__3_in_rule__LinkStep__Group__27488);
+            pushFollow(FOLLOW_rule__LinkStep__Group__3_in_rule__LinkStep__Group__27774);
             rule__LinkStep__Group__3();
             _fsp--;
 
@@ -9599,25 +9906,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3785:1: rule__LinkStep__Group__3 : ( 'using' ) rule__LinkStep__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3937:1: rule__LinkStep__Group__3 : ( 'context' ) rule__LinkStep__Group__4 ;
     public final void rule__LinkStep__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3789:1: ( ( 'using' ) rule__LinkStep__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3790:1: ( 'using' ) rule__LinkStep__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3941:1: ( ( 'context' ) rule__LinkStep__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3942:1: ( 'context' ) rule__LinkStep__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3790:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3791:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3942:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3943:1: 'context'
             {
-             before(grammarAccess.getLinkStepAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__LinkStep__Group__37517); 
-             after(grammarAccess.getLinkStepAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getLinkStepAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__LinkStep__Group__37803); 
+             after(grammarAccess.getLinkStepAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkStep__Group__4_in_rule__LinkStep__Group__37527);
+            pushFollow(FOLLOW_rule__LinkStep__Group__4_in_rule__LinkStep__Group__37813);
             rule__LinkStep__Group__4();
             _fsp--;
 
@@ -9640,23 +9947,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3805:1: rule__LinkStep__Group__4 : ( ( rule__LinkStep__ContextRefAssignment_4 ) ) rule__LinkStep__Group__5 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3957:1: rule__LinkStep__Group__4 : ( ( rule__LinkStep__ContextRefAssignment_4 ) ) rule__LinkStep__Group__5 ;
     public final void rule__LinkStep__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3809:1: ( ( ( rule__LinkStep__ContextRefAssignment_4 ) ) rule__LinkStep__Group__5 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3810:1: ( ( rule__LinkStep__ContextRefAssignment_4 ) ) rule__LinkStep__Group__5
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3961:1: ( ( ( rule__LinkStep__ContextRefAssignment_4 ) ) rule__LinkStep__Group__5 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3962:1: ( ( rule__LinkStep__ContextRefAssignment_4 ) ) rule__LinkStep__Group__5
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3810:1: ( ( rule__LinkStep__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3811:1: ( rule__LinkStep__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3962:1: ( ( rule__LinkStep__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3963:1: ( rule__LinkStep__ContextRefAssignment_4 )
             {
              before(grammarAccess.getLinkStepAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3812:1: ( rule__LinkStep__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3812:2: rule__LinkStep__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3964:1: ( rule__LinkStep__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3964:2: rule__LinkStep__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__LinkStep__ContextRefAssignment_4_in_rule__LinkStep__Group__47555);
+            pushFollow(FOLLOW_rule__LinkStep__ContextRefAssignment_4_in_rule__LinkStep__Group__47841);
             rule__LinkStep__ContextRefAssignment_4();
             _fsp--;
 
@@ -9667,7 +9974,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkStep__Group__5_in_rule__LinkStep__Group__47564);
+            pushFollow(FOLLOW_rule__LinkStep__Group__5_in_rule__LinkStep__Group__47850);
             rule__LinkStep__Group__5();
             _fsp--;
 
@@ -9690,25 +9997,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__5
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3823:1: rule__LinkStep__Group__5 : ( 'navigate' ) rule__LinkStep__Group__6 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3975:1: rule__LinkStep__Group__5 : ( 'navigate' ) rule__LinkStep__Group__6 ;
     public final void rule__LinkStep__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3827:1: ( ( 'navigate' ) rule__LinkStep__Group__6 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3828:1: ( 'navigate' ) rule__LinkStep__Group__6
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3979:1: ( ( 'navigate' ) rule__LinkStep__Group__6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3980:1: ( 'navigate' ) rule__LinkStep__Group__6
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3828:1: ( 'navigate' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3829:1: 'navigate'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3980:1: ( 'navigate' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3981:1: 'navigate'
             {
              before(grammarAccess.getLinkStepAccess().getNavigateKeyword_5()); 
-            match(input,34,FOLLOW_34_in_rule__LinkStep__Group__57593); 
+            match(input,34,FOLLOW_34_in_rule__LinkStep__Group__57879); 
              after(grammarAccess.getLinkStepAccess().getNavigateKeyword_5()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkStep__Group__6_in_rule__LinkStep__Group__57603);
+            pushFollow(FOLLOW_rule__LinkStep__Group__6_in_rule__LinkStep__Group__57889);
             rule__LinkStep__Group__6();
             _fsp--;
 
@@ -9731,23 +10038,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__Group__6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3843:1: rule__LinkStep__Group__6 : ( ( rule__LinkStep__ReferenceAssignment_6 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3995:1: rule__LinkStep__Group__6 : ( ( rule__LinkStep__ReferenceAssignment_6 ) ) ;
     public final void rule__LinkStep__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3847:1: ( ( ( rule__LinkStep__ReferenceAssignment_6 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3848:1: ( ( rule__LinkStep__ReferenceAssignment_6 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3999:1: ( ( ( rule__LinkStep__ReferenceAssignment_6 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4000:1: ( ( rule__LinkStep__ReferenceAssignment_6 ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3848:1: ( ( rule__LinkStep__ReferenceAssignment_6 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3849:1: ( rule__LinkStep__ReferenceAssignment_6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4000:1: ( ( rule__LinkStep__ReferenceAssignment_6 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4001:1: ( rule__LinkStep__ReferenceAssignment_6 )
             {
              before(grammarAccess.getLinkStepAccess().getReferenceAssignment_6()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3850:1: ( rule__LinkStep__ReferenceAssignment_6 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3850:2: rule__LinkStep__ReferenceAssignment_6
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4002:1: ( rule__LinkStep__ReferenceAssignment_6 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4002:2: rule__LinkStep__ReferenceAssignment_6
             {
-            pushFollow(FOLLOW_rule__LinkStep__ReferenceAssignment_6_in_rule__LinkStep__Group__67631);
+            pushFollow(FOLLOW_rule__LinkStep__ReferenceAssignment_6_in_rule__LinkStep__Group__67917);
             rule__LinkStep__ReferenceAssignment_6();
             _fsp--;
 
@@ -9777,31 +10084,31 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__Group__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3874:1: rule__LinkPath__Group__0 : ( ( rule__LinkPath__DescriptionAssignment_0 )? ) rule__LinkPath__Group__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4026:1: rule__LinkPath__Group__0 : ( ( rule__LinkPath__DescriptionAssignment_0 )? ) rule__LinkPath__Group__1 ;
     public final void rule__LinkPath__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3878:1: ( ( ( rule__LinkPath__DescriptionAssignment_0 )? ) rule__LinkPath__Group__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3879:1: ( ( rule__LinkPath__DescriptionAssignment_0 )? ) rule__LinkPath__Group__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4030:1: ( ( ( rule__LinkPath__DescriptionAssignment_0 )? ) rule__LinkPath__Group__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4031:1: ( ( rule__LinkPath__DescriptionAssignment_0 )? ) rule__LinkPath__Group__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3879:1: ( ( rule__LinkPath__DescriptionAssignment_0 )? )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3880:1: ( rule__LinkPath__DescriptionAssignment_0 )?
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4031:1: ( ( rule__LinkPath__DescriptionAssignment_0 )? )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4032:1: ( rule__LinkPath__DescriptionAssignment_0 )?
             {
              before(grammarAccess.getLinkPathAccess().getDescriptionAssignment_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3881:1: ( rule__LinkPath__DescriptionAssignment_0 )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4033:1: ( rule__LinkPath__DescriptionAssignment_0 )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA49_0==RULE_STRING) ) {
-                alt49=1;
+            if ( (LA50_0==RULE_STRING) ) {
+                alt50=1;
             }
-            switch (alt49) {
+            switch (alt50) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3881:2: rule__LinkPath__DescriptionAssignment_0
+                    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4033:2: rule__LinkPath__DescriptionAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__LinkPath__DescriptionAssignment_0_in_rule__LinkPath__Group__07679);
+                    pushFollow(FOLLOW_rule__LinkPath__DescriptionAssignment_0_in_rule__LinkPath__Group__07965);
                     rule__LinkPath__DescriptionAssignment_0();
                     _fsp--;
 
@@ -9815,7 +10122,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkPath__Group__1_in_rule__LinkPath__Group__07689);
+            pushFollow(FOLLOW_rule__LinkPath__Group__1_in_rule__LinkPath__Group__07975);
             rule__LinkPath__Group__1();
             _fsp--;
 
@@ -9838,25 +10145,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__Group__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3892:1: rule__LinkPath__Group__1 : ( 'LinkPath' ) rule__LinkPath__Group__2 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4044:1: rule__LinkPath__Group__1 : ( 'LinkPath' ) rule__LinkPath__Group__2 ;
     public final void rule__LinkPath__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3896:1: ( ( 'LinkPath' ) rule__LinkPath__Group__2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3897:1: ( 'LinkPath' ) rule__LinkPath__Group__2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4048:1: ( ( 'LinkPath' ) rule__LinkPath__Group__2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4049:1: ( 'LinkPath' ) rule__LinkPath__Group__2
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3897:1: ( 'LinkPath' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3898:1: 'LinkPath'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4049:1: ( 'LinkPath' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4050:1: 'LinkPath'
             {
              before(grammarAccess.getLinkPathAccess().getLinkPathKeyword_1()); 
-            match(input,37,FOLLOW_37_in_rule__LinkPath__Group__17718); 
+            match(input,37,FOLLOW_37_in_rule__LinkPath__Group__18004); 
              after(grammarAccess.getLinkPathAccess().getLinkPathKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkPath__Group__2_in_rule__LinkPath__Group__17728);
+            pushFollow(FOLLOW_rule__LinkPath__Group__2_in_rule__LinkPath__Group__18014);
             rule__LinkPath__Group__2();
             _fsp--;
 
@@ -9879,23 +10186,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__Group__2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3912:1: rule__LinkPath__Group__2 : ( ( rule__LinkPath__NameAssignment_2 ) ) rule__LinkPath__Group__3 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4064:1: rule__LinkPath__Group__2 : ( ( rule__LinkPath__NameAssignment_2 ) ) rule__LinkPath__Group__3 ;
     public final void rule__LinkPath__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3916:1: ( ( ( rule__LinkPath__NameAssignment_2 ) ) rule__LinkPath__Group__3 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3917:1: ( ( rule__LinkPath__NameAssignment_2 ) ) rule__LinkPath__Group__3
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4068:1: ( ( ( rule__LinkPath__NameAssignment_2 ) ) rule__LinkPath__Group__3 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4069:1: ( ( rule__LinkPath__NameAssignment_2 ) ) rule__LinkPath__Group__3
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3917:1: ( ( rule__LinkPath__NameAssignment_2 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3918:1: ( rule__LinkPath__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4069:1: ( ( rule__LinkPath__NameAssignment_2 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4070:1: ( rule__LinkPath__NameAssignment_2 )
             {
              before(grammarAccess.getLinkPathAccess().getNameAssignment_2()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3919:1: ( rule__LinkPath__NameAssignment_2 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3919:2: rule__LinkPath__NameAssignment_2
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4071:1: ( rule__LinkPath__NameAssignment_2 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4071:2: rule__LinkPath__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__LinkPath__NameAssignment_2_in_rule__LinkPath__Group__27756);
+            pushFollow(FOLLOW_rule__LinkPath__NameAssignment_2_in_rule__LinkPath__Group__28042);
             rule__LinkPath__NameAssignment_2();
             _fsp--;
 
@@ -9906,7 +10213,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
             }
 
-            pushFollow(FOLLOW_rule__LinkPath__Group__3_in_rule__LinkPath__Group__27765);
+            pushFollow(FOLLOW_rule__LinkPath__Group__3_in_rule__LinkPath__Group__28051);
             rule__LinkPath__Group__3();
             _fsp--;
 
@@ -9929,25 +10236,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__Group__3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3930:1: rule__LinkPath__Group__3 : ( 'using' ) rule__LinkPath__Group__4 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4082:1: rule__LinkPath__Group__3 : ( 'context' ) rule__LinkPath__Group__4 ;
     public final void rule__LinkPath__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3934:1: ( ( 'using' ) rule__LinkPath__Group__4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3935:1: ( 'using' ) rule__LinkPath__Group__4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4086:1: ( ( 'context' ) rule__LinkPath__Group__4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4087:1: ( 'context' ) rule__LinkPath__Group__4
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3935:1: ( 'using' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3936:1: 'using'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4087:1: ( 'context' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4088:1: 'context'
             {
-             before(grammarAccess.getLinkPathAccess().getUsingKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__LinkPath__Group__37794); 
-             after(grammarAccess.getLinkPathAccess().getUsingKeyword_3()); 
+             before(grammarAccess.getLinkPathAccess().getContextKeyword_3()); 
+            match(input,17,FOLLOW_17_in_rule__LinkPath__Group__38080); 
+             after(grammarAccess.getLinkPathAccess().getContextKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__LinkPath__Group__4_in_rule__LinkPath__Group__37804);
+            pushFollow(FOLLOW_rule__LinkPath__Group__4_in_rule__LinkPath__Group__38090);
             rule__LinkPath__Group__4();
             _fsp--;
 
@@ -9970,23 +10277,23 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__Group__4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3950:1: rule__LinkPath__Group__4 : ( ( rule__LinkPath__ContextRefAssignment_4 ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4102:1: rule__LinkPath__Group__4 : ( ( rule__LinkPath__ContextRefAssignment_4 ) ) ;
     public final void rule__LinkPath__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3954:1: ( ( ( rule__LinkPath__ContextRefAssignment_4 ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3955:1: ( ( rule__LinkPath__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4106:1: ( ( ( rule__LinkPath__ContextRefAssignment_4 ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4107:1: ( ( rule__LinkPath__ContextRefAssignment_4 ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3955:1: ( ( rule__LinkPath__ContextRefAssignment_4 ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3956:1: ( rule__LinkPath__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4107:1: ( ( rule__LinkPath__ContextRefAssignment_4 ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4108:1: ( rule__LinkPath__ContextRefAssignment_4 )
             {
              before(grammarAccess.getLinkPathAccess().getContextRefAssignment_4()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3957:1: ( rule__LinkPath__ContextRefAssignment_4 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3957:2: rule__LinkPath__ContextRefAssignment_4
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4109:1: ( rule__LinkPath__ContextRefAssignment_4 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4109:2: rule__LinkPath__ContextRefAssignment_4
             {
-            pushFollow(FOLLOW_rule__LinkPath__ContextRefAssignment_4_in_rule__LinkPath__Group__47832);
+            pushFollow(FOLLOW_rule__LinkPath__ContextRefAssignment_4_in_rule__LinkPath__Group__48118);
             rule__LinkPath__ContextRefAssignment_4();
             _fsp--;
 
@@ -10016,25 +10323,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__UIModelElementCall__Group_0__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3977:1: rule__UIModelElementCall__Group_0__0 : ( 'dialogue' ) rule__UIModelElementCall__Group_0__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4129:1: rule__UIModelElementCall__Group_0__0 : ( 'dialogue' ) rule__UIModelElementCall__Group_0__1 ;
     public final void rule__UIModelElementCall__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3981:1: ( ( 'dialogue' ) rule__UIModelElementCall__Group_0__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3982:1: ( 'dialogue' ) rule__UIModelElementCall__Group_0__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4133:1: ( ( 'dialogue' ) rule__UIModelElementCall__Group_0__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4134:1: ( 'dialogue' ) rule__UIModelElementCall__Group_0__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3982:1: ( 'dialogue' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3983:1: 'dialogue'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4134:1: ( 'dialogue' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4135:1: 'dialogue'
             {
              before(grammarAccess.getUIModelElementCallAccess().getDialogueKeyword_0_0()); 
-            match(input,38,FOLLOW_38_in_rule__UIModelElementCall__Group_0__07877); 
+            match(input,38,FOLLOW_38_in_rule__UIModelElementCall__Group_0__08163); 
              after(grammarAccess.getUIModelElementCallAccess().getDialogueKeyword_0_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__UIModelElementCall__Group_0__1_in_rule__UIModelElementCall__Group_0__07887);
+            pushFollow(FOLLOW_rule__UIModelElementCall__Group_0__1_in_rule__UIModelElementCall__Group_0__08173);
             rule__UIModelElementCall__Group_0__1();
             _fsp--;
 
@@ -10057,20 +10364,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__UIModelElementCall__Group_0__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:3997:1: rule__UIModelElementCall__Group_0__1 : ( ruleDialogueCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4149:1: rule__UIModelElementCall__Group_0__1 : ( ruleDialogueCall ) ;
     public final void rule__UIModelElementCall__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4001:1: ( ( ruleDialogueCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4002:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4153:1: ( ( ruleDialogueCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4154:1: ( ruleDialogueCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4002:1: ( ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4003:1: ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4154:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4155:1: ruleDialogueCall
             {
              before(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0_1()); 
-            pushFollow(FOLLOW_ruleDialogueCall_in_rule__UIModelElementCall__Group_0__17915);
+            pushFollow(FOLLOW_ruleDialogueCall_in_rule__UIModelElementCall__Group_0__18201);
             ruleDialogueCall();
             _fsp--;
 
@@ -10097,25 +10404,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__UIModelElementCall__Group_1__0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4018:1: rule__UIModelElementCall__Group_1__0 : ( 'process' ) rule__UIModelElementCall__Group_1__1 ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4170:1: rule__UIModelElementCall__Group_1__0 : ( 'process' ) rule__UIModelElementCall__Group_1__1 ;
     public final void rule__UIModelElementCall__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4022:1: ( ( 'process' ) rule__UIModelElementCall__Group_1__1 )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4023:1: ( 'process' ) rule__UIModelElementCall__Group_1__1
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4174:1: ( ( 'process' ) rule__UIModelElementCall__Group_1__1 )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4175:1: ( 'process' ) rule__UIModelElementCall__Group_1__1
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4023:1: ( 'process' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4024:1: 'process'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4175:1: ( 'process' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4176:1: 'process'
             {
              before(grammarAccess.getUIModelElementCallAccess().getProcessKeyword_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__UIModelElementCall__Group_1__07953); 
+            match(input,39,FOLLOW_39_in_rule__UIModelElementCall__Group_1__08239); 
              after(grammarAccess.getUIModelElementCallAccess().getProcessKeyword_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__UIModelElementCall__Group_1__1_in_rule__UIModelElementCall__Group_1__07963);
+            pushFollow(FOLLOW_rule__UIModelElementCall__Group_1__1_in_rule__UIModelElementCall__Group_1__08249);
             rule__UIModelElementCall__Group_1__1();
             _fsp--;
 
@@ -10138,20 +10445,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__UIModelElementCall__Group_1__1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4038:1: rule__UIModelElementCall__Group_1__1 : ( ruleProcessCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4190:1: rule__UIModelElementCall__Group_1__1 : ( ruleProcessCall ) ;
     public final void rule__UIModelElementCall__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4042:1: ( ( ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4043:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4194:1: ( ( ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4195:1: ( ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4043:1: ( ruleProcessCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4044:1: ruleProcessCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4195:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4196:1: ruleProcessCall
             {
              before(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1_1()); 
-            pushFollow(FOLLOW_ruleProcessCall_in_rule__UIModelElementCall__Group_1__17991);
+            pushFollow(FOLLOW_ruleProcessCall_in_rule__UIModelElementCall__Group_1__18277);
             ruleProcessCall();
             _fsp--;
 
@@ -10178,20 +10485,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__PresentationModel__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4059:1: rule__PresentationModel__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4211:1: rule__PresentationModel__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__PresentationModel__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4063:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4064:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4215:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4216:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4064:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4065:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4216:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4217:1: RULE_STRING
             {
              before(grammarAccess.getPresentationModelAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__PresentationModel__DescriptionAssignment_08028); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__PresentationModel__DescriptionAssignment_08314); 
              after(grammarAccess.getPresentationModelAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -10215,20 +10522,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__PresentationModel__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4074:1: rule__PresentationModel__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4226:1: rule__PresentationModel__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__PresentationModel__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4078:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4079:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4230:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4231:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4079:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4080:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4231:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4232:1: RULE_ID
             {
              before(grammarAccess.getPresentationModelAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PresentationModel__NameAssignment_28059); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__PresentationModel__NameAssignment_28345); 
              after(grammarAccess.getPresentationModelAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -10251,25 +10558,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__PresentationModel__NameAssignment_2
 
 
-    // $ANTLR start rule__PresentationModel__ExternalReferencesAssignment_3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4089:1: rule__PresentationModel__ExternalReferencesAssignment_3 : ( ruleExternalReference ) ;
-    public final void rule__PresentationModel__ExternalReferencesAssignment_3() throws RecognitionException {
+    // $ANTLR start rule__PresentationModel__ExternalReferencesAssignment_4
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4241:1: rule__PresentationModel__ExternalReferencesAssignment_4 : ( ruleExternalReference ) ;
+    public final void rule__PresentationModel__ExternalReferencesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4093:1: ( ( ruleExternalReference ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4094:1: ( ruleExternalReference )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4245:1: ( ( ruleExternalReference ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4246:1: ( ruleExternalReference )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4094:1: ( ruleExternalReference )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4095:1: ruleExternalReference
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4246:1: ( ruleExternalReference )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4247:1: ruleExternalReference
             {
-             before(grammarAccess.getPresentationModelAccess().getExternalReferencesExternalReferenceParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleExternalReference_in_rule__PresentationModel__ExternalReferencesAssignment_38090);
+             before(grammarAccess.getPresentationModelAccess().getExternalReferencesExternalReferenceParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_ruleExternalReference_in_rule__PresentationModel__ExternalReferencesAssignment_48376);
             ruleExternalReference();
             _fsp--;
 
-             after(grammarAccess.getPresentationModelAccess().getExternalReferencesExternalReferenceParserRuleCall_3_0()); 
+             after(grammarAccess.getPresentationModelAccess().getExternalReferencesExternalReferenceParserRuleCall_4_0()); 
 
             }
 
@@ -10288,28 +10595,28 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__PresentationModel__ExternalReferencesAssignment_3
+    // $ANTLR end rule__PresentationModel__ExternalReferencesAssignment_4
 
 
-    // $ANTLR start rule__PresentationModel__ElementsAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4104:1: rule__PresentationModel__ElementsAssignment_4 : ( ruleModelElement ) ;
-    public final void rule__PresentationModel__ElementsAssignment_4() throws RecognitionException {
+    // $ANTLR start rule__PresentationModel__ElementsAssignment_5
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4256:1: rule__PresentationModel__ElementsAssignment_5 : ( ruleModelElementWithContext ) ;
+    public final void rule__PresentationModel__ElementsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4108:1: ( ( ruleModelElement ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4109:1: ( ruleModelElement )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4260:1: ( ( ruleModelElementWithContext ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4261:1: ( ruleModelElementWithContext )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4109:1: ( ruleModelElement )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4110:1: ruleModelElement
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4261:1: ( ruleModelElementWithContext )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4262:1: ruleModelElementWithContext
             {
-             before(grammarAccess.getPresentationModelAccess().getElementsModelElementParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleModelElement_in_rule__PresentationModel__ElementsAssignment_48121);
-            ruleModelElement();
+             before(grammarAccess.getPresentationModelAccess().getElementsModelElementWithContextParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_ruleModelElementWithContext_in_rule__PresentationModel__ElementsAssignment_58407);
+            ruleModelElementWithContext();
             _fsp--;
 
-             after(grammarAccess.getPresentationModelAccess().getElementsModelElementParserRuleCall_4_0()); 
+             after(grammarAccess.getPresentationModelAccess().getElementsModelElementWithContextParserRuleCall_5_0()); 
 
             }
 
@@ -10328,24 +10635,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__PresentationModel__ElementsAssignment_4
+    // $ANTLR end rule__PresentationModel__ElementsAssignment_5
 
 
     // $ANTLR start rule__ExternalReference__ModelNameAssignment_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4119:1: rule__ExternalReference__ModelNameAssignment_1 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4271:1: rule__ExternalReference__ModelNameAssignment_1 : ( RULE_ID ) ;
     public final void rule__ExternalReference__ModelNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4123:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4124:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4275:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4276:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4124:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4125:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4276:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4277:1: RULE_ID
             {
              before(grammarAccess.getExternalReferenceAccess().getModelNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__ModelNameAssignment_18152); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__ModelNameAssignment_18438); 
              after(grammarAccess.getExternalReferenceAccess().getModelNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -10369,20 +10676,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ExternalReference__NameAssignment_3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4134:1: rule__ExternalReference__NameAssignment_3 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4286:1: rule__ExternalReference__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__ExternalReference__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4138:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4139:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4290:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4291:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4139:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4140:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4291:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4292:1: RULE_ID
             {
              before(grammarAccess.getExternalReferenceAccess().getNameIDTerminalRuleCall_3_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_38183); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_38469); 
              after(grammarAccess.getExternalReferenceAccess().getNameIDTerminalRuleCall_3_0()); 
 
             }
@@ -10406,20 +10713,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4149:1: rule__ContentForm__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4301:1: rule__ContentForm__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__ContentForm__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4153:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4154:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4305:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4306:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4154:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4155:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4306:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4307:1: RULE_STRING
             {
              before(grammarAccess.getContentFormAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ContentForm__DescriptionAssignment_08214); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ContentForm__DescriptionAssignment_08500); 
              after(grammarAccess.getContentFormAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -10443,20 +10750,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4164:1: rule__ContentForm__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4316:1: rule__ContentForm__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__ContentForm__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4168:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4169:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4320:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4321:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4169:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4170:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4321:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4322:1: RULE_ID
             {
              before(grammarAccess.getContentFormAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ContentForm__NameAssignment_28245); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ContentForm__NameAssignment_28531); 
              after(grammarAccess.getContentFormAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -10480,24 +10787,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ContentForm__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4179:1: rule__ContentForm__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4331:1: rule__ContentForm__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__ContentForm__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4183:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4184:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4335:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4336:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4184:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4185:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4336:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4337:1: ( RULE_ID )
             {
              before(grammarAccess.getContentFormAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4186:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4187:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4338:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4339:1: RULE_ID
             {
              before(grammarAccess.getContentFormAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ContentForm__ContextRefAssignment_48280); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ContentForm__ContextRefAssignment_48566); 
              after(grammarAccess.getContentFormAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -10524,30 +10831,30 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__ContentForm__ContextRefAssignment_4
 
 
-    // $ANTLR start rule__ContentForm__ReadonlyAssignment_5_1_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4198:1: rule__ContentForm__ReadonlyAssignment_5_1_0 : ( ( 'true' ) ) ;
-    public final void rule__ContentForm__ReadonlyAssignment_5_1_0() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__ReadonlyAssignment_6_1_0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4350:1: rule__ContentForm__ReadonlyAssignment_6_1_0 : ( ( 'true' ) ) ;
+    public final void rule__ContentForm__ReadonlyAssignment_6_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4202:1: ( ( ( 'true' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4203:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4354:1: ( ( ( 'true' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4355:1: ( ( 'true' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4203:1: ( ( 'true' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4204:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4355:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4356:1: ( 'true' )
             {
-             before(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_5_1_0_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4205:1: ( 'true' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4206:1: 'true'
+             before(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_6_1_0_0()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4357:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4358:1: 'true'
             {
-             before(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_5_1_0_0()); 
-            match(input,40,FOLLOW_40_in_rule__ContentForm__ReadonlyAssignment_5_1_08320); 
-             after(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+             before(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_6_1_0_0()); 
+            match(input,40,FOLLOW_40_in_rule__ContentForm__ReadonlyAssignment_6_1_08606); 
+             after(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_6_1_0_0()); 
 
             }
 
-             after(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+             after(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_6_1_0_0()); 
 
             }
 
@@ -10566,28 +10873,28 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__ReadonlyAssignment_5_1_0
+    // $ANTLR end rule__ContentForm__ReadonlyAssignment_6_1_0
 
 
-    // $ANTLR start rule__ContentForm__FormElementsAssignment_6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4221:1: rule__ContentForm__FormElementsAssignment_6 : ( ruleFormElement ) ;
-    public final void rule__ContentForm__FormElementsAssignment_6() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__FormElementsAssignment_7
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4373:1: rule__ContentForm__FormElementsAssignment_7 : ( ruleFormElement ) ;
+    public final void rule__ContentForm__FormElementsAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4225:1: ( ( ruleFormElement ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4226:1: ( ruleFormElement )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4377:1: ( ( ruleFormElement ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4378:1: ( ruleFormElement )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4226:1: ( ruleFormElement )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4227:1: ruleFormElement
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4378:1: ( ruleFormElement )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4379:1: ruleFormElement
             {
-             before(grammarAccess.getContentFormAccess().getFormElementsFormElementParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleFormElement_in_rule__ContentForm__FormElementsAssignment_68359);
+             before(grammarAccess.getContentFormAccess().getFormElementsFormElementParserRuleCall_7_0()); 
+            pushFollow(FOLLOW_ruleFormElement_in_rule__ContentForm__FormElementsAssignment_78645);
             ruleFormElement();
             _fsp--;
 
-             after(grammarAccess.getContentFormAccess().getFormElementsFormElementParserRuleCall_6_0()); 
+             after(grammarAccess.getContentFormAccess().getFormElementsFormElementParserRuleCall_7_0()); 
 
             }
 
@@ -10606,28 +10913,28 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__FormElementsAssignment_6
+    // $ANTLR end rule__ContentForm__FormElementsAssignment_7
 
 
-    // $ANTLR start rule__ContentForm__ProcessesAssignment_7_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4236:1: rule__ContentForm__ProcessesAssignment_7_2 : ( ruleProcessCall ) ;
-    public final void rule__ContentForm__ProcessesAssignment_7_2() throws RecognitionException {
+    // $ANTLR start rule__ContentForm__ProcessesAssignment_8_2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4388:1: rule__ContentForm__ProcessesAssignment_8_2 : ( ruleProcessCall ) ;
+    public final void rule__ContentForm__ProcessesAssignment_8_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4240:1: ( ( ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4241:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4392:1: ( ( ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4393:1: ( ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4241:1: ( ruleProcessCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4242:1: ruleProcessCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4393:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4394:1: ruleProcessCall
             {
-             before(grammarAccess.getContentFormAccess().getProcessesProcessCallParserRuleCall_7_2_0()); 
-            pushFollow(FOLLOW_ruleProcessCall_in_rule__ContentForm__ProcessesAssignment_7_28390);
+             before(grammarAccess.getContentFormAccess().getProcessesProcessCallParserRuleCall_8_2_0()); 
+            pushFollow(FOLLOW_ruleProcessCall_in_rule__ContentForm__ProcessesAssignment_8_28676);
             ruleProcessCall();
             _fsp--;
 
-             after(grammarAccess.getContentFormAccess().getProcessesProcessCallParserRuleCall_7_2_0()); 
+             after(grammarAccess.getContentFormAccess().getProcessesProcessCallParserRuleCall_8_2_0()); 
 
             }
 
@@ -10646,24 +10953,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__ContentForm__ProcessesAssignment_7_2
+    // $ANTLR end rule__ContentForm__ProcessesAssignment_8_2
 
 
     // $ANTLR start rule__CompoundDialogue__DescriptionAssignment_0_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4251:1: rule__CompoundDialogue__DescriptionAssignment_0_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4403:1: rule__CompoundDialogue__DescriptionAssignment_0_0 : ( RULE_STRING ) ;
     public final void rule__CompoundDialogue__DescriptionAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4255:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4256:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4407:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4408:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4256:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4257:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4408:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4409:1: RULE_STRING
             {
              before(grammarAccess.getCompoundDialogueAccess().getDescriptionSTRINGTerminalRuleCall_0_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__CompoundDialogue__DescriptionAssignment_0_08421); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__CompoundDialogue__DescriptionAssignment_0_08707); 
              after(grammarAccess.getCompoundDialogueAccess().getDescriptionSTRINGTerminalRuleCall_0_0_0()); 
 
             }
@@ -10687,20 +10994,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__NameAssignment_0_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4266:1: rule__CompoundDialogue__NameAssignment_0_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4418:1: rule__CompoundDialogue__NameAssignment_0_2 : ( RULE_ID ) ;
     public final void rule__CompoundDialogue__NameAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4270:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4271:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4422:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4423:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4271:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4272:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4423:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4424:1: RULE_ID
             {
              before(grammarAccess.getCompoundDialogueAccess().getNameIDTerminalRuleCall_0_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CompoundDialogue__NameAssignment_0_28452); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CompoundDialogue__NameAssignment_0_28738); 
              after(grammarAccess.getCompoundDialogueAccess().getNameIDTerminalRuleCall_0_2_0()); 
 
             }
@@ -10724,24 +11031,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__ContextRefAssignment_0_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4281:1: rule__CompoundDialogue__ContextRefAssignment_0_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4433:1: rule__CompoundDialogue__ContextRefAssignment_0_4 : ( ( RULE_ID ) ) ;
     public final void rule__CompoundDialogue__ContextRefAssignment_0_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4285:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4286:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4437:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4438:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4286:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4287:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4438:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4439:1: ( RULE_ID )
             {
              before(grammarAccess.getCompoundDialogueAccess().getContextRefExternalReferenceCrossReference_0_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4288:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4289:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4440:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4441:1: RULE_ID
             {
              before(grammarAccess.getCompoundDialogueAccess().getContextRefExternalReferenceIDTerminalRuleCall_0_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CompoundDialogue__ContextRefAssignment_0_48487); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CompoundDialogue__ContextRefAssignment_0_48773); 
              after(grammarAccess.getCompoundDialogueAccess().getContextRefExternalReferenceIDTerminalRuleCall_0_4_0_1()); 
 
             }
@@ -10769,24 +11076,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__ReadonlyAssignment_0_5_1_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4300:1: rule__CompoundDialogue__ReadonlyAssignment_0_5_1_0 : ( ( 'true' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4452:1: rule__CompoundDialogue__ReadonlyAssignment_0_5_1_0 : ( ( 'true' ) ) ;
     public final void rule__CompoundDialogue__ReadonlyAssignment_0_5_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4304:1: ( ( ( 'true' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4305:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4456:1: ( ( ( 'true' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4457:1: ( ( 'true' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4305:1: ( ( 'true' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4306:1: ( 'true' )
-            {
-             before(grammarAccess.getCompoundDialogueAccess().getReadonlyTrueKeyword_0_5_1_0_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4307:1: ( 'true' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4308:1: 'true'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4457:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4458:1: ( 'true' )
             {
              before(grammarAccess.getCompoundDialogueAccess().getReadonlyTrueKeyword_0_5_1_0_0()); 
-            match(input,40,FOLLOW_40_in_rule__CompoundDialogue__ReadonlyAssignment_0_5_1_08527); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4459:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4460:1: 'true'
+            {
+             before(grammarAccess.getCompoundDialogueAccess().getReadonlyTrueKeyword_0_5_1_0_0()); 
+            match(input,40,FOLLOW_40_in_rule__CompoundDialogue__ReadonlyAssignment_0_5_1_08813); 
              after(grammarAccess.getCompoundDialogueAccess().getReadonlyTrueKeyword_0_5_1_0_0()); 
 
             }
@@ -10814,20 +11121,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__DialoguesAssignment_0_6_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4323:1: rule__CompoundDialogue__DialoguesAssignment_0_6_2 : ( ruleDialogueCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4475:1: rule__CompoundDialogue__DialoguesAssignment_0_6_2 : ( ruleDialogueCall ) ;
     public final void rule__CompoundDialogue__DialoguesAssignment_0_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4327:1: ( ( ruleDialogueCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4328:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4479:1: ( ( ruleDialogueCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4480:1: ( ruleDialogueCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4328:1: ( ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4329:1: ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4480:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4481:1: ruleDialogueCall
             {
              before(grammarAccess.getCompoundDialogueAccess().getDialoguesDialogueCallParserRuleCall_0_6_2_0()); 
-            pushFollow(FOLLOW_ruleDialogueCall_in_rule__CompoundDialogue__DialoguesAssignment_0_6_28566);
+            pushFollow(FOLLOW_ruleDialogueCall_in_rule__CompoundDialogue__DialoguesAssignment_0_6_28852);
             ruleDialogueCall();
             _fsp--;
 
@@ -10854,20 +11161,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CompoundDialogue__ProcessesAssignment_0_7_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4338:1: rule__CompoundDialogue__ProcessesAssignment_0_7_2 : ( ruleProcessCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4490:1: rule__CompoundDialogue__ProcessesAssignment_0_7_2 : ( ruleProcessCall ) ;
     public final void rule__CompoundDialogue__ProcessesAssignment_0_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4342:1: ( ( ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4343:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4494:1: ( ( ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4495:1: ( ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4343:1: ( ruleProcessCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4344:1: ruleProcessCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4495:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4496:1: ruleProcessCall
             {
              before(grammarAccess.getCompoundDialogueAccess().getProcessesProcessCallParserRuleCall_0_7_2_0()); 
-            pushFollow(FOLLOW_ruleProcessCall_in_rule__CompoundDialogue__ProcessesAssignment_0_7_28597);
+            pushFollow(FOLLOW_ruleProcessCall_in_rule__CompoundDialogue__ProcessesAssignment_0_7_28883);
             ruleProcessCall();
             _fsp--;
 
@@ -10894,20 +11201,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4353:1: rule__CollectionDialogue__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4505:1: rule__CollectionDialogue__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__CollectionDialogue__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4357:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4358:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4509:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4510:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4358:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4359:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4510:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4511:1: RULE_STRING
             {
              before(grammarAccess.getCollectionDialogueAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__CollectionDialogue__DescriptionAssignment_08628); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__CollectionDialogue__DescriptionAssignment_08914); 
              after(grammarAccess.getCollectionDialogueAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -10931,20 +11238,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4368:1: rule__CollectionDialogue__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4520:1: rule__CollectionDialogue__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__CollectionDialogue__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4372:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4373:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4524:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4525:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4373:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4374:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4525:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4526:1: RULE_ID
             {
              before(grammarAccess.getCollectionDialogueAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CollectionDialogue__NameAssignment_28659); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CollectionDialogue__NameAssignment_28945); 
              after(grammarAccess.getCollectionDialogueAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -10968,24 +11275,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__CollectionDialogue__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4383:1: rule__CollectionDialogue__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4535:1: rule__CollectionDialogue__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__CollectionDialogue__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4387:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4388:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4539:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4540:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4388:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4389:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4540:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4541:1: ( RULE_ID )
             {
              before(grammarAccess.getCollectionDialogueAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4390:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4391:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4542:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4543:1: RULE_ID
             {
              before(grammarAccess.getCollectionDialogueAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CollectionDialogue__ContextRefAssignment_48694); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__CollectionDialogue__ContextRefAssignment_48980); 
              after(grammarAccess.getCollectionDialogueAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -11012,30 +11319,30 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__CollectionDialogue__ContextRefAssignment_4
 
 
-    // $ANTLR start rule__CollectionDialogue__ReadonlyAssignment_5_1_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4402:1: rule__CollectionDialogue__ReadonlyAssignment_5_1_0 : ( ( 'true' ) ) ;
-    public final void rule__CollectionDialogue__ReadonlyAssignment_5_1_0() throws RecognitionException {
+    // $ANTLR start rule__CollectionDialogue__ReadonlyAssignment_6_1_0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4554:1: rule__CollectionDialogue__ReadonlyAssignment_6_1_0 : ( ( 'true' ) ) ;
+    public final void rule__CollectionDialogue__ReadonlyAssignment_6_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4406:1: ( ( ( 'true' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4407:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4558:1: ( ( ( 'true' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4559:1: ( ( 'true' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4407:1: ( ( 'true' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4408:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4559:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4560:1: ( 'true' )
             {
-             before(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_5_1_0_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4409:1: ( 'true' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4410:1: 'true'
+             before(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_6_1_0_0()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4561:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4562:1: 'true'
             {
-             before(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_5_1_0_0()); 
-            match(input,40,FOLLOW_40_in_rule__CollectionDialogue__ReadonlyAssignment_5_1_08734); 
-             after(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+             before(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_6_1_0_0()); 
+            match(input,40,FOLLOW_40_in_rule__CollectionDialogue__ReadonlyAssignment_6_1_09020); 
+             after(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_6_1_0_0()); 
 
             }
 
-             after(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+             after(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_6_1_0_0()); 
 
             }
 
@@ -11054,28 +11361,28 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__CollectionDialogue__ReadonlyAssignment_5_1_0
+    // $ANTLR end rule__CollectionDialogue__ReadonlyAssignment_6_1_0
 
 
-    // $ANTLR start rule__CollectionDialogue__DialoguesAssignment_6_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4425:1: rule__CollectionDialogue__DialoguesAssignment_6_2 : ( ruleDialogueCall ) ;
-    public final void rule__CollectionDialogue__DialoguesAssignment_6_2() throws RecognitionException {
+    // $ANTLR start rule__CollectionDialogue__DialoguesAssignment_7_2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4577:1: rule__CollectionDialogue__DialoguesAssignment_7_2 : ( ruleDialogueCall ) ;
+    public final void rule__CollectionDialogue__DialoguesAssignment_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4429:1: ( ( ruleDialogueCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4430:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4581:1: ( ( ruleDialogueCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4582:1: ( ruleDialogueCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4430:1: ( ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4431:1: ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4582:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4583:1: ruleDialogueCall
             {
-             before(grammarAccess.getCollectionDialogueAccess().getDialoguesDialogueCallParserRuleCall_6_2_0()); 
-            pushFollow(FOLLOW_ruleDialogueCall_in_rule__CollectionDialogue__DialoguesAssignment_6_28773);
+             before(grammarAccess.getCollectionDialogueAccess().getDialoguesDialogueCallParserRuleCall_7_2_0()); 
+            pushFollow(FOLLOW_ruleDialogueCall_in_rule__CollectionDialogue__DialoguesAssignment_7_29059);
             ruleDialogueCall();
             _fsp--;
 
-             after(grammarAccess.getCollectionDialogueAccess().getDialoguesDialogueCallParserRuleCall_6_2_0()); 
+             after(grammarAccess.getCollectionDialogueAccess().getDialoguesDialogueCallParserRuleCall_7_2_0()); 
 
             }
 
@@ -11094,28 +11401,28 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__CollectionDialogue__DialoguesAssignment_6_2
+    // $ANTLR end rule__CollectionDialogue__DialoguesAssignment_7_2
 
 
-    // $ANTLR start rule__CollectionDialogue__ProcessesAssignment_7_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4440:1: rule__CollectionDialogue__ProcessesAssignment_7_2 : ( ruleProcessCall ) ;
-    public final void rule__CollectionDialogue__ProcessesAssignment_7_2() throws RecognitionException {
+    // $ANTLR start rule__CollectionDialogue__ProcessesAssignment_8_2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4592:1: rule__CollectionDialogue__ProcessesAssignment_8_2 : ( ruleProcessCall ) ;
+    public final void rule__CollectionDialogue__ProcessesAssignment_8_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4444:1: ( ( ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4445:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4596:1: ( ( ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4597:1: ( ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4445:1: ( ruleProcessCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4446:1: ruleProcessCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4597:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4598:1: ruleProcessCall
             {
-             before(grammarAccess.getCollectionDialogueAccess().getProcessesProcessCallParserRuleCall_7_2_0()); 
-            pushFollow(FOLLOW_ruleProcessCall_in_rule__CollectionDialogue__ProcessesAssignment_7_28804);
+             before(grammarAccess.getCollectionDialogueAccess().getProcessesProcessCallParserRuleCall_8_2_0()); 
+            pushFollow(FOLLOW_ruleProcessCall_in_rule__CollectionDialogue__ProcessesAssignment_8_29090);
             ruleProcessCall();
             _fsp--;
 
-             after(grammarAccess.getCollectionDialogueAccess().getProcessesProcessCallParserRuleCall_7_2_0()); 
+             after(grammarAccess.getCollectionDialogueAccess().getProcessesProcessCallParserRuleCall_8_2_0()); 
 
             }
 
@@ -11134,24 +11441,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__CollectionDialogue__ProcessesAssignment_7_2
+    // $ANTLR end rule__CollectionDialogue__ProcessesAssignment_8_2
 
 
     // $ANTLR start rule__MasterDetail__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4455:1: rule__MasterDetail__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4607:1: rule__MasterDetail__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__MasterDetail__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4459:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4460:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4611:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4612:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4460:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4461:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4612:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4613:1: RULE_STRING
             {
              before(grammarAccess.getMasterDetailAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__MasterDetail__DescriptionAssignment_08835); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__MasterDetail__DescriptionAssignment_09121); 
              after(grammarAccess.getMasterDetailAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -11175,20 +11482,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4470:1: rule__MasterDetail__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4622:1: rule__MasterDetail__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__MasterDetail__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4474:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4475:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4626:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4627:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4475:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4476:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4627:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4628:1: RULE_ID
             {
              before(grammarAccess.getMasterDetailAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__MasterDetail__NameAssignment_28866); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__MasterDetail__NameAssignment_29152); 
              after(grammarAccess.getMasterDetailAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -11212,24 +11519,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4485:1: rule__MasterDetail__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4637:1: rule__MasterDetail__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__MasterDetail__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4489:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4490:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4641:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4642:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4490:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4491:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4642:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4643:1: ( RULE_ID )
             {
              before(grammarAccess.getMasterDetailAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4492:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4493:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4644:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4645:1: RULE_ID
             {
              before(grammarAccess.getMasterDetailAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__MasterDetail__ContextRefAssignment_48901); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__MasterDetail__ContextRefAssignment_49187); 
              after(grammarAccess.getMasterDetailAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -11257,24 +11564,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__ReadonlyAssignment_5_1_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4504:1: rule__MasterDetail__ReadonlyAssignment_5_1_0 : ( ( 'true' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4656:1: rule__MasterDetail__ReadonlyAssignment_5_1_0 : ( ( 'true' ) ) ;
     public final void rule__MasterDetail__ReadonlyAssignment_5_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4508:1: ( ( ( 'true' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4509:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4660:1: ( ( ( 'true' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4661:1: ( ( 'true' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4509:1: ( ( 'true' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4510:1: ( 'true' )
-            {
-             before(grammarAccess.getMasterDetailAccess().getReadonlyTrueKeyword_5_1_0_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4511:1: ( 'true' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4512:1: 'true'
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4661:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4662:1: ( 'true' )
             {
              before(grammarAccess.getMasterDetailAccess().getReadonlyTrueKeyword_5_1_0_0()); 
-            match(input,40,FOLLOW_40_in_rule__MasterDetail__ReadonlyAssignment_5_1_08941); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4663:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4664:1: 'true'
+            {
+             before(grammarAccess.getMasterDetailAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+            match(input,40,FOLLOW_40_in_rule__MasterDetail__ReadonlyAssignment_5_1_09227); 
              after(grammarAccess.getMasterDetailAccess().getReadonlyTrueKeyword_5_1_0_0()); 
 
             }
@@ -11302,20 +11609,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__MasterAssignment_7
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4527:1: rule__MasterDetail__MasterAssignment_7 : ( ruleDialogueCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4679:1: rule__MasterDetail__MasterAssignment_7 : ( ruleDialogueCall ) ;
     public final void rule__MasterDetail__MasterAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4531:1: ( ( ruleDialogueCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4532:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4683:1: ( ( ruleDialogueCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4684:1: ( ruleDialogueCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4532:1: ( ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4533:1: ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4684:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4685:1: ruleDialogueCall
             {
              before(grammarAccess.getMasterDetailAccess().getMasterDialogueCallParserRuleCall_7_0()); 
-            pushFollow(FOLLOW_ruleDialogueCall_in_rule__MasterDetail__MasterAssignment_78980);
+            pushFollow(FOLLOW_ruleDialogueCall_in_rule__MasterDetail__MasterAssignment_79266);
             ruleDialogueCall();
             _fsp--;
 
@@ -11342,20 +11649,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__DetailAssignment_9
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4542:1: rule__MasterDetail__DetailAssignment_9 : ( ruleDialogueCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4694:1: rule__MasterDetail__DetailAssignment_9 : ( ruleDialogueCall ) ;
     public final void rule__MasterDetail__DetailAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4546:1: ( ( ruleDialogueCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4547:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4698:1: ( ( ruleDialogueCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4699:1: ( ruleDialogueCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4547:1: ( ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4548:1: ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4699:1: ( ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4700:1: ruleDialogueCall
             {
              before(grammarAccess.getMasterDetailAccess().getDetailDialogueCallParserRuleCall_9_0()); 
-            pushFollow(FOLLOW_ruleDialogueCall_in_rule__MasterDetail__DetailAssignment_99011);
+            pushFollow(FOLLOW_ruleDialogueCall_in_rule__MasterDetail__DetailAssignment_99297);
             ruleDialogueCall();
             _fsp--;
 
@@ -11382,20 +11689,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__MasterDetail__ProcessesAssignment_10_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4557:1: rule__MasterDetail__ProcessesAssignment_10_2 : ( ruleProcessCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4709:1: rule__MasterDetail__ProcessesAssignment_10_2 : ( ruleProcessCall ) ;
     public final void rule__MasterDetail__ProcessesAssignment_10_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4561:1: ( ( ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4562:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4713:1: ( ( ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4714:1: ( ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4562:1: ( ruleProcessCall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4563:1: ruleProcessCall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4714:1: ( ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4715:1: ruleProcessCall
             {
              before(grammarAccess.getMasterDetailAccess().getProcessesProcessCallParserRuleCall_10_2_0()); 
-            pushFollow(FOLLOW_ruleProcessCall_in_rule__MasterDetail__ProcessesAssignment_10_29042);
+            pushFollow(FOLLOW_ruleProcessCall_in_rule__MasterDetail__ProcessesAssignment_10_29328);
             ruleProcessCall();
             _fsp--;
 
@@ -11422,20 +11729,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4572:1: rule__AutomatedProcess__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4724:1: rule__AutomatedProcess__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__AutomatedProcess__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4576:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4577:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4728:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4729:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4577:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4578:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4729:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4730:1: RULE_STRING
             {
              before(grammarAccess.getAutomatedProcessAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AutomatedProcess__DescriptionAssignment_09073); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AutomatedProcess__DescriptionAssignment_09359); 
              after(grammarAccess.getAutomatedProcessAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -11459,20 +11766,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4587:1: rule__AutomatedProcess__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4739:1: rule__AutomatedProcess__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__AutomatedProcess__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4591:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4592:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4743:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4744:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4592:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4593:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4744:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4745:1: RULE_ID
             {
              before(grammarAccess.getAutomatedProcessAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AutomatedProcess__NameAssignment_29104); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AutomatedProcess__NameAssignment_29390); 
              after(grammarAccess.getAutomatedProcessAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -11496,24 +11803,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4602:1: rule__AutomatedProcess__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4754:1: rule__AutomatedProcess__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__AutomatedProcess__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4606:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4607:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4758:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4759:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4607:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4608:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4759:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4760:1: ( RULE_ID )
             {
              before(grammarAccess.getAutomatedProcessAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4609:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4610:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4761:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4762:1: RULE_ID
             {
              before(grammarAccess.getAutomatedProcessAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AutomatedProcess__ContextRefAssignment_49139); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AutomatedProcess__ContextRefAssignment_49425); 
              after(grammarAccess.getAutomatedProcessAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -11541,20 +11848,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AutomatedProcess__ProcessElementsAssignment_5_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4621:1: rule__AutomatedProcess__ProcessElementsAssignment_5_2 : ( ruleUICall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4773:1: rule__AutomatedProcess__ProcessElementsAssignment_5_2 : ( ruleUICall ) ;
     public final void rule__AutomatedProcess__ProcessElementsAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4625:1: ( ( ruleUICall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4626:1: ( ruleUICall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4777:1: ( ( ruleUICall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4778:1: ( ruleUICall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4626:1: ( ruleUICall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4627:1: ruleUICall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4778:1: ( ruleUICall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4779:1: ruleUICall
             {
              before(grammarAccess.getAutomatedProcessAccess().getProcessElementsUICallParserRuleCall_5_2_0()); 
-            pushFollow(FOLLOW_ruleUICall_in_rule__AutomatedProcess__ProcessElementsAssignment_5_29174);
+            pushFollow(FOLLOW_ruleUICall_in_rule__AutomatedProcess__ProcessElementsAssignment_5_29460);
             ruleUICall();
             _fsp--;
 
@@ -11581,20 +11888,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4636:1: rule__InteractiveProcess__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4788:1: rule__InteractiveProcess__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__InteractiveProcess__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4640:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4641:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4792:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4793:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4641:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4642:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4793:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4794:1: RULE_STRING
             {
              before(grammarAccess.getInteractiveProcessAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__InteractiveProcess__DescriptionAssignment_09205); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__InteractiveProcess__DescriptionAssignment_09491); 
              after(grammarAccess.getInteractiveProcessAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -11618,20 +11925,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4651:1: rule__InteractiveProcess__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4803:1: rule__InteractiveProcess__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__InteractiveProcess__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4655:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4656:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4807:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4808:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4656:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4657:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4808:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4809:1: RULE_ID
             {
              before(grammarAccess.getInteractiveProcessAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InteractiveProcess__NameAssignment_29236); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InteractiveProcess__NameAssignment_29522); 
              after(grammarAccess.getInteractiveProcessAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -11655,24 +11962,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4666:1: rule__InteractiveProcess__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4818:1: rule__InteractiveProcess__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__InteractiveProcess__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4670:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4671:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4822:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4823:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4671:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4672:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4823:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4824:1: ( RULE_ID )
             {
              before(grammarAccess.getInteractiveProcessAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4673:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4674:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4825:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4826:1: RULE_ID
             {
              before(grammarAccess.getInteractiveProcessAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InteractiveProcess__ContextRefAssignment_49271); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InteractiveProcess__ContextRefAssignment_49557); 
              after(grammarAccess.getInteractiveProcessAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -11700,20 +12007,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__InteractiveProcess__ProcessElementsAssignment_5_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4685:1: rule__InteractiveProcess__ProcessElementsAssignment_5_2 : ( ruleUICall ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4837:1: rule__InteractiveProcess__ProcessElementsAssignment_5_2 : ( ruleUICall ) ;
     public final void rule__InteractiveProcess__ProcessElementsAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4689:1: ( ( ruleUICall ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4690:1: ( ruleUICall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4841:1: ( ( ruleUICall ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4842:1: ( ruleUICall )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4690:1: ( ruleUICall )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4691:1: ruleUICall
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4842:1: ( ruleUICall )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4843:1: ruleUICall
             {
              before(grammarAccess.getInteractiveProcessAccess().getProcessElementsUICallParserRuleCall_5_2_0()); 
-            pushFollow(FOLLOW_ruleUICall_in_rule__InteractiveProcess__ProcessElementsAssignment_5_29306);
+            pushFollow(FOLLOW_ruleUICall_in_rule__InteractiveProcess__ProcessElementsAssignment_5_29592);
             ruleUICall();
             _fsp--;
 
@@ -11739,25 +12046,62 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     // $ANTLR end rule__InteractiveProcess__ProcessElementsAssignment_5_2
 
 
-    // $ANTLR start rule__FormElement__ReferencesAssignment_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4700:1: rule__FormElement__ReferencesAssignment_1 : ( ruleDtoPropertyReference ) ;
-    public final void rule__FormElement__ReferencesAssignment_1() throws RecognitionException {
+    // $ANTLR start rule__FormElement__DescriptionAssignment_0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4852:1: rule__FormElement__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    public final void rule__FormElement__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4704:1: ( ( ruleDtoPropertyReference ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4705:1: ( ruleDtoPropertyReference )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4856:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4857:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4705:1: ( ruleDtoPropertyReference )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4706:1: ruleDtoPropertyReference
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4857:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4858:1: RULE_STRING
             {
-             before(grammarAccess.getFormElementAccess().getReferencesDtoPropertyReferenceParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleDtoPropertyReference_in_rule__FormElement__ReferencesAssignment_19337);
+             before(grammarAccess.getFormElementAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__FormElement__DescriptionAssignment_09623); 
+             after(grammarAccess.getFormElementAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__FormElement__DescriptionAssignment_0
+
+
+    // $ANTLR start rule__FormElement__ReferencesAssignment_2
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4867:1: rule__FormElement__ReferencesAssignment_2 : ( ruleDtoPropertyReference ) ;
+    public final void rule__FormElement__ReferencesAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4871:1: ( ( ruleDtoPropertyReference ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4872:1: ( ruleDtoPropertyReference )
+            {
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4872:1: ( ruleDtoPropertyReference )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4873:1: ruleDtoPropertyReference
+            {
+             before(grammarAccess.getFormElementAccess().getReferencesDtoPropertyReferenceParserRuleCall_2_0()); 
+            pushFollow(FOLLOW_ruleDtoPropertyReference_in_rule__FormElement__ReferencesAssignment_29654);
             ruleDtoPropertyReference();
             _fsp--;
 
-             after(grammarAccess.getFormElementAccess().getReferencesDtoPropertyReferenceParserRuleCall_1_0()); 
+             after(grammarAccess.getFormElementAccess().getReferencesDtoPropertyReferenceParserRuleCall_2_0()); 
 
             }
 
@@ -11776,25 +12120,25 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__FormElement__ReferencesAssignment_1
+    // $ANTLR end rule__FormElement__ReferencesAssignment_2
 
 
-    // $ANTLR start rule__FormElement__NameAssignment_3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4715:1: rule__FormElement__NameAssignment_3 : ( RULE_ID ) ;
-    public final void rule__FormElement__NameAssignment_3() throws RecognitionException {
+    // $ANTLR start rule__FormElement__LabelAssignment_4
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4882:1: rule__FormElement__LabelAssignment_4 : ( RULE_ID ) ;
+    public final void rule__FormElement__LabelAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4719:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4720:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4886:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4887:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4720:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4721:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4887:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4888:1: RULE_ID
             {
-             before(grammarAccess.getFormElementAccess().getNameIDTerminalRuleCall_3_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FormElement__NameAssignment_39368); 
-             after(grammarAccess.getFormElementAccess().getNameIDTerminalRuleCall_3_0()); 
+             before(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FormElement__LabelAssignment_49685); 
+             after(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0()); 
 
             }
 
@@ -11813,33 +12157,33 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__FormElement__NameAssignment_3
+    // $ANTLR end rule__FormElement__LabelAssignment_4
 
 
-    // $ANTLR start rule__FormElement__ReadonlyAssignment_4_1_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4730:1: rule__FormElement__ReadonlyAssignment_4_1_0 : ( ( 'true' ) ) ;
-    public final void rule__FormElement__ReadonlyAssignment_4_1_0() throws RecognitionException {
+    // $ANTLR start rule__FormElement__ReadonlyAssignment_5_1_0
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4897:1: rule__FormElement__ReadonlyAssignment_5_1_0 : ( ( 'true' ) ) ;
+    public final void rule__FormElement__ReadonlyAssignment_5_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4734:1: ( ( ( 'true' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4735:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4901:1: ( ( ( 'true' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4902:1: ( ( 'true' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4735:1: ( ( 'true' ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4736:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4902:1: ( ( 'true' ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4903:1: ( 'true' )
             {
-             before(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_4_1_0_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4737:1: ( 'true' )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4738:1: 'true'
+             before(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4904:1: ( 'true' )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4905:1: 'true'
             {
-             before(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_4_1_0_0()); 
-            match(input,40,FOLLOW_40_in_rule__FormElement__ReadonlyAssignment_4_1_09404); 
-             after(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_4_1_0_0()); 
+             before(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_5_1_0_0()); 
+            match(input,40,FOLLOW_40_in_rule__FormElement__ReadonlyAssignment_5_1_09721); 
+             after(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_5_1_0_0()); 
 
             }
 
-             after(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_4_1_0_0()); 
+             after(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_5_1_0_0()); 
 
             }
 
@@ -11858,24 +12202,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end rule__FormElement__ReadonlyAssignment_4_1_0
+    // $ANTLR end rule__FormElement__ReadonlyAssignment_5_1_0
 
 
     // $ANTLR start rule__DialogueCall__AliasAssignment_1_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4753:1: rule__DialogueCall__AliasAssignment_1_1 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4920:1: rule__DialogueCall__AliasAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__DialogueCall__AliasAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4757:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4758:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4924:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4925:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4758:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4759:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4925:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4926:1: RULE_ID
             {
              before(grammarAccess.getDialogueCallAccess().getAliasIDTerminalRuleCall_1_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DialogueCall__AliasAssignment_1_19443); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DialogueCall__AliasAssignment_1_19760); 
              after(grammarAccess.getDialogueCallAccess().getAliasIDTerminalRuleCall_1_1_0()); 
 
             }
@@ -11899,20 +12243,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedDialogueCall__LinkAssignment_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4768:1: rule__LinkedDialogueCall__LinkAssignment_1 : ( ruleLinkRef ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4935:1: rule__LinkedDialogueCall__LinkAssignment_1 : ( ruleLinkRef ) ;
     public final void rule__LinkedDialogueCall__LinkAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4772:1: ( ( ruleLinkRef ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4773:1: ( ruleLinkRef )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4939:1: ( ( ruleLinkRef ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4940:1: ( ruleLinkRef )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4773:1: ( ruleLinkRef )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4774:1: ruleLinkRef
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4940:1: ( ruleLinkRef )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4941:1: ruleLinkRef
             {
              before(grammarAccess.getLinkedDialogueCallAccess().getLinkLinkRefParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleLinkRef_in_rule__LinkedDialogueCall__LinkAssignment_19474);
+            pushFollow(FOLLOW_ruleLinkRef_in_rule__LinkedDialogueCall__LinkAssignment_19791);
             ruleLinkRef();
             _fsp--;
 
@@ -11939,20 +12283,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedDialogueCall__NameAssignment_3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4783:1: rule__LinkedDialogueCall__NameAssignment_3 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4950:1: rule__LinkedDialogueCall__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__LinkedDialogueCall__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4787:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4788:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4954:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4955:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4788:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4789:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4955:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4956:1: RULE_ID
             {
              before(grammarAccess.getLinkedDialogueCallAccess().getNameIDTerminalRuleCall_3_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkedDialogueCall__NameAssignment_39505); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkedDialogueCall__NameAssignment_39822); 
              after(grammarAccess.getLinkedDialogueCallAccess().getNameIDTerminalRuleCall_3_0()); 
 
             }
@@ -11976,20 +12320,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DirectDialogueCall__NameAssignment
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4798:1: rule__DirectDialogueCall__NameAssignment : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4965:1: rule__DirectDialogueCall__NameAssignment : ( RULE_ID ) ;
     public final void rule__DirectDialogueCall__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4802:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4803:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4969:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4970:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4803:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4804:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4970:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4971:1: RULE_ID
             {
              before(grammarAccess.getDirectDialogueCallAccess().getNameIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DirectDialogueCall__NameAssignment9536); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DirectDialogueCall__NameAssignment9853); 
              after(grammarAccess.getDirectDialogueCallAccess().getNameIDTerminalRuleCall_0()); 
 
             }
@@ -12013,20 +12357,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__ProcessCall__AliasAssignment_1_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4813:1: rule__ProcessCall__AliasAssignment_1_1 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4980:1: rule__ProcessCall__AliasAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__ProcessCall__AliasAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4817:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4818:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4984:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4985:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4818:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4819:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4985:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4986:1: RULE_ID
             {
              before(grammarAccess.getProcessCallAccess().getAliasIDTerminalRuleCall_1_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ProcessCall__AliasAssignment_1_19567); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ProcessCall__AliasAssignment_1_19884); 
              after(grammarAccess.getProcessCallAccess().getAliasIDTerminalRuleCall_1_1_0()); 
 
             }
@@ -12050,20 +12394,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedProcessCall__LinkAssignment_1
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4828:1: rule__LinkedProcessCall__LinkAssignment_1 : ( ruleLinkRef ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4995:1: rule__LinkedProcessCall__LinkAssignment_1 : ( ruleLinkRef ) ;
     public final void rule__LinkedProcessCall__LinkAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4832:1: ( ( ruleLinkRef ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4833:1: ( ruleLinkRef )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4999:1: ( ( ruleLinkRef ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5000:1: ( ruleLinkRef )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4833:1: ( ruleLinkRef )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4834:1: ruleLinkRef
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5000:1: ( ruleLinkRef )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5001:1: ruleLinkRef
             {
              before(grammarAccess.getLinkedProcessCallAccess().getLinkLinkRefParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleLinkRef_in_rule__LinkedProcessCall__LinkAssignment_19598);
+            pushFollow(FOLLOW_ruleLinkRef_in_rule__LinkedProcessCall__LinkAssignment_19915);
             ruleLinkRef();
             _fsp--;
 
@@ -12090,20 +12434,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkedProcessCall__NameAssignment_3
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4843:1: rule__LinkedProcessCall__NameAssignment_3 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5010:1: rule__LinkedProcessCall__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__LinkedProcessCall__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4847:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4848:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5014:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5015:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4848:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4849:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5015:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5016:1: RULE_ID
             {
              before(grammarAccess.getLinkedProcessCallAccess().getNameIDTerminalRuleCall_3_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkedProcessCall__NameAssignment_39629); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkedProcessCall__NameAssignment_39946); 
              after(grammarAccess.getLinkedProcessCallAccess().getNameIDTerminalRuleCall_3_0()); 
 
             }
@@ -12127,20 +12471,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DirectProcessCall__NameAssignment
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4858:1: rule__DirectProcessCall__NameAssignment : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5025:1: rule__DirectProcessCall__NameAssignment : ( RULE_ID ) ;
     public final void rule__DirectProcessCall__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4862:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4863:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5029:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5030:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4863:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4864:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5030:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5031:1: RULE_ID
             {
              before(grammarAccess.getDirectProcessCallAccess().getNameIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DirectProcessCall__NameAssignment9660); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DirectProcessCall__NameAssignment9977); 
              after(grammarAccess.getDirectProcessCallAccess().getNameIDTerminalRuleCall_0()); 
 
             }
@@ -12164,20 +12508,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkRef__NameAssignment
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4873:1: rule__LinkRef__NameAssignment : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5040:1: rule__LinkRef__NameAssignment : ( RULE_ID ) ;
     public final void rule__LinkRef__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4877:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4878:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5044:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5045:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4878:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4879:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5045:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5046:1: RULE_ID
             {
              before(grammarAccess.getLinkRefAccess().getNameIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkRef__NameAssignment9691); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkRef__NameAssignment10008); 
              after(grammarAccess.getLinkRefAccess().getNameIDTerminalRuleCall_0()); 
 
             }
@@ -12201,20 +12545,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4888:1: rule__LinkStep__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5055:1: rule__LinkStep__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__LinkStep__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4892:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4893:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5059:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5060:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4893:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4894:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5060:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5061:1: RULE_STRING
             {
              before(grammarAccess.getLinkStepAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LinkStep__DescriptionAssignment_09722); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LinkStep__DescriptionAssignment_010039); 
              after(grammarAccess.getLinkStepAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -12238,20 +12582,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4903:1: rule__LinkStep__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5070:1: rule__LinkStep__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__LinkStep__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4907:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4908:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5074:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5075:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4908:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4909:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5075:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5076:1: RULE_ID
             {
              before(grammarAccess.getLinkStepAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkStep__NameAssignment_29753); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkStep__NameAssignment_210070); 
              after(grammarAccess.getLinkStepAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -12275,24 +12619,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4918:1: rule__LinkStep__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5085:1: rule__LinkStep__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__LinkStep__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4922:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4923:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5089:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5090:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4923:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4924:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5090:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5091:1: ( RULE_ID )
             {
              before(grammarAccess.getLinkStepAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4925:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4926:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5092:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5093:1: RULE_ID
             {
              before(grammarAccess.getLinkStepAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkStep__ContextRefAssignment_49788); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkStep__ContextRefAssignment_410105); 
              after(grammarAccess.getLinkStepAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -12320,20 +12664,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkStep__ReferenceAssignment_6
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4937:1: rule__LinkStep__ReferenceAssignment_6 : ( ruleAssociationRoleReference ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5104:1: rule__LinkStep__ReferenceAssignment_6 : ( ruleAssociationRoleReference ) ;
     public final void rule__LinkStep__ReferenceAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4941:1: ( ( ruleAssociationRoleReference ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4942:1: ( ruleAssociationRoleReference )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5108:1: ( ( ruleAssociationRoleReference ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5109:1: ( ruleAssociationRoleReference )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4942:1: ( ruleAssociationRoleReference )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4943:1: ruleAssociationRoleReference
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5109:1: ( ruleAssociationRoleReference )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5110:1: ruleAssociationRoleReference
             {
              before(grammarAccess.getLinkStepAccess().getReferenceAssociationRoleReferenceParserRuleCall_6_0()); 
-            pushFollow(FOLLOW_ruleAssociationRoleReference_in_rule__LinkStep__ReferenceAssignment_69823);
+            pushFollow(FOLLOW_ruleAssociationRoleReference_in_rule__LinkStep__ReferenceAssignment_610140);
             ruleAssociationRoleReference();
             _fsp--;
 
@@ -12360,20 +12704,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__DescriptionAssignment_0
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4952:1: rule__LinkPath__DescriptionAssignment_0 : ( RULE_STRING ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5119:1: rule__LinkPath__DescriptionAssignment_0 : ( RULE_STRING ) ;
     public final void rule__LinkPath__DescriptionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4956:1: ( ( RULE_STRING ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4957:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5123:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5124:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4957:1: ( RULE_STRING )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4958:1: RULE_STRING
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5124:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5125:1: RULE_STRING
             {
              before(grammarAccess.getLinkPathAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LinkPath__DescriptionAssignment_09854); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LinkPath__DescriptionAssignment_010171); 
              after(grammarAccess.getLinkPathAccess().getDescriptionSTRINGTerminalRuleCall_0_0()); 
 
             }
@@ -12397,20 +12741,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__NameAssignment_2
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4967:1: rule__LinkPath__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5134:1: rule__LinkPath__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__LinkPath__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4971:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4972:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5138:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5139:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4972:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4973:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5139:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5140:1: RULE_ID
             {
              before(grammarAccess.getLinkPathAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkPath__NameAssignment_29885); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkPath__NameAssignment_210202); 
              after(grammarAccess.getLinkPathAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -12434,24 +12778,24 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__LinkPath__ContextRefAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4982:1: rule__LinkPath__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5149:1: rule__LinkPath__ContextRefAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__LinkPath__ContextRefAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4986:1: ( ( ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4987:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5153:1: ( ( ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5154:1: ( ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4987:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4988:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5154:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5155:1: ( RULE_ID )
             {
              before(grammarAccess.getLinkPathAccess().getContextRefExternalReferenceCrossReference_4_0()); 
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4989:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:4990:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5156:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5157:1: RULE_ID
             {
              before(grammarAccess.getLinkPathAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkPath__ContextRefAssignment_49920); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LinkPath__ContextRefAssignment_410237); 
              after(grammarAccess.getLinkPathAccess().getContextRefExternalReferenceIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -12479,20 +12823,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__DtoPropertyReference__NameAssignment
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5001:1: rule__DtoPropertyReference__NameAssignment : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5168:1: rule__DtoPropertyReference__NameAssignment : ( RULE_ID ) ;
     public final void rule__DtoPropertyReference__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5005:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5006:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5172:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5173:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5006:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5007:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5173:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5174:1: RULE_ID
             {
              before(grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoPropertyReference__NameAssignment9955); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DtoPropertyReference__NameAssignment10272); 
              after(grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0()); 
 
             }
@@ -12516,20 +12860,20 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__AssociationRoleReference__NameAssignment
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5016:1: rule__AssociationRoleReference__NameAssignment : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5183:1: rule__AssociationRoleReference__NameAssignment : ( RULE_ID ) ;
     public final void rule__AssociationRoleReference__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5020:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5021:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5187:1: ( ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5188:1: ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5021:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5022:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5188:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5189:1: RULE_ID
             {
              before(grammarAccess.getAssociationRoleReferenceAccess().getNameIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AssociationRoleReference__NameAssignment9986); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AssociationRoleReference__NameAssignment10303); 
              after(grammarAccess.getAssociationRoleReferenceAccess().getNameIDTerminalRuleCall_0()); 
 
             }
@@ -12560,9 +12904,9 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_ruleExternalReference_in_entryRuleExternalReference120 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleExternalReference127 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ExternalReference__Group__0_in_ruleExternalReference154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModelElement_in_entryRuleModelElement180 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModelElement187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ModelElement__Alternatives_in_ruleModelElement214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModelElementWithContext_in_entryRuleModelElementWithContext180 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModelElementWithContext187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ModelElementWithContext__Alternatives_in_ruleModelElementWithContext214 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUIModelElement_in_entryRuleUIModelElement240 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUIModelElement247 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UIModelElement__Alternatives_in_ruleUIModelElement274 = new BitSet(new long[]{0x0000000000000002L});
@@ -12635,27 +12979,27 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_ruleUIModelElementCall_in_entryRuleUIModelElementCall1619 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUIModelElementCall1626 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UIModelElementCall__Alternatives_in_ruleUIModelElementCall1653 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUIModelElement_in_rule__ModelElement__Alternatives1689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLink_in_rule__ModelElement__Alternatives1706 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUIModelElement_in_rule__ModelElementWithContext__Alternatives1689 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLink_in_rule__ModelElementWithContext__Alternatives1706 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDialogue_in_rule__UIModelElement__Alternatives1738 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProcess_in_rule__UIModelElement__Alternatives1755 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleContentForm_in_rule__Dialogue__Alternatives1787 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompoundDialogue_in_rule__Dialogue__Alternatives1804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__ReadonlyAssignment_5_1_0_in_rule__ContentForm__Alternatives_5_11836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__ContentForm__Alternatives_5_11855 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__ReadonlyAssignment_6_1_0_in_rule__ContentForm__Alternatives_6_11836 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_rule__ContentForm__Alternatives_6_11855 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__0_in_rule__CompoundDialogue__Alternatives1889 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCollectionDialogue_in_rule__CompoundDialogue__Alternatives1907 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMasterDetail_in_rule__CompoundDialogue__Alternatives1924 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CompoundDialogue__ReadonlyAssignment_0_5_1_0_in_rule__CompoundDialogue__Alternatives_0_5_11956 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rule__CompoundDialogue__Alternatives_0_5_11975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__ReadonlyAssignment_5_1_0_in_rule__CollectionDialogue__Alternatives_5_12009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__CollectionDialogue__Alternatives_5_12028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__ReadonlyAssignment_6_1_0_in_rule__CollectionDialogue__Alternatives_6_12009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_rule__CollectionDialogue__Alternatives_6_12028 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__MasterDetail__ReadonlyAssignment_5_1_0_in_rule__MasterDetail__Alternatives_5_12062 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rule__MasterDetail__Alternatives_5_12081 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAutomatedProcess_in_rule__Process__Alternatives2115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleInteractiveProcess_in_rule__Process__Alternatives2132 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormElement__ReadonlyAssignment_4_1_0_in_rule__FormElement__Alternatives_4_12164 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__FormElement__Alternatives_4_12183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormElement__ReadonlyAssignment_5_1_0_in_rule__FormElement__Alternatives_5_12164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_rule__FormElement__Alternatives_5_12183 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDirectDialogueCall_in_rule__DialogueCall__Alternatives_02217 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLinkedDialogueCall_in_rule__DialogueCall__Alternatives_02234 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDirectProcessCall_in_rule__ProcessCall__Alternatives_02266 = new BitSet(new long[]{0x0000000000000002L});
@@ -12668,313 +13012,328 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_rule__PresentationModel__Group__1_in_rule__PresentationModel__Group__02427 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_12_in_rule__PresentationModel__Group__12456 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__PresentationModel__Group__2_in_rule__PresentationModel__Group__12466 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PresentationModel__NameAssignment_2_in_rule__PresentationModel__Group__22494 = new BitSet(new long[]{0x000000305340A012L});
+    public static final BitSet FOLLOW_rule__PresentationModel__NameAssignment_2_in_rule__PresentationModel__Group__22494 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_rule__PresentationModel__Group__3_in_rule__PresentationModel__Group__22503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PresentationModel__ExternalReferencesAssignment_3_in_rule__PresentationModel__Group__32531 = new BitSet(new long[]{0x000000305340A012L});
-    public static final BitSet FOLLOW_rule__PresentationModel__Group__4_in_rule__PresentationModel__Group__32541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PresentationModel__ElementsAssignment_4_in_rule__PresentationModel__Group__42569 = new BitSet(new long[]{0x0000003053408012L});
-    public static final BitSet FOLLOW_13_in_rule__ExternalReference__Group__02615 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ExternalReference__Group__1_in_rule__ExternalReference__Group__02625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ExternalReference__ModelNameAssignment_1_in_rule__ExternalReference__Group__12653 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__ExternalReference__Group__2_in_rule__ExternalReference__Group__12662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__ExternalReference__Group__22691 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ExternalReference__Group__3_in_rule__ExternalReference__Group__22701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ExternalReference__NameAssignment_3_in_rule__ExternalReference__Group__32729 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__DescriptionAssignment_0_in_rule__ContentForm__Group__02771 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__1_in_rule__ContentForm__Group__02781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__ContentForm__Group__12810 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__2_in_rule__ContentForm__Group__12820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__NameAssignment_2_in_rule__ContentForm__Group__22848 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__3_in_rule__ContentForm__Group__22857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__ContentForm__Group__32886 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__4_in_rule__ContentForm__Group__32896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__ContextRefAssignment_4_in_rule__ContentForm__Group__42924 = new BitSet(new long[]{0x00000000800A0002L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__5_in_rule__ContentForm__Group__42933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_5__0_in_rule__ContentForm__Group__52961 = new BitSet(new long[]{0x0000000080080002L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__6_in_rule__ContentForm__Group__52971 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__FormElementsAssignment_6_in_rule__ContentForm__Group__62999 = new BitSet(new long[]{0x0000000080080002L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group__7_in_rule__ContentForm__Group__63009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_7__0_in_rule__ContentForm__Group__73037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__ContentForm__Group_5__03089 = new BitSet(new long[]{0x0000010000000800L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_5__1_in_rule__ContentForm__Group_5__03099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__Alternatives_5_1_in_rule__ContentForm__Group_5__13127 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_5__2_in_rule__ContentForm__Group_5__13136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__ContentForm__Group_5__23165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__ContentForm__Group_7__03207 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_7__1_in_rule__ContentForm__Group_7__03217 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__ContentForm__Group_7__13246 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_7__2_in_rule__ContentForm__Group_7__13256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentForm__ProcessesAssignment_7_2_in_rule__ContentForm__Group_7__23284 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__ContentForm__Group_7__3_in_rule__ContentForm__Group_7__23294 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__ContentForm__Group_7__33323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__DescriptionAssignment_0_0_in_rule__CompoundDialogue__Group_0__03366 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__1_in_rule__CompoundDialogue__Group_0__03376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__CompoundDialogue__Group_0__13405 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__2_in_rule__CompoundDialogue__Group_0__13415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__NameAssignment_0_2_in_rule__CompoundDialogue__Group_0__23443 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__3_in_rule__CompoundDialogue__Group_0__23452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__CompoundDialogue__Group_0__33481 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__4_in_rule__CompoundDialogue__Group_0__33491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__ContextRefAssignment_0_4_in_rule__CompoundDialogue__Group_0__43519 = new BitSet(new long[]{0x00000000008A0002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__5_in_rule__CompoundDialogue__Group_0__43528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_5__0_in_rule__CompoundDialogue__Group_0__53556 = new BitSet(new long[]{0x0000000000880002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__6_in_rule__CompoundDialogue__Group_0__53566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__0_in_rule__CompoundDialogue__Group_0__63594 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__7_in_rule__CompoundDialogue__Group_0__63604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__0_in_rule__CompoundDialogue__Group_0__73632 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__CompoundDialogue__Group_0_5__03684 = new BitSet(new long[]{0x0000010000000800L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_5__1_in_rule__CompoundDialogue__Group_0_5__03694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Alternatives_0_5_1_in_rule__CompoundDialogue__Group_0_5__13722 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_5__2_in_rule__CompoundDialogue__Group_0_5__13731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__CompoundDialogue__Group_0_5__23760 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__CompoundDialogue__Group_0_6__03802 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__1_in_rule__CompoundDialogue__Group_0_6__03812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__CompoundDialogue__Group_0_6__13841 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__2_in_rule__CompoundDialogue__Group_0_6__13851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__DialoguesAssignment_0_6_2_in_rule__CompoundDialogue__Group_0_6__23879 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__3_in_rule__CompoundDialogue__Group_0_6__23889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__CompoundDialogue__Group_0_6__33918 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__CompoundDialogue__Group_0_7__03962 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__1_in_rule__CompoundDialogue__Group_0_7__03972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__CompoundDialogue__Group_0_7__14001 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__2_in_rule__CompoundDialogue__Group_0_7__14011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__ProcessesAssignment_0_7_2_in_rule__CompoundDialogue__Group_0_7__24039 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__3_in_rule__CompoundDialogue__Group_0_7__24049 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__CompoundDialogue__Group_0_7__34078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__DescriptionAssignment_0_in_rule__CollectionDialogue__Group__04121 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__1_in_rule__CollectionDialogue__Group__04131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__CollectionDialogue__Group__14160 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__2_in_rule__CollectionDialogue__Group__14170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__NameAssignment_2_in_rule__CollectionDialogue__Group__24198 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__3_in_rule__CollectionDialogue__Group__24207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__CollectionDialogue__Group__34236 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__4_in_rule__CollectionDialogue__Group__34246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__ContextRefAssignment_4_in_rule__CollectionDialogue__Group__44274 = new BitSet(new long[]{0x00000000008A0002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__5_in_rule__CollectionDialogue__Group__44283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_5__0_in_rule__CollectionDialogue__Group__54311 = new BitSet(new long[]{0x0000000000880002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__6_in_rule__CollectionDialogue__Group__54321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__0_in_rule__CollectionDialogue__Group__64349 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__7_in_rule__CollectionDialogue__Group__64359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__0_in_rule__CollectionDialogue__Group__74387 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__CollectionDialogue__Group_5__04439 = new BitSet(new long[]{0x0000010000000800L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_5__1_in_rule__CollectionDialogue__Group_5__04449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Alternatives_5_1_in_rule__CollectionDialogue__Group_5__14477 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_5__2_in_rule__CollectionDialogue__Group_5__14486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__CollectionDialogue__Group_5__24515 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__CollectionDialogue__Group_6__04557 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__1_in_rule__CollectionDialogue__Group_6__04567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__CollectionDialogue__Group_6__14596 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__2_in_rule__CollectionDialogue__Group_6__14606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__DialoguesAssignment_6_2_in_rule__CollectionDialogue__Group_6__24634 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__3_in_rule__CollectionDialogue__Group_6__24644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__CollectionDialogue__Group_6__34673 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__CollectionDialogue__Group_7__04717 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__1_in_rule__CollectionDialogue__Group_7__04727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__CollectionDialogue__Group_7__14756 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__2_in_rule__CollectionDialogue__Group_7__14766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__ProcessesAssignment_7_2_in_rule__CollectionDialogue__Group_7__24794 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__3_in_rule__CollectionDialogue__Group_7__24804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__CollectionDialogue__Group_7__34833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__DescriptionAssignment_0_in_rule__MasterDetail__Group__04876 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__1_in_rule__MasterDetail__Group__04886 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__MasterDetail__Group__14915 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__2_in_rule__MasterDetail__Group__14925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__NameAssignment_2_in_rule__MasterDetail__Group__24953 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__3_in_rule__MasterDetail__Group__24962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__MasterDetail__Group__34991 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__4_in_rule__MasterDetail__Group__35001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__ContextRefAssignment_4_in_rule__MasterDetail__Group__45029 = new BitSet(new long[]{0x0000000004020000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__5_in_rule__MasterDetail__Group__45038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_5__0_in_rule__MasterDetail__Group__55066 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__6_in_rule__MasterDetail__Group__55076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__MasterDetail__Group__65105 = new BitSet(new long[]{0x0000000400000020L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__7_in_rule__MasterDetail__Group__65115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__MasterAssignment_7_in_rule__MasterDetail__Group__75143 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__8_in_rule__MasterDetail__Group__75152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__MasterDetail__Group__85181 = new BitSet(new long[]{0x0000000400000020L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__9_in_rule__MasterDetail__Group__85191 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__DetailAssignment_9_in_rule__MasterDetail__Group__95219 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group__10_in_rule__MasterDetail__Group__95228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__0_in_rule__MasterDetail__Group__105256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__MasterDetail__Group_5__05314 = new BitSet(new long[]{0x0000010000000800L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_5__1_in_rule__MasterDetail__Group_5__05324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Alternatives_5_1_in_rule__MasterDetail__Group_5__15352 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_5__2_in_rule__MasterDetail__Group_5__15361 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__MasterDetail__Group_5__25390 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__MasterDetail__Group_10__05432 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__1_in_rule__MasterDetail__Group_10__05442 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__MasterDetail__Group_10__15471 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__2_in_rule__MasterDetail__Group_10__15481 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MasterDetail__ProcessesAssignment_10_2_in_rule__MasterDetail__Group_10__25509 = new BitSet(new long[]{0x0000000400200020L});
-    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__3_in_rule__MasterDetail__Group_10__25519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__MasterDetail__Group_10__35548 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__DescriptionAssignment_0_in_rule__AutomatedProcess__Group__05591 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__1_in_rule__AutomatedProcess__Group__05601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__AutomatedProcess__Group__15630 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__2_in_rule__AutomatedProcess__Group__15640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__NameAssignment_2_in_rule__AutomatedProcess__Group__25668 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__3_in_rule__AutomatedProcess__Group__25677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__AutomatedProcess__Group__35706 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__4_in_rule__AutomatedProcess__Group__35716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__ContextRefAssignment_4_in_rule__AutomatedProcess__Group__45744 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__5_in_rule__AutomatedProcess__Group__45753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__0_in_rule__AutomatedProcess__Group__55781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_rule__AutomatedProcess__Group_5__05829 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__1_in_rule__AutomatedProcess__Group_5__05839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__AutomatedProcess__Group_5__15868 = new BitSet(new long[]{0x000000C000200000L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__2_in_rule__AutomatedProcess__Group_5__15878 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__ProcessElementsAssignment_5_2_in_rule__AutomatedProcess__Group_5__25906 = new BitSet(new long[]{0x000000C000200000L});
-    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__3_in_rule__AutomatedProcess__Group_5__25916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__AutomatedProcess__Group_5__35945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__DescriptionAssignment_0_in_rule__InteractiveProcess__Group__05988 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__1_in_rule__InteractiveProcess__Group__05998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_rule__InteractiveProcess__Group__16027 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__2_in_rule__InteractiveProcess__Group__16037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__NameAssignment_2_in_rule__InteractiveProcess__Group__26065 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__3_in_rule__InteractiveProcess__Group__26074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__InteractiveProcess__Group__36103 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__4_in_rule__InteractiveProcess__Group__36113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__ContextRefAssignment_4_in_rule__InteractiveProcess__Group__46141 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__5_in_rule__InteractiveProcess__Group__46150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__0_in_rule__InteractiveProcess__Group__56178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_rule__InteractiveProcess__Group_5__06226 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__1_in_rule__InteractiveProcess__Group_5__06236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__InteractiveProcess__Group_5__16265 = new BitSet(new long[]{0x000000C000200000L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__2_in_rule__InteractiveProcess__Group_5__16275 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__ProcessElementsAssignment_5_2_in_rule__InteractiveProcess__Group_5__26303 = new BitSet(new long[]{0x000000C000200000L});
-    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__3_in_rule__InteractiveProcess__Group_5__26313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__InteractiveProcess__Group_5__36342 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_rule__FormElement__Group__06386 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__FormElement__Group__1_in_rule__FormElement__Group__06396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormElement__ReferencesAssignment_1_in_rule__FormElement__Group__16424 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_rule__FormElement__Group__2_in_rule__FormElement__Group__16433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_rule__FormElement__Group__26462 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__FormElement__Group__3_in_rule__FormElement__Group__26472 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormElement__NameAssignment_3_in_rule__FormElement__Group__36500 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_rule__FormElement__Group__4_in_rule__FormElement__Group__36509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormElement__Group_4__0_in_rule__FormElement__Group__46537 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__FormElement__Group__5_in_rule__FormElement__Group__46547 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__FormElement__Group__56576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__FormElement__Group_4__06624 = new BitSet(new long[]{0x0000010000000800L});
-    public static final BitSet FOLLOW_rule__FormElement__Group_4__1_in_rule__FormElement__Group_4__06634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormElement__Alternatives_4_1_in_rule__FormElement__Group_4__16662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DialogueCall__Alternatives_0_in_rule__DialogueCall__Group__06700 = new BitSet(new long[]{0x0000000200040000L});
-    public static final BitSet FOLLOW_rule__DialogueCall__Group__1_in_rule__DialogueCall__Group__06709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DialogueCall__Group_1__0_in_rule__DialogueCall__Group__16737 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__DialogueCall__Group__2_in_rule__DialogueCall__Group__16747 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__DialogueCall__Group__26776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_rule__DialogueCall__Group_1__06818 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DialogueCall__Group_1__1_in_rule__DialogueCall__Group_1__06828 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DialogueCall__AliasAssignment_1_1_in_rule__DialogueCall__Group_1__16856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_rule__LinkedDialogueCall__Group__06895 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkedDialogueCall__Group__1_in_rule__LinkedDialogueCall__Group__06905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkedDialogueCall__LinkAssignment_1_in_rule__LinkedDialogueCall__Group__16933 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_rule__LinkedDialogueCall__Group__2_in_rule__LinkedDialogueCall__Group__16942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_rule__LinkedDialogueCall__Group__26971 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkedDialogueCall__Group__3_in_rule__LinkedDialogueCall__Group__26981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkedDialogueCall__NameAssignment_3_in_rule__LinkedDialogueCall__Group__37009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ProcessCall__Alternatives_0_in_rule__ProcessCall__Group__07051 = new BitSet(new long[]{0x0000000200040000L});
-    public static final BitSet FOLLOW_rule__ProcessCall__Group__1_in_rule__ProcessCall__Group__07060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ProcessCall__Group_1__0_in_rule__ProcessCall__Group__17088 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__ProcessCall__Group__2_in_rule__ProcessCall__Group__17098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__ProcessCall__Group__27127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_rule__ProcessCall__Group_1__07169 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ProcessCall__Group_1__1_in_rule__ProcessCall__Group_1__07179 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ProcessCall__AliasAssignment_1_1_in_rule__ProcessCall__Group_1__17207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_rule__LinkedProcessCall__Group__07246 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkedProcessCall__Group__1_in_rule__LinkedProcessCall__Group__07256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkedProcessCall__LinkAssignment_1_in_rule__LinkedProcessCall__Group__17284 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_rule__LinkedProcessCall__Group__2_in_rule__LinkedProcessCall__Group__17293 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_rule__LinkedProcessCall__Group__27322 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkedProcessCall__Group__3_in_rule__LinkedProcessCall__Group__27332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkedProcessCall__NameAssignment_3_in_rule__LinkedProcessCall__Group__37360 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkStep__DescriptionAssignment_0_in_rule__LinkStep__Group__07402 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_rule__LinkStep__Group__1_in_rule__LinkStep__Group__07412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_rule__LinkStep__Group__17441 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkStep__Group__2_in_rule__LinkStep__Group__17451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkStep__NameAssignment_2_in_rule__LinkStep__Group__27479 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__LinkStep__Group__3_in_rule__LinkStep__Group__27488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__LinkStep__Group__37517 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkStep__Group__4_in_rule__LinkStep__Group__37527 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkStep__ContextRefAssignment_4_in_rule__LinkStep__Group__47555 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_rule__LinkStep__Group__5_in_rule__LinkStep__Group__47564 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_rule__LinkStep__Group__57593 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkStep__Group__6_in_rule__LinkStep__Group__57603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkStep__ReferenceAssignment_6_in_rule__LinkStep__Group__67631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkPath__DescriptionAssignment_0_in_rule__LinkPath__Group__07679 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_rule__LinkPath__Group__1_in_rule__LinkPath__Group__07689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_rule__LinkPath__Group__17718 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkPath__Group__2_in_rule__LinkPath__Group__17728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkPath__NameAssignment_2_in_rule__LinkPath__Group__27756 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__LinkPath__Group__3_in_rule__LinkPath__Group__27765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__LinkPath__Group__37794 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__LinkPath__Group__4_in_rule__LinkPath__Group__37804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LinkPath__ContextRefAssignment_4_in_rule__LinkPath__Group__47832 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_rule__UIModelElementCall__Group_0__07877 = new BitSet(new long[]{0x0000000400000020L});
-    public static final BitSet FOLLOW_rule__UIModelElementCall__Group_0__1_in_rule__UIModelElementCall__Group_0__07887 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__UIModelElementCall__Group_0__17915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__UIModelElementCall__Group_1__07953 = new BitSet(new long[]{0x0000000400000020L});
-    public static final BitSet FOLLOW_rule__UIModelElementCall__Group_1__1_in_rule__UIModelElementCall__Group_1__07963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_rule__UIModelElementCall__Group_1__17991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__PresentationModel__DescriptionAssignment_08028 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__PresentationModel__NameAssignment_28059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalReference_in_rule__PresentationModel__ExternalReferencesAssignment_38090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModelElement_in_rule__PresentationModel__ElementsAssignment_48121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__ModelNameAssignment_18152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_38183 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__ContentForm__DescriptionAssignment_08214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ContentForm__NameAssignment_28245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ContentForm__ContextRefAssignment_48280 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ContentForm__ReadonlyAssignment_5_1_08320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormElement_in_rule__ContentForm__FormElementsAssignment_68359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_rule__ContentForm__ProcessesAssignment_7_28390 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__CompoundDialogue__DescriptionAssignment_0_08421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__CompoundDialogue__NameAssignment_0_28452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__CompoundDialogue__ContextRefAssignment_0_48487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__CompoundDialogue__ReadonlyAssignment_0_5_1_08527 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__CompoundDialogue__DialoguesAssignment_0_6_28566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_rule__CompoundDialogue__ProcessesAssignment_0_7_28597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__CollectionDialogue__DescriptionAssignment_08628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__CollectionDialogue__NameAssignment_28659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__CollectionDialogue__ContextRefAssignment_48694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__CollectionDialogue__ReadonlyAssignment_5_1_08734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__CollectionDialogue__DialoguesAssignment_6_28773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_rule__CollectionDialogue__ProcessesAssignment_7_28804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__MasterDetail__DescriptionAssignment_08835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__MasterDetail__NameAssignment_28866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__MasterDetail__ContextRefAssignment_48901 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__MasterDetail__ReadonlyAssignment_5_1_08941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__MasterDetail__MasterAssignment_78980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__MasterDetail__DetailAssignment_99011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_rule__MasterDetail__ProcessesAssignment_10_29042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__AutomatedProcess__DescriptionAssignment_09073 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__AutomatedProcess__NameAssignment_29104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__AutomatedProcess__ContextRefAssignment_49139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUICall_in_rule__AutomatedProcess__ProcessElementsAssignment_5_29174 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__InteractiveProcess__DescriptionAssignment_09205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__InteractiveProcess__NameAssignment_29236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__InteractiveProcess__ContextRefAssignment_49271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUICall_in_rule__InteractiveProcess__ProcessElementsAssignment_5_29306 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoPropertyReference_in_rule__FormElement__ReferencesAssignment_19337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__FormElement__NameAssignment_39368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__FormElement__ReadonlyAssignment_4_1_09404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DialogueCall__AliasAssignment_1_19443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLinkRef_in_rule__LinkedDialogueCall__LinkAssignment_19474 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkedDialogueCall__NameAssignment_39505 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DirectDialogueCall__NameAssignment9536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ProcessCall__AliasAssignment_1_19567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLinkRef_in_rule__LinkedProcessCall__LinkAssignment_19598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkedProcessCall__NameAssignment_39629 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DirectProcessCall__NameAssignment9660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkRef__NameAssignment9691 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__LinkStep__DescriptionAssignment_09722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkStep__NameAssignment_29753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkStep__ContextRefAssignment_49788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_rule__LinkStep__ReferenceAssignment_69823 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__LinkPath__DescriptionAssignment_09854 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkPath__NameAssignment_29885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkPath__ContextRefAssignment_49920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoPropertyReference__NameAssignment9955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__AssociationRoleReference__NameAssignment9986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__PresentationModel__Group__32532 = new BitSet(new long[]{0x0000003053414012L});
+    public static final BitSet FOLLOW_rule__PresentationModel__Group__4_in_rule__PresentationModel__Group__32542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PresentationModel__ExternalReferencesAssignment_4_in_rule__PresentationModel__Group__42570 = new BitSet(new long[]{0x0000003053414012L});
+    public static final BitSet FOLLOW_rule__PresentationModel__Group__5_in_rule__PresentationModel__Group__42580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PresentationModel__ElementsAssignment_5_in_rule__PresentationModel__Group__52608 = new BitSet(new long[]{0x0000003053410012L});
+    public static final BitSet FOLLOW_14_in_rule__ExternalReference__Group__02656 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ExternalReference__Group__1_in_rule__ExternalReference__Group__02666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalReference__ModelNameAssignment_1_in_rule__ExternalReference__Group__12694 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rule__ExternalReference__Group__2_in_rule__ExternalReference__Group__12703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__ExternalReference__Group__22732 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ExternalReference__Group__3_in_rule__ExternalReference__Group__22742 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ExternalReference__NameAssignment_3_in_rule__ExternalReference__Group__32770 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__ExternalReference__Group__4_in_rule__ExternalReference__Group__32779 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__ExternalReference__Group__42808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__DescriptionAssignment_0_in_rule__ContentForm__Group__02853 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__1_in_rule__ContentForm__Group__02863 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__ContentForm__Group__12892 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__2_in_rule__ContentForm__Group__12902 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__NameAssignment_2_in_rule__ContentForm__Group__22930 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__3_in_rule__ContentForm__Group__22939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__ContentForm__Group__32968 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__4_in_rule__ContentForm__Group__32978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__ContextRefAssignment_4_in_rule__ContentForm__Group__43006 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__5_in_rule__ContentForm__Group__43015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__ContentForm__Group__53044 = new BitSet(new long[]{0x0000000080380010L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__6_in_rule__ContentForm__Group__53054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_6__0_in_rule__ContentForm__Group__63082 = new BitSet(new long[]{0x0000000080280010L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__7_in_rule__ContentForm__Group__63092 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__FormElementsAssignment_7_in_rule__ContentForm__Group__73120 = new BitSet(new long[]{0x0000000080280010L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__8_in_rule__ContentForm__Group__73130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_8__0_in_rule__ContentForm__Group__83158 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group__9_in_rule__ContentForm__Group__83168 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__ContentForm__Group__93197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__ContentForm__Group_6__03253 = new BitSet(new long[]{0x0000010000000800L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_6__1_in_rule__ContentForm__Group_6__03263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__Alternatives_6_1_in_rule__ContentForm__Group_6__13291 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_6__2_in_rule__ContentForm__Group_6__13300 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__ContentForm__Group_6__23329 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__ContentForm__Group_8__03371 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_8__1_in_rule__ContentForm__Group_8__03381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__ContentForm__Group_8__13410 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_8__2_in_rule__ContentForm__Group_8__13420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ContentForm__ProcessesAssignment_8_2_in_rule__ContentForm__Group_8__23448 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__ContentForm__Group_8__3_in_rule__ContentForm__Group_8__23458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__ContentForm__Group_8__33487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__DescriptionAssignment_0_0_in_rule__CompoundDialogue__Group_0__03530 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__1_in_rule__CompoundDialogue__Group_0__03540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__CompoundDialogue__Group_0__13569 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__2_in_rule__CompoundDialogue__Group_0__13579 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__NameAssignment_0_2_in_rule__CompoundDialogue__Group_0__23607 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__3_in_rule__CompoundDialogue__Group_0__23616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__CompoundDialogue__Group_0__33645 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__4_in_rule__CompoundDialogue__Group_0__33655 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__ContextRefAssignment_0_4_in_rule__CompoundDialogue__Group_0__43683 = new BitSet(new long[]{0x0000000000B00002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__5_in_rule__CompoundDialogue__Group_0__43692 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_5__0_in_rule__CompoundDialogue__Group_0__53720 = new BitSet(new long[]{0x0000000000A00002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__6_in_rule__CompoundDialogue__Group_0__53730 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__0_in_rule__CompoundDialogue__Group_0__63758 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0__7_in_rule__CompoundDialogue__Group_0__63768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__0_in_rule__CompoundDialogue__Group_0__73796 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__CompoundDialogue__Group_0_5__03848 = new BitSet(new long[]{0x0000010000000800L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_5__1_in_rule__CompoundDialogue__Group_0_5__03858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Alternatives_0_5_1_in_rule__CompoundDialogue__Group_0_5__13886 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_5__2_in_rule__CompoundDialogue__Group_0_5__13895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__CompoundDialogue__Group_0_5__23924 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__CompoundDialogue__Group_0_6__03966 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__1_in_rule__CompoundDialogue__Group_0_6__03976 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__CompoundDialogue__Group_0_6__14005 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__2_in_rule__CompoundDialogue__Group_0_6__14015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__DialoguesAssignment_0_6_2_in_rule__CompoundDialogue__Group_0_6__24043 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_6__3_in_rule__CompoundDialogue__Group_0_6__24053 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__CompoundDialogue__Group_0_6__34082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__CompoundDialogue__Group_0_7__04126 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__1_in_rule__CompoundDialogue__Group_0_7__04136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__CompoundDialogue__Group_0_7__14165 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__2_in_rule__CompoundDialogue__Group_0_7__14175 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__ProcessesAssignment_0_7_2_in_rule__CompoundDialogue__Group_0_7__24203 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CompoundDialogue__Group_0_7__3_in_rule__CompoundDialogue__Group_0_7__24213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__CompoundDialogue__Group_0_7__34242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__DescriptionAssignment_0_in_rule__CollectionDialogue__Group__04285 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__1_in_rule__CollectionDialogue__Group__04295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__CollectionDialogue__Group__14324 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__2_in_rule__CollectionDialogue__Group__14334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__NameAssignment_2_in_rule__CollectionDialogue__Group__24362 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__3_in_rule__CollectionDialogue__Group__24371 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__CollectionDialogue__Group__34400 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__4_in_rule__CollectionDialogue__Group__34410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__ContextRefAssignment_4_in_rule__CollectionDialogue__Group__44438 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__5_in_rule__CollectionDialogue__Group__44447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__CollectionDialogue__Group__54476 = new BitSet(new long[]{0x0000000000B80000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__6_in_rule__CollectionDialogue__Group__54486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__0_in_rule__CollectionDialogue__Group__64514 = new BitSet(new long[]{0x0000000000A80000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__7_in_rule__CollectionDialogue__Group__64524 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__0_in_rule__CollectionDialogue__Group__74552 = new BitSet(new long[]{0x0000000000280000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__8_in_rule__CollectionDialogue__Group__74562 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_8__0_in_rule__CollectionDialogue__Group__84590 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group__9_in_rule__CollectionDialogue__Group__84600 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__CollectionDialogue__Group__94629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__CollectionDialogue__Group_6__04685 = new BitSet(new long[]{0x0000010000000800L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__1_in_rule__CollectionDialogue__Group_6__04695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Alternatives_6_1_in_rule__CollectionDialogue__Group_6__14723 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_6__2_in_rule__CollectionDialogue__Group_6__14732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__CollectionDialogue__Group_6__24761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__CollectionDialogue__Group_7__04803 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__1_in_rule__CollectionDialogue__Group_7__04813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__CollectionDialogue__Group_7__14842 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__2_in_rule__CollectionDialogue__Group_7__14852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__DialoguesAssignment_7_2_in_rule__CollectionDialogue__Group_7__24880 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_7__3_in_rule__CollectionDialogue__Group_7__24890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__CollectionDialogue__Group_7__34919 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__CollectionDialogue__Group_8__04963 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_8__1_in_rule__CollectionDialogue__Group_8__04973 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__CollectionDialogue__Group_8__15002 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_8__2_in_rule__CollectionDialogue__Group_8__15012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__ProcessesAssignment_8_2_in_rule__CollectionDialogue__Group_8__25040 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__CollectionDialogue__Group_8__3_in_rule__CollectionDialogue__Group_8__25050 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__CollectionDialogue__Group_8__35079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__DescriptionAssignment_0_in_rule__MasterDetail__Group__05122 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__1_in_rule__MasterDetail__Group__05132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__MasterDetail__Group__15161 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__2_in_rule__MasterDetail__Group__15171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__NameAssignment_2_in_rule__MasterDetail__Group__25199 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__3_in_rule__MasterDetail__Group__25208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__MasterDetail__Group__35237 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__4_in_rule__MasterDetail__Group__35247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__ContextRefAssignment_4_in_rule__MasterDetail__Group__45275 = new BitSet(new long[]{0x0000000004100000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__5_in_rule__MasterDetail__Group__45284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_5__0_in_rule__MasterDetail__Group__55312 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__6_in_rule__MasterDetail__Group__55322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_rule__MasterDetail__Group__65351 = new BitSet(new long[]{0x0000000400000020L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__7_in_rule__MasterDetail__Group__65361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__MasterAssignment_7_in_rule__MasterDetail__Group__75389 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__8_in_rule__MasterDetail__Group__75398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__MasterDetail__Group__85427 = new BitSet(new long[]{0x0000000400000020L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__9_in_rule__MasterDetail__Group__85437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__DetailAssignment_9_in_rule__MasterDetail__Group__95465 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group__10_in_rule__MasterDetail__Group__95474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__0_in_rule__MasterDetail__Group__105502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__MasterDetail__Group_5__05560 = new BitSet(new long[]{0x0000010000000800L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_5__1_in_rule__MasterDetail__Group_5__05570 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Alternatives_5_1_in_rule__MasterDetail__Group_5__15598 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_5__2_in_rule__MasterDetail__Group_5__15607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__MasterDetail__Group_5__25636 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__MasterDetail__Group_10__05678 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__1_in_rule__MasterDetail__Group_10__05688 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__MasterDetail__Group_10__15717 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__2_in_rule__MasterDetail__Group_10__15727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MasterDetail__ProcessesAssignment_10_2_in_rule__MasterDetail__Group_10__25755 = new BitSet(new long[]{0x0000000400080020L});
+    public static final BitSet FOLLOW_rule__MasterDetail__Group_10__3_in_rule__MasterDetail__Group_10__25765 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__MasterDetail__Group_10__35794 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__DescriptionAssignment_0_in_rule__AutomatedProcess__Group__05837 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__1_in_rule__AutomatedProcess__Group__05847 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__AutomatedProcess__Group__15876 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__2_in_rule__AutomatedProcess__Group__15886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__NameAssignment_2_in_rule__AutomatedProcess__Group__25914 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__3_in_rule__AutomatedProcess__Group__25923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__AutomatedProcess__Group__35952 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__4_in_rule__AutomatedProcess__Group__35962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__ContextRefAssignment_4_in_rule__AutomatedProcess__Group__45990 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group__5_in_rule__AutomatedProcess__Group__45999 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__0_in_rule__AutomatedProcess__Group__56027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_rule__AutomatedProcess__Group_5__06075 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__1_in_rule__AutomatedProcess__Group_5__06085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__AutomatedProcess__Group_5__16114 = new BitSet(new long[]{0x000000C000080000L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__2_in_rule__AutomatedProcess__Group_5__16124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__ProcessElementsAssignment_5_2_in_rule__AutomatedProcess__Group_5__26152 = new BitSet(new long[]{0x000000C000080000L});
+    public static final BitSet FOLLOW_rule__AutomatedProcess__Group_5__3_in_rule__AutomatedProcess__Group_5__26162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__AutomatedProcess__Group_5__36191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__DescriptionAssignment_0_in_rule__InteractiveProcess__Group__06234 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__1_in_rule__InteractiveProcess__Group__06244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_rule__InteractiveProcess__Group__16273 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__2_in_rule__InteractiveProcess__Group__16283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__NameAssignment_2_in_rule__InteractiveProcess__Group__26311 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__3_in_rule__InteractiveProcess__Group__26320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__InteractiveProcess__Group__36349 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__4_in_rule__InteractiveProcess__Group__36359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__ContextRefAssignment_4_in_rule__InteractiveProcess__Group__46387 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group__5_in_rule__InteractiveProcess__Group__46396 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__0_in_rule__InteractiveProcess__Group__56424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_rule__InteractiveProcess__Group_5__06472 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__1_in_rule__InteractiveProcess__Group_5__06482 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__InteractiveProcess__Group_5__16511 = new BitSet(new long[]{0x000000C000080000L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__2_in_rule__InteractiveProcess__Group_5__16521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__ProcessElementsAssignment_5_2_in_rule__InteractiveProcess__Group_5__26549 = new BitSet(new long[]{0x000000C000080000L});
+    public static final BitSet FOLLOW_rule__InteractiveProcess__Group_5__3_in_rule__InteractiveProcess__Group_5__26559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__InteractiveProcess__Group_5__36588 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormElement__DescriptionAssignment_0_in_rule__FormElement__Group__06631 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_rule__FormElement__Group__1_in_rule__FormElement__Group__06641 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_rule__FormElement__Group__16670 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__FormElement__Group__2_in_rule__FormElement__Group__16680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormElement__ReferencesAssignment_2_in_rule__FormElement__Group__26708 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_rule__FormElement__Group__3_in_rule__FormElement__Group__26717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_rule__FormElement__Group__36746 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__FormElement__Group__4_in_rule__FormElement__Group__36756 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormElement__LabelAssignment_4_in_rule__FormElement__Group__46784 = new BitSet(new long[]{0x0000000000102000L});
+    public static final BitSet FOLLOW_rule__FormElement__Group__5_in_rule__FormElement__Group__46793 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormElement__Group_5__0_in_rule__FormElement__Group__56821 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__FormElement__Group__6_in_rule__FormElement__Group__56831 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__FormElement__Group__66860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__FormElement__Group_5__06910 = new BitSet(new long[]{0x0000010000000800L});
+    public static final BitSet FOLLOW_rule__FormElement__Group_5__1_in_rule__FormElement__Group_5__06920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormElement__Alternatives_5_1_in_rule__FormElement__Group_5__16948 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DialogueCall__Alternatives_0_in_rule__DialogueCall__Group__06986 = new BitSet(new long[]{0x0000000200002000L});
+    public static final BitSet FOLLOW_rule__DialogueCall__Group__1_in_rule__DialogueCall__Group__06995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DialogueCall__Group_1__0_in_rule__DialogueCall__Group__17023 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__DialogueCall__Group__2_in_rule__DialogueCall__Group__17033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__DialogueCall__Group__27062 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_rule__DialogueCall__Group_1__07104 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DialogueCall__Group_1__1_in_rule__DialogueCall__Group_1__07114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DialogueCall__AliasAssignment_1_1_in_rule__DialogueCall__Group_1__17142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_rule__LinkedDialogueCall__Group__07181 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkedDialogueCall__Group__1_in_rule__LinkedDialogueCall__Group__07191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkedDialogueCall__LinkAssignment_1_in_rule__LinkedDialogueCall__Group__17219 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_rule__LinkedDialogueCall__Group__2_in_rule__LinkedDialogueCall__Group__17228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_rule__LinkedDialogueCall__Group__27257 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkedDialogueCall__Group__3_in_rule__LinkedDialogueCall__Group__27267 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkedDialogueCall__NameAssignment_3_in_rule__LinkedDialogueCall__Group__37295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ProcessCall__Alternatives_0_in_rule__ProcessCall__Group__07337 = new BitSet(new long[]{0x0000000200002000L});
+    public static final BitSet FOLLOW_rule__ProcessCall__Group__1_in_rule__ProcessCall__Group__07346 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ProcessCall__Group_1__0_in_rule__ProcessCall__Group__17374 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__ProcessCall__Group__2_in_rule__ProcessCall__Group__17384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__ProcessCall__Group__27413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_rule__ProcessCall__Group_1__07455 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ProcessCall__Group_1__1_in_rule__ProcessCall__Group_1__07465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ProcessCall__AliasAssignment_1_1_in_rule__ProcessCall__Group_1__17493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_rule__LinkedProcessCall__Group__07532 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkedProcessCall__Group__1_in_rule__LinkedProcessCall__Group__07542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkedProcessCall__LinkAssignment_1_in_rule__LinkedProcessCall__Group__17570 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_rule__LinkedProcessCall__Group__2_in_rule__LinkedProcessCall__Group__17579 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_rule__LinkedProcessCall__Group__27608 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkedProcessCall__Group__3_in_rule__LinkedProcessCall__Group__27618 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkedProcessCall__NameAssignment_3_in_rule__LinkedProcessCall__Group__37646 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkStep__DescriptionAssignment_0_in_rule__LinkStep__Group__07688 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__LinkStep__Group__1_in_rule__LinkStep__Group__07698 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_rule__LinkStep__Group__17727 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkStep__Group__2_in_rule__LinkStep__Group__17737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkStep__NameAssignment_2_in_rule__LinkStep__Group__27765 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__LinkStep__Group__3_in_rule__LinkStep__Group__27774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__LinkStep__Group__37803 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkStep__Group__4_in_rule__LinkStep__Group__37813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkStep__ContextRefAssignment_4_in_rule__LinkStep__Group__47841 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_rule__LinkStep__Group__5_in_rule__LinkStep__Group__47850 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_rule__LinkStep__Group__57879 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkStep__Group__6_in_rule__LinkStep__Group__57889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkStep__ReferenceAssignment_6_in_rule__LinkStep__Group__67917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkPath__DescriptionAssignment_0_in_rule__LinkPath__Group__07965 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_rule__LinkPath__Group__1_in_rule__LinkPath__Group__07975 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__LinkPath__Group__18004 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkPath__Group__2_in_rule__LinkPath__Group__18014 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkPath__NameAssignment_2_in_rule__LinkPath__Group__28042 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__LinkPath__Group__3_in_rule__LinkPath__Group__28051 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__LinkPath__Group__38080 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__LinkPath__Group__4_in_rule__LinkPath__Group__38090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LinkPath__ContextRefAssignment_4_in_rule__LinkPath__Group__48118 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_rule__UIModelElementCall__Group_0__08163 = new BitSet(new long[]{0x0000000400000020L});
+    public static final BitSet FOLLOW_rule__UIModelElementCall__Group_0__1_in_rule__UIModelElementCall__Group_0__08173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__UIModelElementCall__Group_0__18201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__UIModelElementCall__Group_1__08239 = new BitSet(new long[]{0x0000000400000020L});
+    public static final BitSet FOLLOW_rule__UIModelElementCall__Group_1__1_in_rule__UIModelElementCall__Group_1__08249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_rule__UIModelElementCall__Group_1__18277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__PresentationModel__DescriptionAssignment_08314 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__PresentationModel__NameAssignment_28345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalReference_in_rule__PresentationModel__ExternalReferencesAssignment_48376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModelElementWithContext_in_rule__PresentationModel__ElementsAssignment_58407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__ModelNameAssignment_18438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ExternalReference__NameAssignment_38469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__ContentForm__DescriptionAssignment_08500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ContentForm__NameAssignment_28531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ContentForm__ContextRefAssignment_48566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__ContentForm__ReadonlyAssignment_6_1_08606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormElement_in_rule__ContentForm__FormElementsAssignment_78645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_rule__ContentForm__ProcessesAssignment_8_28676 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__CompoundDialogue__DescriptionAssignment_0_08707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__CompoundDialogue__NameAssignment_0_28738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__CompoundDialogue__ContextRefAssignment_0_48773 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__CompoundDialogue__ReadonlyAssignment_0_5_1_08813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__CompoundDialogue__DialoguesAssignment_0_6_28852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_rule__CompoundDialogue__ProcessesAssignment_0_7_28883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__CollectionDialogue__DescriptionAssignment_08914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__CollectionDialogue__NameAssignment_28945 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__CollectionDialogue__ContextRefAssignment_48980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__CollectionDialogue__ReadonlyAssignment_6_1_09020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__CollectionDialogue__DialoguesAssignment_7_29059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_rule__CollectionDialogue__ProcessesAssignment_8_29090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__MasterDetail__DescriptionAssignment_09121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__MasterDetail__NameAssignment_29152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__MasterDetail__ContextRefAssignment_49187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__MasterDetail__ReadonlyAssignment_5_1_09227 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__MasterDetail__MasterAssignment_79266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_rule__MasterDetail__DetailAssignment_99297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_rule__MasterDetail__ProcessesAssignment_10_29328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__AutomatedProcess__DescriptionAssignment_09359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__AutomatedProcess__NameAssignment_29390 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__AutomatedProcess__ContextRefAssignment_49425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUICall_in_rule__AutomatedProcess__ProcessElementsAssignment_5_29460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__InteractiveProcess__DescriptionAssignment_09491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__InteractiveProcess__NameAssignment_29522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__InteractiveProcess__ContextRefAssignment_49557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUICall_in_rule__InteractiveProcess__ProcessElementsAssignment_5_29592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__FormElement__DescriptionAssignment_09623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoPropertyReference_in_rule__FormElement__ReferencesAssignment_29654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__FormElement__LabelAssignment_49685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__FormElement__ReadonlyAssignment_5_1_09721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DialogueCall__AliasAssignment_1_19760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLinkRef_in_rule__LinkedDialogueCall__LinkAssignment_19791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkedDialogueCall__NameAssignment_39822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DirectDialogueCall__NameAssignment9853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ProcessCall__AliasAssignment_1_19884 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLinkRef_in_rule__LinkedProcessCall__LinkAssignment_19915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkedProcessCall__NameAssignment_39946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DirectProcessCall__NameAssignment9977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkRef__NameAssignment10008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__LinkStep__DescriptionAssignment_010039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkStep__NameAssignment_210070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkStep__ContextRefAssignment_410105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_rule__LinkStep__ReferenceAssignment_610140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__LinkPath__DescriptionAssignment_010171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkPath__NameAssignment_210202 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LinkPath__ContextRefAssignment_410237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DtoPropertyReference__NameAssignment10272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__AssociationRoleReference__NameAssignment10303 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -53,15 +53,6 @@ public interface PresentationDslFactory extends EFactory {
 	LinkStep createLinkStep();
 
 	/**
-     * Returns a new object of class '<em>Named Reference</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Named Reference</em>'.
-     * @generated
-     */
-	NamedReference createNamedReference();
-
-	/**
      * Returns a new object of class '<em>Presentation Model</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,6 +89,15 @@ public interface PresentationDslFactory extends EFactory {
 	MasterDetail createMasterDetail();
 
 	/**
+     * Returns a new object of class '<em>Model Element</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Model Element</em>'.
+     * @generated
+     */
+    ModelElement createModelElement();
+
+    /**
      * Returns a new object of class '<em>Dto Property Reference</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +152,15 @@ public interface PresentationDslFactory extends EFactory {
 	CollectionDialogue createCollectionDialogue();
 
 	/**
+     * Returns a new object of class '<em>Data Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Property</em>'.
+     * @generated
+     */
+    DataProperty createDataProperty();
+
+    /**
      * Returns a new object of class '<em>Direct Dialogue Call</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

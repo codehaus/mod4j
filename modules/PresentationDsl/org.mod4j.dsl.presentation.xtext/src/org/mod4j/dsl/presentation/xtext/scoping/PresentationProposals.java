@@ -19,7 +19,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -109,7 +109,7 @@ public class PresentationProposals {
         }
         if (ctx instanceof UIModelElement) {
         	UIModelElement uime = (UIModelElement)ctx;
-        	for (ModelElement element : uime.getPresentationModel().getElements()) {
+        	for (ModelElementWithContext element : uime.getPresentationModel().getElements()) {
         		if (element instanceof Link && uime.getContextRef().getName().equals(((Link)element).getContextRef().getName())) {
         			result.add(element.getName());
         		}
@@ -157,7 +157,7 @@ public class PresentationProposals {
         }
         if (ctx instanceof UIModelElement) {
             UIModelElement uim = (UIModelElement) ctx;
-        	for (ModelElement element : uim.getPresentationModel().getElements()) {
+        	for (ModelElementWithContext element : uim.getPresentationModel().getElements()) {
         		if (element instanceof Dialogue && uim.getContextRef().getName().equals(((Dialogue)element).getContextRef().getName())) {
         			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
         				result.add(element.getName());
@@ -213,7 +213,7 @@ public class PresentationProposals {
         	Symbol dtoSymbol = CrossxBroker.lookupSymbol(dtoRef.getModelName(), dtoRef.getName(), "Dto");
         	// Then get the Link
         	LinkRef ldcLink = ldc.getLink();
-        	for (ModelElement element : currentModel.getElements()) {
+        	for (ModelElementWithContext element : currentModel.getElements()) {
         		if (element instanceof LinkStep && element.getName().equals(ldcLink.getName())) {
                 	// Then find the AssociationRoleReference
                 	Symbol referenceSymbol = CrossxBroker.getSubSymbol(dtoSymbol, ((LinkStep)element).getReference().getName());
@@ -235,7 +235,7 @@ public class PresentationProposals {
         	}
         	if (referencedDtoName != null) {
 	        	// Look for Dialogues with this context
-	        	for (ModelElement element : currentModel.getElements()) {
+	        	for (ModelElementWithContext element : currentModel.getElements()) {
 	        		if (element instanceof Dialogue && referencedDtoName.equals(((Dialogue)element).getContextRef().getName())) {
 	        			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
 	        				result.add(element.getName());
@@ -291,7 +291,7 @@ public class PresentationProposals {
             Symbol dtoSymbol = CrossxBroker.lookupSymbol(dtoRef.getModelName(), dtoRef.getName(), "Dto");
             // Then get the Link
             LinkRef ldcLink = ldc.getLink();
-            for (ModelElement element : currentModel.getElements()) {
+            for (ModelElementWithContext element : currentModel.getElements()) {
                 if (element instanceof LinkStep && element.getName().equals(ldcLink.getName())) {
                     // Then find the AssociationRoleReference
                     Symbol referenceSymbol = CrossxBroker.getSubSymbol(dtoSymbol, ((LinkStep)element).getReference().getName());
@@ -303,7 +303,7 @@ public class PresentationProposals {
             }
             if (referencedDtoName != null) {
                 // Look for Processes with this context
-                for (ModelElement element : currentModel.getElements()) {
+                for (ModelElementWithContext element : currentModel.getElements()) {
                     if (element instanceof Process && referencedDtoName.equals(((Process)element).getContextRef().getName())) {
                         if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
                             result.add(element.getName());
@@ -353,8 +353,8 @@ public class PresentationProposals {
         }
         if (ctx instanceof UIModelElement) {
         	UIModelElement uim = (UIModelElement) ctx;
-        	for (ModelElement element : uim.getPresentationModel().getElements()) {
-        		String context = ((ModelElement)element).getContextRef().getName();
+        	for (ModelElementWithContext element : uim.getPresentationModel().getElements()) {
+        		String context = element.getContextRef().getName();
         		if (element instanceof Process && ("RootDto".equals(context) || uim.getContextRef().getName().equals(context))) {
         			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
         				result.add(element.getName());

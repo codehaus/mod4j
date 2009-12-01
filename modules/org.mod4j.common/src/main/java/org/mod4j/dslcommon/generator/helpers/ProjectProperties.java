@@ -182,7 +182,7 @@ public class ProjectProperties {
     }
     
     public static String getPresentationModuleName(String targetPlatform) {
-        return presentationModuleName + (targetPlatform != null ? "-" + targetPlatform : "");
+        return presentationModuleName ; //+ (targetPlatform != null ? "-" + targetPlatform : "");
     }
 
     public static String getServiceModuleName() {

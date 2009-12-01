@@ -8,14 +8,14 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
@@ -32,45 +32,45 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class LinkStepImpl extends LinkImpl implements LinkStep {
-	/**
+    /**
      * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getReference()
      * @generated
      * @ordered
      */
-	protected AssociationRoleReference reference;
+    protected AssociationRoleReference reference;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected LinkStepImpl() {
+    protected LinkStepImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.LINK_STEP;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public AssociationRoleReference getReference() {
+    public AssociationRoleReference getReference() {
         return reference;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -87,10 +87,10 @@ public class LinkStepImpl extends LinkImpl implements LinkStep {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setReference(AssociationRoleReference newReference) {
+    public void setReference(AssociationRoleReference newReference) {
         if (newReference != reference) {
             NotificationChain msgs = null;
             if (reference != null)
@@ -104,7 +104,7 @@ public class LinkStepImpl extends LinkImpl implements LinkStep {
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.LINK_STEP__REFERENCE, newReference, newReference));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -120,11 +120,11 @@ public class LinkStepImpl extends LinkImpl implements LinkStep {
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.LINK_STEP__REFERENCE:
                 return getReference();
@@ -132,13 +132,13 @@ public class LinkStepImpl extends LinkImpl implements LinkStep {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.LINK_STEP__REFERENCE:
                 setReference((AssociationRoleReference)newValue);
@@ -147,13 +147,13 @@ public class LinkStepImpl extends LinkImpl implements LinkStep {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.LINK_STEP__REFERENCE:
                 setReference((AssociationRoleReference)null);
@@ -162,13 +162,13 @@ public class LinkStepImpl extends LinkImpl implements LinkStep {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.LINK_STEP__REFERENCE:
                 return reference != null;

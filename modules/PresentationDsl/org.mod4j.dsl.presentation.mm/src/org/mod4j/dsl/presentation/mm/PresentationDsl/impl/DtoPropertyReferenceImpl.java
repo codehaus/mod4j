@@ -20,7 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *
  * @generated
  */
-public class DtoPropertyReferenceImpl extends NamedReferenceImpl implements DtoPropertyReference {
+public class DtoPropertyReferenceImpl extends ModelElementImpl implements DtoPropertyReference {
 	/**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

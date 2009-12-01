@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
@@ -89,7 +90,7 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
      * @generated
      * @ordered
      */
-	protected EList<ModelElement> elements;
+	protected EList<ModelElementWithContext> elements;
 
 	/**
      * The cached value of the '{@link #getExternalReferences() <em>External References</em>}' containment reference list.
@@ -167,9 +168,9 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public EList<ModelElement> getElements() {
+	public EList<ModelElementWithContext> getElements() {
         if (elements == null) {
-            elements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationDslPackage.MODEL_ELEMENT__PRESENTATION_MODEL);
+            elements = new EObjectContainmentWithInverseEList<ModelElementWithContext>(ModelElementWithContext.class, this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL);
         }
         return elements;
     }
@@ -254,7 +255,7 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
                 return;
             case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
                 getElements().clear();
-                getElements().addAll((Collection<? extends ModelElement>)newValue);
+                getElements().addAll((Collection<? extends ModelElementWithContext>)newValue);
                 return;
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 getExternalReferences().clear();

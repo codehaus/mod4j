@@ -17,5 +17,5 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model abstract="true"
  * @generated
  */
-public interface UICall extends NamedReference {
+public interface UICall extends ModelElement {
 } // UICall

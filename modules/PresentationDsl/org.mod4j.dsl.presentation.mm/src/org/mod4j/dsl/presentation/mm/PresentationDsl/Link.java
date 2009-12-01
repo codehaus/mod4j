@@ -17,7 +17,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model abstract="true"
  * @generated
  */
-public interface Link extends ModelElement {
+public interface Link extends ModelElementWithContext {
 
 	/**
      * <!-- begin-user-doc -->
@@ -25,5 +25,5 @@ public interface Link extends ModelElement {
      * @model kind="operation"
      * @generated
      */
-	NamedReference getTarget();
+	ModelElement getTarget();
 } // Link

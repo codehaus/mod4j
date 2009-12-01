@@ -17,6 +17,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
@@ -27,36 +28,19 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormElementImpl#getReferences <em>References</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormElementImpl#isReadonly <em>Readonly</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormElementImpl#getForm <em>Form</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormElementImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.FormElementImpl#getDataProperty <em>Data Property</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FormElementImpl extends EObjectImpl implements FormElement {
+public class FormElementImpl extends ModelElementImpl implements FormElement {
 	/**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-	protected String name = NAME_EDEFAULT;
-	/**
-     * The cached value of the '{@link #getReferences() <em>References</em>}' reference.
+     * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #getReferences()
@@ -84,6 +68,33 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
      */
 	protected boolean readonly = READONLY_EDEFAULT;
 	/**
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLabel()
+     * @generated
+     * @ordered
+     */
+    protected static final String LABEL_EDEFAULT = null;
+    /**
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLabel()
+     * @generated
+     * @ordered
+     */
+    protected String label = LABEL_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getDataProperty() <em>Data Property</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataProperty()
+     * @generated
+     * @ordered
+     */
+    protected DataProperty dataProperty;
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -107,58 +118,42 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public String getName() {
-        return name;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__NAME, oldName, name));
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
 	public DtoPropertyReference getReferences() {
-        if (references != null && references.eIsProxy()) {
-            InternalEObject oldReferences = (InternalEObject)references;
-            references = (DtoPropertyReference)eResolveProxy(oldReferences);
-            if (references != oldReferences) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PresentationDslPackage.FORM_ELEMENT__REFERENCES, oldReferences, references));
-            }
-        }
         return references;
     }
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DtoPropertyReference basicGetReferences() {
-        return references;
+    public NotificationChain basicSetReferences(DtoPropertyReference newReferences, NotificationChain msgs) {
+        DtoPropertyReference oldReferences = references;
+        references = newReferences;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__REFERENCES, oldReferences, newReferences);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
 	public void setReferences(DtoPropertyReference newReferences) {
-        DtoPropertyReference oldReferences = references;
-        references = newReferences;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__REFERENCES, oldReferences, references));
+        if (newReferences != references) {
+            NotificationChain msgs = null;
+            if (references != null)
+                msgs = ((InternalEObject)references).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.FORM_ELEMENT__REFERENCES, null, msgs);
+            if (newReferences != null)
+                msgs = ((InternalEObject)newReferences).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.FORM_ELEMENT__REFERENCES, null, msgs);
+            msgs = basicSetReferences(newReferences, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__REFERENCES, newReferences, newReferences));
     }
 
 	/**
@@ -225,6 +220,70 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__LABEL, oldLabel, label));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataProperty getDataProperty() {
+        return dataProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetDataProperty(DataProperty newDataProperty, NotificationChain msgs) {
+        DataProperty oldDataProperty = dataProperty;
+        dataProperty = newDataProperty;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY, oldDataProperty, newDataProperty);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDataProperty(DataProperty newDataProperty) {
+        if (newDataProperty != dataProperty) {
+            NotificationChain msgs = null;
+            if (dataProperty != null)
+                msgs = ((InternalEObject)dataProperty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY, null, msgs);
+            if (newDataProperty != null)
+                msgs = ((InternalEObject)newDataProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY, null, msgs);
+            msgs = basicSetDataProperty(newDataProperty, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY, newDataProperty, newDataProperty));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -247,8 +306,12 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
+            case PresentationDslPackage.FORM_ELEMENT__REFERENCES:
+                return basicSetReferences(null, msgs);
             case PresentationDslPackage.FORM_ELEMENT__FORM:
                 return basicSetForm(null, msgs);
+            case PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY:
+                return basicSetDataProperty(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -275,15 +338,16 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.FORM_ELEMENT__NAME:
-                return getName();
             case PresentationDslPackage.FORM_ELEMENT__REFERENCES:
-                if (resolve) return getReferences();
-                return basicGetReferences();
+                return getReferences();
             case PresentationDslPackage.FORM_ELEMENT__READONLY:
                 return isReadonly();
             case PresentationDslPackage.FORM_ELEMENT__FORM:
                 return getForm();
+            case PresentationDslPackage.FORM_ELEMENT__LABEL:
+                return getLabel();
+            case PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY:
+                return getDataProperty();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -296,9 +360,6 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.FORM_ELEMENT__NAME:
-                setName((String)newValue);
-                return;
             case PresentationDslPackage.FORM_ELEMENT__REFERENCES:
                 setReferences((DtoPropertyReference)newValue);
                 return;
@@ -307,6 +368,12 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
                 return;
             case PresentationDslPackage.FORM_ELEMENT__FORM:
                 setForm((ContentForm)newValue);
+                return;
+            case PresentationDslPackage.FORM_ELEMENT__LABEL:
+                setLabel((String)newValue);
+                return;
+            case PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY:
+                setDataProperty((DataProperty)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -320,9 +387,6 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	@Override
 	public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.FORM_ELEMENT__NAME:
-                setName(NAME_EDEFAULT);
-                return;
             case PresentationDslPackage.FORM_ELEMENT__REFERENCES:
                 setReferences((DtoPropertyReference)null);
                 return;
@@ -331,6 +395,12 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
                 return;
             case PresentationDslPackage.FORM_ELEMENT__FORM:
                 setForm((ContentForm)null);
+                return;
+            case PresentationDslPackage.FORM_ELEMENT__LABEL:
+                setLabel(LABEL_EDEFAULT);
+                return;
+            case PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY:
+                setDataProperty((DataProperty)null);
                 return;
         }
         super.eUnset(featureID);
@@ -344,14 +414,16 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
 	@Override
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.FORM_ELEMENT__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case PresentationDslPackage.FORM_ELEMENT__REFERENCES:
                 return references != null;
             case PresentationDslPackage.FORM_ELEMENT__READONLY:
                 return readonly != READONLY_EDEFAULT;
             case PresentationDslPackage.FORM_ELEMENT__FORM:
                 return getForm() != null;
+            case PresentationDslPackage.FORM_ELEMENT__LABEL:
+                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+            case PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY:
+                return dataProperty != null;
         }
         return super.eIsSet(featureID);
     }
@@ -366,10 +438,10 @@ public class FormElementImpl extends EObjectImpl implements FormElement {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(", readonly: ");
+        result.append(" (readonly: ");
         result.append(readonly);
+        result.append(", label: ");
+        result.append(label);
         result.append(')');
         return result.toString();
     }

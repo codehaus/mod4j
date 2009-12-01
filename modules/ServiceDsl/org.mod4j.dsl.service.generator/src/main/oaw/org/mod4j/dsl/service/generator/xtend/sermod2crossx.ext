@@ -39,7 +39,7 @@ Symbol toSymbol(ServiceMethod method) :
 Symbol toSymbol(SpecialMethod method) :
     let result = new Symbol :
     result.properties.add( newProperty("dto", method.dto.name) )->
-    result.properties.add( newProperty("methodType", "SpecialMethod") )->
+    result.properties.add( newProperty("methodType", method.type.toString()) )->
     result.setName(method.name) ->
     result.setType("ServiceMethod")
     ;

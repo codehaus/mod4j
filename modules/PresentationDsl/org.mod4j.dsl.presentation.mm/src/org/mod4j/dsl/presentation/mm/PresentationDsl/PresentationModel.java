@@ -84,8 +84,8 @@ public interface PresentationModel extends EObject {
 
 	/**
      * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement}.
-     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getPresentationModel <em>Presentation Model</em>}'.
+     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#getPresentationModel <em>Presentation Model</em>}'.
      * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -94,11 +94,11 @@ public interface PresentationModel extends EObject {
 	 * <!-- end-user-doc -->
      * @return the value of the '<em>Elements</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getPresentationModel_Elements()
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getPresentationModel
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#getPresentationModel
      * @model opposite="presentationModel" containment="true"
      * @generated
      */
-	EList<ModelElement> getElements();
+	EList<ModelElementWithContext> getElements();
 
 	/**
      * Returns the value of the '<em><b>External References</b></em>' containment reference list.

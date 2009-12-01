@@ -23,34 +23,13 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExternalReferenceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExternalReferenceImpl#getModelName <em>Model Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExternalReferenceImpl extends NamedReferenceImpl implements ExternalReference {
-	/**
-     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #getDescription()
-     * @generated
-     * @ordered
-     */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #getDescription()
-     * @generated
-     * @ordered
-     */
-	protected String description = DESCRIPTION_EDEFAULT;
-
+public class ExternalReferenceImpl extends ModelElementImpl implements ExternalReference {
 	/**
      * The default value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -95,27 +74,6 @@ public class ExternalReferenceImpl extends NamedReferenceImpl implements Externa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public String getDescription() {
-        return description;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public void setDescription(String newDescription) {
-        String oldDescription = description;
-        description = newDescription;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION, oldDescription, description));
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
 	public String getModelName() {
         return modelName;
     }
@@ -140,8 +98,6 @@ public class ExternalReferenceImpl extends NamedReferenceImpl implements Externa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-                return getDescription();
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 return getModelName();
         }
@@ -156,9 +112,6 @@ public class ExternalReferenceImpl extends NamedReferenceImpl implements Externa
 	@Override
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-                setDescription((String)newValue);
-                return;
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 setModelName((String)newValue);
                 return;
@@ -174,9 +127,6 @@ public class ExternalReferenceImpl extends NamedReferenceImpl implements Externa
 	@Override
 	public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-                setDescription(DESCRIPTION_EDEFAULT);
-                return;
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 setModelName(MODEL_NAME_EDEFAULT);
                 return;
@@ -192,8 +142,6 @@ public class ExternalReferenceImpl extends NamedReferenceImpl implements Externa
 	@Override
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.EXTERNAL_REFERENCE__DESCRIPTION:
-                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 return MODEL_NAME_EDEFAULT == null ? modelName != null : !MODEL_NAME_EDEFAULT.equals(modelName);
         }
@@ -210,9 +158,7 @@ public class ExternalReferenceImpl extends NamedReferenceImpl implements Externa
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (description: ");
-        result.append(description);
-        result.append(", modelName: ");
+        result.append(" (modelName: ");
         result.append(modelName);
         result.append(')');
         return result.toString();

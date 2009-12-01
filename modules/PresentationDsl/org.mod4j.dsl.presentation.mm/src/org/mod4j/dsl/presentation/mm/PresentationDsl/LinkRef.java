@@ -17,5 +17,5 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model
  * @generated
  */
-public interface LinkRef extends NamedReference {
+public interface LinkRef extends ModelElement {
 } // LinkRef

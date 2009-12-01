@@ -264,4 +264,18 @@ public class NameMapper {
         return packageName + "." + javaBusinessRuleClass(classname);
     }
 
+    // Presentation
+    public static String getPresentationPackage() {
+        return ProjectProperties.getPresentationRootPackage() ;
+    }
+
+    public static String getPresentationPanel(String name) {
+        return javaDomainClass(name) + "Panel";
+    }
+    public static String getPresentationEditPanel(String name) {
+        return javaDomainClass(name) + "EditPanel";
+    }
+    public static String getPresentationSwapPanel(String name) {
+        return javaDomainClass(name) + "SwapPanel";
+    }
 }

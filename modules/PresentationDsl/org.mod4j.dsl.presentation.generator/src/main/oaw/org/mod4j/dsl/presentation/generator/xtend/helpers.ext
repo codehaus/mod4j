@@ -1,0 +1,27 @@
+import PresentationDsl;
+import crossx;
+
+extension org::mod4j::crossx::broker::xtend::Crossx;
+
+String businessClassName(ContentForm form) :
+    lookupSymbol(form.contextRef.modelName, 
+                  form.contextRef.name,
+                  "Dto").
+                   getPropertyValue("businessClass")
+;
+
+String findCreateMethodFor(ContentForm form) :
+    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("Create") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findUpdateMethodFor(ContentForm form) :
+    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("UPDATE") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findDeleteMethodFor(ContentForm form) :
+    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("DELETE") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    
+String findReadMethodFor(ContentForm form) :
+    findAllSymbols("rosas-dslModels", "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith("READ") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;

@@ -17,5 +17,5 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model abstract="true"
  * @generated
  */
-public interface UIModelElement extends ModelElement {
+public interface UIModelElement extends ModelElementWithContext {
 } // UIModelElement

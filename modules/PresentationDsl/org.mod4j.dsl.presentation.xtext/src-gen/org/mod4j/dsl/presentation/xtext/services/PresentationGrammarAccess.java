@@ -29,17 +29,17 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Assignment cExternalReferencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cExternalReferencesExternalReferenceParserRuleCall_4_0 = (RuleCall)cExternalReferencesAssignment_4.eContents().get(0);
 		private final Assignment cElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cElementsModelElementParserRuleCall_5_0 = (RuleCall)cElementsAssignment_5.eContents().get(0);
+		private final RuleCall cElementsModelElementWithContextParserRuleCall_5_0 = (RuleCall)cElementsAssignment_5.eContents().get(0);
 		
 		//PresentationModel:
 		//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-		//  * elements+=ModelElement*; 
+		//  * elements+=ModelElementWithContext*; 
 		//
 		////IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-		// * elements+=ModelElement*
+		// * elements+=ModelElementWithContext*
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -66,11 +66,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//ExternalReference
 		public RuleCall getExternalReferencesExternalReferenceParserRuleCall_4_0() { return cExternalReferencesExternalReferenceParserRuleCall_4_0; }
 
-		//elements+=ModelElement*
+		//elements+=ModelElementWithContext*
 		public Assignment getElementsAssignment_5() { return cElementsAssignment_5; }
 
-		//ModelElement
-		public RuleCall getElementsModelElementParserRuleCall_5_0() { return cElementsModelElementParserRuleCall_5_0; }
+		//ModelElementWithContext
+		public RuleCall getElementsModelElementWithContextParserRuleCall_5_0() { return cElementsModelElementWithContextParserRuleCall_5_0; }
 	}
 
 	public class ExternalReferenceElements implements IParserRuleAccess {
@@ -113,13 +113,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
-	public class ModelElementElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModelElement");
+	public class ModelElementWithContextElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModelElementWithContext");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cUIModelElementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLinkParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//ModelElement:
+		//ModelElementWithContext:
 		//  UIModelElement|Link;
 		public ParserRule getRule() { return rule; }
 
@@ -872,76 +872,86 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	public class FormElementElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormElement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cElementKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cReferencesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cReferencesDtoPropertyReferenceParserRuleCall_1_0 = (RuleCall)cReferencesAssignment_1.eContents().get(0);
-		private final Keyword cLabelKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cReadonlyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Alternatives cAlternatives_4_1 = (Alternatives)cGroup_4.eContents().get(1);
-		private final Assignment cReadonlyAssignment_4_1_0 = (Assignment)cAlternatives_4_1.eContents().get(0);
-		private final Keyword cReadonlyTrueKeyword_4_1_0_0 = (Keyword)cReadonlyAssignment_4_1_0.eContents().get(0);
-		private final Keyword cFalseKeyword_4_1_1 = (Keyword)cAlternatives_4_1.eContents().get(1);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Keyword cElementKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cReferencesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cReferencesDtoPropertyReferenceParserRuleCall_2_0 = (RuleCall)cReferencesAssignment_2.eContents().get(0);
+		private final Keyword cLabelKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cLabelAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cLabelIDTerminalRuleCall_4_0 = (RuleCall)cLabelAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cReadonlyKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final Assignment cReadonlyAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
+		private final Keyword cReadonlyTrueKeyword_5_1_0_0 = (Keyword)cReadonlyAssignment_5_1_0.eContents().get(0);
+		private final Keyword cFalseKeyword_5_1_1 = (Keyword)cAlternatives_5_1.eContents().get(1);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//FormElement:
-		//  "element" references=DtoPropertyReference "label" name=ID ("readonly" (readonly?=
-		//  "true"|"false"))? ";"; 
+		//  description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+		//  "readonly" (readonly?="true"|"false"))? ";"; 
 		//	
 		//  
+		//	  
 		//	 
 		////	("navigate" LinkRef "to")?
 		public ParserRule getRule() { return rule; }
 
-		//"element" references=DtoPropertyReference "label" name=ID ("readonly" (readonly?=
-		//"true"|"false"))? ";" 
+		//description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+		//"readonly" (readonly?="true"|"false"))? ";" 
+		//	  
 		//	 
 		////	("navigate" LinkRef "to")?
 		public Group getGroup() { return cGroup; }
 
+		//description=STRING?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
+
 		//"element" 
 		//	 
 		////	("navigate" LinkRef "to")?
-		public Keyword getElementKeyword_0() { return cElementKeyword_0; }
+		public Keyword getElementKeyword_1() { return cElementKeyword_1; }
 
 		//references=DtoPropertyReference  
 		////	("navigate" LinkRef "to")?
-		public Assignment getReferencesAssignment_1() { return cReferencesAssignment_1; }
+		public Assignment getReferencesAssignment_2() { return cReferencesAssignment_2; }
 
 		//DtoPropertyReference
-		public RuleCall getReferencesDtoPropertyReferenceParserRuleCall_1_0() { return cReferencesDtoPropertyReferenceParserRuleCall_1_0; }
+		public RuleCall getReferencesDtoPropertyReferenceParserRuleCall_2_0() { return cReferencesDtoPropertyReferenceParserRuleCall_2_0; }
 
 		//"label"
-		public Keyword getLabelKeyword_2() { return cLabelKeyword_2; }
+		public Keyword getLabelKeyword_3() { return cLabelKeyword_3; }
 
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		//label=ID
+		public Assignment getLabelAssignment_4() { return cLabelAssignment_4; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getLabelIDTerminalRuleCall_4_0() { return cLabelIDTerminalRuleCall_4_0; }
 
 		//("readonly" (readonly?="true"|"false"))?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"readonly"
-		public Keyword getReadonlyKeyword_4_0() { return cReadonlyKeyword_4_0; }
+		public Keyword getReadonlyKeyword_5_0() { return cReadonlyKeyword_5_0; }
 
 		//readonly?="true"|"false"
-		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
 
 		//readonly?="true"
-		public Assignment getReadonlyAssignment_4_1_0() { return cReadonlyAssignment_4_1_0; }
+		public Assignment getReadonlyAssignment_5_1_0() { return cReadonlyAssignment_5_1_0; }
 
 		//"true"
-		public Keyword getReadonlyTrueKeyword_4_1_0_0() { return cReadonlyTrueKeyword_4_1_0_0; }
+		public Keyword getReadonlyTrueKeyword_5_1_0_0() { return cReadonlyTrueKeyword_5_1_0_0; }
 
 		//"false"
-		public Keyword getFalseKeyword_4_1_1() { return cFalseKeyword_4_1_1; }
+		public Keyword getFalseKeyword_5_1_1() { return cFalseKeyword_5_1_1; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class DialogueCallElements implements IParserRuleAccess {
@@ -1365,7 +1375,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	
 	private PresentationModelElements pPresentationModel;
 	private ExternalReferenceElements pExternalReference;
-	private ModelElementElements pModelElement;
+	private ModelElementWithContextElements pModelElementWithContext;
 	private UIModelElementElements pUIModelElement;
 	private DialogueElements pDialogue;
 	private ContentFormElements pContentForm;
@@ -1414,7 +1424,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	
 	//PresentationModel:
 	//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-	//  * elements+=ModelElement*; 
+	//  * elements+=ModelElementWithContext*; 
 	//
 	////IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 	public PresentationModelElements getPresentationModelAccess() {
@@ -1435,14 +1445,14 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		return getExternalReferenceAccess().getRule();
 	}
 
-	//ModelElement:
+	//ModelElementWithContext:
 	//  UIModelElement|Link;
-	public ModelElementElements getModelElementAccess() {
-		return (pModelElement != null) ? pModelElement : (pModelElement = new ModelElementElements());
+	public ModelElementWithContextElements getModelElementWithContextAccess() {
+		return (pModelElementWithContext != null) ? pModelElementWithContext : (pModelElementWithContext = new ModelElementWithContextElements());
 	}
 	
-	public ParserRule getModelElementRule() {
-		return getModelElementAccess().getRule();
+	public ParserRule getModelElementWithContextRule() {
+		return getModelElementWithContextAccess().getRule();
 	}
 
 	//UIModelElement:
@@ -1547,10 +1557,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//FormElement:
-	//  "element" references=DtoPropertyReference "label" name=ID ("readonly" (readonly?=
-	//  "true"|"false"))? ";"; 
+	//  description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+	//  "readonly" (readonly?="true"|"false"))? ";"; 
 	//	
 	//  
+	//	  
 	//	 
 	////	("navigate" LinkRef "to")?
 	public FormElementElements getFormElementAccess() {

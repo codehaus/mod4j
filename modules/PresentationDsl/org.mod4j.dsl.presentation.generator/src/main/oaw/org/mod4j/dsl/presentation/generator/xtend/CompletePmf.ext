@@ -1,0 +1,39 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+import crossx;
+import PresentationDsl;
+
+extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dslcommon::xtend::generatorutil;
+
+// Complete the model such that all higher level constructs and all implicit definitions are added.
+completeModel(PresentationModel pmfModel) :
+    let formElements = pmfModel.elements.typeSelect(ContentForm).formElements :
+	formElements.addDataProperty()    ; 
+
+DataProperty addDataProperty(FormElement element) :
+    let dtoSymbol = lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
+    let symbol = dtoSymbol.subSymbols.select(s|s.type.matches("DataProperty")).select(sym | sym.name.equalsIgnoreCase(element.references.name)).first() :
+    print("addDataProperty for: "+ element.name )->
+    print("addDataProperty dtoSymbol : "+ dtoSymbol.name )->
+    print("addDataProperty symbol : "+ symbol.name )->
+    element.setDataProperty(newDataProperty(symbol))
+;
+
+/**
+ * Create a new DtoProperty for 'ref''
+ * 'symbols' is the list of Symbols from Crossx containing the "Property" definitions
+ */
+    
+PresentationDsl::DataProperty newDataProperty(Symbol symbol) :
+    let result = new DataProperty :
+    let dataType = symbol.getPropertyValue("DataType") :
+    let owner = (Symbol)(symbol.eContainer) :
+    let ref = lookupSymbol(owner.owner.modelname, dataType, "EnumerationDto") :
+    result.setName(symbol.name)->
+    result.setDataType(symbol.getPropertyValue("DataType"))->
+    result.setIsEnumeration(ref != null)->
+    result;
+    

@@ -20,7 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *
  * @generated
  */
-public class AssociationRoleReferenceImpl extends NamedReferenceImpl implements AssociationRoleReference {
+public class AssociationRoleReferenceImpl extends ModelElementImpl implements AssociationRoleReference {
 	/**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

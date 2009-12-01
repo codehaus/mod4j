@@ -1,0 +1,102 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GenerateObjectSwapPanel FOR ContentForm -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectSwapPanel.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
+
+import «getDtoPackage()».«this.contextRef.name»;
+
+public class «this.name»SwapEditPanel extends Panel implements «this.contextRef.name»ListListener {
+
+	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
+	
+	/**
+	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
+	 * This allows the panel to be used in different pages with different behavior.
+	 * @param listener The listener to be added
+	 */
+	public void addListener(«this.contextRef.name»ListListener listener ){
+		listeners.add(listener);
+	}
+
+    protected «this.name»PanelWithListener  «this.name.toFirstLower()»Panel = null;
+    protected «this.name»EditPanelWithListener  «this.name.toFirstLower()»EditPanel = null;
+
+    protected boolean editOn = false;
+    
+    protected IModel<«this.contextRef.name»> model = null;
+    
+    /**
+     * create a new breakfastspage
+     */
+    public «this.name»SwapEditPanel(String id, final IModel<«this.contextRef.name»> inputModel)
+    {
+        super(id);
+        model = inputModel;
+        
+		«this.name.toFirstLower()»Panel = new «this.name»PanelWithListener("«this.name»SwapPanel",model);
+		«this.name.toFirstLower()»EditPanel = new «this.name»EditPanelWithListener("«this.name»SwapPanel",model);
+		
+		«this.name.toFirstLower()»EditPanel.setOutputMarkupPlaceholderTag(true);
+		«this.name.toFirstLower()»Panel.setOutputMarkupPlaceholderTag(true);
+
+		add(«this.name.toFirstLower()»Panel);
+		
+		«this.name.toFirstLower()»Panel.addListener(this);
+		«this.name.toFirstLower()»EditPanel.addListener(this);
+    }
+
+	/**
+	 * 
+	 */
+	private void swapPanels() {
+		if( editOn ){
+			«this.name.toFirstLower()»EditPanel.replaceWith(«this.name.toFirstLower()»Panel);
+		} else {
+			«this.name.toFirstLower()»Panel.replaceWith(«this.name.toFirstLower()»EditPanel);
+		}
+		editOn = ! editOn;
+	}
+
+	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»Edit(«this.contextRef.name» element) {
+		if( model.getObject() != null ){
+			swapPanels();
+		}
+	}
+
+
+	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
+		swapPanels();
+	}
+
+	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
+		swapPanels();
+		for («this.contextRef.name»ListListener listener : listeners) {
+			listener.on«this.contextRef.name»Save(element);
+		}
+	}
+
+	public void on«this.contextRef.name»Delete(«this.contextRef.name» element) {
+		swapPanels();
+		for («this.contextRef.name»ListListener listener : listeners) {
+			listener.on«this.contextRef.name»Delete(element);
+		}
+	}
+
+}
+«ENDDEFINE»

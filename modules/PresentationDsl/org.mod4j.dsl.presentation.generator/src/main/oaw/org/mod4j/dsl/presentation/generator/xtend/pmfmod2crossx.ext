@@ -13,8 +13,8 @@ create ModelInfo exportModel(PresentationModel pmfModel, String modelFile) :
     this.setDslname("PresentationDsl")->
     this.setModelname(pmfModel.name)->
     this.setResource(modelFile)->
-    this.symbols.addAll(pmfModel.elements.typeSelect(Dialogue).toElement())->
-    this.symbols.addAll(pmfModel.elements.typeSelect(Link).toElement());
+    this.symbols.addAll(pmfModel.elements.typeSelect(Dialogue).toElement());
+//    this.symbols.addAll(pmfModel.elements.typeSelect(Link).toElement());
     
 Symbol toElement(Dialogue d) :
     let result = new Symbol :

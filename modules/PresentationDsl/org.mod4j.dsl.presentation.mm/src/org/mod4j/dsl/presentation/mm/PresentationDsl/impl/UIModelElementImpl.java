@@ -20,7 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
  *
  * @generated
  */
-public abstract class UIModelElementImpl extends ModelElementImpl implements UIModelElement {
+public abstract class UIModelElementImpl extends ModelElementWithContextImpl implements UIModelElement {
 	/**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

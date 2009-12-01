@@ -32,54 +32,54 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class LinkPathImpl extends LinkImpl implements LinkPath {
-	/**
+    /**
      * The cached value of the '{@link #getSteps() <em>Steps</em>}' reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSteps()
      * @generated
      * @ordered
      */
-	protected EList<LinkRef> steps;
+    protected EList<LinkRef> steps;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected LinkPathImpl() {
+    protected LinkPathImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.LINK_PATH;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<LinkRef> getSteps() {
+    public EList<LinkRef> getSteps() {
         if (steps == null) {
             steps = new EObjectResolvingEList<LinkRef>(LinkRef.class, this, PresentationDslPackage.LINK_PATH__STEPS);
         }
         return steps;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.LINK_PATH__STEPS:
                 return getSteps();
@@ -87,14 +87,14 @@ public class LinkPathImpl extends LinkImpl implements LinkPath {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.LINK_PATH__STEPS:
                 getSteps().clear();
@@ -104,13 +104,13 @@ public class LinkPathImpl extends LinkImpl implements LinkPath {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.LINK_PATH__STEPS:
                 getSteps().clear();
@@ -119,13 +119,13 @@ public class LinkPathImpl extends LinkImpl implements LinkPath {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.LINK_PATH__STEPS:
                 return steps != null && !steps.isEmpty();

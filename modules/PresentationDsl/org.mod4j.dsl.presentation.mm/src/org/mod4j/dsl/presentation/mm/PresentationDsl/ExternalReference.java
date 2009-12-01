@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference#getDescription <em>Description</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference#getModelName <em>Model Name</em>}</li>
  * </ul>
  * </p>
@@ -25,33 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ExternalReference extends NamedReference {
-	/**
-     * Returns the value of the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Description</em>' attribute.
-     * @see #setDescription(String)
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getExternalReference_Description()
-     * @model
-     * @generated
-     */
-	String getDescription();
-
-	/**
-     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference#getDescription <em>Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Description</em>' attribute.
-     * @see #getDescription()
-     * @generated
-     */
-	void setDescription(String value);
-
+public interface ExternalReference extends ModelElement {
 	/**
      * Returns the value of the '<em><b>Model Name</b></em>' attribute.
      * <!-- begin-user-doc -->

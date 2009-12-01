@@ -17,5 +17,5 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model
  * @generated
  */
-public interface DtoPropertyReference extends NamedReference {
+public interface DtoPropertyReference extends ModelElement {
 } // DtoPropertyReference

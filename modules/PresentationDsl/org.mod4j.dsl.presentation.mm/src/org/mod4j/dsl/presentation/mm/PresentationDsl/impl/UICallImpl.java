@@ -20,7 +20,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  *
  * @generated
  */
-public abstract class UICallImpl extends NamedReferenceImpl implements UICall {
+public abstract class UICallImpl extends ModelElementImpl implements UICall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

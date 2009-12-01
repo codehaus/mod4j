@@ -16,6 +16,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
@@ -33,6 +34,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
@@ -118,7 +120,7 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: {
                 AssociationRoleReference associationRoleReference = (AssociationRoleReference)theEObject;
                 T result = caseAssociationRoleReference(associationRoleReference);
-                if (result == null) result = caseNamedReference(associationRoleReference);
+                if (result == null) result = caseModelElement(associationRoleReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -127,6 +129,7 @@ public class PresentationDslSwitch<T> {
                 T result = caseAutomatedProcess(automatedProcess);
                 if (result == null) result = caseProcess(automatedProcess);
                 if (result == null) result = caseUIModelElement(automatedProcess);
+                if (result == null) result = caseModelElementWithContext(automatedProcess);
                 if (result == null) result = caseModelElement(automatedProcess);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -137,6 +140,7 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseForm(contentForm);
                 if (result == null) result = caseDialogue(contentForm);
                 if (result == null) result = caseUIModelElement(contentForm);
+                if (result == null) result = caseModelElementWithContext(contentForm);
                 if (result == null) result = caseModelElement(contentForm);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -146,6 +150,7 @@ public class PresentationDslSwitch<T> {
                 T result = caseCompoundDialogue(compoundDialogue);
                 if (result == null) result = caseDialogue(compoundDialogue);
                 if (result == null) result = caseUIModelElement(compoundDialogue);
+                if (result == null) result = caseModelElementWithContext(compoundDialogue);
                 if (result == null) result = caseModelElement(compoundDialogue);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -156,7 +161,15 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseCompoundDialogue(collectionDialogue);
                 if (result == null) result = caseDialogue(collectionDialogue);
                 if (result == null) result = caseUIModelElement(collectionDialogue);
+                if (result == null) result = caseModelElementWithContext(collectionDialogue);
                 if (result == null) result = caseModelElement(collectionDialogue);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.DATA_PROPERTY: {
+                DataProperty dataProperty = (DataProperty)theEObject;
+                T result = caseDataProperty(dataProperty);
+                if (result == null) result = caseModelElement(dataProperty);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -164,6 +177,7 @@ public class PresentationDslSwitch<T> {
                 Dialogue dialogue = (Dialogue)theEObject;
                 T result = caseDialogue(dialogue);
                 if (result == null) result = caseUIModelElement(dialogue);
+                if (result == null) result = caseModelElementWithContext(dialogue);
                 if (result == null) result = caseModelElement(dialogue);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -173,7 +187,7 @@ public class PresentationDslSwitch<T> {
                 T result = caseDialogueCall(dialogueCall);
                 if (result == null) result = caseUIModelElementCall(dialogueCall);
                 if (result == null) result = caseUICall(dialogueCall);
-                if (result == null) result = caseNamedReference(dialogueCall);
+                if (result == null) result = caseModelElement(dialogueCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -183,7 +197,7 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseDialogueCall(directDialogueCall);
                 if (result == null) result = caseUIModelElementCall(directDialogueCall);
                 if (result == null) result = caseUICall(directDialogueCall);
-                if (result == null) result = caseNamedReference(directDialogueCall);
+                if (result == null) result = caseModelElement(directDialogueCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -193,21 +207,21 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseProcessCall(directProcessCall);
                 if (result == null) result = caseUIModelElementCall(directProcessCall);
                 if (result == null) result = caseUICall(directProcessCall);
-                if (result == null) result = caseNamedReference(directProcessCall);
+                if (result == null) result = caseModelElement(directProcessCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case PresentationDslPackage.DTO_PROPERTY_REFERENCE: {
                 DtoPropertyReference dtoPropertyReference = (DtoPropertyReference)theEObject;
                 T result = caseDtoPropertyReference(dtoPropertyReference);
-                if (result == null) result = caseNamedReference(dtoPropertyReference);
+                if (result == null) result = caseModelElement(dtoPropertyReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case PresentationDslPackage.EXTERNAL_REFERENCE: {
                 ExternalReference externalReference = (ExternalReference)theEObject;
                 T result = caseExternalReference(externalReference);
-                if (result == null) result = caseNamedReference(externalReference);
+                if (result == null) result = caseModelElement(externalReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -216,6 +230,7 @@ public class PresentationDslSwitch<T> {
                 T result = caseForm(form);
                 if (result == null) result = caseDialogue(form);
                 if (result == null) result = caseUIModelElement(form);
+                if (result == null) result = caseModelElementWithContext(form);
                 if (result == null) result = caseModelElement(form);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -223,6 +238,7 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.FORM_ELEMENT: {
                 FormElement formElement = (FormElement)theEObject;
                 T result = caseFormElement(formElement);
+                if (result == null) result = caseModelElement(formElement);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -231,6 +247,7 @@ public class PresentationDslSwitch<T> {
                 T result = caseInteractiveProcess(interactiveProcess);
                 if (result == null) result = caseProcess(interactiveProcess);
                 if (result == null) result = caseUIModelElement(interactiveProcess);
+                if (result == null) result = caseModelElementWithContext(interactiveProcess);
                 if (result == null) result = caseModelElement(interactiveProcess);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -238,6 +255,7 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.LINK: {
                 Link link = (Link)theEObject;
                 T result = caseLink(link);
+                if (result == null) result = caseModelElementWithContext(link);
                 if (result == null) result = caseModelElement(link);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -248,7 +266,7 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseDialogueCall(linkedDialogueCall);
                 if (result == null) result = caseUIModelElementCall(linkedDialogueCall);
                 if (result == null) result = caseUICall(linkedDialogueCall);
-                if (result == null) result = caseNamedReference(linkedDialogueCall);
+                if (result == null) result = caseModelElement(linkedDialogueCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -258,14 +276,14 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseProcessCall(linkedProcessCall);
                 if (result == null) result = caseUIModelElementCall(linkedProcessCall);
                 if (result == null) result = caseUICall(linkedProcessCall);
-                if (result == null) result = caseNamedReference(linkedProcessCall);
+                if (result == null) result = caseModelElement(linkedProcessCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case PresentationDslPackage.LINK_REF: {
                 LinkRef linkRef = (LinkRef)theEObject;
                 T result = caseLinkRef(linkRef);
-                if (result == null) result = caseNamedReference(linkRef);
+                if (result == null) result = caseModelElement(linkRef);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -273,6 +291,7 @@ public class PresentationDslSwitch<T> {
                 LinkPath linkPath = (LinkPath)theEObject;
                 T result = caseLinkPath(linkPath);
                 if (result == null) result = caseLink(linkPath);
+                if (result == null) result = caseModelElementWithContext(linkPath);
                 if (result == null) result = caseModelElement(linkPath);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -281,6 +300,7 @@ public class PresentationDslSwitch<T> {
                 LinkStep linkStep = (LinkStep)theEObject;
                 T result = caseLinkStep(linkStep);
                 if (result == null) result = caseLink(linkStep);
+                if (result == null) result = caseModelElementWithContext(linkStep);
                 if (result == null) result = caseModelElement(linkStep);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -291,19 +311,21 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseCompoundDialogue(masterDetail);
                 if (result == null) result = caseDialogue(masterDetail);
                 if (result == null) result = caseUIModelElement(masterDetail);
+                if (result == null) result = caseModelElementWithContext(masterDetail);
                 if (result == null) result = caseModelElement(masterDetail);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT: {
+                ModelElementWithContext modelElementWithContext = (ModelElementWithContext)theEObject;
+                T result = caseModelElementWithContext(modelElementWithContext);
+                if (result == null) result = caseModelElement(modelElementWithContext);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case PresentationDslPackage.MODEL_ELEMENT: {
                 ModelElement modelElement = (ModelElement)theEObject;
                 T result = caseModelElement(modelElement);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.NAMED_REFERENCE: {
-                NamedReference namedReference = (NamedReference)theEObject;
-                T result = caseNamedReference(namedReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -317,6 +339,7 @@ public class PresentationDslSwitch<T> {
                 org.mod4j.dsl.presentation.mm.PresentationDsl.Process process = (org.mod4j.dsl.presentation.mm.PresentationDsl.Process)theEObject;
                 T result = caseProcess(process);
                 if (result == null) result = caseUIModelElement(process);
+                if (result == null) result = caseModelElementWithContext(process);
                 if (result == null) result = caseModelElement(process);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -326,13 +349,14 @@ public class PresentationDslSwitch<T> {
                 T result = caseProcessCall(processCall);
                 if (result == null) result = caseUIModelElementCall(processCall);
                 if (result == null) result = caseUICall(processCall);
-                if (result == null) result = caseNamedReference(processCall);
+                if (result == null) result = caseModelElement(processCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case PresentationDslPackage.UI_MODEL_ELEMENT: {
                 UIModelElement uiModelElement = (UIModelElement)theEObject;
                 T result = caseUIModelElement(uiModelElement);
+                if (result == null) result = caseModelElementWithContext(uiModelElement);
                 if (result == null) result = caseModelElement(uiModelElement);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -341,14 +365,14 @@ public class PresentationDslSwitch<T> {
                 UIModelElementCall uiModelElementCall = (UIModelElementCall)theEObject;
                 T result = caseUIModelElementCall(uiModelElementCall);
                 if (result == null) result = caseUICall(uiModelElementCall);
-                if (result == null) result = caseNamedReference(uiModelElementCall);
+                if (result == null) result = caseModelElement(uiModelElementCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case PresentationDslPackage.UI_CALL: {
                 UICall uiCall = (UICall)theEObject;
                 T result = caseUICall(uiCall);
-                if (result == null) result = caseNamedReference(uiCall);
+                if (result == null) result = caseModelElement(uiCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -432,6 +456,21 @@ public class PresentationDslSwitch<T> {
     }
 
 	/**
+     * Returns the result of interpreting the object as an instance of '<em>Model Element With Context</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Model Element With Context</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModelElementWithContext(ModelElementWithContext object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>External Reference</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -473,21 +512,6 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
 	public T caseModelElement(ModelElement object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Named Reference</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Named Reference</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseNamedReference(NamedReference object) {
         return null;
     }
 
@@ -747,6 +771,21 @@ public class PresentationDslSwitch<T> {
     }
 
 	/**
+     * Returns the result of interpreting the object as an instance of '<em>Data Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDataProperty(DataProperty object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;

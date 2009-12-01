@@ -8,14 +8,14 @@ PresentationModel :
 	(description=STRING )?
 	"presentation" name = ID ";"
 	(externalReferences += ExternalReference)*
-	(elements += ModelElement)*
+	(elements += ModelElementWithContext)*
 	;
 
 ExternalReference :
     "from" modelName = ID "import" name = ID ";"
 	;
 	
-ModelElement :
+ModelElementWithContext :
 	UIModelElement | Link
 	;
 	
@@ -85,10 +85,11 @@ InteractiveProcess :
 	;
 	
 FormElement :
+	(description=STRING )?
 	"element" 
 //	("navigate" LinkRef "to")? 
 	references = DtoPropertyReference 
-	"label" name = ID 
+	"label" label = ID 
 	("readonly" ((readonly?="true") | "false") )?
 	";"
 	;

@@ -19,6 +19,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
@@ -36,6 +37,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -92,6 +94,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.CONTENT_FORM: return createContentForm();
             case PresentationDslPackage.COMPOUND_DIALOGUE: return createCompoundDialogue();
             case PresentationDslPackage.COLLECTION_DIALOGUE: return createCollectionDialogue();
+            case PresentationDslPackage.DATA_PROPERTY: return createDataProperty();
             case PresentationDslPackage.DIRECT_DIALOGUE_CALL: return createDirectDialogueCall();
             case PresentationDslPackage.DIRECT_PROCESS_CALL: return createDirectProcessCall();
             case PresentationDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
@@ -105,7 +108,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.LINK_PATH: return createLinkPath();
             case PresentationDslPackage.LINK_STEP: return createLinkStep();
             case PresentationDslPackage.MASTER_DETAIL: return createMasterDetail();
-            case PresentationDslPackage.NAMED_REFERENCE: return createNamedReference();
+            case PresentationDslPackage.MODEL_ELEMENT: return createModelElement();
             case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
             default:
@@ -141,16 +144,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
 	public LinkStep createLinkStep() {
         LinkStepImpl linkStep = new LinkStepImpl();
         return linkStep;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public NamedReference createNamedReference() {
-        NamedReferenceImpl namedReference = new NamedReferenceImpl();
-        return namedReference;
     }
 
 	/**
@@ -194,6 +187,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModelElement createModelElement() {
+        ModelElementImpl modelElement = new ModelElementImpl();
+        return modelElement;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -254,6 +257,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataProperty createDataProperty() {
+        DataPropertyImpl dataProperty = new DataPropertyImpl();
+        return dataProperty;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

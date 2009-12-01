@@ -1,0 +1,27 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GenerateObjectListener FOR ContentForm -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectPanelListener.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import «getDtoPackage()».«this.contextRef.name»;
+
+public interface «this.contextRef.name»ListListener {
+
+	public void on«this.contextRef.name»Selected(«this.contextRef.name» breakfast) ;
+	
+	public void on«this.contextRef.name»Edit(«this.contextRef.name» breakfast) ;
+
+	public void on«this.contextRef.name»Cancel(«this.contextRef.name» breakfast) ;
+	
+	public void on«this.contextRef.name»Save(«this.contextRef.name» breakfast) ;
+
+	public void on«this.contextRef.name»Delete(«this.contextRef.name» breakfast) ;
+}
+«ENDDEFINE»
