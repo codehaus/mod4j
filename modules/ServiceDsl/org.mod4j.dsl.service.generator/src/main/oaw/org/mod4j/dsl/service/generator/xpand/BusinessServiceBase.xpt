@@ -112,6 +112,25 @@
      * @return List<«javaDomainClass(dto.businessClass())»>
      */
     public List<«javaDomainClass(dto.businessClass())»> listAll«this.dto.businessClass()»s();
+
+    /**
+     * Reads a range (page) of existing «dto.businessClass()»s.
+     * «description» 
+     * 
+     * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResuls - the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * 
+     * @return List containing 0 or more existing «dto.businessClass()» objects. 
+     */
+    public List<«javaDomainClass(dto.businessClass())»> list«this.dto.businessClass()»s(final int firstResult, final int maxResults);
+    
+    /**
+     * Counts all existing «dto.businessClass()»s objects.
+     * «description» 
+     *
+     * @return number of existing «dto.businessClass()»s objects.
+     */
+    public long count«this.dto.businessClass()»s();
 «ENDDEFINE»
 
 «DEFINE FindMethod FOR SpecialMethod»

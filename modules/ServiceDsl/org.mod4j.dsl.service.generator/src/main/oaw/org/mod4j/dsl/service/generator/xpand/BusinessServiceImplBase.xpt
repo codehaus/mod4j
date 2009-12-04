@@ -106,6 +106,20 @@
     public List<«javaDomainClass(dto.businessClass())»>  listAll«this.dto.businessClass()»s(){
         return «javaDaoInterface(dto.businessClass()).toFirstLower()».listAll();
     }
+
+    /**
+     * {@inheritDoc} 
+     */
+    public List<«javaDomainClass(dto.businessClass())»>  list«this.dto.businessClass()»s(final int firstResult, final int maxResults){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».listPage(firstResult, maxResults);
+    }
+    
+    /**
+     * {@inheritDoc} 
+     */
+    public long count«this.dto.businessClass()»s(){
+        return «javaDaoInterface(dto.businessClass()).toFirstLower()».count();
+    }
 «ENDDEFINE»
 
 «DEFINE FindMethod FOR SpecialMethod»

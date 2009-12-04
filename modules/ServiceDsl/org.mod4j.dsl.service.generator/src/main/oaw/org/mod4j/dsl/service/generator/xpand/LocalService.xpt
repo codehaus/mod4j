@@ -62,7 +62,9 @@
 		«IF method.type == MethodType::FIND»
 			«EXPAND FindMethod FOR method»
 		«ENDIF»
-	«ENDFOREACH»	
+	«ENDFOREACH»
+	
+	«EXPAND CountMethod FOREACH this.uniqueMethods(MethodType::LISTALL) »	
 
 	«EXPAND Associations FOR  this»
 	}
@@ -134,14 +136,34 @@
     /**
      * Return a list of all objects of type «JavaType(this.dto)»
      * «description»
+     *
      * @return the list of all «JavaType(this.dto)» objects.
      */
-    public List<«JavaType(this.dto)»> «this.name»( );
+    public List<«JavaType(this.dto)»> «this.name»();
+
+    /**
+     * Reads a range (page) of objects of type «JavaType(this.dto)».
+     * 
+     * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResults - the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * 
+     * @return List containing 0 or more «JavaType(this.dto)» objects. 
+     */
+    public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults);
+«ENDDEFINE»
+
+«DEFINE CountMethod FOR SpecialMethod»
+    /**
+     * Counts the number of existing objects of type «this.dto.businessClass()».
+     * 
+     * @long number of existing «this.dto.businessClass()» objects. 
+     */
+    public long count«this.dto.businessClass()»s();
 «ENDDEFINE»
 
 «DEFINE FindMethod FOR SpecialMethod»
     /**
-     * Find alle objects of type «JavaType(this.dto)» that conform to the example object
+     * Find all objects of type «JavaType(this.dto)» that conform to the example object
      * «description»
      * @param example
      *            The objects to which the result objects need to conform.

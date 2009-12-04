@@ -16,6 +16,7 @@ from RecordShopDomainModel import RecordTypeEnum;
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	class FullCustomerDto represents Customer;
+	list FullCustomerDtoList contains FullCustomerDto;
 	
 	list ArtistListDto contains ArtistDto;
 

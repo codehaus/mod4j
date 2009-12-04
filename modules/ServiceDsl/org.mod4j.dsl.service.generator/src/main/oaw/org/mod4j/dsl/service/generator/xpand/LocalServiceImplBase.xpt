@@ -81,7 +81,10 @@
 		«IF method.type == MethodType::FIND»
 			«EXPAND FindMethod FOR method»
 		«ENDIF»
-	«ENDFOREACH»	
+	«ENDFOREACH»
+	
+	«EXPAND CountMethod FOREACH this.uniqueMethods(MethodType::LISTALL) »
+		
 	«EXPAND Associations FOR this»
 	}
 «ENDDEFINE»
@@ -159,7 +162,7 @@
     /**
      * {@inheritDoc}
      */
-    public List<«JavaType(this.dto)»> «this.name»( ) {
+    public List<«JavaType(this.dto)»> «this.name»() {
 		List<«this.dto.businessClass()»> all = «javaDomainServiceInterface(model.name).toFirstLower()».listAll«this.dto.businessClass()»s();
 		List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>();
 		
@@ -168,6 +171,29 @@
 			result.add(item);
 		}
 		return result;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults) {
+        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».list«this.dto.businessClass()»s(firstResult, maxResults);
+        List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>();
+        
+        for («this.dto.businessClass()» object : range) {
+            «JavaType(this.dto)» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
+            result.add(item);
+        }
+        return result;
+    }
+«ENDDEFINE»
+
+«DEFINE CountMethod FOR SpecialMethod»
+    /**
+     * {@inheritDoc}
+     */
+    public long count«this.dto.businessClass()»s() {
+        return «javaDomainServiceInterface(model.name).toFirstLower()».count«this.dto.businessClass()»s();
     }
 «ENDDEFINE»
 

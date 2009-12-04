@@ -76,6 +76,23 @@ public interface «javaDaoBaseInterface(this.name)» {
     List<«javaDomainClass(this.name)»> listAll();
 
     /**
+     * Selects a range (page) of «javaDomainClass(this.name)»s from the database.
+     * 
+     * @param firstResult the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResults  the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * 
+     * @return a List containing 0 or more «javaDomainClass(this.name)» objects.
+     */
+    List<«javaDomainClass(this.name)»> listPage(final int firstResult, final int maxResults);
+
+    /**
+     * Counts the number of persisted «javaDomainClass(this.name)» objects in the database.
+     * 
+     * @return the number of persisted objects in the database.
+     */
+    long count();
+
+    /**
      * Selects «javaDomainClass(this.name)»s from the database that matches an
      * example object using Query-by-Example(QBE).
      * 

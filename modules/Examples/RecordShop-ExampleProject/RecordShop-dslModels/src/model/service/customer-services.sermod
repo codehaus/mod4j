@@ -5,7 +5,8 @@ from RecordShopDataContract import SimpleCustomerDto;
 from RecordShopDataContract import UniqueCustomerDto; 
 from RecordShopDataContract import StringDto;
 from RecordShopDataContract import SimpleCustomerList;    
-from RecordShopDataContract import FullCustomerDto; 
+from RecordShopDataContract import FullCustomerDto;
+from RecordShopDataContract import FullCustomerDtoList; 
 from RecordShopDataContract import OrderDto; 
 from RecordShopDataContract import OrderNumberAndDateList;
 from RecordShopDataContract import OrderWithOrderLinesDto;  
@@ -36,7 +37,8 @@ read   readCustomer for SimpleCustomerDto ;
 update updateCustomer for SimpleCustomerDto ;         
 delete deleteCustomer for SimpleCustomerDto ;           
 
-listall listAllCustomers for SimpleCustomerDto ;       
+listall listCustomers for SimpleCustomerDto ;
+listall listFullCustomers for FullCustomerDto;
       
 find findCustomers for SimpleCustomerDto ;  
 

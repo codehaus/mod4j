@@ -101,7 +101,7 @@ public class AssociationsServiceTest extends
 		setup();
 
 		List<SimpleCustomerDto> all = customerServiceModelService
-				.listAllCustomers();
+				.listCustomers();
 
 		for (SimpleCustomerDto simpleCustomerDto : all) {
 			int nr = simpleCustomerDto.getCustomerNr();
@@ -117,7 +117,7 @@ public class AssociationsServiceTest extends
 		setupMore();
 
 		List<SimpleCustomerDto> all = customerServiceModelService
-				.listAllCustomers();
+				.listCustomers();
 
 		for (SimpleCustomerDto simpleCustomerDto : all) {
 			int nr = simpleCustomerDto.getCustomerNr();
