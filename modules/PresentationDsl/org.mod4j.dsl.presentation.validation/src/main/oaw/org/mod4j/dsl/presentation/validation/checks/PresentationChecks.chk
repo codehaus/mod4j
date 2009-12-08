@@ -12,17 +12,15 @@ import PresentationDsl;
 
 extension org::mod4j::dslcommon::xtend::generatorutil;
 
-context Dialogue ERROR "moet goed gaan" :
-    true;
-/*
- * This check file is used by the parser
- * and by the editor. Add your constraints here!
- */
+context CollectionDialogue ERROR this.name + " must havce exactly one dialogue of type ciontentform" :
+    (this.dialogues.size == 1) 
+//    &&
+//    (this.dialogues.first().referredElement.metaType.name.equalsIgnoreCase("ContentForm"))
+//    &&
+//    (this.dialogues.referredElement.typeSelect(ContentForm).first().contextRef == this.contextRef) 
 
-/* example
-context Property ERROR "The name of Property ["+ name + "] must be more than one character long." :
-    name.length > 1;
-*/
+    ;
+
 
 
  
