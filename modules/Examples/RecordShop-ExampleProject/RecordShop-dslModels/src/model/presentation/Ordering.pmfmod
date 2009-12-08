@@ -4,6 +4,8 @@ presentation RecordShopOrderingPresentation;
 from RecordShopDataContract import OrderDto ;
 from RecordShopDataContract import OrderNumberAndDateDto ;
 
+/* Disabled. Enable when fixed.
+
 ContentForm OrderMainDetails context OrderDto [
 	element orderNumber
 		label ordernr;
@@ -25,3 +27,5 @@ CollectionDialogue OrderAndDateCollection context OrderNumberAndDateDto [
 		OrderAndDateForm;
 	]
 ]
+
+*/

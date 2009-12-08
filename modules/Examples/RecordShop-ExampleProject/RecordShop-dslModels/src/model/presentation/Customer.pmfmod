@@ -2,8 +2,8 @@
 presentation CustomerModel;
 
 from RecordShopDataContract import SimpleCustomerDto;
-from RecordShopOrderingPresentation  import OrderAndDateCollection ;
-from RecordShopOrderingPresentation  import OrderAndDateForm;
+// TODO: from RecordShopOrderingPresentation import OrderAndDateCollection ;
+// TODO: from RecordShopOrderingPresentation import OrderAndDateForm;
 
 ContentForm CustomerDetails context SimpleCustomerDto [
 	element lastName label name;

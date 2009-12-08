@@ -3,7 +3,7 @@ presentation RecordshopPresentation;
 
 from RecordShopDataContract import FullCustomerDto ;
 from RecordShopDataContract import SimpleCustomerDto ;
-from CustomerModel import CustomerDetails ;
+// TODO from CustomerModel import  CustomerDetails ;
 
 "Customer ContentForm"  
 ContentForm CustomerDetail context  FullCustomerDto [

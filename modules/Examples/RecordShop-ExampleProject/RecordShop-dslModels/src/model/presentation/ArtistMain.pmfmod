@@ -3,6 +3,8 @@ presentation RecordshopArtistPresentation;
 
 from RecordShopDataContract import ArtistDto    ;
 
+/* Disabled. Enable when fixed.
+
 "Simple Artist Form"
 ContentForm ArtistForm context ArtistDto [
 	element age
@@ -14,3 +16,5 @@ CompoundDialogue ArtistCompound context ArtistDto
 	dialogues [
 		ArtistForm;
 	]
+	
+*/
