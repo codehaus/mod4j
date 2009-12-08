@@ -68,5 +68,11 @@
 «ENDREM»
 «DEFINE generateMavenConfiguration FOR PresentationModel»
     «print("MOD4J INFO: Running Presentation Maven generator on model [" + this.name + "]")»
-    «EXPAND PresentationModulePom::createPresentationModulePom»
+    «IF shouldRegenerate(getPresentationModulePath("") + "/pom.xml")»
+        «FILE extend( getPresentationModuleName(""), "pom.xml" )-»
+            «EXPAND PresentationModulePom::createPresentationModulePom»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), "pom.xml" )»
+    «ENDIF»
 «ENDDEFINE»
