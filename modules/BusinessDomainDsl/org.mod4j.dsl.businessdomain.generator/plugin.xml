@@ -14,14 +14,4 @@
             dslName="Business Domain DSL">
       </dsl>
    </extension>
-   <!--
-   <extension
-         point="org.eclipse.emf.ecore.factory_override">
-      <factory
-            class="businessDomain.generator.EFactory1"
-            uri="BusinessDomain.generator.factory1">
-      </factory>
-   </extension>
-   -->
-
 </plugin>
