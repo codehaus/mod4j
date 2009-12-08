@@ -6,7 +6,6 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,69 +28,68 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface FormElement extends ModelElement {
-
-	/**
+    /**
      * Returns the value of the '<em><b>References</b></em>' containment reference.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>References</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>References</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>References</em>' containment reference.
      * @see #setReferences(DtoPropertyReference)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getFormElement_References()
      * @model containment="true"
      * @generated
      */
-	DtoPropertyReference getReferences();
+    DtoPropertyReference getReferences();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getReferences <em>References</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>References</em>' containment reference.
      * @see #getReferences()
      * @generated
      */
-	void setReferences(DtoPropertyReference value);
+    void setReferences(DtoPropertyReference value);
 
-	/**
+    /**
      * Returns the value of the '<em><b>Readonly</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Readonly</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Readonly</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Readonly</em>' attribute.
      * @see #setReadonly(boolean)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getFormElement_Readonly()
      * @model default="false"
      * @generated
      */
-	boolean isReadonly();
+    boolean isReadonly();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#isReadonly <em>Readonly</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Readonly</em>' attribute.
      * @see #isReadonly()
      * @generated
      */
-	void setReadonly(boolean value);
+    void setReadonly(boolean value);
 
-	/**
+    /**
      * Returns the value of the '<em><b>Form</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements <em>Form Elements</em>}'.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Form</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Form</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Form</em>' container reference.
      * @see #setForm(ContentForm)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getFormElement_Form()
@@ -99,17 +97,17 @@ public interface FormElement extends ModelElement {
      * @model opposite="formElements" required="true" transient="false"
      * @generated
      */
-	ContentForm getForm();
+    ContentForm getForm();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getForm <em>Form</em>}' container reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Form</em>' container reference.
      * @see #getForm()
      * @generated
      */
-	void setForm(ContentForm value);
+    void setForm(ContentForm value);
 
     /**
      * Returns the value of the '<em><b>Label</b></em>' attribute.
@@ -139,6 +137,7 @@ public interface FormElement extends ModelElement {
 
     /**
      * Returns the value of the '<em><b>Data Property</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getFormElement <em>Form Element</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Data Property</em>' containment reference isn't clear,
@@ -148,7 +147,8 @@ public interface FormElement extends ModelElement {
      * @return the value of the '<em>Data Property</em>' containment reference.
      * @see #setDataProperty(DataProperty)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getFormElement_DataProperty()
-     * @model containment="true"
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getFormElement
+     * @model opposite="formElement" containment="true"
      * @generated
      */
     DataProperty getDataProperty();
@@ -162,4 +162,5 @@ public interface FormElement extends ModelElement {
      * @generated
      */
     void setDataProperty(DataProperty value);
+
 } // FormElement

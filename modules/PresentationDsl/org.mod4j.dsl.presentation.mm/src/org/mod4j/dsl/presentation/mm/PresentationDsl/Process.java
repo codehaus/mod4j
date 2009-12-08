@@ -8,7 +8,6 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Process</b></em>'.
@@ -26,20 +25,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Process extends UIModelElement {
-
     /**
      * Returns the value of the '<em><b>Process Elements</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getProcess <em>Process</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Process Elements</em>' reference isn't clear,
+     * If the meaning of the '<em>Process Elements</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Process Elements</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_ProcessElements()
-     * @model containment="true"
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getProcess
+     * @model opposite="process" containment="true"
      * @generated
      */
     EList<UICall> getProcessElements();
+
 } // Process

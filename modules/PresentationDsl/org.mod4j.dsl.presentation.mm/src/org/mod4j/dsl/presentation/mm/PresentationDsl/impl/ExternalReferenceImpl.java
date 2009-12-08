@@ -6,13 +6,12 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
@@ -30,73 +29,73 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class ExternalReferenceImpl extends ModelElementImpl implements ExternalReference {
-	/**
+    /**
      * The default value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getModelName()
      * @generated
      * @ordered
      */
-	protected static final String MODEL_NAME_EDEFAULT = null;
+    protected static final String MODEL_NAME_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getModelName() <em>Model Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getModelName()
      * @generated
      * @ordered
      */
-	protected String modelName = MODEL_NAME_EDEFAULT;
+    protected String modelName = MODEL_NAME_EDEFAULT;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ExternalReferenceImpl() {
+    protected ExternalReferenceImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.EXTERNAL_REFERENCE;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getModelName() {
+    public String getModelName() {
         return modelName;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setModelName(String newModelName) {
+    public void setModelName(String newModelName) {
         String oldModelName = modelName;
         modelName = newModelName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME, oldModelName, modelName));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 return getModelName();
@@ -104,13 +103,13 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 setModelName((String)newValue);
@@ -119,13 +118,13 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 setModelName(MODEL_NAME_EDEFAULT);
@@ -134,13 +133,13 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.EXTERNAL_REFERENCE__MODEL_NAME:
                 return MODEL_NAME_EDEFAULT == null ? modelName != null : !MODEL_NAME_EDEFAULT.equals(modelName);
@@ -148,13 +147,13 @@ public class ExternalReferenceImpl extends ModelElementImpl implements ExternalR
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

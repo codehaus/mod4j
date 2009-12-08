@@ -6,7 +6,6 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#isIsEnumeration <em>Is Enumeration</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getFormElement <em>Form Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +77,33 @@ public interface DataProperty extends ModelElement {
      * @generated
      */
     void setIsEnumeration(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Form Element</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getDataProperty <em>Data Property</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Form Element</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Form Element</em>' container reference.
+     * @see #setFormElement(FormElement)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDataProperty_FormElement()
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement#getDataProperty
+     * @model opposite="dataProperty" transient="false"
+     * @generated
+     */
+    FormElement getFormElement();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty#getFormElement <em>Form Element</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Form Element</em>' container reference.
+     * @see #getFormElement()
+     * @generated
+     */
+    void setFormElement(FormElement value);
 
 } // DataProperty

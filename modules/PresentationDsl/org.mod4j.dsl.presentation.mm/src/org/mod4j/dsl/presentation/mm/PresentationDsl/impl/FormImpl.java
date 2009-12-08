@@ -6,16 +6,9 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
@@ -28,22 +21,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class FormImpl extends DialogueImpl implements Form {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected FormImpl() {
+    protected FormImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.FORM;
     }
 

@@ -8,7 +8,6 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Dialogue</b></em>'.
@@ -27,47 +26,47 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Dialogue extends UIModelElement {
-
-	/**
+    /**
      * Returns the value of the '<em><b>Readonly</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Readonly</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Readonly</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Readonly</em>' attribute.
      * @see #setReadonly(boolean)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogue_Readonly()
      * @model default="false"
      * @generated
      */
-	boolean isReadonly();
+    boolean isReadonly();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue#isReadonly <em>Readonly</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Readonly</em>' attribute.
      * @see #isReadonly()
      * @generated
      */
-	void setReadonly(boolean value);
+    void setReadonly(boolean value);
 
-	/**
+    /**
      * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall}.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Processes</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Processes</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Processes</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogue_Processes()
      * @model containment="true"
      * @generated
      */
-	EList<ProcessCall> getProcesses();
+    EList<ProcessCall> getProcesses();
+
 } // Dialogue

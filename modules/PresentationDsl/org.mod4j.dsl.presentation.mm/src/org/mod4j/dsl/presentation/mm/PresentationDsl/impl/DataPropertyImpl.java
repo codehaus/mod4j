@@ -7,13 +7,17 @@
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
@@ -25,6 +29,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#isIsEnumeration <em>Is Enumeration</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DataPropertyImpl#getFormElement <em>Form Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,6 +142,91 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
      * <!-- end-user-doc -->
      * @generated
      */
+    public FormElement getFormElement() {
+        if (eContainerFeatureID() != PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT) return null;
+        return (FormElement)eContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetFormElement(FormElement newFormElement, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newFormElement, PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFormElement(FormElement newFormElement) {
+        if (newFormElement != eInternalContainer() || (eContainerFeatureID() != PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT && newFormElement != null)) {
+            if (EcoreUtil.isAncestor(this, newFormElement))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newFormElement != null)
+                msgs = ((InternalEObject)newFormElement).eInverseAdd(this, PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY, FormElement.class, msgs);
+            msgs = basicSetFormElement(newFormElement, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT, newFormElement, newFormElement));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetFormElement((FormElement)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                return basicSetFormElement(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                return eInternalContainer().eInverseRemove(this, PresentationDslPackage.FORM_ELEMENT__DATA_PROPERTY, FormElement.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
@@ -144,6 +234,8 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
                 return getDataType();
             case PresentationDslPackage.DATA_PROPERTY__IS_ENUMERATION:
                 return isIsEnumeration();
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                return getFormElement();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -161,6 +253,9 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
                 return;
             case PresentationDslPackage.DATA_PROPERTY__IS_ENUMERATION:
                 setIsEnumeration((Boolean)newValue);
+                return;
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                setFormElement((FormElement)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -180,6 +275,9 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
             case PresentationDslPackage.DATA_PROPERTY__IS_ENUMERATION:
                 setIsEnumeration(IS_ENUMERATION_EDEFAULT);
                 return;
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                setFormElement((FormElement)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -196,6 +294,8 @@ public class DataPropertyImpl extends ModelElementImpl implements DataProperty {
                 return DATA_TYPE_EDEFAULT == null ? dataType != null : !DATA_TYPE_EDEFAULT.equals(dataType);
             case PresentationDslPackage.DATA_PROPERTY__IS_ENUMERATION:
                 return isEnumeration != IS_ENUMERATION_EDEFAULT;
+            case PresentationDslPackage.DATA_PROPERTY__FORM_ELEMENT:
+                return getFormElement() != null;
         }
         return super.eIsSet(featureID);
     }

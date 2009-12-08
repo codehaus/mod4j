@@ -21,22 +21,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class AssociationRoleReferenceImpl extends ModelElementImpl implements AssociationRoleReference {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected AssociationRoleReferenceImpl() {
+    protected AssociationRoleReferenceImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.ASSOCIATION_ROLE_REFERENCE;
     }
 

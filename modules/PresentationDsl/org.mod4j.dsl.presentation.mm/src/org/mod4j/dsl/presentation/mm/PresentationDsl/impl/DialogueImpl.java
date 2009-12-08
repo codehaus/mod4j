@@ -6,17 +6,21 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -36,94 +40,95 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  * @generated
  */
 public abstract class DialogueImpl extends UIModelElementImpl implements Dialogue {
-	/**
+    /**
      * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isReadonly()
      * @generated
      * @ordered
      */
-	protected static final boolean READONLY_EDEFAULT = false;
-	/**
+    protected static final boolean READONLY_EDEFAULT = false;
+
+    /**
      * The cached value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isReadonly()
      * @generated
      * @ordered
      */
-	protected boolean readonly = READONLY_EDEFAULT;
+    protected boolean readonly = READONLY_EDEFAULT;
 
-	/**
+    /**
      * The cached value of the '{@link #getProcesses() <em>Processes</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getProcesses()
      * @generated
      * @ordered
      */
-	protected EList<ProcessCall> processes;
+    protected EList<ProcessCall> processes;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DialogueImpl() {
+    protected DialogueImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.DIALOGUE;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isReadonly() {
+    public boolean isReadonly() {
         return readonly;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setReadonly(boolean newReadonly) {
+    public void setReadonly(boolean newReadonly) {
         boolean oldReadonly = readonly;
         readonly = newReadonly;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.DIALOGUE__READONLY, oldReadonly, readonly));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<ProcessCall> getProcesses() {
+    public EList<ProcessCall> getProcesses() {
         if (processes == null) {
             processes = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES);
         }
         return processes;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE__PROCESSES:
                 return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
@@ -131,13 +136,13 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE__READONLY:
                 return isReadonly();
@@ -147,14 +152,14 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE__READONLY:
                 setReadonly((Boolean)newValue);
@@ -167,13 +172,13 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE__READONLY:
                 setReadonly(READONLY_EDEFAULT);
@@ -185,13 +190,13 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE__READONLY:
                 return readonly != READONLY_EDEFAULT;
@@ -201,13 +206,13 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

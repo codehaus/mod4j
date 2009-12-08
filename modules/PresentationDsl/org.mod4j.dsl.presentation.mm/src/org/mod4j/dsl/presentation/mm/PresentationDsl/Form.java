@@ -6,7 +6,6 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,5 +18,4 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Form extends Dialogue {
-
 } // Form

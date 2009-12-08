@@ -11,7 +11,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"
-        eType="#//DialogueCall" containment="true"/>
+        eType="#//DialogueCall" containment="true" eOpposite="#//DialogueCall/compoundDialogue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionDialogue" eSuperTypes="#//CompoundDialogue"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataProperty" eSuperTypes="#//ModelElement">
@@ -26,9 +26,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
         eType="#//ProcessCall" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" abstract="true" eSuperTypes="#//UIModelElementCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" abstract="true" eSuperTypes="#//UIModelElementCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compoundDialogue" eType="#//CompoundDialogue"
+        eOpposite="#//CompoundDialogue/dialogues"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirectDialogueCall" eSuperTypes="#//DialogueCall"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DirectProcessCall" eSuperTypes="#//ProcessCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -92,12 +94,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//UIModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="processElements" upperBound="-1"
-        eType="#//UICall" containment="true"/>
+        eType="#//UICall" containment="true" eOpposite="#//UICall/process"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" abstract="true" eSuperTypes="#//UIModelElementCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElementWithContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElementCall" eSuperTypes="#//UICall">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
+        eOpposite="#//Process/processElements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectProcessCall" eSuperTypes="#//ProcessCall"/>
 </ecore:EPackage>

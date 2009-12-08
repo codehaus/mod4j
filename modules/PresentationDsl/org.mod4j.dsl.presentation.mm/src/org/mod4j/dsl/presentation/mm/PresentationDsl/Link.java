@@ -18,12 +18,12 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @generated
  */
 public interface Link extends ModelElementWithContext {
-
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @model kind="operation"
      * @generated
      */
-	ModelElement getTarget();
+    ModelElement getTarget();
+
 } // Link

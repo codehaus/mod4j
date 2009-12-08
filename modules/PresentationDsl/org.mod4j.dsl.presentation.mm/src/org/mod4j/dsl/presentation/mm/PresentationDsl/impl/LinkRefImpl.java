@@ -21,22 +21,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class LinkRefImpl extends ModelElementImpl implements LinkRef {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected LinkRefImpl() {
+    protected LinkRefImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.LINK_REF;
     }
 

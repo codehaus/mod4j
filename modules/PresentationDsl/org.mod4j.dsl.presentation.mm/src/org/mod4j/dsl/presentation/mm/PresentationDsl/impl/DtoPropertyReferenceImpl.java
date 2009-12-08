@@ -6,8 +6,8 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
 import org.eclipse.emf.ecore.EClass;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
@@ -21,22 +21,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class DtoPropertyReferenceImpl extends ModelElementImpl implements DtoPropertyReference {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected DtoPropertyReferenceImpl() {
+    protected DtoPropertyReferenceImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.DTO_PROPERTY_REFERENCE;
     }
 

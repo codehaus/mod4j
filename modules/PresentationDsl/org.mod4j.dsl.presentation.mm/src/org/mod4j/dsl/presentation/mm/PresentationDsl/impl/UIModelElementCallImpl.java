@@ -7,14 +7,11 @@
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
@@ -32,7 +29,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  * @generated
  */
 public class UIModelElementCallImpl extends UICallImpl implements UIModelElementCall {
-	/**
+    /**
      * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -41,6 +38,7 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * @ordered
      */
     protected static final String ALIAS_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -53,20 +51,20 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected UIModelElementCallImpl() {
+    protected UIModelElementCallImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.UI_MODEL_ELEMENT_CALL;
     }
 

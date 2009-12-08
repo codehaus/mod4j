@@ -19,14 +19,16 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//DataProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//DataProperty/dataType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//DataProperty/isEnumeration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DataProperty/formElement"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Dialogue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Dialogue/readonly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Dialogue/processes"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//DialogueCall"/>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//DialogueCall">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/compoundDialogue"/>
+    </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//DirectDialogueCall"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//DirectProcessCall"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/modelName"/>
@@ -82,6 +84,9 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UIModelElementCall/alias"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall"/>
+    <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DirectProcessCall"/>
   </genPackages>
 </genmodel:GenModel>

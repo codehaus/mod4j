@@ -21,22 +21,22 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  * @generated
  */
 public abstract class ProcessCallImpl extends UIModelElementCallImpl implements ProcessCall {
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ProcessCallImpl() {
+    protected ProcessCallImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.PROCESS_CALL;
     }
 

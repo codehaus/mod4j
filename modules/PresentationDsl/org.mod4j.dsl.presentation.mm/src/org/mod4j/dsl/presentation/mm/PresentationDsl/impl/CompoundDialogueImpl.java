@@ -6,15 +6,19 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -33,54 +37,69 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialogue {
-	/**
+    /**
      * The cached value of the '{@link #getDialogues() <em>Dialogues</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDialogues()
      * @generated
      * @ordered
      */
-	protected EList<DialogueCall> dialogues;
+    protected EList<DialogueCall> dialogues;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected CompoundDialogueImpl() {
+    protected CompoundDialogueImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.COMPOUND_DIALOGUE;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<DialogueCall> getDialogues() {
+    public EList<DialogueCall> getDialogues() {
         if (dialogues == null) {
-            dialogues = new EObjectContainmentEList<DialogueCall>(DialogueCall.class, this, PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES);
+            dialogues = new EObjectContainmentWithInverseEList<DialogueCall>(DialogueCall.class, this, PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES, PresentationDslPackage.DIALOGUE_CALL__COMPOUND_DIALOGUE);
         }
         return dialogues;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getDialogues()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
                 return ((InternalEList<?>)getDialogues()).basicRemove(otherEnd, msgs);
@@ -88,13 +107,13 @@ public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialog
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
                 return getDialogues();
@@ -102,14 +121,14 @@ public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialog
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
                 getDialogues().clear();
@@ -119,13 +138,13 @@ public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialog
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
                 getDialogues().clear();
@@ -134,13 +153,13 @@ public class CompoundDialogueImpl extends DialogueImpl implements CompoundDialog
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.COMPOUND_DIALOGUE__DIALOGUES:
                 return dialogues != null && !dialogues.isEmpty();

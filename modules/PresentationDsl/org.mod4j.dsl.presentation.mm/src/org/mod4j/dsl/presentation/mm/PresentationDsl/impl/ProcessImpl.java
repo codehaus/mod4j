@@ -6,16 +6,19 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 
@@ -33,7 +36,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * @generated
  */
 public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.presentation.mm.PresentationDsl.Process {
-	/**
+    /**
      * The cached value of the '{@link #getProcessElements() <em>Process Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -45,20 +48,20 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ProcessImpl() {
+    protected ProcessImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.PROCESS;
     }
 
@@ -69,9 +72,24 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      */
     public EList<UICall> getProcessElements() {
         if (processElements == null) {
-            processElements = new EObjectContainmentEList<UICall>(UICall.class, this, PresentationDslPackage.PROCESS__PROCESS_ELEMENTS);
+            processElements = new EObjectContainmentWithInverseEList<UICall>(UICall.class, this, PresentationDslPackage.PROCESS__PROCESS_ELEMENTS, PresentationDslPackage.UI_CALL__PROCESS);
         }
         return processElements;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcessElements()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**

@@ -26,56 +26,56 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ModelElement extends EObject {
-	/**
+    /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getModelElement_Name()
      * @model
      * @generated
      */
-	String getName();
+    String getName();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
      * @see #getName()
      * @generated
      */
-	void setName(String value);
+    void setName(String value);
 
-	/**
+    /**
      * Returns the value of the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Description</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Description</em>' attribute.
      * @see #setDescription(String)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getModelElement_Description()
      * @model
      * @generated
      */
-	String getDescription();
+    String getDescription();
 
-	/**
+    /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement#getDescription <em>Description</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Description</em>' attribute.
      * @see #getDescription()
      * @generated
      */
-	void setDescription(String value);
+    void setDescription(String value);
 
 } // ModelElement

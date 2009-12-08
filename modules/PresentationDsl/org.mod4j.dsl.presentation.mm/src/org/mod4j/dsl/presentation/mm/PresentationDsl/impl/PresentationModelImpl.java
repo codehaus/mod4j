@@ -6,7 +6,6 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,9 +22,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 
@@ -46,155 +45,159 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
  * @generated
  */
 public class PresentationModelImpl extends EObjectImpl implements PresentationModel {
-	/**
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getName()
      * @generated
      * @ordered
      */
-	protected static final String NAME_EDEFAULT = null;
-	/**
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getName()
      * @generated
      * @ordered
      */
-	protected String name = NAME_EDEFAULT;
-	/**
+    protected String name = NAME_EDEFAULT;
+
+    /**
      * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDescription()
      * @generated
      * @ordered
      */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-	/**
+    protected static final String DESCRIPTION_EDEFAULT = null;
+
+    /**
      * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDescription()
      * @generated
      * @ordered
      */
-	protected String description = DESCRIPTION_EDEFAULT;
-	/**
+    protected String description = DESCRIPTION_EDEFAULT;
+
+    /**
      * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getElements()
      * @generated
      * @ordered
      */
-	protected EList<ModelElementWithContext> elements;
+    protected EList<ModelElementWithContext> elements;
 
-	/**
+    /**
      * The cached value of the '{@link #getExternalReferences() <em>External References</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getExternalReferences()
      * @generated
      * @ordered
      */
-	protected EList<ExternalReference> externalReferences;
+    protected EList<ExternalReference> externalReferences;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected PresentationModelImpl() {
+    protected PresentationModelImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.PRESENTATION_MODEL;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getName() {
+    public String getName() {
         return name;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setName(String newName) {
+    public void setName(String newName) {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__NAME, oldName, name));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setDescription(String newDescription) {
+    public void setDescription(String newDescription) {
         String oldDescription = description;
         description = newDescription;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__DESCRIPTION, oldDescription, description));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<ModelElementWithContext> getElements() {
+    public EList<ModelElementWithContext> getElements() {
         if (elements == null) {
             elements = new EObjectContainmentWithInverseEList<ModelElementWithContext>(ModelElementWithContext.class, this, PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL);
         }
         return elements;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<ExternalReference> getExternalReferences() {
+    public EList<ExternalReference> getExternalReferences() {
         if (externalReferences == null) {
             externalReferences = new EObjectContainmentEList<ExternalReference>(ExternalReference.class, this, PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES);
         }
         return externalReferences;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
@@ -202,13 +205,13 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.PRESENTATION_MODEL__ELEMENTS:
                 return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
@@ -218,13 +221,13 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.PRESENTATION_MODEL__NAME:
                 return getName();
@@ -238,14 +241,14 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.PRESENTATION_MODEL__NAME:
                 setName((String)newValue);
@@ -265,13 +268,13 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.PRESENTATION_MODEL__NAME:
                 setName(NAME_EDEFAULT);
@@ -289,13 +292,13 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.PRESENTATION_MODEL__NAME:
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
@@ -309,13 +312,13 @@ public class PresentationModelImpl extends EObjectImpl implements PresentationMo
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());

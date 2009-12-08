@@ -6,11 +6,11 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.util;
 
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
@@ -35,7 +35,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.NamedReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -57,45 +56,45 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  * @generated
  */
 public class PresentationDslSwitch<T> {
-	/**
+    /**
      * The cached model package
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected static PresentationDslPackage modelPackage;
+    protected static PresentationDslPackage modelPackage;
 
-	/**
+    /**
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PresentationDslSwitch() {
+    public PresentationDslSwitch() {
         if (modelPackage == null) {
             modelPackage = PresentationDslPackage.eINSTANCE;
         }
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	public T doSwitch(EObject theEObject) {
+    public T doSwitch(EObject theEObject) {
         return doSwitch(theEObject.eClass(), theEObject);
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
+    protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
             return doSwitch(theEClass.getClassifierID(), theEObject);
         }
@@ -108,14 +107,14 @@ public class PresentationDslSwitch<T> {
         }
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	protected T doSwitch(int classifierID, EObject theEObject) {
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
             case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: {
                 AssociationRoleReference associationRoleReference = (AssociationRoleReference)theEObject;
@@ -198,16 +197,6 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseUIModelElementCall(directDialogueCall);
                 if (result == null) result = caseUICall(directDialogueCall);
                 if (result == null) result = caseModelElement(directDialogueCall);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.DIRECT_PROCESS_CALL: {
-                DirectProcessCall directProcessCall = (DirectProcessCall)theEObject;
-                T result = caseDirectProcessCall(directProcessCall);
-                if (result == null) result = caseProcessCall(directProcessCall);
-                if (result == null) result = caseUIModelElementCall(directProcessCall);
-                if (result == null) result = caseUICall(directProcessCall);
-                if (result == null) result = caseModelElement(directProcessCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -376,191 +365,261 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case PresentationDslPackage.DIRECT_PROCESS_CALL: {
+                DirectProcessCall directProcessCall = (DirectProcessCall)theEObject;
+                T result = caseDirectProcessCall(directProcessCall);
+                if (result == null) result = caseProcessCall(directProcessCall);
+                if (result == null) result = caseUIModelElementCall(directProcessCall);
+                if (result == null) result = caseUICall(directProcessCall);
+                if (result == null) result = caseModelElement(directProcessCall);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>UI Model Element</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>UI Model Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseUIModelElement(UIModelElement object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>UI Model Element Call</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>UI Model Element Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseUIModelElementCall(UIModelElementCall object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>UI Call</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>UI Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseUICall(UICall object) {
-        return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Association Role Reference</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Association Role Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseAssociationRoleReference(AssociationRoleReference object) {
+    public T caseAssociationRoleReference(AssociationRoleReference object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Master Detail</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Master Detail</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseMasterDetail(MasterDetail object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Model Element With Context</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Automated Process</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Model Element With Context</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Automated Process</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseModelElementWithContext(ModelElementWithContext object) {
+    public T caseAutomatedProcess(AutomatedProcess object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Content Form</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Content Form</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseContentForm(ContentForm object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Compound Dialogue</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Compound Dialogue</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCompoundDialogue(CompoundDialogue object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Collection Dialogue</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Collection Dialogue</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCollectionDialogue(CollectionDialogue object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Data Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDataProperty(DataProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Dialogue</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Dialogue</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDialogue(Dialogue object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Dialogue Call</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Dialogue Call</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDialogueCall(DialogueCall object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Direct Dialogue Call</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Direct Dialogue Call</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDirectDialogueCall(DirectDialogueCall object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDtoPropertyReference(DtoPropertyReference object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>External Reference</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>External Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseExternalReference(ExternalReference object) {
+    public T caseExternalReference(ExternalReference object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Form</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseDtoPropertyReference(DtoPropertyReference object) {
+    public T caseForm(Form object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Form Element</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Form Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseModelElement(ModelElement object) {
+    public T caseFormElement(FormElement object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Presentation Model</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Presentation Model</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T casePresentationModel(PresentationModel object) {
+    public T caseInteractiveProcess(InteractiveProcess object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Link</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseLink(Link object) {
+    public T caseLink(Link object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Linked Dialogue Call</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Linked Dialogue Call</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseLinkedDialogueCall(LinkedDialogueCall object) {
+    public T caseLinkedDialogueCall(LinkedDialogueCall object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Linked Process Call</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -578,94 +637,184 @@ public class PresentationDslSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Link Ref</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Link Ref</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseLinkRef(LinkRef object) {
+    public T caseLinkRef(LinkRef object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Link Path</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Link Path</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseLinkPath(LinkPath object) {
+    public T caseLinkPath(LinkPath object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Link Step</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Link Step</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseLinkStep(LinkStep object) {
+    public T caseLinkStep(LinkStep object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Dialogue</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Detail</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Dialogue</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Master Detail</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseDialogue(Dialogue object) {
+    public T caseMasterDetail(MasterDetail object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Dialogue Call</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Model Element With Context</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Dialogue Call</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Model Element With Context</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseDialogueCall(DialogueCall object) {
+    public T caseModelElementWithContext(ModelElementWithContext object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Direct Dialogue Call</em>'.
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Direct Dialogue Call</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseDirectDialogueCall(DirectDialogueCall object) {
+    public T caseModelElement(ModelElement object) {
         return null;
     }
 
-	/**
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Presentation Model</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Presentation Model</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePresentationModel(PresentationModel object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Process</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProcess(org.mod4j.dsl.presentation.mm.PresentationDsl.Process object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Process Call</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Process Call</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProcessCall(ProcessCall object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>UI Model Element</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>UI Model Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseUIModelElement(UIModelElement object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>UI Model Element Call</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>UI Model Element Call</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseUIModelElementCall(UIModelElementCall object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>UI Call</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>UI Call</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseUICall(UICall object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Direct Process Call</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -681,167 +830,17 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Process</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseProcess(org.mod4j.dsl.presentation.mm.PresentationDsl.Process object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Process Call</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Process Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseProcessCall(ProcessCall object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Form</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseForm(Form object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Content Form</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Content Form</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseContentForm(ContentForm object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Compound Dialogue</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Compound Dialogue</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseCompoundDialogue(CompoundDialogue object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Collection Dialogue</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Collection Dialogue</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseCollectionDialogue(CollectionDialogue object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Data Property</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Data Property</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseDataProperty(DataProperty object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseInteractiveProcess(InteractiveProcess object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Automated Process</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Automated Process</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseAutomatedProcess(AutomatedProcess object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Form Element</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Form Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseFormElement(FormElement object) {
-        return null;
-    }
-
-	/**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch, but this is the last case anyway.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-	public T defaultCase(EObject object) {
+    public T defaultCase(EObject object) {
         return null;
     }
 

@@ -33,60 +33,60 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * @generated
  */
 public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDetail {
-	/**
+    /**
      * The cached value of the '{@link #getMaster() <em>Master</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getMaster()
      * @generated
      * @ordered
      */
-	protected DialogueCall master;
+    protected DialogueCall master;
 
-	/**
+    /**
      * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getDetail()
      * @generated
      * @ordered
      */
-	protected DialogueCall detail;
+    protected DialogueCall detail;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected MasterDetailImpl() {
+    protected MasterDetailImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.MASTER_DETAIL;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DialogueCall getMaster() {
+    public DialogueCall getMaster() {
         return master;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetMaster(DialogueCall newMaster, NotificationChain msgs) {
+    public NotificationChain basicSetMaster(DialogueCall newMaster, NotificationChain msgs) {
         DialogueCall oldMaster = master;
         master = newMaster;
         if (eNotificationRequired()) {
@@ -96,12 +96,12 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setMaster(DialogueCall newMaster) {
+    public void setMaster(DialogueCall newMaster) {
         if (newMaster != master) {
             NotificationChain msgs = null;
             if (master != null)
@@ -115,21 +115,21 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MASTER_DETAIL__MASTER, newMaster, newMaster));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public DialogueCall getDetail() {
+    public DialogueCall getDetail() {
         return detail;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetDetail(DialogueCall newDetail, NotificationChain msgs) {
+    public NotificationChain basicSetDetail(DialogueCall newDetail, NotificationChain msgs) {
         DialogueCall oldDetail = detail;
         detail = newDetail;
         if (eNotificationRequired()) {
@@ -139,12 +139,12 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setDetail(DialogueCall newDetail) {
+    public void setDetail(DialogueCall newDetail) {
         if (newDetail != detail) {
             NotificationChain msgs = null;
             if (detail != null)
@@ -158,13 +158,13 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MASTER_DETAIL__DETAIL, newDetail, newDetail));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.MASTER_DETAIL__MASTER:
                 return basicSetMaster(null, msgs);
@@ -174,13 +174,13 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case PresentationDslPackage.MASTER_DETAIL__MASTER:
                 return getMaster();
@@ -190,13 +190,13 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.MASTER_DETAIL__MASTER:
                 setMaster((DialogueCall)newValue);
@@ -208,13 +208,13 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.MASTER_DETAIL__MASTER:
                 setMaster((DialogueCall)null);
@@ -226,13 +226,13 @@ public class MasterDetailImpl extends CompoundDialogueImpl implements MasterDeta
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.MASTER_DETAIL__MASTER:
                 return master != null;

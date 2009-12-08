@@ -24,7 +24,6 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @generated
  */
 public interface UIModelElementCall extends UICall {
-
     /**
      * Returns the value of the '<em><b>Alias</b></em>' attribute.
      * <!-- begin-user-doc -->
