@@ -31,8 +31,10 @@
 «ENDDEFINE»
 
 «DEFINE Root FOR Dialogue»
+«REM»
 «print("MOD4J INFO: Generating for Dialogue [" + this.metaType.name.simpleName() + ":" + this.name + "]")»
 «FILE presentationGenerate(getPresentationModuleName("JSF"), jsfPathFileName(this.name))-»
 «EXPAND Dialogue::Root-»
 «ENDFILE»
+«ENDREM» 
 «ENDDEFINE»

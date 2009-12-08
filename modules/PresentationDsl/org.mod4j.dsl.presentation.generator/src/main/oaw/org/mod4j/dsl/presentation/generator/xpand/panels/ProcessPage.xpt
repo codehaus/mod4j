@@ -1,0 +1,84 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+ 
+«DEFINE GenerateContentFormPage FOR InteractiveProcess -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».panels.«this.processElements.first().name»SwapEditPanel;
+import «javaDtoClassPath(this.contextRef.name)»;
+
+import org.apache.wicket.model.IModel;
+
+public class «this.name»Page extends «getWicketMasterPageClass()»
+{
+
+	public «this.name»Page (final IModel<«this.contextRef.name»> context)
+	{
+		super();
+		add(new «this.processElements.first().name»SwapEditPanel("panel", context));
+		
+	}
+
+	@Override
+	public String getPageTitle()
+	{
+	    return "«this.name»";
+//		return getLocalizer().getString("lbl.breakfast",this);
+	}
+
+}
+«ENDDEFINE»
+
+«DEFINE GenerateCollectionDialoguePage FOR InteractiveProcess -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
+«LET this.processElements.first().referredCollectionDialogue() AS collDialogue»
+«LET collDialogue.dialogues.first().referredContentForm() AS cf»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».panels.«collDialogue.name»CollectionDataViewPanel;
+import «javaDtoClassPath(this.contextRef.name)»;
+import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
+import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )»;
+
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+
+public class «this.name»Page extends «getWicketMasterPageClass()»
+{
+
+	@SpringBean(name = "«findServiceWithMethod(cf, "LISTALL").toFirstLower()»Service")
+    «javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )» service;
+
+// TODO: JOS: maxItemsPerPage bean shoudl be installed
+//    @SpringBean(name="maxItemsPerPage")
+    private Integer maxItemsPerPage = 5;
+
+	public «this.name»Page ()
+	{
+		super();
+        «this.contextRef.name»DataProvider dataProvider = new «this.contextRef.name»DataProvider(service);
+        add( new «collDialogue.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage));
+		
+	}
+
+	@Override
+	public String getPageTitle()
+	{
+	    return "«this.name»";
+//		return getLocalizer().getString("lbl.breakfast",this);
+	}
+
+}
+«ENDLET»
+«ENDLET»
+«ENDDEFINE»
+

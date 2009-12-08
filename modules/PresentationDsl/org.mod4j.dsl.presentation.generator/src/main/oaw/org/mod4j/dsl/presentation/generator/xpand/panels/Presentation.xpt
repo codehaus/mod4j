@@ -1,0 +1,289 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GenerateApplication FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()»;
+
+import «getPresentationRootPackage()».pages.exceptions.«getWicketPageNotFoundPageClass()»;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+
+import org.apache.wicket.Request;
+import org.apache.wicket.RequestCycle;
+import org.apache.wicket.Response;
+import org.apache.wicket.Session;
+import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.protocol.http.WebRequest;
+import org.apache.wicket.protocol.http.WebResponse;
+import org.apache.wicket.request.target.coding.HybridUrlCodingStrategy;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.apache.wicket.util.lang.PackageName;
+
+public class «getWicketApplicationClass()» extends WebApplication {
+
+    public «getWicketApplicationClass()»() {
+    }
+
+    public void init() {
+        super.init();
+        addComponentInstantiationListener(new SpringComponentInjector(this));
+        mount(new HybridUrlCodingStrategy("/404", «getWicketPageNotFoundPageClass()».class));
+        mount("/pages", PackageName.forPackage(«getWicketHomePageClass()».class.getPackage()));
+    }
+
+    @Override
+    public Session newSession(Request request, Response response) {
+        return new «getWicketSesssionClass()»(request);
+    }
+
+    @Override
+    public final RequestCycle newRequestCycle(final Request request, final Response response) {
+        return new «getWicketRequestCycleClass()»(this, (WebRequest) request, (WebResponse) response);
+    }
+
+    public Class<«getWicketHomePageClass()»> getHomePage() {
+        return «getWicketHomePageClass()».class;
+    }
+
+}
+«ENDDEFINE»
+
+«DEFINE GenerateSession FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()»;
+
+import java.util.Locale;
+
+import org.apache.wicket.Request;
+import org.apache.wicket.Session;
+import org.apache.wicket.protocol.http.WebSession;
+
+public class «getWicketSesssionClass()» extends WebSession {
+    private static final long serialVersionUID = 1L;
+
+    // session is to be serialized, so don't declare a dao as property
+
+    public «getWicketSesssionClass()»(Request request) {
+        super(request);
+        setLocale(Locale.ENGLISH);
+    }
+
+    public static «getWicketSesssionClass()» getXDSLSession() {
+        return («getWicketSesssionClass()») Session.get();
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateRequestCycle FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()»;
+
+import «getPresentationRootPackage()».pages.exceptions.«getWicketExceptionPageClass()»;
+
+import org.apache.wicket.Page;
+import org.apache.wicket.Response;
+import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.protocol.http.WebRequest;
+import org.apache.wicket.protocol.http.WebRequestCycle;
+
+public class «getWicketRequestCycleClass()» extends WebRequestCycle {
+
+    public «getWicketRequestCycleClass()»(WebApplication application, WebRequest request, Response response) {
+        super(application, request, response);
+    }
+
+    @Override
+    public Page onRuntimeException(Page page, RuntimeException e) {
+        return new «getWicketExceptionPageClass()»(e);
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateHomePage FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+
+public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()» {
+    public «getWicketHomePageClass()»() {
+        this(new PageParameters());
+    }
+
+    public «getWicketHomePageClass()»(PageParameters parameters) {
+        super();
+        add(new FeedbackPanel("feedback"));
+    }
+
+    @Override
+    public String getPageTitle() {
+        return getLocalizer().getString("lbl.home", this);
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateHomePageHtml FOR PresentationModel -»
+    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+<body>
+<wicket:extend>
+	<wicket:message key="home.msg"/>
+	<br/><br/>
+	<span wicket:id="feedback"/>
+</wicket:extend>
+</body>
+</html>
+«ENDDEFINE»
+
+
+«DEFINE GenerateMasterPage FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».pages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
+
+«FOREACH this.elements.typeSelect(InteractiveProcess).select(ip|!ip.processElements.referredCollectionDialogue().isEmpty) AS process-»
+import «getPresentationRootPackage()».pages.«process.name»Page;
+«ENDFOREACH»
+import «getPresentationRootPackage()».«getWicketSesssionClass()»;
+import «getPresentationRootPackage()».«getWicketApplicationClass()»;
+
+import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.AbstractLink;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.PropertyModel;
+
+public abstract class «getWicketMasterPageClass()» extends WebPage {
+    protected «getWicketSesssionClass()» session;
+
+    private List<AbstractLink> menuItems = new ArrayList<AbstractLink>();
+
+    protected «getWicketMasterPageClass()»() {
+        session = «getWicketSesssionClass()».getXDSLSession();
+
+        add(new RosasHtmlHeader("htmlHeader"));
+        add(new BookmarkablePageLink<«getWicketHomePageClass()»>("logo", «getWicketApplicationClass()».get().getHomePage()));
+        add(new Label("pageTitle", new PropertyModel<String>(this, "pageTitle")));
+
+        BookmarkablePageLink<«getWicketHomePageClass()»> homeLink = new BookmarkablePageLink<«getWicketHomePageClass()»>("link", «getWicketApplicationClass()».get().getHomePage());
+        homeLink.setAutoEnable(true);
+        homeLink.add(new Label("name", getLocalizer().getString("lbl.home", this)) );
+        menuItems.add(homeLink);
+        
+«FOREACH this.elements.typeSelect(InteractiveProcess).select(ip|!ip.processElements.referredCollectionDialogue().isEmpty) AS process-»
+        BookmarkablePageLink<«process.name»Page> «process.name»Link = new BookmarkablePageLink<«process.name»Page>("link", «process.name»Page.class);
+        «process.name»Link.setAutoEnable(true);
+//        «process.name»Link.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
+        «process.name»Link.add(new Label("name", "«process.name»"));
+        menuItems.add(«process.name»Link);
+    «ENDFOREACH»         
+//        BookmarkablePageLink<ComestiblesProcessPage> comestiblesLink = new BookmarkablePageLink<ComestiblesProcessPage>("link", ComestiblesProcessPage.class);
+//        comestiblesLink.setAutoEnable(true);
+//        comestiblesLink.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
+//        menuItems.add(comestiblesLink);
+        
+        add(new ListView<AbstractLink>("menu", new PropertyModel<List<AbstractLink>>(this, "menuItems")) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            protected void populateItem(ListItem<AbstractLink> item) {
+                item.add(item.getModelObject());
+            }
+
+        });
+    }
+
+    public abstract String getPageTitle();
+
+}
+«ENDDEFINE»
+
+«DEFINE GenerateMasterPageHtml FOR PresentationModel -»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:wicket>
+<head>
+	<wicket:panel wicket:id="htmlHeader"/>
+</head>
+<body>
+
+	<div class="frameTop">
+		<a class="logo" href="#" wicket:id="logo">Generated Master page terug naar de homepage</a>
+	</div>
+
+	<div class="frame">
+		<h1 wicket:id="pageTitle">No Title</h1>
+		
+		<div class="frameLeft">
+			<div class="menu">
+				<ul>
+					<li wicket:id="menu">
+						<a href="#" wicket:id="link"><span wicket:id="name"/></a>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="frameRight">
+			<wicket:child/>
+		</div>
+		
+	</div>
+	
+	<div class="frameBottom">
+		<div class="footerContent">&nbsp;</div>
+	</div>
+
+</body>
+</html>
+«ENDDEFINE»
+
+«DEFINE GenerateHtmlPanel FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+import org.apache.wicket.markup.html.panel.Panel;
+
+public class RosasHtmlHeader extends Panel {
+    public RosasHtmlHeader(String id) {
+        super(id);
+    }
+
+    private static final long serialVersionUID = 1L;
+
+}
+«ENDDEFINE»
+
+«DEFINE GenerateHtmlPanelHtml FOR PresentationModel -»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this-»
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/" xml:lang="nl" lang="nl">
+<wicket:head>
+	<title><wicket:message key="app.title"/></title>
+	<link type="text/css" rel="stylesheet" href="css/screen.css" media="screen" />
+	<!--[if IE 6]>
+		<link rel="stylesheet" type="text/css" href="css/ie6-screen.css">
+	<![endif]-->
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="css/ie7-screen.css">
+	<![endif]-->
+</wicket:head>
+<wicket:panel>
+</wicket:panel>
+</html>
+«ENDDEFINE»

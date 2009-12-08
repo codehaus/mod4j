@@ -1,0 +1,21 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+ 
+«DEFINE GenerateProcessPageHtml FOR InteractiveProcess -»
+    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPageHtml.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+<body>
+</body>
+<wicket:extend>
+<p>Presentation Process «this.name»</p>
+<div wicket:id="panel"></div>
+</wicket:extend>
+</html>
+«ENDDEFINE»

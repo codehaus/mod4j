@@ -2,13 +2,15 @@
 «IMPORT org::mod4j::dslcommon::xpand::java»
 «IMPORT org::mod4j::dslcommon::xpand::xml»
 
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::PresentationHelpers»
 «EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
-«DEFINE GenerateObjectCollectionDataViewPanelHtml FOR ContentForm -»
-    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectCollectionDataViewPanelHtml.xpt") FOR this»
+«DEFINE GenerateObjectCollectionDataViewPanelHtml FOR CollectionDialogue -»
+    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectCollectionDataViewPanelHtml.xpt") FOR this-»
+«LET this.dialogues.first().referredContentForm() AS cf»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
 <wicket:panel>
 	<div class="navigator">
@@ -16,18 +18,19 @@
 	</div>
 	<div class="tableWrapper horizontal">
 		<table class="horizontal">
-			<caption><wicket:message key="lbl.breakfasts"/></caption>
+<!--			<caption><wicket:message key="lbl.breakfasts"/></caption>-->
+			<caption>«this.name»</caption>
 			<thead>
 				<tr>
-					<th><wicket:message key="lbl.name"/></th>
-					<th><wicket:message key="lbl.price"/></th>
-					<th><wicket:message key="lbl.servingStyle"/></th>
+				«FOREACH cf.formElements AS fe»
+					<th><wicket:message key="lbl.«fe.label»"/></th>
+				«ENDFOREACH»
 				<th colspan="1">&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody wicket:id="container">
 				<tr wicket:id="breakfasts">
-	«LET this.formElements.toList() AS list»
+	«LET cf.formElements.toList() AS list»
 	«LET list.first() AS first»
 	    «EXPAND firstRow FOR first »
 		«FOREACH list AS fe»
@@ -35,13 +38,15 @@
 		«ENDFOREACH»
 	«ENDLET»
 	«ENDLET»
-					<td class="butcol"><input type="button" value="EDIT" wicket:id="edit" class="button" /></td>
+    «FOREACH this.processes AS process»
+		<td class="butcol"><input type="button" value="«process.name»" wicket:id="«process.name»" class="button" /></td>
+	«ENDFOREACH»
 				</tr>
 			</tbody>
 <!--
 			<tfoot>
 				<tr>
-					<td colspan="«formElements.size»"><a href="#" wicket:id="edit"><wicket:message key="cmd.edit"/></a></td>
+					<td colspan="«cf.formElements.size»"><a href="#" wicket:id="edit"><wicket:message key="cmd.edit"/></a></td>
 				</tr>
 			</tfoot>
 -->
@@ -54,6 +59,7 @@
 	</div>
 </wicket:panel>
 </html>
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE firstRow FOR FormElement»

@@ -45,18 +45,15 @@ public class «this.name»PanelWithListener extends Panel {
 
 	public «this.name»PanelWithListener (String id, final IModel<«this.contextRef.name»> model) {
         super(id);
-//        «this.formElements»
-//
     «EXPAND addWicketComponent FOREACH this.formElements»
-    
-            add(new Link<Object>("edit") {
-            @Override
-            public void onClick() {
-				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.on«this.contextRef.name»Edit(model.getObject());
-				}
-            }
-        });    
+        add(new Link<Object>("edit") {
+        @Override
+        public void onClick() {
+			for («this.contextRef.name»ListListener listener : listeners) {
+				listener.on«this.contextRef.name»Edit(model.getObject());
+			}
+        }
+    });    
         
 //                add(parts);
         

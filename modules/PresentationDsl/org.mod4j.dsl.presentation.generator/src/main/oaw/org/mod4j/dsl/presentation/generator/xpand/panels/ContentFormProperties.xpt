@@ -1,0 +1,15 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+
+«DEFINE GenerateProperties FOR ContentForm -»
+«FOREACH this.formElements AS e-»
+lbl.«e.label.escapePropertyKey()»=«e.label»
+«ENDFOREACH»
+«ENDDEFINE»
+				

@@ -16,7 +16,8 @@
 		<div class="tableWrapper vertical">
 		<table class="vertical">
 			<caption>
-				<wicket:message key="lbl.breakfast"/>
+<!--				<wicket:message key="lbl.breakfast"/>-->
+                «this.name» 
 				<span wicket:id="ajaxIndicator"/>
 			</caption>
 			<tbody>
@@ -44,13 +45,13 @@
 «DEFINE addWicketComponent FOR FormElement»
 	«IF this.dataProperty.isEnumeration»
 		<tr>
-			<th><wicket:message key="lbl.«this.dataProperty.name»"/></th>
+			<th><wicket:message key="lbl.«this.label»"/></th>
 			<td><select wicket:id="«this.dataProperty.name»"/></td>
 			<td><span wicket:id="«this.dataProperty.name»Msgs"/></td>
 		</tr>
 	«ELSE»
 		<tr>
-			<th><wicket:message key="lbl.«this.dataProperty.name»"/></th>
+			<th><wicket:message key="lbl.«this.label»"/></th>
 			<td><input type="text" wicket:id="«this.dataProperty.name»"/></td>
 			<td><span wicket:id="«this.dataProperty.name»Msgs"/></td>
 		</tr>

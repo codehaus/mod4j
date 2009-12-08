@@ -1,0 +1,61 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE GenerateFormFeedbackPanel FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import org.apache.wicket.Component;
+import org.apache.wicket.feedback.FeedbackMessage;
+import org.apache.wicket.feedback.IFeedbackMessageFilter;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+
+@SuppressWarnings("serial")
+public class FormFeedbackPanel extends FeedbackPanel {
+    private static final long serialVersionUID = 1L;
+
+    public FormFeedbackPanel(String id, IFeedbackMessageFilter filter) {
+        super(id, filter);
+        WebMarkupContainer feedbackul = (WebMarkupContainer) get("feedbackul");
+        Component messages = feedbackul.get("messages");
+        // messages.setVisible(feedbackul.isVisible());
+        remove(feedbackul);
+        add(messages);
+    }
+
+    @Override
+    protected String getCSSClass(FeedbackMessage message) {
+        return "errorNotifier";
+    }
+}
+«ENDDEFINE»
+
+«DEFINE GenerateFormFeedbackPanelHtml FOR PresentationModel»
+<html xmlns:wicket>
+<body>
+<wicket:panel>
+  <table>
+  	<tr wicket:id="messages">
+  		<td wicket:id="message"/>
+  	</tr>
+  </table>
+</wicket:panel>
+</body>
+</html>
+«ENDDEFINE»

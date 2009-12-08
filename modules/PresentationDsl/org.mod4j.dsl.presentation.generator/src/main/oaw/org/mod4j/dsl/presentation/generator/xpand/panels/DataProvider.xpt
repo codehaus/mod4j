@@ -8,9 +8,12 @@
 
 «DEFINE GenerateDataProvider FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DataProvider.xpt") FOR this»
+«LET findServiceWithMethod(this, "LISTALL") AS service»
+«LET (service != null ? javaLocalServiceInterface( service ) : null ) AS serviceType»
 package «getPresentationRootPackage()».panels;
 
 import java.util.Iterator;
+import java.util.List;
 
 import «javaDtoClassPath(this.contextRef.name)»;
 import org.apache.commons.logging.Log;
@@ -18,9 +21,11 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
+import org.apache.wicket.model.PropertyModel;
 
-import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(this, "Create") )»;
-
+«IF service != null»
+import «getServiceRootPackage()».«serviceType»;
+«ENDIF»
 /**
  * Dataprovider for StandardBreakfastDto list which takes the list of objects from a service.
  * @author jwa11799
@@ -30,19 +35,34 @@ import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithM
 public class «this.contextRef.name»DataProvider implements IDataProvider<«this.contextRef.name»> {
     private static final Log log = LogFactory.getLog(«this.contextRef.name»DataProvider.class);
 
-    private «javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service;
+«IF service != null»
+    private «serviceType» service;
+«ENDIF»
 
+«IF service != null»
     /**
      * Create a new «this.contextRef.name»DataProvider 
      * @param service The service from which the list of «this.contextRef.name» is retrieved.
      */
-    public «this.contextRef.name»DataProvider(«javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service) {
+    public «this.contextRef.name»DataProvider(«serviceType» service) {
         this.service = service;
     }
+«ELSE»
+	PropertyModel<List<«this.contextRef.name»>> model = null;
+	
+	public «this.contextRef.name»DataProvider(PropertyModel<List<«this.contextRef.name»>> model) {
+		this.model = model;
+	}
+«ENDIF»
+
 
     @SuppressWarnings("unchecked")
     public Iterator iterator(int first, int count) {
-        return service.«findListAllMethodFor(this)»().iterator();
+«IF service != null»
+        return service.«findListAllMethodFor(this)»().subList(first, first + count).iterator();
+«ELSE»
+        return model.getObject().subList(first, first + count).iterator();
+«ENDIF»
     }
 
     public IModel<«this.contextRef.name»> model(«this.contextRef.name» object) {
@@ -50,17 +70,32 @@ public class «this.contextRef.name»DataProvider implements IDataProvider<«thi
         return new LoadableDetachableModel<«this.contextRef.name»>() {
             protected «this.contextRef.name» load() {
 
+«IF service != null»
                 return service.«findReadMethodFor(this)»(id);
+«ELSE»
+				for («this.contextRef.name» elem : model.getObject()) {
+					if( elem.getId().equals(id)) {
+						return elem;
+					}
+				}
+				return null;
+«ENDIF»
             }
         };
     }
 
     public int size() {
+«IF service != null»
         return service.«findListAllMethodFor(this)»().size();
+«ELSE»
+        return model.getObject().size();
+«ENDIF»
     }
 
     public void detach() {
     }
 
 }
+«ENDLET»
+«ENDLET»
 «ENDDEFINE»

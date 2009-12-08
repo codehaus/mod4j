@@ -4,6 +4,10 @@ import crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::ProjectProperties;
 
+String escapePropertyKey(String key) :
+    key.replaceAll(" ",  "\\ ")
+ ;
+
 String businessClassName(ContentForm form) :
     lookupSymbol(form.contextRef.modelName, 
                   form.contextRef.name,

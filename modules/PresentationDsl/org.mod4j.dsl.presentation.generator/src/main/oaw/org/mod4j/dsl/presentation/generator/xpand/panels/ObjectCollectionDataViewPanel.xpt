@@ -2,34 +2,34 @@
 «IMPORT org::mod4j::dslcommon::xpand::java»
 
 «EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::PresentationHelpers»
 «EXTENSION org::mod4j::dsl::presentation::generator::xtend::jsf::Naming»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
-«DEFINE GenerateObjectCollectionDataViewPanel FOR ContentForm -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
+«DEFINE GenerateObjectCollectionDataViewPanel FOR CollectionDialogue -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this-»
+«LET this.dialogues.first().referredContentForm() AS cf»
+«REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//import com.rosa.breakfast.web.page.EditStandardBreakfast;
-//import com.rosa.breakfast.web.page.ListStandardBreakfast;
-//import com.rosa.breakfast.web.page.EditStandardBreakfast;
 import «javaDtoClassPath(this.contextRef.name)»;
-«FOREACH this.formElements.dataProperty AS dp»
+«FOREACH cf.formElements.dataProperty AS dp»
 	«IF dp.isEnumeration»
 	import «javaDtoClassPath(dp.dataType)»;
 	«ENDIF»
 «ENDFOREACH»
 
+«FOREACH this.processes AS process»
+import «getPresentationRootPackage()».pages.«process.name»Page;
+«ENDFOREACH»
+
 import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
-//import com.rosas.web.pages.breakfast.BreakfastPage;
-//import com.rosas.web.pages.breakfast.BreakfastsEditPage;
-import nl.ordina.wicket.ext.models.SortedListItemPropertyModel;
-import nl.ordina.wicket.ext.models.SortedListPropertyModel;
 
 import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -56,7 +56,7 @@ import org.apache.wicket.util.convert.IConverter;
 @SuppressWarnings("serial")
 public class «this.name»CollectionDataViewPanel  extends Panel implements «this.contextRef.name»ListListener
 {
-    «EXPAND dataView FOR this»
+    «EXPAND dataView(this) FOR cf»
 	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
 	
 	/**
@@ -68,17 +68,18 @@ public class «this.name»CollectionDataViewPanel  extends Panel implements «th
 		listeners.add(listener);
 	}
 	
+	protected DataView<«this.contextRef.name»> collection;
 
 	public «this.name»CollectionDataViewPanel(String id, «this.contextRef.name»DataProvider dataProvider, Integer maxItemsPerPage)
 	{
 	    super(id);
 		WebMarkupContainer container = (WebMarkupContainer)new WebMarkupContainer("container");
 		container.setOutputMarkupId(true);
-		DataView<«this.contextRef.name»> breakfasts = new «this.contextRef.name»DataView("breakfasts", dataProvider);
-		breakfasts.setItemsPerPage(maxItemsPerPage);
-		container.add(breakfasts);
+		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider);
+		collection.setItemsPerPage(maxItemsPerPage);
+		container.add(collection);
 		add(container);
-		add(new AjaxPagingNavigator("navigator",breakfasts));
+		add(new AjaxPagingNavigator("navigator",collection));
 //		add(new BookmarkablePageLink<Object>("edit",BreakfastsEditPage.class));
 	}
 
@@ -107,10 +108,10 @@ public class «this.name»CollectionDataViewPanel  extends Panel implements «th
 		
 	}
 }
-
+«ENDLET»
 «ENDDEFINE»
 
-«DEFINE dataView FOR ContentForm»
+«DEFINE dataView(CollectionDialogue dialogue) FOR ContentForm»
 	private class «this.contextRef.name»DataView extends	DataView<«this.contextRef.name»> {
 		private «this.contextRef.name»DataView(String id, IDataProvider<«this.contextRef.name»> dataProvider) {
 			super(id, dataProvider);
@@ -147,12 +148,13 @@ public class «this.name»CollectionDataViewPanel  extends Panel implements «th
 		«ENDFOREACH»
 	«ENDLET»
 	«ENDLET»
-
-            item.add(new Link("edit") {
-                public void onClick() {
-                    // setResponsePage(new EditStandardBreakfast(breakfast, false));
-                }
-            });
+    «FOREACH dialogue.processes AS process»
+			item.add(new Link("«process.name»") {
+				public void onClick() {
+				    setResponsePage( new «process.name»Page(item.getModel()));
+				}
+			});
+    «ENDFOREACH»
 		}
 
 		@Override

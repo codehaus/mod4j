@@ -1,0 +1,18 @@
+/* 
+   This file contains the code to create a Crossx model from a BusinesDomainDsl model.
+   Needed for crosssreference purposes.
+*/
+import crossx;
+import PresentationDsl;
+
+
+ContentForm referredContentForm(UICall call) :
+  JAVA org.mod4j.dsl.presentation.generator.helpers.PresentationHelpers.referredContentForm(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+  
+CollectionDialogue referredCollectionDialogue(UICall call) :
+  JAVA org.mod4j.dsl.presentation.generator.helpers.PresentationHelpers.referredCollectionDialogue(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+  
+Symbol referredSymbol(UICall call) :
+  JAVA org.mod4j.dsl.presentation.generator.helpers.PresentationHelpers.referredSymbol(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+  
+  

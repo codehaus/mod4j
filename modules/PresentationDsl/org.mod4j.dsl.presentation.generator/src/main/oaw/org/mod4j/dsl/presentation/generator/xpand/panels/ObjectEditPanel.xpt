@@ -15,17 +15,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import nl.ordina.wicket.ext.components.AjaxEditableLabel;
-import nl.ordina.wicket.ext.components.AjaxIndicator;
-import nl.ordina.wicket.ext.components.AjaxUpdatingBehaviour;
-import nl.ordina.wicket.ext.components.ComponentsFeedbackMessageFilter;
-import nl.ordina.wicket.ext.components.FieldFeedbackPanel;
-import nl.ordina.wicket.ext.components.FormFeedbackPanel;
-import nl.ordina.wicket.ext.components.ConfirmAjaxButton;
-import nl.ordina.wicket.ext.components.IndicatingAjaxButton;
-import nl.ordina.wicket.ext.components.ModalWindow;
-import nl.ordina.wicket.ext.models.CheckBoxObjectModelPartDto;
-import nl.ordina.wicket.ext.models.SortedListPropertyModel;
+import «getPresentationCommonPackage()».ext.components.AjaxEditableLabel;
+import «getPresentationCommonPackage()».ext.components.AjaxIndicator;
+import «getPresentationCommonPackage()».ext.components.AjaxUpdatingBehaviour;
+import «getPresentationCommonPackage()».ext.components.ComponentsFeedbackMessageFilter;
+import «getPresentationCommonPackage()».ext.components.FieldFeedbackPanel;
+import «getPresentationCommonPackage()».ext.components.FormFeedbackPanel;
+import «getPresentationCommonPackage()».ext.components.ConfirmAjaxButton;
+import «getPresentationCommonPackage()».ext.components.IndicatingAjaxButton;
+import «getPresentationCommonPackage()».ext.components.ModalWindow;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -81,7 +79,6 @@ public class «this.name»EditPanelWithListener extends Panel {
 	}
 	
 	@SpringBean(name = "«findServiceWithMethod(this, "Create").toFirstLower()»Service")
-//    «javaLocalServiceInterface(this.contextRef.name)» «this.contextRef.name»Service;
     «javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service;
     
     protected IModel<«this.contextRef.name»> localModel ;
@@ -193,6 +190,16 @@ public class «this.name»EditPanelWithListener extends Panel {
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("decimal")»
         TextField<Float> «varName» = new TextField<Float>("«this.dataProperty.name»", Float.class);
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
+        «varName».setRequired(true);
+
+        FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
+        «varName»Msgs.setOutputMarkupId(true);
+        «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));
+        form.add(«varName»);
+        form.add(«varName»Msgs);
+    «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("integer")»
+        TextField<Integer> «varName» = new TextField<Integer>("«this.dataProperty.name»", Integer.class);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
         «varName».setRequired(true);
 
