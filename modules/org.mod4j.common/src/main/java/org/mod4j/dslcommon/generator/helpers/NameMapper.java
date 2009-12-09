@@ -269,13 +269,38 @@ public class NameMapper {
         return ProjectProperties.getPresentationRootPackage() ;
     }
 
-    public static String getPresentationPanel(String name) {
+    public static String getWicketPanelClass(String name) {
         return javaDomainClass(name) + "Panel";
     }
-    public static String getPresentationEditPanel(String name) {
+    public static String getWicketEditPanelClass(String name) {
         return javaDomainClass(name) + "EditPanel";
     }
-    public static String getPresentationSwapPanel(String name) {
+    public static String getWicketSwapPanelClass(String name) {
         return javaDomainClass(name) + "SwapPanel";
+    }
+    
+    public static String getWicketApplicationClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "Application";
+    }
+    public static String getWicketSesssionClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "Session";
+    }
+    public static String getWicketRequestCycleClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "RequestCycle";
+    }
+    public static String getWicketMasterPageClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "MasterPage";
+    }
+    public static String getWicketHomePageClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "HomePage";
+    }
+    public static String getWicketHtmlPanelClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "HtmlHeader";
+    }
+    public static String getWicketPageNotFoundPageClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "PageNotFoundPage";
+    }
+    public static String getWicketExceptionPageClass() {
+        return StringHelpers.firstCharToUpper(ProjectProperties.getApplicationName()) + "ExceptionPage";
     }
 }

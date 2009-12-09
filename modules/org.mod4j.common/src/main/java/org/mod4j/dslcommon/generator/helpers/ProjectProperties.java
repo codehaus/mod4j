@@ -233,6 +233,14 @@ public class ProjectProperties {
         return presentationRootPackage;
     }
 
+    public static String getPresentationCommonPackage() {
+        return "org.mod4j.common.wicket";
+    }
+
+    public static String getPresentationCommonPackageAsPath() {
+        return getPresentationCommonPackage().replaceAll("\\.", "/");
+    }
+
     public static String getPresentationRootPackageAsPath() {
         return getPresentationRootPackage().replaceAll("\\.", "/");
     }

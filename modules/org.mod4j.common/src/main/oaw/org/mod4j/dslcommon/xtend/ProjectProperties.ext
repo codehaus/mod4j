@@ -155,6 +155,12 @@ String getPresentationModulePath(String targetPlatform) :
 String getPresentationRootPackage() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationRootPackage();
 
+String getPresentationCommonPackage() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationCommonPackage();
+
+String getPresentationCommonPackageAsPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationCommonPackageAsPath();
+
 String getPresentationRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationRootPackageAsPath();
  

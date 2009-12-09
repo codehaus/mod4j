@@ -24,7 +24,7 @@ public class StringHelpers {
     final static public String newLine = System.getProperty("line.separator", "\n");
 
     final static public char newLineChar = newLine.charAt(0);
-
+    
     static public StringBuffer replaceAllSubstrings(StringBuffer orig, String origSub, String newSub) {
         StringBuffer result = new StringBuffer();
         result.append(replaceAllSubstrings(orig.toString(), origSub, newSub));

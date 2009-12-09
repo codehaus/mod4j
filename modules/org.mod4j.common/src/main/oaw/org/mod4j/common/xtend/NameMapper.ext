@@ -133,3 +133,41 @@ String javaBusinessRuleClassPath(String cls) : JAVA
 String getBusinessRulesPackage() : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getBusinessRulesPackage();
 
+// PRESENATTION
+String getPresentationPackage()  : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getPresentationPackage();
+
+String getWicketPanelClass(String name) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketPanelClass(java.lang.String);
+  
+String getWicketEditPanelClass(String name) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketEditPanelClass(java.lang.String);
+  
+String getWicketSwapPanelClass(String name) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketSwapPanelClass(java.lang.String);
+  
+String getWicketApplicationClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketApplicationClass();
+  
+String getWicketSesssionClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketSesssionClass();
+  
+String getWicketRequestCycleClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketRequestCycleClass();
+  
+String getWicketMasterPageClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketMasterPageClass();
+  
+String getWicketHomePageClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketHomePageClass();
+  
+String getWicketHtmlPanelClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketHtmlPanelClass();
+  
+String getWicketPageNotFoundPageClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketPageNotFoundPageClass();
+  
+String getWicketExceptionPageClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketExceptionPageClass();
+  
+

@@ -23,7 +23,7 @@
  */
 «ENDDEFINE»
 
-«DEFINE regenerationWarningHeader (String generator) FOR Object»
+«DEFINE regenerationWarningHeader (String generator) FOR Object-»
 /**
  * DO NOT MODIFY THIS FILE, CHANGES WILL BE AUTOMATICALLY OVERWRITTEN! 
  *
