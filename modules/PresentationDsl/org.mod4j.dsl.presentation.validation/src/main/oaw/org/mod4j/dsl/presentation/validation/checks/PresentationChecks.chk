@@ -11,14 +11,14 @@
 import PresentationDsl;
 
 extension org::mod4j::dslcommon::xtend::generatorutil;
+extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 
 context CollectionDialogue ERROR this.name + " must havce exactly one dialogue of type ciontentform" :
     (this.dialogues.size == 1) 
-//    &&
-//    (this.dialogues.first().referredElement.metaType.name.equalsIgnoreCase("ContentForm"))
-//    &&
-//    (this.dialogues.referredElement.typeSelect(ContentForm).first().contextRef == this.contextRef) 
-
+    &&
+    (this.dialogues.first().referredContentForm() != null)
+    &&
+    (this.dialogues.first().referredContentForm().contextRef == this.contextRef) 
     ;
 
 

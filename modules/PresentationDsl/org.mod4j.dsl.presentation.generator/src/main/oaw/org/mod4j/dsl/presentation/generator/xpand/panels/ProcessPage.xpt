@@ -2,7 +2,7 @@
 «IMPORT org::mod4j::dslcommon::xpand::java»
 
 «EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
-«EXTENSION org::mod4j::dsl::presentation::generator::xtend::PresentationHelpers»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»

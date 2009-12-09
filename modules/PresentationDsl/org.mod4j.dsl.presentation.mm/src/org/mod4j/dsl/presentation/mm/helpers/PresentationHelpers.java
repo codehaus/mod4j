@@ -1,9 +1,9 @@
-package org.mod4j.dsl.presentation.generator.helpers;
+package org.mod4j.dsl.presentation.mm.helpers;
 
 import java.util.List;
 
-import org.mod4j.crossx.broker.CrossxEnvironment;
-import org.mod4j.crossx.mm.crossx.Symbol;
+//import org.mod4j.crossx.broker.CrossxEnvironment;
+//import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
@@ -14,17 +14,17 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 
 public class PresentationHelpers {
 
-    static public Symbol referredSymbol(UICall call) {
-        Symbol result = null;
-        List<Symbol> dialogues = CrossxEnvironment.findAllEverywhere("Dialogue");
-        for (Symbol symbol : dialogues) {
-            if( symbol.getName().equals(call.getName())){
-                result = symbol;
-                break;
-            }
-        }
-        return result;
-    }
+//    static public Symbol referredSymbol(UICall call) {
+//        Symbol result = null;
+//        List<Symbol> dialogues = CrossxEnvironment.findAllEverywhere("Dialogue");
+//        for (Symbol symbol : dialogues) {
+//            if( symbol.getName().equals(call.getName())){
+//                result = symbol;
+//                break;
+//            }
+//        }
+//        return result;
+//    }
 
     static public ContentForm referredContentForm(UICall call) {
         UIModelElement container = null;

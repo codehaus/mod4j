@@ -12,4 +12,5 @@ Bundle-ActivationPolicy: lazy
 Eclipse-RegisterBuddy: org.mod4j.common
 Export-Package: org.mod4j.dsl.presentation.mm.PresentationDsl,
  org.mod4j.dsl.presentation.mm.PresentationDsl.impl,
- org.mod4j.dsl.presentation.mm.PresentationDsl.util
+ org.mod4j.dsl.presentation.mm.PresentationDsl.util,
+ org.mod4j.dsl.presentation.mm.helpers
