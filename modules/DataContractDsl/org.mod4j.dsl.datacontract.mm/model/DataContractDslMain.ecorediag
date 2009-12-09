@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_8vJ-cIlFEd2el5Lm26_Lug" type="EcoreTools" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_8vJ-cIlFEd2el5Lm26_Lug" type="EcoreTools" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_8v5lUIlFEd2el5Lm26_Lug" type="1001">
     <children xmi:type="notation:Node" xmi:id="_8v5lU4lFEd2el5Lm26_Lug" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_8v5lVIlFEd2el5Lm26_Lug" type="5001">
@@ -110,7 +110,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_8v5ls4lFEd2el5Lm26_Lug" fontHeight="10" fillColor="13761016" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="DataContractDsl.ecore#//DtoPropertyReference"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8v5ltIlFEd2el5Lm26_Lug" x="30" y="425"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8v5ltIlFEd2el5Lm26_Lug" x="30" y="440"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_8v5l4olFEd2el5Lm26_Lug" type="1001">
     <children xmi:type="notation:Node" xmi:id="_8v5l5YlFEd2el5Lm26_Lug" type="4001"/>
@@ -350,7 +350,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_8wDW0olFEd2el5Lm26_Lug" routing="Tree" lineColor="0"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_8wDW04lFEd2el5Lm26_Lug"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8wDW1IlFEd2el5Lm26_Lug" points="[0, 40, -251, -34]$[0, 100, -251, 26]$[252, 100, 1, 26]$[252, 74, 1, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8wDW1IlFEd2el5Lm26_Lug" points="[0, 40, -250, -35]$[0, 85, -250, 10]$[251, 85, 1, 10]$[251, 75, 1, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8xPpSIlFEd2el5Lm26_Lug" id="(0.5,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8xPpSYlFEd2el5Lm26_Lug" id="(0.33088234,1.0)"/>
   </edges>
