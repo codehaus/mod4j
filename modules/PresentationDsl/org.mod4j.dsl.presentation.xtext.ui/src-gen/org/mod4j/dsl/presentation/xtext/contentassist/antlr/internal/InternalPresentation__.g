@@ -17,46 +17,48 @@ T17 : 'context' ;
 T18 : '[' ;
 T19 : ']' ;
 T20 : 'readonly' ;
-T21 : 'processes' ;
-T22 : 'CompoundDialogue' ;
-T23 : 'dialogues' ;
-T24 : 'CollectionDialogue' ;
-T25 : 'MasterDetail' ;
-T26 : 'master' ;
-T27 : 'detail' ;
-T28 : 'AutomatedProcess' ;
-T29 : 'steps' ;
-T30 : 'InteractiveProcess' ;
-T31 : 'element' ;
-T32 : 'label' ;
-T33 : 'alias' ;
-T34 : 'navigate' ;
-T35 : 'to' ;
-T36 : 'LinkStep' ;
-T37 : 'LinkPath' ;
-T38 : 'dialogue' ;
-T39 : 'process' ;
-T40 : 'true' ;
+T21 : 'actions' ;
+T22 : 'processes' ;
+T23 : 'use' ;
+T24 : 'CompoundDialogue' ;
+T25 : 'dialogues' ;
+T26 : 'CollectionDialogue' ;
+T27 : 'MasterDetail' ;
+T28 : 'master' ;
+T29 : 'detail' ;
+T30 : 'AutomatedProcess' ;
+T31 : 'steps' ;
+T32 : 'InteractiveProcess' ;
+T33 : 'element' ;
+T34 : 'label' ;
+T35 : 'alias' ;
+T36 : 'navigate' ;
+T37 : 'to' ;
+T38 : 'LinkStep' ;
+T39 : 'LinkPath' ;
+T40 : 'dialogue' ;
+T41 : 'process' ;
+T42 : 'true' ;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5199
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5825
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5201
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5827
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5203
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5829
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5205
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5831
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5207
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5833
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5209
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5835
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5211
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 5837
 RULE_ANY_OTHER : .;
 
 
