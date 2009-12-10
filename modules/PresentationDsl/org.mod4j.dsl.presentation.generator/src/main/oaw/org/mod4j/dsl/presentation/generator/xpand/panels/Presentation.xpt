@@ -153,7 +153,7 @@ package «getPresentationRootPackage()».pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
+import «getPresentationRootPackage()».panels.HtmlHeader;
 
 «FOREACH this.elements.typeSelect(InteractiveProcess).select(ip|!ip.processElements.referredCollectionDialogue().isEmpty) AS process-»
 import «getPresentationRootPackage()».pages.«process.name»Page;
@@ -177,7 +177,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
     protected «getWicketMasterPageClass()»() {
         session = «getWicketSesssionClass()».getXDSLSession();
 
-        add(new RosasHtmlHeader("htmlHeader"));
+        add(new HtmlHeader("htmlHeader"));
         add(new BookmarkablePageLink<«getWicketHomePageClass()»>("logo", «getWicketApplicationClass()».get().getHomePage()));
         add(new Label("pageTitle", new PropertyModel<String>(this, "pageTitle")));
 
@@ -260,8 +260,8 @@ package «getPresentationRootPackage()».panels;
 
 import org.apache.wicket.markup.html.panel.Panel;
 
-public class RosasHtmlHeader extends Panel {
-    public RosasHtmlHeader(String id) {
+public class HtmlHeader extends Panel {
+    public HtmlHeader(String id) {
         super(id);
     }
 
