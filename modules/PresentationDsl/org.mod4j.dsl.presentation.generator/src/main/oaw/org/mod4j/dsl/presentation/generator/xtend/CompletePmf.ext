@@ -10,8 +10,17 @@ extension org::mod4j::dslcommon::xtend::generatorutil;
 
 // Complete the model such that all higher level constructs and all implicit definitions are added.
 completeModel(PresentationModel pmfModel) :
-    let formElements = pmfModel.elements.typeSelect(ContentForm).formElements :
-	formElements.addDataProperty()    ; 
+    let formElements = pmfModel.elements.typeSelect(ContentForm).formElements :    
+    let contentForms = pmfModel.elements.typeSelect(ContentForm):
+    
+	formElements.addDataProperty()->
+	contentForms.addIsCollection()    ; 
+	
+Boolean addIsCollection(ContentForm form) :
+    let dtoSymbol = lookupSymbol(form.contextRef.modelName, form.contextRef.name, "Dto") :
+    form.setIsCollection( dtoSymbol.getPropertyValue("dtoType").equalsIgnoreCase("ListDto"))
+   
+;
 
 DataProperty addDataProperty(FormElement element) :
     let dtoSymbol = lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
