@@ -59,7 +59,7 @@ public class «this.contextRef.name»DataProvider implements IDataProvider<«thi
     @SuppressWarnings("unchecked")
     public Iterator iterator(int first, int count) {
 «IF service != null»
-        return service.«findListAllMethodFor(this)»().subList(first, first + count).iterator();
+        return service.«findListAllMethodFor(this)»(first, count).iterator();
 «ELSE»
         return model.getObject().subList(first, first + count).iterator();
 «ENDIF»
@@ -87,6 +87,7 @@ public class «this.contextRef.name»DataProvider implements IDataProvider<«thi
     public int size() {
 «IF service != null»
         return service.«findListAllMethodFor(this)»().size();
+        return (int) service.count«businessClassName(this)»s();
 «ELSE»
         return model.getObject().size();
 «ENDIF»
