@@ -12,4 +12,76 @@
 lbl.«e.label.escapePropertyKey()»=«e.label»
 «ENDFOREACH»
 «ENDDEFINE»
+
+«DEFINE ApplicationProperties FOR PresentationModel»
+app.title=Rosa's Breakfast Service
+
+home.msg=Welcome to Rosa's Reference Application...
+msg.confirm=Are you sure?
+
+lbl.home=Home
+
+lbl.breakfast=Breakfast
+lbl.breakfasts=Breakfasts
+lbl.breakfastEdit=Edit Breakfast
+lbl.comestible=Comestible
+lbl.comestibles=Comestibles
+lbl.comestibleEdit=Edit Comestible
+lbl.parts=Parts
+
+lbl.addComestible=Add Comestible
+
+lbl.services=Services
+lbl.name=Name
+lbl.minimalQuantity=Minimal Quantity
+lbl.price=Price
+lbl.transportForm=Transport Form
+lbl.servingStyle=Serving Style
+lbl.style=Serving Style
+lbl.quantity=Quantity
+
+lbl.selected=&nbsp;
+
+cmd.continue=Continue
+cmd.back=Cancel
+cmd.cancel=Cancel
+cmd.reset=Reset
+cmd.resetAll=Reset All
+cmd.refresh=Refresh
+cmd.add=Add
+cmd.new=New
+cmd.view=View
+cmd.edit=Edit
+cmd.save=Save
+cmd.delete=Delete
+
+true=True
+false=False
+
+breakfastInUse=Breakfast '${name}' is still in use
+comestibleInUse=Comestible '${name}' is still in use
+
+error.title=Rosas Error
+error.msg=An unexpected error occurred... in rosas
+pageNotFound.title=Page Not Found
+pageNotFound.msg=The requested page is not found...
+pageExpired.title=Page Expired
+pageExpired.msg=The requested page has expired...
+
+RequiredValidator=${label} is required
+#PatternValidator=${pattern}${input}${name}${label}
+PatternValidator='${input}' does not match pattern '${pattern}'
+
+BreakfastValidator.uniqueName='${input}' is not unique
+ComestibleValidator.uniqueName='${input}' is not unique
+
+# Voor een volledige lijst met 'default' properties zie ook 
+# Application_nl.properties uit wicket.1.3.4jar 
+
+# Override 'default' properties
+Required=Attribute '${label}' is mandatory.
+StringValidator.maximum='${input}' for '${label}' may contain a maximum of ${maximum} character(s).
+part.br.checkminimumquantity=Quantity cannot be less than the minimum for the comestible, which is {0}.
+comestible.br.cannotdelete=Comestible with name {0} is used in a standard breakfast, so it cannot be deleted.
+«ENDDEFINE»
 				

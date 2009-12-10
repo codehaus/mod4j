@@ -28,6 +28,9 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + "." + getWicketSesssionClass()))»
 	    «EXPAND Presentation::GenerateSession FOR this»
 	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/" + getWicketApplicationClass() + ".properties")»
+	    «EXPAND ContentFormProperties::ApplicationProperties FOR this»
+	«ENDFILE»
 
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + "." + getWicketRequestCycleClass() ))»
 	    «EXPAND Presentation::GenerateRequestCycle FOR this»
