@@ -129,14 +129,10 @@ public class Mod4jGeneratorMojo extends AbstractMojo {
                 "org/mod4j/dsl/service/generator/workflow/sermod2crossx.oaw",
                 "org/mod4j/dsl/service/generator/workflow/ServiceDsl.oaw", generatorPropertiesFileName));
         
-        /*
-         * TODO Enable when PresentationDsl is ready
-         * 
-         * dslExtensions.add(new DslExtension("Mod4j", "PresentationDsl",
+        dslExtensions.add(new DslExtension("Mod4j", "PresentationDsl",
                 "org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage", ".pmfmod", 
                 "org/mod4j/dsl/presentation/generator/workflow/pmfmod2crossx.oaw",
                 "org/mod4j/dsl/presentation/generator/workflow/PresentationDsl.oaw", generatorPropertiesFileName));
-        */
     }
 
     /**

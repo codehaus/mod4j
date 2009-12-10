@@ -92,20 +92,6 @@
         </dependency>
         <dependency>
             <groupId>org.mod4j</groupId>
-            <artifactId>mod4j-service-generator</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
-            <scope>runtime</scope>
-            <optional>false</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.mod4j</groupId>
-            <artifactId>mod4j-service-xtext</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
-            <scope>runtime</scope>
-            <optional>false</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.mod4j</groupId>
             <artifactId>mod4j-datacontract-generator</artifactId>
             <version>1.2.0-SNAPSHOT</version>
             <scope>runtime</scope>
@@ -114,6 +100,20 @@
         <dependency>
             <groupId>org.mod4j</groupId>
             <artifactId>mod4j-datacontract-xtext</artifactId>
+            <version>1.2.0-SNAPSHOT</version>
+            <scope>runtime</scope>
+            <optional>false</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-service-generator</artifactId>
+            <version>1.2.0-SNAPSHOT</version>
+            <scope>runtime</scope>
+            <optional>false</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.mod4j</groupId>
+            <artifactId>mod4j-service-xtext</artifactId>
             <version>1.2.0-SNAPSHOT</version>
             <scope>runtime</scope>
             <optional>false</optional>
