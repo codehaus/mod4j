@@ -33,17 +33,23 @@ ContentForm :
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
-		("processes" "[" (processes += ProcessCall)* "]" )?
+		("actions" "[" (actions += SimpleProcess  ";")* "]" )?
+		("processes" "[" (processes += ProcessCall ";")* "]" )?
 	"]"
 	;
+
+SimpleProcess :
+    name=ID 
+    ( "use" dialogue = DialogueCall  )? 
+    ;
     	
 CompoundDialogue :
 	(description=STRING )?
 	"CompoundDialogue" name = ID "context" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
 	
-		("dialogues" "[" (dialogues += DialogueCall)* "]" )?
-		("processes" "[" (processes += ProcessCall)* "]" )?  
+		("dialogues" "[" (dialogues += DialogueCall ";")* "]" )?
+		("processes" "[" (processes += ProcessCall ";")* "]" )?  
 		| CollectionDialogue
 		| MasterDetail
 	
@@ -54,8 +60,8 @@ CollectionDialogue :
 	"CollectionDialogue" name = ID "context" contextRef = [ExternalReference]
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
-		("dialogues" "[" (dialogues += DialogueCall)* "]" )?
-		("processes" "[" (processes += ProcessCall)* "]" )?
+		("dialogues" "[" (dialogues += DialogueCall ";")* "]" )?
+		("processes" "[" (processes += ProcessCall ";")* "]" )?
 	"]"
 	;
 	
@@ -63,9 +69,9 @@ MasterDetail :
 	(description=STRING )?
 	"MasterDetail" name = ID "context" contextRef = [ExternalReference]
 	("readonly" ((readonly?="true") | "false") ";")?
-	"master" master = DialogueCall
-	"detail" detail = DialogueCall
-	("processes" "[" (processes += ProcessCall)* "]" )?
+	"master" master = DialogueCall ";"
+	"detail" detail = DialogueCall ";"
+	("processes" "[" (processes += ProcessCall ";")* "]" )?
 	;
 
 Process :
@@ -75,13 +81,13 @@ Process :
 AutomatedProcess :
 	(description=STRING )?
 	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
-	("steps" "[" (processElements += UICall)* "]")?
+	("steps" "[" (processElements += UICall ";")* "]")?
 	;
 
 InteractiveProcess :
 	(description=STRING )?
 	"InteractiveProcess" name = ID "context" contextRef = [ExternalReference]
-	("steps" "[" (processElements += UICall)* "]")?
+	("steps" "[" (processElements += UICall ";")* "]")?
 	;
 	
 FormElement :
@@ -95,7 +101,7 @@ FormElement :
 	;
 		
 DialogueCall :
-	(DirectDialogueCall | LinkedDialogueCall) ("alias" alias = ID)? ";"
+	(DirectDialogueCall | LinkedDialogueCall) ("alias" alias = ID)? 
 	;
 	
 LinkedDialogueCall :
@@ -107,7 +113,7 @@ DirectDialogueCall :
 	;
 	
 ProcessCall :
-	(DirectProcessCall | LinkedProcessCall) ("alias" alias = ID)? ";"
+	(DirectProcessCall | LinkedProcessCall) ("alias" alias = ID)? 
 	;
 
 LinkedProcessCall :
