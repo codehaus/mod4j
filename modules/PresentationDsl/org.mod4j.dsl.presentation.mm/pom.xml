@@ -12,6 +12,14 @@
     <description>This Eclipse plug-in project contains the Presentation meta model.</description>
     <build>
         <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/oaw</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
     <dependencies>
         <dependency>
