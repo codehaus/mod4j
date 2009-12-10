@@ -67,45 +67,22 @@
 	    «EXPAND Exceptions::GenerateExceptionPageHtml FOR this»
 	«ENDFILE»
     
-    «FOREACH this.elements.typeSelect(ContentForm) AS cf»
-		«REM»The ViewPanel Java and HTML and properties file«ENDREM»
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "PanelWithListener"))»
-    	    «EXPAND ObjectPanel::GenerateObjectPanel FOR cf»
-		«ENDFILE»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "PanelWithListener.html")»
-    	    «EXPAND ObjectPanelHtml::GenerateObjectPanelHtml FOR cf»
-		«ENDFILE»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "PanelWithListener.properties")»
-    	    «EXPAND ContentFormProperties::GenerateProperties FOR cf»
-		«ENDFILE»
-
-		«REM»The Edit Panel Java and HTML and properties file«ENDREM»
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "EditPanelWithListener"))»
-    	    «EXPAND ObjectEditPanel::GenerateObjectEditPanel FOR cf»
-		«ENDFILE»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "EditPanelWithListener.html")»
-    	    «EXPAND ObjectEditPanelHtml::GenerateObjectEditPanelHtml FOR cf»
-		«ENDFILE»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "EditPanelWithListener.properties")»
-    	    «EXPAND ContentFormProperties::GenerateProperties FOR cf»
-		«ENDFILE»
-			
+    «FOREACH this.elements.typeSelect(ContentForm).select(cf | ! cf.isCollection) AS cf»
+	    «print("MOD4J INFO: ContentForm [" + cf.name + "] isCollection [" + cf.isCollection + "]")»
+	    «EXPAND generatePanels FOR cf»
+	«ENDFOREACH»
+	    
+    «FOREACH this.elements.typeSelect(ContentForm).select(cf | ! cf.isCollection) AS cf»
 		«REM»ObjectPanelListener«ENDREM»	
 		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "ListListener"))»
     	    «EXPAND ObjectPanelListener::GenerateObjectListener FOR cf»
 		«ENDFILE»
+	«ENDFOREACH»
 		
+    «FOREACH this.elements.typeSelect(ContentForm).select(cf | ! cf.isCollection) AS cf»
 		«REM»DataOProvider for collection panel«ENDREM»
 		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "DataProvider"))»
     	    «EXPAND DataProvider::GenerateDataProvider FOR cf»
-		«ENDFILE»
-
-		«REM»The Compound Object Swap panel containing both the edit and view panels, Java and HTML«ENDREM»
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.name + "SwapEditPanel"))»
-    	    «EXPAND ObjectSwapPanel::GenerateObjectSwapPanel FOR cf»
-		«ENDFILE»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + cf.name + "SwapEditPanel.html")»
-    	    «EXPAND ObjectSwapPanelHtml::GenerateObjectSwapPanelHtml FOR cf»
 		«ENDFILE»
 	«ENDFOREACH»
 	
@@ -157,4 +134,39 @@
     «ELSE»
         «retain(getPresentationModuleName(""), "pom.xml" )»
     «ENDIF»
+«ENDDEFINE»
+
+«REM»The ViewPanel Java and HTML and properties file«ENDREM»
+«DEFINE generatePanels FOR ContentForm»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "PanelWithListener"))»
+	    «EXPAND ObjectPanel::GenerateObjectPanel FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "PanelWithListener.html")»
+	    «EXPAND ObjectPanelHtml::GenerateObjectPanelHtml FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "PanelWithListener.properties")»
+	    «EXPAND ContentFormProperties::GenerateProperties FOR this»
+	«ENDFILE»
+
+		«REM»The Edit Panel Java and HTML and properties file«ENDREM»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "EditPanelWithListener"))»
+	    «EXPAND ObjectEditPanel::GenerateObjectEditPanel FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "EditPanelWithListener.html")»
+	    «EXPAND ObjectEditPanelHtml::GenerateObjectEditPanelHtml FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "EditPanelWithListener.properties")»
+	    «EXPAND ContentFormProperties::GenerateProperties FOR this»
+	«ENDFILE»
+			
+	«REM»The Compound Object Swap panel containing both the edit and view panels, Java and HTML«ENDREM»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "SwapEditPanel"))»
+	    «EXPAND ObjectSwapPanel::GenerateObjectSwapPanel FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "SwapEditPanel.html")»
+	    «EXPAND ObjectSwapPanelHtml::GenerateObjectSwapPanelHtml FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE generateListeners FOR ContentForm»
 «ENDDEFINE»
