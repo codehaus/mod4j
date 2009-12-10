@@ -8,7 +8,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
 «DEFINE GenerateObjectEditPanel FOR ContentForm -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanel.xpt") FOR this»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
