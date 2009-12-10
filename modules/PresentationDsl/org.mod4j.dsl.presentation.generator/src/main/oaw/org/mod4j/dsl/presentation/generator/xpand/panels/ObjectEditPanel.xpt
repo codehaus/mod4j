@@ -60,8 +60,8 @@ import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithM
 //import com.rosas.web.standard.ComestibleComparator;
 
 /**
- * A reusable panee that allows the used to edit an object.
- * The object may be ean existing one or a new one.
+ * A reusable panel that allows the user to edit an object.
+ * The object may be an existing one or a new one.
  */
 @SuppressWarnings("serial")
 public class «this.name»EditPanelWithListener extends Panel {
@@ -70,7 +70,7 @@ public class «this.name»EditPanelWithListener extends Panel {
 	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
 	
 	/**
-	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
+	 * Adds a listener to this panel. The listener will be notified whenever an event takes place on this panel.
 	 * This allows the panel to be used in different pages with different behavior.
 	 * @param listener The listener to be added
 	 */
