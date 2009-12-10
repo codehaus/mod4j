@@ -8,6 +8,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Form">
     <eStructuralFeatures xsi:type="ecore:EReference" name="formElements" upperBound="-1"
         eType="#//FormElement" containment="true" eOpposite="#//FormElement/form"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//SimpleProcess" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"
@@ -106,4 +109,8 @@
         eOpposite="#//Process/processElements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirectProcessCall" eSuperTypes="#//ProcessCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleProcess" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogue" eType="#//DialogueCall"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

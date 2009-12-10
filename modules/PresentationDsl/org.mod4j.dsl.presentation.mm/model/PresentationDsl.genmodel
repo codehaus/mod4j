@@ -11,6 +11,8 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//AutomatedProcess"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//ContentForm">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ContentForm/formElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ContentForm/isCollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ContentForm/actions"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//CompoundDialogue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//CompoundDialogue/dialogues"/>
@@ -88,5 +90,8 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//DirectProcessCall"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//SimpleProcess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/dialogue"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
