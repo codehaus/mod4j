@@ -224,6 +224,15 @@ public interface PresentationDslFactory extends EFactory {
     DirectProcessCall createDirectProcessCall();
 
     /**
+     * Returns a new object of class '<em>Simple Process</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Simple Process</em>'.
+     * @generated
+     */
+    SimpleProcess createSimpleProcess();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -40,6 +40,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -219,6 +220,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseDirectProcessCall(DirectProcessCall object) {
                 return createDirectProcessCallAdapter();
+            }
+            @Override
+            public Adapter caseSimpleProcess(SimpleProcess object) {
+                return createSimpleProcessAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -657,6 +662,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDirectProcessCallAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess <em>Simple Process</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess
+     * @generated
+     */
+    public Adapter createSimpleProcessAdapter() {
         return null;
     }
 

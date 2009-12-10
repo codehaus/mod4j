@@ -37,6 +37,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 /**
@@ -105,6 +106,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
             case PresentationDslPackage.DIRECT_PROCESS_CALL: return createDirectProcessCall();
+            case PresentationDslPackage.SIMPLE_PROCESS: return createSimpleProcess();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -328,6 +330,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public DirectProcessCall createDirectProcessCall() {
         DirectProcessCallImpl directProcessCall = new DirectProcessCallImpl();
         return directProcessCall;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SimpleProcess createSimpleProcess() {
+        SimpleProcessImpl simpleProcess = new SimpleProcessImpl();
+        return simpleProcess;
     }
 
     /**

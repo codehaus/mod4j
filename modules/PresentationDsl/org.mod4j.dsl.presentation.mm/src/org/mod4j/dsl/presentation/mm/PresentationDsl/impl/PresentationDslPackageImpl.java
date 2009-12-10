@@ -41,6 +41,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -263,6 +264,13 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
     private EClass directProcessCallEClass = null;
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass simpleProcessEClass = null;
+
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -357,6 +365,24 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      */
     public EReference getContentForm_FormElements() {
         return (EReference)contentFormEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getContentForm_IsCollection() {
+        return (EAttribute)contentFormEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getContentForm_Actions() {
+        return (EReference)contentFormEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -877,6 +903,24 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSimpleProcess() {
+        return simpleProcessEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSimpleProcess_Dialogue() {
+        return (EReference)simpleProcessEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public PresentationDslFactory getPresentationDslFactory() {
         return (PresentationDslFactory)getEFactoryInstance();
     }
@@ -906,6 +950,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         contentFormEClass = createEClass(CONTENT_FORM);
         createEReference(contentFormEClass, CONTENT_FORM__FORM_ELEMENTS);
+        createEAttribute(contentFormEClass, CONTENT_FORM__IS_COLLECTION);
+        createEReference(contentFormEClass, CONTENT_FORM__ACTIONS);
 
         compoundDialogueEClass = createEClass(COMPOUND_DIALOGUE);
         createEReference(compoundDialogueEClass, COMPOUND_DIALOGUE__DIALOGUES);
@@ -990,6 +1036,9 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(uiCallEClass, UI_CALL__PROCESS);
 
         directProcessCallEClass = createEClass(DIRECT_PROCESS_CALL);
+
+        simpleProcessEClass = createEClass(SIMPLE_PROCESS);
+        createEReference(simpleProcessEClass, SIMPLE_PROCESS__DIALOGUE);
     }
 
     /**
@@ -1048,6 +1097,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         uiModelElementCallEClass.getESuperTypes().add(this.getUICall());
         uiCallEClass.getESuperTypes().add(this.getModelElement());
         directProcessCallEClass.getESuperTypes().add(this.getProcessCall());
+        simpleProcessEClass.getESuperTypes().add(this.getModelElement());
 
         // Initialize classes and features; add operations and parameters
         initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1056,6 +1106,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(contentFormEClass, ContentForm.class, "ContentForm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getContentForm_FormElements(), this.getFormElement(), this.getFormElement_Form(), "formElements", null, 0, -1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getContentForm_IsCollection(), ecorePackage.getEBoolean(), "isCollection", null, 0, 1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getContentForm_Actions(), this.getSimpleProcess(), null, "actions", null, 0, -1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(compoundDialogueEClass, CompoundDialogue.class, "CompoundDialogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getCompoundDialogue_Dialogues(), this.getDialogueCall(), this.getDialogueCall_CompoundDialogue(), "dialogues", null, 0, -1, CompoundDialogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1142,6 +1194,9 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getUICall_Process(), this.getProcess(), this.getProcess_ProcessElements(), "process", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(directProcessCallEClass, DirectProcessCall.class, "DirectProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(simpleProcessEClass, SimpleProcess.class, "SimpleProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getSimpleProcess_Dialogue(), this.getDialogueCall(), null, "dialogue", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

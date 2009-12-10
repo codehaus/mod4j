@@ -38,6 +38,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -372,6 +373,13 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseUIModelElementCall(directProcessCall);
                 if (result == null) result = caseUICall(directProcessCall);
                 if (result == null) result = caseModelElement(directProcessCall);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.SIMPLE_PROCESS: {
+                SimpleProcess simpleProcess = (SimpleProcess)theEObject;
+                T result = caseSimpleProcess(simpleProcess);
+                if (result == null) result = caseModelElement(simpleProcess);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -826,6 +834,21 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseDirectProcessCall(DirectProcessCall object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Simple Process</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Simple Process</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSimpleProcess(SimpleProcess object) {
         return null;
     }
 

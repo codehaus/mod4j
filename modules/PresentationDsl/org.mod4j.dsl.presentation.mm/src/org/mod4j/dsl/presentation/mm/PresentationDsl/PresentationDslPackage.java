@@ -591,13 +591,31 @@ public interface PresentationDslPackage extends EPackage {
     int CONTENT_FORM__FORM_ELEMENTS = FORM_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Is Collection</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTENT_FORM__IS_COLLECTION = FORM_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTENT_FORM__ACTIONS = FORM_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Content Form</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONTENT_FORM_FEATURE_COUNT = FORM_FEATURE_COUNT + 1;
+    int CONTENT_FORM_FEATURE_COUNT = FORM_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.CompoundDialogueImpl <em>Compound Dialogue</em>}' class.
@@ -1852,7 +1870,6 @@ public interface PresentationDslPackage extends EPackage {
      */
     int PRESENTATION_MODEL_FEATURE_COUNT = 4;
 
-
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectProcessCallImpl <em>Direct Process Call</em>}' class.
      * <!-- begin-user-doc -->
@@ -1910,6 +1927,53 @@ public interface PresentationDslPackage extends EPackage {
 
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl <em>Simple Process</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getSimpleProcess()
+     * @generated
+     */
+    int SIMPLE_PROCESS = 30;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS__NAME = MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Dialogue</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS__DIALOGUE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Simple Process</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference <em>Association Role Reference</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1949,6 +2013,28 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getContentForm_FormElements();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#isIsCollection <em>Is Collection</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Is Collection</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#isIsCollection()
+     * @see #getContentForm()
+     * @generated
+     */
+    EAttribute getContentForm_IsCollection();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions <em>Actions</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Actions</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions()
+     * @see #getContentForm()
+     * @generated
+     */
+    EReference getContentForm_Actions();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue <em>Compound Dialogue</em>}'.
@@ -2551,6 +2637,27 @@ public interface PresentationDslPackage extends EPackage {
     EClass getDirectProcessCall();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess <em>Simple Process</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Simple Process</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess
+     * @generated
+     */
+    EClass getSimpleProcess();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue <em>Dialogue</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Dialogue</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue()
+     * @see #getSimpleProcess()
+     * @generated
+     */
+    EReference getSimpleProcess_Dialogue();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2609,6 +2716,22 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference CONTENT_FORM__FORM_ELEMENTS = eINSTANCE.getContentForm_FormElements();
+
+        /**
+         * The meta object literal for the '<em><b>Is Collection</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CONTENT_FORM__IS_COLLECTION = eINSTANCE.getContentForm_IsCollection();
+
+        /**
+         * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONTENT_FORM__ACTIONS = eINSTANCE.getContentForm_Actions();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.CompoundDialogueImpl <em>Compound Dialogue</em>}' class.
@@ -3119,6 +3242,24 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EClass DIRECT_PROCESS_CALL = eINSTANCE.getDirectProcessCall();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl <em>Simple Process</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getSimpleProcess()
+         * @generated
+         */
+        EClass SIMPLE_PROCESS = eINSTANCE.getSimpleProcess();
+
+        /**
+         * The meta object literal for the '<em><b>Dialogue</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIMPLE_PROCESS__DIALOGUE = eINSTANCE.getSimpleProcess_Dialogue();
 
     }
 
