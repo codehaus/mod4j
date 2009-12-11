@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <javaee:display-name>RecordShop 1.0-SNAPSHOT</javaee:display-name>
+  <context-param>
+    <javaee:param-name>parentContextKey</javaee:param-name>
+    <javaee:param-value>org.company.recordshop.serviceContext</javaee:param-value>
+  </context-param>
+  <context-param>
+    <javaee:param-name>locatorFactorySelector</javaee:param-name>
+    <javaee:param-value>classpath*:/org/company/recordshop/*/beanRefContext.xml</javaee:param-value>
+  </context-param>
+  <filter>
+    <filter-name>Wicket</filter-name>
+    <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+    <init-param>
+      <javaee:param-name>applicationFactoryClassName</javaee:param-name>
+      <javaee:param-value>
+                org.apache.wicket.spring.SpringWebApplicationFactory
+            </javaee:param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Wicket</filter-name>
+    <url-pattern>/RecordShop/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <javaee:listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </javaee:listener-class>
+  </listener>
+  <javaee:resource-ref>
+    <javaee:res-ref-name>jdbc/RecordShopDS</javaee:res-ref-name>
+    <javaee:res-type>javax.sql.DataSource</javaee:res-type>
+    <javaee:res-auth>Container</javaee:res-auth>
+  </javaee:resource-ref>
+</web-app>
