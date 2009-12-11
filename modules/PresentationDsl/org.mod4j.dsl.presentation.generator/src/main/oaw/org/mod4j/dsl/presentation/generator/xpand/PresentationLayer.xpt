@@ -11,6 +11,7 @@
 «IMPORT PresentationDsl»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp»
 
 «EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
@@ -20,6 +21,11 @@
 
 «DEFINE Generate FOR PresentationModel»
     «print("MOD4J INFO: Running Presentation generator on model [" + this.name + "]")»
+    
+    «REM»
+        Generate all webapp folders and content
+    «ENDREM»
+    «EXPAND WebApp::AllWebAppContent FOR this»
     
     «REM»Generate application wide files«ENDREM»
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + "." + getWicketApplicationClass() ))»
@@ -172,4 +178,5 @@
 «ENDDEFINE»
 
 «DEFINE generateListeners FOR ContentForm»
+
 «ENDDEFINE»

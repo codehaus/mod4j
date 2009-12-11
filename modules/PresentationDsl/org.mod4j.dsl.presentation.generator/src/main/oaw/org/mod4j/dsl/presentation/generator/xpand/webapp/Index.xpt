@@ -1,0 +1,9 @@
+«IMPORT PresentationDsl»
+
+«DEFINE generateIndexHtml FOR PresentationModel -»
+<html>
+<head>
+<meta http-equiv="Refresh" content="0; url=rosas">
+</head>
+</html>
+«ENDDEFINE»
