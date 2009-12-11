@@ -52,13 +52,14 @@ textarea {
     }
 
 div.frameTop {
+    background:url(../images/pageheader.jpg);
     width:970px;        
     height:100px;
     margin:0 auto;
 }
 
 a.logo {
-    background:transparent url(../images/j-technologies-logo.gif) no-repeat scroll 0%;
+    background:url(../images/logo.jpg);
     float:left;
     height:50px;
     margin:10px 0 0 47px;
@@ -132,7 +133,6 @@ div.frameLeft div.menu ul li a:active {
 }   
 
 div.frameRight {
-    background: url(images/pageheader.jpg) no-repeat;
     float:left;
     width:562px;
     margin:0 14px 0 0;
@@ -276,7 +276,7 @@ div.frameRight table.horizontal th.lblMaxTransactionsPerMonth {width:100px;}
 div.frameRight table.horizontal th.lblTransactionsPerHour {width:100px;}            
 div.frameRight table.horizontal th.lblTransactionsPerMonth {width:100px;}           
             
-/* verticale tabellen */            
+/* Vertical tables */            
 div.frameRight table.vertical th {
     text-align:left;
     padding:6px 0px 5px 8px;
