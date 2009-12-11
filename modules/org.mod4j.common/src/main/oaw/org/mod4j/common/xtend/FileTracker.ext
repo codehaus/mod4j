@@ -18,9 +18,15 @@ String generate(String moduleName, String filename) :
 String extend(String moduleName, String filename) :
  JAVA org.mod4j.common.generator.admin.Mod4jTracker.extend(java.lang.String, java.lang.String);
 
+String extend(String moduleName, String subFolderPath, String filename) :
+ JAVA org.mod4j.common.generator.admin.Mod4jTracker.extend(java.lang.String, java.lang.String, java.lang.String);
+
 String retain(String moduleName, String filename) :
  JAVA org.mod4j.common.generator.admin.Mod4jTracker.retain(java.lang.String, java.lang.String);
-  
+
+String retain(String moduleName, String subFolderName, String filename) :
+ JAVA org.mod4j.common.generator.admin.Mod4jTracker.retain(java.lang.String, java.lang.String, java.lang.String);  
+
 String fullExtendPath(String moduleName, String filename) :
  JAVA org.mod4j.common.generator.admin.Mod4jTracker.fullExtendPath(java.lang.String, java.lang.String);
   

@@ -163,4 +163,15 @@ String getPresentationCommonPackageAsPath() :
 
 String getPresentationRootPackageAsPath() :
  JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getPresentationRootPackageAsPath();
+
+String getPresentationWebAppPath() :
+ JAVA org.mod4j.dslcommon.generator.helpers.ProjectProperties.getWebAppPath();
  
+String getPresentationWebInfPath() :
+  getPresentationWebAppPath() + "/WEB-INF";
+  
+String getPresentationCssPath() :
+  getPresentationWebAppPath() + "/css";
+
+String getPresentationImagesPath() :
+  getPresentationWebAppPath() + "/images";

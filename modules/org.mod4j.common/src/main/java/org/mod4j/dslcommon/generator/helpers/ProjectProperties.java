@@ -55,6 +55,7 @@ public class ProjectProperties {
         resourceGenPath = properties.getProperty("resourceGenPath");
         srcManPath = properties.getProperty("srcManPath");
         resourceManPath = properties.getProperty("resourceManPath");
+        webAppPath = properties.getProperty("webAppPath");
         //environmentPropertiesFileName = properties.getProperty("environmentPropertiesFileName");
         fileEncoding = properties.getProperty("fileEncoding");
         hibernate_hbm2ddl_auto = properties.getProperty("hibernate.hbm2ddl.auto");
@@ -103,6 +104,8 @@ public class ProjectProperties {
     private static String resourceGenPath = "DEFAULT";
 
     private static String srcManPath = "DEFAULT";
+    
+    private static String webAppPath = "src/main/webapp";
 
     private static String resourceManPath = "DEFAULT";
     
@@ -303,6 +306,10 @@ public class ProjectProperties {
 
     public static String getResourceManPath() {
         return resourceManPath;
+    }
+    
+    public static String getWebAppPath() {
+        return webAppPath;
     }
     
     public static String getEnvPropFileName() {

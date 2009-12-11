@@ -80,9 +80,6 @@ public class ModelHelpers {
 
     public static boolean fileExist(String path) {
         File f = new File(path);
-        if( ! f.exists() ){
-        	return false;
-        }
         return f.exists();
     }
 
