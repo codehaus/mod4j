@@ -8,9 +8,8 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
-«DEFINE GenerateObjectCollectionDataViewPanel FOR CollectionDialogue -»
+«DEFINE GenerateObjectCollectionDataViewPanel FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this-»
-«LET this.dialogues.first().referredContentForm() AS cf»
 «REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
 package «getPresentationRootPackage()».panels;
 
@@ -18,15 +17,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+«FOREACH this.processes.referredProcess().select(e|e.type!=ProcessType::NEW) AS ppp»
+// import «getPresentationRootPackage()».pages.«ppp.processElements.referredContentForm().first().name»Page;
+«ENDFOREACH»
+
 import «javaDtoClassPath(this.contextRef.name)»;
-«FOREACH cf.formElements.dataProperty AS dp»
+«FOREACH this.formElements.dataProperty AS dp»
 	«IF dp.isEnumeration»
 	import «javaDtoClassPath(dp.dataType)»;
 	«ENDIF»
-«ENDFOREACH»
-
-«FOREACH this.processes AS process»
-import «getPresentationRootPackage()».pages.«process.name»Page;
 «ENDFOREACH»
 
 import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
@@ -54,9 +53,9 @@ import org.apache.wicket.util.convert.IConverter;
  * A panel that shows a list of «this.contextRef.name», not editable.
  */
 @SuppressWarnings("serial")
-public class «this.name»CollectionDataViewPanel  extends Panel implements «this.contextRef.name»ListListener
+public class «this.name»CollectionDataViewPanel  extends Panel 
 {
-    «EXPAND dataView(this) FOR cf»
+    «EXPAND dataView FOR this»
 	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
 	
 	/**
@@ -78,40 +77,26 @@ public class «this.name»CollectionDataViewPanel  extends Panel implements «th
 		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider);
 		collection.setItemsPerPage(maxItemsPerPage);
 		container.add(collection);
+
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::NEW) AS p»
+				add(new Link<Object>("«p.name»") {
+					@Override
+					public void onClick() {
+						for («this.contextRef.name»ListListener listener : listeners) {
+							listener.on«this.contextRef.name»New(new «this.contextRef.name»());
+						}
+					}
+				});
+		«ENDFOREACH»
+		
 		add(container);
 		add(new AjaxPagingNavigator("navigator",collection));
 //		add(new BookmarkablePageLink<Object>("edit",BreakfastsEditPage.class));
 	}
-
-	public void on«this.contextRef.name»Cancel(«this.contextRef.name» breakfast) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void on«this.contextRef.name»Delete(«this.contextRef.name» breakfast) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void on«this.contextRef.name»Edit(«this.contextRef.name» breakfast) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void on«this.contextRef.name»Save(«this.contextRef.name» breakfast) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void on«this.contextRef.name»Selected(«this.contextRef.name» breakfast) {
-		// TODO Auto-generated method stub
-		
-	}
 }
-«ENDLET»
 «ENDDEFINE»
 
-«DEFINE dataView(CollectionDialogue dialogue) FOR ContentForm»
+«DEFINE dataView FOR ContentForm»
 	private class «this.contextRef.name»DataView extends	DataView<«this.contextRef.name»> {
 		private «this.contextRef.name»DataView(String id, IDataProvider<«this.contextRef.name»> dataProvider) {
 			super(id, dataProvider);
@@ -148,10 +133,26 @@ public class «this.name»CollectionDataViewPanel  extends Panel implements «th
 		«ENDFOREACH»
 	«ENDLET»
 	«ENDLET»
-    «FOREACH dialogue.processes AS process»
-			item.add(new Link("«process.name»") {
+
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::CUSTOM) AS ppp»
+			item.add(new Link("«ppp.name»") {
 				public void onClick() {
-				    setResponsePage( new «process.name»Page(item.getModel()));
+					for («this.contextRef.name»ListListener listener : listeners) {
+//						listener.on«this.contextRef.name»New(item.getModel().getObject());
+						listener.startProcess("«ppp.name»Process", item.getModel().getObject());
+					}
+//				    setResponsePage( new «ppp.processElements.referredContentForm().first().name»Page(item.getModel()));
+				}
+			});
+    «ENDFOREACH»
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS ppp»
+			item.add(new Link("«ppp.name»") {
+				public void onClick() {
+					for («this.contextRef.name»ListListener listener : listeners) {
+						listener.on«this.contextRef.name»Edit(item.getModel().getObject());
+//						listener.startProcess("«ppp.name»Process", item.getModel().getObject());
+					}
+//				    setResponsePage( new «ppp.processElements.referredContentForm().first().name»Page(item.getModel()));
 				}
 			});
     «ENDFOREACH»

@@ -16,6 +16,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCompoundDialogue <em>Compound Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess <em>Calling Simple Process</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,33 @@ public interface DialogueCall extends UIModelElementCall {
      * @generated
      */
     void setCompoundDialogue(CompoundDialogue value);
+
+    /**
+     * Returns the value of the '<em><b>Calling Simple Process</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue <em>Dialogue</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Calling Simple Process</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Calling Simple Process</em>' container reference.
+     * @see #setCallingSimpleProcess(SimpleProcess)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogueCall_CallingSimpleProcess()
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue
+     * @model opposite="dialogue" transient="false"
+     * @generated
+     */
+    SimpleProcess getCallingSimpleProcess();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess <em>Calling Simple Process</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Calling Simple Process</em>' container reference.
+     * @see #getCallingSimpleProcess()
+     * @generated
+     */
+    void setCallingSimpleProcess(SimpleProcess value);
 
 } // DialogueCall

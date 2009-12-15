@@ -29,7 +29,7 @@ Dialogue :
 	
 ContentForm :
 	(description=STRING )?
-	"ContentForm" name = ID "context" contextRef = [ExternalReference]
+	"ContentForm" name = ID "context" (isCollection?="list")? contextRef = [ExternalReference]
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
@@ -39,10 +39,14 @@ ContentForm :
 	;
 
 SimpleProcess :
-    name=ID 
+    name=ID (type=ProcessType)?
     ( "use" dialogue = DialogueCall  )? 
     ;
     	
+enum ProcessType :
+    NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove"
+;
+
 CompoundDialogue :
 	(description=STRING )?
 	"CompoundDialogue" name = ID "context" contextRef = [ExternalReference]
@@ -81,12 +85,14 @@ Process :
 AutomatedProcess :
 	(description=STRING )?
 	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
+	(type=ProcessType)?
 	("steps" "[" (processElements += UICall ";")* "]")?
 	;
 
 InteractiveProcess :
 	(description=STRING )?
 	"InteractiveProcess" name = ID "context" contextRef = [ExternalReference]
+	(type=ProcessType)?
 	("steps" "[" (processElements += UICall ";")* "]")?
 	;
 	

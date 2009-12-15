@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -117,9 +118,24 @@ public abstract class DialogueImpl extends UIModelElementImpl implements Dialogu
      */
     public EList<ProcessCall> getProcesses() {
         if (processes == null) {
-            processes = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES);
+            processes = new EObjectContainmentWithInverseEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.DIALOGUE__PROCESSES, PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE);
         }
         return processes;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case PresentationDslPackage.DIALOGUE__PROCESSES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcesses()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**

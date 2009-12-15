@@ -36,6 +36,12 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 
     protected boolean editOn = false;
     
+    public void setEditOn(boolean on){
+        if( editOn != on) {
+            swapPanels();
+        }
+    }
+    
     protected IModel<«this.contextRef.name»> model = null;
     
     /**
@@ -84,6 +90,10 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 		swapPanels();
 	}
 
+	public void on«this.contextRef.name»New(«this.contextRef.name» element) {
+		
+	}
+
 	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
 		swapPanels();
 		for («this.contextRef.name»ListListener listener : listeners) {
@@ -96,6 +106,10 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 		for («this.contextRef.name»ListListener listener : listeners) {
 			listener.on«this.contextRef.name»Delete(element);
 		}
+	}
+	public void startProcess(String name, «this.contextRef.name» context) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

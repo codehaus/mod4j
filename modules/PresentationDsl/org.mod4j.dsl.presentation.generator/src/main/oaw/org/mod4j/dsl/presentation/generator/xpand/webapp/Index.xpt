@@ -1,6 +1,13 @@
 «IMPORT PresentationDsl»
 
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
 «DEFINE generateIndexHtml FOR PresentationModel -»
+«print("MOD4J INFO 2: Generating generateIndexHtml") -»
 <html>
 <head>
 <meta http-equiv="Refresh" content="0; url=rosas">

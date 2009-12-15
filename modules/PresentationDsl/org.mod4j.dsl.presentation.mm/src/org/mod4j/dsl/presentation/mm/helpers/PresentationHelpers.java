@@ -6,9 +6,11 @@ import java.util.List;
 //import org.mod4j.crossx.mm.crossx.Symbol;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 
@@ -56,6 +58,22 @@ public class PresentationHelpers {
         for (ModelElementWithContext element : process.getPresentationModel().getElements()) {
             if( element instanceof CollectionDialogue ) {
                 CollectionDialogue result = (CollectionDialogue )element;
+                if( result.getName().equals(call.getName())){
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+
+    static public Process referredProcess(ProcessCall call) {
+        Dialogue dia = call.getOwningDialogue();
+        if( dia == null ) {
+            return null;
+        }
+        for (ModelElementWithContext element : dia.getPresentationModel().getElements() ){
+            if( element instanceof Process ) {
+                Process result = (Process )element;
                 if( result.getName().equals(call.getName())){
                     return result;
                 }

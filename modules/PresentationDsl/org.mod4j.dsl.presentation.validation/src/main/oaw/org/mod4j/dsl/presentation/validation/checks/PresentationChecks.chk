@@ -21,6 +21,25 @@ context CollectionDialogue ERROR this.name + " must havce exactly one dialogue o
     (this.dialogues.first().referredContentForm().contextRef == this.contextRef) 
     ;
 
+context SimpleProcess ERROR "A new action must have a form attached to it" :
+    this.name.startsWith("new") implies (this.dialogue != null) ;
+    
+context ContentForm ERROR "A Content Form may have at most one 'edit' action" :
+    this.actions.select(e|e.type==ProcessType::EDIT).size <= 1;
 
+context ContentForm ERROR "A Content Form may have at most one 'new' action" :
+    this.actions.select(e|e.type==ProcessType::NEW).size <= 1;
 
+context ContentForm ERROR "A Content Form may have at most one 'save' action" :
+    this.actions.select(e|e.type==ProcessType::SAVE).size <= 1;
+
+context ContentForm ERROR "A Content Form may have at most one 'cancel' action" :
+    this.actions.select(e|e.type==ProcessType::CANCEL).size <= 1;
+
+context ContentForm ERROR "A Content Form may have at most one 'remove' action" :
+    this.actions.select(e|e.type==ProcessType::REMOVE).size <= 1;
+
+context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the same context as the from to which the action belongs [" + this.contentForm.name + "]" :
+    ((this.dialogue != null) && (this.dialogue.referredContentForm() != null) )
+    implies this.dialogue.referredContentForm().contextRef.name.equalsIgnoreCase(this.contentForm.contextRef.name);
  

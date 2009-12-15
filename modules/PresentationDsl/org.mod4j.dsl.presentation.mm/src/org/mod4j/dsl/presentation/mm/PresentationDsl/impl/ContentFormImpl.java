@@ -140,7 +140,7 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
      */
     public EList<SimpleProcess> getActions() {
         if (actions == null) {
-            actions = new EObjectContainmentEList<SimpleProcess>(SimpleProcess.class, this, PresentationDslPackage.CONTENT_FORM__ACTIONS);
+            actions = new EObjectContainmentWithInverseEList<SimpleProcess>(SimpleProcess.class, this, PresentationDslPackage.CONTENT_FORM__ACTIONS, PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM);
         }
         return actions;
     }
@@ -156,6 +156,8 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
         switch (featureID) {
             case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getFormElements()).basicAdd(otherEnd, msgs);
+            case PresentationDslPackage.CONTENT_FORM__ACTIONS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getActions()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

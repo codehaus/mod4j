@@ -8,6 +8,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,10 +16,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 
 /**
@@ -29,6 +32,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +48,25 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * @ordered
      */
     protected EList<UICall> processElements;
+
+    /**
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected static final ProcessType TYPE_EDEFAULT = ProcessType.CUSTOM;
+    /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected ProcessType type = TYPE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -74,6 +97,27 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             processElements = new EObjectContainmentWithInverseEList<UICall>(UICall.class, this, PresentationDslPackage.PROCESS__PROCESS_ELEMENTS, PresentationDslPackage.UI_CALL__PROCESS);
         }
         return processElements;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProcessType getType() {
+        return type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setType(ProcessType newType) {
+        ProcessType oldType = type;
+        type = newType == null ? TYPE_EDEFAULT : newType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__TYPE, oldType, type));
     }
 
     /**
@@ -115,6 +159,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return getProcessElements();
+            case PresentationDslPackage.PROCESS__TYPE:
+                return getType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -132,6 +178,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 getProcessElements().clear();
                 getProcessElements().addAll((Collection<? extends UICall>)newValue);
                 return;
+            case PresentationDslPackage.PROCESS__TYPE:
+                setType((ProcessType)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -147,6 +196,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 getProcessElements().clear();
                 return;
+            case PresentationDslPackage.PROCESS__TYPE:
+                setType(TYPE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -161,8 +213,26 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return processElements != null && !processElements.isEmpty();
+            case PresentationDslPackage.PROCESS__TYPE:
+                return type != TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (type: ");
+        result.append(type);
+        result.append(')');
+        return result.toString();
     }
 
 } //ProcessImpl

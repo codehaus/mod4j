@@ -12,5 +12,9 @@ ContentForm referredContentForm(UICall call) :
 CollectionDialogue referredCollectionDialogue(UICall call) :
   JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.referredCollectionDialogue(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
   
+Process referredProcess(ProcessCall call) :
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.referredProcess(org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall );
   
+Process getProcessOfType(ContentForm form, ProcessType type) :
+  form.processes.referredProcess().select(e|e.type==type).first();
   

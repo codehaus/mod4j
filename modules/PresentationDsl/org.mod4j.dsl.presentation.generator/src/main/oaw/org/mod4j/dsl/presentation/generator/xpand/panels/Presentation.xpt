@@ -148,6 +148,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
 «DEFINE GenerateMasterPage FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+«LET this.elements.typeSelect(InteractiveProcess).select(ip|ip.processElements.referredContentForm().first().isCollection) AS processes»
 package «getPresentationRootPackage()».pages;
 
 import java.util.ArrayList;
@@ -155,8 +156,8 @@ import java.util.List;
 
 import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
-«FOREACH this.elements.typeSelect(InteractiveProcess).select(ip|!ip.processElements.referredCollectionDialogue().isEmpty) AS process-»
-import «getPresentationRootPackage()».pages.«process.name»Page;
+«FOREACH processes AS process-»
+import «getPresentationRootPackage()».pages.«process.processElements.referredContentForm().first().name»Page;
 «ENDFOREACH»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
 import «getPresentationRootPackage()».«getWicketApplicationClass()»;
@@ -186,12 +187,14 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
         homeLink.add(new Label("name", getLocalizer().getString("lbl.home", this)) );
         menuItems.add(homeLink);
         
-«FOREACH this.elements.typeSelect(InteractiveProcess).select(ip|!ip.processElements.referredCollectionDialogue().isEmpty) AS process-»
-        BookmarkablePageLink<«process.name»Page> «process.name»Link = new BookmarkablePageLink<«process.name»Page>("link", «process.name»Page.class);
+	«FOREACH processes AS process-»
+	«LET process.processElements.referredContentForm().first().name AS pagename»
+        BookmarkablePageLink<«pagename»Page> «process.name»Link = new BookmarkablePageLink<«pagename»Page>("link", «pagename»Page.class);
         «process.name»Link.setAutoEnable(true);
 //        «process.name»Link.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
         «process.name»Link.add(new Label("name", "«process.name»"));
         menuItems.add(«process.name»Link);
+    «ENDLET»
     «ENDFOREACH»         
 //        BookmarkablePageLink<ComestiblesProcessPage> comestiblesLink = new BookmarkablePageLink<ComestiblesProcessPage>("link", ComestiblesProcessPage.class);
 //        comestiblesLink.setAutoEnable(true);
@@ -212,6 +215,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
     public abstract String getPageTitle();
 
 }
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE GenerateMasterPageHtml FOR PresentationModel -»

@@ -7,7 +7,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
-«DEFINE GenerateContentFormPage FOR InteractiveProcess -»
+«DEFINE GenerateContentFormPage(ContentForm form) FOR InteractiveProcess -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this»
 package «getPresentationRootPackage()».pages;
 
@@ -17,42 +17,68 @@ import «javaDtoClassPath(this.contextRef.name)»;
 
 import org.apache.wicket.model.IModel;
 
-public class «this.name»Page extends «getWicketMasterPageClass()»
+public class «form.name»Page extends «getWicketMasterPageClass()»
 {
 
-	public «this.name»Page (final IModel<«this.contextRef.name»> context)
+    protected «this.processElements.first().name»SwapEditPanel panel = null;
+    
+	public «form.name»Page (final IModel<«this.contextRef.name»> context)
 	{
 		super();
-		add(new «this.processElements.first().name»SwapEditPanel("panel", context));
-		
+		panel = new «this.processElements.first().name»SwapEditPanel("panel", context);
+		add(panel);
 	}
 
+    public void editOn(boolean on){
+        panel.setEditOn(on);
+    }
+    
 	@Override
 	public String getPageTitle()
 	{
-	    return "«this.name»";
+	    return "«form.name»Page";
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
 }
 «ENDDEFINE»
 
-«DEFINE GenerateCollectionDialoguePage FOR InteractiveProcess -»
+«DEFINE GenerateCollectionDialoguePage(ContentForm form) FOR InteractiveProcess -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
+«REM»
 «LET this.processElements.first().referredCollectionDialogue() AS collDialogue»
 «LET collDialogue.dialogues.first().referredContentForm() AS cf»
+«LET this.processElements.first().referredContentForm() AS cf»
+«ENDREM»
+«LET form AS cf» 
+«LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
+«LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
 package «getPresentationRootPackage()».pages;
 
+«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process;
+«ENDFOREACH»
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-import «getPresentationRootPackage()».panels.«collDialogue.name»CollectionDataViewPanel;
+import «getPresentationRootPackage()».panels.«cf.name»CollectionDataViewPanel;
+import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListener;
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
 import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )»;
+import «getPresentationRootPackage()».processes.PmfProcess;
 
+«IF editProcess != null»
+import «getPresentationRootPackage()».processes.«editProcess.name»Process;
+«ENDIF»
+«IF newProcess != null»
+import «getPresentationRootPackage()».processes.«newProcess.name»Process;
+«ENDIF»
+
+
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-public class «this.name»Page extends «getWicketMasterPageClass()»
+public class «form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
 {
 
 	@SpringBean(name = "«findServiceWithMethod(cf, "LISTALL").toFirstLower()»Service")
@@ -62,22 +88,59 @@ public class «this.name»Page extends «getWicketMasterPageClass()»
 //    @SpringBean(name="maxItemsPerPage")
     private Integer maxItemsPerPage = 5;
 
-	public «this.name»Page ()
+	public «form.name»Page ()
 	{
 		super();
         «this.contextRef.name»DataProvider dataProvider = new «this.contextRef.name»DataProvider(service);
-        add( new «collDialogue.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage));
+        «cf.name»CollectionDataViewPanel panel = new «cf.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
+        panel.addListener(this);
+        add( panel );
 		
 	}
 
 	@Override
 	public String getPageTitle()
 	{
-	    return "«this.name»";
+	    return "«form.name»Page";
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
+	public void startProcess(String processName, «this.contextRef.name» context){
+	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+		if(processName.equals("«p.name»Process")){
+			«p.name»Process process = new «p.name»Process();
+			setResponsePage(process.nextPage(context));
+		}
+	«ENDFOREACH»
+	}
+
+	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»Delete(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»Edit(«this.contextRef.name» element) {
+    «IF editProcess != null»
+	    PmfProcess process = new «editProcess.name»Process();
+	    setResponsePage( process.nextPage(element));
+	«ENDIF»
+	}
+
+	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»New(«this.contextRef.name» element) {
+    «IF newProcess != null»
+	    PmfProcess process = new «newProcess.name»Process();
+	    setResponsePage( process.nextPage(element));
+	«ENDIF»
+	}
+
+	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
+	}
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDDEFINE»

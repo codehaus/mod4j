@@ -47,3 +47,4 @@ String findSpecialMethodInService(ContentForm form, String methodType, String se
 String findServiceWithMethod(ContentForm form, String methodType) :
     findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(form, methodType, s.name) != null ).first().name;
  
+ 

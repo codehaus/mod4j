@@ -12,22 +12,13 @@ extension org::mod4j::dslcommon::xtend::generatorutil;
 completeModel(PresentationModel pmfModel) :
     let formElements = pmfModel.elements.typeSelect(ContentForm).formElements :    
     let contentForms = pmfModel.elements.typeSelect(ContentForm):
-    
-	formElements.addDataProperty()->
-	contentForms.addIsCollection()    ; 
-	
-Boolean addIsCollection(ContentForm form) :
-    let dtoSymbol = lookupSymbol(form.contextRef.modelName, form.contextRef.name, "Dto") :
-    form.setIsCollection( dtoSymbol.getPropertyValue("dtoType").equalsIgnoreCase("ListDto"))
-   
-;
 
+    formElements.addDataProperty()->
+	contentForms.convertActions();
+	
 DataProperty addDataProperty(FormElement element) :
     let dtoSymbol = lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
     let symbol = dtoSymbol.subSymbols.select(s|s.type.matches("DataProperty")).select(sym | sym.name.equalsIgnoreCase(element.references.name)).first() :
-    print("addDataProperty for: "+ element.name )->
-    print("addDataProperty dtoSymbol : "+ dtoSymbol.name )->
-    print("addDataProperty symbol : "+ symbol.name )->
     element.setDataProperty(newDataProperty(symbol))
 ;
 
@@ -42,7 +33,27 @@ PresentationDsl::DataProperty newDataProperty(Symbol symbol) :
     let owner = (Symbol)(symbol.eContainer) :
     let ref = lookupSymbol(owner.owner.modelname, dataType, "EnumerationDto") :
     result.setName(symbol.name)->
-    result.setDataType(symbol.getPropertyValue("DataType"))->
+    result.setDataType(dataType)->
     result.setIsEnumeration(ref != null)->
     result;
+
+Boolean convertActions(ContentForm form) :
+    form.actions.createProcess(form)
+;
+
+Boolean createProcess(SimpleProcess action, ContentForm form) :
+    let tmp = (action.dialogue == null ? new AutomatedProcess : new InteractiveProcess ):
+    let result = (Process) tmp :
+    let dialogue = new DirectDialogueCall :
+    let name = form.name + action.name.toFirstUpper() + "Action" :
+    let processCall = new DirectProcessCall :
+    dialogue.setName(action.dialogue.name)->
+    result.setName(name)->
+    result.setContextRef(form.contextRef)->
+    (action.dialogue != null ? result.processElements.add(dialogue) : null)->
+    result.setType(action.type)->
+    processCall.setName(name)->
+    form.processes.add(processCall)->
+    form.presentationModel.elements.add(result)
+    ;
     

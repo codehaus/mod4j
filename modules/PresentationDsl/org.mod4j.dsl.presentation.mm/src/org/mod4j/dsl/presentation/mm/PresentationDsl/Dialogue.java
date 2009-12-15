@@ -56,6 +56,7 @@ public interface Dialogue extends UIModelElement {
     /**
      * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningDialogue <em>Owning Dialogue</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Processes</em>' containment reference list isn't clear,
@@ -64,7 +65,8 @@ public interface Dialogue extends UIModelElement {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Processes</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogue_Processes()
-     * @model containment="true"
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningDialogue
+     * @model opposite="owningDialogue" containment="true"
      * @generated
      */
     EList<ProcessCall> getProcesses();

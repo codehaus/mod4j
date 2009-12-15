@@ -8,6 +8,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -299,13 +300,22 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS__PROCESS_ELEMENTS = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__TYPE = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl <em>Automated Process</em>}' class.
@@ -361,6 +371,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int AUTOMATED_PROCESS__PROCESS_ELEMENTS = PROCESS__PROCESS_ELEMENTS;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AUTOMATED_PROCESS__TYPE = PROCESS__TYPE;
 
     /**
      * The number of structural features of the '<em>Automated Process</em>' class.
@@ -1002,13 +1021,22 @@ public interface PresentationDslPackage extends EPackage {
     int DIALOGUE_CALL__COMPOUND_DIALOGUE = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Calling Simple Process</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIALOGUE_CALL__CALLING_SIMPLE_PROCESS = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Dialogue Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
+    int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectDialogueCallImpl <em>Direct Dialogue Call</em>}' class.
@@ -1064,6 +1092,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int DIRECT_DIALOGUE_CALL__COMPOUND_DIALOGUE = DIALOGUE_CALL__COMPOUND_DIALOGUE;
+
+    /**
+     * The feature id for the '<em><b>Calling Simple Process</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIRECT_DIALOGUE_CALL__CALLING_SIMPLE_PROCESS = DIALOGUE_CALL__CALLING_SIMPLE_PROCESS;
 
     /**
      * The number of structural features of the '<em>Direct Dialogue Call</em>' class.
@@ -1295,6 +1332,15 @@ public interface PresentationDslPackage extends EPackage {
     int INTERACTIVE_PROCESS__PROCESS_ELEMENTS = PROCESS__PROCESS_ELEMENTS;
 
     /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTERACTIVE_PROCESS__TYPE = PROCESS__TYPE;
+
+    /**
      * The number of structural features of the '<em>Interactive Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1414,6 +1460,15 @@ public interface PresentationDslPackage extends EPackage {
     int LINKED_DIALOGUE_CALL__COMPOUND_DIALOGUE = DIALOGUE_CALL__COMPOUND_DIALOGUE;
 
     /**
+     * The feature id for the '<em><b>Calling Simple Process</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_DIALOGUE_CALL__CALLING_SIMPLE_PROCESS = DIALOGUE_CALL__CALLING_SIMPLE_PROCESS;
+
+    /**
      * The feature id for the '<em><b>Link</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1478,13 +1533,22 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS_CALL__ALIAS = UI_MODEL_ELEMENT_CALL__ALIAS;
 
     /**
+     * The feature id for the '<em><b>Owning Dialogue</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS_CALL__OWNING_DIALOGUE = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Process Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROCESS_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+    int PROCESS_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkedProcessCallImpl <em>Linked Process Call</em>}' class.
@@ -1531,6 +1595,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int LINKED_PROCESS_CALL__ALIAS = PROCESS_CALL__ALIAS;
+
+    /**
+     * The feature id for the '<em><b>Owning Dialogue</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINKED_PROCESS_CALL__OWNING_DIALOGUE = PROCESS_CALL__OWNING_DIALOGUE;
 
     /**
      * The feature id for the '<em><b>Link</b></em>' containment reference.
@@ -1917,6 +1990,15 @@ public interface PresentationDslPackage extends EPackage {
     int DIRECT_PROCESS_CALL__ALIAS = PROCESS_CALL__ALIAS;
 
     /**
+     * The feature id for the '<em><b>Owning Dialogue</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIRECT_PROCESS_CALL__OWNING_DIALOGUE = PROCESS_CALL__OWNING_DIALOGUE;
+
+    /**
      * The number of structural features of the '<em>Direct Process Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1964,13 +2046,42 @@ public interface PresentationDslPackage extends EPackage {
     int SIMPLE_PROCESS__DIALOGUE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Content Form</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS__CONTENT_FORM = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Simple Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessType()
+     * @generated
+     */
+    int PROCESS_TYPE = 31;
 
 
     /**
@@ -2162,6 +2273,17 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getDialogueCall_CompoundDialogue();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess <em>Calling Simple Process</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Calling Simple Process</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess()
+     * @see #getDialogueCall()
+     * @generated
+     */
+    EReference getDialogueCall_CallingSimpleProcess();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall <em>Direct Dialogue Call</em>}'.
@@ -2565,6 +2687,17 @@ public interface PresentationDslPackage extends EPackage {
     EReference getProcess_ProcessElements();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getType()
+     * @see #getProcess()
+     * @generated
+     */
+    EAttribute getProcess_Type();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall <em>Process Call</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2573,6 +2706,17 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EClass getProcessCall();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningDialogue <em>Owning Dialogue</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Owning Dialogue</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningDialogue()
+     * @see #getProcessCall()
+     * @generated
+     */
+    EReference getProcessCall_OwningDialogue();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement <em>UI Model Element</em>}'.
@@ -2656,6 +2800,38 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getSimpleProcess_Dialogue();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType()
+     * @see #getSimpleProcess()
+     * @generated
+     */
+    EAttribute getSimpleProcess_Type();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm <em>Content Form</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Content Form</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm()
+     * @see #getSimpleProcess()
+     * @generated
+     */
+    EReference getSimpleProcess_ContentForm();
+
+    /**
+     * Returns the meta object for enum '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Process Type</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType
+     * @generated
+     */
+    EEnum getProcessType();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -2838,6 +3014,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference DIALOGUE_CALL__COMPOUND_DIALOGUE = eINSTANCE.getDialogueCall_CompoundDialogue();
+
+        /**
+         * The meta object literal for the '<em><b>Calling Simple Process</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DIALOGUE_CALL__CALLING_SIMPLE_PROCESS = eINSTANCE.getDialogueCall_CallingSimpleProcess();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DirectDialogueCallImpl <em>Direct Dialogue Call</em>}' class.
@@ -3178,6 +3362,14 @@ public interface PresentationDslPackage extends EPackage {
         EReference PROCESS__PROCESS_ELEMENTS = eINSTANCE.getProcess_ProcessElements();
 
         /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROCESS__TYPE = eINSTANCE.getProcess_Type();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3186,6 +3378,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EClass PROCESS_CALL = eINSTANCE.getProcessCall();
+
+        /**
+         * The meta object literal for the '<em><b>Owning Dialogue</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROCESS_CALL__OWNING_DIALOGUE = eINSTANCE.getProcessCall_OwningDialogue();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementImpl <em>UI Model Element</em>}' class.
@@ -3260,6 +3460,32 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference SIMPLE_PROCESS__DIALOGUE = eINSTANCE.getSimpleProcess_Dialogue();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIMPLE_PROCESS__TYPE = eINSTANCE.getSimpleProcess_Type();
+
+        /**
+         * The meta object literal for the '<em><b>Content Form</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIMPLE_PROCESS__CONTENT_FORM = eINSTANCE.getSimpleProcess_ContentForm();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessType()
+         * @generated
+         */
+        EEnum PROCESS_TYPE = eINSTANCE.getProcessType();
 
     }
 

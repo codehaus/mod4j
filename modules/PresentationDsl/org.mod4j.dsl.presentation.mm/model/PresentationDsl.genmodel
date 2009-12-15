@@ -7,6 +7,14 @@
   <foreignModel>PresentationDsl.ecore</foreignModel>
   <genPackages prefix="PresentationDsl" basePackage="org.mod4j.dsl.presentation.mm"
       disposableProviderFactory="true" fileExtensions="pmfmod" ecorePackage="PresentationDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="PresentationDsl.ecore#//ProcessType">
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/NEW"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/SAVE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/EDIT"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/REMOVE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CUSTOM"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CANCEL"/>
+    </genEnums>
     <genClasses ecoreClass="PresentationDsl.ecore#//AssociationRoleReference"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//AutomatedProcess"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//ContentForm">
@@ -29,6 +37,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//DialogueCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/compoundDialogue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/callingSimpleProcess"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//DirectDialogueCall"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
@@ -80,8 +89,11 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/type"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/owningDialogue"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UIModelElementCall/alias"/>
@@ -92,6 +104,8 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//DirectProcessCall"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//SimpleProcess">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/dialogue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//SimpleProcess/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/contentForm"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

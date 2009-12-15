@@ -47,6 +47,7 @@ public interface ContentForm extends Form {
 
     /**
      * Returns the value of the '<em><b>Is Collection</b></em>' attribute.
+     * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Is Collection</em>' attribute isn't clear,
@@ -56,7 +57,7 @@ public interface ContentForm extends Form {
      * @return the value of the '<em>Is Collection</em>' attribute.
      * @see #setIsCollection(boolean)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getContentForm_IsCollection()
-     * @model
+     * @model default="false"
      * @generated
      */
     boolean isIsCollection();
@@ -74,6 +75,7 @@ public interface ContentForm extends Form {
     /**
      * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm <em>Content Form</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
@@ -82,7 +84,8 @@ public interface ContentForm extends Form {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Actions</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getContentForm_Actions()
-     * @model containment="true"
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm
+     * @model opposite="contentForm" containment="true"
      * @generated
      */
     EList<SimpleProcess> getActions();

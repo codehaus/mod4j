@@ -8,9 +8,8 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
-«DEFINE GenerateObjectCollectionDataViewPanelHtml FOR CollectionDialogue -»
+«DEFINE GenerateObjectCollectionDataViewPanelHtml FOR ContentForm -»
     «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectCollectionDataViewPanelHtml.xpt") FOR this-»
-«LET this.dialogues.first().referredContentForm() AS cf»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
 <wicket:panel>
 	<div class="navigator">
@@ -22,7 +21,7 @@
 			<caption>«this.name»</caption>
 			<thead>
 				<tr>
-				«FOREACH cf.formElements AS fe»
+				«FOREACH this.formElements AS fe»
 					<th><wicket:message key="lbl.«fe.label»"/></th>
 				«ENDFOREACH»
 				<th colspan="1">&nbsp;</th>
@@ -30,7 +29,7 @@
 			</thead>
 			<tbody wicket:id="container">
 				<tr wicket:id="breakfasts">
-	«LET cf.formElements.toList() AS list»
+	«LET this.formElements.toList() AS list»
 	«LET list.first() AS first»
 	    «EXPAND firstRow FOR first »
 		«FOREACH list AS fe»
@@ -38,19 +37,19 @@
 		«ENDFOREACH»
 	«ENDLET»
 	«ENDLET»
-    «FOREACH this.processes AS process»
-		<td class="butcol"><input type="button" value="«process.name»" wicket:id="«process.name»" class="button" /></td>
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::CUSTOM) AS p»
+		<td class="butcol"><input type="button" value="«p.name»" wicket:id="«p.name»" class="button" /></td>
+	«ENDFOREACH»
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
+		<td class="butcol"><input type="button" value="«p.name»" wicket:id="«p.name»" class="button" /></td>
 	«ENDFOREACH»
 				</tr>
 			</tbody>
-<!--
-			<tfoot>
-				<tr>
-					<td colspan="«cf.formElements.size»"><a href="#" wicket:id="edit"><wicket:message key="cmd.edit"/></a></td>
-				</tr>
-			</tfoot>
--->
 		</table>
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::NEW) AS p»
+			<input type="button" value="«p.name»" wicket:id="«p.name»" class="button" />
+		«ENDFOREACH»
+		
 <!-- 		
         <div class="tableBottom"></div>
 		<div class="topleft"></div>
@@ -59,7 +58,6 @@
 	</div>
 </wicket:panel>
 </html>
-«ENDLET»
 «ENDDEFINE»
 
 «DEFINE firstRow FOR FormElement»
