@@ -292,10 +292,10 @@ public class CrossxBroker {
         List<Symbol> result = new ArrayList<Symbol>(); 
         List<Symbol> tmp = CrossxEnvironment.findAllSymbols(project, symboltype);
         if (tmp != null) {
-            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " [" + tmp.toString() + "]");
+//            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " [" + tmp.toString() + "]");
             result.addAll(tmp);
         } else {
-            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " returns null");
+//            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " returns null");
         }
         return result;
     }
