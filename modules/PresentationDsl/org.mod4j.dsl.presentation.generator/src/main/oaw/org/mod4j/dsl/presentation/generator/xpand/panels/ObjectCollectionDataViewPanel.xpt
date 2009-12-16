@@ -28,7 +28,7 @@ import «javaDtoClassPath(this.contextRef.name)»;
 	«ENDIF»
 «ENDFOREACH»
 
-import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
+// import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
 
 import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
 import org.apache.wicket.markup.html.WebMarkupContainer;

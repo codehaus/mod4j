@@ -42,7 +42,7 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.ModalWindow" ))»
 	    «EXPAND CommonModalWindow::GenerateModalWindow FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".common.ServiceDataProvider" ))»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels.ServiceDataProvider" ))»
 	    «EXPAND ServiceDataProvider::GenerateDataProvider FOR this»
 	«ENDFILE»
 
