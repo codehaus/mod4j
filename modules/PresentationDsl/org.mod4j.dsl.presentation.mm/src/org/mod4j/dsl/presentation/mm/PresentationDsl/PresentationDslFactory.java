@@ -233,6 +233,15 @@ public interface PresentationDslFactory extends EFactory {
     SimpleProcess createSimpleProcess();
 
     /**
+     * Returns a new object of class '<em>Link Service</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Link Service</em>'.
+     * @generated
+     */
+    LinkService createLinkService();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

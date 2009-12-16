@@ -29,6 +29,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
@@ -273,6 +274,8 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.LINK_REF: {
                 LinkRef linkRef = (LinkRef)theEObject;
                 T result = caseLinkRef(linkRef);
+                if (result == null) result = caseLink(linkRef);
+                if (result == null) result = caseModelElementWithContext(linkRef);
                 if (result == null) result = caseModelElement(linkRef);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -380,6 +383,15 @@ public class PresentationDslSwitch<T> {
                 SimpleProcess simpleProcess = (SimpleProcess)theEObject;
                 T result = caseSimpleProcess(simpleProcess);
                 if (result == null) result = caseModelElement(simpleProcess);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.LINK_SERVICE: {
+                LinkService linkService = (LinkService)theEObject;
+                T result = caseLinkService(linkService);
+                if (result == null) result = caseLink(linkService);
+                if (result == null) result = caseModelElementWithContext(linkService);
+                if (result == null) result = caseModelElement(linkService);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -849,6 +861,21 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseSimpleProcess(SimpleProcess object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Link Service</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Link Service</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLinkService(LinkService object) {
         return null;
     }
 

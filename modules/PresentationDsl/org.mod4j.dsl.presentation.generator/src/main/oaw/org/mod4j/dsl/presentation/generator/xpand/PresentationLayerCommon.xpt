@@ -42,6 +42,9 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.ModalWindow" ))»
 	    «EXPAND CommonModalWindow::GenerateModalWindow FOR this»
 	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".common.ServiceDataProvider" ))»
+	    «EXPAND ServiceDataProvider::GenerateDataProvider FOR this»
+	«ENDFILE»
 
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.FieldFeedbackPanel" ))»
 	    «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanel FOR this»

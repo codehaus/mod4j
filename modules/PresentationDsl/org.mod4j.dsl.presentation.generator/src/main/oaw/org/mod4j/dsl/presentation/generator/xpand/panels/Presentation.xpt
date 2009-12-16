@@ -157,6 +157,7 @@ import java.util.List;
 import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
 «FOREACH processes AS process-»
+import «getPresentationRootPackage()».processes.«process.name»Process;
 import «getPresentationRootPackage()».pages.«process.processElements.referredContentForm().first().name»Page;
 «ENDFOREACH»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
@@ -166,6 +167,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.PropertyModel;
@@ -189,11 +191,28 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
         
 	«FOREACH processes AS process-»
 	«LET process.processElements.referredContentForm().first().name AS pagename»
+		// TODO changed
+		Link «process.name»Link = new Link("link") {
+			public void onClick() {
+				«process.name»Process process = new «process.name»Process();
+				setResponsePage(process.nextPage(null));
+			}
+		};
+		«process.name»Link.add( new Label( "name", "«process.name»"  )); //getLocalizer().getString("lbl.comestibles", this)));
+		«process.name»Link.setAutoEnable(true);
+        menuItems.add(«process.name»Link);
+    «ENDLET»
+    «ENDFOREACH»         
+        
+	«FOREACH processes AS process-»
+	«LET process.processElements.referredContentForm().first().name AS pagename»
+/*
         BookmarkablePageLink<«pagename»Page> «process.name»Link = new BookmarkablePageLink<«pagename»Page>("link", «pagename»Page.class);
         «process.name»Link.setAutoEnable(true);
 //        «process.name»Link.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
         «process.name»Link.add(new Label("name", "«process.name»"));
         menuItems.add(«process.name»Link);
+*/
     «ENDLET»
     «ENDFOREACH»         
 //        BookmarkablePageLink<ComestiblesProcessPage> comestiblesLink = new BookmarkablePageLink<ComestiblesProcessPage>("link", ComestiblesProcessPage.class);

@@ -30,6 +30,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
@@ -109,6 +110,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
             case PresentationDslPackage.DIRECT_PROCESS_CALL: return createDirectProcessCall();
             case PresentationDslPackage.SIMPLE_PROCESS: return createSimpleProcess();
+            case PresentationDslPackage.LINK_SERVICE: return createLinkService();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -372,6 +374,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public SimpleProcess createSimpleProcess() {
         SimpleProcessImpl simpleProcess = new SimpleProcessImpl();
         return simpleProcess;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LinkService createLinkService() {
+        LinkServiceImpl linkService = new LinkServiceImpl();
+        return linkService;
     }
 
     /**

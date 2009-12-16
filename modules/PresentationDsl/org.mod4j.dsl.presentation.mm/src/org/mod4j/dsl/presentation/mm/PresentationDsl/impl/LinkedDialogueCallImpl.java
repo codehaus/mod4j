@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -40,7 +41,7 @@ public class LinkedDialogueCallImpl extends DialogueCallImpl implements LinkedDi
      * @generated
      * @ordered
      */
-    protected LinkRef link;
+    protected Link link;
 
     /**
      * <!-- begin-user-doc -->
@@ -66,7 +67,7 @@ public class LinkedDialogueCallImpl extends DialogueCallImpl implements LinkedDi
      * <!-- end-user-doc -->
      * @generated
      */
-    public LinkRef getLink() {
+    public Link getLink() {
         return link;
     }
 
@@ -75,8 +76,8 @@ public class LinkedDialogueCallImpl extends DialogueCallImpl implements LinkedDi
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLink(LinkRef newLink, NotificationChain msgs) {
-        LinkRef oldLink = link;
+    public NotificationChain basicSetLink(Link newLink, NotificationChain msgs) {
+        Link oldLink = link;
         link = newLink;
         if (eNotificationRequired()) {
             ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.LINKED_DIALOGUE_CALL__LINK, oldLink, newLink);
@@ -90,7 +91,7 @@ public class LinkedDialogueCallImpl extends DialogueCallImpl implements LinkedDi
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLink(LinkRef newLink) {
+    public void setLink(Link newLink) {
         if (newLink != link) {
             NotificationChain msgs = null;
             if (link != null)
@@ -141,7 +142,7 @@ public class LinkedDialogueCallImpl extends DialogueCallImpl implements LinkedDi
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.LINKED_DIALOGUE_CALL__LINK:
-                setLink((LinkRef)newValue);
+                setLink((Link)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -156,7 +157,7 @@ public class LinkedDialogueCallImpl extends DialogueCallImpl implements LinkedDi
     public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.LINKED_DIALOGUE_CALL__LINK:
-                setLink((LinkRef)null);
+                setLink((Link)null);
                 return;
         }
         super.eUnset(featureID);

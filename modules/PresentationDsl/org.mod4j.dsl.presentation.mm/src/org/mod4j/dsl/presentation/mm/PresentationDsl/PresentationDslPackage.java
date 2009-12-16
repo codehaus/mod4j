@@ -1640,7 +1640,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LINK_REF__NAME = MODEL_ELEMENT__NAME;
+    int LINK_REF__NAME = LINK__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1649,7 +1649,25 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LINK_REF__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+    int LINK_REF__DESCRIPTION = LINK__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_REF__CONTEXT_REF = LINK__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_REF__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
 
     /**
      * The number of structural features of the '<em>Link Ref</em>' class.
@@ -1658,7 +1676,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LINK_REF_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int LINK_REF_FEATURE_COUNT = LINK_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkPathImpl <em>Link Path</em>}' class.
@@ -2007,7 +2025,6 @@ public interface PresentationDslPackage extends EPackage {
      */
     int DIRECT_PROCESS_CALL_FEATURE_COUNT = PROCESS_CALL_FEATURE_COUNT + 0;
 
-
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl <em>Simple Process</em>}' class.
      * <!-- begin-user-doc -->
@@ -2072,6 +2089,78 @@ public interface PresentationDslPackage extends EPackage {
      */
     int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkServiceImpl <em>Link Service</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkServiceImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkService()
+     * @generated
+     */
+    int LINK_SERVICE = 31;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE__NAME = LINK__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE__DESCRIPTION = LINK__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE__CONTEXT_REF = LINK__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Service Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE__SERVICE_NAME = LINK_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Service Method</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE__SERVICE_METHOD = LINK_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Link Service</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_SERVICE_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.
@@ -2081,7 +2170,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessType()
      * @generated
      */
-    int PROCESS_TYPE = 31;
+    int PROCESS_TYPE = 32;
 
 
     /**
@@ -2824,6 +2913,38 @@ public interface PresentationDslPackage extends EPackage {
     EReference getSimpleProcess_ContentForm();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService <em>Link Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Link Service</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService
+     * @generated
+     */
+    EClass getLinkService();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService#getServiceName <em>Service Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Service Name</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService#getServiceName()
+     * @see #getLinkService()
+     * @generated
+     */
+    EAttribute getLinkService_ServiceName();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService#getServiceMethod <em>Service Method</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Service Method</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService#getServiceMethod()
+     * @see #getLinkService()
+     * @generated
+     */
+    EAttribute getLinkService_ServiceMethod();
+
+    /**
      * Returns the meta object for enum '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3476,6 +3597,32 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference SIMPLE_PROCESS__CONTENT_FORM = eINSTANCE.getSimpleProcess_ContentForm();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkServiceImpl <em>Link Service</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkServiceImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkService()
+         * @generated
+         */
+        EClass LINK_SERVICE = eINSTANCE.getLinkService();
+
+        /**
+         * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LINK_SERVICE__SERVICE_NAME = eINSTANCE.getLinkService_ServiceName();
+
+        /**
+         * The meta object literal for the '<em><b>Service Method</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LINK_SERVICE__SERVICE_METHOD = eINSTANCE.getLinkService_ServiceMethod();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.

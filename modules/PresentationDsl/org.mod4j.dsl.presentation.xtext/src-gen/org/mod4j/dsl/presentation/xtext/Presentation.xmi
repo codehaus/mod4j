@@ -381,7 +381,7 @@
           <tokens xsi:type="xtext:Keyword" value="["/>
           <tokens xsi:type="xtext:Group" cardinality="*">
             <tokens xsi:type="xtext:Assignment" feature="processElements" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
             </tokens>
             <tokens xsi:type="xtext:Keyword" value=";"/>
           </tokens>
@@ -418,7 +418,7 @@
           <tokens xsi:type="xtext:Keyword" value="["/>
           <tokens xsi:type="xtext:Group" cardinality="*">
             <tokens xsi:type="xtext:Assignment" feature="processElements" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
             </tokens>
             <tokens xsi:type="xtext:Keyword" value=";"/>
           </tokens>
@@ -436,7 +436,7 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="element"/>
         <tokens xsi:type="xtext:Assignment" feature="references" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="label"/>
         <tokens xsi:type="xtext:Assignment" feature="label" operator="=">
@@ -476,9 +476,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//LinkedDialogueCall"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="navigate"/>
         <tokens xsi:type="xtext:Assignment" feature="link" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="to"/>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
@@ -516,7 +515,6 @@
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//LinkedProcessCall"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Keyword" value="navigate"/>
         <tokens xsi:type="xtext:Assignment" feature="link" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
         </tokens>
@@ -538,8 +536,11 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//LinkRef"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="name" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="navigate"/>
+        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </tokens>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Link">
@@ -547,8 +548,24 @@
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//Link"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="LinkService">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//LinkService"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="call"/>
+        <tokens xsi:type="xtext:Assignment" feature="serviceName" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="."/>
+        <tokens xsi:type="xtext:Assignment" feature="serviceMethod" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </tokens>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="LinkStep">
@@ -574,7 +591,7 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="navigate"/>
         <tokens xsi:type="xtext:Assignment" feature="reference" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
         </tokens>
       </alternatives>
     </rules>
@@ -621,7 +638,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//UICall"/>
       </type>
-      <alternatives xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+      <alternatives xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="UIModelElementCall">
       <type metamodel="/0/@metamodelDeclarations.0">

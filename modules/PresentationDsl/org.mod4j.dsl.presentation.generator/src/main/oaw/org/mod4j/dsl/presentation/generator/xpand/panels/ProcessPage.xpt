@@ -50,6 +50,7 @@ public class «form.name»Page extends «getWicketMasterPageClass()»
 «LET collDialogue.dialogues.first().referredContentForm() AS cf»
 «LET this.processElements.first().referredContentForm() AS cf»
 «ENDREM»
+«LET this.processElements.typeSelect(LinkedDialogueCall).link.typeSelect(LinkService).first() AS linkService»
 «LET form AS cf» 
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
@@ -65,6 +66,7 @@ import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
 import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )»;
 import «getPresentationRootPackage()».processes.PmfProcess;
+import «getPresentationCommonPackage()».common.ServiceDataProvider;
 
 «IF editProcess != null»
 import «getPresentationRootPackage()».processes.«editProcess.name»Process;
@@ -81,17 +83,20 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 public class «form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
 {
 
-	@SpringBean(name = "«findServiceWithMethod(cf, "LISTALL").toFirstLower()»Service")
-    «javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )» service;
+//@SpringBean(name = "«findServiceWithMethod(cf, "LISTALL").toFirstLower()»Service")
+//«javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )» service;
 
 // TODO: JOS: maxItemsPerPage bean shoudl be installed
 //    @SpringBean(name="maxItemsPerPage")
     private Integer maxItemsPerPage = 5;
 
-	public «form.name»Page ()
+	public «form.name»Page («javaLocalServiceInterface(linkService.serviceName)» service)
 	{
 		super();
-        «this.contextRef.name»DataProvider dataProvider = new «this.contextRef.name»DataProvider(service);
+//        «this.contextRef.name»DataProvider dataProvider = new «this.contextRef.name»DataProvider(service);
+		ServiceDataProvider<«javaLocalServiceInterface(linkService.serviceName)» ,«this.contextRef.name»> dataProvider =    
+			new ServiceDataProvider<«javaLocalServiceInterface(linkService.serviceName)», «this.contextRef.name»>(
+			       service, "«linkService.serviceMethod»", "count«businessClassName(form)»s");
         «cf.name»CollectionDataViewPanel panel = new «cf.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
         panel.addListener(this);
         add( panel );
@@ -140,6 +145,7 @@ public class «form.name»Page extends «getWicketMasterPageClass()» implements
 	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
 	}
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

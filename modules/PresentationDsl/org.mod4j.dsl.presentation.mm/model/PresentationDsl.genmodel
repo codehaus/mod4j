@@ -107,5 +107,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//SimpleProcess/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/contentForm"/>
     </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//LinkService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//LinkService/serviceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//LinkService/serviceMethod"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

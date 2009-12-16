@@ -24,6 +24,7 @@ import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.CompoundPropertyModel;
 
 «IF service != null»
 import «getServiceRootPackage()».«serviceType»;
@@ -69,23 +70,24 @@ public class «context»DataProvider implements IDataProvider<«context»> {
     }
 
     public IModel<«context»> model(«context» object) {
-        final Long id = object.getId();
-        return new LoadableDetachableModel<«context»>() {
-            protected «context» load() {
+        return new CompoundPropertyModel<«context»>(object);
+//        final Long id = object.getId();
+//        return new LoadableDetachableModel<«context»>() {
+//            protected «context» load() {
 
 «IF service != null»
 «REM»                return service.«findReadMethodFor(this)»(id);«ENDREM»
-                return service.«findSpecialMethodInService(this, "READ", service)»(id);
+//                return service.«findSpecialMethodInService(this, "READ", service)»(id);
 «ELSE»
-				for («context» elem : model.getObject()) {
-					if( elem.getId().equals(id)) {
-						return elem;
-					}
-				}
-				return null;
+//				for («context» elem : model.getObject()) {
+//					if( elem.getId().equals(id)) {
+//						return elem;
+//					}
+//				}
+//				return null;
 «ENDIF»
-            }
-        };
+//           }
+//       };
     }
 
     public int size() {

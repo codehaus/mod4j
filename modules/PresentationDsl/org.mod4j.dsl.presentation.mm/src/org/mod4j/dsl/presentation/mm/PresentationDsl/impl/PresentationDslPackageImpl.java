@@ -32,6 +32,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
@@ -271,6 +272,13 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * @generated
      */
     private EClass simpleProcessEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass linkServiceEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -975,6 +983,33 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getLinkService() {
+        return linkServiceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getLinkService_ServiceName() {
+        return (EAttribute)linkServiceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getLinkService_ServiceMethod() {
+        return (EAttribute)linkServiceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getProcessType() {
         return processTypeEEnum;
     }
@@ -1108,6 +1143,10 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEAttribute(simpleProcessEClass, SIMPLE_PROCESS__TYPE);
         createEReference(simpleProcessEClass, SIMPLE_PROCESS__CONTENT_FORM);
 
+        linkServiceEClass = createEClass(LINK_SERVICE);
+        createEAttribute(linkServiceEClass, LINK_SERVICE__SERVICE_NAME);
+        createEAttribute(linkServiceEClass, LINK_SERVICE__SERVICE_METHOD);
+
         // Create enums
         processTypeEEnum = createEEnum(PROCESS_TYPE);
     }
@@ -1157,7 +1196,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         linkEClass.getESuperTypes().add(this.getModelElementWithContext());
         linkedDialogueCallEClass.getESuperTypes().add(this.getDialogueCall());
         linkedProcessCallEClass.getESuperTypes().add(this.getProcessCall());
-        linkRefEClass.getESuperTypes().add(this.getModelElement());
+        linkRefEClass.getESuperTypes().add(this.getLink());
         linkPathEClass.getESuperTypes().add(this.getLink());
         linkStepEClass.getESuperTypes().add(this.getLink());
         masterDetailEClass.getESuperTypes().add(this.getCompoundDialogue());
@@ -1169,6 +1208,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         uiCallEClass.getESuperTypes().add(this.getModelElement());
         directProcessCallEClass.getESuperTypes().add(this.getProcessCall());
         simpleProcessEClass.getESuperTypes().add(this.getModelElement());
+        linkServiceEClass.getESuperTypes().add(this.getLink());
 
         // Initialize classes and features; add operations and parameters
         initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1221,7 +1261,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         addEOperation(linkEClass, this.getModelElement(), "getTarget", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(linkedDialogueCallEClass, LinkedDialogueCall.class, "LinkedDialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getLinkedDialogueCall_Link(), this.getLinkRef(), null, "link", null, 0, 1, LinkedDialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getLinkedDialogueCall_Link(), this.getLink(), null, "link", null, 0, 1, LinkedDialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(linkedProcessCallEClass, LinkedProcessCall.class, "LinkedProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getLinkedProcessCall_Link(), this.getLinkRef(), null, "link", null, 0, 1, LinkedProcessCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1273,6 +1313,10 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getSimpleProcess_Dialogue(), this.getDialogueCall(), this.getDialogueCall_CallingSimpleProcess(), "dialogue", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSimpleProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSimpleProcess_ContentForm(), this.getContentForm(), this.getContentForm_Actions(), "contentForm", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(linkServiceEClass, LinkService.class, "LinkService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getLinkService_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, LinkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getLinkService_ServiceMethod(), ecorePackage.getEString(), "serviceMethod", null, 0, 1, LinkService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(processTypeEEnum, ProcessType.class, "ProcessType");

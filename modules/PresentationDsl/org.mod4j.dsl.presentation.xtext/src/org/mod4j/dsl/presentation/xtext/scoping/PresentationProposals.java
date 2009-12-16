@@ -196,72 +196,72 @@ public class PresentationProposals {
      */
     static public List<String> getLinkedDialogueCallProposals(EObject ctx, List<String> subTypes) {
         List<String> result = new ArrayList<String>();
-        ExternalReference dtoRef = null;
-        String referencedDtoName = null; 
-        if (ctx == null) {
-            return result;
-        }
-        List<String> models = new ArrayList<String>();
-        // The context may be of different types
-        if (ctx instanceof LinkedDialogueCall) {
-        	LinkedDialogueCall ldc = (LinkedDialogueCall) ctx;
-        	// Find the AssociationRoleReference
-        	        	// Start at the containing Dialogue and get the context Dto
-        	UIModelElement uime = (UIModelElement)ldc.eContainer();
-        	PresentationModel currentModel = uime.getPresentationModel();
-        	dtoRef = uime.getContextRef();
-        	Symbol dtoSymbol = CrossxBroker.lookupSymbol(dtoRef.getModelName(), dtoRef.getName(), "Dto");
-        	// Then get the Link
-        	LinkRef ldcLink = ldc.getLink();
-        	for (ModelElementWithContext element : currentModel.getElements()) {
-        		if (element instanceof LinkStep && element.getName().equals(ldcLink.getName())) {
-                	// Then find the AssociationRoleReference
-                	Symbol referenceSymbol = CrossxBroker.getSubSymbol(dtoSymbol, ((LinkStep)element).getReference().getName());
-                	
-                	// Get the ReferencedDto name
-                	ReferenceSymbolProperty rsp = CrossxBroker.getReferenceProperty(referenceSymbol, "ReferencedDto");
-                	referencedDtoName = rsp.getSymbolname();
-                	Symbol referencedDto = CrossxBroker.lookupSymbol(rsp.getModelname(), referencedDtoName, "Dto");
-                	boolean many = "ListDto".equals(rsp.getType());
-                	if (many) {
-                		referencedDtoName = CrossxBroker.getPropertyValue(referencedDto, "baseDto");
-                		// If it is a list and there is not already a subtype selection add CollectionDialogue and MasterDetailDialogue
-                		if (subTypes.isEmpty()) {
-                			subTypes.add("CollectionDialogue");
-                			subTypes.add("MasterDetailDialogue");
-                		}
-                	}
-        		}
-        	}
-        	if (referencedDtoName != null) {
-	        	// Look for Dialogues with this context
-	        	for (ModelElementWithContext element : currentModel.getElements()) {
-	        		if (element instanceof Dialogue && referencedDtoName.equals(((Dialogue)element).getContextRef().getName())) {
-	        			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
-	        				result.add(element.getName());
-	        			}
-	        		}
-	        	}
-	            List<ExternalReference> refs = uime.getPresentationModel().getExternalReferences();
-	            for (ExternalReference ref : refs) {
-	            	models.add(ref.getModelName());
-	            }
-        	}
-            if (dtoRef == null || referencedDtoName == null) {
-                result.add("<<no context found>>");
-            }
-        }
-        if (dtoRef == null || referencedDtoName == null) {
-            return result;
-        }
-        for (String model : models) {
-	        List<Symbol> symbols = CrossxBroker.findAllFromModel(model, "Dialogue");
-	        for (Symbol symb : symbols) {
-	        	if (referencedDtoName.equals(CrossxBroker.getPropertyValue(symb, "context")) && (subTypes.isEmpty() || subTypes.contains(CrossxBroker.getPropertyValue(symb, "dialogueType")))) {
-       				result.add(symb.getName());
-	        	}
-	        }
-        }
+//        ExternalReference dtoRef = null;
+//        String referencedDtoName = null; 
+//        if (ctx == null) {
+//            return result;
+//        }
+//        List<String> models = new ArrayList<String>();
+//        // The context may be of different types
+//        if (ctx instanceof LinkedDialogueCall) {
+//        	LinkedDialogueCall ldc = (LinkedDialogueCall) ctx;
+//        	// Find the AssociationRoleReference
+//        	        	// Start at the containing Dialogue and get the context Dto
+//        	UIModelElement uime = (UIModelElement)ldc.eContainer();
+//        	PresentationModel currentModel = uime.getPresentationModel();
+//        	dtoRef = uime.getContextRef();
+//        	Symbol dtoSymbol = CrossxBroker.lookupSymbol(dtoRef.getModelName(), dtoRef.getName(), "Dto");
+//        	// Then get the Link
+//            LinkRef ldcLink = ldc.getLink();
+//        	for (ModelElementWithContext element : currentModel.getElements()) {
+//        		if (element instanceof LinkStep && element.getName().equals(ldcLink.getName())) {
+//                	// Then find the AssociationRoleReference
+//                	Symbol referenceSymbol = CrossxBroker.getSubSymbol(dtoSymbol, ((LinkStep)element).getReference().getName());
+//                	
+//                	// Get the ReferencedDto name
+//                	ReferenceSymbolProperty rsp = CrossxBroker.getReferenceProperty(referenceSymbol, "ReferencedDto");
+//                	referencedDtoName = rsp.getSymbolname();
+//                	Symbol referencedDto = CrossxBroker.lookupSymbol(rsp.getModelname(), referencedDtoName, "Dto");
+//                	boolean many = "ListDto".equals(rsp.getType());
+//                	if (many) {
+//                		referencedDtoName = CrossxBroker.getPropertyValue(referencedDto, "baseDto");
+//                		// If it is a list and there is not already a subtype selection add CollectionDialogue and MasterDetailDialogue
+//                		if (subTypes.isEmpty()) {
+//                			subTypes.add("CollectionDialogue");
+//                			subTypes.add("MasterDetailDialogue");
+//                		}
+//                	}
+//        		}
+//        	}
+//        	if (referencedDtoName != null) {
+//	        	// Look for Dialogues with this context
+//	        	for (ModelElementWithContext element : currentModel.getElements()) {
+//	        		if (element instanceof Dialogue && referencedDtoName.equals(((Dialogue)element).getContextRef().getName())) {
+//	        			if (subTypes.isEmpty() || subTypes.contains(element.eClass().getName())) {
+//	        				result.add(element.getName());
+//	        			}
+//	        		}
+//	        	}
+//	            List<ExternalReference> refs = uime.getPresentationModel().getExternalReferences();
+//	            for (ExternalReference ref : refs) {
+//	            	models.add(ref.getModelName());
+//	            }
+//        	}
+//            if (dtoRef == null || referencedDtoName == null) {
+//                result.add("<<no context found>>");
+//            }
+//        }
+//        if (dtoRef == null || referencedDtoName == null) {
+//            return result;
+//        }
+//        for (String model : models) {
+//	        List<Symbol> symbols = CrossxBroker.findAllFromModel(model, "Dialogue");
+//	        for (Symbol symb : symbols) {
+//	        	if (referencedDtoName.equals(CrossxBroker.getPropertyValue(symb, "context")) && (subTypes.isEmpty() || subTypes.contains(CrossxBroker.getPropertyValue(symb, "dialogueType")))) {
+//       				result.add(symb.getName());
+//	        	}
+//	        }
+//        }
         return result;
     }
 

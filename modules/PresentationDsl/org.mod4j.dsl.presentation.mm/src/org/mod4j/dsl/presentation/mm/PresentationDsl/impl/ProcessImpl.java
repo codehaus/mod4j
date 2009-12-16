@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -58,6 +59,7 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * @ordered
      */
     protected static final ProcessType TYPE_EDEFAULT = ProcessType.CUSTOM;
+
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->

@@ -33,12 +33,12 @@ public interface LinkedDialogueCall extends DialogueCall {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Link</em>' containment reference.
-     * @see #setLink(LinkRef)
+     * @see #setLink(Link)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getLinkedDialogueCall_Link()
      * @model containment="true"
      * @generated
      */
-    LinkRef getLink();
+    Link getLink();
 
     /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall#getLink <em>Link</em>}' containment reference.
@@ -48,6 +48,6 @@ public interface LinkedDialogueCall extends DialogueCall {
      * @see #getLink()
      * @generated
      */
-    void setLink(LinkRef value);
+    void setLink(Link value);
 
 } // LinkedDialogueCall

@@ -58,14 +58,13 @@
     <eOperations name="getTarget" eType="#//ModelElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkedDialogueCall" eSuperTypes="#//DialogueCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//LinkRef"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkedProcessCall" eSuperTypes="#//ProcessCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//LinkRef"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//Link"/>
   <eClassifiers xsi:type="ecore:EClass" name="LinkPath" eSuperTypes="#//Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
         eType="#//LinkRef"/>
@@ -132,5 +131,9 @@
     <eLiterals name="REMOVE" value="3"/>
     <eLiterals name="CUSTOM" value="4"/>
     <eLiterals name="CANCEL" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkService" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

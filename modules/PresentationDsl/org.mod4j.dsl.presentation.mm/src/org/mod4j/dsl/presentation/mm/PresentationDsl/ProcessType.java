@@ -70,7 +70,9 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    CUSTOM(4, "CUSTOM", "CUSTOM"), /**
+    CUSTOM(4, "CUSTOM", "CUSTOM"),
+
+    /**
      * The '<em><b>CANCEL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

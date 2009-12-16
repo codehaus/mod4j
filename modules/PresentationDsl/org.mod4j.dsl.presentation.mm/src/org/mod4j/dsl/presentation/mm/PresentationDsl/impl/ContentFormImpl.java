@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -61,6 +61,7 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
      * @ordered
      */
     protected static final boolean IS_COLLECTION_EDEFAULT = false;
+
     /**
      * The cached value of the '{@link #isIsCollection() <em>Is Collection</em>}' attribute.
      * <!-- begin-user-doc -->

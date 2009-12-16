@@ -69,7 +69,7 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 	
 	protected DataView<«this.contextRef.name»> collection;
 
-	public «this.name»CollectionDataViewPanel(String id, «this.contextRef.name»DataProvider dataProvider, Integer maxItemsPerPage)
+	public «this.name»CollectionDataViewPanel(String id, IDataProvider<«this.contextRef.name»> dataProvider, Integer maxItemsPerPage)
 	{
 	    super(id);
 		WebMarkupContainer container = (WebMarkupContainer)new WebMarkupContainer("container");

@@ -21,7 +21,14 @@ context BusinessClass ERROR "Businessclass [" + this.name + "] already defined i
 */
 
 context ExternalReference ERROR "there is no model " + this.modelName  + " that contains " + this.name :
-       !findAllFromModel(this.modelName, this.name, { "Dto", "Dialogue", "Process", "Link" } ).isEmpty;
+       ( !findAllFromModel(this.modelName, this.name, { "Dto", "Dialogue", "Process", "Link" } ).isEmpty )
+       ||
+       ( !findAllFromModel(this.modelName, this.name, { "Service" } ).isEmpty )
+       ;
+
+context LinkService  ERROR "Service musr referr to existing method of xisting service" :
+    true
+    ;
 /*
 context Dialogue ERROR "01 Context reference [" + this.contextRef.name + "] not defined in model " + this.contextRef.modelName :
        lookupSymbol(this.contextRef.modelName, this.contextRef.name, "Dto") != null;

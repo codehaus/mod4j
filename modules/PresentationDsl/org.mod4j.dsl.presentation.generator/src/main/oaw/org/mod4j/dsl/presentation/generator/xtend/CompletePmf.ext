@@ -50,7 +50,7 @@ Boolean createProcess(SimpleProcess action, ContentForm form) :
     dialogue.setName(action.dialogue.name)->
     result.setName(name)->
     result.setContextRef(form.contextRef)->
-    (action.dialogue != null ? result.processElements.add(dialogue) : null)->
+    ((action.dialogue != null) ? result.processElements.add(dialogue) : null)->
     result.setType(action.type)->
     processCall.setName(name)->
     form.processes.add(processCall)->
