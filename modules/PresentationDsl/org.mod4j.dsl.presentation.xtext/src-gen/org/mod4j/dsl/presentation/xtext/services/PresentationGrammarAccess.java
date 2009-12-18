@@ -1312,19 +1312,19 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	public class LinkRefElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LinkRef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNavigateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLinkrefKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//LinkRef:
-		//  "navigate" name=ID;
+		//  "linkref" name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//"navigate" name=ID
+		//"linkref" name=ID
 		public Group getGroup() { return cGroup; }
 
-		//"navigate"
-		public Keyword getNavigateKeyword_0() { return cNavigateKeyword_0; }
+		//"linkref"
+		public Keyword getLinkrefKeyword_0() { return cLinkrefKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -1339,12 +1339,14 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final RuleCall cLinkStepParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLinkPathParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cLinkServiceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cLinkRefParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cLinkNavigationParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Link:
-		//  LinkStep|LinkPath|LinkService;
+		//  LinkStep|LinkPath|LinkService|LinkRef|LinkNavigation;
 		public ParserRule getRule() { return rule; }
 
-		//LinkStep|LinkPath|LinkService
+		//LinkStep|LinkPath|LinkService|LinkRef|LinkNavigation
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//LinkStep
@@ -1355,6 +1357,12 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 		//LinkService
 		public RuleCall getLinkServiceParserRuleCall_2() { return cLinkServiceParserRuleCall_2; }
+
+		//LinkRef
+		public RuleCall getLinkRefParserRuleCall_3() { return cLinkRefParserRuleCall_3; }
+
+		//LinkNavigation
+		public RuleCall getLinkNavigationParserRuleCall_4() { return cLinkNavigationParserRuleCall_4; }
 	}
 
 	public class LinkServiceElements implements IParserRuleAccess {
@@ -1501,6 +1509,48 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 		//ID
 		public RuleCall getContextRefExternalReferenceIDTerminalRuleCall_4_0_1() { return cContextRefExternalReferenceIDTerminalRuleCall_4_0_1; }
+	}
+
+	public class LinkNavigationElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LinkNavigation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNavigateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cReferencesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cReferencesAssociationRoleReferenceParserRuleCall_1_0 = (RuleCall)cReferencesAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cFullStopKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cReferencesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cReferencesAssociationRoleReferenceParserRuleCall_2_1_0 = (RuleCall)cReferencesAssignment_2_1.eContents().get(0);
+		
+		//LinkNavigation:
+		//  "navigate" references+=AssociationRoleReference ("." references+=
+		//  AssociationRoleReference)*;
+		public ParserRule getRule() { return rule; }
+
+		//"navigate" references+=AssociationRoleReference ("." references+=
+		//AssociationRoleReference)*
+		public Group getGroup() { return cGroup; }
+
+		//"navigate"
+		public Keyword getNavigateKeyword_0() { return cNavigateKeyword_0; }
+
+		//references+=AssociationRoleReference
+		public Assignment getReferencesAssignment_1() { return cReferencesAssignment_1; }
+
+		//AssociationRoleReference
+		public RuleCall getReferencesAssociationRoleReferenceParserRuleCall_1_0() { return cReferencesAssociationRoleReferenceParserRuleCall_1_0; }
+
+		//("." references+=AssociationRoleReference)*
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"."
+		public Keyword getFullStopKeyword_2_0() { return cFullStopKeyword_2_0; }
+
+		//references+=AssociationRoleReference
+		public Assignment getReferencesAssignment_2_1() { return cReferencesAssignment_2_1; }
+
+		//AssociationRoleReference
+		public RuleCall getReferencesAssociationRoleReferenceParserRuleCall_2_1_0() { return cReferencesAssociationRoleReferenceParserRuleCall_2_1_0; }
 	}
 
 	public class DtoPropertyReferenceElements implements IParserRuleAccess {
@@ -1654,6 +1704,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	private LinkServiceElements pLinkService;
 	private LinkStepElements pLinkStep;
 	private LinkPathElements pLinkPath;
+	private LinkNavigationElements pLinkNavigation;
 	private DtoPropertyReferenceElements pDtoPropertyReference;
 	private AssociationRoleReferenceElements pAssociationRoleReference;
 	private UICallElements pUICall;
@@ -1915,7 +1966,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//LinkRef:
-	//  "navigate" name=ID;
+	//  "linkref" name=ID;
 	public LinkRefElements getLinkRefAccess() {
 		return (pLinkRef != null) ? pLinkRef : (pLinkRef = new LinkRefElements());
 	}
@@ -1925,7 +1976,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//Link:
-	//  LinkStep|LinkPath|LinkService;
+	//  LinkStep|LinkPath|LinkService|LinkRef|LinkNavigation;
 	public LinkElements getLinkAccess() {
 		return (pLink != null) ? pLink : (pLink = new LinkElements());
 	}
@@ -1963,6 +2014,17 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	
 	public ParserRule getLinkPathRule() {
 		return getLinkPathAccess().getRule();
+	}
+
+	//LinkNavigation:
+	//  "navigate" references+=AssociationRoleReference ("." references+=
+	//  AssociationRoleReference)*;
+	public LinkNavigationElements getLinkNavigationAccess() {
+		return (pLinkNavigation != null) ? pLinkNavigation : (pLinkNavigation = new LinkNavigationElements());
+	}
+	
+	public ParserRule getLinkNavigationRule() {
+		return getLinkNavigationAccess().getRule();
 	}
 
 	//DtoPropertyReference:

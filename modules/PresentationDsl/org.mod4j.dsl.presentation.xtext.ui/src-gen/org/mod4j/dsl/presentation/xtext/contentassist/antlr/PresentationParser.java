@@ -101,6 +101,8 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkServiceAccess().getGroup(), "rule__LinkService__Group__0");
 					put(grammarAccess.getLinkStepAccess().getGroup(), "rule__LinkStep__Group__0");
 					put(grammarAccess.getLinkPathAccess().getGroup(), "rule__LinkPath__Group__0");
+					put(grammarAccess.getLinkNavigationAccess().getGroup(), "rule__LinkNavigation__Group__0");
+					put(grammarAccess.getLinkNavigationAccess().getGroup_2(), "rule__LinkNavigation__Group_2__0");
 					put(grammarAccess.getUIModelElementCallAccess().getGroup_0(), "rule__UIModelElementCall__Group_0__0");
 					put(grammarAccess.getUIModelElementCallAccess().getGroup_1(), "rule__UIModelElementCall__Group_1__0");
 					put(grammarAccess.getPresentationModelAccess().getDescriptionAssignment_0(), "rule__PresentationModel__DescriptionAssignment_0");
@@ -171,6 +173,8 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkPathAccess().getDescriptionAssignment_0(), "rule__LinkPath__DescriptionAssignment_0");
 					put(grammarAccess.getLinkPathAccess().getNameAssignment_2(), "rule__LinkPath__NameAssignment_2");
 					put(grammarAccess.getLinkPathAccess().getContextRefAssignment_4(), "rule__LinkPath__ContextRefAssignment_4");
+					put(grammarAccess.getLinkNavigationAccess().getReferencesAssignment_1(), "rule__LinkNavigation__ReferencesAssignment_1");
+					put(grammarAccess.getLinkNavigationAccess().getReferencesAssignment_2_1(), "rule__LinkNavigation__ReferencesAssignment_2_1");
 					put(grammarAccess.getDtoPropertyReferenceAccess().getNameAssignment(), "rule__DtoPropertyReference__NameAssignment");
 					put(grammarAccess.getAssociationRoleReferenceAccess().getNameAssignment(), "rule__AssociationRoleReference__NameAssignment");
 				}

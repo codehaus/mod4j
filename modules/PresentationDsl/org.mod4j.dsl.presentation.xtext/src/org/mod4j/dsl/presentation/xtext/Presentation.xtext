@@ -131,11 +131,11 @@ DirectProcessCall :
 	;
 	
 LinkRef :
-	"navigate" name = ID
+	"linkref" name = ID
 	;
 	
 Link :
-	LinkStep | LinkPath | LinkService
+	LinkStep | LinkPath | LinkService | LinkRef | LinkNavigation
 	;
 	
 LinkService :
@@ -153,6 +153,11 @@ LinkPath :
 	"LinkPath" name = ID "context" contextRef = [ExternalReference]
 	;
 	
+LinkNavigation :
+    "navigate" references += AssociationRoleReference  
+    ( "." references += AssociationRoleReference ) *
+    ;
+
 DtoPropertyReference :
 	name = ID
 	;

@@ -12,6 +12,7 @@ import PresentationDsl;
 
 extension org::mod4j::dslcommon::xtend::generatorutil;
 extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
+extension org::eclipse::xtend::util::stdlib::elementprops;
 
 context CollectionDialogue ERROR this.name + " must havce exactly one dialogue of type ciontentform" :
     (this.dialogues.size == 1) 
@@ -39,7 +40,71 @@ context ContentForm ERROR "A Content Form may have at most one 'cancel' action" 
 context ContentForm ERROR "A Content Form may have at most one 'remove' action" :
     this.actions.select(e|e.type==ProcessType::REMOVE).size <= 1;
 
+/*
 context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the same context as the from to which the action belongs [" + this.contentForm.name + "]" :
     ((this.dialogue != null) && (this.dialogue.referredContentForm() != null) )
     implies this.dialogue.referredContentForm().contextRef.name.equalsIgnoreCase(this.contentForm.contextRef.name);
- 
+ */
+
+ context SimpleProcess ERROR "Reference not ok" :
+    let link = this.dialogue.getLinkNavigation() :
+	(link != null )implies (
+    	refOk(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, link)
+    )
+    ;    
+/*
+ context SimpleProcess ERROR this.getProperty("ERROR") :
+ //"Navigation type is[" + getResultType(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, this.dialogue.getLinkNavigation())
+ //                               + "] should match dialogue context [" + this.dialogue.referredContentForm().contextRef.name + "]" : 
+    let link = this.dialogue.getLinkNavigation() :
+    let navigationResultType =(link  == null ? "" :  getResultType(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, link)) :
+	(link != null )implies (
+	    this.setProperty("ERROR", "Type [" + navigationResultType + "] is incorrect")->
+            navigationResultType.matches(this.dialogue.referredContentForm().contextRef.name)
+    )
+;
+*/
+/*context DataContractDsl::BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
+    let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
+    let props = (symbol == null ? {} : symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) ):
+    let prop = (props == null ? null : props.first() ):
+    let mult = (prop == null ? null : getPropertyValue(prop, "Multiplicity") ):
+    if (mult == null) || (this.dtoType == null) then
+        true
+    else (
+	    if (mult == "ONE") then 
+	    (    
+	        if this.dtoType.metaType == DataContractDsl::BusinessClassDto then
+	        (   
+	            let expected = getPropertyValue(prop, "BusinessClass") :
+	            let actual   = ((DataContractDsl::BusinessClassDto)this.dtoType).base.name :
+	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
+	            expected == actual
+	        ) else 
+	            (this.setProperty("ERROR", "[" + this.dtoType.name + "] should be a BusinesClassDto")-> 
+	            false)
+	    )
+	    else   // (mult == "MANY")  
+	    (
+	        if this.dtoType.metaType == DataContractDsl::ListDto then
+	        (
+	            let expected = getPropertyValue(prop, "BusinessClass") :
+	            let baseDto  =((DataContractDsl::ListDto)this.dtoType) .baseDto :
+	            if baseDto.metaType != DataContractDsl::BusinessClassDto then
+	            (
+	                this.setProperty("ERROR", "base type of  ListDto [" + this.dtoType.name + "] must be a BusinessClassDto")->
+	                false
+	            ) else (
+	                let actual = ((DataContractDsl::BusinessClassDto)baseDto).base.name :
+    	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
+	                expected == actual
+	            )
+            )
+	        else (
+	            this.setProperty("ERROR", "Type of  [" + this.name + "] must be a ListDto")->
+	            false
+	        )
+        )
+	)
+    ;
+*/

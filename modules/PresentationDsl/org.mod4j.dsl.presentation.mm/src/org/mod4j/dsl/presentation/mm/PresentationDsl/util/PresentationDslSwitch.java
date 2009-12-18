@@ -27,6 +27,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
@@ -392,6 +393,15 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseLink(linkService);
                 if (result == null) result = caseModelElementWithContext(linkService);
                 if (result == null) result = caseModelElement(linkService);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.LINK_NAVIGATION: {
+                LinkNavigation linkNavigation = (LinkNavigation)theEObject;
+                T result = caseLinkNavigation(linkNavigation);
+                if (result == null) result = caseLink(linkNavigation);
+                if (result == null) result = caseModelElementWithContext(linkNavigation);
+                if (result == null) result = caseModelElement(linkNavigation);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -876,6 +886,21 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseLinkService(LinkService object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Link Navigation</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Link Navigation</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLinkNavigation(LinkNavigation object) {
         return null;
     }
 

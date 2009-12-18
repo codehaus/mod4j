@@ -57,10 +57,11 @@ protected class ThisRootNode extends RootToken {
 			case 22: return new LinkService_Group(this, this, 22, inst);
 			case 23: return new LinkStep_Group(this, this, 23, inst);
 			case 24: return new LinkPath_Group(this, this, 24, inst);
-			case 25: return new DtoPropertyReference_NameAssignment(this, this, 25, inst);
-			case 26: return new AssociationRoleReference_NameAssignment(this, this, 26, inst);
-			case 27: return new UICall_UIModelElementCallParserRuleCall(this, this, 27, inst);
-			case 28: return new UIModelElementCall_Alternatives(this, this, 28, inst);
+			case 25: return new LinkNavigation_Group(this, this, 25, inst);
+			case 26: return new DtoPropertyReference_NameAssignment(this, this, 26, inst);
+			case 27: return new AssociationRoleReference_NameAssignment(this, this, 27, inst);
+			case 28: return new UICall_UIModelElementCallParserRuleCall(this, this, 28, inst);
+			case 29: return new UIModelElementCall_Alternatives(this, this, 29, inst);
 			default: return null;
 		}	
 	}	
@@ -5658,11 +5659,11 @@ protected class DirectProcessCall_NameAssignment extends AssignmentToken  {
 /************ begin Rule LinkRef ****************
  *
  * LinkRef:
- *   "navigate" name=ID;
+ *   "linkref" name=ID;
  *
  **/
 
-// "navigate" name=ID
+// "linkref" name=ID
 protected class LinkRef_Group extends GroupToken {
 	
 	public LinkRef_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5686,15 +5687,15 @@ protected class LinkRef_Group extends GroupToken {
 	}
 }
 
-// "navigate"
-protected class LinkRef_NavigateKeyword_0 extends KeywordToken  {
+// "linkref"
+protected class LinkRef_LinkrefKeyword_0 extends KeywordToken  {
 	
-	public LinkRef_NavigateKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LinkRef_LinkrefKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLinkRefAccess().getNavigateKeyword_0();
+		return grammarAccess.getLinkRefAccess().getLinkrefKeyword_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -5718,7 +5719,7 @@ protected class LinkRef_NameAssignment_1 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LinkRef_NavigateKeyword_0(parent, this, 0, inst);
+			case 0: return new LinkRef_LinkrefKeyword_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5743,11 +5744,11 @@ protected class LinkRef_NameAssignment_1 extends AssignmentToken  {
 /************ begin Rule Link ****************
  *
  * Link:
- *   LinkStep|LinkPath|LinkService;
+ *   LinkStep|LinkPath|LinkService|LinkRef|LinkNavigation;
  *
  **/
 
-// LinkStep|LinkPath|LinkService
+// LinkStep|LinkPath|LinkService|LinkRef|LinkNavigation
 protected class Link_Alternatives extends AlternativesToken {
 
 	public Link_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5763,6 +5764,8 @@ protected class Link_Alternatives extends AlternativesToken {
 			case 0: return new Link_LinkStepParserRuleCall_0(parent, this, 0, inst);
 			case 1: return new Link_LinkPathParserRuleCall_1(parent, this, 1, inst);
 			case 2: return new Link_LinkServiceParserRuleCall_2(parent, this, 2, inst);
+			case 3: return new Link_LinkRefParserRuleCall_3(parent, this, 3, inst);
+			case 4: return new Link_LinkNavigationParserRuleCall_4(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -5856,6 +5859,68 @@ protected class Link_LinkServiceParserRuleCall_2 extends RuleCallToken {
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(LinkService_Group.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getLinkServiceRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// LinkRef
+protected class Link_LinkRefParserRuleCall_3 extends RuleCallToken {
+	
+	public Link_LinkRefParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLinkAccess().getLinkRefParserRuleCall_3();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LinkRef_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(LinkRef_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getLinkRefRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// LinkNavigation
+protected class Link_LinkNavigationParserRuleCall_4 extends RuleCallToken {
+	
+	public Link_LinkNavigationParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLinkAccess().getLinkNavigationParserRuleCall_4();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LinkNavigation_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(LinkNavigation_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getLinkNavigationRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -6408,6 +6473,189 @@ protected class LinkPath_ContextRefAssignment_4 extends AssignmentToken  {
 
 
 /************ end Rule LinkPath ****************/
+
+
+/************ begin Rule LinkNavigation ****************
+ *
+ * LinkNavigation:
+ *   "navigate" references+=AssociationRoleReference ("." references+=
+ *   AssociationRoleReference)*;
+ *
+ **/
+
+// "navigate" references+=AssociationRoleReference ("." references+=
+// AssociationRoleReference)*
+protected class LinkNavigation_Group extends GroupToken {
+	
+	public LinkNavigation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getLinkNavigationAccess().getGroup();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LinkNavigation_Group_2(parent, this, 0, inst);
+			case 1: return new LinkNavigation_ReferencesAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getLinkNavigationRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// "navigate"
+protected class LinkNavigation_NavigateKeyword_0 extends KeywordToken  {
+	
+	public LinkNavigation_NavigateKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLinkNavigationAccess().getNavigateKeyword_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// references+=AssociationRoleReference
+protected class LinkNavigation_ReferencesAssignment_1 extends AssignmentToken  {
+	
+	public LinkNavigation_ReferencesAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLinkNavigationAccess().getReferencesAssignment_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AssociationRoleReference_NameAssignment(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("references",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("references");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAssociationRoleReferenceRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLinkNavigationAccess().getReferencesAssociationRoleReferenceParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LinkNavigation_NavigateKeyword_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("." references+=AssociationRoleReference)*
+protected class LinkNavigation_Group_2 extends GroupToken {
+	
+	public LinkNavigation_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getLinkNavigationAccess().getGroup_2();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LinkNavigation_ReferencesAssignment_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "."
+protected class LinkNavigation_FullStopKeyword_2_0 extends KeywordToken  {
+	
+	public LinkNavigation_FullStopKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLinkNavigationAccess().getFullStopKeyword_2_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LinkNavigation_Group_2(parent, this, 0, inst);
+			case 1: return new LinkNavigation_ReferencesAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// references+=AssociationRoleReference
+protected class LinkNavigation_ReferencesAssignment_2_1 extends AssignmentToken  {
+	
+	public LinkNavigation_ReferencesAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLinkNavigationAccess().getReferencesAssignment_2_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AssociationRoleReference_NameAssignment(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("references",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("references");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAssociationRoleReferenceRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLinkNavigationAccess().getReferencesAssociationRoleReferenceParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LinkNavigation_FullStopKeyword_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule LinkNavigation ****************/
 
 
 /************ begin Rule DtoPropertyReference ****************

@@ -28,6 +28,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
@@ -111,6 +112,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.DIRECT_PROCESS_CALL: return createDirectProcessCall();
             case PresentationDslPackage.SIMPLE_PROCESS: return createSimpleProcess();
             case PresentationDslPackage.LINK_SERVICE: return createLinkService();
+            case PresentationDslPackage.LINK_NAVIGATION: return createLinkNavigation();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -384,6 +386,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public LinkService createLinkService() {
         LinkServiceImpl linkService = new LinkServiceImpl();
         return linkService;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LinkNavigation createLinkNavigation() {
+        LinkNavigationImpl linkNavigation = new LinkNavigationImpl();
+        return linkNavigation;
     }
 
     /**

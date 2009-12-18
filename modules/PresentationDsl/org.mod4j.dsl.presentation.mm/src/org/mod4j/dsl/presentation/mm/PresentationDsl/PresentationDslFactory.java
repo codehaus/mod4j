@@ -242,6 +242,15 @@ public interface PresentationDslFactory extends EFactory {
     LinkService createLinkService();
 
     /**
+     * Returns a new object of class '<em>Link Navigation</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Link Navigation</em>'.
+     * @generated
+     */
+    LinkNavigation createLinkNavigation();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

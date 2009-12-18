@@ -111,5 +111,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//LinkService/serviceName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//LinkService/serviceMethod"/>
     </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//LinkNavigation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkNavigation/references"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

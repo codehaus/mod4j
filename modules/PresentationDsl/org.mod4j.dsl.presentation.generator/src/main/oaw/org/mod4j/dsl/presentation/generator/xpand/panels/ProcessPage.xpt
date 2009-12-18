@@ -63,10 +63,8 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«cf.name»CollectionDataViewPanel;
 import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListener;
 import «javaDtoClassPath(this.contextRef.name)»;
-import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
-import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )»;
+// import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
 import «getPresentationRootPackage()».processes.PmfProcess;
-import «getPresentationRootPackage()».panels.ServiceDataProvider;
 
 «IF editProcess != null»
 import «getPresentationRootPackage()».processes.«editProcess.name»Process;
@@ -78,25 +76,18 @@ import «getPresentationRootPackage()».processes.«newProcess.name»Process;
 
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 public class «form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
 {
-
-//@SpringBean(name = "«findServiceWithMethod(cf, "LISTALL").toFirstLower()»Service")
-//«javaLocalServiceInterface( findServiceWithMethod(cf, "LISTALL") )» service;
-
 // TODO: JOS: maxItemsPerPage bean shoudl be installed
 //    @SpringBean(name="maxItemsPerPage")
     private Integer maxItemsPerPage = 5;
 
-	public «form.name»Page («javaLocalServiceInterface(linkService.serviceName)» service)
+	public «form.name»Page (IDataProvider<«this.contextRef.name»> dataProvider)
 	{
 		super();
-//        «this.contextRef.name»DataProvider dataProvider = new «this.contextRef.name»DataProvider(service);
-		ServiceDataProvider<«javaLocalServiceInterface(linkService.serviceName)» ,«this.contextRef.name»> dataProvider =    
-			new ServiceDataProvider<«javaLocalServiceInterface(linkService.serviceName)», «this.contextRef.name»>(
-			       service, "«linkService.serviceMethod»", "count«businessClassName(form)»s");
         «cf.name»CollectionDataViewPanel panel = new «cf.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
         panel.addListener(this);
         add( panel );

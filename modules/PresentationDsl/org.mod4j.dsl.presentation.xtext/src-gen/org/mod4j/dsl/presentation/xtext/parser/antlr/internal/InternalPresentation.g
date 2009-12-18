@@ -2138,9 +2138,9 @@ ruleLinkRef returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-('navigate' 
+('linkref' 
     {
-        createLeafNode(grammarAccess.getLinkRefAccess().getNavigateKeyword_0(), null); 
+        createLeafNode(grammarAccess.getLinkRefAccess().getLinkrefKeyword_0(), null); 
     }
 (	
 	
@@ -2210,6 +2210,26 @@ ruleLink returns [EObject current=null]
     this_LinkService_2=ruleLinkService
     { 
         $current = $this_LinkService_2.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getLinkAccess().getLinkRefParserRuleCall_3(), currentNode); 
+    }
+    this_LinkRef_3=ruleLinkRef
+    { 
+        $current = $this_LinkRef_3.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getLinkAccess().getLinkNavigationParserRuleCall_4(), currentNode); 
+    }
+    this_LinkNavigation_4=ruleLinkNavigation
+    { 
+        $current = $this_LinkNavigation_4.current; 
         currentNode = currentNode.getParent();
     }
 );
@@ -2477,6 +2497,77 @@ ruleLinkPath returns [EObject current=null]
 		// TODO assign feature to currentNode
 	
 ));
+
+
+
+
+
+// Entry rule entryRuleLinkNavigation
+entryRuleLinkNavigation returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getLinkNavigationRule(), currentNode); }
+	 iv_ruleLinkNavigation=ruleLinkNavigation 
+	 { $current=$iv_ruleLinkNavigation.current; } 
+	 EOF 
+;
+
+// Rule LinkNavigation
+ruleLinkNavigation returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+('navigate' 
+    {
+        createLeafNode(grammarAccess.getLinkNavigationAccess().getNavigateKeyword_0(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getLinkNavigationAccess().getReferencesAssociationRoleReferenceParserRuleCall_1_0(), currentNode); 
+	    }
+	    lv_references_1=ruleAssociationRoleReference 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getLinkNavigationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "references", lv_references_1, "AssociationRoleReference", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+)('.' 
+    {
+        createLeafNode(grammarAccess.getLinkNavigationAccess().getFullStopKeyword_2_0(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getLinkNavigationAccess().getReferencesAssociationRoleReferenceParserRuleCall_2_1_0(), currentNode); 
+	    }
+	    lv_references_3=ruleAssociationRoleReference 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getLinkNavigationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "references", lv_references_3, "AssociationRoleReference", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+))*);
 
 
 

@@ -4,13 +4,23 @@ import java.util.List;
 
 //import org.mod4j.crossx.broker.CrossxEnvironment;
 //import org.mod4j.crossx.mm.crossx.Symbol;
+import org.eclipse.emf.common.util.EList;
+import org.mod4j.crossx.broker.CrossxBroker;
+import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
+import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 
@@ -39,7 +49,8 @@ public class PresentationHelpers {
         if( container == null ) {
             return null;
         }
-        for (ModelElementWithContext element : container.getPresentationModel().getElements()) {
+        EList<ModelElementWithContext> elements = container.getPresentationModel().getElements();
+        for (ModelElementWithContext element : elements) {
             if( element instanceof ContentForm) {
                 ContentForm result = (ContentForm)element;
                 if( result.getName().equals(call.getName())){
@@ -55,7 +66,8 @@ public class PresentationHelpers {
         if( process == null ) {
             return null;
         }
-        for (ModelElementWithContext element : process.getPresentationModel().getElements()) {
+        EList<ModelElementWithContext> elements = process.getPresentationModel().getElements();
+        for (ModelElementWithContext element : elements) {
             if( element instanceof CollectionDialogue ) {
                 CollectionDialogue result = (CollectionDialogue )element;
                 if( result.getName().equals(call.getName())){
@@ -71,7 +83,8 @@ public class PresentationHelpers {
         if( dia == null ) {
             return null;
         }
-        for (ModelElementWithContext element : dia.getPresentationModel().getElements() ){
+        EList<ModelElementWithContext> elements = dia.getPresentationModel().getElements();
+        for (ModelElementWithContext element : elements ){
             if( element instanceof Process ) {
                 Process result = (Process )element;
                 if( result.getName().equals(call.getName())){
@@ -80,5 +93,88 @@ public class PresentationHelpers {
             }
         }
         return null;
+    }
+    
+    static public LinkNavigation getLinkNavigation(UICall call){
+        if( call instanceof LinkedDialogueCall){
+            LinkedDialogueCall linkedCall = (LinkedDialogueCall)call;
+            Link link = linkedCall.getLink();
+            if( link instanceof LinkNavigation ){
+                return (LinkNavigation ) link;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * rETURNS THE LINKsERVICE IF THERE IS ONE, OTHHERWISE RETURNS NULL
+     * @param call
+     * @return
+     */
+    static public LinkService getLinkService(UICall call){
+        if( call instanceof LinkedDialogueCall){
+            LinkedDialogueCall linkedCall = (LinkedDialogueCall)call;
+            Link link = linkedCall.getLink();
+            if( link instanceof LinkService){
+                return (LinkService ) link;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Returns the result type of the navigation "nav starting with the Dto at "model.dtoName'
+     * @param model
+     * @param dtoName
+     * @param nav
+     * @return
+     */
+    static public String getResultType(String model, String dtoName, LinkNavigation nav){
+        String result= null;
+        
+        EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
+        AssociationRoleReference ref = x.get(0);
+        System.err.println("MOD4J GETRESULT NAV [" + ref.getName() + "]" );
+        Symbol dto = CrossxBroker.lookupSymbol(model, dtoName, "Dto");
+        System.err.println("MOD4J GETRESULT DTO [" + dto.getName() + "]" );
+        Symbol reference = CrossxBroker.getSubSymbol(dto, ref.getName());
+        if( reference == null){
+            return null;
+        }
+        System.err.println("MOD4J GETRESULT REF [" + reference.getName() + "]" );
+        
+        if( reference.getType().equals("AssociationRoleReference") ){
+            ReferenceSymbolProperty referredType = CrossxBroker.getReferenceProperty(reference, "ReferencedDto");
+            System.err.println("MOD4J GETRESULT referredType [" + referredType.getName() + "] + model [" + referredType.getModelname() + "] symbolname [" + referredType.getSymbolname() + "]");
+          Symbol returnType = CrossxBroker.lookupSymbol(referredType.getModelname(),
+                          referredType.getSymbolname(), "Dto") ;
+//            Symbol returnType = CrossxBroker.lookupReference(referredType);
+//            System.err.println("MOD4J GETRESULT return type [" + returnType.getName() + "]" );
+
+            return CrossxBroker.getPropertyValue(returnType, "baseDto");
+        }
+        
+        return result;
+    }
+
+//    static public String invariantNavigationCorrect(SimpleProcess p) {
+//        if( )
+//        
+//        return "";
+//    }
+    static public boolean refOk(String model, String dtoName, LinkNavigation nav){
+        String result= null;
+        
+        EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
+        AssociationRoleReference ref = x.get(0);
+        System.err.println("MOD4J REFOK NAV [" + ref.getName() + "]" );
+        Symbol dto = CrossxBroker.lookupSymbol(model, dtoName, "Dto");
+        System.err.println("MOD4J REFOK DTO [" + dto.getName() + "]" );
+        Symbol reference = CrossxBroker.getSubSymbol(dto, ref.getName());
+        if( reference == null){
+            return false;
+        } else {
+            return true;
+        }
     }
 }

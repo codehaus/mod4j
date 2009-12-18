@@ -39,12 +39,13 @@
 	«ENDFOREACH»
 		
     «print("MOD4J INFO: Running Presentation generator dataprovider")»
+«REM»
     «FOREACH this.elements.typeSelect(ContentForm).select(cf | cf.isCollection) AS cf»
-		«REM»DataOProvider for collection panel«ENDREM»
 		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "DataProvider"))»
     	    «EXPAND DataProvider::GenerateDataProvider FOR cf»
 		«ENDFILE»
 	«ENDFOREACH»
+«ENDREM»
 	
     «print("MOD4J INFO: Running Presentation generator collection panels")»
 	«FOREACH this.elements.typeSelect(ContentForm).select(c | c.isCollection) AS cf»

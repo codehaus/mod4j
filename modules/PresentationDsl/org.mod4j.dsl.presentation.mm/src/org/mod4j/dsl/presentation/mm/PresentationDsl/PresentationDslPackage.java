@@ -2163,6 +2163,70 @@ public interface PresentationDslPackage extends EPackage {
     int LINK_SERVICE_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkNavigationImpl <em>Link Navigation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkNavigationImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkNavigation()
+     * @generated
+     */
+    int LINK_NAVIGATION = 32;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_NAVIGATION__NAME = LINK__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_NAVIGATION__DESCRIPTION = LINK__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_NAVIGATION__CONTEXT_REF = LINK__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_NAVIGATION__PRESENTATION_MODEL = LINK__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>References</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_NAVIGATION__REFERENCES = LINK_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Link Navigation</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_NAVIGATION_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2170,7 +2234,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessType()
      * @generated
      */
-    int PROCESS_TYPE = 32;
+    int PROCESS_TYPE = 33;
 
 
     /**
@@ -2945,6 +3009,27 @@ public interface PresentationDslPackage extends EPackage {
     EAttribute getLinkService_ServiceMethod();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation <em>Link Navigation</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Link Navigation</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation
+     * @generated
+     */
+    EClass getLinkNavigation();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation#getReferences <em>References</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>References</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation#getReferences()
+     * @see #getLinkNavigation()
+     * @generated
+     */
+    EReference getLinkNavigation_References();
+
+    /**
      * Returns the meta object for enum '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3623,6 +3708,24 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EAttribute LINK_SERVICE__SERVICE_METHOD = eINSTANCE.getLinkService_ServiceMethod();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkNavigationImpl <em>Link Navigation</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkNavigationImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getLinkNavigation()
+         * @generated
+         */
+        EClass LINK_NAVIGATION = eINSTANCE.getLinkNavigation();
+
+        /**
+         * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference LINK_NAVIGATION__REFERENCES = eINSTANCE.getLinkNavigation_References();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.

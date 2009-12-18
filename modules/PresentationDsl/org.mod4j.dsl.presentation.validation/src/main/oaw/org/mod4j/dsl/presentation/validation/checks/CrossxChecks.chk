@@ -12,6 +12,7 @@ import PresentationDsl;
 import crossx;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
+extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 
 //context Enumeration ERROR "4 java check enumeration already exists [" + this.name + "]" :
 //       lookup(this.businessDomainModel.name, this.name, "BusinessClass") != null;
@@ -29,6 +30,7 @@ context ExternalReference ERROR "there is no model " + this.modelName  + " that 
 context LinkService  ERROR "Service musr referr to existing method of xisting service" :
     true
     ;
+    
 /*
 context Dialogue ERROR "01 Context reference [" + this.contextRef.name + "] not defined in model " + this.contextRef.modelName :
        lookupSymbol(this.contextRef.modelName, this.contextRef.name, "Dto") != null;
