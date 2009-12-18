@@ -255,6 +255,9 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
 	</div>
 
 	<div class="frame">
+
+        <div id="topEdge"/>
+		
 		<h1 wicket:id="pageTitle">No Title</h1>
 		
 		<div class="frameLeft">
@@ -271,6 +274,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
 			<wicket:child/>
 		</div>
 		
+		<div id="bottomEdge"/>
 	</div>
 	
 	<div class="frameBottom">
