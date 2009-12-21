@@ -16,7 +16,7 @@ ExternalReference :
 	;
 	
 ModelElementWithContext :
-	UIModelElement | Link
+	UIModelElement //| Link
 	;
 	
 UIModelElement :
@@ -93,7 +93,8 @@ InteractiveProcess :
 	(description=STRING )?
 	"InteractiveProcess" name = ID "context" contextRef = [ExternalReference]
 	(type=ProcessType)?
-	("steps" "[" (processElements += UICall ";")* "]")?
+//	("steps" "[" (processElements += UICall ";")* "]")?
+	("step" "[" (processElements += DialogueCall ";") "]")
 	;
 	
 FormElement :
@@ -105,55 +106,25 @@ FormElement :
 	("readonly" ((readonly?="true") | "false") )?
 	";"
 	;
-		
+	
 DialogueCall :
-	(DirectDialogueCall | LinkedDialogueCall) ("alias" alias = ID)? 
-	;
-	
-LinkedDialogueCall :
-	link = Link "to" name = ID
+	(context = Expression "to")? name = ID
+	("alias" alias = ID)? 
 	;
 
-DirectDialogueCall :
-	name = ID
-	;
-	
+Expression :
+    ServiceExpression | NavigationExpression
+    ;
+   	
 ProcessCall :
-	(DirectProcessCall | LinkedProcessCall) ("alias" alias = ID)? 
+	(context = Expression "to")? name = ID ("alias" alias = ID)? 
 	;
 
-LinkedProcessCall :
-	link = LinkRef "to" name = ID 
-	;
-
-DirectProcessCall :
-	name = ID
-	;
-	
-LinkRef :
-	"linkref" name = ID
-	;
-	
-Link :
-	LinkStep | LinkPath | LinkService | LinkRef | LinkNavigation
-	;
-	
-LinkService :
+ServiceExpression :
     "call"  serviceName = ID "." serviceMethod = ID
     ;
-	
-LinkStep :
-	(description=STRING )?
-	"LinkStep" name = ID "context" contextRef = [ExternalReference] 
-	"navigate" reference = AssociationRoleReference
-	;
-	
-LinkPath :
-	(description=STRING )?
-	"LinkPath" name = ID "context" contextRef = [ExternalReference]
-	;
-	
-LinkNavigation :
+
+NavigationExpression :
     "navigate" references += AssociationRoleReference  
     ( "." references += AssociationRoleReference ) *
     ;
