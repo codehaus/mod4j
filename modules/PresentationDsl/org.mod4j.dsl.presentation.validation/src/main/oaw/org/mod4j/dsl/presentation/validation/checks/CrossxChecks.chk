@@ -27,9 +27,6 @@ context ExternalReference ERROR "there is no model " + this.modelName  + " that 
        ( !findAllFromModel(this.modelName, this.name, { "Service" } ).isEmpty )
        ;
 
-context LinkService  ERROR "Service musr referr to existing method of xisting service" :
-    true
-    ;
     
 /*
 context Dialogue ERROR "01 Context reference [" + this.contextRef.name + "] not defined in model " + this.contextRef.modelName :

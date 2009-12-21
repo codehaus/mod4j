@@ -158,7 +158,7 @@ import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
 «FOREACH processes AS process-»
 import «getPresentationRootPackage()».processes.«process.name»Process;
-import «getPresentationRootPackage()».pages.«process.processElements.referredContentForm().first().name»Page;
+import «getPresentationRootPackage()».pages.«process.name»«process.processElements.referredContentForm().first().name»Page;
 «ENDFOREACH»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
 import «getPresentationRootPackage()».«getWicketApplicationClass()»;
@@ -190,7 +190,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
         menuItems.add(homeLink);
         
 	«FOREACH processes AS process-»
-	«LET process.processElements.referredContentForm().first().name AS pagename»
+	«LET process.name + process.processElements.referredContentForm().first().name AS pagename»
 		// TODO changed
 		Link «process.name»Link = new Link("link") {
 			public void onClick() {
@@ -205,7 +205,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
     «ENDFOREACH»         
         
 	«FOREACH processes AS process-»
-	«LET process.processElements.referredContentForm().first().name AS pagename»
+	«LET process.name + process.processElements.referredContentForm().first().name AS pagename»
 /*
         BookmarkablePageLink<«pagename»Page> «process.name»Link = new BookmarkablePageLink<«pagename»Page>("link", «pagename»Page.class);
         «process.name»Link.setAutoEnable(true);

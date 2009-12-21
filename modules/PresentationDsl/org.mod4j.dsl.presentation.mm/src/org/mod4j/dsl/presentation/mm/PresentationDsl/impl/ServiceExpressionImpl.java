@@ -7,27 +7,29 @@
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
+
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Link Service</b></em>'.
+ * An implementation of the model object '<em><b>Service Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkServiceImpl#getServiceName <em>Service Name</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.LinkServiceImpl#getServiceMethod <em>Service Method</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl#getServiceName <em>Service Name</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl#getServiceMethod <em>Service Method</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LinkServiceImpl extends LinkImpl implements LinkService {
+public class ServiceExpressionImpl extends ExpressionImpl implements ServiceExpression {
     /**
      * The default value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -37,6 +39,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
      * @ordered
      */
     protected static final String SERVICE_NAME_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -46,6 +49,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
      * @ordered
      */
     protected String serviceName = SERVICE_NAME_EDEFAULT;
+
     /**
      * The default value of the '{@link #getServiceMethod() <em>Service Method</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -55,6 +59,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
      * @ordered
      */
     protected static final String SERVICE_METHOD_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getServiceMethod() <em>Service Method</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -70,7 +75,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LinkServiceImpl() {
+    protected ServiceExpressionImpl() {
         super();
     }
 
@@ -81,7 +86,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
      */
     @Override
     protected EClass eStaticClass() {
-        return PresentationDslPackage.Literals.LINK_SERVICE;
+        return PresentationDslPackage.Literals.SERVICE_EXPRESSION;
     }
 
     /**
@@ -102,7 +107,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
         String oldServiceName = serviceName;
         serviceName = newServiceName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.LINK_SERVICE__SERVICE_NAME, oldServiceName, serviceName));
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_NAME, oldServiceName, serviceName));
     }
 
     /**
@@ -123,7 +128,7 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
         String oldServiceMethod = serviceMethod;
         serviceMethod = newServiceMethod;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.LINK_SERVICE__SERVICE_METHOD, oldServiceMethod, serviceMethod));
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD, oldServiceMethod, serviceMethod));
     }
 
     /**
@@ -134,9 +139,9 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_NAME:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_NAME:
                 return getServiceName();
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_METHOD:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
                 return getServiceMethod();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -150,10 +155,10 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_NAME:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_NAME:
                 setServiceName((String)newValue);
                 return;
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_METHOD:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
                 setServiceMethod((String)newValue);
                 return;
         }
@@ -168,10 +173,10 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_NAME:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_NAME:
                 setServiceName(SERVICE_NAME_EDEFAULT);
                 return;
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_METHOD:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
                 setServiceMethod(SERVICE_METHOD_EDEFAULT);
                 return;
         }
@@ -186,9 +191,9 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_NAME:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_NAME:
                 return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
-            case PresentationDslPackage.LINK_SERVICE__SERVICE_METHOD:
+            case PresentationDslPackage.SERVICE_EXPRESSION__SERVICE_METHOD:
                 return SERVICE_METHOD_EDEFAULT == null ? serviceMethod != null : !SERVICE_METHOD_EDEFAULT.equals(serviceMethod);
         }
         return super.eIsSet(featureID);
@@ -212,4 +217,4 @@ public class LinkServiceImpl extends LinkImpl implements LinkService {
         return result.toString();
     }
 
-} //LinkServiceImpl
+} //ServiceExpressionImpl

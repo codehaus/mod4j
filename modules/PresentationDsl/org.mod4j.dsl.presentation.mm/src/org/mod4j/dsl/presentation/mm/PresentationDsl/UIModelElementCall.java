@@ -16,6 +16,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getAlias <em>Alias</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,5 +50,31 @@ public interface UIModelElementCall extends UICall {
      * @generated
      */
     void setAlias(String value);
+
+    /**
+     * Returns the value of the '<em><b>Context</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Context</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Context</em>' containment reference.
+     * @see #setContext(Expression)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUIModelElementCall_Context()
+     * @model containment="true"
+     * @generated
+     */
+    Expression getContext();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContext <em>Context</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Context</em>' containment reference.
+     * @see #getContext()
+     * @generated
+     */
+    void setContext(Expression value);
 
 } // UIModelElementCall

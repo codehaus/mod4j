@@ -13,13 +13,12 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
@@ -95,12 +94,12 @@ public class PresentationHelpers {
         return null;
     }
     
-    static public LinkNavigation getLinkNavigation(UICall call){
-        if( call instanceof LinkedDialogueCall){
-            LinkedDialogueCall linkedCall = (LinkedDialogueCall)call;
-            Link link = linkedCall.getLink();
-            if( link instanceof LinkNavigation ){
-                return (LinkNavigation ) link;
+    static public NavigationExpression getNavigationExpression(UICall call){
+        if( call instanceof DialogueCall){
+            DialogueCall linkedCall = (DialogueCall)call;
+            Expression link = linkedCall.getContext();
+            if( link instanceof NavigationExpression ){
+                return (NavigationExpression) link;
             }
         }
         return null;
@@ -111,12 +110,12 @@ public class PresentationHelpers {
      * @param call
      * @return
      */
-    static public LinkService getLinkService(UICall call){
-        if( call instanceof LinkedDialogueCall){
-            LinkedDialogueCall linkedCall = (LinkedDialogueCall)call;
-            Link link = linkedCall.getLink();
-            if( link instanceof LinkService){
-                return (LinkService ) link;
+    static public ServiceExpression getServiceExpression(UICall call){
+        if( call instanceof DialogueCall){
+            DialogueCall linkedCall = (DialogueCall)call;
+            Expression link = linkedCall.getContext();
+            if( link instanceof ServiceExpression){
+                return (ServiceExpression) link;
             }
         }
         return null;
@@ -129,7 +128,7 @@ public class PresentationHelpers {
      * @param nav
      * @return
      */
-    static public String getResultType(String model, String dtoName, LinkNavigation nav){
+    static public String getResultType(String model, String dtoName, NavigationExpression nav){
         String result= null;
         
         EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
@@ -162,7 +161,7 @@ public class PresentationHelpers {
 //        
 //        return "";
 //    }
-    static public boolean refOk(String model, String dtoName, LinkNavigation nav){
+    static public boolean refOk(String model, String dtoName, NavigationExpression nav){
         String result= null;
         
         EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse

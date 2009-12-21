@@ -17,12 +17,12 @@ import «javaDtoClassPath(this.contextRef.name)»;
 
 import org.apache.wicket.model.IModel;
 
-public class «form.name»Page extends «getWicketMasterPageClass()»
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»
 {
 
     protected «this.processElements.first().name»SwapEditPanel panel = null;
     
-	public «form.name»Page (final IModel<«this.contextRef.name»> context)
+	public «this.name»«form.name»Page (final IModel<«this.contextRef.name»> context)
 	{
 		super();
 		panel = new «this.processElements.first().name»SwapEditPanel("panel", context);
@@ -36,7 +36,7 @@ public class «form.name»Page extends «getWicketMasterPageClass()»
 	@Override
 	public String getPageTitle()
 	{
-	    return "«form.name»Page";
+	    return "«this.name»«form.name»Page";
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
@@ -50,7 +50,6 @@ public class «form.name»Page extends «getWicketMasterPageClass()»
 «LET collDialogue.dialogues.first().referredContentForm() AS cf»
 «LET this.processElements.first().referredContentForm() AS cf»
 «ENDREM»
-«LET this.processElements.typeSelect(LinkedDialogueCall).link.typeSelect(LinkService).first() AS linkService»
 «LET form AS cf» 
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
@@ -79,13 +78,13 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-public class «form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
 {
 // TODO: JOS: maxItemsPerPage bean shoudl be installed
 //    @SpringBean(name="maxItemsPerPage")
     private Integer maxItemsPerPage = 5;
 
-	public «form.name»Page (IDataProvider<«this.contextRef.name»> dataProvider)
+	public «this.name»«form.name»Page (IDataProvider<«this.contextRef.name»> dataProvider)
 	{
 		super();
         «cf.name»CollectionDataViewPanel panel = new «cf.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
@@ -97,7 +96,7 @@ public class «form.name»Page extends «getWicketMasterPageClass()» implements
 	@Override
 	public String getPageTitle()
 	{
-	    return "«form.name»Page";
+	    return "«this.name»«form.name»Page";
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
@@ -136,7 +135,6 @@ public class «form.name»Page extends «getWicketMasterPageClass()» implements
 	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
 	}
 }
-«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

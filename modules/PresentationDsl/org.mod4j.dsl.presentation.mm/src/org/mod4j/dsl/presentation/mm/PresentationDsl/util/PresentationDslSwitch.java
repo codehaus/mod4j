@@ -19,27 +19,20 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectDialogueCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Link;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkPath;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkRef;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkService;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkStep;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedDialogueCall;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.LinkedProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
@@ -193,16 +186,6 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.DIRECT_DIALOGUE_CALL: {
-                DirectDialogueCall directDialogueCall = (DirectDialogueCall)theEObject;
-                T result = caseDirectDialogueCall(directDialogueCall);
-                if (result == null) result = caseDialogueCall(directDialogueCall);
-                if (result == null) result = caseUIModelElementCall(directDialogueCall);
-                if (result == null) result = caseUICall(directDialogueCall);
-                if (result == null) result = caseModelElement(directDialogueCall);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case PresentationDslPackage.DTO_PROPERTY_REFERENCE: {
                 DtoPropertyReference dtoPropertyReference = (DtoPropertyReference)theEObject;
                 T result = caseDtoPropertyReference(dtoPropertyReference);
@@ -241,61 +224,6 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = caseUIModelElement(interactiveProcess);
                 if (result == null) result = caseModelElementWithContext(interactiveProcess);
                 if (result == null) result = caseModelElement(interactiveProcess);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.LINK: {
-                Link link = (Link)theEObject;
-                T result = caseLink(link);
-                if (result == null) result = caseModelElementWithContext(link);
-                if (result == null) result = caseModelElement(link);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.LINKED_DIALOGUE_CALL: {
-                LinkedDialogueCall linkedDialogueCall = (LinkedDialogueCall)theEObject;
-                T result = caseLinkedDialogueCall(linkedDialogueCall);
-                if (result == null) result = caseDialogueCall(linkedDialogueCall);
-                if (result == null) result = caseUIModelElementCall(linkedDialogueCall);
-                if (result == null) result = caseUICall(linkedDialogueCall);
-                if (result == null) result = caseModelElement(linkedDialogueCall);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.LINKED_PROCESS_CALL: {
-                LinkedProcessCall linkedProcessCall = (LinkedProcessCall)theEObject;
-                T result = caseLinkedProcessCall(linkedProcessCall);
-                if (result == null) result = caseProcessCall(linkedProcessCall);
-                if (result == null) result = caseUIModelElementCall(linkedProcessCall);
-                if (result == null) result = caseUICall(linkedProcessCall);
-                if (result == null) result = caseModelElement(linkedProcessCall);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.LINK_REF: {
-                LinkRef linkRef = (LinkRef)theEObject;
-                T result = caseLinkRef(linkRef);
-                if (result == null) result = caseLink(linkRef);
-                if (result == null) result = caseModelElementWithContext(linkRef);
-                if (result == null) result = caseModelElement(linkRef);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.LINK_PATH: {
-                LinkPath linkPath = (LinkPath)theEObject;
-                T result = caseLinkPath(linkPath);
-                if (result == null) result = caseLink(linkPath);
-                if (result == null) result = caseModelElementWithContext(linkPath);
-                if (result == null) result = caseModelElement(linkPath);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.LINK_STEP: {
-                LinkStep linkStep = (LinkStep)theEObject;
-                T result = caseLinkStep(linkStep);
-                if (result == null) result = caseLink(linkStep);
-                if (result == null) result = caseModelElementWithContext(linkStep);
-                if (result == null) result = caseModelElement(linkStep);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -370,16 +298,6 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.DIRECT_PROCESS_CALL: {
-                DirectProcessCall directProcessCall = (DirectProcessCall)theEObject;
-                T result = caseDirectProcessCall(directProcessCall);
-                if (result == null) result = caseProcessCall(directProcessCall);
-                if (result == null) result = caseUIModelElementCall(directProcessCall);
-                if (result == null) result = caseUICall(directProcessCall);
-                if (result == null) result = caseModelElement(directProcessCall);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case PresentationDslPackage.SIMPLE_PROCESS: {
                 SimpleProcess simpleProcess = (SimpleProcess)theEObject;
                 T result = caseSimpleProcess(simpleProcess);
@@ -387,21 +305,26 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.LINK_SERVICE: {
-                LinkService linkService = (LinkService)theEObject;
-                T result = caseLinkService(linkService);
-                if (result == null) result = caseLink(linkService);
-                if (result == null) result = caseModelElementWithContext(linkService);
-                if (result == null) result = caseModelElement(linkService);
+            case PresentationDslPackage.SERVICE_EXPRESSION: {
+                ServiceExpression serviceExpression = (ServiceExpression)theEObject;
+                T result = caseServiceExpression(serviceExpression);
+                if (result == null) result = caseExpression(serviceExpression);
+                if (result == null) result = caseModelElement(serviceExpression);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.LINK_NAVIGATION: {
-                LinkNavigation linkNavigation = (LinkNavigation)theEObject;
-                T result = caseLinkNavigation(linkNavigation);
-                if (result == null) result = caseLink(linkNavigation);
-                if (result == null) result = caseModelElementWithContext(linkNavigation);
-                if (result == null) result = caseModelElement(linkNavigation);
+            case PresentationDslPackage.NAVIGATION_EXPRESSION: {
+                NavigationExpression navigationExpression = (NavigationExpression)theEObject;
+                T result = caseNavigationExpression(navigationExpression);
+                if (result == null) result = caseExpression(navigationExpression);
+                if (result == null) result = caseModelElement(navigationExpression);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.EXPRESSION: {
+                Expression expression = (Expression)theEObject;
+                T result = caseExpression(expression);
+                if (result == null) result = caseModelElement(expression);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -530,21 +453,6 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Direct Dialogue Call</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Direct Dialogue Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseDirectDialogueCall(DirectDialogueCall object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -616,96 +524,6 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseInteractiveProcess(InteractiveProcess object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLink(Link object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Linked Dialogue Call</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Linked Dialogue Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLinkedDialogueCall(LinkedDialogueCall object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Linked Process Call</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Linked Process Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLinkedProcessCall(LinkedProcessCall object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Link Ref</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link Ref</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLinkRef(LinkRef object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Link Path</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link Path</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLinkPath(LinkPath object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Link Step</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link Step</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseLinkStep(LinkStep object) {
         return null;
     }
 
@@ -845,21 +663,6 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Direct Process Call</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Direct Process Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseDirectProcessCall(DirectProcessCall object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Simple Process</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -875,32 +678,47 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Link Service</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Service Expression</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link Service</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Service Expression</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLinkService(LinkService object) {
+    public T caseServiceExpression(ServiceExpression object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Link Navigation</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Navigation Expression</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link Navigation</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Navigation Expression</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLinkNavigation(LinkNavigation object) {
+    public T caseNavigationExpression(NavigationExpression object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExpression(Expression object) {
         return null;
     }
 

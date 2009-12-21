@@ -14,7 +14,7 @@
 <body>
 </body>
 <wicket:extend>
-<p>Presentation Process «form.name»</p>
+<p>Presentation Process «this.name»  «form.name»</p>
 <div wicket:id="panel"></div>
 </wicket:extend>
 </html>

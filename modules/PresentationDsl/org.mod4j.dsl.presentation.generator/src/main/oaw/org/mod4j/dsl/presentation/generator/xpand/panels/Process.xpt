@@ -10,26 +10,40 @@
  
 «DEFINE GenerateProcess FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Process.xpt") FOR this»
-«LET this.processElements.typeSelect(DialogueCall).first() AS dia»
 «LET this.processElements.referredContentForm().select(f | f.isCollection).first() AS form»
-«LET this.processElements.typeSelect(LinkedDialogueCall) AS linkedDialogueCall»
-«LET getLinkService(dia) AS linkService»
-«LET getLinkNavigation(dia) AS linkNavigation»
+«LET this.processElements.typeSelect(DialogueCall).select(dia | dia.context != null).first() AS dialogueCallWithContext»
+«LET this.processElements.referredContentForm().select(f | ! f.isCollection).first() AS nonCollectionForm»
+«LET this.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
+	«IF (form != null) && (dialogueCallWithContext != null) && (this.type == ProcessType::CUSTOM) »
+	    «EXPAND GenerateProcessWithListForm(form, dialogueCallWithContext) FOR this»
+    «ELSE»
+        «EXPAND GenerateProcessWithSingleForm(nonCollectionForm, dialogueCall) FOR this»
+	«ENDIF»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+
+«ENDDEFINE»
+
+«REM» Generate code for process witrjh a diaologuecall that is a collection and has a context expression
+«ENDREM»
+«DEFINE GenerateProcessWithListForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
+«LET getServiceExpression(dialogueCall) AS serviceExpression»
+«LET getNavigationExpression(dialogueCall) AS navigationExpression»
 package «getPresentationRootPackage()».processes;
 
-«IF (form != null) && (linkedDialogueCall != null) »
-    «IF linkService != null»
-import «javaLocalServiceInterfacePath(linkService.serviceName)» ;
+    «IF serviceExpression != null»
+		import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
 	 «ELSE»
-	     // linkServive == null
+	     // no service expression, must bne a navugation
 	 «ENDIF»
-«ENDIF» 
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-«IF ! this.processElements.typeSelect(DialogueCall).isEmpty»
-import «getPresentationRootPackage()».pages.«dia.name»Page;
-«ENDIF»
+«REM»«IF ! this.processElements.typeSelect(DialogueCall).isEmpty»«ENDREM»
+import «getPresentationRootPackage()».pages.«this.name»«dialogueCall.name»Page;
+«REM»«ENDIF»«ENDREM»
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».panels.ServiceDataProvider;
 
@@ -45,21 +59,86 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 {
 //	@SpringBean(name = "breakfastService")
 //	private BreakfastLocalService service;
-	«IF (form != null) && (linkedDialogueCall != null) »
-	    «IF (linkService != null) && !(linkService.name == "")»
-			@SpringBean(name = "«linkService.serviceName»Service")
-		    «javaLocalServiceInterface(linkService.serviceName)» service;
-		 «ELSEIF linkNavigation != null »
-		 «ELSE»
-		     // no links to traverse
-		 «ENDIF»
-    «ENDIF» 
-	
+    «IF (serviceExpression != null) »
+		@SpringBean(name = "«serviceExpression.serviceName»Service")
+	    «javaLocalServiceInterface(serviceExpression.serviceName)» service;
+	 «ELSEIF navigationExpression != null »
+	 «ELSE»
+	     // TODO: this should not happen, both service and navigation expressions are empty
+	 «ENDIF»
+
+    public Page nextPage(«this.contextRef.name» element) {
+	// CUSTOM
+	    «IF serviceExpression != null »
+			ServiceDataProvider<«javaLocalServiceInterface(serviceExpression.serviceName)», «this.contextRef.name»> dataProvider =
+		    	new ServiceDataProvider<«javaLocalServiceInterface(serviceExpression.serviceName)», «this.contextRef.name»>(
+					service, "«serviceExpression.serviceMethod»", "count«businessClassName(form)»s");
+
+			«this.name»«form.name»Page page = new «this.name»«form.name»Page(dataProvider);
+			return page;
+		«ELSEIF navigationExpression != null»
+			«LET this.contextRef AS context»	    
+			List<«getResultType(context.modelName, context.name, navigationExpression)»> newElements = element.get«navigationExpression.references.first().name»();	    
+			«this.name»«form.name»Page page = new «this.name»«form.name»Page (new ListDataProvider<«this.contextRef.name»>(newElements));
+			return page;
+			«ENDLET»
+		«ELSE»
+			// TODO: this should not happen: no cotxt expressio n for dialogue of process «this.name»
+			// «form.name»
+			// «navigationExpression»
+			// «serviceExpression»
+			// «dialogueCall»
+			// «dialogueCall.context»
+		«ENDIF»
+	}
+}
+«ENDLET»
+«ENDLET»
+«ENDDEFINE»
+
+«REM» Generate code for process with a diaologuecall that is a not collection 
+«ENDREM»
+«DEFINE GenerateProcessWithSingleForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
+«LET getServiceExpression(dialogueCall) AS serviceExpression»
+«LET getNavigationExpression(dialogueCall) AS navigationExpression»
+package «getPresentationRootPackage()».processes;
+
+    «IF serviceExpression != null»
+		import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
+	 «ELSE»
+	     // no service expression, must bne a navugation
+	 «ENDIF»
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+«IF ! (dialogueCall == null)»
+import «getPresentationRootPackage()».pages.«this.name»«dialogueCall.name»Page;
+«ENDIF»
+import «javaDtoClassPath(this.contextRef.name)»;
+import «getPresentationRootPackage()».panels.ServiceDataProvider;
+
+import java.util.List;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.Page;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.markup.repeater.data.ListDataProvider;
+
+public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
+{
+    «IF (serviceExpression != null) »
+		@SpringBean(name = "«serviceExpression.serviceName»Service")
+	    «javaLocalServiceInterface(serviceExpression.serviceName)» service;
+	 «ELSEIF navigationExpression != null »
+	 «ELSE»
+	     // TODO: this should not happen, both service and navigation expressions are empty
+	 «ENDIF»
 
     public Page nextPage(«this.contextRef.name» element) {
 	«IF this.type == ProcessType::NEW»
 	// NEW
-		«dia.name»Page page = new «dia.name»Page (
+		«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (
 		         new CompoundPropertyModel<«this.contextRef.name»>(element));
 		page.editOn(true);
 		return page;
@@ -68,13 +147,13 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
     	return null;
 	«ELSEIF this.type == ProcessType::EDIT»
 	// EDIT
-	    // link to «linkNavigation.references»
-	    «IF linkNavigation != null »
-			«dia.referredContentForm().contextRef.name» newElement = element.get«linkNavigation.references.first().name»	    
-			«dia.name»Page page = new «dia.name»Page (
+	    // link to «navigationExpression.references»
+	    «IF navigationExpression != null »
+			«dialogueCall.referredContentForm().contextRef.name» newElement = element.get«navigationExpression.references.first().name»	    
+			«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (
 			         new CompoundPropertyModel<«this.contextRef.name»>(newElement));
 	    «ELSE»
-			«dia.name»Page page = new «dia.name»Page (
+			«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (
 			         new CompoundPropertyModel<«this.contextRef.name»>(element));
 		«ENDIF»
 		page.editOn(true);
@@ -86,44 +165,17 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	// CANCEL
     	return null;
 	«ELSEIF this.type == ProcessType::CUSTOM»
-	// CUSTOM
-		«IF (form != null) && (linkedDialogueCall != null) »
-
-		    «IF linkService != null »
-			ServiceDataProvider<«javaLocalServiceInterface(linkService.serviceName)», «this.contextRef.name»> dataProvider =
-			    new ServiceDataProvider<«javaLocalServiceInterface(linkService.serviceName)», «this.contextRef.name»>(
-					service, "«linkService.serviceMethod»", "count«businessClassName(form)»s");
-	
-				«form.name»Page page = new «form.name»Page(dataProvider);
-				return page;
-			«ELSEIF linkNavigation != null»
-				«LET this.contextRef AS context»	    
-				List<«getResultType(context.modelName, context.name, linkNavigation)»> newElements = element.get«linkNavigation.references.first().name»();	    
-				«form.name»Page page = new «form.name»Page (new ListDataProvider<«this.contextRef.name»>(newElements));
-				return page;
-				«ENDLET»
-			«ELSE»
-			// ??? «this.name»
-			// «form.name»
-			// «linkNavigation»
-			// «dia»
-			// «linkedDialogueCall.link»
-			«ENDIF»
-		
-	    «ELSE»
-			«getWicketHomePageClass()» page = new «getWicketHomePageClass()»();
-			return page;
-	//    	return null;
-		«ENDIF»
+		// CUSTOM default home page
+		«getWicketHomePageClass()» page = new «getWicketHomePageClass()»();
+		return page;
+//    	return null;
 	«ENDIF»
 	}
 }
 «ENDLET»
 «ENDLET»
-«ENDLET»
-«ENDLET»
-«ENDLET»
 «ENDDEFINE»
+
 
 «DEFINE GeneratePmfProcess FOR PresentationModel -»
 package «getPresentationRootPackage()».processes;

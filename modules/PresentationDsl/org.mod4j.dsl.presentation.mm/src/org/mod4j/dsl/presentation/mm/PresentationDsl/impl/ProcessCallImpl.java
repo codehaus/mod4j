@@ -33,7 +33,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  *
  * @generated
  */
-public abstract class ProcessCallImpl extends UIModelElementCallImpl implements ProcessCall {
+public class ProcessCallImpl extends UIModelElementCallImpl implements ProcessCall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

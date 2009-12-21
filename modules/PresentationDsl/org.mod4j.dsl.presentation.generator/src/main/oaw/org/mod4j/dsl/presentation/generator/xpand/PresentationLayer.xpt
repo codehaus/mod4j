@@ -80,12 +80,12 @@
 		«IF form != null»
 			«IF form.isCollection »
 		    	«print("Collection page generated for process [" + process.name + "] form [" + form.name + "]")»
-				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + form.name + "Page"))»
+				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + form.name + "Page"))»
 		    	    «EXPAND ProcessPage::GenerateCollectionDialoguePage(form) FOR process»
 				«ENDFILE»
 			«ELSE»
 		    	«print("Content page generated for process [" + process.name + "] form [" + form.name + "]")»
-				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + form.name + "Page"))»
+				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + form.name + "Page"))»
 		    	    «EXPAND ProcessPage::GenerateContentFormPage(form) FOR process»
 				«ENDFILE»
 			«ENDIF»
@@ -103,7 +103,7 @@
 			«ENDFILE»
 		«ENDIF»
 «ENDREM»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + form.name + "Page.html")»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + form.name + "Page.html")»
     	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process»
 		«ENDFILE»
 		«ENDLET»

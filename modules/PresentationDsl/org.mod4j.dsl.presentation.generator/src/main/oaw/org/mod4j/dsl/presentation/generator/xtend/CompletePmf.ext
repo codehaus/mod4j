@@ -13,8 +13,10 @@ completeModel(PresentationModel pmfModel) :
     let formElements = pmfModel.elements.typeSelect(ContentForm).formElements :    
     let contentForms = pmfModel.elements.typeSelect(ContentForm):
 
-    formElements.addDataProperty()->
-	contentForms.convertActions();
+    formElements.addDataProperty()
+    ->
+	contentForms.convertActions()
+	;
 	
 DataProperty addDataProperty(FormElement element) :
     let dtoSymbol = lookupSymbol(element.form.contextRef.modelName, element.form.contextRef.name, "Dto") :
@@ -44,9 +46,9 @@ Boolean convertActions(ContentForm form) :
 Boolean createProcess(SimpleProcess action, ContentForm form) :
     let tmp = (action.dialogue == null ? new AutomatedProcess : new InteractiveProcess ):
     let result = (Process) tmp :
-    let dialogue = new DirectDialogueCall :
+    let dialogue = new DialogueCall :
     let name = form.name + action.name.toFirstUpper() + "Action" :
-    let processCall = new DirectProcessCall :
+    let processCall = new ProcessCall :
     dialogue.setName(action.dialogue.name)->
     result.setName(name)->
     result.setContextRef(form.contextRef)->

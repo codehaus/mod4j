@@ -39,7 +39,6 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/compoundDialogue"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/callingSimpleProcess"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//DirectDialogueCall"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/modelName"/>
@@ -53,22 +52,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/dataProperty"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//InteractiveProcess"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//Link">
-      <genOperations ecoreOperation="PresentationDsl.ecore#//Link/getTarget"/>
-    </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkedDialogueCall">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkedDialogueCall/link"/>
-    </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkedProcessCall">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkedProcessCall/link"/>
-    </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkRef"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkPath">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkPath/steps"/>
-    </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkStep">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkStep/reference"/>
-    </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//MasterDetail">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//MasterDetail/master"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//MasterDetail/detail"/>
@@ -97,22 +80,23 @@
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UIModelElementCall/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/context"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//DirectProcessCall"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//SimpleProcess">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/dialogue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//SimpleProcess/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/contentForm"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkService">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//LinkService/serviceName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//LinkService/serviceMethod"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ServiceExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ServiceExpression/serviceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ServiceExpression/serviceMethod"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//LinkNavigation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//LinkNavigation/references"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//NavigationExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//NavigationExpression/references"/>
     </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Expression"/>
   </genPackages>
 </genmodel:GenModel>

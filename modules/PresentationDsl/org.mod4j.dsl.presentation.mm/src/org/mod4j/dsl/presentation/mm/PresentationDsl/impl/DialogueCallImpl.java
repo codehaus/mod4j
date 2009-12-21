@@ -35,7 +35,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
  *
  * @generated
  */
-public abstract class DialogueCallImpl extends UIModelElementCallImpl implements DialogueCall {
+public class DialogueCallImpl extends UIModelElementCallImpl implements DialogueCall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

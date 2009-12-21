@@ -8,25 +8,25 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.DirectProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Direct Process Call</b></em>'.
+ * An implementation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class DirectProcessCallImpl extends ProcessCallImpl implements DirectProcessCall {
+public class ExpressionImpl extends ModelElementImpl implements Expression {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DirectProcessCallImpl() {
+    protected ExpressionImpl() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class DirectProcessCallImpl extends ProcessCallImpl implements DirectProc
      */
     @Override
     protected EClass eStaticClass() {
-        return PresentationDslPackage.Literals.DIRECT_PROCESS_CALL;
+        return PresentationDslPackage.Literals.EXPRESSION;
     }
 
-} //DirectProcessCallImpl
+} //ExpressionImpl

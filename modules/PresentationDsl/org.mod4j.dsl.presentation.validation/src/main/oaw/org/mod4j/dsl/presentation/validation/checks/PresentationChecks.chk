@@ -47,7 +47,7 @@ context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the
  */
 
  context SimpleProcess ERROR "Reference not ok" :
-    let link = this.dialogue.getLinkNavigation() :
+    let link = this.dialogue.getNavigationExpression() :
 	(link != null )implies (
     	refOk(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, link)
     )

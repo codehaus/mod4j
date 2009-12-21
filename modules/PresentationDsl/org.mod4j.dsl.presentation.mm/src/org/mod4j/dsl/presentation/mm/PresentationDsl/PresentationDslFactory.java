@@ -80,13 +80,13 @@ public interface PresentationDslFactory extends EFactory {
     DataProperty createDataProperty();
 
     /**
-     * Returns a new object of class '<em>Direct Dialogue Call</em>'.
+     * Returns a new object of class '<em>Dialogue Call</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Direct Dialogue Call</em>'.
+     * @return a new object of class '<em>Dialogue Call</em>'.
      * @generated
      */
-    DirectDialogueCall createDirectDialogueCall();
+    DialogueCall createDialogueCall();
 
     /**
      * Returns a new object of class '<em>Dto Property Reference</em>'.
@@ -134,51 +134,6 @@ public interface PresentationDslFactory extends EFactory {
     InteractiveProcess createInteractiveProcess();
 
     /**
-     * Returns a new object of class '<em>Linked Dialogue Call</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Linked Dialogue Call</em>'.
-     * @generated
-     */
-    LinkedDialogueCall createLinkedDialogueCall();
-
-    /**
-     * Returns a new object of class '<em>Linked Process Call</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Linked Process Call</em>'.
-     * @generated
-     */
-    LinkedProcessCall createLinkedProcessCall();
-
-    /**
-     * Returns a new object of class '<em>Link Ref</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Link Ref</em>'.
-     * @generated
-     */
-    LinkRef createLinkRef();
-
-    /**
-     * Returns a new object of class '<em>Link Path</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Link Path</em>'.
-     * @generated
-     */
-    LinkPath createLinkPath();
-
-    /**
-     * Returns a new object of class '<em>Link Step</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Link Step</em>'.
-     * @generated
-     */
-    LinkStep createLinkStep();
-
-    /**
      * Returns a new object of class '<em>Master Detail</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -206,6 +161,15 @@ public interface PresentationDslFactory extends EFactory {
     PresentationModel createPresentationModel();
 
     /**
+     * Returns a new object of class '<em>Process Call</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Process Call</em>'.
+     * @generated
+     */
+    ProcessCall createProcessCall();
+
+    /**
      * Returns a new object of class '<em>UI Model Element Call</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -213,15 +177,6 @@ public interface PresentationDslFactory extends EFactory {
      * @generated
      */
     UIModelElementCall createUIModelElementCall();
-
-    /**
-     * Returns a new object of class '<em>Direct Process Call</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Direct Process Call</em>'.
-     * @generated
-     */
-    DirectProcessCall createDirectProcessCall();
 
     /**
      * Returns a new object of class '<em>Simple Process</em>'.
@@ -233,22 +188,31 @@ public interface PresentationDslFactory extends EFactory {
     SimpleProcess createSimpleProcess();
 
     /**
-     * Returns a new object of class '<em>Link Service</em>'.
+     * Returns a new object of class '<em>Service Expression</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Link Service</em>'.
+     * @return a new object of class '<em>Service Expression</em>'.
      * @generated
      */
-    LinkService createLinkService();
+    ServiceExpression createServiceExpression();
 
     /**
-     * Returns a new object of class '<em>Link Navigation</em>'.
+     * Returns a new object of class '<em>Navigation Expression</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Link Navigation</em>'.
+     * @return a new object of class '<em>Navigation Expression</em>'.
      * @generated
      */
-    LinkNavigation createLinkNavigation();
+    NavigationExpression createNavigationExpression();
+
+    /**
+     * Returns a new object of class '<em>Expression</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Expression</em>'.
+     * @generated
+     */
+    Expression createExpression();
 
     /**
      * Returns the package supported by this factory.

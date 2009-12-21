@@ -25,9 +25,10 @@ Symbol toElement(Dialogue d) :
     result
     ;
 
-Symbol toElement(Link l) :
+Symbol toElement(Expression l) :
 	null;
-	
+
+/*	
 Symbol toElement(LinkStep ls) :
     let result = new Symbol :
     result.setName(ls.name) ->
@@ -37,7 +38,8 @@ Symbol toElement(LinkStep ls) :
     (ls.getTarget() != null ? result.properties.add( newProperty("target", ls.getTarget().name)) : null)->
     result
     ;
-
+*/
+/*
 Symbol toElement(LinkPath lp) :
     let result = new Symbol :
     result.setName(lp.name) ->
@@ -47,4 +49,4 @@ Symbol toElement(LinkPath lp) :
     (lp.getTarget() != null ? result.properties.add( newProperty("target", lp.getTarget().name)) : null)->
     result
     ;
-    
+  */  

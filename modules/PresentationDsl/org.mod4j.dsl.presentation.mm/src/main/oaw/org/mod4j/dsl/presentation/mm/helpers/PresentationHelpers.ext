@@ -18,18 +18,18 @@ Process referredProcess(ProcessCall call) :
 Process getProcessOfType(ContentForm form, ProcessType type) :
   form.processes.referredProcess().select(e|e.type==type).first();
 
-LinkService getLinkService(UICall call) :
-  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getLinkService(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+ServiceExpression getServiceExpression(UICall call) :
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getServiceExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
   
-LinkNavigation getLinkNavigation(UICall call) :
-  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getLinkNavigation(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+NavigationExpression getNavigationExpression(UICall call) :
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getNavigationExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
   
-String getResultType(String model, String dto, LinkNavigation nav) :
+String getResultType(String model, String dto, NavigationExpression nav) :
     JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getResultType(
-      java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation);
+      java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression);
   
-boolean refOk(String model, String dto, LinkNavigation nav) :
+boolean refOk(String model, String dto, NavigationExpression nav) :
     JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.refOk(
-      java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.LinkNavigation);
+      java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression);
 
   

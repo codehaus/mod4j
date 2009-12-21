@@ -30,13 +30,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
         eType="#//ProcessCall" containment="true" eOpposite="#//ProcessCall/owningDialogue"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" abstract="true" eSuperTypes="#//UIModelElementCall">
+  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UIModelElementCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="compoundDialogue" eType="#//CompoundDialogue"
         eOpposite="#//CompoundDialogue/dialogues"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callingSimpleProcess" eType="#//SimpleProcess"
         eOpposite="#//SimpleProcess/dialogue"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DirectDialogueCall" eSuperTypes="#//DialogueCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -54,25 +53,6 @@
         containment="true" eOpposite="#//DataProperty/formElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InteractiveProcess" eSuperTypes="#//Process"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true" eSuperTypes="#//ModelElementWithContext">
-    <eOperations name="getTarget" eType="#//ModelElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkedDialogueCall" eSuperTypes="#//DialogueCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkedProcessCall" eSuperTypes="#//ProcessCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//LinkRef"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkRef" eSuperTypes="#//Link"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkPath" eSuperTypes="#//Link">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
-        eType="#//LinkRef"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkStep" eSuperTypes="#//Link">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//AssociationRoleReference"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MasterDetail" eSuperTypes="#//CompoundDialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="master" lowerBound="1"
         eType="#//DialogueCall" containment="true"/>
@@ -103,19 +83,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProcessType"
         defaultValueLiteral="CUSTOM"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" abstract="true" eSuperTypes="#//UIModelElementCall">
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningDialogue" eType="#//Dialogue"
         eOpposite="#//Dialogue/processes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElementWithContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElementCall" eSuperTypes="#//UICall">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
         eOpposite="#//Process/processElements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DirectProcessCall" eSuperTypes="#//ProcessCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleProcess" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogue" eType="#//DialogueCall"
         containment="true" eOpposite="#//DialogueCall/callingSimpleProcess"/>
@@ -132,12 +113,13 @@
     <eLiterals name="CUSTOM" value="4"/>
     <eLiterals name="CANCEL" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkService" eSuperTypes="#//Link">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkNavigation" eSuperTypes="#//Link">
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//AssociationRoleReference" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ModelElement"/>
 </ecore:EPackage>
