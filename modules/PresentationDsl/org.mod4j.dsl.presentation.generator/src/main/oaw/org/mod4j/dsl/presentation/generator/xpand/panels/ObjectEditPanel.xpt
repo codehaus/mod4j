@@ -6,11 +6,14 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
  
 «DEFINE GenerateObjectEditPanel FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanel.xpt") FOR this»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::SAVE) AS saveProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::REMOVE) AS removeProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 package «getPresentationRootPackage()».panels;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +21,7 @@ import java.util.List;
 import «getPresentationCommonPackage()».ext.components.AjaxEditableLabel;
 import «getPresentationCommonPackage()».ext.components.AjaxIndicator;
 import «getPresentationCommonPackage()».ext.components.AjaxUpdatingBehaviour;
-import «getPresentationCommonPackage()».ext.components.ComponentsFeedbackMessageFilter;
+import «getPresentationCommonPackage()».ext.components.AllFeedbackMessageFilter;
 import «getPresentationCommonPackage()».ext.components.FieldFeedbackPanel;
 import «getPresentationCommonPackage()».ext.components.FormFeedbackPanel;
 import «getPresentationCommonPackage()».ext.components.ConfirmAjaxButton;
@@ -91,7 +94,18 @@ public class «this.name»EditPanelWithListener extends Panel {
         localModel = model;
         form = new Form<«this.contextRef.name»>("frm«this.contextRef.name»", model);
 
-        Button save = new Button("save", new ResourceModel("cmd.save")) {
+//        form.setDefaultButton(save);
+        FormFeedbackPanel formMsgs = new FormFeedbackPanel("formMsgs",
+//                new ComponentsFeedbackMessageFilter(form, save, delete, cancel));
+                new AllFeedbackMessageFilter());
+        formMsgs.setOutputMarkupId(true);
+
+    «EXPAND addWicketComponent FOREACH this.formElements»
+        form.add(new AjaxIndicator("ajaxIndicator"));
+ 
+ «IF (saveProcesses != null) && (!saveProcesses.isEmpty)»
+     «FOREACH saveProcesses AS p»
+        Button «p.name»save = new Button("«p.name»save", new ResourceModel("cmd.save")) {
             @Override
             public void onSubmit() {
                 saveAction();
@@ -100,8 +114,12 @@ public class «this.name»EditPanelWithListener extends Panel {
 				}
             }
         };
-        
-        Button delete = new Button("delete", new ResourceModel("cmd.delete")) {
+        form.add(«p.name»save);
+    «ENDFOREACH»
+«ENDIF»
+ «IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
+     «FOREACH removeProcesses AS p»
+        Button «p.name»delete = new Button("«p.name»delete", new ResourceModel("cmd.delete")) {
             @Override
             public void onSubmit() {
                 deleteAction();
@@ -110,11 +128,13 @@ public class «this.name»EditPanelWithListener extends Panel {
 				}
             }
         };
-        delete.setDefaultFormProcessing(false);
-        delete.setVisible(!isNew);
-        delete.add( new SimpleAttributeModifier("onclick", "return confirm('"
+        «p.name»delete.setDefaultFormProcessing(false);
+        «p.name»delete.setVisible(!isNew);
+        «p.name»delete.add( new SimpleAttributeModifier("onclick", "return confirm('"
                         + getLocalizer().getString("msg.confirm", this) + "');"));
- 
+        form.add(«p.name»delete);
+    «ENDFOREACH»
+«ENDIF» 
         Button cancel = new Button("cancel", new ResourceModel("cmd.cancel")) {
             @Override
             public void onSubmit() {
@@ -125,21 +145,28 @@ public class «this.name»EditPanelWithListener extends Panel {
              }
         };
         cancel.setDefaultFormProcessing(false);
-        form.setDefaultButton(save);
-        FormFeedbackPanel formMsgs = new FormFeedbackPanel("formMsgs",
-                new ComponentsFeedbackMessageFilter(form, save, delete, cancel));
-        formMsgs.setOutputMarkupId(true);
-
-    «EXPAND addWicketComponent FOREACH this.formElements»
-        form.add(new AjaxIndicator("ajaxIndicator"));
- 
-        form.add(save);
-        form.add(delete);
         form.add(cancel);
+ «IF (customProcesses != null) && (!customProcesses.isEmpty)»
+     «FOREACH customProcesses AS p»
+        Button «p.name»custom = new Button("«p.name»custom", new Model("«p.name»")) {
+            @Override
+            public void onSubmit() {
+				for («this.contextRef.name»ListListener listener : listeners) {
+					listener.startProcess(
+									"«p.name»Process", model.getObject());
+				}
+            }
+        };
+        form.add(«p.name»custom);
+    «ENDFOREACH»
+«ENDIF»
+        
+        
         add(formMsgs);
         add(form);
     }
 
+«IF (saveProcesses != null) && (!saveProcesses.isEmpty)»
 	/**
 	 * 
 	 */
@@ -156,7 +183,9 @@ public class «this.name»EditPanelWithListener extends Panel {
 		    log.error("", e);
 		}
 	}
+«ENDIF»
 
+«IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
 	/**
 	 * 
 	 */
@@ -171,8 +200,12 @@ public class «this.name»EditPanelWithListener extends Panel {
 		    log.error("", e);
 		}
 	}
+«ENDIF»
 
 }
+«ENDLET»
+«ENDLET»
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE addWicketComponent FOR FormElement»

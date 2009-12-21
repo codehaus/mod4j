@@ -43,6 +43,9 @@
 	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
 		<td class="butcol"><input type="button" value="«p.name»" wicket:id="«p.name»" class="button" /></td>
 	«ENDFOREACH»
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::REMOVE) AS p»
+		<td class="butcol"><input type="button" value="«p.name»" wicket:id="«p.name»" class="button" /></td>
+	«ENDFOREACH»
 				</tr>
 			</tbody>
 		</table>

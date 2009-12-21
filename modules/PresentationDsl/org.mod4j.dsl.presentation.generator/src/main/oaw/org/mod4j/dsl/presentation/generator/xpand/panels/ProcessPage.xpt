@@ -14,10 +14,15 @@ package «getPresentationRootPackage()».pages;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«this.processElements.first().name»SwapEditPanel;
 import «javaDtoClassPath(this.contextRef.name)»;
+import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListener;
+
+«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process ;
+«ENDFOREACH»
 
 import org.apache.wicket.model.IModel;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
 {
 
     protected «this.processElements.first().name»SwapEditPanel panel = null;
@@ -26,6 +31,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	{
 		super();
 		panel = new «this.processElements.first().name»SwapEditPanel("panel", context);
+		panel.addListener(this);
 		add(panel);
 	}
 
@@ -40,6 +46,44 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
+	public void startProcess(String processName, «this.contextRef.name» context){
+	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+		if(processName.equals("«p.name»Process")){
+			«p.name»Process process = new «p.name»Process();
+			setResponsePage(process.nextPage(context));
+		}
+	«ENDFOREACH»
+	}
+
+	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»Delete(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»Edit(«this.contextRef.name» element) {
+«REM»
+    «IF editProcess != null»
+	    PmfProcess process = new «editProcess.name»Process();
+	    setResponsePage( process.nextPage(element));
+	«ENDIF»
+«ENDREM»
+	}
+
+	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
+	}
+
+	public void on«this.contextRef.name»New(«this.contextRef.name» element) {
+«REM»
+    «IF newProcess != null»
+	    PmfProcess process = new «newProcess.name»Process();
+	    setResponsePage( process.nextPage(element));
+	«ENDIF»
+«ENDREM»
+	}
+
+	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
+	}
 }
 «ENDDEFINE»
 

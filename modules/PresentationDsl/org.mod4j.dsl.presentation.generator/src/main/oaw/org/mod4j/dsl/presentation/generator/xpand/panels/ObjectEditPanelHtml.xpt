@@ -6,9 +6,13 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 
 «DEFINE GenerateObjectEditPanelHtml FOR ContentForm -»
     «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanelHtml.xpt") FOR this»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::SAVE) AS saveProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::REMOVE) AS removeProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
 <wicket:panel>
 	<span wicket:id="formMsgs"/>
@@ -26,9 +30,22 @@
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						<input type="submit" wicket:id="save" value="Save"/>
-						<input type="submit" wicket:id="delete" value="Delete"/>
+«IF (saveProcesses != null) && (!saveProcesses.isEmpty)»
+    «FOREACH saveProcesses AS p»
+						<input type="submit" wicket:id="«p.name»save" value="Save"/>
+	«ENDFOREACH»
+«ENDIF»
+«IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
+    «FOREACH removeProcesses AS p»
+						<input type="submit" wicket:id="«p.name»delete" value="Delete"/>
+	«ENDFOREACH»
+«ENDIF»
 						<input type="submit" wicket:id="cancel" value="Cancel"/>
+«IF (customProcesses != null) && (!customProcesses.isEmpty)»
+    «FOREACH customProcesses AS p»
+						<input type="submit" wicket:id="«p.name»custom" value="Custom «p.name»"/>
+	«ENDFOREACH»
+«ENDIF»
 					</td>
 				</tr>
 			</tfoot>
@@ -40,6 +57,9 @@
 	</form>
 </wicket:panel>
 </html>
+«ENDLET»
+«ENDLET»
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE addWicketComponent FOR FormElement»

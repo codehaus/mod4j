@@ -5,6 +5,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION  org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 
 «DEFINE GenerateObjectSwapPanel FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectSwapPanel.xpt") FOR this»
@@ -15,6 +16,10 @@ import java.util.List;
 
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
+
+«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process ;
+«ENDFOREACH»
 
 import «javaDtoClassPath(this.contextRef.name)»;
 
@@ -107,9 +112,21 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 			listener.on«this.contextRef.name»Delete(element);
 		}
 	}
-	public void startProcess(String name, «this.contextRef.name» context) {
-		// TODO Auto-generated method stub
-		
+	public void startProcess(String processName, «this.contextRef.name» context) {
+//		if (name
+//				.equals("ComestibleForOverviewFormYesActionProcess")) {
+//			ComestibleForOverviewFormYesActionProcess process = new ComestibleForOverviewFormYesActionProcess();
+//			setResponsePage(process.nextPage(context));
+//		}
+
+	«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+		if(processName.equals("«p.name»Process")){
+			«p.name»Process process = new «p.name»Process();
+			setResponsePage(process.nextPage(context));
+		}
+	«ENDFOREACH»
+
+
 	}
 
 }

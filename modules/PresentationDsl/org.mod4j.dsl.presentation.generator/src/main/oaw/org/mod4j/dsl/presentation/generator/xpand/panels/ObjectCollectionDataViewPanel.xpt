@@ -156,6 +156,17 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 				}
 			});
     «ENDFOREACH»
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::REMOVE) AS ppp»
+			item.add(new Link("«ppp.name»") {
+				public void onClick() {
+					for («this.contextRef.name»ListListener listener : listeners) {
+						listener.on«this.contextRef.name»Delete(item.getModel().getObject());
+//						listener.startProcess("«ppp.name»Process", item.getModel().getObject());
+					}
+//				    setResponsePage( new «ppp.processElements.referredContentForm().first().name»Page(item.getModel()));
+				}
+			});
+    «ENDFOREACH»
 		}
 
 		@Override
