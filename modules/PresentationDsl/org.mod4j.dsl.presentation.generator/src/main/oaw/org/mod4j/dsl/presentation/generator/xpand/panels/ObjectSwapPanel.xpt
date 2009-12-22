@@ -9,6 +9,8 @@
 
 «DEFINE GenerateObjectSwapPanel FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectSwapPanel.xpt") FOR this»
+«LET this.processes.referredProcess().selectFirst(e|e.type==ProcessType::SAVE) AS saveProcess»
+«LET this.processes.referredProcess().selectFirst(e|e.type==ProcessType::REMOVE) AS deleteProcess»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
@@ -20,6 +22,12 @@ import org.apache.wicket.model.IModel;
 «FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process ;
 «ENDFOREACH»
+«IF saveProcess != null»
+import «getPresentationRootPackage()».processes.«saveProcess.name»Process;
+«ENDIF»
+«IF deleteProcess != null»
+import «getPresentationRootPackage()».processes.«deleteProcess.name»Process;
+«ENDIF»
 
 import «javaDtoClassPath(this.contextRef.name)»;
 
@@ -100,25 +108,27 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 	}
 
 	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
-		swapPanels();
+    «IF saveProcess != null»
+		«saveProcess.name»Process process = new «saveProcess.name»Process();
+		process.run(element);
+	«ENDIF»
 		for («this.contextRef.name»ListListener listener : listeners) {
 			listener.on«this.contextRef.name»Save(element);
 		}
+		swapPanels();
 	}
 
 	public void on«this.contextRef.name»Delete(«this.contextRef.name» element) {
-		swapPanels();
+    «IF deleteProcess != null»
+		«deleteProcess.name»Process process = new «deleteProcess.name»Process();
+		process.run(element);
+	«ENDIF»
 		for («this.contextRef.name»ListListener listener : listeners) {
 			listener.on«this.contextRef.name»Delete(element);
 		}
+		swapPanels();
 	}
 	public void startProcess(String processName, «this.contextRef.name» context) {
-//		if (name
-//				.equals("ComestibleForOverviewFormYesActionProcess")) {
-//			ComestibleForOverviewFormYesActionProcess process = new ComestibleForOverviewFormYesActionProcess();
-//			setResponsePage(process.nextPage(context));
-//		}
-
 	«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
@@ -130,4 +140,6 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 	}
 
 }
+«ENDLET»
+«ENDLET»
 «ENDDEFINE»

@@ -18,11 +18,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 
 /**
@@ -34,6 +37,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getServices <em>Services</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +73,16 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * @ordered
      */
     protected ProcessType type = TYPE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getServices()
+     * @generated
+     * @ordered
+     */
+    protected EList<ServiceExpression> services;
 
     /**
      * <!-- begin-user-doc -->
@@ -127,6 +141,18 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<ServiceExpression> getServices() {
+        if (services == null) {
+            services = new EObjectContainmentEList<ServiceExpression>(ServiceExpression.class, this, PresentationDslPackage.PROCESS__SERVICES);
+        }
+        return services;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -147,6 +173,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return ((InternalEList<?>)getProcessElements()).basicRemove(otherEnd, msgs);
+            case PresentationDslPackage.PROCESS__SERVICES:
+                return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -163,6 +191,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return getProcessElements();
             case PresentationDslPackage.PROCESS__TYPE:
                 return getType();
+            case PresentationDslPackage.PROCESS__SERVICES:
+                return getServices();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -183,6 +213,10 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__TYPE:
                 setType((ProcessType)newValue);
                 return;
+            case PresentationDslPackage.PROCESS__SERVICES:
+                getServices().clear();
+                getServices().addAll((Collection<? extends ServiceExpression>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -201,6 +235,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__TYPE:
                 setType(TYPE_EDEFAULT);
                 return;
+            case PresentationDslPackage.PROCESS__SERVICES:
+                getServices().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -217,6 +254,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return processElements != null && !processElements.isEmpty();
             case PresentationDslPackage.PROCESS__TYPE:
                 return type != TYPE_EDEFAULT;
+            case PresentationDslPackage.PROCESS__SERVICES:
+                return services != null && !services.isEmpty();
         }
         return super.eIsSet(featureID);
     }

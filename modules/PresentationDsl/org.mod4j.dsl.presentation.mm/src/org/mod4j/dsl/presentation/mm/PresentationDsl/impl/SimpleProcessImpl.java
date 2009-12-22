@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -32,6 +33,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getDialogue <em>Dialogue</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getContentForm <em>Content Form</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getProcess <em>Process</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +69,16 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
      * @ordered
      */
     protected ProcessType type = TYPE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getProcess() <em>Process</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProcess()
+     * @generated
+     * @ordered
+     */
+    protected AutomatedProcess process;
 
     /**
      * <!-- begin-user-doc -->
@@ -197,6 +209,49 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
      * <!-- end-user-doc -->
      * @generated
      */
+    public AutomatedProcess getProcess() {
+        return process;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetProcess(AutomatedProcess newProcess, NotificationChain msgs) {
+        AutomatedProcess oldProcess = process;
+        process = newProcess;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SIMPLE_PROCESS__PROCESS, oldProcess, newProcess);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setProcess(AutomatedProcess newProcess) {
+        if (newProcess != process) {
+            NotificationChain msgs = null;
+            if (process != null)
+                msgs = ((InternalEObject)process).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.SIMPLE_PROCESS__PROCESS, null, msgs);
+            if (newProcess != null)
+                msgs = ((InternalEObject)newProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.SIMPLE_PROCESS__PROCESS, null, msgs);
+            msgs = basicSetProcess(newProcess, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SIMPLE_PROCESS__PROCESS, newProcess, newProcess));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -224,6 +279,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
                 return basicSetDialogue(null, msgs);
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 return basicSetContentForm(null, msgs);
+            case PresentationDslPackage.SIMPLE_PROCESS__PROCESS:
+                return basicSetProcess(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -256,6 +313,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
                 return getType();
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 return getContentForm();
+            case PresentationDslPackage.SIMPLE_PROCESS__PROCESS:
+                return getProcess();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -276,6 +335,9 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
                 return;
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 setContentForm((ContentForm)newValue);
+                return;
+            case PresentationDslPackage.SIMPLE_PROCESS__PROCESS:
+                setProcess((AutomatedProcess)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -298,6 +360,9 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 setContentForm((ContentForm)null);
                 return;
+            case PresentationDslPackage.SIMPLE_PROCESS__PROCESS:
+                setProcess((AutomatedProcess)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -316,6 +381,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
                 return type != TYPE_EDEFAULT;
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 return getContentForm() != null;
+            case PresentationDslPackage.SIMPLE_PROCESS__PROCESS:
+                return process != null;
         }
         return super.eIsSet(featureID);
     }

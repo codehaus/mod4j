@@ -16,6 +16,8 @@
 «LET this.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
 	«IF (form != null) && (dialogueCallWithContext != null) && (this.type == ProcessType::CUSTOM) »
 	    «EXPAND GenerateProcessWithListForm(form, dialogueCallWithContext) FOR this»
+    «ELSEIF (dialogueCall == null) && (dialogueCallWithContext == null) »
+        «EXPAND GenerateBatchProcess FOR this»
     «ELSE»
         «EXPAND GenerateProcessWithSingleForm(nonCollectionForm, dialogueCall) FOR this»
 	«ENDIF»
@@ -31,13 +33,15 @@
 «DEFINE GenerateProcessWithListForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
 «LET getServiceExpression(dialogueCall) AS serviceExpression»
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
+«LET this.services.selectFirst(e|e.name == "update") AS updateService»
+«LET this.services.selectFirst(e|e.name == "create") AS createService»
 package «getPresentationRootPackage()».processes;
 
     «IF serviceExpression != null»
 		import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
-	 «ELSE»
-	     // no service expression, must bne a navugation
-	 «ENDIF»
+	«ELSE»
+	    // no service expression, must bne a navugation
+	«ENDIF»
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
@@ -57,8 +61,6 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
 {
-//	@SpringBean(name = "breakfastService")
-//	private BreakfastLocalService service;
     «IF (serviceExpression != null) »
 		@SpringBean(name = "«serviceExpression.serviceName»Service")
 	    «javaLocalServiceInterface(serviceExpression.serviceName)» service;
@@ -67,6 +69,13 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	     // TODO: this should not happen, both service and navigation expressions are empty
 	 «ENDIF»
 
+	«IF (this.type == ProcessType::SAVE)»
+		@SpringBean(name = "«updateService.serviceName»Service")
+	    «javaLocalServiceInterface(updateService.serviceName)» updateService;
+	    
+		@SpringBean(name = "«createService.serviceName»Service")
+	    «javaLocalServiceInterface(createService.serviceName)» createService;
+	«ENDIF»
     public Page nextPage(«this.contextRef.name» element) {
 	// CUSTOM
 	    «IF serviceExpression != null »
@@ -91,7 +100,29 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			// «dialogueCall.context»
 		«ENDIF»
 	}
+	
+	«IF this.type == ProcessType::SAVE»
+		public void run(«this.contextRef.name» element) {
+		    saveAction(element);
+		}
+	
+		private void saveAction(«this.contextRef.name» element) {
+		try {
+			if (element.getId() == null) { // new element
+				createService.«createService.serviceMethod»(element);
+			} else { // existing element
+				updateService.«updateService.serviceMethod»(element);
+			}
+		} catch (Exception e) {
+			error(e.getMessage());
+//			log.error("", e);
+		}
+	}
+	«ENDIF»
+	
 }
+«ENDLET»
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDDEFINE»
@@ -172,6 +203,90 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	«ENDIF»
 	}
 }
+«ENDLET»
+«ENDLET»
+«ENDDEFINE»
+
+«REM» Gebnerate for process w
+«ENDREM»
+«DEFINE GenerateBatchProcess FOR Process -»
+«LET this.services.selectFirst(e|e.name == "update") AS updateService»
+«LET this.services.selectFirst(e|e.name == "create") AS createService»
+«LET this.services.selectFirst(e|e.name == "delete") AS deleteService»
+package «getPresentationRootPackage()».processes;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «javaDtoClassPath(this.contextRef.name)»;
+
+«IF this.type == ProcessType::SAVE»
+import «javaLocalServiceInterfacePath(updateService.serviceName)» ;
+import «javaLocalServiceInterfacePath(createService.serviceName)» ;
+«ENDIF»
+«IF this.type == ProcessType::REMOVE»
+import «javaLocalServiceInterfacePath(deleteService.serviceName)» ;
+«ENDIF»
+import java.util.List;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.Page;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.markup.repeater.data.ListDataProvider;
+
+// Batch process
+public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
+{
+	«IF (this.type == ProcessType::SAVE)»
+		@SpringBean(name = "«updateService.serviceName»Service")
+	    «javaLocalServiceInterface(updateService.serviceName)» updateService;
+	    
+		@SpringBean(name = "«createService.serviceName»Service")
+	    «javaLocalServiceInterface(createService.serviceName)» createService;
+	«ELSEIF (this.type == ProcessType::REMOVE)»
+		@SpringBean(name = "«deleteService.serviceName»Service")
+	    «javaLocalServiceInterface(deleteService.serviceName)» deleteService;
+	«ELSE»
+	    // proces type = «this.type»
+	«ENDIF»
+
+    public Page nextPage(«this.contextRef.name» element) {
+    	return null;
+	}
+	
+	«IF this.type == ProcessType::SAVE»
+		public void run(«this.contextRef.name» element) {
+		    saveAction(element);
+		}
+	
+		private void saveAction(«this.contextRef.name» element) {
+		try {
+			if (element.getId() == null) { // new element
+				createService.«createService.serviceMethod»(element);
+			} else { // existing element
+				updateService.«updateService.serviceMethod»(element);
+			}
+		} catch (Exception e) {
+			error(e.getMessage());
+//			log.error("", e);
+		}
+	}
+	«ELSEIF this.type == ProcessType::REMOVE »
+		public void run(«this.contextRef.name» element) {
+			deleteAction(element);
+    	}
+
+		private void deleteAction(«this.contextRef.name» element) {
+			try {
+				deleteService.«deleteService.serviceMethod»(element);
+			} catch (Exception e) {
+				error(e.getMessage());
+			}
+		}
+	«ENDIF»
+	
+}
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDDEFINE»

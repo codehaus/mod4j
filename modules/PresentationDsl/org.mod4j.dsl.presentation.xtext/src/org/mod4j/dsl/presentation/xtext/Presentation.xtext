@@ -29,7 +29,11 @@ Dialogue :
 	
 ContentForm :
 	(description=STRING )?
-	"ContentForm" name = ID "context" (isCollection?="list")? contextRef = [ExternalReference]
+	( (isCollection?="ListForm") |
+	  "ContentForm"
+	)
+	
+	 name = ID "context" contextRef = [ExternalReference]
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
@@ -40,9 +44,20 @@ ContentForm :
 
 SimpleProcess :
     name=ID (type=ProcessType)?
-    ( "use" dialogue = DialogueCall  )? 
+    (
+        ( "use" dialogue = DialogueCall  )
+      |
+        ( "run" process = AutomatedProcessAction )
+    )?
     ;
-    	
+
+AutomatedProcessAction returns AutomatedProcess :
+	(description=STRING )?
+//	"context" contextRef = [ExternalReference]
+	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]"
+	)?
+	; 
+   	
 enum ProcessType :
     NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove"
 ;
@@ -87,6 +102,8 @@ AutomatedProcess :
 	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
 	(type=ProcessType)?
 	("steps" "[" (processElements += UICall ";")* "]")?
+	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"
+	)?
 	;
 
 InteractiveProcess :
@@ -110,6 +127,7 @@ FormElement :
 DialogueCall :
 	(context = Expression "to")? name = ID
 	("alias" alias = ID)? 
+	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 	;
 
 Expression :
@@ -117,15 +135,17 @@ Expression :
     ;
    	
 ProcessCall :
-	(context = Expression "to")? name = ID ("alias" alias = ID)? 
+	(context = Expression "to")? name = ID
+	("alias" alias = ID)? 
+	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 	;
 
 ServiceExpression :
-    "call"  serviceName = ID "." serviceMethod = ID
+    (name = ID ":")? "call"  serviceName = ID "." serviceMethod = ID
     ;
 
 NavigationExpression :
-    "navigate" references += AssociationRoleReference  
+    (name = ID ":")? "navigate" references += AssociationRoleReference  
     ( "." references += AssociationRoleReference ) *
     ;
 

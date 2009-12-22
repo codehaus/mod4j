@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getType <em>Type</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getServices <em>Services</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +74,21 @@ public interface Process extends UIModelElement {
      * @generated
      */
     void setType(ProcessType value);
+
+    /**
+     * Returns the value of the '<em><b>Services</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Services</em>' containment reference list.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_Services()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ServiceExpression> getServices();
 
 } // Process

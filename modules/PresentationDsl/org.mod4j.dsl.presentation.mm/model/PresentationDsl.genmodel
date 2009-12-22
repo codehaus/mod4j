@@ -73,6 +73,7 @@
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/services"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/owningDialogue"/>
@@ -81,6 +82,7 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UIModelElementCall/alias"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/arguments"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
@@ -89,6 +91,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/dialogue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//SimpleProcess/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/contentForm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/process"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ServiceExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ServiceExpression/serviceName"/>

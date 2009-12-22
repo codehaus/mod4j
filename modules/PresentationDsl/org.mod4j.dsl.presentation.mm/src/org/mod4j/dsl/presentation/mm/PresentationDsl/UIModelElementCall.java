@@ -6,6 +6,8 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +19,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContext <em>Context</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +79,21 @@ public interface UIModelElementCall extends UICall {
      * @generated
      */
     void setContext(Expression value);
+
+    /**
+     * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.Expression}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Arguments</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Arguments</em>' containment reference list.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUIModelElementCall_Arguments()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Expression> getArguments();
 
 } // UIModelElementCall

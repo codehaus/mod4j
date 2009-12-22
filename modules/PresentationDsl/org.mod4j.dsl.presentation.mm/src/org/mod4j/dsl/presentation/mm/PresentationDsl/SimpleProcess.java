@@ -18,6 +18,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue <em>Dialogue</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm <em>Content Form</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess <em>Process</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,5 +112,31 @@ public interface SimpleProcess extends ModelElement {
      * @generated
      */
     void setContentForm(ContentForm value);
+
+    /**
+     * Returns the value of the '<em><b>Process</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Process</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Process</em>' containment reference.
+     * @see #setProcess(AutomatedProcess)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getSimpleProcess_Process()
+     * @model containment="true"
+     * @generated
+     */
+    AutomatedProcess getProcess();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess <em>Process</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Process</em>' containment reference.
+     * @see #getProcess()
+     * @generated
+     */
+    void setProcess(AutomatedProcess value);
 
 } // SimpleProcess

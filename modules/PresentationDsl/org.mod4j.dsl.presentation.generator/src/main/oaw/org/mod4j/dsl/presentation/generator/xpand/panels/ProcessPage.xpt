@@ -15,6 +15,7 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«this.processElements.first().name»SwapEditPanel;
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListener;
+import «getPresentationRootPackage()».processes.«this.name»Process;
 
 «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process ;
@@ -71,6 +72,13 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	}
 
 	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
+	«IF (this.type == ProcessType::SAVE)»
+	    «this.name»Process process = new «this.name»Process();
+//		StandardBreafastDtoSaveProcess process = new StandardBreafastDtoSaveProcess();
+		process.run(element);
+	«ELSE»
+	// no save type is «this.type»
+	«ENDIF»
 	}
 
 	public void on«this.contextRef.name»New(«this.contextRef.name» element) {

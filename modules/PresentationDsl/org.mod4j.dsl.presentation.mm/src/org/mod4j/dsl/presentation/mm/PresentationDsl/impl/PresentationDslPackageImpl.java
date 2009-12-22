@@ -728,6 +728,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getProcess_Services() {
+        return (EReference)processEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getProcessCall() {
         return processCallEClass;
     }
@@ -782,6 +791,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getUIModelElementCall_Arguments() {
+        return (EReference)uiModelElementCallEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getUICall() {
         return uiCallEClass;
     }
@@ -829,6 +847,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      */
     public EReference getSimpleProcess_ContentForm() {
         return (EReference)simpleProcessEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSimpleProcess_Process() {
+        return (EReference)simpleProcessEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -986,6 +1013,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         processEClass = createEClass(PROCESS);
         createEReference(processEClass, PROCESS__PROCESS_ELEMENTS);
         createEAttribute(processEClass, PROCESS__TYPE);
+        createEReference(processEClass, PROCESS__SERVICES);
 
         processCallEClass = createEClass(PROCESS_CALL);
         createEReference(processCallEClass, PROCESS_CALL__OWNING_DIALOGUE);
@@ -995,6 +1023,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         uiModelElementCallEClass = createEClass(UI_MODEL_ELEMENT_CALL);
         createEAttribute(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__ALIAS);
         createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__CONTEXT);
+        createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__ARGUMENTS);
 
         uiCallEClass = createEClass(UI_CALL);
         createEReference(uiCallEClass, UI_CALL__PROCESS);
@@ -1003,6 +1032,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(simpleProcessEClass, SIMPLE_PROCESS__DIALOGUE);
         createEAttribute(simpleProcessEClass, SIMPLE_PROCESS__TYPE);
         createEReference(simpleProcessEClass, SIMPLE_PROCESS__CONTENT_FORM);
+        createEReference(simpleProcessEClass, SIMPLE_PROCESS__PROCESS);
 
         serviceExpressionEClass = createEClass(SERVICE_EXPRESSION);
         createEAttribute(serviceExpressionEClass, SERVICE_EXPRESSION__SERVICE_NAME);
@@ -1135,6 +1165,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEClass(processEClass, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, "Process", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProcess_ProcessElements(), this.getUICall(), this.getUICall_Process(), "processElements", null, 0, -1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getProcess_Services(), this.getServiceExpression(), null, "services", null, 0, -1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(processCallEClass, ProcessCall.class, "ProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProcessCall_OwningDialogue(), this.getDialogue(), this.getDialogue_Processes(), "owningDialogue", null, 0, 1, ProcessCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1144,6 +1175,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEClass(uiModelElementCallEClass, UIModelElementCall.class, "UIModelElementCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getUIModelElementCall_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getUIModelElementCall_Context(), this.getExpression(), null, "context", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getUIModelElementCall_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(uiCallEClass, UICall.class, "UICall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getUICall_Process(), this.getProcess(), this.getProcess_ProcessElements(), "process", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1152,6 +1184,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getSimpleProcess_Dialogue(), this.getDialogueCall(), this.getDialogueCall_CallingSimpleProcess(), "dialogue", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSimpleProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSimpleProcess_ContentForm(), this.getContentForm(), this.getContentForm_Actions(), "contentForm", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSimpleProcess_Process(), this.getAutomatedProcess(), null, "process", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(serviceExpressionEClass, ServiceExpression.class, "ServiceExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getServiceExpression_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, ServiceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

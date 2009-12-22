@@ -21,7 +21,7 @@ import java.util.List;
 import «getPresentationCommonPackage()».ext.components.AjaxEditableLabel;
 import «getPresentationCommonPackage()».ext.components.AjaxIndicator;
 import «getPresentationCommonPackage()».ext.components.AjaxUpdatingBehaviour;
-import «getPresentationCommonPackage()».ext.components.AllFeedbackMessageFilter;
+import «getPresentationCommonPackage()».ext.components.ComponentsFeedbackMessageFilter;
 import «getPresentationCommonPackage()».ext.components.FieldFeedbackPanel;
 import «getPresentationCommonPackage()».ext.components.FormFeedbackPanel;
 import «getPresentationCommonPackage()».ext.components.ConfirmAjaxButton;
@@ -95,9 +95,10 @@ public class «this.name»EditPanelWithListener extends Panel {
         form = new Form<«this.contextRef.name»>("frm«this.contextRef.name»", model);
 
 //        form.setDefaultButton(save);
-        FormFeedbackPanel formMsgs = new FormFeedbackPanel("formMsgs",
-//                new ComponentsFeedbackMessageFilter(form, save, delete, cancel));
-                new AllFeedbackMessageFilter());
+
+		ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
+		FormFeedbackPanel formMsgs = new FormFeedbackPanel("formMsgs", filter);
+		filter.addComponent(form);
         formMsgs.setOutputMarkupId(true);
 
     «EXPAND addWicketComponent FOREACH this.formElements»
@@ -108,13 +109,14 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»save = new Button("«p.name»save", new ResourceModel("cmd.save")) {
             @Override
             public void onSubmit() {
-                saveAction();
+//                saveAction();
 				for («this.contextRef.name»ListListener listener : listeners) {
 					listener.on«this.contextRef.name»Save(model.getObject());
 				}
             }
         };
         form.add(«p.name»save);
+        filter.addComponent(«p.name»save);
     «ENDFOREACH»
 «ENDIF»
  «IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
@@ -122,10 +124,11 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»delete = new Button("«p.name»delete", new ResourceModel("cmd.delete")) {
             @Override
             public void onSubmit() {
-                deleteAction();
 				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.on«this.contextRef.name»Delete(model.getObject());
+					listener.on«this.contextRef.name»Delete(localModel.getObject());
 				}
+				localModel.setObject(null);
+				form.clearInput();
             }
         };
         «p.name»delete.setDefaultFormProcessing(false);
@@ -133,6 +136,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         «p.name»delete.add( new SimpleAttributeModifier("onclick", "return confirm('"
                         + getLocalizer().getString("msg.confirm", this) + "');"));
         form.add(«p.name»delete);
+        filter.addComponent(«p.name»delete);
     «ENDFOREACH»
 «ENDIF» 
         Button cancel = new Button("cancel", new ResourceModel("cmd.cancel")) {
@@ -146,6 +150,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         };
         cancel.setDefaultFormProcessing(false);
         form.add(cancel);
+         filter.addComponent(cancel);
  «IF (customProcesses != null) && (!customProcesses.isEmpty)»
      «FOREACH customProcesses AS p»
         Button «p.name»custom = new Button("«p.name»custom", new Model("«p.name»")) {
@@ -158,6 +163,7 @@ public class «this.name»EditPanelWithListener extends Panel {
             }
         };
         form.add(«p.name»custom);
+        filter.addComponent(«p.name»custom);
     «ENDFOREACH»
 «ENDIF»
         
@@ -165,43 +171,6 @@ public class «this.name»EditPanelWithListener extends Panel {
         add(formMsgs);
         add(form);
     }
-
-«IF (saveProcesses != null) && (!saveProcesses.isEmpty)»
-	/**
-	 * 
-	 */
-	private void saveAction() {
-		try {
-			«this.contextRef.name» element = localModel.getObject();
-			if( element.getId() == null ) { 				// new element
-				service.«findCreateMethodFor(this)»(element);
-			} else { 										// existing element
-				service.«findUpdateMethodFor(this)»(element);
-			}
-		} catch (Exception e) {
-		    error(e.getMessage());
-		    log.error("", e);
-		}
-	}
-«ENDIF»
-
-«IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
-	/**
-	 * 
-	 */
-	private void deleteAction() {
-		try {
-			«this.contextRef.name» element = localModel.getObject();
-		    service.«findDeleteMethodFor(this)»(element);
-		    localModel.setObject(null);
-		    form.clearInput();
-		} catch (Exception e) {
-		    error(e.getMessage());
-		    log.error("", e);
-		}
-	}
-«ENDIF»
-
 }
 «ENDLET»
 «ENDLET»

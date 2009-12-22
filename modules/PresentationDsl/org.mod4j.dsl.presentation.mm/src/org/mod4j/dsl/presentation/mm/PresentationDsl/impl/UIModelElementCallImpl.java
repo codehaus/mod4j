@@ -6,14 +6,18 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -27,6 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +67,16 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * @ordered
      */
     protected Expression context;
+
+    /**
+     * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getArguments()
+     * @generated
+     * @ordered
+     */
+    protected EList<Expression> arguments;
 
     /**
      * <!-- begin-user-doc -->
@@ -151,11 +166,25 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Expression> getArguments() {
+        if (arguments == null) {
+            arguments = new EObjectContainmentEList<Expression>(Expression.class, this, PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS);
+        }
+        return arguments;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
                 return basicSetContext(null, msgs);
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
+                return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -172,6 +201,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
                 return getAlias();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
                 return getContext();
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
+                return getArguments();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -181,6 +212,7 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
@@ -189,6 +221,10 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
                 return;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
                 setContext((Expression)newValue);
+                return;
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
+                getArguments().clear();
+                getArguments().addAll((Collection<? extends Expression>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -208,6 +244,9 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
                 setContext((Expression)null);
                 return;
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
+                getArguments().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -224,6 +263,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
                 return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
                 return context != null;
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
+                return arguments != null && !arguments.isEmpty();
         }
         return super.eIsSet(featureID);
     }

@@ -82,6 +82,8 @@
         eType="#//UICall" containment="true" eOpposite="#//UICall/process"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProcessType"
         defaultValueLiteral="CUSTOM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//ServiceExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningDialogue" eType="#//Dialogue"
@@ -92,6 +94,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//Expression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
@@ -104,6 +108,8 @@
         defaultValueLiteral="CUSTOM"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentForm" eType="#//ContentForm"
         eOpposite="#//ContentForm/actions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//AutomatedProcess"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessType">
     <eLiterals name="NEW"/>

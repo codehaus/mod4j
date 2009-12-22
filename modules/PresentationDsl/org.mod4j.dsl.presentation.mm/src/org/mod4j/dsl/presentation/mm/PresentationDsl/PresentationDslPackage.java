@@ -309,13 +309,22 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS__TYPE = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__SERVICES = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl <em>Automated Process</em>}' class.
@@ -380,6 +389,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int AUTOMATED_PROCESS__TYPE = PROCESS__TYPE;
+
+    /**
+     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AUTOMATED_PROCESS__SERVICES = PROCESS__SERVICES;
 
     /**
      * The number of structural features of the '<em>Automated Process</em>' class.
@@ -966,13 +984,22 @@ public interface PresentationDslPackage extends EPackage {
     int UI_MODEL_ELEMENT_CALL__CONTEXT = UI_CALL_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UI_MODEL_ELEMENT_CALL__ARGUMENTS = UI_CALL_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>UI Model Element Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UI_MODEL_ELEMENT_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 2;
+    int UI_MODEL_ELEMENT_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueCallImpl <em>Dialogue Call</em>}' class.
@@ -1028,6 +1055,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int DIALOGUE_CALL__CONTEXT = UI_MODEL_ELEMENT_CALL__CONTEXT;
+
+    /**
+     * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIALOGUE_CALL__ARGUMENTS = UI_MODEL_ELEMENT_CALL__ARGUMENTS;
 
     /**
      * The feature id for the '<em><b>Compound Dialogue</b></em>' container reference.
@@ -1286,6 +1322,15 @@ public interface PresentationDslPackage extends EPackage {
     int INTERACTIVE_PROCESS__TYPE = PROCESS__TYPE;
 
     /**
+     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTERACTIVE_PROCESS__SERVICES = PROCESS__SERVICES;
+
+    /**
      * The number of structural features of the '<em>Interactive Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1505,6 +1550,15 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS_CALL__CONTEXT = UI_MODEL_ELEMENT_CALL__CONTEXT;
 
     /**
+     * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS_CALL__ARGUMENTS = UI_MODEL_ELEMENT_CALL__ARGUMENTS;
+
+    /**
      * The feature id for the '<em><b>Owning Dialogue</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1578,13 +1632,22 @@ public interface PresentationDslPackage extends EPackage {
     int SIMPLE_PROCESS__CONTENT_FORM = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Process</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_PROCESS__PROCESS = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Simple Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+    int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2235,6 +2298,17 @@ public interface PresentationDslPackage extends EPackage {
     EAttribute getProcess_Type();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getServices <em>Services</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Services</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getServices()
+     * @see #getProcess()
+     * @generated
+     */
+    EReference getProcess_Services();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall <em>Process Call</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2296,6 +2370,17 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getUIModelElementCall_Context();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getArguments <em>Arguments</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Arguments</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getArguments()
+     * @see #getUIModelElementCall()
+     * @generated
+     */
+    EReference getUIModelElementCall_Arguments();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall <em>UI Call</em>}'.
@@ -2360,6 +2445,17 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getSimpleProcess_ContentForm();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess <em>Process</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Process</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess()
+     * @see #getSimpleProcess()
+     * @generated
+     */
+    EReference getSimpleProcess_Process();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression <em>Service Expression</em>}'.
@@ -2869,6 +2965,14 @@ public interface PresentationDslPackage extends EPackage {
         EAttribute PROCESS__TYPE = eINSTANCE.getProcess_Type();
 
         /**
+         * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROCESS__SERVICES = eINSTANCE.getProcess_Services();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2923,6 +3027,14 @@ public interface PresentationDslPackage extends EPackage {
         EReference UI_MODEL_ELEMENT_CALL__CONTEXT = eINSTANCE.getUIModelElementCall_Context();
 
         /**
+         * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference UI_MODEL_ELEMENT_CALL__ARGUMENTS = eINSTANCE.getUIModelElementCall_Arguments();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl <em>UI Call</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2973,6 +3085,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference SIMPLE_PROCESS__CONTENT_FORM = eINSTANCE.getSimpleProcess_ContentForm();
+
+        /**
+         * The meta object literal for the '<em><b>Process</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIMPLE_PROCESS__PROCESS = eINSTANCE.getSimpleProcess_Process();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl <em>Service Expression</em>}' class.

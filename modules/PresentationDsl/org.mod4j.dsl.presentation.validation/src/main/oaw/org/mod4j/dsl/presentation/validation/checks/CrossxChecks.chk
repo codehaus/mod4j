@@ -27,6 +27,27 @@ context ExternalReference ERROR "there is no model " + this.modelName  + " that 
        ( !findAllFromModel(this.modelName, this.name, { "Service" } ).isEmpty )
        ;
 
+context AutomatedProcess ERROR "A save action or process must have a create and an update service method" :
+    (this.type == ProcessType::SAVE) implies (
+    this.services.exists(e|e.name == "create") &&
+    this.services.exists(e|e.name == "update") 
+    );
+
+context AutomatedProcess ERROR "A delete action or process must have a delete service method" :
+    (this.type == ProcessType::REMOVE) implies (
+    this.services.exists(e|e.name == "delete") 
+    );
+    
+context SimpleProcess ERROR "A save action or process must have a create and an update service method" :
+    (this.type == ProcessType::SAVE) implies (
+    this.process.services.exists(e|e.name == "create") &&
+    this.process.services.exists(e|e.name == "update") 
+    );
+
+context SimpleProcess ERROR "A delete action or process must have a delete service method" :
+    (this.type == ProcessType::REMOVE) implies (
+    this.process.services.exists(e|e.name == "delete") 
+    );
     
 /*
 context Dialogue ERROR "01 Context reference [" + this.contextRef.name + "] not defined in model " + this.contextRef.modelName :
