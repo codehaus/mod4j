@@ -38,7 +38,7 @@
         <module>«getDataModuleName()»</module>
         <module>«getBusinessModuleName()»</module>
         <module>«getServiceModuleName()»</module>       
-        <module>«getPresentationModuleName("")»
+        <module>«getPresentationModuleName("")»</module>
     </modules>
     <build>
         <resources>
