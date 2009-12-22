@@ -18,7 +18,7 @@ create ModelInfo exportModel(DataContractModel dtcModel, String modelFile) :
     this.symbols.addAll(dtcModel.enumerations.toElement());
         
 create Symbol toElement(EnumerationDto dto) :
-    this.setName(dto.name) ->
+    this.setName(dto.name.toFirstUpper()) ->
     this.setType("EnumerationDto")->
     this.subSymbols.addAll( dto.literals.enumLiteralToSymbol() )
     ;
