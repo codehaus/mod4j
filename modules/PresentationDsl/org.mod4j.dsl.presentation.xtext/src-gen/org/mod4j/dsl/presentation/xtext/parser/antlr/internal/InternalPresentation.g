@@ -624,9 +624,9 @@ ruleSimpleProcess returns [EObject current=null]
     }:
 ((	
 	
-	    lv_name_0=	RULE_ID
+	    lv_description_0=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getSimpleProcessAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+		createLeafNode(grammarAccess.getSimpleProcessAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
 	}
  
 	    {
@@ -636,7 +636,27 @@ ruleSimpleProcess returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_0, "ID", lastConsumedNode);
+	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+)?(	
+	
+	    lv_name_1=	RULE_ID
+	{
+		createLeafNode(grammarAccess.getSimpleProcessAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSimpleProcessRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_1, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -646,9 +666,9 @@ ruleSimpleProcess returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getSimpleProcessAccess().getTypeProcessTypeEnumRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSimpleProcessAccess().getTypeProcessTypeEnumRuleCall_2_0(), currentNode); 
 	    }
-	    lv_type_1=ruleProcessType 
+	    lv_type_2=ruleProcessType 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSimpleProcessRule().getType().getClassifier());
@@ -656,24 +676,20 @@ ruleSimpleProcess returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "type", lv_type_1, "ProcessType", lastConsumedNode);
+	       		set($current, "type", lv_type_2, "ProcessType", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	        currentNode = currentNode.getParent();
 	    }
 	
-)?(('use' 
-    {
-        createLeafNode(grammarAccess.getSimpleProcessAccess().getUseKeyword_2_0_0(), null); 
-    }
-(	
+)?((	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getSimpleProcessAccess().getDialogueDialogueCallParserRuleCall_2_0_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSimpleProcessAccess().getDialogueProcessInteractiveProcessActionParserRuleCall_3_0_0(), currentNode); 
 	    }
-	    lv_dialogue_3=ruleDialogueCall 
+	    lv_dialogueProcess_3=ruleInteractiveProcessAction 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSimpleProcessRule().getType().getClassifier());
@@ -681,25 +697,21 @@ ruleSimpleProcess returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "dialogue", lv_dialogue_3, "DialogueCall", currentNode);
+	       		set($current, "dialogueProcess", lv_dialogueProcess_3, "InteractiveProcessAction", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	        currentNode = currentNode.getParent();
 	    }
 	
-))
-    |('run' 
-    {
-        createLeafNode(grammarAccess.getSimpleProcessAccess().getRunKeyword_2_1_0(), null); 
-    }
-(	
+)
+    |(	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getSimpleProcessAccess().getProcessAutomatedProcessActionParserRuleCall_2_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSimpleProcessAccess().getProcessAutomatedProcessActionParserRuleCall_3_1_0(), currentNode); 
 	    }
-	    lv_process_5=ruleAutomatedProcessAction 
+	    lv_process_4=ruleAutomatedProcessAction 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSimpleProcessRule().getType().getClassifier());
@@ -707,14 +719,14 @@ ruleSimpleProcess returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "process", lv_process_5, "AutomatedProcessAction", currentNode);
+	       		set($current, "process", lv_process_4, "AutomatedProcessAction", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	        currentNode = currentNode.getParent();
 	    }
 	
-)))?);
+)));
 
 
 
@@ -735,41 +747,21 @@ ruleAutomatedProcessAction returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((	
-	
-	    lv_description_0=	RULE_STRING
-	{
-		createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getAutomatedProcessActionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)?('services' 
+(('services' 
     {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getServicesKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getServicesKeyword_0_0(), null); 
     }
 '[' 
     {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getLeftSquareBracketKeyword_1_1(), null); 
+        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getLeftSquareBracketKeyword_0_1(), null); 
     }
 (	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_1_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_0_2_0(), currentNode); 
 	    }
-	    lv_services_3=ruleServiceExpression 
+	    lv_services_2=ruleServiceExpression 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAutomatedProcessActionRule().getType().getClassifier());
@@ -777,7 +769,7 @@ ruleAutomatedProcessAction returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "services", lv_services_3, "ServiceExpression", currentNode);
+	       		add($current, "services", lv_services_2, "ServiceExpression", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -786,15 +778,15 @@ ruleAutomatedProcessAction returns [EObject current=null]
 	
 )(',' 
     {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getCommaKeyword_1_3_0(), null); 
+        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getCommaKeyword_0_3_0(), null); 
     }
 (	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_1_3_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_0_3_1_0(), currentNode); 
 	    }
-	    lv_services_5=ruleServiceExpression 
+	    lv_services_4=ruleServiceExpression 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getAutomatedProcessActionRule().getType().getClassifier());
@@ -802,7 +794,7 @@ ruleAutomatedProcessAction returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "services", lv_services_5, "ServiceExpression", currentNode);
+	       		add($current, "services", lv_services_4, "ServiceExpression", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -811,9 +803,60 @@ ruleAutomatedProcessAction returns [EObject current=null]
 	
 ))?']' 
     {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getRightSquareBracketKeyword_1_4(), null); 
+        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getRightSquareBracketKeyword_0_4(), null); 
     }
-)?);
+)
+    |'batch' 
+    {
+        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getBatchKeyword_1(), null); 
+    }
+);
+
+
+
+
+
+// Entry rule entryRuleInteractiveProcessAction
+entryRuleInteractiveProcessAction returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getInteractiveProcessActionRule(), currentNode); }
+	 iv_ruleInteractiveProcessAction=ruleInteractiveProcessAction 
+	 { $current=$iv_ruleInteractiveProcessAction.current; } 
+	 EOF 
+;
+
+// Rule InteractiveProcessAction
+ruleInteractiveProcessAction returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+('use' 
+    {
+        createLeafNode(grammarAccess.getInteractiveProcessActionAccess().getUseKeyword_0(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getInteractiveProcessActionAccess().getProcessElementsDialogueCallParserRuleCall_1_0(), currentNode); 
+	    }
+	    lv_processElements_1=ruleDialogueCall 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getInteractiveProcessActionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "processElements", lv_processElements_1, "DialogueCall", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+));
 
 
 

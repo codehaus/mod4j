@@ -37,27 +37,31 @@ ContentForm :
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
-		("actions" "[" (actions += SimpleProcess  ";")* "]" )?
+		("actions" "[" (actions += SimpleProcess ";" )* "]" )?
 		("processes" "[" (processes += ProcessCall ";")* "]" )?
 	"]"
 	;
 
 SimpleProcess :
+	(description=STRING )?
     name=ID (type=ProcessType)?
     (
-        ( "use" dialogue = DialogueCall  )
+        ( dialogueProcess = InteractiveProcessAction )
       |
-        ( "run" process = AutomatedProcessAction )
-    )?
+        ( process = AutomatedProcessAction )
+    )
     ;
 
 AutomatedProcessAction returns AutomatedProcess :
-	(description=STRING )?
-//	"context" contextRef = [ExternalReference]
-	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]"
-	)?
+	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+	|
+	"batch"
 	; 
-   	
+ 
+InteractiveProcessAction returns InteractiveProcess :
+	("use" processElements += DialogueCall ) 
+	;
+  	
 enum ProcessType :
     NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove"
 ;
