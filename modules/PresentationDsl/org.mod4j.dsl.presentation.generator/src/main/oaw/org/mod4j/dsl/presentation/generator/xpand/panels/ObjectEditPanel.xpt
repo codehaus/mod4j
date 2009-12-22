@@ -211,7 +211,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         form.add(«varName»);
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.isEnumeration»
-        DropDownChoice<«this.dataProperty.dataType»> «varName» = new DropDownChoice<ServingStyleDto>("«this.dataProperty.name»", Arrays.asList(«this.dataProperty.dataType».values()),
+        DropDownChoice<«this.dataProperty.dataType»> «varName» = new DropDownChoice<«this.dataProperty.dataType»>("«this.dataProperty.name»", Arrays.asList(«this.dataProperty.dataType».values()),
         		new IChoiceRenderer<«this.dataProperty.dataType»>() {
 		            public Object getDisplayValue(«this.dataProperty.dataType» o) {
 		                return o.toString();
