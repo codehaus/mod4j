@@ -37,7 +37,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//DialogueCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/compoundDialogue"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/callingSimpleProcess"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
@@ -88,7 +87,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//SimpleProcess">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/dialogue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/dialogueProcess"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//SimpleProcess/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/contentForm"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//SimpleProcess/process"/>

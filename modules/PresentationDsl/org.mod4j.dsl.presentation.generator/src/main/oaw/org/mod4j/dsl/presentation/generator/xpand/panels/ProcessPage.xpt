@@ -20,7 +20,7 @@ import «getPresentationRootPackage()».processes.«this.name»Process;
 «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process ;
 «ENDFOREACH»
-
+import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 
 public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
@@ -51,7 +51,10 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
-			setResponsePage(process.nextPage(context));
+			Page next = process.nextPage(context);
+			if( next != null ){
+				setResponsePage(process.nextPage(context));
+			}
 		}
 	«ENDFOREACH»
 	}
@@ -127,6 +130,7 @@ import «getPresentationRootPackage()».processes.«newProcess.name»Process;
 
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.Page;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
@@ -156,7 +160,10 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
-			setResponsePage(process.nextPage(context));
+			Page next = process.nextPage(context);
+			if( next != null ){
+				setResponsePage(process.nextPage(context));
+			}
 		}
 	«ENDFOREACH»
 	}

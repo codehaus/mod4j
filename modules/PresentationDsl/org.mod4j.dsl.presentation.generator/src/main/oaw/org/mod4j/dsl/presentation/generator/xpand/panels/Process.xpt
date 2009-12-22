@@ -210,6 +210,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 «REM» Gebnerate for process w
 «ENDREM»
 «DEFINE GenerateBatchProcess FOR Process -»
+«print("// Batch process")»
 «LET this.services.selectFirst(e|e.name == "update") AS updateService»
 «LET this.services.selectFirst(e|e.name == "create") AS createService»
 «LET this.services.selectFirst(e|e.name == "delete") AS deleteService»

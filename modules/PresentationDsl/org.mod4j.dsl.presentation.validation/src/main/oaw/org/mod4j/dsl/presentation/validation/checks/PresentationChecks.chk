@@ -26,16 +26,16 @@ context SimpleProcess ERROR "A new action can only be attached to a form for a l
     (this.type == ProcessType::NEW) implies (this.contentForm.isCollection) ;
     
 context SimpleProcess ERROR "A new action must have a form attached to it" :
-    (this.type == ProcessType::NEW) implies (this.dialogue != null) ;
+    (this.type == ProcessType::NEW) implies (this.dialogueProcess != null) ;
     
 context SimpleProcess ERROR "An edit action must have a form attached to it" :
-    (this.type == ProcessType::EDIT) implies (this.dialogue != null) ;
+    (this.type == ProcessType::EDIT) implies (this.dialogueProcess != null) ;
     
 context SimpleProcess ERROR "A save cannot have a form attached to it" :
-    (this.type == ProcessType::SAVE) implies (this.dialogue == null) ;
+    (this.type == ProcessType::SAVE) implies (this.dialogueProcess == null) ;
     
 context SimpleProcess ERROR "A delete action cannot have a form attached to it" :
-    (this.type == ProcessType::REMOVE) implies (this.dialogue == null) ;
+    (this.type == ProcessType::REMOVE) implies (this.dialogueProcess == null) ;
     
 context ContentForm ERROR "A Content Form may have at most one 'edit' action" :
     this.actions.select(e|e.type==ProcessType::EDIT).size <= 1;
@@ -52,18 +52,39 @@ context ContentForm ERROR "A Content Form may have at most one 'cancel' action" 
 context ContentForm ERROR "A Content Form may have at most one 'remove' action" :
     this.actions.select(e|e.type==ProcessType::REMOVE).size <= 1;
 
+context Process ERROR " service error " + this.getProperty("ERROR") :
+    ( (this.name != null) && (this.name.length > 0)       
+    )implies
+    this.services.forAll(svc | 
+            let result = serviceCallResultType(this.contextRef.name, svc) :
+              
+              (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+            )
+            ;
+
+context SimpleProcess ERROR " service error " + this.getProperty("ERROR") :
+    ( (this.process != null) )       
+    implies
+    this.process.services.forAll(svc | 
+            let result = serviceCallResultType(this.contentForm.contextRef.name, svc) :
+              
+              (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+            )
+            ;
+
 /*
 context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the same context as the from to which the action belongs [" + this.contentForm.name + "]" :
     ((this.dialogue != null) && (this.dialogue.referredContentForm() != null) )
     implies this.dialogue.referredContentForm().contextRef.name.equalsIgnoreCase(this.contentForm.contextRef.name);
  */
-
+/*
  context SimpleProcess ERROR "Reference not ok" :
-    let link = this.dialogue.getNavigationExpression() :
+    let link = this.dialogueProcess.getNavigationExpression() :
 	(link != null )implies (
     	refOk(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, link)
     )
-    ;    
+    ; 
+    */   
 /*
  context SimpleProcess ERROR this.getProperty("ERROR") :
  //"Navigation type is[" + getResultType(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, this.dialogue.getLinkNavigation())

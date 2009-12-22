@@ -15,7 +15,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue <em>Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogueProcess <em>Dialogue Process</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm <em>Content Form</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess <em>Process</em>}</li>
@@ -28,32 +28,30 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  */
 public interface SimpleProcess extends ModelElement {
     /**
-     * Returns the value of the '<em><b>Dialogue</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess <em>Calling Simple Process</em>}'.
+     * Returns the value of the '<em><b>Dialogue Process</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Dialogue</em>' containment reference isn't clear,
+     * If the meaning of the '<em>Dialogue Process</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Dialogue</em>' containment reference.
-     * @see #setDialogue(DialogueCall)
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getSimpleProcess_Dialogue()
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess
-     * @model opposite="callingSimpleProcess" containment="true"
+     * @return the value of the '<em>Dialogue Process</em>' containment reference.
+     * @see #setDialogueProcess(InteractiveProcess)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getSimpleProcess_DialogueProcess()
+     * @model containment="true"
      * @generated
      */
-    DialogueCall getDialogue();
+    InteractiveProcess getDialogueProcess();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue <em>Dialogue</em>}' containment reference.
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogueProcess <em>Dialogue Process</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Dialogue</em>' containment reference.
-     * @see #getDialogue()
+     * @param value the new value of the '<em>Dialogue Process</em>' containment reference.
+     * @see #getDialogueProcess()
      * @generated
      */
-    void setDialogue(DialogueCall value);
+    void setDialogueProcess(InteractiveProcess value);
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.

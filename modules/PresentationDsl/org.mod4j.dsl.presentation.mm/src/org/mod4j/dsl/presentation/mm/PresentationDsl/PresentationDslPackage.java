@@ -1075,22 +1075,13 @@ public interface PresentationDslPackage extends EPackage {
     int DIALOGUE_CALL__COMPOUND_DIALOGUE = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Calling Simple Process</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DIALOGUE_CALL__CALLING_SIMPLE_PROCESS = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
-
-    /**
      * The number of structural features of the '<em>Dialogue Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 2;
+    int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
@@ -1605,13 +1596,13 @@ public interface PresentationDslPackage extends EPackage {
     int SIMPLE_PROCESS__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Dialogue</b></em>' containment reference.
+     * The feature id for the '<em><b>Dialogue Process</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIMPLE_PROCESS__DIALOGUE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int SIMPLE_PROCESS__DIALOGUE_PROCESS = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1987,17 +1978,6 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getDialogueCall_CompoundDialogue();
-
-    /**
-     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess <em>Calling Simple Process</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Calling Simple Process</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCallingSimpleProcess()
-     * @see #getDialogueCall()
-     * @generated
-     */
-    EReference getDialogueCall_CallingSimpleProcess();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
@@ -2414,15 +2394,15 @@ public interface PresentationDslPackage extends EPackage {
     EClass getSimpleProcess();
 
     /**
-     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue <em>Dialogue</em>}'.
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogueProcess <em>Dialogue Process</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Dialogue</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogue()
+     * @return the meta object for the containment reference '<em>Dialogue Process</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogueProcess()
      * @see #getSimpleProcess()
      * @generated
      */
-    EReference getSimpleProcess_Dialogue();
+    EReference getSimpleProcess_DialogueProcess();
 
     /**
      * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType <em>Type</em>}'.
@@ -2711,14 +2691,6 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference DIALOGUE_CALL__COMPOUND_DIALOGUE = eINSTANCE.getDialogueCall_CompoundDialogue();
-
-        /**
-         * The meta object literal for the '<em><b>Calling Simple Process</b></em>' container reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DIALOGUE_CALL__CALLING_SIMPLE_PROCESS = eINSTANCE.getDialogueCall_CallingSimpleProcess();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
@@ -3063,12 +3035,12 @@ public interface PresentationDslPackage extends EPackage {
         EClass SIMPLE_PROCESS = eINSTANCE.getSimpleProcess();
 
         /**
-         * The meta object literal for the '<em><b>Dialogue</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Dialogue Process</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SIMPLE_PROCESS__DIALOGUE = eINSTANCE.getSimpleProcess_Dialogue();
+        EReference SIMPLE_PROCESS__DIALOGUE_PROCESS = eINSTANCE.getSimpleProcess_DialogueProcess();
 
         /**
          * The meta object literal for the '<em><b>Type</b></em>' attribute feature.

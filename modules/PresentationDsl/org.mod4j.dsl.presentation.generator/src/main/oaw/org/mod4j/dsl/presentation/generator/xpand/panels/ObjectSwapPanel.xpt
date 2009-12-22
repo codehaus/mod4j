@@ -16,6 +16,7 @@ package «getPresentationRootPackage()».panels;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
@@ -132,7 +133,10 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 	«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
-			setResponsePage(process.nextPage(context));
+			Page next = process.nextPage(context);
+			if( next != null){
+				setResponsePage(process.nextPage(context));
+			}
 		}
 	«ENDFOREACH»
 

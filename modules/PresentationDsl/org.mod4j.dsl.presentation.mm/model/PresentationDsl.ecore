@@ -33,8 +33,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UIModelElementCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="compoundDialogue" eType="#//CompoundDialogue"
         eOpposite="#//CompoundDialogue/dialogues"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callingSimpleProcess" eType="#//SimpleProcess"
-        eOpposite="#//SimpleProcess/dialogue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" eSuperTypes="#//ModelElement">
@@ -102,8 +100,8 @@
         eOpposite="#//Process/processElements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleProcess" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogue" eType="#//DialogueCall"
-        containment="true" eOpposite="#//DialogueCall/callingSimpleProcess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogueProcess" eType="#//InteractiveProcess"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProcessType"
         defaultValueLiteral="CUSTOM"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentForm" eType="#//ContentForm"

@@ -5,21 +5,25 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION  org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 
 «DEFINE GenerateObjectPanel FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 package «getPresentationRootPackage()».panels;
 
 import «javaDtoClassPath(this.contextRef.name)»;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 
@@ -56,12 +60,25 @@ public class «this.name»PanelWithListener extends Panel {
     });    
         
 //                add(parts);
+
+ «IF (customProcesses != null) && (!customProcesses.isEmpty)»
+     «FOREACH customProcesses AS p»
+		add(new Link<Object>("«p.name»custom") {
+			@Override
+			public void onClick() {
+				for («this.contextRef.name»ListListener listener : listeners) {
+					listener.startProcess(
+					"«p.name»Process", model.getObject());
+				}
+			}
+		});
+    «ENDFOREACH»
+«ENDIF»
         
     }
 
 }
-
-
+«ENDLET»
 «ENDDEFINE»
 
 «DEFINE addWicketComponent FOR FormElement»

@@ -467,15 +467,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getDialogueCall_CallingSimpleProcess() {
-        return (EReference)dialogueCallEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getDtoPropertyReference() {
         return dtoPropertyReferenceEClass;
     }
@@ -827,7 +818,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSimpleProcess_Dialogue() {
+    public EReference getSimpleProcess_DialogueProcess() {
         return (EReference)simpleProcessEClass.getEStructuralFeatures().get(0);
     }
 
@@ -974,7 +965,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         dialogueCallEClass = createEClass(DIALOGUE_CALL);
         createEReference(dialogueCallEClass, DIALOGUE_CALL__COMPOUND_DIALOGUE);
-        createEReference(dialogueCallEClass, DIALOGUE_CALL__CALLING_SIMPLE_PROCESS);
 
         dtoPropertyReferenceEClass = createEClass(DTO_PROPERTY_REFERENCE);
 
@@ -1029,7 +1019,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(uiCallEClass, UI_CALL__PROCESS);
 
         simpleProcessEClass = createEClass(SIMPLE_PROCESS);
-        createEReference(simpleProcessEClass, SIMPLE_PROCESS__DIALOGUE);
+        createEReference(simpleProcessEClass, SIMPLE_PROCESS__DIALOGUE_PROCESS);
         createEAttribute(simpleProcessEClass, SIMPLE_PROCESS__TYPE);
         createEReference(simpleProcessEClass, SIMPLE_PROCESS__CONTENT_FORM);
         createEReference(simpleProcessEClass, SIMPLE_PROCESS__PROCESS);
@@ -1126,7 +1116,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(dialogueCallEClass, DialogueCall.class, "DialogueCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDialogueCall_CompoundDialogue(), this.getCompoundDialogue(), this.getCompoundDialogue_Dialogues(), "compoundDialogue", null, 0, 1, DialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getDialogueCall_CallingSimpleProcess(), this.getSimpleProcess(), this.getSimpleProcess_Dialogue(), "callingSimpleProcess", null, 0, 1, DialogueCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dtoPropertyReferenceEClass, DtoPropertyReference.class, "DtoPropertyReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1181,7 +1170,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getUICall_Process(), this.getProcess(), this.getProcess_ProcessElements(), "process", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(simpleProcessEClass, SimpleProcess.class, "SimpleProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSimpleProcess_Dialogue(), this.getDialogueCall(), this.getDialogueCall_CallingSimpleProcess(), "dialogue", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSimpleProcess_DialogueProcess(), this.getInteractiveProcess(), null, "dialogueProcess", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSimpleProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSimpleProcess_ContentForm(), this.getContentForm(), this.getContentForm_Actions(), "contentForm", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSimpleProcess_Process(), this.getAutomatedProcess(), null, "process", null, 0, 1, SimpleProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

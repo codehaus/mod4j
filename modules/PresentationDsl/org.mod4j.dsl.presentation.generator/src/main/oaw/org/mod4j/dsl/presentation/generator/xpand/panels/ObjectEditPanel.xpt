@@ -58,9 +58,6 @@ import «javaDtoClassPath(this.contextRef.name)»;
 	import «javaDtoClassPath(dp.dataType)»;
 	«ENDIF»
 «ENDFOREACH»
-import «getServiceRootPackage()».«javaLocalServiceInterface( findServiceWithMethod(this, "Create") )»;
-
-//import com.rosas.web.standard.ComestibleComparator;
 
 /**
  * A reusable panel that allows the user to edit an object.
@@ -81,9 +78,6 @@ public class «this.name»EditPanelWithListener extends Panel {
 		listeners.add(listener);
 	}
 	
-	@SpringBean(name = "«findServiceWithMethod(this, "Create").toFirstLower()»Service")
-    «javaLocalServiceInterface( findServiceWithMethod(this, "Create") )» service;
-    
     protected IModel<«this.contextRef.name»> localModel ;
     Form<«this.contextRef.name»> form = null;
 
@@ -93,8 +87,6 @@ public class «this.name»EditPanelWithListener extends Panel {
         				&& ((model.getObject()).getId() == null);
         localModel = model;
         form = new Form<«this.contextRef.name»>("frm«this.contextRef.name»", model);
-
-//        form.setDefaultButton(save);
 
 		ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
 		FormFeedbackPanel formMsgs = new FormFeedbackPanel("formMsgs", filter);
@@ -117,6 +109,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         };
         form.add(«p.name»save);
         filter.addComponent(«p.name»save);
+        form.setDefaultButton(«p.name»save);
     «ENDFOREACH»
 «ENDIF»
  «IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
@@ -166,8 +159,6 @@ public class «this.name»EditPanelWithListener extends Panel {
         filter.addComponent(«p.name»custom);
     «ENDFOREACH»
 «ENDIF»
-        
-        
         add(formMsgs);
         add(form);
     }

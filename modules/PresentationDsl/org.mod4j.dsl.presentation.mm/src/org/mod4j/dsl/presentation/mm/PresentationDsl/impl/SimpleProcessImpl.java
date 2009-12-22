@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
@@ -30,7 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getDialogue <em>Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getDialogueProcess <em>Dialogue Process</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getContentForm <em>Content Form</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl#getProcess <em>Process</em>}</li>
@@ -41,14 +42,14 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
  */
 public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess {
     /**
-     * The cached value of the '{@link #getDialogue() <em>Dialogue</em>}' containment reference.
+     * The cached value of the '{@link #getDialogueProcess() <em>Dialogue Process</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getDialogue()
+     * @see #getDialogueProcess()
      * @generated
      * @ordered
      */
-    protected DialogueCall dialogue;
+    protected InteractiveProcess dialogueProcess;
 
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -104,8 +105,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
      * <!-- end-user-doc -->
      * @generated
      */
-    public DialogueCall getDialogue() {
-        return dialogue;
+    public InteractiveProcess getDialogueProcess() {
+        return dialogueProcess;
     }
 
     /**
@@ -113,11 +114,11 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDialogue(DialogueCall newDialogue, NotificationChain msgs) {
-        DialogueCall oldDialogue = dialogue;
-        dialogue = newDialogue;
+    public NotificationChain basicSetDialogueProcess(InteractiveProcess newDialogueProcess, NotificationChain msgs) {
+        InteractiveProcess oldDialogueProcess = dialogueProcess;
+        dialogueProcess = newDialogueProcess;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE, oldDialogue, newDialogue);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS, oldDialogueProcess, newDialogueProcess);
             if (msgs == null) msgs = notification; else msgs.add(notification);
         }
         return msgs;
@@ -128,18 +129,18 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDialogue(DialogueCall newDialogue) {
-        if (newDialogue != dialogue) {
+    public void setDialogueProcess(InteractiveProcess newDialogueProcess) {
+        if (newDialogueProcess != dialogueProcess) {
             NotificationChain msgs = null;
-            if (dialogue != null)
-                msgs = ((InternalEObject)dialogue).eInverseRemove(this, PresentationDslPackage.DIALOGUE_CALL__CALLING_SIMPLE_PROCESS, DialogueCall.class, msgs);
-            if (newDialogue != null)
-                msgs = ((InternalEObject)newDialogue).eInverseAdd(this, PresentationDslPackage.DIALOGUE_CALL__CALLING_SIMPLE_PROCESS, DialogueCall.class, msgs);
-            msgs = basicSetDialogue(newDialogue, msgs);
+            if (dialogueProcess != null)
+                msgs = ((InternalEObject)dialogueProcess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS, null, msgs);
+            if (newDialogueProcess != null)
+                msgs = ((InternalEObject)newDialogueProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS, null, msgs);
+            msgs = basicSetDialogueProcess(newDialogueProcess, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE, newDialogue, newDialogue));
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS, newDialogueProcess, newDialogueProcess));
     }
 
     /**
@@ -255,10 +256,6 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE:
-                if (dialogue != null)
-                    msgs = ((InternalEObject)dialogue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE, null, msgs);
-                return basicSetDialogue((DialogueCall)otherEnd, msgs);
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
@@ -275,8 +272,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE:
-                return basicSetDialogue(null, msgs);
+            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS:
+                return basicSetDialogueProcess(null, msgs);
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
                 return basicSetContentForm(null, msgs);
             case PresentationDslPackage.SIMPLE_PROCESS__PROCESS:
@@ -307,8 +304,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE:
-                return getDialogue();
+            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS:
+                return getDialogueProcess();
             case PresentationDslPackage.SIMPLE_PROCESS__TYPE:
                 return getType();
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:
@@ -327,8 +324,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE:
-                setDialogue((DialogueCall)newValue);
+            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS:
+                setDialogueProcess((InteractiveProcess)newValue);
                 return;
             case PresentationDslPackage.SIMPLE_PROCESS__TYPE:
                 setType((ProcessType)newValue);
@@ -351,8 +348,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE:
-                setDialogue((DialogueCall)null);
+            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS:
+                setDialogueProcess((InteractiveProcess)null);
                 return;
             case PresentationDslPackage.SIMPLE_PROCESS__TYPE:
                 setType(TYPE_EDEFAULT);
@@ -375,8 +372,8 @@ public class SimpleProcessImpl extends ModelElementImpl implements SimpleProcess
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE:
-                return dialogue != null;
+            case PresentationDslPackage.SIMPLE_PROCESS__DIALOGUE_PROCESS:
+                return dialogueProcess != null;
             case PresentationDslPackage.SIMPLE_PROCESS__TYPE:
                 return type != TYPE_EDEFAULT;
             case PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM:

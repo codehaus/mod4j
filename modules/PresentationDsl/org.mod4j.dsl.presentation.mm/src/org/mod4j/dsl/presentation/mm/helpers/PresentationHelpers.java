@@ -22,6 +22,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 public class PresentationHelpers {
 
@@ -37,6 +38,32 @@ public class PresentationHelpers {
 //        return result;
 //    }
 
+    static public String serviceCallResultType(String context, ServiceExpression exp){
+        Symbol service = CrossxBroker.lookupSymbol(exp.getServiceName(), exp.getServiceName(), "Service");
+        if( service == null ){
+            return "ERROR: service [" + exp.getServiceName() + "] does not exist";
+        }
+        Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getServiceMethod());
+        if( serviceMethod == null ){
+            return "ERROR: service method [" + exp.getServiceMethod() + "] does not exist";
+        }
+        // found the service method.
+        
+        String methodType = CrossxBroker.getPropertyValue(serviceMethod, "type");
+        if( methodType == "CustomMethod" ) {
+            String inDto = CrossxBroker.getPropertyValue(serviceMethod, "in");
+            if( inDto != context ){
+                return "ERROR: service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+            }
+            String outDto = CrossxBroker.getPropertyValue(serviceMethod, "out");
+            if( outDto == null ){
+                return "ERROR: service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]";
+            }
+            return outDto;
+        }
+        return "UNKNOWN";
+    }
+    
     static public ContentForm referredContentForm(UICall call) {
         UIModelElement container = null;
         if( call instanceof DialogueCall ) {
@@ -95,9 +122,9 @@ public class PresentationHelpers {
     }
     
     static public NavigationExpression getNavigationExpression(UICall call){
-        if( call instanceof DialogueCall){
-            DialogueCall linkedCall = (DialogueCall)call;
-            Expression link = linkedCall.getContext();
+        if( call instanceof UIModelElementCall){
+            UIModelElementCall uiCall = (UIModelElementCall)call;
+            Expression link = uiCall.getContext();
             if( link instanceof NavigationExpression ){
                 return (NavigationExpression) link;
             }
@@ -111,8 +138,8 @@ public class PresentationHelpers {
      * @return
      */
     static public ServiceExpression getServiceExpression(UICall call){
-        if( call instanceof DialogueCall){
-            DialogueCall linkedCall = (DialogueCall)call;
+        if( call instanceof UIModelElementCall){
+            UIModelElementCall linkedCall = (UIModelElementCall)call;
             Expression link = linkedCall.getContext();
             if( link instanceof ServiceExpression){
                 return (ServiceExpression) link;
