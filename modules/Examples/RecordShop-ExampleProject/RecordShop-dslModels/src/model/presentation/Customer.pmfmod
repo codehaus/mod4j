@@ -28,10 +28,10 @@ CompoundDialogue FullCustomerDialogue context SimpleCustomerDto
 
 AutomatedProcess HandleCustomer context SimpleCustomerDto
 
-InteractiveProcess ManageCustomer context SimpleCustomerDto
-	step [ 
-		navigate CustomerOrders to OrderAndDateCollection;
-//		/CustomerDetails;
-//		process ManageCustomer;
-		]
+//InteractiveProcess ManageCustomer context SimpleCustomerDto
+//	step [ 
+//		navigate CustomerOrders to OrderAndDateCollection;
+////		/CustomerDetails;
+////		process ManageCustomer;
+//		]
 
