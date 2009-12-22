@@ -38,9 +38,7 @@
         <module>«getDataModuleName()»</module>
         <module>«getBusinessModuleName()»</module>
         <module>«getServiceModuleName()»</module>       
-    <!-- TODO Enable the following module when ready.
-        <module>«getApplicationName()»-presentation</module>
-    -->
+        <module>«getPresentationModuleName("")»
     </modules>
     <build>
         <resources>
