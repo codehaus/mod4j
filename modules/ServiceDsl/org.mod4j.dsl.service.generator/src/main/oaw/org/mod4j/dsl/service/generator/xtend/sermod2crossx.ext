@@ -56,8 +56,10 @@ Symbol toSymbol(AssociationMethod method) :
 Symbol toSymbol(CustomMethod method) :
     let result = new Symbol :
     result.properties.add( newProperty("methodType", "CustomMethod") )->
- //   result.properties.add( newProperty("part", method.part.name) )->
- //   result.properties.add( newProperty("whole", method.main.name) )->
+    (method.inParameters.isEmpty ? null : result.properties.add( newProperty("in", method.inParameters.first().type.name)) )->
+    (method.output == null ? 
+           result.properties.add( newProperty("out", "void")) :
+           result.properties.add( newProperty("out", method.output.name )) )->
     result.setName(method.name) ->
     result.setType("ServiceMethod")
     ;
