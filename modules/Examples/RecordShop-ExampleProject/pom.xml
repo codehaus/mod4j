@@ -21,9 +21,7 @@
         <module>RecordShop-data</module>
         <module>RecordShop-business</module>
         <module>RecordShop-service</module>
-        <!-- TODO Enable the following module when ready.
         <module>RecordShop-presentation</module>
-    -->
     </modules>
     <build>
         <resources>
