@@ -8,9 +8,10 @@
 
 «DEFINE generateIndexHtml FOR PresentationModel -»
 «print("MOD4J INFO 2: Generating generateIndexHtml") -»
+
 <html>
 <head>
-<meta http-equiv="Refresh" content="0; url=rosas">
+<meta http-equiv="Refresh" content="0; url=«getApplicationName()»">
 </head>
 </html>
 «ENDDEFINE»
