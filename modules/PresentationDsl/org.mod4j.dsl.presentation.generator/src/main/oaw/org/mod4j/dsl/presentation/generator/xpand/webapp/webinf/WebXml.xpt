@@ -55,7 +55,7 @@
         <res-ref-name>jdbc/«getApplicationName()»DS</res-ref-name>
         <jndi-name>jdbc/«getApplicationName()»Datasource</jndi-name>
     </resource-ref>
-    <class-loader delegate="true" />
+    <class-loader delegate="true"/>
     <jsp-config>
         <property name="keepgenerated" value="true">
             <description>Keep a copy of the generated servlet class java code.</description>
