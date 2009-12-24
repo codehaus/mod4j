@@ -1,9 +1,10 @@
-             /* 
+             
+/* 
  * Main stylesheet (main.css).
  */
  
 body {
-    font:62.5%/1.2em verdana, arial;
+    font:62.5%/1.2em verdana, sans-serif, arial;
     color:#333;
     background:#fff;
     margin:0;
@@ -23,13 +24,14 @@ textarea {
     }
 
 div.frameTop {
+    background:url(../images/pageheader.jpg);
     width:970px;        
     height:100px;
     margin:0 auto;
 }
 
 a.logo {
-    background:transparent url(../images/j-technologies-logo.gif) no-repeat scroll 0%;
+    background:url(../images/logo.jpg);
     float:left;
     height:50px;
     margin:10px 0 0 47px;
@@ -43,6 +45,9 @@ div.frame {
     width:970px;
     margin:0 auto;
     overflow:auto;
+    background: url("../images/frame-background.jpg");
+    min-height:500px;
+    position:relative; 
 }
 
 
@@ -52,6 +57,20 @@ div.frame h1 {
     font-size:1.7em;
 }
     
+div.frame div#topEdge {
+    background-image: url("../images/frame-edge-top.jpg");
+    background-repeat: no-repeat;
+    height: 25px;
+    }
+
+div.frame div#bottomEdge {
+    background-image: url("../images/frame-edge-bottom.jpg");
+    background-repeat: no-repeat;
+    height: 25px;
+    bottom: 0%;
+    position:absolute;
+    width:100%;
+    }
     
 div.frame div.frameRight h1 {
     margin:0 0 10px 0;
@@ -103,10 +122,10 @@ div.frameLeft div.menu ul li a:active {
 }   
 
 div.frameRight {
-    background: url(images/pageheader.jpg) no-repeat;
     float:left;
     width:562px;
     margin:0 14px 0 0;
+    padding-bottom:25px; /* frame bottomEdge height */ 
 }
 
 div.frameRight div.navigator {
@@ -122,6 +141,10 @@ div.frameRight div.navigator span em {
     font-style:normal;
     font-weight:bold;
 }
+
+tfoot tr.buttonBar td + td {
+    float: right;
+    }
 
 /* content links */
 
@@ -247,7 +270,7 @@ div.frameRight table.horizontal th.lblMaxTransactionsPerMonth {width:100px;}
 div.frameRight table.horizontal th.lblTransactionsPerHour {width:100px;}            
 div.frameRight table.horizontal th.lblTransactionsPerMonth {width:100px;}           
             
-/* verticale tabellen */            
+/* Vertical tables */            
 div.frameRight table.vertical th {
     text-align:left;
     padding:6px 0px 5px 8px;
