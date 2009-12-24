@@ -3,14 +3,16 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE generateCustomCss FOR PresentationModel -»
+
 /* 
- * Stylesheet for customisation. 
+ * Stylesheet for customization. 
  * This stylesheet (custom.css) will be loaded after the main stylesheet (main.css). 
  */
  
 «ENDDEFINE»
 
 «DEFINE generateModalCss FOR PresentationModel -»
+
 /* 
  * Stylesheet for modal windows (modal.css).  
  */
@@ -27,6 +29,7 @@ div.wicket-modal div.w_content_3 {
 «ENDDEFINE»
 
 «DEFINE generateMainCss FOR PresentationModel -»
+
 /* 
  * Main stylesheet (main.css).
  */
