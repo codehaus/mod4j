@@ -26,7 +26,7 @@
         <jetty.version>6.1.4</jetty.version>
     </properties>
     <build>
-        <finalName>«getApplicationName()»-web</finalName>
+        <finalName>«getPresentationModuleName("")»</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
