@@ -88,18 +88,4 @@
         </outlet>
     </component>
  
- 
-    <!--
-        Generation of JSF sources and resources
-    <component id="PresentationWorkflow-DomainGenerator" class="org.eclipse.xpand2.Generator">
-        <metaModel idRef="pmf" />
-        <fileEncoding value="${fileEncoding}"/>
-        <expand value="org::mod4j::dsl::presentation::generator::xpand::jsf::Main::Root FOR pmfModel" />
-        <outlet path="${applicationPath}/">
-            <postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
-            <postprocessor class="org.eclipse.xpand2.output.XmlBeautifier" />
-        </outlet>
-    </component>
-    -->
- 
-</workflow>
+ </workflow>
