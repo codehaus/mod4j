@@ -1,9 +1,22 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+
 «IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
 
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE generateWebXml FOR PresentationModel»
 <?xml version="1.0" encoding="UTF-8"?>
+«EXPAND XmlComments::extensionPointHeader ("Mod4j PresentationDsl generator: WebXml.xpt") FOR this»
 
 <web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <javaee:display-name>«getApplicationName()» «getApplicationVersion()»</javaee:display-name>
@@ -48,6 +61,8 @@
 
 «DEFINE generateSunWebXml FOR PresentationModel»
 <?xml version="1.0" encoding="UTF-8"?>
+«EXPAND XmlComments::extensionPointHeader ("Mod4j PresentationDsl generator: WebXml.xpt") FOR this»
+
 <!DOCTYPE sun-web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Application Server 9.0 Servlet 2.5//EN" "http://www.sun.com/software/appserver/dtds/sun-web-app_2_5-0.dtd">
 <sun-web-app error-url="">
     <context-root>/«getApplicationName()»-web</context-root>

@@ -8,6 +8,7 @@
       Contributors:
           Ordina - initial implementation
 «ENDREM»
+
 «IMPORT PresentationDsl»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp::webinf»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp::css»
