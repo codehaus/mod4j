@@ -11,7 +11,7 @@ ContentForm CustomerDetails context SimpleCustomerDto [
 	element customerNr label nr;
 ]
 
-ContentForm CustomerExtra context SimpleCustomerDto [
+ContentForm CustomerExtra context SimpleCustomerDto [ 
 	element sexe label sexe;
 	element firstName label firstName;
 ]

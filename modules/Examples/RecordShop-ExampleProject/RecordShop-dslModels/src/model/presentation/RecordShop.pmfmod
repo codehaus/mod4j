@@ -25,6 +25,6 @@ CollectionDialogue CustomerCollection context FullCustomerDto [
 	  ]
 ]
 
-MasterDetail CustomerMD context FullCustomerDto 
-	master CustomerCollection ;
-	detail CustomerDetail ;
+//MasterDetail CustomerMD context FullCustomerDto 
+//	master CustomerCollection ;
+//	detail CustomerDetail ;

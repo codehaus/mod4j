@@ -11,7 +11,7 @@ ContentForm OrderMainDetails context OrderDto [
 		label ordernr;
 	element orderDate
 		label date;
-	element totalAmount  
+	element totalAmount   
 		label amount
 		readonly true;  
 ]
