@@ -254,6 +254,7 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.PRESENTATION_MODEL: {
                 PresentationModel presentationModel = (PresentationModel)theEObject;
                 T result = casePresentationModel(presentationModel);
+                if (result == null) result = caseModelElement(presentationModel);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }

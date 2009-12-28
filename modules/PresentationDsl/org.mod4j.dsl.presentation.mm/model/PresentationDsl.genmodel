@@ -64,8 +64,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElement/description"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//PresentationModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//PresentationModel/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//PresentationModel/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/externalReferences"/>
     </genClasses>
@@ -80,7 +78,7 @@
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UIModelElementCall/alias"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/contextExp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/arguments"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">

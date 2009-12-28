@@ -243,14 +243,6 @@
   <children xmi:type="notation:Node" xmi:id="_9zkGmM_FEd6GKolWbdgitg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9zkGm8_FEd6GKolWbdgitg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9zkGnM_FEd6GKolWbdgitg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_9zkGpM_FEd6GKolWbdgitg" type="2001">
-        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//PresentationModel/name"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_9zkGpc_FEd6GKolWbdgitg"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_9zkGps_FEd6GKolWbdgitg" type="2001">
-        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//PresentationModel/description"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_9zkGp8_FEd6GKolWbdgitg"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_9zkGnc_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_9zkGns_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9zkGn8_FEd6GKolWbdgitg"/>
@@ -626,7 +618,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_9ztQkc_FEd6GKolWbdgitg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_9ztQks_FEd6GKolWbdgitg" fontColor="4210752" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//UIModelElementCall/context"/>
+    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//UIModelElementCall/contextExp"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9ztQk8_FEd6GKolWbdgitg" points="[17, 6, -268, 74]$[70, 6, -215, 74]$[70, -43, -215, 25]$[235, -43, -50, 25]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_93lquM_FEd6GKolWbdgitg" id="(0.8731343283582089,0.3877551020408163)"/>
   </edges>
@@ -797,7 +789,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_hZ5x0OQlEd6Nh9VPAhJ5ZA" type="3002" source="_9zkG2s_FEd6GKolWbdgitg" target="_9zkGqM_FEd6GKolWbdgitg">
     <children xmi:type="notation:Node" xmi:id="_hZ5x1OQlEd6Nh9VPAhJ5ZA" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_hZ5x1eQlEd6Nh9VPAhJ5ZA" x="-10" y="-10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_hZ5x1eQlEd6Nh9VPAhJ5ZA" x="-36" y="17"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_hZ5x1uQlEd6Nh9VPAhJ5ZA" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_hZ5x1-QlEd6Nh9VPAhJ5ZA" x="10" y="10"/>

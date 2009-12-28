@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getAlias <em>Alias</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContext <em>Context</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContextExp <em>Context Exp</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
@@ -55,30 +55,30 @@ public interface UIModelElementCall extends UICall {
     void setAlias(String value);
 
     /**
-     * Returns the value of the '<em><b>Context</b></em>' containment reference.
+     * Returns the value of the '<em><b>Context Exp</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Context</em>' containment reference isn't clear,
+     * If the meaning of the '<em>Context Exp</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Context</em>' containment reference.
-     * @see #setContext(Expression)
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUIModelElementCall_Context()
+     * @return the value of the '<em>Context Exp</em>' containment reference.
+     * @see #setContextExp(Expression)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUIModelElementCall_ContextExp()
      * @model containment="true"
      * @generated
      */
-    Expression getContext();
+    Expression getContextExp();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContext <em>Context</em>}' containment reference.
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContextExp <em>Context Exp</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Context</em>' containment reference.
-     * @see #getContext()
+     * @param value the new value of the '<em>Context Exp</em>' containment reference.
+     * @see #getContextExp()
      * @generated
      */
-    void setContext(Expression value);
+    void setContextExp(Expression value);
 
     /**
      * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.

@@ -72,6 +72,23 @@ context SimpleProcess ERROR " service error " + this.getProperty("ERROR") :
             )
             ;
 
+context DialogueCall ERROR "referredForm [" + this.name + "] not found" :
+	this.referredContentForm() != null
+    ;
+
+context Process ERROR this.getProperty("ERROR") :
+let con = (this.contextRef != null ? this.contextRef
+           : ((SimpleProcess)this.eContainer).contentForm.contextRef) :
+    (this.processElements != null) implies (
+        this.processElements.typeSelect(DialogueCall).select(d|d.contextExp == null)
+        .referredContentForm().forAll(form |
+           ( ((( form != null) ) && ( form.contextRef.name != con.name) )
+                    ? (setProperty("ERROR", "form context [" + form.contextRef.name + "] should be the same as process context [" +
+                                                        con.name + "]")->false)
+                                               : true
+       ))
+    );
+
 /*
 context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the same context as the from to which the action belongs [" + this.contentForm.name + "]" :
     ((this.dialogue != null) && (this.dialogue.referredContentForm() != null) )

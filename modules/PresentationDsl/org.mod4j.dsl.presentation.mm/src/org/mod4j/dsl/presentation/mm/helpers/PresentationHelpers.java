@@ -14,8 +14,10 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
@@ -38,6 +40,10 @@ public class PresentationHelpers {
 //        return result;
 //    }
 
+    /**
+     * returns the result type of the service call referred to by the ServiceExpression.
+     * Returns a string starting with ERROR:  if there is an error with the service call
+     */
     static public String serviceCallResultType(String context, ServiceExpression exp){
         Symbol service = CrossxBroker.lookupSymbol(exp.getServiceName(), exp.getServiceName(), "Service");
         if( service == null ){
@@ -64,18 +70,17 @@ public class PresentationHelpers {
         return "UNKNOWN";
     }
     
-    static public ContentForm referredContentForm(UICall call) {
-        UIModelElement container = null;
-        if( call instanceof DialogueCall ) {
-            DialogueCall dcall = (DialogueCall)call;
-            container = (dcall.getCompoundDialogue() != null ? dcall.getCompoundDialogue() : dcall.getProcess() );
+    private static PresentationModel findModel(ModelElement elem){
+        if( elem instanceof PresentationModel){
+            return (PresentationModel)elem;
         } else {
-            container = call.getProcess();
+            return findModel( (ModelElement)elem.eContainer());
         }
-        if( container == null ) {
-            return null;
-        }
-        EList<ModelElementWithContext> elements = container.getPresentationModel().getElements();
+    }
+    static public ContentForm referredContentForm(UICall call) {
+        PresentationModel model = findModel(call);
+
+        EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements) {
             if( element instanceof ContentForm) {
                 ContentForm result = (ContentForm)element;
@@ -88,11 +93,8 @@ public class PresentationHelpers {
     }
 
     static public CollectionDialogue referredCollectionDialogue(UICall call) {
-        Process process = call.getProcess();
-        if( process == null ) {
-            return null;
-        }
-        EList<ModelElementWithContext> elements = process.getPresentationModel().getElements();
+        PresentationModel model = findModel(call);
+        EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements) {
             if( element instanceof CollectionDialogue ) {
                 CollectionDialogue result = (CollectionDialogue )element;
@@ -109,7 +111,8 @@ public class PresentationHelpers {
         if( dia == null ) {
             return null;
         }
-        EList<ModelElementWithContext> elements = dia.getPresentationModel().getElements();
+        PresentationModel model = findModel(call);
+        EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements ){
             if( element instanceof Process ) {
                 Process result = (Process )element;
@@ -124,7 +127,7 @@ public class PresentationHelpers {
     static public NavigationExpression getNavigationExpression(UICall call){
         if( call instanceof UIModelElementCall){
             UIModelElementCall uiCall = (UIModelElementCall)call;
-            Expression link = uiCall.getContext();
+            Expression link = uiCall.getContextExp();
             if( link instanceof NavigationExpression ){
                 return (NavigationExpression) link;
             }
@@ -140,7 +143,7 @@ public class PresentationHelpers {
     static public ServiceExpression getServiceExpression(UICall call){
         if( call instanceof UIModelElementCall){
             UIModelElementCall linkedCall = (UIModelElementCall)call;
-            Expression link = linkedCall.getContext();
+            Expression link = linkedCall.getContextExp();
             if( link instanceof ServiceExpression){
                 return (ServiceExpression) link;
             }

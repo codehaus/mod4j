@@ -30,7 +30,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getAlias <em>Alias</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getContextExp <em>Context Exp</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
@@ -59,14 +59,14 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     protected String alias = ALIAS_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+     * The cached value of the '{@link #getContextExp() <em>Context Exp</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getContext()
+     * @see #getContextExp()
      * @generated
      * @ordered
      */
-    protected Expression context;
+    protected Expression contextExp;
 
     /**
      * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
@@ -123,8 +123,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * <!-- end-user-doc -->
      * @generated
      */
-    public Expression getContext() {
-        return context;
+    public Expression getContextExp() {
+        return contextExp;
     }
 
     /**
@@ -132,11 +132,11 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetContext(Expression newContext, NotificationChain msgs) {
-        Expression oldContext = context;
-        context = newContext;
+    public NotificationChain basicSetContextExp(Expression newContextExp, NotificationChain msgs) {
+        Expression oldContextExp = contextExp;
+        contextExp = newContextExp;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT, oldContext, newContext);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP, oldContextExp, newContextExp);
             if (msgs == null) msgs = notification; else msgs.add(notification);
         }
         return msgs;
@@ -147,18 +147,18 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setContext(Expression newContext) {
-        if (newContext != context) {
+    public void setContextExp(Expression newContextExp) {
+        if (newContextExp != contextExp) {
             NotificationChain msgs = null;
-            if (context != null)
-                msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT, null, msgs);
-            if (newContext != null)
-                msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT, null, msgs);
-            msgs = basicSetContext(newContext, msgs);
+            if (contextExp != null)
+                msgs = ((InternalEObject)contextExp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP, null, msgs);
+            if (newContextExp != null)
+                msgs = ((InternalEObject)newContextExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP, null, msgs);
+            msgs = basicSetContextExp(newContextExp, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT, newContext, newContext));
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP, newContextExp, newContextExp));
     }
 
     /**
@@ -181,8 +181,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
-                return basicSetContext(null, msgs);
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
+                return basicSetContextExp(null, msgs);
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
                 return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
         }
@@ -199,8 +199,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
         switch (featureID) {
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
                 return getAlias();
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
-                return getContext();
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
+                return getContextExp();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
                 return getArguments();
         }
@@ -219,8 +219,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
                 setAlias((String)newValue);
                 return;
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
-                setContext((Expression)newValue);
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
+                setContextExp((Expression)newValue);
                 return;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
                 getArguments().clear();
@@ -241,8 +241,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
                 setAlias(ALIAS_EDEFAULT);
                 return;
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
-                setContext((Expression)null);
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
+                setContextExp((Expression)null);
                 return;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
                 getArguments().clear();
@@ -261,8 +261,8 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
         switch (featureID) {
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
                 return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT:
-                return context != null;
+            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
+                return contextExp != null;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
                 return arguments != null && !arguments.isEmpty();
         }

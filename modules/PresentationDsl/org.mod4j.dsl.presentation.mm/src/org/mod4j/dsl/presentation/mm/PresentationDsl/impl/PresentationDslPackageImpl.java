@@ -656,26 +656,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getPresentationModel_Name() {
-        return (EAttribute)presentationModelEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getPresentationModel_Description() {
-        return (EAttribute)presentationModelEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getPresentationModel_Elements() {
-        return (EReference)presentationModelEClass.getEStructuralFeatures().get(2);
+        return (EReference)presentationModelEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -684,7 +666,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * @generated
      */
     public EReference getPresentationModel_ExternalReferences() {
-        return (EReference)presentationModelEClass.getEStructuralFeatures().get(3);
+        return (EReference)presentationModelEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -773,7 +755,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getUIModelElementCall_Context() {
+    public EReference getUIModelElementCall_ContextExp() {
         return (EReference)uiModelElementCallEClass.getEStructuralFeatures().get(1);
     }
 
@@ -995,8 +977,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEAttribute(modelElementEClass, MODEL_ELEMENT__DESCRIPTION);
 
         presentationModelEClass = createEClass(PRESENTATION_MODEL);
-        createEAttribute(presentationModelEClass, PRESENTATION_MODEL__NAME);
-        createEAttribute(presentationModelEClass, PRESENTATION_MODEL__DESCRIPTION);
         createEReference(presentationModelEClass, PRESENTATION_MODEL__ELEMENTS);
         createEReference(presentationModelEClass, PRESENTATION_MODEL__EXTERNAL_REFERENCES);
 
@@ -1012,7 +992,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         uiModelElementCallEClass = createEClass(UI_MODEL_ELEMENT_CALL);
         createEAttribute(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__ALIAS);
-        createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__CONTEXT);
+        createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__CONTEXT_EXP);
         createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__ARGUMENTS);
 
         uiCallEClass = createEClass(UI_CALL);
@@ -1080,6 +1060,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         interactiveProcessEClass.getESuperTypes().add(this.getProcess());
         masterDetailEClass.getESuperTypes().add(this.getCompoundDialogue());
         modelElementWithContextEClass.getESuperTypes().add(this.getModelElement());
+        presentationModelEClass.getESuperTypes().add(this.getModelElement());
         processEClass.getESuperTypes().add(this.getUIModelElement());
         processCallEClass.getESuperTypes().add(this.getUIModelElementCall());
         uiModelElementEClass.getESuperTypes().add(this.getModelElementWithContext());
@@ -1146,8 +1127,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEAttribute(getModelElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(presentationModelEClass, PresentationModel.class, "PresentationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getPresentationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getPresentationModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPresentationModel_Elements(), this.getModelElementWithContext(), this.getModelElementWithContext_PresentationModel(), "elements", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPresentationModel_ExternalReferences(), this.getExternalReference(), null, "externalReferences", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1163,7 +1142,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(uiModelElementCallEClass, UIModelElementCall.class, "UIModelElementCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getUIModelElementCall_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getUIModelElementCall_Context(), this.getExpression(), null, "context", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getUIModelElementCall_ContextExp(), this.getExpression(), null, "contextExp", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getUIModelElementCall_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(uiCallEClass, UICall.class, "UICall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
