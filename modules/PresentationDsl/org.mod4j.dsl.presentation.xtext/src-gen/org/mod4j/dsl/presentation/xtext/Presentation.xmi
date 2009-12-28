@@ -511,7 +511,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Assignment" feature="context" operator="=">
+          <tokens xsi:type="xtext:Assignment" feature="contextExp" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
           </tokens>
           <tokens xsi:type="xtext:Keyword" value="to"/>
@@ -555,7 +555,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Assignment" feature="context" operator="=">
+          <tokens xsi:type="xtext:Assignment" feature="contextExp" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
           </tokens>
           <tokens xsi:type="xtext:Keyword" value="to"/>

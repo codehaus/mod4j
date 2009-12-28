@@ -43,7 +43,7 @@ ContentForm :
 	;
 
 SimpleProcess :
-	(description=STRING )?
+	(description=STRING )? 
     name=ID (type=ProcessType)?
     (
         ( dialogueProcess = InteractiveProcessAction )
@@ -129,7 +129,7 @@ FormElement :
 	;
 	
 DialogueCall :
-	(context = Expression "to")? name = ID
+	(contextExp = Expression "to")? name = ID
 	("alias" alias = ID)? 
 	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 	;
@@ -139,7 +139,7 @@ Expression :
     ;
    	
 ProcessCall :
-	(context = Expression "to")? name = ID
+	(contextExp = Expression "to")? name = ID
 	("alias" alias = ID)? 
 	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 	;

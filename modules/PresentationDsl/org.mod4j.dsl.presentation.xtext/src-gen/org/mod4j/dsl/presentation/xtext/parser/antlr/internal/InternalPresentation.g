@@ -2017,9 +2017,9 @@ ruleDialogueCall returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getContextExpressionParserRuleCall_0_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getContextExpExpressionParserRuleCall_0_0_0(), currentNode); 
 	    }
-	    lv_context_0=ruleExpression 
+	    lv_contextExp_0=ruleExpression 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDialogueCallRule().getType().getClassifier());
@@ -2027,7 +2027,7 @@ ruleDialogueCall returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "context", lv_context_0, "Expression", currentNode);
+	       		set($current, "contextExp", lv_contextExp_0, "Expression", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -2201,9 +2201,9 @@ ruleProcessCall returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getProcessCallAccess().getContextExpressionParserRuleCall_0_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getProcessCallAccess().getContextExpExpressionParserRuleCall_0_0_0(), currentNode); 
 	    }
-	    lv_context_0=ruleExpression 
+	    lv_contextExp_0=ruleExpression 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getProcessCallRule().getType().getClassifier());
@@ -2211,7 +2211,7 @@ ruleProcessCall returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "context", lv_context_0, "Expression", currentNode);
+	       		set($current, "contextExp", lv_contextExp_0, "Expression", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

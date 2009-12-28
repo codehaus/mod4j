@@ -5532,13 +5532,13 @@ protected class FormElement_SemicolonKeyword_6 extends KeywordToken  {
 /************ begin Rule DialogueCall ****************
  *
  * DialogueCall:
- *   (context=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (","
- *   arguments+=Expression)* ")")?;
+ *   (contextExp=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (
+ *   "," arguments+=Expression)* ")")?;
  *
  **/
 
-// (context=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (","
-// arguments+=Expression)* ")")?
+// (contextExp=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (
+// "," arguments+=Expression)* ")")?
 protected class DialogueCall_Group extends GroupToken {
 	
 	public DialogueCall_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5564,7 +5564,7 @@ protected class DialogueCall_Group extends GroupToken {
 	}
 }
 
-// (context=Expression "to")?
+// (contextExp=Expression "to")?
 protected class DialogueCall_Group_0 extends GroupToken {
 	
 	public DialogueCall_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5584,15 +5584,15 @@ protected class DialogueCall_Group_0 extends GroupToken {
 		
 }
 
-// context=Expression
-protected class DialogueCall_ContextAssignment_0_0 extends AssignmentToken  {
+// contextExp=Expression
+protected class DialogueCall_ContextExpAssignment_0_0 extends AssignmentToken  {
 	
-	public DialogueCall_ContextAssignment_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DialogueCall_ContextExpAssignment_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDialogueCallAccess().getContextAssignment_0_0();
+		return grammarAccess.getDialogueCallAccess().getContextExpAssignment_0_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -5603,13 +5603,13 @@ protected class DialogueCall_ContextAssignment_0_0 extends AssignmentToken  {
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("context",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("context");
+		if((value = current.getConsumable("contextExp",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("contextExp");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getDialogueCallAccess().getContextExpressionParserRuleCall_0_0_0(); 
+				element = grammarAccess.getDialogueCallAccess().getContextExpExpressionParserRuleCall_0_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5638,7 +5638,7 @@ protected class DialogueCall_ToKeyword_0_1 extends KeywordToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DialogueCall_ContextAssignment_0_0(parent, this, 0, inst);
+			case 0: return new DialogueCall_ContextExpAssignment_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6043,13 +6043,13 @@ protected class Expression_NavigationExpressionParserRuleCall_1 extends RuleCall
 /************ begin Rule ProcessCall ****************
  *
  * ProcessCall:
- *   (context=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (","
- *   arguments+=Expression)* ")")?;
+ *   (contextExp=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (
+ *   "," arguments+=Expression)* ")")?;
  *
  **/
 
-// (context=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (","
-// arguments+=Expression)* ")")?
+// (contextExp=Expression "to")? name=ID ("alias" alias=ID)? ("(" arguments+=Expression (
+// "," arguments+=Expression)* ")")?
 protected class ProcessCall_Group extends GroupToken {
 	
 	public ProcessCall_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6075,7 +6075,7 @@ protected class ProcessCall_Group extends GroupToken {
 	}
 }
 
-// (context=Expression "to")?
+// (contextExp=Expression "to")?
 protected class ProcessCall_Group_0 extends GroupToken {
 	
 	public ProcessCall_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6095,15 +6095,15 @@ protected class ProcessCall_Group_0 extends GroupToken {
 		
 }
 
-// context=Expression
-protected class ProcessCall_ContextAssignment_0_0 extends AssignmentToken  {
+// contextExp=Expression
+protected class ProcessCall_ContextExpAssignment_0_0 extends AssignmentToken  {
 	
-	public ProcessCall_ContextAssignment_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ProcessCall_ContextExpAssignment_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessCallAccess().getContextAssignment_0_0();
+		return grammarAccess.getProcessCallAccess().getContextExpAssignment_0_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -6114,13 +6114,13 @@ protected class ProcessCall_ContextAssignment_0_0 extends AssignmentToken  {
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("context",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("context");
+		if((value = current.getConsumable("contextExp",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("contextExp");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getProcessCallAccess().getContextExpressionParserRuleCall_0_0_0(); 
+				element = grammarAccess.getProcessCallAccess().getContextExpExpressionParserRuleCall_0_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6149,7 +6149,7 @@ protected class ProcessCall_ToKeyword_0_1 extends KeywordToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ProcessCall_ContextAssignment_0_0(parent, this, 0, inst);
+			case 0: return new ProcessCall_ContextExpAssignment_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
