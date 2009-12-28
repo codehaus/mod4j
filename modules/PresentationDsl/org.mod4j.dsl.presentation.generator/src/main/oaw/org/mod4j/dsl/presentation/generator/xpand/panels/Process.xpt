@@ -11,7 +11,7 @@
 «DEFINE GenerateProcess FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Process.xpt") FOR this»
 «LET this.processElements.referredContentForm().select(f | f.isCollection).first() AS form»
-«LET this.processElements.typeSelect(DialogueCall).select(dia | dia.context != null).first() AS dialogueCallWithContext»
+«LET this.processElements.typeSelect(DialogueCall).select(dia | dia.contextExp != null).first() AS dialogueCallWithContext»
 «LET this.processElements.referredContentForm().select(f | ! f.isCollection).first() AS nonCollectionForm»
 «LET this.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
 	«IF (form != null) && (dialogueCallWithContext != null) && (this.type == ProcessType::CUSTOM) »
@@ -97,7 +97,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			// «navigationExpression»
 			// «serviceExpression»
 			// «dialogueCall»
-			// «dialogueCall.context»
+			// «dialogueCall.contextExp»
 		«ENDIF»
 	}
 	
