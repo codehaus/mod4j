@@ -32,7 +32,7 @@ public class ModelHelpers {
     public static boolean equalsIgnoreCase(String one, String two) {
         return one.equalsIgnoreCase(two);
     }
-    
+
     /**
      * Read the properties file 'propFilePath' and return the result as a Map<String, String>
      * 
@@ -83,37 +83,47 @@ public class ModelHelpers {
         return f.exists();
     }
 
-    public static boolean shouldRegenerate(String path) {
-    	boolean exists = fileExist(path);
-    	if( ! exists ) {
-//        	System.err.println("["+ path + "] REGENERATE: ! exists " + path + " ==> true");
-    		return true;
-    	}
+    /**
+     * Determines if the file, given by the <code>absoluteFilePath</code>, should be generated again. If the file is
+     * manually changed by the user, the file may not be regenerated so the user changes will not get lost. The
+     * Mod4jTracker will be consulted, to check if the file has been modified (by the user).
+     * 
+     * @param absoluteFilePath
+     *            The complete path from the root of the file-system including the file name.
+     * @return true if the file can be safely regenerated. Otherwise returns false.
+     */
+    public static boolean shouldRegenerate(String absoluteFilePath) {
 
-    	// Do no regenerate exzisting pom.xml files
-    	if( path.endsWith("pom.xml")){
-    		return false;
-    	}
-        File f = new File(path);
-        long modified = f.lastModified();
+        if (!fileExist(absoluteFilePath)) {
+            // System.err.println("["+ path + "] REGENERATE: ! exists " + path + " ==> true");
+            return true;
+        }
+
+        // Do not regenerate existing pom.xml files
+        if (absoluteFilePath.endsWith("pom.xml")) {
+            return false;
+        }
+
+        long modified = new File(absoluteFilePath).lastModified();
         FileTrack current = Mod4jTracker.getFileTracker().getCurrentTrack();
-        if( current == null ) {
-//        	System.err.println("["+ path + "] REGENERATE: current == null " + path + " ==> false");
-        	return false;
+        if (current == null) {
+            // System.err.println("["+ path + "] REGENERATE: current == null " + path + " ==> false");
+            return false;
         }
-        GeneratedFile extension = current.getExtensionFile(path);
-        if( extension != null ) {
-//        	System.err.println("REGENERATE: extension != null " + path);
-	        long generated = extension.getModifiedDate();
-        	System.err.println("["+ path + "] modified : [" + DateFormat.getInstance().format(modified) + "] generated [" 
-        			+ DateFormat.getInstance().format(generated) + "]" + " ==> " + (modified == generated));
-	        return ( modified == generated );
-        } else {
-//        	System.err.println("["+ path + "] REGENERATE: no track " + path + " ==> false");
-        	return false;
+        GeneratedFile extension = current.getExtensionFile(absoluteFilePath);
+        if (extension != null) {
+            // System.err.println("REGENERATE: extension != null " + path);
+            long generated = extension.getModifiedDate();
+            System.err.println("[" + absoluteFilePath + "] modified : [" + DateFormat.getInstance().format(modified)
+                    + "] generated [" + DateFormat.getInstance().format(generated) + "]" + " ==> "
+                    + (modified == generated));
+            return (modified == generated);
         }
+
+        // System.err.println("["+ path + "] REGENERATE: no track " + path + " ==> false");
+        return false;
     }
-    
+
     /**
      * @param cls
      * @return The name of the Java class for name cls

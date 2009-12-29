@@ -263,6 +263,18 @@ public class Mod4jTracker {
         String result = getDefaultModuleManFilePath(moduleName, filename);
         return ProjectProperties.getApplicationPath() + "/" + result;
     }
+    
+    /**
+     * Static, because this is used in Xpand templates.
+     * 
+     * @param moduleName
+     * @param filename
+     * @return
+     */
+    static public String fullExtendPath(String moduleName, String subFolderPath, String filename) {
+        String result = getFilePath(moduleName, subFolderPath, filename);
+        return ProjectProperties.getApplicationPath() + "/" + result;
+    }
 
     /**
      * Static, because this is used in Xpand templates.

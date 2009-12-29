@@ -27,7 +27,7 @@
         Generate index.html file
     «ENDREM»
     «print("MOD4J INFO 2: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebAppPath() + "index.html"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebAppPath(), "index.html"))»
         «FILE extend(getPresentationModuleName(""), getPresentationWebAppPath(), "index.html") -»
              «EXPAND  Index::generateIndexHtml FOR this -»
         «ENDFILE»
@@ -39,7 +39,7 @@
         Generate WEB-INF folder and content
     «ENDREM»
     «print("MOD4J INFO 3: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebInfPath() + "applicationContext.xml"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebInfPath(), "applicationContext.xml"))»
         «FILE extend(getPresentationModuleName(""), getPresentationWebInfPath(), "applicationContext.xml") -»
              «EXPAND  ApplicationContext::GenerateApplicationContext FOR this»
         «ENDFILE»
@@ -47,7 +47,7 @@
         «retain(getPresentationModuleName(""), getPresentationWebInfPath(), "applicationContext.xml")»
     «ENDIF»
     «print("MOD4J INFO 4: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebInfPath() + "web.xml"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebInfPath(), "web.xml"))»
         «FILE extend(getPresentationModuleName(""), getPresentationWebInfPath(), "web.xml") -»
              «EXPAND  WebXml::generateWebXml FOR this»
         «ENDFILE»
@@ -55,7 +55,7 @@
         «retain(getPresentationModuleName(""), getPresentationWebInfPath(), "web.xml")»
     «ENDIF»
     «print("MOD4J INFO 5: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebInfPath() + "sun-web.xml"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationWebInfPath(), "sun-web.xml"))»
         «FILE extend(getPresentationModuleName(""), getPresentationWebInfPath(), "sun-web.xml") -»
              «EXPAND  WebXml::generateSunWebXml FOR this»
         «ENDFILE»
@@ -68,7 +68,7 @@
         Generate css folder and content
     «ENDREM»
     «print("MOD4J INFO 6: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationCssPath() + "main.css"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationCssPath(), "main.css"))»
         «FILE extend(getPresentationModuleName(""), getPresentationCssPath(), "main.css") -»
              «EXPAND StyleSheets::generateMainCss FOR this»
         «ENDFILE»
@@ -76,7 +76,7 @@
         «retain(getPresentationModuleName(""), getPresentationCssPath(), "main.css")»
     «ENDIF»
     «print("MOD4J INFO 7: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationCssPath() + "custom.css"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationCssPath(), "custom.css"))»
         «FILE extend(getPresentationModuleName(""), getPresentationCssPath(), "custom.css") -»
              «EXPAND StyleSheets::generateCustomCss FOR this»
         «ENDFILE»
@@ -84,7 +84,7 @@
         «retain(getPresentationModuleName(""), getPresentationCssPath(), "custom.css")»
     «ENDIF»
     «print("MOD4J INFO 8: Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationCssPath() + "modal.css"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationCssPath(), "modal.css"))»
         «FILE extend(getPresentationModuleName(""), getPresentationCssPath(), "modal.css") -»
              «EXPAND StyleSheets::generateModalCss FOR this»
         «ENDFILE»
@@ -96,7 +96,7 @@
         Generate images folder and content
     «ENDREM»
     «print("MOD4J INFO: 9 Generating all WebApp content for model [" + this.name + "]") -»
-    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationImagesPath() + "readme.txt"))»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), getPresentationImagesPath(), "readme.txt"))»
         «FILE extend(getPresentationModuleName(""), getPresentationImagesPath(), "readme.txt") -»
              «EXPAND ReadMe::generateReadMe FOR this»
         «ENDFILE»

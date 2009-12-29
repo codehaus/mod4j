@@ -29,6 +29,9 @@ String retain(String moduleName, String subFolderName, String filename) :
 
 String fullExtendPath(String moduleName, String filename) :
  JAVA org.mod4j.common.generator.admin.Mod4jTracker.fullExtendPath(java.lang.String, java.lang.String);
+ 
+String fullExtendPath(String moduleName, String subFolderPath, String filename) :
+ JAVA org.mod4j.common.generator.admin.Mod4jTracker.fullExtendPath(java.lang.String, java.lang.String, java.lang.String);
   
 String fullGeneratePath(String moduleName, String filename) :
  JAVA org.mod4j.common.generator.admin.Mod4jTracker.fullGeneratePath(java.lang.String, java.lang.String);
