@@ -76,19 +76,49 @@ context DialogueCall ERROR "referredForm [" + this.name + "] not found" :
 	this.referredContentForm() != null
     ;
 
+context Process ERROR "Process error " + this.getProperty("ERROR") :
+    let result = checkProcess(this) :       
+    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+      ;
+
+// context of referred forms must be the same as the process, except when teh dialogue call has a contextExp
+/*
 context Process ERROR this.getProperty("ERROR") :
 let con = (this.contextRef != null ? this.contextRef
            : ((SimpleProcess)this.eContainer).contentForm.contextRef) :
     (this.processElements != null) implies (
         this.processElements.typeSelect(DialogueCall).select(d|d.contextExp == null)
         .referredContentForm().forAll(form |
-           ( ((( form != null) ) && ( form.contextRef.name != con.name) )
+           ( (
+                  (( form != null) ) && ( form.contextRef.name != con.name) )
                     ? (setProperty("ERROR", "form context [" + form.contextRef.name + "] should be the same as process context [" +
                                                         con.name + "]")->false)
                                                : true
-       ))
+          ))
     );
-
+    
+context Process ERROR this.getProperty("ERROR") :
+let con = (this.contextRef != null ? this.contextRef
+           : ((SimpleProcess)this.eContainer).contentForm.contextRef) :
+    this.processElements != null implies (
+        this.processElements.typeSelect(DialogueCall).select(d|d.contextExp != null)
+        .forAll( dd  |
+            let form = dd.referredContentForm() :(
+			let navigationExpression = getNavigationExpression(dd): (
+		    navigationExpression != null implies (
+			        let resultType =  getResultType(con.modelName, con.name, navigationExpression) : (
+                   
+                      (  ( form != null) ) && ( form.contextRef.name != resultType) )
+                       ? (setProperty("ERROR", "form context [" + form.contextRef.name + 
+                                      "] should be the same as navigation context [" +
+										resultType + "]")->false
+                         )
+                        : (true)
+                   )
+            )))
+        
+     );
+*/
 /*
 context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the same context as the from to which the action belongs [" + this.contentForm.name + "]" :
     ((this.dialogue != null) && (this.dialogue.referredContentForm() != null) )

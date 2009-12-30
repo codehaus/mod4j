@@ -98,14 +98,13 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 }
 «ENDDEFINE»
 
-«DEFINE GenerateCollectionDialoguePage(ContentForm form) FOR InteractiveProcess -»
+«DEFINE GenerateListContentFormPage(ContentForm form) FOR InteractiveProcess -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
 «REM»
 «LET this.processElements.first().referredCollectionDialogue() AS collDialogue»
 «LET collDialogue.dialogues.first().referredContentForm() AS cf»
 «LET this.processElements.first().referredContentForm() AS cf»
 «ENDREM»
-«LET form AS cf» 
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
 package «getPresentationRootPackage()».pages;
@@ -114,9 +113,9 @@ package «getPresentationRootPackage()».pages;
 import «getPresentationRootPackage()».processes.«p.name»Process;
 «ENDFOREACH»
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-import «getPresentationRootPackage()».panels.«cf.name»CollectionDataViewPanel;
-import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListener;
-import «javaDtoClassPath(this.contextRef.name)»;
+import «getPresentationRootPackage()».panels.«form.name»CollectionDataViewPanel;
+import «getPresentationRootPackage()».panels.«form.contextRef.name»ListListener;
+import «javaDtoClassPath(form.contextRef.name)»;
 // import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
 import «getPresentationRootPackage()».processes.PmfProcess;
 
@@ -134,16 +133,14 @@ import org.apache.wicket.Page;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «form.contextRef.name»ListListener
 {
-// TODO: JOS: maxItemsPerPage bean shoudl be installed
-//    @SpringBean(name="maxItemsPerPage")
     private Integer maxItemsPerPage = 5;
 
-	public «this.name»«form.name»Page (IDataProvider<«this.contextRef.name»> dataProvider)
+	public «this.name»«form.name»Page (IDataProvider<«form.contextRef.name»> dataProvider)
 	{
 		super();
-        «cf.name»CollectionDataViewPanel panel = new «cf.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
+        «form.name»CollectionDataViewPanel panel = new «form.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
         panel.addListener(this);
         add( panel );
 		
@@ -156,7 +153,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
-	public void startProcess(String processName, «this.contextRef.name» context){
+	public void startProcess(String processName, «form.contextRef.name» context){
 	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
@@ -168,33 +165,32 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	«ENDFOREACH»
 	}
 
-	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
+	public void on«form.contextRef.name»Cancel(«form.contextRef.name» element) {
 	}
 
-	public void on«this.contextRef.name»Delete(«this.contextRef.name» element) {
+	public void on«form.contextRef.name»Delete(«form.contextRef.name» element) {
 	}
 
-	public void on«this.contextRef.name»Edit(«this.contextRef.name» element) {
+	public void on«form.contextRef.name»Edit(«form.contextRef.name» element) {
     «IF editProcess != null»
 	    PmfProcess process = new «editProcess.name»Process();
 	    setResponsePage( process.nextPage(element));
 	«ENDIF»
 	}
 
-	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
+	public void on«form.contextRef.name»Save(«form.contextRef.name» element) {
 	}
 
-	public void on«this.contextRef.name»New(«this.contextRef.name» element) {
+	public void on«form.contextRef.name»New(«form.contextRef.name» element) {
     «IF newProcess != null»
 	    PmfProcess process = new «newProcess.name»Process();
 	    setResponsePage( process.nextPage(element));
 	«ENDIF»
 	}
 
-	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
+	public void on«form.contextRef.name»Selected(«form.contextRef.name» element) {
 	}
 }
-«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDDEFINE»

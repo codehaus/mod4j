@@ -14,6 +14,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
@@ -47,24 +48,30 @@ public class PresentationHelpers {
     static public String serviceCallResultType(String context, ServiceExpression exp){
         Symbol service = CrossxBroker.lookupSymbol(exp.getServiceName(), exp.getServiceName(), "Service");
         if( service == null ){
-            return "ERROR: service [" + exp.getServiceName() + "] does not exist";
+            return "ERROR: 5 service [" + exp.getServiceName() + "] does not exist";
         }
         Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getServiceMethod());
         if( serviceMethod == null ){
-            return "ERROR: service method [" + exp.getServiceMethod() + "] does not exist";
+            return "ERROR: 6 service method [" + exp.getServiceMethod() + "] does not exist";
         }
         // found the service method.
         
-        String methodType = CrossxBroker.getPropertyValue(serviceMethod, "type");
-        if( methodType == "CustomMethod" ) {
+        String methodType = CrossxBroker.getPropertyValue(serviceMethod, "methodType");
+        if( methodType.equals("CustomMethod") ) {
             String inDto = CrossxBroker.getPropertyValue(serviceMethod, "in");
-            if( inDto != context ){
-                return "ERROR: service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+            if( ! inDto.equals(context ) ){
+                return "ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
             }
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "out");
             if( outDto == null ){
-                return "ERROR: service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]";
+                return "ERROR: 8 service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]";
             }
+            return outDto;
+        } else if( methodType.equals("LISTALL") ) {
+            String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
+            return outDto;
+        } else if( methodType.equals("CREATE") ) {
+            String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             return outDto;
         }
         return "UNKNOWN";
@@ -161,16 +168,19 @@ public class PresentationHelpers {
     static public String getResultType(String model, String dtoName, NavigationExpression nav){
         String result= null;
         
+        if( nav == null) {
+            return null;
+        }
         EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
         AssociationRoleReference ref = x.get(0);
-        System.err.println("MOD4J GETRESULT NAV [" + ref.getName() + "]" );
+        System.err.println("MOD4J GETRESULT NAVIGATION [" + ref.getName() + "]" );
         Symbol dto = CrossxBroker.lookupSymbol(model, dtoName, "Dto");
         System.err.println("MOD4J GETRESULT DTO [" + dto.getName() + "]" );
         Symbol reference = CrossxBroker.getSubSymbol(dto, ref.getName());
         if( reference == null){
-            return null;
+            return "ERROR: 9 [" + ref.getName() + "] not found for [" + dtoName + "]";
         }
-        System.err.println("MOD4J GETRESULT REF [" + reference.getName() + "]" );
+        System.err.println("MOD4J GETRESULT REF name [" + reference.getName() + "] type [" + reference.getType());
         
         if( reference.getType().equals("AssociationRoleReference") ){
             ReferenceSymbolProperty referredType = CrossxBroker.getReferenceProperty(reference, "ReferencedDto");
@@ -204,6 +214,74 @@ public class PresentationHelpers {
             return false;
         } else {
             return true;
+        }
+    }
+    
+    public static String checkProcess(Process p) {
+        // check for 
+        ExternalReference context = findContext(p);
+        if( p.getProcessElements() == null ) {
+            return null;
+        }
+        for (UICall uicall : p.getProcessElements()) {
+            if( uicall instanceof DialogueCall ) {
+                ContentForm form = referredContentForm(uicall);
+                DialogueCall dialogueCall = (DialogueCall)uicall;
+                if( form == null ){
+                    // referred form cannot be found, but that is checked elsewhere
+                    return "ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
+                }
+                String expectedType = form.getContextRef().getName();
+                if( dialogueCall.getContextExp() == null ){
+                    // check whether context of referred form is identical to that of the process
+                    if( ! form.getContextRef().getName().equals(context.getName())){
+                        return "ERROR: 2 context of process and called dialogue should be the same";
+                    }
+                } else {
+                    // dialogueCall.getContextExp() != null 
+                    NavigationExpression navExp = getNavigationExpression(dialogueCall);
+                    if( navExp != null ){
+                        String resultType = getResultType(context.getModelName(), context.getName(), navExp);
+                        if( resultType.startsWith("ERROR:")){
+                            return resultType;
+                        }
+                        if( ! expectedType.equals(resultType)){
+                            return "ERROR: 3 type of navigation [" + resultType + 
+                                  "] and called dialogue [" + expectedType + "] should be the same";
+                        }
+                    }
+                    ServiceExpression serExp = getServiceExpression(dialogueCall);
+                    if( serExp != null ){
+                        String resultType = serviceCallResultType(context.getName(), serExp);
+                        if( resultType.startsWith("ERROR:")){
+                            return resultType;
+                        } else {
+                            if( ! expectedType.equals(resultType) ){
+                                return "ERROR: 4 type of service [" + resultType + 
+                                "] and called dialogue [" + expectedType + "] should be the same";
+                            }
+                        }
+//                        String resultType = getResultType(context.getModelName(), context.getName(), navExp);
+//                        if( ! form.getContextRef().getName().equals(resultType)){
+//                            return "ERROR: context of navigation and called dialogue should be the same";
+//                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /** Find the context for a process
+     * 
+     * @param p
+     * @return
+     */
+    private static ExternalReference findContext(Process p) {
+        if( p.getContextRef()!= null ){
+            return p.getContextRef() ;
+        } else {
+            return ((SimpleProcess)p.eContainer()).getContentForm().getContextRef() ;
         }
     }
 }

@@ -39,6 +39,8 @@ package «getPresentationRootPackage()».processes;
 
     «IF serviceExpression != null»
 		import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
+	«ELSEIF navigationExpression != null»
+		import «javaDtoClassPath(form.contextRef.name)»;
 	«ELSE»
 	    // no service expression, must bne a navugation
 	«ENDIF»
@@ -52,6 +54,7 @@ import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».panels.ServiceDataProvider;
 
 import java.util.List;
+import java.util.ArrayList;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -86,10 +89,13 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			«this.name»«form.name»Page page = new «this.name»«form.name»Page(dataProvider);
 			return page;
 		«ELSEIF navigationExpression != null»
-			«LET this.contextRef AS context»	    
-			List<«getResultType(context.modelName, context.name, navigationExpression)»> newElements = element.get«navigationExpression.references.first().name»();	    
-			«this.name»«form.name»Page page = new «this.name»«form.name»Page (new ListDataProvider<«this.contextRef.name»>(newElements));
+			«LET this.contextRef AS context»	   
+			«LET getResultType(context.modelName, context.name, navigationExpression) AS resultType» 
+			List<«resultType»> newElements = new ArrayList<«resultType»>();
+			newElements.addAll(element.get«navigationExpression.references.first().name.toFirstUpper()»());	    
+			«this.name»«form.name»Page page = new «this.name»«form.name»Page (new ListDataProvider<«resultType»>(newElements));
 			return page;
+			«ENDLET»
 			«ENDLET»
 		«ELSE»
 			// TODO: this should not happen: no cotxt expressio n for dialogue of process «this.name»

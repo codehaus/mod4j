@@ -36,4 +36,7 @@ String serviceCallResultType(String contex, ServiceExpression exp):
     JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.serviceCallResultType(java.lang.String , 
                          org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression );
 
+String checkProcess(Process p):
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.checkProcess(org.mod4j.dsl.presentation.mm.PresentationDsl.Process);
+
   

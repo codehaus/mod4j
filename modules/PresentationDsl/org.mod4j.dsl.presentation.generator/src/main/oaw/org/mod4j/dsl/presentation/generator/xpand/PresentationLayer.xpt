@@ -79,9 +79,9 @@
 		«LET uiCall.referredContentForm() AS form »
 		«IF form != null»
 			«IF form.isCollection »
-		    	«print("Collection page generated for process [" + process.name + "] form [" + form.name + "]")»
+		    	«print("Collection form page generated for process [" + process.name + "] form [" + form.name + "]")»
 				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + form.name + "Page"))»
-		    	    «EXPAND ProcessPage::GenerateCollectionDialoguePage(form) FOR process»
+		    	    «EXPAND ProcessPage::GenerateListContentFormPage(form) FOR process»
 				«ENDFILE»
 			«ELSE»
 		    	«print("Content page generated for process [" + process.name + "] form [" + form.name + "]")»
