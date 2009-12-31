@@ -12,6 +12,7 @@
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::log4j»
 
 «EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
@@ -112,7 +113,17 @@
 	
     «print("MOD4J INFO: Running Presentation generator common")»
 	«EXPAND PresentationLayerCommon::GenerateCommon FOR this»
-«ENDDEFINE»
+
+    «print("MOD4J INFO: Running Presentation generator: log4j.properties for [" + this.name + "]")»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  "log4j.properties")) -»
+        «FILE extend( getPresentationModuleName(""), "log4j.properties" )-»
+            «EXPAND Log4j::createLog4jProperties»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), "log4j.properties" )»
+    «ENDIF»	
+	
+«ENDDEFINE» «REM»Generate«ENDREM»
 
 «REM»
     Generation of Maven configuration files. 
