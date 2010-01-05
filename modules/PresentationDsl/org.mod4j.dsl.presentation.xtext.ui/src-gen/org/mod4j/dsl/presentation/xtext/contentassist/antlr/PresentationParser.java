@@ -47,7 +47,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getContentFormAccess().getAlternatives_1(), "rule__ContentForm__Alternatives_1");
 					put(grammarAccess.getContentFormAccess().getAlternatives_6_1(), "rule__ContentForm__Alternatives_6_1");
 					put(grammarAccess.getSimpleProcessAccess().getAlternatives_3(), "rule__SimpleProcess__Alternatives_3");
-					put(grammarAccess.getAutomatedProcessActionAccess().getAlternatives(), "rule__AutomatedProcessAction__Alternatives");
 					put(grammarAccess.getCompoundDialogueAccess().getAlternatives(), "rule__CompoundDialogue__Alternatives");
 					put(grammarAccess.getCompoundDialogueAccess().getAlternatives_0_5_1(), "rule__CompoundDialogue__Alternatives_0_5_1");
 					put(grammarAccess.getCollectionDialogueAccess().getAlternatives_6_1(), "rule__CollectionDialogue__Alternatives_6_1");
@@ -66,8 +65,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getContentFormAccess().getGroup_9(), "rule__ContentForm__Group_9__0");
 					put(grammarAccess.getContentFormAccess().getGroup_9_2(), "rule__ContentForm__Group_9_2__0");
 					put(grammarAccess.getSimpleProcessAccess().getGroup(), "rule__SimpleProcess__Group__0");
-					put(grammarAccess.getAutomatedProcessActionAccess().getGroup_0(), "rule__AutomatedProcessAction__Group_0__0");
-					put(grammarAccess.getAutomatedProcessActionAccess().getGroup_0_3(), "rule__AutomatedProcessAction__Group_0_3__0");
 					put(grammarAccess.getInteractiveProcessActionAccess().getGroup(), "rule__InteractiveProcessAction__Group__0");
 					put(grammarAccess.getCompoundDialogueAccess().getGroup_0(), "rule__CompoundDialogue__Group_0__0");
 					put(grammarAccess.getCompoundDialogueAccess().getGroup_0_5(), "rule__CompoundDialogue__Group_0_5__0");
@@ -88,8 +85,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAutomatedProcessAccess().getGroup(), "rule__AutomatedProcess__Group__0");
 					put(grammarAccess.getAutomatedProcessAccess().getGroup_6(), "rule__AutomatedProcess__Group_6__0");
 					put(grammarAccess.getAutomatedProcessAccess().getGroup_6_2(), "rule__AutomatedProcess__Group_6_2__0");
-					put(grammarAccess.getAutomatedProcessAccess().getGroup_7(), "rule__AutomatedProcess__Group_7__0");
-					put(grammarAccess.getAutomatedProcessAccess().getGroup_7_3(), "rule__AutomatedProcess__Group_7_3__0");
 					put(grammarAccess.getInteractiveProcessAccess().getGroup(), "rule__InteractiveProcess__Group__0");
 					put(grammarAccess.getInteractiveProcessAccess().getGroup_6(), "rule__InteractiveProcess__Group_6__0");
 					put(grammarAccess.getInteractiveProcessAccess().getGroup_6_2(), "rule__InteractiveProcess__Group_6_2__0");
@@ -131,8 +126,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleProcessAccess().getTypeAssignment_2(), "rule__SimpleProcess__TypeAssignment_2");
 					put(grammarAccess.getSimpleProcessAccess().getDialogueProcessAssignment_3_0(), "rule__SimpleProcess__DialogueProcessAssignment_3_0");
 					put(grammarAccess.getSimpleProcessAccess().getProcessAssignment_3_1(), "rule__SimpleProcess__ProcessAssignment_3_1");
-					put(grammarAccess.getAutomatedProcessActionAccess().getServicesAssignment_0_2(), "rule__AutomatedProcessAction__ServicesAssignment_0_2");
-					put(grammarAccess.getAutomatedProcessActionAccess().getServicesAssignment_0_3_1(), "rule__AutomatedProcessAction__ServicesAssignment_0_3_1");
 					put(grammarAccess.getInteractiveProcessActionAccess().getProcessElementsAssignment_1(), "rule__InteractiveProcessAction__ProcessElementsAssignment_1");
 					put(grammarAccess.getCompoundDialogueAccess().getDescriptionAssignment_0_0(), "rule__CompoundDialogue__DescriptionAssignment_0_0");
 					put(grammarAccess.getCompoundDialogueAccess().getNameAssignment_0_2(), "rule__CompoundDialogue__NameAssignment_0_2");
@@ -158,8 +151,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAutomatedProcessAccess().getContextRefAssignment_4(), "rule__AutomatedProcess__ContextRefAssignment_4");
 					put(grammarAccess.getAutomatedProcessAccess().getTypeAssignment_5(), "rule__AutomatedProcess__TypeAssignment_5");
 					put(grammarAccess.getAutomatedProcessAccess().getProcessElementsAssignment_6_2_0(), "rule__AutomatedProcess__ProcessElementsAssignment_6_2_0");
-					put(grammarAccess.getAutomatedProcessAccess().getServicesAssignment_7_2(), "rule__AutomatedProcess__ServicesAssignment_7_2");
-					put(grammarAccess.getAutomatedProcessAccess().getServicesAssignment_7_3_1(), "rule__AutomatedProcess__ServicesAssignment_7_3_1");
 					put(grammarAccess.getInteractiveProcessAccess().getDescriptionAssignment_0(), "rule__InteractiveProcess__DescriptionAssignment_0");
 					put(grammarAccess.getInteractiveProcessAccess().getNameAssignment_2(), "rule__InteractiveProcess__NameAssignment_2");
 					put(grammarAccess.getInteractiveProcessAccess().getContextRefAssignment_4(), "rule__InteractiveProcess__ContextRefAssignment_4");
