@@ -7,42 +7,42 @@ package org.mod4j.dsl.presentation.xtext.contentassist.antlr.internal;
 import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.Lexer;
 }
 
-T11 : 'ContentForm' ;
-T12 : 'false' ;
-T13 : 'batch' ;
+T11 : 'batch' ;
+T12 : 'ContentForm' ;
+T13 : 'false' ;
 T14 : 'new' ;
 T15 : 'save' ;
 T16 : 'edit' ;
 T17 : 'remove' ;
-T18 : 'presentation' ;
-T19 : ';' ;
-T20 : 'from' ;
-T21 : 'import' ;
-T22 : 'context' ;
-T23 : '[' ;
-T24 : ']' ;
-T25 : 'readonly' ;
-T26 : 'actions' ;
-T27 : 'processes' ;
-T28 : 'services' ;
-T29 : ',' ;
-T30 : 'use' ;
-T31 : 'CompoundDialogue' ;
-T32 : 'dialogues' ;
-T33 : 'CollectionDialogue' ;
-T34 : 'MasterDetail' ;
-T35 : 'master' ;
-T36 : 'detail' ;
-T37 : 'AutomatedProcess' ;
-T38 : 'steps' ;
-T39 : 'InteractiveProcess' ;
-T40 : 'step' ;
-T41 : 'element' ;
-T42 : 'label' ;
-T43 : 'to' ;
-T44 : 'alias' ;
-T45 : '(' ;
-T46 : ')' ;
+T18 : 'Cancel' ;
+T19 : 'presentation' ;
+T20 : ';' ;
+T21 : 'from' ;
+T22 : 'import' ;
+T23 : 'context' ;
+T24 : '[' ;
+T25 : ']' ;
+T26 : 'readonly' ;
+T27 : 'actions' ;
+T28 : 'processes' ;
+T29 : 'use' ;
+T30 : 'CompoundDialogue' ;
+T31 : 'dialogues' ;
+T32 : 'CollectionDialogue' ;
+T33 : 'MasterDetail' ;
+T34 : 'master' ;
+T35 : 'detail' ;
+T36 : 'AutomatedProcess' ;
+T37 : 'steps' ;
+T38 : 'InteractiveProcess' ;
+T39 : 'step' ;
+T40 : 'element' ;
+T41 : 'label' ;
+T42 : 'to' ;
+T43 : 'alias' ;
+T44 : '(' ;
+T45 : ')' ;
+T46 : ',' ;
 T47 : 'call' ;
 T48 : '.' ;
 T49 : ':' ;
@@ -52,25 +52,25 @@ T52 : 'process' ;
 T53 : 'ListForm' ;
 T54 : 'true' ;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6663
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6276
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6665
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6278
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6667
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6280
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6669
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6282
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6671
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6284
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6673
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6286
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6675
+// $ANTLR src "../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g" 6288
 RULE_ANY_OTHER : .;
 
 
