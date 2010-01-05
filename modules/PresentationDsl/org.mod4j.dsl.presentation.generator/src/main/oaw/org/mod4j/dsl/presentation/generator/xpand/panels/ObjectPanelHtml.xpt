@@ -24,7 +24,7 @@
 					<td colspan="2"><a href="#" wicket:id="edit"><wicket:message key="cmd.edit"/></a></td>
 «IF (customProcesses != null) && (!customProcesses.isEmpty)»
     «FOREACH customProcesses AS p»
-					<td colspan="2"><a href="#" wicket:id="«p.name»custom">«p.name»</a></td>
+					<td colspan="2"><a href="#" wicket:id="«p.name»custom">«p.label»</a></td>
 	«ENDFOREACH»
 «ENDIF»
 				</tr>

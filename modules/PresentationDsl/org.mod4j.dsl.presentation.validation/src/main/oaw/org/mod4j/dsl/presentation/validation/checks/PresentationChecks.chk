@@ -51,7 +51,7 @@ context ContentForm ERROR "A Content Form may have at most one 'cancel' action" 
 
 context ContentForm ERROR "A Content Form may have at most one 'remove' action" :
     this.actions.select(e|e.type==ProcessType::REMOVE).size <= 1;
-
+/*
 context Process ERROR " service error " + this.getProperty("ERROR") :
     ( (this.name != null) && (this.name.length > 0)       
     )implies
@@ -71,7 +71,7 @@ context SimpleProcess ERROR " service error " + this.getProperty("ERROR") :
               (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
             )
             ;
-
+*/
 context DialogueCall ERROR "referredForm [" + this.name + "] not found" :
 	this.referredContentForm() != null
     ;
@@ -84,6 +84,12 @@ context Process ERROR "Process error " + this.getProperty("ERROR") :
     let result = checkProcess(this) :       
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
       ;
+
+context ProcessCall ERROR "ProcessCall error " + this.getProperty("ERROR") :
+    let result = checkProcessCall(this) :       
+    (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
+      ;
+    
 
 // context of referred forms must be the same as the process, except when teh dialogue call has a contextExp
 /*

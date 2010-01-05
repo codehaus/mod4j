@@ -14,9 +14,9 @@ completeModel(PresentationModel pmfModel) :
     let contentForms = pmfModel.elements.typeSelect(ContentForm):
 
     formElements.addDataProperty()
-    ->
-	contentForms.convertActions()
-	->printProcesses(pmfModel)
+    -> contentForms.convertActions()
+	-> pmfModel.elements.typeSelect(Process).fillLabel()
+	
 	;
 	
 DataProperty addDataProperty(FormElement element) :
@@ -40,6 +40,12 @@ PresentationDsl::DataProperty newDataProperty(Symbol symbol) :
     result.setIsEnumeration(ref != null)->
     result;
 
+fillLabel(Process p) :
+    (   (p.label == null) || (p.label == "")
+      ? (p.setLabel(p.name))
+      : null
+    )
+;
 Boolean convertActions(ContentForm form) :
     form.actions.createProcess(form)
 ;
@@ -54,6 +60,7 @@ Boolean createProcess(SimpleProcess action, ContentForm form) :
     let processCall = new ProcessCall :
 //    dialogue.setName(action.dialogue.name)->
     result.setName(name)->
+    result.setLabel(action.name)->
     result.setContextRef(form.contextRef)->
 //    ((action.dialogue != null) ? result.processElements.add(dialogue) : null)->
     result.setType(action.type)->
@@ -64,8 +71,3 @@ Boolean createProcess(SimpleProcess action, ContentForm form) :
     action.setProcess(null)->
     action.setDialogueProcess(null)
     ;
-    
-Boolean printProcesses(PresentationModel pmfModel) :
-true
-;
-

@@ -403,60 +403,20 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	public class AutomatedProcessActionElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AutomatedProcessAction");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cServicesKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cServicesAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cServicesServiceExpressionParserRuleCall_0_2_0 = (RuleCall)cServicesAssignment_0_2.eContents().get(0);
-		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
-		private final Keyword cCommaKeyword_0_3_0 = (Keyword)cGroup_0_3.eContents().get(0);
-		private final Assignment cServicesAssignment_0_3_1 = (Assignment)cGroup_0_3.eContents().get(1);
-		private final RuleCall cServicesServiceExpressionParserRuleCall_0_3_1_0 = (RuleCall)cServicesAssignment_0_3_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Keyword cBatchKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cBatchKeyword = (Keyword)rule.eContents().get(1);
 		
 		//AutomatedProcessAction returns AutomatedProcess:
-		//  "services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"|
-		//  "batch";
+		//  "batch"; 
+		//
+		//      
+		////	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+		////	|
 		public ParserRule getRule() { return rule; }
 
-		//"services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"|
-		//"batch"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"
-		public Group getGroup_0() { return cGroup_0; }
-
-		//"services"
-		public Keyword getServicesKeyword_0_0() { return cServicesKeyword_0_0; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_0_1() { return cLeftSquareBracketKeyword_0_1; }
-
-		//services+=ServiceExpression
-		public Assignment getServicesAssignment_0_2() { return cServicesAssignment_0_2; }
-
-		//ServiceExpression
-		public RuleCall getServicesServiceExpressionParserRuleCall_0_2_0() { return cServicesServiceExpressionParserRuleCall_0_2_0; }
-
-		//("," services+=ServiceExpression)?
-		public Group getGroup_0_3() { return cGroup_0_3; }
-
-		//","
-		public Keyword getCommaKeyword_0_3_0() { return cCommaKeyword_0_3_0; }
-
-		//services+=ServiceExpression
-		public Assignment getServicesAssignment_0_3_1() { return cServicesAssignment_0_3_1; }
-
-		//ServiceExpression
-		public RuleCall getServicesServiceExpressionParserRuleCall_0_3_1_0() { return cServicesServiceExpressionParserRuleCall_0_3_1_0; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_0_4() { return cRightSquareBracketKeyword_0_4; }
-
-		//"batch"
-		public Keyword getBatchKeyword_1() { return cBatchKeyword_1; }
+		//"batch" 
+		////	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+		////	|
+		public Keyword getBatchKeyword() { return cBatchKeyword; }
 	}
 
 	public class InteractiveProcessActionElements implements IParserRuleAccess {
@@ -984,26 +944,27 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final RuleCall cProcessElementsUICallParserRuleCall_6_2_0_0 = (RuleCall)cProcessElementsAssignment_6_2_0.eContents().get(0);
 		private final Keyword cSemicolonKeyword_6_2_1 = (Keyword)cGroup_6_2.eContents().get(1);
 		private final Keyword cRightSquareBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cServicesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cServicesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cServicesServiceExpressionParserRuleCall_7_2_0 = (RuleCall)cServicesAssignment_7_2.eContents().get(0);
-		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
-		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
-		private final Assignment cServicesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
-		private final RuleCall cServicesServiceExpressionParserRuleCall_7_3_1_0 = (RuleCall)cServicesAssignment_7_3_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		
 		//AutomatedProcess:
 		//  description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
 		//  ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
-		//  ("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?;
+		//; 
+		//	
+		//  
+		//	  
+		//	              
+		//	
+		//	            
+		////	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
-		//ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
-		//("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?
+		//ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")? 
+		//	  
+		//	              
+		//	
+		//	            
+		////	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -1062,36 +1023,6 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_6_3() { return cRightSquareBracketKeyword_6_3; }
-
-		//("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?
-		public Group getGroup_7() { return cGroup_7; }
-
-		//"services"
-		public Keyword getServicesKeyword_7_0() { return cServicesKeyword_7_0; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_7_1() { return cLeftSquareBracketKeyword_7_1; }
-
-		//services+=ServiceExpression
-		public Assignment getServicesAssignment_7_2() { return cServicesAssignment_7_2; }
-
-		//ServiceExpression
-		public RuleCall getServicesServiceExpressionParserRuleCall_7_2_0() { return cServicesServiceExpressionParserRuleCall_7_2_0; }
-
-		//("," services+=ServiceExpression)?
-		public Group getGroup_7_3() { return cGroup_7_3; }
-
-		//","
-		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
-
-		//services+=ServiceExpression
-		public Assignment getServicesAssignment_7_3_1() { return cServicesAssignment_7_3_1; }
-
-		//ServiceExpression
-		public RuleCall getServicesServiceExpressionParserRuleCall_7_3_1_0() { return cServicesServiceExpressionParserRuleCall_7_3_1_0; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_7_4() { return cRightSquareBracketKeyword_7_4; }
 	}
 
 	public class InteractiveProcessElements implements IParserRuleAccess {
@@ -1683,12 +1614,14 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cEDITEditKeyword_2_0 = (Keyword)cEDITEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cREMOVEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cREMOVERemoveKeyword_3_0 = (Keyword)cREMOVEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cCANCELEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cCANCELCancelKeyword_4_0 = (Keyword)cCANCELEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum ProcessType:
-		//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove";
+		//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="Cancel";
 		public EnumRule getRule() { return rule; }
 
-		//NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove"
+		//NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="Cancel"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//NEW="new"
@@ -1714,6 +1647,12 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 		//"remove"
 		public Keyword getREMOVERemoveKeyword_3_0() { return cREMOVERemoveKeyword_3_0; }
+
+		//CANCEL="Cancel"
+		public EnumLiteralDeclaration getCANCELEnumLiteralDeclaration_4() { return cCANCELEnumLiteralDeclaration_4; }
+
+		//"Cancel"
+		public Keyword getCANCELCancelKeyword_4_0() { return cCANCELCancelKeyword_4_0; }
 	}
 	
 	private PresentationModelElements pPresentationModel;
@@ -1845,8 +1784,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//AutomatedProcessAction returns AutomatedProcess:
-	//  "services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"|
-	//  "batch";
+	//  "batch"; 
+	//
+	//      
+	////	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+	////	|
 	public AutomatedProcessActionElements getAutomatedProcessActionAccess() {
 		return (pAutomatedProcessAction != null) ? pAutomatedProcessAction : (pAutomatedProcessAction = new AutomatedProcessActionElements());
 	}
@@ -1866,7 +1808,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//enum ProcessType:
-	//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove";
+	//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="Cancel";
 	public ProcessTypeElements getProcessTypeAccess() {
 		return (unknownRuleProcessType != null) ? unknownRuleProcessType : (unknownRuleProcessType = new ProcessTypeElements());
 	}
@@ -1926,7 +1868,14 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	//AutomatedProcess:
 	//  description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
 	//  ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
-	//  ("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?;
+	//; 
+	//	
+	//  
+	//	  
+	//	              
+	//	
+	//	            
+	////	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
 	public AutomatedProcessElements getAutomatedProcessAccess() {
 		return (pAutomatedProcess != null) ? pAutomatedProcess : (pAutomatedProcess = new AutomatedProcessElements());
 	}

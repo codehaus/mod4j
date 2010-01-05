@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getType <em>Type</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getServices <em>Services</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,19 +76,29 @@ public interface Process extends UIModelElement {
     void setType(ProcessType value);
 
     /**
-     * Returns the value of the '<em><b>Services</b></em>' containment reference list.
-     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression}.
+     * Returns the value of the '<em><b>Label</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Label</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Services</em>' containment reference list.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_Services()
-     * @model containment="true"
+     * @return the value of the '<em>Label</em>' attribute.
+     * @see #setLabel(String)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_Label()
+     * @model
      * @generated
      */
-    EList<ServiceExpression> getServices();
+    String getLabel();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLabel <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Label</em>' attribute.
+     * @see #getLabel()
+     * @generated
+     */
+    void setLabel(String value);
 
 } // Process

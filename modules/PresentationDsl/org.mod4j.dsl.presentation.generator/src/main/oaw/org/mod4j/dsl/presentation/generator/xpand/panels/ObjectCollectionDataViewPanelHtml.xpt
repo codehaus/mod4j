@@ -37,19 +37,19 @@
 	«ENDLET»
 	«ENDLET»
 	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::CUSTOM) AS p»
-		<td class="butcol"><input type="button" value="«p.name.subString(7,p.name.length)»" wicket:id="«p.name»" class="button" /></td>
+		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
 	«ENDFOREACH»
 	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
-		<td class="butcol"><input type="button" value="«p.name»" wicket:id="«p.name»" class="button" /></td>
+		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
 	«ENDFOREACH»
 	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::REMOVE) AS p»
-		<td class="butcol"><input type="button" value="«p.name»" wicket:id="«p.name»" class="button" /></td>
+		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
 	«ENDFOREACH»
 				</tr>
 			</tbody>
 		</table>
 		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::NEW) AS p»
-			<input type="button" value="«p.name»" wicket:id="«p.name»" class="button" />
+			<input type="button" value="«p.label»" wicket:id="«p.name»" class="button" />
 		«ENDFOREACH»
 		
 <!-- 		

@@ -11,6 +11,7 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanel.xpt") FOR this»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::SAVE) AS saveProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::REMOVE) AS removeProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::CANCEL) AS cancelProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 package «getPresentationRootPackage()».panels;
 import java.util.ArrayList;
@@ -130,21 +131,27 @@ public class «this.name»EditPanelWithListener extends Panel {
         filter.addComponent(«p.name»delete);
     «ENDFOREACH»
 «ENDIF» 
-        Button cancel = new Button("cancel", new ResourceModel("cmd.cancel")) {
+ «IF (cancelProcesses != null) && (! cancelProcesses.isEmpty)»
+     «FOREACH cancelProcesses AS p»
+        Button cancel = new Button("«p.name»cancel", new ResourceModel("cmd.cancel")) {
             @Override
             public void onSubmit() {
             	form.clearInput();
 				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.on«this.contextRef.name»Cancel(model.getObject());
+					listener.startProcess(
+									"«p.name»Process", model.getObject());
 				}
              }
         };
         cancel.setDefaultFormProcessing(false);
         form.add(cancel);
-         filter.addComponent(cancel);
+        filter.addComponent(cancel);
+    «ENDFOREACH»
+«ENDIF» 
+
  «IF (customProcesses != null) && (!customProcesses.isEmpty)»
      «FOREACH customProcesses AS p»
-        Button «p.name»custom = new Button("«p.name»custom", new Model("«p.name»")) {
+        Button «p.name»custom = new Button("«p.name»custom", new Model("«p.label»")) {
             @Override
             public void onSubmit() {
 				for («this.contextRef.name»ListListener listener : listeners) {
@@ -161,6 +168,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         add(form);
     }
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

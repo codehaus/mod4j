@@ -25,6 +25,9 @@
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + "Mod4jDataProvider"))»
 	    «EXPAND Mod4jDataProvider::Mod4jDataProvider FOR this»
 	«ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + "ModelDataProvider"))»
+	    «EXPAND ModelDataProvider::ModelDataProvider FOR this»
+	«ENDFILE»
 
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»

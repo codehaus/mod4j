@@ -73,6 +73,9 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			«IF p.processElements.typeSelect(DialogueCall).isEmpty» «REM»this is a batch process«ENDREM»
 				process.setProvider(provider);
 				process.run(context);
+				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::REMOVE)»
+				    owningProcess.done(this);
+				«ENDIF»
 			«ELSE»
 				Page next = process.nextPage(context);
 				if( next != null ){
@@ -81,59 +84,11 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			«ENDIF»
 		}
 	«ENDFOREACH»
-
-«REM»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			Page next = process.nextPage(context);
-			if( next != null ){
-				setResponsePage(process.nextPage(context));
-			}
-		}
-	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::SAVE) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setProvider(provider);
-			process.run(context);
-		}
-	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVE) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setProvider(provider);
-			process.run(context);
-		}
-	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::EDIT) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setProvider(provider);
-			Page next = process.nextPage(context);
-			if( next != null ){
-				setResponsePage(process.nextPage(context));
-			}
-		}
-	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::NEW) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setProvider(provider);
-			Page next = process.nextPage(context);
-			if( next != null ){
-				setResponsePage(process.nextPage(context));
-			}
-		}
-	«ENDFOREACH»
-«ENDREM»
 	}
 
 	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
 	}
 
-	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
-	}
 }
 «ENDDEFINE»
 
@@ -150,6 +105,9 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 package «getPresentationRootPackage()».pages;
 
 «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process;
+«ENDFOREACH»
+«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVE) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process;
 «ENDFOREACH»
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -274,13 +232,19 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			}
 		}
 	«ENDFOREACH»
+	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVE) AS p»
+		if(processName.equals("«p.name»Process")){
+			«p.name»Process process = new «p.name»Process();
+			process.setOwningPage(this);
+			process.setProvider(provider);
+			process.run(context);
+		}
+	«ENDFOREACH»
 	}
 
 	public void on«form.contextRef.name»Cancel(«form.contextRef.name» element) {
 	}
 
-	public void on«form.contextRef.name»Selected(«form.contextRef.name» element) {
-	}
 }
 «ENDLET»
 «ENDLET»

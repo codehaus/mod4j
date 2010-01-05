@@ -113,7 +113,7 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 					{
 						if( ! listeners.isEmpty() ){
 							for («this.contextRef.name»ListListener listener : listeners) {
-								listener.on«this.contextRef.name»Selected(getModel().getObject());
+//								listener.on«this.contextRef.name»Selected(getModel().getObject());
 							}
 						} else {
 //							setResponsePage(new BreakfastPage(getModel()));

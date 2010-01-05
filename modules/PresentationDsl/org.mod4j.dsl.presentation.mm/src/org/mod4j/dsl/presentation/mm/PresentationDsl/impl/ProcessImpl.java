@@ -37,7 +37,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,14 +75,24 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
     protected ProcessType type = TYPE_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getServices()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected EList<ServiceExpression> services;
+    protected static final String LABEL_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLabel()
+     * @generated
+     * @ordered
+     */
+    protected String label = LABEL_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -141,11 +151,20 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ServiceExpression> getServices() {
-        if (services == null) {
-            services = new EObjectContainmentEList<ServiceExpression>(ServiceExpression.class, this, PresentationDslPackage.PROCESS__SERVICES);
-        }
-        return services;
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__LABEL, oldLabel, label));
     }
 
     /**
@@ -173,8 +192,6 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return ((InternalEList<?>)getProcessElements()).basicRemove(otherEnd, msgs);
-            case PresentationDslPackage.PROCESS__SERVICES:
-                return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -191,8 +208,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return getProcessElements();
             case PresentationDslPackage.PROCESS__TYPE:
                 return getType();
-            case PresentationDslPackage.PROCESS__SERVICES:
-                return getServices();
+            case PresentationDslPackage.PROCESS__LABEL:
+                return getLabel();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -213,9 +230,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__TYPE:
                 setType((ProcessType)newValue);
                 return;
-            case PresentationDslPackage.PROCESS__SERVICES:
-                getServices().clear();
-                getServices().addAll((Collection<? extends ServiceExpression>)newValue);
+            case PresentationDslPackage.PROCESS__LABEL:
+                setLabel((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -235,8 +251,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__TYPE:
                 setType(TYPE_EDEFAULT);
                 return;
-            case PresentationDslPackage.PROCESS__SERVICES:
-                getServices().clear();
+            case PresentationDslPackage.PROCESS__LABEL:
+                setLabel(LABEL_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -254,8 +270,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return processElements != null && !processElements.isEmpty();
             case PresentationDslPackage.PROCESS__TYPE:
                 return type != TYPE_EDEFAULT;
-            case PresentationDslPackage.PROCESS__SERVICES:
-                return services != null && !services.isEmpty();
+            case PresentationDslPackage.PROCESS__LABEL:
+                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
         }
         return super.eIsSet(featureID);
     }
@@ -272,6 +288,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (type: ");
         result.append(type);
+        result.append(", label: ");
+        result.append(label);
         result.append(')');
         return result.toString();
     }

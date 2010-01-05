@@ -70,7 +70,7 @@
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/services"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/label"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/owningDialogue"/>

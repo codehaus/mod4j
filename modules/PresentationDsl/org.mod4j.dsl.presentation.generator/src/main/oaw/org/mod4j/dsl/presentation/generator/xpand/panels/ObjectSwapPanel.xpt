@@ -89,9 +89,6 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 		editOn = ! editOn;
 	}
 
-	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
-	}
-
 	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
 		swapPanels();
 	}
@@ -100,19 +97,6 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 		for («this.contextRef.name»ListListener listener : listeners) {
 			listener.startProcess(processName, context);
 		}
-
-	«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
-		// TODO: 5-1-20010 MOVE TO PAGE
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			Page next = process.nextPage(context);
-			if( next != null){
-				setResponsePage(process.nextPage(context));
-			}
-		}
-	«ENDFOREACH»
-
-
 	}
 
 }

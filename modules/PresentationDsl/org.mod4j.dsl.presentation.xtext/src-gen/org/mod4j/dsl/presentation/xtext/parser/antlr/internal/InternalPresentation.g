@@ -747,70 +747,11 @@ ruleAutomatedProcessAction returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(('services' 
+'batch' 
     {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getServicesKeyword_0_0(), null); 
+        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getBatchKeyword(), null); 
     }
-'[' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getLeftSquareBracketKeyword_0_1(), null); 
-    }
-(	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_0_2_0(), currentNode); 
-	    }
-	    lv_services_2=ruleServiceExpression 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getAutomatedProcessActionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "services", lv_services_2, "ServiceExpression", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-)(',' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getCommaKeyword_0_3_0(), null); 
-    }
-(	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_0_3_1_0(), currentNode); 
-	    }
-	    lv_services_4=ruleServiceExpression 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getAutomatedProcessActionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "services", lv_services_4, "ServiceExpression", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-))?']' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getRightSquareBracketKeyword_0_4(), null); 
-    }
-)
-    |'batch' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessActionAccess().getBatchKeyword_1(), null); 
-    }
-);
+;
 
 
 
@@ -1666,64 +1607,6 @@ ruleAutomatedProcess returns [EObject current=null]
 )*']' 
     {
         createLeafNode(grammarAccess.getAutomatedProcessAccess().getRightSquareBracketKeyword_6_3(), null); 
-    }
-)?('services' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessAccess().getServicesKeyword_7_0(), null); 
-    }
-'[' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessAccess().getLeftSquareBracketKeyword_7_1(), null); 
-    }
-(	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessAccess().getServicesServiceExpressionParserRuleCall_7_2_0(), currentNode); 
-	    }
-	    lv_services_13=ruleServiceExpression 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getAutomatedProcessRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "services", lv_services_13, "ServiceExpression", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-)(',' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessAccess().getCommaKeyword_7_3_0(), null); 
-    }
-(	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getAutomatedProcessAccess().getServicesServiceExpressionParserRuleCall_7_3_1_0(), currentNode); 
-	    }
-	    lv_services_15=ruleServiceExpression 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getAutomatedProcessRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "services", lv_services_15, "ServiceExpression", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-))?']' 
-    {
-        createLeafNode(grammarAccess.getAutomatedProcessAccess().getRightSquareBracketKeyword_7_4(), null); 
     }
 )?);
 
@@ -2702,6 +2585,12 @@ ruleProcessType returns [Enumerator current=null]
 	{
         $current = grammarAccess.getProcessTypeAccess().getREMOVEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
         createLeafNode(grammarAccess.getProcessTypeAccess().getREMOVEEnumLiteralDeclaration_3(), null); 
+    }
+)
+    |(	'Cancel' 
+	{
+        $current = grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4(), null); 
     }
 ));
 

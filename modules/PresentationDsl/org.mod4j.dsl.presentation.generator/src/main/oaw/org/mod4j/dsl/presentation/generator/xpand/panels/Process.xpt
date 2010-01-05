@@ -35,8 +35,6 @@
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
 «LET dialogueCall.arguments.typeSelect(ServiceExpression).selectFirst(e|e.name == "update") AS updateService2»
 «LET dialogueCall.arguments.typeSelect(ServiceExpression).selectFirst(e|e.name == "create") AS createService2»
-«LET this.services.selectFirst(e|e.name == "update") AS updateService»
-«LET this.services.selectFirst(e|e.name == "create") AS createService»
 package «getPresentationRootPackage()».processes;
 
 «IF serviceExpression != null»
@@ -81,13 +79,6 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	     // TODO: this should not happen, both service and navigation expressions are empty
 	 «ENDIF»
 
-	«IF (this.type == ProcessType::SAVE)»
-		@SpringBean(name = "«updateService.serviceName»Service")
-	    «javaLocalServiceInterface(updateService.serviceName)» updateService;
-	    
-		@SpringBean(name = "«createService.serviceName»Service")
-	    «javaLocalServiceInterface(createService.serviceName)» createService;
-	«ENDIF»
     public Page nextPage(«this.contextRef.name» element) {
 	// CUSTOM
 	    «IF serviceExpression != null »
@@ -118,26 +109,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			// «dialogueCall.contextExp»
 		«ENDIF»
 	}
-	
-	«IF this.type == ProcessType::SAVE»
-		public void run(«this.contextRef.name» element) {
-		    saveAction(element);
-		}
-	
-		private void saveAction(«this.contextRef.name» element) {
-		try {
-			if (element.getId() == null) { // new element
-				createService.«createService.serviceMethod»(element);
-			} else { // existing element
-				updateService.«updateService.serviceMethod»(element);
-			}
-		} catch (Exception e) {
-			error(e.getMessage());
-//			log.error("", e);
-		}
-	}
-	«ENDIF»
-	
+
 	public void done(Page page){
 	}
 	protected Page owningPage = null;
@@ -150,8 +122,6 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	}
 
 }
-«ENDLET»
-«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»
@@ -260,6 +230,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	}
 
 	public void done(Page page){
+	    setResponsePage(getOwningPage());
 	}
 	protected Page owningPage = null;
 	
@@ -281,9 +252,6 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 «DEFINE GenerateBatchProcess FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcess  in Process.xpt") FOR this»
 «print("// Batch process")»
-«LET this.services.selectFirst(e|e.name == "update") AS updateService»
-«LET this.services.selectFirst(e|e.name == "create") AS createService»
-«LET this.services.selectFirst(e|e.name == "delete") AS deleteService»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».panels.Mod4jDataProvider;
@@ -291,13 +259,6 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 import «javaDtoClassPath(this.contextRef.name)»;
 
-«IF this.type == ProcessType::SAVE»
-import «javaLocalServiceInterfacePath(updateService.serviceName)» ;
-import «javaLocalServiceInterfacePath(createService.serviceName)» ;
-«ENDIF»
-«IF this.type == ProcessType::REMOVE»
-import «javaLocalServiceInterfacePath(deleteService.serviceName)» ;
-«ENDIF»
 import java.util.List;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
@@ -306,7 +267,8 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
-// Batch process
+/** Automated process
+ */
 public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
 {
     private Mod4jDataProvider<«this.contextRef.name»> provider = null;
@@ -339,6 +301,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 		private void deleteAction(«this.contextRef.name» element) {
 			try {
 				provider.deleteDto(element);
+				owningPage.modelChanged();
 			} catch (Exception e) {
 				error(e.getMessage());
 			}
@@ -349,6 +312,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
     	}
 	«ENDIF»
 	public void done(Page page){
+	    setResponsePage(getOwningPage());
 	}
 	
 	protected Page owningPage = null;
@@ -360,29 +324,40 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 		owningPage = page;
 	}
 }
-«ENDLET»
-«ENDLET»
-«ENDLET»
 «ENDDEFINE»
 
 
 «DEFINE GeneratePmfProcess FOR PresentationModel -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Process.xpt") FOR this»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GeneratePmfProcess in Process.xpt") FOR this-»
 package «getPresentationRootPackage()».processes;
 
 import org.apache.wicket.Page;
 
 /**
+ * A process definition as defined the the presentation DSL.S
  * @param <T> The context type of the process
  */
 public interface PmfProcess <T> {
 	
+	/**
+	 * Rturns the next Page, will return null if there is no next page, e.g. when this is an Automated process.
+	 */
 	public Page nextPage(T o);
 	
+	/**
+	 * Is called by the Page that is started from this process to denote that the page (and its subprocesses)
+	 * is ready.  Usually this means that the previous page (the owning page of this process must be restored.
+	 */
 	public void done(Page page);
 
+    /**
+     * returns the page from which this process was started.
+     */
 	public Page getOwningPage();
 	
+	/**
+	 * Set the page from which this process was started.
+     */
 	public void setOwningPage(Page page);
 
 }

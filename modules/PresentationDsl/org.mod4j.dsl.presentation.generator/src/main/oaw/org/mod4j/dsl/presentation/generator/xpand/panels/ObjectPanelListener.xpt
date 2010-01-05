@@ -15,8 +15,6 @@ public interface «this.contextRef.name»ListListener {
 
 	public void startProcess(String name, «this.contextRef.name» context);
 
-	public void on«this.contextRef.name»Selected(«this.contextRef.name» context) ;
-	
-	public void on«this.contextRef.name»Cancel(«this.contextRef.name» context) ;
+//	public void on«this.contextRef.name»Cancel(«this.contextRef.name» context) ;
 	}
 «ENDDEFINE»

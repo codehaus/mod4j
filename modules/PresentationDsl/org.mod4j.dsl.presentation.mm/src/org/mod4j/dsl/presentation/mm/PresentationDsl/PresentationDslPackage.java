@@ -309,13 +309,13 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS__TYPE = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * The feature id for the '<em><b>Label</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROCESS__SERVICES = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int PROCESS__LABEL = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Process</em>' class.
@@ -391,13 +391,13 @@ public interface PresentationDslPackage extends EPackage {
     int AUTOMATED_PROCESS__TYPE = PROCESS__TYPE;
 
     /**
-     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * The feature id for the '<em><b>Label</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AUTOMATED_PROCESS__SERVICES = PROCESS__SERVICES;
+    int AUTOMATED_PROCESS__LABEL = PROCESS__LABEL;
 
     /**
      * The number of structural features of the '<em>Automated Process</em>' class.
@@ -1313,13 +1313,13 @@ public interface PresentationDslPackage extends EPackage {
     int INTERACTIVE_PROCESS__TYPE = PROCESS__TYPE;
 
     /**
-     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * The feature id for the '<em><b>Label</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int INTERACTIVE_PROCESS__SERVICES = PROCESS__SERVICES;
+    int INTERACTIVE_PROCESS__LABEL = PROCESS__LABEL;
 
     /**
      * The number of structural features of the '<em>Interactive Process</em>' class.
@@ -2256,15 +2256,15 @@ public interface PresentationDslPackage extends EPackage {
     EAttribute getProcess_Type();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getServices <em>Services</em>}'.
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLabel <em>Label</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Services</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getServices()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLabel()
      * @see #getProcess()
      * @generated
      */
-    EReference getProcess_Services();
+    EAttribute getProcess_Label();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall <em>Process Call</em>}'.
@@ -2899,12 +2899,12 @@ public interface PresentationDslPackage extends EPackage {
         EAttribute PROCESS__TYPE = eINSTANCE.getProcess_Type();
 
         /**
-         * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PROCESS__SERVICES = eINSTANCE.getProcess_Services();
+        EAttribute PROCESS__LABEL = eINSTANCE.getProcess_Label();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.

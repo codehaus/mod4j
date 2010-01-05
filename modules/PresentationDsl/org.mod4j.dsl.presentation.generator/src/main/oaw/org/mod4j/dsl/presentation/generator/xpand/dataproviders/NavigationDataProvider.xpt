@@ -25,9 +25,12 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
-import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
+
+
 
 import «serviceType» ;
 import «javaDtoClassPath(form.contextRef.name)»;
@@ -42,7 +45,7 @@ import «javaDtoClassPath(this.process.contextRef.name)»;
  */
 @SuppressWarnings("serial")
 public class «className»
-		extends ListDataProvider<«form.contextRef.name»>
+		extends ModelDataProvider<«form.contextRef.name»>
 		implements Mod4jDataProvider<«form.contextRef.name»>
 {
 	private static final Log log = LogFactory.getLog(«className».class);
@@ -54,7 +57,8 @@ public class «className»
 	 * @param service The service from which the list and count is retrieved.
 	 */
 	public «className»(«serviceType»  service, «this.process.contextRef.name» owner) {
-		super(new ArrayList<«form.contextRef.name»>(owner.get«navigationName»()));
+//		super(new ArrayList<«form.contextRef.name»>(owner.get«navigationName»()));
+		super( new PropertyModel(new Model(owner), "«navigationName»")  );
 		this.service = service;
 		this.owner = owner;
 	}
@@ -71,13 +75,12 @@ public class «className»
 	}
 	
 	public void saveDto(«form.contextRef.name» tobesaved){
-		service.«updateService.serviceMethod»(owner);
+//		service.«updateService.serviceMethod»(owner);
+		«this.process.contextRef.name» result = service.«updateService.serviceMethod»(owner);
+		owner = result;
+		this.setList( new PropertyModel(new Model(owner), "«navigationName»") );
 	}
 	
-//	public IModel<PartDto> model(«form.contextRef.name» object) {
-//		return new CompoundPropertyModel<«form.contextRef.name»>(object);
-//	}
-
 }
 «ENDLET»
 «ENDLET»

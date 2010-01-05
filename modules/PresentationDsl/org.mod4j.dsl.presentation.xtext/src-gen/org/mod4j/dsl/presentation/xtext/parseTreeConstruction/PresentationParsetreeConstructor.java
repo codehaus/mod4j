@@ -39,7 +39,7 @@ protected class ThisRootNode extends RootToken {
 			case 4: return new Dialogue_Alternatives(this, this, 4, inst);
 			case 5: return new ContentForm_Group(this, this, 5, inst);
 			case 6: return new SimpleProcess_Group(this, this, 6, inst);
-			case 7: return new AutomatedProcessAction_Alternatives(this, this, 7, inst);
+			case 7: return new AutomatedProcessAction_BatchKeyword(this, this, 7, inst);
 			case 8: return new InteractiveProcessAction_Group(this, this, 8, inst);
 			case 9: return new CompoundDialogue_Alternatives(this, this, 9, inst);
 			case 10: return new CollectionDialogue_Group(this, this, 10, inst);
@@ -1683,7 +1683,7 @@ protected class SimpleProcess_ProcessAssignment_3_1 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AutomatedProcessAction_Alternatives(this, this, 0, inst);
+			case 0: return new AutomatedProcessAction_BatchKeyword(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1721,28 +1721,30 @@ protected class SimpleProcess_ProcessAssignment_3_1 extends AssignmentToken  {
 /************ begin Rule AutomatedProcessAction ****************
  *
  * AutomatedProcessAction returns AutomatedProcess:
- *   "services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"|
- *   "batch";
+ *   "batch"; 
+ * 
+ *       
+ * //	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+ * //	|
  *
  **/
 
-// "services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"|
-// "batch"
-protected class AutomatedProcessAction_Alternatives extends AlternativesToken {
-
-	public AutomatedProcessAction_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// "batch" 
+// //	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+// //	|
+protected class AutomatedProcessAction_BatchKeyword extends KeywordToken  {
+	
+	public AutomatedProcessAction_BatchKeyword(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getAlternatives();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAutomatedProcessActionAccess().getBatchKeyword();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AutomatedProcessAction_Group_0(parent, this, 0, inst);
-			case 1: return new AutomatedProcessAction_BatchKeyword_1(parent, this, 1, inst);
-			default: return null;
+			default: return parent.createParentFollower(this, index, index, inst);
 		}	
 	}	
 		
@@ -1751,232 +1753,6 @@ protected class AutomatedProcessAction_Alternatives extends AlternativesToken {
 		return tryConsumeVal();
 	}
 }
-
-// "services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]"
-protected class AutomatedProcessAction_Group_0 extends GroupToken {
-	
-	public AutomatedProcessAction_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getGroup_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcessAction_RightSquareBracketKeyword_0_4(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "services"
-protected class AutomatedProcessAction_ServicesKeyword_0_0 extends KeywordToken  {
-	
-	public AutomatedProcessAction_ServicesKeyword_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getServicesKeyword_0_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
-// "["
-protected class AutomatedProcessAction_LeftSquareBracketKeyword_0_1 extends KeywordToken  {
-	
-	public AutomatedProcessAction_LeftSquareBracketKeyword_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getLeftSquareBracketKeyword_0_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcessAction_ServicesKeyword_0_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// services+=ServiceExpression
-protected class AutomatedProcessAction_ServicesAssignment_0_2 extends AssignmentToken  {
-	
-	public AutomatedProcessAction_ServicesAssignment_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getServicesAssignment_0_2();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ServiceExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("services",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("services");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getServiceExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_0_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new AutomatedProcessAction_LeftSquareBracketKeyword_0_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ("," services+=ServiceExpression)?
-protected class AutomatedProcessAction_Group_0_3 extends GroupToken {
-	
-	public AutomatedProcessAction_Group_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getGroup_0_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcessAction_ServicesAssignment_0_3_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class AutomatedProcessAction_CommaKeyword_0_3_0 extends KeywordToken  {
-	
-	public AutomatedProcessAction_CommaKeyword_0_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getCommaKeyword_0_3_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcessAction_ServicesAssignment_0_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// services+=ServiceExpression
-protected class AutomatedProcessAction_ServicesAssignment_0_3_1 extends AssignmentToken  {
-	
-	public AutomatedProcessAction_ServicesAssignment_0_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getServicesAssignment_0_3_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ServiceExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("services",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("services");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getServiceExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getAutomatedProcessActionAccess().getServicesServiceExpressionParserRuleCall_0_3_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new AutomatedProcessAction_CommaKeyword_0_3_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-// "]"
-protected class AutomatedProcessAction_RightSquareBracketKeyword_0_4 extends KeywordToken  {
-	
-	public AutomatedProcessAction_RightSquareBracketKeyword_0_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getRightSquareBracketKeyword_0_4();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcessAction_Group_0_3(parent, this, 0, inst);
-			case 1: return new AutomatedProcessAction_ServicesAssignment_0_2(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-// "batch"
-protected class AutomatedProcessAction_BatchKeyword_1 extends KeywordToken  {
-	
-	public AutomatedProcessAction_BatchKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessActionAccess().getBatchKeyword_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
 
 /************ end Rule AutomatedProcessAction ****************/
 
@@ -4244,13 +4020,24 @@ protected class Process_InteractiveProcessParserRuleCall_1 extends RuleCallToken
  * AutomatedProcess:
  *   description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
  *   ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
- *   ("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?;
+ * ; 
+ * 	
+ *   
+ * 	  
+ * 	              
+ * 	
+ * 	            
+ * //	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
  *
  **/
 
 // description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
-// ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
-// ("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?
+// ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")? 
+// 	  
+// 	              
+// 	
+// 	            
+// //	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
 protected class AutomatedProcess_Group extends GroupToken {
 	
 	public AutomatedProcess_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4263,10 +4050,9 @@ protected class AutomatedProcess_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AutomatedProcess_Group_7(parent, this, 0, inst);
-			case 1: return new AutomatedProcess_Group_6(parent, this, 1, inst);
-			case 2: return new AutomatedProcess_TypeAssignment_5(parent, this, 2, inst);
-			case 3: return new AutomatedProcess_ContextRefAssignment_4(parent, this, 3, inst);
+			case 0: return new AutomatedProcess_Group_6(parent, this, 0, inst);
+			case 1: return new AutomatedProcess_TypeAssignment_5(parent, this, 1, inst);
+			case 2: return new AutomatedProcess_ContextRefAssignment_4(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -4603,215 +4389,6 @@ protected class AutomatedProcess_RightSquareBracketKeyword_6_3 extends KeywordTo
 		switch(index) {
 			case 0: return new AutomatedProcess_Group_6_2(parent, this, 0, inst);
 			case 1: return new AutomatedProcess_LeftSquareBracketKeyword_6_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-// ("services" "[" services+=ServiceExpression ("," services+=ServiceExpression)? "]")?
-protected class AutomatedProcess_Group_7 extends GroupToken {
-	
-	public AutomatedProcess_Group_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getGroup_7();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcess_RightSquareBracketKeyword_7_4(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "services"
-protected class AutomatedProcess_ServicesKeyword_7_0 extends KeywordToken  {
-	
-	public AutomatedProcess_ServicesKeyword_7_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getServicesKeyword_7_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcess_Group_6(parent, this, 0, inst);
-			case 1: return new AutomatedProcess_TypeAssignment_5(parent, this, 1, inst);
-			case 2: return new AutomatedProcess_ContextRefAssignment_4(parent, this, 2, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "["
-protected class AutomatedProcess_LeftSquareBracketKeyword_7_1 extends KeywordToken  {
-	
-	public AutomatedProcess_LeftSquareBracketKeyword_7_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getLeftSquareBracketKeyword_7_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcess_ServicesKeyword_7_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// services+=ServiceExpression
-protected class AutomatedProcess_ServicesAssignment_7_2 extends AssignmentToken  {
-	
-	public AutomatedProcess_ServicesAssignment_7_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getServicesAssignment_7_2();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ServiceExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("services",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("services");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getServiceExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getAutomatedProcessAccess().getServicesServiceExpressionParserRuleCall_7_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new AutomatedProcess_LeftSquareBracketKeyword_7_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ("," services+=ServiceExpression)?
-protected class AutomatedProcess_Group_7_3 extends GroupToken {
-	
-	public AutomatedProcess_Group_7_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getGroup_7_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcess_ServicesAssignment_7_3_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class AutomatedProcess_CommaKeyword_7_3_0 extends KeywordToken  {
-	
-	public AutomatedProcess_CommaKeyword_7_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getCommaKeyword_7_3_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcess_ServicesAssignment_7_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// services+=ServiceExpression
-protected class AutomatedProcess_ServicesAssignment_7_3_1 extends AssignmentToken  {
-	
-	public AutomatedProcess_ServicesAssignment_7_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getServicesAssignment_7_3_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ServiceExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("services",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("services");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getServiceExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getAutomatedProcessAccess().getServicesServiceExpressionParserRuleCall_7_3_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new AutomatedProcess_CommaKeyword_7_3_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-// "]"
-protected class AutomatedProcess_RightSquareBracketKeyword_7_4 extends KeywordToken  {
-	
-	public AutomatedProcess_RightSquareBracketKeyword_7_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAutomatedProcessAccess().getRightSquareBracketKeyword_7_4();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AutomatedProcess_Group_7_3(parent, this, 0, inst);
-			case 1: return new AutomatedProcess_ServicesAssignment_7_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	

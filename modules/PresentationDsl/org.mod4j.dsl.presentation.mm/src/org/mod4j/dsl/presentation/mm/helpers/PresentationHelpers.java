@@ -26,6 +26,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
+//import org.eclipse.xtend.util.stdlib.ElementPropertiesExtensions;
 
 public class PresentationHelpers {
 
@@ -216,7 +217,23 @@ public class PresentationHelpers {
             return true;
         }
     }
-    
+
+    public static String checkProcessCall(ProcessCall call) {
+        Process process = referredProcess(call);
+        if( process == null ){
+            return "";  //  error handled elsewhere
+        }
+        ExternalReference context = findContext(process);
+        
+        
+        
+        return "";
+    }
+    /**
+     * Checks process p for everything
+     * @param p
+     * @return
+     */
     public static String checkProcess(Process p) {
         // check for 
         ExternalReference context = findContext(p);

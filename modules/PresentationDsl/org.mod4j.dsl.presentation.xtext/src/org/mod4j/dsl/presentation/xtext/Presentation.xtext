@@ -53,8 +53,8 @@ SimpleProcess :
     ;
 
 AutomatedProcessAction returns AutomatedProcess :
-	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
-	|
+//	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
+//	|
 	"batch"
 	; 
  
@@ -63,7 +63,7 @@ InteractiveProcessAction returns InteractiveProcess :
 	;
   	
 enum ProcessType :
-    NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove"
+    NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove" | CANCEL = "Cancel"
 ;
 
 CompoundDialogue :
@@ -106,8 +106,7 @@ AutomatedProcess :
 	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
 	(type=ProcessType)?
 	("steps" "[" (processElements += UICall ";")* "]")?
-	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"
-	)?
+//	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
 	;
 
 InteractiveProcess :
