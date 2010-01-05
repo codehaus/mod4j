@@ -59,7 +59,7 @@ context Process ERROR " service error " + this.getProperty("ERROR") :
             let result = serviceCallResultType(this.contextRef.name, svc) :
               
               (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
-            )
+            ) 
             ;
 
 context SimpleProcess ERROR " service error " + this.getProperty("ERROR") :
@@ -74,6 +74,10 @@ context SimpleProcess ERROR " service error " + this.getProperty("ERROR") :
 
 context DialogueCall ERROR "referredForm [" + this.name + "] not found" :
 	this.referredContentForm() != null
+    ;
+
+context ProcessCall ERROR "referredProcess [" + this.name + "] not found" :
+	this.referredProcess() != null
     ;
 
 context Process ERROR "Process error " + this.getProperty("ERROR") :
