@@ -1,0 +1,89 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE NavigationDataProvider FOR DialogueCall»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoServiveProvider.xpt") FOR this»
+«LET this.referredContentForm() AS form»
+«LET getWicketNavigationDataProviderClass(this.process.contextRef.name,form.contextRef.name) AS className»
+«LET arguments.typeSelect(ServiceExpression) AS serviceExpressions»
+«LET serviceExpressions.selectFirst(e|e.name == "update") AS updateService»
+«LET (NavigationExpression)contextExp AS navigationExpression»
+«LET navigationExpression.references.first().name.toFirstUpper() AS navigationName»
+«LET javaLocalServiceInterfacePath(updateService.serviceName) AS serviceType»
+package «getPresentationRootPackage()».panels;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.markup.repeater.data.ListDataProvider;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+
+import «serviceType» ;
+import «javaDtoClassPath(form.contextRef.name)»;
+import «javaDtoClassPath(this.process.contextRef.name)»;
+
+//import com.rosas.service.dto.PartDto;
+//import com.rosas.service.dto.StandardBreakfastDto;
+
+/**
+ * Dataprovider for service list which takes the list of objects from a service.
+ *
+ */
+@SuppressWarnings("serial")
+public class «className»
+		extends ListDataProvider<«form.contextRef.name»>
+		implements Mod4jDataProvider<«form.contextRef.name»>
+{
+	private static final Log log = LogFactory.getLog(«className».class);
+
+	private «serviceType» service;
+	private «this.process.contextRef.name» owner = null;
+	/**
+	 * Create a new ServiceDataProvider 
+	 * @param service The service from which the list and count is retrieved.
+	 */
+	public «className»(«serviceType»  service, «this.process.contextRef.name» owner) {
+		super(new ArrayList<«form.contextRef.name»>(owner.get«navigationName»()));
+		this.service = service;
+		this.owner = owner;
+	}
+
+	public «form.contextRef.name» newDto(){
+		«form.contextRef.name» result = new «form.contextRef.name»();
+		owner.addTo«navigationName»(result);
+		return result;
+	}
+	
+	public void deleteDto(«form.contextRef.name» toBeRemoved){
+		owner.removeFrom«navigationName»(toBeRemoved);
+		service.«updateService.serviceMethod»(owner);
+	}
+	
+	public void saveDto(«form.contextRef.name» tobesaved){
+		service.«updateService.serviceMethod»(owner);
+	}
+	
+//	public IModel<PartDto> model(«form.contextRef.name» object) {
+//		return new CompoundPropertyModel<«form.contextRef.name»>(object);
+//	}
+
+}
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDDEFINE»

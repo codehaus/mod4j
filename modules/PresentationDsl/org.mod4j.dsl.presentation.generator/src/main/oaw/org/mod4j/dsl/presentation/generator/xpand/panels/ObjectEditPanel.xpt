@@ -100,9 +100,8 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»save = new Button("«p.name»save", new ResourceModel("cmd.save")) {
             @Override
             public void onSubmit() {
-//                saveAction();
 				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.on«this.contextRef.name»Save(model.getObject());
+					listener.startProcess("«p.name»Process", model.getObject() );
 				}
             }
         };
@@ -117,7 +116,7 @@ public class «this.name»EditPanelWithListener extends Panel {
             @Override
             public void onSubmit() {
 				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.on«this.contextRef.name»Delete(localModel.getObject());
+					listener.startProcess("«p.name»Process", localModel.getObject() );
 				}
 				localModel.setObject(null);
 				form.clearInput();

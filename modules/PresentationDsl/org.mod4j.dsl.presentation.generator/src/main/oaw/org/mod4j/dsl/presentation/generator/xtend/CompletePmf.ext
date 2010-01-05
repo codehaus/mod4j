@@ -16,6 +16,7 @@ completeModel(PresentationModel pmfModel) :
     formElements.addDataProperty()
     ->
 	contentForms.convertActions()
+	->printProcesses(pmfModel)
 	;
 	
 DataProperty addDataProperty(FormElement element) :
@@ -58,8 +59,13 @@ Boolean createProcess(SimpleProcess action, ContentForm form) :
     result.setType(action.type)->
     processCall.setName(name)->
     form.processes.add(processCall)->
+    print("MOD4J CompletePMF: adding process [" + result.name + "]")->
     form.presentationModel.elements.add(result)->
     action.setProcess(null)->
     action.setDialogueProcess(null)
     ;
     
+Boolean printProcesses(PresentationModel pmfModel) :
+true
+;
+

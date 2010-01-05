@@ -92,44 +92,17 @@ public class «this.name»SwapEditPanel extends Panel implements «this.contextR
 	public void on«this.contextRef.name»Selected(«this.contextRef.name» element) {
 	}
 
-	public void on«this.contextRef.name»Edit(«this.contextRef.name» element) {
-		if( model.getObject() != null ){
-			swapPanels();
-		}
-	}
-
-
 	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
 		swapPanels();
 	}
 
-	public void on«this.contextRef.name»New(«this.contextRef.name» element) {
-		
-	}
-
-	public void on«this.contextRef.name»Save(«this.contextRef.name» element) {
-    «IF saveProcess != null»
-		«saveProcess.name»Process process = new «saveProcess.name»Process();
-		process.run(element);
-	«ENDIF»
-		for («this.contextRef.name»ListListener listener : listeners) {
-			listener.on«this.contextRef.name»Save(element);
-		}
-		swapPanels();
-	}
-
-	public void on«this.contextRef.name»Delete(«this.contextRef.name» element) {
-    «IF deleteProcess != null»
-		«deleteProcess.name»Process process = new «deleteProcess.name»Process();
-		process.run(element);
-	«ENDIF»
-		for («this.contextRef.name»ListListener listener : listeners) {
-			listener.on«this.contextRef.name»Delete(element);
-		}
-		swapPanels();
-	}
 	public void startProcess(String processName, «this.contextRef.name» context) {
+		for («this.contextRef.name»ListListener listener : listeners) {
+			listener.startProcess(processName, context);
+		}
+
 	«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+		// TODO: 5-1-20010 MOVE TO PAGE
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			Page next = process.nextPage(context);

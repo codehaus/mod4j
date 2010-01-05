@@ -1,0 +1,26 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+«IMPORT org::mod4j::dslcommon::xpand::xml»
+
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE Mod4jDataProvider FOR PresentationModel»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Mod4jDataProvider.xpt") FOR this»
+package «getPresentationRootPackage()».panels;
+
+/**
+ * A dataprovider for a collection.
+ * @param <DtoType>
+ */
+public interface Mod4jDataProvider<DtoType> {
+
+	public DtoType newDto();
+	
+	public void deleteDto(DtoType toBeRemoved);
+	
+	public void saveDto(DtoType tobesaved);
+}
+«ENDDEFINE»

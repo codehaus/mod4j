@@ -12,6 +12,7 @@
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::dataproviders» 
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::log4j»
 
 «EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
@@ -24,6 +25,7 @@
     «print("MOD4J INFO: Running Presentation generator on model [" + this.name + "]")»
     
     «EXPAND PresentationLayerApplication::GenerateApplicationWide FOR this»
+    «EXPAND DataProviders::GenerateDataProviders FOR this»
     
     «print("MOD4J INFO: Running Presentation generator panels")»
     «FOREACH this.elements.typeSelect(ContentForm).select(cf | ! cf.isCollection) AS cf»
@@ -76,13 +78,13 @@
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
 	«FOREACH this.elements.typeSelect(InteractiveProcess) AS process»
-		«LET process.processElements.first() AS uiCall»
-		«LET uiCall.referredContentForm() AS form »
+		«LET process.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
+		«LET dialogueCall.referredContentForm() AS form »
 		«IF form != null»
 			«IF form.isCollection »
 		    	«print("Collection form page generated for process [" + process.name + "] form [" + form.name + "]")»
 				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + form.name + "Page"))»
-		    	    «EXPAND ProcessPage::GenerateListContentFormPage(form) FOR process»
+		    	    «EXPAND ProcessPage::GenerateListContentFormPage(dialogueCall) FOR process»
 				«ENDFILE»
 			«ELSE»
 		    	«print("Content page generated for process [" + process.name + "] form [" + form.name + "]")»

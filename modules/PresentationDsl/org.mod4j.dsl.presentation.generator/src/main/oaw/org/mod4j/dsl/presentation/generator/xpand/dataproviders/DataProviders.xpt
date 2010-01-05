@@ -1,0 +1,71 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp»
+
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE GenerateDataProviders FOR PresentationModel»
+    «print("MOD4J INFO: Running data providers generator on model [" + this.name + "]")»
+    
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + "Mod4jDataProvider"))»
+	    «EXPAND Mod4jDataProvider::Mod4jDataProvider FOR this»
+	«ENDFILE»
+
+	«REM»The page containing the Dialogue referred to in the process«ENDREM»
+    «print("MOD4J INFO: Running Presentation generator process pages")»
+	«FOREACH this.elements.typeSelect(InteractiveProcess) AS process»
+		«LET process.processElements.typeSelect(DialogueCall).first() AS uiCall»
+		«LET uiCall.referredContentForm() AS form »
+		«IF form != null»
+			«IF form.isCollection »
+				«IF uiCall.getNavigationExpression() != null »
+			    	«print("Navigation data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + 
+					                       	getWicketNavigationDataProviderClass(process.contextRef.name , form.contextRef.name )) )»
+			    	    «EXPAND NavigationDataProvider::NavigationDataProvider FOR uiCall»
+					«ENDFILE»
+				«ELSE»
+			    	«print("Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
+			    	    «EXPAND DtoServiceDataProvider::DtoServiceDataProvider FOR uiCall»
+					«ENDFILE»
+				«ENDIF»
+			«ENDIF»
+		«ELSE»
+		    «print("No page generated for process [" + process.name + "] form [" + form.name + "]")»
+        «ENDIF»
+«REM»
+		«IF uiCall.referredCollectionDialogue() != null»
+			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
+	    	    «EXPAND ProcessPage::GenerateCollectionDialoguePage FOR process»
+			«ENDFILE»
+		«ELSEIF uiCall.referredContentForm() != null»
+			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
+	    	    «EXPAND ProcessPage::GenerateContentFormPage FOR process»
+			«ENDFILE»
+		«ENDIF»
+«ENDREM»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + form.name + "Page.html")»
+    	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process»
+		«ENDFILE»
+		«ENDLET»
+		«ENDLET»
+	«ENDFOREACH»
+    
+«ENDDEFINE»
