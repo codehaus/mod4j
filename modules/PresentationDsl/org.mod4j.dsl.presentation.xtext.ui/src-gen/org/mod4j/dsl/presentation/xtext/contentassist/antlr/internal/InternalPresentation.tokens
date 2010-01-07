@@ -17,6 +17,7 @@ RULE_SL_COMMENT=8
 'edit'=16
 'dialogue'=51
 'AutomatedProcess'=36
+'start'=55
 'navigate'=50
 'label'=41
 'actions'=27
