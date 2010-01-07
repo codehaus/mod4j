@@ -181,6 +181,9 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		public «this.name»«form.name»Page (PmfProcess owner, «getWicketNavigationDataProviderClass(this.contextRef.name, form.contextRef.name)» dataProvider)
 	«ELSEIF dialogueCall.getServiceExpression() != null »
 		public «this.name»«form.name»Page (PmfProcess owner, «getWicketServiceDataProviderClass(form.contextRef.name)» dataProvider)
+	«ELSE»
+	    «REM»No arguments !«ENDREM»
+		public «this.name»«form.name»Page (PmfProcess owner, Mod4jDataProvider<«form.contextRef.name»> dataProvider)
 	«ENDIF»
 	{
 		super(owner);

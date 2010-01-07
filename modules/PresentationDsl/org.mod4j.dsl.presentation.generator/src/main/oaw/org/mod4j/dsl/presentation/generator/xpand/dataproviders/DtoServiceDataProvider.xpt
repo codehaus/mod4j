@@ -30,6 +30,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 
 import «javaLocalServiceInterfacePath(updateService.serviceName)» ;
 import «javaDtoClassPath(form.contextRef.name)»;
@@ -43,15 +44,14 @@ public class «getWicketServiceDataProviderClass(form.contextRef.name)»
 			IDataProvider<«form.contextRef.name»>, Mod4jDataProvider<«form.contextRef.name»> {
 	private static final Log log = LogFactory.getLog(«getWicketServiceDataProviderClass(form.contextRef.name)».class);
 
-//	@SpringBean(name = "«updateService.serviceName»Service")
     «javaLocalServiceInterface(updateService.serviceName)» service;
 
 	/**
 	 * Create a new ServiceDataProvider 
 	 * @param service The service from which the list and count is retrieved.
 	 */
-	public «getWicketServiceDataProviderClass(form.contextRef.name)»(«javaLocalServiceInterface(updateService.serviceName)»  service) {
-		this.service = service;
+	public «getWicketServiceDataProviderClass(form.contextRef.name)»() {
+		this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(updateService.serviceName)»();
 	}
 
 	@SuppressWarnings("unchecked")

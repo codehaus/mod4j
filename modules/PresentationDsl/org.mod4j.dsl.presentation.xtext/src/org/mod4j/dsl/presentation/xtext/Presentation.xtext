@@ -104,6 +104,7 @@ Process :
 AutomatedProcess :
 	(description=STRING )?
 	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
+	(root ?= "start")?
 	(type=ProcessType)?
 	("steps" "[" (processElements += UICall ";")* "]")?
 //	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
@@ -112,6 +113,7 @@ AutomatedProcess :
 InteractiveProcess :
 	(description=STRING )?
 	"InteractiveProcess" name = ID "context" contextRef = [ExternalReference]
+	(root ?= "start")?
 	(type=ProcessType)?
 //	("steps" "[" (processElements += UICall ";")* "]")?
 	("step" "[" (processElements += DialogueCall ";") "]")

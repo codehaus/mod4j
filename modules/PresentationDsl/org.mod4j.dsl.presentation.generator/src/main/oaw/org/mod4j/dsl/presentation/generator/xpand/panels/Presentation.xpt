@@ -6,6 +6,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 «DEFINE GenerateApplication FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
@@ -110,11 +111,35 @@ public class «getWicketRequestCycleClass()» extends WebRequestCycle {
 package «getPresentationRootPackage()».pages;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+«FOREACH this.externalReferences AS ext-»
+«LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
+	«IF service != null-»
+		import «javaLocalServiceInterfacePath(service.name)» ;
+	«ENDIF-»
+«ENDLET-»
+«ENDFOREACH-»
 
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()» {
+«FOREACH this.externalReferences AS ext-»
+«LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
+	«IF service != null-»
+	    «LET javaLocalServiceInterface(service.name) AS serviceType»
+		@SpringBean(name = "«service.name»Service")
+	    protected static «serviceType» service«serviceType»;
+	    
+	    public static «serviceType» get«serviceType»() {
+	        return service«serviceType»;
+	    }
+	    «ENDLET»
+	«ENDIF-»
+«ENDLET-»
+«ENDFOREACH-»
+
+
     public «getWicketHomePageClass()»() {
         this(new PageParameters());
     }
@@ -147,7 +172,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
 «DEFINE GenerateMasterPage FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
-«LET this.elements.typeSelect(InteractiveProcess).select(ip|ip.processElements.referredContentForm().first().isCollection) AS processes»
+«LET this.elements.typeSelect(InteractiveProcess).select(ip|ip.root) AS processes»
 package «getPresentationRootPackage()».pages;
 
 import java.util.ArrayList;
@@ -188,8 +213,12 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
 
 
     private List<AbstractLink> menuItems = new ArrayList<AbstractLink>();
+	/** Only used to allow reference from within the unnamed inner class for Link to thuis page
+	*/
+	static private «getWicketMasterPageClass()» myself = null;
 
     protected «getWicketMasterPageClass()»(PmfProcess owner) {
+    	myself = this;
 		this.owningProcess = owner;
         session = «getWicketSesssionClass()».getXDSLSession();
 
@@ -208,6 +237,7 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
 		Link «process.name»Link = new Link("link") {
 			public void onClick() {
 				«process.name»Process process = new «process.name»Process();
+				process.setOwningPage(myself);
 				setResponsePage(process.nextPage(null));
 			}
 		};

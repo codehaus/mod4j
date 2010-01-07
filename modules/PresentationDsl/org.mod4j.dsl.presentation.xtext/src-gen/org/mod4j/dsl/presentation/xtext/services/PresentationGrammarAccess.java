@@ -934,34 +934,39 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Assignment cContextRefAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cContextRefExternalReferenceCrossReference_4_0 = (CrossReference)cContextRefAssignment_4.eContents().get(0);
 		private final RuleCall cContextRefExternalReferenceIDTerminalRuleCall_4_0_1 = (RuleCall)cContextRefExternalReferenceCrossReference_4_0.eContents().get(1);
-		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTypeProcessTypeEnumRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStepsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
-		private final Assignment cProcessElementsAssignment_6_2_0 = (Assignment)cGroup_6_2.eContents().get(0);
-		private final RuleCall cProcessElementsUICallParserRuleCall_6_2_0_0 = (RuleCall)cProcessElementsAssignment_6_2_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_2_1 = (Keyword)cGroup_6_2.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Assignment cRootAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final Keyword cRootStartKeyword_5_0 = (Keyword)cRootAssignment_5.eContents().get(0);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypeProcessTypeEnumRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cStepsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Group cGroup_7_2 = (Group)cGroup_7.eContents().get(2);
+		private final Assignment cProcessElementsAssignment_7_2_0 = (Assignment)cGroup_7_2.eContents().get(0);
+		private final RuleCall cProcessElementsUICallParserRuleCall_7_2_0_0 = (RuleCall)cProcessElementsAssignment_7_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7_2_1 = (Keyword)cGroup_7_2.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
 		
 		//AutomatedProcess:
 		//  description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
-		//  ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
-		//; 
+		//  ExternalReference] root?="start"? type=ProcessType? ("steps" "[" (processElements+=
+		//  UICall ";")* "]")?; 
 		//	
 		//  
 		//	  
 		//	              
+		//	    
 		//	
 		//	            
 		////	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
-		//ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")? 
+		//ExternalReference] root?="start"? type=ProcessType? ("steps" "[" (processElements+=
+		//UICall ";")* "]")? 
 		//	  
 		//	              
+		//	    
 		//	
 		//	            
 		////	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
@@ -994,35 +999,41 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getContextRefExternalReferenceIDTerminalRuleCall_4_0_1() { return cContextRefExternalReferenceIDTerminalRuleCall_4_0_1; }
 
+		//root?="start"?
+		public Assignment getRootAssignment_5() { return cRootAssignment_5; }
+
+		//"start"
+		public Keyword getRootStartKeyword_5_0() { return cRootStartKeyword_5_0; }
+
 		//type=ProcessType?
-		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 
 		//ProcessType
-		public RuleCall getTypeProcessTypeEnumRuleCall_5_0() { return cTypeProcessTypeEnumRuleCall_5_0; }
+		public RuleCall getTypeProcessTypeEnumRuleCall_6_0() { return cTypeProcessTypeEnumRuleCall_6_0; }
 
 		//("steps" "[" (processElements+=UICall ";")* "]")?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"steps"
-		public Keyword getStepsKeyword_6_0() { return cStepsKeyword_6_0; }
+		public Keyword getStepsKeyword_7_0() { return cStepsKeyword_7_0; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_6_1() { return cLeftSquareBracketKeyword_6_1; }
+		public Keyword getLeftSquareBracketKeyword_7_1() { return cLeftSquareBracketKeyword_7_1; }
 
 		//(processElements+=UICall ";")*
-		public Group getGroup_6_2() { return cGroup_6_2; }
+		public Group getGroup_7_2() { return cGroup_7_2; }
 
 		//processElements+=UICall
-		public Assignment getProcessElementsAssignment_6_2_0() { return cProcessElementsAssignment_6_2_0; }
+		public Assignment getProcessElementsAssignment_7_2_0() { return cProcessElementsAssignment_7_2_0; }
 
 		//UICall
-		public RuleCall getProcessElementsUICallParserRuleCall_6_2_0_0() { return cProcessElementsUICallParserRuleCall_6_2_0_0; }
+		public RuleCall getProcessElementsUICallParserRuleCall_7_2_0_0() { return cProcessElementsUICallParserRuleCall_7_2_0_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_6_2_1() { return cSemicolonKeyword_6_2_1; }
+		public Keyword getSemicolonKeyword_7_2_1() { return cSemicolonKeyword_7_2_1; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_6_3() { return cRightSquareBracketKeyword_6_3; }
+		public Keyword getRightSquareBracketKeyword_7_3() { return cRightSquareBracketKeyword_7_3; }
 	}
 
 	public class InteractiveProcessElements implements IParserRuleAccess {
@@ -1037,34 +1048,38 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Assignment cContextRefAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cContextRefExternalReferenceCrossReference_4_0 = (CrossReference)cContextRefAssignment_4.eContents().get(0);
 		private final RuleCall cContextRefExternalReferenceIDTerminalRuleCall_4_0_1 = (RuleCall)cContextRefExternalReferenceCrossReference_4_0.eContents().get(1);
-		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTypeProcessTypeEnumRuleCall_5_0 = (RuleCall)cTypeAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStepKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
-		private final Assignment cProcessElementsAssignment_6_2_0 = (Assignment)cGroup_6_2.eContents().get(0);
-		private final RuleCall cProcessElementsDialogueCallParserRuleCall_6_2_0_0 = (RuleCall)cProcessElementsAssignment_6_2_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_2_1 = (Keyword)cGroup_6_2.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Assignment cRootAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final Keyword cRootStartKeyword_5_0 = (Keyword)cRootAssignment_5.eContents().get(0);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypeProcessTypeEnumRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cStepKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Group cGroup_7_2 = (Group)cGroup_7.eContents().get(2);
+		private final Assignment cProcessElementsAssignment_7_2_0 = (Assignment)cGroup_7_2.eContents().get(0);
+		private final RuleCall cProcessElementsDialogueCallParserRuleCall_7_2_0_0 = (RuleCall)cProcessElementsAssignment_7_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7_2_1 = (Keyword)cGroup_7_2.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
 		
 		//InteractiveProcess:
 		//  description=STRING? "InteractiveProcess" name=ID "context" contextRef=[
-		//  ExternalReference] type=ProcessType? ("step" "[" (processElements+=DialogueCall ";")
-		//  "]"); 
+		//  ExternalReference] root?="start"? type=ProcessType? ("step" "[" (processElements+=
+		//  DialogueCall ";") "]"); 
 		//
 		//  
 		//	  
 		//	              
+		//	    
 		//	
 		////	("steps" "[" (processElements += UICall ";")* "]")?
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "InteractiveProcess" name=ID "context" contextRef=[
-		//ExternalReference] type=ProcessType? ("step" "[" (processElements+=DialogueCall ";")
-		//"]") 
+		//ExternalReference] root?="start"? type=ProcessType? ("step" "[" (processElements+=
+		//DialogueCall ";") "]") 
 		//	  
 		//	              
+		//	    
 		//	
 		////	("steps" "[" (processElements += UICall ";")* "]")?
 		public Group getGroup() { return cGroup; }
@@ -1096,35 +1111,41 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getContextRefExternalReferenceIDTerminalRuleCall_4_0_1() { return cContextRefExternalReferenceIDTerminalRuleCall_4_0_1; }
 
+		//root?="start"?
+		public Assignment getRootAssignment_5() { return cRootAssignment_5; }
+
+		//"start"
+		public Keyword getRootStartKeyword_5_0() { return cRootStartKeyword_5_0; }
+
 		//type=ProcessType?
-		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 
 		//ProcessType
-		public RuleCall getTypeProcessTypeEnumRuleCall_5_0() { return cTypeProcessTypeEnumRuleCall_5_0; }
+		public RuleCall getTypeProcessTypeEnumRuleCall_6_0() { return cTypeProcessTypeEnumRuleCall_6_0; }
 
 		//"step" "[" (processElements+=DialogueCall ";") "]"
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"step"
-		public Keyword getStepKeyword_6_0() { return cStepKeyword_6_0; }
+		public Keyword getStepKeyword_7_0() { return cStepKeyword_7_0; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_6_1() { return cLeftSquareBracketKeyword_6_1; }
+		public Keyword getLeftSquareBracketKeyword_7_1() { return cLeftSquareBracketKeyword_7_1; }
 
 		//processElements+=DialogueCall ";"
-		public Group getGroup_6_2() { return cGroup_6_2; }
+		public Group getGroup_7_2() { return cGroup_7_2; }
 
 		//processElements+=DialogueCall
-		public Assignment getProcessElementsAssignment_6_2_0() { return cProcessElementsAssignment_6_2_0; }
+		public Assignment getProcessElementsAssignment_7_2_0() { return cProcessElementsAssignment_7_2_0; }
 
 		//DialogueCall
-		public RuleCall getProcessElementsDialogueCallParserRuleCall_6_2_0_0() { return cProcessElementsDialogueCallParserRuleCall_6_2_0_0; }
+		public RuleCall getProcessElementsDialogueCallParserRuleCall_7_2_0_0() { return cProcessElementsDialogueCallParserRuleCall_7_2_0_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_6_2_1() { return cSemicolonKeyword_6_2_1; }
+		public Keyword getSemicolonKeyword_7_2_1() { return cSemicolonKeyword_7_2_1; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_6_3() { return cRightSquareBracketKeyword_6_3; }
+		public Keyword getRightSquareBracketKeyword_7_3() { return cRightSquareBracketKeyword_7_3; }
 	}
 
 	public class FormElementElements implements IParserRuleAccess {
@@ -1867,12 +1888,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	//AutomatedProcess:
 	//  description=STRING? "AutomatedProcess" name=ID "context" contextRef=[
-	//  ExternalReference] type=ProcessType? ("steps" "[" (processElements+=UICall ";")* "]")?
-	//; 
+	//  ExternalReference] root?="start"? type=ProcessType? ("steps" "[" (processElements+=
+	//  UICall ";")* "]")?; 
 	//	
 	//  
 	//	  
 	//	              
+	//	    
 	//	
 	//	            
 	////	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
@@ -1886,12 +1908,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	//InteractiveProcess:
 	//  description=STRING? "InteractiveProcess" name=ID "context" contextRef=[
-	//  ExternalReference] type=ProcessType? ("step" "[" (processElements+=DialogueCall ";")
-	//  "]"); 
+	//  ExternalReference] root?="start"? type=ProcessType? ("step" "[" (processElements+=
+	//  DialogueCall ";") "]"); 
 	//
 	//  
 	//	  
 	//	              
+	//	    
 	//	
 	////	("steps" "[" (processElements += UICall ";")* "]")?
 	public InteractiveProcessElements getInteractiveProcessAccess() {

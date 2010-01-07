@@ -398,6 +398,9 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="root" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="start"/>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="type" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </tokens>
@@ -434,6 +437,9 @@
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="root" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="start"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="type" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>

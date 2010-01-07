@@ -267,6 +267,10 @@
         <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//Process/label"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_z9RK4voUEd6QROBo4-8BFA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_jojSAfuPEd6_LemQ03rB5A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//Process/root"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jojSAvuPEd6_LemQ03rB5A"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_9zkGrc_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_9zkGrs_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9zkGr8_FEd6GKolWbdgitg"/>

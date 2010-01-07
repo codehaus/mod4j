@@ -710,6 +710,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getProcess_Root() {
+        return (EAttribute)processEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getProcessCall() {
         return processCallEClass;
     }
@@ -984,6 +993,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         createEReference(processEClass, PROCESS__PROCESS_ELEMENTS);
         createEAttribute(processEClass, PROCESS__TYPE);
         createEAttribute(processEClass, PROCESS__LABEL);
+        createEAttribute(processEClass, PROCESS__ROOT);
 
         processCallEClass = createEClass(PROCESS_CALL);
         createEReference(processCallEClass, PROCESS_CALL__OWNING_DIALOGUE);
@@ -1134,6 +1144,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEReference(getProcess_ProcessElements(), this.getUICall(), this.getUICall_Process(), "processElements", null, 0, -1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getProcess_Label(), ecorePackage.getEString(), "label", null, 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getProcess_Root(), ecorePackage.getEBoolean(), "root", "false", 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(processCallEClass, ProcessCall.class, "ProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProcessCall_OwningDialogue(), this.getDialogue(), this.getDialogue_Processes(), "owningDialogue", null, 0, 1, ProcessCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

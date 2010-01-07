@@ -42,7 +42,7 @@
 					                       	getWicketNavigationDataProviderClass(process.contextRef.name , form.contextRef.name )) )»
 			    	    «EXPAND NavigationDataProvider::NavigationDataProvider FOR uiCall»
 					«ENDFILE»
-				«ELSE»
+				«ELSEIF uiCall.getServiceExpression() != null»
 			    	«print("Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
 					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
 					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»

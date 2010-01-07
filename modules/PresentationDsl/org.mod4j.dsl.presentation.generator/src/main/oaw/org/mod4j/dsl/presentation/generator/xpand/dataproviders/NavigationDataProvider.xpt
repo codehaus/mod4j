@@ -8,14 +8,14 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
 «DEFINE NavigationDataProvider FOR DialogueCall»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoServiveProvider.xpt") FOR this»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: NavigationServiveProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
 «LET getWicketNavigationDataProviderClass(this.process.contextRef.name,form.contextRef.name) AS className»
 «LET arguments.typeSelect(ServiceExpression) AS serviceExpressions»
 «LET serviceExpressions.selectFirst(e|e.name == "update") AS updateService»
 «LET (NavigationExpression)contextExp AS navigationExpression»
 «LET navigationExpression.references.first().name.toFirstUpper() AS navigationName»
-«LET javaLocalServiceInterfacePath(updateService.serviceName) AS serviceType»
+«LET javaLocalServiceInterface(updateService.serviceName) AS serviceType»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
@@ -30,18 +30,14 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
-
-
-import «serviceType» ;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «javaLocalServiceInterfacePath(updateService.serviceName)»;
 import «javaDtoClassPath(form.contextRef.name)»;
 import «javaDtoClassPath(this.process.contextRef.name)»;
 
-//import com.rosas.service.dto.PartDto;
-//import com.rosas.service.dto.StandardBreakfastDto;
-
 /**
- * Dataprovider for service list which takes the list of objects from a service.
- *
+ * Dataprovider for a list which is part of another object
+ * 
  */
 @SuppressWarnings("serial")
 public class «className»
@@ -56,10 +52,9 @@ public class «className»
 	 * Create a new ServiceDataProvider 
 	 * @param service The service from which the list and count is retrieved.
 	 */
-	public «className»(«serviceType»  service, «this.process.contextRef.name» owner) {
-//		super(new ArrayList<«form.contextRef.name»>(owner.get«navigationName»()));
+	public «className»(«this.process.contextRef.name» owner) {
 		super( new PropertyModel(new Model(owner), "«navigationName»")  );
-		this.service = service;
+		this.service = «getWicketHomePageClass()».get«serviceType»();
 		this.owner = owner;
 	}
 

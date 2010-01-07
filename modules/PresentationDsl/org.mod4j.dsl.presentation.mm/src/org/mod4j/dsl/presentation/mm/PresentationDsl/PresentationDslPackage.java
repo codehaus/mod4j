@@ -318,13 +318,22 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS__LABEL = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Root</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__ROOT = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Process</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
+    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl <em>Automated Process</em>}' class.
@@ -398,6 +407,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int AUTOMATED_PROCESS__LABEL = PROCESS__LABEL;
+
+    /**
+     * The feature id for the '<em><b>Root</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AUTOMATED_PROCESS__ROOT = PROCESS__ROOT;
 
     /**
      * The number of structural features of the '<em>Automated Process</em>' class.
@@ -1320,6 +1338,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int INTERACTIVE_PROCESS__LABEL = PROCESS__LABEL;
+
+    /**
+     * The feature id for the '<em><b>Root</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INTERACTIVE_PROCESS__ROOT = PROCESS__ROOT;
 
     /**
      * The number of structural features of the '<em>Interactive Process</em>' class.
@@ -2267,6 +2294,17 @@ public interface PresentationDslPackage extends EPackage {
     EAttribute getProcess_Label();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#isRoot <em>Root</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Root</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#isRoot()
+     * @see #getProcess()
+     * @generated
+     */
+    EAttribute getProcess_Root();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall <em>Process Call</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2905,6 +2943,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EAttribute PROCESS__LABEL = eINSTANCE.getProcess_Label();
+
+        /**
+         * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROCESS__ROOT = eINSTANCE.getProcess_Root();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.

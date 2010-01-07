@@ -17,6 +17,8 @@
 	    «EXPAND GenerateProcessWithListForm(form, dialogueCallWithContext) FOR this»
     «ELSEIF (dialogueCall == null) && (dialogueCallWithContext == null) »
         «EXPAND GenerateBatchProcess FOR this»
+    «ELSEIF (form != null) && (dialogueCallWithContext == null) && (this.type == ProcessType::CUSTOM)»
+        «EXPAND GenerateProcessWithListForm(form, dialogueCall) FOR this»
     «ELSE»
         «EXPAND GenerateProcessWithSingleForm(nonCollectionForm, dialogueCall) FOR this»
 	«ENDIF»
@@ -60,7 +62,6 @@ import «getPresentationRootPackage()».panels.ServiceDataProvider;
 
 import java.util.List;
 import java.util.ArrayList;
-import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
@@ -70,19 +71,16 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
 {
     «IF (serviceExpression != null) »
-		@SpringBean(name = "«serviceExpression.serviceName»Service")
 	    «javaLocalServiceInterface(serviceExpression.serviceName)» service;
 	 «ELSEIF navigationExpression != null »
-		@SpringBean(name = "«updateService2.serviceName»Service")
 	    «javaLocalServiceInterface(updateService2.serviceName)» service;
 	 «ELSE»
 	     // TODO: this should not happen, both service and navigation expressions are empty
 	 «ENDIF»
 
     public Page nextPage(«this.contextRef.name» element) {
-	// CUSTOM
 	    «IF serviceExpression != null »
-			«getWicketServiceDataProviderClass(form.contextRef.name)» provider = new «getWicketServiceDataProviderClass(form.contextRef.name)»(service);
+			«getWicketServiceDataProviderClass(form.contextRef.name)» provider = new «getWicketServiceDataProviderClass(form.contextRef.name)»();
 			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
 			page.setProcess(this);
 			return page;
@@ -90,10 +88,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			«LET this.contextRef AS context»	   
 			«LET getResultType(context.modelName, context.name, navigationExpression) AS resultType» 
 			«LET getWicketNavigationDataProviderClass(this.contextRef.name, resultType) AS provider» 
-			List<«resultType»> newElements = new ArrayList<«resultType»>();
-			newElements.addAll(element.get«navigationExpression.references.first().name.toFirstUpper()»());	    
-
-			«provider» provider = new «provider»(service, element);
+			«provider» provider = new «provider»(element);
 			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
 			page.setProcess(this);
 			return page;
@@ -101,6 +96,9 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			«ENDLET»
 			«ENDLET»
 		«ELSE»
+			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, null);
+			page.setProcess(this);
+			return page;
 			// TODO: this should not happen: no cotxt expressio n for dialogue of process «this.name»
 			// «form.name»
 			// «navigationExpression»
@@ -138,7 +136,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 package «getPresentationRootPackage()».processes;
 
     «IF serviceExpression != null»
-		import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
+//		import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
     «ELSEIF navigationExpression != null»
 	 «ELSE»
 	     // no service expression, must bne a navugation
@@ -159,7 +157,7 @@ import «getPresentationRootPackage()».panels.Mod4jDataProvider;
 «ENDIF»
 
 import java.util.List;
-import org.apache.wicket.spring.injection.annot.SpringBean;
+//import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
@@ -169,10 +167,6 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
 {
     «IF (serviceExpression != null) »
-		@SpringBean(name = "«serviceExpression.serviceName»Service")
-	    «javaLocalServiceInterface(serviceExpression.serviceName)» service;
-	    
-		    
 	 «ELSEIF navigationExpression != null »
 	 «ELSE»
 	    private Mod4jDataProvider<«form.contextRef.name»> provider = null;
@@ -230,7 +224,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	}
 
 	public void done(Page page){
-	    setResponsePage(getOwningPage());
+	    getOwningPage().setResponsePage(getOwningPage());
 	}
 	protected Page owningPage = null;
 	
@@ -269,7 +263,7 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 /** Automated process
  */
-public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
+public class «this.name»Process implements PmfProcess<«this.contextRef.name»> 
 {
     private Mod4jDataProvider<«this.contextRef.name»> provider = null;
 
@@ -299,12 +293,8 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
     	}
 
 		private void deleteAction(«this.contextRef.name» element) {
-			try {
-				provider.deleteDto(element);
-				owningPage.modelChanged();
-			} catch (Exception e) {
-				error(e.getMessage());
-			}
+			provider.deleteDto(element);
+			owningPage.modelChanged();
 		}
 	«ELSE»
 		public void run(«this.contextRef.name» element) {
@@ -312,7 +302,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
     	}
 	«ENDIF»
 	public void done(Page page){
-	    setResponsePage(getOwningPage());
+	    getOwningPage().setResponsePage(getOwningPage());
 	}
 	
 	protected Page owningPage = null;

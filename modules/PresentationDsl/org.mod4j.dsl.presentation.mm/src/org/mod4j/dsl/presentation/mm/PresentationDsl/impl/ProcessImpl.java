@@ -38,6 +38,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#isRoot <em>Root</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +94,26 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * @ordered
      */
     protected String label = LABEL_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isRoot()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean ROOT_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isRoot()
+     * @generated
+     * @ordered
+     */
+    protected boolean root = ROOT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -172,6 +193,27 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isRoot() {
+        return root;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRoot(boolean newRoot) {
+        boolean oldRoot = root;
+        root = newRoot;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__ROOT, oldRoot, root));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -210,6 +252,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return getType();
             case PresentationDslPackage.PROCESS__LABEL:
                 return getLabel();
+            case PresentationDslPackage.PROCESS__ROOT:
+                return isRoot();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -233,6 +277,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__LABEL:
                 setLabel((String)newValue);
                 return;
+            case PresentationDslPackage.PROCESS__ROOT:
+                setRoot((Boolean)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -254,6 +301,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__LABEL:
                 setLabel(LABEL_EDEFAULT);
                 return;
+            case PresentationDslPackage.PROCESS__ROOT:
+                setRoot(ROOT_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -272,6 +322,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return type != TYPE_EDEFAULT;
             case PresentationDslPackage.PROCESS__LABEL:
                 return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+            case PresentationDslPackage.PROCESS__ROOT:
+                return root != ROOT_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -290,6 +342,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         result.append(type);
         result.append(", label: ");
         result.append(label);
+        result.append(", root: ");
+        result.append(root);
         result.append(')');
         return result.toString();
     }

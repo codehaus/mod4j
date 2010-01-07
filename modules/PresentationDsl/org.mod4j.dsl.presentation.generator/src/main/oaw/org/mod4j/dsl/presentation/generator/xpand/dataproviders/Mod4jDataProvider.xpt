@@ -11,11 +11,13 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Mod4jDataProvider.xpt") FOR this»
 package «getPresentationRootPackage()».panels;
 
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+
 /**
  * A dataprovider for a collection.
  * @param <DtoType>
  */
-public interface Mod4jDataProvider<DtoType> {
+public interface Mod4jDataProvider<DtoType> extends IDataProvider<DtoType> {
 
 	public DtoType newDto();
 	

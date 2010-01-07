@@ -71,6 +71,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/root"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/owningDialogue"/>
