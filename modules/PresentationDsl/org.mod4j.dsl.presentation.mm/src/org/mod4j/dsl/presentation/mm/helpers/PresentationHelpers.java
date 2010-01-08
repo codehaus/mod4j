@@ -85,6 +85,22 @@ public class PresentationHelpers {
             return findModel( (ModelElement)elem.eContainer());
         }
     }
+    
+    static public Dialogue referredDialogue(UICall call) {
+        PresentationModel model = findModel(call);
+
+        EList<ModelElementWithContext> elements = model.getElements();
+        for (ModelElementWithContext element : elements) {
+            if( element instanceof Dialogue) {
+                Dialogue result = (Dialogue)element;
+                if( result.getName().equals(call.getName())){
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+
     static public ContentForm referredContentForm(UICall call) {
         PresentationModel model = findModel(call);
 

@@ -35,8 +35,12 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateProcessWithListForm in Process.xpt") FOR this»
 «LET getServiceExpression(dialogueCall) AS serviceExpression»
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
+«LET findServiceWithMethod(this.contextRef.name, "UPDATE") AS service»
+«LET findSpecialMethodInService(this.contextRef.name, "UPDATE", service) AS updateService»
+«REM»
 «LET dialogueCall.arguments.typeSelect(ServiceExpression).selectFirst(e|e.name == "update") AS updateService2»
 «LET dialogueCall.arguments.typeSelect(ServiceExpression).selectFirst(e|e.name == "create") AS createService2»
+«ENDREM»
 package «getPresentationRootPackage()».processes;
 
 «IF serviceExpression != null»
@@ -45,7 +49,7 @@ package «getPresentationRootPackage()».processes;
 «ELSEIF navigationExpression != null»
 	«LET getResultType(this.contextRef.modelName, this.contextRef.name, navigationExpression) AS resultType» 
 	import «getPresentationRootPackage()».panels.«getWicketNavigationDataProviderClass(this.contextRef.name, resultType)»; 
-	import «javaLocalServiceInterfacePath(updateService2.serviceName)» ;
+	import «javaLocalServiceInterfacePath(service)» ;
 	import «javaDtoClassPath(form.contextRef.name)»;
 	«ENDLET»
 «ELSE»
@@ -71,9 +75,9 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
 {
     «IF (serviceExpression != null) »
-	    «javaLocalServiceInterface(serviceExpression.serviceName)» service;
+	    «javaLocalServiceInterface(service)» service;
 	 «ELSEIF navigationExpression != null »
-	    «javaLocalServiceInterface(updateService2.serviceName)» service;
+	    «javaLocalServiceInterface(service)» service;
 	 «ELSE»
 	     // TODO: this should not happen, both service and navigation expressions are empty
 	 «ENDIF»
@@ -87,7 +91,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 		«ELSEIF navigationExpression != null»
 			«LET this.contextRef AS context»	   
 			«LET getResultType(context.modelName, context.name, navigationExpression) AS resultType» 
-			«LET getWicketNavigationDataProviderClass(this.contextRef.name, resultType) AS provider» 
+			«LET getWicketNavigationDataProviderClass(context.name, resultType) AS provider» 
 			«provider» provider = new «provider»(element);
 			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
 			page.setProcess(this);
@@ -100,11 +104,6 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			page.setProcess(this);
 			return page;
 			// TODO: this should not happen: no cotxt expressio n for dialogue of process «this.name»
-			// «form.name»
-			// «navigationExpression»
-			// «serviceExpression»
-			// «dialogueCall»
-			// «dialogueCall.contextExp»
 		«ENDIF»
 	}
 

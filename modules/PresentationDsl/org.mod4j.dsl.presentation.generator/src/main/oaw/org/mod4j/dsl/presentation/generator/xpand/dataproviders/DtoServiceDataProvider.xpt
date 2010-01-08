@@ -13,11 +13,12 @@
 «DEFINE DtoServiceDataProvider FOR DialogueCall»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoServiveProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
-«LET arguments.typeSelect(ServiceExpression) AS serviceExpressions»
-«LET serviceExpressions.selectFirst(e|e.name == "update") AS updateService»
-«LET serviceExpressions.selectFirst(e|e.name == "create") AS createService»
-«LET serviceExpressions.selectFirst(e|e.name == "delete") AS deleteService»
-«LET serviceExpressions.selectFirst(e|e.name == "listall") AS listallService»
+«LET this.referredDialogue().contextRef.name AS context»
+«LET findServiceWithMethod(context, "LISTALL") AS serviceType»
+«LET findSpecialMethodInService(context, "UPDATE", serviceType) AS updateService»
+«LET findSpecialMethodInService(context, "Create", serviceType) AS createService»
+«LET findSpecialMethodInService(context, "DELETE", serviceType) AS deleteService»
+«LET findSpecialMethodInService(context, "LISTALL", serviceType) AS listallService»
 package «getPresentationRootPackage()».panels;
 
 import java.lang.reflect.InvocationTargetException;
@@ -32,37 +33,37 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 
-import «javaLocalServiceInterfacePath(updateService.serviceName)» ;
-import «javaDtoClassPath(form.contextRef.name)»;
+import «javaLocalServiceInterfacePath(serviceType)» ;
+import «javaDtoClassPath(context)»;
 
 /**
  * Dataprovider for service list which takes the list of objects from a service.
  */
 @SuppressWarnings("serial")
-public class «getWicketServiceDataProviderClass(form.contextRef.name)»
+public class «getWicketServiceDataProviderClass(context)»
 		implements
-			IDataProvider<«form.contextRef.name»>, Mod4jDataProvider<«form.contextRef.name»> {
-	private static final Log log = LogFactory.getLog(«getWicketServiceDataProviderClass(form.contextRef.name)».class);
+			IDataProvider<«context»>, Mod4jDataProvider<«context»> {
+	private static final Log log = LogFactory.getLog(«getWicketServiceDataProviderClass(context)».class);
 
-    «javaLocalServiceInterface(updateService.serviceName)» service;
+    «javaLocalServiceInterface(serviceType)» service;
 
 	/**
 	 * Create a new ServiceDataProvider 
 	 * @param service The service from which the list and count is retrieved.
 	 */
-	public «getWicketServiceDataProviderClass(form.contextRef.name)»() {
-		this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(updateService.serviceName)»();
+	public «getWicketServiceDataProviderClass(context)»() {
+		this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(serviceType)»();
 	}
 
 	@SuppressWarnings("unchecked")
 	synchronized public Iterator iterator(int first, int count) {
-		List<«form.contextRef.name»> result = null;
+		List<«context»> result = null;
 		
-		return service.«listallService.serviceMethod»(first, count).iterator();
+		return service.«listallService»(first, count).iterator();
 	}
 
-	public IModel<«form.contextRef.name»> model(«form.contextRef.name» object) {
-		return new CompoundPropertyModel<«form.contextRef.name»>(object);
+	public IModel<«context»> model(«context» object) {
+		return new CompoundPropertyModel<«context»>(object);
 	}
 
 	synchronized public int size() {
@@ -73,30 +74,31 @@ public class «getWicketServiceDataProviderClass(form.contextRef.name)»
 	public void detach() {
 	}
 
-	public void deleteDto(«form.contextRef.name» toBeRemoved) {
+	public void deleteDto(«context» toBeRemoved) {
 		if (toBeRemoved.getId() == null) { // new element
 			// nothing to do, does not exist in the datastore
 		} else { // existing element
-			service.«deleteService.serviceMethod»(toBeRemoved);
+			service.«deleteService»(toBeRemoved);
 		}
 	}
 
-	public «form.contextRef.name» newDto() {
-		return new «form.contextRef.name»();
+	public «context» newDto() {
+		return new «context»();
 	}
 
-	public void saveDto(«form.contextRef.name» tobesaved) {
+	public void saveDto(«context» tobesaved) {
 		try {
 			if (tobesaved.getId() == null) { // new element
-				service.«createService.serviceMethod»(tobesaved);
+				service.«createService»(tobesaved);
 			} else { // existing element
-				service.«updateService.serviceMethod»(tobesaved);
+				service.«updateService»(tobesaved);
 			}
 		} catch (Exception e) {
 		}
 	}
 
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

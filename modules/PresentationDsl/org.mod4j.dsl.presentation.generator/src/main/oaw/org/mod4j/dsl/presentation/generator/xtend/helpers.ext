@@ -38,13 +38,19 @@ String findListAllMethodFor(ContentForm form) :
 String findSpecialMethod(ContentForm form, String methodType) :
     findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
     select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+
+String findSpecialMethod(String dtoName, String methodType) :
+    let methods =
+    findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)) :
+    (methods.isEmpty ? null : methods.first().name);
     
-String findSpecialMethodInService(ContentForm form, String methodType, String serviceName) :
+String findSpecialMethodInService(String dtoName, String methodType, String serviceName) :
     findAllSymbols(getProject(), "Service").select(s | s.name.endsWith(serviceName)).findAllSubSymbols("ServiceMethod").
-    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;
+    select( method | method.getPropertyValue("methodType").endsWith(methodType) && method.getPropertyValue("dto").endsWith(dtoName)).first().name;
     
 // returns the name of a service that contains a special method of "methodType" for the referred DTO in "form"
-String findServiceWithMethod(ContentForm form, String methodType) :
-    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(form, methodType, s.name) != null ).first().name;
+String findServiceWithMethod(String dtoName, String methodType) :
+    findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s.name) != null ).first().name;
  
  
