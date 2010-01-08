@@ -23,10 +23,10 @@ CompoundDialogue FullCustomerDialogue context SimpleCustomerDto
 		CustomerExtra;
 	]
 	processes [
-		HandleCustomer;
+		HandleCustomer; 
 	]
 
-AutomatedProcess HandleCustomer context SimpleCustomerDto
+Process HandleCustomer context SimpleCustomerDto
 
 //InteractiveProcess ManageCustomer context SimpleCustomerDto
 //	step [ 
