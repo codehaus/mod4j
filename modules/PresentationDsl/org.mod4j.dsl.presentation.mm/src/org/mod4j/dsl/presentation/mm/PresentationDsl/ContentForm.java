@@ -74,8 +74,8 @@ public interface ContentForm extends Form {
 
     /**
      * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess}.
-     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm <em>Content Form</em>}'.
+     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process}.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm <em>Content Form</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
@@ -84,10 +84,10 @@ public interface ContentForm extends Form {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Actions</em>' containment reference list.
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getContentForm_Actions()
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm
      * @model opposite="contentForm" containment="true"
      * @generated
      */
-    EList<SimpleProcess> getActions();
+    EList<org.mod4j.dsl.presentation.mm.PresentationDsl.Process> getActions();
 
 } // ContentForm

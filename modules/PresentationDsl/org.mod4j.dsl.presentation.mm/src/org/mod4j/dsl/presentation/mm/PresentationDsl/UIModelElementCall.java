@@ -8,7 +8,6 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>UI Model Element Call</b></em>'.

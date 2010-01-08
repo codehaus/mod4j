@@ -68,7 +68,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getModelElement()
      * @generated
      */
-    int MODEL_ELEMENT = 15;
+    int MODEL_ELEMENT = 13;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -142,7 +142,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getModelElementWithContext()
      * @generated
      */
-    int MODEL_ELEMENT_WITH_CONTEXT = 14;
+    int MODEL_ELEMENT_WITH_CONTEXT = 12;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -197,7 +197,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElement()
      * @generated
      */
-    int UI_MODEL_ELEMENT = 19;
+    int UI_MODEL_ELEMENT = 17;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -245,188 +245,6 @@ public interface PresentationDslPackage extends EPackage {
     int UI_MODEL_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_WITH_CONTEXT_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl <em>Process</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcess()
-     * @generated
-     */
-    int PROCESS = 17;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__NAME = UI_MODEL_ELEMENT__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__DESCRIPTION = UI_MODEL_ELEMENT__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
-
-    /**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
-
-    /**
-     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__PROCESS_ELEMENTS = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__TYPE = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Label</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__LABEL = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Root</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS__ROOT = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-    /**
-     * The number of structural features of the '<em>Process</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 4;
-
-    /**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl <em>Automated Process</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getAutomatedProcess()
-     * @generated
-     */
-    int AUTOMATED_PROCESS = 1;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__NAME = PROCESS__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__DESCRIPTION = PROCESS__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
-
-    /**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
-
-    /**
-     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__PROCESS_ELEMENTS = PROCESS__PROCESS_ELEMENTS;
-
-    /**
-     * The feature id for the '<em><b>Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__TYPE = PROCESS__TYPE;
-
-    /**
-     * The feature id for the '<em><b>Label</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__LABEL = PROCESS__LABEL;
-
-    /**
-     * The feature id for the '<em><b>Root</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS__ROOT = PROCESS__ROOT;
-
-    /**
-     * The number of structural features of the '<em>Automated Process</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int AUTOMATED_PROCESS_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 0;
-
-    /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueImpl <em>Dialogue</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -434,7 +252,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDialogue()
      * @generated
      */
-    int DIALOGUE = 6;
+    int DIALOGUE = 5;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -507,7 +325,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getForm()
      * @generated
      */
-    int FORM = 10;
+    int FORM = 9;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -580,7 +398,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getContentForm()
      * @generated
      */
-    int CONTENT_FORM = 2;
+    int CONTENT_FORM = 1;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -680,7 +498,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getCompoundDialogue()
      * @generated
      */
-    int COMPOUND_DIALOGUE = 3;
+    int COMPOUND_DIALOGUE = 2;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -762,7 +580,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getCollectionDialogue()
      * @generated
      */
-    int COLLECTION_DIALOGUE = 4;
+    int COLLECTION_DIALOGUE = 3;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -844,7 +662,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDataProperty()
      * @generated
      */
-    int DATA_PROPERTY = 5;
+    int DATA_PROPERTY = 4;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -908,7 +726,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUICall()
      * @generated
      */
-    int UI_CALL = 21;
+    int UI_CALL = 19;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -954,7 +772,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElementCall()
      * @generated
      */
-    int UI_MODEL_ELEMENT_CALL = 20;
+    int UI_MODEL_ELEMENT_CALL = 18;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1027,7 +845,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDialogueCall()
      * @generated
      */
-    int DIALOGUE_CALL = 7;
+    int DIALOGUE_CALL = 6;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1109,7 +927,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getDtoPropertyReference()
      * @generated
      */
-    int DTO_PROPERTY_REFERENCE = 8;
+    int DTO_PROPERTY_REFERENCE = 7;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1146,7 +964,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExternalReference()
      * @generated
      */
-    int EXTERNAL_REFERENCE = 9;
+    int EXTERNAL_REFERENCE = 8;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1192,7 +1010,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getFormElement()
      * @generated
      */
-    int FORM_ELEMENT = 11;
+    int FORM_ELEMENT = 10;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1267,97 +1085,6 @@ public interface PresentationDslPackage extends EPackage {
     int FORM_ELEMENT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 5;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.InteractiveProcessImpl <em>Interactive Process</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.InteractiveProcessImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getInteractiveProcess()
-     * @generated
-     */
-    int INTERACTIVE_PROCESS = 12;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__NAME = PROCESS__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__DESCRIPTION = PROCESS__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Context Ref</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__CONTEXT_REF = PROCESS__CONTEXT_REF;
-
-    /**
-     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__PRESENTATION_MODEL = PROCESS__PRESENTATION_MODEL;
-
-    /**
-     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__PROCESS_ELEMENTS = PROCESS__PROCESS_ELEMENTS;
-
-    /**
-     * The feature id for the '<em><b>Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__TYPE = PROCESS__TYPE;
-
-    /**
-     * The feature id for the '<em><b>Label</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__LABEL = PROCESS__LABEL;
-
-    /**
-     * The feature id for the '<em><b>Root</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS__ROOT = PROCESS__ROOT;
-
-    /**
-     * The number of structural features of the '<em>Interactive Process</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int INTERACTIVE_PROCESS_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 0;
-
-    /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MasterDetailImpl <em>Master Detail</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1365,7 +1092,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getMasterDetail()
      * @generated
      */
-    int MASTER_DETAIL = 13;
+    int MASTER_DETAIL = 11;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1465,7 +1192,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getPresentationModel()
      * @generated
      */
-    int PRESENTATION_MODEL = 16;
+    int PRESENTATION_MODEL = 14;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1513,6 +1240,106 @@ public interface PresentationDslPackage extends EPackage {
     int PRESENTATION_MODEL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl <em>Process</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcess()
+     * @generated
+     */
+    int PROCESS = 15;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__NAME = UI_MODEL_ELEMENT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__DESCRIPTION = UI_MODEL_ELEMENT__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Context Ref</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__CONTEXT_REF = UI_MODEL_ELEMENT__CONTEXT_REF;
+
+    /**
+     * The feature id for the '<em><b>Presentation Model</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__PROCESS_ELEMENTS = UI_MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__TYPE = UI_MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Label</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__LABEL = UI_MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Root</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__ROOT = UI_MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Content Form</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__CONTENT_FORM = UI_MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+    /**
+     * The number of structural features of the '<em>Process</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS_FEATURE_COUNT = UI_MODEL_ELEMENT_FEATURE_COUNT + 5;
+
+    /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1520,7 +1347,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessCall()
      * @generated
      */
-    int PROCESS_CALL = 18;
+    int PROCESS_CALL = 16;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1595,79 +1422,6 @@ public interface PresentationDslPackage extends EPackage {
     int PROCESS_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl <em>Simple Process</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getSimpleProcess()
-     * @generated
-     */
-    int SIMPLE_PROCESS = 22;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS__NAME = MODEL_ELEMENT__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Dialogue Process</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS__DIALOGUE_PROCESS = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Content Form</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS__CONTENT_FORM = MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Process</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS__PROCESS = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-    /**
-     * The number of structural features of the '<em>Simple Process</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIMPLE_PROCESS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
-
-    /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1675,7 +1429,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExpression()
      * @generated
      */
-    int EXPRESSION = 25;
+    int EXPRESSION = 22;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1712,7 +1466,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getServiceExpression()
      * @generated
      */
-    int SERVICE_EXPRESSION = 23;
+    int SERVICE_EXPRESSION = 20;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1767,7 +1521,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getNavigationExpression()
      * @generated
      */
-    int NAVIGATION_EXPRESSION = 24;
+    int NAVIGATION_EXPRESSION = 21;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1806,6 +1560,52 @@ public interface PresentationDslPackage extends EPackage {
     int NAVIGATION_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.StandardExpressionImpl <em>Standard Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.StandardExpressionImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getStandardExpression()
+     * @generated
+     */
+    int STANDARD_EXPRESSION = 23;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STANDARD_EXPRESSION__NAME = EXPRESSION__NAME;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STANDARD_EXPRESSION__DESCRIPTION = EXPRESSION__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STANDARD_EXPRESSION__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Standard Expression</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STANDARD_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1813,7 +1613,18 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessType()
      * @generated
      */
-    int PROCESS_TYPE = 26;
+    int PROCESS_TYPE = 24;
+
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType <em>Expression Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExpressionType()
+     * @generated
+     */
+    int EXPRESSION_TYPE = 25;
 
 
     /**
@@ -1825,16 +1636,6 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EClass getAssociationRoleReference();
-
-    /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess <em>Automated Process</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Automated Process</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess
-     * @generated
-     */
-    EClass getAutomatedProcess();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm <em>Content Form</em>}'.
@@ -2113,16 +1914,6 @@ public interface PresentationDslPackage extends EPackage {
     EReference getFormElement_DataProperty();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess <em>Interactive Process</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Interactive Process</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess
-     * @generated
-     */
-    EClass getInteractiveProcess();
-
-    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail <em>Master Detail</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2305,6 +2096,17 @@ public interface PresentationDslPackage extends EPackage {
     EAttribute getProcess_Root();
 
     /**
+     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm <em>Content Form</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Content Form</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm()
+     * @see #getProcess()
+     * @generated
+     */
+    EReference getProcess_ContentForm();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall <em>Process Call</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2400,60 +2202,6 @@ public interface PresentationDslPackage extends EPackage {
     EReference getUICall_Process();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess <em>Simple Process</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Simple Process</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess
-     * @generated
-     */
-    EClass getSimpleProcess();
-
-    /**
-     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogueProcess <em>Dialogue Process</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Dialogue Process</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getDialogueProcess()
-     * @see #getSimpleProcess()
-     * @generated
-     */
-    EReference getSimpleProcess_DialogueProcess();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType <em>Type</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Type</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getType()
-     * @see #getSimpleProcess()
-     * @generated
-     */
-    EAttribute getSimpleProcess_Type();
-
-    /**
-     * Returns the meta object for the container reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm <em>Content Form</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Content Form</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getContentForm()
-     * @see #getSimpleProcess()
-     * @generated
-     */
-    EReference getSimpleProcess_ContentForm();
-
-    /**
-     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess <em>Process</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Process</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess#getProcess()
-     * @see #getSimpleProcess()
-     * @generated
-     */
-    EReference getSimpleProcess_Process();
-
-    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression <em>Service Expression</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2517,6 +2265,27 @@ public interface PresentationDslPackage extends EPackage {
     EClass getExpression();
 
     /**
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression <em>Standard Expression</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Standard Expression</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression
+     * @generated
+     */
+    EClass getStandardExpression();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression#getType()
+     * @see #getStandardExpression()
+     * @generated
+     */
+    EAttribute getStandardExpression_Type();
+
+    /**
      * Returns the meta object for enum '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2525,6 +2294,16 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EEnum getProcessType();
+
+    /**
+     * Returns the meta object for enum '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType <em>Expression Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Expression Type</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType
+     * @generated
+     */
+    EEnum getExpressionType();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -2557,16 +2336,6 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EClass ASSOCIATION_ROLE_REFERENCE = eINSTANCE.getAssociationRoleReference();
-
-        /**
-         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl <em>Automated Process</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AutomatedProcessImpl
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getAutomatedProcess()
-         * @generated
-         */
-        EClass AUTOMATED_PROCESS = eINSTANCE.getAutomatedProcess();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ContentFormImpl <em>Content Form</em>}' class.
@@ -2797,16 +2566,6 @@ public interface PresentationDslPackage extends EPackage {
         EReference FORM_ELEMENT__DATA_PROPERTY = eINSTANCE.getFormElement_DataProperty();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.InteractiveProcessImpl <em>Interactive Process</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.InteractiveProcessImpl
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getInteractiveProcess()
-         * @generated
-         */
-        EClass INTERACTIVE_PROCESS = eINSTANCE.getInteractiveProcess();
-
-        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MasterDetailImpl <em>Master Detail</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2953,6 +2712,14 @@ public interface PresentationDslPackage extends EPackage {
         EAttribute PROCESS__ROOT = eINSTANCE.getProcess_Root();
 
         /**
+         * The meta object literal for the '<em><b>Content Form</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROCESS__CONTENT_FORM = eINSTANCE.getProcess_ContentForm();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl <em>Process Call</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3033,48 +2800,6 @@ public interface PresentationDslPackage extends EPackage {
         EReference UI_CALL__PROCESS = eINSTANCE.getUICall_Process();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl <em>Simple Process</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.SimpleProcessImpl
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getSimpleProcess()
-         * @generated
-         */
-        EClass SIMPLE_PROCESS = eINSTANCE.getSimpleProcess();
-
-        /**
-         * The meta object literal for the '<em><b>Dialogue Process</b></em>' containment reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SIMPLE_PROCESS__DIALOGUE_PROCESS = eINSTANCE.getSimpleProcess_DialogueProcess();
-
-        /**
-         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SIMPLE_PROCESS__TYPE = eINSTANCE.getSimpleProcess_Type();
-
-        /**
-         * The meta object literal for the '<em><b>Content Form</b></em>' container reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SIMPLE_PROCESS__CONTENT_FORM = eINSTANCE.getSimpleProcess_ContentForm();
-
-        /**
-         * The meta object literal for the '<em><b>Process</b></em>' containment reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SIMPLE_PROCESS__PROCESS = eINSTANCE.getSimpleProcess_Process();
-
-        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl <em>Service Expression</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3129,6 +2854,24 @@ public interface PresentationDslPackage extends EPackage {
         EClass EXPRESSION = eINSTANCE.getExpression();
 
         /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.StandardExpressionImpl <em>Standard Expression</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.StandardExpressionImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getStandardExpression()
+         * @generated
+         */
+        EClass STANDARD_EXPRESSION = eINSTANCE.getStandardExpression();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute STANDARD_EXPRESSION__TYPE = eINSTANCE.getStandardExpression_Type();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType <em>Process Type</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3137,6 +2880,16 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EEnum PROCESS_TYPE = eINSTANCE.getProcessType();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType <em>Expression Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExpressionType()
+         * @generated
+         */
+        EEnum EXPRESSION_TYPE = eINSTANCE.getExpressionType();
 
     }
 

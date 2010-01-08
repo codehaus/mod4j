@@ -4,14 +4,13 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PresentationDsl"
     nsURI="http://www.mod4j.org/pmfmod" nsPrefix="pmfmod">
   <eClassifiers xsi:type="ecore:EClass" name="AssociationRoleReference" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AutomatedProcess" eSuperTypes="#//Process"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Form">
     <eStructuralFeatures xsi:type="ecore:EReference" name="formElements" upperBound="-1"
         eType="#//FormElement" containment="true" eOpposite="#//FormElement/form"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
-        eType="#//SimpleProcess" containment="true" eOpposite="#//SimpleProcess/contentForm"/>
+        eType="#//Process" containment="true" eOpposite="#//Process/contentForm"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundDialogue" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dialogues" upperBound="-1"
@@ -50,7 +49,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataProperty" eType="#//DataProperty"
         containment="true" eOpposite="#//DataProperty/formElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InteractiveProcess" eSuperTypes="#//Process"/>
   <eClassifiers xsi:type="ecore:EClass" name="MasterDetail" eSuperTypes="#//CompoundDialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="master" lowerBound="1"
         eType="#//DialogueCall" containment="true"/>
@@ -73,7 +71,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
         eType="#//ExternalReference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//UIModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//UIModelElement">
+    <eOperations name="isInteractive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processElements" upperBound="-1"
         eType="#//UICall" containment="true" eOpposite="#//UICall/process"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProcessType"
@@ -81,6 +80,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentForm" eType="#//ContentForm"
+        eOpposite="#//ContentForm/actions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningDialogue" eType="#//Dialogue"
@@ -97,16 +98,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
         eOpposite="#//Process/processElements"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleProcess" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogueProcess" eType="#//InteractiveProcess"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProcessType"
-        defaultValueLiteral="CUSTOM"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contentForm" eType="#//ContentForm"
-        eOpposite="#//ContentForm/actions"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//AutomatedProcess"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessType">
     <eLiterals name="NEW"/>
@@ -125,4 +116,12 @@
         eType="#//AssociationRoleReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StandardExpression" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ExpressionType"
+        defaultValueLiteral="NONE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExpressionType">
+    <eLiterals name="ALL"/>
+    <eLiterals name="NONE" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

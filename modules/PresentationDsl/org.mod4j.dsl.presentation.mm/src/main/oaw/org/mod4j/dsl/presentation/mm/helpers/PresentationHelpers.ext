@@ -27,6 +27,9 @@ ServiceExpression getServiceExpression(UICall call) :
 NavigationExpression getNavigationExpression(UICall call) :
   JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getNavigationExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
   
+StandardExpression getStandardExpression(UICall call) :
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getStandardExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+  
 String getResultType(String model, String dto, NavigationExpression nav) :
     JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getResultType(
       java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression);

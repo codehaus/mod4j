@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
@@ -26,7 +25,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
@@ -35,7 +33,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -101,10 +99,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createAssociationRoleReferenceAdapter();
             }
             @Override
-            public Adapter caseAutomatedProcess(AutomatedProcess object) {
-                return createAutomatedProcessAdapter();
-            }
-            @Override
             public Adapter caseContentForm(ContentForm object) {
                 return createContentFormAdapter();
             }
@@ -145,10 +139,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createFormElementAdapter();
             }
             @Override
-            public Adapter caseInteractiveProcess(InteractiveProcess object) {
-                return createInteractiveProcessAdapter();
-            }
-            @Override
             public Adapter caseMasterDetail(MasterDetail object) {
                 return createMasterDetailAdapter();
             }
@@ -185,10 +175,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createUICallAdapter();
             }
             @Override
-            public Adapter caseSimpleProcess(SimpleProcess object) {
-                return createSimpleProcessAdapter();
-            }
-            @Override
             public Adapter caseServiceExpression(ServiceExpression object) {
                 return createServiceExpressionAdapter();
             }
@@ -199,6 +185,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseExpression(Expression object) {
                 return createExpressionAdapter();
+            }
+            @Override
+            public Adapter caseStandardExpression(StandardExpression object) {
+                return createStandardExpressionAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -231,20 +221,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createAssociationRoleReferenceAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess <em>Automated Process</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess
-     * @generated
-     */
-    public Adapter createAutomatedProcessAdapter() {
         return null;
     }
 
@@ -389,20 +365,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess <em>Interactive Process</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess
-     * @generated
-     */
-    public Adapter createInteractiveProcessAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail <em>Master Detail</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -529,20 +491,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess <em>Simple Process</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess
-     * @generated
-     */
-    public Adapter createSimpleProcessAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression <em>Service Expression</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -581,6 +529,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createExpressionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression <em>Standard Expression</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression
+     * @generated
+     */
+    public Adapter createStandardExpressionAdapter() {
         return null;
     }
 

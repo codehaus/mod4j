@@ -20,11 +20,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLabel <em>Label</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#isRoot <em>Root</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm <em>Content Form</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Process extends UIModelElement {
@@ -128,5 +129,41 @@ public interface Process extends UIModelElement {
      * @generated
      */
     void setRoot(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Content Form</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions <em>Actions</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Content Form</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Content Form</em>' container reference.
+     * @see #setContentForm(ContentForm)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_ContentForm()
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions
+     * @model opposite="actions" transient="false"
+     * @generated
+     */
+    ContentForm getContentForm();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm <em>Content Form</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Content Form</em>' container reference.
+     * @see #getContentForm()
+     * @generated
+     */
+    void setContentForm(ContentForm value);
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation"
+     * @generated
+     */
+    boolean isInteractive();
 
 } // Process

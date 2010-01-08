@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 
 /**
  * <!-- begin-user-doc -->

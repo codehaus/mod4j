@@ -7,7 +7,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
-«DEFINE GenerateContentFormPage(ContentForm form) FOR InteractiveProcess -»
+«DEFINE GenerateContentFormPage(ContentForm form) FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this»
 package «getPresentationRootPackage()».pages;
 
@@ -66,11 +66,13 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	}
 
 	public void startProcess(String processName, «this.contextRef.name» context){
-	«FOREACH form.processes.referredProcess() AS p»
+	«FOREACH form.processes AS pp»
+	«LET pp.referredProcess() AS p»
+	«print("DDDDDDDDDDDDDDDDDDDDDDDDD [" + pp + "] [" + p + "]")»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
-			«IF p.processElements.typeSelect(DialogueCall).isEmpty» «REM»this is a batch process«ENDREM»
+			«IF ! p.isInteractive() » «REM»this is a batch process«ENDREM»
 				process.setProvider(provider);
 				process.run(context);
 				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::REMOVE)»
@@ -83,6 +85,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 				}
 			«ENDIF»
 		}
+	«ENDLET»
 	«ENDFOREACH»
 	}
 
@@ -92,7 +95,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 }
 «ENDDEFINE»
 
-«DEFINE GenerateListContentFormPage(DialogueCall dialogueCall) FOR InteractiveProcess -»
+«DEFINE GenerateListContentFormPage(DialogueCall dialogueCall) FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
 «REM»
 «LET this.processElements.first().referredCollectionDialogue() AS collDialogue»

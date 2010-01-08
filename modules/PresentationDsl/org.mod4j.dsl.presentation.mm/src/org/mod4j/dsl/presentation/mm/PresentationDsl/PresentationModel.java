@@ -8,8 +8,6 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Presentation Model</b></em>'.

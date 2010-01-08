@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
@@ -24,7 +23,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
@@ -33,7 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -116,16 +114,6 @@ public class PresentationDslSwitch<T> {
                 AssociationRoleReference associationRoleReference = (AssociationRoleReference)theEObject;
                 T result = caseAssociationRoleReference(associationRoleReference);
                 if (result == null) result = caseModelElement(associationRoleReference);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.AUTOMATED_PROCESS: {
-                AutomatedProcess automatedProcess = (AutomatedProcess)theEObject;
-                T result = caseAutomatedProcess(automatedProcess);
-                if (result == null) result = caseProcess(automatedProcess);
-                if (result == null) result = caseUIModelElement(automatedProcess);
-                if (result == null) result = caseModelElementWithContext(automatedProcess);
-                if (result == null) result = caseModelElement(automatedProcess);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -217,16 +205,6 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.INTERACTIVE_PROCESS: {
-                InteractiveProcess interactiveProcess = (InteractiveProcess)theEObject;
-                T result = caseInteractiveProcess(interactiveProcess);
-                if (result == null) result = caseProcess(interactiveProcess);
-                if (result == null) result = caseUIModelElement(interactiveProcess);
-                if (result == null) result = caseModelElementWithContext(interactiveProcess);
-                if (result == null) result = caseModelElement(interactiveProcess);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case PresentationDslPackage.MASTER_DETAIL: {
                 MasterDetail masterDetail = (MasterDetail)theEObject;
                 T result = caseMasterDetail(masterDetail);
@@ -299,13 +277,6 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.SIMPLE_PROCESS: {
-                SimpleProcess simpleProcess = (SimpleProcess)theEObject;
-                T result = caseSimpleProcess(simpleProcess);
-                if (result == null) result = caseModelElement(simpleProcess);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case PresentationDslPackage.SERVICE_EXPRESSION: {
                 ServiceExpression serviceExpression = (ServiceExpression)theEObject;
                 T result = caseServiceExpression(serviceExpression);
@@ -329,6 +300,14 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case PresentationDslPackage.STANDARD_EXPRESSION: {
+                StandardExpression standardExpression = (StandardExpression)theEObject;
+                T result = caseStandardExpression(standardExpression);
+                if (result == null) result = caseExpression(standardExpression);
+                if (result == null) result = caseModelElement(standardExpression);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
     }
@@ -345,21 +324,6 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseAssociationRoleReference(AssociationRoleReference object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Automated Process</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Automated Process</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseAutomatedProcess(AutomatedProcess object) {
         return null;
     }
 
@@ -514,21 +478,6 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Interactive Process</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseInteractiveProcess(InteractiveProcess object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Master Detail</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -664,21 +613,6 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Simple Process</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Simple Process</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSimpleProcess(SimpleProcess object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Service Expression</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -720,6 +654,21 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseExpression(Expression object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Standard Expression</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Standard Expression</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStandardExpression(StandardExpression object) {
         return null;
     }
 

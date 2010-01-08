@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.AutomatedProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
@@ -24,10 +23,10 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.InteractiveProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
@@ -37,7 +36,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 /**
@@ -85,7 +84,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case PresentationDslPackage.ASSOCIATION_ROLE_REFERENCE: return createAssociationRoleReference();
-            case PresentationDslPackage.AUTOMATED_PROCESS: return createAutomatedProcess();
             case PresentationDslPackage.CONTENT_FORM: return createContentForm();
             case PresentationDslPackage.COMPOUND_DIALOGUE: return createCompoundDialogue();
             case PresentationDslPackage.COLLECTION_DIALOGUE: return createCollectionDialogue();
@@ -95,16 +93,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.EXTERNAL_REFERENCE: return createExternalReference();
             case PresentationDslPackage.FORM: return createForm();
             case PresentationDslPackage.FORM_ELEMENT: return createFormElement();
-            case PresentationDslPackage.INTERACTIVE_PROCESS: return createInteractiveProcess();
             case PresentationDslPackage.MASTER_DETAIL: return createMasterDetail();
             case PresentationDslPackage.MODEL_ELEMENT: return createModelElement();
             case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
+            case PresentationDslPackage.PROCESS: return createProcess();
             case PresentationDslPackage.PROCESS_CALL: return createProcessCall();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
-            case PresentationDslPackage.SIMPLE_PROCESS: return createSimpleProcess();
             case PresentationDslPackage.SERVICE_EXPRESSION: return createServiceExpression();
             case PresentationDslPackage.NAVIGATION_EXPRESSION: return createNavigationExpression();
             case PresentationDslPackage.EXPRESSION: return createExpression();
+            case PresentationDslPackage.STANDARD_EXPRESSION: return createStandardExpression();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -120,6 +118,8 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
         switch (eDataType.getClassifierID()) {
             case PresentationDslPackage.PROCESS_TYPE:
                 return createProcessTypeFromString(eDataType, initialValue);
+            case PresentationDslPackage.EXPRESSION_TYPE:
+                return createExpressionTypeFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -135,6 +135,8 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
         switch (eDataType.getClassifierID()) {
             case PresentationDslPackage.PROCESS_TYPE:
                 return convertProcessTypeToString(eDataType, instanceValue);
+            case PresentationDslPackage.EXPRESSION_TYPE:
+                return convertExpressionTypeToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -148,16 +150,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public AssociationRoleReference createAssociationRoleReference() {
         AssociationRoleReferenceImpl associationRoleReference = new AssociationRoleReferenceImpl();
         return associationRoleReference;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public AutomatedProcess createAutomatedProcess() {
-        AutomatedProcessImpl automatedProcess = new AutomatedProcessImpl();
-        return automatedProcess;
     }
 
     /**
@@ -255,16 +247,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public InteractiveProcess createInteractiveProcess() {
-        InteractiveProcessImpl interactiveProcess = new InteractiveProcessImpl();
-        return interactiveProcess;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public MasterDetail createMasterDetail() {
         MasterDetailImpl masterDetail = new MasterDetailImpl();
         return masterDetail;
@@ -295,6 +277,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public org.mod4j.dsl.presentation.mm.PresentationDsl.Process createProcess() {
+        ProcessImpl process = new ProcessImpl();
+        return process;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ProcessCall createProcessCall() {
         ProcessCallImpl processCall = new ProcessCallImpl();
         return processCall;
@@ -308,16 +300,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public UIModelElementCall createUIModelElementCall() {
         UIModelElementCallImpl uiModelElementCall = new UIModelElementCallImpl();
         return uiModelElementCall;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public SimpleProcess createSimpleProcess() {
-        SimpleProcessImpl simpleProcess = new SimpleProcessImpl();
-        return simpleProcess;
     }
 
     /**
@@ -355,6 +337,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public StandardExpression createStandardExpression() {
+        StandardExpressionImpl standardExpression = new StandardExpressionImpl();
+        return standardExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ProcessType createProcessTypeFromString(EDataType eDataType, String initialValue) {
         ProcessType result = ProcessType.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -367,6 +359,26 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
      * @generated
      */
     public String convertProcessTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExpressionType createExpressionTypeFromString(EDataType eDataType, String initialValue) {
+        ExpressionType result = ExpressionType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertExpressionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

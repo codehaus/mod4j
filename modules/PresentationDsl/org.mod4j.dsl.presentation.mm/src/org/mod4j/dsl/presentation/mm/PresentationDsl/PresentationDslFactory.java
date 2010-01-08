@@ -35,15 +35,6 @@ public interface PresentationDslFactory extends EFactory {
     AssociationRoleReference createAssociationRoleReference();
 
     /**
-     * Returns a new object of class '<em>Automated Process</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Automated Process</em>'.
-     * @generated
-     */
-    AutomatedProcess createAutomatedProcess();
-
-    /**
      * Returns a new object of class '<em>Content Form</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -125,15 +116,6 @@ public interface PresentationDslFactory extends EFactory {
     FormElement createFormElement();
 
     /**
-     * Returns a new object of class '<em>Interactive Process</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Interactive Process</em>'.
-     * @generated
-     */
-    InteractiveProcess createInteractiveProcess();
-
-    /**
      * Returns a new object of class '<em>Master Detail</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -161,6 +143,15 @@ public interface PresentationDslFactory extends EFactory {
     PresentationModel createPresentationModel();
 
     /**
+     * Returns a new object of class '<em>Process</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Process</em>'.
+     * @generated
+     */
+    Process createProcess();
+
+    /**
      * Returns a new object of class '<em>Process Call</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -177,15 +168,6 @@ public interface PresentationDslFactory extends EFactory {
      * @generated
      */
     UIModelElementCall createUIModelElementCall();
-
-    /**
-     * Returns a new object of class '<em>Simple Process</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Simple Process</em>'.
-     * @generated
-     */
-    SimpleProcess createSimpleProcess();
 
     /**
      * Returns a new object of class '<em>Service Expression</em>'.
@@ -213,6 +195,15 @@ public interface PresentationDslFactory extends EFactory {
      * @generated
      */
     Expression createExpression();
+
+    /**
+     * Returns a new object of class '<em>Standard Expression</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Standard Expression</em>'.
+     * @generated
+     */
+    StandardExpression createStandardExpression();
 
     /**
      * Returns the package supported by this factory.

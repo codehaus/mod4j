@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +79,7 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
      * @generated
      * @ordered
      */
-    protected EList<SimpleProcess> actions;
+    protected EList<org.mod4j.dsl.presentation.mm.PresentationDsl.Process> actions;
 
     /**
      * <!-- begin-user-doc -->
@@ -139,9 +138,9 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<SimpleProcess> getActions() {
+    public EList<org.mod4j.dsl.presentation.mm.PresentationDsl.Process> getActions() {
         if (actions == null) {
-            actions = new EObjectContainmentWithInverseEList<SimpleProcess>(SimpleProcess.class, this, PresentationDslPackage.CONTENT_FORM__ACTIONS, PresentationDslPackage.SIMPLE_PROCESS__CONTENT_FORM);
+            actions = new EObjectContainmentWithInverseEList<org.mod4j.dsl.presentation.mm.PresentationDsl.Process>(org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, this, PresentationDslPackage.CONTENT_FORM__ACTIONS, PresentationDslPackage.PROCESS__CONTENT_FORM);
         }
         return actions;
     }
@@ -215,7 +214,7 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
                 return;
             case PresentationDslPackage.CONTENT_FORM__ACTIONS:
                 getActions().clear();
-                getActions().addAll((Collection<? extends SimpleProcess>)newValue);
+                getActions().addAll((Collection<? extends org.mod4j.dsl.presentation.mm.PresentationDsl.Process>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);

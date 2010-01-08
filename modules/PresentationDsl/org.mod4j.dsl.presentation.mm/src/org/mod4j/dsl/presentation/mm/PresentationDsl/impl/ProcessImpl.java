@@ -18,14 +18,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 
 /**
@@ -39,12 +39,13 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#isRoot <em>Root</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getContentForm <em>Content Form</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.presentation.mm.PresentationDsl.Process {
+public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.presentation.mm.PresentationDsl.Process {
     /**
      * The cached value of the '{@link #getProcessElements() <em>Process Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -214,12 +215,71 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
      * <!-- end-user-doc -->
      * @generated
      */
+    public ContentForm getContentForm() {
+        if (eContainerFeatureID() != PresentationDslPackage.PROCESS__CONTENT_FORM) return null;
+        return (ContentForm)eContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetContentForm(ContentForm newContentForm, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newContentForm, PresentationDslPackage.PROCESS__CONTENT_FORM, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setContentForm(ContentForm newContentForm) {
+        if (newContentForm != eInternalContainer() || (eContainerFeatureID() != PresentationDslPackage.PROCESS__CONTENT_FORM && newContentForm != null)) {
+            if (EcoreUtil.isAncestor(this, newContentForm))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newContentForm != null)
+                msgs = ((InternalEObject)newContentForm).eInverseAdd(this, PresentationDslPackage.CONTENT_FORM__ACTIONS, ContentForm.class, msgs);
+            msgs = basicSetContentForm(newContentForm, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__CONTENT_FORM, newContentForm, newContentForm));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated  NOT
+     */
+    public boolean isInteractive() {
+        for (UICall call : this.getProcessElements()) {
+            if( call instanceof DialogueCall   ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcessElements()).basicAdd(otherEnd, msgs);
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetContentForm((ContentForm)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -234,8 +294,24 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return ((InternalEList<?>)getProcessElements()).basicRemove(otherEnd, msgs);
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                return basicSetContentForm(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                return eInternalContainer().eInverseRemove(this, PresentationDslPackage.CONTENT_FORM__ACTIONS, ContentForm.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
@@ -254,6 +330,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return getLabel();
             case PresentationDslPackage.PROCESS__ROOT:
                 return isRoot();
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                return getContentForm();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -280,6 +358,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__ROOT:
                 setRoot((Boolean)newValue);
                 return;
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                setContentForm((ContentForm)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -304,6 +385,9 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
             case PresentationDslPackage.PROCESS__ROOT:
                 setRoot(ROOT_EDEFAULT);
                 return;
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                setContentForm((ContentForm)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -324,6 +408,8 @@ public abstract class ProcessImpl extends UIModelElementImpl implements org.mod4
                 return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
             case PresentationDslPackage.PROCESS__ROOT:
                 return root != ROOT_EDEFAULT;
+            case PresentationDslPackage.PROCESS__CONTENT_FORM:
+                return getContentForm() != null;
         }
         return super.eIsSet(featureID);
     }

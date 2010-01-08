@@ -35,16 +35,16 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateProcessWithListForm in Process.xpt") FOR this»
 «LET getServiceExpression(dialogueCall) AS serviceExpression»
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
+«LET getStandardExpression(dialogueCall) AS standardExpression»
 «LET findServiceWithMethod(this.contextRef.name, "UPDATE") AS service»
 «LET findSpecialMethodInService(this.contextRef.name, "UPDATE", service) AS updateService»
-«REM»
-«LET dialogueCall.arguments.typeSelect(ServiceExpression).selectFirst(e|e.name == "update") AS updateService2»
-«LET dialogueCall.arguments.typeSelect(ServiceExpression).selectFirst(e|e.name == "create") AS createService2»
-«ENDREM»
 package «getPresentationRootPackage()».processes;
 
 «IF serviceExpression != null»
 	import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
+	import «getPresentationRootPackage()».panels.«getWicketServiceDataProviderClass(form.contextRef.name)» ;
+«ELSEIF standardExpression != null»
+	import «javaLocalServiceInterfacePath(service)» ;
 	import «getPresentationRootPackage()».panels.«getWicketServiceDataProviderClass(form.contextRef.name)» ;
 «ELSEIF navigationExpression != null»
 	«LET getResultType(this.contextRef.modelName, this.contextRef.name, navigationExpression) AS resultType» 
@@ -78,17 +78,14 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	    «javaLocalServiceInterface(service)» service;
 	 «ELSEIF navigationExpression != null »
 	    «javaLocalServiceInterface(service)» service;
+	 «ELSEIF standardExpression != null »
+	    «javaLocalServiceInterface(service)» service;
 	 «ELSE»
 	     // TODO: this should not happen, both service and navigation expressions are empty
 	 «ENDIF»
 
     public Page nextPage(«this.contextRef.name» element) {
-	    «IF serviceExpression != null »
-			«getWicketServiceDataProviderClass(form.contextRef.name)» provider = new «getWicketServiceDataProviderClass(form.contextRef.name)»();
-			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
-			page.setProcess(this);
-			return page;
-		«ELSEIF navigationExpression != null»
+		«IF navigationExpression != null»
 			«LET this.contextRef AS context»	   
 			«LET getResultType(context.modelName, context.name, navigationExpression) AS resultType» 
 			«LET getWicketNavigationDataProviderClass(context.name, resultType) AS provider» 
@@ -99,6 +96,13 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			«ENDLET»
 			«ENDLET»
 			«ENDLET»
+	    «ELSEIF standardExpression != null »
+			«getWicketServiceDataProviderClass(form.contextRef.name)» provider = new «getWicketServiceDataProviderClass(form.contextRef.name)»();
+			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
+			page.setProcess(this);
+			return page;
+	    «ELSEIF serviceExpression != null »
+	    	// TODO: what beloings here ?
 		«ELSE»
 			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, null);
 			page.setProcess(this);
@@ -119,6 +123,7 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 	}
 
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

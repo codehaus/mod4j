@@ -47,27 +47,20 @@ fillLabel(Process p) :
     )
 ;
 Boolean convertActions(ContentForm form) :
-    form.actions.createProcess(form)
+    let actions = {}  :
+    actions.addAll(form.actions)->
+    actions.forAll(e|e.createProcess(form))
 ;
 
-Boolean createProcess(SimpleProcess action, ContentForm form) :
-    let tmp = (action.dialogueProcess == null ? 
-                   (action.process != null ? action.process : new AutomatedProcess) :
-                    action.dialogueProcess):
-    let result = (Process) tmp :
-//    let dialogue = new DialogueCall :
+Boolean createProcess(Object actionObject, ContentForm form) :
+    let action = (Process) actionObject :
     let name = form.name + action.name.toFirstUpper() + "Action" :
     let processCall = new ProcessCall :
-//    dialogue.setName(action.dialogue.name)->
-    result.setName(name)->
-    result.setLabel(action.name)->
-    result.setContextRef(form.contextRef)->
-//    ((action.dialogue != null) ? result.processElements.add(dialogue) : null)->
-    result.setType(action.type)->
     processCall.setName(name)->
+    action.setLabel(action.name)->
+    action.setName(name)->
+    action.setContextRef(form.contextRef)->
     form.processes.add(processCall)->
-    print("MOD4J CompletePMF: adding process [" + result.name + "]")->
-    form.presentationModel.elements.add(result)->
-    action.setProcess(null)->
-    action.setDialogueProcess(null)
+    form.presentationModel.elements.add(action)->
+    true
     ;

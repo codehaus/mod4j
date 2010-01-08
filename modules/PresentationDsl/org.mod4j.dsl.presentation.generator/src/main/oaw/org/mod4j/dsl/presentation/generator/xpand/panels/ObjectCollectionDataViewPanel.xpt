@@ -16,10 +16,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-«FOREACH this.processes.referredProcess().select(e|e.type!=ProcessType::NEW) AS ppp»
-// import «getPresentationRootPackage()».pages.«ppp.processElements.referredContentForm().first().name»Page;
-«ENDFOREACH»
-
 import «javaDtoClassPath(this.contextRef.name)»;
 «FOREACH this.formElements.dataProperty AS dp»
 	«IF dp.isEnumeration»

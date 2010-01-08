@@ -42,25 +42,11 @@ ContentForm :
 	"]"
 	;
 
-SimpleProcess :
+SimpleProcess  returns Process:
 	(description=STRING )? 
     name=ID (type=ProcessType)?
-    (
-        ( dialogueProcess = InteractiveProcessAction )
-      |
-        ( process = AutomatedProcessAction )
-    )
+	("use" processElements += DialogueCall ) ?
     ;
-
-AutomatedProcessAction returns AutomatedProcess :
-//	("services" "[" services += ServiceExpression ("," services += ServiceExpression)? "]")
-//	|
-	"batch"
-	; 
- 
-InteractiveProcessAction returns InteractiveProcess :
-	("use" processElements += DialogueCall ) 
-	;
   	
 enum ProcessType :
     NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove" | CANCEL = "Cancel"
@@ -98,25 +84,12 @@ MasterDetail :
 	;
 
 Process :
-	AutomatedProcess | InteractiveProcess
-	;
-	
-AutomatedProcess :
 	(description=STRING )?
-	"AutomatedProcess" name = ID "context" contextRef = [ExternalReference]
+	"Process" name = ID "context" contextRef = [ExternalReference]
 	(root ?= "start")?
 	(type=ProcessType)?
-	("steps" "[" (processElements += UICall ";")* "]")?
-//	("services" "[" services += ServiceExpression ("," services += ServiceExpression )? "]"	)?
-	;
-
-InteractiveProcess :
-	(description=STRING )?
-	"InteractiveProcess" name = ID "context" contextRef = [ExternalReference]
-	(root ?= "start")?
-	(type=ProcessType)?
+	("step" "[" (processElements += DialogueCall ";") "]")?
 //	("steps" "[" (processElements += UICall ";")* "]")?
-	("step" "[" (processElements += DialogueCall ";") "]")
 	;
 	
 FormElement :
@@ -136,7 +109,7 @@ DialogueCall :
 	;
 
 Expression :
-    ServiceExpression | NavigationExpression
+    ServiceExpression | NavigationExpression | StandardExpression
     ;
    	
 ProcessCall :
@@ -144,6 +117,12 @@ ProcessCall :
 	("alias" alias = ID)? 
 	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 	;
+
+StandardExpression :
+    type = ExpressionType;
+    
+enum ExpressionType :
+    ALL = "all" ;
 
 ServiceExpression :
     (name = ID ":")? "call"  serviceName = ID "." serviceMethod = ID

@@ -31,7 +31,7 @@
 
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
-	«FOREACH this.elements.typeSelect(InteractiveProcess) AS process»
+	«FOREACH this.elements.typeSelect(Process).select(e|e.isInteractive()) AS process»
 		«LET process.processElements.typeSelect(DialogueCall).first() AS uiCall»
 		«LET uiCall.referredContentForm() AS form »
 		«IF form != null»

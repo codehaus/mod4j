@@ -22,7 +22,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.SimpleProcess;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
@@ -131,10 +131,6 @@ public class PresentationHelpers {
     }
 
     static public Process referredProcess(ProcessCall call) {
-        Dialogue dia = call.getOwningDialogue();
-        if( dia == null ) {
-            return null;
-        }
         PresentationModel model = findModel(call);
         EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements ){
@@ -154,6 +150,17 @@ public class PresentationHelpers {
             Expression link = uiCall.getContextExp();
             if( link instanceof NavigationExpression ){
                 return (NavigationExpression) link;
+            }
+        }
+        return null;
+    }
+
+    static public StandardExpression getStandardExpression(UICall call){
+        if( call instanceof UIModelElementCall){
+            UIModelElementCall uiCall = (UIModelElementCall)call;
+            Expression link = uiCall.getContextExp();
+            if( link instanceof StandardExpression ){
+                return (StandardExpression) link;
             }
         }
         return null;
@@ -213,11 +220,6 @@ public class PresentationHelpers {
         return result;
     }
 
-//    static public String invariantNavigationCorrect(SimpleProcess p) {
-//        if( )
-//        
-//        return "";
-//    }
     static public boolean refOk(String model, String dtoName, NavigationExpression nav){
         String result= null;
         
@@ -314,7 +316,7 @@ public class PresentationHelpers {
         if( p.getContextRef()!= null ){
             return p.getContextRef() ;
         } else {
-            return ((SimpleProcess)p.eContainer()).getContentForm().getContextRef() ;
+            return p.getContentForm().getContextRef() ;
         }
     }
 }

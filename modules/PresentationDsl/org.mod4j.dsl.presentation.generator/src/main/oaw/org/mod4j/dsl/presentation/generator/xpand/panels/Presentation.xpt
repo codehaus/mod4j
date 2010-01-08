@@ -172,7 +172,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
 «DEFINE GenerateMasterPage FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
-«LET this.elements.typeSelect(InteractiveProcess).select(ip|ip.root) AS processes»
+«LET this.elements.typeSelect(Process).select(ip|ip.isInteractive() && ip.root) AS processes»
 package «getPresentationRootPackage()».pages;
 
 import java.util.ArrayList;
