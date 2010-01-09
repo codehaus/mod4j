@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Presentation xtext ui
 Bundle-SymbolicName: org.mod4j.dsl.presentation.xtext.ui;singleton:=true
 Bundle-Version: 1.1.0.qualifier
+Eclipse-RegisterBuddy: org.mod4j.common
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.mod4j.dsl.presentation.mm;bundle-version="1.1.0",
  org.mod4j.dsl.presentation.xtext;bundle-version="1.1.0",
