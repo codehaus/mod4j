@@ -11,7 +11,6 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
  * @author Johan Vogelzang
@@ -20,7 +19,7 @@ public class PagingSupportCustomerServciceTest extends AbstractServiceTestCase {
 
     @Autowired
     private CustomerDao customerDao;
-    
+
     @Autowired
     private CustomerServiceModelLocalService customerServiceModelService;
 
@@ -37,7 +36,7 @@ public class PagingSupportCustomerServciceTest extends AbstractServiceTestCase {
     public void setUp() {
 
         for (int i = 1; i <= NUMBER_OF_ITEMS; i++) {
-            Customer customer = new Customer("Customer-" + i, "FirstName", date(), i);
+            Customer customer = new Customer("Customer" + i, "Last name", date(), i);
             customerDao.add(customer);
         }
         flush();
@@ -59,7 +58,39 @@ public class PagingSupportCustomerServciceTest extends AbstractServiceTestCase {
     @Test
     public void testListCustomersInRange() {
 
-        List<SimpleCustomerDto> custList = customerServiceModelService.listCustomers(5, 15);      
+        List<SimpleCustomerDto> custList = customerServiceModelService.listCustomers(5, 15);
         assertEquals(10, custList.size());
+    }
+
+    /**
+     * Test method for {@link CustomerDao#listCustomers(firstResult, maxResults, sortParam)}.
+     */
+    @Test
+    public void testSortedAscendingListInRange() {
+
+        List<SimpleCustomerDto> custList = customerServiceModelService.listCustomers(6, 5, "customerNr", true);
+        assertEquals(5, custList.size());
+
+        assertEquals(7, custList.get(0).getCustomerNr().intValue());
+        assertEquals(8, custList.get(1).getCustomerNr().intValue());
+        assertEquals(9, custList.get(2).getCustomerNr().intValue());
+        assertEquals(10, custList.get(3).getCustomerNr().intValue());
+        assertEquals(11, custList.get(4).getCustomerNr().intValue());
+    }
+
+    /**
+     * Test method for {@link CustomerDao#listCustomers(firstResult, maxResults, sortParam)}.
+     */
+    @Test
+    public void testSortedDescendingListInRange() {
+
+        List<SimpleCustomerDto> custList = customerServiceModelService.listCustomers(6, 5, "customerNr", false);
+        assertEquals(5, custList.size());
+
+        assertEquals(9, custList.get(0).getCustomerNr().intValue());
+        assertEquals(8, custList.get(1).getCustomerNr().intValue());
+        assertEquals(7, custList.get(2).getCustomerNr().intValue());
+        assertEquals(6, custList.get(3).getCustomerNr().intValue());
+        assertEquals(5, custList.get(4).getCustomerNr().intValue());
     }
 }

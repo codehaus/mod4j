@@ -120,9 +120,27 @@
      * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
      * @param maxResuls - the maximum number of result objects to retrieve (or <=0 for no limit) 
      * 
-     * @return List containing 0 or more existing «dto.businessClass()» objects. 
+     * @return List containing 0 or more existing «dto.businessClass()» objects.
+     *
+     * @see {@link #list«this.dto.businessClass()»s(int, int, String, boolean)} 
      */
     public List<«javaDomainClass(dto.businessClass())»> list«this.dto.businessClass()»s(final int firstResult, final int maxResults);
+    
+    /**
+     * Reads a sorted range (page) of existing «dto.businessClass()»s.
+     * «description» 
+     * 
+     * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResuls - the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * @param sortProperty the property of the object to sort on
+     * @param isAscending should the retruned list be sorted ascending or descending? 
+     * 
+     * @return List containing 0 or more existing «dto.businessClass()» objects.
+     *
+     * @see {@link #list«this.dto.businessClass()»s(int, int, String, boolean)}
+     */
+    public List<«javaDomainClass(dto.businessClass())»> list«this.dto.businessClass()»s(final int firstResult, final int maxResults,
+        final String sortProperty, final boolean isAscending);
     
     /**
      * Counts all existing «dto.businessClass()»s objects.

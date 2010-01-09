@@ -186,6 +186,21 @@
         }
         return result;
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults,
+        final String sortProperty, final boolean isAscending) {
+        List<«this.dto.businessClass()»> range = «javaDomainServiceInterface(model.name).toFirstLower()».list«this.dto.businessClass()»s(firstResult, maxResults, sortProperty, isAscending);
+        List<«JavaType(this.dto)»> result = new ArrayList<«JavaType(this.dto)»>();
+        
+        for («this.dto.businessClass()» object : range) {
+            «JavaType(this.dto)» item = «javaTranslatorClass(dto.name).toFirstLower()».toDto(object);
+            result.add(item);
+        }
+        return result;
+    }
 «ENDDEFINE»
 
 «DEFINE CountMethod FOR SpecialMethod»

@@ -73,7 +73,7 @@
 «DEFINE CustomMethod FOR CustomMethod»
 «LET JavaType(this.output) AS returnType»
 	/** 
-	 * Description: «this.description»
+	 * Description: «this.description».
 	 «FOREACH inParameters AS param-»
 	 * @param «param.name» A custom parameter
 	 «ENDFOREACH-»
@@ -91,7 +91,7 @@
 
 «DEFINE CreateMethod FOR SpecialMethod»
     /**
-     * Create a new «this.dto.name».
+     * Creates a new «this.dto.name».
      * «description»
      * @param object 
      *            The «this.dto.name» to create.
@@ -102,7 +102,7 @@
 
 «DEFINE ReadMethod FOR SpecialMethod»
     /**
-     * Read an existing «this.dto.name».
+     * Reads an existing «this.dto.name».
      * «description»
      * @param id
      *            The id of the «this.dto.name» to read.
@@ -113,7 +113,7 @@
 
 «DEFINE UpdateMethod FOR SpecialMethod»
     /**
-     * Update an existing «this.dto.name».
+     * Updates an existing «this.dto.name».
      * «description»
      * @param object
      *            The «this.dto.name» containing the modifications for the corresponding «JavaType(this.dto)»
@@ -124,7 +124,7 @@
 
 «DEFINE DeleteMethod FOR SpecialMethod»
     /**
-     * Delete an existing «this.dto.name».
+     * Deletes an existing «this.dto.name».
      * «description»
      * @param object
      *            The «this.dto.name» object to delete.
@@ -134,7 +134,7 @@
 
 «DEFINE ListallMethod FOR SpecialMethod»
     /**
-     * Return a list of all objects of type «JavaType(this.dto)»
+     * Returns a list of all objects of type «JavaType(this.dto)».
      * «description»
      *
      * @return the list of all «JavaType(this.dto)» objects.
@@ -147,23 +147,40 @@
      * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
      * @param maxResults - the maximum number of result objects to retrieve (or <=0 for no limit) 
      * 
-     * @return List containing 0 or more «JavaType(this.dto)» objects. 
+     * @return List containing 0 or more «JavaType(this.dto)» objects.
+     *
+     * @see {@link #«this.name»(int, int, String, boolean)}
      */
     public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults);
+    
+    /**
+     * Reads an sorted range (page) of objects of type «JavaType(this.dto)».
+     * 
+     * @param firstResult - the index of the first result object to be retrieved (numbered from 0)
+     * @param maxResults - the maximum number of result objects to retrieve (or <=0 for no limit) 
+     * @param sortProperty - the property of the object to sort on
+     * @param isAscending - should the retruned list be sorted ascending or descending? 
+     *
+     * @return ordered List containing 0 or more «JavaType(this.dto)» objects.
+     *
+     * @see {@link #«this.name»(int, int)} 
+     */
+    public List<«JavaType(this.dto)»> «this.name»(final int firstResult, final int maxResults,
+        final String sortProperty, final boolean isAscending);
 «ENDDEFINE»
 
 «DEFINE CountMethod FOR SpecialMethod»
     /**
      * Counts the number of existing objects of type «this.dto.businessClass()».
      * 
-     * @long number of existing «this.dto.businessClass()» objects. 
+     * @return number of existing «this.dto.businessClass()» objects. 
      */
     public long count«this.dto.businessClass()»s();
 «ENDDEFINE»
 
 «DEFINE FindMethod FOR SpecialMethod»
     /**
-     * Find all objects of type «JavaType(this.dto)» that conform to the example object
+     * Find all objects of type «JavaType(this.dto)» that conform to the example object.
      * «description»
      * @param example
      *            The objects to which the result objects need to conform.
@@ -179,7 +196,7 @@
 	    «LET ((mult == "ONE") ? "set" : "addTo") + method.rolename.toFirstUpper() AS genName»
 	    	«IF method.type == MethodType::ADDTO»
 	    	    /**
-	    	     * Add an «method.part.name» to an «method.main.name»
+	    	     * Adds an «method.part.name» to an «method.main.name».
 			     * «method.description»
 			     * @param whole
 			     *            The object to which to add.
@@ -191,7 +208,7 @@
 			
 			«IF method.type == MethodType::REMOVEFROM»
 	    	    /**
-	    	     * Remove an «method.part.name» from an «method.main.name»
+	    	     * Removes an «method.part.name» from an «method.main.name».
 			     * «method.description»
 			     * @param whole
 			     *            The object from which to remove.
@@ -204,7 +221,7 @@
 			«IF method.type == MethodType::GETFROM»
 				«IF (mult == "ONE")»
 		    	    /**
-		    	     * Get the «method.part.name» from an «method.main.name»
+		    	     * Gets the «method.part.name» from an «method.main.name».
 				     * «method.description»
 				     * @param source
 				     *            The object from which to get the «method.part.name»
@@ -213,7 +230,7 @@
 	                public «JavaType(method.part)» «method.name»(«method.main.name» source);
 				«ELSE»
 		    	    /**
-		    	     * Get the «method.part.name» from «method.main.name»
+		    	     * Gets the «method.part.name» from «method.main.name».
 				     * «method.description»
 				     * @param source
 				     *            The object from which to get the «method.part.name»
@@ -227,4 +244,3 @@
 		«ENDLET»
 	«ENDFOREACH»
 «ENDDEFINE»
-

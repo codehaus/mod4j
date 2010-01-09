@@ -148,29 +148,6 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
     }
 
     /**
-     * Test method for {@link CustomerDao#listAllCustomers()}.
-     */
-    @Test
-    public void testListAllCustomers() {
-        customerDao.add(new Customer("Rembrandt", "van Rijn", date(), 3));
-        customerDao.add(new Customer("Saskia", "van Rijn", date(), 4));
-        customerDao.add(new Customer("Paulus", "Potter", date(), 5));
-        flush();
-        clear();
-        assertEquals(3, SimpleJdbcTestUtils.countRowsInTable(simpleJdbcTemplate, "Customer_TABLE"));
-        List<Customer> customers = customerDao.listAll();
-        assertNotNull(customers);
-        assertEquals(3, customers.size());
-        Collections.sort(customers, new CustomerComparator()); // Om
-        // willekeurige
-        // volgorde te
-        // vermijden.
-        assertEquals("Paulus", customers.get(0).getFirstName());
-        assertEquals("Rembrandt", customers.get(1).getFirstName());
-        assertEquals("Saskia", customers.get(2).getFirstName());
-    }
-
-    /**
      * Basic Collection pattern test (inverse="true"). Test method for deleting a customer with orders added. </br>
      * Model code: <code>association Customer customer one <-> many Order orders;</code> </br> Its a bi-directional
      * one-to-many relation without notion of composite- or aggregate-root concept. Tests when a Customer with an
