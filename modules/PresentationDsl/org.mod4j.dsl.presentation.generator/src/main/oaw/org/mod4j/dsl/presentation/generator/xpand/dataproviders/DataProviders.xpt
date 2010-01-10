@@ -43,7 +43,13 @@
 			    	    «EXPAND NavigationDataProvider::NavigationDataProvider FOR uiCall»
 					«ENDFILE»
 				«ELSEIF uiCall.getServiceExpression() != null»
-			    	«print("Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+			    	«print("01 Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
+			    	    «EXPAND DtoServiceDataProvider::DtoServiceDataProvider FOR uiCall»
+					«ENDFILE»
+				«ELSE»
+			    	«print("02 Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
 					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
 					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
 			    	    «EXPAND DtoServiceDataProvider::DtoServiceDataProvider FOR uiCall»
