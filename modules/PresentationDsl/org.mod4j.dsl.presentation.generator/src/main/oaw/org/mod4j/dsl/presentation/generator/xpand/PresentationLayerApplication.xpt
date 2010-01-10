@@ -51,8 +51,14 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketHomePageClass() ))»
 	    «EXPAND Presentation::GenerateHomePage FOR this»
 	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketHomePageClass() + "Dummy" ))»
+	    «EXPAND Presentation::GenerateDummyPage FOR this»
+	«ENDFILE»
 	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + getWicketHomePageClass() + ".html")»
 	    «EXPAND Presentation::GenerateHomePageHtml FOR this»
+	«ENDFILE»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + getWicketHomePageClass() + "Dummy" + ".html")»
+	    «EXPAND Presentation::GenerateDummyPageHtml FOR this»
 	«ENDFILE»
 
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + getWicketHtmlPanelClass() ))»

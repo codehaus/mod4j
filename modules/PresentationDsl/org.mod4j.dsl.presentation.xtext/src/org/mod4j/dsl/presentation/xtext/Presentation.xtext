@@ -130,7 +130,7 @@ ServiceExpression :
 
 NavigationExpression :
     (name = ID ":")? "navigate" references += AssociationRoleReference  
-    ( "." references += AssociationRoleReference ) *
+// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
     ;
 
 DtoPropertyReference :

@@ -106,6 +106,33 @@ public class «getWicketRequestCycleClass()» extends WebRequestCycle {
 }
 «ENDDEFINE»
 
+«DEFINE GenerateDummyPage FOR PresentationModel -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateDummyPage in Presentation.xpt") FOR this»
+package «getPresentationRootPackage()».pages;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+
+public class «getWicketHomePageClass()»Dummy  extends «getWicketMasterPageClass()» {
+
+    public «getWicketHomePageClass()»Dummy() {
+        this(new PageParameters());
+    }
+
+    public «getWicketHomePageClass()»Dummy(PageParameters parameters) {
+        super(null);
+        add(new FeedbackPanel("feedback"));
+    }
+
+    @Override
+    public String getPageTitle() {
+        return "Dummy page, action or process should be manually implemented";
+    }
+}
+«ENDDEFINE»
+
 «DEFINE GenerateHomePage FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
 package «getPresentationRootPackage()».pages;
@@ -162,6 +189,19 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 <body>
 <wicket:extend>
 	<wicket:message key="home.msg"/>
+	<br/><br/>
+	<span wicket:id="feedback"/>
+</wicket:extend>
+</body>
+</html>
+«ENDDEFINE»
+
+«DEFINE GenerateDummyPageHtml FOR PresentationModel -»
+    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateDummyPageHtml in Presentation.xpt") FOR this»
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+<body>
+<wicket:extend>
+    Dummy Page
 	<br/><br/>
 	<span wicket:id="feedback"/>
 </wicket:extend>
@@ -345,7 +385,7 @@ public class «getWicketHtmlPanelClass()» extends Panel {
 «ENDDEFINE»
 
 «DEFINE GenerateHtmlPanelHtml FOR PresentationModel -»
-«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this-»
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateHtmlPanelHtml in Presentation.xpt") FOR this-»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/" xml:lang="nl" lang="nl">
 <wicket:head>
 	<title><wicket:message key="app.title"/></title>

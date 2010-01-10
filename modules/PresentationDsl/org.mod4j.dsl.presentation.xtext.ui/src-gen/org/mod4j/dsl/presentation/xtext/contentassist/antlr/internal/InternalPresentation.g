@@ -4564,30 +4564,10 @@ rule__NavigationExpression__Group__2
 { after(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_2()); }
 )
 
-	rule__NavigationExpression__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__NavigationExpression__Group__3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getNavigationExpressionAccess().getGroup_3()); }
-(rule__NavigationExpression__Group_3__0)*
-{ after(grammarAccess.getNavigationExpressionAccess().getGroup_3()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
@@ -4625,47 +4605,6 @@ rule__NavigationExpression__Group_0__1
 	':' 
 
 { after(grammarAccess.getNavigationExpressionAccess().getColonKeyword_0_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
-rule__NavigationExpression__Group_3__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getNavigationExpressionAccess().getFullStopKeyword_3_0()); }
-
-	'.' 
-
-{ after(grammarAccess.getNavigationExpressionAccess().getFullStopKeyword_3_0()); }
-)
-
-	rule__NavigationExpression__Group_3__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__NavigationExpression__Group_3__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_3_1()); }
-(rule__NavigationExpression__ReferencesAssignment_3_1)
-{ after(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_3_1()); }
 )
 
 ;
@@ -5774,21 +5713,6 @@ rule__NavigationExpression__ReferencesAssignment_2
 (
 { before(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_2_0()); }
 	ruleAssociationRoleReference{ after(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_2_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__NavigationExpression__ReferencesAssignment_3_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_3_1_0()); }
-	ruleAssociationRoleReference{ after(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_3_1_0()); }
 )
 
 ;

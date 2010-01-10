@@ -99,7 +99,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getServiceExpressionAccess().getGroup_0(), "rule__ServiceExpression__Group_0__0");
 					put(grammarAccess.getNavigationExpressionAccess().getGroup(), "rule__NavigationExpression__Group__0");
 					put(grammarAccess.getNavigationExpressionAccess().getGroup_0(), "rule__NavigationExpression__Group_0__0");
-					put(grammarAccess.getNavigationExpressionAccess().getGroup_3(), "rule__NavigationExpression__Group_3__0");
 					put(grammarAccess.getUIModelElementCallAccess().getGroup_0(), "rule__UIModelElementCall__Group_0__0");
 					put(grammarAccess.getUIModelElementCallAccess().getGroup_1(), "rule__UIModelElementCall__Group_1__0");
 					put(grammarAccess.getPresentationModelAccess().getDescriptionAssignment_0(), "rule__PresentationModel__DescriptionAssignment_0");
@@ -165,7 +164,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getServiceExpressionAccess().getServiceMethodAssignment_4(), "rule__ServiceExpression__ServiceMethodAssignment_4");
 					put(grammarAccess.getNavigationExpressionAccess().getNameAssignment_0_0(), "rule__NavigationExpression__NameAssignment_0_0");
 					put(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_2(), "rule__NavigationExpression__ReferencesAssignment_2");
-					put(grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_3_1(), "rule__NavigationExpression__ReferencesAssignment_3_1");
 					put(grammarAccess.getDtoPropertyReferenceAccess().getNameAssignment(), "rule__DtoPropertyReference__NameAssignment");
 					put(grammarAccess.getAssociationRoleReferenceAccess().getNameAssignment(), "rule__AssociationRoleReference__NameAssignment");
 				}

@@ -1334,18 +1334,18 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cNavigateKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cReferencesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cReferencesAssociationRoleReferenceParserRuleCall_2_0 = (RuleCall)cReferencesAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cFullStopKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cReferencesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cReferencesAssociationRoleReferenceParserRuleCall_3_1_0 = (RuleCall)cReferencesAssignment_3_1.eContents().get(0);
 		
 		//NavigationExpression:
-		//  (name=ID ":")? "navigate" references+=AssociationRoleReference ("." references+=
-		//  AssociationRoleReference)*;
+		//  (name=ID ":")? "navigate" references+=AssociationRoleReference; 
+		//
+		//  
+		//                    
+		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 		public ParserRule getRule() { return rule; }
 
-		//(name=ID ":")? "navigate" references+=AssociationRoleReference ("." references+=
-		//AssociationRoleReference)*
+		//(name=ID ":")? "navigate" references+=AssociationRoleReference 
+		//                    
+		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 		public Group getGroup() { return cGroup; }
 
 		//(name=ID ":")?
@@ -1363,23 +1363,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//"navigate"
 		public Keyword getNavigateKeyword_1() { return cNavigateKeyword_1; }
 
-		//references+=AssociationRoleReference
+		//references+=AssociationRoleReference         
+		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 		public Assignment getReferencesAssignment_2() { return cReferencesAssignment_2; }
 
-		//AssociationRoleReference
+		//AssociationRoleReference     
+		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 		public RuleCall getReferencesAssociationRoleReferenceParserRuleCall_2_0() { return cReferencesAssociationRoleReferenceParserRuleCall_2_0; }
-
-		//("." references+=AssociationRoleReference)*
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"."
-		public Keyword getFullStopKeyword_3_0() { return cFullStopKeyword_3_0; }
-
-		//references+=AssociationRoleReference
-		public Assignment getReferencesAssignment_3_1() { return cReferencesAssignment_3_1; }
-
-		//AssociationRoleReference
-		public RuleCall getReferencesAssociationRoleReferenceParserRuleCall_3_1_0() { return cReferencesAssociationRoleReferenceParserRuleCall_3_1_0; }
 	}
 
 	public class DtoPropertyReferenceElements implements IParserRuleAccess {
@@ -1803,8 +1793,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//NavigationExpression:
-	//  (name=ID ":")? "navigate" references+=AssociationRoleReference ("." references+=
-	//  AssociationRoleReference)*;
+	//  (name=ID ":")? "navigate" references+=AssociationRoleReference; 
+	//
+	//  
+	//                    
+	//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 	public NavigationExpressionElements getNavigationExpressionAccess() {
 		return (pNavigationExpression != null) ? pNavigationExpression : (pNavigationExpression = new NavigationExpressionElements());
 	}

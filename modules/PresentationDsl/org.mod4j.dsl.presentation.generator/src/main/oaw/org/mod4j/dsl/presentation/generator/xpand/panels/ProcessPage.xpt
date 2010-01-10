@@ -68,7 +68,6 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	public void startProcess(String processName, «this.contextRef.name» context){
 	«FOREACH form.processes AS pp»
 	«LET pp.referredProcess() AS p»
-	«print("DDDDDDDDDDDDDDDDDDDDDDDDD [" + pp + "] [" + p + "]")»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
@@ -97,11 +96,6 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 
 «DEFINE GenerateListContentFormPage(DialogueCall dialogueCall) FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
-«REM»
-«LET this.processElements.first().referredCollectionDialogue() AS collDialogue»
-«LET collDialogue.dialogues.first().referredContentForm() AS cf»
-«LET this.processElements.first().referredContentForm() AS cf»
-«ENDREM»
 «LET referredContentForm(dialogueCall) AS form»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
@@ -117,7 +111,6 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«form.name»CollectionDataViewPanel;
 import «getPresentationRootPackage()».panels.«form.contextRef.name»ListListener;
 import «javaDtoClassPath(form.contextRef.name)»;
-// import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
 import «getPresentationRootPackage()».processes.PmfProcess;
 «IF dialogueCall.getNavigationExpression() != null »
 import «getPresentationRootPackage()».panels.«getWicketNavigationDataProviderClass(this.contextRef.name, form.contextRef.name)»;
@@ -132,7 +125,6 @@ import «getPresentationRootPackage()».processes.«editProcess.name»Process;
 «IF newProcess != null»
 import «getPresentationRootPackage()».processes.«newProcess.name»Process;
 «ENDIF»
-
 
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
@@ -185,7 +177,6 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	«ELSEIF dialogueCall.getServiceExpression() != null »
 		public «this.name»«form.name»Page (PmfProcess owner, «getWicketServiceDataProviderClass(form.contextRef.name)» dataProvider)
 	«ELSE»
-	    «REM»No arguments !«ENDREM»
 		public «this.name»«form.name»Page (PmfProcess owner, Mod4jDataProvider<«form.contextRef.name»> dataProvider)
 	«ENDIF»
 	{
@@ -248,8 +239,8 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	«ENDFOREACH»
 	}
 
-	public void on«form.contextRef.name»Cancel(«form.contextRef.name» element) {
-	}
+//	public void on«form.contextRef.name»Cancel(«form.contextRef.name» element) {
+//	}
 
 }
 «ENDLET»

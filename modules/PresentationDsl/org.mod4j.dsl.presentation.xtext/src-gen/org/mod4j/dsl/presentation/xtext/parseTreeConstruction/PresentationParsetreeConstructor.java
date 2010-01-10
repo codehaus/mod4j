@@ -5711,13 +5711,17 @@ protected class ServiceExpression_ServiceMethodAssignment_4 extends AssignmentTo
 /************ begin Rule NavigationExpression ****************
  *
  * NavigationExpression:
- *   (name=ID ":")? "navigate" references+=AssociationRoleReference ("." references+=
- *   AssociationRoleReference)*;
+ *   (name=ID ":")? "navigate" references+=AssociationRoleReference; 
+ * 
+ *   
+ *                     
+ * // TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
  *
  **/
 
-// (name=ID ":")? "navigate" references+=AssociationRoleReference ("." references+=
-// AssociationRoleReference)*
+// (name=ID ":")? "navigate" references+=AssociationRoleReference 
+//                     
+// // TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 protected class NavigationExpression_Group extends GroupToken {
 	
 	public NavigationExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5730,8 +5734,7 @@ protected class NavigationExpression_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new NavigationExpression_Group_3(parent, this, 0, inst);
-			case 1: return new NavigationExpression_ReferencesAssignment_2(parent, this, 1, inst);
+			case 0: return new NavigationExpression_ReferencesAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5833,7 +5836,8 @@ protected class NavigationExpression_NavigateKeyword_1 extends KeywordToken  {
 		
 }
 
-// references+=AssociationRoleReference
+// references+=AssociationRoleReference         
+// // TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 protected class NavigationExpression_ReferencesAssignment_2 extends AssignmentToken  {
 	
 	public NavigationExpression_ReferencesAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5874,90 +5878,6 @@ protected class NavigationExpression_ReferencesAssignment_2 extends AssignmentTo
 		}	
 	}	
 }
-
-// ("." references+=AssociationRoleReference)*
-protected class NavigationExpression_Group_3 extends GroupToken {
-	
-	public NavigationExpression_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getNavigationExpressionAccess().getGroup_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new NavigationExpression_ReferencesAssignment_3_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "."
-protected class NavigationExpression_FullStopKeyword_3_0 extends KeywordToken  {
-	
-	public NavigationExpression_FullStopKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getNavigationExpressionAccess().getFullStopKeyword_3_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new NavigationExpression_Group_3(parent, this, 0, inst);
-			case 1: return new NavigationExpression_ReferencesAssignment_2(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// references+=AssociationRoleReference
-protected class NavigationExpression_ReferencesAssignment_3_1 extends AssignmentToken  {
-	
-	public NavigationExpression_ReferencesAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getNavigationExpressionAccess().getReferencesAssignment_3_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AssociationRoleReference_NameAssignment(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("references",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("references");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getAssociationRoleReferenceRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_3_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new NavigationExpression_FullStopKeyword_3_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
 
 
 /************ end Rule NavigationExpression ****************/

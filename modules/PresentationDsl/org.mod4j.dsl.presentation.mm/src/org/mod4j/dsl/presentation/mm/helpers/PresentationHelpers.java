@@ -71,7 +71,17 @@ public class PresentationHelpers {
         } else if( methodType.equals("LISTALL") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             return outDto;
-        } else if( methodType.equals("CREATE") ) {
+        } else if( methodType.equals("UPDATE") ) {
+            String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
+            String inDto = outDto;
+            if( ! inDto.equals(context ) ){
+                return "ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+            }
+            return outDto;
+        } else if( methodType.equals("READ") ) {
+            String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
+            return outDto;
+        } else if( methodType.equals("Create") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             return outDto;
         }
@@ -248,7 +258,9 @@ public class PresentationHelpers {
         return "";
     }
     /**
-     * Checks process p for everything
+     * Checks process p for 
+     * ERROR 1: proces refers to non existing form
+     * ERROR 2-4: type of referred form and context (through all, service or navigation) incorrect
      * @param p
      * @return
      */
@@ -300,6 +312,18 @@ public class PresentationHelpers {
 //                        if( ! form.getContextRef().getName().equals(resultType)){
 //                            return "ERROR: context of navigation and called dialogue should be the same";
 //                        }
+                    }
+                    StandardExpression stdExp = getStandardExpression(dialogueCall);
+                    if( stdExp != null ){
+                        String resultType = findContext(p).getName();
+                        if( resultType.startsWith("ERROR:")){
+                            return resultType;
+                        } else {
+                            if( ! expectedType.equals(resultType) ){
+                                return "ERROR: 4 type of process [" + resultType + 
+                                "] and called dialogue [" + expectedType + "] should be the same";
+                            }
+                        }
                     }
                 }
             }

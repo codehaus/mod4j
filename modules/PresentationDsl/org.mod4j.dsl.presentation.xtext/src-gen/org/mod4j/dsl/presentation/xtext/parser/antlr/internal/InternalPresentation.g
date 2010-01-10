@@ -2167,32 +2167,7 @@ ruleNavigationExpression returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)('.' 
-    {
-        createLeafNode(grammarAccess.getNavigationExpressionAccess().getFullStopKeyword_3_0(), null); 
-    }
-(	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_3_1_0(), currentNode); 
-	    }
-	    lv_references_5=ruleAssociationRoleReference 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getNavigationExpressionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "references", lv_references_5, "AssociationRoleReference", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-))*);
+));
 
 
 
