@@ -6,17 +6,67 @@
 «EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
 
+«DEFINE GenerateProcesses FOR PresentationModel-»
+    «FOREACH this.elements.typeSelect(Process) AS p»
+		«LET p.processElements.referredContentForm().select(f | f.isCollection).first() AS form»
+		«LET p.processElements.typeSelect(DialogueCall).select(dia | dia.contextExp != null).first() AS dialogueCallWithContext»
+		«LET p.processElements.referredContentForm().select(f | ! f.isCollection).first() AS nonCollectionForm»
+		«LET p.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
+
+		«LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "Process") AS filePath»
+		«LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "ProcessImplBase") AS filePathImplBase»
+
+		«REM»Generate implementation file «ENDREM»
+		«FILE generate(getPresentationModuleName(""), filePathImplBase)»
+			«IF (form != null) && (dialogueCallWithContext != null) && (p.type == ProcessType::CUSTOM) »
+			    «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCallWithContext) FOR p»
+		    «ELSEIF ! p.isInteractive() »
+		        «EXPAND GenerateBatchProcessImplBase FOR p»
+		    «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::CUSTOM)»
+		        «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCall) FOR p»
+		    «ELSE»
+		        «EXPAND GenerateProcessWithSingleFormImplBase(nonCollectionForm, dialogueCall) FOR p»
+			«ENDIF»
+		«ENDFILE»
+
+		«IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), filePath ))»
+			«print("MOD4J REGENERATE: [" + fullExtendPath(getPresentationModuleName(""), filePath) + "]")»
+			«FILE extend(getPresentationModuleName(""), filePath)»
+				«IF (form != null) && (dialogueCallWithContext != null) && (p.type == ProcessType::CUSTOM) »
+				    «EXPAND GenerateProcessWithListForm(form, dialogueCallWithContext) FOR p»
+			    «ELSEIF ! p.isInteractive() »
+			        «EXPAND GenerateBatchProcess FOR p»
+			    «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::CUSTOM)»
+			        «EXPAND GenerateProcessWithListForm(form, dialogueCall) FOR p»
+			    «ELSE»
+			        «EXPAND GenerateProcessWithSingleForm(nonCollectionForm, dialogueCall) FOR p»
+				«ENDIF»
+	        «ENDFILE»
+		«ELSE»
+			«print("MOD4J RETAIN    : [" + fullExtendPath(getPresentationModuleName(""), filePath)+ "]")»
+			«retain(getPresentationModuleName(""), filePath)»
+	    «ENDIF»
+		«ENDLET»
+		«ENDLET»
+		«ENDLET»
+		«ENDLET»
+		«ENDLET»
+		«ENDLET»
+
+    «ENDFOREACH»
+«ENDDEFINE»
  
-«DEFINE GenerateProcess FOR Process -»
+«DEFINE aaaGenerateProcess FOR Process -»
 «LET this.processElements.referredContentForm().select(f | f.isCollection).first() AS form»
 «LET this.processElements.typeSelect(DialogueCall).select(dia | dia.contextExp != null).first() AS dialogueCallWithContext»
 «LET this.processElements.referredContentForm().select(f | ! f.isCollection).first() AS nonCollectionForm»
 «LET this.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
 	«IF (form != null) && (dialogueCallWithContext != null) && (this.type == ProcessType::CUSTOM) »
 	    «EXPAND GenerateProcessWithListForm(form, dialogueCallWithContext) FOR this»
-    «ELSEIF (dialogueCall == null) && (dialogueCallWithContext == null) »
-        «EXPAND GenerateBatchProcess FOR this»
+    «ELSEIF ! this.isInteractive() »
+        «EXPAND GenerateBatchProcessImplBase FOR this»
     «ELSEIF (form != null) && (dialogueCallWithContext == null) && (this.type == ProcessType::CUSTOM)»
         «EXPAND GenerateProcessWithListForm(form, dialogueCall) FOR this»
     «ELSE»
@@ -32,6 +82,17 @@
 «REM» Generate code for process witrjh a diaologuecall that is a collection and has a context expression
 «ENDREM»
 «DEFINE GenerateProcessWithListForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateProcessWithListForm in Process.xpt") FOR this»
+package «getPresentationRootPackage()».processes;
+
+public class «this.name»Process extends «this.name»ProcessImplBase 
+{
+}
+«ENDDEFINE»
+
+«REM» Generate code for process witrjh a diaologuecall that is a collection and has a context expression
+«ENDREM»
+«DEFINE GenerateProcessWithListFormImplBase(ContentForm form, DialogueCall dialogueCall) FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateProcessWithListForm in Process.xpt") FOR this»
 «LET getServiceExpression(dialogueCall) AS serviceExpression»
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
@@ -75,7 +136,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
-public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
+public class «this.name»ProcessImplBase extends Page implements PmfProcess<«this.contextRef.name»> 
 {
     «IF (serviceExpression != null) »
 	    «javaLocalServiceInterface(service)» service;
@@ -138,9 +199,18 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 «ENDLET»
 «ENDDEFINE»
 
+«DEFINE GenerateProcessWithSingleForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateProcessWithSingleForm in Process.xpt") FOR this»
+package «getPresentationRootPackage()».processes;
+
+public class «this.name»Process extends «this.name»ProcessImplBase 
+{
+}
+«ENDDEFINE»
+
 «REM» Generate code for process with a diaologuecall that is a not collection 
 «ENDREM»
-«DEFINE GenerateProcessWithSingleForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
+«DEFINE GenerateProcessWithSingleFormImplBase(ContentForm form, DialogueCall dialogueCall) FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateProcessWithSingleForm in Process.xpt") FOR this»
 «LET getServiceExpression(dialogueCall) AS serviceExpression»
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
@@ -176,7 +246,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
-public class «this.name»Process extends Page implements PmfProcess<«this.contextRef.name»> 
+public class «this.name»ProcessImplBase extends Page implements PmfProcess<«this.contextRef.name»> 
 {
     «IF (serviceExpression != null) »
 	 «ELSEIF navigationExpression != null »
@@ -257,7 +327,6 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 «ENDREM»
 «DEFINE GenerateBatchProcess FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcess  in Process.xpt") FOR this»
-«print("// Batch process")»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».panels.Mod4jDataProvider;
@@ -275,7 +344,37 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 /** Automated process
  */
-public class «this.name»Process implements PmfProcess<«this.contextRef.name»> 
+public class «this.name»Process extends «this.name»ProcessImplBase 
+{
+	«IF this.type == ProcessType::CUSTOM»
+		public void run(«this.contextRef.name» element) {
+			// TODO: Implement run action for batch process
+			throw new RuntimeException("Process «this.label» is not iomplemented yet");
+    	}
+    «ENDIF»
+}
+«ENDDEFINE»
+
+«DEFINE GenerateBatchProcessImplBase FOR Process -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcessBase in Process.xpt") FOR this»
+package «getPresentationRootPackage()».processes;
+
+import «getPresentationRootPackage()».panels.Mod4jDataProvider;
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «javaDtoClassPath(this.contextRef.name)»;
+
+import java.util.List;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.Page;
+import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.markup.repeater.data.ListDataProvider;
+
+/** Automated process
+ */
+public class «this.name»ProcessImplBase implements PmfProcess<«this.contextRef.name»> 
 {
     private Mod4jDataProvider<«this.contextRef.name»> provider = null;
 
@@ -308,9 +407,14 @@ public class «this.name»Process implements PmfProcess<«this.contextRef.name»
 			provider.deleteDto(element);
 			owningPage.modelChanged();
 		}
+	«ELSEIF this.type == ProcessType::CANCEL »
+		public void run(«this.contextRef.name» element) {
+			// do nothing, will return to previous page
+    	}
 	«ELSE»
 		public void run(«this.contextRef.name» element) {
 			// TODO: Implement run action for batch process
+			throw new RuntimeException("Process «this.label» is not iomplemented yet");
     	}
 	«ENDIF»
 	public void done(Page page){

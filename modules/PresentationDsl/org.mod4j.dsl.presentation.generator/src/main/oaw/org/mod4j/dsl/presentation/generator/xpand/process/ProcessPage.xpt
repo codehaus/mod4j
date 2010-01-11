@@ -31,6 +31,8 @@ import «getPresentationRootPackage()».processes.«p.name»Process ;
 «ENDFOREACH»
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
 public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
 {
@@ -49,6 +51,14 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
     public «this.name»«form.name»Page (PmfProcess owner, final IModel<«this.contextRef.name»> context)
 	{
 		super(owner);
+		
+		// Add an error panel to display errors from called processes
+		ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
+		FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
+		filter.addComponent(this);
+		errorMessages.setOutputMarkupId(true);
+		add(errorMessages);
+		
 		panel = new «this.processElements.first().name»SwapEditPanel("panel", context);
 		panel.addListener(this);
 		add(panel);
@@ -66,6 +76,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	}
 
 	public void startProcess(String processName, «this.contextRef.name» context){
+	    try{
 	«FOREACH form.processes AS pp»
 	«LET pp.referredProcess() AS p»
 		if(processName.equals("«p.name»Process")){
@@ -86,6 +97,10 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		}
 	«ENDLET»
 	«ENDFOREACH»
+		}catch (Exception e){
+			error(e.getMessage());
+		}
+	
 	}
 
 	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
@@ -131,6 +146,8 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
 public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «form.contextRef.name»ListListener
 {
@@ -181,6 +198,14 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	«ENDIF»
 	{
 		super(owner);
+
+		// Add an error panel to display errors from called processes
+		ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
+		FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
+		filter.addComponent(this);
+		errorMessages.setOutputMarkupId(true);
+		add(errorMessages);
+		
         «form.name»CollectionDataViewPanel panel = new «form.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
         panel.addListener(this);
         this.provider = dataProvider;
@@ -196,14 +221,19 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	}
 
 	public void startProcess(String processName, «form.contextRef.name» context){
+	try{
 	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
-			Page next = process.nextPage(context);
-			if( next != null ){
-				setResponsePage(process.nextPage(context));
-			}
+			«IF p.isInteractive()»
+				Page next = process.nextPage(context);
+				if( next != null ){
+					setResponsePage(process.nextPage(context));
+				}
+			«ELSE»
+			    process.run(context);
+			«ENDIF»
 		}
 	«ENDFOREACH»
 
@@ -237,7 +267,10 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			process.run(context);
 		}
 	«ENDFOREACH»
+	}catch (Exception e){
+		error(e.getMessage());
 	}
+}
 
 //	public void on«form.contextRef.name»Cancel(«form.contextRef.name» element) {
 //	}

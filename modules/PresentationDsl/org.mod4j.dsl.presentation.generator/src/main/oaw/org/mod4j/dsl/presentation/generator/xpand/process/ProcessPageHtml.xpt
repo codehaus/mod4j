@@ -14,6 +14,7 @@
 </body>
 <wicket:extend>
 <p>Presentation Process «this.name»  «form.name»</p>
+<span wicket:id="errorMessages"/>
 <div wicket:id="panel"></div>
 </wicket:extend>
 </html>

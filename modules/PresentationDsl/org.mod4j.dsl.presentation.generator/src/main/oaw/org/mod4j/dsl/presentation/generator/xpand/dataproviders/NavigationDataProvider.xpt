@@ -63,7 +63,6 @@ public class «className»
 
 	public «context» newDto(){
 		«context» result = new «context»();
-		owner.addTo«navigationName»(result);
 		return result;
 	}
 	
@@ -73,7 +72,7 @@ public class «className»
 	}
 	
 	public void saveDto(«context» tobesaved){
-//		service.«updateService»(owner);
+		owner.addTo«navigationName»(tobesaved);
 		«ownerContext» result = service.«updateService»(owner);
 		owner = result;
 		this.setList( new PropertyModel(new Model(owner), "«navigationName»") );

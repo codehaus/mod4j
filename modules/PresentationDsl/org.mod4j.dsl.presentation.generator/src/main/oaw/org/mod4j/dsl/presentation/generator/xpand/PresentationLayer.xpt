@@ -13,6 +13,7 @@
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::webapp»
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::dataproviders» 
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::process» 
 «IMPORT org::mod4j::dsl::presentation::generator::xpand::log4j»
 
 «EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
@@ -69,11 +70,7 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".processes." + "Pmf" + "Process"))»
 	    «EXPAND Process::GeneratePmfProcess FOR this»
 	«ENDFILE»
-    «FOREACH this.elements.typeSelect(Process) AS p»
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "Process"))»
-    	    «EXPAND Process::GenerateProcess FOR p»
-		«ENDFILE»
-    «ENDFOREACH»
+	«EXPAND Process::GenerateProcesses FOR this»
     
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
