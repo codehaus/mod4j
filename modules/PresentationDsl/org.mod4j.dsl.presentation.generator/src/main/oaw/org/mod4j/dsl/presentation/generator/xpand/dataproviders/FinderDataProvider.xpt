@@ -10,15 +10,15 @@
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
 
 
-«DEFINE DtoServiceDataProvider FOR DialogueCall»
+«DEFINE FinderDataProvider FOR DialogueCall»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoServiveProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
 «LET this.referredDialogue().contextRef.name AS context»
 «LET findServiceWithMethod(context, "LISTALL") AS serviceType»
 «LET findSpecialMethodInService(context, "UPDATE", serviceType) AS updateService»
-«LET findSpecialMethodInService(context, "Create", serviceType) AS createService»
+«LET findSpecialMethodInService(context, "FIND", serviceType) AS findService»
 «LET findSpecialMethodInService(context, "DELETE", serviceType) AS deleteService»
-«LET findSpecialMethodInService(context, "LISTALL", serviceType) AS listallService»
+«LET findSpecialMethodInService(context, "Create", serviceType) AS createService»
 package «getPresentationRootPackage()».panels;
 
 import java.lang.reflect.InvocationTargetException;
@@ -40,26 +40,28 @@ import «javaDtoClassPath(context)»;
  * Dataprovider for service list which takes the list of objects from a service.
  */
 @SuppressWarnings("serial")
-public class «getWicketServiceDataProviderClass(context)»
+public class «getWicketFinderDataProviderClass(context)»
 		implements
 			IDataProvider<«context»>, Mod4jDataProvider<«context»> {
-	private static final Log log = LogFactory.getLog(«getWicketServiceDataProviderClass(context)».class);
+	private static final Log log = LogFactory.getLog(«getWicketFinderDataProviderClass(context)».class);
 
     «javaLocalServiceInterface(serviceType)» service;
 
+    «context» context;
 	/**
-	 * Create a new ServiceDataProvider 
+	 * Create a new FinderDataProvider 
 	 * @param service The service from which the list and count is retrieved.
 	 */
-	public «getWicketServiceDataProviderClass(context)»() {
+	public «getWicketFinderDataProviderClass(context)»(«context» context) {
 		this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(serviceType)»();
+		this.context = context;
 	}
 
 	@SuppressWarnings("unchecked")
 	synchronized public Iterator iterator(int first, int count) {
 		List<«context»> result = null;
 		
-		return service.«listallService»(first, count).iterator();
+		return service.«findService»(context).iterator();    // (first, count).iterator();
 	}
 
 	public IModel<«context»> model(«context» object) {

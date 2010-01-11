@@ -2335,7 +2335,7 @@ ruleProcessType returns [Enumerator current=null]
         createLeafNode(grammarAccess.getProcessTypeAccess().getREMOVEEnumLiteralDeclaration_3(), null); 
     }
 )
-    |(	'Cancel' 
+    |(	'cancel' 
 	{
         $current = grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
         createLeafNode(grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4(), null); 
@@ -2350,12 +2350,18 @@ ruleExpressionType returns [Enumerator current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'all' 
+((	'all' 
 	{
-        $current = grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration(), null); 
+        $current = grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0(), null); 
     }
-);
+)
+    |(	'find' 
+	{
+        $current = grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1(), null); 
+    }
+));
 
 
 

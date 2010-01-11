@@ -1468,10 +1468,10 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cCANCELCancelKeyword_4_0 = (Keyword)cCANCELEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum ProcessType:
-		//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="Cancel";
+		//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="cancel";
 		public EnumRule getRule() { return rule; }
 
-		//NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="Cancel"
+		//NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="cancel"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//NEW="new"
@@ -1498,27 +1498,39 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//"remove"
 		public Keyword getREMOVERemoveKeyword_3_0() { return cREMOVERemoveKeyword_3_0; }
 
-		//CANCEL="Cancel"
+		//CANCEL="cancel"
 		public EnumLiteralDeclaration getCANCELEnumLiteralDeclaration_4() { return cCANCELEnumLiteralDeclaration_4; }
 
-		//"Cancel"
+		//"cancel"
 		public Keyword getCANCELCancelKeyword_4_0() { return cCANCELCancelKeyword_4_0; }
 	}
 
 	public class ExpressionTypeElements implements IEnumRuleAccess {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ExpressionType");
-		private final EnumLiteralDeclaration cALLEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cALLAllKeyword_0 = (Keyword)cALLEnumLiteralDeclaration.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cALLEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cALLAllKeyword_0_0 = (Keyword)cALLEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cFINDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cFINDFindKeyword_1_0 = (Keyword)cFINDEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum ExpressionType:
-		//  ALL="all";
+		//  ALL="all" | FIND="find";
 		public EnumRule getRule() { return rule; }
 
+		//ALL="all" | FIND="find"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//ALL="all"
-		public EnumLiteralDeclaration getALLEnumLiteralDeclaration() { return cALLEnumLiteralDeclaration; }
+		public EnumLiteralDeclaration getALLEnumLiteralDeclaration_0() { return cALLEnumLiteralDeclaration_0; }
 
 		//"all"
-		public Keyword getALLAllKeyword_0() { return cALLAllKeyword_0; }
+		public Keyword getALLAllKeyword_0_0() { return cALLAllKeyword_0_0; }
+
+		//FIND="find"
+		public EnumLiteralDeclaration getFINDEnumLiteralDeclaration_1() { return cFINDEnumLiteralDeclaration_1; }
+
+		//"find"
+		public Keyword getFINDFindKeyword_1_0() { return cFINDFindKeyword_1_0; }
 	}
 	
 	private PresentationModelElements pPresentationModel;
@@ -1648,7 +1660,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//enum ProcessType:
-	//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="Cancel";
+	//  NEW="new" | SAVE="save" | EDIT="edit" | REMOVE="remove" | CANCEL="cancel";
 	public ProcessTypeElements getProcessTypeAccess() {
 		return (unknownRuleProcessType != null) ? unknownRuleProcessType : (unknownRuleProcessType = new ProcessTypeElements());
 	}
@@ -1773,7 +1785,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//enum ExpressionType:
-	//  ALL="all";
+	//  ALL="all" | FIND="find";
 	public ExpressionTypeElements getExpressionTypeAccess() {
 		return (unknownRuleExpressionType != null) ? unknownRuleExpressionType : (unknownRuleExpressionType = new ExpressionTypeElements());
 	}

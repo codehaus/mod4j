@@ -464,6 +464,10 @@
         <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ExpressionType/ALL"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_5EcKwfxeEd66y6td6go0mA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_AGccQf6AEd6XsoWIgDOwaw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ExpressionType/FIND"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AGccQv6AEd6XsoWIgDOwaw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_31wxJfxeEd66y6td6go0mA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_31wxJvxeEd66y6td6go0mA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_31wxJ_xeEd66y6td6go0mA"/>

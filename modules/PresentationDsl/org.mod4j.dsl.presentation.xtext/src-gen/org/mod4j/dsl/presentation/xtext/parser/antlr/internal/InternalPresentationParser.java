@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'presentation'", "';'", "'from'", "'import'", "'ListForm'", "'ContentForm'", "'context'", "'['", "'readonly'", "'true'", "'false'", "'actions'", "']'", "'processes'", "'use'", "'CompoundDialogue'", "'dialogues'", "'CollectionDialogue'", "'MasterDetail'", "'master'", "'detail'", "'Process'", "'start'", "'step'", "'element'", "'label'", "'to'", "'alias'", "'('", "','", "')'", "':'", "'call'", "'.'", "'navigate'", "'dialogue'", "'process'", "'new'", "'save'", "'edit'", "'remove'", "'Cancel'", "'all'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'presentation'", "';'", "'from'", "'import'", "'ListForm'", "'ContentForm'", "'context'", "'['", "'readonly'", "'true'", "'false'", "'actions'", "']'", "'processes'", "'use'", "'CompoundDialogue'", "'dialogues'", "'CollectionDialogue'", "'MasterDetail'", "'master'", "'detail'", "'Process'", "'start'", "'step'", "'element'", "'label'", "'to'", "'alias'", "'('", "','", "')'", "':'", "'call'", "'.'", "'navigate'", "'dialogue'", "'process'", "'new'", "'save'", "'edit'", "'remove'", "'cancel'", "'all'", "'find'"
     };
     public static final int RULE_ML_COMMENT=7;
     public static final int RULE_ID=5;
@@ -1244,7 +1244,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         int alt13=2;
                         int LA13_0 = input.LA(1);
 
-                        if ( (LA13_0==RULE_ID||LA13_0==43||LA13_0==45||LA13_0==53) ) {
+                        if ( (LA13_0==RULE_ID||LA13_0==43||LA13_0==45||(LA13_0>=53 && LA13_0<=54)) ) {
                             alt13=1;
                         }
 
@@ -1854,7 +1854,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                 int alt21=2;
                                 int LA21_0 = input.LA(1);
 
-                                if ( (LA21_0==RULE_ID||LA21_0==43||LA21_0==45||LA21_0==53) ) {
+                                if ( (LA21_0==RULE_ID||LA21_0==43||LA21_0==45||(LA21_0>=53 && LA21_0<=54)) ) {
                                     alt21=1;
                                 }
 
@@ -1937,7 +1937,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                 int alt23=2;
                                 int LA23_0 = input.LA(1);
 
-                                if ( (LA23_0==RULE_ID||LA23_0==43||LA23_0==45||LA23_0==53) ) {
+                                if ( (LA23_0==RULE_ID||LA23_0==43||LA23_0==45||(LA23_0>=53 && LA23_0<=54)) ) {
                                     alt23=1;
                                 }
 
@@ -2308,7 +2308,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         int alt29=2;
                         int LA29_0 = input.LA(1);
 
-                        if ( (LA29_0==RULE_ID||LA29_0==43||LA29_0==45||LA29_0==53) ) {
+                        if ( (LA29_0==RULE_ID||LA29_0==43||LA29_0==45||(LA29_0>=53 && LA29_0<=54)) ) {
                             alt29=1;
                         }
 
@@ -2391,7 +2391,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         int alt31=2;
                         int LA31_0 = input.LA(1);
 
-                        if ( (LA31_0==RULE_ID||LA31_0==43||LA31_0==45||LA31_0==53) ) {
+                        if ( (LA31_0==RULE_ID||LA31_0==43||LA31_0==45||(LA31_0>=53 && LA31_0<=54)) ) {
                             alt31=1;
                         }
 
@@ -2792,7 +2792,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         int alt36=2;
                         int LA36_0 = input.LA(1);
 
-                        if ( (LA36_0==RULE_ID||LA36_0==43||LA36_0==45||LA36_0==53) ) {
+                        if ( (LA36_0==RULE_ID||LA36_0==43||LA36_0==45||(LA36_0>=53 && LA36_0<=54)) ) {
                             alt36=1;
                         }
 
@@ -3489,7 +3489,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     alt45=1;
                 }
             }
-            else if ( (LA45_0==43||LA45_0==45||LA45_0==53) ) {
+            else if ( (LA45_0==43||LA45_0==45||(LA45_0>=53 && LA45_0<=54)) ) {
                 alt45=1;
             }
             switch (alt45) {
@@ -3821,6 +3821,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 53:
+            case 54:
                 {
                 alt49=3;
                 }
@@ -3975,7 +3976,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     alt50=1;
                 }
             }
-            else if ( (LA50_0==43||LA50_0==45||LA50_0==53) ) {
+            else if ( (LA50_0==43||LA50_0==45||(LA50_0>=53 && LA50_0<=54)) ) {
                 alt50=1;
             }
             switch (alt50) {
@@ -4953,16 +4954,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleProcessType
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2309:1: ruleProcessType returns [Enumerator current=null] : ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'Cancel' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2309:1: ruleProcessType returns [Enumerator current=null] : ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'cancel' ) ) ;
     public final Enumerator ruleProcessType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2313:6: ( ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'Cancel' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2314:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'Cancel' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2313:6: ( ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'cancel' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2314:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'cancel' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2314:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'Cancel' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2314:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'cancel' ) )
             int alt57=5;
             switch ( input.LA(1) ) {
             case 48:
@@ -4992,7 +4993,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("2314:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'Cancel' ) )", 57, 0, input);
+                    new NoViableAltException("2314:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'remove' ) | ( 'cancel' ) )", 57, 0, input);
 
                 throw nvae;
             }
@@ -5067,10 +5068,10 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2338:6: ( 'Cancel' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2338:6: ( 'cancel' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2338:6: ( 'Cancel' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2338:8: 'Cancel'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2338:6: ( 'cancel' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2338:8: 'cancel'
                     {
                     match(input,52,FOLLOW_52_in_ruleProcessType4989); 
 
@@ -5106,23 +5107,66 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpressionType
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2348:1: ruleExpressionType returns [Enumerator current=null] : ( 'all' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2348:1: ruleExpressionType returns [Enumerator current=null] : ( ( 'all' ) | ( 'find' ) ) ;
     public final Enumerator ruleExpressionType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2352:6: ( ( 'all' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:1: ( 'all' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2352:6: ( ( ( 'all' ) | ( 'find' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:1: ( ( 'all' ) | ( 'find' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:1: ( 'all' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:3: 'all'
-            {
-            match(input,53,FOLLOW_53_in_ruleExpressionType5031); 
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:1: ( ( 'all' ) | ( 'find' ) )
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-                    current = grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration().getEnumLiteral().getInstance();
-                    createLeafNode(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration(), null); 
-                
+            if ( (LA58_0==53) ) {
+                alt58=1;
+            }
+            else if ( (LA58_0==54) ) {
+                alt58=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("2353:1: ( ( 'all' ) | ( 'find' ) )", 58, 0, input);
+
+                throw nvae;
+            }
+            switch (alt58) {
+                case 1 :
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:2: ( 'all' )
+                    {
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:2: ( 'all' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2353:4: 'all'
+                    {
+                    match(input,53,FOLLOW_53_in_ruleExpressionType5032); 
+
+                            current = grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                            createLeafNode(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0(), null); 
+                        
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2359:6: ( 'find' )
+                    {
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2359:6: ( 'find' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2359:8: 'find'
+                    {
+                    match(input,54,FOLLOW_54_in_ruleExpressionType5047); 
+
+                            current = grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                            createLeafNode(grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1(), null); 
+                        
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -5193,9 +5237,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_12_in_ruleContentForm1140 = new BitSet(new long[]{0x0000000000800030L});
     public static final BitSet FOLLOW_23_in_ruleContentForm1151 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_24_in_ruleContentForm1163 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleContentForm1172 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_18_in_ruleContentForm1172 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_ruleProcessCall_in_ruleContentForm1207 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleContentForm1220 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_12_in_ruleContentForm1220 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_23_in_ruleContentForm1231 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_23_in_ruleContentForm1242 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSimpleProcess_in_entryRuleSimpleProcess1275 = new BitSet(new long[]{0x0000000000000000L});
@@ -5203,7 +5247,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleProcess1332 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSimpleProcess1363 = new BitSet(new long[]{0x001F000002000002L});
     public static final BitSet FOLLOW_ruleProcessType_in_ruleSimpleProcess1405 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_25_in_ruleSimpleProcess1420 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_25_in_ruleSimpleProcess1420 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleSimpleProcess1454 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompoundDialogue_in_entryRuleCompoundDialogue1493 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCompoundDialogue1503 = new BitSet(new long[]{0x0000000000000002L});
@@ -5217,14 +5261,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_21_in_ruleCompoundDialogue1693 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleCompoundDialogue1703 = new BitSet(new long[]{0x0000000009000002L});
     public static final BitSet FOLLOW_27_in_ruleCompoundDialogue1715 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleCompoundDialogue1724 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_18_in_ruleCompoundDialogue1724 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleCompoundDialogue1759 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue1772 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue1772 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_23_in_ruleCompoundDialogue1783 = new BitSet(new long[]{0x0000000001000002L});
     public static final BitSet FOLLOW_24_in_ruleCompoundDialogue1795 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleCompoundDialogue1804 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_18_in_ruleCompoundDialogue1804 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_ruleProcessCall_in_ruleCompoundDialogue1839 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue1852 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue1852 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_23_in_ruleCompoundDialogue1863 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCollectionDialogue_in_ruleCompoundDialogue1894 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMasterDetail_in_ruleCompoundDialogue1921 = new BitSet(new long[]{0x0000000000000002L});
@@ -5241,14 +5285,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_21_in_ruleCollectionDialogue2161 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleCollectionDialogue2171 = new BitSet(new long[]{0x0000000009800000L});
     public static final BitSet FOLLOW_27_in_ruleCollectionDialogue2183 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleCollectionDialogue2192 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_18_in_ruleCollectionDialogue2192 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleCollectionDialogue2227 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue2240 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue2240 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_23_in_ruleCollectionDialogue2251 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_24_in_ruleCollectionDialogue2263 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleCollectionDialogue2272 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_18_in_ruleCollectionDialogue2272 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_ruleProcessCall_in_ruleCollectionDialogue2307 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue2320 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue2320 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_23_in_ruleCollectionDialogue2331 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_23_in_ruleCollectionDialogue2342 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMasterDetail_in_entryRuleMasterDetail2375 = new BitSet(new long[]{0x0000000000000000L});
@@ -5262,16 +5306,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_20_in_ruleMasterDetail2546 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_21_in_ruleMasterDetail2574 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleMasterDetail2584 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleMasterDetail2595 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_30_in_ruleMasterDetail2595 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleMasterDetail2629 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleMasterDetail2642 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleMasterDetail2651 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_31_in_ruleMasterDetail2651 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleMasterDetail2685 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleMasterDetail2698 = new BitSet(new long[]{0x0000000001000002L});
     public static final BitSet FOLLOW_24_in_ruleMasterDetail2708 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleMasterDetail2717 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_18_in_ruleMasterDetail2717 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_ruleProcessCall_in_ruleMasterDetail2752 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleMasterDetail2765 = new BitSet(new long[]{0x0020280000800020L});
+    public static final BitSet FOLLOW_12_in_ruleMasterDetail2765 = new BitSet(new long[]{0x0060280000800020L});
     public static final BitSet FOLLOW_23_in_ruleMasterDetail2776 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProcess_in_entryRuleProcess2811 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProcess2821 = new BitSet(new long[]{0x0000000000000002L});
@@ -5283,7 +5327,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_33_in_ruleProcess2971 = new BitSet(new long[]{0x001F000400000002L});
     public static final BitSet FOLLOW_ruleProcessType_in_ruleProcess3019 = new BitSet(new long[]{0x0000000400000002L});
     public static final BitSet FOLLOW_34_in_ruleProcess3034 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleProcess3043 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_18_in_ruleProcess3043 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleProcess3078 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleProcess3091 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_23_in_ruleProcess3101 = new BitSet(new long[]{0x0000000000000002L});
@@ -5305,9 +5349,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueCall3500 = new BitSet(new long[]{0x000000C000000002L});
     public static final BitSet FOLLOW_38_in_ruleDialogueCall3518 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueCall3540 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_39_in_ruleDialogueCall3560 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_39_in_ruleDialogueCall3560 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleDialogueCall3594 = new BitSet(new long[]{0x0000030000000000L});
-    public static final BitSet FOLLOW_40_in_ruleDialogueCall3608 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_40_in_ruleDialogueCall3608 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleDialogueCall3642 = new BitSet(new long[]{0x0000030000000000L});
     public static final BitSet FOLLOW_41_in_ruleDialogueCall3657 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression3692 = new BitSet(new long[]{0x0000000000000000L});
@@ -5322,9 +5366,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleProcessCall3942 = new BitSet(new long[]{0x000000C000000002L});
     public static final BitSet FOLLOW_38_in_ruleProcessCall3960 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleProcessCall3982 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_39_in_ruleProcessCall4002 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_39_in_ruleProcessCall4002 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleProcessCall4036 = new BitSet(new long[]{0x0000030000000000L});
-    public static final BitSet FOLLOW_40_in_ruleProcessCall4050 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_40_in_ruleProcessCall4050 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleProcessCall4084 = new BitSet(new long[]{0x0000030000000000L});
     public static final BitSet FOLLOW_41_in_ruleProcessCall4099 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStandardExpression_in_entryRuleStandardExpression4134 = new BitSet(new long[]{0x0000000000000000L});
@@ -5352,15 +5396,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleAssociationRoleReference4735 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUIModelElementCall_in_entryRuleUIModelElementCall4777 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUIModelElementCall4787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleUIModelElementCall4822 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_46_in_ruleUIModelElementCall4822 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleDialogueCall_in_ruleUIModelElementCall4844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleUIModelElementCall4860 = new BitSet(new long[]{0x0020280000000020L});
+    public static final BitSet FOLLOW_47_in_ruleUIModelElementCall4860 = new BitSet(new long[]{0x0060280000000020L});
     public static final BitSet FOLLOW_ruleProcessCall_in_ruleUIModelElementCall4882 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_48_in_ruleProcessType4929 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_49_in_ruleProcessType4944 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_50_in_ruleProcessType4959 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_51_in_ruleProcessType4974 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_52_in_ruleProcessType4989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleExpressionType5031 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleExpressionType5032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleExpressionType5047 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -43,9 +43,12 @@ package «getPresentationRootPackage()».processes;
 «IF serviceExpression != null»
 	import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
 	import «getPresentationRootPackage()».panels.«getWicketServiceDataProviderClass(form.contextRef.name)» ;
-«ELSEIF standardExpression != null»
+«ELSEIF (standardExpression != null) && (standardExpression.type == ExpressionType::ALL) »
 	import «javaLocalServiceInterfacePath(service)» ;
 	import «getPresentationRootPackage()».panels.«getWicketServiceDataProviderClass(form.contextRef.name)» ;
+«ELSEIF (standardExpression != null) && (standardExpression.type == ExpressionType::FIND) »
+	import «javaLocalServiceInterfacePath(service)» ;
+	import «getPresentationRootPackage()».panels.«getWicketFinderDataProviderClass(form.contextRef.name)» ;
 «ELSEIF navigationExpression != null»
 	«LET getResultType(this.contextRef.modelName, this.contextRef.name, navigationExpression) AS resultType» 
 	import «getPresentationRootPackage()».panels.«getWicketNavigationDataProviderClass(this.contextRef.name, resultType)»; 
@@ -96,8 +99,13 @@ public class «this.name»Process extends Page implements PmfProcess<«this.cont
 			«ENDLET»
 			«ENDLET»
 			«ENDLET»
-	    «ELSEIF standardExpression != null »
+	    «ELSEIF (standardExpression != null) && (standardExpression.type == ExpressionType::ALL) »
 			«getWicketServiceDataProviderClass(form.contextRef.name)» provider = new «getWicketServiceDataProviderClass(form.contextRef.name)»();
+			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
+			page.setProcess(this);
+			return page;
+	    «ELSEIF (standardExpression != null) && (standardExpression.type == ExpressionType::FIND) »
+			«getWicketFinderDataProviderClass(form.contextRef.name)» provider = new «getWicketFinderDataProviderClass(form.contextRef.name)»(element);
 			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
 			page.setProcess(this);
 			return page;

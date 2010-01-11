@@ -18,6 +18,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="PresentationDsl.ecore#//ExpressionType">
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/ALL"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/FIND"/>
     </genEnums>
     <genClasses ecoreClass="PresentationDsl.ecore#//AssociationRoleReference"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//ContentForm">

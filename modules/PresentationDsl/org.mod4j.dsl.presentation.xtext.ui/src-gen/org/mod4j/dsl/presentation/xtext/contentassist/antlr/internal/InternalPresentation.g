@@ -652,10 +652,9 @@ ruleExpressionType
     }
 :
 (
-{ before(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration()); }
-(	'all' 
-)
-{ after(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration()); }
+{ before(grammarAccess.getExpressionTypeAccess().getAlternatives()); }
+(rule__ExpressionType__Alternatives)
+{ after(grammarAccess.getExpressionTypeAccess().getAlternatives()); }
 )
 
 ;
@@ -966,9 +965,33 @@ rule__ProcessType__Alternatives
 
     |(
 { before(grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4()); }
-(	'Cancel' 
+(	'cancel' 
 )
 { after(grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ExpressionType__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0()); }
+(	'all' 
+)
+{ after(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0()); }
+)
+
+    |(
+{ before(grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1()); }
+(	'find' 
+)
+{ after(grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1()); }
 )
 
 ;

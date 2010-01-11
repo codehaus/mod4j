@@ -54,6 +54,7 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getUIModelElementCallAccess().getAlternatives(), "rule__UIModelElementCall__Alternatives");
 					put(grammarAccess.getProcessTypeAccess().getAlternatives(), "rule__ProcessType__Alternatives");
+					put(grammarAccess.getExpressionTypeAccess().getAlternatives(), "rule__ExpressionType__Alternatives");
 					put(grammarAccess.getPresentationModelAccess().getGroup(), "rule__PresentationModel__Group__0");
 					put(grammarAccess.getExternalReferenceAccess().getGroup(), "rule__ExternalReference__Group__0");
 					put(grammarAccess.getContentFormAccess().getGroup(), "rule__ContentForm__Group__0");

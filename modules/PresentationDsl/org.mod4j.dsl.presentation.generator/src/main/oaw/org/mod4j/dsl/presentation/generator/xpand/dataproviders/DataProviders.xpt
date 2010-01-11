@@ -54,6 +54,11 @@
 					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
 			    	    «EXPAND DtoServiceDataProvider::DtoServiceDataProvider FOR uiCall»
 					«ENDFILE»
+			    	«print("03 Finder Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+					                                                    + getWicketFinderDataProviderClass(form.contextRef.name) ))»
+			    	    «EXPAND FinderDataProvider::FinderDataProvider FOR uiCall»
+					«ENDFILE»
 				«ENDIF»
 			«ENDIF»
 		«ELSE»

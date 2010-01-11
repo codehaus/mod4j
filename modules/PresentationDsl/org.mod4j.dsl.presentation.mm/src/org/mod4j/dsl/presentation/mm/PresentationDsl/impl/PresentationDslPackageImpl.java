@@ -1140,6 +1140,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEEnum(expressionTypeEEnum, ExpressionType.class, "ExpressionType");
         addEEnumLiteral(expressionTypeEEnum, ExpressionType.ALL);
         addEEnumLiteral(expressionTypeEEnum, ExpressionType.NONE);
+        addEEnumLiteral(expressionTypeEEnum, ExpressionType.FIND);
 
         // Create resource
         createResource(eNS_URI);

@@ -180,7 +180,7 @@ public class «this.name»EditPanelWithListener extends Panel {
     «IF this.dataProperty.dataType.equalsIgnoreCase("string")»
         TextField<String> «varName» = new TextField<String>("«this.dataProperty.name»");
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
-        «varName».setRequired(true);
+//        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
         «varName»Msgs.setOutputMarkupId(true);
@@ -190,7 +190,7 @@ public class «this.name»EditPanelWithListener extends Panel {
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("decimal")»
         TextField<Float> «varName» = new TextField<Float>("«this.dataProperty.name»", Float.class);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
-        «varName».setRequired(true);
+//        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
         «varName»Msgs.setOutputMarkupId(true);
@@ -200,7 +200,7 @@ public class «this.name»EditPanelWithListener extends Panel {
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("integer")»
         TextField<Integer> «varName» = new TextField<Integer>("«this.dataProperty.name»", Integer.class);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
-        «varName».setRequired(true);
+//        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
         «varName»Msgs.setOutputMarkupId(true);
@@ -219,7 +219,7 @@ public class «this.name»EditPanelWithListener extends Panel {
 		            }
 		        });
         «varName».setNullValid(true);
-        «varName».setRequired(true);
+//        «varName».setRequired(true);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«varName»", this)));
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
         «varName»Msgs.setOutputMarkupId(true);

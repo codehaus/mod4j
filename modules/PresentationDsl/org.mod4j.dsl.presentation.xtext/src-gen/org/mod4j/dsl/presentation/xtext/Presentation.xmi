@@ -175,7 +175,7 @@
         </groups>
         <groups xsi:type="xtext:EnumLiteralDeclaration">
           <enumLiteral href="http://www.mod4j.org/pmfmod#//ProcessType/CANCEL"/>
-          <literal value="Cancel"/>
+          <literal value="cancel"/>
         </groups>
       </alternatives>
     </rules>
@@ -509,9 +509,15 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EEnum" href="http://www.mod4j.org/pmfmod#//ExpressionType"/>
       </type>
-      <alternatives xsi:type="xtext:EnumLiteralDeclaration">
-        <enumLiteral href="http://www.mod4j.org/pmfmod#//ExpressionType/ALL"/>
-        <literal value="all"/>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.mod4j.org/pmfmod#//ExpressionType/ALL"/>
+          <literal value="all"/>
+        </groups>
+        <groups xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.mod4j.org/pmfmod#//ExpressionType/FIND"/>
+          <literal value="find"/>
+        </groups>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ServiceExpression">
