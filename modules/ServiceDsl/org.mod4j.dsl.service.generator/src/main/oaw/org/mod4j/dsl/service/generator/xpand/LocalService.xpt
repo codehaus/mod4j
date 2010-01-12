@@ -71,7 +71,8 @@
 «ENDDEFINE»
 
 «DEFINE CustomMethod FOR CustomMethod»
-«LET JavaType(this.output) AS returnType»
+«print("Custom method [" + this.name + "] param ["  + this.outParameter + "]")»
+«LET JavaParamType(this.outParameter) AS returnType»
 	/** 
 	 * Description: «this.description».
 	 «FOREACH inParameters AS param-»
@@ -81,12 +82,12 @@
 	 * @return «returnType» 
 	«ENDIF-»
      */
-    public «JavaType(this.output)» «this.name» ( «EXPAND Parameter FOREACH this.inParameters SEPARATOR ','» );
+    public «returnType» «this.name» ( «EXPAND Parameter FOREACH this.inParameters SEPARATOR ','» );
  «ENDLET»
  «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»
-«JavaType(type)»  «this.name»
+«JavaParamType(this)»  «this.name»
 «ENDDEFINE»
 
 «DEFINE CreateMethod FOR SpecialMethod»

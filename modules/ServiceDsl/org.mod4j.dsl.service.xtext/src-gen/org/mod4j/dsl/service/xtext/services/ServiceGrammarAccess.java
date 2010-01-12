@@ -273,18 +273,17 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		private final Keyword cRightParenthesisKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cOutKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cOutputAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cOutputDtoReferenceCrossReference_4_1_0 = (CrossReference)cOutputAssignment_4_1.eContents().get(0);
-		private final RuleCall cOutputDtoReferenceIDTerminalRuleCall_4_1_0_1 = (RuleCall)cOutputDtoReferenceCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cOutParameterAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cOutParameterOutParameterParserRuleCall_4_1_0 = (RuleCall)cOutParameterAssignment_4_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//CustomMethod:
 		//  description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
-		//  inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";";
+		//  inParameters+=Parameter)* ")")? ("out" outParameter=OutParameter)? ";";
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
-		//inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";"
+		//inParameters+=Parameter)* ")")? ("out" outParameter=OutParameter)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -332,41 +331,58 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		//")"
 		public Keyword getRightParenthesisKeyword_3_4() { return cRightParenthesisKeyword_3_4; }
 
-		//("out" output=[DtoReference])?
+		//("out" outParameter=OutParameter)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"out"
 		public Keyword getOutKeyword_4_0() { return cOutKeyword_4_0; }
 
-		//output=[DtoReference]
-		public Assignment getOutputAssignment_4_1() { return cOutputAssignment_4_1; }
+		//outParameter=OutParameter
+		public Assignment getOutParameterAssignment_4_1() { return cOutParameterAssignment_4_1; }
 
-		//[DtoReference]
-		public CrossReference getOutputDtoReferenceCrossReference_4_1_0() { return cOutputDtoReferenceCrossReference_4_1_0; }
-
-		//ID
-		public RuleCall getOutputDtoReferenceIDTerminalRuleCall_4_1_0_1() { return cOutputDtoReferenceIDTerminalRuleCall_4_1_0_1; }
+		//OutParameter
+		public RuleCall getOutParameterOutParameterParserRuleCall_4_1_0() { return cOutParameterOutParameterParserRuleCall_4_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
-	public class ParameterElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
+	public class OutParameterElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OutParameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTypeDtoReferenceCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
-		private final RuleCall cTypeDtoReferenceIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeDtoReferenceCrossReference_1_0.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cCollectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCollectionCollectionTypeEnumRuleCall_1_0 = (RuleCall)cCollectionAssignment_1.eContents().get(0);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cTypeDtoReferenceCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
+		private final RuleCall cTypeDtoReferenceIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeDtoReferenceCrossReference_2_0.eContents().get(1);
 		
-		//Parameter:
-		//  description=STRING? type=[DtoReference] name=ID;
+		//OutParameter returns Parameter:
+		//  description=STRING? collection=CollectionType? type=[DtoReference]; 
+		//
+		//     
+		//
+		//    
+		//
+		//	  
+		//
+		//	    
+		//
+		//    
+		//
+		////    name=ID
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? type=[DtoReference] name=ID
+		//description=STRING? collection=CollectionType? type=[DtoReference] 
+		//
+		//	  
+		//
+		//	    
+		//
+		//    
+		//
+		////    name=ID
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -375,20 +391,74 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
 
+		//collection=CollectionType?
+		public Assignment getCollectionAssignment_1() { return cCollectionAssignment_1; }
+
+		//CollectionType
+		public RuleCall getCollectionCollectionTypeEnumRuleCall_1_0() { return cCollectionCollectionTypeEnumRuleCall_1_0; }
+
+		//type=[DtoReference] 
+		//
+		//    
+		//
+		////    name=ID
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+
+		//[DtoReference] 
+		//
+		////    name=ID
+		public CrossReference getTypeDtoReferenceCrossReference_2_0() { return cTypeDtoReferenceCrossReference_2_0; }
+
+		//ID
+		public RuleCall getTypeDtoReferenceIDTerminalRuleCall_2_0_1() { return cTypeDtoReferenceIDTerminalRuleCall_2_0_1; }
+	}
+
+	public class ParameterElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cCollectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCollectionCollectionTypeEnumRuleCall_1_0 = (RuleCall)cCollectionAssignment_1.eContents().get(0);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cTypeDtoReferenceCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
+		private final RuleCall cTypeDtoReferenceIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeDtoReferenceCrossReference_2_0.eContents().get(1);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		
+		//Parameter:
+		//  description=STRING? collection=CollectionType? type=[DtoReference] name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//description=STRING? collection=CollectionType? type=[DtoReference] name=ID
+		public Group getGroup() { return cGroup; }
+
+		//description=STRING?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
+
+		//collection=CollectionType?
+		public Assignment getCollectionAssignment_1() { return cCollectionAssignment_1; }
+
+		//CollectionType
+		public RuleCall getCollectionCollectionTypeEnumRuleCall_1_0() { return cCollectionCollectionTypeEnumRuleCall_1_0; }
+
 		//type=[DtoReference]
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 
 		//[DtoReference]
-		public CrossReference getTypeDtoReferenceCrossReference_1_0() { return cTypeDtoReferenceCrossReference_1_0; }
+		public CrossReference getTypeDtoReferenceCrossReference_2_0() { return cTypeDtoReferenceCrossReference_2_0; }
 
 		//ID
-		public RuleCall getTypeDtoReferenceIDTerminalRuleCall_1_0_1() { return cTypeDtoReferenceIDTerminalRuleCall_1_0_1; }
+		public RuleCall getTypeDtoReferenceIDTerminalRuleCall_2_0_1() { return cTypeDtoReferenceIDTerminalRuleCall_2_0_1; }
 
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 	}
 
 	public class SpecialMethodElements implements IParserRuleAccess {
@@ -585,6 +655,22 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		//"get"
 		public Keyword getGETFROMGetKeyword_2_0() { return cGETFROMGetKeyword_2_0; }
 	}
+
+	public class CollectionTypeElements implements IEnumRuleAccess {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "CollectionType");
+		private final EnumLiteralDeclaration cLISTEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cLISTListKeyword_0 = (Keyword)cLISTEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum CollectionType:
+		//  LIST="list";
+		public EnumRule getRule() { return rule; }
+
+		//LIST="list"
+		public EnumLiteralDeclaration getLISTEnumLiteralDeclaration() { return cLISTEnumLiteralDeclaration; }
+
+		//"list"
+		public Keyword getLISTListKeyword_0() { return cLISTListKeyword_0; }
+	}
 	
 	private ServiceModelElements pServiceModel;
 	private AssociationMethodElements pAssociationMethod;
@@ -593,7 +679,9 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 	private DtoReferenceElements pDtoReference;
 	private ServiceMethodElements pServiceMethod;
 	private CustomMethodElements pCustomMethod;
+	private OutParameterElements pOutParameter;
 	private ParameterElements pParameter;
+	private CollectionTypeElements unknownRuleCollectionType;
 	private SpecialMethodElements pSpecialMethod;
 	private CrudServiceElements pCrudService;
 	
@@ -709,7 +797,7 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 
 	//CustomMethod:
 	//  description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
-	//  inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";";
+	//  inParameters+=Parameter)* ")")? ("out" outParameter=OutParameter)? ";";
 	public CustomMethodElements getCustomMethodAccess() {
 		return (pCustomMethod != null) ? pCustomMethod : (pCustomMethod = new CustomMethodElements());
 	}
@@ -718,14 +806,46 @@ public class ServiceGrammarAccess implements IGrammarAccess {
 		return getCustomMethodAccess().getRule();
 	}
 
+	//OutParameter returns Parameter:
+	//  description=STRING? collection=CollectionType? type=[DtoReference]; 
+	//
+	//     
+	//
+	//    
+	//
+	//	  
+	//
+	//	    
+	//
+	//    
+	//
+	////    name=ID
+	public OutParameterElements getOutParameterAccess() {
+		return (pOutParameter != null) ? pOutParameter : (pOutParameter = new OutParameterElements());
+	}
+	
+	public ParserRule getOutParameterRule() {
+		return getOutParameterAccess().getRule();
+	}
+
 	//Parameter:
-	//  description=STRING? type=[DtoReference] name=ID;
+	//  description=STRING? collection=CollectionType? type=[DtoReference] name=ID;
 	public ParameterElements getParameterAccess() {
 		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
 	}
 	
 	public ParserRule getParameterRule() {
 		return getParameterAccess().getRule();
+	}
+
+	//enum CollectionType:
+	//  LIST="list";
+	public CollectionTypeElements getCollectionTypeAccess() {
+		return (unknownRuleCollectionType != null) ? unknownRuleCollectionType : (unknownRuleCollectionType = new CollectionTypeElements());
+	}
+	
+	public EnumRule getCollectionTypeRule() {
+		return getCollectionTypeAccess().getRule();
 	}
 
 	//SpecialMethod:

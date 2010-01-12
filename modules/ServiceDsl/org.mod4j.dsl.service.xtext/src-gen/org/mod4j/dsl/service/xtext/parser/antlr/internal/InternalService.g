@@ -591,25 +591,108 @@ ruleCustomMethod returns [EObject current=null]
     }
 (	
 	
-		
-		{
-			if ($current==null) {
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getCustomMethodAccess().getOutParameterOutParameterParserRuleCall_4_1_0(), currentNode); 
+	    }
+	    lv_outParameter_10=ruleOutParameter 
+	    {
+	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getCustomMethodRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
-        }
-	RULE_ID
-	{
-		createLeafNode(grammarAccess.getCustomMethodAccess().getOutputDtoReferenceCrossReference_4_1_0(), "output"); 
-	}
-
-		// TODO assign feature to currentNode
+	        
+	        try {
+	       		set($current, "outParameter", lv_outParameter_10, "OutParameter", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
 	
 ))?';' 
     {
         createLeafNode(grammarAccess.getCustomMethodAccess().getSemicolonKeyword_5(), null); 
     }
 );
+
+
+
+
+
+// Entry rule entryRuleOutParameter
+entryRuleOutParameter returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getOutParameterRule(), currentNode); }
+	 iv_ruleOutParameter=ruleOutParameter 
+	 { $current=$iv_ruleOutParameter.current; } 
+	 EOF 
+;
+
+// Rule OutParameter
+ruleOutParameter returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((	
+	
+	    lv_description_0=	RULE_STRING
+	{
+		createLeafNode(grammarAccess.getOutParameterAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
+	}
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getOutParameterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+	
+)?(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getOutParameterAccess().getCollectionCollectionTypeEnumRuleCall_1_0(), currentNode); 
+	    }
+	    lv_collection_1=ruleCollectionType 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getOutParameterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		set($current, "collection", lv_collection_1, "CollectionType", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+)?(	
+	
+		
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getOutParameterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getOutParameterAccess().getTypeDtoReferenceCrossReference_2_0(), "type"); 
+	}
+
+		// TODO assign feature to currentNode
+	
+));
 
 
 
@@ -652,6 +735,27 @@ ruleParameter returns [EObject current=null]
 	
 )?(	
 	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getParameterAccess().getCollectionCollectionTypeEnumRuleCall_1_0(), currentNode); 
+	    }
+	    lv_collection_1=ruleCollectionType 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getParameterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		set($current, "collection", lv_collection_1, "CollectionType", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+)?(	
+	
 		
 		{
 			if ($current==null) {
@@ -661,16 +765,16 @@ ruleParameter returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_1_0(), "type"); 
+		createLeafNode(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_2_0(), "type"); 
 	}
 
 		// TODO assign feature to currentNode
 	
 )(	
 	
-	    lv_name_2=	RULE_ID
+	    lv_name_3=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
+		createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
 	}
  
 	    {
@@ -680,7 +784,7 @@ ruleParameter returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_2, "ID", lastConsumedNode);
+	       		set($current, "name", lv_name_3, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -932,6 +1036,21 @@ ruleAssociationMethodType returns [Enumerator current=null]
         createLeafNode(grammarAccess.getAssociationMethodTypeAccess().getGETFROMEnumLiteralDeclaration_2(), null); 
     }
 ));
+
+
+
+// Rule CollectionType
+ruleCollectionType returns [Enumerator current=null] 
+    @init { setCurrentLookahead(); resetLookahead(); }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'list' 
+	{
+        $current = grammarAccess.getCollectionTypeAccess().getLISTEnumLiteralDeclaration().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getCollectionTypeAccess().getLISTEnumLiteralDeclaration(), null); 
+    }
+);
 
 
 

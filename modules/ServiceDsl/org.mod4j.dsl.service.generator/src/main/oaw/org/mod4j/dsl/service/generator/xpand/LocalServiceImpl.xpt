@@ -51,11 +51,11 @@
 		/** 
 	     * {@inheritDoc}
 	     */
-	    public «JavaType(method.output)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "») {
-	        «IF method.output == null »
+	    public «JavaParamType(method.outParameter)» «method.name»(«EXPAND Parameter FOREACH method.inParameters SEPARATOR  ", "») {
+	        «IF method.outParameter == null »
 	        // TODO Mod4j: implement this service method manually
 	        «ENDIF»
-	        «IF method.output != null »
+	        «IF method.outParameter != null »
 	        // TODO Mod4j: implement this service method manually
 	        return null;
 	        «ENDIF»
@@ -65,5 +65,5 @@
 «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»
-«JavaType(type)»  «this.name»
+«JavaParamType(this)»  «this.name»
 «ENDDEFINE»

@@ -33,7 +33,7 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CustomMethodImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CustomMethodImpl#getOutParameter <em>Out Parameter</em>}</li>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.CustomMethodImpl#getInParameters <em>In Parameters</em>}</li>
  * </ul>
  * </p>
@@ -42,14 +42,14 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
  */
 public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod {
     /**
-     * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+     * The cached value of the '{@link #getOutParameter() <em>Out Parameter</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getOutput()
+     * @see #getOutParameter()
      * @generated
      * @ordered
      */
-    protected DtoReference output;
+    protected Parameter outParameter;
 
     /**
      * The cached value of the '{@link #getInParameters() <em>In Parameters</em>}' containment reference list.
@@ -85,16 +85,23 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
      * <!-- end-user-doc -->
      * @generated
      */
-    public DtoReference getOutput() {
-        if (output != null && output.eIsProxy()) {
-            InternalEObject oldOutput = (InternalEObject)output;
-            output = (DtoReference)eResolveProxy(oldOutput);
-            if (output != oldOutput) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ServiceDslPackage.CUSTOM_METHOD__OUTPUT, oldOutput, output));
-            }
+    public Parameter getOutParameter() {
+        return outParameter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetOutParameter(Parameter newOutParameter, NotificationChain msgs) {
+        Parameter oldOutParameter = outParameter;
+        outParameter = newOutParameter;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER, oldOutParameter, newOutParameter);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
         }
-        return output;
+        return msgs;
     }
 
     /**
@@ -102,20 +109,18 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
      * <!-- end-user-doc -->
      * @generated
      */
-    public DtoReference basicGetOutput() {
-        return output;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setOutput(DtoReference newOutput) {
-        DtoReference oldOutput = output;
-        output = newOutput;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__OUTPUT, oldOutput, output));
+    public void setOutParameter(Parameter newOutParameter) {
+        if (newOutParameter != outParameter) {
+            NotificationChain msgs = null;
+            if (outParameter != null)
+                msgs = ((InternalEObject)outParameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER, null, msgs);
+            if (newOutParameter != null)
+                msgs = ((InternalEObject)newOutParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER, null, msgs);
+            msgs = basicSetOutParameter(newOutParameter, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER, newOutParameter, newOutParameter));
     }
 
     /**
@@ -153,6 +158,8 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
+            case ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER:
+                return basicSetOutParameter(null, msgs);
             case ServiceDslPackage.CUSTOM_METHOD__IN_PARAMETERS:
                 return ((InternalEList<?>)getInParameters()).basicRemove(otherEnd, msgs);
         }
@@ -167,9 +174,8 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-                if (resolve) return getOutput();
-                return basicGetOutput();
+            case ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER:
+                return getOutParameter();
             case ServiceDslPackage.CUSTOM_METHOD__IN_PARAMETERS:
                 return getInParameters();
         }
@@ -185,8 +191,8 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-                setOutput((DtoReference)newValue);
+            case ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER:
+                setOutParameter((Parameter)newValue);
                 return;
             case ServiceDslPackage.CUSTOM_METHOD__IN_PARAMETERS:
                 getInParameters().clear();
@@ -204,8 +210,8 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-                setOutput((DtoReference)null);
+            case ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER:
+                setOutParameter((Parameter)null);
                 return;
             case ServiceDslPackage.CUSTOM_METHOD__IN_PARAMETERS:
                 getInParameters().clear();
@@ -222,8 +228,8 @@ public class CustomMethodImpl extends ServiceMethodImpl implements CustomMethod 
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ServiceDslPackage.CUSTOM_METHOD__OUTPUT:
-                return output != null;
+            case ServiceDslPackage.CUSTOM_METHOD__OUT_PARAMETER:
+                return outParameter != null;
             case ServiceDslPackage.CUSTOM_METHOD__IN_PARAMETERS:
                 return inParameters != null && !inParameters.isEmpty();
         }

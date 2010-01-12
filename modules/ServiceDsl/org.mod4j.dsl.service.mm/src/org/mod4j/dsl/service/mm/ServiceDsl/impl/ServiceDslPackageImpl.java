@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod;
+import org.mod4j.dsl.service.mm.ServiceDsl.CollectionType;
 import org.mod4j.dsl.service.mm.ServiceDsl.CrudService;
 import org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
@@ -103,6 +104,13 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * @generated
      */
     private EEnum methodTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum collectionTypeEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -269,7 +277,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getCustomMethod_Output() {
+    public EReference getCustomMethod_OutParameter() {
         return (EReference)customMethodEClass.getEStructuralFeatures().get(0);
     }
 
@@ -386,6 +394,15 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getParameter_Collection() {
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getAssociationMethod() {
         return associationMethodEClass;
     }
@@ -431,6 +448,15 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getCollectionType() {
+        return collectionTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ServiceDslFactory getServiceDslFactory() {
         return (ServiceDslFactory)getEFactoryInstance();
     }
@@ -468,7 +494,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         createEReference(dtoReferenceEClass, DTO_REFERENCE__MODEL);
 
         customMethodEClass = createEClass(CUSTOM_METHOD);
-        createEReference(customMethodEClass, CUSTOM_METHOD__OUTPUT);
+        createEReference(customMethodEClass, CUSTOM_METHOD__OUT_PARAMETER);
         createEReference(customMethodEClass, CUSTOM_METHOD__IN_PARAMETERS);
 
         crudServiceEClass = createEClass(CRUD_SERVICE);
@@ -485,6 +511,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         parameterEClass = createEClass(PARAMETER);
         createEReference(parameterEClass, PARAMETER__TYPE);
         createEReference(parameterEClass, PARAMETER__METHOD);
+        createEAttribute(parameterEClass, PARAMETER__COLLECTION);
 
         associationMethodEClass = createEClass(ASSOCIATION_METHOD);
         createEReference(associationMethodEClass, ASSOCIATION_METHOD__MAIN);
@@ -493,6 +520,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
 
         // Create enums
         methodTypeEEnum = createEEnum(METHOD_TYPE);
+        collectionTypeEEnum = createEEnum(COLLECTION_TYPE);
     }
 
     /**
@@ -547,7 +575,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         initEReference(getDtoReference_Model(), this.getServiceModel(), this.getServiceModel_DtoReferences(), "model", null, 0, 1, DtoReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(customMethodEClass, CustomMethod.class, "CustomMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getCustomMethod_Output(), this.getDtoReference(), null, "output", null, 0, 1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getCustomMethod_OutParameter(), this.getParameter(), null, "outParameter", null, 0, 1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getCustomMethod_InParameters(), this.getParameter(), this.getParameter_Method(), "inParameters", null, 0, -1, CustomMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(crudServiceEClass, CrudService.class, "CrudService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -564,6 +592,7 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getParameter_Type(), this.getDtoReference(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getParameter_Method(), this.getCustomMethod(), this.getCustomMethod_InParameters(), "method", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getParameter_Collection(), this.getCollectionType(), "collection", "SINGLE", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(associationMethodEClass, AssociationMethod.class, "AssociationMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getAssociationMethod_Main(), this.getDtoReference(), null, "main", null, 0, 1, AssociationMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -582,6 +611,10 @@ public class ServiceDslPackageImpl extends EPackageImpl implements ServiceDslPac
         addEEnumLiteral(methodTypeEEnum, MethodType.REMOVEFROM);
         addEEnumLiteral(methodTypeEEnum, MethodType.GETFROM);
         addEEnumLiteral(methodTypeEEnum, MethodType.LISTALL);
+
+        initEEnum(collectionTypeEEnum, CollectionType.class, "CollectionType");
+        addEEnumLiteral(collectionTypeEEnum, CollectionType.SINGLE);
+        addEEnumLiteral(collectionTypeEEnum, CollectionType.LIST);
 
         // Create resource
         createResource(eNS_URI);

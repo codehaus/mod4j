@@ -57,9 +57,11 @@ Symbol toSymbol(CustomMethod method) :
     let result = new Symbol :
     result.properties.add( newProperty("methodType", "CustomMethod") )->
     (method.inParameters.isEmpty ? null : result.properties.add( newProperty("in", method.inParameters.first().type.name)) )->
-    (method.output == null ? 
+    (method.outParameter == null ? 
            result.properties.add( newProperty("out", "void")) :
-           result.properties.add( newProperty("out", method.output.name )) )->
+           result.properties.add( newProperty("out", method.outParameter.type.name ))-> 
+           result.properties.add( newProperty("outCollection", method.outParameter.collection.toString())) 
+    )->
     result.setName(method.name) ->
     result.setType("ServiceMethod")
     ;

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class InternalServiceParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'service'", "';'", "'for'", "'reference'", "'from'", "'import'", "'method'", "'in'", "'('", "','", "')'", "'out'", "'crud'", "'create'", "'read'", "'update'", "'delete'", "'listall'", "'find'", "'add'", "'remove'", "'get'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'service'", "';'", "'for'", "'reference'", "'from'", "'import'", "'method'", "'in'", "'('", "','", "')'", "'out'", "'crud'", "'create'", "'read'", "'update'", "'delete'", "'listall'", "'find'", "'add'", "'remove'", "'get'", "'list'"
     };
     public static final int RULE_ML_COMMENT=7;
     public static final int RULE_ID=5;
@@ -946,7 +946,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCustomMethod
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:480:1: ruleCustomMethod returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' ( RULE_ID ) )? ';' ) ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:480:1: ruleCustomMethod returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' (lv_outParameter_10= ruleOutParameter ) )? ';' ) ;
     public final EObject ruleCustomMethod() throws RecognitionException {
         EObject current = null;
 
@@ -956,15 +956,17 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
         EObject lv_inParameters_7 = null;
 
+        EObject lv_outParameter_10 = null;
+
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:485:6: ( ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' ( RULE_ID ) )? ';' ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:1: ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' ( RULE_ID ) )? ';' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:485:6: ( ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' (lv_outParameter_10= ruleOutParameter ) )? ';' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:1: ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' (lv_outParameter_10= ruleOutParameter ) )? ';' )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:1: ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' ( RULE_ID ) )? ';' )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:2: (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' ( RULE_ID ) )? ';'
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:1: ( (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' (lv_outParameter_10= ruleOutParameter ) )? ';' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:2: (lv_description_0= RULE_STRING )? 'method' (lv_name_2= RULE_ID ) ( 'in' '(' (lv_inParameters_5= ruleParameter ) ( ',' (lv_inParameters_7= ruleParameter ) )* ')' )? ( 'out' (lv_outParameter_10= ruleOutParameter ) )? ';'
             {
             // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:486:2: (lv_description_0= RULE_STRING )?
             int alt6=2;
@@ -1136,7 +1138,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:588:3: ( 'out' ( RULE_ID ) )?
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:588:3: ( 'out' (lv_outParameter_10= ruleOutParameter ) )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1145,25 +1147,35 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:588:4: 'out' ( RULE_ID )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:588:4: 'out' (lv_outParameter_10= ruleOutParameter )
                     {
                     match(input,22,FOLLOW_22_in_ruleCustomMethod1144); 
 
                             createLeafNode(grammarAccess.getCustomMethodAccess().getOutKeyword_4_0(), null); 
                         
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:592:1: ( RULE_ID )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:595:3: RULE_ID
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:592:1: (lv_outParameter_10= ruleOutParameter )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:595:6: lv_outParameter_10= ruleOutParameter
                     {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getCustomMethodAccess().getOutParameterOutParameterParserRuleCall_4_1_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_ruleOutParameter_in_ruleCustomMethod1178);
+                    lv_outParameter_10=ruleOutParameter();
+                    _fsp--;
 
-                    			if (current==null) {
+
+                    	        if (current==null) {
                     	            current = factory.create(grammarAccess.getCustomMethodRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode, current);
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
                     	        }
-                            
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCustomMethod1166); 
-
-                    		createLeafNode(grammarAccess.getCustomMethodAccess().getOutputDtoReferenceCrossReference_4_1_0(), "output"); 
-                    	
+                    	        
+                    	        try {
+                    	       		set(current, "outParameter", lv_outParameter_10, "OutParameter", currentNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
 
                     }
 
@@ -1173,7 +1185,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleCustomMethod1180); 
+            match(input,12,FOLLOW_12_in_ruleCustomMethod1193); 
 
                     createLeafNode(grammarAccess.getCustomMethodAccess().getSemicolonKeyword_5(), null); 
                 
@@ -1199,8 +1211,170 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleCustomMethod
 
 
+    // $ANTLR start entryRuleOutParameter
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:624:1: entryRuleOutParameter returns [EObject current=null] : iv_ruleOutParameter= ruleOutParameter EOF ;
+    public final EObject entryRuleOutParameter() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleOutParameter = null;
+
+
+        try {
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:624:54: (iv_ruleOutParameter= ruleOutParameter EOF )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:625:2: iv_ruleOutParameter= ruleOutParameter EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getOutParameterRule(), currentNode); 
+            pushFollow(FOLLOW_ruleOutParameter_in_entryRuleOutParameter1226);
+            iv_ruleOutParameter=ruleOutParameter();
+            _fsp--;
+
+             current =iv_ruleOutParameter; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOutParameter1236); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleOutParameter
+
+
+    // $ANTLR start ruleOutParameter
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:632:1: ruleOutParameter returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) ) ;
+    public final EObject ruleOutParameter() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_description_0=null;
+        Enumerator lv_collection_1 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:637:6: ( ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:638:1: ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) )
+            {
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:638:1: ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:638:2: (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID )
+            {
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:638:2: (lv_description_0= RULE_STRING )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==RULE_STRING) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:640:6: lv_description_0= RULE_STRING
+                    {
+                    lv_description_0=(Token)input.LT(1);
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleOutParameter1283); 
+
+                    		createLeafNode(grammarAccess.getOutParameterAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
+                    	
+
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getOutParameterRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode, current);
+                    	        }
+                    	        
+                    	        try {
+                    	       		set(current, "description", lv_description_0, "STRING", lastConsumedNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	    
+
+                    }
+                    break;
+
+            }
+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:658:3: (lv_collection_1= ruleCollectionType )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==33) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:661:6: lv_collection_1= ruleCollectionType
+                    {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getOutParameterAccess().getCollectionCollectionTypeEnumRuleCall_1_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_ruleCollectionType_in_ruleOutParameter1326);
+                    lv_collection_1=ruleCollectionType();
+                    _fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getOutParameterRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	        }
+                    	        
+                    	        try {
+                    	       		set(current, "collection", lv_collection_1, "CollectionType", lastConsumedNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
+
+                    }
+                    break;
+
+            }
+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:679:3: ( RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:682:3: RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = factory.create(grammarAccess.getOutParameterRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleOutParameter1353); 
+
+            		createLeafNode(grammarAccess.getOutParameterAccess().getTypeDtoReferenceCrossReference_2_0(), "type"); 
+            	
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleOutParameter
+
+
     // $ANTLR start entryRuleParameter
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:619:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:702:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final EObject entryRuleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -1208,16 +1382,16 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:619:51: (iv_ruleParameter= ruleParameter EOF )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:620:2: iv_ruleParameter= ruleParameter EOF
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:702:51: (iv_ruleParameter= ruleParameter EOF )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:703:2: iv_ruleParameter= ruleParameter EOF
             {
              currentNode = createCompositeNode(grammarAccess.getParameterRule(), currentNode); 
-            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter1213);
+            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter1389);
             iv_ruleParameter=ruleParameter();
             _fsp--;
 
              current =iv_ruleParameter; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter1223); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter1399); 
 
             }
 
@@ -1235,35 +1409,37 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParameter
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:627:1: ruleParameter returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:710:1: ruleParameter returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) (lv_name_3= RULE_ID ) ) ;
     public final EObject ruleParameter() throws RecognitionException {
         EObject current = null;
 
         Token lv_description_0=null;
-        Token lv_name_2=null;
+        Token lv_name_3=null;
+        Enumerator lv_collection_1 = null;
+
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:632:6: ( ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:633:1: ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:715:6: ( ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) (lv_name_3= RULE_ID ) ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:716:1: ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) (lv_name_3= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:633:1: ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:633:2: (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:716:1: ( (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) (lv_name_3= RULE_ID ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:716:2: (lv_description_0= RULE_STRING )? (lv_collection_1= ruleCollectionType )? ( RULE_ID ) (lv_name_3= RULE_ID )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:633:2: (lv_description_0= RULE_STRING )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:716:2: (lv_description_0= RULE_STRING )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_STRING) ) {
-                alt10=1;
+            if ( (LA12_0==RULE_STRING) ) {
+                alt12=1;
             }
-            switch (alt10) {
+            switch (alt12) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:635:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:718:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleParameter1270); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleParameter1446); 
 
                     		createLeafNode(grammarAccess.getParameterAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -1285,8 +1461,45 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:653:3: ( RULE_ID )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:656:3: RULE_ID
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:736:3: (lv_collection_1= ruleCollectionType )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
+
+            if ( (LA13_0==33) ) {
+                alt13=1;
+            }
+            switch (alt13) {
+                case 1 :
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:739:6: lv_collection_1= ruleCollectionType
+                    {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getParameterAccess().getCollectionCollectionTypeEnumRuleCall_1_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_ruleCollectionType_in_ruleParameter1489);
+                    lv_collection_1=ruleCollectionType();
+                    _fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getParameterRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	        }
+                    	        
+                    	        try {
+                    	       		set(current, "collection", lv_collection_1, "CollectionType", lastConsumedNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
+
+                    }
+                    break;
+
+            }
+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:757:3: ( RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:760:3: RULE_ID
             {
 
             			if (current==null) {
@@ -1294,20 +1507,20 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter1301); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter1516); 
 
-            		createLeafNode(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_1_0(), "type"); 
+            		createLeafNode(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_2_0(), "type"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:669:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:671:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:773:2: (lv_name_3= RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:775:6: lv_name_3= RULE_ID
             {
-            lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter1326); 
+            lv_name_3=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter1541); 
 
-            		createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
+            		createLeafNode(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
             	
 
             	        if (current==null) {
@@ -1316,7 +1529,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
             	        }
             	        
             	        try {
-            	       		set(current, "name", lv_name_2, "ID", lastConsumedNode);
+            	       		set(current, "name", lv_name_3, "ID", lastConsumedNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
             	        }
@@ -1347,7 +1560,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSpecialMethod
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:696:1: entryRuleSpecialMethod returns [EObject current=null] : iv_ruleSpecialMethod= ruleSpecialMethod EOF ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:800:1: entryRuleSpecialMethod returns [EObject current=null] : iv_ruleSpecialMethod= ruleSpecialMethod EOF ;
     public final EObject entryRuleSpecialMethod() throws RecognitionException {
         EObject current = null;
 
@@ -1355,16 +1568,16 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:696:55: (iv_ruleSpecialMethod= ruleSpecialMethod EOF )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:697:2: iv_ruleSpecialMethod= ruleSpecialMethod EOF
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:800:55: (iv_ruleSpecialMethod= ruleSpecialMethod EOF )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:801:2: iv_ruleSpecialMethod= ruleSpecialMethod EOF
             {
              currentNode = createCompositeNode(grammarAccess.getSpecialMethodRule(), currentNode); 
-            pushFollow(FOLLOW_ruleSpecialMethod_in_entryRuleSpecialMethod1367);
+            pushFollow(FOLLOW_ruleSpecialMethod_in_entryRuleSpecialMethod1582);
             iv_ruleSpecialMethod=ruleSpecialMethod();
             _fsp--;
 
              current =iv_ruleSpecialMethod; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSpecialMethod1377); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSpecialMethod1592); 
 
             }
 
@@ -1382,7 +1595,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSpecialMethod
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:704:1: ruleSpecialMethod returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:808:1: ruleSpecialMethod returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' ) ;
     public final EObject ruleSpecialMethod() throws RecognitionException {
         EObject current = null;
 
@@ -1394,25 +1607,25 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:709:6: ( ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:710:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:813:6: ( ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:814:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:710:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:710:2: (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';'
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:814:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:814:2: (lv_description_0= RULE_STRING )? (lv_type_1= ruleSpecialMethodType ) (lv_name_2= RULE_ID ) 'for' ( RULE_ID ) ';'
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:710:2: (lv_description_0= RULE_STRING )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:814:2: (lv_description_0= RULE_STRING )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_STRING) ) {
-                alt11=1;
+            if ( (LA14_0==RULE_STRING) ) {
+                alt14=1;
             }
-            switch (alt11) {
+            switch (alt14) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:712:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:816:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSpecialMethod1424); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSpecialMethod1639); 
 
                     		createLeafNode(grammarAccess.getSpecialMethodAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -1434,13 +1647,13 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:730:3: (lv_type_1= ruleSpecialMethodType )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:733:6: lv_type_1= ruleSpecialMethodType
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:834:3: (lv_type_1= ruleSpecialMethodType )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:837:6: lv_type_1= ruleSpecialMethodType
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getSpecialMethodAccess().getTypeSpecialMethodTypeEnumRuleCall_1_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleSpecialMethodType_in_ruleSpecialMethod1467);
+            pushFollow(FOLLOW_ruleSpecialMethodType_in_ruleSpecialMethod1682);
             lv_type_1=ruleSpecialMethodType();
             _fsp--;
 
@@ -1460,11 +1673,11 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:751:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:753:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:855:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:857:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSpecialMethod1493); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSpecialMethod1708); 
 
             		createLeafNode(grammarAccess.getSpecialMethodAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -1483,12 +1696,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,13,FOLLOW_13_in_ruleSpecialMethod1510); 
+            match(input,13,FOLLOW_13_in_ruleSpecialMethod1725); 
 
                     createLeafNode(grammarAccess.getSpecialMethodAccess().getForKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:775:1: ( RULE_ID )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:778:3: RULE_ID
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:879:1: ( RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:882:3: RULE_ID
             {
 
             			if (current==null) {
@@ -1496,14 +1709,14 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSpecialMethod1532); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSpecialMethod1747); 
 
             		createLeafNode(grammarAccess.getSpecialMethodAccess().getDtoDtoReferenceCrossReference_4_0(), "dto"); 
             	
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleSpecialMethod1544); 
+            match(input,12,FOLLOW_12_in_ruleSpecialMethod1759); 
 
                     createLeafNode(grammarAccess.getSpecialMethodAccess().getSemicolonKeyword_5(), null); 
                 
@@ -1530,7 +1743,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCrudService
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:802:1: entryRuleCrudService returns [EObject current=null] : iv_ruleCrudService= ruleCrudService EOF ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:906:1: entryRuleCrudService returns [EObject current=null] : iv_ruleCrudService= ruleCrudService EOF ;
     public final EObject entryRuleCrudService() throws RecognitionException {
         EObject current = null;
 
@@ -1538,16 +1751,16 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:802:53: (iv_ruleCrudService= ruleCrudService EOF )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:803:2: iv_ruleCrudService= ruleCrudService EOF
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:906:53: (iv_ruleCrudService= ruleCrudService EOF )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:907:2: iv_ruleCrudService= ruleCrudService EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCrudServiceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCrudService_in_entryRuleCrudService1577);
+            pushFollow(FOLLOW_ruleCrudService_in_entryRuleCrudService1792);
             iv_ruleCrudService=ruleCrudService();
             _fsp--;
 
              current =iv_ruleCrudService; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCrudService1587); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCrudService1802); 
 
             }
 
@@ -1565,7 +1778,7 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCrudService
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:810:1: ruleCrudService returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:914:1: ruleCrudService returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' ) ;
     public final EObject ruleCrudService() throws RecognitionException {
         EObject current = null;
 
@@ -1574,25 +1787,25 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:815:6: ( ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:816:1: ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:919:6: ( ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:920:1: ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:816:1: ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:816:2: (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';'
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:920:1: ( (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:920:2: (lv_description_0= RULE_STRING )? 'crud' ( RULE_ID ) ';'
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:816:2: (lv_description_0= RULE_STRING )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:920:2: (lv_description_0= RULE_STRING )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_STRING) ) {
-                alt12=1;
+            if ( (LA15_0==RULE_STRING) ) {
+                alt15=1;
             }
-            switch (alt12) {
+            switch (alt15) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:818:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:922:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCrudService1634); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCrudService1849); 
 
                     		createLeafNode(grammarAccess.getCrudServiceAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -1614,12 +1827,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,23,FOLLOW_23_in_ruleCrudService1652); 
+            match(input,23,FOLLOW_23_in_ruleCrudService1867); 
 
                     createLeafNode(grammarAccess.getCrudServiceAccess().getCrudKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:840:1: ( RULE_ID )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:843:3: RULE_ID
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:944:1: ( RULE_ID )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:947:3: RULE_ID
             {
 
             			if (current==null) {
@@ -1627,14 +1840,14 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCrudService1674); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCrudService1889); 
 
             		createLeafNode(grammarAccess.getCrudServiceAccess().getDtoDtoReferenceCrossReference_2_0(), "dto"); 
             	
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleCrudService1686); 
+            match(input,12,FOLLOW_12_in_ruleCrudService1901); 
 
                     createLeafNode(grammarAccess.getCrudServiceAccess().getSemicolonKeyword_3(), null); 
                 
@@ -1661,63 +1874,63 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSpecialMethodType
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:867:1: ruleSpecialMethodType returns [Enumerator current=null] : ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) ) ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:971:1: ruleSpecialMethodType returns [Enumerator current=null] : ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) ) ;
     public final Enumerator ruleSpecialMethodType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:871:6: ( ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:872:1: ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:975:6: ( ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:976:1: ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:872:1: ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) )
-            int alt13=6;
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:976:1: ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) )
+            int alt16=6;
             switch ( input.LA(1) ) {
             case 24:
                 {
-                alt13=1;
+                alt16=1;
                 }
                 break;
             case 25:
                 {
-                alt13=2;
+                alt16=2;
                 }
                 break;
             case 26:
                 {
-                alt13=3;
+                alt16=3;
                 }
                 break;
             case 27:
                 {
-                alt13=4;
+                alt16=4;
                 }
                 break;
             case 28:
                 {
-                alt13=5;
+                alt16=5;
                 }
                 break;
             case 29:
                 {
-                alt13=6;
+                alt16=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("872:1: ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) )", 13, 0, input);
+                    new NoViableAltException("976:1: ( ( 'create' ) | ( 'read' ) | ( 'update' ) | ( 'delete' ) | ( 'listall' ) | ( 'find' ) )", 16, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt13) {
+            switch (alt16) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:872:2: ( 'create' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:976:2: ( 'create' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:872:2: ( 'create' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:872:4: 'create'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:976:2: ( 'create' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:976:4: 'create'
                     {
-                    match(input,24,FOLLOW_24_in_ruleSpecialMethodType1733); 
+                    match(input,24,FOLLOW_24_in_ruleSpecialMethodType1948); 
 
                             current = grammarAccess.getSpecialMethodTypeAccess().getCREATEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getSpecialMethodTypeAccess().getCREATEEnumLiteralDeclaration_0(), null); 
@@ -1729,12 +1942,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:878:6: ( 'read' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:982:6: ( 'read' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:878:6: ( 'read' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:878:8: 'read'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:982:6: ( 'read' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:982:8: 'read'
                     {
-                    match(input,25,FOLLOW_25_in_ruleSpecialMethodType1748); 
+                    match(input,25,FOLLOW_25_in_ruleSpecialMethodType1963); 
 
                             current = grammarAccess.getSpecialMethodTypeAccess().getREADEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getSpecialMethodTypeAccess().getREADEnumLiteralDeclaration_1(), null); 
@@ -1746,12 +1959,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:884:6: ( 'update' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:988:6: ( 'update' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:884:6: ( 'update' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:884:8: 'update'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:988:6: ( 'update' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:988:8: 'update'
                     {
-                    match(input,26,FOLLOW_26_in_ruleSpecialMethodType1763); 
+                    match(input,26,FOLLOW_26_in_ruleSpecialMethodType1978); 
 
                             current = grammarAccess.getSpecialMethodTypeAccess().getUPDATEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getSpecialMethodTypeAccess().getUPDATEEnumLiteralDeclaration_2(), null); 
@@ -1763,12 +1976,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:890:6: ( 'delete' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:994:6: ( 'delete' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:890:6: ( 'delete' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:890:8: 'delete'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:994:6: ( 'delete' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:994:8: 'delete'
                     {
-                    match(input,27,FOLLOW_27_in_ruleSpecialMethodType1778); 
+                    match(input,27,FOLLOW_27_in_ruleSpecialMethodType1993); 
 
                             current = grammarAccess.getSpecialMethodTypeAccess().getDELETEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getSpecialMethodTypeAccess().getDELETEEnumLiteralDeclaration_3(), null); 
@@ -1780,12 +1993,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:896:6: ( 'listall' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1000:6: ( 'listall' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:896:6: ( 'listall' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:896:8: 'listall'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1000:6: ( 'listall' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1000:8: 'listall'
                     {
-                    match(input,28,FOLLOW_28_in_ruleSpecialMethodType1793); 
+                    match(input,28,FOLLOW_28_in_ruleSpecialMethodType2008); 
 
                             current = grammarAccess.getSpecialMethodTypeAccess().getLISTALLEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getSpecialMethodTypeAccess().getLISTALLEnumLiteralDeclaration_4(), null); 
@@ -1797,12 +2010,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:902:6: ( 'find' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1006:6: ( 'find' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:902:6: ( 'find' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:902:8: 'find'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1006:6: ( 'find' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1006:8: 'find'
                     {
-                    match(input,29,FOLLOW_29_in_ruleSpecialMethodType1808); 
+                    match(input,29,FOLLOW_29_in_ruleSpecialMethodType2023); 
 
                             current = grammarAccess.getSpecialMethodTypeAccess().getFINDEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getSpecialMethodTypeAccess().getFINDEnumLiteralDeclaration_5(), null); 
@@ -1836,48 +2049,48 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAssociationMethodType
-    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:912:1: ruleAssociationMethodType returns [Enumerator current=null] : ( ( 'add' ) | ( 'remove' ) | ( 'get' ) ) ;
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1016:1: ruleAssociationMethodType returns [Enumerator current=null] : ( ( 'add' ) | ( 'remove' ) | ( 'get' ) ) ;
     public final Enumerator ruleAssociationMethodType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:916:6: ( ( ( 'add' ) | ( 'remove' ) | ( 'get' ) ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:917:1: ( ( 'add' ) | ( 'remove' ) | ( 'get' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1020:6: ( ( ( 'add' ) | ( 'remove' ) | ( 'get' ) ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1021:1: ( ( 'add' ) | ( 'remove' ) | ( 'get' ) )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:917:1: ( ( 'add' ) | ( 'remove' ) | ( 'get' ) )
-            int alt14=3;
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1021:1: ( ( 'add' ) | ( 'remove' ) | ( 'get' ) )
+            int alt17=3;
             switch ( input.LA(1) ) {
             case 30:
                 {
-                alt14=1;
+                alt17=1;
                 }
                 break;
             case 31:
                 {
-                alt14=2;
+                alt17=2;
                 }
                 break;
             case 32:
                 {
-                alt14=3;
+                alt17=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("917:1: ( ( 'add' ) | ( 'remove' ) | ( 'get' ) )", 14, 0, input);
+                    new NoViableAltException("1021:1: ( ( 'add' ) | ( 'remove' ) | ( 'get' ) )", 17, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt17) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:917:2: ( 'add' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1021:2: ( 'add' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:917:2: ( 'add' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:917:4: 'add'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1021:2: ( 'add' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1021:4: 'add'
                     {
-                    match(input,30,FOLLOW_30_in_ruleAssociationMethodType1851); 
+                    match(input,30,FOLLOW_30_in_ruleAssociationMethodType2066); 
 
                             current = grammarAccess.getAssociationMethodTypeAccess().getADDTOEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getAssociationMethodTypeAccess().getADDTOEnumLiteralDeclaration_0(), null); 
@@ -1889,12 +2102,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:923:6: ( 'remove' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1027:6: ( 'remove' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:923:6: ( 'remove' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:923:8: 'remove'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1027:6: ( 'remove' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1027:8: 'remove'
                     {
-                    match(input,31,FOLLOW_31_in_ruleAssociationMethodType1866); 
+                    match(input,31,FOLLOW_31_in_ruleAssociationMethodType2081); 
 
                             current = grammarAccess.getAssociationMethodTypeAccess().getREMOVEFROMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getAssociationMethodTypeAccess().getREMOVEFROMEnumLiteralDeclaration_1(), null); 
@@ -1906,12 +2119,12 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:929:6: ( 'get' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1033:6: ( 'get' )
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:929:6: ( 'get' )
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:929:8: 'get'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1033:6: ( 'get' )
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1033:8: 'get'
                     {
-                    match(input,32,FOLLOW_32_in_ruleAssociationMethodType1881); 
+                    match(input,32,FOLLOW_32_in_ruleAssociationMethodType2096); 
 
                             current = grammarAccess.getAssociationMethodTypeAccess().getGETFROMEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getAssociationMethodTypeAccess().getGETFROMEnumLiteralDeclaration_2(), null); 
@@ -1942,6 +2155,46 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
         return current;
     }
     // $ANTLR end ruleAssociationMethodType
+
+
+    // $ANTLR start ruleCollectionType
+    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1043:1: ruleCollectionType returns [Enumerator current=null] : ( 'list' ) ;
+    public final Enumerator ruleCollectionType() throws RecognitionException {
+        Enumerator current = null;
+
+         setCurrentLookahead(); resetLookahead(); 
+        try {
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1047:6: ( ( 'list' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1048:1: ( 'list' )
+            {
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1048:1: ( 'list' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1048:3: 'list'
+            {
+            match(input,33,FOLLOW_33_in_ruleCollectionType2138); 
+
+                    current = grammarAccess.getCollectionTypeAccess().getLISTEnumLiteralDeclaration().getEnumLiteral().getInstance();
+                    createLeafNode(grammarAccess.getCollectionTypeAccess().getLISTEnumLiteralDeclaration(), null); 
+                
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleCollectionType
 
 
  
@@ -1983,41 +2236,48 @@ public class InternalServiceParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_17_in_ruleCustomMethod986 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleCustomMethod1008 = new BitSet(new long[]{0x0000000000441000L});
     public static final BitSet FOLLOW_18_in_ruleCustomMethod1026 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleCustomMethod1035 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_19_in_ruleCustomMethod1035 = new BitSet(new long[]{0x0000000200000030L});
     public static final BitSet FOLLOW_ruleParameter_in_ruleCustomMethod1069 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_20_in_ruleCustomMethod1083 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_20_in_ruleCustomMethod1083 = new BitSet(new long[]{0x0000000200000030L});
     public static final BitSet FOLLOW_ruleParameter_in_ruleCustomMethod1117 = new BitSet(new long[]{0x0000000000300000L});
     public static final BitSet FOLLOW_21_in_ruleCustomMethod1132 = new BitSet(new long[]{0x0000000000401000L});
-    public static final BitSet FOLLOW_22_in_ruleCustomMethod1144 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCustomMethod1166 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCustomMethod1180 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter1213 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParameter1223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleParameter1270 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter1301 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter1326 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSpecialMethod_in_entryRuleSpecialMethod1367 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSpecialMethod1377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSpecialMethod1424 = new BitSet(new long[]{0x000000003F000000L});
-    public static final BitSet FOLLOW_ruleSpecialMethodType_in_ruleSpecialMethod1467 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSpecialMethod1493 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleSpecialMethod1510 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSpecialMethod1532 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleSpecialMethod1544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCrudService_in_entryRuleCrudService1577 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCrudService1587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCrudService1634 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleCrudService1652 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCrudService1674 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCrudService1686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleSpecialMethodType1733 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleSpecialMethodType1748 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleSpecialMethodType1763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleSpecialMethodType1778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleSpecialMethodType1793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleSpecialMethodType1808 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleAssociationMethodType1851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleAssociationMethodType1866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleAssociationMethodType1881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleCustomMethod1144 = new BitSet(new long[]{0x0000000200000030L});
+    public static final BitSet FOLLOW_ruleOutParameter_in_ruleCustomMethod1178 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCustomMethod1193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOutParameter_in_entryRuleOutParameter1226 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOutParameter1236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleOutParameter1283 = new BitSet(new long[]{0x0000000200000020L});
+    public static final BitSet FOLLOW_ruleCollectionType_in_ruleOutParameter1326 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleOutParameter1353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter1389 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParameter1399 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleParameter1446 = new BitSet(new long[]{0x0000000200000020L});
+    public static final BitSet FOLLOW_ruleCollectionType_in_ruleParameter1489 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter1516 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter1541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSpecialMethod_in_entryRuleSpecialMethod1582 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSpecialMethod1592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSpecialMethod1639 = new BitSet(new long[]{0x000000003F000000L});
+    public static final BitSet FOLLOW_ruleSpecialMethodType_in_ruleSpecialMethod1682 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSpecialMethod1708 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleSpecialMethod1725 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSpecialMethod1747 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleSpecialMethod1759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCrudService_in_entryRuleCrudService1792 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCrudService1802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCrudService1849 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleCrudService1867 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCrudService1889 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCrudService1901 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleSpecialMethodType1948 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleSpecialMethodType1963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleSpecialMethodType1978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleSpecialMethodType1993 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleSpecialMethodType2008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleSpecialMethodType2023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleAssociationMethodType2066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleAssociationMethodType2081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleAssociationMethodType2096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleCollectionType2138 = new BitSet(new long[]{0x0000000000000002L});
 
 }

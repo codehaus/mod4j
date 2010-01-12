@@ -318,13 +318,13 @@ public interface ServiceDslPackage extends EPackage {
     int CUSTOM_METHOD__MODEL = SERVICE_METHOD__MODEL;
 
     /**
-     * The feature id for the '<em><b>Output</b></em>' reference.
+     * The feature id for the '<em><b>Out Parameter</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CUSTOM_METHOD__OUTPUT = SERVICE_METHOD_FEATURE_COUNT + 0;
+    int CUSTOM_METHOD__OUT_PARAMETER = SERVICE_METHOD_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>In Parameters</b></em>' containment reference list.
@@ -510,13 +510,22 @@ public interface ServiceDslPackage extends EPackage {
     int PARAMETER__METHOD = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Collection</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER__COLLECTION = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Parameter</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PARAMETER_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int PARAMETER_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AssociationMethodImpl <em>Association Method</em>}' class.
@@ -609,6 +618,17 @@ public interface ServiceDslPackage extends EPackage {
      * @generated
      */
     int METHOD_TYPE = 9;
+
+
+    /**
+     * The meta object id for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CollectionType <em>Collection Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CollectionType
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getCollectionType()
+     * @generated
+     */
+    int COLLECTION_TYPE = 10;
 
 
     /**
@@ -729,15 +749,15 @@ public interface ServiceDslPackage extends EPackage {
     EClass getCustomMethod();
 
     /**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput <em>Output</em>}'.
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutParameter <em>Out Parameter</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Output</em>'.
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput()
+     * @return the meta object for the containment reference '<em>Out Parameter</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutParameter()
      * @see #getCustomMethod()
      * @generated
      */
-    EReference getCustomMethod_Output();
+    EReference getCustomMethod_OutParameter();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInParameters <em>In Parameters</em>}'.
@@ -868,6 +888,17 @@ public interface ServiceDslPackage extends EPackage {
     EReference getParameter_Method();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getCollection <em>Collection</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Collection</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getCollection()
+     * @see #getParameter()
+     * @generated
+     */
+    EAttribute getParameter_Collection();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.service.mm.ServiceDsl.AssociationMethod <em>Association Method</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -919,6 +950,16 @@ public interface ServiceDslPackage extends EPackage {
      * @generated
      */
     EEnum getMethodType();
+
+    /**
+     * Returns the meta object for enum '{@link org.mod4j.dsl.service.mm.ServiceDsl.CollectionType <em>Collection Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Collection Type</em>'.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CollectionType
+     * @generated
+     */
+    EEnum getCollectionType();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -1039,12 +1080,12 @@ public interface ServiceDslPackage extends EPackage {
         EClass CUSTOM_METHOD = eINSTANCE.getCustomMethod();
 
         /**
-         * The meta object literal for the '<em><b>Output</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Out Parameter</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference CUSTOM_METHOD__OUTPUT = eINSTANCE.getCustomMethod_Output();
+        EReference CUSTOM_METHOD__OUT_PARAMETER = eINSTANCE.getCustomMethod_OutParameter();
 
         /**
          * The meta object literal for the '<em><b>In Parameters</b></em>' containment reference list feature.
@@ -1151,6 +1192,14 @@ public interface ServiceDslPackage extends EPackage {
         EReference PARAMETER__METHOD = eINSTANCE.getParameter_Method();
 
         /**
+         * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PARAMETER__COLLECTION = eINSTANCE.getParameter_Collection();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.AssociationMethodImpl <em>Association Method</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1193,6 +1242,16 @@ public interface ServiceDslPackage extends EPackage {
          * @generated
          */
         EEnum METHOD_TYPE = eINSTANCE.getMethodType();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CollectionType <em>Collection Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.service.mm.ServiceDsl.CollectionType
+         * @see org.mod4j.dsl.service.mm.ServiceDsl.impl.ServiceDslPackageImpl#getCollectionType()
+         * @generated
+         */
+        EEnum COLLECTION_TYPE = eINSTANCE.getCollectionType();
 
     }
 

@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutParameter <em>Out Parameter</em>}</li>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getInParameters <em>In Parameters</em>}</li>
  * </ul>
  * </p>
@@ -27,30 +27,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CustomMethod extends ServiceMethod {
     /**
-     * Returns the value of the '<em><b>Output</b></em>' reference.
+     * Returns the value of the '<em><b>Out Parameter</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Output</em>' reference isn't clear,
+     * If the meaning of the '<em>Out Parameter</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Output</em>' reference.
-     * @see #setOutput(DtoReference)
-     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCustomMethod_Output()
-     * @model
+     * @return the value of the '<em>Out Parameter</em>' containment reference.
+     * @see #setOutParameter(Parameter)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getCustomMethod_OutParameter()
+     * @model containment="true"
      * @generated
      */
-    DtoReference getOutput();
+    Parameter getOutParameter();
 
     /**
-     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutput <em>Output</em>}' reference.
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod#getOutParameter <em>Out Parameter</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Output</em>' reference.
-     * @see #getOutput()
+     * @param value the new value of the '<em>Out Parameter</em>' containment reference.
+     * @see #getOutParameter()
      * @generated
      */
-    void setOutput(DtoReference value);
+    void setOutParameter(Parameter value);
 
     /**
      * Returns the value of the '<em><b>In Parameters</b></em>' containment reference list.

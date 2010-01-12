@@ -7,6 +7,15 @@ import crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx ;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 
+String JavaParamType(Parameter param) :
+    print("JAVA PARAM TYPE [" + param + "]")->
+    ( param == null ? "void"  : (
+    switch( param.collection ){
+        case CollectionType::LIST : 'List<' +  param.type.name + '>'
+        default : param.type.name
+    } )
+    )
+;
 String JavaType(DtoReference dto) :
     ( dto == null ? "void"  : (
     let dtoSymbol = lookupSymbol(dto.modelname, dto.name, "Dto") :
@@ -18,7 +27,6 @@ String JavaType(DtoReference dto) :
     } )
     )
 ;
-
 Set[Symbol] getAllBusinessClassDtoSymbols(ServiceModel model) :
     let businessClassDtoSymbols = model.dtoReferences.select(dtoref | dtoref.dtoType() == "BusinessClassDto").
         collect(dtoref| lookupSymbol(dtoref.modelname, dtoref.name, "Dto")) :

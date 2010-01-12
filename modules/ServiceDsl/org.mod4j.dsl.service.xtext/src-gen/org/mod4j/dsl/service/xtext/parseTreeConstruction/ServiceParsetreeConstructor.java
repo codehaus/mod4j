@@ -37,9 +37,10 @@ protected class ThisRootNode extends RootToken {
 			case 2: return new DtoReference_Group(this, this, 2, inst);
 			case 3: return new ServiceMethod_Alternatives(this, this, 3, inst);
 			case 4: return new CustomMethod_Group(this, this, 4, inst);
-			case 5: return new Parameter_Group(this, this, 5, inst);
-			case 6: return new SpecialMethod_Group(this, this, 6, inst);
-			case 7: return new CrudService_Group(this, this, 7, inst);
+			case 5: return new OutParameter_Group(this, this, 5, inst);
+			case 6: return new Parameter_Group(this, this, 6, inst);
+			case 7: return new SpecialMethod_Group(this, this, 7, inst);
+			case 8: return new CrudService_Group(this, this, 8, inst);
 			default: return null;
 		}	
 	}	
@@ -925,12 +926,12 @@ protected class ServiceMethod_AssociationMethodParserRuleCall_2 extends RuleCall
  *
  * CustomMethod:
  *   description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
- *   inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";";
+ *   inParameters+=Parameter)* ")")? ("out" outParameter=OutParameter)? ";";
  *
  **/
 
 // description=STRING? "method" name=ID ("in" "(" inParameters+=Parameter (","
-// inParameters+=Parameter)* ")")? ("out" output=[DtoReference])? ";"
+// inParameters+=Parameter)* ")")? ("out" outParameter=OutParameter)? ";"
 protected class CustomMethod_Group extends GroupToken {
 	
 	public CustomMethod_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1243,7 +1244,7 @@ protected class CustomMethod_RightParenthesisKeyword_3_4 extends KeywordToken  {
 }
 
 
-// ("out" output=[DtoReference])?
+// ("out" outParameter=OutParameter)?
 protected class CustomMethod_Group_4 extends GroupToken {
 	
 	public CustomMethod_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1256,7 +1257,7 @@ protected class CustomMethod_Group_4 extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CustomMethod_OutputAssignment_4_1(parent, this, 0, inst);
+			case 0: return new CustomMethod_OutParameterAssignment_4_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1284,38 +1285,46 @@ protected class CustomMethod_OutKeyword_4_0 extends KeywordToken  {
 		
 }
 
-// output=[DtoReference]
-protected class CustomMethod_OutputAssignment_4_1 extends AssignmentToken  {
+// outParameter=OutParameter
+protected class CustomMethod_OutParameterAssignment_4_1 extends AssignmentToken  {
 	
-	public CustomMethod_OutputAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CustomMethod_OutParameterAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCustomMethodAccess().getOutputAssignment_4_1();
+		return grammarAccess.getCustomMethodAccess().getOutParameterAssignment_4_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CustomMethod_OutKeyword_4_0(parent, this, 0, inst);
+			case 0: return new OutParameter_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("output",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("output");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+		if((value = current.getConsumable("outParameter",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("outParameter");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getCustomMethodAccess().getOutputDtoReferenceCrossReference_4_1_0().getType().getClassifier())) {
-				type = AssignmentType.CR;
-				element = grammarAccess.getCustomMethodAccess().getOutputDtoReferenceCrossReference_4_1_0(); 
-				return obj;
+			if(param.isInstanceOf(grammarAccess.getOutParameterRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getCustomMethodAccess().getOutParameterOutParameterParserRuleCall_4_1_0(); 
+				consumed = obj;
+				return param;
 			}
 		}
 		return null;
 	}
 
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CustomMethod_OutKeyword_4_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
@@ -1345,14 +1354,169 @@ protected class CustomMethod_SemicolonKeyword_5 extends KeywordToken  {
 /************ end Rule CustomMethod ****************/
 
 
-/************ begin Rule Parameter ****************
+/************ begin Rule OutParameter ****************
  *
- * Parameter:
- *   description=STRING? type=[DtoReference] name=ID;
+ * OutParameter returns Parameter:
+ *   description=STRING? collection=CollectionType? type=[DtoReference]; 
+ * 
+ *      
+ * 
+ *     
+ * 
+ * 	  
+ * 
+ * 	    
+ * 
+ *     
+ * 
+ * //    name=ID
  *
  **/
 
-// description=STRING? type=[DtoReference] name=ID
+// description=STRING? collection=CollectionType? type=[DtoReference] 
+// 
+// 	  
+// 
+// 	    
+// 
+//     
+// 
+// //    name=ID
+protected class OutParameter_Group extends GroupToken {
+	
+	public OutParameter_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getOutParameterAccess().getGroup();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OutParameter_TypeAssignment_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getOutParameterRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// description=STRING?
+protected class OutParameter_DescriptionAssignment_0 extends AssignmentToken  {
+	
+	public OutParameter_DescriptionAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOutParameterAccess().getDescriptionAssignment_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("description",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("description");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getOutParameterAccess().getDescriptionSTRINGTerminalRuleCall_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// collection=CollectionType?
+protected class OutParameter_CollectionAssignment_1 extends AssignmentToken  {
+	
+	public OutParameter_CollectionAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOutParameterAccess().getCollectionAssignment_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OutParameter_DescriptionAssignment_0(parent, this, 0, inst);
+			default: return parent.createParentFollower(this, index, index - 1, inst);
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("collection",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("collection");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.ERC;
+			element = grammarAccess.getOutParameterAccess().getCollectionCollectionTypeEnumRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// type=[DtoReference] 
+// 
+//     
+// 
+// //    name=ID
+protected class OutParameter_TypeAssignment_2 extends AssignmentToken  {
+	
+	public OutParameter_TypeAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOutParameterAccess().getTypeAssignment_2();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OutParameter_CollectionAssignment_1(parent, this, 0, inst);
+			case 1: return new OutParameter_DescriptionAssignment_0(parent, this, 1, inst);
+			default: return parent.createParentFollower(this, index, index - 2, inst);
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("type",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("type");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOutParameterAccess().getTypeDtoReferenceCrossReference_2_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getOutParameterAccess().getTypeDtoReferenceCrossReference_2_0(); 
+				return obj;
+			}
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule OutParameter ****************/
+
+
+/************ begin Rule Parameter ****************
+ *
+ * Parameter:
+ *   description=STRING? collection=CollectionType? type=[DtoReference] name=ID;
+ *
+ **/
+
+// description=STRING? collection=CollectionType? type=[DtoReference] name=ID
 protected class Parameter_Group extends GroupToken {
 	
 	public Parameter_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1365,7 +1529,7 @@ protected class Parameter_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Parameter_NameAssignment_2(parent, this, 0, inst);
+			case 0: return new Parameter_NameAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1406,15 +1570,15 @@ protected class Parameter_DescriptionAssignment_0 extends AssignmentToken  {
 
 }
 
-// type=[DtoReference]
-protected class Parameter_TypeAssignment_1 extends AssignmentToken  {
+// collection=CollectionType?
+protected class Parameter_CollectionAssignment_1 extends AssignmentToken  {
 	
-	public Parameter_TypeAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Parameter_CollectionAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterAccess().getTypeAssignment_1();
+		return grammarAccess.getParameterAccess().getCollectionAssignment_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -1425,13 +1589,45 @@ protected class Parameter_TypeAssignment_1 extends AssignmentToken  {
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("collection",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("collection");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.ERC;
+			element = grammarAccess.getParameterAccess().getCollectionCollectionTypeEnumRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// type=[DtoReference]
+protected class Parameter_TypeAssignment_2 extends AssignmentToken  {
+	
+	public Parameter_TypeAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterAccess().getTypeAssignment_2();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Parameter_CollectionAssignment_1(parent, this, 0, inst);
+			case 1: return new Parameter_DescriptionAssignment_0(parent, this, 1, inst);
+			default: return parent.createParentFollower(this, index, index - 2, inst);
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("type",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("type");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_2_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_1_0(); 
+				element = grammarAccess.getParameterAccess().getTypeDtoReferenceCrossReference_2_0(); 
 				return obj;
 			}
 		}
@@ -1441,19 +1637,19 @@ protected class Parameter_TypeAssignment_1 extends AssignmentToken  {
 }
 
 // name=ID
-protected class Parameter_NameAssignment_2 extends AssignmentToken  {
+protected class Parameter_NameAssignment_3 extends AssignmentToken  {
 	
-	public Parameter_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Parameter_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterAccess().getNameAssignment_2();
+		return grammarAccess.getParameterAccess().getNameAssignment_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Parameter_TypeAssignment_1(parent, this, 0, inst);
+			case 0: return new Parameter_TypeAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1463,7 +1659,7 @@ protected class Parameter_NameAssignment_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_2_0();
+			element = grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_3_0();
 			return obj;
 		}
 		return null;

@@ -51,14 +51,25 @@ CustomMethod:
 	name=ID
 	("in" "(" (inParameters+=Parameter)
 	          ("," inParameters+=Parameter )* ")" )?
-	("out" output=[DtoReference] )?
+	("out" outParameter = OutParameter )?
     ";" ;
      
+OutParameter returns Parameter:
+	(description=STRING )?
+	(collection = CollectionType)?
+    type=[DtoReference]
+//    name=ID 
+    ;
+
 Parameter:
 	(description=STRING )?
+	(collection = CollectionType)?
     type=[DtoReference]
     name=ID 
     ;
+
+enum CollectionType :
+    LIST = "list";
     
 SpecialMethod:
 	(description=STRING )?

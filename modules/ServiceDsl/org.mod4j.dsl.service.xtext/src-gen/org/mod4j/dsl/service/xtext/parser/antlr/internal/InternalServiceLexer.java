@@ -16,6 +16,7 @@ public class InternalServiceLexer extends Lexer {
     public static final int T14=14;
     public static final int T29=29;
     public static final int RULE_ID=5;
+    public static final int T33=33;
     public static final int T22=22;
     public static final int T11=11;
     public static final int RULE_STRING=4;
@@ -33,7 +34,7 @@ public class InternalServiceLexer extends Lexer {
     public static final int EOF=-1;
     public static final int T32=32;
     public static final int T17=17;
-    public static final int Tokens=33;
+    public static final int Tokens=34;
     public static final int T31=31;
     public static final int RULE_ANY_OTHER=10;
     public static final int T16=16;
@@ -462,14 +463,33 @@ public class InternalServiceLexer extends Lexer {
     }
     // $ANTLR end T32
 
+    // $ANTLR start T33
+    public final void mT33() throws RecognitionException {
+        try {
+            int _type = T33;
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:32:5: ( 'list' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:32:7: 'list'
+            {
+            match("list"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T33
+
     // $ANTLR start RULE_ID
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:938:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:938:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1057:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1057:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:938:11: ( '^' )?
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1057:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -478,7 +498,7 @@ public class InternalServiceLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:938:11: '^'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1057:11: '^'
                     {
                     match('^'); 
 
@@ -497,7 +517,7 @@ public class InternalServiceLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:938:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1057:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -545,10 +565,10 @@ public class InternalServiceLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:940:10: ( ( '0' .. '9' )+ )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:940:12: ( '0' .. '9' )+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1059:10: ( ( '0' .. '9' )+ )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1059:12: ( '0' .. '9' )+
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:940:12: ( '0' .. '9' )+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1059:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -562,7 +582,7 @@ public class InternalServiceLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:940:13: '0' .. '9'
+            	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1059:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -592,10 +612,10 @@ public class InternalServiceLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -607,16 +627,16 @@ public class InternalServiceLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("942:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
+                    new NoViableAltException("1061:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -632,7 +652,7 @@ public class InternalServiceLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -649,7 +669,7 @@ public class InternalServiceLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -675,10 +695,10 @@ public class InternalServiceLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -694,7 +714,7 @@ public class InternalServiceLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -711,7 +731,7 @@ public class InternalServiceLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:942:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1061:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -753,12 +773,12 @@ public class InternalServiceLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:944:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:944:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1063:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1063:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:944:24: ( options {greedy=false; } : . )*
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1063:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -783,7 +803,7 @@ public class InternalServiceLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:944:52: .
+            	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1063:52: .
             	    {
             	    matchAny(); 
 
@@ -811,12 +831,12 @@ public class InternalServiceLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -829,7 +849,7 @@ public class InternalServiceLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -850,7 +870,7 @@ public class InternalServiceLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:40: ( ( '\\r' )? '\\n' )?
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -859,9 +879,9 @@ public class InternalServiceLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:41: ( '\\r' )? '\\n'
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:41: ( '\\r' )?
+                    // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -870,7 +890,7 @@ public class InternalServiceLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:946:41: '\\r'
+                            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1065:41: '\\r'
                             {
                             match('\r'); 
 
@@ -900,10 +920,10 @@ public class InternalServiceLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:948:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:948:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1067:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1067:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:948:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1067:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -956,8 +976,8 @@ public class InternalServiceLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:950:16: ( . )
-            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:950:18: .
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1069:16: ( . )
+            // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1069:18: .
             {
             matchAny(); 
 
@@ -971,8 +991,8 @@ public class InternalServiceLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=29;
+        // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=30;
         int LA12_0 = input.LA(1);
 
         if ( (LA12_0=='s') ) {
@@ -991,34 +1011,34 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_85 = input.LA(6);
 
                             if ( (LA12_85=='c') ) {
-                                int LA12_98 = input.LA(7);
+                                int LA12_99 = input.LA(7);
 
-                                if ( (LA12_98=='e') ) {
-                                    int LA12_107 = input.LA(8);
+                                if ( (LA12_99=='e') ) {
+                                    int LA12_108 = input.LA(8);
 
-                                    if ( ((LA12_107>='0' && LA12_107<='9')||(LA12_107>='A' && LA12_107<='Z')||LA12_107=='_'||(LA12_107>='a' && LA12_107<='z')) ) {
-                                        alt12=23;
+                                    if ( ((LA12_108>='0' && LA12_108<='9')||(LA12_108>='A' && LA12_108<='Z')||LA12_108=='_'||(LA12_108>='a' && LA12_108<='z')) ) {
+                                        alt12=24;
                                     }
                                     else {
                                         alt12=1;}
                                 }
                                 else {
-                                    alt12=23;}
+                                    alt12=24;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0==';') ) {
             alt12=2;
@@ -1033,13 +1053,13 @@ public class InternalServiceLexer extends Lexer {
                     int LA12_51 = input.LA(4);
 
                     if ( ((LA12_51>='0' && LA12_51<='9')||(LA12_51>='A' && LA12_51<='Z')||LA12_51=='_'||(LA12_51>='a' && LA12_51<='z')) ) {
-                        alt12=23;
+                        alt12=24;
                     }
                     else {
                         alt12=3;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
                 }
                 break;
             case 'i':
@@ -1053,16 +1073,16 @@ public class InternalServiceLexer extends Lexer {
                         int LA12_70 = input.LA(5);
 
                         if ( ((LA12_70>='0' && LA12_70<='9')||(LA12_70>='A' && LA12_70<='Z')||LA12_70=='_'||(LA12_70>='a' && LA12_70<='z')) ) {
-                            alt12=23;
+                            alt12=24;
                         }
                         else {
                             alt12=19;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
                 }
                 break;
             case 'r':
@@ -1076,20 +1096,20 @@ public class InternalServiceLexer extends Lexer {
                         int LA12_71 = input.LA(5);
 
                         if ( ((LA12_71>='0' && LA12_71<='9')||(LA12_71>='A' && LA12_71<='Z')||LA12_71=='_'||(LA12_71>='a' && LA12_71<='z')) ) {
-                            alt12=23;
+                            alt12=24;
                         }
                         else {
                             alt12=5;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
                 }
                 break;
             default:
-                alt12=23;}
+                alt12=24;}
 
         }
         else if ( (LA12_0=='r') ) {
@@ -1108,40 +1128,40 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_88 = input.LA(6);
 
                             if ( (LA12_88=='e') ) {
-                                int LA12_99 = input.LA(7);
+                                int LA12_100 = input.LA(7);
 
-                                if ( (LA12_99=='n') ) {
-                                    int LA12_108 = input.LA(8);
+                                if ( (LA12_100=='n') ) {
+                                    int LA12_109 = input.LA(8);
 
-                                    if ( (LA12_108=='c') ) {
-                                        int LA12_117 = input.LA(9);
+                                    if ( (LA12_109=='c') ) {
+                                        int LA12_118 = input.LA(9);
 
-                                        if ( (LA12_117=='e') ) {
-                                            int LA12_119 = input.LA(10);
+                                        if ( (LA12_118=='e') ) {
+                                            int LA12_120 = input.LA(10);
 
-                                            if ( ((LA12_119>='0' && LA12_119<='9')||(LA12_119>='A' && LA12_119<='Z')||LA12_119=='_'||(LA12_119>='a' && LA12_119<='z')) ) {
-                                                alt12=23;
+                                            if ( ((LA12_120>='0' && LA12_120<='9')||(LA12_120>='A' && LA12_120<='Z')||LA12_120=='_'||(LA12_120>='a' && LA12_120<='z')) ) {
+                                                alt12=24;
                                             }
                                             else {
                                                 alt12=4;}
                                         }
                                         else {
-                                            alt12=23;}
+                                            alt12=24;}
                                     }
                                     else {
-                                        alt12=23;}
+                                        alt12=24;}
                                 }
                                 else {
-                                    alt12=23;}
+                                    alt12=24;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                     }
                     break;
                 case 'm':
@@ -1155,22 +1175,22 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_89 = input.LA(6);
 
                             if ( (LA12_89=='e') ) {
-                                int LA12_100 = input.LA(7);
+                                int LA12_101 = input.LA(7);
 
-                                if ( ((LA12_100>='0' && LA12_100<='9')||(LA12_100>='A' && LA12_100<='Z')||LA12_100=='_'||(LA12_100>='a' && LA12_100<='z')) ) {
-                                    alt12=23;
+                                if ( ((LA12_101>='0' && LA12_101<='9')||(LA12_101>='A' && LA12_101<='Z')||LA12_101=='_'||(LA12_101>='a' && LA12_101<='z')) ) {
+                                    alt12=24;
                                 }
                                 else {
                                     alt12=21;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                     }
                     break;
                 case 'a':
@@ -1181,21 +1201,21 @@ public class InternalServiceLexer extends Lexer {
                         int LA12_74 = input.LA(5);
 
                         if ( ((LA12_74>='0' && LA12_74<='9')||(LA12_74>='A' && LA12_74<='Z')||LA12_74=='_'||(LA12_74>='a' && LA12_74<='z')) ) {
-                            alt12=23;
+                            alt12=24;
                         }
                         else {
                             alt12=15;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                     }
                     break;
                 default:
-                    alt12=23;}
+                    alt12=24;}
 
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='i') ) {
             switch ( input.LA(2) ) {
@@ -1213,25 +1233,25 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_91 = input.LA(6);
 
                             if ( (LA12_91=='t') ) {
-                                int LA12_101 = input.LA(7);
+                                int LA12_102 = input.LA(7);
 
-                                if ( ((LA12_101>='0' && LA12_101<='9')||(LA12_101>='A' && LA12_101<='Z')||LA12_101=='_'||(LA12_101>='a' && LA12_101<='z')) ) {
-                                    alt12=23;
+                                if ( ((LA12_102>='0' && LA12_102<='9')||(LA12_102>='A' && LA12_102<='Z')||LA12_102=='_'||(LA12_102>='a' && LA12_102<='z')) ) {
+                                    alt12=24;
                                 }
                                 else {
                                     alt12=6;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
                 }
                 break;
             case 'n':
@@ -1239,14 +1259,14 @@ public class InternalServiceLexer extends Lexer {
                 int LA12_33 = input.LA(3);
 
                 if ( ((LA12_33>='0' && LA12_33<='9')||(LA12_33>='A' && LA12_33<='Z')||LA12_33=='_'||(LA12_33>='a' && LA12_33<='z')) ) {
-                    alt12=23;
+                    alt12=24;
                 }
                 else {
                     alt12=8;}
                 }
                 break;
             default:
-                alt12=23;}
+                alt12=24;}
 
         }
         else if ( (LA12_0=='m') ) {
@@ -1265,28 +1285,28 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_92 = input.LA(6);
 
                             if ( (LA12_92=='d') ) {
-                                int LA12_102 = input.LA(7);
+                                int LA12_103 = input.LA(7);
 
-                                if ( ((LA12_102>='0' && LA12_102<='9')||(LA12_102>='A' && LA12_102<='Z')||LA12_102=='_'||(LA12_102>='a' && LA12_102<='z')) ) {
-                                    alt12=23;
+                                if ( ((LA12_103>='0' && LA12_103<='9')||(LA12_103>='A' && LA12_103<='Z')||LA12_103=='_'||(LA12_103>='a' && LA12_103<='z')) ) {
+                                    alt12=24;
                                 }
                                 else {
                                     alt12=7;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='(') ) {
             alt12=9;
@@ -1307,74 +1327,74 @@ public class InternalServiceLexer extends Lexer {
                     int LA12_60 = input.LA(4);
 
                     if ( ((LA12_60>='0' && LA12_60<='9')||(LA12_60>='A' && LA12_60<='Z')||LA12_60=='_'||(LA12_60>='a' && LA12_60<='z')) ) {
-                        alt12=23;
+                        alt12=24;
                     }
                     else {
                         alt12=12;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='c') ) {
             int LA12_11 = input.LA(2);
 
             if ( (LA12_11=='r') ) {
                 switch ( input.LA(3) ) {
-                case 'e':
+                case 'u':
                     {
                     int LA12_61 = input.LA(4);
 
-                    if ( (LA12_61=='a') ) {
+                    if ( (LA12_61=='d') ) {
                         int LA12_78 = input.LA(5);
 
-                        if ( (LA12_78=='t') ) {
-                            int LA12_93 = input.LA(6);
-
-                            if ( (LA12_93=='e') ) {
-                                int LA12_103 = input.LA(7);
-
-                                if ( ((LA12_103>='0' && LA12_103<='9')||(LA12_103>='A' && LA12_103<='Z')||LA12_103=='_'||(LA12_103>='a' && LA12_103<='z')) ) {
-                                    alt12=23;
-                                }
-                                else {
-                                    alt12=14;}
-                            }
-                            else {
-                                alt12=23;}
-                        }
-                        else {
-                            alt12=23;}
-                    }
-                    else {
-                        alt12=23;}
-                    }
-                    break;
-                case 'u':
-                    {
-                    int LA12_62 = input.LA(4);
-
-                    if ( (LA12_62=='d') ) {
-                        int LA12_79 = input.LA(5);
-
-                        if ( ((LA12_79>='0' && LA12_79<='9')||(LA12_79>='A' && LA12_79<='Z')||LA12_79=='_'||(LA12_79>='a' && LA12_79<='z')) ) {
-                            alt12=23;
+                        if ( ((LA12_78>='0' && LA12_78<='9')||(LA12_78>='A' && LA12_78<='Z')||LA12_78=='_'||(LA12_78>='a' && LA12_78<='z')) ) {
+                            alt12=24;
                         }
                         else {
                             alt12=13;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
+                    }
+                    break;
+                case 'e':
+                    {
+                    int LA12_62 = input.LA(4);
+
+                    if ( (LA12_62=='a') ) {
+                        int LA12_79 = input.LA(5);
+
+                        if ( (LA12_79=='t') ) {
+                            int LA12_94 = input.LA(6);
+
+                            if ( (LA12_94=='e') ) {
+                                int LA12_104 = input.LA(7);
+
+                                if ( ((LA12_104>='0' && LA12_104<='9')||(LA12_104>='A' && LA12_104<='Z')||LA12_104=='_'||(LA12_104>='a' && LA12_104<='z')) ) {
+                                    alt12=24;
+                                }
+                                else {
+                                    alt12=14;}
+                            }
+                            else {
+                                alt12=24;}
+                        }
+                        else {
+                            alt12=24;}
+                    }
+                    else {
+                        alt12=24;}
                     }
                     break;
                 default:
-                    alt12=23;}
+                    alt12=24;}
 
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='u') ) {
             int LA12_12 = input.LA(2);
@@ -1392,28 +1412,28 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_95 = input.LA(6);
 
                             if ( (LA12_95=='e') ) {
-                                int LA12_104 = input.LA(7);
+                                int LA12_105 = input.LA(7);
 
-                                if ( ((LA12_104>='0' && LA12_104<='9')||(LA12_104>='A' && LA12_104<='Z')||LA12_104=='_'||(LA12_104>='a' && LA12_104<='z')) ) {
-                                    alt12=23;
+                                if ( ((LA12_105>='0' && LA12_105<='9')||(LA12_105>='A' && LA12_105<='Z')||LA12_105=='_'||(LA12_105>='a' && LA12_105<='z')) ) {
+                                    alt12=24;
                                 }
                                 else {
                                     alt12=16;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='d') ) {
             int LA12_13 = input.LA(2);
@@ -1431,28 +1451,28 @@ public class InternalServiceLexer extends Lexer {
                             int LA12_96 = input.LA(6);
 
                             if ( (LA12_96=='e') ) {
-                                int LA12_105 = input.LA(7);
+                                int LA12_106 = input.LA(7);
 
-                                if ( ((LA12_105>='0' && LA12_105<='9')||(LA12_105>='A' && LA12_105<='Z')||LA12_105=='_'||(LA12_105>='a' && LA12_105<='z')) ) {
-                                    alt12=23;
+                                if ( ((LA12_106>='0' && LA12_106<='9')||(LA12_106>='A' && LA12_106<='Z')||LA12_106=='_'||(LA12_106>='a' && LA12_106<='z')) ) {
+                                    alt12=24;
                                 }
                                 else {
                                     alt12=17;}
                             }
                             else {
-                                alt12=23;}
+                                alt12=24;}
                         }
                         else {
-                            alt12=23;}
+                            alt12=24;}
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='l') ) {
             int LA12_14 = input.LA(2);
@@ -1464,40 +1484,108 @@ public class InternalServiceLexer extends Lexer {
                     int LA12_65 = input.LA(4);
 
                     if ( (LA12_65=='t') ) {
-                        int LA12_82 = input.LA(5);
-
-                        if ( (LA12_82=='a') ) {
+                        switch ( input.LA(5) ) {
+                        case 'a':
+                            {
                             int LA12_97 = input.LA(6);
 
                             if ( (LA12_97=='l') ) {
-                                int LA12_106 = input.LA(7);
+                                int LA12_107 = input.LA(7);
 
-                                if ( (LA12_106=='l') ) {
-                                    int LA12_115 = input.LA(8);
+                                if ( (LA12_107=='l') ) {
+                                    int LA12_116 = input.LA(8);
 
-                                    if ( ((LA12_115>='0' && LA12_115<='9')||(LA12_115>='A' && LA12_115<='Z')||LA12_115=='_'||(LA12_115>='a' && LA12_115<='z')) ) {
-                                        alt12=23;
+                                    if ( ((LA12_116>='0' && LA12_116<='9')||(LA12_116>='A' && LA12_116<='Z')||LA12_116=='_'||(LA12_116>='a' && LA12_116<='z')) ) {
+                                        alt12=24;
                                     }
                                     else {
                                         alt12=18;}
                                 }
                                 else {
-                                    alt12=23;}
+                                    alt12=24;}
                             }
                             else {
-                                alt12=23;}
-                        }
-                        else {
+                                alt12=24;}
+                            }
+                            break;
+                        case '0':
+                        case '1':
+                        case '2':
+                        case '3':
+                        case '4':
+                        case '5':
+                        case '6':
+                        case '7':
+                        case '8':
+                        case '9':
+                        case 'A':
+                        case 'B':
+                        case 'C':
+                        case 'D':
+                        case 'E':
+                        case 'F':
+                        case 'G':
+                        case 'H':
+                        case 'I':
+                        case 'J':
+                        case 'K':
+                        case 'L':
+                        case 'M':
+                        case 'N':
+                        case 'O':
+                        case 'P':
+                        case 'Q':
+                        case 'R':
+                        case 'S':
+                        case 'T':
+                        case 'U':
+                        case 'V':
+                        case 'W':
+                        case 'X':
+                        case 'Y':
+                        case 'Z':
+                        case '_':
+                        case 'b':
+                        case 'c':
+                        case 'd':
+                        case 'e':
+                        case 'f':
+                        case 'g':
+                        case 'h':
+                        case 'i':
+                        case 'j':
+                        case 'k':
+                        case 'l':
+                        case 'm':
+                        case 'n':
+                        case 'o':
+                        case 'p':
+                        case 'q':
+                        case 'r':
+                        case 's':
+                        case 't':
+                        case 'u':
+                        case 'v':
+                        case 'w':
+                        case 'x':
+                        case 'y':
+                        case 'z':
+                            {
+                            alt12=24;
+                            }
+                            break;
+                        default:
                             alt12=23;}
+
                     }
                     else {
-                        alt12=23;}
+                        alt12=24;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='a') ) {
             int LA12_15 = input.LA(2);
@@ -1509,16 +1597,16 @@ public class InternalServiceLexer extends Lexer {
                     int LA12_66 = input.LA(4);
 
                     if ( ((LA12_66>='0' && LA12_66<='9')||(LA12_66>='A' && LA12_66<='Z')||LA12_66=='_'||(LA12_66>='a' && LA12_66<='z')) ) {
-                        alt12=23;
+                        alt12=24;
                     }
                     else {
                         alt12=20;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='g') ) {
             int LA12_16 = input.LA(2);
@@ -1530,75 +1618,75 @@ public class InternalServiceLexer extends Lexer {
                     int LA12_67 = input.LA(4);
 
                     if ( ((LA12_67>='0' && LA12_67<='9')||(LA12_67>='A' && LA12_67<='Z')||LA12_67=='_'||(LA12_67>='a' && LA12_67<='z')) ) {
-                        alt12=23;
+                        alt12=24;
                     }
                     else {
                         alt12=22;}
                 }
                 else {
-                    alt12=23;}
+                    alt12=24;}
             }
             else {
-                alt12=23;}
+                alt12=24;}
         }
         else if ( (LA12_0=='^') ) {
             int LA12_17 = input.LA(2);
 
             if ( ((LA12_17>='A' && LA12_17<='Z')||LA12_17=='_'||(LA12_17>='a' && LA12_17<='z')) ) {
-                alt12=23;
+                alt12=24;
             }
             else {
-                alt12=29;}
+                alt12=30;}
         }
         else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='b'||LA12_0=='e'||LA12_0=='h'||(LA12_0>='j' && LA12_0<='k')||LA12_0=='n'||(LA12_0>='p' && LA12_0<='q')||LA12_0=='t'||(LA12_0>='v' && LA12_0<='z')) ) {
-            alt12=23;
+            alt12=24;
         }
         else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
-            alt12=24;
+            alt12=25;
         }
         else if ( (LA12_0=='\"') ) {
             int LA12_20 = input.LA(2);
 
             if ( ((LA12_20>='\u0000' && LA12_20<='\uFFFE')) ) {
-                alt12=25;
+                alt12=26;
             }
             else {
-                alt12=29;}
+                alt12=30;}
         }
         else if ( (LA12_0=='\'') ) {
             int LA12_21 = input.LA(2);
 
             if ( ((LA12_21>='\u0000' && LA12_21<='\uFFFE')) ) {
-                alt12=25;
+                alt12=26;
             }
             else {
-                alt12=29;}
+                alt12=30;}
         }
         else if ( (LA12_0=='/') ) {
             switch ( input.LA(2) ) {
             case '*':
                 {
-                alt12=26;
+                alt12=27;
                 }
                 break;
             case '/':
                 {
-                alt12=27;
+                alt12=28;
                 }
                 break;
             default:
-                alt12=29;}
+                alt12=30;}
 
         }
         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {
-            alt12=28;
+            alt12=29;
         }
         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||LA12_0==':'||(LA12_0>='<' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFE')) ) {
-            alt12=29;
+            alt12=30;
         }
         else {
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
 
             throw nvae;
         }
@@ -1758,49 +1846,56 @@ public class InternalServiceLexer extends Lexer {
                 }
                 break;
             case 23 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:98: RULE_ID
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:98: T33
+                {
+                mT33(); 
+
+                }
+                break;
+            case 24 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:102: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 24 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:106: RULE_INT
+            case 25 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:110: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 25 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:115: RULE_STRING
+            case 26 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:119: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 26 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:127: RULE_ML_COMMENT
+            case 27 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:131: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 27 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:143: RULE_SL_COMMENT
+            case 28 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:147: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 28 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:159: RULE_WS
+            case 29 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:163: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 29 :
-                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:167: RULE_ANY_OTHER
+            case 30 :
+                // ../org.mod4j.dsl.service.xtext/src-gen/org/mod4j/dsl/service/xtext/parser/antlr/internal/InternalService.g:1:171: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

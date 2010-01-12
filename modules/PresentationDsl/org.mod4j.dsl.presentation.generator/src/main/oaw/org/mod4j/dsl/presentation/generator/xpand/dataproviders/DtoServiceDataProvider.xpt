@@ -14,7 +14,7 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoServiveProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
 «LET this.referredDialogue().contextRef.name AS context»
-«LET findServiceWithMethod(context, "LISTALL") AS serviceType»
+«LET findServiceWithMethod(context, "Create") AS serviceType»
 «LET findSpecialMethodInService(context, "UPDATE", serviceType) AS updateService»
 «LET findSpecialMethodInService(context, "Create", serviceType) AS createService»
 «LET findSpecialMethodInService(context, "DELETE", serviceType) AS deleteService»

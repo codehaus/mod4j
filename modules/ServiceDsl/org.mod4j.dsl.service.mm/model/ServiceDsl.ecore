@@ -21,7 +21,8 @@
         eOpposite="#//ServiceModel/dtoReferences"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomMethod" eSuperTypes="#//ServiceMethod">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//DtoReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outParameter" eType="#//Parameter"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inParameters" upperBound="-1"
         eType="#//Parameter" containment="true" eOpposite="#//Parameter/method"/>
   </eClassifiers>
@@ -55,10 +56,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//CustomMethod"
         eOpposite="#//CustomMethod/inParameters"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collection" eType="#//CollectionType"
+        defaultValueLiteral="SINGLE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssociationMethod" eSuperTypes="#//ServiceMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rolename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CollectionType">
+    <eLiterals name="SINGLE"/>
+    <eLiterals name="LIST" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

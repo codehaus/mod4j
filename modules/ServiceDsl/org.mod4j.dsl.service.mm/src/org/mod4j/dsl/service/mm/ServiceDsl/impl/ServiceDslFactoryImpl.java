@@ -85,6 +85,8 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
         switch (eDataType.getClassifierID()) {
             case ServiceDslPackage.METHOD_TYPE:
                 return createMethodTypeFromString(eDataType, initialValue);
+            case ServiceDslPackage.COLLECTION_TYPE:
+                return createCollectionTypeFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -100,6 +102,8 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
         switch (eDataType.getClassifierID()) {
             case ServiceDslPackage.METHOD_TYPE:
                 return convertMethodTypeToString(eDataType, instanceValue);
+            case ServiceDslPackage.COLLECTION_TYPE:
+                return convertCollectionTypeToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -212,6 +216,26 @@ public class ServiceDslFactoryImpl extends EFactoryImpl implements ServiceDslFac
      * @generated
      */
     public String convertMethodTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CollectionType createCollectionTypeFromString(EDataType eDataType, String initialValue) {
+        CollectionType result = CollectionType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertCollectionTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

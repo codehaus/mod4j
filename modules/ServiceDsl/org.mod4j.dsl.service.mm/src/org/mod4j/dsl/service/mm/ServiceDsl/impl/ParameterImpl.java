@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.service.mm.ServiceDsl.CollectionType;
 import org.mod4j.dsl.service.mm.ServiceDsl.CustomMethod;
 import org.mod4j.dsl.service.mm.ServiceDsl.DtoReference;
 import org.mod4j.dsl.service.mm.ServiceDsl.Parameter;
@@ -30,6 +31,7 @@ import org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage;
  * <ul>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.impl.ParameterImpl#getCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +47,25 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
      * @ordered
      */
     protected DtoReference type;
+
+    /**
+     * The default value of the '{@link #getCollection() <em>Collection</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCollection()
+     * @generated
+     * @ordered
+     */
+    protected static final CollectionType COLLECTION_EDEFAULT = CollectionType.SINGLE;
+    /**
+     * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCollection()
+     * @generated
+     * @ordered
+     */
+    protected CollectionType collection = COLLECTION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -149,6 +170,27 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
      * <!-- end-user-doc -->
      * @generated
      */
+    public CollectionType getCollection() {
+        return collection;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCollection(CollectionType newCollection) {
+        CollectionType oldCollection = collection;
+        collection = newCollection == null ? COLLECTION_EDEFAULT : newCollection;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ServiceDslPackage.PARAMETER__COLLECTION, oldCollection, collection));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -201,6 +243,8 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
                 return basicGetType();
             case ServiceDslPackage.PARAMETER__METHOD:
                 return getMethod();
+            case ServiceDslPackage.PARAMETER__COLLECTION:
+                return getCollection();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -218,6 +262,9 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
                 return;
             case ServiceDslPackage.PARAMETER__METHOD:
                 setMethod((CustomMethod)newValue);
+                return;
+            case ServiceDslPackage.PARAMETER__COLLECTION:
+                setCollection((CollectionType)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -237,6 +284,9 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
             case ServiceDslPackage.PARAMETER__METHOD:
                 setMethod((CustomMethod)null);
                 return;
+            case ServiceDslPackage.PARAMETER__COLLECTION:
+                setCollection(COLLECTION_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -253,8 +303,26 @@ public class ParameterImpl extends ModelElementImpl implements Parameter {
                 return type != null;
             case ServiceDslPackage.PARAMETER__METHOD:
                 return getMethod() != null;
+            case ServiceDslPackage.PARAMETER__COLLECTION:
+                return collection != COLLECTION_EDEFAULT;
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (collection: ");
+        result.append(collection);
+        result.append(')');
+        return result.toString();
     }
 
 } //ParameterImpl

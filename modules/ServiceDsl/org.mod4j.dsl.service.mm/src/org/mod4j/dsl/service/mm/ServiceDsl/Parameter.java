@@ -17,6 +17,7 @@ package org.mod4j.dsl.service.mm.ServiceDsl;
  * <ul>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,5 +79,35 @@ public interface Parameter extends ModelElement {
      * @generated
      */
     void setMethod(CustomMethod value);
+
+    /**
+     * Returns the value of the '<em><b>Collection</b></em>' attribute.
+     * The default value is <code>"SINGLE"</code>.
+     * The literals are from the enumeration {@link org.mod4j.dsl.service.mm.ServiceDsl.CollectionType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Collection</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Collection</em>' attribute.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CollectionType
+     * @see #setCollection(CollectionType)
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.ServiceDslPackage#getParameter_Collection()
+     * @model default="SINGLE"
+     * @generated
+     */
+    CollectionType getCollection();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.service.mm.ServiceDsl.Parameter#getCollection <em>Collection</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Collection</em>' attribute.
+     * @see org.mod4j.dsl.service.mm.ServiceDsl.CollectionType
+     * @see #getCollection()
+     * @generated
+     */
+    void setCollection(CollectionType value);
 
 } // Parameter

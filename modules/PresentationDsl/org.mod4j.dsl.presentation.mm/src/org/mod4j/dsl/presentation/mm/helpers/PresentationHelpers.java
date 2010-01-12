@@ -67,10 +67,10 @@ public class PresentationHelpers {
             if( outDto == null ){
                 return "ERROR: 8 service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]";
             }
-            return outDto;
+            return getBase(outDto);
         } else if( methodType.equals("LISTALL") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
-            return outDto;
+            return getBase(outDto);
         } else if( methodType.equals("UPDATE") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             String inDto = outDto;
@@ -84,8 +84,23 @@ public class PresentationHelpers {
         } else if( methodType.equals("Create") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             return outDto;
+        } else if( methodType.equals("AssociationMethod") ) {
+            String inDto = CrossxBroker.getPropertyValue(serviceMethod, "whole");
+            if( ! inDto.equals(context ) ){
+                return "ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+            }
+            String outDto = CrossxBroker.getPropertyValue(serviceMethod, "part");
+            return getBase(outDto);
         }
         return "UNKNOWN";
+    }
+    
+    static private String getBase(String dto) {
+        if( dto.endsWith("List")){
+            return dto.substring(0, dto.length() - 4);
+        } else {
+            return dto;
+        }
     }
     
     private static PresentationModel findModel(ModelElement elem){
@@ -320,7 +335,7 @@ public class PresentationHelpers {
                             return resultType;
                         } else {
                             if( ! expectedType.equals(resultType) ){
-                                return "ERROR: 4 type of process [" + resultType + 
+                                return "ERROR: 5 type of process [" + resultType + 
                                 "] and called dialogue [" + expectedType + "] should be the same";
                             }
                         }

@@ -11,6 +11,7 @@ RULE_SL_COMMENT=8
 ')'=21
 'find'=29
 'from'=15
+'list'=33
 'listall'=28
 ';'=12
 'import'=16

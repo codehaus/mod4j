@@ -53,6 +53,7 @@ public class ServiceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCustomMethodAccess().getGroup_3(), "rule__CustomMethod__Group_3__0");
 					put(grammarAccess.getCustomMethodAccess().getGroup_3_3(), "rule__CustomMethod__Group_3_3__0");
 					put(grammarAccess.getCustomMethodAccess().getGroup_4(), "rule__CustomMethod__Group_4__0");
+					put(grammarAccess.getOutParameterAccess().getGroup(), "rule__OutParameter__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getSpecialMethodAccess().getGroup(), "rule__SpecialMethod__Group__0");
 					put(grammarAccess.getCrudServiceAccess().getGroup(), "rule__CrudService__Group__0");
@@ -73,10 +74,14 @@ public class ServiceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCustomMethodAccess().getNameAssignment_2(), "rule__CustomMethod__NameAssignment_2");
 					put(grammarAccess.getCustomMethodAccess().getInParametersAssignment_3_2(), "rule__CustomMethod__InParametersAssignment_3_2");
 					put(grammarAccess.getCustomMethodAccess().getInParametersAssignment_3_3_1(), "rule__CustomMethod__InParametersAssignment_3_3_1");
-					put(grammarAccess.getCustomMethodAccess().getOutputAssignment_4_1(), "rule__CustomMethod__OutputAssignment_4_1");
+					put(grammarAccess.getCustomMethodAccess().getOutParameterAssignment_4_1(), "rule__CustomMethod__OutParameterAssignment_4_1");
+					put(grammarAccess.getOutParameterAccess().getDescriptionAssignment_0(), "rule__OutParameter__DescriptionAssignment_0");
+					put(grammarAccess.getOutParameterAccess().getCollectionAssignment_1(), "rule__OutParameter__CollectionAssignment_1");
+					put(grammarAccess.getOutParameterAccess().getTypeAssignment_2(), "rule__OutParameter__TypeAssignment_2");
 					put(grammarAccess.getParameterAccess().getDescriptionAssignment_0(), "rule__Parameter__DescriptionAssignment_0");
-					put(grammarAccess.getParameterAccess().getTypeAssignment_1(), "rule__Parameter__TypeAssignment_1");
-					put(grammarAccess.getParameterAccess().getNameAssignment_2(), "rule__Parameter__NameAssignment_2");
+					put(grammarAccess.getParameterAccess().getCollectionAssignment_1(), "rule__Parameter__CollectionAssignment_1");
+					put(grammarAccess.getParameterAccess().getTypeAssignment_2(), "rule__Parameter__TypeAssignment_2");
+					put(grammarAccess.getParameterAccess().getNameAssignment_3(), "rule__Parameter__NameAssignment_3");
 					put(grammarAccess.getSpecialMethodAccess().getDescriptionAssignment_0(), "rule__SpecialMethod__DescriptionAssignment_0");
 					put(grammarAccess.getSpecialMethodAccess().getTypeAssignment_1(), "rule__SpecialMethod__TypeAssignment_1");
 					put(grammarAccess.getSpecialMethodAccess().getNameAssignment_2(), "rule__SpecialMethod__NameAssignment_2");
