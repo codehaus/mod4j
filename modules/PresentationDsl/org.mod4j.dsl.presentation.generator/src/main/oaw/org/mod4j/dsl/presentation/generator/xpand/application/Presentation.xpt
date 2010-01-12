@@ -221,6 +221,7 @@ import java.util.List;
 import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
 import «getPresentationRootPackage()».processes.PmfProcess;
+import «getPresentationRootPackage()».panels.Mod4jDataProvider;
 «FOREACH processes AS process-»
 import «getPresentationRootPackage()».processes.«process.name»Process;
 import «getPresentationRootPackage()».pages.«process.name»«process.processElements.referredContentForm().first().name»Page;
@@ -237,7 +238,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.PropertyModel;
 
-public abstract class «getWicketMasterPageClass()» extends WebPage {
+public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
     protected «getWicketSesssionClass()» session;
 
     protected PmfProcess owningProcess = null;
@@ -250,7 +251,15 @@ public abstract class «getWicketMasterPageClass()» extends WebPage {
         return owningProcess ;
     }
 
+    private Mod4jDataProvider<DtoType> provider = null;
 
+    public Mod4jDataProvider<DtoType> getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Mod4jDataProvider<DtoType> provider) {
+        this.provider = provider;
+    }
 
     private List<AbstractLink> menuItems = new ArrayList<AbstractLink>();
 	/** Only used to allow reference from within the unnamed inner class for Link to thuis page

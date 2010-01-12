@@ -52,5 +52,10 @@ String findSpecialMethodInService(String dtoName, String methodType, String serv
 // returns the name of a service that contains a special method of "methodType" for the referred DTO in "form"
 String findServiceWithMethod(String dtoName, String methodType) :
     findAllSymbols(getProject(), "Service").select( s | findSpecialMethodInService(dtoName, methodType, s.name) != null ).first().name;
+
+Symbol findMethodInService(String serviceName, String methodName) :
+    findAllSymbols(getProject(), "Service").select(s | s.name.endsWith(serviceName)).findAllSubSymbols("ServiceMethod").
+    selectFirst( method | method.name == methodName);
+    
  
  

@@ -8,7 +8,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
 «DEFINE GenerateContentFormPage(ContentForm form) FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateContentFormPage in ProcessPage.xpt") FOR this»
 package «getPresentationRootPackage()».pages;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -18,14 +18,7 @@ import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListe
 import «getPresentationRootPackage()».panels.Mod4jDataProvider;
 import «getPresentationRootPackage()».processes.«this.name»Process;
 import «getPresentationRootPackage()».processes.PmfProcess;
-«REM»
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process ;
-«ENDFOREACH»
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::SAVE) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process ;
-«ENDFOREACH»
-«ENDREM»
+
 «FOREACH form.processes.referredProcess().select(e|(e != null) && (e.name != "") ) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process ;
 «ENDFOREACH»
@@ -34,20 +27,10 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «this.contextRef.name»ListListener
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> implements «this.contextRef.name»ListListener
 {
     protected «this.processElements.first().name»SwapEditPanel panel = null;
 
-    private Mod4jDataProvider<«form.contextRef.name»> provider = null;
-
-	public Mod4jDataProvider<«form.contextRef.name»> getProvider() {
-		return provider;
-	}
-
-	public void setProvider(Mod4jDataProvider<«form.contextRef.name»> provider) {
-		this.provider = provider;
-	}
-	
     public «this.name»«form.name»Page (PmfProcess owner, final IModel<«this.contextRef.name»> context)
 	{
 		super(owner);
@@ -83,7 +66,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
 			«IF ! p.isInteractive() » «REM»this is a batch process«ENDREM»
-				process.setProvider(provider);
+				process.setProvider(getProvider());
 				process.run(context);
 				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::REMOVE)»
 				    owningProcess.done(this);
@@ -91,7 +74,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			«ELSE»
 				Page next = process.nextPage(context);
 				if( next != null ){
-					setResponsePage(process.nextPage(context));
+					setResponsePage(next);
 				}
 			«ENDIF»
 		}
@@ -110,7 +93,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 «ENDDEFINE»
 
 «DEFINE GenerateListContentFormPage(DialogueCall dialogueCall) FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateListContentFormPage in ProcessPage.xpt") FOR this-»
 «LET referredContentForm(dialogueCall) AS form»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
@@ -127,13 +110,7 @@ import «getPresentationRootPackage()».panels.«form.name»CollectionDataViewPa
 import «getPresentationRootPackage()».panels.«form.contextRef.name»ListListener;
 import «javaDtoClassPath(form.contextRef.name)»;
 import «getPresentationRootPackage()».processes.PmfProcess;
-«IF dialogueCall.getNavigationExpression() != null »
-import «getPresentationRootPackage()».panels.«getWicketNavigationDataProviderClass(this.contextRef.name, form.contextRef.name)»;
-«ELSEIF dialogueCall.getServiceExpression() != null »
-import «getPresentationRootPackage()».panels.«getWicketServiceDataProviderClass(form.contextRef.name)»;
-«ELSE»
 import «getPresentationRootPackage()».panels.Mod4jDataProvider;
-«ENDIF»
 «IF editProcess != null»
 import «getPresentationRootPackage()».processes.«editProcess.name»Process;
 «ENDIF»
@@ -149,53 +126,11 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()» implements «form.contextRef.name»ListListener
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> implements «form.contextRef.name»ListListener
 {
     private Integer maxItemsPerPage = 5;
 
-	«IF dialogueCall.getNavigationExpression() != null »
-		«LET getWicketNavigationDataProviderClass(this.contextRef.name, form.contextRef.name) AS provider»
-		private «provider» provider = null;
-
-		public «provider» getProvider() {
-			return provider;
-		}
-	
-		public void setProvider(«provider» provider) {
-			this.provider = provider;
-		}
-		«ENDLET»
-	«ELSEIF dialogueCall.getServiceExpression() != null »
-		«LET getWicketServiceDataProviderClass(form.contextRef.name) AS provider»
-		private «provider» provider = null;
-
-		public «provider» getProvider() {
-			return provider;
-		}
-	
-		public void setProvider(«provider» provider) {
-			this.provider = provider;
-		}
-		«ENDLET»
-	«ELSE»
-       private Mod4jDataProvider<«form.contextRef.name»> provider = null;
-
-		public Mod4jDataProvider<«form.contextRef.name»> getProvider() {
-			return provider;
-		}
-	
-		public void setProvider(Mod4jDataProvider<«form.contextRef.name»> provider) {
-			this.provider = provider;
-		}
-	
-	«ENDIF»
-	«IF dialogueCall.getNavigationExpression() != null »
-		public «this.name»«form.name»Page (PmfProcess owner, «getWicketNavigationDataProviderClass(this.contextRef.name, form.contextRef.name)» dataProvider)
-	«ELSEIF dialogueCall.getServiceExpression() != null »
-		public «this.name»«form.name»Page (PmfProcess owner, «getWicketServiceDataProviderClass(form.contextRef.name)» dataProvider)
-	«ELSE»
-		public «this.name»«form.name»Page (PmfProcess owner, Mod4jDataProvider<«form.contextRef.name»> dataProvider)
-	«ENDIF»
+	public «this.name»«form.name»Page (PmfProcess owner, Mod4jDataProvider<«form.contextRef.name»> dataProvider)
 	{
 		super(owner);
 
@@ -208,7 +143,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		
         «form.name»CollectionDataViewPanel panel = new «form.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
         panel.addListener(this);
-        this.provider = dataProvider;
+        this.setProvider(dataProvider);
         add( panel );
 		
 	}
@@ -241,7 +176,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
-			process.setProvider(provider);
+			process.setProvider(getProvider());
 			Page next = process.nextPage(context);
 			if( next != null ){
 				setResponsePage(next);
@@ -252,7 +187,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
-			process.setProvider(provider);
+			process.setProvider(getProvider());
 			Page next = process.nextPage(context);
 			if( next != null ){
 				setResponsePage(next);
@@ -263,7 +198,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
-			process.setProvider(provider);
+			process.setProvider(getProvider());
 			process.run(context);
 		}
 	«ENDFOREACH»
@@ -271,9 +206,6 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		error(e.getMessage());
 	}
 }
-
-//	public void on«form.contextRef.name»Cancel(«form.contextRef.name» element) {
-//	}
 
 }
 «ENDLET»

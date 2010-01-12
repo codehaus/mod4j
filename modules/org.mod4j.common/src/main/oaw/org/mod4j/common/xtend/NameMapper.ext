@@ -146,10 +146,13 @@ String getWicketEditPanelClass(String name) : JAVA
 String getWicketSwapPanelClass(String name) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketSwapPanelClass(java.lang.String);
   
-String getWicketServiceDataProviderClass(String name) : JAVA
+String getWicketServiceDataProviderClass(String dtoname) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketServiceDataProviderClass(java.lang.String);
   
-String getWicketFinderDataProviderClass(String name) : JAVA
+String getWicketListAllDataProviderClass(String dtoname) : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketListAllDataProviderClass(java.lang.String);
+  
+String getWicketFinderDataProviderClass(String dtoname) : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketFinderDataProviderClass(java.lang.String);
   
 String getWicketNavigationDataProviderClass(String whole, String part) : JAVA

@@ -47,19 +47,22 @@
 			    	«print("01 Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
 					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
 					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
-			    	    «EXPAND DtoServiceDataProvider::DtoServiceDataProvider FOR uiCall»
+                        «EXPAND DtoServiceDataProvider::ServiceDataProvider(process.contextRef.name) FOR uiCall.getServiceExpression()»
 					«ENDFILE»
-				«ELSE»
-			    	«print("02 Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
-					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
-			    	    «EXPAND DtoServiceDataProvider::DtoServiceDataProvider FOR uiCall»
-					«ENDFILE»
-			    	«print("03 Finder Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
-					                                                    + getWicketFinderDataProviderClass(form.contextRef.name) ))»
-			    	    «EXPAND FinderDataProvider::FinderDataProvider FOR uiCall»
-					«ENDFILE»
+				«ELSEIF uiCall.getStandardExpression() != null»
+				    «IF uiCall.getStandardExpression().type == ExpressionType::ALL»
+				    	«print("02 ListAll data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+						                                                    + getWicketListAllDataProviderClass(form.contextRef.name) ))»
+                            «EXPAND DtoListAllDataProvider::ListAllDataProvider FOR uiCall»
+						«ENDFILE»
+					«ELSEIF uiCall.getStandardExpression().type == ExpressionType::FIND »
+				    	«print("03 Finder Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+						                                                    + getWicketFinderDataProviderClass(form.contextRef.name) ))»
+				    	    «EXPAND FinderDataProvider::FinderDataProvider FOR uiCall»
+						«ENDFILE»
+					«ENDIF»
 				«ENDIF»
 			«ENDIF»
 		«ELSE»
