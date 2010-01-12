@@ -66,4 +66,4 @@ method findCustomerByUniqueKey in ( UniqueCustomerDto cust )
                                out SimpleCustomerDto;
 
 "Find all Customers matching the given name."
-method findCustomerByName in ( StringDto name ) out SimpleCustomerList;
+method findCustomerByName in ( StringDto name ) out list SimpleCustomerDto;

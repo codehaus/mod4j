@@ -21,9 +21,9 @@ crud OrderWithOrderLinesDto;
    
 "Find all Orders for a specific Customer" 
 method findOrdersByCustomer in ( SimpleCustomerDto customer )
-                            out OrderNumberAndDateList;
+                            out list OrderNumberAndDateDto;
 
 "Find all orders for a given date" 
 method findOrdersByDate in ( DateDto date )
-                        out OrderNumberAndDateList;
+                        out list OrderNumberAndDateDto;
 
