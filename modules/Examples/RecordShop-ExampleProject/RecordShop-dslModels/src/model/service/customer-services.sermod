@@ -4,11 +4,11 @@ service CustomerServiceModel   ;
 from RecordShopDataContract import SimpleCustomerDto;                
 from RecordShopDataContract import UniqueCustomerDto; 
 from RecordShopDataContract import StringDto;
-from RecordShopDataContract import SimpleCustomerList;    
+//from RecordShopDataContract import SimpleCustomerList;    
 from RecordShopDataContract import FullCustomerDto;
-from RecordShopDataContract import FullCustomerDtoList; 
+//from RecordShopDataContract import FullCustomerDtoList; 
 from RecordShopDataContract import OrderDto; 
-from RecordShopDataContract import OrderNumberAndDateList;
+from RecordShopDataContract import OrderNumberAndDateDto;
 from RecordShopDataContract import OrderWithOrderLinesDto;  
 from RecordShopDataContract import OrderLineDto;
 from RecordShopDataContract import CustomerWithOrdersAndOrderLines; 
@@ -44,7 +44,7 @@ find findCustomers for SimpleCustomerDto ;
 
 for SimpleCustomerDto reference orders add OrderDto ;
 for SimpleCustomerDto reference orders remove OrderDto   ;
-for SimpleCustomerDto reference orders get OrderNumberAndDateList ;
+for SimpleCustomerDto reference orders get OrderNumberAndDateDto ;
 for OrderDto reference customer  get  SimpleCustomerDto ;
 
 for OrderDto reference customer add SimpleCustomerDto;

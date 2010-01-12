@@ -3,7 +3,7 @@ service OrderServiceModel ;
 
 from RecordShopDataContract import OrderDto;
 from RecordShopDataContract import SimpleCustomerDto;
-from RecordShopDataContract import OrderNumberAndDateList;
+//from RecordShopDataContract import OrderNumberAndDateList;
 from RecordShopDataContract import DateDto;
 from RecordShopDataContract import OrderNumberAndDateDto ;
 from RecordShopDataContract import OrderWithOrderLinesDto ;
