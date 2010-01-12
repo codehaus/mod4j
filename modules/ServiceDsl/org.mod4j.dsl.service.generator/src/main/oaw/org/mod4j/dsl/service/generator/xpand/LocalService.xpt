@@ -237,7 +237,7 @@
 				     *            The object from which to get the «method.part.name»
 				     * @return «JavaType(method.part)» 
 		    	     */
-	                public «JavaType(method.part)» «method.name»(«method.main.name» source);
+	                public List<«JavaType(method.part)»> «method.name»(«method.main.name» source);
 				«ENDIF»
 			«ENDIF»
 		«ENDLET»

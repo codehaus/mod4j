@@ -201,8 +201,8 @@
 			    /**
 			     * {@inheritDoc} 
 			     */
-				public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
-				    return new ArrayList<«method.part.dtoBaseBusinessClass()»>( source.get«method.rolename.toFirstUpper()»() );
+				public List<«method.part.businessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source){
+				    return new ArrayList<«method.part.businessClass()»>( source.get«method.rolename.toFirstUpper()»() );
 				}
 			«ENDIF»
 		«ENDIF»

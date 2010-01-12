@@ -368,18 +368,20 @@
     /**
      * {@inheritDoc}
      */
-	public «JavaType(this.part)» «this.name»(«this.main.name» source){
+    public List<«JavaType(this.part)»> «this.name»(«this.main.name» source){
+//    public List«JavaType(this.part)» «this.name»(«this.main.name» source){
 		if (source == null) {
 			throw new ServiceException(
 					"get«this.rolename.toFirstUpper()»: parameter [source] should not be null");
 		}
 		«this.main.businessClass()» businessSource = «domainService».read«this.main.businessClass()»(source.getId());
-		List<«this.part.dtoBaseBusinessClass()»> parts = «domainService».get«this.rolename.toFirstUpper()»(businessSource);
+		List<«this.part.businessClass()»> parts = «domainService».get«this.rolename.toFirstUpper()»(businessSource);
 
-		List<«this.part.baseDtoSymbol().name»> result = new ArrayList<«this.part.baseDtoSymbol().name»>();
+		List<«this.part.name»> result = new ArrayList<«this.part.name»>();
 
-		for («this.part.dtoBaseBusinessClass()» element: parts) {
-			«this.part.baseDtoSymbol().name» item = «javaTranslatorClass(this.part.baseDtoSymbol().name).toFirstLower()».toDto(element);
+//        for («this.part.dtoBaseBusinessClass()» element: parts) {
+        for («this.part.businessClass()» element: parts) {
+			«this.part.name» item = «javaTranslatorClass(this.part.name).toFirstLower()».toDto(element);
 			result.add(item);
 		}
 

@@ -42,18 +42,29 @@ public class PresentationHelpers {
 //        return result;
 //    }
 
+    static public String serviceCallResultType(String context, ServiceExpression exp){
+        Mod4jType result = serviceCallMod4jType(context, exp);
+        if( result.hasError()){
+            return result.getError();
+        } else {
+            return result.getBaseType();
+        }
+    }
     /**
      * returns the result type of the service call referred to by the ServiceExpression.
      * Returns a string starting with ERROR:  if there is an error with the service call
      */
-    static public String serviceCallResultType(String context, ServiceExpression exp){
+    static public Mod4jType serviceCallMod4jType(String context, ServiceExpression exp){
+        Mod4jType result = new Mod4jType("UNKNOWN", "UNNOWN");
         Symbol service = CrossxBroker.lookupSymbol(exp.getServiceName(), exp.getServiceName(), "Service");
         if( service == null ){
-            return "ERROR: 5 service [" + exp.getServiceName() + "] does not exist";
+            result.setError("ERROR: 5 service [" + exp.getServiceName() + "] does not exist");
+            return result;
         }
         Symbol serviceMethod = CrossxBroker.getSubSymbol(service, exp.getServiceMethod());
         if( serviceMethod == null ){
-            return "ERROR: 6 service method [" + exp.getServiceMethod() + "] does not exist";
+            result.setError("ERROR: 6 service method [" + exp.getServiceMethod() + "] does not exist");
+            return result;
         }
         // found the service method.
         
@@ -61,48 +72,58 @@ public class PresentationHelpers {
         if( methodType.equals("CustomMethod") ) {
             String inDto = CrossxBroker.getPropertyValue(serviceMethod, "in");
             if( ! inDto.equals(context ) ){
-                return "ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+                result.setError("ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]");
+                return result;
             }
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "out");
+            String outCollection = CrossxBroker.getPropertyValue(serviceMethod, "outCollection");
             if( outDto == null ){
-                return "ERROR: 8 service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]";
+                result.setError("ERROR: 8 service method [" + exp.getServiceMethod() + "] has no output should be [" + context + "]");
+                return result;
             }
-            return getBase(outDto);
+            result.setBaseType(outDto);
+            result.setCollection(outCollection);
+            return result;
         } else if( methodType.equals("LISTALL") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
-            return getBase(outDto);
+            result.setBaseType(outDto);
+            result.setCollection("LIST");
+            return result;
         } else if( methodType.equals("UPDATE") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
             String inDto = outDto;
             if( ! inDto.equals(context ) ){
-                return "ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+                result.setError("ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]");
+                return result;
             }
-            return outDto;
+            result.setBaseType(outDto);
+            result.setCollection("SINGLE");
+            return result;
         } else if( methodType.equals("READ") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
-            return outDto;
+            result.setBaseType(outDto);
+            result.setCollection("SINGLE");
+            return result;
         } else if( methodType.equals("Create") ) {
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "dto");
-            return outDto;
-        } else if( methodType.equals("AssociationMethod") ) {
+            result.setBaseType(outDto);
+            result.setCollection("SINGLE");
+            return result;
+        } else if( methodType.equals("GETFROM") ) {
             String inDto = CrossxBroker.getPropertyValue(serviceMethod, "whole");
             if( ! inDto.equals(context ) ){
-                return "ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]";
+                result.setError("ERROR: 7 service method [" + exp.getServiceMethod() + "] has input [" + inDto + "] should be [" + context + "]");
+                return result;
             }
             String outDto = CrossxBroker.getPropertyValue(serviceMethod, "part");
-            return getBase(outDto);
+            String outCollection = CrossxBroker.getPropertyValue(serviceMethod, "outCollection");
+            result.setBaseType(outDto);
+            result.setCollection(outCollection);
+            return result;
         }
-        return "UNKNOWN";
+        return result;
     }
-    
-    static private String getBase(String dto) {
-        if( dto.endsWith("List")){
-            return dto.substring(0, dto.length() - 4);
-        } else {
-            return dto;
-        }
-    }
-    
+        
     private static PresentationModel findModel(ModelElement elem){
         if( elem instanceof PresentationModel){
             return (PresentationModel)elem;
@@ -207,6 +228,15 @@ public class PresentationHelpers {
         return null;
     }
     
+    static public String getResultType(String model, String dtoName, NavigationExpression nav){
+        Mod4jType result = getMod4jType(model, dtoName, nav);
+        if( result.hasError()){
+            return result.getError();
+        } else {
+            return result.getBaseType();
+        }
+    }
+        
     /**
      * Returns the result type of the navigation "nav starting with the Dto at "model.dtoName'
      * @param model
@@ -214,32 +244,32 @@ public class PresentationHelpers {
      * @param nav
      * @return
      */
-    static public String getResultType(String model, String dtoName, NavigationExpression nav){
-        String result= null;
+    static public Mod4jType getMod4jType(String model, String dtoName, NavigationExpression nav){
+        Mod4jType result = new Mod4jType("UNKNOWN", "UNKNOW");
         
         if( nav == null) {
             return null;
         }
         EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
         AssociationRoleReference ref = x.get(0);
-        System.err.println("MOD4J GETRESULT NAVIGATION [" + ref.getName() + "]" );
         Symbol dto = CrossxBroker.lookupSymbol(model, dtoName, "Dto");
-        System.err.println("MOD4J GETRESULT DTO [" + dto.getName() + "]" );
         Symbol reference = CrossxBroker.getSubSymbol(dto, ref.getName());
         if( reference == null){
-            return "ERROR: 9 [" + ref.getName() + "] not found for [" + dtoName + "]";
+            result.setError("ERROR: 9 [" + ref.getName() + "] not found for [" + dtoName + "]");
+            return result;
         }
-        System.err.println("MOD4J GETRESULT REF name [" + reference.getName() + "] type [" + reference.getType());
         
         if( reference.getType().equals("AssociationRoleReference") ){
             ReferenceSymbolProperty referredType = CrossxBroker.getReferenceProperty(reference, "ReferencedDto");
-            System.err.println("MOD4J GETRESULT referredType [" + referredType.getName() + "] + model [" + referredType.getModelname() + "] symbolname [" + referredType.getSymbolname() + "]");
-          Symbol returnType = CrossxBroker.lookupSymbol(referredType.getModelname(),
+            Symbol returnType = CrossxBroker.lookupSymbol(referredType.getModelname(),
                           referredType.getSymbolname(), "Dto") ;
 //            Symbol returnType = CrossxBroker.lookupReference(referredType);
-//            System.err.println("MOD4J GETRESULT return type [" + returnType.getName() + "]" );
 
-            return CrossxBroker.getPropertyValue(returnType, "baseDto");
+            String baseType = CrossxBroker.getPropertyValue(returnType, "baseDto");
+            boolean isCollection = CrossxBroker.getPropertyValue(returnType, "dtoType").equals("ListDto");
+            result.setBaseType(baseType);
+            result.setCollection(isCollection ? "LIST" : "SINGLE");
+            return result;
         }
         
         return result;
@@ -293,7 +323,7 @@ public class PresentationHelpers {
                     // referred form cannot be found, but that is checked elsewhere
                     return "ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
                 }
-                String expectedType = form.getContextRef().getName();
+                Mod4jType expectedType = new Mod4jType(form.getContextRef().getName(), (form.isIsCollection() ? "LIST" : "SINGLE"));
                 if( dialogueCall.getContextExp() == null ){
                     // check whether context of referred form is identical to that of the process
                     if( ! form.getContextRef().getName().equals(context.getName())){
@@ -303,24 +333,24 @@ public class PresentationHelpers {
                     // dialogueCall.getContextExp() != null 
                     NavigationExpression navExp = getNavigationExpression(dialogueCall);
                     if( navExp != null ){
-                        String resultType = getResultType(context.getModelName(), context.getName(), navExp);
-                        if( resultType.startsWith("ERROR:")){
-                            return resultType;
+                        Mod4jType resultType = getMod4jType(context.getModelName(), context.getName(), navExp);
+                        if( resultType.hasError()){
+                            return resultType.getError();
                         }
-                        if( ! expectedType.equals(resultType)){
-                            return "ERROR: 3 type of navigation [" + resultType + 
-                                  "] and called dialogue [" + expectedType + "] should be the same";
+                        if( ! expectedType.matches(resultType)){
+                            return "ERROR: 3 type of navigation [" + resultType.toString() + 
+                                  "] and called dialogue [" + expectedType.toString() + "] should be the same";
                         }
                     }
                     ServiceExpression serExp = getServiceExpression(dialogueCall);
                     if( serExp != null ){
-                        String resultType = serviceCallResultType(context.getName(), serExp);
-                        if( resultType.startsWith("ERROR:")){
-                            return resultType;
+                        Mod4jType resultType = serviceCallMod4jType(context.getName(), serExp);
+                        if( resultType.hasError() ){
+                            return resultType.getError();
                         } else {
-                            if( ! expectedType.equals(resultType) ){
-                                return "ERROR: 4 type of service [" + resultType + 
-                                "] and called dialogue [" + expectedType + "] should be the same";
+                            if( ! expectedType.matches(resultType) ){
+                                return "ERROR: 4 type of service [" + resultType.toString() + 
+                                "] and called dialogue [" + expectedType.toString() + "] should be the same";
                             }
                         }
 //                        String resultType = getResultType(context.getModelName(), context.getName(), navExp);
@@ -334,9 +364,10 @@ public class PresentationHelpers {
                         if( resultType.startsWith("ERROR:")){
                             return resultType;
                         } else {
-                            if( ! expectedType.equals(resultType) ){
-                                return "ERROR: 5 type of process [" + resultType + 
-                                "] and called dialogue [" + expectedType + "] should be the same";
+                            Mod4jType result = new Mod4jType(resultType, "LIST");
+                            if( ! expectedType.matches(result) ){
+                                return "ERROR: 5 type of process [" + result.toString() + 
+                                "] and called dialogue [" + expectedType.toString() + "] should be the same";
                             }
                         }
                     }

@@ -6,6 +6,7 @@
 import crossx;
 import ServiceDsl;
 
+extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 extension org::mod4j::dsl::service::mm::xtend::ServiceMethod;
 
@@ -45,8 +46,11 @@ Symbol toSymbol(SpecialMethod method) :
     ;
 
 Symbol toSymbol(AssociationMethod method) :
+    let assoc =  getAssociation(method) :
+    let mult = getPropertyValue(assoc, "Multiplicity") :
     let result = new Symbol :
-    result.properties.add( newProperty("methodType", "AssociationMethod") )->
+    result.properties.add( newProperty("methodType", method.type.toString()) )->
+    result.properties.add( newProperty("outCollection", (mult == "ONE" ? "SINGLE" : "LIST")))-> 
     result.properties.add( newProperty("part", method.part.name) )->
     result.properties.add( newProperty("whole", method.main.name) )->
     result.setName(method.name) ->

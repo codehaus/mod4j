@@ -231,13 +231,13 @@
 				public «method.part.businessClass()» get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
 			«ELSE»
 	    	    /**
-	    	     * Get the «method.part.dtoBaseBusinessClass()» from «method.main.businessClass()»
+	    	     * Get the «method.part.businessClass()» from «method.main.businessClass()»
 			     * «method.description»
 			     * @param source
-			     *            The object from which to get the «method.part.dtoBaseBusinessClass()»
-			     * @return List<«method.part.dtoBaseBusinessClass()»>
+			     *            The object from which to get the «method.part.businessClass()»
+			     * @return List<«method.part.businessClass()»>
 	    	     */
-				public List<«method.part.dtoBaseBusinessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
+				public List<«method.part.businessClass()»> get«method.rolename.toFirstUpper()»(«method.main.businessClass()» source) ;
 			«ENDIF»
 		«ENDIF»
 

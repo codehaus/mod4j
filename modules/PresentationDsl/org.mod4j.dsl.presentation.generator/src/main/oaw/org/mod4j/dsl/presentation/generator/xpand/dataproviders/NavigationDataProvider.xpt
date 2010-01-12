@@ -68,7 +68,8 @@ public class «className»
 	
 	public void deleteDto(«context» toBeRemoved){
 		owner.removeFrom«navigationName»(toBeRemoved);
-		service.«updateService»(owner);
+		owner = service.«updateService»(owner);
+        this.setList( new PropertyModel(new Model(owner), "«navigationName»") );
 	}
 	
 	public void saveDto(«context» tobesaved){

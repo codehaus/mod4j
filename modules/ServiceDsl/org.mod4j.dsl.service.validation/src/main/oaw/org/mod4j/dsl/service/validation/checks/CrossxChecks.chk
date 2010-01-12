@@ -84,9 +84,11 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
 		     )
          ) else ( // mult == MANY
              if dtoType != "ListDto" then (
- 	             this.setProperty("ERROR", "04 The class ["+ part.name + "] should be a ListDto because [" + this.rolename + "] has multiplicity MANY" )->
-	             false
+// 	             this.setProperty("ERROR", "04 The class ["+ part.name + "] should be a ListDto because [" + this.rolename + "] has multiplicity MANY" )->
+//	             false
+                true
 	         ) else (
+/*
 	             let baseDto = lookupReference(baseDtoRef) :
 	             let baseDtoType = baseDto.getPropertyValue("dtoType") :
 	             if baseDtoType != "BusinessClassDto"  then (
@@ -101,6 +103,9 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
 			             true
 			         )
 		         )
+*/
+
+         true
 	         )
          ))
      );
