@@ -289,8 +289,11 @@ public class NameMapper {
         return javaDomainClass(dtoname) + "FinderDataProvider";
     }
 
-    public static String getWicketNavigationDataProviderClass(String whole, String part) {
-        return javaDomainClass(whole) + "To" + javaDomainClass(part) + "DataProvider";
+    public static String getWicketReferenceDataProviderClass(String whole, String part) {
+        return javaDomainClass(whole) + "To" + javaDomainClass(part) + "ReferenceDataProvider";
+    }
+    public static String getWicketCompositeDataProviderClass(String whole, String part) {
+        return javaDomainClass(whole) + "To" + javaDomainClass(part) + "CompositeDataProvider";
     }
     
     public static String getWicketApplicationClass() {

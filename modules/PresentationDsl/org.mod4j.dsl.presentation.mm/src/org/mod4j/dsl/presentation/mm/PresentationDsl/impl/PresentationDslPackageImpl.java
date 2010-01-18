@@ -324,17 +324,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getContentForm_IsCollection() {
-        return (EAttribute)contentFormEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getContentForm_Actions() {
-        return (EReference)contentFormEClass.getEStructuralFeatures().get(2);
+        return (EReference)contentFormEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -594,6 +585,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getModelElementWithContext_CollectionContext() {
+        return (EAttribute)modelElementWithContextEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getModelElement() {
         return modelElementEClass;
     }
@@ -828,6 +828,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getNavigationExpression_Composition() {
+        return (EAttribute)navigationExpressionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getExpression() {
         return expressionEClass;
     }
@@ -900,7 +909,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         contentFormEClass = createEClass(CONTENT_FORM);
         createEReference(contentFormEClass, CONTENT_FORM__FORM_ELEMENTS);
-        createEAttribute(contentFormEClass, CONTENT_FORM__IS_COLLECTION);
         createEReference(contentFormEClass, CONTENT_FORM__ACTIONS);
 
         compoundDialogueEClass = createEClass(COMPOUND_DIALOGUE);
@@ -941,6 +949,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         modelElementWithContextEClass = createEClass(MODEL_ELEMENT_WITH_CONTEXT);
         createEReference(modelElementWithContextEClass, MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF);
         createEReference(modelElementWithContextEClass, MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL);
+        createEAttribute(modelElementWithContextEClass, MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT);
 
         modelElementEClass = createEClass(MODEL_ELEMENT);
         createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
@@ -976,6 +985,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         navigationExpressionEClass = createEClass(NAVIGATION_EXPRESSION);
         createEReference(navigationExpressionEClass, NAVIGATION_EXPRESSION__REFERENCES);
+        createEAttribute(navigationExpressionEClass, NAVIGATION_EXPRESSION__COMPOSITION);
 
         expressionEClass = createEClass(EXPRESSION);
 
@@ -1044,7 +1054,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(contentFormEClass, ContentForm.class, "ContentForm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getContentForm_FormElements(), this.getFormElement(), this.getFormElement_Form(), "formElements", null, 0, -1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getContentForm_IsCollection(), ecorePackage.getEBoolean(), "isCollection", "false", 0, 1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getContentForm_Actions(), this.getProcess(), this.getProcess_ContentForm(), "actions", null, 0, -1, ContentForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(compoundDialogueEClass, CompoundDialogue.class, "CompoundDialogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1085,6 +1094,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEClass(modelElementWithContextEClass, ModelElementWithContext.class, "ModelElementWithContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getModelElementWithContext_ContextRef(), this.getExternalReference(), null, "contextRef", null, 0, 1, ModelElementWithContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getModelElementWithContext_PresentationModel(), this.getPresentationModel(), this.getPresentationModel_Elements(), "presentationModel", null, 0, 1, ModelElementWithContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getModelElementWithContext_CollectionContext(), ecorePackage.getEBoolean(), "collectionContext", "false", 0, 1, ModelElementWithContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1122,6 +1132,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(navigationExpressionEClass, NavigationExpression.class, "NavigationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getNavigationExpression_References(), this.getAssociationRoleReference(), null, "references", null, 0, -1, NavigationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getNavigationExpression_Composition(), ecorePackage.getEBoolean(), "composition", "false", 0, 1, NavigationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1133,14 +1144,17 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         addEEnumLiteral(processTypeEEnum, ProcessType.NEW);
         addEEnumLiteral(processTypeEEnum, ProcessType.SAVE);
         addEEnumLiteral(processTypeEEnum, ProcessType.EDIT);
-        addEEnumLiteral(processTypeEEnum, ProcessType.REMOVE);
+        addEEnumLiteral(processTypeEEnum, ProcessType.DELETE);
         addEEnumLiteral(processTypeEEnum, ProcessType.CUSTOM);
         addEEnumLiteral(processTypeEEnum, ProcessType.CANCEL);
+        addEEnumLiteral(processTypeEEnum, ProcessType.ADDTO);
+        addEEnumLiteral(processTypeEEnum, ProcessType.REMOVEFROM);
 
         initEEnum(expressionTypeEEnum, ExpressionType.class, "ExpressionType");
         addEEnumLiteral(expressionTypeEEnum, ExpressionType.ALL);
         addEEnumLiteral(expressionTypeEEnum, ExpressionType.NONE);
         addEEnumLiteral(expressionTypeEEnum, ExpressionType.FIND);
+        addEEnumLiteral(expressionTypeEEnum, ExpressionType.SELECTION);
 
         // Create resource
         createResource(eNS_URI);

@@ -14,20 +14,20 @@ package «getPresentationRootPackage()».pages;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«this.processElements.first().name»SwapEditPanel;
 import «javaDtoClassPath(this.contextRef.name)»;
-import «getPresentationRootPackage()».panels.«this.contextRef.name»ListListener;
-import «getPresentationRootPackage()».panels.Mod4jDataProvider;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationRootPackage()».processes.«this.name»Process;
 import «getPresentationRootPackage()».processes.PmfProcess;
 
 «FOREACH form.processes.referredProcess().select(e|(e != null) && (e.name != "") ) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process ;
 «ENDFOREACH»
+import java.util.List;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> implements «this.contextRef.name»ListListener
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> // implements «this.contextRef.name»ListListener
 {
     protected «this.processElements.first().name»SwapEditPanel panel = null;
 
@@ -43,7 +43,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		add(errorMessages);
 		
 		panel = new «this.processElements.first().name»SwapEditPanel("panel", context);
-		panel.addListener(this);
+//		panel.addListener(this);
 		add(panel);
 	}
 
@@ -61,14 +61,15 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	public void startProcess(String processName, «this.contextRef.name» context){
 	    try{
 	«FOREACH form.processes AS pp»
-	«LET pp.referredProcess() AS p»
+    	«LET pp.referredProcess() AS p»
+    	// Context «pp.contextExp»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
 			«IF ! p.isInteractive() » «REM»this is a batch process«ENDREM»
 				process.setProvider(getProvider());
 				process.run(context);
-				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::REMOVE)»
+				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::DELETE)»
 				    owningProcess.done(this);
 				«ENDIF»
 			«ELSE»
@@ -78,15 +79,41 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 				}
 			«ENDIF»
 		}
-	«ENDLET»
+    	«ENDLET»
 	«ENDFOREACH»
 		}catch (Exception e){
 			error(e.getMessage());
 		}
-	
 	}
 
-	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
+    public void startProcess(String processName, List<«this.contextRef.name»> selectedElements){
+        try{
+    «FOREACH form.processes AS pp»
+        «LET pp.referredProcess() AS p»
+            «IF p.collectionContext»
+		        if(processName.equals("«p.name»Process")){
+		            «p.name»Process process = new «p.name»Process();
+		            process.setOwningPage(this);
+		            «IF ! p.isInteractive() » «REM»this is a batch process«ENDREM»
+		                process.setProvider(getProvider());
+		                process.run(selectedElements);
+		                «IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::DELETE)»
+		                    owningProcess.done(this);
+		                «ENDIF»
+		            «ELSE»
+		                Page next = process.nextPage(selectedElements);
+		                if( next != null ){
+		                    setResponsePage(next);
+		                }
+		            «ENDIF»
+		        }
+		    «ENDIF»
+        «ENDLET»
+    «ENDFOREACH»
+        }catch (Exception e){
+            error(e.getMessage());
+        }
+	
 	}
 
 }
@@ -102,15 +129,15 @@ package «getPresentationRootPackage()».pages;
 «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process;
 «ENDFOREACH»
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVE) AS p»
+«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::DELETE) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process;
 «ENDFOREACH»
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«form.name»CollectionDataViewPanel;
-import «getPresentationRootPackage()».panels.«form.contextRef.name»ListListener;
+//import «getPresentationRootPackage()».panels.«form.contextRef.name»ListListener;
 import «javaDtoClassPath(form.contextRef.name)»;
 import «getPresentationRootPackage()».processes.PmfProcess;
-import «getPresentationRootPackage()».panels.Mod4jDataProvider;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 «IF editProcess != null»
 import «getPresentationRootPackage()».processes.«editProcess.name»Process;
 «ENDIF»
@@ -118,6 +145,7 @@ import «getPresentationRootPackage()».processes.«editProcess.name»Process;
 import «getPresentationRootPackage()».processes.«newProcess.name»Process;
 «ENDIF»
 
+import java.util.List;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.Page;
@@ -126,7 +154,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> implements «form.contextRef.name»ListListener
+public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> // implements «form.contextRef.name»ListListener
 {
     private Integer maxItemsPerPage = 5;
 
@@ -141,8 +169,8 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		errorMessages.setOutputMarkupId(true);
 		add(errorMessages);
 		
-        «form.name»CollectionDataViewPanel panel = new «form.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage);
-        panel.addListener(this);
+        «form.name»CollectionDataViewPanel panel = new «form.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage, this);
+//        panel.addListener(this);
         this.setProvider(dataProvider);
         add( panel );
 		
@@ -157,10 +185,20 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 
 	public void startProcess(String processName, «form.contextRef.name» context){
 	try{
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+«REM»
+    «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+«ENDREM»
+    «FOREACH form.processes.select(p | p.referredProcess().type == ProcessType::CUSTOM) AS pp»
+        «LET pp.referredProcess() AS p»
+        // Call context: «pp.contextExp»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
+	        «IF pp.getStandardExpression() != null»
+	            «IF pp.getStandardExpression() == ExpressionType::SELECTION»
+                    	                
+	            «ENDIF»
+	        «ENDIF»
 			«IF p.isInteractive()»
 				Page next = process.nextPage(context);
 				if( next != null ){
@@ -170,6 +208,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			    process.run(context);
 			«ENDIF»
 		}
+		«ENDLET»
 	«ENDFOREACH»
 
 	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::NEW) AS p»
@@ -194,7 +233,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 			}
 		}
 	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVE) AS p»
+	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::DELETE) AS p»
 		if(processName.equals("«p.name»Process")){
 			«p.name»Process process = new «p.name»Process();
 			process.setOwningPage(this);
@@ -205,6 +244,44 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 	}catch (Exception e){
 		error(e.getMessage());
 	}
+}
+
+    public void startProcess(String processName, List<«form.contextRef.name»> selectedElements){
+    try{
+    «FOREACH form.processes.select(p | p.referredProcess().type == ProcessType::CUSTOM) AS pp»
+        «LET pp.referredProcess() AS p»
+        «IF p.collectionContext»
+            if(processName.equals("«p.name»Process")){
+	            «p.name»Process process = new «p.name»Process();
+	            process.setOwningPage(this);
+	            «IF p.isInteractive()»
+	                Page next = process.nextPage(selectedElements);
+	                if( next != null ){
+	                    setResponsePage(process.nextPage(selectedElements));
+	                }
+	            «ELSE»
+	                process.run(selectedElements);
+	            «ENDIF»
+	        }
+	    «ENDIF»
+        «ENDLET»
+    «ENDFOREACH»
+
+    «FOREACH form.processes.select(p | p.referredProcess().type == ProcessType::REMOVEFROM) AS pp»
+        «LET pp.referredProcess() AS p»
+        «IF p.collectionContext»
+	        if(processName.equals("«p.name»Process")){
+	            «p.name»Process process = new «p.name»Process();
+	            process.setOwningPage(this);
+	            process.setProvider(getProvider());
+	            process.run(selectedElements);
+	        }
+	        «ENDIF»
+        «ENDLET»
+    «ENDFOREACH»
+    }catch (Exception e){
+        error(e.getMessage());
+    }
 }
 
 }

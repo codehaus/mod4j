@@ -29,27 +29,27 @@ Dialogue :
 	
 ContentForm :
 	(description=STRING )?
-	( (isCollection?="ListForm") |
-	  "ContentForm"
-	)
+    "ContentForm"
 	
-	 name = ID "context" contextRef = [ExternalReference]
+	 name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
-		("actions" "[" (actions += SimpleProcess ";" )* "]" )?
-		("processes" "[" (processes += ProcessCall ";")* "]" )?
+		("actions" "[" (actions += Action ";" )* "]" )?
+		("processes" "[" (processes += ProcessCallFromForm ";")* "]" )?
 	"]"
 	;
 
-SimpleProcess  returns Process:
+Action  returns Process:
 	(description=STRING )? 
-    name=ID (type=ProcessType)?
-	("use" processElements += DialogueCall ) ?
+    (type=ProcessType)? 
+    name=ID 
+	(processElements += ActionDialogueCall ) ?
     ;
   	
 enum ProcessType :
-    NEW = "new" | SAVE = "save" | EDIT = "edit" | REMOVE = "remove" | CANCEL = "cancel" 
+    NEW = "new" | SAVE = "save" | EDIT = "edit" | DELETE = "delete" | CANCEL = "cancel" |
+    REMOVEFROM = "removefrom" | ADDTO = "addto"
 ;
 
 CompoundDialogue :
@@ -85,11 +85,14 @@ MasterDetail :
 
 Process :
 	(description=STRING )?
-	"Process" name = ID "context" contextRef = [ExternalReference]
+	"Process" name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
 	(root ?= "start")?
 	(type=ProcessType)?
-	("step" "[" (processElements += DialogueCall ";") "]")?
-//	("steps" "[" (processElements += UICall ";")* "]")?
+	( 
+		(  ("step"  "[" (processElements += DialogueCall ";")  "]") )
+		   |
+		(  ("steps" "[" (processElements += UICall       ";")* "]")  )
+	)?
 	;
 	
 FormElement :
@@ -102,21 +105,41 @@ FormElement :
 	";"
 	;
 	
+ActionDialogueCall returns DialogueCall:
+    (contextExp = Expression)? "to" name = ID
+    ("alias" alias = ID)? 
+//    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
+    ;
+
 DialogueCall :
-	(contextExp = Expression "to")? name = ID
-	("alias" alias = ID)? 
-	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
-	;
+    (contextExp = Expression )? "to" name = ID
+    ("alias" alias = ID)? 
+//    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
+    ;
 
 Expression :
     ServiceExpression | NavigationExpression | StandardExpression
     ;
    	
 ProcessCall :
-	(contextExp = Expression "to")? name = ID
-	("alias" alias = ID)? 
-	("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
-	;
+    (contextExp = Expression)? 
+     name = ID
+    ("alias" alias = ID)? 
+//    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
+    ;
+
+ProcessCallFromForm returns ProcessCall :
+//    (contextExp = ContextExpression)? 
+     name = ID
+    ("alias" alias = ID)? 
+//    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
+    ;
+
+//ContextExpression returns StandardExpression :
+//    type = ContextType ;
+    
+//enum ContextType returns ExpressionType :
+//    SELECTION = "selection";
 
 StandardExpression :
     type = ExpressionType;
@@ -125,11 +148,11 @@ enum ExpressionType :
     ALL = "all" | FIND = "find";
 
 ServiceExpression :
-    (name = ID ":")? "call"  serviceName = ID "." serviceMethod = ID
+    (name = ID ":")? "service"  serviceName = ID "." serviceMethod = ID
     ;
 
 NavigationExpression :
-    (name = ID ":")? "navigate" references += AssociationRoleReference  
+    (name = ID ":")? (composition ?= "composite")? "navigate" references += AssociationRoleReference  
 // TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
     ;
 

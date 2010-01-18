@@ -8,7 +8,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
 «DEFINE GenerateObjectCollectionDataViewPanel FOR ContentForm -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this-»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateObjectCollectionDataViewPanel.xpt") FOR this-»
 «REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
 package «getPresentationRootPackage()».panels;
 
@@ -23,8 +23,10 @@ import «javaDtoClassPath(this.contextRef.name)»;
 	«ENDIF»
 «ENDFOREACH»
 
-// import «getPresentationRootPackage()».panels.«this.contextRef.name»DataProvider;
-
+import «getPresentationCommonPackage()».ext.components.CheckBoxBaseModel;
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
 import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
@@ -51,38 +53,65 @@ import org.apache.wicket.util.convert.IConverter;
 public class «this.name»CollectionDataViewPanel  extends Panel 
 {
     «EXPAND dataView FOR this»
-	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
+    
+    protected List<IModel<«this.contextRef.name»>> selectedElements = new ArrayList<IModel<«this.contextRef.name»>>();
+    
+    protected RosasMasterPage page = null;
+    
+//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
 	
 	/**
 	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
 	 * This allows the panel to be used in different pages with different behavior.
 	 * @param listener The listener to be added
 	 */
-	public void addListener(«this.contextRef.name»ListListener listener ){
-		listeners.add(listener);
-	}
+//	public void addListener(«this.contextRef.name»ListListener listener ){
+//		listeners.add(listener);
+//	}
 	
 	protected DataView<«this.contextRef.name»> collection;
 
-	public «this.name»CollectionDataViewPanel(String id, IDataProvider<«this.contextRef.name»> dataProvider, Integer maxItemsPerPage)
+	public «this.name»CollectionDataViewPanel(String id, IDataProvider<«this.contextRef.name»> dataProvider, 
+	          Integer maxItemsPerPage, RosasMasterPage owner)
 	{
 	    super(id);
+	    this.page = owner;
 		WebMarkupContainer container = (WebMarkupContainer)new WebMarkupContainer("container");
 		container.setOutputMarkupId(true);
 		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider);
 		collection.setItemsPerPage(maxItemsPerPage);
 		container.add(collection);
 
-		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::NEW) AS p»
+        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
+            «LET pp.referredProcess() AS p»
 				add(new Link<Object>("«p.name»") {
 					@Override
 					public void onClick() {
-						for («this.contextRef.name»ListListener listener : listeners) {
-							listener.startProcess("«p.name»Process", null);
-						}
+                        page.startProcess("«p.name»Process", («this.contextRef.name»)null);
 					}
 				});
+			«ENDLET»
 		«ENDFOREACH»
+		
+        «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
+            «LET pp.referredProcess() AS process»
+            «IF process.collectionContext »
+                add(new Link<Object>("«process.name»") {
+                    @Override
+                    public void onClick() {
+	                    List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+	                    for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+	                        «this.contextRef.name» elem = dtoModel.getObject();
+	                        dtoList .add(elem);
+	                    }
+	                    page.startProcess("«process.name»Process", dtoList);
+	                    selectedElements.clear();
+                    }
+                });
+            «ENDIF»
+            «ENDLET»
+        «ENDFOREACH»
+		
 		
 		add(container);
 		add(new AjaxPagingNavigator("navigator",collection));
@@ -101,19 +130,24 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 		protected void populateItem(final Item<«this.contextRef.name»> item)
 		{
 			item.setModel(new CompoundPropertyModel<«this.contextRef.name»>(item.getModelObject()));
+			
+	         AjaxCheckBox selected = new AjaxCheckBox("selected",
+             new CheckBoxBaseModel<«this.contextRef.name»>(selectedElements, item.getModel())) {
+                @Override
+                protected void onUpdate(AjaxRequestTarget target) {
+ //                 target.addComponent(resetAll);
+ //                 target.addComponent(delete);
+                }
+            };
+           item.add(selected);
+			
 			Link<«this.contextRef.name»> link = 
 				new Link<«this.contextRef.name»>("view",item.getModel())
 				{
 					@Override
 					public void onClick()
 					{
-						if( ! listeners.isEmpty() ){
-							for («this.contextRef.name»ListListener listener : listeners) {
-//								listener.on«this.contextRef.name»Selected(getModel().getObject());
-							}
-						} else {
-//							setResponsePage(new BreakfastPage(getModel()));
-						}
+//						setResponsePage(new BreakfastPage(getModel()));
 					}
 				}
 			;
@@ -129,32 +163,32 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 	«ENDLET»
 	«ENDLET»
 
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::CUSTOM) AS ppp»
-			item.add(new Link("«ppp.name»") {
+    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
+	   «LET pp.referredProcess() AS process»
+	   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »
+			item.add(new Link("«process.name»") {
 				public void onClick() {
-					for («this.contextRef.name»ListListener listener : listeners) {
-						listener.startProcess("«ppp.name»Process", item.getModel().getObject());
-					}
-				}
-			});
+	                page.startProcess("«process.name»Process", item.getModel().getObject());
+			}
+        });
+		«ENDIF»
+		«ENDLET»
     «ENDFOREACH»
 	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS ppp»
 			item.add(new Link("«ppp.name»") {
 				public void onClick() {
-					for («this.contextRef.name»ListListener listener : listeners) {
-						listener.startProcess("«ppp.name»Process", item.getModel().getObject());
-					}
+                    page.startProcess("«ppp.name»Process", item.getModel().getObject());
 				}
 			});
     «ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::REMOVE) AS ppp»
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS ppp»
+	    «IF ! ppp.collectionContext»
 			item.add(new Link("«ppp.name»") {
 				public void onClick() {
-					for («this.contextRef.name»ListListener listener : listeners) {
-						listener.startProcess("«ppp.name»Process", item.getModel().getObject());
-					}
+                    page.startProcess("«ppp.name»Process", item.getModel().getObject());
 				}
 			});
+	   «ENDIF»
     «ENDFOREACH»
 		}
 

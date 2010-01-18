@@ -8,18 +8,18 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
-«DEFINE NavigationDataProvider FOR DialogueCall»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: NavigationServiveProvider.xpt") FOR this»
+«DEFINE CompositeDataProvider FOR DialogueCall»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: CompositionDataProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
 «LET form.contextRef.name AS context»
 «LET this.process.contextRef.name AS ownerContext»
-«LET getWicketNavigationDataProviderClass(this.process.contextRef.name,form.contextRef.name) AS className»
+«LET getWicketCompositeDataProviderClass(this.process.contextRef.name,form.contextRef.name) AS className»
 «LET findServiceWithMethod(ownerContext, "UPDATE") AS service»
 «LET findSpecialMethodInService(ownerContext, "UPDATE", service) AS updateService»
 «LET (NavigationExpression)contextExp AS navigationExpression»
 «LET navigationExpression.references.first().name.toFirstUpper() AS navigationName»
 «LET javaLocalServiceInterface(service) AS serviceType»
-package «getPresentationRootPackage()».panels;
+package «getPresentationRootPackage()».dataproviders;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -78,6 +78,14 @@ public class «className»
 		owner = result;
 		this.setList( new PropertyModel(new Model(owner), "«navigationName»") );
 	}
+    
+    public void addToDtoList(List<«context»> tobeadded) {
+        throw new RuntimeException("Listprovider: no addToDtoList possible");
+    }
+    
+    public void removeFromDtoList(List<«context»> toberemoved) {
+        throw new RuntimeException("Listprovider: no removeFromDtoList possible");
+    }    
 
 }
 «ENDLET»

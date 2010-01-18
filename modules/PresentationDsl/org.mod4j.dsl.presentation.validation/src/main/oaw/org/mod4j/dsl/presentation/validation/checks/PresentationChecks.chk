@@ -54,7 +54,7 @@ context ContentForm ERROR "A Content Form may have at most one 'cancel' action" 
     this.actions.select(e|e.type==ProcessType::CANCEL).size <= 1;
 
 context ContentForm ERROR "A Content Form may have at most one 'remove' action" :
-    this.actions.select(e|e.type==ProcessType::REMOVE).size <= 1;
+    this.actions.select(e|e.type==ProcessType::DELETE).size <= 1;
 /*
 context Process ERROR " service error " + this.getProperty("ERROR") :
     ( (this.name != null) && (this.name.length > 0)       

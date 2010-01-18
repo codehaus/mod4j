@@ -19,7 +19,7 @@
 «LET findSpecialMethodInService(context, "Create", serviceType) AS createService»
 «LET findSpecialMethodInService(context, "DELETE", serviceType) AS deleteService»
 «LET findSpecialMethodInService(context, "LISTALL", serviceType) AS listallService»
-package «getPresentationRootPackage()».panels;
+package «getPresentationRootPackage()».dataproviders;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -91,6 +91,14 @@ public class «getWicketListAllDataProviderClass(context)»
 			service.«updateService»(tobesaved);
 		}
 	}
+    
+    public void addToDtoList(List<«context»> tobeadded) {
+        throw new RuntimeException("Listprovider: no addToDtoList possible");
+    }
+    
+    public void removeFromDtoList(List<«context»> toberemoved) {
+        throw new RuntimeException("Listprovider: no removeFromDtoList possible");
+    }    
 
 }
 «ENDLET»

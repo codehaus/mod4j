@@ -9,7 +9,7 @@
 
 «DEFINE ModelDataProvider FOR PresentationModel»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ModelDataProvider.xpt") FOR this»
-package «getPresentationRootPackage()».panels;
+package «getPresentationRootPackage()».dataproviders;
 
 import java.io.Serializable;
 import java.util.ArrayList;

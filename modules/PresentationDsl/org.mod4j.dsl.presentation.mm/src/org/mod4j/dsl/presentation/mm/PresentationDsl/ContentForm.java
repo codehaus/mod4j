@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getFormElements <em>Form Elements</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#isIsCollection <em>Is Collection</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
@@ -44,33 +43,6 @@ public interface ContentForm extends Form {
      * @generated
      */
     EList<FormElement> getFormElements();
-
-    /**
-     * Returns the value of the '<em><b>Is Collection</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Is Collection</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Is Collection</em>' attribute.
-     * @see #setIsCollection(boolean)
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getContentForm_IsCollection()
-     * @model default="false"
-     * @generated
-     */
-    boolean isIsCollection();
-
-    /**
-     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#isIsCollection <em>Is Collection</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Is Collection</em>' attribute.
-     * @see #isIsCollection()
-     * @generated
-     */
-    void setIsCollection(boolean value);
 
     /**
      * Returns the value of the '<em><b>Actions</b></em>' containment reference list.

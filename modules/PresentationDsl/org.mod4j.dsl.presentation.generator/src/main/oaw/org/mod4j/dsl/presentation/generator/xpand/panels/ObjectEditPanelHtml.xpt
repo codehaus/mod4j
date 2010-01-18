@@ -10,7 +10,7 @@
 «DEFINE GenerateObjectEditPanelHtml FOR ContentForm -»
     «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanelHtml.xpt") FOR this»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::SAVE) AS saveProcesses»
-«LET this.processes.referredProcess().select(p|p.type == ProcessType::REMOVE) AS removeProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::DELETE) AS removeProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CANCEL) AS cancelProcesses» 
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
@@ -45,11 +45,12 @@
 						<input type="submit" wicket:id="«p.name»cancel" value="«p.label» Cancel"/>
 	«ENDFOREACH»
 «ENDIF»
-«IF (customProcesses != null) && (!customProcesses.isEmpty)»
-    «FOREACH customProcesses AS p»
-						<input type="submit" wicket:id="«p.name»custom" value="«p.label»"/>
-	«ENDFOREACH»
-«ENDIF»
+
+«FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
+    «LET pc.referredProcess() AS p»
+						<input type="submit" wicket:id="«p.name»custom" value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»"/>
+    «ENDLET»
+«ENDFOREACH»
 					</td>
 				</tr>
 			</tfoot>

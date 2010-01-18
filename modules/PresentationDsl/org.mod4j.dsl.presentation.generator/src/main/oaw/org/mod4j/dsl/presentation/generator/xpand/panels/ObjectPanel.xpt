@@ -11,6 +11,7 @@
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 package «getPresentationRootPackage()».panels;
 
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «javaDtoClassPath(this.contextRef.name)»;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,16 +36,16 @@ import org.apache.wicket.model.PropertyModel;
 @SuppressWarnings("serial")
 public class «this.name»PanelWithListener extends Panel {
 
-	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
+//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
 	
 	/**
 	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
 	 * This allows the panel to be used in different pages with different behavior.
 	 * @param listener The listener to be added
 	 */
-	public void addListener(«this.contextRef.name»ListListener listener ){
-		listeners.add(listener);
-	}
+//	public void addListener(«this.contextRef.name»ListListener listener ){
+//		listeners.add(listener);
+//	}
 
 	public «this.name»PanelWithListener (String id, final IModel<«this.contextRef.name»> model) {
         super(id);
@@ -52,9 +53,9 @@ public class «this.name»PanelWithListener extends Panel {
         add(new Link<Object>("edit") {
         @Override
         public void onClick() {
-			for («this.contextRef.name»ListListener listener : listeners) {
+//			for («this.contextRef.name»ListListener listener : listeners) {
 //				listener.on«this.contextRef.name»Edit(model.getObject());
-			}
+//			}
         }
     });    
         
@@ -65,15 +66,18 @@ public class «this.name»PanelWithListener extends Panel {
 		add(new Link<Object>("«p.name»custom") {
 			@Override
 			public void onClick() {
-				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.startProcess(
-					"«p.name»Process", model.getObject());
-				}
+//				for («this.contextRef.name»ListListener listener : listeners) {
+					page().startProcess("«p.name»Process", model.getObject());
+//				}
 			}
 		});
     «ENDFOREACH»
 «ENDIF»
         
+    }
+
+    protected «getWicketMasterPageClass()» page() {
+        return («getWicketMasterPageClass()»)findPage();
     }
 
 }

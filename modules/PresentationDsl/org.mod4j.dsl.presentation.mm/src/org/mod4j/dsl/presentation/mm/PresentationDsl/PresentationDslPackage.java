@@ -181,13 +181,22 @@ public interface PresentationDslPackage extends EPackage {
     int MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Model Element With Context</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_ELEMENT_WITH_CONTEXT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int MODEL_ELEMENT_WITH_CONTEXT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementImpl <em>UI Model Element</em>}' class.
@@ -234,6 +243,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int UI_MODEL_ELEMENT__PRESENTATION_MODEL = MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UI_MODEL_ELEMENT__COLLECTION_CONTEXT = MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT;
 
     /**
      * The number of structural features of the '<em>UI Model Element</em>' class.
@@ -289,6 +307,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int DIALOGUE__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIALOGUE__COLLECTION_CONTEXT = UI_MODEL_ELEMENT__COLLECTION_CONTEXT;
 
     /**
      * The feature id for the '<em><b>Readonly</b></em>' attribute.
@@ -364,6 +391,15 @@ public interface PresentationDslPackage extends EPackage {
     int FORM__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
 
     /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORM__COLLECTION_CONTEXT = DIALOGUE__COLLECTION_CONTEXT;
+
+    /**
      * The feature id for the '<em><b>Readonly</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -437,6 +473,15 @@ public interface PresentationDslPackage extends EPackage {
     int CONTENT_FORM__PRESENTATION_MODEL = FORM__PRESENTATION_MODEL;
 
     /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTENT_FORM__COLLECTION_CONTEXT = FORM__COLLECTION_CONTEXT;
+
+    /**
      * The feature id for the '<em><b>Readonly</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -464,22 +509,13 @@ public interface PresentationDslPackage extends EPackage {
     int CONTENT_FORM__FORM_ELEMENTS = FORM_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Is Collection</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONTENT_FORM__IS_COLLECTION = FORM_FEATURE_COUNT + 1;
-
-    /**
      * The feature id for the '<em><b>Actions</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONTENT_FORM__ACTIONS = FORM_FEATURE_COUNT + 2;
+    int CONTENT_FORM__ACTIONS = FORM_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Content Form</em>' class.
@@ -488,7 +524,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CONTENT_FORM_FEATURE_COUNT = FORM_FEATURE_COUNT + 3;
+    int CONTENT_FORM_FEATURE_COUNT = FORM_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.CompoundDialogueImpl <em>Compound Dialogue</em>}' class.
@@ -535,6 +571,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int COMPOUND_DIALOGUE__PRESENTATION_MODEL = DIALOGUE__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPOUND_DIALOGUE__COLLECTION_CONTEXT = DIALOGUE__COLLECTION_CONTEXT;
 
     /**
      * The feature id for the '<em><b>Readonly</b></em>' attribute.
@@ -617,6 +662,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int COLLECTION_DIALOGUE__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COLLECTION_DIALOGUE__COLLECTION_CONTEXT = COMPOUND_DIALOGUE__COLLECTION_CONTEXT;
 
     /**
      * The feature id for the '<em><b>Readonly</b></em>' attribute.
@@ -1131,6 +1185,15 @@ public interface PresentationDslPackage extends EPackage {
     int MASTER_DETAIL__PRESENTATION_MODEL = COMPOUND_DIALOGUE__PRESENTATION_MODEL;
 
     /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_DETAIL__COLLECTION_CONTEXT = COMPOUND_DIALOGUE__COLLECTION_CONTEXT;
+
+    /**
      * The feature id for the '<em><b>Readonly</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1284,6 +1347,15 @@ public interface PresentationDslPackage extends EPackage {
      * @ordered
      */
     int PROCESS__PRESENTATION_MODEL = UI_MODEL_ELEMENT__PRESENTATION_MODEL;
+
+    /**
+     * The feature id for the '<em><b>Collection Context</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS__COLLECTION_CONTEXT = UI_MODEL_ELEMENT__COLLECTION_CONTEXT;
 
     /**
      * The feature id for the '<em><b>Process Elements</b></em>' containment reference list.
@@ -1551,13 +1623,22 @@ public interface PresentationDslPackage extends EPackage {
     int NAVIGATION_EXPRESSION__REFERENCES = EXPRESSION_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Composition</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NAVIGATION_EXPRESSION__COMPOSITION = EXPRESSION_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Navigation Expression</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NAVIGATION_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+    int NAVIGATION_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.StandardExpressionImpl <em>Standard Expression</em>}' class.
@@ -1657,17 +1738,6 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EReference getContentForm_FormElements();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#isIsCollection <em>Is Collection</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Is Collection</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#isIsCollection()
-     * @see #getContentForm()
-     * @generated
-     */
-    EAttribute getContentForm_IsCollection();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions <em>Actions</em>}'.
@@ -1978,6 +2048,17 @@ public interface PresentationDslPackage extends EPackage {
     EReference getModelElementWithContext_PresentationModel();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#isCollectionContext <em>Collection Context</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Collection Context</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#isCollectionContext()
+     * @see #getModelElementWithContext()
+     * @generated
+     */
+    EAttribute getModelElementWithContext_CollectionContext();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement <em>Model Element</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2255,6 +2336,17 @@ public interface PresentationDslPackage extends EPackage {
     EReference getNavigationExpression_References();
 
     /**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression#isComposition <em>Composition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Composition</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression#isComposition()
+     * @see #getNavigationExpression()
+     * @generated
+     */
+    EAttribute getNavigationExpression_Composition();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Expression <em>Expression</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2354,14 +2446,6 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference CONTENT_FORM__FORM_ELEMENTS = eINSTANCE.getContentForm_FormElements();
-
-        /**
-         * The meta object literal for the '<em><b>Is Collection</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute CONTENT_FORM__IS_COLLECTION = eINSTANCE.getContentForm_IsCollection();
 
         /**
          * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
@@ -2618,6 +2702,14 @@ public interface PresentationDslPackage extends EPackage {
         EReference MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL = eINSTANCE.getModelElementWithContext_PresentationModel();
 
         /**
+         * The meta object literal for the '<em><b>Collection Context</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT = eINSTANCE.getModelElementWithContext_CollectionContext();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementImpl <em>Model Element</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2842,6 +2934,14 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EReference NAVIGATION_EXPRESSION__REFERENCES = eINSTANCE.getNavigationExpression_References();
+
+        /**
+         * The meta object literal for the '<em><b>Composition</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute NAVIGATION_EXPRESSION__COMPOSITION = eINSTANCE.getNavigationExpression_Composition();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExpressionImpl <em>Expression</em>}' class.

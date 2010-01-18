@@ -42,13 +42,13 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.ModalWindow" ))»
 	    «EXPAND CommonModalWindow::GenerateModalWindow FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels.ServiceDataProvider" ))»
-	    «EXPAND ServiceDataProvider::GenerateDataProvider FOR this»
-	«ENDFILE»
 
-	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.FieldFeedbackPanel" ))»
-	    «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanel FOR this»
-	«ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.FieldFeedbackPanel" ))»
+        «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanel FOR this»
+    «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.CheckBoxBaseModel" ))»
+        «EXPAND CommonCheckBoxBaseModel::CommonCheckBoxBaseModel FOR this»
+    «ENDFILE»
 	«FILE generate(getPresentationModuleName(""), getPresentationCommonPackageAsPath() + "/ext/components/FieldFeedbackPanel.html")»
 	    «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanelHtml FOR this»
 	«ENDFILE»

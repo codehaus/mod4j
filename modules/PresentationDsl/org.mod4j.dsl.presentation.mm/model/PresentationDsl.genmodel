@@ -11,19 +11,21 @@
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/NEW"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/SAVE"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/EDIT"/>
-      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/REMOVE"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/DELETE"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CUSTOM"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CANCEL"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/ADDTO"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/REMOVEFROM"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="PresentationDsl.ecore#//ExpressionType">
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/ALL"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/FIND"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/SELECTION"/>
     </genEnums>
     <genClasses ecoreClass="PresentationDsl.ecore#//AssociationRoleReference"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//ContentForm">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ContentForm/formElements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ContentForm/isCollection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ContentForm/actions"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//CompoundDialogue">
@@ -61,6 +63,7 @@
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ModelElementWithContext">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ModelElementWithContext/contextRef"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ModelElementWithContext/presentationModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElementWithContext/collectionContext"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ModelElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ModelElement/name"/>
@@ -96,6 +99,7 @@
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//NavigationExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//NavigationExpression/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//NavigationExpression/composition"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//Expression"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//StandardExpression">

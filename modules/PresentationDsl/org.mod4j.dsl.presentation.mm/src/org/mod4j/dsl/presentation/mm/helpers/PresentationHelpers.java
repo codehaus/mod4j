@@ -323,7 +323,7 @@ public class PresentationHelpers {
                     // referred form cannot be found, but that is checked elsewhere
                     return "ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
                 }
-                Mod4jType expectedType = new Mod4jType(form.getContextRef().getName(), (form.isIsCollection() ? "LIST" : "SINGLE"));
+                Mod4jType expectedType = new Mod4jType(form.getContextRef().getName(), (form.isCollectionContext() ? "LIST" : "SINGLE"));
                 if( dialogueCall.getContextExp() == null ){
                     // check whether context of referred form is identical to that of the process
                     if( ! form.getContextRef().getName().equals(context.getName())){

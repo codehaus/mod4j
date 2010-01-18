@@ -19,10 +19,6 @@
   <children xmi:type="notation:Node" xmi:id="_9zQkSM_FEd6GKolWbdgitg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9zQkS8_FEd6GKolWbdgitg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9zQkTM_FEd6GKolWbdgitg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_Cp6KsOVqEd6U5fELmdKwmQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//ContentForm/isCollection"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cp6KseVqEd6U5fELmdKwmQ"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_9zQkTc_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_9zQkTs_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9zQkT8_FEd6GKolWbdgitg"/>
@@ -174,7 +170,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_9zaVi8_FEd6GKolWbdgitg" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="PresentationDsl.ecore#//FormElement"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9zaVjM_FEd6GKolWbdgitg" x="10" y="540"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9zaVjM_FEd6GKolWbdgitg" x="10" y="515" height="74"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_9zkGbs_FEd6GKolWbdgitg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9zkGcc_FEd6GKolWbdgitg" type="4001"/>
@@ -195,6 +191,10 @@
   <children xmi:type="notation:Node" xmi:id="_9zkGes_FEd6GKolWbdgitg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9zkGfc_FEd6GKolWbdgitg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9zkGfs_FEd6GKolWbdgitg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_RG1rEQEFEd-PfoQQROcK2w" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//ModelElementWithContext/collectionContext"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RG1rEgEFEd-PfoQQROcK2w"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_9zkGf8_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_9zkGgM_FEd6GKolWbdgitg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9zkGgc_FEd6GKolWbdgitg"/>
@@ -359,13 +359,17 @@
         <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ProcessType/EDIT"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_4k_lkeidEd6NWpDINUj5jA"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_7PdAsOidEd6NWpDINUj5jA" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ProcessType/REMOVE"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7PdAseidEd6NWpDINUj5jA"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_LiY8gOjGEd6PA8b5nHVCYg" type="2006">
         <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ProcessType/CANCEL"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_LiY8gejGEd6PA8b5nHVCYg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_JzkLgAHmEd-UbMizpln0mg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ProcessType/ADDTO"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_JzkLgQHmEd-UbMizpln0mg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_M0PHMAHmEd-UbMizpln0mg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ProcessType/REMOVEFROM"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_M0PHMQHmEd-UbMizpln0mg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0j02NeidEd6NWpDINUj5jA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_0j02NuidEd6NWpDINUj5jA"/>
@@ -402,6 +406,10 @@
   <children xmi:type="notation:Node" xmi:id="_ZgmhcesDEd6wN5_6ztQbvA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_ZgmhdOsDEd6wN5_6ztQbvA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_ZgmhdesDEd6wN5_6ztQbvA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_qpQZsAHnEd-UbMizpln0mg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="PresentationDsl.ecore#//NavigationExpression/composition"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_qpQZsQHnEd-UbMizpln0mg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ZgmhdusDEd6wN5_6ztQbvA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Zgmhd-sDEd6wN5_6ztQbvA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ZgmheOsDEd6wN5_6ztQbvA"/>
@@ -468,13 +476,17 @@
         <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ExpressionType/FIND"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_AGccQv6AEd6XsoWIgDOwaw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_-pqoUAEIEd-PfoQQROcK2w" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="PresentationDsl.ecore#//ExpressionType/SELECTION"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_-pqoUQEIEd-PfoQQROcK2w"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_31wxJfxeEd66y6td6go0mA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_31wxJvxeEd66y6td6go0mA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_31wxJ_xeEd66y6td6go0mA"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_31wxIfxeEd66y6td6go0mA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="PresentationDsl.ecore#//ExpressionType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_31wxIvxeEd66y6td6go0mA" x="1079" y="26"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_31wxIvxeEd66y6td6go0mA" x="1225"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_9xxWcc_FEd6GKolWbdgitg"/>
   <element xmi:type="ecore:EPackage" href="PresentationDsl.ecore#/"/>

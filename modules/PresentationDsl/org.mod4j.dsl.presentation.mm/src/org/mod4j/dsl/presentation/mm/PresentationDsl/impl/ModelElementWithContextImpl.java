@@ -30,6 +30,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementWithContextImpl#getContextRef <em>Context Ref</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementWithContextImpl#getPresentationModel <em>Presentation Model</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ModelElementWithContextImpl#isCollectionContext <em>Collection Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +46,25 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * @ordered
      */
     protected ExternalReference contextRef;
+
+    /**
+     * The default value of the '{@link #isCollectionContext() <em>Collection Context</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isCollectionContext()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean COLLECTION_CONTEXT_EDEFAULT = false;
+    /**
+     * The cached value of the '{@link #isCollectionContext() <em>Collection Context</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isCollectionContext()
+     * @generated
+     * @ordered
+     */
+    protected boolean collectionContext = COLLECTION_CONTEXT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -149,6 +169,27 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isCollectionContext() {
+        return collectionContext;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCollectionContext(boolean newCollectionContext) {
+        boolean oldCollectionContext = collectionContext;
+        collectionContext = newCollectionContext;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT, oldCollectionContext, collectionContext));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -201,6 +242,8 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
                 return basicGetContextRef();
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
                 return getPresentationModel();
+            case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+                return isCollectionContext();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -218,6 +261,9 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
                 return;
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
                 setPresentationModel((PresentationModel)newValue);
+                return;
+            case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+                setCollectionContext((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -237,6 +283,9 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
                 setPresentationModel((PresentationModel)null);
                 return;
+            case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+                setCollectionContext(COLLECTION_CONTEXT_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -253,8 +302,26 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
                 return contextRef != null;
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
                 return getPresentationModel() != null;
+            case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__COLLECTION_CONTEXT:
+                return collectionContext != COLLECTION_CONTEXT_EDEFAULT;
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (collectionContext: ");
+        result.append(collectionContext);
+        result.append(')');
+        return result.toString();
     }
 
 } //ModelElementWithContextImpl

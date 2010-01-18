@@ -23,12 +23,15 @@
 «DEFINE GenerateDataProviders FOR PresentationModel»
     «print("MOD4J INFO: Running data providers generator on model [" + this.name + "]")»
     
-    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + "Mod4jDataProvider"))»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + "Mod4jDataProvider"))»
 	    «EXPAND Mod4jDataProvider::Mod4jDataProvider FOR this»
 	«ENDFILE»
-    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + "ModelDataProvider"))»
-	    «EXPAND ModelDataProvider::ModelDataProvider FOR this»
-	«ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + "ModelDataProvider"))»
+        «EXPAND ModelDataProvider::ModelDataProvider FOR this»
+    «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + "PmfListDataProvider"))»
+        «EXPAND PmfListDataProvider::PmfListDataProvider FOR this»
+    «ENDFILE»
 
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
@@ -36,29 +39,36 @@
 		«LET process.processElements.typeSelect(DialogueCall).first() AS uiCall»
 		«LET uiCall.referredContentForm() AS form »
 		«IF form != null»
-			«IF form.isCollection »
+			«IF form.collectionContext »
 				«IF uiCall.getNavigationExpression() != null »
 			    	«print("Navigation data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + 
-					                       	getWicketNavigationDataProviderClass(process.contextRef.name , form.contextRef.name )) )»
-			    	    «EXPAND NavigationDataProvider::NavigationDataProvider FOR uiCall»
-					«ENDFILE»
+                    «IF uiCall.getNavigationExpression().composition»
+						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + 
+						                       	getWicketCompositeDataProviderClass(process.contextRef.name , form.contextRef.name )) )»
+				    	    «EXPAND CompositeDataProvider::CompositeDataProvider FOR uiCall»
+						«ENDFILE»
+					«ELSE»
+                        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + 
+                                                getWicketReferenceDataProviderClass(process.contextRef.name , form.contextRef.name )) )»
+                            «EXPAND ReferenceDataProvider::ReferenceDataProvider FOR uiCall»
+                        «ENDFILE»
+					«ENDIF»
 				«ELSEIF uiCall.getServiceExpression() != null»
 			    	«print("01 Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
 					                                                    + getWicketServiceDataProviderClass(form.contextRef.name) ))»
                         «EXPAND DtoServiceDataProvider::ServiceDataProvider(process.contextRef.name) FOR uiCall.getServiceExpression()»
 					«ENDFILE»
 				«ELSEIF uiCall.getStandardExpression() != null»
 				    «IF uiCall.getStandardExpression().type == ExpressionType::ALL»
 				    	«print("02 ListAll data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
 						                                                    + getWicketListAllDataProviderClass(form.contextRef.name) ))»
                             «EXPAND DtoListAllDataProvider::ListAllDataProvider FOR uiCall»
 						«ENDFILE»
 					«ELSEIF uiCall.getStandardExpression().type == ExpressionType::FIND »
 				    	«print("03 Finder Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
-						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." 
+						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
 						                                                    + getWicketFinderDataProviderClass(form.contextRef.name) ))»
 				    	    «EXPAND FinderDataProvider::FinderDataProvider FOR uiCall»
 						«ENDFILE»
@@ -66,22 +76,8 @@
 				«ENDIF»
 			«ENDIF»
 		«ELSE»
-		    «print("No page generated for process [" + process.name + "] form [" + form.name + "]")»
+		    «print("No dataprovider generated for process [" + process.name + "] form [" + form.name + "]")»
         «ENDIF»
-«REM»
-		«IF uiCall.referredCollectionDialogue() != null»
-			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
-	    	    «EXPAND ProcessPage::GenerateCollectionDialoguePage FOR process»
-			«ENDFILE»
-		«ELSEIF uiCall.referredContentForm() != null»
-			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
-	    	    «EXPAND ProcessPage::GenerateContentFormPage FOR process»
-			«ENDFILE»
-		«ENDIF»
-«ENDREM»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + form.name + "Page.html")»
-    	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process»
-		«ENDFILE»
 		«ENDLET»
 		«ENDLET»
 	«ENDFOREACH»

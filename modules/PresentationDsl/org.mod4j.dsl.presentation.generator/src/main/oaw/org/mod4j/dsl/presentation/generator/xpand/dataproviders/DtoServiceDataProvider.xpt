@@ -16,7 +16,7 @@
 «LET getWicketServiceDataProviderClass(outContext) AS classname»
 «LET findServiceWithMethod(outContext, "UPDATE") AS updateServiceType»
 «LET findSpecialMethodInService(outContext, "UPDATE", updateServiceType) AS updateService»
-package «getPresentationRootPackage()».panels;
+package «getPresentationRootPackage()».dataproviders;
 
 import java.util.Iterator;
 import java.util.List;
@@ -102,6 +102,14 @@ public class «classname»
 			updateService.«updateService»(tobesaved);
 		}
 	}
+    
+    public void addToDtoList(List<«outContext»> tobeadded) {
+        throw new RuntimeException("Listprovider: no addToDtoList possible");
+    }
+    
+    public void removeFromDtoList(List<«outContext»> toberemoved) {
+        throw new RuntimeException("Listprovider: no removeFromDtoList possible");
+    }    
 
 }
 «ENDLET»

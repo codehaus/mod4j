@@ -33,7 +33,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ContentFormImpl#getFormElements <em>Form Elements</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ContentFormImpl#isIsCollection <em>Is Collection</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ContentFormImpl#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
@@ -50,26 +49,6 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
      * @ordered
      */
     protected EList<FormElement> formElements;
-
-    /**
-     * The default value of the '{@link #isIsCollection() <em>Is Collection</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsCollection()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean IS_COLLECTION_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isIsCollection() <em>Is Collection</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isIsCollection()
-     * @generated
-     * @ordered
-     */
-    protected boolean isCollection = IS_COLLECTION_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -110,27 +89,6 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
             formElements = new EObjectContainmentWithInverseEList<FormElement>(FormElement.class, this, PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS, PresentationDslPackage.FORM_ELEMENT__FORM);
         }
         return formElements;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isIsCollection() {
-        return isCollection;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setIsCollection(boolean newIsCollection) {
-        boolean oldIsCollection = isCollection;
-        isCollection = newIsCollection;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.CONTENT_FORM__IS_COLLECTION, oldIsCollection, isCollection));
     }
 
     /**
@@ -188,8 +146,6 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
         switch (featureID) {
             case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
                 return getFormElements();
-            case PresentationDslPackage.CONTENT_FORM__IS_COLLECTION:
-                return isIsCollection();
             case PresentationDslPackage.CONTENT_FORM__ACTIONS:
                 return getActions();
         }
@@ -208,9 +164,6 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
             case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
                 getFormElements().clear();
                 getFormElements().addAll((Collection<? extends FormElement>)newValue);
-                return;
-            case PresentationDslPackage.CONTENT_FORM__IS_COLLECTION:
-                setIsCollection((Boolean)newValue);
                 return;
             case PresentationDslPackage.CONTENT_FORM__ACTIONS:
                 getActions().clear();
@@ -231,9 +184,6 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
             case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
                 getFormElements().clear();
                 return;
-            case PresentationDslPackage.CONTENT_FORM__IS_COLLECTION:
-                setIsCollection(IS_COLLECTION_EDEFAULT);
-                return;
             case PresentationDslPackage.CONTENT_FORM__ACTIONS:
                 getActions().clear();
                 return;
@@ -251,28 +201,10 @@ public class ContentFormImpl extends FormImpl implements ContentForm {
         switch (featureID) {
             case PresentationDslPackage.CONTENT_FORM__FORM_ELEMENTS:
                 return formElements != null && !formElements.isEmpty();
-            case PresentationDslPackage.CONTENT_FORM__IS_COLLECTION:
-                return isCollection != IS_COLLECTION_EDEFAULT;
             case PresentationDslPackage.CONTENT_FORM__ACTIONS:
                 return actions != null && !actions.isEmpty();
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (isCollection: ");
-        result.append(isCollection);
-        result.append(')');
-        return result.toString();
     }
 
 } //ContentFormImpl

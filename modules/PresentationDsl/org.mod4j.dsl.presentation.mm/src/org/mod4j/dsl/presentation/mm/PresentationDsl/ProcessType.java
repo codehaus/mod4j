@@ -53,16 +53,14 @@ public enum ProcessType implements Enumerator {
     EDIT(2, "EDIT", "EDIT"),
 
     /**
-     * The '<em><b>REMOVE</b></em>' literal object.
+     * The '<em><b>DELETE</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #REMOVE_VALUE
+     * @see #DELETE_VALUE
      * @generated
      * @ordered
      */
-    REMOVE(3, "REMOVE", "REMOVE"),
-
-    /**
+    DELETE(3, "DELETE", "DELETE"), /**
      * The '<em><b>CUSTOM</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -80,7 +78,23 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    CANCEL(5, "CANCEL", "CANCEL");
+    CANCEL(5, "CANCEL", "CANCEL"), /**
+     * The '<em><b>ADDTO</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #ADDTO_VALUE
+     * @generated
+     * @ordered
+     */
+    ADDTO(6, "ADDTO", "ADDTO"), /**
+     * The '<em><b>REMOVEFROM</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #REMOVEFROM_VALUE
+     * @generated
+     * @ordered
+     */
+    REMOVEFROM(7, "REMOVEFROM", "REMOVEFROM");
 
     /**
      * The '<em><b>NEW</b></em>' literal value.
@@ -128,19 +142,19 @@ public enum ProcessType implements Enumerator {
     public static final int EDIT_VALUE = 2;
 
     /**
-     * The '<em><b>REMOVE</b></em>' literal value.
+     * The '<em><b>DELETE</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of '<em><b>REMOVE</b></em>' literal object isn't clear,
+     * If the meaning of '<em><b>DELETE</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #REMOVE
+     * @see #DELETE
      * @model
      * @generated
      * @ordered
      */
-    public static final int REMOVE_VALUE = 3;
+    public static final int DELETE_VALUE = 3;
 
     /**
      * The '<em><b>CUSTOM</b></em>' literal value.
@@ -173,6 +187,36 @@ public enum ProcessType implements Enumerator {
     public static final int CANCEL_VALUE = 5;
 
     /**
+     * The '<em><b>ADDTO</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>ADDTO</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #ADDTO
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int ADDTO_VALUE = 6;
+
+    /**
+     * The '<em><b>REMOVEFROM</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>REMOVEFROM</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #REMOVEFROM
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int REMOVEFROM_VALUE = 7;
+
+    /**
      * An array of all the '<em><b>Process Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -183,9 +227,11 @@ public enum ProcessType implements Enumerator {
             NEW,
             SAVE,
             EDIT,
-            REMOVE,
+            DELETE,
             CUSTOM,
             CANCEL,
+            ADDTO,
+            REMOVEFROM,
         };
 
     /**
@@ -239,9 +285,11 @@ public enum ProcessType implements Enumerator {
             case NEW_VALUE: return NEW;
             case SAVE_VALUE: return SAVE;
             case EDIT_VALUE: return EDIT;
-            case REMOVE_VALUE: return REMOVE;
+            case DELETE_VALUE: return DELETE;
             case CUSTOM_VALUE: return CUSTOM;
             case CANCEL_VALUE: return CANCEL;
+            case ADDTO_VALUE: return ADDTO;
+            case REMOVEFROM_VALUE: return REMOVEFROM;
         }
         return null;
     }

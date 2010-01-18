@@ -10,14 +10,14 @@
 «DEFINE GenerateObjectEditPanel FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanel.xpt") FOR this»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::SAVE) AS saveProcesses»
-«LET this.processes.referredProcess().select(p|p.type == ProcessType::REMOVE) AS removeProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::DELETE) AS removeProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CANCEL) AS cancelProcesses»
-«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
 package «getPresentationRootPackage()».panels;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationCommonPackage()».ext.components.AjaxEditableLabel;
 import «getPresentationCommonPackage()».ext.components.AjaxIndicator;
 import «getPresentationCommonPackage()».ext.components.AjaxUpdatingBehaviour;
@@ -67,15 +67,19 @@ import «javaDtoClassPath(this.contextRef.name)»;
 public class «this.name»EditPanelWithListener extends Panel {
 	private Log log = LogFactory.getLog(getClass());
 
-	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
+//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
 	
 	/**
 	 * Adds a listener to this panel. The listener will be notified whenever an event takes place on this panel.
 	 * This allows the panel to be used in different pages with different behavior.
 	 * @param listener The listener to be added
 	 */
-	public void addListener(«this.contextRef.name»ListListener listener ){
-		listeners.add(listener);
+//	public void addListener(«this.contextRef.name»ListListener listener ){
+//		listeners.add(listener);
+//	}
+	
+	protected «getWicketMasterPageClass()» page() {
+	    return («getWicketMasterPageClass()»)findPage();
 	}
 	
     protected IModel<«this.contextRef.name»> localModel ;
@@ -101,9 +105,10 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»save = new Button("«p.name»save", new ResourceModel("cmd.save")) {
             @Override
             public void onSubmit() {
-				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.startProcess("«p.name»Process", model.getObject() );
-				}
+                page().startProcess("«p.name»Process", model.getObject() );
+//				for («this.contextRef.name»ListListener listener : listeners) {
+//					listener.startProcess("«p.name»Process", model.getObject() );
+//				}
             }
         };
         form.add(«p.name»save);
@@ -116,9 +121,10 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»delete = new Button("«p.name»delete", new ResourceModel("cmd.delete")) {
             @Override
             public void onSubmit() {
-				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.startProcess("«p.name»Process", localModel.getObject() );
-				}
+                page().startProcess("«p.name»Process", localModel.getObject() );
+//				for («this.contextRef.name»ListListener listener : listeners) {
+//					listener.startProcess("«p.name»Process", localModel.getObject() );
+//				}
 				localModel.setObject(null);
 				form.clearInput();
             }
@@ -137,10 +143,10 @@ public class «this.name»EditPanelWithListener extends Panel {
             @Override
             public void onSubmit() {
             	form.clearInput();
-				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.startProcess(
-									"«p.name»Process", model.getObject());
-				}
+                page().startProcess("«p.name»Process", model.getObject());
+//				for («this.contextRef.name»ListListener listener : listeners) {
+//					listener.startProcess("«p.name»Process", model.getObject());
+//				}
              }
         };
         cancel.setDefaultFormProcessing(false);
@@ -149,26 +155,26 @@ public class «this.name»EditPanelWithListener extends Panel {
     «ENDFOREACH»
 «ENDIF» 
 
- «IF (customProcesses != null) && (!customProcesses.isEmpty)»
-     «FOREACH customProcesses AS p»
-        Button «p.name»custom = new Button("«p.name»custom", new Model("«p.label»")) {
+    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
+        «LET pc.referredProcess() AS p»
+        Button «p.name»custom = new Button("«p.name»custom", new Model("«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»")) {
             @Override
             public void onSubmit() {
-				for («this.contextRef.name»ListListener listener : listeners) {
-					listener.startProcess(
-									"«p.name»Process", model.getObject());
-				}
+                page().startProcess("«p.name»Process", model.getObject());
+//				for («this.contextRef.name»ListListener listener : listeners) {
+//					listener.startProcess(
+//									"«p.name»Process", model.getObject());
+//				}
             }
         };
         form.add(«p.name»custom);
         filter.addComponent(«p.name»custom);
+        «ENDLET»
     «ENDFOREACH»
-«ENDIF»
         add(formMsgs);
         add(form);
     }
 }
-«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

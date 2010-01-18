@@ -17,6 +17,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#getContextRef <em>Context Ref</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#getPresentationModel <em>Presentation Model</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#isCollectionContext <em>Collection Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,5 +79,32 @@ public interface ModelElementWithContext extends ModelElement {
      * @generated
      */
     void setPresentationModel(PresentationModel value);
+
+    /**
+     * Returns the value of the '<em><b>Collection Context</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Collection Context</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Collection Context</em>' attribute.
+     * @see #setCollectionContext(boolean)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getModelElementWithContext_CollectionContext()
+     * @model default="false"
+     * @generated
+     */
+    boolean isCollectionContext();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#isCollectionContext <em>Collection Context</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Collection Context</em>' attribute.
+     * @see #isCollectionContext()
+     * @generated
+     */
+    void setCollectionContext(boolean value);
 
 } // ModelElementWithContext

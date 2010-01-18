@@ -1,0 +1,73 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE CommonCheckBoxBaseModel FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.wicket.model.IModel;
+
+public class CheckBoxBaseModel<DtoType> implements IModel<Boolean>, Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private final IModel<DtoType> model;
+
+    private List<IModel<DtoType>> selectedModels;
+
+    public CheckBoxBaseModel(List<IModel<DtoType>> selectedModels, IModel<DtoType> model) {
+        this.selectedModels = selectedModels;
+        this.model = model;
+    }
+
+    public IModel<?> getNestedModel() {
+        return null;
+    }
+
+    public Boolean getObject() {
+        return isBookAlreadyMarkedForCheckout();
+    }
+
+    private Boolean isBookAlreadyMarkedForCheckout() {
+        if (selectedModels.contains(model))
+            return Boolean.TRUE;
+        else
+            return Boolean.FALSE;
+    }
+
+    public void setObject(Boolean object) {
+        boolean selected = object.booleanValue();
+        boolean previouslySelected = isBookAlreadyMarkedForCheckout().booleanValue();
+        if (selected) {
+            if (!previouslySelected)
+                selectedModels.add(model);
+        } else {
+            if (previouslySelected)
+                selectedModels.remove(model);
+        }
+    }
+
+    public void detach() {
+    }
+}
+
+«ENDDEFINE»

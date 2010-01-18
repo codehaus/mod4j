@@ -48,7 +48,15 @@ public enum ExpressionType implements Enumerator {
      * @generated
      * @ordered
      */
-    FIND(2, "FIND", "FIND");
+    FIND(2, "FIND", "FIND"), /**
+     * The '<em><b>SELECTION</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #SELECTION_VALUE
+     * @generated
+     * @ordered
+     */
+    SELECTION(3, "SELECTION", "SELECTION");
 
     /**
      * The '<em><b>ALL</b></em>' literal value.
@@ -96,6 +104,21 @@ public enum ExpressionType implements Enumerator {
     public static final int FIND_VALUE = 2;
 
     /**
+     * The '<em><b>SELECTION</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>SELECTION</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #SELECTION
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int SELECTION_VALUE = 3;
+
+    /**
      * An array of all the '<em><b>Expression Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -106,6 +129,7 @@ public enum ExpressionType implements Enumerator {
             ALL,
             NONE,
             FIND,
+            SELECTION,
         };
 
     /**
@@ -159,6 +183,7 @@ public enum ExpressionType implements Enumerator {
             case ALL_VALUE: return ALL;
             case NONE_VALUE: return NONE;
             case FIND_VALUE: return FIND;
+            case SELECTION_VALUE: return SELECTION;
         }
         return null;
     }
