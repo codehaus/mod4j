@@ -18,9 +18,9 @@ ContentForm CustomerExtra context SimpleCustomerDto [
 	
 CompoundDialogue FullCustomerDialogue context SimpleCustomerDto 
 	dialogues [ 
-		CustomerDetails;
+		to CustomerDetails;
 //		navigate CustomerOrders to OrderAndDateCollection;
-		CustomerExtra;
+		to CustomerExtra;
 	]
 	processes [
 		HandleCustomer; 

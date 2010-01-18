@@ -21,7 +21,7 @@ ContentForm CustomerReadOnlyDetail context FullCustomerDto [
 
 CollectionDialogue CustomerCollection context FullCustomerDto [
 	  dialogues [ 
-	  	CustomerReadOnlyDetail;
+	  	to CustomerReadOnlyDetail;
 	  ]
 ]
 
