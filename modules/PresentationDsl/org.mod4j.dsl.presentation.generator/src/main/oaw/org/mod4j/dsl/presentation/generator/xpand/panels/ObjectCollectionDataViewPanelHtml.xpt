@@ -7,7 +7,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
-«DEFINE GenerateObjectCollectionDataViewPanelHtml FOR ContentForm -»
+«DEFINE GenerateObjectCollectionDataViewPanelHtml(boolean withProcesses) FOR ContentForm -»
     «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectCollectionDataViewPanelHtml.xpt") FOR this-»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
 <wicket:panel>
@@ -38,42 +38,61 @@
 		«ENDFOREACH»
 	«ENDLET»
 	«ENDLET»
-    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
-        «LET pc.referredProcess() AS p»
-        «IF ! p.collectionContext»
-    		<td class="butcol">
-    		<input type="button" 
-    		       value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»" 
-    		       wicket:id="«p.name»" 
-    		       class="button" /></td>
-        «ENDIF»
-        «ENDLET»
-	«ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
-		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
-	«ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS p»
-        «IF ! p.collectionContext»
-    		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
-    	«ENDIF»
-	«ENDFOREACH»
+	«IF withProcesses»
+	    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
+	        «LET pc.referredProcess() AS p»
+	        «IF ! p.collectionContext»
+	    		<td class="butcol">
+	    		<input type="button" 
+	    		       value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»" 
+	    		       wicket:id="«p.name»" 
+	    		       class="button" /></td>
+	        «ENDIF»
+	        «ENDLET»
+		«ENDFOREACH»
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
+			<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
+		«ENDFOREACH»
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS p»
+	        «IF ! p.collectionContext»
+	    		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
+	    	«ENDIF»
+		«ENDFOREACH»
+	«ENDIF»
 				</tr>
 			</tbody>
 		</table>
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::NEW) AS p»
-		<input type="button" value="«p.label»" wicket:id="«p.name»" class="button" />
-	«ENDFOREACH»
-    «FOREACH this.processes.select(pc | pc.referredProcess() != null) AS pc»
-        «LET pc.referredProcess() AS p»
-        «IF ((p.type==ProcessType::REMOVEFROM) || (p.type==ProcessType::ADDTO) || (p.type==ProcessType::CUSTOM)) && p.collectionContext»
-            <td class="butcol">
-            <input type="button" 
-                   value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»" 
-                   wicket:id="«p.name»" 
-                   class="button" /></td>
-        «ENDIF»
-        «ENDLET»
-    «ENDFOREACH»
+    «IF withProcesses»
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::NEW) AS p»
+			<input type="button" value="«p.label»" wicket:id="«p.name»" class="button" />
+		«ENDFOREACH»
+	    «FOREACH this.processes.select(pc | pc.referredProcess() != null) AS pc»
+	        «LET pc.referredProcess() AS p»
+	        «IF ((p.type==ProcessType::REMOVEFROM) || (p.type==ProcessType::ADDTO) || (p.type==ProcessType::CUSTOM)) && p.collectionContext»
+	            <td class="butcol">
+	            <input type="button" 
+	                   value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»" 
+	                   wicket:id="«p.name»" 
+	                   class="button" /></td>
+	        «ENDIF»
+	        «IF p.type==ProcessType::ADDTO»
+	            <td><div wicket:id="«p.name»Modal"/></td>
+	        «ENDIF»
+	        «ENDLET»
+	    «ENDFOREACH»
+	«ENDIF»
+	«IF ! withProcesses»
+        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::ADDTO) AS pc»
+            «LET pc.referredProcess() AS p»
+                <td class="butcol">
+                <input type="button" 
+                       value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»" 
+                       wicket:id="«p.name»" 
+                       class="button" /></td>
+            «ENDLET»
+        «ENDFOREACH»
+    «ENDIF»
+	
 		
 <!-- 		
         <div class="tableBottom"></div>

@@ -22,6 +22,10 @@ import java.util.Collection;
  */
 public interface Mod4jDataProvider<DtoType> extends IDataProvider<DtoType> {
 
+    public boolean isAll() ;
+    
+    public void setAll(boolean all) ;
+    
     public Collection<ProcessType>  supportedProcesses();
 
     public Object getOwner();

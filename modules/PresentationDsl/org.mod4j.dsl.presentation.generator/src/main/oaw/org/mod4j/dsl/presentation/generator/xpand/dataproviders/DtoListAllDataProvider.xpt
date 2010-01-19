@@ -49,6 +49,15 @@ public class «getWicketListAllDataProviderClass(context)»
 
 	private static final Log log = LogFactory.getLog(«getWicketListAllDataProviderClass(context)».class);
 
+    boolean all = false;
+    public boolean isAll() {
+        return all;
+    }
+
+    public void setAll(boolean all) {
+        this.all = all;
+    }
+
     «javaLocalServiceInterface(serviceType)» service;
 
     static protected Collection<ProcessType> processTypes = Arrays.asList(

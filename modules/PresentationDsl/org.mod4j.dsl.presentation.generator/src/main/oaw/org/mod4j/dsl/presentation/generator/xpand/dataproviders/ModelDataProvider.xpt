@@ -24,6 +24,15 @@ import org.apache.wicket.model.Model;
 @SuppressWarnings("serial")
 public class ModelDataProvider<T> implements IDataProvider<T> {
 
+    boolean all = false;
+    public boolean isAll() {
+        return all;
+    }
+
+    public void setAll(boolean all) {
+        this.all = all;
+    }
+
 	private IModel<T> list;
 
 	public void setList(IModel<T> list) {

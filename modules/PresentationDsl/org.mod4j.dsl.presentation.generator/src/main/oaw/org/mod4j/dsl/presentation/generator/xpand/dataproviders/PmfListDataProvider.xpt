@@ -35,6 +35,15 @@ public class PmfListDataProvider<T extends Serializable> extends ListDataProvide
         return processTypes;
     }
 
+    boolean all = false;
+    public boolean isAll() {
+        return all;
+    }
+
+    public void setAll(boolean all) {
+        this.all = all;
+    }
+
     private List<T> myList = null;
     
     public Object getOwner() { return null; }

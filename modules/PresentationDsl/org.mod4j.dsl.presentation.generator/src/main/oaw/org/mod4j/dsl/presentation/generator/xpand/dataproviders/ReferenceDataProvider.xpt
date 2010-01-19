@@ -19,6 +19,8 @@
 «LET (NavigationExpression)contextExp AS navigationExpression»
 «LET navigationExpression.references.first().name.toFirstUpper() AS navigationName»
 «LET javaLocalServiceInterface(service) AS serviceType»
+«LET findSpecialMethodInService(context, "LISTALL", service) AS listallService»
+
 package «getPresentationRootPackage()».dataproviders;
 
 import java.util.ArrayList;
@@ -103,7 +105,25 @@ public class «className»
         this.setList( new PropertyModel(new Model(owner), "«navigationName»") );
     }    
 
+    synchronized public Iterator iterator(int first, int count) {
+        if( all ){
+            return service.«listallService»(first, count).iterator();
+        } else {
+            return super.iterator(first, count);
+        }
+    }
+
+    synchronized public int size() {
+        if( all ){
+        Long result = service.count«businessClassName(form)»s();
+        return result.intValue();
+        } else {
+            return super.size();
+        }
+    }
+
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

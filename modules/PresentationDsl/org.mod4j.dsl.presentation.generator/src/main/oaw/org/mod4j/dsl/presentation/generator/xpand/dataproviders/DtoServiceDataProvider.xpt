@@ -55,6 +55,15 @@ public class «classname»
         return processTypes;
     }
 
+    boolean all = false;
+    public boolean isAll() {
+        return all;
+    }
+
+    public void setAll(boolean all) {
+        this.all = all;
+    }
+
     public Object getOwner() { return null; }
 
     «javaLocalServiceInterface(this.serviceName)» service;

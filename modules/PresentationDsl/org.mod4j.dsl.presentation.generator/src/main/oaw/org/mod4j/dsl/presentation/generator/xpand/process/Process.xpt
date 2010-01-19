@@ -101,6 +101,7 @@ package «getPresentationRootPackage()».processes;
         import «getPresentationRootPackage()».dataproviders.«getWicketCompositeDataProviderClass(this.contextRef.name, resultType)»; 
     «ELSE»
         import «getPresentationRootPackage()».dataproviders.«getWicketReferenceDataProviderClass(this.contextRef.name, resultType)»; 
+        import «getPresentationRootPackage()».dataproviders.«getWicketReferenceDataProviderClass(this.contextRef.name, resultType)»Add; 
     «ENDIF»
 	import «javaLocalServiceInterfacePath(service)» ;
 	import «javaDtoClassPath(form.contextRef.name)»;
@@ -110,6 +111,7 @@ package «getPresentationRootPackage()».processes;
 «ENDIF»
 
 import «getPresentationRootPackage()».dataproviders.PmfListDataProvider;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 import «getPresentationRootPackage()».pages.«this.name»«dialogueCall.name»Page;
@@ -146,10 +148,15 @@ public class «this.name»ProcessImplBase extends Page implements PmfProcess<«t
 				«ENDLET»
 			«ELSE»
                 «LET getWicketReferenceDataProviderClass(context.name, resultType) AS provider» 
-                «provider» provider = new «provider»(element);
+                «IF this.type == ProcessType::ADDTO»
+			        owningPage.getProvider().setAll(true);
+			        «provider» provider = owningPage.getProvider();
+                «ELSE»                
+                    «provider» provider = new «provider»(element);
+                «ENDIF»
                 «ENDLET»
 			«ENDIF»
-			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
+            «this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
 			page.setProcess(this);
 			return page;
 			«ENDLET»
@@ -183,9 +190,24 @@ public class «this.name»ProcessImplBase extends Page implements PmfProcess<«t
 	
     public «getWicketMasterPageClass()» nextPage(List<«this.contextRef.name»> selectedElements) {
     «IF dialogueCall.contextExp == null»
-        PmfListDataProvider<«this.contextRef.name»> provider =
-            new PmfListDataProvider<«this.contextRef.name»>(selectedElements);
-
+        «IF navigationExpression != null»
+	        «IF this.type == ProcessType::ADDTO»
+                owningPage.getProvider().setAll(true);
+                Mod4jDataProvider provider = owningPage.getProvider();
+	        «ELSE»                
+	            PmfListDataProvider<«this.contextRef.name»> provider = //2
+	            new PmfListDataProvider<«this.contextRef.name»>(selectedElements);
+	        «ENDIF»
+	    «ELSE»
+            «IF this.type == ProcessType::ADDTO»
+                owningPage.getProvider().setAll(true);
+                Mod4jDataProvider provider = owningPage.getProvider();
+            «ELSE»
+                PmfListDataProvider<«this.contextRef.name»> provider = //3
+                new PmfListDataProvider<«this.contextRef.name»>(selectedElements);
+            «ENDIF»
+	    «ENDIF»
+    
         «this.name»«form.name»Page page = new «this.name»«form.name»Page (this, provider);
         page.setProcess(this);
         return page;
@@ -194,8 +216,14 @@ public class «this.name»ProcessImplBase extends Page implements PmfProcess<«t
     «ENDIF»
 	}
 
+    public void run(List<«this.contextRef.name»> selectedElements) {
+        owningPage.getProvider().addToDtoList(selectedElements);
+    }
+    
 	public void done(«getWicketMasterPageClass()» page){
+	    owningPage.getProvider().setAll(false);
 	}
+	
 	protected «getWicketMasterPageClass()» owningPage = null;
 	
 	public «getWicketMasterPageClass()» getOwningPage() {

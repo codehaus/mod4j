@@ -72,7 +72,12 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::DELETE)»
 				    owningProcess.done(this);
 				«ENDIF»
-			«ELSE»
+            «ELSEIF p.type == ProcessType::ADDTO»
+                process.setProvider(getProvider());
+                process.run(context);
+                process.done();
+                
+            «ELSE»
 				Page next = process.nextPage(context);
 				if( next != null ){
 					setResponsePage(next);
@@ -100,6 +105,10 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		                «IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::DELETE)»
 		                    owningProcess.done(this);
 		                «ENDIF»
+		            «ELSEIF p.type == ProcessType::ADDTO»
+		                process.setProvider(getProvider());
+		                process.run(selectedElements);
+		                process.done();
 		            «ELSE»
 		                Page next = process.nextPage(selectedElements);
 		                if( next != null ){
@@ -277,22 +286,26 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
     (p.referredProcess().type == ProcessType::ADDTO) ) AS pp»
         «LET pp.referredProcess() AS p»
         «IF p.collectionContext»
-	        if(processName.equals("«p.name»Process")){
-	            «p.name»Process process = new «p.name»Process();
-	            process.setOwningPage(this);
-	            process.setProvider(getProvider());
-	            «IF p.type == ProcessType::REMOVEFROM»
-    	            process.run(selectedElements);
-	            «ELSEIF p.type == ProcessType::ADDTO»
-		            Page next = process.nextPage(selectedElements);
-		            if( next != null ){
-		                setResponsePage(next);
-		            }
-	            «ENDIF»
-	        }
-	        «ENDIF»
+            if(processName.equals("«p.name»Process")){
+                «p.name»Process process = new «p.name»Process();
+                process.setOwningPage(this);
+                process.setProvider(getProvider());
+                «IF p.type == ProcessType::REMOVEFROM»
+                    process.run(selectedElements);
+                «ELSEIF p.type == ProcessType::ADDTO»
+                        process.setProvider(getProvider());
+                        process.run(selectedElements);
+                        process.done(this);
+//                    Page next = process.nextPage(selectedElements);
+//                   if( next != null ){
+//                        setResponsePage(next);
+//                    }
+                «ENDIF»
+            }
+            «ENDIF»
         «ENDLET»
     «ENDFOREACH»
+    
     }catch (Exception e){
         error(e.getMessage());
     }

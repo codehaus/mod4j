@@ -25,10 +25,17 @@ import «javaDtoClassPath(this.contextRef.name)»;
 	«ENDIF»
 «ENDFOREACH»
 
+
 import «getPresentationRootPackage()».processes.ProcessType;
+«IF this.processes.referredProcess().exists(e|e.type == ProcessType::ADDTO)»
+import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(this.contextRef.name)»;
+«ENDIF»
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationCommonPackage()».ext.components.CheckBoxBaseModel;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import org.mod4j.common.wicket.ext.components.ModalWindow;
+
+import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
 import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigator;
@@ -84,44 +91,105 @@ public class «className» extends Panel
 		collection.setItemsPerPage(maxItemsPerPage);
 		container.add(collection);
 
-        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
-            «LET pp.referredProcess() AS process»
-				Link «process.name»Link = new Link<Object>("«process.name»") {
-					@Override
-					public void onClick() {
-                        page.startProcess("«process.name»Process", («this.contextRef.name»)null);
-					}
-				};
-                add(«process.name»Link);
-                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
-                    «process.name»Link.setEnabled(false);
-                }
-			«ENDLET»
-		«ENDFOREACH»
-		
-        «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
-            «LET pp.referredProcess() AS process»
-            «IF process.collectionContext »
-                Link «process.name»Link = new Link<Object>("«process.name»") {
-                    @Override
-                    public void onClick() {
-	                    List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
-	                    for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
-	                        «this.contextRef.name» elem = dtoModel.getObject();
-	                        dtoList .add(elem);
-	                    }
-	                    page.startProcess("«process.name»Process", dtoList);
-	                    selectedElements.clear();
-                    }
-                };
-                add(«process.name»Link);
-                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
-                    «process.name»Link.setEnabled(false);
-                }                
-            «ENDIF»
-            «ENDLET»
-        «ENDFOREACH»
-		
+        «IF withProcesses»
+	        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
+	            «LET pp.referredProcess() AS process»
+					Link «process.name»Link = new Link<Object>("«process.name»") {
+						@Override
+						public void onClick() {
+	                        page.startProcess("«process.name»Process", («this.contextRef.name»)null);
+						}
+					};
+	                add(«process.name»Link);
+	                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+	                    «process.name»Link.setEnabled(false);
+	                }
+				«ENDLET»
+			«ENDFOREACH»
+			
+	        «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
+	            «LET pp.referredProcess() AS process»
+	            «IF process.collectionContext »
+	                «IF process.type == ProcessType::ADDTO»
+	                    «LET process.processElements.typeSelect(DialogueCall).first().referredDialogue() AS dialogue»
+	                    final ModalWindow «process.name»Modal = new ModalWindow("«process.name»Modal");
+				        «process.name»Modal.setTitle("«process.label»");
+				        «process.name»Modal.setCssClassName(ModalWindow.CSS_CLASS_GRAY);
+				        «process.name»Modal.setUseInitialHeight(true);
+				        «process.name»Modal.setInitialHeight(400);
+				        «process.name»Modal.setInitialWidth(600);
+				        «process.name»Modal.setCloseButtonCallback(null);
+				        
+				        «getWicketListAllDataProviderClass(this.contextRef.name)» all = new «getWicketListAllDataProviderClass(this.contextRef.name)»();
+				        final «dialogue.name»CollectionDataViewPanelOnly modalPanel = new «dialogue.name»CollectionDataViewPanelOnly("content", all, maxItemsPerPage, owner);
+				        «process.name»Modal.setContent(modalPanel );
+				        
+					    add(new AjaxFallbackLink<Object>("«process.name»") {
+					            @Override
+					            public boolean isEnabled() {
+					                return true;
+					            }
+					
+					            @Override
+					            public void onClick(AjaxRequestTarget target) {
+					                «process.name»Modal.show(target);
+					            }
+					
+					            
+					            public void XonClick(AjaxRequestTarget target) {
+					                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+					                for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+					                    «this.contextRef.name» elem = dtoModel.getObject();
+					                    dtoList.add(elem);
+					                }
+					                page.startProcess("«process.name»Process", dtoList);
+					                selectedElements.clear();
+					            }
+					        });
+						    add(«process.name»Modal);
+						        
+	                    «ENDLET»
+	                «ELSE»
+		                Link «process.name»Link = new Link<Object>("«process.name»") {
+		                    @Override
+		                    public void onClick() {
+			                    List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+			                    for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+			                        «this.contextRef.name» elem = dtoModel.getObject();
+			                        dtoList .add(elem);
+			                    }
+			                    page.startProcess("«process.name»Process", dtoList);
+			                    selectedElements.clear();
+		                    }
+		                };
+		                add(«process.name»Link);
+		                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+		                    «process.name»Link.setEnabled(false);
+		                }
+		            «ENDIF» 
+	            «ENDIF»
+	            «ENDLET»
+	        «ENDFOREACH»
+	    «ELSE» «REM» not withProcesses «ENDREM»
+            «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::ADDTO) AS pp»
+                «LET pp.referredProcess() AS process»
+                    Link «process.name»Link = new Link<Object>("«process.name»") {
+                        @Override
+                        public void onClick() {
+                                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+                                for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+                                    «this.contextRef.name» elem = dtoModel.getObject();
+                                    dtoList .add(elem);
+                                }
+                                page.startProcess("«process.name»Process", dtoList);
+                                selectedElements.clear();
+                        }
+                    };
+                    add(«process.name»Link);
+                «ENDLET»
+            «ENDFOREACH»
+	        
+        «ENDIF»		
 		add(container);
 		add(new AjaxPagingNavigator("navigator",collection));
 //		add(new BookmarkablePageLink<Object>("edit",BreakfastsEditPage.class));
@@ -176,46 +244,47 @@ public class «className» extends Panel
 	«ENDLET»
 	«ENDLET»
 
-    
-    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
-	   «LET pp.referredProcess() AS process»
-	   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »
-			Link «process.name»Link = new Link("«process.name»") {
-				public void onClick() {
-	                page.startProcess("«process.name»Process", item.getModel().getObject());
-				}
-	        };
-            item.add(«process.name»Link);
-            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
-                «process.name»Link.setEnabled(false);
-            }
-		«ENDIF»
-		«ENDLET»
-    «ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS process»
-			Link «process.name»Link = new Link("«process.name»") {
-				public void onClick() {
-                    page.startProcess("«process.name»Process", item.getModel().getObject());
-				}
-			};
-            item.add(«process.name»Link);
-            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
-                «process.name»Link.setEnabled(false);
-            }
-    «ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS process»
-	    «IF ! process.collectionContext»
-	        Link «process.name»Link = new Link("«process.name»") {
-				public void onClick() {
-                    page.startProcess("«process.name»Process", item.getModel().getObject());
-				}
-			};
-			item.add(«process.name»Link);
-            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
-                «process.name»Link.setEnabled(false);
-            }
-	   «ENDIF»
-    «ENDFOREACH»
+    «IF withProcesses»    
+	    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
+		   «LET pp.referredProcess() AS process»
+		   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »
+				Link «process.name»Link = new Link("«process.name»") {
+					public void onClick() {
+		                page.startProcess("«process.name»Process", item.getModel().getObject());
+					}
+		        };
+	            item.add(«process.name»Link);
+	            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+	                «process.name»Link.setEnabled(false);
+	            }
+			«ENDIF»
+			«ENDLET»
+	    «ENDFOREACH»
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS process»
+				Link «process.name»Link = new Link("«process.name»") {
+					public void onClick() {
+	                    page.startProcess("«process.name»Process", item.getModel().getObject());
+					}
+				};
+	            item.add(«process.name»Link);
+	            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+	                «process.name»Link.setEnabled(false);
+	            }
+	    «ENDFOREACH»
+		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS process»
+		    «IF ! process.collectionContext»
+		        Link «process.name»Link = new Link("«process.name»") {
+					public void onClick() {
+	                    page.startProcess("«process.name»Process", item.getModel().getObject());
+					}
+				};
+				item.add(«process.name»Link);
+	            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+	                «process.name»Link.setEnabled(false);
+	            }
+		   «ENDIF»
+	    «ENDFOREACH»
+	«ENDIF»
 		}
 
 		@Override
