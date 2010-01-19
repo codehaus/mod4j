@@ -7,14 +7,16 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
-«DEFINE GenerateObjectCollectionDataViewPanel FOR ContentForm -»
+«DEFINE GenerateObjectCollectionDataViewPanel(boolean withProcesses) FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateObjectCollectionDataViewPanel.xpt") FOR this-»
 «REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
+«LET this.name + "CollectionDataViewPanel"  +(withProcesses ? "" : "Only") AS className»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Collection;
 
 import «javaDtoClassPath(this.contextRef.name)»;
 «FOREACH this.formElements.dataProperty AS dp»
@@ -23,6 +25,8 @@ import «javaDtoClassPath(this.contextRef.name)»;
 	«ENDIF»
 «ENDFOREACH»
 
+import «getPresentationRootPackage()».processes.ProcessType;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationCommonPackage()».ext.components.CheckBoxBaseModel;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -50,53 +54,55 @@ import org.apache.wicket.util.convert.IConverter;
  * A panel that shows a list of «this.contextRef.name», not editable.
  */
 @SuppressWarnings("serial")
-public class «this.name»CollectionDataViewPanel  extends Panel 
+public class «className» extends Panel 
 {
-    «EXPAND dataView FOR this»
+    «EXPAND dataView(withProcesses) FOR this»
     
     protected List<IModel<«this.contextRef.name»>> selectedElements = new ArrayList<IModel<«this.contextRef.name»>>();
     
     protected RosasMasterPage page = null;
     
-//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
-	
-	/**
-	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
-	 * This allows the panel to be used in different pages with different behavior.
-	 * @param listener The listener to be added
-	 */
-//	public void addListener(«this.contextRef.name»ListListener listener ){
-//		listeners.add(listener);
-//	}
-	
 	protected DataView<«this.contextRef.name»> collection;
 
-	public «this.name»CollectionDataViewPanel(String id, IDataProvider<«this.contextRef.name»> dataProvider, 
-	          Integer maxItemsPerPage, RosasMasterPage owner)
+    public «className»(String id, Mod4jDataProvider<«this.contextRef.name»> dataProvider, 
+              Integer maxItemsPerPage, RosasMasterPage owner)
+    {
+        this(id, dataProvider, maxItemsPerPage, owner, ProcessType.all());
+    }
+
+    protected Mod4jDataProvider<«this.contextRef.name»> dataProvider;
+    
+    public «className»(String id, Mod4jDataProvider<«this.contextRef.name»> dataProvider, 
+              Integer maxItemsPerPage, RosasMasterPage owner, Collection<ProcessType> visibleProcesses )
 	{
 	    super(id);
+	    this.dataProvider = dataProvider;
 	    this.page = owner;
 		WebMarkupContainer container = (WebMarkupContainer)new WebMarkupContainer("container");
 		container.setOutputMarkupId(true);
-		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider);
+		collection = new «this.contextRef.name»DataView("breakfasts", dataProvider, visibleProcesses);
 		collection.setItemsPerPage(maxItemsPerPage);
 		container.add(collection);
 
         «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
-            «LET pp.referredProcess() AS p»
-				add(new Link<Object>("«p.name»") {
+            «LET pp.referredProcess() AS process»
+				Link «process.name»Link = new Link<Object>("«process.name»") {
 					@Override
 					public void onClick() {
-                        page.startProcess("«p.name»Process", («this.contextRef.name»)null);
+                        page.startProcess("«process.name»Process", («this.contextRef.name»)null);
 					}
-				});
+				};
+                add(«process.name»Link);
+                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                    «process.name»Link.setEnabled(false);
+                }
 			«ENDLET»
 		«ENDFOREACH»
 		
         «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
             «LET pp.referredProcess() AS process»
             «IF process.collectionContext »
-                add(new Link<Object>("«process.name»") {
+                Link «process.name»Link = new Link<Object>("«process.name»") {
                     @Override
                     public void onClick() {
 	                    List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
@@ -107,25 +113,32 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 	                    page.startProcess("«process.name»Process", dtoList);
 	                    selectedElements.clear();
                     }
-                });
+                };
+                add(«process.name»Link);
+                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                    «process.name»Link.setEnabled(false);
+                }                
             «ENDIF»
             «ENDLET»
         «ENDFOREACH»
-		
 		
 		add(container);
 		add(new AjaxPagingNavigator("navigator",collection));
 //		add(new BookmarkablePageLink<Object>("edit",BreakfastsEditPage.class));
 	}
 }
+«ENDLET»
 «ENDDEFINE»
 
-«DEFINE dataView FOR ContentForm»
+«DEFINE dataView(boolean withProcesses) FOR ContentForm»
 	private class «this.contextRef.name»DataView extends	DataView<«this.contextRef.name»> {
-		private «this.contextRef.name»DataView(String id, IDataProvider<«this.contextRef.name»> dataProvider) {
+		private «this.contextRef.name»DataView(String id, Mod4jDataProvider<«this.contextRef.name»> dataProvider, Collection<ProcessType> visibleProcesses) {
 			super(id, dataProvider);
+			this.visibleProcesses = visibleProcesses;
 		}
 
+        protected Collection<ProcessType> visibleProcesses;
+        
 		@Override
 		protected void populateItem(final Item<«this.contextRef.name»> item)
 		{
@@ -163,31 +176,44 @@ public class «this.name»CollectionDataViewPanel  extends Panel
 	«ENDLET»
 	«ENDLET»
 
+    
     «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
 	   «LET pp.referredProcess() AS process»
 	   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »
-			item.add(new Link("«process.name»") {
+			Link «process.name»Link = new Link("«process.name»") {
 				public void onClick() {
 	                page.startProcess("«process.name»Process", item.getModel().getObject());
-			}
-        });
+				}
+	        };
+            item.add(«process.name»Link);
+            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                «process.name»Link.setEnabled(false);
+            }
 		«ENDIF»
 		«ENDLET»
     «ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS ppp»
-			item.add(new Link("«ppp.name»") {
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS process»
+			Link «process.name»Link = new Link("«process.name»") {
 				public void onClick() {
-                    page.startProcess("«ppp.name»Process", item.getModel().getObject());
+                    page.startProcess("«process.name»Process", item.getModel().getObject());
 				}
-			});
+			};
+            item.add(«process.name»Link);
+            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                «process.name»Link.setEnabled(false);
+            }
     «ENDFOREACH»
-	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS ppp»
-	    «IF ! ppp.collectionContext»
-			item.add(new Link("«ppp.name»") {
+	«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS process»
+	    «IF ! process.collectionContext»
+	        Link «process.name»Link = new Link("«process.name»") {
 				public void onClick() {
-                    page.startProcess("«ppp.name»Process", item.getModel().getObject());
+                    page.startProcess("«process.name»Process", item.getModel().getObject());
 				}
-			});
+			};
+			item.add(«process.name»Link);
+            if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                «process.name»Link.setEnabled(false);
+            }
 	   «ENDIF»
     «ENDFOREACH»
 		}

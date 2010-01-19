@@ -25,6 +25,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Collection;
+import java.util.Arrays;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -32,6 +34,7 @@ import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «getPresentationRootPackage()».processes.ProcessType;
 
 import «javaLocalServiceInterfacePath(serviceType)» ;
 import «javaDtoClassPath(context)»;
@@ -44,6 +47,15 @@ public class «getWicketFinderDataProviderClass(context)»
 		implements
 			IDataProvider<«context»>, Mod4jDataProvider<«context»> {
 	private static final Log log = LogFactory.getLog(«getWicketFinderDataProviderClass(context)».class);
+
+    static protected Collection<ProcessType> processTypes = Arrays.asList(
+        ProcessType.CUSTOM, ProcessType.EDIT, ProcessType.SAVE, ProcessType.CANCEL);
+
+    public Collection<ProcessType> supportedProcesses() {
+        return processTypes;
+    }
+
+    public Object getOwner() { return null; }
 
     «javaLocalServiceInterface(serviceType)» service;
 

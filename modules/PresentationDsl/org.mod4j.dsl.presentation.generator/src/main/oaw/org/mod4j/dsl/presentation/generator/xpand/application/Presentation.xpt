@@ -425,6 +425,7 @@ public class «getWicketHtmlPanelClass()» extends Panel {
 	<!--[if IE 7]>
 		<link rel="stylesheet" type="text/css" href="css/ie7-screen.css">
 	<![endif]-->
+    <script type="text/javascript">Wicket.Window.unloadConfirmation = false;</script>.
 </wicket:head>
 <wicket:panel>
 </wicket:panel>

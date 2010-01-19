@@ -1,0 +1,54 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+
+«DEFINE ProcessType FOR PresentationModel -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: ProcessType.xpt") FOR this»
+package «getPresentationRootPackage()».processes;
+
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 
+ *
+ */
+public enum ProcessType {
+
+    NONE(0), CUSTOM(1), NEW(2), SAVE(3), EDIT(4), CANCEL(5), ADDTO(6), REMOVEFROM(7), DELETE(8);
+
+    private static final Map<Integer, ProcessType> lookup = new HashMap<Integer, ProcessType>();
+    static {
+        for (ProcessType s : EnumSet.allOf(ProcessType.class))
+            lookup.put(s.id(), s);
+    }
+
+    private Integer id;
+
+    private ProcessType(Integer id) {
+        this.id = id;
+    }
+
+    public Integer id() {
+        return id;
+    }
+
+    public static ProcessType value(Integer id) {
+        return lookup.get(id);
+    }
+    
+    public static Collection<ProcessType> all() {
+        return lookup.values();
+    }
+}
+«ENDDEFINE»
+

@@ -12,6 +12,7 @@
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::SAVE) AS saveProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::DELETE) AS removeProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CANCEL) AS cancelProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::EDIT) AS editProcesses»
 package «getPresentationRootPackage()».panels;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -155,6 +156,25 @@ public class «this.name»EditPanelWithListener extends Panel {
     «ENDFOREACH»
 «ENDIF» 
 
+ «IF (editProcesses != null) && (!editProcesses.isEmpty)»
+     «FOREACH editProcesses AS p»
+        Button «p.name»edit = new Button("«p.name»edit", new Model("«p.label»")) {
+            @Override
+            public void onSubmit() {
+                page().startProcess("«p.name»Process", localModel.getObject() );
+//              for («this.contextRef.name»ListListener listener : listeners) {
+//                  listener.startProcess("«p.name»Process", localModel.getObject() );
+//              }
+                localModel.setObject(null);
+                form.clearInput();
+            }
+        };
+        «p.name»edit.setDefaultFormProcessing(false);
+        form.add(«p.name»edit);
+        filter.addComponent(«p.name»edit);
+    «ENDFOREACH»
+«ENDIF» 
+
     «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
         «LET pc.referredProcess() AS p»
         Button «p.name»custom = new Button("«p.name»custom", new Model("«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»")) {
@@ -175,6 +195,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         add(form);
     }
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

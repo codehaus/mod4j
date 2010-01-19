@@ -27,6 +27,8 @@
 		        «EXPAND GenerateBatchProcessImplBase FOR p»
 		    «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::CUSTOM)»
 		        «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCall) FOR p»
+            «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::ADDTO)»
+                «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCall) FOR p»
 		    «ELSE»
 		        «EXPAND GenerateProcessWithSingleFormImplBase(nonCollectionForm, dialogueCall) FOR p»
 			«ENDIF»
@@ -123,6 +125,7 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 public class «this.name»ProcessImplBase extends Page implements PmfProcess<«this.contextRef.name»> 
 {
+    «EXPAND GetProcessType FOR this»
     «IF (serviceExpression != null) »
 	    «javaLocalServiceInterface(service)» service;
 	 «ELSEIF navigationExpression != null »
@@ -226,6 +229,7 @@ public class «this.name»Process extends «this.name»ProcessImplBase
 «LET getServiceExpression(dialogueCall) AS serviceExpression»
 «LET getNavigationExpression(dialogueCall) AS navigationExpression»
 «LET getWicketServiceDataProviderClass(form.contextRef.name) AS provider»
+«LET dialogueCall.referredContentForm().contextRef.name AS formContext»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -233,6 +237,7 @@ import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 «IF ! (dialogueCall == null)»
 import «getPresentationRootPackage()».pages.«this.name»«dialogueCall.name»Page;
 «ENDIF»
+import «javaDtoClassPath(formContext)»;
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 
@@ -245,19 +250,21 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 public class «this.name»ProcessImplBase extends Page implements PmfProcess<«this.contextRef.name»> 
 {
+    «EXPAND GetProcessType FOR this»
     «IF (serviceExpression != null) »
 	 «ELSEIF navigationExpression != null »
 	 «ELSE»
-	    private Mod4jDataProvider<«form.contextRef.name»> provider = null;
-
-		public Mod4jDataProvider<«form.contextRef.name»> getProvider() {
-			return provider;
-		}
-	
-		public void setProvider(Mod4jDataProvider<«form.contextRef.name»> provider) {
-			this.provider = provider;
-		}
 	 «ENDIF»
+	 «REM»PROVIDER ALWAYS NECCESARY ? «ENDREM»
+        private Mod4jDataProvider<«form.contextRef.name»> provider = null;
+
+        public Mod4jDataProvider<«form.contextRef.name»> getProvider() {
+            return provider;
+        }
+    
+        public void setProvider(Mod4jDataProvider<«form.contextRef.name»> provider) {
+            this.provider = provider;
+        }
 
     public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
 	«IF this.type == ProcessType::NEW»
@@ -276,9 +283,9 @@ public class «this.name»ProcessImplBase extends Page implements PmfProcess<«t
 	«ELSEIF this.type == ProcessType::EDIT»
 	// EDIT
 	    «IF navigationExpression != null »
-			«dialogueCall.referredContentForm().contextRef.name» newElement = element.get«navigationExpression.references.first().name»	    
+			«formContext» newElement = element.get«navigationExpression.references.first().name.toFirstUpper()»	();   
 			«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (this,
-			         new CompoundPropertyModel<«this.contextRef.name»>(newElement));
+			         new CompoundPropertyModel<«formContext»>(newElement));
 	    «ELSE»
 			«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (this,
 			         new CompoundPropertyModel<«this.contextRef.name»>(element));
@@ -316,6 +323,7 @@ public class «this.name»ProcessImplBase extends Page implements PmfProcess<«t
 	}
 
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»
@@ -381,6 +389,7 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
  */
 public class «this.name»ProcessImplBase implements PmfProcess<«this.contextRef.name»> 
 {
+    «EXPAND GetProcessType FOR this»
     private Mod4jDataProvider<«this.contextRef.name»> provider = null;
 
 		public Mod4jDataProvider<«this.contextRef.name»> getProvider() {
@@ -456,6 +465,7 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
  */
 public interface PmfProcess <T> {
 	
+	public ProcessType getProcessType() ;
 	/**
 	 * Rturns the next Page, will return null if there is no next page, e.g. when this is an Automated process.
 	 */
@@ -477,5 +487,11 @@ public interface PmfProcess <T> {
      */
 	public void setOwningPage(«getWicketMasterPageClass()» page);
 
+}
+«ENDDEFINE»
+
+«DEFINE GetProcessType FOR Process»
+public ProcessType getProcessType() {
+    return ProcessType.«this.type.toString()»;
 }
 «ENDDEFINE»

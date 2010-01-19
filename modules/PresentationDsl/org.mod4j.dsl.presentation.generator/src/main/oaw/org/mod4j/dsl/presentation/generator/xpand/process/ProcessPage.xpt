@@ -13,7 +13,7 @@ package «getPresentationRootPackage()».pages;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».panels.«this.processElements.first().name»SwapEditPanel;
-import «javaDtoClassPath(this.contextRef.name)»;
+import «javaDtoClassPath(form.contextRef.name)»;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationRootPackage()».processes.«this.name»Process;
 import «getPresentationRootPackage()».processes.PmfProcess;
@@ -31,7 +31,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 {
     protected «this.processElements.first().name»SwapEditPanel panel = null;
 
-    public «this.name»«form.name»Page (PmfProcess owner, final IModel<«this.contextRef.name»> context)
+    public «this.name»«form.name»Page (PmfProcess owner, final IModel<«form.contextRef.name»> context)
 	{
 		super(owner);
 		
@@ -58,7 +58,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 //		return getLocalizer().getString("lbl.breakfast",this);
 	}
 
-	public void startProcess(String processName, «this.contextRef.name» context){
+	public void startProcess(String processName, «form.contextRef.name» context){
 	    try{
 	«FOREACH form.processes AS pp»
     	«LET pp.referredProcess() AS p»
@@ -86,7 +86,7 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
 		}
 	}
 
-    public void startProcess(String processName, List<«this.contextRef.name»> selectedElements){
+    public void startProcess(String processName, List<«form.contextRef.name»> selectedElements){
         try{
     «FOREACH form.processes AS pp»
         «LET pp.referredProcess() AS p»
@@ -130,6 +130,12 @@ package «getPresentationRootPackage()».pages;
 import «getPresentationRootPackage()».processes.«p.name»Process;
 «ENDFOREACH»
 «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::DELETE) AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process;
+«ENDFOREACH»
+«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::ADDTO) AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process;
+«ENDFOREACH»
+«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVEFROM) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process;
 «ENDFOREACH»
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -267,14 +273,22 @@ public class «this.name»«form.name»Page extends «getWicketMasterPageClass()
         «ENDLET»
     «ENDFOREACH»
 
-    «FOREACH form.processes.select(p | p.referredProcess().type == ProcessType::REMOVEFROM) AS pp»
+    «FOREACH form.processes.select(p | (p.referredProcess().type == ProcessType::REMOVEFROM) ||
+    (p.referredProcess().type == ProcessType::ADDTO) ) AS pp»
         «LET pp.referredProcess() AS p»
         «IF p.collectionContext»
 	        if(processName.equals("«p.name»Process")){
 	            «p.name»Process process = new «p.name»Process();
 	            process.setOwningPage(this);
 	            process.setProvider(getProvider());
-	            process.run(selectedElements);
+	            «IF p.type == ProcessType::REMOVEFROM»
+    	            process.run(selectedElements);
+	            «ELSEIF p.type == ProcessType::ADDTO»
+		            Page next = process.nextPage(selectedElements);
+		            if( next != null ){
+		                setResponsePage(next);
+		            }
+	            «ENDIF»
 	        }
 	        «ENDIF»
         «ENDLET»

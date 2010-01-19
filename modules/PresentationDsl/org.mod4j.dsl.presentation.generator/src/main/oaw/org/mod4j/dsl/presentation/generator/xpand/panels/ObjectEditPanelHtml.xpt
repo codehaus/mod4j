@@ -13,6 +13,7 @@
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::DELETE) AS removeProcesses»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CANCEL) AS cancelProcesses» 
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::EDIT) AS editProcesses»
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
 <wicket:panel>
 	<span wicket:id="formMsgs"/>
@@ -45,6 +46,11 @@
 						<input type="submit" wicket:id="«p.name»cancel" value="«p.label» Cancel"/>
 	«ENDFOREACH»
 «ENDIF»
+«IF (editProcesses != null) && (!editProcesses .isEmpty)»
+    «FOREACH editProcesses AS p»
+                        <input type="submit" wicket:id="«p.name»edit" value="«p.label» Edit"/>
+    «ENDFOREACH»
+«ENDIF»
 
 «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
     «LET pc.referredProcess() AS p»
@@ -62,6 +68,7 @@
 	</form>
 </wicket:panel>
 </html>
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»
