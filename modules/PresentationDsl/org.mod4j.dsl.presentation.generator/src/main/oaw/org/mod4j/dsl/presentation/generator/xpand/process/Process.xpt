@@ -136,6 +136,17 @@ public class «this.name»ProcessImplBase extends Page implements PmfProcess<«t
 	 «ELSE»
 	     «REM»No ecxpression«ENDREM»
 	 «ENDIF»
+	 «IF this.type == ProcessType::ADDTO»
+	   private Mod4jDataProvider<«this.contextRef.name»> provider = null;
+
+    public Mod4jDataProvider<«this.contextRef.name»> getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Mod4jDataProvider<«this.contextRef.name»> provider) {
+        this.provider = provider;
+    }
+	 «ENDIF»
 
     public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
 		«IF navigationExpression != null»
