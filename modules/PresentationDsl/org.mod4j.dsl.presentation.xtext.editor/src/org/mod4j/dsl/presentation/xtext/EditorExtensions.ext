@@ -1,9 +1,0 @@
-import PresentationDsl;
-
-extension org::mod4j::dsl::presentation::xtext::Extensions reexport;
-extension org::mod4j::dsl::presentation::xtext::GenEditorExtensions reexport;
-
-/*
- * use this file to overwrite the label() and the image()
- * extension for your model elements
- */
