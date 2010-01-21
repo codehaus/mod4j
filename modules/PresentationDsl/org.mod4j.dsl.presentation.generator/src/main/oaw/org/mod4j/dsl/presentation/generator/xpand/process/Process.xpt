@@ -101,7 +101,6 @@ package «getPresentationRootPackage()».processes;
         import «getPresentationRootPackage()».dataproviders.«getWicketCompositeDataProviderClass(this.contextRef.name, resultType)»; 
     «ELSE»
         import «getPresentationRootPackage()».dataproviders.«getWicketReferenceDataProviderClass(this.contextRef.name, resultType)»; 
-        import «getPresentationRootPackage()».dataproviders.«getWicketReferenceDataProviderClass(this.contextRef.name, resultType)»Add; 
     «ENDIF»
 	import «javaLocalServiceInterfacePath(service)» ;
 	import «javaDtoClassPath(form.contextRef.name)»;
