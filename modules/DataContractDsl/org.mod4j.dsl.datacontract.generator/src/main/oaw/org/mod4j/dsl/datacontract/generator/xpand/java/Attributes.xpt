@@ -14,7 +14,37 @@
 
 «DEFINE instanceVariable FOR DtoDataProperty»
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    private «javaType(this)» «name»;
+    «IF hasDefault»
+        «EXPAND instanceVariableWithDefault FOR this -»
+    «ELSE»
+        private «javaType(this)» «name»;
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoDataProperty»«REM»No generation«ENDREM»«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoStringProperty»
+    private «javaType(this)» «name» = "«defaultValue»";
+«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoIntegerProperty»
+     private «javaType(this)» «name» = «defaultValue»;
+«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoDecimalProperty»
+«REM»TODO: defaults for decmimals not supported yet.«ENDREM»
+«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoBooleanProperty»
+     private «javaType(this)» «name» = «defaultValue»;
+«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoDateTimeProperty»
+    private «javaType(this)» «name» = new «this.javaType()»("«defaultValue»");
+«ENDDEFINE»
+
+«DEFINE instanceVariableWithDefault FOR DtoEnumerationProperty»
+    private «javaType(this)» «name» = «this.javaType()».«defaultValueAsString -»;
 «ENDDEFINE»
 
 «DEFINE addGetter FOR DtoProperty»
@@ -50,39 +80,6 @@
      *  Name: «name» 
      *  Description: «description»
      */
-«ENDDEFINE»
-
-«DEFINE addIdAttribute FOR Dto»
-    /**
-     *  id: The identifier of this object.
-     */
-     private final Long id;
-«ENDDEFINE»
-
-«DEFINE addIdAccessors FOR Dto»
-    /**
-     *
-     * @return id (Long) The identifier of this object.
-     */
-     public Long getId() {
-         return this.id;
-     }
-«ENDDEFINE»
-
-«DEFINE addVersionAttribute FOR Dto»
-    /**
-     *  version: The version of this object.
-     */
-     private final Integer version;
-«ENDDEFINE»
-
-«DEFINE addVersionAccessors FOR Dto»
-    /**
-     * @return version (Integer) The version of this object.
-     */
-     public Integer getVersion() {
-         return this.version;
-     }
 «ENDDEFINE»
 
 «DEFINE instanceVariableNew(DtoAssociationRoleProperty associationRole) FOR Dto»

@@ -14,69 +14,31 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dsl::datacontract::generator::xtend::Dto»
 
-«DEFINE addDefaultNoArgConstructor FOR Dto»
-    /**
-     * Default no-argument constructor for «javaClassName(name)» 
-     */
-     public  «javaClassName(name) -» () {
-         super();
-         // Not based on an existing object, so id and version are set to null.
-         this.id = null;
-         this.version = null;
-     }
-«ENDDEFINE»
-
-«DEFINE addDefaultNoArgSetDefaultsConstructor FOR Dto»
-    /**
-     * Default no-argument constructor.
-     * Contstructs a «javaClassName(name)» initialized with default values. 
-     */
-     public  «javaClassName(name) -» () {
-         super();
-         // Not based on an existing object, so id and version are set to null.
-         this.id = null;
-         this.version = null;
-         setDefaults();
-     }
-«ENDDEFINE»
-
-«DEFINE addDefaultsSwitchConstructor FOR Dto»
-    /**
-     * Constructs a «javaClassName(name)» with or without initializing default values.
-     * @param setDefaults 
-     */
-     public «javaClassName(name)-» (boolean setDefaults) {
-         super();
-         // Not based on an existing object, so id and version are set to null.
-         this.id = null;
-         this.version = null;
-         if (setDefaults){
-             setDefaults();
-         }
-     }
-«ENDDEFINE»
-
 «DEFINE addIdAndVersionConstructor FOR Dto»
     /**
      * Constructor for use by the DTO Translator.
-     *
-     * @param id The ID of the referenced business object.
-     * @param version Theversion of the referenced business object.
+     * 
+     * @param id
+     *            The ID of the referenced business object.
+     * @param version
+     *            The version of the referenced business object.
      */
-     public «javaClassName(name)-» (final Long id, final Integer version) {
+     public  «javaClassName(name) -» (final Long id, final Integer version) {
+         super(id, version);
+     }
+«ENDDEFINE»
+
+«DEFINE addNoArgConstructor FOR Dto»
+    /**
+     * Default no-argument constructor.
+     */
+     public  «javaClassName(name) -» () {
          super();
-         this.id = id;
-         this.version = version;
      }
 «ENDDEFINE»
 
 «DEFINE addCustomDtoConstructor FOR Dto»
-    /**
-     * Default no-argument constructor for a custom DTO.
-     */
-     public  «javaClassName(name) -» () {
-         super();
-     }
+    «EXPAND addNoArgConstructor FOR this»
 «ENDDEFINE»
 
 «DEFINE addConstructorArgumentsList  FOR BusinessClassDto -»

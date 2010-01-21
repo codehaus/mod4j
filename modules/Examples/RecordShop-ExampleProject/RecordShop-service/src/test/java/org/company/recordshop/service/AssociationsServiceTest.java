@@ -26,7 +26,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 		"/org/company/recordshop/data/applicationContext.xml",
 		"/org/company/recordshop/business/applicationContext.xml",
 		"/org/company/recordshop/service/applicationContext.xml",
-        "/org/company/recordshop/service/testContext.xml"})
+		"/org/company/recordshop/service/testContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class AssociationsServiceTest extends
 		AbstractTransactionalJUnit4SpringContextTests {
@@ -50,7 +50,7 @@ public class AssociationsServiceTest extends
 		customer2.setFirstName(first);
 		customer2.setLastName(last);
 		customer2.setCustomerNr(nr);
-        customer2.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		customer2.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customer2 = customerServiceModelService.createCustomer(customer2);
 	}
 
@@ -59,7 +59,7 @@ public class AssociationsServiceTest extends
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(12345);
-        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		createdCustomer = customerServiceModelService.createCustomer(customer);
 
 		createCustomer("Joan", "Perfect", 3);
@@ -121,13 +121,17 @@ public class AssociationsServiceTest extends
 
 		for (SimpleCustomerDto simpleCustomerDto : all) {
 			int nr = simpleCustomerDto.getCustomerNr();
-			List<OrderNumberAndDateDto> orders = customerServiceModelService.getOrders(simpleCustomerDto);
-			if( createdCustomer.getId() == simpleCustomerDto.getId() ){
+			List<OrderNumberAndDateDto> orders = customerServiceModelService
+					.getOrders(simpleCustomerDto);
+			if (createdCustomer.getId() == simpleCustomerDto.getId()) {
 				Assert.assertTrue(orders.size() == 3);
 				for (OrderNumberAndDateDto order : orders) {
-					OrderDto orderDto = new OrderDto(order.getId(), order.getVersion());
-					SimpleCustomerDto customer = customerServiceModelService.getCustomer(orderDto);
-					Assert.assertTrue(simpleCustomerDto.getId() == customer.getId());
+					OrderDto orderDto = new OrderDto(order.getId(), order
+							.getVersion());
+					SimpleCustomerDto customer = customerServiceModelService
+							.getCustomer(orderDto);
+					Assert.assertTrue(simpleCustomerDto.getId() == customer
+							.getId());
 				}
 			} else {
 				Assert.assertTrue(orders.size() == 0);
@@ -143,38 +147,40 @@ public class AssociationsServiceTest extends
 		c.setFirstName("Johan");
 		c.setLastName("Vogelzang");
 		c.setCustomerNr(1);
-        c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 		c = new SimpleCustomerDto();
 		c.setFirstName("Jos");
 		c.setLastName("Warmer");
 		c.setCustomerNr(2);
-        c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 		c = new SimpleCustomerDto();
 		c.setFirstName("Eric Jan");
 		c.setLastName("Malotaux");
 		c.setCustomerNr(3);
-        c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		c.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customerServiceModelService.createCustomer(c);
 
-        SimpleCustomerDto example  = new SimpleCustomerDto(false); //false -> Don't want attributes be initialized with default values.
-        List<SimpleCustomerDto> result = customerServiceModelService.findCustomers(example);
-        assertEquals(3, result.size());
-        
-        example.setBlackListed(false);
-        result = customerServiceModelService.findCustomers(example);
-        assertEquals(3, result.size());
-        
-        example.setBlackListed(true);
-        result = customerServiceModelService.findCustomers(example);
-        assertEquals(0, result.size());
-        
-        example.setBlackListed(null);
-        example.setFirstName("Jo");
-        result = customerServiceModelService.findCustomers(example);
-        assertEquals(2, result.size());
-    }
+		SimpleCustomerDto example = new SimpleCustomerDto();
+		example.clear();
+		List<SimpleCustomerDto> result = customerServiceModelService
+				.findCustomers(example);
+		assertEquals(3, result.size());
+
+		example.setBlackListed(false);
+		result = customerServiceModelService.findCustomers(example);
+		assertEquals(3, result.size());
+
+		example.setBlackListed(true);
+		result = customerServiceModelService.findCustomers(example);
+		assertEquals(0, result.size());
+
+		example.setBlackListed(null);
+		example.setFirstName("Jo");
+		result = customerServiceModelService.findCustomers(example);
+		assertEquals(2, result.size());
+	}
 
 	@Test
 	public final void testAddOrder() {
@@ -213,7 +219,8 @@ public class AssociationsServiceTest extends
 		}
 
 		try {
-			customerServiceModelService.addToOrders(createdCustomer, new OrderDto(-1L, 0));
+			customerServiceModelService.addToOrders(createdCustomer,
+					new OrderDto(-1L, 0));
 			Assert
 					.fail("Expecting Service Exception: Adding order with incorrect id to customer");
 		} catch (ServiceException e) {
@@ -221,7 +228,8 @@ public class AssociationsServiceTest extends
 		}
 
 		try {
-			customerServiceModelService.addToOrders(new SimpleCustomerDto(-1L, 0), createdOrder);
+			customerServiceModelService.addToOrders(new SimpleCustomerDto(-1L,
+					0), createdOrder);
 			Assert
 					.fail("Expecting Service Exception: Adding order to customer with incorrect id");
 		} catch (ServiceException e) {
@@ -230,8 +238,9 @@ public class AssociationsServiceTest extends
 		tearDown();
 	}
 
-	/** tries to add an existing Product to an OrderLine.
-	 * Currently goes wrong !  Same case as above, but this is for multiplicity ONE
+	/**
+	 * tries to add an existing Product to an OrderLine. Currently goes wrong !
+	 * Same case as above, but this is for multiplicity ONE
 	 * 
 	 */
 	@Test
@@ -241,21 +250,25 @@ public class AssociationsServiceTest extends
 		p001.setProductNumber("p001");
 		p001.setPrice(new Float(8));
 		p001.setOrderable(true);
-		ProductWithCustomersDto createdP001 = customerServiceModelService.createProduct(p001);
+		ProductWithCustomersDto createdP001 = customerServiceModelService
+				.createProduct(p001);
 
-		// Comment the try below and uncomment the ones below that to get the real test.
-//		try {
-//			createdP001.addToBuyers(createdCustomer);
-//			ProductWithCustomersDto createdP002 = customerServiceModelService.updateProduct(createdP001);
-//			Assert.fail("Expecting Service Exception");
-//		} catch (TranslatorException e) {
-//			System.err.println("Expected exception: " + e.getMessage());
-//		}
-		
-//	JOS: The above is incorrect (just not to break the build)
-//		  The below should be run as a test and shows the error.
-		FullProductDto fullProduct = customerServiceModelService.readProductAsFullProductDto(createdP001.getId());
-		OrderLineDto orderLine = new OrderLineDto(true);
+		// Comment the try below and uncomment the ones below that to get the
+		// real test.
+		// try {
+		// createdP001.addToBuyers(createdCustomer);
+		// ProductWithCustomersDto createdP002 =
+		// customerServiceModelService.updateProduct(createdP001);
+		// Assert.fail("Expecting Service Exception");
+		// } catch (TranslatorException e) {
+		// System.err.println("Expected exception: " + e.getMessage());
+		// }
+
+		// JOS: The above is incorrect (just not to break the build)
+		// The below should be run as a test and shows the error.
+		FullProductDto fullProduct = customerServiceModelService
+				.readProductAsFullProductDto(createdP001.getId());
+		OrderLineDto orderLine = new OrderLineDto();
 		orderLine.setProduct(fullProduct);
 		orderLine.setLineNumber(1);
 		orderLine.setDescription("an orderline");
@@ -263,25 +276,32 @@ public class AssociationsServiceTest extends
 		order.addToOrderLines(orderLine);
 		order.setOrderNumber("aap");
 		order = orderServiceModelService.createOrder(order);
-		
-//		Assert.assertTrue("Number of customers should be one", stored.getBuyers().size() == 1);
-//		SimpleCustomerDto storedCustomer = stored.getFromBuyers(createdCustomer.getId());
-//		Assert.assertTrue("Customer should be there", storedCustomer != null);
-//		
-//		storedCustomer.setCustomerNr(9101);
-//		stored.addToBuyers(storedCustomer);
-//		createdP002 = customerServiceModelService.updateProduct(stored);
-//
-//		stored = customerServiceModelService.readProductAsProductWithCustomersDto(createdP001.getId());
-//		Assert.assertTrue("Number of customers should be one", stored.getBuyers().size() == 1);
-//		storedCustomer = stored.getFromBuyers(createdCustomer.getId());
-//		Assert.assertTrue("Customer should be there", storedCustomer != null);
-//		Assert.assertTrue("Customer number inciiorrect", storedCustomer.getCustomerNr()== 9101);
+
+		// Assert.assertTrue("Number of customers should be one",
+		// stored.getBuyers().size() == 1);
+		// SimpleCustomerDto storedCustomer =
+		// stored.getFromBuyers(createdCustomer.getId());
+		// Assert.assertTrue("Customer should be there", storedCustomer !=
+		// null);
+		//		
+		// storedCustomer.setCustomerNr(9101);
+		// stored.addToBuyers(storedCustomer);
+		// createdP002 = customerServiceModelService.updateProduct(stored);
+		//
+		// stored =
+		// customerServiceModelService.readProductAsProductWithCustomersDto(createdP001.getId());
+		// Assert.assertTrue("Number of customers should be one",
+		// stored.getBuyers().size() == 1);
+		// storedCustomer = stored.getFromBuyers(createdCustomer.getId());
+		// Assert.assertTrue("Customer should be there", storedCustomer !=
+		// null);
+		// Assert.assertTrue("Customer number inciiorrect",
+		// storedCustomer.getCustomerNr()== 9101);
 
 	}
 
-	/** tries to add an existing Customer to a Product.
-	 * Currently goes wrong !
+	/**
+	 * tries to add an existing Customer to a Product. Currently goes wrong !
 	 * 
 	 */
 	@Test
@@ -291,39 +311,48 @@ public class AssociationsServiceTest extends
 		p001.setProductNumber("p001");
 		p001.setPrice(new Float(8));
 		p001.setOrderable(true);
-		ProductWithCustomersDto createdP001 = customerServiceModelService.createProduct(p001);
+		ProductWithCustomersDto createdP001 = customerServiceModelService
+				.createProduct(p001);
 
-		// Comment the try below and uncomment the ones below that to get the real test.
-//		try {
-//			createdP001.addToBuyers(createdCustomer);
-//			ProductWithCustomersDto createdP002 = customerServiceModelService.updateProduct(createdP001);
-//			Assert.fail("Expecting Service Exception");
-//		} catch (TranslatorException e) {
-//			System.err.println("Expected exception: " + e.getMessage());
-//		}
-		
-//	JOS: The above is incorrect (just not to break the build)
-//		  The below should be run as a test and shows the error.
+		// Comment the try below and uncomment the ones below that to get the
+		// real test.
+		// try {
+		// createdP001.addToBuyers(createdCustomer);
+		// ProductWithCustomersDto createdP002 =
+		// customerServiceModelService.updateProduct(createdP001);
+		// Assert.fail("Expecting Service Exception");
+		// } catch (TranslatorException e) {
+		// System.err.println("Expected exception: " + e.getMessage());
+		// }
+
+		// JOS: The above is incorrect (just not to break the build)
+		// The below should be run as a test and shows the error.
 		createdP001.addToBuyers(createdCustomer);
-		ProductWithCustomersDto createdP002 = customerServiceModelService.updateProduct(createdP001);
-		
-		ProductWithCustomersDto stored = customerServiceModelService.readProductAsProductWithCustomersDto(createdP001.getId());
-		Assert.assertTrue("Number of customers should be one", stored.getBuyers().size() == 1);
-		SimpleCustomerDto storedCustomer = stored.getFromBuyers(createdCustomer.getId());
+		ProductWithCustomersDto createdP002 = customerServiceModelService
+				.updateProduct(createdP001);
+
+		ProductWithCustomersDto stored = customerServiceModelService
+				.readProductAsProductWithCustomersDto(createdP001.getId());
+		Assert.assertTrue("Number of customers should be one", stored
+				.getBuyers().size() == 1);
+		SimpleCustomerDto storedCustomer = stored.getFromBuyers(createdCustomer
+				.getId());
 		Assert.assertTrue("Customer should be there", storedCustomer != null);
-		
+
 		storedCustomer.setCustomerNr(9101);
 		stored.addToBuyers(storedCustomer);
 		createdP002 = customerServiceModelService.updateProduct(stored);
 
-		stored = customerServiceModelService.readProductAsProductWithCustomersDto(createdP001.getId());
-		Assert.assertTrue("Number of customers should be one", stored.getBuyers().size() == 1);
+		stored = customerServiceModelService
+				.readProductAsProductWithCustomersDto(createdP001.getId());
+		Assert.assertTrue("Number of customers should be one", stored
+				.getBuyers().size() == 1);
 		storedCustomer = stored.getFromBuyers(createdCustomer.getId());
 		Assert.assertTrue("Customer should be there", storedCustomer != null);
-		Assert.assertTrue("Customer number inciiorrect", storedCustomer.getCustomerNr()== 9101);
+		Assert.assertTrue("Customer number inciiorrect", storedCustomer
+				.getCustomerNr() == 9101);
 
 	}
-
 
 	@Test
 	public final void testAddCustomer() {
