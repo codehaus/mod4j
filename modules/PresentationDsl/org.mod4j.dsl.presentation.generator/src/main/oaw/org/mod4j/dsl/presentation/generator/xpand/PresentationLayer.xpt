@@ -34,23 +34,6 @@
 	    «EXPAND generatePanels FOR cf»
 	«ENDFOREACH»
 	    
-    «print("MOD4J INFO: Running Presentation generator panallistener")»
-    «FOREACH this.elements.typeSelect(ContentForm).select(cf | ! cf.collectionContext) AS cf»
-		«REM»ObjectPanelListener«ENDREM»	
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "ListListener"))»
-    	    «EXPAND ObjectPanelListener::GenerateObjectListener FOR cf»
-		«ENDFILE»
-	«ENDFOREACH»
-		
-    «print("MOD4J INFO: Running Presentation generator dataprovider")»
-«REM»
-    «FOREACH this.elements.typeSelect(ContentForm).select(cf | cf.isCollection) AS cf»
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + cf.contextRef.name + "DataProvider"))»
-    	    «EXPAND DataProvider::GenerateDataProvider FOR cf»
-		«ENDFILE»
-	«ENDFOREACH»
-«ENDREM»
-	
     «print("MOD4J INFO: Running Presentation generator collection panels")»
 	«FOREACH this.elements.typeSelect(ContentForm).select(c | c.collectionContext) AS cf»
 		«REM»The CollectionPanel Java and HTML and properties file«ENDREM»
@@ -76,7 +59,7 @@
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".processes." + "PmfProcess"))»
         «EXPAND Process::GeneratePmfProcess FOR this»
     «ENDFILE»
-    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".processes." + "ProcessType"))»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".processes." + "ProcessType"))»
         «EXPAND ProcessType::ProcessType FOR this»
     «ENDFILE»
 	«EXPAND Process::GenerateProcesses FOR this»
@@ -84,23 +67,28 @@
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
 	«FOREACH this.elements.typeSelect(Process).select(e|e.isInteractive()) AS process»
+        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
+            «EXPAND ProcessPage::GeneratePage FOR process»
+        «ENDFILE»
 		«LET process.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
 		«LET dialogueCall.referredContentForm() AS form »
+«REM»
 		«IF form != null»
 			«IF form.collectionContext »
 		    	«print("Collection form page generated for process [" + process.name + "] form [" + form.name + "]")»
-				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + form.name + "Page"))»
+				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
 		    	    «EXPAND ProcessPage::GenerateListContentFormPage(dialogueCall) FOR process»
 				«ENDFILE»
 			«ELSE»
 		    	«print("Content page generated for process [" + process.name + "] form [" + form.name + "]")»
-				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + form.name + "Page"))»
+				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
 		    	    «EXPAND ProcessPage::GenerateContentFormPage(form) FOR process»
 				«ENDFILE»
 			«ENDIF»
 		«ELSE»
 		    «print("No page generated for process [" + process.name + "] form [" + form.name + "]")»
         «ENDIF»
+«ENDREM»
 «REM»
 		«IF uiCall.referredCollectionDialogue() != null»
 			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
@@ -112,7 +100,7 @@
 			«ENDFILE»
 		«ENDIF»
 «ENDREM»
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + form.name + "Page.html")»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + "Page.html")»
     	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process»
 		«ENDFILE»
 		«ENDLET»
@@ -149,24 +137,24 @@
 
 «REM»The ViewPanel Java and HTML and properties file«ENDREM»
 «DEFINE generatePanels FOR ContentForm»
-	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "PanelWithListener"))»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "Panel"))»
 	    «EXPAND ObjectPanel::GenerateObjectPanel FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "PanelWithListener.html")»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "Panel.html")»
 	    «EXPAND ObjectPanelHtml::GenerateObjectPanelHtml FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "PanelWithListener.properties")»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "Panel.properties")»
 	    «EXPAND ContentFormProperties::GenerateProperties FOR this»
 	«ENDFILE»
 
 		«REM»The Edit Panel Java and HTML and properties file«ENDREM»
-	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "EditPanelWithListener"))»
+	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".panels." + this.name + "EditPanel"))»
 	    «EXPAND ObjectEditPanel::GenerateObjectEditPanel FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "EditPanelWithListener.html")»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "EditPanel.html")»
 	    «EXPAND ObjectEditPanelHtml::GenerateObjectEditPanelHtml FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "EditPanelWithListener.properties")»
+	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/panels/" + this.name + "EditPanel.properties")»
 	    «EXPAND ContentFormProperties::GenerateProperties FOR this»
 	«ENDFILE»
 			

@@ -34,41 +34,25 @@ import org.apache.wicket.model.PropertyModel;
 «ENDFOREACH»
 
 @SuppressWarnings("serial")
-public class «this.name»PanelWithListener extends Panel {
+public class «this.name»Panel extends Panel {
 
-//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
-	
-	/**
-	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
-	 * This allows the panel to be used in different pages with different behavior.
-	 * @param listener The listener to be added
-	 */
-//	public void addListener(«this.contextRef.name»ListListener listener ){
-//		listeners.add(listener);
-//	}
-
-	public «this.name»PanelWithListener (String id, final IModel<«this.contextRef.name»> model) {
+	public «this.name»Panel(String id, final IModel<«this.contextRef.name»> model) {
         super(id);
     «EXPAND addWicketComponent FOREACH this.formElements»
         add(new Link<Object>("edit") {
         @Override
         public void onClick() {
-//			for («this.contextRef.name»ListListener listener : listeners) {
-//				listener.on«this.contextRef.name»Edit(model.getObject());
-//			}
+            // TODO Genereate Edit code
         }
     });    
         
-//                add(parts);
-
  «IF (customProcesses != null) && (!customProcesses.isEmpty)»
      «FOREACH customProcesses AS p»
 		add(new Link<Object>("«p.name»custom") {
 			@Override
 			public void onClick() {
-//				for («this.contextRef.name»ListListener listener : listeners) {
-					page().startProcess("«p.name»Process", model.getObject());
-//				}
+			// TODO GEnerate process start
+//					page().startProcess("«p.name»Process", model.getObject());
 			}
 		});
     «ENDFOREACH»

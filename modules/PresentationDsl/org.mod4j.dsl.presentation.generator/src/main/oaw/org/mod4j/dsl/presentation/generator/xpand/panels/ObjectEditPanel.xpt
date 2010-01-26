@@ -18,6 +18,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+«FOREACH this.processes.referredProcess() AS p»
+import «getPresentationRootPackage()».processes.«p.name»Process;
+«ENDFOREACH»
+
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationCommonPackage()».ext.components.AjaxEditableLabel;
 import «getPresentationCommonPackage()».ext.components.AjaxIndicator;
@@ -65,20 +69,9 @@ import «javaDtoClassPath(this.contextRef.name)»;
  * The object may be an existing one or a new one.
  */
 @SuppressWarnings("serial")
-public class «this.name»EditPanelWithListener extends Panel {
+public class «this.name»EditPanel extends Panel {
 	private Log log = LogFactory.getLog(getClass());
 
-//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
-	
-	/**
-	 * Adds a listener to this panel. The listener will be notified whenever an event takes place on this panel.
-	 * This allows the panel to be used in different pages with different behavior.
-	 * @param listener The listener to be added
-	 */
-//	public void addListener(«this.contextRef.name»ListListener listener ){
-//		listeners.add(listener);
-//	}
-	
 	protected «getWicketMasterPageClass()» page() {
 	    return («getWicketMasterPageClass()»)findPage();
 	}
@@ -86,7 +79,7 @@ public class «this.name»EditPanelWithListener extends Panel {
     protected IModel<«this.contextRef.name»> localModel ;
     Form<«this.contextRef.name»> form = null;
 
-    public «this.name»EditPanelWithListener(String id, final IModel<«this.contextRef.name»> model) {
+    public «this.name»EditPanel(String id, final IModel<«this.contextRef.name»> model) {
         super(id);
         boolean isNew = (model.getObject() != null)
         				&& ((model.getObject()).getId() == null);
@@ -106,10 +99,16 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»save = new Button("«p.name»save", new ResourceModel("cmd.save")) {
             @Override
             public void onSubmit() {
-                page().startProcess("«p.name»Process", model.getObject() );
-//				for («this.contextRef.name»ListListener listener : listeners) {
-//					listener.startProcess("«p.name»Process", model.getObject() );
-//				}
+                «p.name»Process process = new «p.name»Process(model);
+                «getWicketMasterPageClass()» currentPage = («getWicketMasterPageClass()»)this.getPage();
+                process.setOwningPage(currentPage);
+                process.run(model.getObject());
+
+//                IOk owner = Helpers.findOwner(this);
+//                if( owner != null ){
+//                    ((IOk)owner).ok(this.getId());
+//                }
+
             }
         };
         form.add(«p.name»save);
@@ -122,12 +121,12 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»delete = new Button("«p.name»delete", new ResourceModel("cmd.delete")) {
             @Override
             public void onSubmit() {
-                page().startProcess("«p.name»Process", localModel.getObject() );
-//				for («this.contextRef.name»ListListener listener : listeners) {
-//					listener.startProcess("«p.name»Process", localModel.getObject() );
-//				}
-				localModel.setObject(null);
-				form.clearInput();
+                «p.name»Process process = new «p.name»Process(model);
+                «getWicketMasterPageClass()» currentPage = («getWicketMasterPageClass()»)this.getPage();
+                process.setOwningPage(currentPage);
+                process.run(model.getObject());
+
+                currentPage.getProcess().done(currentPage);
             }
         };
         «p.name»delete.setDefaultFormProcessing(false);
@@ -144,10 +143,7 @@ public class «this.name»EditPanelWithListener extends Panel {
             @Override
             public void onSubmit() {
             	form.clearInput();
-                page().startProcess("«p.name»Process", model.getObject());
-//				for («this.contextRef.name»ListListener listener : listeners) {
-//					listener.startProcess("«p.name»Process", model.getObject());
-//				}
+// TODO                page().startProcess("«p.name»Process", model.getObject());
              }
         };
         cancel.setDefaultFormProcessing(false);
@@ -161,10 +157,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»edit = new Button("«p.name»edit", new Model("«p.label»")) {
             @Override
             public void onSubmit() {
-                page().startProcess("«p.name»Process", localModel.getObject() );
-//              for («this.contextRef.name»ListListener listener : listeners) {
-//                  listener.startProcess("«p.name»Process", localModel.getObject() );
-//              }
+// TODO                page().startProcess("«p.name»Process", localModel.getObject() );
                 localModel.setObject(null);
                 form.clearInput();
             }
@@ -180,11 +173,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         Button «p.name»custom = new Button("«p.name»custom", new Model("«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»")) {
             @Override
             public void onSubmit() {
-                page().startProcess("«p.name»Process", model.getObject());
-//				for («this.contextRef.name»ListListener listener : listeners) {
-//					listener.startProcess(
-//									"«p.name»Process", model.getObject());
-//				}
+// TODO                page().startProcess("«p.name»Process", model.getObject());
             }
         };
         form.add(«p.name»custom);
@@ -206,7 +195,7 @@ public class «this.name»EditPanelWithListener extends Panel {
     // «varName»
     «IF this.dataProperty.dataType.equalsIgnoreCase("string")»
         TextField<String> «varName» = new TextField<String>("«this.dataProperty.name»");
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
@@ -216,7 +205,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("decimal")»
         TextField<Float> «varName» = new TextField<Float>("«this.dataProperty.name»", Float.class);
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
@@ -226,7 +215,7 @@ public class «this.name»EditPanelWithListener extends Panel {
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("integer")»
         TextField<Integer> «varName» = new TextField<Integer>("«this.dataProperty.name»", Integer.class);
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanelWithListener.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));

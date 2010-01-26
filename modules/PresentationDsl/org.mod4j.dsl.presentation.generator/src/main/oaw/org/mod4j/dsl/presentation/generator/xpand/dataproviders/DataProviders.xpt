@@ -42,6 +42,7 @@
 			«IF form.collectionContext »
 				«IF uiCall.getNavigationExpression() != null »
 			    	«print("Navigation data provider generated for process [" + process.name + "] form [" + form.name + "]")»
+«REM»
                     «IF uiCall.getNavigationExpression().composition»
 						«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." + 
 						                       	getWicketCompositeDataProviderClass(process.contextRef.name , form.contextRef.name )) )»
@@ -53,6 +54,7 @@
                             «EXPAND ReferenceDataProvider::ReferenceDataProvider FOR uiCall»
                         «ENDFILE»
 					«ENDIF»
+«ENDREM»
 				«ELSEIF uiCall.getServiceExpression() != null»
 			    	«print("01 Service data provider generated for process [" + process.name + "] form [" + form.name + "]")»
 					«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".dataproviders." 
@@ -73,6 +75,8 @@
 				    	    «EXPAND FinderDataProvider::FinderDataProvider FOR uiCall»
 						«ENDFILE»
 					«ENDIF»
+				«ELSE»
+«REM»                    «EXPAND DtoListAllDataProvider::ListAllDataProvider FOR uiCall»«ENDREM»
 				«ENDIF»
 			«ENDIF»
 		«ELSE»

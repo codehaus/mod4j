@@ -7,6 +7,7 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::crossx::broker::xtend::Crossx»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
 
 «DEFINE GenerateApplication FOR PresentationModel -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
@@ -130,11 +131,6 @@ public class «getWicketHomePageClass()»Dummy  extends «getWicketMasterPageCla
     public String getPageTitle() {
         return "Dummy page, action or process should be manually implemented";
     }
-        @Override
-    public void startProcess(String string, Object element) {
-        // TODO Auto-generated method stub
-        
-    }
 }
 «ENDDEFINE»
 
@@ -142,6 +138,7 @@ public class «getWicketHomePageClass()»Dummy  extends «getWicketMasterPageCla
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
 package «getPresentationRootPackage()».pages;
 
+import org.mod4j.runtime.dto.AbstractDto;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 «FOREACH this.externalReferences AS ext-»
 «LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
@@ -151,9 +148,24 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 «ENDLET-»
 «ENDFOREACH-»
 
+«FOREACH this.externalReferences AS extDto»
+    «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
+    «IF dto != null»
+import «javaDtoClassPath(dto.name)»;
+    «ENDIF»
+    «ENDLET»
+«ENDFOREACH»
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+
+«REM»
+«LET findServiceWithMethod(this.contextRef.name, "UPDATE") AS service»
+«LET findSpecialMethodInService(this.contextRef.name, "UPDATE", service) AS updateService»
+«LET findSpecialMethodInService(this.contextRef.name, "DELETE", service) AS deleteService»
+«LET findSpecialMethodInService(this.contextRef.name, "Create", service) AS createService»
+«LET javaLocalServiceInterface(service) AS serviceType»
+«ENDREM»
 
 public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()» {
 «FOREACH this.externalReferences AS ext-»
@@ -166,6 +178,59 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 	    public static «serviceType» get«serviceType»() {
 	        return service«serviceType»;
 	    }
+	    «FOREACH this.externalReferences AS extDto»
+            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
+            «IF dto != null»
+                «LET findSpecialMethodInService(dto.name, "UPDATE", service.name) AS updateService»
+                «IF updateService != null »
+                    public static «dto.name» update(«dto.name» dto){
+                        return service«serviceType».«updateService»(dto);
+                    }
+                «ENDIF»
+                «ENDLET»
+                «LET findSpecialMethodInService(dto.name, "Create", service.name) AS createService»
+                «IF createService != null »
+                    public static «dto.name» create(«dto.name» dto){
+                        return service«serviceType».«createService»(dto);
+                    }
+                «ENDIF»
+                «ENDLET»
+                «LET findSpecialMethodInService(dto.name, "DELETE", service.name) AS deleteService»
+                «IF deleteService != null »
+                    public static void delete(«dto.name» dto){
+                        service«serviceType».«deleteService»(dto);
+                    }
+                «ENDIF»
+                «ENDLET»
+            «ENDIF»
+            «ENDLET»
+	    «ENDFOREACH»
+	    
+        public static AbstractDto create(AbstractDto dto) {
+        «FOREACH this.externalReferences AS extDto»
+            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
+            «IF dto != null»
+               if( dto instanceof «dto.name» ){
+                   return «getWicketHomePageClass()».create( («dto.name»)dto );
+               }
+            «ENDIF»
+            «ENDLET»
+        «ENDFOREACH»
+            return null;
+        }
+
+        public static AbstractDto update(AbstractDto dto) {
+        «FOREACH this.externalReferences AS extDto»
+            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
+            «IF dto != null»
+               if( dto instanceof «dto.name» ){
+                   return «getWicketHomePageClass()».update( («dto.name»)dto );
+               }
+            «ENDIF»
+            «ENDLET»
+        «ENDFOREACH»
+            return null;
+        }
 	    «ENDLET»
 	«ENDIF-»
 «ENDLET-»
@@ -186,11 +251,6 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
         return getLocalizer().getString("lbl.home", this);
     }
     
-    @Override
-    public void startProcess(String string, Object element) {
-        // TODO Auto-generated method stub
-        
-    }    
 }
 «ENDDEFINE»
 
@@ -235,7 +295,6 @@ import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 «FOREACH processes AS process-»
 import «getPresentationRootPackage()».processes.«process.name»Process;
-import «getPresentationRootPackage()».pages.«process.name»«process.processElements.referredContentForm().first().name»Page;
 import «javaDtoClassPath(process.contextRef.name)»;
 «ENDFOREACH»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
@@ -298,7 +357,7 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
 		// TODO changed
 		Link «process.name»Link = new Link("link") {
 			public void onClick() {
-				«process.name»Process process = new «process.name»Process();
+				«process.name»Process process = new «process.name»Process(null);
 				process.setOwningPage(myself);
 				setResponsePage(process.nextPage((«process.contextRef.name»)null));
 			}
@@ -338,11 +397,11 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
 
     public abstract String getPageTitle();
     
-    public void startProcess(String string, List<DtoType> selectedElements) {
-        throw new RuntimeException("SELECTION SIZE: " + selectedElements.size() + " elements " + selectedElements.toString());
-    }
-    
-    public abstract void startProcess(String string, DtoType element);
+//    public void startProcess(String string, List<DtoType> selectedElements) {
+//        throw new RuntimeException("SELECTION SIZE: " + selectedElements.size() + " elements " + selectedElements.toString());
+//    }
+//    
+//    public abstract void startProcess(String string, DtoType element);
 
 }
 «ENDLET»

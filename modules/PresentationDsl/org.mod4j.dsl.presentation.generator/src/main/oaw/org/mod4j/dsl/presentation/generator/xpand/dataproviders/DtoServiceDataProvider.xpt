@@ -30,7 +30,7 @@ import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-import «getPresentationRootPackage()».processes.ProcessType;
+import «getPresentationCommonPackage()».processes.ProcessType;
 
 import «javaLocalServiceInterfacePath(this.serviceName)» ;
 «IF this.serviceName != updateServiceType»
@@ -54,17 +54,6 @@ public class «classname»
     public Collection<ProcessType> supportedProcesses() {
         return processTypes;
     }
-
-    boolean all = false;
-    public boolean isAll() {
-        return all;
-    }
-
-    public void setAll(boolean all) {
-        this.all = all;
-    }
-
-    public Object getOwner() { return null; }
 
     «javaLocalServiceInterface(this.serviceName)» service;
     «javaLocalServiceInterface(updateServiceType)» updateService;
@@ -107,30 +96,6 @@ public class «classname»
 
 	public void detach() {
 	}
-
-	public void deleteDto(«outContext» toBeRemoved) {
-        throw new RuntimeException("Mod4j: cannot delete object");
-	}
-
-	public «outContext» newDto() {
-        throw new RuntimeException("Mod4j: cannot create object");
-	}
-
-	public void saveDto(«outContext» tobesaved) {
-		if (tobesaved.getId() == null) { // new element
-            throw new RuntimeException("Mod4j: cannot save non-created object");
-		} else { // existing element
-			updateService.«updateService»(tobesaved);
-		}
-	}
-    
-    public void addToDtoList(List<«outContext»> tobeadded) {
-        throw new RuntimeException("Listprovider: no addToDtoList possible");
-    }
-    
-    public void removeFromDtoList(List<«outContext»> toberemoved) {
-        throw new RuntimeException("Listprovider: no removeFromDtoList possible");
-    }    
 
 }
 «ENDLET»

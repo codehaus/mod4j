@@ -43,6 +43,19 @@
 	    «EXPAND CommonModalWindow::GenerateModalWindow FOR this»
 	«ENDFILE»
 
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.ListElementModel" ))»
+        «EXPAND ListElementModel::GenerateListElementModel FOR this»
+    «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.Helpers" ))»
+        «EXPAND Helpers::GenerateHelpers FOR this»
+    «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".dataproviders.ModelBasedListDataProvider" ))»
+        «EXPAND ModelBasedListDataProvider::GenerateModelBasedListDataProvider FOR this»
+    «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.SetAsListWrapper" ))»
+        «EXPAND SetAsListWrapper::GenerateSetAsListWrapper FOR this»
+    «ENDFILE»
+
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.FieldFeedbackPanel" ))»
         «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanel FOR this»
     «ENDFILE»

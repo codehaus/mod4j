@@ -6,314 +6,137 @@
 «EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
- 
-«DEFINE GenerateContentFormPage(ContentForm form) FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateContentFormPage in ProcessPage.xpt") FOR this»
-package «getPresentationRootPackage()».pages;
 
-import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-import «getPresentationRootPackage()».panels.«this.processElements.first().name»SwapEditPanel;
-import «javaDtoClassPath(form.contextRef.name)»;
-import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-import «getPresentationRootPackage()».processes.«this.name»Process;
-import «getPresentationRootPackage()».processes.PmfProcess;
-
-«FOREACH form.processes.referredProcess().select(e|(e != null) && (e.name != "") ) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process ;
-«ENDFOREACH»
-import java.util.List;
-import org.apache.wicket.Page;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
-import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
-
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> // implements «this.contextRef.name»ListListener
-{
-    protected «this.processElements.first().name»SwapEditPanel panel = null;
-
-    public «this.name»«form.name»Page (PmfProcess owner, final IModel<«form.contextRef.name»> context)
-	{
-		super(owner);
-		
-		// Add an error panel to display errors from called processes
-		ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
-		FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
-		filter.addComponent(this);
-		errorMessages.setOutputMarkupId(true);
-		add(errorMessages);
-		
-		panel = new «this.processElements.first().name»SwapEditPanel("panel", context);
-//		panel.addListener(this);
-		add(panel);
-	}
-
-    public void editOn(boolean on){
-        panel.setEditOn(on);
-    }
-    
-	@Override
-	public String getPageTitle()
-	{
-	    return "«this.name»«form.name»Page";
-//		return getLocalizer().getString("lbl.breakfast",this);
-	}
-
-	public void startProcess(String processName, «form.contextRef.name» context){
-	    try{
-	«FOREACH form.processes AS pp»
-    	«LET pp.referredProcess() AS p»
-    	// Context «pp.contextExp»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setOwningPage(this);
-			«IF ! p.isInteractive() » «REM»this is a batch process«ENDREM»
-				process.setProvider(getProvider());
-				process.run(context);
-				«IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::DELETE)»
-				    owningProcess.done(this);
-				«ENDIF»
-            «ELSEIF p.type == ProcessType::ADDTO»
-                process.setProvider(getProvider());
-                process.run(context);
-                process.done();
-                
-            «ELSE»
-				Page next = process.nextPage(context);
-				if( next != null ){
-					setResponsePage(next);
-				}
-			«ENDIF»
-		}
-    	«ENDLET»
-	«ENDFOREACH»
-		}catch (Exception e){
-			error(e.getMessage());
-		}
-	}
-
-    public void startProcess(String processName, List<«form.contextRef.name»> selectedElements){
-        try{
-    «FOREACH form.processes AS pp»
-        «LET pp.referredProcess() AS p»
-            «IF p.collectionContext»
-		        if(processName.equals("«p.name»Process")){
-		            «p.name»Process process = new «p.name»Process();
-		            process.setOwningPage(this);
-		            «IF ! p.isInteractive() » «REM»this is a batch process«ENDREM»
-		                process.setProvider(getProvider());
-		                process.run(selectedElements);
-		                «IF (p.type == ProcessType::SAVE) || (p.type == ProcessType::CANCEL) || (p.type == ProcessType::DELETE)»
-		                    owningProcess.done(this);
-		                «ENDIF»
-		            «ELSEIF p.type == ProcessType::ADDTO»
-		                process.setProvider(getProvider());
-		                process.run(selectedElements);
-		                process.done();
-		            «ELSE»
-		                Page next = process.nextPage(selectedElements);
-		                if( next != null ){
-		                    setResponsePage(next);
-		                }
-		            «ENDIF»
-		        }
-		    «ENDIF»
-        «ENDLET»
-    «ENDFOREACH»
-        }catch (Exception e){
-            error(e.getMessage());
-        }
-	
-	}
-
-}
-«ENDDEFINE»
-
-«DEFINE GenerateListContentFormPage(DialogueCall dialogueCall) FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateListContentFormPage in ProcessPage.xpt") FOR this-»
-«LET referredContentForm(dialogueCall) AS form»
+«DEFINE GeneratePage FOR Process»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
 «LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
 package «getPresentationRootPackage()».pages;
 
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process;
-«ENDFOREACH»
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::DELETE) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process;
-«ENDFOREACH»
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::ADDTO) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process;
-«ENDFOREACH»
-«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::REMOVEFROM) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process;
-«ENDFOREACH»
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-import «getPresentationRootPackage()».panels.«form.name»CollectionDataViewPanel;
-//import «getPresentationRootPackage()».panels.«form.contextRef.name»ListListener;
-import «javaDtoClassPath(form.contextRef.name)»;
+«FOREACH this.processElements.referredDialogue().select(e|e != null) AS dialogue»
+import «javaDtoClassPath(dialogue.contextRef.name)»;
+«ENDFOREACH»
+import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-«IF editProcess != null»
-import «getPresentationRootPackage()».processes.«editProcess.name»Process;
-«ENDIF»
-«IF newProcess != null»
-import «getPresentationRootPackage()».processes.«newProcess.name»Process;
-«ENDIF»
+
+«FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::ALL )) AS e»
+import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(e.referredDialogue().contextRef.name)» ;
+«ENDFOREACH»
+
+«FOREACH this.processElements.select(e|e.getServiceExpression() != null ) AS e»
+import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProviderClass(e.referredDialogue().contextRef.name)» ;
+«ENDFOREACH»
+
+«FOREACH this.processElements AS uiCall»
+    «IF uiCall.referredDialogue() != null»
+        «IF uiCall.referredDialogue().collectionContext»
+            import «getPresentationRootPackage()».panels.«uiCall.name»CollectionDataViewPanel;
+        «ELSE »
+            import «getPresentationRootPackage()».panels.«uiCall.name»SwapEditPanel;
+        «ENDIF»
+    «ENDIF»
+«ENDFOREACH»
+
 
 import java.util.List;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.Page;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
-public class «this.name»«form.name»Page extends «getWicketMasterPageClass()»<«form.contextRef.name»> // implements «form.contextRef.name»ListListener
+public class «this.name»Page extends «getWicketMasterPageClass()»<«this.contextRef.name»> 
 {
     private Integer maxItemsPerPage = 5;
 
-	public «this.name»«form.name»Page (PmfProcess owner, Mod4jDataProvider<«form.contextRef.name»> dataProvider)
-	{
-		super(owner);
-
-		// Add an error panel to display errors from called processes
-		ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
-		FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
-		filter.addComponent(this);
-		errorMessages.setOutputMarkupId(true);
-		add(errorMessages);
-		
-        «form.name»CollectionDataViewPanel panel = new «form.name»CollectionDataViewPanel("panel", dataProvider, maxItemsPerPage, this);
-//        panel.addListener(this);
-        this.setProvider(dataProvider);
-        add( panel );
-		
-	}
-
-	@Override
-	public String getPageTitle()
-	{
-	    return "«this.name»«form.name»Page";
-//		return getLocalizer().getString("lbl.breakfast",this);
-	}
-
-	public void startProcess(String processName, «form.contextRef.name» context){
-	try{
-«REM»
-    «FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
-«ENDREM»
-    «FOREACH form.processes.select(p | p.referredProcess().type == ProcessType::CUSTOM) AS pp»
-        «LET pp.referredProcess() AS p»
-        // Call context: «pp.contextExp»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setOwningPage(this);
-	        «IF pp.getStandardExpression() != null»
-	            «IF pp.getStandardExpression() == ExpressionType::SELECTION»
-                    	                
-	            «ENDIF»
-	        «ENDIF»
-			«IF p.isInteractive()»
-				Page next = process.nextPage(context);
-				if( next != null ){
-					setResponsePage(process.nextPage(context));
-				}
-			«ELSE»
-			    process.run(context);
-			«ENDIF»
-		}
-		«ENDLET»
-	«ENDFOREACH»
-
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::NEW) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setOwningPage(this);
-			process.setProvider(getProvider());
-			Page next = process.nextPage(context);
-			if( next != null ){
-				setResponsePage(next);
-			}
-		}
-	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::EDIT) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setOwningPage(this);
-			process.setProvider(getProvider());
-			Page next = process.nextPage(context);
-			if( next != null ){
-				setResponsePage(next);
-			}
-		}
-	«ENDFOREACH»
-	«FOREACH form.processes.referredProcess().select(e|e.type == ProcessType::DELETE) AS p»
-		if(processName.equals("«p.name»Process")){
-			«p.name»Process process = new «p.name»Process();
-			process.setOwningPage(this);
-			process.setProvider(getProvider());
-			process.run(context);
-		}
-	«ENDFOREACH»
-	}catch (Exception e){
-		error(e.getMessage());
-	}
-}
-
-    public void startProcess(String processName, List<«form.contextRef.name»> selectedElements){
-    try{
-    «FOREACH form.processes.select(p | p.referredProcess().type == ProcessType::CUSTOM) AS pp»
-        «LET pp.referredProcess() AS p»
-        «IF p.collectionContext»
-            if(processName.equals("«p.name»Process")){
-	            «p.name»Process process = new «p.name»Process();
-	            process.setOwningPage(this);
-	            «IF p.isInteractive()»
-	                Page next = process.nextPage(selectedElements);
-	                if( next != null ){
-	                    setResponsePage(process.nextPage(selectedElements));
-	                }
-	            «ELSE»
-	                process.run(selectedElements);
-	            «ENDIF»
-	        }
-	    «ENDIF»
-        «ENDLET»
-    «ENDFOREACH»
-
-    «FOREACH form.processes.select(p | (p.referredProcess().type == ProcessType::REMOVEFROM) ||
-    (p.referredProcess().type == ProcessType::ADDTO) ) AS pp»
-        «LET pp.referredProcess() AS p»
-        «IF p.collectionContext»
-            if(processName.equals("«p.name»Process")){
-                «p.name»Process process = new «p.name»Process();
-                process.setOwningPage(this);
-                process.setProvider(getProvider());
-                «IF p.type == ProcessType::REMOVEFROM»
-                    process.run(selectedElements);
-                «ELSEIF p.type == ProcessType::ADDTO»
-                        process.setProvider(getProvider());
-                        process.run(selectedElements);
-                        process.done(this);
-//                    Page next = process.nextPage(selectedElements);
-//                   if( next != null ){
-//                        setResponsePage(next);
-//                    }
-                «ENDIF»
-            }
-            «ENDIF»
-        «ENDLET»
-    «ENDFOREACH»
+    protected IModel model;
     
-    }catch (Exception e){
-        error(e.getMessage());
+    «FOREACH this.processElements AS uiCall»
+        «IF uiCall.referredDialogue() != null»
+            Panel «uiCall.referredDialogue().name.toFirstLower()»Panel ;
+        «ENDIF»
+    «ENDFOREACH»        
+
+    public «this.name»Page (PmfProcess owner, IModel<«this.contextRef.name»> context)
+    {
+        super(owner);
+        this.model = context;
+        
+        // Add an error panel to display errors from called processes
+        ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
+        FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
+        filter.addComponent(this);
+        errorMessages.setOutputMarkupId(true);
+        add(errorMessages);
+
+        IModel panelModel = null ;
+        «FOREACH this.processElements AS uiCall»
+            «IF uiCall.referredDialogue() != null»
+                «EXPAND createPanel(this, uiCall) FOR uiCall.referredDialogue()»
+            «ENDIF»
+        «ENDFOREACH»        
     }
-}
+
+    @Override
+    public String getPageTitle()
+    {
+        return "«this.name»Page";
+//      return getLocalizer().getString("lbl.breakfast",this);
+    }
 
 }
 «ENDLET»
 «ENDLET»
-«ENDLET»
+«ENDDEFINE» 
+
+
+«DEFINE createPanel(Process process, UICall call) FOR Dialogue»
+«REM»Abstract super method, should never be called«ENDREM»
+ERROR
 «ENDDEFINE»
 
+«REM»
+    Generate the creation of the panel ConmtentForm
+«ENDREM»
+«DEFINE createPanel(Process process, UICall call) FOR ContentForm»
+    «EXPAND createModel(process, call) FOR this»
+    «IF this.collectionContext»
+        «call.referredDialogue().name.toFirstLower()»Panel = new «this.name»CollectionDataViewPanel("panel", panelModel, maxItemsPerPage, this);
+    «ELSE»
+        «call.referredDialogue().name.toFirstLower()»Panel = new «this.name»SwapEditPanel("panel", panelModel);
+    «ENDIF»
+        add(«call.referredDialogue().name.toFirstLower()»Panel );
+«ENDDEFINE»
+
+«REM»
+    Create the model that is needed for the referred panel, based on the context expression
+«ENDREM»
+«DEFINE createModel(Process process, UICall call) FOR ContentForm»
+    «IF call.getNavigationExpression() != null»
+        panelModel = new PropertyModel(model, "«call.getNavigationExpression().references.get(0).name»");
+    «ELSEIF call.getStandardExpression() != null»
+        «IF call.getStandardExpression().type == ExpressionType::ALL»
+            «LET getWicketListAllDataProviderClass(this.contextRef.name) AS providerType»
+	        «providerType» provider = new «providerType»();
+	        panelModel = new Model(provider);
+	        «ENDLET»
+        «ELSEIF call.getStandardExpression().type == ExpressionType::FIND»
+            // TODO add Find providder IModel
+        «ENDIF»
+    «ELSEIF call.getServiceExpression() != null»
+//        PartDtoServiceDataProvider provider = new PartDtoServiceDataProvider(context.getObject());
+//        panelModel = new Model(provider);
+        «getWicketServiceDataProviderClass(this.contextRef.name)» p = new «getWicketServiceDataProviderClass(this.contextRef.name)»(context.getObject());
+        panelModel = new Model(p);
+        // TODO add Service providder IModel
+    «ELSE»    
+        panelModel = model;
+    «ENDIF»
+«ENDDEFINE»

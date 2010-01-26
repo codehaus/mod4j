@@ -11,7 +11,7 @@
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Mod4jDataProvider.xpt") FOR this»
 package «getPresentationRootPackage()».dataproviders;
 
-import «getPresentationRootPackage()».processes.ProcessType;
+import «getPresentationCommonPackage()».processes.ProcessType;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import java.util.List;
 import java.util.Collection;
@@ -22,23 +22,9 @@ import java.util.Collection;
  */
 public interface Mod4jDataProvider<DtoType> extends IDataProvider<DtoType> {
 
-    public boolean isAll() ;
-    
-    public void setAll(boolean all) ;
-    
     public Collection<ProcessType>  supportedProcesses();
 
-    public Object getOwner();
+//    public Object getOwner();
     
-	public DtoType newDto();
-	
-	public void deleteDto(DtoType toBeRemoved);
-	
-	public void saveDto(DtoType tobesaved);
-	
-    public void addToDtoList(List<DtoType> tobeadded) ;
-
-    public void removeFromDtoList(List<DtoType> toberemoved) ;
-	
 }
 «ENDDEFINE»

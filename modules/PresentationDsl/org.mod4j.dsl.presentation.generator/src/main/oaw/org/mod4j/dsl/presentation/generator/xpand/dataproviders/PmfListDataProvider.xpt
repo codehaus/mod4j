@@ -23,7 +23,7 @@ import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
-import «getPresentationRootPackage()».processes.ProcessType;
+import «getPresentationCommonPackage()».processes.ProcessType;
 
 @SuppressWarnings("serial")
 public class PmfListDataProvider<T extends Serializable> extends ListDataProvider<T> implements Mod4jDataProvider<T>  {
@@ -35,15 +35,6 @@ public class PmfListDataProvider<T extends Serializable> extends ListDataProvide
         return processTypes;
     }
 
-    boolean all = false;
-    public boolean isAll() {
-        return all;
-    }
-
-    public void setAll(boolean all) {
-        this.all = all;
-    }
-
     private List<T> myList = null;
     
     public Object getOwner() { return null; }
@@ -52,26 +43,6 @@ public class PmfListDataProvider<T extends Serializable> extends ListDataProvide
         super(list);
         myList = list;
     }
-
-    public void deleteDto(T toBeRemoved) {
-        throw new RuntimeException("Listprovider: no delete possible");
-    }
-
-    public T newDto() {
-        throw new RuntimeException("Listprovider: no new possible");
-    }
-
-    public void saveDto(T tobesaved) {
-        throw new RuntimeException("Listprovider: no saveDto possible");
-    }
-    
-    public void addToDtoList(List<T> tobeadded) {
-        throw new RuntimeException("Listprovider: no addToDtoList possible");
-    }
-    
-    public void removeFromDtoList(List<T> toberemoved) {
-        throw new RuntimeException("Listprovider: no removeFromDtoList possible");
-    }    
 }
 
 

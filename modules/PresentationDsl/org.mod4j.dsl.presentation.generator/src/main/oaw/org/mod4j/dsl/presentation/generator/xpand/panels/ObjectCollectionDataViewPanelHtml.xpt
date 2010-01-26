@@ -53,7 +53,7 @@
 		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
 			<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
 		«ENDFOREACH»
-		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::DELETE) AS p»
+		«FOREACH this.processes.referredProcess().select(e|(e.type==ProcessType::DELETE) || (e.type==ProcessType::REMOVEFROM) ) AS p»
 	        «IF ! p.collectionContext»
 	    		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
 	    	«ENDIF»
@@ -68,16 +68,18 @@
 		«ENDFOREACH»
 	    «FOREACH this.processes.select(pc | pc.referredProcess() != null) AS pc»
 	        «LET pc.referredProcess() AS p»
-	        «IF ((p.type==ProcessType::REMOVEFROM) || (p.type==ProcessType::ADDTO) || (p.type==ProcessType::CUSTOM)) && p.collectionContext»
+	        «IF ((p.type==ProcessType::REMOVEFROM) || (p.type==ProcessType::ADDTO)
+	              || (p.type==ProcessType::CUSTOM) || (p.type==ProcessType::DELETE)) 
+	              && p.collectionContext»
 	            <td class="butcol">
 	            <input type="button" 
 	                   value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»" 
 	                   wicket:id="«p.name»" 
 	                   class="button" /></td>
 	        «ENDIF»
-	        «IF p.type==ProcessType::ADDTO»
-	            <td><div wicket:id="«p.name»Modal"/></td>
-	        «ENDIF»
+            «IF p.type==ProcessType::ADDTO»
+                <td><div wicket:id="«p.name»Modal"/></td>
+            «ENDIF»
 	        «ENDLET»
 	    «ENDFOREACH»
 	«ENDIF»

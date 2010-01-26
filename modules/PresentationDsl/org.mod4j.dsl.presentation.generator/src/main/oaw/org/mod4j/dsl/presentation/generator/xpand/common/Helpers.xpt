@@ -1,0 +1,72 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE GenerateHelpers FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.model.IChainingModel;
+import org.apache.wicket.model.IModel;
+
+public class Helpers {
+    
+    private Helpers(){}
+
+    static public IModel findInnerMostModel(IModel start){
+        System.out.println("INNERMODEL INNERMODEL INNERMODEL INNERMODEL INNERMODEL ");
+        return findInnerMostModel(start, "==> ");
+    }
+    
+    static public IModel findInnerMostModel(IModel start, String nesting){
+        if( start == null ){
+            return null;
+        }
+        System.out.println(nesting + "[" + start.getClass().getName() + "] " + start.getObject().toString());
+        nesting = nesting + "==> ";
+        if( start instanceof IChainingModel) {
+            IChainingModel chain = (IChainingModel)start;
+            IModel target = chain.getChainedModel();
+            if( target != null ){
+                return findInnerMostModel(target, nesting);
+            } else {
+                return start;
+            }
+        } else if( start.getObject() instanceof IModel){
+            IModel nestedModel = (IModel)start.getObject();
+            return findInnerMostModel(nestedModel, nesting);
+        }
+        return start;
+    }
+
+/*    
+    static public IOk findOwner(MarkupContainer start){
+        MarkupContainer owner = start.getParent();
+        if( owner == null ){
+            System.out.println("OWNER NOT FOUND [" + start.getId() + "]");
+            return null;
+        } else if( owner instanceof IOk ){
+            return ((IOk)owner);
+        } else {
+            return findOwner(owner);
+        }
+    }
+*/
+
+}
+«ENDDEFINE»

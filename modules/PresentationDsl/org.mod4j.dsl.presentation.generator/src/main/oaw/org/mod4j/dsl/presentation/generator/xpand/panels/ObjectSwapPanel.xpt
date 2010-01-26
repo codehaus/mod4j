@@ -18,6 +18,7 @@ import java.util.List;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.CompoundPropertyModel;
 
 «FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
 import «getPresentationRootPackage()».processes.«p.name»Process ;
@@ -31,24 +32,13 @@ import «getPresentationRootPackage()».processes.«deleteProcess.name»Process;
 
 import «javaDtoClassPath(this.contextRef.name)»;
 
-public class «this.name»SwapEditPanel extends Panel // implements «this.contextRef.name»ListListener
+public class «this.name»SwapEditPanel extends Panel 
 {
 
-//	protected List<«this.contextRef.name»ListListener> listeners = new ArrayList<«this.contextRef.name»ListListener>();
-	
-	/**
-	 * Add a listener to this panel.  The listener will be notified whenever an event takes place on this panel.
-	 * This allows the panel to be used in different pages with different behavior.
-	 * @param listener The listener to be added
-	 */
-//	public void addListener(«this.contextRef.name»ListListener listener ){
-//		listeners.add(listener);
-//	}
+    protected «this.name»Panel  «this.name.toFirstLower()»Panel = null;
+    protected «this.name»EditPanel  «this.name.toFirstLower()»EditPanel = null;
 
-    protected «this.name»PanelWithListener  «this.name.toFirstLower()»Panel = null;
-    protected «this.name»EditPanelWithListener  «this.name.toFirstLower()»EditPanel = null;
-
-    protected boolean editOn = false;
+    protected boolean editOn = true;
     
     public void setEditOn(boolean on){
         if( editOn != on) {
@@ -64,18 +54,15 @@ public class «this.name»SwapEditPanel extends Panel // implements «this.conte
     public «this.name»SwapEditPanel(String id, final IModel<«this.contextRef.name»> inputModel)
     {
         super(id);
-        model = inputModel;
+        model = new CompoundPropertyModel<«this.contextRef.name»>(inputModel);
         
-		«this.name.toFirstLower()»Panel = new «this.name»PanelWithListener("«this.name»SwapPanel",model);
-		«this.name.toFirstLower()»EditPanel = new «this.name»EditPanelWithListener("«this.name»SwapPanel",model);
+		«this.name.toFirstLower()»Panel = new «this.name»Panel("«this.name»SwapPanel",model);
+		«this.name.toFirstLower()»EditPanel = new «this.name»EditPanel("«this.name»SwapPanel",model);
 		
 		«this.name.toFirstLower()»EditPanel.setOutputMarkupPlaceholderTag(true);
 		«this.name.toFirstLower()»Panel.setOutputMarkupPlaceholderTag(true);
 
-		add(«this.name.toFirstLower()»Panel);
-		
-//		«this.name.toFirstLower()»Panel.addListener(this);
-//		«this.name.toFirstLower()»EditPanel.addListener(this);
+		add(«this.name.toFirstLower()»EditPanel);
     }
 
 	/**
@@ -89,17 +76,6 @@ public class «this.name»SwapEditPanel extends Panel // implements «this.conte
 		}
 		editOn = ! editOn;
 	}
-
-	public void on«this.contextRef.name»Cancel(«this.contextRef.name» element) {
-		swapPanels();
-	}
-
-	public void startProcess(String processName, «this.contextRef.name» context) {
-//		for («this.contextRef.name»ListListener listener : listeners) {
-//			listener.startProcess(processName, context);
-//		}
-	}
-
 }
 «ENDLET»
 «ENDLET»

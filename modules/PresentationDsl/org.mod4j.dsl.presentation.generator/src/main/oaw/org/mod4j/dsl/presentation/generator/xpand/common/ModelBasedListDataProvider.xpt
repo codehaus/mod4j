@@ -1,0 +1,69 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE GenerateModelBasedListDataProvider  FOR PresentationModel»
+package «getPresentationCommonPackage()».dataproviders;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
+import org.apache.wicket.markup.repeater.data.ListDataProvider;
+import org.apache.wicket.model.IModel;
+import «getPresentationCommonPackage()».ext.components.SetAsListWrapper;
+
+import «getPresentationCommonPackage()».processes.ProcessType;
+
+
+public class ModelBasedListDataProvider<T extends Serializable> extends ListDataProvider<T>
+            implements Mod4jDataProvider<T>{
+        
+    public ModelBasedListDataProvider(IModel<T> model){
+        super( new SetAsListWrapper<T>(  (Set<T>) (model.getObject())) );
+        System.out.println("MDOEL MODEL MODEL " + model.toString());
+    }
+
+    public void addToDtoList(List<T> tobeadded) {
+    }
+
+    public void deleteDto(T toBeRemoved) {
+    }
+
+    public Object getOwner() {
+        return null;
+    }
+
+    public T newDto() {
+        return null;
+    }
+
+    public void removeFromDtoList(List<T> toberemoved) {
+    }
+
+    public void saveDto(T tobesaved) {
+    }
+
+    public Collection<ProcessType> supportedProcesses() {
+        return ProcessType.all();
+    }   
+
+}
+«ENDDEFINE»

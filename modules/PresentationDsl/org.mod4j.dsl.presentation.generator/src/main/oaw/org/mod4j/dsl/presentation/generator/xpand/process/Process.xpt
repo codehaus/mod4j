@@ -11,366 +11,135 @@
 
 «DEFINE GenerateProcesses FOR PresentationModel-»
     «FOREACH this.elements.typeSelect(Process) AS p»
-		«LET p.processElements.referredContentForm().select(f | f.collectionContext).first() AS form»
-		«LET p.processElements.typeSelect(DialogueCall).select(dia | dia.contextExp != null).first() AS dialogueCallWithContext»
-		«LET p.processElements.referredContentForm().select(f | ! f.collectionContext).first() AS nonCollectionForm»
-		«LET p.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
+        «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "Process") AS filePath»
+        «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "ProcessImplBase") AS filePathImplBase»
+ 
+        «FILE generate(getPresentationModuleName(""), filePathImplBase)»
+	        «IF p.isInteractive() && (p.type != ProcessType::ADDTO) »
+	            «EXPAND GenerateInteractiveProcessImplBase FOR p»
+	        «ELSE»
+	            «EXPAND GenerateBatchProcessImplBase FOR p»
+	        «ENDIF»        
+	    «ENDFILE»
 
-		«LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "Process") AS filePath»
-		«LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "ProcessImplBase") AS filePathImplBase»
-
-		«REM»Generate implementation file «ENDREM»
-		«FILE generate(getPresentationModuleName(""), filePathImplBase)»
-			«IF (form != null) && (dialogueCallWithContext != null) && (p.type == ProcessType::CUSTOM) »
-			    «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCallWithContext) FOR p»
-		    «ELSEIF ! p.isInteractive() »
-		        «EXPAND GenerateBatchProcessImplBase FOR p»
-		    «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::CUSTOM)»
-		        «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCall) FOR p»
-            «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::ADDTO)»
-                «EXPAND GenerateProcessWithListFormImplBase(form, dialogueCall) FOR p»
-		    «ELSE»
-		        «EXPAND GenerateProcessWithSingleFormImplBase(nonCollectionForm, dialogueCall) FOR p»
-			«ENDIF»
-		«ENDFILE»
-
-		«IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), filePath ))»
-			«print("MOD4J REGENERATE: [" + fullExtendPath(getPresentationModuleName(""), filePath) + "]")»
-			«FILE extend(getPresentationModuleName(""), filePath)»
-				«IF (form != null) && (dialogueCallWithContext != null) && (p.type == ProcessType::CUSTOM) »
-				    «EXPAND GenerateProcessWithListForm(form, dialogueCallWithContext) FOR p»
-			    «ELSEIF ! p.isInteractive() »
-			        «EXPAND GenerateBatchProcess FOR p»
-			    «ELSEIF (form != null) && (dialogueCallWithContext == null) && (p.type == ProcessType::CUSTOM)»
-			        «EXPAND GenerateProcessWithListForm(form, dialogueCall) FOR p»
-			    «ELSE»
-			        «EXPAND GenerateProcessWithSingleForm(nonCollectionForm, dialogueCall) FOR p»
-				«ENDIF»
-	        «ENDFILE»
-		«ELSE»
-			«print("MOD4J RETAIN    : [" + fullExtendPath(getPresentationModuleName(""), filePath)+ "]")»
-			«retain(getPresentationModuleName(""), filePath)»
-	    «ENDIF»
-		«ENDLET»
-		«ENDLET»
-		«ENDLET»
-		«ENDLET»
-		«ENDLET»
-		«ENDLET»
-
+        «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""), filePath ))»
+            «print("MOD4J REGENERATE: [" + fullExtendPath(getPresentationModuleName(""), filePath) + "]")»
+            «FILE extend(getPresentationModuleName(""), filePath)»
+                «IF p.isInteractive() && (p.type != ProcessType::ADDTO) »
+	                «EXPAND GenerateInteractiveProcess FOR p»
+	            «ELSE»
+	                «EXPAND GenerateBatchProcess FOR p»
+	            «ENDIF»        
+            «ENDFILE»
+        «ENDIF»
+        
+        «ENDLET»
+        «ENDLET»
     «ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE GenerateInteractiveProcess FOR Process -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcess in Process.xpt") FOR this»
+package «getPresentationRootPackage()».processes;
+
+import org.apache.wicket.model.IModel;
+
+public class «this.name»Process extends «this.name»ProcessImplBase 
+{
+   public «this.name»Process(IModel context){
+        super(context);
+    }
+}
+«ENDDEFINE»
+ 
+ «DEFINE GenerateInteractiveProcessImplBase FOR Process -»
+    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcessImplBase in Process.xpt") FOR this»
+«REM»
+«LET getServiceExpression(dialogueCall) AS serviceExpression»
+«LET getNavigationExpression(dialogueCall) AS navigationExpression»
+«LET dialogueCall.referredContentForm().contextRef.name AS formContext»
+«ENDREM»
+package «getPresentationRootPackage()».processes;
+
+import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «getPresentationRootPackage()».pages.«this.name»Page;
+import «javaDtoClassPath(this.contextRef.name)»;
+import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
+import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
+import «getPresentationCommonPackage()».ext.components.ListElementModel;
+
+import java.util.Set;
+import java.util.List;
+import java.util.Collection;
+import org.apache.wicket.Page;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
+import org.apache.wicket.markup.repeater.data.ListDataProvider;
+import «getPresentationCommonPackage()».processes.ProcessType;
+
+public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.name»> 
+{
+    public «this.name»ProcessImplBase(IModel context){
+        model = context;
+    }
+    
+    «EXPAND GetProcessType FOR this»
+
+    public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
+    «IF this.type == ProcessType::NEW»
+        «this.contextRef.name» newDto = new «this.contextRef.name»();
+        Object object = model.getObject();
+        if( object instanceof IDataProvider ){      
+            model = new Model(newDto);
+        } else if ( object instanceof Collection){
+            Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)object;
+            list.add(newDto);
+            ListElementModel<«this.contextRef.name»> pageModel = new ListElementModel<«this.contextRef.name»>("id",null, model);
+            model = pageModel;
+        } else {
+            throw new RuntimeException("MOD$J Error: GGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+        }
+        «this.name»Page page = new «this.name»Page(this, model);
+        page.setProcess(this);
+        return page;
+    
+    «ELSEIF this.type == ProcessType::SAVE»
+        return null;
+    «ELSEIF this.type == ProcessType::EDIT»
+        «this.name»Page page = new «this.name»Page (this, model);
+        page.setProcess(this);
+        return page;
+    «ELSEIF this.type == ProcessType::DELETE»
+        return null;
+    «ELSEIF this.type == ProcessType::ADDTO»
+        return null;
+    «ELSEIF this.type == ProcessType::CANCEL»
+        return null;
+    «ELSEIF this.type == ProcessType::CUSTOM»
+        «this.name»Page page = new «this.name»Page (this, model);
+        page.setProcess(this);
+        return page;
+    «ENDIF»
+    }
+    
+    «IF this.type == ProcessType::ADDTO»
+    
+    «ENDIF»
+
+    public void done(«getWicketMasterPageClass()» page){
+        getOwningPage().setResponsePage(getOwningPage());
+    }
+}
 «ENDDEFINE»
  
 
-«REM» Generate code for process witrjh a diaologuecall that is a collection and has a context expression
-«ENDREM»
-«DEFINE GenerateProcessWithListForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
-    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateProcessWithListForm in Process.xpt") FOR this»
-package «getPresentationRootPackage()».processes;
-
-public class «this.name»Process extends «this.name»ProcessImplBase 
-{
-}
-«ENDDEFINE»
-
-«REM» Generate code for process witrjh a diaologuecall that is a collection and has a context expression
-«ENDREM»
-«DEFINE GenerateProcessWithListFormImplBase(ContentForm form, DialogueCall dialogueCall) FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateProcessWithListFormImplBase in Process.xpt") FOR this»
-«LET getServiceExpression(dialogueCall) AS serviceExpression»
-«LET getNavigationExpression(dialogueCall) AS navigationExpression»
-«LET getStandardExpression(dialogueCall) AS standardExpression»
-«LET findServiceWithMethod(this.contextRef.name, "UPDATE") AS service»
-«LET findSpecialMethodInService(this.contextRef.name, "UPDATE", service) AS updateService»
-package «getPresentationRootPackage()».processes;
-
-«IF serviceExpression != null»
-	import «javaLocalServiceInterfacePath(serviceExpression.serviceName)» ;
-	import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProviderClass(form.contextRef.name)» ;
-«ELSEIF (standardExpression != null) »
-    «IF (standardExpression.type == ExpressionType::ALL) »
-		import «javaLocalServiceInterfacePath(service)» ;
-		import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(form.contextRef.name)» ;
-    «ELSEIF (standardExpression.type == ExpressionType::FIND) »
-		import «javaLocalServiceInterfacePath(service)» ;
-		import «getPresentationRootPackage()».dataproviders.«getWicketFinderDataProviderClass(form.contextRef.name)» ;
-	«ENDIF»
-«ELSEIF navigationExpression != null»
-	«LET getResultType(this.contextRef.modelName, this.contextRef.name, navigationExpression) AS resultType» 
-	«IF navigationExpression.composition»
-        import «getPresentationRootPackage()».dataproviders.«getWicketCompositeDataProviderClass(this.contextRef.name, resultType)»; 
-    «ELSE»
-        import «getPresentationRootPackage()».dataproviders.«getWicketReferenceDataProviderClass(this.contextRef.name, resultType)»; 
-    «ENDIF»
-	import «javaLocalServiceInterfacePath(service)» ;
-	import «javaDtoClassPath(form.contextRef.name)»;
-	«ENDLET»
-«ELSE»
-«REM»no service expression, must be a navugation or no expression«ENDREM»
-«ENDIF»
-
-import «getPresentationRootPackage()».dataproviders.PmfListDataProvider;
-import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-import «getPresentationRootPackage()».pages.«this.name»«dialogueCall.name»Page;
-import «javaDtoClassPath(this.contextRef.name)»;
-
-import java.util.List;
-import java.util.ArrayList;
-import org.apache.wicket.Page;
-import org.apache.wicket.model.CompoundPropertyModel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.markup.repeater.data.IDataProvider;
-import org.apache.wicket.markup.repeater.data.ListDataProvider;
-
-public class «this.name»ProcessImplBase extends Page implements PmfProcess<«this.contextRef.name»> 
-{
-    «EXPAND GetProcessType FOR this»
-    «IF (serviceExpression != null) »
-	    «javaLocalServiceInterface(service)» service;
-	 «ELSEIF navigationExpression != null »
-	    «javaLocalServiceInterface(service)» service;
-	 «ELSEIF standardExpression != null »
-	    «javaLocalServiceInterface(service)» service;
-	 «ELSE»
-	     «REM»No ecxpression«ENDREM»
-	 «ENDIF»
-	 «IF this.type == ProcessType::ADDTO»
-	   private Mod4jDataProvider<«this.contextRef.name»> provider = null;
-
-    public Mod4jDataProvider<«this.contextRef.name»> getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Mod4jDataProvider<«this.contextRef.name»> provider) {
-        this.provider = provider;
-    }
-	 «ENDIF»
-
-    public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
-		«IF navigationExpression != null»
-			«LET this.contextRef AS context»	   
-			«LET getResultType(context.modelName, context.name, navigationExpression) AS resultType» 
-            «IF navigationExpression.composition»
-				«LET getWicketCompositeDataProviderClass(context.name, resultType) AS provider» 
-				«provider» provider = new «provider»(element);
-				«ENDLET»
-			«ELSE»
-                «LET getWicketReferenceDataProviderClass(context.name, resultType) AS provider» 
-                «IF this.type == ProcessType::ADDTO»
-			        owningPage.getProvider().setAll(true);
-			        «provider» provider = owningPage.getProvider();
-                «ELSE»                
-                    «provider» provider = new «provider»(element);
-                «ENDIF»
-                «ENDLET»
-			«ENDIF»
-            «this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
-			page.setProcess(this);
-			return page;
-			«ENDLET»
-			«ENDLET»
-	    «ELSEIF (standardExpression != null)» 
-	        «IF (standardExpression.type == ExpressionType::ALL) »
-				«getWicketListAllDataProviderClass(form.contextRef.name)» provider = new «getWicketListAllDataProviderClass(form.contextRef.name)»();
-				«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
-				page.setProcess(this);
-				return page;
-		    «ELSEIF (standardExpression.type == ExpressionType::FIND) »
-				«getWicketFinderDataProviderClass(form.contextRef.name)» provider = new «getWicketFinderDataProviderClass(form.contextRef.name)»(element);
-				«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
-				page.setProcess(this);
-				return page;
-			«ENDIF»
-	    «ELSEIF serviceExpression != null »
-	        «LET serviceCallResultType(this.contextRef.name, serviceExpression) AS resultType»
-                «getWicketServiceDataProviderClass(form.contextRef.name)» provider = new «getWicketServiceDataProviderClass(form.contextRef.name)»(element);
-                «this.name»«form.name»Page page = new «this.name»«form.name»Page(this, provider);
-                page.setProcess(this);
-                return page;
-	    	«ENDLET»
-		«ELSE»
-			«this.name»«form.name»Page page = new «this.name»«form.name»Page(this, getOwningPage().getProvider());
-			page.setProcess(this);
-			return page;
-			// TODO: this should not happen: no cotxt expressio n for dialogue of process «this.name»
-		«ENDIF»
-	}
-	
-    public «getWicketMasterPageClass()» nextPage(List<«this.contextRef.name»> selectedElements) {
-    «IF dialogueCall.contextExp == null»
-        «IF navigationExpression != null»
-	        «IF this.type == ProcessType::ADDTO»
-                owningPage.getProvider().setAll(true);
-                Mod4jDataProvider provider = owningPage.getProvider();
-	        «ELSE»                
-	            PmfListDataProvider<«this.contextRef.name»> provider = //2
-	            new PmfListDataProvider<«this.contextRef.name»>(selectedElements);
-	        «ENDIF»
-	    «ELSE»
-            «IF this.type == ProcessType::ADDTO»
-                owningPage.getProvider().setAll(true);
-                Mod4jDataProvider provider = owningPage.getProvider();
-            «ELSE»
-                PmfListDataProvider<«this.contextRef.name»> provider = //3
-                new PmfListDataProvider<«this.contextRef.name»>(selectedElements);
-            «ENDIF»
-	    «ENDIF»
-    
-        «this.name»«form.name»Page page = new «this.name»«form.name»Page (this, provider);
-        page.setProcess(this);
-        return page;
-    «ELSE»
-        return null;
-    «ENDIF»
-	}
-
-    public void run(List<«this.contextRef.name»> selectedElements) {
-        owningPage.getProvider().addToDtoList(selectedElements);
-    }
-    
-	public void done(«getWicketMasterPageClass()» page){
-	    owningPage.getProvider().setAll(false);
-	}
-	
-	protected «getWicketMasterPageClass()» owningPage = null;
-	
-	public «getWicketMasterPageClass()» getOwningPage() {
-	    return owningPage;
-	}
-	public void setOwningPage(«getWicketMasterPageClass()» page) {
-		owningPage = page;
-	}
-
-}
-«ENDLET»
-«ENDLET»
-«ENDLET»
-«ENDLET»
-«ENDLET»
-«ENDDEFINE»
-
-«DEFINE GenerateProcessWithSingleForm(ContentForm form, DialogueCall dialogueCall) FOR Process -»
-    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateProcessWithSingleForm in Process.xpt") FOR this»
-package «getPresentationRootPackage()».processes;
-
-public class «this.name»Process extends «this.name»ProcessImplBase 
-{
-}
-«ENDDEFINE»
-
-«REM» Generate code for process with a diaologuecall that is a not collection 
-«ENDREM»
-«DEFINE GenerateProcessWithSingleFormImplBase(ContentForm form, DialogueCall dialogueCall) FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateProcessWithSingleFormImplBase in Process.xpt") FOR this»
-«LET getServiceExpression(dialogueCall) AS serviceExpression»
-«LET getNavigationExpression(dialogueCall) AS navigationExpression»
-«LET getWicketServiceDataProviderClass(form.contextRef.name) AS provider»
-«LET dialogueCall.referredContentForm().contextRef.name AS formContext»
-package «getPresentationRootPackage()».processes;
-
-import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-«IF ! (dialogueCall == null)»
-import «getPresentationRootPackage()».pages.«this.name»«dialogueCall.name»Page;
-«ENDIF»
-import «javaDtoClassPath(formContext)»;
-import «javaDtoClassPath(this.contextRef.name)»;
-import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-
-import java.util.List;
-import org.apache.wicket.Page;
-import org.apache.wicket.model.CompoundPropertyModel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.markup.repeater.data.IDataProvider;
-import org.apache.wicket.markup.repeater.data.ListDataProvider;
-
-public class «this.name»ProcessImplBase extends Page implements PmfProcess<«this.contextRef.name»> 
-{
-    «EXPAND GetProcessType FOR this»
-    «IF (serviceExpression != null) »
-	 «ELSEIF navigationExpression != null »
-	 «ELSE»
-	 «ENDIF»
-	 «REM»PROVIDER ALWAYS NECCESARY ? «ENDREM»
-        private Mod4jDataProvider<«form.contextRef.name»> provider = null;
-
-        public Mod4jDataProvider<«form.contextRef.name»> getProvider() {
-            return provider;
-        }
-    
-        public void setProvider(Mod4jDataProvider<«form.contextRef.name»> provider) {
-            this.provider = provider;
-        }
-
-    public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
-	«IF this.type == ProcessType::NEW»
-	// NEW
-		«this.contextRef.name» newDto = provider.newDto();
-		«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page(
-				this, new CompoundPropertyModel<«this.contextRef.name»>(newDto));
-		page.setProvider(provider);
-		page.setProcess(this);
-		page.editOn(true);
-		return page;
-	
-	«ELSEIF this.type == ProcessType::SAVE»
-	// SAVE
-    	return null;
-	«ELSEIF this.type == ProcessType::EDIT»
-	// EDIT
-	    «IF navigationExpression != null »
-			«formContext» newElement = element.get«navigationExpression.references.first().name.toFirstUpper()»	();   
-			«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (this,
-			         new CompoundPropertyModel<«formContext»>(newElement));
-	    «ELSE»
-			«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (this,
-			         new CompoundPropertyModel<«this.contextRef.name»>(element));
-		«ENDIF»
-		page.setProvider(provider);
-		page.editOn(true);
-		page.setProcess(this);
-		return page;
-	«ELSEIF this.type == ProcessType::DELETE»
-	// REMOVE
-    	return null;
-	«ELSEIF this.type == ProcessType::CANCEL»
-	// CANCEL
-    	return null;
-	«ELSEIF this.type == ProcessType::CUSTOM»
-		«this.name»«dialogueCall.name»Page page = new «this.name»«dialogueCall.name»Page (this,
-			         new CompoundPropertyModel<«this.contextRef.name»>(element));
-		page.setProvider(provider);
-		page.editOn(false);
-		page.setProcess(this);
-		return page;
-	«ENDIF»
-	}
-
-	public void done(«getWicketMasterPageClass()» page){
-	    getOwningPage().setResponsePage(getOwningPage());
-	}
-	protected «getWicketMasterPageClass()» owningPage = null;
-	
-	public «getWicketMasterPageClass()» getOwningPage() {
-	    return owningPage;
-	}
-	public void setOwningPage(«getWicketMasterPageClass()» page) {
-		owningPage = page;
-	}
-
-}
-«ENDLET»
-«ENDLET»
-«ENDLET»
-«ENDLET»
-«ENDDEFINE»
 
 «REM» Gebnerate for process w
 «ENDREM»
 «DEFINE GenerateBatchProcess FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcess  in Process.xpt") FOR this»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateBatchProcess  in Process.xpt") FOR this»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
@@ -390,6 +159,10 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
  */
 public class «this.name»Process extends «this.name»ProcessImplBase 
 {
+    public «this.name»Process(IModel context){
+        super(context);
+    }
+    
 	«IF this.type == ProcessType::CUSTOM»
 	   «IF this.collectionContext»
             public void run(List<«this.contextRef.name»> elements) {
@@ -414,7 +187,10 @@ import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 import «javaDtoClassPath(this.contextRef.name)»;
+import «getPresentationCommonPackage()».ext.components.Helpers;
+import org.mod4j.runtime.dto.AbstractDto;
 
+import java.util.Collection;
 import java.util.List;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
@@ -422,22 +198,17 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
-
+import «getPresentationCommonPackage()».processes.ProcessType;
 /** Automated process
  */
-public class «this.name»ProcessImplBase implements PmfProcess<«this.contextRef.name»> 
+public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.name»> 
 {
     «EXPAND GetProcessType FOR this»
-    private Mod4jDataProvider<«this.contextRef.name»> provider = null;
 
-		public Mod4jDataProvider<«this.contextRef.name»> getProvider() {
-		return provider;
-	}
-
-	public void setProvider(Mod4jDataProvider<«this.contextRef.name»> provider) {
-		this.provider = provider;
-	}
-
+    public «this.name»ProcessImplBase (IModel context){
+        this.model = context;
+    }
+    
     public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
     	return null;
 	}
@@ -448,24 +219,120 @@ public class «this.name»ProcessImplBase implements PmfProcess<«this.contextRe
 		}
 	
 		private void saveAction(«this.contextRef.name» element) {
-		    provider.saveDto(element);
+	        IModel innerModel = Helpers.findInnerMostModel(model);
+	        Object object = innerModel.getObject();
+	        if( object instanceof AbstractDto ){
+	            AbstractDto root = (AbstractDto)innerModel.getObject();
+	            if( root.getId() == null ){
+                    root  = «getWicketHomePageClass()».create(root);
+	            } else {
+                    root  = «getWicketHomePageClass()».update(root);
+	            }
+	            innerModel.setObject(root);
+	        }
 		}
 	«ELSEIF this.type == ProcessType::DELETE»
-		public void run(«this.contextRef.name» element) {
-			deleteAction(element);
-    	}
-
-		private void deleteAction(«this.contextRef.name» element) {
-			provider.deleteDto(element);
-			owningPage.modelChanged();
-		}
+	   «IF this.collectionContext»
+	        public void run(List<«this.contextRef.name»> elements) {
+	            deleteAction(elements);
+	        }
+	
+	        private void deleteAction(List<«this.contextRef.name»> elements) {
+	            for(«this.contextRef.name» dto : elements){
+	                if( dto.getId() == null ){
+	                    System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
+	                } else {
+	                    «getWicketHomePageClass()».delete(dto);
+	                }
+		        }
+	            owningPage.modelChanged();
+	        }
+	   «ELSE»
+			public void run(«this.contextRef.name» element) {
+				deleteAction(element);
+	    	}
+	
+			private void deleteAction(«this.contextRef.name» element) {
+		        IModel innerModel = Helpers.findInnerMostModel(model);
+		        Object object = innerModel.getObject();
+		        if( object instanceof «this.contextRef.name»){
+		            «this.contextRef.name» root = («this.contextRef.name»)innerModel.getObject();
+		            if( root.getId() == null ){
+		                System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
+		            } else {
+	                    «getWicketHomePageClass()».delete(root);
+		            }
+		            innerModel.setObject(null);
+		        }
+		        owningPage.modelChanged();
+			}
+		«ENDIF»
 	«ELSEIF this.type == ProcessType::CANCEL »
 		public void run(«this.contextRef.name» element) {
 			// do nothing, will return to previous page
     	}
     «ELSEIF this.type == ProcessType::REMOVEFROM»
+        «IF this.collectionContext»
+	        public void run(List<«this.contextRef.name»> elements) {
+		        Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
+		        list.removeAll(elements);
+		        
+		        IModel innerModel = Helpers.findInnerMostModel(model);
+		        Object object = innerModel.getObject();
+		        if (object instanceof AbstractDto) {
+		            AbstractDto root = (AbstractDto) innerModel.getObject();
+		            if (root.getId() == null) {
+		                System.out
+		                        .println("CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE ");
+		
+		                root = «getWicketHomePageClass()».create(root);
+		            } else {
+		                System.out
+		                        .println("UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE ");
+		
+		                root = «getWicketHomePageClass()».update(root);
+		            }
+		            innerModel.setObject(root);
+		        }
+		
+	            owningPage.modelChanged();
+	        }
+	    «ELSE»
+            public void run(«this.contextRef.name» element) {
+                Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
+                list.remove(element);
+                
+                IModel innerModel = Helpers.findInnerMostModel(model);
+                Object object = innerModel.getObject();
+                if (object instanceof AbstractDto) {
+                    AbstractDto root = (AbstractDto) innerModel.getObject();
+                    if (root.getId() == null) {
+                        root = «getWicketHomePageClass()».create(root);
+                    } else {
+                        root = «getWicketHomePageClass()».update(root);
+                    }
+                    innerModel.setObject(root);
+                }
+                owningPage.modelChanged();
+            }
+	    «ENDIF»
+    «ELSEIF this.type == ProcessType::ADDTO»
         public void run(List<«this.contextRef.name»> elements) {
-            provider.removeFromDtoList(elements);
+            Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
+            list.addAll(elements);
+            
+            IModel innerModel = Helpers.findInnerMostModel(model);
+            Object object = innerModel.getObject();
+            if (object instanceof AbstractDto) {
+                AbstractDto root = (AbstractDto) innerModel.getObject();
+                if (root.getId() == null) {
+                    root = «getWicketHomePageClass()».create(root);
+                } else {
+                    root = «getWicketHomePageClass()».update(root);
+                }
+                innerModel.setObject(root);
+            }
+    
             owningPage.modelChanged();
         }
 	«ELSE»
@@ -478,15 +345,8 @@ public class «this.name»ProcessImplBase implements PmfProcess<«this.contextRe
 	    getOwningPage().setResponsePage(getOwningPage());
 	}
 	
-	protected «getWicketMasterPageClass()» owningPage = null;
-	
-	public «getWicketMasterPageClass()» getOwningPage() {
-	    return owningPage;
-	}
-	public void setOwningPage(«getWicketMasterPageClass()» page) {
-		owningPage = page;
-	}
 }
+«REM»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDREM»
 «ENDDEFINE»
 
 
@@ -494,36 +354,56 @@ public class «this.name»ProcessImplBase implements PmfProcess<«this.contextRe
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GeneratePmfProcess in Process.xpt") FOR this-»
 package «getPresentationRootPackage()».processes;
 
-import org.apache.wicket.Page;
+import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.model.IModel;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
+import «getPresentationCommonPackage()».processes.ProcessType;
 
 /**
  * A process definition as defined the the presentation DSL.S
  * @param <T> The context type of the process
  */
-public interface PmfProcess <T> {
+abstract public class PmfProcess <T> {
 	
-	public ProcessType getProcessType() ;
+	abstract public ProcessType getProcessType() ;
 	/**
 	 * Rturns the next Page, will return null if there is no next page, e.g. when this is an Automated process.
 	 */
-	public «getWicketMasterPageClass()» nextPage(T o);
+	abstract public «getWicketMasterPageClass()» nextPage(T o);
 	
 	/**
 	 * Is called by the Page that is started from this process to denote that the page (and its subprocesses)
 	 * is ready.  Usually this means that the previous page (the owning page of this process must be restored.
 	 */
-	public void done(«getWicketMasterPageClass()» page);
+	abstract public void done(«getWicketMasterPageClass()» page);
 
-    /**
-     * returns the page from which this process was started.
-     */
-	public «getWicketMasterPageClass()» getOwningPage();
-	
-	/**
-	 * Set the page from which this process was started.
-     */
-	public void setOwningPage(«getWicketMasterPageClass()» page);
+    protected MarkupContainer initiator = null;
+
+    public MarkupContainer getInitator() {
+        return initiator;
+    }
+    public void setInitator(MarkupContainer container) {
+        initiator = container;
+    }
+    
+    protected «getWicketMasterPageClass()» owningPage = null;
+
+    public «getWicketMasterPageClass()» getOwningPage() {
+        return owningPage;
+    }
+    public void setOwningPage(«getWicketMasterPageClass()» page) {
+        owningPage = page;
+    }
+
+    protected IModel model;
+    
+    public IModel getModel() {
+        return model;
+    }
+
+    public void setModel(IModel model) {
+        this.model = model;
+    }
 
 }
 «ENDDEFINE»

@@ -11,7 +11,7 @@
 
 «DEFINE ProcessType FOR PresentationModel -»
     «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: ProcessType.xpt") FOR this»
-package «getPresentationRootPackage()».processes;
+package «getPresentationCommonPackage()».processes;
 
 import java.util.Collection;
 import java.util.EnumSet;

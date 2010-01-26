@@ -1,0 +1,135 @@
+«REM»
+      Copyright (c) 2009 Ordina and committers to Mod4j
+      All rights reserved. This program and the accompanying materials
+      are made available under the terms of the Eclipse Public License v1.0
+      which accompanies this distribution, and is available at
+      http://www.eclipse.org/legal/epl-v10.html
+     
+      Contributors:
+          Ordina - initial implementation
+«ENDREM»
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::maven»
+«IMPORT org::mod4j::dsl::presentation::generator::xpand::panels»
+
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+
+«DEFINE GenerateSetAsListWrapper  FOR PresentationModel»
+package «getPresentationCommonPackage()».ext.components;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Set;
+
+public class SetAsListWrapper<T> implements List<T> {
+
+    private SetAsListWrapper() {}
+    
+    protected Set<T> wrappedSet;
+    
+    public SetAsListWrapper(Set<T> wrapperSet){
+        this.wrappedSet = wrapperSet;
+    }
+
+    public boolean add(T o) {
+        return wrappedSet.add(o);
+    }
+
+    public void add(int index, T element) {
+        wrappedSet.add(element);
+    }
+
+    public boolean addAll(Collection<? extends T> c) {
+        return wrappedSet.addAll(c);
+    }
+
+    public boolean addAll(int index, Collection<? extends T> c) {
+        return wrappedSet.addAll(c);
+    }
+
+    public void clear() {
+        wrappedSet.clear();
+    }
+
+    public boolean contains(Object o) {
+        return wrappedSet.contains(o);
+    }
+
+    public boolean containsAll(Collection<?> c) {
+        return wrappedSet.containsAll(c);
+    }
+
+    public T get(int index) {
+        return null;
+    }
+
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    public boolean isEmpty() {
+        return wrappedSet.isEmpty();
+    }
+
+    public Iterator<T> iterator() {
+        return wrappedSet.iterator();
+    }
+
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+    public ListIterator<T> listIterator() {
+        ArrayList<T> tmp = new ArrayList<T>(wrappedSet);
+        return tmp.listIterator();
+    }
+
+    public ListIterator<T> listIterator(int index) {
+        return null;
+    }
+
+    public boolean remove(Object o) {
+        return wrappedSet.remove(o);
+    }
+
+    public T remove(int index) {
+        return null;
+    }
+
+    public boolean removeAll(Collection<?> c) {
+        return wrappedSet.removeAll(c);
+    }
+
+    public boolean retainAll(Collection<?> c) {
+        return wrappedSet.retainAll(c);
+    }
+
+    public T set(int index, T element) {
+        return null;
+    }
+
+    public int size() {
+        return wrappedSet.size();
+    }
+
+    public List<T> subList(int fromIndex, int toIndex) {
+        ArrayList<T> tmp = new ArrayList<T>(wrappedSet);
+        return tmp.subList(fromIndex, toIndex);
+    }
+
+    public Object[] toArray() {
+        return wrappedSet.toArray();
+    }
+
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
+}
+«ENDDEFINE»
