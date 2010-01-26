@@ -137,7 +137,7 @@
 	 * @return «associationRole.name» (Set<«baseDto.name.toFirstUpper()»>) 
 	 */
 	public Set<«baseDto.name.toFirstUpper()»> get«associationRole.name.toFirstUpper()»() {
-		return Collections.unmodifiableSet(this.«associationRole.name»);
+		return this.«associationRole.name»;
 	}
 
     «EXPAND addToCollection(associationRole.name) FOR this»
@@ -168,7 +168,7 @@
 	 * @return «associationRole.name» (List<«baseDto.name.toFirstUpper()»>) 
 	 */
 	public List<«baseDto.name.toFirstUpper()»> get«associationRole.name.toFirstUpper()»() {
-		return Collections.unmodifiableList(this.«associationRole.name»);
+		return this.«associationRole.name»;
 	}
 	
     «EXPAND addToCollection(associationRole.name) FOR this»
