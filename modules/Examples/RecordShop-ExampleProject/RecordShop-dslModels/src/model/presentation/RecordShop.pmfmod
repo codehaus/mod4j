@@ -2,7 +2,8 @@
 presentation RecordshopPresentation;
 
 from RecordShopDataContract import FullCustomerDto ;
-from RecordShopDataContract import SimpleCustomerDto ;
+from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import ArtistDto;
 // TODO from CustomerModel import  CustomerDetails ;
 from CustomerServiceModel import CustomerServiceModel;  
 

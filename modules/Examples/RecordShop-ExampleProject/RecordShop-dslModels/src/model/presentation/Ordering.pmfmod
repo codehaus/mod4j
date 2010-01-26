@@ -1,8 +1,11 @@
 "alle UI die met orders te maken heeft"
 presentation RecordShopOrderingPresentation;
 
-from RecordShopDataContract import OrderDto ;
-from RecordShopDataContract import OrderNumberAndDateDto ;
+from RecordShopDataContract import FullCustomerDto ;
+from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import ArtistDto;
+//from RecordShopDataContract import OrderDto ;
+//from RecordShopDataContract import OrderNumberAndDateDto ;
 from CustomerServiceModel import CustomerServiceModel;  
 
 /* Disabled. Enable when fixed.

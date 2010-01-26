@@ -1,6 +1,7 @@
 "Everything Customer related"
 presentation CustomerModel;
-      
+
+from RecordShopDataContract import FullCustomerDto ;      
 from RecordShopDataContract import SimpleCustomerDto;
 from RecordShopDataContract import ArtistDto;
 from CustomerServiceModel import CustomerServiceModel;  
