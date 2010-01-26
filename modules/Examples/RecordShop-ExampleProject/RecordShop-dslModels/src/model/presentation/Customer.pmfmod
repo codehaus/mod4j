@@ -1,37 +1,72 @@
 "Everything Customer related"
 presentation CustomerModel;
-
+      
 from RecordShopDataContract import SimpleCustomerDto;
+from RecordShopDataContract import ArtistDto;
+from CustomerServiceModel import CustomerServiceModel;  
+       
 // TODO: from RecordShopOrderingPresentation import OrderAndDateCollection ;
 // TODO: from RecordShopOrderingPresentation import OrderAndDateForm;
-
-ContentForm CustomerDetails context SimpleCustomerDto [
+ContentForm CustomerList context list SimpleCustomerDto [
 	element lastName label name;
 	element birthDate label birthDate;
-	element customerNr label nr;
-]
-
-ContentForm CustomerExtra context SimpleCustomerDto [ 
-	element sexe label sexe;
-	element firstName label firstName;
-]
-	
-CompoundDialogue FullCustomerDialogue context SimpleCustomerDto 
-	dialogues [ 
-		to CustomerDetails;
-//		navigate CustomerOrders to OrderAndDateCollection;
-		to CustomerExtra;
+	element customerNr label nr;  
+	processes [ 
+		EditCustomer;
+		NewCustomer ;
 	]
+]
+ 
+ContentForm CustomerDetails context SimpleCustomerDto [
+	element lastName label name; 
+	element birthDate label birthDate;
+	element customerNr label nr;
 	processes [
 		HandleCustomer; 
+		HandleIdols;
+		SaveCustomer;
+		DeleteCustomer;
 	]
+]
 
+Process SaveCustomer context SimpleCustomerDto 
+save
+
+Process AddIdol context SimpleCustomerDto 
+addto
+
+Process NewCustomer context SimpleCustomerDto 
+new step [ to CustomerDetails ; ]
+     
+Process DeleteCustomer context SimpleCustomerDto 
+delete     
+
+Process EditCustomer context SimpleCustomerDto 
+edit   
+   
 Process HandleCustomer context SimpleCustomerDto
+  
+Process HandleIdols context SimpleCustomerDto
+    steps [ 
+        dialogue navigate idols to ArtistList; 
+        dialogue to CustomerDetails;
+    ] 
 
-//InteractiveProcess ManageCustomer context SimpleCustomerDto
-//	step [ 
-//		navigate CustomerOrders to OrderAndDateCollection;
-////		/CustomerDetails;
-////		process ManageCustomer;
-//		]
+ContentForm ArtistList context list ArtistDto [
+    element name label Name;
+    processes [
+    	addArtists;  
+    	removeArtists; 
+    ]
+] 
 
+Process addArtists context list ArtistDto
+addto step [ to ArtistList; ]
+Process removeArtists context list ArtistDto
+removefrom
+
+Process allCustomers context SimpleCustomerDto
+start step [ all to CustomerList; ] 
+  
+Process allArtists context ArtistDto
+start step [ all to ArtistList; ] 

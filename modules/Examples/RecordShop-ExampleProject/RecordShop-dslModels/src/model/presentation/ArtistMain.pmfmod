@@ -2,6 +2,7 @@
 presentation RecordshopArtistPresentation;
 
 from RecordShopDataContract import ArtistDto    ;
+from CustomerServiceModel import CustomerServiceModel;  
 
 /* Disabled. Enable when fixed.
 

@@ -3,6 +3,7 @@ presentation RecordShopOrderingPresentation;
 
 from RecordShopDataContract import OrderDto ;
 from RecordShopDataContract import OrderNumberAndDateDto ;
+from CustomerServiceModel import CustomerServiceModel;  
 
 /* Disabled. Enable when fixed.
 

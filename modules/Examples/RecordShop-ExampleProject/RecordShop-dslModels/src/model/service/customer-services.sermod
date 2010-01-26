@@ -28,7 +28,7 @@ crud ProductWithCustomersDto;
 crud FullProductDto;
 
 crud CustomerWithOrdersAndOrderLines;
-           
+crud ArtistDto;           
 /*              
  * Explicit definded crud servicemethods         
  */         
@@ -39,6 +39,7 @@ delete deleteCustomer for SimpleCustomerDto ;
 
 listall listCustomers for SimpleCustomerDto ;
 listall listFullCustomers for FullCustomerDto;
+listall listAllArtists for ArtistDto;
       
 find findCustomers for SimpleCustomerDto ;  
 
