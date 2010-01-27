@@ -24,46 +24,82 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.Iterator;
 
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import «getPresentationCommonPackage()».ext.components.SetAsListWrapper;
 
 import «getPresentationCommonPackage()».processes.ProcessType;
 
+public class ModelBasedListDataProvider<T extends Serializable>
+         implements Mod4jDataProvider<T> {
 
-public class ModelBasedListDataProvider<T extends Serializable> extends ListDataProvider<T>
-            implements Mod4jDataProvider<T>{
-        
-    public ModelBasedListDataProvider(IModel<T> model){
-        super( new SetAsListWrapper<T>(  (Set<T>) (model.getObject())) );
-        System.out.println("MDOEL MODEL MODEL " + model.toString());
-    }
-
-    public void addToDtoList(List<T> tobeadded) {
-    }
-
-    public void deleteDto(T toBeRemoved) {
+    protected IModel model;
+    
+    public ModelBasedListDataProvider(IModel<T> model) {
+        this.model = model;
     }
 
     public Object getOwner() {
         return null;
     }
 
-    public T newDto() {
-        return null;
-    }
-
-    public void removeFromDtoList(List<T> toberemoved) {
-    }
-
-    public void saveDto(T tobesaved) {
-    }
-
     public Collection<ProcessType> supportedProcesses() {
         return ProcessType.all();
-    }   
+    }
+    
+    // Copied from ListDataProvider
+    private static final long serialVersionUID = 1L;
+
+    /** reference to the list used as dataprovider for the dataview */
+    private List<T> list;
+
+    protected void getList(){
+        list = new SetAsListWrapper<T>((Set<T>) (model.getObject()));
+    }
+
+    /**
+     * @see IDataProvider#iterator(int, int)
+     */
+    public Iterator<? extends T> iterator(final int first, final int count)
+    {
+        getList();
+        int toIndex = first + count;
+        if (toIndex > list.size())
+        {
+            toIndex = list.size();
+        }
+        return list.subList(first, toIndex).listIterator();
+    }
+
+    /**
+     * @see IDataProvider#size()
+     */
+    public int size()
+    {
+        getList();
+        return list.size();
+    }
+
+    /**
+     * @see IDataProvider#model(Object)
+     */
+    public IModel<T> model(T object)
+    {
+        return new Model<T>(object);
+    }
+
+    /**
+     * @see org.apache.wicket.model.IDetachable#detach()
+     */
+    public void detach()
+    {
+    }
+
+
 
 }
+
 «ENDDEFINE»
