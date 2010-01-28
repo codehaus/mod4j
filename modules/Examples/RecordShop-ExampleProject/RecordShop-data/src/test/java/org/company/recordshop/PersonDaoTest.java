@@ -1,7 +1,6 @@
 package org.company.recordshop;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
@@ -9,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.company.recordshop.data.CustomerDao;
 import org.company.recordshop.data.PersonDao;
 import org.company.recordshop.domain.Customer;
 import org.company.recordshop.domain.Person;
@@ -27,6 +27,9 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 	@Autowired
 	private PersonDao personDao;
 
+	@Autowired
+	private CustomerDao customerDao;
+
 	protected DateTime date() {
 		return new DateTime(2008, 11, 6, 0, 0, 0, 0);
 	}
@@ -40,11 +43,11 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 				"select first_Name from person_table where id = ?",
 				String.class, person.getId()));
 		assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
-				"select last_Name from person_table where id = ?", String.class,
-				person.getId()));
-        assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
-                "select last_name from person_table where id = ?", String.class,
-                person.getId()));
+				"select last_Name from person_table where id = ?",
+				String.class, person.getId()));
+		assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
+				"select last_name from person_table where id = ?",
+				String.class, person.getId()));
 	}
 
 	/**
@@ -60,8 +63,8 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
 				simpleJdbcTemplate, "Person_TABLE"));
 		assertEquals("Vermeer", simpleJdbcTemplate.queryForObject(
-				"select last_name from person_table where id = ?", String.class,
-				pers.getId()));
+				"select last_name from person_table where id = ?",
+				String.class, pers.getId()));
 	}
 
 	/**
@@ -150,15 +153,14 @@ public class PersonDaoTest extends AbstractDaoTestCase {
 				simpleJdbcTemplate, "Customer_TABLE"));
 		flush();
 		clear();
-		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
-				simpleJdbcTemplate, "Person_TABLE"));
-		assertEquals(1, SimpleJdbcTestUtils.countRowsInTable(
-				simpleJdbcTemplate, "Customer_TABLE"));
 		List<Person> persons = personDao.listAll();
 		assertEquals(2, persons.size());
 		Collections.sort(persons, new PersonComparator());
 		assertSame(Person.class, persons.get(0).getClass());
 		assertSame(Customer.class, persons.get(1).getClass());
+		
+		List<Customer> customers = customerDao.listAll();
+		assertEquals(1, customers.size());
 	}
 
 	@Test

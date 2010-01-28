@@ -74,6 +74,7 @@
     <joined-subclass
         name="«javaDomainClass(name)»"
         extends="«javaDomainClass(superclass.name)»">
+        <key column="ID"/>
         «EXPAND featureMappings FOR this -»
     </joined-subclass>
 «ENDDEFINE»
