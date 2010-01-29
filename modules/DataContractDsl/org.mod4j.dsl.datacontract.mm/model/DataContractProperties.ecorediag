@@ -199,6 +199,14 @@
   <children xmi:type="notation:Node" xmi:id="_9WnbUJB9Ed2kXJoHdHUJrQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_9WwlQJB9Ed2kXJoHdHUJrQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9WwlQZB9Ed2kXJoHdHUJrQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_Ujyo6AwjEd-0W-t8mzTMCQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//DtoAssociationRoleProperty/ordered"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Ujyo6QwjEd-0W-t8mzTMCQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VDFM8AwjEd-0W-t8mzTMCQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="DataContractDsl.ecore#//DtoAssociationRoleProperty/multiplicity"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VDFM8QwjEd-0W-t8mzTMCQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_9WwlQpB9Ed2kXJoHdHUJrQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_9WwlQ5B9Ed2kXJoHdHUJrQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9WwlRJB9Ed2kXJoHdHUJrQ"/>
@@ -227,6 +235,29 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_LtvKgZCBEd2kXJoHdHUJrQ" fontHeight="10" fillColor="13761016" lineColor="0"/>
     <element xmi:type="ecore:EClass" href="DataContractDsl.ecore#//Dto"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LtvKgpCBEd2kXJoHdHUJrQ" x="615" y="165"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Qh_nYAwjEd-0W-t8mzTMCQ" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_Qh_nYwwjEd-0W-t8mzTMCQ" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_Qh_nZAwjEd-0W-t8mzTMCQ" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_SBqqYAwjEd-0W-t8mzTMCQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="DataContractDsl.ecore#//Multiplicity/NONE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SBqqYQwjEd-0W-t8mzTMCQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Syr3oAwjEd-0W-t8mzTMCQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="DataContractDsl.ecore#//Multiplicity/ONE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Syr3oQwjEd-0W-t8mzTMCQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Tt_pUAwjEd-0W-t8mzTMCQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="DataContractDsl.ecore#//Multiplicity/MANY"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Tt_pUQwjEd-0W-t8mzTMCQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Qh_nZQwjEd-0W-t8mzTMCQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qh_nZgwjEd-0W-t8mzTMCQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qh_nZwwjEd-0W-t8mzTMCQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Qh_nYQwjEd-0W-t8mzTMCQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="DataContractDsl.ecore#//Multiplicity"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qh_nYgwjEd-0W-t8mzTMCQ" x="91" y="93"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_fJHscXtJEd28kZw9e3t-QQ"/>
   <element xmi:type="ecore:EPackage" href="DataContractDsl.ecore#/"/>

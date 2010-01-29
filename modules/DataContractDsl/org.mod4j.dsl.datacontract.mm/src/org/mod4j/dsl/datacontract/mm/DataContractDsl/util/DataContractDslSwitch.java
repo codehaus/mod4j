@@ -109,26 +109,10 @@ public class DataContractDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case DataContractDslPackage.LIST_DTO: {
-                ListDto listDto = (ListDto)theEObject;
-                T result = caseListDto(listDto);
-                if (result == null) result = caseDto(listDto);
-                if (result == null) result = caseModelElement(listDto);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
             case DataContractDslPackage.DTO_PROPERTY: {
                 DtoProperty dtoProperty = (DtoProperty)theEObject;
                 T result = caseDtoProperty(dtoProperty);
                 if (result == null) result = caseModelElement(dtoProperty);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case DataContractDslPackage.DTO_PROPERTY_REFERENCE: {
-                DtoPropertyReference dtoPropertyReference = (DtoPropertyReference)theEObject;
-                T result = caseDtoPropertyReference(dtoPropertyReference);
-                if (result == null) result = caseDtoProperty(dtoPropertyReference);
-                if (result == null) result = caseModelElement(dtoPropertyReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -301,21 +285,6 @@ public class DataContractDslSwitch<T> {
     }
 
 	/**
-     * Returns the result of interpreting the object as an instance of '<em>List Dto</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>List Dto</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseListDto(ListDto object) {
-        return null;
-    }
-
-	/**
      * Returns the result of interpreting the object as an instance of '<em>Dto Property</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -327,21 +296,6 @@ public class DataContractDslSwitch<T> {
      * @generated
      */
 	public T caseDtoProperty(DtoProperty object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Dto Property Reference</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseDtoPropertyReference(DtoPropertyReference object) {
         return null;
     }
 

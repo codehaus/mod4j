@@ -228,21 +228,11 @@ ruleDto returns [EObject current=null]
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getDtoAccess().getListDtoParserRuleCall_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getDtoAccess().getCustomDtoParserRuleCall_1(), currentNode); 
     }
-    this_ListDto_1=ruleListDto
+    this_CustomDto_1=ruleCustomDto
     { 
-        $current = $this_ListDto_1.current; 
-        currentNode = currentNode.getParent();
-    }
-
-    |
-    { 
-        currentNode=createCompositeNode(grammarAccess.getDtoAccess().getCustomDtoParserRuleCall_2(), currentNode); 
-    }
-    this_CustomDto_2=ruleCustomDto
-    { 
-        $current = $this_CustomDto_2.current; 
+        $current = $this_CustomDto_1.current; 
         currentNode = currentNode.getParent();
     }
 );
@@ -688,95 +678,6 @@ ruleBusinessClassAssociationRoleReference returns [EObject current=null]
 )';' 
     {
         createLeafNode(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getSemicolonKeyword_3(), null); 
-    }
-);
-
-
-
-
-
-// Entry rule entryRuleListDto
-entryRuleListDto returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getListDtoRule(), currentNode); }
-	 iv_ruleListDto=ruleListDto 
-	 { $current=$iv_ruleListDto.current; } 
-	 EOF 
-;
-
-// Rule ListDto
-ruleListDto returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((	
-	
-	    lv_description_0=	RULE_STRING
-	{
-		createLeafNode(grammarAccess.getListDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getListDtoRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "description", lv_description_0, "STRING", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)?'list' 
-    {
-        createLeafNode(grammarAccess.getListDtoAccess().getListKeyword_1(), null); 
-    }
-(	
-	
-	    lv_name_2=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getListDtoAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getListDtoRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "name", lv_name_2, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)'contains' 
-    {
-        createLeafNode(grammarAccess.getListDtoAccess().getContainsKeyword_3(), null); 
-    }
-(	
-	
-		
-		{
-			if ($current==null) {
-	            $current = factory.create(grammarAccess.getListDtoRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-        }
-	RULE_ID
-	{
-		createLeafNode(grammarAccess.getListDtoAccess().getBaseDtoDtoCrossReference_4_0(), "baseDto"); 
-	}
-
-		// TODO assign feature to currentNode
-	
-)';' 
-    {
-        createLeafNode(grammarAccess.getListDtoAccess().getSemicolonKeyword_5(), null); 
     }
 );
 

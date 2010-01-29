@@ -39,15 +39,14 @@ protected class ThisRootNode extends RootToken {
 			case 4: return new EnumerationDto_Group(this, this, 4, inst);
 			case 5: return new BusinessClassPropertyReference_Group(this, this, 5, inst);
 			case 6: return new BusinessClassAssociationRoleReference_Group(this, this, 6, inst);
-			case 7: return new ListDto_Group(this, this, 7, inst);
-			case 8: return new CustomDto_Group(this, this, 8, inst);
-			case 9: return new DtoProperty_Group(this, this, 9, inst);
-			case 10: return new DtoBooleanProperty_Group(this, this, 10, inst);
-			case 11: return new DtoStringProperty_Group(this, this, 11, inst);
-			case 12: return new DtoDateTimeProperty_Group(this, this, 12, inst);
-			case 13: return new DtoIntegerProperty_Group(this, this, 13, inst);
-			case 14: return new DtoDecimalProperty_Group(this, this, 14, inst);
-			case 15: return new DtoEnumerationProperty_Group(this, this, 15, inst);
+			case 7: return new CustomDto_Group(this, this, 7, inst);
+			case 8: return new DtoProperty_Group(this, this, 8, inst);
+			case 9: return new DtoBooleanProperty_Group(this, this, 9, inst);
+			case 10: return new DtoStringProperty_Group(this, this, 10, inst);
+			case 11: return new DtoDateTimeProperty_Group(this, this, 11, inst);
+			case 12: return new DtoIntegerProperty_Group(this, this, 12, inst);
+			case 13: return new DtoDecimalProperty_Group(this, this, 13, inst);
+			case 14: return new DtoEnumerationProperty_Group(this, this, 14, inst);
 			default: return null;
 		}	
 	}	
@@ -354,11 +353,11 @@ protected class DataContractModel_EnumerationsAssignment_5_1 extends AssignmentT
 /************ begin Rule Dto ****************
  *
  * Dto:
- *   BusinessClassDto|ListDto|CustomDto;
+ *   BusinessClassDto|CustomDto;
  *
  **/
 
-// BusinessClassDto|ListDto|CustomDto
+// BusinessClassDto|CustomDto
 protected class Dto_Alternatives extends AlternativesToken {
 
 	public Dto_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -372,8 +371,7 @@ protected class Dto_Alternatives extends AlternativesToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new Dto_BusinessClassDtoParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new Dto_ListDtoParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new Dto_CustomDtoParserRuleCall_2(parent, this, 2, inst);
+			case 1: return new Dto_CustomDtoParserRuleCall_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -415,46 +413,15 @@ protected class Dto_BusinessClassDtoParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ListDto
-protected class Dto_ListDtoParserRuleCall_1 extends RuleCallToken {
-	
-	public Dto_ListDtoParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getDtoAccess().getListDtoParserRuleCall_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(ListDto_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getListDtoRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
 // CustomDto
-protected class Dto_CustomDtoParserRuleCall_2 extends RuleCallToken {
+protected class Dto_CustomDtoParserRuleCall_1 extends RuleCallToken {
 	
-	public Dto_CustomDtoParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Dto_CustomDtoParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getDtoAccess().getCustomDtoParserRuleCall_2();
+		return grammarAccess.getDtoAccess().getCustomDtoParserRuleCall_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -484,7 +451,7 @@ protected class Dto_CustomDtoParserRuleCall_2 extends RuleCallToken {
 /************ begin Rule ExternalReference ****************
  *
  * ExternalReference:
- *   description=STRING? "from" modelname=ID "import" name=ID ";"; 
+ *   description=STRING? "from" modelname=ID "import" name=ID ";";  
  * 
  * 
  * 
@@ -1568,196 +1535,6 @@ protected class BusinessClassAssociationRoleReference_SemicolonKeyword_3 extends
 
 
 /************ end Rule BusinessClassAssociationRoleReference ****************/
-
-
-/************ begin Rule ListDto ****************
- *
- * ListDto:
- *   description=STRING? "list" name=ID "contains" baseDto=[Dto] ";";
- *
- **/
-
-// description=STRING? "list" name=ID "contains" baseDto=[Dto] ";"
-protected class ListDto_Group extends GroupToken {
-	
-	public ListDto_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Group getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getGroup();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_SemicolonKeyword_5(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getListDtoRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// description=STRING?
-protected class ListDto_DescriptionAssignment_0 extends AssignmentToken  {
-	
-	public ListDto_DescriptionAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getDescriptionAssignment_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("description",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("description");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getListDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "list"
-protected class ListDto_ListKeyword_1 extends KeywordToken  {
-	
-	public ListDto_ListKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getListKeyword_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_DescriptionAssignment_0(parent, this, 0, inst);
-			default: return parent.createParentFollower(this, index, index - 1, inst);
-		}	
-	}	
-		
-}
-
-// name=ID
-protected class ListDto_NameAssignment_2 extends AssignmentToken  {
-	
-	public ListDto_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getNameAssignment_2();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_ListKeyword_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getListDtoAccess().getNameIDTerminalRuleCall_2_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "contains"
-protected class ListDto_ContainsKeyword_3 extends KeywordToken  {
-	
-	public ListDto_ContainsKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getContainsKeyword_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_NameAssignment_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// baseDto=[Dto]
-protected class ListDto_BaseDtoAssignment_4 extends AssignmentToken  {
-	
-	public ListDto_BaseDtoAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getBaseDtoAssignment_4();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_ContainsKeyword_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("baseDto",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("baseDto");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getListDtoAccess().getBaseDtoDtoCrossReference_4_0().getType().getClassifier())) {
-				type = AssignmentType.CR;
-				element = grammarAccess.getListDtoAccess().getBaseDtoDtoCrossReference_4_0(); 
-				return obj;
-			}
-		}
-		return null;
-	}
-
-}
-
-// ";"
-protected class ListDto_SemicolonKeyword_5 extends KeywordToken  {
-	
-	public ListDto_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getListDtoAccess().getSemicolonKeyword_5();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ListDto_BaseDtoAssignment_4(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule ListDto ****************/
 
 
 /************ begin Rule CustomDto ****************

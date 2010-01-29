@@ -84,16 +84,8 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
                 return createBusinessClassDtoAdapter();
             }
             @Override
-            public Adapter caseListDto(ListDto object) {
-                return createListDtoAdapter();
-            }
-            @Override
             public Adapter caseDtoProperty(DtoProperty object) {
                 return createDtoPropertyAdapter();
-            }
-            @Override
-            public Adapter caseDtoPropertyReference(DtoPropertyReference object) {
-                return createDtoPropertyReferenceAdapter();
             }
             @Override
             public Adapter caseDtoDataProperty(DtoDataProperty object) {
@@ -218,20 +210,6 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto <em>List Dto</em>}'.
-     * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto
-     * @generated
-     */
-	public Adapter createListDtoAdapter() {
-        return null;
-    }
-
-	/**
      * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty <em>Dto Property</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -242,20 +220,6 @@ public class DataContractDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
 	public Adapter createDtoPropertyAdapter() {
-        return null;
-    }
-
-	/**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
-     * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference
-     * @generated
-     */
-	public Adapter createDtoPropertyReferenceAdapter() {
         return null;
     }
 

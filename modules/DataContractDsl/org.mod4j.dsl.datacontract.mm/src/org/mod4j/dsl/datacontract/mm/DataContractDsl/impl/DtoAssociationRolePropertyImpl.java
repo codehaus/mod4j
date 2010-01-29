@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty;
+import org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,7 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty;
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl#getDtoType <em>Dto Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl#isOrdered <em>Ordered</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoAssociationRolePropertyImpl#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +65,26 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
 	protected boolean ordered = ORDERED_EDEFAULT;
 
 	/**
+     * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMultiplicity()
+     * @generated
+     * @ordered
+     */
+    protected static final Multiplicity MULTIPLICITY_EDEFAULT = Multiplicity.ONE;
+
+    /**
+     * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMultiplicity()
+     * @generated
+     * @ordered
+     */
+    protected Multiplicity multiplicity = MULTIPLICITY_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -142,6 +164,27 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Multiplicity getMultiplicity() {
+        return multiplicity;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMultiplicity(Multiplicity newMultiplicity) {
+        Multiplicity oldMultiplicity = multiplicity;
+        multiplicity = newMultiplicity == null ? MULTIPLICITY_EDEFAULT : newMultiplicity;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY, oldMultiplicity, multiplicity));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -153,6 +196,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
                 return basicGetDtoType();
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED:
                 return isOrdered();
+            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY:
+                return getMultiplicity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -170,6 +215,9 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
                 return;
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED:
                 setOrdered((Boolean)newValue);
+                return;
+            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY:
+                setMultiplicity((Multiplicity)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -189,6 +237,9 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED:
                 setOrdered(ORDERED_EDEFAULT);
                 return;
+            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY:
+                setMultiplicity(MULTIPLICITY_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -205,6 +256,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
                 return dtoType != null;
             case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED:
                 return ordered != ORDERED_EDEFAULT;
+            case DataContractDslPackage.DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY:
+                return multiplicity != MULTIPLICITY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -221,6 +274,8 @@ public class DtoAssociationRolePropertyImpl extends DtoPropertyImpl implements D
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (ordered: ");
         result.append(ordered);
+        result.append(", multiplicity: ");
+        result.append(multiplicity);
         result.append(')');
         return result.toString();
     }

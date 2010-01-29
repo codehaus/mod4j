@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class InternalDataContractParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datacontract'", "';'", "'from'", "'import'", "'class'", "'represents'", "'['", "'references'", "']'", "'enumeration'", "'as'", "'list'", "'contains'", "'custom'", "'boolean'", "'string'", "'datetime'", "'integer'", "'decimal'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datacontract'", "';'", "'from'", "'import'", "'class'", "'represents'", "'['", "'references'", "']'", "'enumeration'", "'as'", "'custom'", "'boolean'", "'string'", "'datetime'", "'integer'", "'decimal'"
     };
     public static final int RULE_ML_COMMENT=7;
     public static final int RULE_ID=5;
@@ -251,11 +251,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     {
                     int LA3_2 = input.LA(2);
 
-                    if ( (LA3_2==20) ) {
-                        alt3=2;
-                    }
-                    else if ( (LA3_2==15||LA3_2==22||LA3_2==24) ) {
+                    if ( (LA3_2==15||LA3_2==22) ) {
                         alt3=1;
+                    }
+                    else if ( (LA3_2==20) ) {
+                        alt3=2;
                     }
 
 
@@ -263,7 +263,6 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     break;
                 case 15:
                 case 22:
-                case 24:
                     {
                     alt3=1;
                     }
@@ -405,51 +404,40 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:213:1: ruleDto returns [EObject current=null] : (this_BusinessClassDto_0= ruleBusinessClassDto | this_ListDto_1= ruleListDto | this_CustomDto_2= ruleCustomDto ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:213:1: ruleDto returns [EObject current=null] : (this_BusinessClassDto_0= ruleBusinessClassDto | this_CustomDto_1= ruleCustomDto ) ;
     public final EObject ruleDto() throws RecognitionException {
         EObject current = null;
 
         EObject this_BusinessClassDto_0 = null;
 
-        EObject this_ListDto_1 = null;
-
-        EObject this_CustomDto_2 = null;
+        EObject this_CustomDto_1 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:218:6: ( (this_BusinessClassDto_0= ruleBusinessClassDto | this_ListDto_1= ruleListDto | this_CustomDto_2= ruleCustomDto ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_ListDto_1= ruleListDto | this_CustomDto_2= ruleCustomDto )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:218:6: ( (this_BusinessClassDto_0= ruleBusinessClassDto | this_CustomDto_1= ruleCustomDto ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_CustomDto_1= ruleCustomDto )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_ListDto_1= ruleListDto | this_CustomDto_2= ruleCustomDto )
-            int alt4=3;
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_CustomDto_1= ruleCustomDto )
+            int alt4=2;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                switch ( input.LA(2) ) {
-                case 22:
-                    {
+                int LA4_1 = input.LA(2);
+
+                if ( (LA4_1==22) ) {
                     alt4=2;
-                    }
-                    break;
-                case 15:
-                    {
+                }
+                else if ( (LA4_1==15) ) {
                     alt4=1;
-                    }
-                    break;
-                case 24:
-                    {
-                    alt4=3;
-                    }
-                    break;
-                default:
+                }
+                else {
                     NoViableAltException nvae =
-                        new NoViableAltException("219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_ListDto_1= ruleListDto | this_CustomDto_2= ruleCustomDto )", 4, 1, input);
+                        new NoViableAltException("219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_CustomDto_1= ruleCustomDto )", 4, 1, input);
 
                     throw nvae;
                 }
-
                 }
                 break;
             case 15:
@@ -462,14 +450,9 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                 alt4=2;
                 }
                 break;
-            case 24:
-                {
-                alt4=3;
-                }
-                break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_ListDto_1= ruleListDto | this_CustomDto_2= ruleCustomDto )", 4, 0, input);
+                    new NoViableAltException("219:1: (this_BusinessClassDto_0= ruleBusinessClassDto | this_CustomDto_1= ruleCustomDto )", 4, 0, input);
 
                 throw nvae;
             }
@@ -493,34 +476,17 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:230:5: this_ListDto_1= ruleListDto
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:230:5: this_CustomDto_1= ruleCustomDto
                     {
                      
-                            currentNode=createCompositeNode(grammarAccess.getDtoAccess().getListDtoParserRuleCall_1(), currentNode); 
+                            currentNode=createCompositeNode(grammarAccess.getDtoAccess().getCustomDtoParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleListDto_in_ruleDto428);
-                    this_ListDto_1=ruleListDto();
+                    pushFollow(FOLLOW_ruleCustomDto_in_ruleDto428);
+                    this_CustomDto_1=ruleCustomDto();
                     _fsp--;
 
                      
-                            current = this_ListDto_1; 
-                            currentNode = currentNode.getParent();
-                        
-
-                    }
-                    break;
-                case 3 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:240:5: this_CustomDto_2= ruleCustomDto
-                    {
-                     
-                            currentNode=createCompositeNode(grammarAccess.getDtoAccess().getCustomDtoParserRuleCall_2(), currentNode); 
-                        
-                    pushFollow(FOLLOW_ruleCustomDto_in_ruleDto455);
-                    this_CustomDto_2=ruleCustomDto();
-                    _fsp--;
-
-                     
-                            current = this_CustomDto_2; 
+                            current = this_CustomDto_1; 
                             currentNode = currentNode.getParent();
                         
 
@@ -549,7 +515,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExternalReference
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:255:1: entryRuleExternalReference returns [EObject current=null] : iv_ruleExternalReference= ruleExternalReference EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:245:1: entryRuleExternalReference returns [EObject current=null] : iv_ruleExternalReference= ruleExternalReference EOF ;
     public final EObject entryRuleExternalReference() throws RecognitionException {
         EObject current = null;
 
@@ -557,16 +523,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:255:59: (iv_ruleExternalReference= ruleExternalReference EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:256:2: iv_ruleExternalReference= ruleExternalReference EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:245:59: (iv_ruleExternalReference= ruleExternalReference EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:246:2: iv_ruleExternalReference= ruleExternalReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getExternalReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleExternalReference_in_entryRuleExternalReference487);
+            pushFollow(FOLLOW_ruleExternalReference_in_entryRuleExternalReference460);
             iv_ruleExternalReference=ruleExternalReference();
             _fsp--;
 
              current =iv_ruleExternalReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalReference497); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalReference470); 
 
             }
 
@@ -584,7 +550,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExternalReference
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:263:1: ruleExternalReference returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:253:1: ruleExternalReference returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' ) ;
     public final EObject ruleExternalReference() throws RecognitionException {
         EObject current = null;
 
@@ -595,13 +561,13 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:268:6: ( ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:269:1: ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:258:6: ( ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:259:1: ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:269:1: ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:269:2: (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:259:1: ( (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:259:2: (lv_description_0= RULE_STRING )? 'from' (lv_modelname_2= RULE_ID ) 'import' (lv_name_4= RULE_ID ) ';'
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:269:2: (lv_description_0= RULE_STRING )?
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:259:2: (lv_description_0= RULE_STRING )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -610,10 +576,10 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:271:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:261:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleExternalReference544); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleExternalReference517); 
 
                     		createLeafNode(grammarAccess.getExternalReferenceAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -635,15 +601,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,13,FOLLOW_13_in_ruleExternalReference562); 
+            match(input,13,FOLLOW_13_in_ruleExternalReference535); 
 
                     createLeafNode(grammarAccess.getExternalReferenceAccess().getFromKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:293:1: (lv_modelname_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:295:6: lv_modelname_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:283:1: (lv_modelname_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:285:6: lv_modelname_2= RULE_ID
             {
             lv_modelname_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExternalReference584); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExternalReference557); 
 
             		createLeafNode(grammarAccess.getExternalReferenceAccess().getModelnameIDTerminalRuleCall_2_0(), "modelname"); 
             	
@@ -662,15 +628,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleExternalReference601); 
+            match(input,14,FOLLOW_14_in_ruleExternalReference574); 
 
                     createLeafNode(grammarAccess.getExternalReferenceAccess().getImportKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:317:1: (lv_name_4= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:319:6: lv_name_4= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:307:1: (lv_name_4= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:309:6: lv_name_4= RULE_ID
             {
             lv_name_4=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExternalReference623); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExternalReference596); 
 
             		createLeafNode(grammarAccess.getExternalReferenceAccess().getNameIDTerminalRuleCall_4_0(), "name"); 
             	
@@ -689,7 +655,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleExternalReference640); 
+            match(input,12,FOLLOW_12_in_ruleExternalReference613); 
 
                     createLeafNode(grammarAccess.getExternalReferenceAccess().getSemicolonKeyword_5(), null); 
                 
@@ -716,7 +682,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBusinessClassDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:348:1: entryRuleBusinessClassDto returns [EObject current=null] : iv_ruleBusinessClassDto= ruleBusinessClassDto EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:338:1: entryRuleBusinessClassDto returns [EObject current=null] : iv_ruleBusinessClassDto= ruleBusinessClassDto EOF ;
     public final EObject entryRuleBusinessClassDto() throws RecognitionException {
         EObject current = null;
 
@@ -724,16 +690,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:348:58: (iv_ruleBusinessClassDto= ruleBusinessClassDto EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:349:2: iv_ruleBusinessClassDto= ruleBusinessClassDto EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:338:58: (iv_ruleBusinessClassDto= ruleBusinessClassDto EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:339:2: iv_ruleBusinessClassDto= ruleBusinessClassDto EOF
             {
              currentNode = createCompositeNode(grammarAccess.getBusinessClassDtoRule(), currentNode); 
-            pushFollow(FOLLOW_ruleBusinessClassDto_in_entryRuleBusinessClassDto673);
+            pushFollow(FOLLOW_ruleBusinessClassDto_in_entryRuleBusinessClassDto646);
             iv_ruleBusinessClassDto=ruleBusinessClassDto();
             _fsp--;
 
              current =iv_ruleBusinessClassDto; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBusinessClassDto683); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBusinessClassDto656); 
 
             }
 
@@ -751,7 +717,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBusinessClassDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:356:1: ruleBusinessClassDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:346:1: ruleBusinessClassDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) ;
     public final EObject ruleBusinessClassDto() throws RecognitionException {
         EObject current = null;
 
@@ -765,13 +731,13 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:361:6: ( ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:362:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:351:6: ( ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:352:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:362:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:362:2: (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:352:1: ( (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:352:2: (lv_description_0= RULE_STRING )? 'class' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:362:2: (lv_description_0= RULE_STRING )?
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:352:2: (lv_description_0= RULE_STRING )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -780,10 +746,10 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:364:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:354:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleBusinessClassDto730); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleBusinessClassDto703); 
 
                     		createLeafNode(grammarAccess.getBusinessClassDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -805,15 +771,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,15,FOLLOW_15_in_ruleBusinessClassDto748); 
+            match(input,15,FOLLOW_15_in_ruleBusinessClassDto721); 
 
                     createLeafNode(grammarAccess.getBusinessClassDtoAccess().getClassKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:386:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:388:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:376:1: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:378:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassDto770); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassDto743); 
 
             		createLeafNode(grammarAccess.getBusinessClassDtoAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -832,12 +798,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,16,FOLLOW_16_in_ruleBusinessClassDto787); 
+            match(input,16,FOLLOW_16_in_ruleBusinessClassDto760); 
 
                     createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRepresentsKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:410:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:413:3: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:400:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:403:3: RULE_ID
             {
 
             			if (current==null) {
@@ -845,14 +811,14 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassDto809); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassDto782); 
 
             		createLeafNode(grammarAccess.getBusinessClassDtoAccess().getBaseExternalReferenceCrossReference_4_0(), "base"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:426:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:416:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -864,15 +830,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("426:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )", 10, 0, input);
+                    new NoViableAltException("416:2: ( ';' | ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' ) )", 10, 0, input);
 
                 throw nvae;
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:426:3: ';'
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:416:3: ';'
                     {
-                    match(input,12,FOLLOW_12_in_ruleBusinessClassDto822); 
+                    match(input,12,FOLLOW_12_in_ruleBusinessClassDto795); 
 
                             createLeafNode(grammarAccess.getBusinessClassDtoAccess().getSemicolonKeyword_5_0(), null); 
                         
@@ -880,16 +846,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:431:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:421:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
                     {
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:431:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:431:7: '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']'
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:421:6: ( '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']' )
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:421:7: '[' (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+ ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )? ']'
                     {
-                    match(input,17,FOLLOW_17_in_ruleBusinessClassDto838); 
+                    match(input,17,FOLLOW_17_in_ruleBusinessClassDto811); 
 
                             createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_0(), null); 
                         
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:435:1: (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:425:1: (lv_propertyReferences_7= ruleBusinessClassPropertyReference )+
                     int cnt7=0;
                     loop7:
                     do {
@@ -903,12 +869,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:438:6: lv_propertyReferences_7= ruleBusinessClassPropertyReference
+                    	    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:428:6: lv_propertyReferences_7= ruleBusinessClassPropertyReference
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getBusinessClassDtoAccess().getPropertyReferencesBusinessClassPropertyReferenceParserRuleCall_5_1_1_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleBusinessClassPropertyReference_in_ruleBusinessClassDto872);
+                    	    pushFollow(FOLLOW_ruleBusinessClassPropertyReference_in_ruleBusinessClassDto845);
                     	    lv_propertyReferences_7=ruleBusinessClassPropertyReference();
                     	    _fsp--;
 
@@ -938,7 +904,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                         cnt7++;
                     } while (true);
 
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:456:3: ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )?
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:446:3: ( 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -947,17 +913,17 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:456:4: 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']'
+                            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:446:4: 'references' '[' (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+ ']'
                             {
-                            match(input,18,FOLLOW_18_in_ruleBusinessClassDto887); 
+                            match(input,18,FOLLOW_18_in_ruleBusinessClassDto860); 
 
                                     createLeafNode(grammarAccess.getBusinessClassDtoAccess().getReferencesKeyword_5_1_2_0(), null); 
                                 
-                            match(input,17,FOLLOW_17_in_ruleBusinessClassDto896); 
+                            match(input,17,FOLLOW_17_in_ruleBusinessClassDto869); 
 
                                     createLeafNode(grammarAccess.getBusinessClassDtoAccess().getLeftSquareBracketKeyword_5_1_2_1(), null); 
                                 
-                            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:464:1: (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+
+                            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:454:1: (lv_associationReferences_10= ruleBusinessClassAssociationRoleReference )+
                             int cnt8=0;
                             loop8:
                             do {
@@ -971,12 +937,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
                                 switch (alt8) {
                             	case 1 :
-                            	    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:467:6: lv_associationReferences_10= ruleBusinessClassAssociationRoleReference
+                            	    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:457:6: lv_associationReferences_10= ruleBusinessClassAssociationRoleReference
                             	    {
                             	     
                             	    	        currentNode=createCompositeNode(grammarAccess.getBusinessClassDtoAccess().getAssociationReferencesBusinessClassAssociationRoleReferenceParserRuleCall_5_1_2_2_0(), currentNode); 
                             	    	    
-                            	    pushFollow(FOLLOW_ruleBusinessClassAssociationRoleReference_in_ruleBusinessClassDto930);
+                            	    pushFollow(FOLLOW_ruleBusinessClassAssociationRoleReference_in_ruleBusinessClassDto903);
                             	    lv_associationReferences_10=ruleBusinessClassAssociationRoleReference();
                             	    _fsp--;
 
@@ -1006,7 +972,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                                 cnt8++;
                             } while (true);
 
-                            match(input,19,FOLLOW_19_in_ruleBusinessClassDto944); 
+                            match(input,19,FOLLOW_19_in_ruleBusinessClassDto917); 
 
                                     createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_2_3(), null); 
                                 
@@ -1016,7 +982,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,19,FOLLOW_19_in_ruleBusinessClassDto955); 
+                    match(input,19,FOLLOW_19_in_ruleBusinessClassDto928); 
 
                             createLeafNode(grammarAccess.getBusinessClassDtoAccess().getRightSquareBracketKeyword_5_1_3(), null); 
                         
@@ -1052,7 +1018,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumerationDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:500:1: entryRuleEnumerationDto returns [EObject current=null] : iv_ruleEnumerationDto= ruleEnumerationDto EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:490:1: entryRuleEnumerationDto returns [EObject current=null] : iv_ruleEnumerationDto= ruleEnumerationDto EOF ;
     public final EObject entryRuleEnumerationDto() throws RecognitionException {
         EObject current = null;
 
@@ -1060,16 +1026,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:500:56: (iv_ruleEnumerationDto= ruleEnumerationDto EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:501:2: iv_ruleEnumerationDto= ruleEnumerationDto EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:490:56: (iv_ruleEnumerationDto= ruleEnumerationDto EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:491:2: iv_ruleEnumerationDto= ruleEnumerationDto EOF
             {
              currentNode = createCompositeNode(grammarAccess.getEnumerationDtoRule(), currentNode); 
-            pushFollow(FOLLOW_ruleEnumerationDto_in_entryRuleEnumerationDto990);
+            pushFollow(FOLLOW_ruleEnumerationDto_in_entryRuleEnumerationDto963);
             iv_ruleEnumerationDto=ruleEnumerationDto();
             _fsp--;
 
              current =iv_ruleEnumerationDto; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumerationDto1000); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEnumerationDto973); 
 
             }
 
@@ -1087,7 +1053,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumerationDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:508:1: ruleEnumerationDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:498:1: ruleEnumerationDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' ) ;
     public final EObject ruleEnumerationDto() throws RecognitionException {
         EObject current = null;
 
@@ -1097,13 +1063,13 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:513:6: ( ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:514:1: ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:503:6: ( ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:504:1: ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:514:1: ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:514:2: (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:504:1: ( (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:504:2: (lv_description_0= RULE_STRING )? 'enumeration' (lv_name_2= RULE_ID ) 'represents' ( RULE_ID ) ';'
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:514:2: (lv_description_0= RULE_STRING )?
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:504:2: (lv_description_0= RULE_STRING )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1112,10 +1078,10 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:516:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:506:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEnumerationDto1047); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEnumerationDto1020); 
 
                     		createLeafNode(grammarAccess.getEnumerationDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -1137,15 +1103,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,20,FOLLOW_20_in_ruleEnumerationDto1065); 
+            match(input,20,FOLLOW_20_in_ruleEnumerationDto1038); 
 
                     createLeafNode(grammarAccess.getEnumerationDtoAccess().getEnumerationKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:538:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:540:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:528:1: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:530:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationDto1087); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationDto1060); 
 
             		createLeafNode(grammarAccess.getEnumerationDtoAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -1164,12 +1130,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,16,FOLLOW_16_in_ruleEnumerationDto1104); 
+            match(input,16,FOLLOW_16_in_ruleEnumerationDto1077); 
 
                     createLeafNode(grammarAccess.getEnumerationDtoAccess().getRepresentsKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:562:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:565:3: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:552:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:555:3: RULE_ID
             {
 
             			if (current==null) {
@@ -1177,14 +1143,14 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationDto1126); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumerationDto1099); 
 
             		createLeafNode(grammarAccess.getEnumerationDtoAccess().getBaseExternalReferenceCrossReference_4_0(), "base"); 
             	
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleEnumerationDto1138); 
+            match(input,12,FOLLOW_12_in_ruleEnumerationDto1111); 
 
                     createLeafNode(grammarAccess.getEnumerationDtoAccess().getSemicolonKeyword_5(), null); 
                 
@@ -1211,7 +1177,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBusinessClassPropertyReference
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:589:1: entryRuleBusinessClassPropertyReference returns [EObject current=null] : iv_ruleBusinessClassPropertyReference= ruleBusinessClassPropertyReference EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:579:1: entryRuleBusinessClassPropertyReference returns [EObject current=null] : iv_ruleBusinessClassPropertyReference= ruleBusinessClassPropertyReference EOF ;
     public final EObject entryRuleBusinessClassPropertyReference() throws RecognitionException {
         EObject current = null;
 
@@ -1219,16 +1185,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:589:72: (iv_ruleBusinessClassPropertyReference= ruleBusinessClassPropertyReference EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:590:2: iv_ruleBusinessClassPropertyReference= ruleBusinessClassPropertyReference EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:579:72: (iv_ruleBusinessClassPropertyReference= ruleBusinessClassPropertyReference EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:580:2: iv_ruleBusinessClassPropertyReference= ruleBusinessClassPropertyReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getBusinessClassPropertyReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleBusinessClassPropertyReference_in_entryRuleBusinessClassPropertyReference1171);
+            pushFollow(FOLLOW_ruleBusinessClassPropertyReference_in_entryRuleBusinessClassPropertyReference1144);
             iv_ruleBusinessClassPropertyReference=ruleBusinessClassPropertyReference();
             _fsp--;
 
              current =iv_ruleBusinessClassPropertyReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBusinessClassPropertyReference1181); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBusinessClassPropertyReference1154); 
 
             }
 
@@ -1246,7 +1212,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBusinessClassPropertyReference
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:597:1: ruleBusinessClassPropertyReference returns [EObject current=null] : ( (lv_name_0= RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:587:1: ruleBusinessClassPropertyReference returns [EObject current=null] : ( (lv_name_0= RULE_ID ) ';' ) ;
     public final EObject ruleBusinessClassPropertyReference() throws RecognitionException {
         EObject current = null;
 
@@ -1255,17 +1221,17 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:602:6: ( ( (lv_name_0= RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:603:1: ( (lv_name_0= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:592:6: ( ( (lv_name_0= RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:593:1: ( (lv_name_0= RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:603:1: ( (lv_name_0= RULE_ID ) ';' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:603:2: (lv_name_0= RULE_ID ) ';'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:593:1: ( (lv_name_0= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:593:2: (lv_name_0= RULE_ID ) ';'
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:603:2: (lv_name_0= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:605:6: lv_name_0= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:593:2: (lv_name_0= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:595:6: lv_name_0= RULE_ID
             {
             lv_name_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassPropertyReference1228); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassPropertyReference1201); 
 
             		createLeafNode(grammarAccess.getBusinessClassPropertyReferenceAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
             	
@@ -1284,7 +1250,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleBusinessClassPropertyReference1245); 
+            match(input,12,FOLLOW_12_in_ruleBusinessClassPropertyReference1218); 
 
                     createLeafNode(grammarAccess.getBusinessClassPropertyReferenceAccess().getSemicolonKeyword_1(), null); 
                 
@@ -1311,7 +1277,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBusinessClassAssociationRoleReference
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:634:1: entryRuleBusinessClassAssociationRoleReference returns [EObject current=null] : iv_ruleBusinessClassAssociationRoleReference= ruleBusinessClassAssociationRoleReference EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:624:1: entryRuleBusinessClassAssociationRoleReference returns [EObject current=null] : iv_ruleBusinessClassAssociationRoleReference= ruleBusinessClassAssociationRoleReference EOF ;
     public final EObject entryRuleBusinessClassAssociationRoleReference() throws RecognitionException {
         EObject current = null;
 
@@ -1319,16 +1285,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:634:79: (iv_ruleBusinessClassAssociationRoleReference= ruleBusinessClassAssociationRoleReference EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:635:2: iv_ruleBusinessClassAssociationRoleReference= ruleBusinessClassAssociationRoleReference EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:624:79: (iv_ruleBusinessClassAssociationRoleReference= ruleBusinessClassAssociationRoleReference EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:625:2: iv_ruleBusinessClassAssociationRoleReference= ruleBusinessClassAssociationRoleReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getBusinessClassAssociationRoleReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleBusinessClassAssociationRoleReference_in_entryRuleBusinessClassAssociationRoleReference1278);
+            pushFollow(FOLLOW_ruleBusinessClassAssociationRoleReference_in_entryRuleBusinessClassAssociationRoleReference1251);
             iv_ruleBusinessClassAssociationRoleReference=ruleBusinessClassAssociationRoleReference();
             _fsp--;
 
              current =iv_ruleBusinessClassAssociationRoleReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBusinessClassAssociationRoleReference1288); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBusinessClassAssociationRoleReference1261); 
 
             }
 
@@ -1346,7 +1312,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBusinessClassAssociationRoleReference
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:642:1: ruleBusinessClassAssociationRoleReference returns [EObject current=null] : ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:632:1: ruleBusinessClassAssociationRoleReference returns [EObject current=null] : ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' ) ;
     public final EObject ruleBusinessClassAssociationRoleReference() throws RecognitionException {
         EObject current = null;
 
@@ -1355,17 +1321,17 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:647:6: ( ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:648:1: ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:637:6: ( ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:638:1: ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:648:1: ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:648:2: (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:638:1: ( (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:638:2: (lv_name_0= RULE_ID ) 'as' ( RULE_ID ) ';'
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:648:2: (lv_name_0= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:650:6: lv_name_0= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:638:2: (lv_name_0= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:640:6: lv_name_0= RULE_ID
             {
             lv_name_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1335); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1308); 
 
             		createLeafNode(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
             	
@@ -1384,12 +1350,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleBusinessClassAssociationRoleReference1352); 
+            match(input,21,FOLLOW_21_in_ruleBusinessClassAssociationRoleReference1325); 
 
                     createLeafNode(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getAsKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:672:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:675:3: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:662:1: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:665:3: RULE_ID
             {
 
             			if (current==null) {
@@ -1397,14 +1363,14 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1374); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1347); 
 
             		createLeafNode(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getDtoTypeDtoCrossReference_2_0(), "dtoType"); 
             	
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleBusinessClassAssociationRoleReference1386); 
+            match(input,12,FOLLOW_12_in_ruleBusinessClassAssociationRoleReference1359); 
 
                     createLeafNode(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getSemicolonKeyword_3(), null); 
                 
@@ -1430,167 +1396,8 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleBusinessClassAssociationRoleReference
 
 
-    // $ANTLR start entryRuleListDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:699:1: entryRuleListDto returns [EObject current=null] : iv_ruleListDto= ruleListDto EOF ;
-    public final EObject entryRuleListDto() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleListDto = null;
-
-
-        try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:699:49: (iv_ruleListDto= ruleListDto EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:700:2: iv_ruleListDto= ruleListDto EOF
-            {
-             currentNode = createCompositeNode(grammarAccess.getListDtoRule(), currentNode); 
-            pushFollow(FOLLOW_ruleListDto_in_entryRuleListDto1419);
-            iv_ruleListDto=ruleListDto();
-            _fsp--;
-
-             current =iv_ruleListDto; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleListDto1429); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end entryRuleListDto
-
-
-    // $ANTLR start ruleListDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:707:1: ruleListDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'list' (lv_name_2= RULE_ID ) 'contains' ( RULE_ID ) ';' ) ;
-    public final EObject ruleListDto() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_description_0=null;
-        Token lv_name_2=null;
-
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-            
-        try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:712:6: ( ( (lv_description_0= RULE_STRING )? 'list' (lv_name_2= RULE_ID ) 'contains' ( RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:713:1: ( (lv_description_0= RULE_STRING )? 'list' (lv_name_2= RULE_ID ) 'contains' ( RULE_ID ) ';' )
-            {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:713:1: ( (lv_description_0= RULE_STRING )? 'list' (lv_name_2= RULE_ID ) 'contains' ( RULE_ID ) ';' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:713:2: (lv_description_0= RULE_STRING )? 'list' (lv_name_2= RULE_ID ) 'contains' ( RULE_ID ) ';'
-            {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:713:2: (lv_description_0= RULE_STRING )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0==RULE_STRING) ) {
-                alt12=1;
-            }
-            switch (alt12) {
-                case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:715:6: lv_description_0= RULE_STRING
-                    {
-                    lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleListDto1476); 
-
-                    		createLeafNode(grammarAccess.getListDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
-                    	
-
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getListDtoRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode, current);
-                    	        }
-                    	        
-                    	        try {
-                    	       		set(current, "description", lv_description_0, "STRING", lastConsumedNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	    
-
-                    }
-                    break;
-
-            }
-
-            match(input,22,FOLLOW_22_in_ruleListDto1494); 
-
-                    createLeafNode(grammarAccess.getListDtoAccess().getListKeyword_1(), null); 
-                
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:737:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:739:6: lv_name_2= RULE_ID
-            {
-            lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleListDto1516); 
-
-            		createLeafNode(grammarAccess.getListDtoAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
-            	
-
-            	        if (current==null) {
-            	            current = factory.create(grammarAccess.getListDtoRule().getType().getClassifier());
-            	            associateNodeWithAstElement(currentNode, current);
-            	        }
-            	        
-            	        try {
-            	       		set(current, "name", lv_name_2, "ID", lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
-
-            }
-
-            match(input,23,FOLLOW_23_in_ruleListDto1533); 
-
-                    createLeafNode(grammarAccess.getListDtoAccess().getContainsKeyword_3(), null); 
-                
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:761:1: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:764:3: RULE_ID
-            {
-
-            			if (current==null) {
-            	            current = factory.create(grammarAccess.getListDtoRule().getType().getClassifier());
-            	            associateNodeWithAstElement(currentNode, current);
-            	        }
-                    
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleListDto1555); 
-
-            		createLeafNode(grammarAccess.getListDtoAccess().getBaseDtoDtoCrossReference_4_0(), "baseDto"); 
-            	
-
-            }
-
-            match(input,12,FOLLOW_12_in_ruleListDto1567); 
-
-                    createLeafNode(grammarAccess.getListDtoAccess().getSemicolonKeyword_5(), null); 
-                
-
-            }
-
-
-            }
-
-             resetLookahead(); 
-                	lastConsumedNode = currentNode;
-                
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end ruleListDto
-
-
     // $ANTLR start entryRuleCustomDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:788:1: entryRuleCustomDto returns [EObject current=null] : iv_ruleCustomDto= ruleCustomDto EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:689:1: entryRuleCustomDto returns [EObject current=null] : iv_ruleCustomDto= ruleCustomDto EOF ;
     public final EObject entryRuleCustomDto() throws RecognitionException {
         EObject current = null;
 
@@ -1598,16 +1405,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:788:51: (iv_ruleCustomDto= ruleCustomDto EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:789:2: iv_ruleCustomDto= ruleCustomDto EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:689:51: (iv_ruleCustomDto= ruleCustomDto EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:690:2: iv_ruleCustomDto= ruleCustomDto EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCustomDtoRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCustomDto_in_entryRuleCustomDto1600);
+            pushFollow(FOLLOW_ruleCustomDto_in_entryRuleCustomDto1392);
             iv_ruleCustomDto=ruleCustomDto();
             _fsp--;
 
              current =iv_ruleCustomDto; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCustomDto1610); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCustomDto1402); 
 
             }
 
@@ -1625,7 +1432,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCustomDto
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:796:1: ruleCustomDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:697:1: ruleCustomDto returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' ) ;
     public final EObject ruleCustomDto() throws RecognitionException {
         EObject current = null;
 
@@ -1637,25 +1444,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:801:6: ( ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:802:1: ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:702:6: ( ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:703:1: ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:802:1: ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:802:2: (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:703:1: ( (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:703:2: (lv_description_0= RULE_STRING )? 'custom' (lv_name_2= RULE_ID ) '[' (lv_properties_4= ruleDtoProperty )+ ']'
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:802:2: (lv_description_0= RULE_STRING )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:703:2: (lv_description_0= RULE_STRING )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_STRING) ) {
-                alt13=1;
+            if ( (LA12_0==RULE_STRING) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:804:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:705:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCustomDto1657); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCustomDto1449); 
 
                     		createLeafNode(grammarAccess.getCustomDtoAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -1677,15 +1484,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,24,FOLLOW_24_in_ruleCustomDto1675); 
+            match(input,22,FOLLOW_22_in_ruleCustomDto1467); 
 
                     createLeafNode(grammarAccess.getCustomDtoAccess().getCustomKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:826:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:828:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:727:1: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:729:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCustomDto1697); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCustomDto1489); 
 
             		createLeafNode(grammarAccess.getCustomDtoAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -1704,30 +1511,30 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,17,FOLLOW_17_in_ruleCustomDto1714); 
+            match(input,17,FOLLOW_17_in_ruleCustomDto1506); 
 
                     createLeafNode(grammarAccess.getCustomDtoAccess().getLeftSquareBracketKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:850:1: (lv_properties_4= ruleDtoProperty )+
-            int cnt14=0;
-            loop14:
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:751:1: (lv_properties_4= ruleDtoProperty )+
+            int cnt13=0;
+            loop13:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( ((LA14_0>=RULE_STRING && LA14_0<=RULE_ID)||(LA14_0>=25 && LA14_0<=29)) ) {
-                    alt14=1;
+                if ( ((LA13_0>=RULE_STRING && LA13_0<=RULE_ID)||(LA13_0>=23 && LA13_0<=27)) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt13) {
             	case 1 :
-            	    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:853:6: lv_properties_4= ruleDtoProperty
+            	    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:754:6: lv_properties_4= ruleDtoProperty
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getCustomDtoAccess().getPropertiesDtoPropertyParserRuleCall_4_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleDtoProperty_in_ruleCustomDto1748);
+            	    pushFollow(FOLLOW_ruleDtoProperty_in_ruleCustomDto1540);
             	    lv_properties_4=ruleDtoProperty();
             	    _fsp--;
 
@@ -1749,15 +1556,15 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt14 >= 1 ) break loop14;
+            	    if ( cnt13 >= 1 ) break loop13;
                         EarlyExitException eee =
-                            new EarlyExitException(14, input);
+                            new EarlyExitException(13, input);
                         throw eee;
                 }
-                cnt14++;
+                cnt13++;
             } while (true);
 
-            match(input,19,FOLLOW_19_in_ruleCustomDto1762); 
+            match(input,19,FOLLOW_19_in_ruleCustomDto1554); 
 
                     createLeafNode(grammarAccess.getCustomDtoAccess().getRightSquareBracketKeyword_5(), null); 
                 
@@ -1784,7 +1591,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:882:1: entryRuleDtoProperty returns [EObject current=null] : iv_ruleDtoProperty= ruleDtoProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:783:1: entryRuleDtoProperty returns [EObject current=null] : iv_ruleDtoProperty= ruleDtoProperty EOF ;
     public final EObject entryRuleDtoProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1792,16 +1599,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:882:53: (iv_ruleDtoProperty= ruleDtoProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:883:2: iv_ruleDtoProperty= ruleDtoProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:783:53: (iv_ruleDtoProperty= ruleDtoProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:784:2: iv_ruleDtoProperty= ruleDtoProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoPropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoProperty_in_entryRuleDtoProperty1795);
+            pushFollow(FOLLOW_ruleDtoProperty_in_entryRuleDtoProperty1587);
             iv_ruleDtoProperty=ruleDtoProperty();
             _fsp--;
 
              current =iv_ruleDtoProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoProperty1805); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoProperty1597); 
 
             }
 
@@ -1819,7 +1626,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:890:1: ruleDtoProperty returns [EObject current=null] : ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:791:1: ruleDtoProperty returns [EObject current=null] : ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' ) ;
     public final EObject ruleDtoProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1839,102 +1646,102 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:895:6: ( ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:896:1: ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:796:6: ( ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:797:1: ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:896:1: ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:896:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:797:1: ( (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:797:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty ) ';'
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:896:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty )
-            int alt15=6;
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:797:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty )
+            int alt14=6;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
-                case RULE_ID:
+                case 24:
                     {
-                    alt15=6;
-                    }
-                    break;
-                case 26:
-                    {
-                    alt15=2;
+                    alt14=2;
                     }
                     break;
                 case 27:
                     {
-                    alt15=3;
+                    alt14=5;
                     }
                     break;
-                case 29:
+                case 23:
                     {
-                    alt15=5;
+                    alt14=1;
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    alt14=6;
+                    }
+                    break;
+                case 26:
+                    {
+                    alt14=4;
                     }
                     break;
                 case 25:
                     {
-                    alt15=1;
-                    }
-                    break;
-                case 28:
-                    {
-                    alt15=4;
+                    alt14=3;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("896:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty )", 15, 1, input);
+                        new NoViableAltException("797:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty )", 14, 1, input);
 
                     throw nvae;
                 }
 
                 }
                 break;
+            case 23:
+                {
+                alt14=1;
+                }
+                break;
+            case 24:
+                {
+                alt14=2;
+                }
+                break;
             case 25:
                 {
-                alt15=1;
+                alt14=3;
                 }
                 break;
             case 26:
                 {
-                alt15=2;
+                alt14=4;
                 }
                 break;
             case 27:
                 {
-                alt15=3;
-                }
-                break;
-            case 28:
-                {
-                alt15=4;
-                }
-                break;
-            case 29:
-                {
-                alt15=5;
+                alt14=5;
                 }
                 break;
             case RULE_ID:
                 {
-                alt15=6;
+                alt14=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("896:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty )", 15, 0, input);
+                    new NoViableAltException("797:2: (this_DtoBooleanProperty_0= ruleDtoBooleanProperty | this_DtoStringProperty_1= ruleDtoStringProperty | this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty | this_DtoIntegerProperty_3= ruleDtoIntegerProperty | this_DtoDecimalProperty_4= ruleDtoDecimalProperty | this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty )", 14, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:897:5: this_DtoBooleanProperty_0= ruleDtoBooleanProperty
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:798:5: this_DtoBooleanProperty_0= ruleDtoBooleanProperty
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDtoPropertyAccess().getDtoBooleanPropertyParserRuleCall_0_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoBooleanProperty_in_ruleDtoProperty1853);
+                    pushFollow(FOLLOW_ruleDtoBooleanProperty_in_ruleDtoProperty1645);
                     this_DtoBooleanProperty_0=ruleDtoBooleanProperty();
                     _fsp--;
 
@@ -1946,12 +1753,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:907:5: this_DtoStringProperty_1= ruleDtoStringProperty
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:808:5: this_DtoStringProperty_1= ruleDtoStringProperty
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDtoPropertyAccess().getDtoStringPropertyParserRuleCall_0_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoStringProperty_in_ruleDtoProperty1880);
+                    pushFollow(FOLLOW_ruleDtoStringProperty_in_ruleDtoProperty1672);
                     this_DtoStringProperty_1=ruleDtoStringProperty();
                     _fsp--;
 
@@ -1963,12 +1770,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:917:5: this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:818:5: this_DtoDateTimeProperty_2= ruleDtoDateTimeProperty
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDtoPropertyAccess().getDtoDateTimePropertyParserRuleCall_0_2(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoDateTimeProperty_in_ruleDtoProperty1907);
+                    pushFollow(FOLLOW_ruleDtoDateTimeProperty_in_ruleDtoProperty1699);
                     this_DtoDateTimeProperty_2=ruleDtoDateTimeProperty();
                     _fsp--;
 
@@ -1980,12 +1787,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:927:5: this_DtoIntegerProperty_3= ruleDtoIntegerProperty
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:828:5: this_DtoIntegerProperty_3= ruleDtoIntegerProperty
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDtoPropertyAccess().getDtoIntegerPropertyParserRuleCall_0_3(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoIntegerProperty_in_ruleDtoProperty1934);
+                    pushFollow(FOLLOW_ruleDtoIntegerProperty_in_ruleDtoProperty1726);
                     this_DtoIntegerProperty_3=ruleDtoIntegerProperty();
                     _fsp--;
 
@@ -1997,12 +1804,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:937:5: this_DtoDecimalProperty_4= ruleDtoDecimalProperty
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:838:5: this_DtoDecimalProperty_4= ruleDtoDecimalProperty
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDtoPropertyAccess().getDtoDecimalPropertyParserRuleCall_0_4(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoDecimalProperty_in_ruleDtoProperty1961);
+                    pushFollow(FOLLOW_ruleDtoDecimalProperty_in_ruleDtoProperty1753);
                     this_DtoDecimalProperty_4=ruleDtoDecimalProperty();
                     _fsp--;
 
@@ -2014,12 +1821,12 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:947:5: this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:848:5: this_DtoEnumerationProperty_5= ruleDtoEnumerationProperty
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDtoPropertyAccess().getDtoEnumerationPropertyParserRuleCall_0_5(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoEnumerationProperty_in_ruleDtoProperty1988);
+                    pushFollow(FOLLOW_ruleDtoEnumerationProperty_in_ruleDtoProperty1780);
                     this_DtoEnumerationProperty_5=ruleDtoEnumerationProperty();
                     _fsp--;
 
@@ -2033,7 +1840,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleDtoProperty1997); 
+            match(input,12,FOLLOW_12_in_ruleDtoProperty1789); 
 
                     createLeafNode(grammarAccess.getDtoPropertyAccess().getSemicolonKeyword_1(), null); 
                 
@@ -2060,7 +1867,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoBooleanProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:966:1: entryRuleDtoBooleanProperty returns [EObject current=null] : iv_ruleDtoBooleanProperty= ruleDtoBooleanProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:867:1: entryRuleDtoBooleanProperty returns [EObject current=null] : iv_ruleDtoBooleanProperty= ruleDtoBooleanProperty EOF ;
     public final EObject entryRuleDtoBooleanProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2068,16 +1875,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:966:60: (iv_ruleDtoBooleanProperty= ruleDtoBooleanProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:967:2: iv_ruleDtoBooleanProperty= ruleDtoBooleanProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:867:60: (iv_ruleDtoBooleanProperty= ruleDtoBooleanProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:868:2: iv_ruleDtoBooleanProperty= ruleDtoBooleanProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoBooleanPropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoBooleanProperty_in_entryRuleDtoBooleanProperty2030);
+            pushFollow(FOLLOW_ruleDtoBooleanProperty_in_entryRuleDtoBooleanProperty1822);
             iv_ruleDtoBooleanProperty=ruleDtoBooleanProperty();
             _fsp--;
 
              current =iv_ruleDtoBooleanProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoBooleanProperty2040); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoBooleanProperty1832); 
 
             }
 
@@ -2095,7 +1902,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoBooleanProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:974:1: ruleDtoBooleanProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:875:1: ruleDtoBooleanProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) ) ;
     public final EObject ruleDtoBooleanProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2106,25 +1913,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:979:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:980:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:880:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:881:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:980:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:980:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:881:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:881:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'boolean' ) (lv_name_2= RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:980:2: (lv_description_0= RULE_STRING )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:881:2: (lv_description_0= RULE_STRING )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_STRING) ) {
-                alt16=1;
+            if ( (LA15_0==RULE_STRING) ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:982:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:883:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoBooleanProperty2087); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoBooleanProperty1879); 
 
                     		createLeafNode(grammarAccess.getDtoBooleanPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2146,11 +1953,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1000:3: (lv_dataType_1= 'boolean' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1002:6: lv_dataType_1= 'boolean'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:901:3: (lv_dataType_1= 'boolean' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:903:6: lv_dataType_1= 'boolean'
             {
             lv_dataType_1=(Token)input.LT(1);
-            match(input,25,FOLLOW_25_in_ruleDtoBooleanProperty2117); 
+            match(input,23,FOLLOW_23_in_ruleDtoBooleanProperty1909); 
 
                     createLeafNode(grammarAccess.getDtoBooleanPropertyAccess().getDataTypeBooleanKeyword_1_0(), "dataType"); 
                 
@@ -2169,11 +1976,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1021:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1023:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:922:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:924:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoBooleanProperty2152); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoBooleanProperty1944); 
 
             		createLeafNode(grammarAccess.getDtoBooleanPropertyAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2215,7 +2022,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoStringProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1048:1: entryRuleDtoStringProperty returns [EObject current=null] : iv_ruleDtoStringProperty= ruleDtoStringProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:949:1: entryRuleDtoStringProperty returns [EObject current=null] : iv_ruleDtoStringProperty= ruleDtoStringProperty EOF ;
     public final EObject entryRuleDtoStringProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2223,16 +2030,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1048:59: (iv_ruleDtoStringProperty= ruleDtoStringProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1049:2: iv_ruleDtoStringProperty= ruleDtoStringProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:949:59: (iv_ruleDtoStringProperty= ruleDtoStringProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:950:2: iv_ruleDtoStringProperty= ruleDtoStringProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoStringPropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoStringProperty_in_entryRuleDtoStringProperty2193);
+            pushFollow(FOLLOW_ruleDtoStringProperty_in_entryRuleDtoStringProperty1985);
             iv_ruleDtoStringProperty=ruleDtoStringProperty();
             _fsp--;
 
              current =iv_ruleDtoStringProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoStringProperty2203); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoStringProperty1995); 
 
             }
 
@@ -2250,7 +2057,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoStringProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1056:1: ruleDtoStringProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:957:1: ruleDtoStringProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) ) ;
     public final EObject ruleDtoStringProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2261,25 +2068,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1061:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1062:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:962:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:963:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1062:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1062:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:963:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:963:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'string' ) (lv_name_2= RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1062:2: (lv_description_0= RULE_STRING )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:963:2: (lv_description_0= RULE_STRING )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA17_0==RULE_STRING) ) {
-                alt17=1;
+            if ( (LA16_0==RULE_STRING) ) {
+                alt16=1;
             }
-            switch (alt17) {
+            switch (alt16) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1064:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:965:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoStringProperty2250); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoStringProperty2042); 
 
                     		createLeafNode(grammarAccess.getDtoStringPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2301,11 +2108,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1082:3: (lv_dataType_1= 'string' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1084:6: lv_dataType_1= 'string'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:983:3: (lv_dataType_1= 'string' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:985:6: lv_dataType_1= 'string'
             {
             lv_dataType_1=(Token)input.LT(1);
-            match(input,26,FOLLOW_26_in_ruleDtoStringProperty2280); 
+            match(input,24,FOLLOW_24_in_ruleDtoStringProperty2072); 
 
                     createLeafNode(grammarAccess.getDtoStringPropertyAccess().getDataTypeStringKeyword_1_0(), "dataType"); 
                 
@@ -2324,11 +2131,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1103:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1105:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1004:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1006:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoStringProperty2315); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoStringProperty2107); 
 
             		createLeafNode(grammarAccess.getDtoStringPropertyAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2370,7 +2177,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoDateTimeProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1130:1: entryRuleDtoDateTimeProperty returns [EObject current=null] : iv_ruleDtoDateTimeProperty= ruleDtoDateTimeProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1031:1: entryRuleDtoDateTimeProperty returns [EObject current=null] : iv_ruleDtoDateTimeProperty= ruleDtoDateTimeProperty EOF ;
     public final EObject entryRuleDtoDateTimeProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2378,16 +2185,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1130:61: (iv_ruleDtoDateTimeProperty= ruleDtoDateTimeProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1131:2: iv_ruleDtoDateTimeProperty= ruleDtoDateTimeProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1031:61: (iv_ruleDtoDateTimeProperty= ruleDtoDateTimeProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1032:2: iv_ruleDtoDateTimeProperty= ruleDtoDateTimeProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoDateTimePropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoDateTimeProperty_in_entryRuleDtoDateTimeProperty2356);
+            pushFollow(FOLLOW_ruleDtoDateTimeProperty_in_entryRuleDtoDateTimeProperty2148);
             iv_ruleDtoDateTimeProperty=ruleDtoDateTimeProperty();
             _fsp--;
 
              current =iv_ruleDtoDateTimeProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoDateTimeProperty2366); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoDateTimeProperty2158); 
 
             }
 
@@ -2405,7 +2212,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoDateTimeProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1138:1: ruleDtoDateTimeProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1039:1: ruleDtoDateTimeProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) ) ;
     public final EObject ruleDtoDateTimeProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2416,25 +2223,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1143:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1144:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1044:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1045:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1144:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1144:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1045:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1045:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'datetime' ) (lv_name_2= RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1144:2: (lv_description_0= RULE_STRING )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1045:2: (lv_description_0= RULE_STRING )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA18_0==RULE_STRING) ) {
-                alt18=1;
+            if ( (LA17_0==RULE_STRING) ) {
+                alt17=1;
             }
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1146:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1047:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoDateTimeProperty2413); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoDateTimeProperty2205); 
 
                     		createLeafNode(grammarAccess.getDtoDateTimePropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2456,11 +2263,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1164:3: (lv_dataType_1= 'datetime' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1166:6: lv_dataType_1= 'datetime'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1065:3: (lv_dataType_1= 'datetime' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1067:6: lv_dataType_1= 'datetime'
             {
             lv_dataType_1=(Token)input.LT(1);
-            match(input,27,FOLLOW_27_in_ruleDtoDateTimeProperty2443); 
+            match(input,25,FOLLOW_25_in_ruleDtoDateTimeProperty2235); 
 
                     createLeafNode(grammarAccess.getDtoDateTimePropertyAccess().getDataTypeDatetimeKeyword_1_0(), "dataType"); 
                 
@@ -2479,11 +2286,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1185:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1187:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1086:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1088:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoDateTimeProperty2478); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoDateTimeProperty2270); 
 
             		createLeafNode(grammarAccess.getDtoDateTimePropertyAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2525,7 +2332,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoIntegerProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1212:1: entryRuleDtoIntegerProperty returns [EObject current=null] : iv_ruleDtoIntegerProperty= ruleDtoIntegerProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1113:1: entryRuleDtoIntegerProperty returns [EObject current=null] : iv_ruleDtoIntegerProperty= ruleDtoIntegerProperty EOF ;
     public final EObject entryRuleDtoIntegerProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2533,16 +2340,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1212:60: (iv_ruleDtoIntegerProperty= ruleDtoIntegerProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1213:2: iv_ruleDtoIntegerProperty= ruleDtoIntegerProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1113:60: (iv_ruleDtoIntegerProperty= ruleDtoIntegerProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1114:2: iv_ruleDtoIntegerProperty= ruleDtoIntegerProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoIntegerPropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoIntegerProperty_in_entryRuleDtoIntegerProperty2519);
+            pushFollow(FOLLOW_ruleDtoIntegerProperty_in_entryRuleDtoIntegerProperty2311);
             iv_ruleDtoIntegerProperty=ruleDtoIntegerProperty();
             _fsp--;
 
              current =iv_ruleDtoIntegerProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoIntegerProperty2529); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoIntegerProperty2321); 
 
             }
 
@@ -2560,7 +2367,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoIntegerProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1220:1: ruleDtoIntegerProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1121:1: ruleDtoIntegerProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) ) ;
     public final EObject ruleDtoIntegerProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2571,25 +2378,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1225:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1226:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1126:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1127:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1226:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1226:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1127:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1127:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'integer' ) (lv_name_2= RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1226:2: (lv_description_0= RULE_STRING )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1127:2: (lv_description_0= RULE_STRING )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_STRING) ) {
-                alt19=1;
+            if ( (LA18_0==RULE_STRING) ) {
+                alt18=1;
             }
-            switch (alt19) {
+            switch (alt18) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1228:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1129:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoIntegerProperty2576); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoIntegerProperty2368); 
 
                     		createLeafNode(grammarAccess.getDtoIntegerPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2611,11 +2418,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1246:3: (lv_dataType_1= 'integer' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1248:6: lv_dataType_1= 'integer'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1147:3: (lv_dataType_1= 'integer' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1149:6: lv_dataType_1= 'integer'
             {
             lv_dataType_1=(Token)input.LT(1);
-            match(input,28,FOLLOW_28_in_ruleDtoIntegerProperty2606); 
+            match(input,26,FOLLOW_26_in_ruleDtoIntegerProperty2398); 
 
                     createLeafNode(grammarAccess.getDtoIntegerPropertyAccess().getDataTypeIntegerKeyword_1_0(), "dataType"); 
                 
@@ -2634,11 +2441,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1267:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1269:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1168:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1170:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoIntegerProperty2641); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoIntegerProperty2433); 
 
             		createLeafNode(grammarAccess.getDtoIntegerPropertyAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2680,7 +2487,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoDecimalProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1294:1: entryRuleDtoDecimalProperty returns [EObject current=null] : iv_ruleDtoDecimalProperty= ruleDtoDecimalProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1195:1: entryRuleDtoDecimalProperty returns [EObject current=null] : iv_ruleDtoDecimalProperty= ruleDtoDecimalProperty EOF ;
     public final EObject entryRuleDtoDecimalProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2688,16 +2495,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1294:60: (iv_ruleDtoDecimalProperty= ruleDtoDecimalProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1295:2: iv_ruleDtoDecimalProperty= ruleDtoDecimalProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1195:60: (iv_ruleDtoDecimalProperty= ruleDtoDecimalProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1196:2: iv_ruleDtoDecimalProperty= ruleDtoDecimalProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoDecimalPropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoDecimalProperty_in_entryRuleDtoDecimalProperty2682);
+            pushFollow(FOLLOW_ruleDtoDecimalProperty_in_entryRuleDtoDecimalProperty2474);
             iv_ruleDtoDecimalProperty=ruleDtoDecimalProperty();
             _fsp--;
 
              current =iv_ruleDtoDecimalProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoDecimalProperty2692); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoDecimalProperty2484); 
 
             }
 
@@ -2715,7 +2522,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoDecimalProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1302:1: ruleDtoDecimalProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1203:1: ruleDtoDecimalProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) ) ;
     public final EObject ruleDtoDecimalProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2726,25 +2533,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1307:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1308:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1208:6: ( ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1209:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1308:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1308:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1209:1: ( (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1209:2: (lv_description_0= RULE_STRING )? (lv_dataType_1= 'decimal' ) (lv_name_2= RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1308:2: (lv_description_0= RULE_STRING )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1209:2: (lv_description_0= RULE_STRING )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA20_0==RULE_STRING) ) {
-                alt20=1;
+            if ( (LA19_0==RULE_STRING) ) {
+                alt19=1;
             }
-            switch (alt20) {
+            switch (alt19) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1310:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1211:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoDecimalProperty2739); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoDecimalProperty2531); 
 
                     		createLeafNode(grammarAccess.getDtoDecimalPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2766,11 +2573,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1328:3: (lv_dataType_1= 'decimal' )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1330:6: lv_dataType_1= 'decimal'
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1229:3: (lv_dataType_1= 'decimal' )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1231:6: lv_dataType_1= 'decimal'
             {
             lv_dataType_1=(Token)input.LT(1);
-            match(input,29,FOLLOW_29_in_ruleDtoDecimalProperty2769); 
+            match(input,27,FOLLOW_27_in_ruleDtoDecimalProperty2561); 
 
                     createLeafNode(grammarAccess.getDtoDecimalPropertyAccess().getDataTypeDecimalKeyword_1_0(), "dataType"); 
                 
@@ -2789,11 +2596,11 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1349:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1351:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1250:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1252:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoDecimalProperty2804); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoDecimalProperty2596); 
 
             		createLeafNode(grammarAccess.getDtoDecimalPropertyAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2835,7 +2642,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoEnumerationProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1376:1: entryRuleDtoEnumerationProperty returns [EObject current=null] : iv_ruleDtoEnumerationProperty= ruleDtoEnumerationProperty EOF ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1277:1: entryRuleDtoEnumerationProperty returns [EObject current=null] : iv_ruleDtoEnumerationProperty= ruleDtoEnumerationProperty EOF ;
     public final EObject entryRuleDtoEnumerationProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2843,16 +2650,16 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1376:64: (iv_ruleDtoEnumerationProperty= ruleDtoEnumerationProperty EOF )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1377:2: iv_ruleDtoEnumerationProperty= ruleDtoEnumerationProperty EOF
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1277:64: (iv_ruleDtoEnumerationProperty= ruleDtoEnumerationProperty EOF )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1278:2: iv_ruleDtoEnumerationProperty= ruleDtoEnumerationProperty EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoEnumerationPropertyRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoEnumerationProperty_in_entryRuleDtoEnumerationProperty2845);
+            pushFollow(FOLLOW_ruleDtoEnumerationProperty_in_entryRuleDtoEnumerationProperty2637);
             iv_ruleDtoEnumerationProperty=ruleDtoEnumerationProperty();
             _fsp--;
 
              current =iv_ruleDtoEnumerationProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoEnumerationProperty2855); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoEnumerationProperty2647); 
 
             }
 
@@ -2870,7 +2677,7 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoEnumerationProperty
-    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1384:1: ruleDtoEnumerationProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1285:1: ruleDtoEnumerationProperty returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) ) ;
     public final EObject ruleDtoEnumerationProperty() throws RecognitionException {
         EObject current = null;
 
@@ -2880,25 +2687,25 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1389:6: ( ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1390:1: ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1290:6: ( ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1291:1: ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1390:1: ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1390:2: (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1291:1: ( (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID ) )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1291:2: (lv_description_0= RULE_STRING )? ( RULE_ID ) (lv_name_2= RULE_ID )
             {
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1390:2: (lv_description_0= RULE_STRING )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1291:2: (lv_description_0= RULE_STRING )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA21_0==RULE_STRING) ) {
-                alt21=1;
+            if ( (LA20_0==RULE_STRING) ) {
+                alt20=1;
             }
-            switch (alt21) {
+            switch (alt20) {
                 case 1 :
-                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1392:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1293:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoEnumerationProperty2902); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDtoEnumerationProperty2694); 
 
                     		createLeafNode(grammarAccess.getDtoEnumerationPropertyAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2920,8 +2727,8 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1410:3: ( RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1413:3: RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1311:3: ( RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1314:3: RULE_ID
             {
 
             			if (current==null) {
@@ -2929,18 +2736,18 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2933); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2725); 
 
             		createLeafNode(grammarAccess.getDtoEnumerationPropertyAccess().getTypeEnumerationDtoCrossReference_1_0(), "type"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1426:2: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1428:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1327:2: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.datacontract.xtext/src-gen/org/mod4j/dsl/datacontract/xtext/parser/antlr/internal/InternalDataContract.g:1329:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2958); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2750); 
 
             		createLeafNode(grammarAccess.getDtoEnumerationPropertyAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2988,110 +2795,101 @@ public class InternalDataContractParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleDataContractModel130 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_11_in_ruleDataContractModel148 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleDataContractModel170 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDataContractModel187 = new BitSet(new long[]{0x000000000150A012L});
-    public static final BitSet FOLLOW_ruleExternalReference_in_ruleDataContractModel221 = new BitSet(new long[]{0x000000000150A012L});
-    public static final BitSet FOLLOW_ruleDto_in_ruleDataContractModel261 = new BitSet(new long[]{0x0000000001508012L});
-    public static final BitSet FOLLOW_ruleEnumerationDto_in_ruleDataContractModel305 = new BitSet(new long[]{0x0000000001508012L});
+    public static final BitSet FOLLOW_12_in_ruleDataContractModel187 = new BitSet(new long[]{0x000000000050A012L});
+    public static final BitSet FOLLOW_ruleExternalReference_in_ruleDataContractModel221 = new BitSet(new long[]{0x000000000050A012L});
+    public static final BitSet FOLLOW_ruleDto_in_ruleDataContractModel261 = new BitSet(new long[]{0x0000000000508012L});
+    public static final BitSet FOLLOW_ruleEnumerationDto_in_ruleDataContractModel305 = new BitSet(new long[]{0x0000000000508012L});
     public static final BitSet FOLLOW_ruleDto_in_entryRuleDto344 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDto354 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBusinessClassDto_in_ruleDto401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleListDto_in_ruleDto428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCustomDto_in_ruleDto455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalReference_in_entryRuleExternalReference487 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExternalReference497 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleExternalReference544 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleExternalReference562 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleExternalReference584 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleExternalReference601 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleExternalReference623 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleExternalReference640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBusinessClassDto_in_entryRuleBusinessClassDto673 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClassDto683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleBusinessClassDto730 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleBusinessClassDto748 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassDto770 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleBusinessClassDto787 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassDto809 = new BitSet(new long[]{0x0000000000021000L});
-    public static final BitSet FOLLOW_12_in_ruleBusinessClassDto822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleBusinessClassDto838 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_ruleBusinessClassDto872 = new BitSet(new long[]{0x00000000000C0020L});
-    public static final BitSet FOLLOW_18_in_ruleBusinessClassDto887 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleBusinessClassDto896 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleBusinessClassAssociationRoleReference_in_ruleBusinessClassDto930 = new BitSet(new long[]{0x0000000000080020L});
-    public static final BitSet FOLLOW_19_in_ruleBusinessClassDto944 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleBusinessClassDto955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEnumerationDto_in_entryRuleEnumerationDto990 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEnumerationDto1000 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleEnumerationDto1047 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleEnumerationDto1065 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationDto1087 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleEnumerationDto1104 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationDto1126 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleEnumerationDto1138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_entryRuleBusinessClassPropertyReference1171 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClassPropertyReference1181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassPropertyReference1228 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleBusinessClassPropertyReference1245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBusinessClassAssociationRoleReference_in_entryRuleBusinessClassAssociationRoleReference1278 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClassAssociationRoleReference1288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1335 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleBusinessClassAssociationRoleReference1352 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1374 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleBusinessClassAssociationRoleReference1386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleListDto_in_entryRuleListDto1419 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleListDto1429 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleListDto1476 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleListDto1494 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleListDto1516 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleListDto1533 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleListDto1555 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleListDto1567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCustomDto_in_entryRuleCustomDto1600 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCustomDto1610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCustomDto1657 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleCustomDto1675 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCustomDto1697 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleCustomDto1714 = new BitSet(new long[]{0x000000003E000030L});
-    public static final BitSet FOLLOW_ruleDtoProperty_in_ruleCustomDto1748 = new BitSet(new long[]{0x000000003E080030L});
-    public static final BitSet FOLLOW_19_in_ruleCustomDto1762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoProperty_in_entryRuleDtoProperty1795 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoProperty1805 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoBooleanProperty_in_ruleDtoProperty1853 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleDtoStringProperty_in_ruleDtoProperty1880 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleDtoDateTimeProperty_in_ruleDtoProperty1907 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleDtoIntegerProperty_in_ruleDtoProperty1934 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleDtoDecimalProperty_in_ruleDtoProperty1961 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleDtoEnumerationProperty_in_ruleDtoProperty1988 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDtoProperty1997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoBooleanProperty_in_entryRuleDtoBooleanProperty2030 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoBooleanProperty2040 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoBooleanProperty2087 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleDtoBooleanProperty2117 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoBooleanProperty2152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoStringProperty_in_entryRuleDtoStringProperty2193 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoStringProperty2203 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoStringProperty2250 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleDtoStringProperty2280 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoStringProperty2315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoDateTimeProperty_in_entryRuleDtoDateTimeProperty2356 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoDateTimeProperty2366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoDateTimeProperty2413 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_ruleDtoDateTimeProperty2443 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoDateTimeProperty2478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoIntegerProperty_in_entryRuleDtoIntegerProperty2519 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoIntegerProperty2529 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoIntegerProperty2576 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleDtoIntegerProperty2606 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoIntegerProperty2641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoDecimalProperty_in_entryRuleDtoDecimalProperty2682 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoDecimalProperty2692 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoDecimalProperty2739 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleDtoDecimalProperty2769 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoDecimalProperty2804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoEnumerationProperty_in_entryRuleDtoEnumerationProperty2845 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoEnumerationProperty2855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoEnumerationProperty2902 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2933 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCustomDto_in_ruleDto428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalReference_in_entryRuleExternalReference460 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExternalReference470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleExternalReference517 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleExternalReference535 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExternalReference557 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleExternalReference574 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExternalReference596 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleExternalReference613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBusinessClassDto_in_entryRuleBusinessClassDto646 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClassDto656 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleBusinessClassDto703 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleBusinessClassDto721 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassDto743 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleBusinessClassDto760 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassDto782 = new BitSet(new long[]{0x0000000000021000L});
+    public static final BitSet FOLLOW_12_in_ruleBusinessClassDto795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleBusinessClassDto811 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_ruleBusinessClassDto845 = new BitSet(new long[]{0x00000000000C0020L});
+    public static final BitSet FOLLOW_18_in_ruleBusinessClassDto860 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleBusinessClassDto869 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleBusinessClassAssociationRoleReference_in_ruleBusinessClassDto903 = new BitSet(new long[]{0x0000000000080020L});
+    public static final BitSet FOLLOW_19_in_ruleBusinessClassDto917 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleBusinessClassDto928 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEnumerationDto_in_entryRuleEnumerationDto963 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEnumerationDto973 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleEnumerationDto1020 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleEnumerationDto1038 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationDto1060 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleEnumerationDto1077 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEnumerationDto1099 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleEnumerationDto1111 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBusinessClassPropertyReference_in_entryRuleBusinessClassPropertyReference1144 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClassPropertyReference1154 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassPropertyReference1201 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBusinessClassPropertyReference1218 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBusinessClassAssociationRoleReference_in_entryRuleBusinessClassAssociationRoleReference1251 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBusinessClassAssociationRoleReference1261 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1308 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleBusinessClassAssociationRoleReference1325 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBusinessClassAssociationRoleReference1347 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBusinessClassAssociationRoleReference1359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCustomDto_in_entryRuleCustomDto1392 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCustomDto1402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCustomDto1449 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleCustomDto1467 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCustomDto1489 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleCustomDto1506 = new BitSet(new long[]{0x000000000F800030L});
+    public static final BitSet FOLLOW_ruleDtoProperty_in_ruleCustomDto1540 = new BitSet(new long[]{0x000000000F880030L});
+    public static final BitSet FOLLOW_19_in_ruleCustomDto1554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoProperty_in_entryRuleDtoProperty1587 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoProperty1597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoBooleanProperty_in_ruleDtoProperty1645 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleDtoStringProperty_in_ruleDtoProperty1672 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleDtoDateTimeProperty_in_ruleDtoProperty1699 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleDtoIntegerProperty_in_ruleDtoProperty1726 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleDtoDecimalProperty_in_ruleDtoProperty1753 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleDtoEnumerationProperty_in_ruleDtoProperty1780 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleDtoProperty1789 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoBooleanProperty_in_entryRuleDtoBooleanProperty1822 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoBooleanProperty1832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoBooleanProperty1879 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleDtoBooleanProperty1909 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoBooleanProperty1944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoStringProperty_in_entryRuleDtoStringProperty1985 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoStringProperty1995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoStringProperty2042 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleDtoStringProperty2072 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoStringProperty2107 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoDateTimeProperty_in_entryRuleDtoDateTimeProperty2148 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoDateTimeProperty2158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoDateTimeProperty2205 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleDtoDateTimeProperty2235 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoDateTimeProperty2270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoIntegerProperty_in_entryRuleDtoIntegerProperty2311 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoIntegerProperty2321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoIntegerProperty2368 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleDtoIntegerProperty2398 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoIntegerProperty2433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoDecimalProperty_in_entryRuleDtoDecimalProperty2474 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoDecimalProperty2484 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoDecimalProperty2531 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleDtoDecimalProperty2561 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoDecimalProperty2596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoEnumerationProperty_in_entryRuleDtoEnumerationProperty2637 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoEnumerationProperty2647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDtoEnumerationProperty2694 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2725 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoEnumerationProperty2750 = new BitSet(new long[]{0x0000000000000002L});
 
 }

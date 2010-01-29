@@ -17,6 +17,7 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
  * <ul>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getDtoType <em>Dto Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#isOrdered <em>Ordered</em>}</li>
+ *   <li>{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,35 @@ public interface DtoAssociationRoleProperty extends DtoProperty {
      * @generated
      */
 	void setOrdered(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
+     * The default value is <code>"ONE"</code>.
+     * The literals are from the enumeration {@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Multiplicity</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Multiplicity</em>' attribute.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity
+     * @see #setMultiplicity(Multiplicity)
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractDslPackage#getDtoAssociationRoleProperty_Multiplicity()
+     * @model default="ONE"
+     * @generated
+     */
+    Multiplicity getMultiplicity();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getMultiplicity <em>Multiplicity</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Multiplicity</em>' attribute.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity
+     * @see #getMultiplicity()
+     * @generated
+     */
+    void setMultiplicity(Multiplicity value);
 
 } // DtoAssociationRoleProperty

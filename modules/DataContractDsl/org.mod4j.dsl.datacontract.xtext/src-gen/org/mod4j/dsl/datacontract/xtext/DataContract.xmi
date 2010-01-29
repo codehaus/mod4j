@@ -37,7 +37,6 @@
       <alternatives xsi:type="xtext:Alternatives">
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
-        <groups xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ExternalReference">
@@ -155,30 +154,6 @@
         <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="ListDto">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/datacontract#//ListDto"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="description" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value="list"/>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value="contains"/>
-        <tokens xsi:type="xtext:Assignment" feature="baseDto" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/datacontract#//Dto"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          </terminal>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value=";"/>
-      </alternatives>
-    </rules>
     <rules xsi:type="xtext:ParserRule" name="CustomDto">
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/datacontract#//CustomDto"/>
@@ -193,7 +168,7 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
         <tokens xsi:type="xtext:Assignment" cardinality="+" feature="properties" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
@@ -204,12 +179,12 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
           <groups xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
-          <groups xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>

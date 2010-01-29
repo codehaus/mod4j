@@ -7,6 +7,11 @@
   <foreignModel>DataContractDsl.ecore</foreignModel>
   <genPackages prefix="DataContractDsl" basePackage="org.mod4j.dsl.datacontract.mm"
       disposableProviderFactory="true" ecorePackage="DataContractDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DataContractDsl.ecore#//Multiplicity">
+      <genEnumLiterals ecoreEnumLiteral="DataContractDsl.ecore#//Multiplicity/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="DataContractDsl.ecore#//Multiplicity/ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="DataContractDsl.ecore#//Multiplicity/MANY"/>
+    </genEnums>
     <genClasses ecoreClass="DataContractDsl.ecore#//DataContractModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DataContractModel/dtos"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DataContractModel/enumerations"/>
@@ -22,10 +27,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//BusinessClassDto/associationReferences"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//BusinessClassDto/creatable"/>
     </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//ListDto">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//ListDto/baseDto"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//ListDto/selectedProperties"/>
-    </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/dataType"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoProperty/businessClassDto"/>
@@ -33,9 +34,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/mandatoryForCreation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/nullable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoProperty/writable"/>
-    </genClasses>
-    <genClasses ecoreClass="DataContractDsl.ecore#//DtoPropertyReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoPropertyReference/referredProperty"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoDataProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoDataProperty/hasDefault"/>
@@ -84,6 +82,7 @@
     <genClasses ecoreClass="DataContractDsl.ecore#//DtoAssociationRoleProperty">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataContractDsl.ecore#//DtoAssociationRoleProperty/dtoType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoAssociationRoleProperty/ordered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//DtoAssociationRoleProperty/multiplicity"/>
     </genClasses>
     <genClasses ecoreClass="DataContractDsl.ecore#//ExternalReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataContractDsl.ecore#//ExternalReference/modelname"/>

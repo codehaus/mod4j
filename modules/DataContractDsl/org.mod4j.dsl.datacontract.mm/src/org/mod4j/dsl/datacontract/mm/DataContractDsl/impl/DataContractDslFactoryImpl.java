@@ -7,6 +7,7 @@
 package org.mod4j.dsl.datacontract.mm.DataContractDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -63,9 +64,7 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
             case DataContractDslPackage.DATA_CONTRACT_MODEL: return createDataContractModel();
             case DataContractDslPackage.DTO: return createDto();
             case DataContractDslPackage.BUSINESS_CLASS_DTO: return createBusinessClassDto();
-            case DataContractDslPackage.LIST_DTO: return createListDto();
             case DataContractDslPackage.DTO_PROPERTY: return createDtoProperty();
-            case DataContractDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
             case DataContractDslPackage.DTO_DATA_PROPERTY: return createDtoDataProperty();
             case DataContractDslPackage.DTO_STRING_PROPERTY: return createDtoStringProperty();
             case DataContractDslPackage.DTO_BOOLEAN_PROPERTY: return createDtoBooleanProperty();
@@ -87,6 +86,36 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object createFromString(EDataType eDataType, String initialValue) {
+        switch (eDataType.getClassifierID()) {
+            case DataContractDslPackage.MULTIPLICITY:
+                return createMultiplicityFromString(eDataType, initialValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String convertToString(EDataType eDataType, Object instanceValue) {
+        switch (eDataType.getClassifierID()) {
+            case DataContractDslPackage.MULTIPLICITY:
+                return convertMultiplicityToString(eDataType, instanceValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -121,29 +150,9 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public ListDto createListDto() {
-        ListDtoImpl listDto = new ListDtoImpl();
-        return listDto;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
 	public DtoProperty createDtoProperty() {
         DtoPropertyImpl dtoProperty = new DtoPropertyImpl();
         return dtoProperty;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public DtoPropertyReference createDtoPropertyReference() {
-        DtoPropertyReferenceImpl dtoPropertyReference = new DtoPropertyReferenceImpl();
-        return dtoPropertyReference;
     }
 
 	/**
@@ -297,6 +306,26 @@ public class DataContractDslFactoryImpl extends EFactoryImpl implements DataCont
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Multiplicity createMultiplicityFromString(EDataType eDataType, String initialValue) {
+        Multiplicity result = Multiplicity.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertMultiplicityToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

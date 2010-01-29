@@ -27,26 +27,8 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 
 public class DataContractScopeProvider extends AbstractDeclarativeScopeProvider {
-
-	/**
-	 * Return the scopes for the baseDto of a ListDto: all but itself.
-	 */
-    public IScope scope_ListDto_baseDto	(ListDto context, 	EReference reference)
-	{
-		List<IScopedElement> scopedElements = new ArrayList<IScopedElement>();
-		DataContractModel model = context.getDatacontractModel();
-		
-		for (Dto dto : model.getDtos() ) {
-			if( dto != context ){
-				IScopedElement scopedElement = ScopedElement.create(dto.getName() , dto);
-				scopedElements.add(scopedElement);
-			}
-		}
-		return new SimpleScope(scopedElements);
-	}
 
     public IScope scope_BusinessClassDto_base(BusinessClassDto context, EReference reference)
 	{

@@ -53,15 +53,6 @@ public interface DataContractDslFactory extends EFactory {
 	BusinessClassDto createBusinessClassDto();
 
 	/**
-     * Returns a new object of class '<em>List Dto</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>List Dto</em>'.
-     * @generated
-     */
-	ListDto createListDto();
-
-	/**
      * Returns a new object of class '<em>Dto Property</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,15 +60,6 @@ public interface DataContractDslFactory extends EFactory {
      * @generated
      */
 	DtoProperty createDtoProperty();
-
-	/**
-     * Returns a new object of class '<em>Dto Property Reference</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Dto Property Reference</em>'.
-     * @generated
-     */
-	DtoPropertyReference createDtoPropertyReference();
 
 	/**
      * Returns a new object of class '<em>Dto Data Property</em>'.

@@ -30,7 +30,7 @@
      «FOREACH properties.typeSelect(DtoDataProperty).dataType.toSet() AS dataType -»
          «EXPAND Imports::addImports FOR properties.selectFirst(e|e.dataType == dataType) -»
      «ENDFOREACH»
-     «IF properties.typeSelect(DtoAssociationRoleProperty).reject(e|e.dtoType.metaType == BusinessClassDto).size > 0 -»
+     «IF properties.typeSelect(DtoAssociationRoleProperty).exists(e|e.multiplicity == Multiplicity::MANY) -»
          «EXPAND Imports::addImports FOR this -»
      «ENDIF»
      
@@ -46,7 +46,7 @@
              «EXPAND Attributes::instanceVariable FOR dataProperty»
          «ENDFOREACH»
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»
-              «EXPAND Attributes::instanceVariableNew(assRef) FOR assRef.dtoType»
+              «EXPAND Attributes::instanceVariableNew FOR assRef»
          «ENDFOREACH»
          «EXPAND Constructors::addNoArgConstructor FOR this»
          «EXPAND Constructors::addIdAndVersionConstructor FOR this»
@@ -57,16 +57,17 @@
              «EXPAND Attributes::addGetter FOR dataProperty»
          «ENDFOREACH»
          «FOREACH properties.typeSelect(DtoAssociationRoleProperty) AS assRef»
-             «EXPAND Attributes::addAssociationRoleAccessors(assRef) FOR assRef.dtoType» 
+             «EXPAND Attributes::addAssociationRoleAccessors FOR assRef» 
          «ENDFOREACH»
          «EXPAND addClearMethod FOR this»
          «EXPAND StandardOverrides::addToStringMethod FOR this»
      }
 «ENDDEFINE»
 
+«REM»Nothing to generate for ListDto's
 «DEFINE createDto FOR ListDto»
-    «REM»Nothing to generate for ListDto's«ENDREM»
 «ENDDEFINE»
+«ENDREM»
 
 «DEFINE createDto FOR CustomDto»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: dtoBean.xpt") FOR this»

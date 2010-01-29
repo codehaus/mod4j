@@ -8,6 +8,7 @@ package org.mod4j.dsl.datacontract.mm.DataContractDsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -67,7 +68,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getModelElement()
      * @generated
      */
-	int MODEL_ELEMENT = 11;
+	int MODEL_ELEMENT = 9;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -298,70 +299,6 @@ public interface DataContractDslPackage extends EPackage {
 	int BUSINESS_CLASS_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 5;
 
 	/**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl <em>List Dto</em>}' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getListDto()
-     * @generated
-     */
-	int LIST_DTO = 3;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LIST_DTO__NAME = DTO__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LIST_DTO__DESCRIPTION = DTO__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Datacontract Model</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LIST_DTO__DATACONTRACT_MODEL = DTO__DATACONTRACT_MODEL;
-
-	/**
-     * The feature id for the '<em><b>Base Dto</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LIST_DTO__BASE_DTO = DTO_FEATURE_COUNT + 0;
-
-	/**
-     * The feature id for the '<em><b>Selected Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LIST_DTO__SELECTED_PROPERTIES = DTO_FEATURE_COUNT + 1;
-
-	/**
-     * The number of structural features of the '<em>List Dto</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int LIST_DTO_FEATURE_COUNT = DTO_FEATURE_COUNT + 2;
-
-	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl <em>Dto Property</em>}' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -369,7 +306,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoProperty()
      * @generated
      */
-	int DTO_PROPERTY = 4;
+	int DTO_PROPERTY = 3;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -453,106 +390,6 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_PROPERTY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoPropertyReference()
-     * @generated
-     */
-	int DTO_PROPERTY_REFERENCE = 5;
-
-	/**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__NAME = DTO_PROPERTY__NAME;
-
-	/**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__DESCRIPTION = DTO_PROPERTY__DESCRIPTION;
-
-	/**
-     * The feature id for the '<em><b>Data Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__DATA_TYPE = DTO_PROPERTY__DATA_TYPE;
-
-	/**
-     * The feature id for the '<em><b>Business Class Dto</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__BUSINESS_CLASS_DTO = DTO_PROPERTY__BUSINESS_CLASS_DTO;
-
-	/**
-     * The feature id for the '<em><b>Custom Dto</b></em>' container reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__CUSTOM_DTO = DTO_PROPERTY__CUSTOM_DTO;
-
-	/**
-     * The feature id for the '<em><b>Mandatory For Creation</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__MANDATORY_FOR_CREATION = DTO_PROPERTY__MANDATORY_FOR_CREATION;
-
-	/**
-     * The feature id for the '<em><b>Nullable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__NULLABLE = DTO_PROPERTY__NULLABLE;
-
-	/**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__WRITABLE = DTO_PROPERTY__WRITABLE;
-
-	/**
-     * The feature id for the '<em><b>Referred Property</b></em>' reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE__REFERRED_PROPERTY = DTO_PROPERTY_FEATURE_COUNT + 0;
-
-	/**
-     * The number of structural features of the '<em>Dto Property Reference</em>' class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DTO_PROPERTY_REFERENCE_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 1;
-
-	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl <em>Dto Data Property</em>}' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -560,7 +397,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDataProperty()
      * @generated
      */
-	int DTO_DATA_PROPERTY = 6;
+	int DTO_DATA_PROPERTY = 4;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -660,7 +497,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoStringProperty()
      * @generated
      */
-	int DTO_STRING_PROPERTY = 7;
+	int DTO_STRING_PROPERTY = 5;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -769,7 +606,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoBooleanProperty()
      * @generated
      */
-	int DTO_BOOLEAN_PROPERTY = 8;
+	int DTO_BOOLEAN_PROPERTY = 6;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -878,7 +715,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationDto()
      * @generated
      */
-	int ENUMERATION_DTO = 9;
+	int ENUMERATION_DTO = 7;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -942,7 +779,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getEnumerationDtoLiteral()
      * @generated
      */
-	int ENUMERATION_DTO_LITERAL = 10;
+	int ENUMERATION_DTO_LITERAL = 8;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -988,7 +825,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getCustomDto()
      * @generated
      */
-	int CUSTOM_DTO = 12;
+	int CUSTOM_DTO = 10;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1043,7 +880,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoIntegerProperty()
      * @generated
      */
-	int DTO_INTEGER_PROPERTY = 13;
+	int DTO_INTEGER_PROPERTY = 11;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1152,7 +989,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDecimalProperty()
      * @generated
      */
-	int DTO_DECIMAL_PROPERTY = 14;
+	int DTO_DECIMAL_PROPERTY = 12;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1261,7 +1098,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoEnumerationProperty()
      * @generated
      */
-	int DTO_ENUMERATION_PROPERTY = 15;
+	int DTO_ENUMERATION_PROPERTY = 13;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1379,7 +1216,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoDateTimeProperty()
      * @generated
      */
-	int DTO_DATE_TIME_PROPERTY = 16;
+	int DTO_DATE_TIME_PROPERTY = 14;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1488,7 +1325,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassPropertyReference()
      * @generated
      */
-	int BUSINESS_CLASS_PROPERTY_REFERENCE = 17;
+	int BUSINESS_CLASS_PROPERTY_REFERENCE = 15;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1534,7 +1371,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getBusinessClassAssociationRoleReference()
      * @generated
      */
-	int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE = 18;
+	int BUSINESS_CLASS_ASSOCIATION_ROLE_REFERENCE = 16;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1589,7 +1426,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoAssociationRoleProperty()
      * @generated
      */
-	int DTO_ASSOCIATION_ROLE_PROPERTY = 19;
+	int DTO_ASSOCIATION_ROLE_PROPERTY = 17;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1682,13 +1519,22 @@ public interface DataContractDslPackage extends EPackage {
 	int DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED = DTO_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
+     * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY = DTO_PROPERTY_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Dto Association Role Property</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DTO_ASSOCIATION_ROLE_PROPERTY_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 2;
+	int DTO_ASSOCIATION_ROLE_PROPERTY_FEATURE_COUNT = DTO_PROPERTY_FEATURE_COUNT + 3;
 
 	/**
      * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl <em>External Reference</em>}' class.
@@ -1698,7 +1544,7 @@ public interface DataContractDslPackage extends EPackage {
      * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getExternalReference()
      * @generated
      */
-	int EXTERNAL_REFERENCE = 20;
+	int EXTERNAL_REFERENCE = 18;
 
 	/**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1747,6 +1593,17 @@ public interface DataContractDslPackage extends EPackage {
 
 
 	/**
+     * The meta object id for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity <em>Multiplicity</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getMultiplicity()
+     * @generated
+     */
+    int MULTIPLICITY = 19;
+
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DataContractModel <em>Data Contract Model</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1876,38 +1733,6 @@ public interface DataContractDslPackage extends EPackage {
 	EAttribute getBusinessClassDto_Creatable();
 
 	/**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto <em>List Dto</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for class '<em>List Dto</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto
-     * @generated
-     */
-	EClass getListDto();
-
-	/**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getBaseDto <em>Base Dto</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Base Dto</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getBaseDto()
-     * @see #getListDto()
-     * @generated
-     */
-	EReference getListDto_BaseDto();
-
-	/**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getSelectedProperties <em>Selected Properties</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Selected Properties</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto#getSelectedProperties()
-     * @see #getListDto()
-     * @generated
-     */
-	EReference getListDto_SelectedProperties();
-
-	/**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty <em>Dto Property</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1982,27 +1807,6 @@ public interface DataContractDslPackage extends EPackage {
      * @generated
      */
 	EAttribute getDtoProperty_Writable();
-
-	/**
-     * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference <em>Dto Property Reference</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Dto Property Reference</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference
-     * @generated
-     */
-	EClass getDtoPropertyReference();
-
-	/**
-     * Returns the meta object for the reference '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference#getReferredProperty <em>Referred Property</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Referred Property</em>'.
-     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoPropertyReference#getReferredProperty()
-     * @see #getDtoPropertyReference()
-     * @generated
-     */
-	EReference getDtoPropertyReference_ReferredProperty();
 
 	/**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoDataProperty <em>Dto Data Property</em>}'.
@@ -2365,6 +2169,17 @@ public interface DataContractDslPackage extends EPackage {
 	EAttribute getDtoAssociationRoleProperty_Ordered();
 
 	/**
+     * Returns the meta object for the attribute '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getMultiplicity <em>Multiplicity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Multiplicity</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoAssociationRoleProperty#getMultiplicity()
+     * @see #getDtoAssociationRoleProperty()
+     * @generated
+     */
+    EAttribute getDtoAssociationRoleProperty_Multiplicity();
+
+    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference <em>External Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2397,6 +2212,16 @@ public interface DataContractDslPackage extends EPackage {
 	EReference getExternalReference_DatacontractModel();
 
 	/**
+     * Returns the meta object for enum '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity <em>Multiplicity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Multiplicity</em>'.
+     * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity
+     * @generated
+     */
+    EEnum getMultiplicity();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2521,32 +2346,6 @@ public interface DataContractDslPackage extends EPackage {
 		EAttribute BUSINESS_CLASS_DTO__CREATABLE = eINSTANCE.getBusinessClassDto_Creatable();
 
 		/**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl <em>List Dto</em>}' class.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ListDtoImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getListDto()
-         * @generated
-         */
-		EClass LIST_DTO = eINSTANCE.getListDto();
-
-		/**
-         * The meta object literal for the '<em><b>Base Dto</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EReference LIST_DTO__BASE_DTO = eINSTANCE.getListDto_BaseDto();
-
-		/**
-         * The meta object literal for the '<em><b>Selected Properties</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EReference LIST_DTO__SELECTED_PROPERTIES = eINSTANCE.getListDto_SelectedProperties();
-
-		/**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyImpl <em>Dto Property</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2603,24 +2402,6 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
 		EAttribute DTO_PROPERTY__WRITABLE = eINSTANCE.getDtoProperty_Writable();
-
-		/**
-         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoPropertyReferenceImpl
-         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getDtoPropertyReference()
-         * @generated
-         */
-		EClass DTO_PROPERTY_REFERENCE = eINSTANCE.getDtoPropertyReference();
-
-		/**
-         * The meta object literal for the '<em><b>Referred Property</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EReference DTO_PROPERTY_REFERENCE__REFERRED_PROPERTY = eINSTANCE.getDtoPropertyReference_ReferredProperty();
 
 		/**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DtoDataPropertyImpl <em>Dto Data Property</em>}' class.
@@ -2923,6 +2704,14 @@ public interface DataContractDslPackage extends EPackage {
 		EAttribute DTO_ASSOCIATION_ROLE_PROPERTY__ORDERED = eINSTANCE.getDtoAssociationRoleProperty_Ordered();
 
 		/**
+         * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DTO_ASSOCIATION_ROLE_PROPERTY__MULTIPLICITY = eINSTANCE.getDtoAssociationRoleProperty_Multiplicity();
+
+        /**
          * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.ExternalReferenceImpl <em>External Reference</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2947,6 +2736,16 @@ public interface DataContractDslPackage extends EPackage {
          * @generated
          */
 		EReference EXTERNAL_REFERENCE__DATACONTRACT_MODEL = eINSTANCE.getExternalReference_DatacontractModel();
+
+        /**
+         * The meta object literal for the '{@link org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity <em>Multiplicity</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.Multiplicity
+         * @see org.mod4j.dsl.datacontract.mm.DataContractDsl.impl.DataContractDslPackageImpl#getMultiplicity()
+         * @generated
+         */
+        EEnum MULTIPLICITY = eINSTANCE.getMultiplicity();
 
 	}
 

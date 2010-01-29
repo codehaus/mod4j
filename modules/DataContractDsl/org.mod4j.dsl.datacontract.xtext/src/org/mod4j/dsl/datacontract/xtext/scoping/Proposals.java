@@ -22,7 +22,6 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.BusinessClassPropertyRefere
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.Dto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.ExternalReference;
-import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 
 public class Proposals {
 
@@ -140,19 +139,6 @@ public class Proposals {
                     BusinessClassDto busDto = (BusinessClassDto)availableDto;
                     if( busDto.getBase().getName().equals(requiredName)){
                         result.add(busDto.getName());
-                    }
-                }
-            }
-            if ( availableDto instanceof ListDto ) {
-                if( multiplicity.equals("MANY")) {
-                    ListDto listDto = (ListDto)availableDto;
-                    Dto baseDto = listDto.getBaseDto();
-                    if( baseDto instanceof BusinessClassDto ) {
-                        BusinessClassDto busDto = (BusinessClassDto)baseDto;
-                        
-                        if( busDto.getBase().getName().equals(requiredName)){
-                            result.add(listDto.getName());
-                        }
                     }
                 }
             }

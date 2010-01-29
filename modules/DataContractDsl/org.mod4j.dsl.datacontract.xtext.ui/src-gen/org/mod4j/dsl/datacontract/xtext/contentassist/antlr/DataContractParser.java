@@ -54,7 +54,6 @@ public class DataContractParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumerationDtoAccess().getGroup(), "rule__EnumerationDto__Group__0");
 					put(grammarAccess.getBusinessClassPropertyReferenceAccess().getGroup(), "rule__BusinessClassPropertyReference__Group__0");
 					put(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getGroup(), "rule__BusinessClassAssociationRoleReference__Group__0");
-					put(grammarAccess.getListDtoAccess().getGroup(), "rule__ListDto__Group__0");
 					put(grammarAccess.getCustomDtoAccess().getGroup(), "rule__CustomDto__Group__0");
 					put(grammarAccess.getDtoPropertyAccess().getGroup(), "rule__DtoProperty__Group__0");
 					put(grammarAccess.getDtoBooleanPropertyAccess().getGroup(), "rule__DtoBooleanProperty__Group__0");
@@ -82,9 +81,6 @@ public class DataContractParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBusinessClassPropertyReferenceAccess().getNameAssignment_0(), "rule__BusinessClassPropertyReference__NameAssignment_0");
 					put(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getNameAssignment_0(), "rule__BusinessClassAssociationRoleReference__NameAssignment_0");
 					put(grammarAccess.getBusinessClassAssociationRoleReferenceAccess().getDtoTypeAssignment_2(), "rule__BusinessClassAssociationRoleReference__DtoTypeAssignment_2");
-					put(grammarAccess.getListDtoAccess().getDescriptionAssignment_0(), "rule__ListDto__DescriptionAssignment_0");
-					put(grammarAccess.getListDtoAccess().getNameAssignment_2(), "rule__ListDto__NameAssignment_2");
-					put(grammarAccess.getListDtoAccess().getBaseDtoAssignment_4(), "rule__ListDto__BaseDtoAssignment_4");
 					put(grammarAccess.getCustomDtoAccess().getDescriptionAssignment_0(), "rule__CustomDto__DescriptionAssignment_0");
 					put(grammarAccess.getCustomDtoAccess().getNameAssignment_2(), "rule__CustomDto__NameAssignment_2");
 					put(grammarAccess.getCustomDtoAccess().getPropertiesAssignment_4(), "rule__CustomDto__PropertiesAssignment_4");

@@ -240,11 +240,11 @@ public class PresentationHelpers {
     /**
      * Returns the result type of the navigation "nav starting with the Dto at "model.dtoName'
      * @param model
-     * @param dtoName
+     * @param sourceDtoName
      * @param nav
      * @return
      */
-    static public Mod4jType getMod4jType(String model, String dtoName, NavigationExpression nav){
+    static public Mod4jType getMod4jType(String model, String sourceDtoName, NavigationExpression nav){
         Mod4jType result = new Mod4jType("UNKNOWN", "UNKNOW");
         
         if( nav == null) {
@@ -252,10 +252,10 @@ public class PresentationHelpers {
         }
         EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
         AssociationRoleReference ref = x.get(0);
-        Symbol dto = CrossxBroker.lookupSymbol(model, dtoName, "Dto");
-        Symbol reference = CrossxBroker.getSubSymbol(dto, ref.getName());
+        Symbol sourceDtoSymbol = CrossxBroker.lookupSymbol(model, sourceDtoName, "Dto");
+        Symbol reference = CrossxBroker.getSubSymbol(sourceDtoSymbol, ref.getName());
         if( reference == null){
-            result.setError("ERROR: 9 [" + ref.getName() + "] not found for [" + dtoName + "]");
+            result.setError("ERROR: 9 [" + ref.getName() + "] not found for [" + sourceDtoName + "]");
             return result;
         }
         
@@ -263,16 +263,22 @@ public class PresentationHelpers {
             ReferenceSymbolProperty referredType = CrossxBroker.getReferenceProperty(reference, "ReferencedDto");
             Symbol returnType = CrossxBroker.lookupSymbol(referredType.getModelname(),
                           referredType.getSymbolname(), "Dto") ;
-            if( CrossxBroker.getPropertyValue(returnType, "dtoType" ).equals("ListDto") ){
-                String baseType = CrossxBroker.getPropertyValue(returnType, "baseDto");
-                result.setBaseType(baseType);
-                result.setCollection("LIST" );
-                return result;
-            } else {
-                result.setBaseType(returnType.getName());
-                result.setCollection("SINGLE");
-                return result;
-            }
+//            Symbol s = CrossxBroker.lookupReference(referredType);
+//            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++ " + returnType.getName() + " == " + s.getName());
+//            if( CrossxBroker.getPropertyValue(returnType, "dtoType" ).equals("ListDto") ){
+//                String baseType = CrossxBroker.getPropertyValue(returnType, "baseDto");
+//                result.setBaseType(baseType);
+//                result.setCollection("LIST" );
+//                return result;
+//            } else {
+//                result.setBaseType(returnType.getName());
+//                result.setCollection("SINGLE");
+//                return result;
+//            }
+            result.setBaseType(returnType.getName());
+            String multiplicity = CrossxBroker.getPropertyValue(reference, "multiplicity");
+            result.setCollection( multiplicity.equals("MANY") ? "LIST" : "SINGLE") ;
+            return result;
         }
         
         return result;

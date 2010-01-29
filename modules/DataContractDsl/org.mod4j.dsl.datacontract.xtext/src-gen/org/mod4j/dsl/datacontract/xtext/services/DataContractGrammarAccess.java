@@ -91,24 +91,20 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dto");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBusinessClassDtoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cListDtoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCustomDtoParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCustomDtoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Dto:
-		//  BusinessClassDto|ListDto|CustomDto;
+		//  BusinessClassDto|CustomDto;
 		public ParserRule getRule() { return rule; }
 
-		//BusinessClassDto|ListDto|CustomDto
+		//BusinessClassDto|CustomDto
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BusinessClassDto
 		public RuleCall getBusinessClassDtoParserRuleCall_0() { return cBusinessClassDtoParserRuleCall_0; }
 
-		//ListDto
-		public RuleCall getListDtoParserRuleCall_1() { return cListDtoParserRuleCall_1; }
-
 		//CustomDto
-		public RuleCall getCustomDtoParserRuleCall_2() { return cCustomDtoParserRuleCall_2; }
+		public RuleCall getCustomDtoParserRuleCall_1() { return cCustomDtoParserRuleCall_1; }
 	}
 
 	public class ExternalReferenceElements implements IParserRuleAccess {
@@ -125,7 +121,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ExternalReference:
-		//  description=STRING? "from" modelname=ID "import" name=ID ";"; 
+		//  description=STRING? "from" modelname=ID "import" name=ID ";";  
 		//
 		//
 		//
@@ -420,58 +416,6 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-
-	public class ListDtoElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ListDto");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
-		private final Keyword cListKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cContainsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cBaseDtoAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cBaseDtoDtoCrossReference_4_0 = (CrossReference)cBaseDtoAssignment_4.eContents().get(0);
-		private final RuleCall cBaseDtoDtoIDTerminalRuleCall_4_0_1 = (RuleCall)cBaseDtoDtoCrossReference_4_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//ListDto:
-		//  description=STRING? "list" name=ID "contains" baseDto=[Dto] ";";
-		public ParserRule getRule() { return rule; }
-
-		//description=STRING? "list" name=ID "contains" baseDto=[Dto] ";"
-		public Group getGroup() { return cGroup; }
-
-		//description=STRING?
-		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
-
-		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
-
-		//"list"
-		public Keyword getListKeyword_1() { return cListKeyword_1; }
-
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-
-		//"contains"
-		public Keyword getContainsKeyword_3() { return cContainsKeyword_3; }
-
-		//baseDto=[Dto]
-		public Assignment getBaseDtoAssignment_4() { return cBaseDtoAssignment_4; }
-
-		//[Dto]
-		public CrossReference getBaseDtoDtoCrossReference_4_0() { return cBaseDtoDtoCrossReference_4_0; }
-
-		//ID
-		public RuleCall getBaseDtoDtoIDTerminalRuleCall_4_0_1() { return cBaseDtoDtoIDTerminalRuleCall_4_0_1; }
-
-		//";"
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class CustomDtoElements implements IParserRuleAccess {
@@ -855,7 +799,6 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	private EnumerationDtoElements pEnumerationDto;
 	private BusinessClassPropertyReferenceElements pBusinessClassPropertyReference;
 	private BusinessClassAssociationRoleReferenceElements pBusinessClassAssociationRoleReference;
-	private ListDtoElements pListDto;
 	private CustomDtoElements pCustomDto;
 	private DtoPropertyElements pDtoProperty;
 	private DtoBooleanPropertyElements pDtoBooleanProperty;
@@ -902,7 +845,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	}
 
 	//Dto:
-	//  BusinessClassDto|ListDto|CustomDto;
+	//  BusinessClassDto|CustomDto;
 	public DtoElements getDtoAccess() {
 		return (pDto != null) ? pDto : (pDto = new DtoElements());
 	}
@@ -912,7 +855,7 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	}
 
 	//ExternalReference:
-	//  description=STRING? "from" modelname=ID "import" name=ID ";"; 
+	//  description=STRING? "from" modelname=ID "import" name=ID ";";  
 	//
 	//
 	//
@@ -1001,16 +944,6 @@ public class DataContractGrammarAccess implements IGrammarAccess {
 	
 	public ParserRule getBusinessClassAssociationRoleReferenceRule() {
 		return getBusinessClassAssociationRoleReferenceAccess().getRule();
-	}
-
-	//ListDto:
-	//  description=STRING? "list" name=ID "contains" baseDto=[Dto] ";";
-	public ListDtoElements getListDtoAccess() {
-		return (pListDto != null) ? pListDto : (pListDto = new ListDtoElements());
-	}
-	
-	public ParserRule getListDtoRule() {
-		return getListDtoAccess().getRule();
 	}
 
 	//CustomDto:

@@ -54,24 +54,17 @@ context DataContractDsl::BusinessClassAssociationRoleReference ERROR this.getPro
 	    )
 	    else   // (mult == "MANY")  
 	    (
-	        if this.dtoType.metaType == DataContractDsl::ListDto then
-	        (
-	            let expected = getPropertyValue(prop, "BusinessClass") :
-	            let baseDto  =((DataContractDsl::ListDto)this.dtoType) .baseDto :
-	            if baseDto.metaType != DataContractDsl::BusinessClassDto then
-	            (
-	                this.setProperty("ERROR", "base type of  ListDto [" + this.dtoType.name + "] must be a BusinessClassDto")->
-	                false
-	            ) else (
-	                let actual = ((DataContractDsl::BusinessClassDto)baseDto).base.name :
-    	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
-	                expected == actual
-	            )
+            let expected = getPropertyValue(prop, "BusinessClass") :
+            let baseDto  = this.dtoType :
+            if baseDto.metaType != DataContractDsl::BusinessClassDto then
+            (
+                this.setProperty("ERROR", "type of  [" + this.dtoType.name + "] must be a BusinessClassDto")->
+                false
+            ) else (
+                let actual = ((DataContractDsl::BusinessClassDto)baseDto).base.name :
+	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
+                expected == actual
             )
-	        else (
-	            this.setProperty("ERROR", "Type of  [" + this.name + "] must be a ListDto")->
-	            false
-	        )
         )
 	)
     ;

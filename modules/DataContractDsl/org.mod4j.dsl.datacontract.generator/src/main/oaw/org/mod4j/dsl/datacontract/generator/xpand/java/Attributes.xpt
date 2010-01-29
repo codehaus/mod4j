@@ -82,182 +82,176 @@
      */
 «ENDDEFINE»
 
-«DEFINE instanceVariableNew(DtoAssociationRoleProperty associationRole) FOR Dto»
-    «REM»Nothing to xpand«ENDREM»
-«ENDDEFINE»
-
-«DEFINE instanceVariableNew(DtoAssociationRoleProperty associationRole) FOR ListDto»
+«DEFINE instanceVariableNew FOR DtoAssociationRoleProperty »
     «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    «IF associationRole.ordered»
-        // ORDERED     
-        private List<«baseDto.name.toFirstUpper()»> «associationRole.name» = new ArrayList<«baseDto.name.toFirstUpper()»>();
-    «ELSE »
-        private Set<«baseDto.name.toFirstUpper()»> «associationRole.name» = new HashSet<«baseDto.name.toFirstUpper()»>();
+    «IF this.multiplicity == Multiplicity::MANY»
+	    «IF this.ordered»
+	        // ORDERED     
+	        private List<«dtoType.name.toFirstUpper()»> «this.name» = new ArrayList<«dtoType.name.toFirstUpper()»>();
+	    «ELSE »
+	        private Set<«dtoType.name.toFirstUpper()»> «this.name» = new HashSet<«dtoType.name.toFirstUpper()»>();
+	    «ENDIF»
+	«ELSE»
+    private «dtoType.name.toFirstUpper()» «this.name» = null; //pppp1
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE instanceVariableNew(DtoAssociationRoleProperty associationRole) FOR BusinessClassDto»
-    «EXPAND Javadoc::addInstanceVarJavaDoc FOR this -»
-    private «name.toFirstUpper()» «associationRole.name» = null;
-«ENDDEFINE»
-
-
-«DEFINE addAssociationRoleAccessors(DtoAssociationRoleProperty associationRole) FOR Dto»
-    «REM»Nothing to xpand, is there to allow polymorfic call of this operation.«ENDREM»
-«ENDDEFINE»
-
-«DEFINE addAssociationRoleAccessors(DtoAssociationRoleProperty associationRole) FOR ListDto»
-    «IF associationRole.ordered»
-        «EXPAND addAssociationRoleAccessorsOrdered(associationRole) FOR this»
-    «ELSE»
-        «EXPAND addAssociationRoleAccessorsUnOrdered(associationRole) FOR this»
+«DEFINE addAssociationRoleAccessors FOR DtoAssociationRoleProperty »
+    «IF this.multiplicity == Multiplicity::MANY»
+	    «IF this.ordered»
+	        «EXPAND addAssociationRoleAccessorsOrdered FOR this»
+	    «ELSE»
+	        «EXPAND addAssociationRoleAccessorsUnOrdered FOR this»
+	    «ENDIF»
+	«ELSE»
+        «EXPAND addAssociationRoleAccessorsOne FOR this»
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE addAssociationRoleAccessorsUnOrdered(DtoAssociationRoleProperty associationRole) FOR ListDto»
+«DEFINE addAssociationRoleAccessorsUnOrdered FOR DtoAssociationRoleProperty » «REM»DtoL:ist«ENDREM»
     /**
      * @param id
      *        id of the collection element to return
      *
-     * @return «baseDto.name.toFirstLower()» («baseDto.name.toFirstUpper()»)
+     * @return «dtoType.name.toFirstLower()» («dtoType.name.toFirstUpper()»)
      *         with the given id.
      */
-    public «baseDto.name.toFirstUpper()» getFrom«associationRole.name.toFirstUpper()» (Long id) {
+    public «dtoType.name.toFirstUpper()» getFrom«this.name.toFirstUpper()» (Long id) {
         if (id == null) {
             return null;
         }
-        for («baseDto.name.toFirstUpper()» «baseDto.name.toFirstLower()»: this.«associationRole.name») {
-            if (id.equals(«baseDto.name.toFirstLower()».getId())) {
-                return «baseDto.name.toFirstLower()»;
+        for («dtoType.name.toFirstUpper()» «dtoType.name.toFirstLower()»: this.«this.name») {
+            if (id.equals(«dtoType.name.toFirstLower()».getId())) {
+                return «dtoType.name.toFirstLower()»;
             }
         }
         return null;
     }
 	/**
-	 * @return «associationRole.name» (Set<«baseDto.name.toFirstUpper()»>) 
+	 * @return «this.name» (Set<«dtoType.name.toFirstUpper()»>) 
 	 */
-	public Set<«baseDto.name.toFirstUpper()»> get«associationRole.name.toFirstUpper()»() {
-		return this.«associationRole.name»;
+	public Set<«dtoType.name.toFirstUpper()»> get«this.name.toFirstUpper()»() {
+		return this.«this.name»;
 	}
 
-    «EXPAND addToCollection(associationRole.name) FOR this»
-    «EXPAND removeFromCollection(associationRole.name) FOR this»
+    «EXPAND addToCollection FOR this»
+    «EXPAND removeFromCollection FOR this»
 «ENDDEFINE»
 
-«DEFINE addAssociationRoleAccessorsOrdered(DtoAssociationRoleProperty associationRole) FOR ListDto»
+«DEFINE addAssociationRoleAccessorsOrdered FOR DtoAssociationRoleProperty »
     /**
      * @param id
      *        id of the collection element to return
      *
-     * @return «baseDto.name.toFirstLower()» («baseDto.name.toFirstUpper()»)
+     * @return «dtoType.name.toFirstLower()» («dtoType.name.toFirstUpper()»)
      *         with the given id.
      */
-    public «baseDto.name.toFirstUpper()» getFrom«associationRole.name.toFirstUpper()» (Long id) {
+    public «dtoType.name.toFirstUpper()» getFrom«this.name.toFirstUpper()» (Long id) {
         if (id == null) {
             return null;
         }
-        for («baseDto.name.toFirstUpper()» «baseDto.name.toFirstLower()»: this.«associationRole.name») {
-            if (id.equals(«baseDto.name.toFirstLower()».getId())) {
-                return «baseDto.name.toFirstLower()»;
+        for («dtoType.name.toFirstUpper()» «dtoType.name.toFirstLower()»: this.«this.name») {
+            if (id.equals(«dtoType.name.toFirstLower()».getId())) {
+                return «dtoType.name.toFirstLower()»;
             }
         }
         return null;
     }
     
 	/** ORDERED
-	 * @return «associationRole.name» (List<«baseDto.name.toFirstUpper()»>) 
+	 * @return «this.name» (List<«dtoType.name.toFirstUpper()»>) 
 	 */
-	public List<«baseDto.name.toFirstUpper()»> get«associationRole.name.toFirstUpper()»() {
-		return this.«associationRole.name»;
+	public List<«dtoType.name.toFirstUpper()»> get«this.name.toFirstUpper()»() {
+		return this.«this.name»;
 	}
 	
-    «EXPAND addToCollection(associationRole.name) FOR this»
-    «EXPAND addToIndexCollection(associationRole.name) FOR this»
-    «EXPAND removeFromCollection(associationRole.name) FOR this»
-    «EXPAND removeFromIndexCollection(associationRole.name) FOR this»
+    «EXPAND addToCollection FOR this»
+    «EXPAND addToIndexCollection FOR this»
+    «EXPAND removeFromCollection FOR this»
+    «EXPAND removeFromIndexCollection FOR this»
 «ENDDEFINE»
 
-«DEFINE addAssociationRoleAccessors(DtoAssociationRoleProperty associationRole) FOR BusinessClassDto»
+«DEFINE addAssociationRoleAccessorsOne FOR DtoAssociationRoleProperty »
     /**
-	 * @return «name» («name.toFirstUpper()») «description»
+	 * @return «dtoType.name» («dtoType.name.toFirstUpper()») «dtoType.description»
 	 */
-	 public «name.toFirstUpper()» get«associationRole.name.toFirstUpper()» () {
-   	 	return this.«associationRole.name»;
+	 public «dtoType.name.toFirstUpper()» get«this.name.toFirstUpper()» () {
+   	 	return this.«this.name»;
 	 }
 	
 	/**  
-	 * @param «associationRole.name» («name.toFirstUpper()») «description»
+	 * @param «this.name» («dtoType.name.toFirstUpper()») «dtoType.description»
 	 */
-     public void set«associationRole.name.toFirstUpper()» (final «name.toFirstUpper()» «associationRole.name») {
-         this.«associationRole.name» = «associationRole.name»;
+     public void set«this.name.toFirstUpper()» (final «dtoType.name.toFirstUpper()» «this.name») {
+         this.«this.name» = «this.name»;
      }
 «ENDDEFINE»
 
 «REM» Method to add an element to an association collection.
       Works fro both ordered and unordered collections
 «ENDREM»
-«DEFINE addToCollection(String associationRoleName) FOR ListDto»
+«DEFINE addToCollection FOR DtoAssociationRoleProperty»  
     /**
-     * Adds a single element to the «associationRoleName» collection
+     * Adds a single element to the «this.name» collection
      *
      * @param element The element to add.
      */
-    public void addTo«associationRoleName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+    public void addTo«this.name.toFirstUpper()»(«dtoType.name.toFirstUpper()» element) {
 
-        if (element == null || this.«associationRoleName».contains(element)) {
+        if (element == null || this.«this.name».contains(element)) {
             return;
         }
-        this.«associationRoleName».add(element);
+        this.«this.name».add(element);
     }
 «ENDDEFINE»
 
 «REM» Method to add an element at specified index to an ordered association collection.
 «ENDREM»
-«DEFINE addToIndexCollection(String associationRoleName) FOR ListDto»
+«DEFINE addToIndexCollection FOR DtoAssociationRoleProperty» 
     /**
-     * Adds a single element to the «associationRoleName» collection at index 
+     * Adds a single element to the «this.name» collection at index 
      *
      * @param element The element to add.
      *        index   The index where the element will be added
      */
-    public void addTo«associationRoleName.toFirstUpper()»(int index, «baseDto.name.toFirstUpper()» element) {
+    public void addTo«this.name.toFirstUpper()»(int index, «dtoType.name.toFirstUpper()» element) {
 
-        if (element == null || this.«associationRoleName».contains(element)) {
+        if (element == null || this.«this.name».contains(element)) {
             return;
         }
-        this.«associationRoleName».add(index, element);
+        this.«this.name».add(index, element);
     }
 «ENDDEFINE»
 
 «REM» Method to remove an element from an association collection.
       Works fro both ordered and unordered collections
 «ENDREM»
-«DEFINE removeFromCollection(String associationRoleName) FOR ListDto»
+«DEFINE removeFromCollection FOR DtoAssociationRoleProperty» 
 	/**
-	 * Removes a single element from the «associationRoleName» collection.
+	 * Removes a single element from the «this.name» collection.
 	 * 
 	 * @param element The element to be removed.
 	 */
-	public void removeFrom«associationRoleName.toFirstUpper()»(«baseDto.name.toFirstUpper()» element) {
+	public void removeFrom«this.name.toFirstUpper()»(«dtoType.name.toFirstUpper()» element) {
 
 		if (element == null) {
 			return;
 		}
-		this.«associationRoleName».remove(element);
+		this.«this.name».remove(element);
 	}
 «ENDDEFINE»
 
 «REM» Method to remove an element from an association collection.
       Works fro ordered collections
 «ENDREM»
-«DEFINE removeFromIndexCollection(String associationRoleName) FOR ListDto»
+«DEFINE removeFromIndexCollection FOR DtoAssociationRoleProperty» 
 	/** 
-	 * Removes a single element from the «associationRoleName» collection.
+	 * Removes a single element from the «this.name» collection.
 	 * 
 	 * @param index The index of the element to be removed.
 	 */
-	public void removeFrom«associationRoleName.toFirstUpper()»(int index) {
-		this.«associationRoleName».remove(index);
+	public void removeFrom«this.name.toFirstUpper()»(int index) {
+		this.«this.name».remove(index);
 	}
 «ENDDEFINE»
 

@@ -22,7 +22,7 @@ DataContractModel :
     ;
     
 Dto : 
-   ( BusinessClassDto | ListDto |  CustomDto ) ;
+   ( BusinessClassDto | CustomDto ); 
 
 ExternalReference :
     (description=STRING)?
@@ -66,10 +66,6 @@ BusinessClassAssociationRoleReference :
     dtoType = [Dto] ";"
     ;
     
-ListDto :
-    (description=STRING)?
-    "list" name=ID "contains" baseDto=[Dto] ";"
-    ;    
 CustomDto :
     (description=STRING)?
     "custom" name=ID "["
