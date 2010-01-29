@@ -16,22 +16,22 @@ from RecordShopDomainModel import RecordTypeEnum;
 	
 	"Full Customer transfer object with all the Customer attributes (no associations)."
 	class FullCustomerDto represents Customer;
-	list FullCustomerDtoList contains FullCustomerDto;
+//	list FullCustomerDtoList contains FullCustomerDto;
 	
-	list ArtistListDto contains ArtistDto;
+//	list ArtistListDto contains ArtistDto;
 
     "A simple Customer transfer object with a subset of Customer attributes."
 	class SimpleCustomerDto represents Customer [  
 	     customerNr; 
 	     lastName;  
 	     firstName;
- 	     blackListed;
+ 	     blackListed; 
  	     username; 
 	     sexe;  
 	     birthDate;
 	     references [  
-	         orders as OrderNumberAndDateList;
-	         idols as ArtistListDto;
+	         orders as OrderNumberAndDateDto;
+	         idols as ArtistDto;
 	     ]    
 	]  
 	
@@ -48,28 +48,28 @@ from RecordShopDomainModel import RecordTypeEnum;
 	"Full Order transfer object, containing all the Order attributes (no associations)"
 	class OrderDto represents Order ;
 	
-	list OrderLinesDto contains OrderLineDto;
+//	list OrderLinesDto contains OrderLineDto;
 	
 	class CustomerWithOrdersAndOrderLines represents Customer [
-	    firstName;
+	    firstName;  
 	    lastName;
 	    birthDate;
-	    customerNr;
-	    references [ orders as OrdersWithOrderLines; ]
+	    customerNr; 
+	    references [ orders as OrderWithOrderLinesDto; ]
 	]
 	
-	list OrdersWithOrderLines contains OrderWithOrderLinesDto ;
+//	list OrdersWithOrderLines contains OrderWithOrderLinesDto ;
 	
 	class OrderWithOrderLinesDto represents Order [
 		orderNumber; 
 		references [
-			orderLines as OrderLinesDto ;
+			orderLines as OrderLineDto ;
 		]
-	]
+	] 
 	
 	"Full OrderLine transfer object, containing all the OrderLine attributes (no associations)"
 	class OrderLineDto represents OrderLine [
-	   lineNumber;
+	   lineNumber;  
 	   quantity;
 	   description;
 	   references [
@@ -92,7 +92,7 @@ from RecordShopDomainModel import RecordTypeEnum;
         orderable;  
         price;
         references [
-            buyers as SimpleCustomerList;
+            buyers as SimpleCustomerDto;
         ]
     ]
     
@@ -116,11 +116,11 @@ from RecordShopDomainModel import RecordTypeEnum;
     /*
      * Lists of transfer objects 
      */
-	"List of SimpleCustomerDto's."
-	list SimpleCustomerList contains  SimpleCustomerDto ;
-	"List of OrdersNumberAndDateDto's."
-	list OrderNumberAndDateList contains  OrderNumberAndDateDto;
-	list OrderList contains  OrderDto;
+//	"List of SimpleCustomerDto's."
+//	list SimpleCustomerList contains  SimpleCustomerDto ;
+//	"List of OrdersNumberAndDateDto's."
+//	list OrderNumberAndDateList contains  OrderNumberAndDateDto;
+//	list OrderList contains  OrderDto;
 	
 	/*
 	 * Custom transfer objects

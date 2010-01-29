@@ -7,7 +7,7 @@ from RecordShopDataContract import ArtistDto;
 //from RecordShopDataContract import OrderDto ;
 //from RecordShopDataContract import OrderNumberAndDateDto ;
 from CustomerServiceModel import CustomerServiceModel;  
-
+ 
 /* Disabled. Enable when fixed.
 
 ContentForm OrderMainDetails context OrderDto [

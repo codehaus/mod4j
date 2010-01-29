@@ -6,7 +6,7 @@ from RecordShopDataContract import SimpleCustomerDto;
 from RecordShopDataContract import ArtistDto;
 // TODO from CustomerModel import  CustomerDetails ;
 from CustomerServiceModel import CustomerServiceModel;  
-
+ 
 "Customer ContentForm"  
 ContentForm CustomerDetail context  FullCustomerDto [
 	element lastName label name;  
