@@ -34,15 +34,7 @@ create Symbol toElement(Dto dto) :
     this.setType("Dto") ->
     this.properties.add( addDtoTypeProperty(dto) ) 
     ; 
-/*
-create Symbol toElement(ListDto dto) :
-    this.setName(dto.name) ->
-    this.setType("Dto") ->
-    this.properties.add( addDtoTypeProperty(dto) ) ->
-    this.properties.add( baseProperty(dto) ) ->
-    this.properties.add( newRefProperty("BaseDto", dto.datacontractModel.name, dto.baseDto.name, "Dto"))
-   ;
-*/
+
 create Symbol toElement(BusinessClassDto dto) :
     this.setName(dto.name) ->
     this.setType("Dto") ->
@@ -97,18 +89,12 @@ crossx::LiteralSymbolProperty dataTypeToLiteralProperty(DtoProperty prop) :
 create LiteralSymbolProperty addDtoTypeProperty(Dto dto) :
     this.setName("dtoType")->
     switch( dto.metaType ){
-//        case DataContractDsl::ListDto          : this.setValue("ListDto")
         case DataContractDsl::BusinessClassDto : this.setValue("BusinessClassDto")
         case DataContractDsl::CustomDto        : this.setValue("CustomDto")
         default : this.setValue(dto.metaType.name)
     }
     ;
-/*
-create LiteralSymbolProperty baseProperty(ListDto dto) :
-    this.setName("baseDto")->
-    this.setValue(dto.baseDto.name)
-    ;
-  */  
+
 create LiteralSymbolProperty businessClassProperty(BusinessClassDto dto) :
     this.setName("businessClass")->
     this.setValue(dto.base.name)
