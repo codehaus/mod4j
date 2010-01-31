@@ -31,6 +31,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 		"/org/company/recordshop/data/sessionFactoryContext.xml",
 		"/org/company/recordshop/data/applicationContext.xml",
 		"/org/company/recordshop/business/applicationContext.xml",
+        "/org/company/recordshop/service/dtoTranslatorsContext.xml",
 		"/org/company/recordshop/service/applicationContext.xml",
         "/org/company/recordshop/service/testContext.xml"})
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
