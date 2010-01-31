@@ -37,6 +37,11 @@
 		  	«EXPAND Translators::createTranslator FOR dto»
 		«ENDFILE»
 	«ENDFOREACH»
+
+    «FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/dtoTranslators.xml")»
+        «EXPAND TranslatorsConfig::Spring FOR this»
+    «ENDFILE»
+
 «ENDDEFINE»
 
 «REM»
