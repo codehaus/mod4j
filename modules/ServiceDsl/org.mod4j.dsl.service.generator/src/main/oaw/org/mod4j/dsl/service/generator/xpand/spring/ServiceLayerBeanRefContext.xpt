@@ -30,6 +30,7 @@
             <list>
                 <value>«getServiceRootPackageAsPath()»/applicationContext.xml</value>
                 <value>«getServiceRootPackageAsPath()»/transactionManagerContext.xml</value>
+                <value>«getServiceRootPackageAsPath()»/dtoTranslatorsContext.xml</value>
             </list>
         </constructor-arg>
         <constructor-arg>

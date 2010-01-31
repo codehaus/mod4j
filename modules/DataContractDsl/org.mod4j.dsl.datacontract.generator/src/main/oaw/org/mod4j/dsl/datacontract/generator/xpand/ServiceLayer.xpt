@@ -38,7 +38,7 @@
 		«ENDFILE»
 	«ENDFOREACH»
 
-    «FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/dtoTranslators.xml")»
+    «FILE generate(getServiceModuleName(), getServiceRootPackageAsPath() + "/dtoTranslatorsContext.xml")»
         «EXPAND TranslatorsConfig::Spring FOR this»
     «ENDFILE»
 

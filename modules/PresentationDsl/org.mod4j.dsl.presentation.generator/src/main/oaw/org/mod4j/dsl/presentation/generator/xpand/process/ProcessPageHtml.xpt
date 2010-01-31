@@ -16,6 +16,9 @@
 <p>Presentation Process «this.name»  «form.name»</p>
 <span wicket:id="errorMessages"/>
 <div wicket:id="panel"></div>
+<div>
+<a href="" wicket:id="next"><span wicket:id="label">my link</span></a>
+</div>
 </wicket:extend>
 </html>
 «ENDDEFINE»

@@ -40,12 +40,15 @@ import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProv
 «ENDFOREACH»
 
 
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -63,8 +66,10 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
             Panel «uiCall.referredDialogue().name.toFirstLower()»Panel ;
         «ENDIF»
     «ENDFOREACH»        
+    protected List<Panel> panels = new ArrayList<Panel>();
+    protected int currentPanel = 0;
 
-    public «this.name»Page (PmfProcess owner, IModel<«this.contextRef.name»> context)
+    public «this.name»Page (final PmfProcess owner, IModel<«this.contextRef.name»> context)
     {
         super(owner);
         this.model = context;
@@ -81,7 +86,39 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
             «IF uiCall.referredDialogue() != null»
                 «EXPAND createPanel(this, uiCall) FOR uiCall.referredDialogue()»
             «ENDIF»
-        «ENDFOREACH»        
+        «ENDFOREACH»     
+        add(panels.get(currentPanel));
+    
+        Link nextLink = new Link <Object>("next") {
+            @Override
+            public void onClick() {
+                currentPanel ++;
+                if( currentPanel < panels.size()){
+                    Panel nextPanel = panels.get(currentPanel);
+                    panels.get(currentPanel - 1).replaceWith(nextPanel);
+                } else {
+                    owner.done(null);
+                }
+            }
+
+        };
+        add(nextLink);
+        
+                IModel model = new IModel(){
+            public Object getObject() {
+                if ((currentPanel  + 1)< panels.size()) {
+                    return "Next";
+                } else {
+                    return "Done";
+                }
+            }
+            public void setObject(Object object) { }
+            public void detach() { }
+        };
+        Label l = new Label("label", model);
+        nextLink.add(l);
+        
+           
     }
 
     @Override
@@ -112,7 +149,8 @@ ERROR
     «ELSE»
         «call.referredDialogue().name.toFirstLower()»Panel = new «this.name»SwapEditPanel("panel", panelModel);
     «ENDIF»
-        add(«call.referredDialogue().name.toFirstLower()»Panel );
+    «call.referredDialogue().name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
+    panels.add(«call.referredDialogue().name.toFirstLower()»Panel );
 «ENDDEFINE»
 
 «REM»
@@ -131,8 +169,6 @@ ERROR
             // TODO add Find providder IModel
         «ENDIF»
     «ELSEIF call.getServiceExpression() != null»
-//        PartDtoServiceDataProvider provider = new PartDtoServiceDataProvider(context.getObject());
-//        panelModel = new Model(provider);
         «getWicketServiceDataProviderClass(this.contextRef.name)» p = new «getWicketServiceDataProviderClass(this.contextRef.name)»(context.getObject());
         panelModel = new Model(p);
         // TODO add Service providder IModel

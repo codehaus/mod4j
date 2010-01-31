@@ -74,7 +74,8 @@
 	    «ENDFOREACH-»
     </bean>
     «ENDFOREACH»
-    
+
+«REM»
   	«FOREACH allServices.findAllSubSymbols("DtoReference").makeUnique() AS dtoReference -»
   	«LET dtoReference.name AS dtoName -»
     <bean id="«javaTranslatorClass(dtoName).toFirstLower()»"
@@ -90,6 +91,7 @@
     </bean>
     «ENDLET-»
     «ENDFOREACH-»
+«ENDREM»
 </beans>
 «ENDLET»
 «ENDDEFINE»
