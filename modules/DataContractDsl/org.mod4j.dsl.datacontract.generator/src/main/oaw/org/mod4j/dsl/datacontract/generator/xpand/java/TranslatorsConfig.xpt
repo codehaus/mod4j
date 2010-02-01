@@ -34,7 +34,11 @@
    «FOREACH findAllSubSymbols(dtoSymbol, "AssociationRoleReference").getReferenceProperty("ReferencedDto").
                  collect(ref | lookupSymbol(ref.modelname, ref.symbolname, "Dto") ).toSet() AS referredType-»
        <property name="«referredType.name.toFirstLower()»Translator" ref="«referredType.name.toFirstLower()»Translator"/>
-       <property name="«getPropertyValue(referredType, "businessClass").toFirstLower()»Dao" ref="«getPropertyValue(referredType, "businessClass").toFirstLower()»Dao"/>
+    «ENDFOREACH-»
+   «FOREACH findAllSubSymbols(dtoSymbol, "AssociationRoleReference").getReferenceProperty("ReferencedDto").
+                 collect(ref | lookupSymbol(ref.modelname, ref.symbolname, "Dto") ).getPropertyValue("businessClass").toSet() 
+                 AS referredBusinessClass-»
+       <property name="«referredBusinessClass.toFirstLower()»Dao" ref="«referredBusinessClass.toFirstLower()»Dao"/>
     «ENDFOREACH-»
     </bean>
     «ENDIF-»
