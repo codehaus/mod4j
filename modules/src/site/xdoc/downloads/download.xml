@@ -9,11 +9,11 @@
     -->
 
     <properties>
-        <title>Download Mod4j</title>
+        <title>Download and install Mod4j</title>
     </properties>
     <body>
 
-        <section name="Download Page">
+        <section name="Download and install Page">
                 <p>
                 All the Mod4j DSL editors are published as features to the Mod4j update site. Follow the
                 instructions below to
