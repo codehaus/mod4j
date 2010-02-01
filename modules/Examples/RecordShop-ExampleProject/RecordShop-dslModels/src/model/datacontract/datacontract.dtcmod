@@ -29,9 +29,14 @@ from RecordShopDomainModel import RecordTypeEnum;
 	     references [  
 	         orders as OrderNumberAndDateDto;
 	         idols as ArtistDto;
-	         relatedTo as ArtistDto;
+	         //relatedTo as DisLikesDto;
 	     ]    
 	]  
+	
+	class DisLikesDto represents Artist [
+	    firstName;
+	    lastName;
+	]
 	
 	"Simple Order transfer object."
 	class OrderNumberAndDateDto represents Order [
