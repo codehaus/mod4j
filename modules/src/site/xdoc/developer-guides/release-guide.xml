@@ -135,7 +135,7 @@
                         is fi.
                         <b>1.1.0</b>
                         and [next development version] is fi.
-                        <b>1.2.0-SNAPSHOT</b>
+                        <b>1.3.0-SNAPSHOT</b>
                         :
                         <br />
                         <code>
@@ -234,13 +234,13 @@
                         Adjust the mod4j.version property in ParentPom.xpt to the next development version number. For example:
                         <br />
                         <code>
-                            <b><![CDATA[<mod4j.version>1.2.0-SNAPSHOT</mod4j.version>]]></b>
+                            <b><![CDATA[<mod4j.version>1.3.0-SNAPSHOT</mod4j.version>]]></b>
                         </code>
                     </li>
                     <li>
                         Open ../Examples/RecordShop-ExampleProject/pom.xml and adjust the property
                         <b>mod4j.version</b>
-                        to the next development version. For example: <code>1.2.0-SNAPSHOT</code>.
+                        to the next development version. For example: <code>1.3.0-SNAPSHOT</code>.
                     </li>
                     <li>Save and commit your changes.</li>
                 </ul>
