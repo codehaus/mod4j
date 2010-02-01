@@ -11,8 +11,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <scm>
-        <connection>scm:svn:http://svn.codehaus.org/mod4j/trunk/modules</connection>
-        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/trunk/modules
+        <connection>scm:svn:http://svn.codehaus.org/mod4j/branches/mod4j-branch-1.2</connection>
+        <developerConnection>scm:svn:https://svn.codehaus.org/mod4j/branches/mod4j-branch-1.2
         </developerConnection>
     </scm>
     <organization>
