@@ -14,152 +14,125 @@ import org.company.recordshop.service.dto.OrderWithOrderLinesDto;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 
-@ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
-		"/org/company/recordshop/data/sessionFactoryContext.xml",
-		"/org/company/recordshop/data/applicationContext.xml",
-		"/org/company/recordshop/business/applicationContext.xml",
-		"/org/company/recordshop/service/applicationContext.xml",
-        "/org/company/recordshop/service/dtoTranslatorsContext.xml",
-		"/org/company/recordshop/service/testContext.xml" })
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-public class CustomerWithOrdersAndOrderLinesServiceTest extends
-		AbstractTransactionalJUnit4SpringContextTests {
+public class CustomerWithOrdersAndOrderLinesServiceTest extends AbstractServiceTestCase {
 
-	@Autowired
-	private CustomerServiceModelLocalService customerServiceModelService;
+    @Autowired
+    private CustomerServiceModelLocalService customerServiceModelService;
 
-	public class OrderDtoComparator implements
-			Comparator<OrderWithOrderLinesDto> {
+    public class OrderDtoComparator implements Comparator<OrderWithOrderLinesDto> {
 
-		public int compare(OrderWithOrderLinesDto o1, OrderWithOrderLinesDto o2) {
-			return o1.getOrderNumber().compareTo(o2.getOrderNumber());
-		}
+        public int compare(OrderWithOrderLinesDto o1, OrderWithOrderLinesDto o2) {
+            return o1.getOrderNumber().compareTo(o2.getOrderNumber());
+        }
 
-	}
+    }
 
-	public class OrderLineComparator implements Comparator<OrderLineDto> {
+    public class OrderLineComparator implements Comparator<OrderLineDto> {
 
-		public int compare(OrderLineDto o1, OrderLineDto o2) {
-			return o1.getLineNumber() - o2.getLineNumber();
-		}
-	}
+        public int compare(OrderLineDto o1, OrderLineDto o2) {
+            return o1.getLineNumber() - o2.getLineNumber();
+        }
+    }
 
-	@Test
-	public void testFromDtoWithTwoLevelsOfReferences() throws Exception {
-		/**
-		 * Create a customer dto with orders and orderlines to be translated to
-		 * a DO.
-		 */
-		CustomerWithOrdersAndOrderLines dto = createCustomerDto(new String[] {
-				"1", "2" }, new String[] { "3", "4" });
-		/**
-		 * Save it and check.
-		 */
-		CustomerWithOrdersAndOrderLines created = customerServiceModelService
-				.createCustomer(dto);
-		checkCustomer(created, new String[] { "1", "2" }, new String[] { "3",
-				"4" });
+    @Test
+    public void testFromDtoWithTwoLevelsOfReferences() throws Exception {
+        /**
+         * Create a customer dto with orders and orderlines to be translated to a DO.
+         */
+        CustomerWithOrdersAndOrderLines dto = createCustomerDto(new String[] { "1", "2" }, new String[] { "3", "4" });
+        /**
+         * Save it and check.
+         */
+        CustomerWithOrdersAndOrderLines created = customerServiceModelService.createCustomer(dto);
+        checkCustomer(created, new String[] { "1", "2" }, new String[] { "3", "4" });
 
-		/**
-		 * Delete one orderline from each order and check.
-		 */
-		List<OrderWithOrderLinesDto> orderList = new ArrayList<OrderWithOrderLinesDto>(
-				created.getOrders());
-		Collections.sort(orderList, new OrderDtoComparator());
-		orderList.get(0).removeFromOrderLines(0);
-		orderList.get(1).removeFromOrderLines(0);
-		CustomerWithOrdersAndOrderLines updated = customerServiceModelService
-				.updateCustomer(created);
-		checkCustomer(created, new String[] { "1", "2" }, new String[] { "4" });
-		/**
-		 * Add a new orderline to each order and check.
-		 */
-		orderList = new ArrayList<OrderWithOrderLinesDto>(updated.getOrders());
-		orderList.get(0).addToOrderLines(createOrderLine(5, "5"));
-		orderList.get(1).addToOrderLines(createOrderLine(5, "5"));
-		updated = customerServiceModelService.updateCustomer(updated);
-		checkCustomer(updated, new String[] { "1", "2" }, new String[] { "4",
-				"5" });
-		
-		/**
-		 * Update the productnumber in the orderlines of both orders from 4 to 6.
-		 * So leave the one with productnumber 5 alone.
-		 */
-		orderList = new ArrayList<OrderWithOrderLinesDto>(updated.getOrders());
-		assertEquals("4", orderList.get(0).getOrderLines().get(0).getProduct().getProductNumber());
-		orderList.get(0).getOrderLines().get(0).getProduct().setProductNumber("6");
-		assertEquals("4", orderList.get(1).getOrderLines().get(0).getProduct().getProductNumber());
-		orderList.get(1).getOrderLines().get(0).getProduct().setProductNumber("6");
-		updated = customerServiceModelService.updateCustomer(updated);
-		checkCustomer(updated, new String[] { "1", "2" }, new String[] { "6",
-				"5" });
-	}
+        /**
+         * Delete one orderline from each order and check.
+         */
+        List<OrderWithOrderLinesDto> orderList = new ArrayList<OrderWithOrderLinesDto>(created.getOrders());
+        Collections.sort(orderList, new OrderDtoComparator());
+        orderList.get(0).removeFromOrderLines(0);
+        orderList.get(1).removeFromOrderLines(0);
+        CustomerWithOrdersAndOrderLines updated = customerServiceModelService.updateCustomer(created);
+        checkCustomer(created, new String[] { "1", "2" }, new String[] { "4" });
+        /**
+         * Add a new orderline to each order and check.
+         */
+        orderList = new ArrayList<OrderWithOrderLinesDto>(updated.getOrders());
+        orderList.get(0).addToOrderLines(createOrderLine(5, "5"));
+        orderList.get(1).addToOrderLines(createOrderLine(5, "5"));
+        updated = customerServiceModelService.updateCustomer(updated);
+        checkCustomer(updated, new String[] { "1", "2" }, new String[] { "4", "5" });
 
-	private void checkCustomer(CustomerWithOrdersAndOrderLines customer,
-			String[] orderNumbers, String[] products) {
-		List<OrderWithOrderLinesDto> orders = new ArrayList<OrderWithOrderLinesDto>(
-				customer.getOrders());
-		Collections.sort(orders, new OrderComparator());
-		assertEquals(orderNumbers.length, orders.size());
-		for (int i = 0; i < orderNumbers.length; i++) {
-			assertEquals(orderNumbers[i], orders.get(i).getOrderNumber());
+        /**
+         * Update the productnumber in the orderlines of both orders from 4 to 6. So leave the one with productnumber 5
+         * alone.
+         */
+        orderList = new ArrayList<OrderWithOrderLinesDto>(updated.getOrders());
+        assertEquals("4", orderList.get(0).getOrderLines().get(0).getProduct().getProductNumber());
+        orderList.get(0).getOrderLines().get(0).getProduct().setProductNumber("6");
+        assertEquals("4", orderList.get(1).getOrderLines().get(0).getProduct().getProductNumber());
+        orderList.get(1).getOrderLines().get(0).getProduct().setProductNumber("6");
+        updated = customerServiceModelService.updateCustomer(updated);
+        checkCustomer(updated, new String[] { "1", "2" }, new String[] { "6", "5" });
+    }
 
-			List<OrderLineDto> lines = new ArrayList<OrderLineDto>(orders
-					.get(i).getOrderLines());
-			Collections.sort(lines, new OrderLineComparator());
-			assertEquals(products.length, lines.size());
-			for (int j = 0; j < products.length; j++) {
-				assertEquals(products[j], lines.get(j).getProduct()
-						.getProductNumber());
-			}
-		}
-	}
+    private void checkCustomer(CustomerWithOrdersAndOrderLines customer, String[] orderNumbers, String[] products) {
+        List<OrderWithOrderLinesDto> orders = new ArrayList<OrderWithOrderLinesDto>(customer.getOrders());
+        Collections.sort(orders, new OrderComparator());
+        assertEquals(orderNumbers.length, orders.size());
+        for (int i = 0; i < orderNumbers.length; i++) {
+            assertEquals(orderNumbers[i], orders.get(i).getOrderNumber());
 
-	private CustomerWithOrdersAndOrderLines createCustomerDto(
-			String[] orderNumbers, String[] productNumbers) {
-		CustomerWithOrdersAndOrderLines result = new CustomerWithOrdersAndOrderLines();
-		result.setBirthDate(new DateTime("1955-10-17"));
-		result.setFirstName("Piet");
-		result.setLastName("Heijn");
-		result.setCustomerNr(1);
+            List<OrderLineDto> lines = new ArrayList<OrderLineDto>(orders.get(i).getOrderLines());
+            Collections.sort(lines, new OrderLineComparator());
+            assertEquals(products.length, lines.size());
+            for (int j = 0; j < products.length; j++) {
+                assertEquals(products[j], lines.get(j).getProduct().getProductNumber());
+            }
+        }
+    }
 
-		for (String orderNumber : orderNumbers) {
-			result.addToOrders(createOrder(orderNumber, productNumbers));
-		}
-		return result;
-	}
+    private CustomerWithOrdersAndOrderLines createCustomerDto(String[] orderNumbers, String[] productNumbers) {
+        CustomerWithOrdersAndOrderLines result = new CustomerWithOrdersAndOrderLines();
+        result.setBirthDate(new DateTime("1955-10-17"));
+        result.setFirstName("Piet");
+        result.setLastName("Heijn");
+        result.setCustomerNr(1);
 
-	private OrderWithOrderLinesDto createOrder(String orderNumber,
-			String[] productNumbers) {
-		OrderWithOrderLinesDto order = new OrderWithOrderLinesDto();
-		order.setOrderNumber(orderNumber);
+        for (String orderNumber : orderNumbers) {
+            result.addToOrders(createOrder(orderNumber, productNumbers));
+        }
+        return result;
+    }
 
-		int i = 0;
-		for (String productNumber : productNumbers) {
-			order.addToOrderLines(createOrderLine(++i, productNumber));
-		}
-		return order;
-	}
+    private OrderWithOrderLinesDto createOrder(String orderNumber, String[] productNumbers) {
+        OrderWithOrderLinesDto order = new OrderWithOrderLinesDto();
+        order.setOrderNumber(orderNumber);
 
-	private OrderLineDto createOrderLine(int i, String productNumber) {
-		OrderLineDto line = new OrderLineDto();
-		line.setDescription("empty");
-		line.setLineNumber(i);
-		FullProductDto product = new FullProductDto();
-		product.setProductNumber(productNumber);
-		product.setPrice(15.0F);
-		product.setOrderable(true);
-		line.setProduct(product);
-		return line;
-	}
+        int i = 0;
+        for (String productNumber : productNumbers) {
+            order.addToOrderLines(createOrderLine(++i, productNumber));
+        }
+        return order;
+    }
 
-	private class OrderComparator implements Comparator<OrderWithOrderLinesDto> {
-		public int compare(OrderWithOrderLinesDto o1, OrderWithOrderLinesDto o2) {
-			return o1.getOrderNumber().compareTo(o2.getOrderNumber());
-		}
-	}
+    private OrderLineDto createOrderLine(int i, String productNumber) {
+        OrderLineDto line = new OrderLineDto();
+        line.setDescription("empty");
+        line.setLineNumber(i);
+        FullProductDto product = new FullProductDto();
+        product.setProductNumber(productNumber);
+        product.setPrice(15.0F);
+        product.setOrderable(true);
+        line.setProduct(product);
+        return line;
+    }
+
+    private class OrderComparator implements Comparator<OrderWithOrderLinesDto> {
+        public int compare(OrderWithOrderLinesDto o1, OrderWithOrderLinesDto o2) {
+            return o1.getOrderNumber().compareTo(o2.getOrderNumber());
+        }
+    }
 }

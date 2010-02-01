@@ -7,13 +7,6 @@ import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-@ContextConfiguration(locations = { "/Mod4jCommonContext.xml",
-		"/org/company/recordshop/data/sessionFactoryContext.xml",
-		"/org/company/recordshop/data/applicationContext.xml",
-		"/org/company/recordshop/business/applicationContext.xml",
-		"/org/company/recordshop/service/applicationContext.xml",
-        "/org/company/recordshop/service/testContext.xml"})
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class SimpleCustomerDtoTest {
 
 	private final static String ORDER_NR = "123456789";
