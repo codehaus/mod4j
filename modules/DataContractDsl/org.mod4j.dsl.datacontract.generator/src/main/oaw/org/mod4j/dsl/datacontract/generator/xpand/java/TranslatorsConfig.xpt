@@ -31,13 +31,10 @@
 «FOREACH findAllSymbols( getProject(), "Dto") AS dtoSymbol-»
     «IF getPropertyValue(dtoSymbol, "dtoType") == "BusinessClassDto"-»
     <bean id="«javaTranslatorClass(dtoSymbol.name).toFirstLower()»" class="«javaTranslatorClassPath(dtoSymbol.name)»">
-   «FOREACH findAllSubSymbols(dtoSymbol, "AssociationRoleReference") AS roleSymbol-»
-       «LET getReferenceProperty(roleSymbol, "ReferencedDto") AS ref-»
-       «LET lookupSymbol(ref.modelname, ref.symbolname, "Dto") AS referredType-»
+   «FOREACH findAllSubSymbols(dtoSymbol, "AssociationRoleReference").getReferenceProperty("ReferencedDto").
+                 collect(ref | lookupSymbol(ref.modelname, ref.symbolname, "Dto") ).toSet() AS referredType-»
        <property name="«referredType.name.toFirstLower()»Translator" ref="«referredType.name.toFirstLower()»Translator"/>
        <property name="«getPropertyValue(referredType, "businessClass").toFirstLower()»Dao" ref="«getPropertyValue(referredType, "businessClass").toFirstLower()»Dao"/>
-       «ENDLET-»
-       «ENDLET-»
     «ENDFOREACH-»
     </bean>
     «ENDIF-»
