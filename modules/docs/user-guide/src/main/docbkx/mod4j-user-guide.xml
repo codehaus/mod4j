@@ -32,9 +32,8 @@
       <title>Introduction</title>
       <para>&mod4j; (<emphasis role="italic"
         >Modeling for Java</emphasis>) is an open source DSL-based environment for developing administrative enterprise applications. It uses a collection of DSL’s to model different parts of the architecture, combined with manually written code. Currently &mod4j; consists of four DSLs: the Business Domain DSL, Service DSL, Data Contract DSL and Presentation DSL. The modeling environment is seamlessly integrated into the Eclipse IDE which gives the developers one environment where they can easily switch back- and forth between models and code. The different DSL’s used in &mod4j; can be used independently, but if they are used in collaboration they will be fully validated with each other. Apart from integration in the Eclipse IDE, &mod4j; also supports the use of Maven. That is, using the DSL models as the source, the complete code generation process can be run automatically on a build server without the need for Eclipse. This is a must for professional development and fits well in current ways of working.</para>
-      <para>This document is the user guide for &mod4j;. <xref linkend="intro"
-          /> describes the guiding principles that are used within &mod4j;. Section XXX describes <xref
-          linkend="Mod4jPrinciples"/>, describe the different DSL's of &mod4j;.</para>
+      <para>This document is the user guide for &mod4j;. <xref linkend="Mod4jPrinciples"
+          /> describes the guiding principles that are used within &mod4j;.</para>
     </section>
     <section><title>References</title>
       <anchor id="bibliography"/>
