@@ -29,7 +29,7 @@ from RecordShopDomainModel import RecordTypeEnum;
 	     references [  
 	         orders as OrderNumberAndDateDto;
 	         idols as ArtistDto;
-	         //relatedTo as ArtistDto;
+	         relatedTo as ArtistDto;
 	     ]    
 	]  
 	
