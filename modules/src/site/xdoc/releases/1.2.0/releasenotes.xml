@@ -20,10 +20,9 @@
                 <br />
                 <br />
                 The Mod4j development team is pleased to announce the release of Mod4j 1.2.0.
-                The
-                following list highlights the main issues that were involved with this release. For
-                the complete list of solved bugs, improvements and tasks, scroll down to the Release
-                Notes List.
+                Below
+                you can find the complete list of solved bugs, improvements and new features for
+                this release.
             </p>
 
             <subsection name="How to upgrade">
@@ -34,7 +33,7 @@
                     <a href="upgradenotes.html">Mod4j 1.2.0 Upgrade Notes</a>
                 </p>
             </subsection>
-            <subsection name="1.2.0 Relaese Notes List">
+            <subsection name="Mod4j 1.2.0 Relaese Notes List">
                 <h2> Bug</h2>
                 <ul>
                     <li>
