@@ -101,6 +101,31 @@
                         <br />
                     </li>
                 </ul>
+                <p>
+                    The Service DSL model syntax has been improved.  
+                </p>
+                <ul>
+                    <li>
+                        In the <b>datacontract</b> models the ListDto has been removed. 
+                        As a consequence, a ListDto cannot be used in the service models either.
+                        For aal of the standard services (listall, find, and reference methods) it is
+                        autmatically deduced when a list is needed.  
+                        For custom service methods, one can insert the <b>list</b> keyword before a Dto
+                        for both the in and/or out parameters, to specify that the custom method takes
+                        a list of Dtos as parameter.
+                        See next example:
+                        <textarea rows="18" cols="80"><![CDATA[
+    ...
+    "Find all Customers matching the given name."
+    method findCustomerByName in ( StringDto name ) out list SimpleCustomerDto;    
+
+    method findCustomersByNames in ( list StringDto name ) out list SimpleCustomerDto;    
+...]]>
+                        </textarea>
+                        <br />
+                        <br />
+                    </li>
+                </ul>
             </subsection>
         </section>
     </body>
