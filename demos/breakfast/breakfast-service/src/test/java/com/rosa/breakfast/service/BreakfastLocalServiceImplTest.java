@@ -23,6 +23,7 @@ import com.rosa.breakfast.service.dto.StandardBreakfastDto;
 		"/com/rosa/breakfast/data/sessionFactoryContext.xml",
 		"/com/rosa/breakfast/business/applicationContext.xml",
 		"/com/rosa/breakfast/service/applicationContext.xml",
+		"/com/rosa/breakfast/service/dtoTranslatorsContext.xml",
 		"/com/rosa/breakfast/service/testContext.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class BreakfastLocalServiceImplTest extends
@@ -67,10 +68,10 @@ public class BreakfastLocalServiceImplTest extends
 
 		PartDto part = new PartDto();
 		part.setQuantity(2);
-		PartDto savedPart = breakfastService.createPart(part);
+		part.setComestible(savedComestible);
+		savedStandardBreakfast.addToParts(part);
+		breakfastService.updateStandardBreakfast(savedStandardBreakfast);
 
-		breakfastService.addToParts(savedStandardBreakfast, savedPart);
-		breakfastService.setComestible(savedPart, savedComestible);
 
 		StandardBreakfastDto readStandardBreakfast = breakfastService
 				.readStandardBreakfastAsStandardBreakfastDto(savedStandardBreakfast
@@ -85,8 +86,8 @@ public class BreakfastLocalServiceImplTest extends
 				.getMinimalQuantity());
 		assertEquals(Float.valueOf(0.45F), comestible.getPrice());
 		assertEquals("What's this?", comestible.getTransportForm());
-
-		breakfastService.removeFromParts(readStandardBreakfast, part);
+		readStandardBreakfast.removeFromParts(part);
+		breakfastService.updateStandardBreakfast(readStandardBreakfast);
 		readStandardBreakfast = breakfastService
 				.readStandardBreakfastAsStandardBreakfastDto(readStandardBreakfast
 						.getId());

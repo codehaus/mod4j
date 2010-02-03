@@ -15,6 +15,7 @@ import com.rosa.breakfast.service.BreakfastLocalService;
 import com.rosa.breakfast.service.dto.ComestibleDto;
 import com.rosa.breakfast.web.util.DefaultFocusBehaviour;
 
+
 @SuppressWarnings("serial")
 public class EditComestible extends BaseAppPage {
 

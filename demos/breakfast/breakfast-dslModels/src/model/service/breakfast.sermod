@@ -2,7 +2,6 @@ service breakfast;
 
 from breakfast import StandardBreakfastDto;
 from breakfast import PartDto;
-from breakfast import PartListDto;
 from breakfast import ComestibleDto;
 from breakfast import IsComestibleUsed;
 
@@ -12,12 +11,5 @@ crud ComestibleDto;
 
 listall listAllStandardBreakfast for StandardBreakfastDto;
 listall listAllComestible for ComestibleDto;
- 
-for StandardBreakfastDto reference parts add PartDto;
-for StandardBreakfastDto reference parts remove PartDto;
-for StandardBreakfastDto reference parts get PartListDto;
-
-for PartDto reference comestible add ComestibleDto;
-for PartDto reference comestible get ComestibleDto;
 
 method isComestibleUsed in (ComestibleDto comestible) out IsComestibleUsed;

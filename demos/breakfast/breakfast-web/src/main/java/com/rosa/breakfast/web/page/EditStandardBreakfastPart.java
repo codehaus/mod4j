@@ -88,17 +88,9 @@ public class EditStandardBreakfastPart extends BaseAppPage {
             add(new Button("saveButton") {
                 public void onSubmit() {
                     PartDto part = (PartDto) getForm().getModelObject();
-                    if (part.getId() == null) {
-                        // create a new part
-                        part = service.createPart(part);
-                    } else {
-                        // update a part
-                        part = service.updatePart(part);
-                    }
-                    // create association between the part and the selected Comestible
-                    service.setComestible(part, selectedComestible);
-                    // create association between the standard breakfast and the part
-                    service.addToParts(breakfast, part);
+                    breakfast.addToParts(part);
+                    part.setComestible(selectedComestible);
+                    service.updateStandardBreakfast(breakfast);
                     setResponsePage(new EditStandardBreakfast(breakfast, true));
                 }
             });

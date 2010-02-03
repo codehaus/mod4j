@@ -10,7 +10,7 @@ enumeration ServingStyleDto represents ServingStyle;
 class StandardBreakfastDto represents StandardBreakfast [
     name; price; style;
     references [
-        parts as PartListDto; 
+        parts as PartDto; 
     ]
 ]
 class PartDto represents Part [
@@ -24,6 +24,3 @@ class ComestibleDto represents Comestible;
 custom IsComestibleUsed [
 	boolean isUsed; 
 ]
-
-list StandardBreakfastListDto contains StandardBreakfastDto;
-list PartListDto contains PartDto;
