@@ -51,6 +51,8 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
     protected static final String DATACONTRACT_PACKAGE = "datacontract";
 
     protected static final String SERVICE_PACKAGE = "service";
+    
+    protected static final String PRESENTATION_PACKAGE = "presentation";
 
     private static final String LF = System.getProperty("line.separator");
 
@@ -128,6 +130,10 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                                     "org.mod4j.dsl.service.validation",
                                     "org.mod4j.dsl.service.generator",
                                     "org.mod4j.dsl.service.xtext",
+                                    "org.mod4j.dsl.presentation.mm",
+                                    "org.mod4j.dsl.presentation.validation",
+                                    "org.mod4j.dsl.presentation.generator",
+                                    "org.mod4j.dsl.presentation.xtext",
                                     "org.mod4j.common",									
 									"org.mod4j.crossx.mm",
 									"org.mod4j.crossx.broker",
@@ -136,10 +142,10 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 							String appname = mainPage.getApplicationNameFieldValue();
 							IContainer modelFolder = pr.getFolder(MODEL_DIR);
 							Mod4jProjectCreator.createFile("mod4j.properties", modelFolder, propertiesContents(), monitor);
+
 							boolean createSamples = mainPage.shouldCreateSamples() ;
 							String modelFileName ;
 							modelFolder = pr.getFolder(MODEL_DIR + "/" + BUSDOMAIN_PACKAGE);
-							
 							if( createSamples ){
     							modelFileName = appname + ".busmod";
     							Mod4jProjectCreator.createFile(modelFileName, modelFolder, busmodSampleModelContents(), monitor);
@@ -154,6 +160,12 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                                 modelFileName = appname + ".sermod";
                                 Mod4jProjectCreator.createFile(modelFileName, modelFolder, sermodSampleModelContents(), monitor);
                             }
+                            modelFolder = pr.getFolder(MODEL_DIR + "/" + PRESENTATION_PACKAGE);
+                            if( createSamples ){
+                                modelFileName = appname + ".pmfmod";
+                                Mod4jProjectCreator.createFile(modelFileName, modelFolder, pmfmodSampleModelContents(), monitor);
+                            }
+                            
                     } catch (CoreException e) {
                         mainPage.setErrorMessage(e.getLocalizedMessage());
                     }
@@ -192,7 +204,7 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
 			        "####" + LF +
 			        "fileEncoding=UTF-8" + LF +
 			        "applicationName="+ mainPage.getApplicationNameFieldValue() + LF +
-					"applicationVersion=1.1.0-SNAPSHOT" + LF +
+					"applicationVersion=1.0.0-SNAPSHOT" + LF +
 					"applicationPath=.." + LF +
                     "srcGenPath=generated-sources" + LF +
                     "resourceGenPath=generated-resources" + LF +
@@ -241,7 +253,17 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
                     "#" + LF +
                     "####" + LF +
                     "serviceModuleName=" + mainPage.getApplicationNameFieldValue() + "-service" + LF +
-                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service" + LF;
+                    "serviceRootPackage=" + mainPage.getPackageNameFieldValue() + ".service" + LF +
+                    "" + LF +
+                    "####" + LF +
+                    "#" + LF +
+                    "# Presentation module properties" + LF +
+                    "#" + LF +
+                    "####" + LF +
+                    "presentationModuleName=" + mainPage.getApplicationNameFieldValue() + "-presentation" + LF +
+                    "presentationRootPackage=" + mainPage.getPackageNameFieldValue() + ".presentation" + LF + 
+                    "webAppPath=src/main/webapp";
+			
         }
 
 		public String busmodSampleModelContents() {
@@ -271,6 +293,17 @@ public class Mod4jAbstractNewProjectWizard extends Wizard implements
             " */" + LF ;
         }
 
+        
+        public String pmfmodSampleModelContents() {
+            return 
+            "presentation " + mainPage.getApplicationNameFieldValue() + "PresentationModel" + " ;" + LF +
+            LF +
+            "/*" + LF +
+            " * The Presentation model." + LF +
+            " */" + LF ;
+        }
+
+        
     /**
      * Creates a new project resource with the selected name.
      * <p>
