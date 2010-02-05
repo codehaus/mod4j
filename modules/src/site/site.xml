@@ -21,6 +21,7 @@
             <item name="Downloads" href="downloads/download.html" />
             <item name="Publications" href="downloads/publications.html" />
             <item name="Professional Support" href="professional-support.html" />
+            <item name="Issue Tracking" href="http://jira.codehaus.org/browse/MODFORJ" />
         </menu>
         <menu name="User Docs" inherit="bottom">        
             <item name="Getting Started" href="releases/${release.version.latest}/gettingstarted.html" />
