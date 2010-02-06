@@ -18,17 +18,17 @@
                 <b>
                     <big>
                         Mod4j update site:
-                        <code>http://mod4j.org/updatesite/3.x</code>
+                        <code>http://mod4j.org/updatesite/3.5</code>
                     </big>
                 </b>
             </p>
             <ol>
-                <li>In Eclipse navigate to: Help, Software Updates, Find and Install...</li>
+                <li>In Eclipse navigate to: Help, Install New Software...</li>
                 <li>Choose the option <b>Search for new features to install</b> and click on
                     <b>Next</b>.</li>
                 <li>To create a new remote site for Mod4j, click on <b>New Remote Site</b>.</li>
                 <li>Enter a Name: "Mod4j update site"</li>
-                <li>Enter the URL: <b><code>http://mod4j.org/updatesite/3.x</code></b> and click on <b>OK</b></li>
+                <li>Enter the URL: <b><code>http://mod4j.org/updatesite/3.5</code></b> and click on <b>OK</b></li>
                 <li>Next you can select the Mod4j features of your choice. Complete the wizard
                     to install the chosen
                     features.
