@@ -15,6 +15,7 @@ import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «javaDtoClassPath(this.contextRef.name)»;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.basic.Label;
@@ -78,8 +79,11 @@ public class «this.name»Panel extends Panel {
         add(new Label("«this.dataProperty.name»", new PropertyModel<Integer>(model, "«this.dataProperty.name»")));
     «ELSEIF this.dataProperty.dataType == "decimal"»
         add(new Label("«this.dataProperty.name»", new PropertyModel<Float>(model, "«this.dataProperty.name»")));
+    «ELSEIF this.dataProperty.dataType == "datetime"»
+        add(new Label("«this.dataProperty.name»", new PropertyModel<Date>(model, "«this.dataProperty.name»")));
 	«ELSEIF this.dataProperty.isEnumeration»
         add(new Label("«this.dataProperty.name»", new PropertyModel<«this.dataProperty.dataType»>(model, "«this.dataProperty.name»")));
+        
 	«ELSE»
 		// No code generated for form element «this.dataProperty.name» as «this.label» with type «this.dataProperty.dataType»
     «ENDIF»

@@ -31,6 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
@@ -216,6 +217,13 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * @generated
      */
     private EClass standardExpressionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass operationExpressionEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -783,6 +791,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getUICall_Condition() {
+        return (EReference)uiCallEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getServiceExpression() {
         return serviceExpressionEClass;
     }
@@ -857,6 +874,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      */
     public EAttribute getStandardExpression_Type() {
         return (EAttribute)standardExpressionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getOperationExpression() {
+        return operationExpressionEClass;
     }
 
     /**
@@ -978,6 +1004,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         uiCallEClass = createEClass(UI_CALL);
         createEReference(uiCallEClass, UI_CALL__PROCESS);
+        createEReference(uiCallEClass, UI_CALL__CONDITION);
 
         serviceExpressionEClass = createEClass(SERVICE_EXPRESSION);
         createEAttribute(serviceExpressionEClass, SERVICE_EXPRESSION__SERVICE_NAME);
@@ -991,6 +1018,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         standardExpressionEClass = createEClass(STANDARD_EXPRESSION);
         createEAttribute(standardExpressionEClass, STANDARD_EXPRESSION__TYPE);
+
+        operationExpressionEClass = createEClass(OPERATION_EXPRESSION);
 
         // Create enums
         processTypeEEnum = createEEnum(PROCESS_TYPE);
@@ -1048,6 +1077,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         navigationExpressionEClass.getESuperTypes().add(this.getExpression());
         expressionEClass.getESuperTypes().add(this.getModelElement());
         standardExpressionEClass.getESuperTypes().add(this.getExpression());
+        operationExpressionEClass.getESuperTypes().add(this.getExpression());
 
         // Initialize classes and features; add operations and parameters
         initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1125,6 +1155,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(uiCallEClass, UICall.class, "UICall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getUICall_Process(), this.getProcess(), this.getProcess_ProcessElements(), "process", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getUICall_Condition(), this.getExpression(), null, "condition", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(serviceExpressionEClass, ServiceExpression.class, "ServiceExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getServiceExpression_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, ServiceExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1138,6 +1169,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(standardExpressionEClass, StandardExpression.class, "StandardExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getStandardExpression_Type(), this.getExpressionType(), "type", "NONE", 0, 1, StandardExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(operationExpressionEClass, OperationExpression.class, "OperationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         // Initialize enums and add enum literals
         initEEnum(processTypeEEnum, ProcessType.class, "ProcessType");

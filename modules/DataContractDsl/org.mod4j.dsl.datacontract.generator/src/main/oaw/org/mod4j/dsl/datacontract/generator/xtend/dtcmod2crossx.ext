@@ -44,6 +44,15 @@ create Symbol toElement(BusinessClassDto dto) :
     this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))->
     this.subSymbols.addAll(dto.properties.toElement())
         ;
+
+create Symbol toElement(CustomDto dto) :
+    this.setName(dto.name) ->
+    this.setType("Dto") ->
+    this.properties.add( addDtoTypeProperty(dto) ) ->
+//    this.properties.add( newProperty("Creatable", (dto.creatable ? "true" : "false" ) ))->
+//    this.properties.add( newRefProperty("BaseClass", dto.base.modelname, dto.base.name, "BusinessClass"))->
+    this.subSymbols.addAll(dto.properties.toElement())
+        ;
         
 crossx::Symbol toElement(DtoProperty prop) :
     let result = new Symbol :

@@ -70,10 +70,6 @@ public class DataContractScopeProvider extends AbstractDeclarativeScopeProvider 
 //	List[Proposal] completeExternalReference_description(emf::EObject ctx, String prefix) :
 //		{};
 //
-//	/* proposals for Feature ListDto::description */
-//	List[Proposal] completeListDto_description(emf::EObject ctx, String prefix) :
-//		{};
-//
 //	/* proposals for Feature CustomDto::description */
 //	List[Proposal] completeCustomDto_description(emf::EObject ctx, String prefix) :
 //		{};

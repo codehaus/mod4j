@@ -180,7 +180,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 	    }
 	    «FOREACH this.externalReferences AS extDto»
             «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF dto != null»
+            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
                 «LET findSpecialMethodInService(dto.name, "UPDATE", service.name) AS updateService»
                 «IF updateService != null »
                     public static «dto.name» update(«dto.name» dto){
@@ -209,7 +209,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
         public static AbstractDto create(AbstractDto dto) {
         «FOREACH this.externalReferences AS extDto»
             «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF dto != null»
+            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
                if( dto instanceof «dto.name» ){
                    return «getWicketHomePageClass()».create( («dto.name»)dto );
                }
@@ -222,7 +222,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
         public static AbstractDto update(AbstractDto dto) {
         «FOREACH this.externalReferences AS extDto»
             «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF dto != null»
+            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
                if( dto instanceof «dto.name» ){
                    return «getWicketHomePageClass()».update( («dto.name»)dto );
                }
@@ -359,7 +359,7 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
 			public void onClick() {
 				«process.name»Process process = new «process.name»Process(null);
 				process.setOwningPage(myself);
-				setResponsePage(process.nextPage((«process.contextRef.name»)null));
+				setResponsePage(process.nextPage(null));
 			}
 		};
 		«process.name»Link.add( new Label( "name", "«process.name»"  )); //getLocalizer().getString("lbl.comestibles", this)));

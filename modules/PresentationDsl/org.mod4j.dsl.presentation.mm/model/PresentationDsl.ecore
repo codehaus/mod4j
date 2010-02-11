@@ -98,6 +98,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
         eOpposite="#//Process/processElements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessType">
     <eLiterals name="NEW"/>
@@ -130,4 +132,5 @@
     <eLiterals name="FIND" value="2"/>
     <eLiterals name="SELECTION" value="3"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationExpression" eSuperTypes="#//Expression"/>
 </ecore:EPackage>

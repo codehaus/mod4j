@@ -30,6 +30,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
@@ -103,6 +104,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.NAVIGATION_EXPRESSION: return createNavigationExpression();
             case PresentationDslPackage.EXPRESSION: return createExpression();
             case PresentationDslPackage.STANDARD_EXPRESSION: return createStandardExpression();
+            case PresentationDslPackage.OPERATION_EXPRESSION: return createOperationExpression();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -340,6 +342,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public StandardExpression createStandardExpression() {
         StandardExpressionImpl standardExpression = new StandardExpressionImpl();
         return standardExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public OperationExpression createOperationExpression() {
+        OperationExpressionImpl operationExpression = new OperationExpressionImpl();
+        return operationExpression;
     }
 
     /**

@@ -23,29 +23,16 @@ import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoIntegerProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.DtoStringProperty;
 import org.mod4j.dsl.datacontract.mm.DataContractDsl.EnumerationDto;
-// import org.mod4j.dsl.datacontract.mm.DataContractDsl.ListDto;
 import org.mod4j.dslcommon.generator.helpers.ModelHelpers;
 
 public class DtoHelpers {
 
     public static String getBaseDtoName (Dto dto){
-//        if( dto instanceof BusinessClassDto ){
             return ModelHelpers.javaClassName( ((BusinessClassDto)dto).getName());
-//        } else if( dto instanceof ListDto ){
-//            Dto tmp = ((ListDto)dto).getBaseDto();
-//            return getBaseDtoName(tmp);
-//        }
-//        return null;
     }
 
     public static String getBaseDtoBusinessClassName (Dto dto){
-//        if( dto instanceof BusinessClassDto ){
             return ModelHelpers.javaClassName( ((BusinessClassDto)dto).getBase().getName());
-//        } else if( dto instanceof ListDto ){
-//            Dto tmp = ((ListDto)dto).getBaseDto();
-//            return getBaseDtoBusinessClassName(tmp);
-//        }
-//        return null;
     }
 
     public static String javaType(DtoProperty p) {

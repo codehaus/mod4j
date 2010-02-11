@@ -52,6 +52,9 @@
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".dataproviders.ModelBasedListDataProvider" ))»
         «EXPAND ModelBasedListDataProvider::GenerateModelBasedListDataProvider FOR this»
     «ENDFILE»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.JodaModel" ))»
+        «EXPAND JodaModel::GenerateJodaModel FOR this»
+    «ENDFILE»
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.SetAsListWrapper" ))»
         «EXPAND SetAsListWrapper::GenerateSetAsListWrapper FOR this»
     «ENDFILE»

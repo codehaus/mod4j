@@ -21,6 +21,7 @@
 «EXTENSION org::mod4j::common::xtend::FileTracker»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
 
 «DEFINE Generate FOR PresentationModel»
     «print("MOD4J INFO: Running Presentation generator on model [" + this.name + "]")»
@@ -72,41 +73,46 @@
         «ENDFILE»
 		«LET process.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
 		«LET dialogueCall.referredContentForm() AS form »
-«REM»
-		«IF form != null»
-			«IF form.collectionContext »
-		    	«print("Collection form page generated for process [" + process.name + "] form [" + form.name + "]")»
-				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
-		    	    «EXPAND ProcessPage::GenerateListContentFormPage(dialogueCall) FOR process»
-				«ENDFILE»
-			«ELSE»
-		    	«print("Content page generated for process [" + process.name + "] form [" + form.name + "]")»
-				«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
-		    	    «EXPAND ProcessPage::GenerateContentFormPage(form) FOR process»
-				«ENDFILE»
-			«ENDIF»
-		«ELSE»
-		    «print("No page generated for process [" + process.name + "] form [" + form.name + "]")»
-        «ENDIF»
-«ENDREM»
-«REM»
-		«IF uiCall.referredCollectionDialogue() != null»
-			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
-	    	    «EXPAND ProcessPage::GenerateCollectionDialoguePage FOR process»
-			«ENDFILE»
-		«ELSEIF uiCall.referredContentForm() != null»
-			«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + process.name + "Page"))»
-	    	    «EXPAND ProcessPage::GenerateContentFormPage FOR process»
-			«ENDFILE»
-		«ENDIF»
-«ENDREM»
 		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + "Page.html")»
     	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process»
 		«ENDFILE»
 		«ENDLET»
 		«ENDLET»
 	«ENDFOREACH»
-	
+
+    «print("MOD4J INFO: Running Presentation generator Operations")»
+    «FOREACH this.elements.typeSelect(Process) AS process»
+	    «FOREACH process.processElements.select(call | call.condition != null).condition AS condition»
+	        «LET javaPathFileName(getPresentationRootPackage() + ".operations." + "Operation" + condition.name ) AS filePath»
+		    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  filePath)) -»
+		        «FILE extend( getPresentationModuleName(""), filePath)-»
+		            «EXPAND Operation::generateOperation(process.contextRef.name) FOR condition»
+		        «ENDFILE»
+		    «ELSE»
+		        «retain(getPresentationModuleName(""), filePath)»
+	        «ENDIF» 
+		    «ENDLET»
+	    «ENDFOREACH»
+    «ENDFOREACH»
+    «LET javaPathFileName(getPresentationRootPackage() + ".operations.PmfOperation" ) AS filePath»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  filePath)) -»
+        «FILE extend( getPresentationModuleName(""), filePath)-»
+            «EXPAND Operation::generatePmfOperation FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), filePath)»
+    «ENDIF» 
+    «ENDLET»
+    «LET javaPathFileName(getPresentationRootPackage() + ".operations.AlwaysTrue" ) AS filePath»
+    «IF shouldRegenerate(fullExtendPath(getPresentationModuleName(""),  filePath)) -»
+        «FILE extend( getPresentationModuleName(""), filePath)-»
+            «EXPAND Operation::generateAlwaysTrueOperation FOR this»
+        «ENDFILE»
+    «ELSE»
+        «retain(getPresentationModuleName(""), filePath)»
+    «ENDIF» 
+    «ENDLET»
+    	
     «print("MOD4J INFO: Running Presentation generator common")»
 	«EXPAND PresentationLayerCommon::GenerateCommon FOR this»
 

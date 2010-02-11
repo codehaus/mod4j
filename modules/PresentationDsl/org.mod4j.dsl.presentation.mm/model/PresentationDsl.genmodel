@@ -92,6 +92,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/condition"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ServiceExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ServiceExpression/serviceName"/>
@@ -105,5 +106,6 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//StandardExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//StandardExpression/type"/>
     </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//OperationExpression"/>
   </genPackages>
 </genmodel:GenModel>

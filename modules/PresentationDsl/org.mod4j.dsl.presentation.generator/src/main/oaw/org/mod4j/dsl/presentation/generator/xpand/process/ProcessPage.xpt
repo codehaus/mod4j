@@ -92,19 +92,13 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
         Link nextLink = new Link <Object>("next") {
             @Override
             public void onClick() {
-                currentPanel ++;
-                if( currentPanel < panels.size()){
-                    Panel nextPanel = panels.get(currentPanel);
-                    panels.get(currentPanel - 1).replaceWith(nextPanel);
-                } else {
-                    owner.done(null);
-                }
+                getProcess().nextStep(null);
             }
 
         };
         add(nextLink);
         
-                IModel model = new IModel(){
+        IModel model = new IModel(){
             public Object getObject() {
                 if ((currentPanel  + 1)< panels.size()) {
                     return "Next";
@@ -119,6 +113,25 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
         nextLink.add(l);
         
            
+    }
+
+    public void nextPanel(){
+        currentPanel++;
+        if (currentPanel < panels.size()) {
+            Panel nextPanel = panels.get(currentPanel);
+            panels.get(currentPanel - 1).replaceWith(nextPanel);
+        } else {
+            this.getProcess().done(null);
+        }
+    }
+    public void previousPanel(){
+        currentPanel--;
+        if (currentPanel >= 0) {
+            Panel nextPanel = panels.get(currentPanel);
+            panels.get(currentPanel + 1).replaceWith(nextPanel);
+        } else {
+            this.getProcess().done(null);
+        }
     }
 
     @Override

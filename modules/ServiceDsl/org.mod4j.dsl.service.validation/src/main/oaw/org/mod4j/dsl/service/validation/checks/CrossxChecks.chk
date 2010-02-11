@@ -123,11 +123,6 @@ context AssociationMethod ERROR this.getProperty("ERROR") :
          true 
      );
      
-boolean mustBeListDto(AssociationMethod method) :
-      ((method.type == MethodType::GETFROM) && (method.getAssociation().getPropertyValue("Multiplicity") == "MANY") )
-       implies
-       (method.part == null) ? true :  (method.part.dtoType() == "ListDto");
-
 String getIt() :
     "it";
      

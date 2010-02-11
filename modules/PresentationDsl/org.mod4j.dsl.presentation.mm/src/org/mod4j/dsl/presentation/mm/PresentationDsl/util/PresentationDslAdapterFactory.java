@@ -29,6 +29,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -189,6 +190,10 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseStandardExpression(StandardExpression object) {
                 return createStandardExpressionAdapter();
+            }
+            @Override
+            public Adapter caseOperationExpression(OperationExpression object) {
+                return createOperationExpressionAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -543,6 +548,20 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createStandardExpressionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression <em>Operation Expression</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression
+     * @generated
+     */
+    public Adapter createOperationExpressionAdapter() {
         return null;
     }
 

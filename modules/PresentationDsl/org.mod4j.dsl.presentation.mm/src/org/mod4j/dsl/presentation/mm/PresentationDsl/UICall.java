@@ -16,6 +16,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getProcess <em>Process</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getCondition <em>Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,31 @@ public interface UICall extends ModelElement {
      * @generated
      */
     void setProcess(org.mod4j.dsl.presentation.mm.PresentationDsl.Process value);
+
+    /**
+     * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Condition</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Condition</em>' containment reference.
+     * @see #setCondition(Expression)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUICall_Condition()
+     * @model containment="true"
+     * @generated
+     */
+    Expression getCondition();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getCondition <em>Condition</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Condition</em>' containment reference.
+     * @see #getCondition()
+     * @generated
+     */
+    void setCondition(Expression value);
 
 } // UICall

@@ -54,11 +54,7 @@ public class «this.name»Process extends «this.name»ProcessImplBase
  
  «DEFINE GenerateInteractiveProcessImplBase FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcessImplBase in Process.xpt") FOR this»
-«REM»
-«LET getServiceExpression(dialogueCall) AS serviceExpression»
-«LET getNavigationExpression(dialogueCall) AS navigationExpression»
-«LET dialogueCall.referredContentForm().contextRef.name AS formContext»
-«ENDREM»
+«LET (this.collectionContext ? ("List<" + this.contextRef.name + ">") : this.contextRef.name) AS context»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -71,6 +67,7 @@ import «getPresentationCommonPackage()».ext.components.ListElementModel;
 
 import java.util.Set;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
@@ -78,16 +75,86 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import «getPresentationCommonPackage()».processes.ProcessType;
+import «getPresentationRootPackage()».operations.PmfOperation;
+import «getPresentationRootPackage()».operations.AlwaysTrue;
+«FOREACH this.processElements AS uiCall-»
+    «IF uiCall.condition != null-»
+import «getPresentationPackage()».operations.Operation«uiCall.condition.name»;
+   «ENDIF»
+«ENDFOREACH»
 
-public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.name»> 
+public class «this.name»ProcessImplBase extends PmfProcess<«context»> 
 {
+    «this.name»Page page = null;
+
     public «this.name»ProcessImplBase(IModel context){
         model = context;
     }
     
     «EXPAND GetProcessType FOR this»
 
-    public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
+    int currentStep = 0;
+    ArrayList<Object> steps = new ArrayList<Object>();
+    ArrayList<PmfOperation> checks = new ArrayList<PmfOperation>();
+    
+    private void prepareSteps() {
+    «FOREACH this.processElements AS uiCall-»
+        «IF uiCall.metaType == DialogueCall -»
+            steps.add(page);
+        «ELSEIF uiCall.metaType == ProcessCall -»
+            steps.add(new «uiCall.name»Process(null));
+        «ENDIF-»
+        «IF uiCall.condition != null-»
+            checks.add(new Operation«uiCall.condition.name»() );
+        «ELSE-»
+            checks.add(AlwaysTrue.getInstance());
+        «ENDIF-»
+    «ENDFOREACH»     
+    }
+
+    @Override
+    public void nextStep(«context» o){
+        currentStep++;
+        if( currentStep >= steps.size() ){
+            this.done(page);
+        } else {
+            Object step = steps.get(currentStep);
+            PmfOperation operation = checks.get(currentStep);
+            if( step == page ){
+    «IF this.collectionContext»
+                if( operation.checkCollection(o) ){
+    «ELSE»
+                if( operation.check(model.getObject()) ){
+    «ENDIF»
+                    page.nextPanel();
+                } else {
+                    nextStep(o);
+                }
+           } else if( step instanceof PmfProcess) {
+    «IF this.collectionContext»
+                if( operation.checkCollection(o) ){
+    «ELSE»
+                if( operation.check(model.getObject()) ){
+    «ENDIF»
+                    PmfProcess process = (PmfProcess) step;
+                    process.setModel(model);
+                    process.run(o);
+                }
+                nextStep(o);
+            }
+        }
+    }
+
+    @Override
+    public void previousStep(«context» o){
+
+    }
+
+    @Override
+    public void run(«context» o){
+    }
+
+    public «getWicketMasterPageClass()» nextPage(«context» element) {
     «IF this.type == ProcessType::NEW»
         «this.contextRef.name» newDto = new «this.contextRef.name»();
         Object object = model.getObject();
@@ -101,8 +168,9 @@ public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.n
         } else {
             throw new RuntimeException("MOD$J Error: GGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         }
-        «this.name»Page page = new «this.name»Page(this, model);
+        page = new «this.name»Page(this, model);
         page.setProcess(this);
+        prepareSteps();
         return page;
     
     «ELSEIF this.type == ProcessType::SAVE»
@@ -110,6 +178,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.n
     «ELSEIF this.type == ProcessType::EDIT»
         «this.name»Page page = new «this.name»Page (this, model);
         page.setProcess(this);
+        prepareSteps();
         return page;
     «ELSEIF this.type == ProcessType::DELETE»
         return null;
@@ -118,20 +187,18 @@ public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.n
     «ELSEIF this.type == ProcessType::CANCEL»
         return null;
     «ELSEIF this.type == ProcessType::CUSTOM»
-        «this.name»Page page = new «this.name»Page (this, model);
+        page = new «this.name»Page (this, model);
         page.setProcess(this);
+        prepareSteps();
         return page;
     «ENDIF»
     }
     
-    «IF this.type == ProcessType::ADDTO»
-    
-    «ENDIF»
-
     public void done(«getWicketMasterPageClass()» page){
         getOwningPage().setResponsePage(getOwningPage());
     }
 }
+«ENDLET»
 «ENDDEFINE»
  
 
@@ -181,6 +248,7 @@ public class «this.name»Process extends «this.name»ProcessImplBase
 
 «DEFINE GenerateBatchProcessImplBase FOR Process -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcessBase in Process.xpt") FOR this»
+«LET (this.collectionContext ? ("List<" + this.contextRef.name + ">") : this.contextRef.name) AS context»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
@@ -192,6 +260,7 @@ import org.mod4j.runtime.dto.AbstractDto;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.ArrayList;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -199,144 +268,97 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import «getPresentationCommonPackage()».processes.ProcessType;
+import «getPresentationRootPackage()».operations.PmfOperation;
+import «getPresentationRootPackage()».operations.AlwaysTrue;
+«FOREACH this.processElements AS uiCall-»
+    «IF uiCall.condition != null-»
+import «getPresentationPackage()».operations.Operation«uiCall.condition.name»;
+   «ENDIF»
+«ENDFOREACH»
+
 /** Automated process
  */
-public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.name»> 
+public class «this.name»ProcessImplBase extends PmfProcess<«context»> 
 {
     «EXPAND GetProcessType FOR this»
 
     public «this.name»ProcessImplBase (IModel context){
         this.model = context;
+        prepareSteps();
     }
     
-    public «getWicketMasterPageClass()» nextPage(«this.contextRef.name» element) {
+    int currentStep = 0;
+    ArrayList<Object> steps = new ArrayList<Object>();
+    ArrayList<PmfOperation> checks = new ArrayList<PmfOperation>();
+    
+    private void prepareSteps() {
+    «IF this.type != ProcessType::ADDTO»
+	    «FOREACH this.processElements AS uiCall-»
+	        «IF uiCall.metaType == DialogueCall -»
+	            steps.add(page);
+	        «ELSEIF uiCall.metaType == ProcessCall -»
+	            steps.add(new «uiCall.name»Process(null));
+	        «ENDIF-»
+	        «IF uiCall.condition != null-»
+	            checks.add(new Operation«uiCall.condition.name»() );
+	        «ELSE-»
+	            checks.add(AlwaysTrue.getInstance());
+	        «ENDIF-»
+	    «ENDFOREACH»     
+	«ENDIF»
+    }
+    
+    @Override
+    public void nextStep(«context» o){
+        currentStep++;
+        if( currentStep >= steps.size() ){
+            this.done(null);
+        } else {
+            Object step = steps.get(currentStep);
+            PmfOperation operation = checks.get(currentStep);
+    «IF this.collectionContext»
+            if( operation.checkCollection(o) ){
+    «ELSE»
+            if( operation.check(model.getObject()) ){
+    «ENDIF»
+                PmfProcess process = (PmfProcess) step;
+                process.setModel(model);
+                process.run(o);
+            }
+            nextStep(o);
+        }
+    }
+
+    @Override
+    public void previousStep(«context» o){
+    }
+
+    public «getWicketMasterPageClass()» nextPage(«context» element) {
     	return null;
 	}
 	
 	«IF this.type == ProcessType::SAVE»
-		public void run(«this.contextRef.name» element) {
-		    saveAction(element);
-		}
-	
-		private void saveAction(«this.contextRef.name» element) {
-	        IModel innerModel = Helpers.findInnerMostModel(model);
-	        Object object = innerModel.getObject();
-	        if( object instanceof AbstractDto ){
-	            AbstractDto root = (AbstractDto)innerModel.getObject();
-	            if( root.getId() == null ){
-                    root  = «getWicketHomePageClass()».create(root);
-	            } else {
-                    root  = «getWicketHomePageClass()».update(root);
-	            }
-	            innerModel.setObject(root);
-	        }
-		}
+	   «EXPAND runSave(context) FOR this»
 	«ELSEIF this.type == ProcessType::DELETE»
 	   «IF this.collectionContext»
-	        public void run(List<«this.contextRef.name»> elements) {
-	            deleteAction(elements);
-	        }
-	
-	        private void deleteAction(List<«this.contextRef.name»> elements) {
-	            for(«this.contextRef.name» dto : elements){
-	                if( dto.getId() == null ){
-	                    System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
-	                } else {
-	                    «getWicketHomePageClass()».delete(dto);
-	                }
-		        }
-	            owningPage.modelChanged();
-	        }
+	       «EXPAND runDeleteCollection(context) FOR this»
 	   «ELSE»
-			public void run(«this.contextRef.name» element) {
-				deleteAction(element);
-	    	}
-	
-			private void deleteAction(«this.contextRef.name» element) {
-		        IModel innerModel = Helpers.findInnerMostModel(model);
-		        Object object = innerModel.getObject();
-		        if( object instanceof «this.contextRef.name»){
-		            «this.contextRef.name» root = («this.contextRef.name»)innerModel.getObject();
-		            if( root.getId() == null ){
-		                System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
-		            } else {
-	                    «getWicketHomePageClass()».delete(root);
-		            }
-		            innerModel.setObject(null);
-		        }
-		        owningPage.modelChanged();
-			}
+           «EXPAND runDeleteSingle(context) FOR this»
 		«ENDIF»
 	«ELSEIF this.type == ProcessType::CANCEL »
 		public void run(«this.contextRef.name» element) {
 			// do nothing, will return to previous page
     	}
-    «ELSEIF this.type == ProcessType::REMOVEFROM»
+    «ELSEIF this.type == ProcessType::REMOVEFROM »
         «IF this.collectionContext»
-	        public void run(List<«this.contextRef.name»> elements) {
-		        Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
-		        list.removeAll(elements);
-		        
-		        IModel innerModel = Helpers.findInnerMostModel(model);
-		        Object object = innerModel.getObject();
-		        if (object instanceof AbstractDto) {
-		            AbstractDto root = (AbstractDto) innerModel.getObject();
-		            if (root.getId() == null) {
-		                System.out
-		                        .println("CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE ");
-		
-		                root = «getWicketHomePageClass()».create(root);
-		            } else {
-		                System.out
-		                        .println("UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE ");
-		
-		                root = «getWicketHomePageClass()».update(root);
-		            }
-		            innerModel.setObject(root);
-		        }
-		
-	            owningPage.modelChanged();
-	        }
+          «EXPAND runRemoveFromCollection(context) FOR this»
 	    «ELSE»
-            public void run(«this.contextRef.name» element) {
-                Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
-                list.remove(element);
-                
-                IModel innerModel = Helpers.findInnerMostModel(model);
-                Object object = innerModel.getObject();
-                if (object instanceof AbstractDto) {
-                    AbstractDto root = (AbstractDto) innerModel.getObject();
-                    if (root.getId() == null) {
-                        root = «getWicketHomePageClass()».create(root);
-                    } else {
-                        root = «getWicketHomePageClass()».update(root);
-                    }
-                    innerModel.setObject(root);
-                }
-                owningPage.modelChanged();
-            }
+          «EXPAND runRemoveFromSingle(context) FOR this»
 	    «ENDIF»
     «ELSEIF this.type == ProcessType::ADDTO»
-        public void run(List<«this.contextRef.name»> elements) {
-            Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
-            list.addAll(elements);
-            
-            IModel innerModel = Helpers.findInnerMostModel(model);
-            Object object = innerModel.getObject();
-            if (object instanceof AbstractDto) {
-                AbstractDto root = (AbstractDto) innerModel.getObject();
-                if (root.getId() == null) {
-                    root = «getWicketHomePageClass()».create(root);
-                } else {
-                    root = «getWicketHomePageClass()».update(root);
-                }
-                innerModel.setObject(root);
-            }
-    
-            owningPage.modelChanged();
-        }
+        «EXPAND runAddTo(context) FOR this»
 	«ELSE»
-		public void run(«this.contextRef.name» element) {
+		public void run(«context» element) {
 			// TODO: Implement run action for batch process
 			throw new RuntimeException("Process «this.label» is not iomplemented yet");
     	}
@@ -346,13 +368,117 @@ public class «this.name»ProcessImplBase extends PmfProcess<«this.contextRef.n
 	}
 	
 }
+«ENDLET»
 «REM»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDREM»
 «ENDDEFINE»
 
+«DEFINE runSave(String context) FOR Process»
+public void run(«context» element) {
+        saveAction(element);
+    }
+
+    private void saveAction(«context» element) {
+    IModel innerModel = Helpers.findInnerMostModel(model);
+    Object object = innerModel.getObject();
+    if( object instanceof AbstractDto ){
+        AbstractDto root = (AbstractDto)innerModel.getObject();
+        if( root.getId() == null ){
+            root  = «getWicketHomePageClass()».create(root);
+        } else {
+            root  = «getWicketHomePageClass()».update(root);
+        }
+        innerModel.setObject(root);
+    }
+}
+«ENDDEFINE»
+
+«DEFINE runDeleteCollection(String context) FOR Process»
+@Override
+public void run(List<«this.contextRef.name»> elements) {
+    deleteAction(elements);
+}
+
+private void deleteAction(List<«this.contextRef.name»> elements) {
+    for(«this.contextRef.name» dto : elements){
+        if( dto.getId() == null ){
+            System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
+        } else {
+            «getWicketHomePageClass()».delete(dto);
+        }
+    }
+    owningPage.modelChanged();
+}
+«ENDDEFINE»
+
+«DEFINE runDeleteSingle(String context)  FOR Process»
+public void run(«this.contextRef.name» element) {
+    deleteAction(element);
+}
+
+private void deleteAction(«this.contextRef.name» element) {
+    IModel innerModel = Helpers.findInnerMostModel(model);
+    Object object = innerModel.getObject();
+    if( object instanceof «this.contextRef.name»){
+        «this.contextRef.name» root = («this.contextRef.name»)innerModel.getObject();
+        if( root.getId() == null ){
+            System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
+        } else {
+            «getWicketHomePageClass()».delete(root);
+        }
+        innerModel.setObject(null);
+    }
+    owningPage.modelChanged();
+}
+«ENDDEFINE»
+
+«DEFINE runRemoveFromCollection(String context) FOR Process»
+@Override
+public void run(List<«this.contextRef.name»> elements) {
+    Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
+    list.removeAll(elements);
+        
+    IModel innerModel = Helpers.findInnerMostModel(model);
+    Object object = innerModel.getObject();
+    if (object instanceof AbstractDto) {
+        AbstractDto root = (AbstractDto) innerModel.getObject();
+        if (root.getId() == null) {
+           System.out.println("CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE ");
+            root = «getWicketHomePageClass()».create(root);
+        } else {
+            System.out.println("UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE ");
+            root = «getWicketHomePageClass()».update(root);
+        }
+        innerModel.setObject(root);
+    }
+     owningPage.modelChanged();
+}
+«ENDDEFINE»
+
+«DEFINE runRemoveFromSingle(String context) FOR Process»  
+public void run(«context» element) {
+    Collection<«context»> list = (Collection<«context»>)model.getObject();
+    list.remove(element);
+    
+    IModel innerModel = Helpers.findInnerMostModel(model);
+    Object object = innerModel.getObject();
+    if (object instanceof AbstractDto) {
+        AbstractDto root = (AbstractDto) innerModel.getObject();
+        if (root.getId() == null) {
+            root = «getWicketHomePageClass()».create(root);
+        } else {
+            root = «getWicketHomePageClass()».update(root);
+        }
+        innerModel.setObject(root);
+    }
+    owningPage.modelChanged();
+}
+«ENDDEFINE»
 
 «DEFINE GeneratePmfProcess FOR PresentationModel -»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GeneratePmfProcess in Process.xpt") FOR this-»
 package «getPresentationRootPackage()».processes;
+
+import java.io.Serializable;
 
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.model.IModel;
@@ -363,13 +489,19 @@ import «getPresentationCommonPackage()».processes.ProcessType;
  * A process definition as defined the the presentation DSL.S
  * @param <T> The context type of the process
  */
-abstract public class PmfProcess <T> {
+abstract public class PmfProcess <T> implements Serializable {
 	
 	abstract public ProcessType getProcessType() ;
 	/**
 	 * Rturns the next Page, will return null if there is no next page, e.g. when this is an Automated process.
 	 */
-	abstract public «getWicketMasterPageClass()» nextPage(T o);
+    abstract public «getWicketMasterPageClass()» nextPage(T o);
+
+    abstract public void nextStep(T o);
+
+    abstract public void previousStep(T o);
+	
+    abstract public void run(T o);
 	
 	/**
 	 * Is called by the Page that is started from this process to denote that the page (and its subprocesses)
@@ -405,6 +537,28 @@ abstract public class PmfProcess <T> {
         this.model = model;
     }
 
+}
+«ENDDEFINE»
+
+«DEFINE runAddTo(String context) FOR Process»
+@Override
+public void run(List<«this.contextRef.name»> elements) {
+    Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
+    list.addAll(elements);
+    
+    IModel innerModel = Helpers.findInnerMostModel(model);
+    Object object = innerModel.getObject();
+    if (object instanceof AbstractDto) {
+        AbstractDto root = (AbstractDto) innerModel.getObject();
+        if (root.getId() == null) {
+            root = «getWicketHomePageClass()».create(root);
+        } else {
+            root = «getWicketHomePageClass()».update(root);
+        }
+        innerModel.setObject(root);
+    }
+    
+    owningPage.modelChanged();
 }
 «ENDDEFINE»
 

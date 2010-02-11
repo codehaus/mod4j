@@ -112,6 +112,7 @@ ActionDialogueCall returns DialogueCall:
     ;
 
 DialogueCall :
+    ("if" "("  condition = OperationExpression ")")?
     (contextExp = Expression )? "to" name = ID
     ("alias" alias = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
@@ -122,12 +123,16 @@ Expression :
     ;
    	
 ProcessCall :
+    ("if" "("  condition = OperationExpression ")")?
     (contextExp = Expression)? 
      name = ID
     ("alias" alias = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
-
+    
+OperationExpression :
+    name = ID;
+    
 ProcessCallFromForm returns ProcessCall :
 //    (contextExp = ContextExpression)? 
      name = ID

@@ -27,6 +27,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -305,6 +306,14 @@ public class PresentationDslSwitch<T> {
                 T result = caseStandardExpression(standardExpression);
                 if (result == null) result = caseExpression(standardExpression);
                 if (result == null) result = caseModelElement(standardExpression);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.OPERATION_EXPRESSION: {
+                OperationExpression operationExpression = (OperationExpression)theEObject;
+                T result = caseOperationExpression(operationExpression);
+                if (result == null) result = caseExpression(operationExpression);
+                if (result == null) result = caseModelElement(operationExpression);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -669,6 +678,21 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseStandardExpression(StandardExpression object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Operation Expression</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Operation Expression</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseOperationExpression(OperationExpression object) {
         return null;
     }
 

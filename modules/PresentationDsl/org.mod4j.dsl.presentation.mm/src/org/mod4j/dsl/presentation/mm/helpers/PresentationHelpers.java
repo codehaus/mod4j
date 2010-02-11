@@ -263,18 +263,6 @@ public class PresentationHelpers {
             ReferenceSymbolProperty referredType = CrossxBroker.getReferenceProperty(reference, "ReferencedDto");
             Symbol returnType = CrossxBroker.lookupSymbol(referredType.getModelname(),
                           referredType.getSymbolname(), "Dto") ;
-//            Symbol s = CrossxBroker.lookupReference(referredType);
-//            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++ " + returnType.getName() + " == " + s.getName());
-//            if( CrossxBroker.getPropertyValue(returnType, "dtoType" ).equals("ListDto") ){
-//                String baseType = CrossxBroker.getPropertyValue(returnType, "baseDto");
-//                result.setBaseType(baseType);
-//                result.setCollection("LIST" );
-//                return result;
-//            } else {
-//                result.setBaseType(returnType.getName());
-//                result.setCollection("SINGLE");
-//                return result;
-//            }
             result.setBaseType(returnType.getName());
             String multiplicity = CrossxBroker.getPropertyValue(reference, "multiplicity");
             result.setCollection( multiplicity.equals("MANY") ? "LIST" : "SINGLE") ;

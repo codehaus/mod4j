@@ -64,11 +64,6 @@
      }
 «ENDDEFINE»
 
-«REM»Nothing to generate for ListDto's
-«DEFINE createDto FOR ListDto»
-«ENDDEFINE»
-«ENDREM»
-
 «DEFINE createDto FOR CustomDto»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j BusinessDomainDsl generator: dtoBean.xpt") FOR this»
 

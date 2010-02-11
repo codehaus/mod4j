@@ -1131,57 +1131,85 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	public class DialogueCallElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DialogueCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cContextExpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cContextExpExpressionParserRuleCall_0_0 = (RuleCall)cContextExpAssignment_0.eContents().get(0);
-		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cConditionAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cConditionOperationExpressionParserRuleCall_0_2_0 = (RuleCall)cConditionAssignment_0_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cContextExpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContextExpExpressionParserRuleCall_1_0 = (RuleCall)cContextExpAssignment_1.eContents().get(0);
+		private final Keyword cToKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cAliasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cAliasAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasAssignment_4_1.eContents().get(0);
 		
 		//DialogueCall:
-		//  contextExp=Expression? "to" name=ID ("alias" alias=ID)?; 
+		//  ("if" "(" condition=OperationExpression ")")? contextExp=Expression? "to" name=ID (
+		//  "alias" alias=ID)?; 
 		//
 		//  
+		//               
 		//                  
 		//           
 		////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 		public ParserRule getRule() { return rule; }
 
-		//contextExp=Expression? "to" name=ID ("alias" alias=ID)? 
+		//("if" "(" condition=OperationExpression ")")? contextExp=Expression? "to" name=ID (
+		//"alias" alias=ID)? 
+		//               
 		//                  
 		//           
 		////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 		public Group getGroup() { return cGroup; }
 
+		//("if" "(" condition=OperationExpression ")")?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"if"
+		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_0_1() { return cLeftParenthesisKeyword_0_1; }
+
+		//condition=OperationExpression
+		public Assignment getConditionAssignment_0_2() { return cConditionAssignment_0_2; }
+
+		//OperationExpression
+		public RuleCall getConditionOperationExpressionParserRuleCall_0_2_0() { return cConditionOperationExpressionParserRuleCall_0_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_0_3() { return cRightParenthesisKeyword_0_3; }
+
 		//contextExp=Expression?
-		public Assignment getContextExpAssignment_0() { return cContextExpAssignment_0; }
+		public Assignment getContextExpAssignment_1() { return cContextExpAssignment_1; }
 
 		//Expression
-		public RuleCall getContextExpExpressionParserRuleCall_0_0() { return cContextExpExpressionParserRuleCall_0_0; }
+		public RuleCall getContextExpExpressionParserRuleCall_1_0() { return cContextExpExpressionParserRuleCall_1_0; }
 
 		//"to"
-		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		public Keyword getToKeyword_2() { return cToKeyword_2; }
 
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//("alias" alias=ID)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"alias"
-		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		public Keyword getAliasKeyword_4_0() { return cAliasKeyword_4_0; }
 
 		//alias=ID
-		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
+		public Assignment getAliasAssignment_4_1() { return cAliasAssignment_4_1; }
 
 		//ID
-		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_4_1_0() { return cAliasIDTerminalRuleCall_4_1_0; }
 	}
 
 	public class ExpressionElements implements IParserRuleAccess {
@@ -1211,55 +1239,99 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	public class ProcessCallElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ProcessCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cContextExpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cContextExpExpressionParserRuleCall_0_0 = (RuleCall)cContextExpAssignment_0.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cAliasKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cAliasAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cAliasIDTerminalRuleCall_2_1_0 = (RuleCall)cAliasAssignment_2_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cConditionAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cConditionOperationExpressionParserRuleCall_0_2_0 = (RuleCall)cConditionAssignment_0_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cContextExpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContextExpExpressionParserRuleCall_1_0 = (RuleCall)cContextExpAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasAssignment_3_1.eContents().get(0);
 		
 		//ProcessCall:
-		//  contextExp=Expression? name=ID ("alias" alias=ID)?; 
+		//  ("if" "(" condition=OperationExpression ")")? contextExp=Expression? name=ID ("alias"
+		//  alias=ID)?; 
 		//   	
 		//  
+		//               
 		//         
 		//         
 		//           
 		////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 		public ParserRule getRule() { return rule; }
 
-		//contextExp=Expression? name=ID ("alias" alias=ID)? 
+		//("if" "(" condition=OperationExpression ")")? contextExp=Expression? name=ID ("alias"
+		//alias=ID)? 
+		//               
 		//         
 		//         
 		//           
 		////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 		public Group getGroup() { return cGroup; }
 
+		//("if" "(" condition=OperationExpression ")")?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"if"
+		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_0_1() { return cLeftParenthesisKeyword_0_1; }
+
+		//condition=OperationExpression
+		public Assignment getConditionAssignment_0_2() { return cConditionAssignment_0_2; }
+
+		//OperationExpression
+		public RuleCall getConditionOperationExpressionParserRuleCall_0_2_0() { return cConditionOperationExpressionParserRuleCall_0_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_0_3() { return cRightParenthesisKeyword_0_3; }
+
 		//contextExp=Expression?
-		public Assignment getContextExpAssignment_0() { return cContextExpAssignment_0; }
+		public Assignment getContextExpAssignment_1() { return cContextExpAssignment_1; }
 
 		//Expression
-		public RuleCall getContextExpExpressionParserRuleCall_0_0() { return cContextExpExpressionParserRuleCall_0_0; }
+		public RuleCall getContextExpExpressionParserRuleCall_1_0() { return cContextExpExpressionParserRuleCall_1_0; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//("alias" alias=ID)?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"alias"
-		public Keyword getAliasKeyword_2_0() { return cAliasKeyword_2_0; }
+		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
 
 		//alias=ID
-		public Assignment getAliasAssignment_2_1() { return cAliasAssignment_2_1; }
+		public Assignment getAliasAssignment_3_1() { return cAliasAssignment_3_1; }
 
 		//ID
-		public RuleCall getAliasIDTerminalRuleCall_2_1_0() { return cAliasIDTerminalRuleCall_2_1_0; }
+		public RuleCall getAliasIDTerminalRuleCall_3_1_0() { return cAliasIDTerminalRuleCall_3_1_0; }
+	}
+
+	public class OperationExpressionElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OperationExpression");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//OperationExpression:
+		//  name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 
 	public class ProcessCallFromFormElements implements IParserRuleAccess {
@@ -1274,7 +1346,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		
 		//ProcessCallFromForm returns ProcessCall:
 		//  name=ID ("alias" alias=ID)?; 
-		//
+		//    
 		//      
 		////    (contextExp = ContextExpression)? 
 		//          
@@ -1644,6 +1716,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	private DialogueCallElements pDialogueCall;
 	private ExpressionElements pExpression;
 	private ProcessCallElements pProcessCall;
+	private OperationExpressionElements pOperationExpression;
 	private ProcessCallFromFormElements pProcessCallFromForm;
 	private StandardExpressionElements pStandardExpression;
 	private ExpressionTypeElements unknownRuleExpressionType;
@@ -1847,9 +1920,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//DialogueCall:
-	//  contextExp=Expression? "to" name=ID ("alias" alias=ID)?; 
+	//  ("if" "(" condition=OperationExpression ")")? contextExp=Expression? "to" name=ID (
+	//  "alias" alias=ID)?; 
 	//
 	//  
+	//               
 	//                  
 	//           
 	////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
@@ -1872,9 +1947,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//ProcessCall:
-	//  contextExp=Expression? name=ID ("alias" alias=ID)?; 
+	//  ("if" "(" condition=OperationExpression ")")? contextExp=Expression? name=ID ("alias"
+	//  alias=ID)?; 
 	//   	
 	//  
+	//               
 	//         
 	//         
 	//           
@@ -1887,9 +1964,19 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		return getProcessCallAccess().getRule();
 	}
 
+	//OperationExpression:
+	//  name=ID;
+	public OperationExpressionElements getOperationExpressionAccess() {
+		return (pOperationExpression != null) ? pOperationExpression : (pOperationExpression = new OperationExpressionElements());
+	}
+	
+	public ParserRule getOperationExpressionRule() {
+		return getOperationExpressionAccess().getRule();
+	}
+
 	//ProcessCallFromForm returns ProcessCall:
 	//  name=ID ("alias" alias=ID)?; 
-	//
+	//    
 	//      
 	////    (contextExp = ContextExpression)? 
 	//          

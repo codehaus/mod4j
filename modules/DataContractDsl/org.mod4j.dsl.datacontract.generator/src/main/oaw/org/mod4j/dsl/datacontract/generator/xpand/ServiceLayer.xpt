@@ -28,7 +28,6 @@
 		«ENDFILE»
 	«ENDFOREACH»
 	
-«REM»    «FOREACH dtos.reject(dto|dto.metaType == ListDto) AS dto»«ENDREM»
     «FOREACH dtos AS dto»
 		«FILE generate(getServiceModuleName(), javaPathFileName(javaDtoClassPath(dto.name)))»
 		  	«EXPAND dtoBean::createDto FOR dto»

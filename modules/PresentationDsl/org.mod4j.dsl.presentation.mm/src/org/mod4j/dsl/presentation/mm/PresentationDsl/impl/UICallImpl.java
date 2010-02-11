@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 
@@ -27,12 +28,23 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getProcess <em>Process</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class UICallImpl extends ModelElementImpl implements UICall {
+    /**
+     * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCondition()
+     * @generated
+     * @ordered
+     */
+    protected Expression condition;
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -98,6 +110,49 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * <!-- end-user-doc -->
      * @generated
      */
+    public Expression getCondition() {
+        return condition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCondition(Expression newCondition, NotificationChain msgs) {
+        Expression oldCondition = condition;
+        condition = newCondition;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_CALL__CONDITION, oldCondition, newCondition);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCondition(Expression newCondition) {
+        if (newCondition != condition) {
+            NotificationChain msgs = null;
+            if (condition != null)
+                msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_CALL__CONDITION, null, msgs);
+            if (newCondition != null)
+                msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_CALL__CONDITION, null, msgs);
+            msgs = basicSetCondition(newCondition, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_CALL__CONDITION, newCondition, newCondition));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -119,6 +174,8 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
         switch (featureID) {
             case PresentationDslPackage.UI_CALL__PROCESS:
                 return basicSetProcess(null, msgs);
+            case PresentationDslPackage.UI_CALL__CONDITION:
+                return basicSetCondition(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -147,6 +204,8 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
         switch (featureID) {
             case PresentationDslPackage.UI_CALL__PROCESS:
                 return getProcess();
+            case PresentationDslPackage.UI_CALL__CONDITION:
+                return getCondition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -161,6 +220,9 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
         switch (featureID) {
             case PresentationDslPackage.UI_CALL__PROCESS:
                 setProcess((org.mod4j.dsl.presentation.mm.PresentationDsl.Process)newValue);
+                return;
+            case PresentationDslPackage.UI_CALL__CONDITION:
+                setCondition((Expression)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -177,6 +239,9 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
             case PresentationDslPackage.UI_CALL__PROCESS:
                 setProcess((org.mod4j.dsl.presentation.mm.PresentationDsl.Process)null);
                 return;
+            case PresentationDslPackage.UI_CALL__CONDITION:
+                setCondition((Expression)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -191,6 +256,8 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
         switch (featureID) {
             case PresentationDslPackage.UI_CALL__PROCESS:
                 return getProcess() != null;
+            case PresentationDslPackage.UI_CALL__CONDITION:
+                return condition != null;
         }
         return super.eIsSet(featureID);
     }

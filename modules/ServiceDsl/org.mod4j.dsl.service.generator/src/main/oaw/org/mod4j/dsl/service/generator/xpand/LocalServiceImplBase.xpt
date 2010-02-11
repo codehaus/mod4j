@@ -33,15 +33,17 @@
 
 	import «javaDomainServiceInterfacePath(name)»;
 
+«REM»
 	«FOREACH this.dtoReferences.select(e|e.dtoType() == "ListDto") AS dto -»
 	    «LET lookupSymbol(dto.modelname, dto.name, "Dto").getPropertyValue("baseDto") AS baseDtoName»
 	        import «getServiceRootPackage()».dto.«baseDtoName»;
 	        import «javaTranslatorClassPath(baseDtoName)»;
 	    «ENDLET»
 	«ENDFOREACH»
+«ENDREM»
 
-
-	«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»
+«REM»«FOREACH this.dtoReferences.select(e|e.dtoType() != "ListDto") AS dto -»«ENDREM»
+    «FOREACH this.dtoReferences AS dto -»
 	import «getDtoPackage()».«javaClassName(dto.name)»;
 	«ENDFOREACH»
 

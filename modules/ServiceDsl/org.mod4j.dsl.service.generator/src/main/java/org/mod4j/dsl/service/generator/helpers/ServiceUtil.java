@@ -57,15 +57,15 @@ public class ServiceUtil {
         Symbol referredDtoSymbol = CrossxBroker.lookupSymbol(referredDto.getModelname(),
                                                              referredDto.getSymbolname(), "Dto") ;
 
-        if( CrossxBroker.getPropertyValue(referredDtoSymbol, "dtoType").equals("ListDto") ) {
-            
-            ReferenceSymbolProperty ref = CrossxBroker.getReferenceProperty(referredDtoSymbol, "BaseDto");
-            Symbol dto = CrossxBroker.lookupReference(ref);
-            return CrossxBroker.getPropertyValue(dto, "businessClass");
-        } else {
+//        if( CrossxBroker.getPropertyValue(referredDtoSymbol, "dtoType").equals("ListDto") ) {
+//            
+//            ReferenceSymbolProperty ref = CrossxBroker.getReferenceProperty(referredDtoSymbol, "BaseDto");
+//            Symbol dto = CrossxBroker.lookupReference(ref);
+//            return CrossxBroker.getPropertyValue(dto, "businessClass");
+//        } else {
             // dtoType must be BusinessClassDto
             return CrossxBroker.getPropertyValue(referredDtoSymbol, "businessClass");
-        }
+//        }
     }
 
     static public Collection<Symbol> makeUnique(Collection<Symbol> symbols) {

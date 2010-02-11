@@ -82,6 +82,12 @@
 			<td><select wicket:id="«this.dataProperty.name»"/></td>
 			<td><span wicket:id="«this.dataProperty.name»Msgs"/></td>
 		</tr>
+    «ELSEIF this.dataProperty.dataType == "boolean"»
+        <tr>
+            <th><wicket:message key="lbl.«this.label»"/></th>
+            <td><input wicket:id="«this.dataProperty.name»" id="«this.dataProperty.name»" type="checkbox"/></td>
+            <td><span wicket:id="«this.dataProperty.name»Msgs"/></td>
+        </tr>
 	«ELSE»
 		<tr>
 			<th><wicket:message key="lbl.«this.label»"/></th>

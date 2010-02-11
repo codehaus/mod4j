@@ -1,0 +1,75 @@
+«IMPORT PresentationDsl»
+«IMPORT org::mod4j::dslcommon::xpand::java»
+
+«EXTENSION org::mod4j::common::xtend::NameMapper»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION org::mod4j::dsl::presentation::generator::xtend::helpers»
+«EXTENSION org::mod4j::dslcommon::xtend::generatorutil»
+«EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
+«EXTENSION org::mod4j::common::xtend::FileTracker»
+
+«DEFINE generateOperation(String contextName) FOR Expression -»
+«ENDDEFINE»
+
+«DEFINE generateOperation(String contextName) FOR OperationExpression -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcess in Operation.xpt") FOR this»
+package «getPresentationRootPackage()».operations;
+
+import «javaDtoClassPath(contextName)»;
+import java.util.List;
+
+public class Operation«this.name» implements PmfOperation<«contextName»> {
+
+    public boolean check(«contextName» context) {
+        // TODO MOD4J Implement operation
+        return true;
+    }
+
+    public boolean checkCollection(List<«contextName»> context) {
+        // TODO MOD4J Implement operation
+        return true;
+    }
+}
+«ENDDEFINE»
+
+«DEFINE generatePmfOperation FOR PresentationModel -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcess in Operation.xpt") FOR this»
+package «getPresentationRootPackage()».operations;
+
+import java.io.Serializable;
+import java.util.List;
+
+public interface PmfOperation<T> extends Serializable {
+
+    public boolean check(T context);
+    public boolean checkCollection(List<T> context) ;
+}
+«ENDDEFINE»
+
+«DEFINE generateAlwaysTrueOperation FOR PresentationModel -»
+    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: generateAlwaysTrueOperation in Operation.xpt") FOR this»
+package «getPresentationRootPackage()».operations;
+
+import java.util.List;
+
+public class AlwaysTrue<T> implements PmfOperation<T>{
+
+    public boolean check(T context) {
+        return true;
+    }
+
+    public boolean checkCollection(List<T> context) {
+        return true;
+    }
+    
+    private AlwaysTrue() {}
+    
+    static private AlwaysTrue instance = new AlwaysTrue();
+    
+    static public AlwaysTrue getInstance() {
+        return instance;
+    }
+
+}
+«ENDDEFINE»
