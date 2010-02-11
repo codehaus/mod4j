@@ -22,7 +22,7 @@ ContentForm CustomerDetails context SimpleCustomerDto [
 	element lastName label name; 
 	element birthDate label birthDate;
 	element customerNr label nr;
-	processes [
+	processes [ 
 		HandleCustomer; 
 		HandleIdols;
 		SaveCustomer;
@@ -33,9 +33,11 @@ ContentForm CustomerDetails context SimpleCustomerDto [
 Process SaveCustomer context SimpleCustomerDto 
 save
 
-Process AddIdol context SimpleCustomerDto 
-addto
-
+Process AddIdol context list ArtistDto
+addto step [
+    to ArtistList;
+]
+    
 Process NewCustomer context SimpleCustomerDto 
 new step [ to CustomerDetails ; ]
      
@@ -59,7 +61,7 @@ ContentForm ArtistList context list ArtistDto [
     	addArtists;  
     	removeArtists; 
     ]
-] 
+]    
 
 Process addArtists context list ArtistDto
 addto step [ to ArtistList; ]

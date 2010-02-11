@@ -33,7 +33,7 @@ crud ArtistDto;
  * Explicit definded crud servicemethods         
  */         
 create createCustomer for SimpleCustomerDto ;             
-read   readCustomer for SimpleCustomerDto ;  
+read   readCustomer for SimpleCustomerDto ;   
 update updateCustomer for SimpleCustomerDto ;         
 delete deleteCustomer for SimpleCustomerDto ;           
 
@@ -68,3 +68,4 @@ method findCustomerByUniqueKey in ( UniqueCustomerDto cust )
 
 "Find all Customers matching the given name."
 method findCustomerByName in ( StringDto name ) out list SimpleCustomerDto;
+method findCustomersByNames in ( list StringDto name ) out list SimpleCustomerDto;    

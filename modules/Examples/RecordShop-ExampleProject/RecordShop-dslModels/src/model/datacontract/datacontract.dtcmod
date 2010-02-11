@@ -25,11 +25,11 @@ from RecordShopDomainModel import RecordTypeEnum;
  	     blackListed;
  	     username;
 	     sexe;  
-	     birthDate;
+	     birthDate; 
 	     references [  
 	         orders as OrderNumberAndDateDto;
 	         idols as ArtistDto;
-	         //relatedTo as DisLikesDto;
+	         relatedTo as DisLikesDto;
 	     ]    
 	]  
 	
