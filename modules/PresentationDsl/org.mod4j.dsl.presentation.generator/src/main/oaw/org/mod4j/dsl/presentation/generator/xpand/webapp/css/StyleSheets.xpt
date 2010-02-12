@@ -46,15 +46,14 @@ div.wicket-modal div.w_content_3 {
 «ENDDEFINE»
 
 «DEFINE generateMainCss FOR PresentationModel -»
-«EXPAND JavaComments::extensionPointHeader("Mod4j PresentationDsl generator: StyleSheets.xpt") FOR this»
-
+«EXPAND JavaComments::extensionPointHeader("Mod4j PresentationDsl generator: StyleSheets.xpt") FOR this-»
 
 /* 
  * Main stylesheet (main.css).
  */
  
 body {
-    font:62.5%/1.2em verdana, sans-serif, arial;
+    font:62.5% verdana, sans-serif, arial;
     color:#333;
     background:#fff;
     margin:0;
@@ -239,9 +238,13 @@ div.frameRight table.vertical {
     width:562px;
     font-size:1em;
     border-top:1px solid #cccccc;
-    border-right:1px solid #cccccc;
+}
+
+div.frameRight table.horizontal thead,
+div.frameRight table.vertical thead {
     border-left:1px solid #cccccc;
-}   
+    border-right:1px solid #cccccc;
+}
 
 /* horizontal tables */
 div.tableWrapper {
@@ -284,7 +287,7 @@ span#navigation {
 
 div.frameRight table.horizontal th {
     text-align:left;
-    padding:10px 0px 9px 8px;
+    padding:8px 0px 8px 4px;
     background:#f0f0f0;
     border-bottom:1px solid #cccccc; 
 }
@@ -303,7 +306,7 @@ div.frameRight table.horizontal tfoot td {
 
 div.frameRight table.horizontal td {
     background:url(../images/rule_dot.gif) repeat-x 0 100%;
-    padding:5px 0 7px 8px;
+    padding:4px 0 4px 4px;
 }
         
 /* widths for specific tables */
@@ -323,7 +326,7 @@ div.frameRight table.horizontal th.lblTransactionsPerMonth {width:100px;}
 /* Vertical tables */            
 div.frameRight table.vertical th {
     text-align:left;
-    padding:6px 0px 5px 8px;
+    padding:4px 0px 4px 4px;
     vertical-align:top;
     background:#f0f0f0;
 }
@@ -333,7 +336,7 @@ div.frameRight table.vertical tbody {
             
 div.frameRight table.vertical td {
     background:url(../images/rule_dot.gif) repeat-x 0 100%;
-    padding:5px 0 7px 8px;
+    padding:4px 0 4px 4px;
 }
 
             
@@ -373,6 +376,9 @@ div.frameBottom {
         clear:both;
         margin:0 auto;
         padding:20px 0 0 0;
+        min-height:80px;
+        background-image: url("../images/frameBottom-background.jpg");
+        background-repeat: no-repeat;
 } 
 
 div.frameBottom div.footerContent {
