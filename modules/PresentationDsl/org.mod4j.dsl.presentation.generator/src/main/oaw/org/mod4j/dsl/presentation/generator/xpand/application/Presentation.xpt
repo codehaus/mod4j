@@ -172,7 +172,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 «LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
 	«IF service != null-»
 	    «LET javaLocalServiceInterface(service.name) AS serviceType»
-		@SpringBean(name = "«service.name»Service")
+		@SpringBean(name = "«service.name.toFirstLower()»Service")
 	    protected static «serviceType» service«serviceType»;
 	    
 	    public static «serviceType» get«serviceType»() {
