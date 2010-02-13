@@ -35,11 +35,11 @@ save
 
 Process AddIdol context list ArtistDto
 addto step [
-    to ArtistList;
+    dialogue ArtistList;
 ]
     
 Process NewCustomer context SimpleCustomerDto 
-new step [ to CustomerDetails ; ]
+new step [ dialogue CustomerDetails ; ]
      
 Process DeleteCustomer context SimpleCustomerDto 
 delete     
@@ -52,7 +52,7 @@ Process HandleCustomer context SimpleCustomerDto
 Process HandleIdols context SimpleCustomerDto
     steps [ 
 //        dialogue navigate idols to ArtistList; 
-        dialogue to CustomerDetails;
+        dialogue CustomerDetails;
     ] 
 
 ContentForm ArtistList context list ArtistDto [
@@ -64,12 +64,12 @@ ContentForm ArtistList context list ArtistDto [
 ]    
 
 Process addArtists context list ArtistDto
-addto step [ to ArtistList; ]
+addto step [ dialogue ArtistList; ]
 Process removeArtists context list ArtistDto
 removefrom
 
 Process allCustomers context SimpleCustomerDto
-start step [ all to CustomerList; ] 
+start step [ all dialogue CustomerList; ] 
   
 Process allArtists context ArtistDto
-start step [ all to ArtistList; ] 
+start step [ all dialogue ArtistList; ] 
