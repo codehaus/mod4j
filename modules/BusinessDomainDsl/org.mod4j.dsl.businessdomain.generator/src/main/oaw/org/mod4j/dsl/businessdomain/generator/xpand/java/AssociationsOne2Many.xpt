@@ -29,7 +29,7 @@
         if (id == null) {
             return null;
         }
-        for («javaDomainClass(target.name)» «javaDomainClass(target.name).toFirstLower()»:  «targetRoleName») {
+        for («javaDomainClass(target.name)» «javaDomainClass(target.name).toFirstLower()»: this.«targetRoleName») {
             if (id.equals(«javaDomainClass(target.name).toFirstLower()».getId())) {
                 return «javaDomainClass(target.name).toFirstLower()»;
             }

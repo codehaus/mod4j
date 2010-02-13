@@ -24,7 +24,7 @@
         if (id == null) {
             return null;
         }
-        for («target.name» «target.name.toFirstLower()»:  «targetRoleName») {
+        for («target.name» «target.name.toFirstLower()»: this.«targetRoleName») {
             if (id.equals(«target.name.toFirstLower()».getId())) {
                 return «target.name.toFirstLower()»;
             }
