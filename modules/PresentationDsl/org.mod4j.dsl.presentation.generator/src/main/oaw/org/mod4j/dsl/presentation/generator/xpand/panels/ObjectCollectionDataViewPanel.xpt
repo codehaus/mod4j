@@ -38,6 +38,7 @@ import «getPresentationCommonPackage()».ext.components.CheckBoxBaseModel;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationCommonPackage()».ext.components.ModalWindow;
 import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
+import «getPresentationCommonPackage()».ext.components.ListElementModel;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
@@ -338,9 +339,17 @@ class Close implements WindowClosedCallback  {
 			«ENDLET»
 	    «ENDFOREACH»
 		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS process»
-				Link «process.name»Link = new Link("«process.name»") {
-					public void onClick() {
-                    IModel elementModel = new Model(item.getModel().getObject());
+			Link «process.name»Link = new Link("«process.name»") {
+				public void onClick() {
+                    «process.contextRef.name» dto = item.getModel().getObject();
+                    IModel elementModel = null ;
+                    Object o = model.getObject();
+                    if (o instanceof Mod4jDataProvider<?>) {
+                        elementModel = new Model(dto);
+                    } else if (o instanceof Set<?>) {
+                        elementModel = new ListElementModel("id", dto.getId(), model);
+                    }
+					
                     «process.name»Process process = new «process.name»Process(elementModel);
                     process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
                     Page next = process.nextPage(null);

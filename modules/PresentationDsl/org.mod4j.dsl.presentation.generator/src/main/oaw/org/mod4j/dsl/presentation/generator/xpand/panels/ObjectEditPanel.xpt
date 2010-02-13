@@ -109,6 +109,7 @@ public class «this.name»EditPanel extends Panel {
                 «getWicketMasterPageClass()» currentPage = («getWicketMasterPageClass()»)this.getPage();
                 process.setOwningPage(currentPage);
                 process.run(model.getObject());
+				page().getProcess().nextStep(model.getObject());
             }
         };
         form.add(«p.name»save);
@@ -143,7 +144,7 @@ public class «this.name»EditPanel extends Panel {
             @Override
             public void onSubmit() {
             	form.clearInput();
-// TODO                page().startProcess("«p.name»Process", model.getObject());
+            	page().getProcess().cancel();
              }
         };
         cancel.setDefaultFormProcessing(false);
@@ -224,7 +225,7 @@ public class «this.name»EditPanel extends Panel {
         form.add(«varName»);
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("integer")»
-        TextField<Integer> «varName» = new TextField<Integer>("«this.label»", Integer.class);
+        TextField<Integer> «varName» = new TextField<Integer>("«this.dataProperty.name»", Integer.class);
         «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 

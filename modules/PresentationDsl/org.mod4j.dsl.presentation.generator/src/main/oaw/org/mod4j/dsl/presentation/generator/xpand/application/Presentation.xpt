@@ -159,14 +159,6 @@ import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-«REM»
-«LET findServiceWithMethod(this.contextRef.name, "UPDATE") AS service»
-«LET findSpecialMethodInService(this.contextRef.name, "UPDATE", service) AS updateService»
-«LET findSpecialMethodInService(this.contextRef.name, "DELETE", service) AS deleteService»
-«LET findSpecialMethodInService(this.contextRef.name, "Create", service) AS createService»
-«LET javaLocalServiceInterface(service) AS serviceType»
-«ENDREM»
-
 public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()» {
 «FOREACH this.externalReferences AS ext-»
 «LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
@@ -202,6 +194,13 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
                     }
                 «ENDIF»
                 «ENDLET»
+                «LET findSpecialMethodInService(dto.name, "READ", service.name) AS readService»
+                «IF readService != null »
+                    public static «dto.name» read«dto.name»(long id){
+                        return service«serviceType».«readService»(id);
+                    }
+                «ENDIF»
+                «ENDLET»
             «ENDIF»
             «ENDLET»
 	    «ENDFOREACH»
@@ -231,6 +230,20 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
         «ENDFOREACH»
             return null;
         }
+
+        public static AbstractDto read(AbstractDto dto) {
+        «FOREACH this.externalReferences AS extDto»
+            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
+            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
+               if( dto instanceof «dto.name» ){
+                   return «getWicketHomePageClass()».read«dto.name»( dto.getId() );
+               }
+            «ENDIF»
+            «ENDLET»
+        «ENDFOREACH»
+            return null;
+        }
+
 	    «ENDLET»
 	«ENDIF-»
 «ENDLET-»
@@ -336,7 +349,7 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
     private List<AbstractLink> menuItems = new ArrayList<AbstractLink>();
 	/** Only used to allow reference from within the unnamed inner class for Link to thuis page
 	*/
-	static private «getWicketMasterPageClass()» myself = null;
+	private «getWicketMasterPageClass()» myself = null;
 
     protected «getWicketMasterPageClass()»(PmfProcess owner) {
     	myself = this;

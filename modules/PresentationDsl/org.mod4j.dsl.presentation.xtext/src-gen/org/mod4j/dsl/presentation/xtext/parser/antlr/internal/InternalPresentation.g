@@ -1843,9 +1843,9 @@ ruleDialogueCall returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)?'to' 
+)?'dialogue' 
     {
-        createLeafNode(grammarAccess.getDialogueCallAccess().getToKeyword_2(), null); 
+        createLeafNode(grammarAccess.getDialogueCallAccess().getDialogueKeyword_2(), null); 
     }
 (	
 	
@@ -2016,11 +2016,15 @@ ruleProcessCall returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)?(	
+)?'process' 
+    {
+        createLeafNode(grammarAccess.getProcessCallAccess().getProcessKeyword_2(), null); 
+    }
+(	
 	
-	    lv_name_5=	RULE_ID
+	    lv_name_6=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getProcessCallAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
+		createLeafNode(grammarAccess.getProcessCallAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
 	}
  
 	    {
@@ -2030,7 +2034,7 @@ ruleProcessCall returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_5, "ID", lastConsumedNode);
+	       		set($current, "name", lv_name_6, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -2038,13 +2042,13 @@ ruleProcessCall returns [EObject current=null]
 	
 )('alias' 
     {
-        createLeafNode(grammarAccess.getProcessCallAccess().getAliasKeyword_3_0(), null); 
+        createLeafNode(grammarAccess.getProcessCallAccess().getAliasKeyword_4_0(), null); 
     }
 (	
 	
-	    lv_alias_7=	RULE_ID
+	    lv_alias_8=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getProcessCallAccess().getAliasIDTerminalRuleCall_3_1_0(), "alias"); 
+		createLeafNode(grammarAccess.getProcessCallAccess().getAliasIDTerminalRuleCall_4_1_0(), "alias"); 
 	}
  
 	    {
@@ -2054,7 +2058,7 @@ ruleProcessCall returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "alias", lv_alias_7, "ID", lastConsumedNode);
+	       		set($current, "alias", lv_alias_8, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -2525,34 +2529,26 @@ ruleUIModelElementCall returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(('dialogue' 
-    {
-        createLeafNode(grammarAccess.getUIModelElementCallAccess().getDialogueKeyword_0_0(), null); 
-    }
-
+(
     { 
-        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0(), currentNode); 
     }
-    this_DialogueCall_1=ruleDialogueCall
+    this_DialogueCall_0=ruleDialogueCall
     { 
-        $current = $this_DialogueCall_1.current; 
+        $current = $this_DialogueCall_0.current; 
         currentNode = currentNode.getParent();
     }
-)
-    |('process' 
-    {
-        createLeafNode(grammarAccess.getUIModelElementCallAccess().getProcessKeyword_1_0(), null); 
-    }
 
+    |
     { 
-        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1(), currentNode); 
     }
-    this_ProcessCall_3=ruleProcessCall
+    this_ProcessCall_1=ruleProcessCall
     { 
-        $current = $this_ProcessCall_3.current; 
+        $current = $this_ProcessCall_1.current; 
         currentNode = currentNode.getParent();
     }
-));
+);
 
 
 

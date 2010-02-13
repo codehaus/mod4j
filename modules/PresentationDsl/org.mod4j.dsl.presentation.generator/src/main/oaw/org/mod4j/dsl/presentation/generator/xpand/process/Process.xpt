@@ -64,6 +64,8 @@ import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
 import «getPresentationCommonPackage()».ext.components.ListElementModel;
+import «getPresentationCommonPackage()».ext.components.Helpers;
+import org.mod4j.runtime.dto.AbstractDto;
 
 import java.util.Set;
 import java.util.List;
@@ -176,7 +178,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
     «ELSEIF this.type == ProcessType::SAVE»
         return null;
     «ELSEIF this.type == ProcessType::EDIT»
-        «this.name»Page page = new «this.name»Page (this, model);
+        page = new «this.name»Page (this, model);
         page.setProcess(this);
         prepareSteps();
         return page;
@@ -195,6 +197,23 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
     }
     
     public void done(«getWicketMasterPageClass()» page){
+        getOwningPage().setResponsePage(getOwningPage());
+    }
+	
+	@Override
+    public void cancel(){
+       IModel innerModel = Helpers.findInnerMostModel(model);
+        Object object = innerModel.getObject();
+        if (object instanceof AbstractDto) {
+            AbstractDto root = (AbstractDto) innerModel.getObject();
+            if (root.getId() == null) {
+//                root = «getWicketHomePageClass()».create(root);
+            } else {
+                root = «getWicketHomePageClass()».read(root);
+                innerModel.setObject(root);
+            }
+        }
+        owningPage.modelChanged();
         getOwningPage().setResponsePage(getOwningPage());
     }
 }
@@ -367,6 +386,11 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
 	    getOwningPage().setResponsePage(getOwningPage());
 	}
 	
+    @Override
+    public void cancel(){
+        getOwningPage().setResponsePage(getOwningPage());
+    }
+	
 }
 «ENDLET»
 «REM»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDREM»
@@ -508,6 +532,9 @@ abstract public class PmfProcess <T> implements Serializable {
 	 * is ready.  Usually this means that the previous page (the owning page of this process must be restored.
 	 */
 	abstract public void done(«getWicketMasterPageClass()» page);
+
+	public void cancel() {
+	}
 
     protected MarkupContainer initiator = null;
 
