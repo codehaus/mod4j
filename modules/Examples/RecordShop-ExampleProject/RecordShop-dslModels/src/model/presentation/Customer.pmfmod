@@ -9,9 +9,9 @@ from CustomerServiceModel import CustomerServiceModel;
 // TODO: from RecordShopOrderingPresentation import OrderAndDateCollection ;
 // TODO: from RecordShopOrderingPresentation import OrderAndDateForm;
 ContentForm CustomerList context list SimpleCustomerDto [
-	element lastName label name;
-	element birthDate label birthDate;
-	element customerNr label nr;  
+	element lastName label "Name";
+	element birthDate label "Date of birth";
+	element customerNr label "Number";  
 	processes [ 
 		EditCustomer;
 		NewCustomer ;
@@ -19,9 +19,9 @@ ContentForm CustomerList context list SimpleCustomerDto [
 ]
  
 ContentForm CustomerDetails context SimpleCustomerDto [
-	element lastName label name; 
-	element birthDate label birthDate;
-	element customerNr label nr;
+	element lastName label "Last name"; 
+	element birthDate label "Date of birth";
+	element customerNr label "Number";
 	processes [ 
 		HandleCustomer; 
 		HandleIdols;
@@ -56,7 +56,7 @@ Process HandleIdols context SimpleCustomerDto
     ] 
 
 ContentForm ArtistList context list ArtistDto [
-    element name label Name;
+    element name label "Name";
     processes [
     	addArtists;  
     	removeArtists; 
