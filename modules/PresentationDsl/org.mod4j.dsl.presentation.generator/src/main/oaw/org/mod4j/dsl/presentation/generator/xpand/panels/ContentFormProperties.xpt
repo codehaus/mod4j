@@ -9,7 +9,7 @@
 
 «DEFINE GenerateProperties FOR ContentForm -»
 «FOREACH this.formElements AS e-»
-lbl.«e.label.escapePropertyKey()»=«e.label»
+lbl.«e.dataProperty.name»=«e.label»
 «ENDFOREACH»
 «ENDDEFINE»
 

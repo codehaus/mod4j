@@ -14866,21 +14866,21 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start rule__FormElement__LabelAssignment_4
-    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5775:1: rule__FormElement__LabelAssignment_4 : ( RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5775:1: rule__FormElement__LabelAssignment_4 : ( RULE_STRING ) ;
     public final void rule__FormElement__LabelAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5779:1: ( ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5780:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5779:1: ( ( RULE_STRING ) )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5780:1: ( RULE_STRING )
             {
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5780:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5781:1: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5780:1: ( RULE_STRING )
+            // ../org.mod4j.dsl.presentation.xtext.ui/src-gen/org/mod4j/dsl/presentation/xtext/contentassist/antlr/internal/InternalPresentation.g:5781:1: RULE_STRING
             {
-             before(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FormElement__LabelAssignment_411428); 
-             after(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0()); 
+             before(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__FormElement__LabelAssignment_411428); 
+             after(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -16181,7 +16181,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_rule__FormElement__Group__2_in_rule__FormElement__Group__17773 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FormElement__ReferencesAssignment_2_in_rule__FormElement__Group__27801 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_rule__FormElement__Group__3_in_rule__FormElement__Group__27810 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_rule__FormElement__Group__37839 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_42_in_rule__FormElement__Group__37839 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__FormElement__Group__4_in_rule__FormElement__Group__37849 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FormElement__LabelAssignment_4_in_rule__FormElement__Group__47877 = new BitSet(new long[]{0x0000000020400000L});
     public static final BitSet FOLLOW_rule__FormElement__Group__5_in_rule__FormElement__Group__47886 = new BitSet(new long[]{0x0000000000000002L});
@@ -16314,7 +16314,7 @@ public class InternalPresentationParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_ruleUICall_in_rule__Process__ProcessElementsAssignment_8_1_2_011335 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__FormElement__DescriptionAssignment_011366 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDtoPropertyReference_in_rule__FormElement__ReferencesAssignment_211397 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__FormElement__LabelAssignment_411428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__FormElement__LabelAssignment_411428 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_55_in_rule__FormElement__ReadonlyAssignment_5_1_011464 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_rule__ActionDialogueCall__ContextExpAssignment_011503 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ActionDialogueCall__NameAssignment_211534 = new BitSet(new long[]{0x0000000000000002L});

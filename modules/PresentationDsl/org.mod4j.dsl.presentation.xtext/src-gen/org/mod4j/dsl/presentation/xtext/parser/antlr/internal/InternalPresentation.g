@@ -1626,9 +1626,9 @@ ruleFormElement returns [EObject current=null]
     }
 (	
 	
-	    lv_label_4=	RULE_ID
+	    lv_label_4=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0(), "label"); 
+		createLeafNode(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0(), "label"); 
 	}
  
 	    {
@@ -1638,7 +1638,7 @@ ruleFormElement returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "label", lv_label_4, "ID", lastConsumedNode);
+	       		set($current, "label", lv_label_4, "STRING", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

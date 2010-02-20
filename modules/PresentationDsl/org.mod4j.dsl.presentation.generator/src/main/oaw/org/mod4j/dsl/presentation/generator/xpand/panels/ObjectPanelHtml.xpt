@@ -41,7 +41,7 @@
 
 «DEFINE addWicket FOR FormElement»
 	<tr>
-		<th><wicket:message key="lbl.«this.label»"/></th>
+		<th><wicket:message key="lbl.«this.dataProperty.name»"/></th>
 		<td><span wicket:id="«this.dataProperty.name»"/></td>
 	</tr>
 «ENDDEFINE»

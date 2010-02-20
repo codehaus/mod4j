@@ -5778,8 +5778,8 @@ rule__FormElement__LabelAssignment_4
     }
 :
 (
-{ before(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0()); }
-	RULE_ID{ after(grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0()); }
+{ before(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0()); }
+	RULE_STRING{ after(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0()); }
 )
 
 ;

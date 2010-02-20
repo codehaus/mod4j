@@ -22,7 +22,7 @@
 				<tr>
 				    <th></th>
 				«FOREACH this.formElements AS fe»
-					<th><wicket:message key="lbl.«fe.label»"/></th>
+					<th><wicket:message key="lbl.«fe.dataProperty.name»"/></th>
 				«ENDFOREACH»
 				<th colspan="1">&nbsp;</th>
 				</tr>

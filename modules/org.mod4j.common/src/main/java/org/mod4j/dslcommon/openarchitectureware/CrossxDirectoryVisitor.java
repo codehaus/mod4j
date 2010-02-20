@@ -100,7 +100,7 @@ public class CrossxDirectoryVisitor implements IDirectoryVisitor {
         }
         String modelfile = file.getAbsolutePath();
         modelfile = StringHelpers.replaceAllSubstrings(modelfile, "\\", "/");
-        String crossxfile = modelfile.substring(0, modelfile.lastIndexOf(dsl.getDslFileExtension())) + CROSSX_EXTENSION;
+        String crossxfile = modelfile + CROSSX_EXTENSION;
         modelfile = "file:/" + modelfile;
 
         RunCrossxWorkflow wf = new RunCrossxWorkflow();

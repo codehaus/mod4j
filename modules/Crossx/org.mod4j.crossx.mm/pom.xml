@@ -24,6 +24,10 @@
             <artifactId>ecore</artifactId>
             <version>2.5.0</version>
         </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
         
     </dependencies>
 

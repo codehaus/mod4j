@@ -997,7 +997,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final RuleCall cReferencesDtoPropertyReferenceParserRuleCall_2_0 = (RuleCall)cReferencesAssignment_2.eContents().get(0);
 		private final Keyword cLabelKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cLabelAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLabelIDTerminalRuleCall_4_0 = (RuleCall)cLabelAssignment_4.eContents().get(0);
+		private final RuleCall cLabelSTRINGTerminalRuleCall_4_0 = (RuleCall)cLabelAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cReadonlyKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
@@ -1007,7 +1007,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//FormElement:
-		//  description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+		//  description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
 		//  "readonly" (readonly?="true"|"false"))? ";"; 
 		//	
 		//  
@@ -1016,7 +1016,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		////	("navigate" LinkRef "to")?
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+		//description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
 		//"readonly" (readonly?="true"|"false"))? ";" 
 		//	  
 		//	 
@@ -1044,11 +1044,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//"label"
 		public Keyword getLabelKeyword_3() { return cLabelKeyword_3; }
 
-		//label=ID
+		//label=STRING
 		public Assignment getLabelAssignment_4() { return cLabelAssignment_4; }
 
-		//ID
-		public RuleCall getLabelIDTerminalRuleCall_4_0() { return cLabelIDTerminalRuleCall_4_0; }
+		//STRING
+		public RuleCall getLabelSTRINGTerminalRuleCall_4_0() { return cLabelSTRINGTerminalRuleCall_4_0; }
 
 		//("readonly" (readonly?="true"|"false"))?
 		public Group getGroup_5() { return cGroup_5; }
@@ -1877,7 +1877,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//FormElement:
-	//  description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+	//  description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
 	//  "readonly" (readonly?="true"|"false"))? ";"; 
 	//	
 	//  

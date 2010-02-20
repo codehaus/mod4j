@@ -196,7 +196,7 @@ public class «this.name»EditPanel extends Panel {
     // «varName»
     «IF this.dataProperty.dataType.equalsIgnoreCase("string")»
         TextField<String> «varName» = new TextField<String>("«this.dataProperty.name»");
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.label»", «this.form.name»EditPanel.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
@@ -206,7 +206,7 @@ public class «this.name»EditPanel extends Panel {
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("decimal")»
         TextField<Float> «varName» = new TextField<Float>("«this.dataProperty.name»", Float.class);
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.label»", «this.form.name»EditPanel.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
@@ -216,7 +216,7 @@ public class «this.name»EditPanel extends Panel {
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("boolean")»
         CheckBox «varName» = new CheckBox("«this.dataProperty.name»");
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.label»", «this.form.name»EditPanel.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 //        «varName».setRequired(true);
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
@@ -236,7 +236,7 @@ public class «this.name»EditPanel extends Panel {
         form.add(«varName»Msgs);
     «ELSEIF this.dataProperty.dataType.equalsIgnoreCase("datetime")»
         DateTimeField «varName» = new DateTimeField("«this.dataProperty.name»", new JodaModel(new PropertyModel<DateTime>(localModel, "«this.dataProperty.name»")));
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.label»", «this.form.name»EditPanel.this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", «this.form.name»EditPanel.this)));
 
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
         «varName»Msgs.setOutputMarkupId(true);
@@ -256,7 +256,7 @@ public class «this.name»EditPanel extends Panel {
 		        });
         «varName».setNullValid(true);
 //        «varName».setRequired(true);
-        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.label»", this)));
+        «varName».setLabel(new Model<String>(getLocalizer().getString("lbl.«this.dataProperty.name»", this)));
         FieldFeedbackPanel «varName»Msgs = new FieldFeedbackPanel("«varName»Msgs", new ComponentFeedbackMessageFilter(«varName»));
         «varName»Msgs.setOutputMarkupId(true);
         «varName».add(new AjaxUpdatingBehaviour(«varName»Msgs));

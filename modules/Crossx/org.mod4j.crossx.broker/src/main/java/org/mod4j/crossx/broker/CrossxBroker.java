@@ -13,6 +13,7 @@ package org.mod4j.crossx.broker;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.mod4j.crossx.mm.crossx.LiteralSymbolProperty;
 import org.mod4j.crossx.mm.crossx.ModelInfo;
 import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
@@ -28,6 +29,8 @@ import org.mod4j.crossx.mm.crossx.SymbolProperty;
  */
 public class CrossxBroker {
 
+    private static final Logger logger = Logger.getLogger(CrossxBroker.class.getName());
+    
     /**
      * Private constructor, this class contains static members only.
      */
@@ -292,10 +295,10 @@ public class CrossxBroker {
         List<Symbol> result = new ArrayList<Symbol>(); 
         List<Symbol> tmp = CrossxEnvironment.findAllSymbols(project, symboltype);
         if (tmp != null) {
-//            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " [" + tmp.toString() + "]");
+            logger.info("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " [" + tmp.toString() + "]");
             result.addAll(tmp);
         } else {
-//            System.err.println("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " returns null");
+            logger.info("CrossxCheck ["+ project + "] findAllSymbols " + symboltype + " returns null");
         }
         return result;
     }

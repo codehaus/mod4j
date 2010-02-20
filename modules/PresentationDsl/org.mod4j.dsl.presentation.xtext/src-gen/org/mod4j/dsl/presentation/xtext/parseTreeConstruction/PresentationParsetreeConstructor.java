@@ -4327,7 +4327,7 @@ protected class Process_RightSquareBracketKeyword_8_1_3 extends KeywordToken  {
 /************ begin Rule FormElement ****************
  *
  * FormElement:
- *   description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+ *   description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
  *   "readonly" (readonly?="true"|"false"))? ";"; 
  * 	
  *   
@@ -4337,7 +4337,7 @@ protected class Process_RightSquareBracketKeyword_8_1_3 extends KeywordToken  {
  *
  **/
 
-// description=STRING? "element" references=DtoPropertyReference "label" label=ID (
+// description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
 // "readonly" (readonly?="true"|"false"))? ";" 
 // 	  
 // 	 
@@ -4480,7 +4480,7 @@ protected class FormElement_LabelKeyword_3 extends KeywordToken  {
 		
 }
 
-// label=ID
+// label=STRING
 protected class FormElement_LabelAssignment_4 extends AssignmentToken  {
 	
 	public FormElement_LabelAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4503,7 +4503,7 @@ protected class FormElement_LabelAssignment_4 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("label");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getFormElementAccess().getLabelIDTerminalRuleCall_4_0();
+			element = grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0();
 			return obj;
 		}
 		return null;

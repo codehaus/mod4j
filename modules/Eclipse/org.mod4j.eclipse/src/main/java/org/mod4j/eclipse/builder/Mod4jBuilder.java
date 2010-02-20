@@ -622,7 +622,7 @@ public class Mod4jBuilder extends IncrementalProjectBuilder {
 
             String modelfile = EclipseUtil.resource2UriString(resource);
             String tmp = EclipseUtil.resource2FullPathnameString(file);
-            String crossxfile = tmp.substring(0, tmp.lastIndexOf(dsl.getDslFileExtension())) + CROSSX_EXTENSION;
+            String crossxfile = tmp + CROSSX_EXTENSION;
 
             IPath wfPath = getWorkflowPath(dsl);
             String wfName = wfPath.toString();

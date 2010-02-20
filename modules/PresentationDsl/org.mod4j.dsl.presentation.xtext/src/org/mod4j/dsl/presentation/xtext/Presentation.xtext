@@ -100,7 +100,7 @@ FormElement :
 	"element" 
 //	("navigate" LinkRef "to")? 
 	references = DtoPropertyReference 
-	"label" label = ID 
+	"label" label = STRING 
 	("readonly" ((readonly?="true") | "false") )?
 	";"
 	;

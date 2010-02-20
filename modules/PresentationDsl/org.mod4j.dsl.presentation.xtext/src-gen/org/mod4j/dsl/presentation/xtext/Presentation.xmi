@@ -422,7 +422,7 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="label"/>
         <tokens xsi:type="xtext:Assignment" feature="label" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="readonly"/>
