@@ -277,8 +277,12 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 «ENDDEFINE»
 
 «DEFINE GenerateHomePageHtml FOR PresentationModel -»
-    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
 <body>
 <wicket:extend>
 	<wicket:message key="home.msg"/>
@@ -290,8 +294,12 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 «ENDDEFINE»
 
 «DEFINE GenerateDummyPageHtml FOR PresentationModel -»
-    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateDummyPageHtml in Presentation.xpt") FOR this»
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+«EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateDummyPageHtml in Presentation.xpt") FOR this-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
 <body>
 <wicket:extend>
     Dummy Page
@@ -304,7 +312,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
 
 «DEFINE GenerateMasterPage FOR PresentationModel -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
 «LET this.elements.typeSelect(Process).select(ip|ip.isInteractive() && ip.root) AS processes»
 package «getPresentationRootPackage()».pages;
 
@@ -495,7 +503,11 @@ public class «getWicketHtmlPanelClass()» extends Panel {
 
 «DEFINE GenerateHtmlPanelHtml FOR PresentationModel -»
 «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateHtmlPanelHtml in Presentation.xpt") FOR this-»
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/" xml:lang="nl" lang="nl">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
 <wicket:head>
 	<title><wicket:message key="app.title"/></title>
 	<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />

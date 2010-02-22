@@ -49,7 +49,6 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCompoundDialogueAccess().getAlternatives_0_5_1(), "rule__CompoundDialogue__Alternatives_0_5_1");
 					put(grammarAccess.getCollectionDialogueAccess().getAlternatives_6_1(), "rule__CollectionDialogue__Alternatives_6_1");
 					put(grammarAccess.getMasterDetailAccess().getAlternatives_5_1(), "rule__MasterDetail__Alternatives_5_1");
-					put(grammarAccess.getProcessAccess().getAlternatives_8(), "rule__Process__Alternatives_8");
 					put(grammarAccess.getFormElementAccess().getAlternatives_4_1(), "rule__FormElement__Alternatives_4_1");
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getUIModelElementCallAccess().getAlternatives(), "rule__UIModelElementCall__Alternatives");
@@ -81,10 +80,7 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMasterDetailAccess().getGroup_12(), "rule__MasterDetail__Group_12__0");
 					put(grammarAccess.getMasterDetailAccess().getGroup_12_2(), "rule__MasterDetail__Group_12_2__0");
 					put(grammarAccess.getProcessAccess().getGroup(), "rule__Process__Group__0");
-					put(grammarAccess.getProcessAccess().getGroup_8_0(), "rule__Process__Group_8_0__0");
-					put(grammarAccess.getProcessAccess().getGroup_8_0_2(), "rule__Process__Group_8_0_2__0");
-					put(grammarAccess.getProcessAccess().getGroup_8_1(), "rule__Process__Group_8_1__0");
-					put(grammarAccess.getProcessAccess().getGroup_8_1_2(), "rule__Process__Group_8_1_2__0");
+					put(grammarAccess.getProcessAccess().getGroup_9(), "rule__Process__Group_9__0");
 					put(grammarAccess.getFormElementAccess().getGroup(), "rule__FormElement__Group__0");
 					put(grammarAccess.getFormElementAccess().getGroup_3(), "rule__FormElement__Group_3__0");
 					put(grammarAccess.getFormElementAccess().getGroup_4(), "rule__FormElement__Group_4__0");
@@ -142,10 +138,9 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProcessAccess().getNameAssignment_2(), "rule__Process__NameAssignment_2");
 					put(grammarAccess.getProcessAccess().getCollectionContextAssignment_4(), "rule__Process__CollectionContextAssignment_4");
 					put(grammarAccess.getProcessAccess().getContextRefAssignment_5(), "rule__Process__ContextRefAssignment_5");
-					put(grammarAccess.getProcessAccess().getRootAssignment_6(), "rule__Process__RootAssignment_6");
-					put(grammarAccess.getProcessAccess().getTypeAssignment_7(), "rule__Process__TypeAssignment_7");
-					put(grammarAccess.getProcessAccess().getProcessElementsAssignment_8_0_2_0(), "rule__Process__ProcessElementsAssignment_8_0_2_0");
-					put(grammarAccess.getProcessAccess().getProcessElementsAssignment_8_1_2_0(), "rule__Process__ProcessElementsAssignment_8_1_2_0");
+					put(grammarAccess.getProcessAccess().getRootAssignment_7(), "rule__Process__RootAssignment_7");
+					put(grammarAccess.getProcessAccess().getTypeAssignment_8(), "rule__Process__TypeAssignment_8");
+					put(grammarAccess.getProcessAccess().getProcessElementsAssignment_9_0(), "rule__Process__ProcessElementsAssignment_9_0");
 					put(grammarAccess.getFormElementAccess().getDescriptionAssignment_0(), "rule__FormElement__DescriptionAssignment_0");
 					put(grammarAccess.getFormElementAccess().getReferencesAssignment_2(), "rule__FormElement__ReferencesAssignment_2");
 					put(grammarAccess.getFormElementAccess().getLabelAssignment_3_1(), "rule__FormElement__LabelAssignment_3_1");

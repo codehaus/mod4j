@@ -17,9 +17,13 @@
 «EXTENSION org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 
 «DEFINE GenerateObjectPanelHtml FOR ContentForm -»
-    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectPanelHtml.xpt") FOR this»
-«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/">
+    «EXPAND XmlComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectPanelHtml.xpt") FOR this-»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses-»
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
 <wicket:panel>
 «this.contextRef.name»PanelWithLitener
 	<div class="tableWrapper vertical">

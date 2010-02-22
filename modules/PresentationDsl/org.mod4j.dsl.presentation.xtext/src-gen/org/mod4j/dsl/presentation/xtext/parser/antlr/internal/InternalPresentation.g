@@ -398,9 +398,9 @@ ruleContentForm returns [EObject current=null]
 	        }
 	    }
 	
-)?'ContentForm' 
+)?'form' 
     {
-        createLeafNode(grammarAccess.getContentFormAccess().getContentFormKeyword_1(), null); 
+        createLeafNode(grammarAccess.getContentFormAccess().getFormKeyword_1(), null); 
     }
 (	
 	
@@ -1372,7 +1372,7 @@ ruleProcess returns [EObject current=null]
 	        }
 	    }
 	
-)?'Process' 
+)?'process' 
     {
         createLeafNode(grammarAccess.getProcessAccess().getProcessKeyword_1(), null); 
     }
@@ -1437,11 +1437,15 @@ ruleProcess returns [EObject current=null]
 
 		// TODO assign feature to currentNode
 	
-)(	
-	
-	    lv_root_6='start' 
+)'[' 
     {
-        createLeafNode(grammarAccess.getProcessAccess().getRootStartKeyword_6_0(), "root"); 
+        createLeafNode(grammarAccess.getProcessAccess().getLeftSquareBracketKeyword_6(), null); 
+    }
+(	
+	
+	    lv_root_7='start' 
+    {
+        createLeafNode(grammarAccess.getProcessAccess().getRootStartKeyword_7_0(), "root"); 
     }
 
  
@@ -1462,9 +1466,9 @@ ruleProcess returns [EObject current=null]
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getTypeProcessTypeEnumRuleCall_7_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getTypeProcessTypeEnumRuleCall_8_0(), currentNode); 
 	    }
-	    lv_type_7=ruleProcessType 
+	    lv_type_8=ruleProcessType 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getProcessRule().getType().getClassifier());
@@ -1472,28 +1476,20 @@ ruleProcess returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "type", lv_type_7, "ProcessType", lastConsumedNode);
+	       		set($current, "type", lv_type_8, "ProcessType", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	        currentNode = currentNode.getParent();
 	    }
 	
-)?(('step' 
-    {
-        createLeafNode(grammarAccess.getProcessAccess().getStepKeyword_8_0_0(), null); 
-    }
-'[' 
-    {
-        createLeafNode(grammarAccess.getProcessAccess().getLeftSquareBracketKeyword_8_0_1(), null); 
-    }
-((	
+)?((	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getProcessElementsDialogueCallParserRuleCall_8_0_2_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getProcessElementsUICallParserRuleCall_9_0_0(), currentNode); 
 	    }
-	    lv_processElements_10=ruleDialogueCall 
+	    lv_processElements_9=ruleUICall 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getProcessRule().getType().getClassifier());
@@ -1501,7 +1497,7 @@ ruleProcess returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "processElements", lv_processElements_10, "DialogueCall", currentNode);
+	       		add($current, "processElements", lv_processElements_9, "UICall", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -1510,51 +1506,13 @@ ruleProcess returns [EObject current=null]
 	
 )';' 
     {
-        createLeafNode(grammarAccess.getProcessAccess().getSemicolonKeyword_8_0_2_1(), null); 
-    }
-)']' 
-    {
-        createLeafNode(grammarAccess.getProcessAccess().getRightSquareBracketKeyword_8_0_3(), null); 
-    }
-)
-    |('steps' 
-    {
-        createLeafNode(grammarAccess.getProcessAccess().getStepsKeyword_8_1_0(), null); 
-    }
-'[' 
-    {
-        createLeafNode(grammarAccess.getProcessAccess().getLeftSquareBracketKeyword_8_1_1(), null); 
-    }
-((	
-	
-	    
-	    { 
-	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getProcessElementsUICallParserRuleCall_8_1_2_0_0(), currentNode); 
-	    }
-	    lv_processElements_15=ruleUICall 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getProcessRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        
-	        try {
-	       		add($current, "processElements", lv_processElements_15, "UICall", currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-	
-)';' 
-    {
-        createLeafNode(grammarAccess.getProcessAccess().getSemicolonKeyword_8_1_2_1(), null); 
+        createLeafNode(grammarAccess.getProcessAccess().getSemicolonKeyword_9_1(), null); 
     }
 )*']' 
     {
-        createLeafNode(grammarAccess.getProcessAccess().getRightSquareBracketKeyword_8_1_3(), null); 
+        createLeafNode(grammarAccess.getProcessAccess().getRightSquareBracketKeyword_10(), null); 
     }
-))?);
+);
 
 
 

@@ -29,7 +29,7 @@ Dialogue :
 	
 ContentForm :
 	(description=STRING )?
-    "ContentForm"
+    "form"
 	
 	 name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
 	"["
@@ -85,14 +85,11 @@ MasterDetail :
 
 Process :
 	(description=STRING )?
-	"Process" name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
+	"process" name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference] "["
 	(root ?= "start")?
 	(type=ProcessType)?
-	( 
-		(  ("step"  "[" (processElements += DialogueCall ";")  "]") )
-		   |
-		(  ("steps" "[" (processElements += UICall       ";")* "]")  )
-	)?
+    ( processElements += UICall ";")* 
+	"]"
 	;
 	
 FormElement :

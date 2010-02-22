@@ -72,8 +72,8 @@
         «ENDFILE»
 		«LET process.processElements.typeSelect(DialogueCall).first() AS dialogueCall»
 		«LET dialogueCall.referredContentForm() AS form »
-		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + "Page.html")»
-    	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + process.name + "Page.html")-»
+    	    «EXPAND ProcessPageHtml::GenerateProcessPageHtml(form) FOR process-»
 		«ENDFILE»
 		«ENDLET»
 		«ENDLET»
