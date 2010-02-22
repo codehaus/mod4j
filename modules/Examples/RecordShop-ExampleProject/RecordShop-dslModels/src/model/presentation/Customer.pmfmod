@@ -8,7 +8,7 @@ from CustomerServiceModel import CustomerServiceModel;
          
 // TODO: from RecordShopOrderingPresentation import OrderAndDateCollection ;
 // TODO: from RecordShopOrderingPresentation import OrderAndDateForm;
-ContentForm CustomerList context list SimpleCustomerDto [
+form CustomerList context list SimpleCustomerDto [
 	element lastName label "Name";
 	element birthDate label "Date of birth";
 	element customerNr label "Number";  
@@ -18,7 +18,7 @@ ContentForm CustomerList context list SimpleCustomerDto [
 	]
 ]
  
-ContentForm CustomerDetails context SimpleCustomerDto [
+form CustomerDetails context SimpleCustomerDto [
 	element lastName label "Last name"; 
 	element birthDate label "Date of birth";
 	element customerNr label "Number";
@@ -30,32 +30,31 @@ ContentForm CustomerDetails context SimpleCustomerDto [
 	]
 ]
 
-Process SaveCustomer context SimpleCustomerDto 
-save
+process SaveCustomer context SimpleCustomerDto 
+[save]
 
-Process AddIdol context list ArtistDto
-addto step [
-    dialogue ArtistList;
-]
+process AddIdol context list ArtistDto
+[ addto  dialogue ArtistList; ]
     
-Process NewCustomer context SimpleCustomerDto 
-new step [ dialogue CustomerDetails ; ]
+process NewCustomer context SimpleCustomerDto [
+    new
+    dialogue CustomerDetails ; 
+]
      
-Process DeleteCustomer context SimpleCustomerDto 
-delete     
+process DeleteCustomer context SimpleCustomerDto 
+[ delete ]     
 
-Process EditCustomer context SimpleCustomerDto 
-edit   
+process EditCustomer context SimpleCustomerDto 
+[ edit   ]
    
-Process HandleCustomer context SimpleCustomerDto
+process HandleCustomer context SimpleCustomerDto []
   
-Process HandleIdols context SimpleCustomerDto
-    steps [ 
+process HandleIdols context SimpleCustomerDto [
 //        dialogue navigate idols to ArtistList; 
         dialogue CustomerDetails;
-    ] 
+] 
 
-ContentForm ArtistList context list ArtistDto [
+form ArtistList context list ArtistDto [
     element name label "Name";
     processes [
     	addArtists;  
@@ -63,13 +62,15 @@ ContentForm ArtistList context list ArtistDto [
     ]
 ]    
 
-Process addArtists context list ArtistDto
-addto step [ dialogue ArtistList; ]
-Process removeArtists context list ArtistDto
-removefrom
+process addArtists context list ArtistDto [
+    addto dialogue ArtistList;
+]
 
-Process allCustomers context SimpleCustomerDto
-start step [ all dialogue CustomerList; ] 
+process removeArtists context list ArtistDto [ removefrom ]
+
+process allCustomers context SimpleCustomerDto [
+    start all dialogue CustomerList; 
+] 
   
-Process allArtists context ArtistDto
-start step [ all dialogue ArtistList; ] 
+process allArtists context ArtistDto
+[ start all dialogue ArtistList; ] 
