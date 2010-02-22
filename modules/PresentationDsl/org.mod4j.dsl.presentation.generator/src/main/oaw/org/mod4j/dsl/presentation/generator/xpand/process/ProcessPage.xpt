@@ -22,11 +22,11 @@ import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 
 «FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::ALL )) AS e»
-import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(e.referredDialogue().contextRef.name)» ;
+import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
 «ENDFOREACH»
 
 «FOREACH this.processElements.select(e|e.getServiceExpression() != null ) AS e»
-import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProviderClass(e.referredDialogue().contextRef.name)» ;
+import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
 «ENDFOREACH»
 
 «FOREACH this.processElements AS uiCall»
@@ -81,10 +81,10 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
         errorMessages.setOutputMarkupId(true);
         add(errorMessages);
 
-        IModel panelModel = null ;
+//        IModel panelModel = null ;
         «FOREACH this.processElements AS uiCall»
             «IF uiCall.referredDialogue() != null»
-                «EXPAND createPanel(this, uiCall) FOR uiCall.referredDialogue()»
+                «EXPAND createPanel FOR uiCall»
             «ENDIF»
         «ENDFOREACH»     
         add(panels.get(currentPanel));
@@ -147,42 +147,38 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
 «ENDDEFINE» 
 
 
-«DEFINE createPanel(Process process, UICall call) FOR Dialogue»
-«REM»Abstract super method, should never be called«ENDREM»
-ERROR
-«ENDDEFINE»
-
 «REM»
     Generate the creation of the panel ConmtentForm
 «ENDREM»
-«DEFINE createPanel(Process process, UICall call) FOR ContentForm»
-    «EXPAND createModel(process, call) FOR this»
-    «IF this.collectionContext»
-        «call.referredDialogue().name.toFirstLower()»Panel = new «this.name»CollectionDataViewPanel("panel", panelModel, maxItemsPerPage, this);
+«DEFINE createPanel FOR UICall»
+    IModel «this.name»Model = null;
+    «EXPAND Process::createModel FOR this»
+    «IF this.referredDialogue().collectionContext»
+        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name»CollectionDataViewPanel("panel", «this.name»Model, maxItemsPerPage, this);
     «ELSE»
-        «call.referredDialogue().name.toFirstLower()»Panel = new «this.name»SwapEditPanel("panel", panelModel);
+        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name»SwapEditPanel("panel", «this.name»Model);
     «ENDIF»
-    «call.referredDialogue().name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
-    panels.add(«call.referredDialogue().name.toFirstLower()»Panel );
+    «this.referredDialogue().name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
+    panels.add(«this.referredDialogue().name.toFirstLower()»Panel );
 «ENDDEFINE»
 
 «REM»
     Create the model that is needed for the referred panel, based on the context expression
 «ENDREM»
-«DEFINE createModel(Process process, UICall call) FOR ContentForm»
-    «IF call.getNavigationExpression() != null»
-        panelModel = new PropertyModel(model, "«call.getNavigationExpression().references.get(0).name»");
-    «ELSEIF call.getStandardExpression() != null»
-        «IF call.getStandardExpression().type == ExpressionType::ALL»
-            «LET getWicketListAllDataProviderClass(this.contextRef.name) AS providerType»
+«DEFINE createModel2 FOR UICall»
+    «IF this.getNavigationExpression() != null»
+        panelModel = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
+    «ELSEIF this.getStandardExpression() != null»
+        «IF this.getStandardExpression().type == ExpressionType::ALL»
+            «LET getWicketListAllDataProviderClass(this.referredDialogue().contextRef.name) AS providerType»
 	        «providerType» provider = new «providerType»();
 	        panelModel = new Model(provider);
 	        «ENDLET»
-        «ELSEIF call.getStandardExpression().type == ExpressionType::FIND»
+        «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
             // TODO add Find providder IModel
         «ENDIF»
-    «ELSEIF call.getServiceExpression() != null»
-        «getWicketServiceDataProviderClass(this.contextRef.name)» p = new «getWicketServiceDataProviderClass(this.contextRef.name)»(context.getObject());
+    «ELSEIF this.getServiceExpression() != null»
+        «getWicketServiceDataProviderClass(this.referredDialogue().contextRef.name)» p = new «getWicketServiceDataProviderClass(this.referredDialogue().contextRef.name)»(context.getObject());
         panelModel = new Model(p);
         // TODO add Service providder IModel
     «ELSE»    

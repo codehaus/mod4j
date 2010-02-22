@@ -79,4 +79,20 @@ public interface UICall extends ModelElement {
      */
     void setCondition(Expression value);
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model
+     * @generated
+     */
+    ProcessCall asProcessCall();
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model
+     * @generated
+     */
+    DialogueCall asDialogueCall();
+
 } // UICall

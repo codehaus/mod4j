@@ -995,20 +995,21 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cElementKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cReferencesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cReferencesDtoPropertyReferenceParserRuleCall_2_0 = (RuleCall)cReferencesAssignment_2.eContents().get(0);
-		private final Keyword cLabelKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cLabelAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLabelSTRINGTerminalRuleCall_4_0 = (RuleCall)cLabelAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cReadonlyKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
-		private final Assignment cReadonlyAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
-		private final Keyword cReadonlyTrueKeyword_5_1_0_0 = (Keyword)cReadonlyAssignment_5_1_0.eContents().get(0);
-		private final Keyword cFalseKeyword_5_1_1 = (Keyword)cAlternatives_5_1.eContents().get(1);
-		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLabelKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cLabelAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cLabelSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cLabelAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cReadonlyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Alternatives cAlternatives_4_1 = (Alternatives)cGroup_4.eContents().get(1);
+		private final Assignment cReadonlyAssignment_4_1_0 = (Assignment)cAlternatives_4_1.eContents().get(0);
+		private final Keyword cReadonlyTrueKeyword_4_1_0_0 = (Keyword)cReadonlyAssignment_4_1_0.eContents().get(0);
+		private final Keyword cFalseKeyword_4_1_1 = (Keyword)cAlternatives_4_1.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//FormElement:
-		//  description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
-		//  "readonly" (readonly?="true"|"false"))? ";"; 
+		//  description=STRING? "element" references=DtoPropertyReference ("label" label=STRING)
+		//  ? ("readonly" (readonly?="true"|"false"))? ";"; 
 		//	
 		//  
 		//	  
@@ -1016,8 +1017,8 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		////	("navigate" LinkRef "to")?
 		public ParserRule getRule() { return rule; }
 
-		//description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
-		//"readonly" (readonly?="true"|"false"))? ";" 
+		//description=STRING? "element" references=DtoPropertyReference ("label" label=STRING)
+		//? ("readonly" (readonly?="true"|"false"))? ";" 
 		//	  
 		//	 
 		////	("navigate" LinkRef "to")?
@@ -1041,35 +1042,38 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//DtoPropertyReference
 		public RuleCall getReferencesDtoPropertyReferenceParserRuleCall_2_0() { return cReferencesDtoPropertyReferenceParserRuleCall_2_0; }
 
+		//("label" label=STRING)?
+		public Group getGroup_3() { return cGroup_3; }
+
 		//"label"
-		public Keyword getLabelKeyword_3() { return cLabelKeyword_3; }
+		public Keyword getLabelKeyword_3_0() { return cLabelKeyword_3_0; }
 
 		//label=STRING
-		public Assignment getLabelAssignment_4() { return cLabelAssignment_4; }
+		public Assignment getLabelAssignment_3_1() { return cLabelAssignment_3_1; }
 
 		//STRING
-		public RuleCall getLabelSTRINGTerminalRuleCall_4_0() { return cLabelSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getLabelSTRINGTerminalRuleCall_3_1_0() { return cLabelSTRINGTerminalRuleCall_3_1_0; }
 
 		//("readonly" (readonly?="true"|"false"))?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"readonly"
-		public Keyword getReadonlyKeyword_5_0() { return cReadonlyKeyword_5_0; }
+		public Keyword getReadonlyKeyword_4_0() { return cReadonlyKeyword_4_0; }
 
 		//readonly?="true"|"false"
-		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 
 		//readonly?="true"
-		public Assignment getReadonlyAssignment_5_1_0() { return cReadonlyAssignment_5_1_0; }
+		public Assignment getReadonlyAssignment_4_1_0() { return cReadonlyAssignment_4_1_0; }
 
 		//"true"
-		public Keyword getReadonlyTrueKeyword_5_1_0_0() { return cReadonlyTrueKeyword_5_1_0_0; }
+		public Keyword getReadonlyTrueKeyword_4_1_0_0() { return cReadonlyTrueKeyword_4_1_0_0; }
 
 		//"false"
-		public Keyword getFalseKeyword_5_1_1() { return cFalseKeyword_5_1_1; }
+		public Keyword getFalseKeyword_4_1_1() { return cFalseKeyword_4_1_1; }
 
 		//";"
-		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class ActionDialogueCallElements implements IParserRuleAccess {
@@ -1218,12 +1222,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final RuleCall cServiceExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cNavigationExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cStandardExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cOperationExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Expression:
-		//  ServiceExpression|NavigationExpression|StandardExpression;
+		//  ServiceExpression|NavigationExpression|StandardExpression|OperationExpression;
 		public ParserRule getRule() { return rule; }
 
-		//ServiceExpression|NavigationExpression|StandardExpression
+		//ServiceExpression|NavigationExpression|StandardExpression|OperationExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ServiceExpression
@@ -1234,6 +1239,9 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 		//StandardExpression
 		public RuleCall getStandardExpressionParserRuleCall_2() { return cStandardExpressionParserRuleCall_2; }
+
+		//OperationExpression
+		public RuleCall getOperationExpressionParserRuleCall_3() { return cOperationExpressionParserRuleCall_3; }
 	}
 
 	public class ProcessCallElements implements IParserRuleAccess {
@@ -1324,18 +1332,26 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	public class OperationExpressionElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OperationExpression");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCallKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//OperationExpression:
-		//  name=ID;
+		//  "call" name=ID;
 		public ParserRule getRule() { return rule; }
 
+		//"call" name=ID
+		public Group getGroup() { return cGroup; }
+
+		//"call"
+		public Keyword getCallKeyword_0() { return cCallKeyword_0; }
+
 		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 
 	public class ProcessCallFromFormElements implements IParserRuleAccess {
@@ -1417,111 +1433,77 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	public class ServiceExpressionElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ServiceExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
-		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cServiceKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cServiceNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cServiceNameIDTerminalRuleCall_2_0 = (RuleCall)cServiceNameAssignment_2.eContents().get(0);
-		private final Keyword cFullStopKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cServiceMethodAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cServiceMethodIDTerminalRuleCall_4_0 = (RuleCall)cServiceMethodAssignment_4.eContents().get(0);
+		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cServiceNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cServiceNameIDTerminalRuleCall_1_0 = (RuleCall)cServiceNameAssignment_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cServiceMethodAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cServiceMethodIDTerminalRuleCall_3_0 = (RuleCall)cServiceMethodAssignment_3.eContents().get(0);
 		
 		//ServiceExpression:
-		//  (name=ID ":")? "service" serviceName=ID "." serviceMethod=ID;
+		//  "service" serviceName=ID "." serviceMethod=ID;
 		public ParserRule getRule() { return rule; }
 
-		//(name=ID ":")? "service" serviceName=ID "." serviceMethod=ID
+		//"service" serviceName=ID "." serviceMethod=ID
 		public Group getGroup() { return cGroup; }
 
-		//(name=ID ":")?
-		public Group getGroup_0() { return cGroup_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_0_0() { return cNameAssignment_0_0; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0_0() { return cNameIDTerminalRuleCall_0_0_0; }
-
-		//":"
-		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
-
 		//"service"
-		public Keyword getServiceKeyword_1() { return cServiceKeyword_1; }
+		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
 
 		//serviceName=ID
-		public Assignment getServiceNameAssignment_2() { return cServiceNameAssignment_2; }
+		public Assignment getServiceNameAssignment_1() { return cServiceNameAssignment_1; }
 
 		//ID
-		public RuleCall getServiceNameIDTerminalRuleCall_2_0() { return cServiceNameIDTerminalRuleCall_2_0; }
+		public RuleCall getServiceNameIDTerminalRuleCall_1_0() { return cServiceNameIDTerminalRuleCall_1_0; }
 
 		//"."
-		public Keyword getFullStopKeyword_3() { return cFullStopKeyword_3; }
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 
 		//serviceMethod=ID
-		public Assignment getServiceMethodAssignment_4() { return cServiceMethodAssignment_4; }
+		public Assignment getServiceMethodAssignment_3() { return cServiceMethodAssignment_3; }
 
 		//ID
-		public RuleCall getServiceMethodIDTerminalRuleCall_4_0() { return cServiceMethodIDTerminalRuleCall_4_0; }
+		public RuleCall getServiceMethodIDTerminalRuleCall_3_0() { return cServiceMethodIDTerminalRuleCall_3_0; }
 	}
 
 	public class NavigationExpressionElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NavigationExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
-		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cCompositionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cCompositionCompositeKeyword_1_0 = (Keyword)cCompositionAssignment_1.eContents().get(0);
-		private final Keyword cNavigateKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cReferencesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cReferencesAssociationRoleReferenceParserRuleCall_3_0 = (RuleCall)cReferencesAssignment_3.eContents().get(0);
+		private final Assignment cCompositionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cCompositionCompositeKeyword_0_0 = (Keyword)cCompositionAssignment_0.eContents().get(0);
+		private final Keyword cNavigateKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cReferencesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cReferencesAssociationRoleReferenceParserRuleCall_2_0 = (RuleCall)cReferencesAssignment_2.eContents().get(0);
 		
 		//NavigationExpression:
-		//  (name=ID ":")? composition?="composite"? "navigate" references+=
-		//  AssociationRoleReference; 
+		//  composition?="composite"? "navigate" references+=AssociationRoleReference; 
 		//
 		//  
-		//                          
+		//                  
 		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 		public ParserRule getRule() { return rule; }
 
-		//(name=ID ":")? composition?="composite"? "navigate" references+=
-		//AssociationRoleReference 
-		//                          
+		//composition?="composite"? "navigate" references+=AssociationRoleReference 
+		//                  
 		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 		public Group getGroup() { return cGroup; }
 
-		//(name=ID ":")?
-		public Group getGroup_0() { return cGroup_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_0_0() { return cNameAssignment_0_0; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0_0() { return cNameIDTerminalRuleCall_0_0_0; }
-
-		//":"
-		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
-
 		//composition?="composite"?
-		public Assignment getCompositionAssignment_1() { return cCompositionAssignment_1; }
+		public Assignment getCompositionAssignment_0() { return cCompositionAssignment_0; }
 
 		//"composite"
-		public Keyword getCompositionCompositeKeyword_1_0() { return cCompositionCompositeKeyword_1_0; }
+		public Keyword getCompositionCompositeKeyword_0_0() { return cCompositionCompositeKeyword_0_0; }
 
 		//"navigate"
-		public Keyword getNavigateKeyword_2() { return cNavigateKeyword_2; }
+		public Keyword getNavigateKeyword_1() { return cNavigateKeyword_1; }
 
 		//references+=AssociationRoleReference         
 		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
-		public Assignment getReferencesAssignment_3() { return cReferencesAssignment_3; }
+		public Assignment getReferencesAssignment_2() { return cReferencesAssignment_2; }
 
 		//AssociationRoleReference     
 		//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
-		public RuleCall getReferencesAssociationRoleReferenceParserRuleCall_3_0() { return cReferencesAssociationRoleReferenceParserRuleCall_3_0; }
+		public RuleCall getReferencesAssociationRoleReferenceParserRuleCall_2_0() { return cReferencesAssociationRoleReferenceParserRuleCall_2_0; }
 	}
 
 	public class DtoPropertyReferenceElements implements IParserRuleAccess {
@@ -1877,8 +1859,8 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//FormElement:
-	//  description=STRING? "element" references=DtoPropertyReference "label" label=STRING (
-	//  "readonly" (readonly?="true"|"false"))? ";"; 
+	//  description=STRING? "element" references=DtoPropertyReference ("label" label=STRING)
+	//  ? ("readonly" (readonly?="true"|"false"))? ";"; 
 	//	
 	//  
 	//	  
@@ -1925,7 +1907,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//Expression:
-	//  ServiceExpression|NavigationExpression|StandardExpression;
+	//  ServiceExpression|NavigationExpression|StandardExpression|OperationExpression;
 	public ExpressionElements getExpressionAccess() {
 		return (pExpression != null) ? pExpression : (pExpression = new ExpressionElements());
 	}
@@ -1953,7 +1935,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//OperationExpression:
-	//  name=ID;
+	//  "call" name=ID;
 	public OperationExpressionElements getOperationExpressionAccess() {
 		return (pOperationExpression != null) ? pOperationExpression : (pOperationExpression = new OperationExpressionElements());
 	}
@@ -2012,7 +1994,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//ServiceExpression:
-	//  (name=ID ":")? "service" serviceName=ID "." serviceMethod=ID;
+	//  "service" serviceName=ID "." serviceMethod=ID;
 	public ServiceExpressionElements getServiceExpressionAccess() {
 		return (pServiceExpression != null) ? pServiceExpression : (pServiceExpression = new ServiceExpressionElements());
 	}
@@ -2022,11 +2004,10 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//NavigationExpression:
-	//  (name=ID ":")? composition?="composite"? "navigate" references+=
-	//  AssociationRoleReference; 
+	//  composition?="composite"? "navigate" references+=AssociationRoleReference; 
 	//
 	//  
-	//                          
+	//                  
 	//// TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
 	public NavigationExpressionElements getNavigationExpressionAccess() {
 		return (pNavigationExpression != null) ? pNavigationExpression : (pNavigationExpression = new NavigationExpressionElements());

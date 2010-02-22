@@ -100,7 +100,7 @@ FormElement :
 	"element" 
 //	("navigate" LinkRef "to")? 
 	references = DtoPropertyReference 
-	"label" label = STRING 
+	("label" label = STRING )?
 	("readonly" ((readonly?="true") | "false") )?
 	";"
 	;
@@ -119,7 +119,7 @@ DialogueCall :
     ;
 
 Expression :
-    ServiceExpression | NavigationExpression | StandardExpression
+    ServiceExpression | NavigationExpression | StandardExpression | OperationExpression
     ;
    	
 ProcessCall :
@@ -131,7 +131,7 @@ ProcessCall :
     ;
     
 OperationExpression :
-    name = ID;
+    "call" name = ID;
     
 ProcessCallFromForm returns ProcessCall :
 //    (contextExp = ContextExpression)? 
@@ -153,11 +153,11 @@ enum ExpressionType :
     ALL = "all" | FIND = "find";
 
 ServiceExpression :
-    (name = ID ":")? "service"  serviceName = ID "." serviceMethod = ID
+    "service"  serviceName = ID "." serviceMethod = ID
     ;
 
 NavigationExpression :
-    (name = ID ":")? (composition ?= "composite")? "navigate" references += AssociationRoleReference  
+    (composition ?= "composite")? "navigate" references += AssociationRoleReference  
 // TODO: Only single reference for now, should become multiple    ( "." references += AssociationRoleReference ) *
     ;
 

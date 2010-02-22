@@ -74,6 +74,7 @@ import java.util.Collection;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import «getPresentationCommonPackage()».processes.ProcessType;
@@ -91,6 +92,26 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
 
     public «this.name»ProcessImplBase(IModel context){
         model = context;
+        
+    «IF this.type == ProcessType::NEW»
+        // New process, so create the new object and create the model for it
+        «this.contextRef.name» newDto = new «this.contextRef.name»();
+        Object object = model.getObject();
+        if( object instanceof IDataProvider ){   
+            // new standalone object   
+            model = new Model(newDto);
+        } else if ( object instanceof Collection){
+            // add new object to existing list
+            Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)object;
+            list.add(newDto);
+            ListElementModel<«this.contextRef.name»> pageModel = new ListElementModel<«this.contextRef.name»>("id",null, model);
+            model = pageModel;
+        } else {
+            model = new Model(newDto);
+//            throw new RuntimeException("MOD$J Error: GGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+        }
+    «ENDIF»
+
     }
     
     «EXPAND GetProcessType FOR this»
@@ -104,13 +125,15 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
         «IF uiCall.metaType == DialogueCall -»
             steps.add(page);
         «ELSEIF uiCall.metaType == ProcessCall -»
-            steps.add(new «uiCall.name»Process(null));
+            IModel «uiCall.name»Model;
+            «EXPAND createModel FOR uiCall.asProcessCall()»
+            steps.add(new «uiCall.name»Process(«uiCall.name»Model));
         «ENDIF-»
         «IF uiCall.condition != null-»
             checks.add(new Operation«uiCall.condition.name»() );
         «ELSE-»
             checks.add(AlwaysTrue.getInstance());
-        «ENDIF-»
+        «ENDIF»
     «ENDFOREACH»     
     }
 
@@ -130,7 +153,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
     «ENDIF»
                     page.nextPanel();
                 } else {
-                    nextStep(o);
+                    nextStep(null);
                 }
            } else if( step instanceof PmfProcess) {
     «IF this.collectionContext»
@@ -139,8 +162,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
                 if( operation.check(model.getObject()) ){
     «ENDIF»
                     PmfProcess process = (PmfProcess) step;
-                    process.setModel(model);
-                    process.run(o);
+                    process.run(null);
                 }
                 nextStep(o);
             }
@@ -158,23 +180,10 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
 
     public «getWicketMasterPageClass()» nextPage(«context» element) {
     «IF this.type == ProcessType::NEW»
-        «this.contextRef.name» newDto = new «this.contextRef.name»();
-        Object object = model.getObject();
-        if( object instanceof IDataProvider ){      
-            model = new Model(newDto);
-        } else if ( object instanceof Collection){
-            Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)object;
-            list.add(newDto);
-            ListElementModel<«this.contextRef.name»> pageModel = new ListElementModel<«this.contextRef.name»>("id",null, model);
-            model = pageModel;
-        } else {
-            throw new RuntimeException("MOD$J Error: GGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-        }
         page = new «this.name»Page(this, model);
         page.setProcess(this);
         prepareSteps();
         return page;
-    
     «ELSEIF this.type == ProcessType::SAVE»
         return null;
     «ELSEIF this.type == ProcessType::EDIT»
@@ -536,15 +545,6 @@ abstract public class PmfProcess <T> implements Serializable {
 	public void cancel() {
 	}
 
-    protected MarkupContainer initiator = null;
-
-    public MarkupContainer getInitator() {
-        return initiator;
-    }
-    public void setInitator(MarkupContainer container) {
-        initiator = container;
-    }
-    
     protected «getWicketMasterPageClass()» owningPage = null;
 
     public «getWicketMasterPageClass()» getOwningPage() {
@@ -594,3 +594,25 @@ public ProcessType getProcessType() {
     return ProcessType.«this.type.toString()»;
 }
 «ENDDEFINE»
+
+«DEFINE createModel FOR UICall »
+    «IF this.getNavigationExpression() != null»
+        «this.name»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
+    «ELSEIF this.getStandardExpression() != null»
+        «IF this.getStandardExpression().type == ExpressionType::ALL»
+            «LET getWicketListAllDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
+            «providerType» provider = new «providerType»();
+            «this.name»Model = new Model(provider);
+            «ENDLET»
+        «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
+            // TODO add Find providder IModel
+        «ENDIF»
+    «ELSEIF this.getServiceExpression() != null»
+        «getWicketServiceDataProviderClass(this.referredUIModelElement().contextRef.name)» p = new «getWicketServiceDataProviderClass(this.referredUIModelElement().contextRef.name)»(context.getObject());
+        «this.name»Model = new Model(p);
+        // TODO add Service providder IModel
+    «ELSE»    
+        «this.name»Model = model;
+    «ENDIF»
+«ENDDEFINE»
+

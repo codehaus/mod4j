@@ -16,8 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 
 /**
@@ -146,6 +148,32 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
         }
         else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_CALL__CONDITION, newCondition, newCondition));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public ProcessCall asProcessCall() {
+        if( this instanceof ProcessCall ){
+            return (ProcessCall) this;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public DialogueCall asDialogueCall() {
+        if( this instanceof DialogueCall ){
+            return (DialogueCall) this;
+        } else {
+            return null;
+        }
     }
 
     /**

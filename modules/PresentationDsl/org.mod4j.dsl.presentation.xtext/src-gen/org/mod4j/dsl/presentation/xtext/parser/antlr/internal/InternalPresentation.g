@@ -1620,15 +1620,15 @@ ruleFormElement returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)'label' 
+)('label' 
     {
-        createLeafNode(grammarAccess.getFormElementAccess().getLabelKeyword_3(), null); 
+        createLeafNode(grammarAccess.getFormElementAccess().getLabelKeyword_3_0(), null); 
     }
 (	
 	
 	    lv_label_4=	RULE_STRING
 	{
-		createLeafNode(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_4_0(), "label"); 
+		createLeafNode(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_3_1_0(), "label"); 
 	}
  
 	    {
@@ -1644,15 +1644,15 @@ ruleFormElement returns [EObject current=null]
 	        }
 	    }
 	
-)('readonly' 
+))?('readonly' 
     {
-        createLeafNode(grammarAccess.getFormElementAccess().getReadonlyKeyword_5_0(), null); 
+        createLeafNode(grammarAccess.getFormElementAccess().getReadonlyKeyword_4_0(), null); 
     }
 ((	
 	
 	    lv_readonly_6='true' 
     {
-        createLeafNode(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_5_1_0_0(), "readonly"); 
+        createLeafNode(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_4_1_0_0(), "readonly"); 
     }
 
  
@@ -1672,11 +1672,11 @@ ruleFormElement returns [EObject current=null]
 )
     |'false' 
     {
-        createLeafNode(grammarAccess.getFormElementAccess().getFalseKeyword_5_1_1(), null); 
+        createLeafNode(grammarAccess.getFormElementAccess().getFalseKeyword_4_1_1(), null); 
     }
 ))?';' 
     {
-        createLeafNode(grammarAccess.getFormElementAccess().getSemicolonKeyword_6(), null); 
+        createLeafNode(grammarAccess.getFormElementAccess().getSemicolonKeyword_5(), null); 
     }
 );
 
@@ -1941,6 +1941,16 @@ ruleExpression returns [EObject current=null]
         $current = $this_StandardExpression_2.current; 
         currentNode = currentNode.getParent();
     }
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getOperationExpressionParserRuleCall_3(), currentNode); 
+    }
+    this_OperationExpression_3=ruleOperationExpression
+    { 
+        $current = $this_OperationExpression_3.current; 
+        currentNode = currentNode.getParent();
+    }
 );
 
 
@@ -2085,11 +2095,15 @@ ruleOperationExpression returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
+('call' 
+    {
+        createLeafNode(grammarAccess.getOperationExpressionAccess().getCallKeyword_0(), null); 
+    }
 (	
 	
-	    lv_name_0=	RULE_ID
+	    lv_name_1=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getOperationExpressionAccess().getNameIDTerminalRuleCall_0(), "name"); 
+		createLeafNode(grammarAccess.getOperationExpressionAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
 	}
  
 	    {
@@ -2099,13 +2113,13 @@ ruleOperationExpression returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "name", lv_name_0, "ID", lastConsumedNode);
+	       		set($current, "name", lv_name_1, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	    }
 	
-);
+));
 
 
 
@@ -2233,39 +2247,15 @@ ruleServiceExpression returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(((	
-	
-	    lv_name_0=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getServiceExpressionAccess().getNameIDTerminalRuleCall_0_0_0(), "name"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getServiceExpressionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "name", lv_name_0, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)':' 
+('service' 
     {
-        createLeafNode(grammarAccess.getServiceExpressionAccess().getColonKeyword_0_1(), null); 
-    }
-)?'service' 
-    {
-        createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceKeyword_1(), null); 
+        createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceKeyword_0(), null); 
     }
 (	
 	
-	    lv_serviceName_3=	RULE_ID
+	    lv_serviceName_1=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_2_0(), "serviceName"); 
+		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_1_0(), "serviceName"); 
 	}
  
 	    {
@@ -2275,7 +2265,7 @@ ruleServiceExpression returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "serviceName", lv_serviceName_3, "ID", lastConsumedNode);
+	       		set($current, "serviceName", lv_serviceName_1, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -2283,13 +2273,13 @@ ruleServiceExpression returns [EObject current=null]
 	
 )'.' 
     {
-        createLeafNode(grammarAccess.getServiceExpressionAccess().getFullStopKeyword_3(), null); 
+        createLeafNode(grammarAccess.getServiceExpressionAccess().getFullStopKeyword_2(), null); 
     }
 (	
 	
-	    lv_serviceMethod_5=	RULE_ID
+	    lv_serviceMethod_3=	RULE_ID
 	{
-		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_4_0(), "serviceMethod"); 
+		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_3_0(), "serviceMethod"); 
 	}
  
 	    {
@@ -2299,7 +2289,7 @@ ruleServiceExpression returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "serviceMethod", lv_serviceMethod_5, "ID", lastConsumedNode);
+	       		set($current, "serviceMethod", lv_serviceMethod_3, "ID", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -2326,35 +2316,11 @@ ruleNavigationExpression returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(((	
+((	
 	
-	    lv_name_0=	RULE_ID
-	{
-		createLeafNode(grammarAccess.getNavigationExpressionAccess().getNameIDTerminalRuleCall_0_0_0(), "name"); 
-	}
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getNavigationExpressionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "name", lv_name_0, "ID", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)':' 
+	    lv_composition_0='composite' 
     {
-        createLeafNode(grammarAccess.getNavigationExpressionAccess().getColonKeyword_0_1(), null); 
-    }
-)?(	
-	
-	    lv_composition_2='composite' 
-    {
-        createLeafNode(grammarAccess.getNavigationExpressionAccess().getCompositionCompositeKeyword_1_0(), "composition"); 
+        createLeafNode(grammarAccess.getNavigationExpressionAccess().getCompositionCompositeKeyword_0_0(), "composition"); 
     }
 
  
@@ -2373,15 +2339,15 @@ ruleNavigationExpression returns [EObject current=null]
 	
 )?'navigate' 
     {
-        createLeafNode(grammarAccess.getNavigationExpressionAccess().getNavigateKeyword_2(), null); 
+        createLeafNode(grammarAccess.getNavigationExpressionAccess().getNavigateKeyword_1(), null); 
     }
 (	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_2_0(), currentNode); 
 	    }
-	    lv_references_4=ruleAssociationRoleReference 
+	    lv_references_2=ruleAssociationRoleReference 
 	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getNavigationExpressionRule().getType().getClassifier());
@@ -2389,7 +2355,7 @@ ruleNavigationExpression returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "references", lv_references_4, "AssociationRoleReference", currentNode);
+	       		add($current, "references", lv_references_2, "AssociationRoleReference", currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

@@ -78,7 +78,7 @@ public class FormElementImpl extends ModelElementImpl implements FormElement {
      * @generated
      * @ordered
      */
-    protected static final String LABEL_EDEFAULT = null;
+    protected static final String LABEL_EDEFAULT = "";
 
     /**
      * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.

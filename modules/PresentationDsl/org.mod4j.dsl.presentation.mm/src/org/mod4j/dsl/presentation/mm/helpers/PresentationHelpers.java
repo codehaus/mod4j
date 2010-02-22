@@ -147,6 +147,21 @@ public class PresentationHelpers {
         return null;
     }
 
+    static public UIModelElement referredUIModelElement(UICall call) {
+        PresentationModel model = findModel(call);
+
+        EList<ModelElementWithContext> elements = model.getElements();
+        for (ModelElementWithContext element : elements) {
+            if( element instanceof UIModelElement) {
+                UIModelElement result = (UIModelElement)element;
+                if( result.getName().equals(call.getName())){
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+
     static public ContentForm referredContentForm(UICall call) {
         PresentationModel model = findModel(call);
 

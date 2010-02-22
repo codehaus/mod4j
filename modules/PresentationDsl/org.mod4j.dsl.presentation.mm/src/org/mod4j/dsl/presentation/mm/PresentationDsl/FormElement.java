@@ -111,6 +111,7 @@ public interface FormElement extends ModelElement {
 
     /**
      * Returns the value of the '<em><b>Label</b></em>' attribute.
+     * The default value is <code>""</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Label</em>' attribute isn't clear,
@@ -120,7 +121,7 @@ public interface FormElement extends ModelElement {
      * @return the value of the '<em>Label</em>' attribute.
      * @see #setLabel(String)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getFormElement_Label()
-     * @model
+     * @model default=""
      * @generated
      */
     String getLabel();
