@@ -11,7 +11,7 @@ from CustomerServiceModel import CustomerServiceModel;
 ContentForm CustomerDetail context  FullCustomerDto [
 	element lastName label "name";  
 	element emailAddress label "email";
-	element age	label "age";
+	element age	;
 ]
 
 "Customer ContentReadonlyForm" 
