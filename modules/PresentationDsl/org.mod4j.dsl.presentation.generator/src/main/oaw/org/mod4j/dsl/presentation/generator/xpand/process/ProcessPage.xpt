@@ -16,10 +16,10 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 
-«DEFINE GeneratePage FOR Process»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
-«LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess»
-«LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess»
+«DEFINE GeneratePage FOR Process-»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ProcessPage.xpt") FOR this-»
+«LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::EDIT) AS editProcess-»
+«LET this.processElements.referredContentForm().first().getProcessOfType(ProcessType::NEW) AS newProcess-»
 package «getPresentationRootPackage()».pages;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -41,9 +41,9 @@ import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProv
 «FOREACH this.processElements AS uiCall»
     «IF uiCall.referredDialogue() != null»
         «IF uiCall.referredDialogue().collectionContext»
-            import «getPresentationRootPackage()».panels.«uiCall.name»CollectionDataViewPanel;
+            import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»CollectionDataViewPanel;
         «ELSE »
-            import «getPresentationRootPackage()».panels.«uiCall.name»SwapEditPanel;
+            import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»SwapEditPanel;
         «ENDIF»
     «ENDIF»
 «ENDFOREACH»
@@ -64,7 +64,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.mod4j.common.wicket.ext.components.ComponentsFeedbackMessageFilter;
 
-public class «this.name»Page extends «getWicketMasterPageClass()»<«this.contextRef.name»> 
+public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass()»<«this.contextRef.name»> 
 {
     private Integer maxItemsPerPage = 5;
 
@@ -78,7 +78,7 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
     protected List<Panel> panels = new ArrayList<Panel>();
     protected int currentPanel = 0;
 
-    public «this.name»Page (final PmfProcess owner, IModel<«this.contextRef.name»> context)
+    public «this.name.toFirstUpper()»Page (final PmfProcess owner, IModel<«this.contextRef.name»> context)
     {
         super(owner);
         this.model = context;
@@ -191,9 +191,9 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
     IModel «this.name»Model = null;
     «EXPAND Process::createModel FOR this»
     «IF this.referredDialogue().collectionContext»
-        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name»CollectionDataViewPanel("panel", «this.name»Model, maxItemsPerPage, this);
+        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel("panel", «this.name»Model, maxItemsPerPage, this);
     «ELSE»
-        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name»SwapEditPanel("panel", «this.name»Model);
+        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»SwapEditPanel("panel", «this.name»Model);
     «ENDIF»
     «this.referredDialogue().name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
     panels.add(«this.referredDialogue().name.toFirstLower()»Panel );

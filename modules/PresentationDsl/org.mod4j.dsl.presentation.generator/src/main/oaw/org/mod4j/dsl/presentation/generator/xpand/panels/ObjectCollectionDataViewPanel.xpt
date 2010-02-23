@@ -19,7 +19,7 @@
 «DEFINE GenerateObjectCollectionDataViewPanel(boolean withProcesses) FOR ContentForm -»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateObjectCollectionDataViewPanel.xpt") FOR this-»
 «REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
-«LET this.name + "CollectionDataViewPanel"  +(withProcesses ? "" : "Only") AS className»
+«LET this.name.toFirstUpper() + "CollectionDataViewPanel"  +(withProcesses ? "" : "Only") AS className»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ import «javaDtoClassPath(this.contextRef.name)»;
 «ENDFOREACH»
 
 «FOREACH this.processes.referredProcess() AS process»
-import «getPresentationRootPackage()».processes.«process.name»Process;
+import «getPresentationRootPackage()».processes.«process.javaClass()»;
 «ENDFOREACH»
 import «getPresentationCommonPackage()».processes.ProcessType;
 «IF this.processes.referredProcess().exists(e|e.type == ProcessType::ADDTO)»
@@ -126,7 +126,7 @@ public class «className» extends Panel
 						@Override
 						public void onClick() {
 // TODO	                        page.startProcess("«process.name»Process", («this.contextRef.name»)null);
-			                «process.name»Process process = new «process.name»Process(model);
+			                «process.javaClass()» process = new «process.javaClass()»(model);
 			                process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
 			                Page next = process.nextPage(null);
 			                if (next != null) {
@@ -188,7 +188,7 @@ public class «className» extends Panel
 				                    «this.contextRef.name» elem = dtoModel.getObject();
 				                    dtoList.add(elem);
 				                }
-				                «process.name»Process process = new «process.name»Process(model);
+				                «process.javaClass()» process = new «process.javaClass()»(model);
 				                process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
 				                process.run(dtoList);
 				                selectedElements.clear();
@@ -207,7 +207,7 @@ public class «className» extends Panel
 			                        «this.contextRef.name» elem = dtoModel.getObject();
 			                        dtoList .add(elem);
 			                    }
-                                «process.name»Process process = new «process.name»Process(model);
+                                «process.javaClass()» process = new «process.javaClass()»(model);
                                 process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
                                 process.run(dtoList);
                                 selectedElements.clear();
@@ -271,7 +271,7 @@ class Close implements WindowClosedCallback  {
             «this.contextRef.name» elem = dtoModel.getObject();
             dtoList.add(elem);
         }
-        «process.name»Process process = new «process.name»Process(model);
+        «process.javaClass()» process = new «process.javaClass()»(model);
         process.setOwningPage( page);
         process.run(dtoList);
         target.addComponent(container);
@@ -332,7 +332,7 @@ class Close implements WindowClosedCallback  {
 				Link «process.name»Link = new Link("«process.name»") {
 					public void onClick() {
 // TODO	                page.startProcess("«process.name»Process", item.getModel().getObject());
-                    «process.name»Process process = new «process.name»Process(item.getModel());
+                    «process.javaClass()» process = new «process.javaClass()»(item.getModel());
                     process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
                     Page next = process.nextPage(item.getModel().getObject());
                     if (next != null) {
@@ -359,7 +359,7 @@ class Close implements WindowClosedCallback  {
                         elementModel = new ListElementModel("id", dto.getId(), model);
                     }
 					
-                    «process.name»Process process = new «process.name»Process(elementModel);
+                    «process.javaClass()» process = new «process.javaClass()»(elementModel);
                     process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
                     Page next = process.nextPage(null);
                     if (next != null) {
@@ -377,7 +377,7 @@ class Close implements WindowClosedCallback  {
                 Link «process.name»Link = new Link("«process.name»") {
                     public void onClick() {
                         IModel elementModel = new Model(item.getModel().getObject());
-                        «process.name»Process process = new «process.name»Process(elementModel);
+                        «process.javaClass()» process = new «process.javaClass()»(elementModel);
                         process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
                         process.run(item.getModel().getObject());
                     }
@@ -391,7 +391,7 @@ class Close implements WindowClosedCallback  {
         «FOREACH this.processes.referredProcess().select(e|  (e.type==ProcessType::REMOVEFROM) && (! e.collectionContext)) AS process»
             Link «process.name»Link = new Link("«process.name»") {
                 public void onClick() {
-                    «process.name»Process process = new «process.name»Process(model);
+                    «process.javaClass()» process = new «process.javaClass()»(model);
                     process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
                     process.run(item.getModel().getObject());
                 }

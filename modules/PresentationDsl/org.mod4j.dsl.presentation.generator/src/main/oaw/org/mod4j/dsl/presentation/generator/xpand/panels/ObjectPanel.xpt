@@ -16,8 +16,9 @@
 «EXTENSION  org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
 
 «DEFINE GenerateObjectPanel FOR ContentForm -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this»
-«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this-»
+«LET this.name.toFirstUpper() + "Panel" AS className»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses-»
 package «getPresentationRootPackage()».panels;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
@@ -44,9 +45,9 @@ import org.apache.wicket.model.PropertyModel;
 «ENDFOREACH»
 
 @SuppressWarnings("serial")
-public class «this.name»Panel extends Panel {
+public class «className» extends Panel {
 
-	public «this.name»Panel(String id, final IModel<«this.contextRef.name»> model) {
+	public «className»(String id, final IModel<«this.contextRef.name»> model) {
         super(id);
     «EXPAND addWicketComponent FOREACH this.formElements»
         add(new Link<Object>("edit") {
@@ -75,6 +76,7 @@ public class «this.name»Panel extends Panel {
     }
 
 }
+«ENDLET»
 «ENDLET»
 «ENDDEFINE»
 

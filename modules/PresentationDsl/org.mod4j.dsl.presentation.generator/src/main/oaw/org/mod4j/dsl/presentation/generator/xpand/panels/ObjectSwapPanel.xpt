@@ -14,9 +14,11 @@
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION  org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers»
+«EXTENSION  org::mod4j::dsl::presentation::generator::xtend::helpers»
 
 «DEFINE GenerateObjectSwapPanel FOR ContentForm -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectSwapPanel.xpt") FOR this»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectSwapPanel.xpt") FOR this»
+«LET this.name.toFirstUpper() + "SwapEditPanel" AS className»
 «LET this.processes.referredProcess().selectFirst(e|e.type==ProcessType::SAVE) AS saveProcess»
 «LET this.processes.referredProcess().selectFirst(e|e.type==ProcessType::DELETE) AS deleteProcess»
 package «getPresentationRootPackage()».panels;
@@ -30,22 +32,22 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
 
 «FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
-import «getPresentationRootPackage()».processes.«p.name»Process ;
+import «getPresentationRootPackage()».processes.«p.javaClass()»;
 «ENDFOREACH»
 «IF saveProcess != null»
-import «getPresentationRootPackage()».processes.«saveProcess.name»Process;
+import «getPresentationRootPackage()».processes.«saveProcess.javaClass()»;
 «ENDIF»
 «IF deleteProcess != null»
-import «getPresentationRootPackage()».processes.«deleteProcess.name»Process;
+import «getPresentationRootPackage()».processes.«deleteProcess.javaClass()»;
 «ENDIF»
 
 import «javaDtoClassPath(this.contextRef.name)»;
 
-public class «this.name»SwapEditPanel extends Panel 
+public class «className» extends Panel 
 {
 
-    protected «this.name»Panel  «this.name.toFirstLower()»Panel = null;
-    protected «this.name»EditPanel  «this.name.toFirstLower()»EditPanel = null;
+    protected «this.name.toFirstUpper()»Panel  «this.name.toFirstLower()»Panel = null;
+    protected «this.name.toFirstUpper()»EditPanel  «this.name.toFirstLower()»EditPanel = null;
 
     protected boolean editOn = true;
     
@@ -60,13 +62,13 @@ public class «this.name»SwapEditPanel extends Panel
     /**
      * create a new breakfastspage
      */
-    public «this.name»SwapEditPanel(String id, final IModel<«this.contextRef.name»> inputModel)
+    public «className»(String id, final IModel<«this.contextRef.name»> inputModel)
     {
         super(id);
         model = new CompoundPropertyModel<«this.contextRef.name»>(inputModel);
         
-		«this.name.toFirstLower()»Panel = new «this.name»Panel("«this.name»SwapPanel",model);
-		«this.name.toFirstLower()»EditPanel = new «this.name»EditPanel("«this.name»SwapPanel",model);
+		«this.name.toFirstLower()»Panel = new «this.name.toFirstUpper()»Panel("«this.name»SwapPanel",model);
+		«this.name.toFirstLower()»EditPanel = new «this.name.toFirstUpper()»EditPanel("«this.name»SwapPanel",model);
 		
 		«this.name.toFirstLower()»EditPanel.setOutputMarkupPlaceholderTag(true);
 		«this.name.toFirstLower()»Panel.setOutputMarkupPlaceholderTag(true);
@@ -86,6 +88,7 @@ public class «this.name»SwapEditPanel extends Panel
 		editOn = ! editOn;
 	}
 }
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDDEFINE»

@@ -4,6 +4,12 @@ import crossx;
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::ProjectProperties;
 
+String javaClass(Process p) :
+    p.name.toFirstUpper() + "Process";
+
+String javaBaseClass(Process p) :
+    p.name.toFirstUpper() + "ProcessImplBase";
+    
 String escapePropertyKey(String key) :
     key.replaceAll(" ",  "\\ ")
  ;

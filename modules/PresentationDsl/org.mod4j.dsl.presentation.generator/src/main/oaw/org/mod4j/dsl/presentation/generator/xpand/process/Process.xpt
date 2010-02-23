@@ -20,8 +20,8 @@
 
 «DEFINE GenerateProcesses FOR PresentationModel-»
     «FOREACH this.elements.typeSelect(Process) AS p»
-        «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "Process") AS filePath»
-        «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name + "ProcessImplBase") AS filePathImplBase»
+        «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name.toFirstUpper() + "Process") AS filePath»
+        «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name.toFirstUpper() + "ProcessImplBase") AS filePathImplBase»
  
         «FILE generate(getPresentationModuleName(""), filePathImplBase)»
 	        «IF p.isInteractive() && (p.type != ProcessType::ADDTO) »
@@ -47,28 +47,28 @@
     «ENDFOREACH»
 «ENDDEFINE»
 
-«DEFINE GenerateInteractiveProcess FOR Process -»
-    «EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcess in Process.xpt") FOR this»
+«DEFINE GenerateInteractiveProcess FOR Process-»
+«EXPAND JavaComments::extensionPointHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcess in Process.xpt") FOR this-»
 package «getPresentationRootPackage()».processes;
 
 import org.apache.wicket.model.IModel;
 
-public class «this.name»Process extends «this.name»ProcessImplBase 
+public class «this.javaClass()» extends «this.javaBaseClass()» 
 {
-   public «this.name»Process(IModel context){
+   public «this.javaClass()»(IModel context){
         super(context);
     }
 }
 «ENDDEFINE»
  
- «DEFINE GenerateInteractiveProcessImplBase FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcessImplBase in Process.xpt") FOR this»
+«DEFINE GenerateInteractiveProcessImplBase FOR Process-»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateInteractiveProcessImplBase in Process.xpt") FOR this-»
 «LET (this.collectionContext ? ("List<" + this.contextRef.name + ">") : this.contextRef.name) AS context»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
-import «getPresentationRootPackage()».pages.«this.name»Page;
+import «getPresentationRootPackage()».pages.«this.name.toFirstUpper()»Page;
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
@@ -95,11 +95,11 @@ import «getPresentationPackage()».operations.Operation«uiCall.condition.name�
    «ENDIF»
 «ENDFOREACH»
 
-public class «this.name»ProcessImplBase extends PmfProcess<«context»> 
+public class «this.javaBaseClass()» extends PmfProcess<«context»> 
 {
-    «this.name»Page page = null;
+    «this.name.toFirstUpper()»Page page = null;
 
-    public «this.name»ProcessImplBase(IModel context){
+    public «this.javaBaseClass()»(IModel context){
         model = context;
         
     «IF this.type == ProcessType::NEW»
@@ -136,7 +136,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
         «ELSEIF uiCall.metaType == ProcessCall -»
             IModel «uiCall.name»Model;
             «EXPAND createModel FOR uiCall.asProcessCall()»
-            steps.add(new «uiCall.name»Process(«uiCall.name»Model));
+            steps.add(new «uiCall.asProcessCall().referredProcess().javaClass()»(«uiCall.name»Model));
         «ENDIF-»
         «IF uiCall.condition != null-»
             checks.add(new Operation«uiCall.condition.name»() );
@@ -216,14 +216,14 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
 
     public «getWicketMasterPageClass()» nextPage(«context» element) {
     «IF this.type == ProcessType::NEW»
-        page = new «this.name»Page(this, model);
+        page = new «this.name.toFirstUpper()»Page(this, model);
         page.setProcess(this);
         prepareSteps();
         return page;
     «ELSEIF this.type == ProcessType::SAVE»
         return null;
     «ELSEIF this.type == ProcessType::EDIT»
-        page = new «this.name»Page (this, model);
+        page = new «this.name.toFirstUpper()»Page (this, model);
         page.setProcess(this);
         prepareSteps();
         return page;
@@ -234,7 +234,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
     «ELSEIF this.type == ProcessType::CANCEL»
         return null;
     «ELSEIF this.type == ProcessType::CUSTOM»
-        page = new «this.name»Page (this, model);
+        page = new «this.name.toFirstUpper()»Page (this, model);
         page.setProcess(this);
         prepareSteps();
         return page;
@@ -288,9 +288,9 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 /** Automated process
  */
-public class «this.name»Process extends «this.name»ProcessImplBase 
+public class «this.javaClass()» extends «this.javaBaseClass()» 
 {
-    public «this.name»Process(IModel context){
+    public «this.javaClass()»(IModel context){
         super(context);
     }
     
@@ -311,8 +311,8 @@ public class «this.name»Process extends «this.name»ProcessImplBase
 «ENDDEFINE»
 
 «DEFINE GenerateBatchProcessImplBase FOR Process -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcessBase in Process.xpt") FOR this»
-«LET (this.collectionContext ? ("List<" + this.contextRef.name + ">") : this.contextRef.name) AS context»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateBatchProcessBase in Process.xpt") FOR this-»
+«LET (this.collectionContext ? ("List<" + this.contextRef.name + ">") : this.contextRef.name) AS context-»
 package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
@@ -342,11 +342,11 @@ import «getPresentationPackage()».operations.Operation«uiCall.condition.name�
 
 /** Automated process
  */
-public class «this.name»ProcessImplBase extends PmfProcess<«context»> 
+public class «this.javaBaseClass()» extends PmfProcess<«context»> 
 {
     «EXPAND GetProcessType FOR this»
 
-    public «this.name»ProcessImplBase (IModel context){
+    public «this.javaBaseClass()»(IModel context){
         this.model = context;
         prepareSteps();
     }
@@ -361,7 +361,7 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
 	        «IF uiCall.metaType == DialogueCall -»
 	            steps.add(page);
 	        «ELSEIF uiCall.metaType == ProcessCall -»
-	            steps.add(new «uiCall.name»Process(null));
+	            steps.add(new «uiCall.asProcessCall().referredProcess().javaClass()»(null));
 	        «ENDIF-»
 	        «IF uiCall.condition != null-»
 	            checks.add(new Operation«uiCall.condition.name»() );
