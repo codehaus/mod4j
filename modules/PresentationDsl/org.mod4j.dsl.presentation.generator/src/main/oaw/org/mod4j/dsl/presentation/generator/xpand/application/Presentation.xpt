@@ -324,7 +324,7 @@ import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 «FOREACH processes AS process-»
-import «getPresentationRootPackage()».processes.«process.name»Process;
+import «getPresentationRootPackage()».processes.«process.javaClass()»;
 import «javaDtoClassPath(process.contextRef.name)»;
 «ENDFOREACH»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
@@ -387,7 +387,7 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
 		// TODO changed
 		Link «process.name»Link = new Link("link") {
 			public void onClick() {
-				«process.name»Process process = new «process.name»Process(null);
+				«process.javaClass()» process = new «process.javaClass()»(null);
 				process.setOwningPage(myself);
 				setResponsePage(process.nextPage(null));
 			}
