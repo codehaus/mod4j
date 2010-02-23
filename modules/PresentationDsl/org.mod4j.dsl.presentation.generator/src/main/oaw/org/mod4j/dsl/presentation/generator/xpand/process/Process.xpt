@@ -171,7 +171,34 @@ public class «this.name»ProcessImplBase extends PmfProcess<«context»>
 
     @Override
     public void previousStep(«context» o){
-
+        currentStep--;
+        if( currentStep < 0 ){
+            this.done(page);
+        } else {
+            Object step = steps.get(currentStep);
+            PmfOperation operation = checks.get(currentStep);
+            if( step == page ){
+    «IF this.collectionContext»
+                if( operation.checkCollection(o) ){
+    «ELSE»
+                if( operation.check(model.getObject()) ){
+    «ENDIF»
+                    page.previousPanel();
+                } else {
+                    previousStep(null);
+                }
+           } else if( step instanceof PmfProcess) {
+    «IF this.collectionContext»
+                if( operation.checkCollection(o) ){
+    «ELSE»
+                if( operation.check(model.getObject()) ){
+    «ENDIF»
+                    PmfProcess process = (PmfProcess) step;
+                    process.run(null);
+                }
+                previousStep(o);
+            }
+        }
     }
 
     @Override

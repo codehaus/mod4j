@@ -20,7 +20,8 @@
 <span wicket:id="errorMessages"/>
 <div wicket:id="panel"></div>
 <div>
-<a href="" wicket:id="next"><span wicket:id="label">my link</span></a>
+<a href="" wicket:id="previous"><span wicket:id="label.previous">previous link</span></a>
+<a href="" wicket:id="next"><span wicket:id="label.next">next link</span></a>
 </div>
 </wicket:extend>
 </html>

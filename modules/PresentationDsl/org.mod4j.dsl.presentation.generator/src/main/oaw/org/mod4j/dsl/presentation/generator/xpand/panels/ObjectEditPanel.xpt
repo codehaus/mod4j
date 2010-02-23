@@ -120,7 +120,7 @@ public class «this.name»EditPanel extends Panel {
                 «getWicketMasterPageClass()» currentPage = («getWicketMasterPageClass()»)this.getPage();
                 process.setOwningPage(currentPage);
                 process.run(model.getObject());
-				page().getProcess().nextStep(model.getObject());
+//				page().getProcess().nextStep(model.getObject());
             }
         };
         form.add(«p.name»save);

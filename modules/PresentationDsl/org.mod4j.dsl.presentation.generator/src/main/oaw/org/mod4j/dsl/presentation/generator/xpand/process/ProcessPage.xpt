@@ -88,7 +88,34 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
             «ENDIF»
         «ENDFOREACH»     
         add(panels.get(currentPanel));
+
+        // Create previous Link
+        Link previousLink = new Link<Object>("previous") {
+            @Override
+            public void onClick() {
+                getProcess().previousStep(null);
+            }
+        };
+        add(previousLink);
+
+        // Create model for text of previous link
+        IModel previousModel = new IModel() {
+            public Object getObject() {
+                if ((currentPanel + 1) > 1) {
+                    return "Previous";
+                } else {
+                    return "";
+                }
+            }
+            public void setObject(Object object) {
+            }
+            public void detach() {
+            }
+        };
+        Label previousLabel = new Label("label.previous", previousModel);
+        previousLink.add(previousLabel);
     
+        // Create Next link
         Link nextLink = new Link <Object>("next") {
             @Override
             public void onClick() {
@@ -98,6 +125,7 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
         };
         add(nextLink);
         
+        //  Create Model for text on Next link
         IModel model = new IModel(){
             public Object getObject() {
                 if ((currentPanel  + 1)< panels.size()) {
@@ -109,7 +137,7 @@ public class «this.name»Page extends «getWicketMasterPageClass()»<«this.con
             public void setObject(Object object) { }
             public void detach() { }
         };
-        Label l = new Label("label", model);
+        Label l = new Label("label.next", model);
         nextLink.add(l);
         
            
