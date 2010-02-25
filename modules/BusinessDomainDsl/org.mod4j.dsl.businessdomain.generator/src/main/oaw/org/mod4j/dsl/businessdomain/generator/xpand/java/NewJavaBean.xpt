@@ -81,7 +81,7 @@
  	«EXPAND Associations::addToReferenceVariable FOREACH associationsTo»
     «EXPAND Associations::addFromReferenceVariable FOREACH associationsFrom.select(e|e.bidirectional)»
     «EXPAND Constructors::createAddValidators FOR this»
-    «IF !properties.reject(e|e.nullable || e.hasDefault || e.derived).isEmpty»
+    «IF !getAllProperties().reject(e|e.nullable || e.hasDefault || e.derived).isEmpty»
         «EXPAND Constructors::addDefaultImplBaseConstructor FOR this»
     «ENDIF»
     «EXPAND Constructors::addMinimalConstructor FOR this»
@@ -116,7 +116,7 @@
      */
 	public class «javaDomainClass(this.name)» extends «javaDomainBaseClass(this.name)» {
                 
-    «IF !properties.reject(e|e.nullable || e.hasDefault || e.derived).isEmpty» 
+    «IF !getAllProperties().reject(e|e.nullable || e.hasDefault || e.derived).isEmpty» 
         «EXPAND Constructors::addDefaultConstructor FOR this»    
     «ENDIF»
     «EXPAND Constructors::addCallToSuperOnlyMinimalConstructor ("") FOR this»
