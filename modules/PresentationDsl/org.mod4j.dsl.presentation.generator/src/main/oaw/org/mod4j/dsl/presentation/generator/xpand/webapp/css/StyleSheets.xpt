@@ -222,6 +222,9 @@ table caption {
     position:relative;  
 }
 
+div.processLocation {
+   font-weight:bold;
+}
 table caption img#ajaxIndicator {
 position:absolute;
 right:10px;

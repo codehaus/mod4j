@@ -11,6 +11,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
@@ -314,6 +315,13 @@ public class PresentationDslSwitch<T> {
                 T result = caseOperationExpression(operationExpression);
                 if (result == null) result = caseExpression(operationExpression);
                 if (result == null) result = caseModelElement(operationExpression);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.APPLICATION: {
+                Application application = (Application)theEObject;
+                T result = caseApplication(application);
+                if (result == null) result = caseModelElement(application);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -693,6 +701,21 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseOperationExpression(OperationExpression object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplication(Application object) {
         return null;
     }
 

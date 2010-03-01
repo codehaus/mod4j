@@ -3,12 +3,19 @@ import crossx;
 
 extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::ProjectProperties;
+extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 
 String javaClass(Process p) :
     p.name.toFirstUpper() + "Process";
 
+String javaClass(ProcessCall pc) :
+    pc.name.toFirstUpper() + "Process";
+
 String javaBaseClass(Process p) :
     p.name.toFirstUpper() + "ProcessImplBase";
+    
+String javaBaseClass(ProcessCall pc) :
+    pc.name.toFirstUpper() + "ProcessImplBase";
     
 String escapePropertyKey(String key) :
     key.replaceAll(" ",  "\\ ")
@@ -21,6 +28,12 @@ String businessClassName(ContentForm form) :
                    getPropertyValue("businessClass")
 ;
 
+findType(Process process, AssociationRoleReference roleRef) :
+    let dtoSymbol = lookupSymbol(process.contextRef.modelName, process.contextRef.name, "Dto") :
+    let symbol = dtoSymbol.subSymbols.select(s|s.type.matches("AssociationRoleReference")).select(sym | sym.name == roleRef.name).first() :
+    let reference = getReferenceProperty(symbol, "ReferencedDto") :
+    reference.symbolname;  
+    
 String findCreateMethodFor(ContentForm form) :
     findAllSymbols(getProject(), "Service").first().findAllSubSymbols("ServiceMethod").
     select( method | method.getPropertyValue("methodType").endsWith("Create") && method.getPropertyValue("dto").endsWith(form.contextRef.name)).first().name;

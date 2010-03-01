@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLabel <em>Label</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#isRoot <em>Root</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getContentForm <em>Content Form</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLink <em>Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,33 +104,6 @@ public interface Process extends UIModelElement {
     void setLabel(String value);
 
     /**
-     * Returns the value of the '<em><b>Root</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Root</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Root</em>' attribute.
-     * @see #setRoot(boolean)
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_Root()
-     * @model default="false"
-     * @generated
-     */
-    boolean isRoot();
-
-    /**
-     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#isRoot <em>Root</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Root</em>' attribute.
-     * @see #isRoot()
-     * @generated
-     */
-    void setRoot(boolean value);
-
-    /**
      * Returns the value of the '<em><b>Content Form</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm#getActions <em>Actions</em>}'.
      * <!-- begin-user-doc -->
@@ -157,6 +130,32 @@ public interface Process extends UIModelElement {
      * @generated
      */
     void setContentForm(ContentForm value);
+
+    /**
+     * Returns the value of the '<em><b>Link</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Link</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Link</em>' containment reference.
+     * @see #setLink(AssociationRoleReference)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcess_Link()
+     * @model containment="true"
+     * @generated
+     */
+    AssociationRoleReference getLink();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process#getLink <em>Link</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Link</em>' containment reference.
+     * @see #getLink()
+     * @generated
+     */
+    void setLink(AssociationRoleReference value);
 
     /**
      * <!-- begin-user-doc -->

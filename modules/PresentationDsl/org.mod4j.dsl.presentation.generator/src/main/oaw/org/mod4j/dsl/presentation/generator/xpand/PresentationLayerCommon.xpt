@@ -62,8 +62,8 @@
     «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.FieldFeedbackPanel" ))»
         «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanel FOR this»
     «ENDFILE»
-    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.CheckBoxBaseModel" ))»
-        «EXPAND CommonCheckBoxBaseModel::CommonCheckBoxBaseModel FOR this»
+    «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationCommonPackage() + ".ext.components.CheckBoxDtoModel" ))»
+        «EXPAND CommonCheckBoxDtoModel::CommonCheckBoxDtoModel FOR this»
     «ENDFILE»
 	«FILE generate(getPresentationModuleName(""), getPresentationCommonPackageAsPath() + "/ext/components/FieldFeedbackPanel.html")»
 	    «EXPAND CommonFieldFeedbackPanel::GenerateFieldFeedbackPanelHtml FOR this»

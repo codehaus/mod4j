@@ -14,6 +14,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
@@ -41,6 +42,34 @@ public class PresentationHelpers {
 //        }
 //        return result;
 //    }
+
+    static public String standardExpressionResultType(String sourceContext, String targetContext, StandardExpression exp){
+        Mod4jType result = standardExpressionMod4jType(sourceContext, targetContext, exp);
+        if( result.hasError()){
+            return result.getError();
+        } else {
+            return result.getBaseType();
+        }
+    }
+
+    /**
+     * @param context the context of the expression
+     * @param exp The expression to find the type for
+     * @return
+     */
+    private static Mod4jType standardExpressionMod4jType(String sourceContext, String targetContext, StandardExpression exp) {
+        Mod4jType result = new Mod4jType("UNKNOWN", "UNNOWN");
+        if( exp.getType() == ExpressionType.ALL ){
+            result.setBaseType(targetContext);
+            result.setCollection("LIST");
+        } else if( exp.getType() == ExpressionType.FIND){
+            result.setBaseType(sourceContext);
+            result.setCollection("LIST");
+        } else {
+            result.setError("ERROR 10: Unknown standard expression type [" + exp.getType().getLiteral() + "]" );
+        }
+        return result;
+    }
 
     static public String serviceCallResultType(String context, ServiceExpression exp){
         Mod4jType result = serviceCallMod4jType(context, exp);
@@ -372,7 +401,9 @@ public class PresentationHelpers {
                     }
                     StandardExpression stdExp = getStandardExpression(dialogueCall);
                     if( stdExp != null ){
-                        String resultType = findContext(p).getName();
+//                        String resultType = findContext(p).getName();
+                        String resultType = standardExpressionResultType(findContext(p).getName(),
+                                             form.getContextRef().getName(), stdExp);
                         if( resultType.startsWith("ERROR:")){
                             return resultType;
                         } else {

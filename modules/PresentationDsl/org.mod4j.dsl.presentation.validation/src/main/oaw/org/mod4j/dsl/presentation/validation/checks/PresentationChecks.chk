@@ -22,9 +22,9 @@ context CollectionDialogue ERROR this.name + " must havce exactly one dialogue o
     (this.dialogues.first().referredContentForm().contextRef == this.contextRef) 
     ;
 
-context Process ERROR "Process [" + name + "] is a start process, it cannot have a navigation" :
-    this.root implies (this.processElements.first().getNavigationExpression() == null)
-    ;
+//context Process ERROR "Process [" + name + "] is a start process, it cannot have a navigation" :
+//    this.root implies (this.processElements.first().getNavigationExpression() == null)
+//    ;
     /*
 context SimpleProcess ERROR "A new action can only be attached to a form for a list" :
     (this.type == ProcessType::NEW) implies (this.contentForm.isCollection) ;

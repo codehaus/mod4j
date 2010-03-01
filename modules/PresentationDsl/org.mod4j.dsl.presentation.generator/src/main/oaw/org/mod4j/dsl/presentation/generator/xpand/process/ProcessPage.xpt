@@ -42,6 +42,7 @@ import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProv
     «IF uiCall.referredDialogue() != null»
         «IF uiCall.referredDialogue().collectionContext»
             import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»CollectionDataViewPanel;
+            import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»CollectionDataViewPanelOnly;
         «ELSE »
             import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»SwapEditPanel;
         «ENDIF»
@@ -77,12 +78,18 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
     «ENDFOREACH»        
     protected List<Panel> panels = new ArrayList<Panel>();
     protected int currentPanel = 0;
+    protected List<String> stepNames = new ArrayList<String>();
+    protected IModel stepModel ;
 
     public «this.name.toFirstUpper()»Page (final PmfProcess owner, IModel<«this.contextRef.name»> context)
     {
         super(owner);
         this.model = context;
         
+        stepModel = new Model("label of process step");
+        Label label = new Label("processStep", stepModel);
+        add(label);
+
         // Add an error panel to display errors from called processes
         ComponentsFeedbackMessageFilter filter = new ComponentsFeedbackMessageFilter();
         FeedbackPanel errorMessages = new FeedbackPanel("errorMessages", filter);
@@ -93,10 +100,11 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
 //        IModel panelModel = null ;
         «FOREACH this.processElements AS uiCall»
             «IF uiCall.referredDialogue() != null»
-                «EXPAND createPanel FOR uiCall»
+                «EXPAND createPanel(this) FOR uiCall»
             «ENDIF»
         «ENDFOREACH»     
         add(panels.get(currentPanel));
+        showSteps();
 
         // Create previous Link
         Link previousLink = new Link<Object>("previous") {
@@ -157,6 +165,7 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
         if (currentPanel < panels.size()) {
             Panel nextPanel = panels.get(currentPanel);
             panels.get(currentPanel - 1).replaceWith(nextPanel);
+            showSteps();
         } else {
             this.getProcess().done(null);
         }
@@ -166,15 +175,30 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
         if (currentPanel >= 0) {
             Panel nextPanel = panels.get(currentPanel);
             panels.get(currentPanel + 1).replaceWith(nextPanel);
+            showSteps();
         } else {
             this.getProcess().done(null);
         }
     }
 
+    private void showSteps() {
+        String result = "";
+        for (int i = 0; i < stepNames.size(); i++) {
+            if( i == currentPanel){
+                result += "==> ";
+            }
+            result += stepNames.get(i) + "\n";
+            if( i == currentPanel){
+                result += " <== ";
+            }
+        }
+        stepModel.setObject(result);
+    }
+
     @Override
     public String getPageTitle()
     {
-        return "«this.name»Page";
+        return "«this.name»";
 //      return getLocalizer().getString("lbl.breakfast",this);
     }
 
@@ -187,16 +211,22 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
 «REM»
     Generate the creation of the panel ConmtentForm
 «ENDREM»
-«DEFINE createPanel FOR UICall»
+«DEFINE createPanel(Process process) FOR UICall»
     IModel «this.name»Model = null;
     «EXPAND Process::createModel FOR this»
     «IF this.referredDialogue().collectionContext»
-        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel("panel", «this.name»Model, maxItemsPerPage, this);
+        «IF (process.type == ProcessType::ADDTO) || (process.type == ProcessType::LINK) »
+            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanelOnly("panel", 
+                                                «this.name»Model, maxItemsPerPage, this, «(process.type == ProcessType::ADDTO) ? "true" : "false" »);
+        «ELSE»
+            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel("panel", «this.name»Model, maxItemsPerPage, this, true);
+        «ENDIF»
     «ELSE»
         «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»SwapEditPanel("panel", «this.name»Model);
     «ENDIF»
     «this.referredDialogue().name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
     panels.add(«this.referredDialogue().name.toFirstLower()»Panel );
+    stepNames.add("«this.label»");
 «ENDDEFINE»
 
 «REM»

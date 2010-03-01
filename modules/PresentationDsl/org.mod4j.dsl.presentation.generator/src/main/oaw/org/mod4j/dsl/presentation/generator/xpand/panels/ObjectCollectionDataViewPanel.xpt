@@ -17,7 +17,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
  
 «DEFINE GenerateObjectCollectionDataViewPanel(boolean withProcesses) FOR ContentForm -»
-    «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateObjectCollectionDataViewPanel.xpt") FOR this-»
+«EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: GenerateObjectCollectionDataViewPanel.xpt") FOR this-»
 «REM»«LET (ContentForm)(this.dialogues.first().referredElement) AS cf»«ENDREM»
 «LET this.name.toFirstUpper() + "CollectionDataViewPanel"  +(withProcesses ? "" : "Only") AS className»
 package «getPresentationRootPackage()».panels;
@@ -35,6 +35,7 @@ import «javaDtoClassPath(this.contextRef.name)»;
 	«ENDIF»
 «ENDFOREACH»
 
+import «getPresentationRootPackage()».processes.PmfProcess;
 «FOREACH this.processes.referredProcess() AS process»
 import «getPresentationRootPackage()».processes.«process.javaClass()»;
 «ENDFOREACH»
@@ -43,7 +44,7 @@ import «getPresentationCommonPackage()».processes.ProcessType;
 import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(this.contextRef.name)»;
 «ENDIF»
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-import «getPresentationCommonPackage()».ext.components.CheckBoxBaseModel;
+import «getPresentationCommonPackage()».ext.components.CheckBoxDtoModel;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationCommonPackage()».ext.components.ModalWindow;
 import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
@@ -82,26 +83,31 @@ public class «className» extends Panel
 {
     «EXPAND dataView(withProcesses) FOR this»
     
-    public List<IModel<«this.contextRef.name»>> selectedElements = new ArrayList<IModel<«this.contextRef.name»>>();
+    public List<«this.contextRef.name»> selectedElements = new ArrayList<«this.contextRef.name»>();
     
     protected «getWicketMasterPageClass()» page = null;
-    
+
+    protected «className» myself;
+        
 	protected DataView<«this.contextRef.name»> collection;
 
     public «className»(String id, IModel<«this.contextRef.name»> context, 
-              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner)
+              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, boolean multiple)
     {
-        this(id, context, maxItemsPerPage, owner, ProcessType.all());
+        this(id, context, maxItemsPerPage, owner, ProcessType.all(), multiple);
     }
 
     protected Mod4jDataProvider<«this.contextRef.name»> dataProvider;
     protected IModel model;
     protected WebMarkupContainer container ;
+    protected boolean multiple = true;
     
     public «className»(String id, IModel<«this.contextRef.name»> context, 
-              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, Collection<ProcessType> visibleProcesses )
+              Integer maxItemsPerPage, «getWicketMasterPageClass()» owner, Collection<ProcessType> visibleProcesses , boolean multiple )
 	{
 	    super(id);
+	    myself = this;
+	    this.multiple = multiple;
 	    this.model = context;
 	    
         // Find the dataprovider
@@ -122,10 +128,10 @@ public class «className» extends Panel
         «IF withProcesses»
 	        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
 	            «LET pp.referredProcess() AS process»
+                    // New process 
 					Link «process.name»Link = new Link<Object>("«process.name»") {
 						@Override
 						public void onClick() {
-// TODO	                        page.startProcess("«process.name»Process", («this.contextRef.name»)null);
 			                «process.javaClass()» process = new «process.javaClass()»(model);
 			                process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
 			                Page next = process.nextPage(null);
@@ -146,6 +152,34 @@ public class «className» extends Panel
 	            «IF process.collectionContext »
 	                «IF process.type == ProcessType::ADDTO»
 	                    «LET process.processElements.typeSelect(DialogueCall).first().referredDialogue() AS dialogue»
+                        // AddTo process 
+                        Link «process.name»Link = new Link<Object>("«process.name»") {
+                            @Override
+                            public void onClick() {
+	                            «process.javaClass()» process = new «process.javaClass()»(model);
+	                            process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+	                            Page next = process.nextPage(null);
+	                            if (next != null) {
+	                                setResponsePage(next);
+	                            }
+/*
+                                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+                                for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+                                    «this.contextRef.name» elem = dtoModel.getObject();
+                                    dtoList .add(elem);
+                                }
+                                «process.javaClass()» process = new «process.javaClass()»(model);
+                                process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
+                                process.run(dtoList);
+                                selectedElements.clear();
+*/
+                            }
+                        };
+                        add(«process.name»Link);
+                        if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                            «process.name»Link.setEnabled(false);
+                        }
+/*
 	                    final ModalWindow «process.name»Modal = new ModalWindow("«process.name»Modal");
 				        «process.name»Modal.setTitle("«process.label»");
 				        «process.name»Modal.setCssClassName(ModalWindow.CSS_CLASS_GRAY);
@@ -177,20 +211,21 @@ public class «className» extends Panel
                                 «process.name»Link.setVisible(false);
 	                        }
     					    add(«process.name»Modal);
-						        
+*/						        
 	                    «ENDLET»
                     «ELSEIF ((process.type == ProcessType::REMOVEFROM) || (process.type == ProcessType::DELETE)) »
+                        // RemoveFrom or Delete process on single instance
                         Link «process.name»Link = new Link<Object>("«process.name»") {
                             @Override
                             public void onClick() {
-				                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
-				                for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
-				                    «this.contextRef.name» elem = dtoModel.getObject();
-				                    dtoList.add(elem);
-				                }
+//				                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+//				                for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+//				                    «this.contextRef.name» elem = dtoModel.getObject();
+//				                    dtoList.add(elem);
+//				                }
 				                «process.javaClass()» process = new «process.javaClass()»(model);
 				                process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
-				                process.run(dtoList);
+				                process.run(selectedElements);
 				                selectedElements.clear();
 				            }
 				        };
@@ -198,18 +233,36 @@ public class «className» extends Panel
                         if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
                             «process.name»Link.setEnabled(false);
                         }
-	                «ELSE»
+                    «ELSEIF process.isInteractive()»
+	                    // Interactive process 
+	                    Link «process.name»Link = new Link<Object>("«process.name»") {
+	                        @Override
+	                        public void onClick() {
+	                            «process.javaClass()» process = new «process.javaClass()»(model);
+	                            process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+	                            Page next = process.nextPage(null);
+	                            if (next != null) {
+	                                setResponsePage(next);
+	                            }
+	                        }
+	                    };
+	                    add(«process.name»Link);
+	                    if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+	                        «process.name»Link.setEnabled(false);
+	                    }
+                    «ELSEIF ! process.isInteractive()»
+                        // Not Interactive
 		                Link «process.name»Link = new Link<Object>("«process.name»") {
 		                    @Override
 		                    public void onClick() {
-			                    List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
-			                    for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
-			                        «this.contextRef.name» elem = dtoModel.getObject();
-			                        dtoList .add(elem);
-			                    }
+//			                    List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+//			                    for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+//			                        «this.contextRef.name» elem = dtoModel.getObject();
+//			                        dtoList .add(elem);
+//			                    }
                                 «process.javaClass()» process = new «process.javaClass()»(model);
                                 process.setOwningPage((«getWicketMasterPageClass()») this.getPage());
-                                process.run(dtoList);
+                                process.run(selectedElements);
                                 selectedElements.clear();
 		                    }
 		                };
@@ -222,17 +275,28 @@ public class «className» extends Panel
 	            «ENDLET»
 	        «ENDFOREACH»
 	    «ELSE» «REM» not withProcesses «ENDREM»
+«REM»	    
             «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::ADDTO) AS pp»
                 «LET pp.referredProcess() AS process»
-                    Link «process.name»Link = new Link<Object>("«process.name»") {
+«ENDREM»
+                    Link addLink = new Link<Object>("addLink") {
                         @Override
                         public void onClick() {
+//			                List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
+//			                for (IModel<«this.contextRef.name»> dtoModel : selectedElements) {
+//			                    «this.contextRef.name» elem = dtoModel.getObject();
+//			                    dtoList.add(elem);
+//			                }
+			                PmfProcess process = myself.page.getProcess();
+			                process.add(selectedElements);
+			                selectedElements.clear();
                         }
                     };
-                    add(«process.name»Link);
+                    add(addLink);
+«REM»
                 «ENDLET»
             «ENDFOREACH»
-	        
+«ENDREM»	        
         «ENDIF»		
 		add(container);
 		add(new AjaxPagingNavigator("navigator",collection));
@@ -243,7 +307,7 @@ public class «className» extends Panel
 	    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
 	        «LET pp.referredProcess() AS process»
 	        «IF process.collectionContext »
-	            «IF process.type == ProcessType::ADDTO»
+	            «IF (process.type == ProcessType::ADDTO) || (process.type == ProcessType::LINK) »
 	                «LET process.processElements.typeSelect(DialogueCall).first().referredDialogue() AS dialogue»
 	                	«dialogue.name»CollectionDataViewPanelOnly modalPanel = null ;
 	                «EXPAND closeClass(process) FOR this»    
@@ -258,6 +322,7 @@ public class «className» extends Panel
 «ENDDEFINE»
 
 «DEFINE closeClass(Process process) FOR ContentForm»
+/*
 class Close implements WindowClosedCallback  {
 
     «getWicketMasterPageClass()» page ;
@@ -277,6 +342,7 @@ class Close implements WindowClosedCallback  {
         target.addComponent(container);
     }
 }
+*/
 «ENDDEFINE»
 
 «DEFINE dataView(boolean withProcesses) FOR ContentForm»
@@ -293,11 +359,12 @@ class Close implements WindowClosedCallback  {
 		{
 			item.setModel(new CompoundPropertyModel<«this.contextRef.name»>(item.getModelObject()));
 			
-	         AjaxCheckBox selected = new AjaxCheckBox("selected",
-             new CheckBoxBaseModel<«this.contextRef.name»>(selectedElements, item.getModel())) {
+			 CheckBoxDtoModel checkBoxModel =  new CheckBoxDtoModel<«this.contextRef.name»>(selectedElements, item.getModel().getObject() );
+			 checkBoxModel.setMultiple(multiple);
+	         AjaxCheckBox selected = new AjaxCheckBox("selected", checkBoxModel) {
                 @Override
                 protected void onUpdate(AjaxRequestTarget target) {
- //                 target.addComponent(resetAll);
+                  target.addComponent(myself);
  //                 target.addComponent(delete);
                 }
             };
@@ -329,6 +396,7 @@ class Close implements WindowClosedCallback  {
 	    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
 		   «LET pp.referredProcess() AS process»
 		   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »
+                // Custom process on single instance
 				Link «process.name»Link = new Link("«process.name»") {
 					public void onClick() {
 // TODO	                page.startProcess("«process.name»Process", item.getModel().getObject());
@@ -348,6 +416,7 @@ class Close implements WindowClosedCallback  {
 			«ENDLET»
 	    «ENDFOREACH»
 		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS process»
+            // Edit process 
 			Link «process.name»Link = new Link("«process.name»") {
 				public void onClick() {
                     «process.contextRef.name» dto = item.getModel().getObject();
@@ -374,6 +443,7 @@ class Close implements WindowClosedCallback  {
 	    «ENDFOREACH»
         «FOREACH this.processes.referredProcess().select(e|  (e.type==ProcessType::DELETE) && (! e.collectionContext)) AS process»
             «IF ! process.collectionContext»
+                // Delete process on collection
                 Link «process.name»Link = new Link("«process.name»") {
                     public void onClick() {
                         IModel elementModel = new Model(item.getModel().getObject());
@@ -389,6 +459,7 @@ class Close implements WindowClosedCallback  {
            «ENDIF»
         «ENDFOREACH»
         «FOREACH this.processes.referredProcess().select(e|  (e.type==ProcessType::REMOVEFROM) && (! e.collectionContext)) AS process»
+            // Remove from process on collection
             Link «process.name»Link = new Link("«process.name»") {
                 public void onClick() {
                     «process.javaClass()» process = new «process.javaClass()»(model);

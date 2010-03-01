@@ -313,7 +313,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
 «DEFINE GenerateMasterPage FOR PresentationModel -»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
-«LET this.elements.typeSelect(Process).select(ip|ip.isInteractive() && ip.root) AS processes»
+«LET this.start.startProcesses AS processes»
 package «getPresentationRootPackage()».pages;
 
 import java.util.ArrayList;
@@ -323,7 +323,7 @@ import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-«FOREACH processes AS process-»
+«FOREACH processes.referredProcess() AS process-»
 import «getPresentationRootPackage()».processes.«process.javaClass()»;
 import «javaDtoClassPath(process.contextRef.name)»;
 «ENDFOREACH»
@@ -383,7 +383,7 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
         menuItems.add(homeLink);
         
 	«FOREACH processes AS process-»
-	«LET process.name + process.processElements.referredContentForm().first().name AS pagename»
+	«LET process.name + process.referredProcess().processElements.referredContentForm().first().name AS pagename»
 		// TODO changed
 		Link «process.name»Link = new Link("link") {
 			public void onClick() {
@@ -392,19 +392,19 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
 				setResponsePage(process.nextPage(null));
 			}
 		};
-		«process.name»Link.add( new Label( "name", "«process.name»"  )); //getLocalizer().getString("lbl.comestibles", this)));
+		«process.name»Link.add( new Label( "name", "«process.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));
 		«process.name»Link.setAutoEnable(true);
         menuItems.add(«process.name»Link);
     «ENDLET»
     «ENDFOREACH»         
         
 	«FOREACH processes AS process-»
-	«LET process.name + process.processElements.referredContentForm().first().name AS pagename»
+	«LET process.name + process.referredProcess().processElements.referredContentForm().first().name AS pagename»
 /*
         BookmarkablePageLink<«pagename»Page> «process.name»Link = new BookmarkablePageLink<«pagename»Page>("link", «pagename»Page.class);
         «process.name»Link.setAutoEnable(true);
 //        «process.name»Link.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
-        «process.name»Link.add(new Label("name", "«process.name»"));
+        «process.name»Link.add(new Label("name", "«process.label»"));
         menuItems.add(«process.name»Link);
 */
     «ENDLET»

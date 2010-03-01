@@ -8,6 +8,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,10 +16,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -33,6 +36,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getExternalReferences <em>External References</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getStart <em>Start</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +62,16 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
      * @ordered
      */
     protected EList<ExternalReference> externalReferences;
+
+    /**
+     * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStart()
+     * @generated
+     * @ordered
+     */
+    protected Application start;
 
     /**
      * <!-- begin-user-doc -->
@@ -107,6 +121,49 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
      * <!-- end-user-doc -->
      * @generated
      */
+    public Application getStart() {
+        return start;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetStart(Application newStart, NotificationChain msgs) {
+        Application oldStart = start;
+        start = newStart;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__START, oldStart, newStart);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setStart(Application newStart) {
+        if (newStart != start) {
+            NotificationChain msgs = null;
+            if (start != null)
+                msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PRESENTATION_MODEL__START, null, msgs);
+            if (newStart != null)
+                msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PRESENTATION_MODEL__START, null, msgs);
+            msgs = basicSetStart(newStart, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__START, newStart, newStart));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -129,6 +186,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 return ((InternalEList<?>)getExternalReferences()).basicRemove(otherEnd, msgs);
+            case PresentationDslPackage.PRESENTATION_MODEL__START:
+                return basicSetStart(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -145,6 +204,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 return getElements();
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 return getExternalReferences();
+            case PresentationDslPackage.PRESENTATION_MODEL__START:
+                return getStart();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -166,6 +227,9 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 getExternalReferences().clear();
                 getExternalReferences().addAll((Collection<? extends ExternalReference>)newValue);
                 return;
+            case PresentationDslPackage.PRESENTATION_MODEL__START:
+                setStart((Application)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -184,6 +248,9 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 getExternalReferences().clear();
                 return;
+            case PresentationDslPackage.PRESENTATION_MODEL__START:
+                setStart((Application)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -200,6 +267,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 return elements != null && !elements.isEmpty();
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 return externalReferences != null && !externalReferences.isEmpty();
+            case PresentationDslPackage.PRESENTATION_MODEL__START:
+                return start != null;
         }
         return super.eIsSet(featureID);
     }

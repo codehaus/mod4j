@@ -23,7 +23,7 @@
       xml:lang="en"  
       lang="en"> 
 <wicket:panel>
-«this.name»SwapPanel
+<!--«this.name»SwapPanel-->
 <div wicket:id="«this.name»SwapPanel"></div>
 </wicket:panel>
 </html>

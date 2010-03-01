@@ -31,6 +31,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getProcess <em>Process</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +47,25 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * @ordered
      */
     protected Expression condition;
+
+    /**
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLabel()
+     * @generated
+     * @ordered
+     */
+    protected static final String LABEL_EDEFAULT = null;
+    /**
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLabel()
+     * @generated
+     * @ordered
+     */
+    protected String label = LABEL_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -153,6 +173,27 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_CALL__LABEL, oldLabel, label));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated NOT
      */
     public ProcessCall asProcessCall() {
@@ -234,6 +275,8 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return getProcess();
             case PresentationDslPackage.UI_CALL__CONDITION:
                 return getCondition();
+            case PresentationDslPackage.UI_CALL__LABEL:
+                return getLabel();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -251,6 +294,9 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return;
             case PresentationDslPackage.UI_CALL__CONDITION:
                 setCondition((Expression)newValue);
+                return;
+            case PresentationDslPackage.UI_CALL__LABEL:
+                setLabel((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -270,6 +316,9 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
             case PresentationDslPackage.UI_CALL__CONDITION:
                 setCondition((Expression)null);
                 return;
+            case PresentationDslPackage.UI_CALL__LABEL:
+                setLabel(LABEL_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -286,8 +335,26 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return getProcess() != null;
             case PresentationDslPackage.UI_CALL__CONDITION:
                 return condition != null;
+            case PresentationDslPackage.UI_CALL__LABEL:
+                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (label: ");
+        result.append(label);
+        result.append(')');
+        return result.toString();
     }
 
 } //UICallImpl

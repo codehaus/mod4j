@@ -7,9 +7,17 @@ import "platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.e
 PresentationModel :
 	(description=STRING )?
 	"presentation" name = ID ";"
+	
 	(externalReferences += ExternalReference)*
+    start = Application
 	(elements += ModelElementWithContext)*
 	;
+
+Application :
+    "application" "["
+    (startProcesses += SimpleProcessCall ";" )+
+    "]"
+;
 
 ExternalReference :
     "from" modelName = ID "import" name = ID ";"
@@ -36,7 +44,7 @@ ContentForm :
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
 		("actions" "[" (actions += Action ";" )* "]" )?
-		("processes" "[" (processes += ProcessCallFromForm ";")* "]" )?
+		("processes" "[" (processes += SimpleProcessCall ";")* "]" )?
 	"]"
 	;
 
@@ -44,12 +52,17 @@ Action  returns Process:
 	(description=STRING )? 
     (type=ProcessType)? 
     name=ID 
+    ("label" label = STRING)?
 	(processElements += ActionDialogueCall ) ?
     ;
   	
 enum ProcessType :
     NEW = "new" | SAVE = "save" | EDIT = "edit" | DELETE = "delete" | CANCEL = "cancel" |
-    REMOVEFROM = "removefrom" | ADDTO = "addto"
+    REMOVEFROM = "removefrom" | ADDTO = "addto" 
+;
+
+enum ProcessTypeLink returns ProcessType :
+    LINK = "link"
 ;
 
 CompoundDialogue :
@@ -86,8 +99,9 @@ MasterDetail :
 Process :
 	(description=STRING )?
 	"process" name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference] "["
-	(root ?= "start")?
-	(type=ProcessType)?
+    (	(type=ProcessType) | 
+        (type=ProcessTypeLink link=AssociationRoleReference ) 
+    )?
     ( processElements += UICall ";")* 
 	"]"
 	;
@@ -103,15 +117,15 @@ FormElement :
 	;
 	
 ActionDialogueCall returns DialogueCall:
-    (contextExp = Expression)? "to" name = ID
-    ("alias" alias = ID)? 
+    (contextExp = Expression)? "dialogue" name = ID
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
 
 DialogueCall :
+    (label = STRING  ":" )?
     ("if" "("  condition = OperationExpression ")")?
     (contextExp = Expression )? "dialogue" name = ID
-    ("alias" alias = ID)? 
+//    ("alias" alias = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
 
@@ -120,20 +134,20 @@ Expression :
     ;
    	
 ProcessCall :
+    (label = STRING  ":" )?
     ("if" "("  condition = OperationExpression ")")?
     (contextExp = Expression)? 
      "process" name = ID
-    ("alias" alias = ID)? 
+    ("label" label = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
     
 OperationExpression :
     "call" name = ID;
     
-ProcessCallFromForm returns ProcessCall :
-//    (contextExp = ContextExpression)? 
+SimpleProcessCall returns ProcessCall :
      name = ID
-    ("alias" alias = ID)? 
+    ("label" label = STRING)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
 

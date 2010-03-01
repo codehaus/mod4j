@@ -17,7 +17,7 @@
 «EXTENSION org::mod4j::common::xtend::NameMapper»
 «EXTENSION org::mod4j::dslcommon::xtend::ProjectProperties»
 
-«DEFINE CommonCheckBoxBaseModel FOR PresentationModel»
+«DEFINE CommonCheckBoxDtoModel FOR PresentationModel»
 package «getPresentationCommonPackage()».ext.components;
 
 import java.io.Serializable;
@@ -26,17 +26,34 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.wicket.model.IModel;
+import org.mod4j.runtime.dto.AbstractDto;
 
-public class CheckBoxBaseModel<DtoType> implements IModel<Boolean>, Serializable {
+public class CheckBoxDtoModel<DtoType extends AbstractDto>
+        implements
+            IModel<Boolean>,
+            Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final IModel<DtoType> model;
+    private final DtoType selection;
 
-    private List<IModel<DtoType>> selectedModels;
+    private List<DtoType> selectedDtos;
 
-    public CheckBoxBaseModel(List<IModel<DtoType>> selectedModels, IModel<DtoType> model) {
-        this.selectedModels = selectedModels;
-        this.model = model;
+    public CheckBoxDtoModel(List<DtoType> selectedModels, DtoType dto) {
+        this.selectedDtos = selectedModels;
+        this.selection = dto;
+    }
+    
+    protected boolean multiple = false;
+    
+    /**
+     * @return True if multiple element should be selected.
+     */
+    public boolean isMultiple() {
+        return multiple;
+    }
+
+    public void setMultiple(boolean multiple) {
+        this.multiple = multiple;
     }
 
     public IModel<?> getNestedModel() {
@@ -47,27 +64,43 @@ public class CheckBoxBaseModel<DtoType> implements IModel<Boolean>, Serializable
         return isBookAlreadyMarkedForCheckout();
     }
 
+    private AbstractDto findElement() {
+        for (AbstractDto dto : selectedDtos) {
+            if (dto.getId().equals(selection.getId())) {
+                return dto;
+            }
+        }
+        return null;
+    }
+
     private Boolean isBookAlreadyMarkedForCheckout() {
-        if (selectedModels.contains(model))
+        if( findElement() != null ) {
             return Boolean.TRUE;
-        else
+        } else {
             return Boolean.FALSE;
+        }
     }
 
     public void setObject(Boolean object) {
         boolean selected = object.booleanValue();
-        boolean previouslySelected = isBookAlreadyMarkedForCheckout().booleanValue();
+        AbstractDto previouslySelectedDto = findElement();
+//      boolean previouslySelected = isBookAlreadyMarkedForCheckout()
+//              .booleanValue();
         if (selected) {
-            if (!previouslySelected)
-                selectedModels.add(model);
+            if ( previouslySelectedDto == null) {
+                if( ! multiple ){
+                    selectedDtos.clear();
+                }
+                selectedDtos.add(selection);
+            }
         } else {
-            if (previouslySelected)
-                selectedModels.remove(model);
+            if (previouslySelectedDto != null ){
+                selectedDtos.remove(previouslySelectedDto) ;
+            }
         }
     }
 
     public void detach() {
     }
 }
-
 «ENDDEFINE»

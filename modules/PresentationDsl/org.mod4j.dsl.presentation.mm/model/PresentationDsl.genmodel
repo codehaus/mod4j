@@ -16,6 +16,7 @@
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/CANCEL"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/ADDTO"/>
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/REMOVEFROM"/>
+      <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ProcessType/LINK"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="PresentationDsl.ecore#//ExpressionType">
       <genEnumLiterals ecoreEnumLiteral="PresentationDsl.ecore#//ExpressionType/ALL"/>
@@ -72,13 +73,14 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//PresentationModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/externalReferences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/start"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/root"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/contentForm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/link"/>
       <genOperations ecoreOperation="PresentationDsl.ecore#//Process/isInteractive"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall">
@@ -86,13 +88,13 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UIModelElementCall/alias"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/contextExp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/arguments"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UICall/label"/>
       <genOperations ecoreOperation="PresentationDsl.ecore#//UICall/asProcessCall"/>
       <genOperations ecoreOperation="PresentationDsl.ecore#//UICall/asDialogueCall"/>
     </genClasses>
@@ -109,5 +111,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//StandardExpression/type"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//OperationExpression"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Application">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Application/startProcesses"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

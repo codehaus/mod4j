@@ -23,6 +23,7 @@
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CANCEL) AS cancelProcesses-» 
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses-»
 «LET this.processes.referredProcess().select(p|p.type == ProcessType::EDIT) AS editProcesses-»
+«LET this.processes.referredProcess().select(p|p.type == ProcessType::ADDTO) AS addtoProcesses-»
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  
       xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
@@ -35,7 +36,7 @@
 		<table class="vertical">
 			<caption>
 <!--				<wicket:message key="lbl.breakfast"/>-->
-                «this.name» 
+<!--                «this.name» -->
 				<span wicket:id="ajaxIndicator"/>
 			</caption>
 			<tbody>
@@ -67,7 +68,17 @@
 
 «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
     «LET pc.referredProcess() AS p»
-						<input type="submit" wicket:id="«p.name»custom" value="«((pc.alias != null) && (pc.alias != "") ? pc.alias : p.label)»"/>
+                        <input type="submit" wicket:id="«p.name»custom" value="«pc.label»"/>
+    «ENDLET»
+«ENDFOREACH»
+«FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::ADDTO)) AS pc»
+    «LET pc.referredProcess() AS p»
+                        <input type="submit" wicket:id="«p.name»" value="«pc.label»"/>
+    «ENDLET»
+«ENDFOREACH»
+«FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::LINK)) AS pc»
+    «LET pc.referredProcess() AS p»
+                        <input type="submit" wicket:id="«p.name»" value="«pc.label»"/>
     «ENDLET»
 «ENDFOREACH»
 					</td>
@@ -81,6 +92,7 @@
 	</form>
 </wicket:panel>
 </html>
+«ENDLET»
 «ENDLET»
 «ENDLET»
 «ENDLET»

@@ -71,6 +71,8 @@
         eType="#//ModelElementWithContext" containment="true" eOpposite="#//ModelElementWithContext/presentationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
         eType="#//ExternalReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Application"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//UIModelElement">
     <eOperations name="isInteractive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -79,10 +81,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProcessType"
         defaultValueLiteral="CUSTOM"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentForm" eType="#//ContentForm"
         eOpposite="#//ContentForm/actions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//AssociationRoleReference"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningDialogue" eType="#//Dialogue"
@@ -90,7 +92,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElementWithContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElementCall" eSuperTypes="#//UICall">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contextExp" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
@@ -103,6 +104,7 @@
         eOpposite="#//Process/processElements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessType">
     <eLiterals name="NEW"/>
@@ -113,6 +115,7 @@
     <eLiterals name="CANCEL" value="5"/>
     <eLiterals name="ADDTO" value="6"/>
     <eLiterals name="REMOVEFROM" value="7"/>
+    <eLiterals name="LINK" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -136,4 +139,8 @@
     <eLiterals name="SELECTION" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationExpression" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startProcesses" upperBound="-1"
+        eType="#//ProcessCall" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

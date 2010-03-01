@@ -32,7 +32,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getContextExp <em>Context Exp</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
@@ -41,26 +40,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
  * @generated
  */
 public class UIModelElementCallImpl extends UICallImpl implements UIModelElementCall {
-    /**
-     * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAlias()
-     * @generated
-     * @ordered
-     */
-    protected static final String ALIAS_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getAlias()
-     * @generated
-     * @ordered
-     */
-    protected String alias = ALIAS_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getContextExp() <em>Context Exp</em>}' containment reference.
      * <!-- begin-user-doc -->
@@ -98,27 +77,6 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     @Override
     protected EClass eStaticClass() {
         return PresentationDslPackage.Literals.UI_MODEL_ELEMENT_CALL;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getAlias() {
-        return alias;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setAlias(String newAlias) {
-        String oldAlias = alias;
-        alias = newAlias;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS, oldAlias, alias));
     }
 
     /**
@@ -200,8 +158,6 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
-                return getAlias();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
                 return getContextExp();
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
@@ -219,9 +175,6 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
-                setAlias((String)newValue);
-                return;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
                 setContextExp((Expression)newValue);
                 return;
@@ -241,9 +194,6 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
-                setAlias(ALIAS_EDEFAULT);
-                return;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
                 setContextExp((Expression)null);
                 return;
@@ -262,30 +212,12 @@ public class UIModelElementCallImpl extends UICallImpl implements UIModelElement
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ALIAS:
-                return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__CONTEXT_EXP:
                 return contextExp != null;
             case PresentationDslPackage.UI_MODEL_ELEMENT_CALL__ARGUMENTS:
                 return arguments != null && !arguments.isEmpty();
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (alias: ");
-        result.append(alias);
-        result.append(')');
-        return result.toString();
     }
 
 } //UIModelElementCallImpl

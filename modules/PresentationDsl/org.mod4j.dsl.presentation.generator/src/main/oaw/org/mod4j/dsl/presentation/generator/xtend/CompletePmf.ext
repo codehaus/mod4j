@@ -17,7 +17,9 @@ completeModel(PresentationModel pmfModel) :
     ->pmfModel.elements.typeSelect(ContentForm).formElements.addDataProperty()
     ->pmfModel.elements.typeSelect(ContentForm).formElements.fillLabel()
     -> contentForms.convertActions()
-	-> pmfModel.elements.typeSelect(Process).fillLabel()
+    -> pmfModel.elements.typeSelect(Process).fillLabel()
+    -> pmfModel.elements.typeSelect(Dialogue).processes.fillLabel()
+    -> pmfModel.start.startProcesses.fillLabel()
 	
 	;
 
@@ -52,6 +54,12 @@ fillLabel(FormElement element) :
     (  ( (element.label == null) || (element.label == "")  ) ? element.setLabel(element.references.name) : null)
 ;
 
+/** If the label is empty, fill it with the name of the property
+ */
+fillLabel(ProcessCall pcall) :
+    (  ( (pcall.label == null) || (pcall.label == "")  ) ? pcall.setLabel(pcall.name) : null)
+;
+
 /**
  * Create a new DtoProperty for 'ref''
  * 'symbols' is the list of Symbols from Crossx containing the "Property" definitions
@@ -84,7 +92,8 @@ Boolean createProcess(Object actionObject, ContentForm form) :
     let name = form.name + action.name.toFirstUpper() + "Action" :
     let processCall = new ProcessCall :
     processCall.setName(name)->
-    action.setLabel(action.name)->
+    action.setLabel( ((action.label == null) || (action.label == "")) ? action.name : action.label )->
+    processCall.setLabel(action.label)->
     action.setName(name)->
     action.setContextRef(form.contextRef)->
     form.processes.add(processCall)->

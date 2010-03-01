@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
@@ -105,6 +106,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.EXPRESSION: return createExpression();
             case PresentationDslPackage.STANDARD_EXPRESSION: return createStandardExpression();
             case PresentationDslPackage.OPERATION_EXPRESSION: return createOperationExpression();
+            case PresentationDslPackage.APPLICATION: return createApplication();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -352,6 +354,16 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public OperationExpression createOperationExpression() {
         OperationExpressionImpl operationExpression = new OperationExpressionImpl();
         return operationExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Application createApplication() {
+        ApplicationImpl application = new ApplicationImpl();
+        return application;
     }
 
     /**

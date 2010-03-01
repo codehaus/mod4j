@@ -25,7 +25,9 @@
 <body>
 </body>
 <wicket:extend>
-<p>Presentation Process «this.name»  «form.name»</p>
+<div class="processLocation">
+<p>Step: <span wicket:id="processStep"/></p>
+</div>
 <span wicket:id="errorMessages"/>
 <div wicket:id="panel"></div>
 <div>

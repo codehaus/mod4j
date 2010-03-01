@@ -94,7 +94,15 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    REMOVEFROM(7, "REMOVEFROM", "REMOVEFROM");
+    REMOVEFROM(7, "REMOVEFROM", "REMOVEFROM"), /**
+     * The '<em><b>LINK</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #LINK_VALUE
+     * @generated
+     * @ordered
+     */
+    LINK(8, "LINK", "LINK");
 
     /**
      * The '<em><b>NEW</b></em>' literal value.
@@ -217,6 +225,21 @@ public enum ProcessType implements Enumerator {
     public static final int REMOVEFROM_VALUE = 7;
 
     /**
+     * The '<em><b>LINK</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>LINK</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #LINK
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int LINK_VALUE = 8;
+
+    /**
      * An array of all the '<em><b>Process Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -232,6 +255,7 @@ public enum ProcessType implements Enumerator {
             CANCEL,
             ADDTO,
             REMOVEFROM,
+            LINK,
         };
 
     /**
@@ -290,6 +314,7 @@ public enum ProcessType implements Enumerator {
             case CANCEL_VALUE: return CANCEL;
             case ADDTO_VALUE: return ADDTO;
             case REMOVEFROM_VALUE: return REMOVEFROM;
+            case LINK_VALUE: return LINK;
         }
         return null;
     }

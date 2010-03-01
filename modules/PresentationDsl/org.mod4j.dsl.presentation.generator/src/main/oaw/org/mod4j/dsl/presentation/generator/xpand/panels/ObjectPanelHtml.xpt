@@ -28,7 +28,7 @@
 «this.contextRef.name»PanelWithLitener
 	<div class="tableWrapper vertical">
 		<table class="vertical">
-			<caption>«this.name»</caption>
+			<caption><!--«this.name»--></caption>
 			<tbody>
     «EXPAND addWicket FOREACH this.formElements»
 			</tbody>

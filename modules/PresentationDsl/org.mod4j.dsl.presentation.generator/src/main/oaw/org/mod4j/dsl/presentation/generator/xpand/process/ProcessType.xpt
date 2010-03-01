@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public enum ProcessType {
 
-    NONE(0), CUSTOM(1), NEW(2), SAVE(3), EDIT(4), CANCEL(5), ADDTO(6), REMOVEFROM(7), DELETE(8);
+    NONE(0), CUSTOM(1), NEW(2), SAVE(3), EDIT(4), CANCEL(5), ADDTO(6), REMOVEFROM(7), DELETE(8), LINK(9);
 
     private static final Map<Integer, ProcessType> lookup = new HashMap<Integer, ProcessType>();
     static {

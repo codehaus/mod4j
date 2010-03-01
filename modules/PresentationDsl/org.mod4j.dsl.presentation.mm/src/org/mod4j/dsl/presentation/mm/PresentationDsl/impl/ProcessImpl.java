@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -38,8 +39,8 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#isRoot <em>Root</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getContentForm <em>Content Form</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLink <em>Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,24 +98,14 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
     protected String label = LABEL_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
+     * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isRoot()
+     * @see #getLink()
      * @generated
      * @ordered
      */
-    protected static final boolean ROOT_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isRoot()
-     * @generated
-     * @ordered
-     */
-    protected boolean root = ROOT_EDEFAULT;
+    protected AssociationRoleReference link;
 
     /**
      * <!-- begin-user-doc -->
@@ -194,27 +185,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRoot() {
-        return root;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRoot(boolean newRoot) {
-        boolean oldRoot = root;
-        root = newRoot;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__ROOT, oldRoot, root));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public ContentForm getContentForm() {
         if (eContainerFeatureID() != PresentationDslPackage.PROCESS__CONTENT_FORM) return null;
         return (ContentForm)eContainer();
@@ -249,6 +219,49 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
         }
         else if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__CONTENT_FORM, newContentForm, newContentForm));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AssociationRoleReference getLink() {
+        return link;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLink(AssociationRoleReference newLink, NotificationChain msgs) {
+        AssociationRoleReference oldLink = link;
+        link = newLink;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__LINK, oldLink, newLink);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLink(AssociationRoleReference newLink) {
+        if (newLink != link) {
+            NotificationChain msgs = null;
+            if (link != null)
+                msgs = ((InternalEObject)link).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PROCESS__LINK, null, msgs);
+            if (newLink != null)
+                msgs = ((InternalEObject)newLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PROCESS__LINK, null, msgs);
+            msgs = basicSetLink(newLink, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__LINK, newLink, newLink));
     }
 
     /**
@@ -296,6 +309,8 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
                 return ((InternalEList<?>)getProcessElements()).basicRemove(otherEnd, msgs);
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 return basicSetContentForm(null, msgs);
+            case PresentationDslPackage.PROCESS__LINK:
+                return basicSetLink(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -328,10 +343,10 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
                 return getType();
             case PresentationDslPackage.PROCESS__LABEL:
                 return getLabel();
-            case PresentationDslPackage.PROCESS__ROOT:
-                return isRoot();
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 return getContentForm();
+            case PresentationDslPackage.PROCESS__LINK:
+                return getLink();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -355,11 +370,11 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
             case PresentationDslPackage.PROCESS__LABEL:
                 setLabel((String)newValue);
                 return;
-            case PresentationDslPackage.PROCESS__ROOT:
-                setRoot((Boolean)newValue);
-                return;
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 setContentForm((ContentForm)newValue);
+                return;
+            case PresentationDslPackage.PROCESS__LINK:
+                setLink((AssociationRoleReference)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -382,11 +397,11 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
             case PresentationDslPackage.PROCESS__LABEL:
                 setLabel(LABEL_EDEFAULT);
                 return;
-            case PresentationDslPackage.PROCESS__ROOT:
-                setRoot(ROOT_EDEFAULT);
-                return;
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 setContentForm((ContentForm)null);
+                return;
+            case PresentationDslPackage.PROCESS__LINK:
+                setLink((AssociationRoleReference)null);
                 return;
         }
         super.eUnset(featureID);
@@ -406,10 +421,10 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
                 return type != TYPE_EDEFAULT;
             case PresentationDslPackage.PROCESS__LABEL:
                 return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-            case PresentationDslPackage.PROCESS__ROOT:
-                return root != ROOT_EDEFAULT;
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 return getContentForm() != null;
+            case PresentationDslPackage.PROCESS__LINK:
+                return link != null;
         }
         return super.eIsSet(featureID);
     }
@@ -428,8 +443,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
         result.append(type);
         result.append(", label: ");
         result.append(label);
-        result.append(", root: ");
-        result.append(root);
         result.append(')');
         return result.toString();
     }

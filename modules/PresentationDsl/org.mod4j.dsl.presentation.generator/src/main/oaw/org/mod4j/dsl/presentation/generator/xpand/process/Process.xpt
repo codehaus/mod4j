@@ -24,7 +24,7 @@
         «LET javaPathFileName(getPresentationRootPackage() + ".processes." + p.name.toFirstUpper() + "ProcessImplBase") AS filePathImplBase»
  
         «FILE generate(getPresentationModuleName(""), filePathImplBase)»
-	        «IF p.isInteractive() && (p.type != ProcessType::ADDTO) »
+	        «IF p.isInteractive() »
 	            «EXPAND GenerateInteractiveProcessImplBase FOR p»
 	        «ELSE»
 	            «EXPAND GenerateBatchProcessImplBase FOR p»
@@ -69,6 +69,10 @@ package «getPresentationRootPackage()».processes;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 import «getPresentationRootPackage()».pages.«this.name.toFirstUpper()»Page;
+// import «javaDtoClassPath(this.contextRef.name)»;
+«FOREACH this.processElements.referredUIModelElement().contextRef.name.add(this.contextRef.name).toSet() AS c»
+import «javaDtoClassPath(c)»;
+«ENDFOREACH»
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationCommonPackage()».dataproviders.ModelBasedListDataProvider;
@@ -210,9 +214,16 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
         }
     }
 
-    @Override
-    public void run(«context» o){
-    }
+        @Override
+        public void run(«context» o){
+        }
+    «IF (this.type == ProcessType::ADDTO) || (this.type == ProcessType::LINK)»
+        «LET (this.link == null) ? context : this.link.name AS link»
+            «EXPAND runAddTo(link) FOR this»
+        «ENDLET»
+    «ELSE»
+        public void add(Object o){}
+    «ENDIF»
 
     public «getWicketMasterPageClass()» nextPage(«context» element) {
     «IF this.type == ProcessType::NEW»
@@ -230,10 +241,19 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
     «ELSEIF this.type == ProcessType::DELETE»
         return null;
     «ELSEIF this.type == ProcessType::ADDTO»
-        return null;
+        page = new «this.name.toFirstUpper()»Page (this, model);
+        page.setProcess(this);
+        prepareSteps();
+        return page;
+//        return null;
     «ELSEIF this.type == ProcessType::CANCEL»
         return null;
     «ELSEIF this.type == ProcessType::CUSTOM»
+        page = new «this.name.toFirstUpper()»Page (this, model);
+        page.setProcess(this);
+        prepareSteps();
+        return page;
+    «ELSEIF this.type == ProcessType::LINK»
         page = new «this.name.toFirstUpper()»Page (this, model);
         page.setProcess(this);
         prepareSteps();
@@ -298,7 +318,7 @@ public class «this.javaClass()» extends «this.javaBaseClass()»
 	   «IF this.collectionContext»
             public void run(List<«this.contextRef.name»> elements) {
                 // TODO: Implement run action for Custom batch process
-                throw new RuntimeException("Process «this.label» is not iomplemented yet [" + elements.toString() + "]");
+                throw new RuntimeException("Process «this.label» is not iomplemented yet ");
             }
 	   «ELSE»
 			public void run(«this.contextRef.name» element) {
@@ -420,13 +440,21 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
           «EXPAND runRemoveFromSingle(context) FOR this»
 	    «ENDIF»
     «ELSEIF this.type == ProcessType::ADDTO»
-        «EXPAND runAddTo(context) FOR this»
+        public void run(«this.contextRef.name» element) {
+            // do nothing, will return to previous page
+        }
 	«ELSE»
 		public void run(«context» element) {
 			// TODO: Implement run action for batch process
 			throw new RuntimeException("Process «this.label» is not iomplemented yet");
     	}
 	«ENDIF»
+	
+	«IF (this.type == ProcessType::ADDTO) || (this.type == ProcessType::LINK) » 
+        «EXPAND runAddTo(context) FOR this»
+    «ELSE»
+        public void add(Object o){}
+    «ENDIF»	
 	public void done(«getWicketMasterPageClass()» page){
 	    getOwningPage().setResponsePage(getOwningPage());
 	}
@@ -438,7 +466,6 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
 	
 }
 «ENDLET»
-«REM»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDLET»«ENDREM»
 «ENDDEFINE»
 
 «DEFINE runSave(String context) FOR Process»
@@ -570,7 +597,13 @@ abstract public class PmfProcess <T> implements Serializable {
 
     abstract public void previousStep(T o);
 	
+    /** Run this process, only applicable to batch processes
+     */
     abstract public void run(T o);
+
+    /** Add : only for addto and link processes
+     */
+    abstract public void add(Object o);
 	
 	/**
 	 * Is called by the Page that is started from this process to denote that the page (and its subprocesses)
@@ -605,9 +638,16 @@ abstract public class PmfProcess <T> implements Serializable {
 
 «DEFINE runAddTo(String context) FOR Process»
 @Override
-public void run(List<«this.contextRef.name»> elements) {
-    Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
-    list.addAll(elements);
+public void add(Object o) {
+    «IF this.type == ProcessType::ADDTO»
+	    Collection<«this.contextRef.name»> list = (Collection<«this.contextRef.name»>)model.getObject();
+	    Collection<«this.contextRef.name»> elements = (Collection<«this.contextRef.name»>) o;
+	    list.addAll(elements);
+	«ELSEIF this.type == ProcessType::LINK»
+        «this.contextRef.name» dto = («this.contextRef.name»)model.getObject();
+        List<«findType(this , this.link)»> elements = (List<«findType(this , this.link)»>) o;
+        dto.set«context.toFirstUpper()»( elements.get(0) );
+	«ENDIF»
     
     IModel innerModel = Helpers.findInnerMostModel(model);
     Object object = innerModel.getObject();
@@ -637,8 +677,8 @@ public ProcessType getProcessType() {
     «ELSEIF this.getStandardExpression() != null»
         «IF this.getStandardExpression().type == ExpressionType::ALL»
             «LET getWicketListAllDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
-            «providerType» provider = new «providerType»();
-            «this.name»Model = new Model(provider);
+            «providerType» «this.name»provider = new «providerType»();
+            «this.name»Model = new Model(«this.name»provider);
             «ENDLET»
         «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
             // TODO add Find providder IModel
