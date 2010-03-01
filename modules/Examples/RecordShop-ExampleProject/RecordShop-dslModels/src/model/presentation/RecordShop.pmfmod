@@ -29,7 +29,7 @@ form CustomerReadOnlyDetail context FullCustomerDto [
 
 CollectionDialogue CustomerCollection context FullCustomerDto [
 	  dialogues [ 
-	  	dialogue CustomerReadOnlyDetail;
+	  	form CustomerReadOnlyDetail;
 	  ]
 ]
 

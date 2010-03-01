@@ -10,9 +10,9 @@ application [
     allCustomers;
     allArtists;
 ]
-             
-// TODO: from RecordShopOrderingPresentation import OrderAndDateCollection ;
-// TODO: from RecordShopOrderingPresentation import OrderAndDateForm;
+
+form DefaultElements context FullCustomerDto [ ]
+
 form CustomerList context list SimpleCustomerDto [
 	element lastName label "Name";
 	element birthDate label "Date of birth";
@@ -35,47 +35,43 @@ form CustomerDetails context SimpleCustomerDto [
 	]
 ]
 
-process SaveCustomer context SimpleCustomerDto 
-[save]
+process save SaveCustomer context SimpleCustomerDto ;
 
-process AddIdol context list ArtistDto
-[ addto  dialogue ArtistList; ]
+process addto   AddIdol context list ArtistDto 
+[ form ArtistList; ]
     
-process NewCustomer context SimpleCustomerDto [
-    new
-    dialogue CustomerDetails ; 
+process new NewCustomer context SimpleCustomerDto [
+    form CustomerDetails ; 
 ]
      
-process DeleteCustomer context SimpleCustomerDto 
-[ delete ]     
+process delete DeleteCustomer context SimpleCustomerDto ;     
 
-process EditCustomer context SimpleCustomerDto 
-[ edit   ]
+process edit EditCustomer context SimpleCustomerDto ;
    
-process HandleCustomer context SimpleCustomerDto []
+process HandleCustomer context SimpleCustomerDto ;
   
 process HandleIdols context SimpleCustomerDto [
 //        dialogue navigate idols to ArtistList; 
-        dialogue CustomerDetails;
+        form CustomerDetails;
 ] 
 
 form ArtistList context list ArtistDto [
-    element name label "Name";
+    element lastName label "Name";
     processes [
     	addArtists;  
     	removeArtists; 
     ]
 ]     
 
-process addArtists context list ArtistDto [
-    addto dialogue ArtistList;
+process addto addArtists context list ArtistDto [
+    form ArtistList;
 ]
 
-process removeArtists context list ArtistDto [ removefrom ]
+process removefrom removeArtists context list ArtistDto ;
 
 process allCustomers context SimpleCustomerDto [
-     all dialogue CustomerList; 
+     all form CustomerList; 
 ] 
   
 process allArtists context ArtistDto
-[  all dialogue ArtistList; ] 
+[  all form ArtistList; ] 
