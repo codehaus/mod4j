@@ -7,6 +7,12 @@ from RecordShopDataContract import ArtistDto;
 // TODO from CustomerModel import  CustomerDetails ;
 from CustomerServiceModel import CustomerServiceModel;  
  
+application [
+    start;
+]
+
+process start context list FullCustomerDto [] 
+
 "Customer ContentForm"  
 form CustomerDetail context  FullCustomerDto [
 	element lastName label "name";  

@@ -6,6 +6,11 @@ from RecordShopDataContract import SimpleCustomerDto;
 from RecordShopDataContract import ArtistDto;
 from CustomerServiceModel import CustomerServiceModel;  
          
+application [ 
+    allCustomers;
+    allArtists;
+]
+             
 // TODO: from RecordShopOrderingPresentation import OrderAndDateCollection ;
 // TODO: from RecordShopOrderingPresentation import OrderAndDateForm;
 form CustomerList context list SimpleCustomerDto [
@@ -60,7 +65,7 @@ form ArtistList context list ArtistDto [
     	addArtists;  
     	removeArtists; 
     ]
-]    
+]     
 
 process addArtists context list ArtistDto [
     addto dialogue ArtistList;
@@ -69,8 +74,8 @@ process addArtists context list ArtistDto [
 process removeArtists context list ArtistDto [ removefrom ]
 
 process allCustomers context SimpleCustomerDto [
-    start all dialogue CustomerList; 
+     all dialogue CustomerList; 
 ] 
   
 process allArtists context ArtistDto
-[ start all dialogue ArtistList; ] 
+[  all dialogue ArtistList; ] 
