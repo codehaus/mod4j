@@ -96,6 +96,7 @@ Boolean createProcess(Object actionObject, ContentForm form) :
     processCall.setLabel(action.label)->
     action.setName(name)->
     action.setContextRef(form.contextRef)->
+    action.setCollectionContext(false)->
     form.processes.add(processCall)->
     form.presentationModel.elements.add(action)->
     true

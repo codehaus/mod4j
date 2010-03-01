@@ -9,7 +9,7 @@ PresentationModel :
 	"presentation" name = ID ";"
 	
 	(externalReferences += ExternalReference)*
-    start = Application
+    (start = Application)?
 	(elements += ModelElementWithContext)*
 	;
 
@@ -98,12 +98,19 @@ MasterDetail :
 
 Process :
 	(description=STRING )?
-	"process" name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference] "["
-    (	(type=ProcessType) | 
+	"process" 
+    (   (type=ProcessType) | 
         (type=ProcessTypeLink link=AssociationRoleReference ) 
-    )?
-    ( processElements += UICall ";")* 
-	"]"
+    )?	
+	name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
+	(
+	    ";"
+	    |
+	    (	"["
+            ( processElements += UICall ";")* 
+	        "]"
+	     )
+	 )
 	;
 	
 FormElement :
@@ -117,14 +124,14 @@ FormElement :
 	;
 	
 ActionDialogueCall returns DialogueCall:
-    (contextExp = Expression)? "dialogue" name = ID
+    (contextExp = Expression)? "form" name = ID
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
 
 DialogueCall :
     (label = STRING  ":" )?
     ("if" "("  condition = OperationExpression ")")?
-    (contextExp = Expression )? "dialogue" name = ID
+    (contextExp = Expression )? "form" name = ID
 //    ("alias" alias = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;

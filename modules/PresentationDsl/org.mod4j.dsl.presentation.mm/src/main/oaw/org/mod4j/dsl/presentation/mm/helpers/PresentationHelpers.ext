@@ -37,10 +37,6 @@ String getResultType(String model, String dto, NavigationExpression nav) :
     JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getResultType(
       java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression);
   
-boolean refOk(String model, String dto, NavigationExpression nav) :
-    JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.refOk(
-      java.lang.String, java.lang.String, org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression);
-
 String serviceCallResultType(String contex, ServiceExpression exp):
     JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.serviceCallResultType(java.lang.String , 
                          org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression );

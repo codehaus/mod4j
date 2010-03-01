@@ -14,7 +14,26 @@ extension org::mod4j::dslcommon::xtend::generatorutil;
 extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 extension org::eclipse::xtend::util::stdlib::elementprops;
 
-context CollectionDialogue ERROR this.name + " must havce exactly one dialogue of type ciontentform" :
+boolean hasDouble(Process process, ProcessType type ):
+    (
+       process.contentForm.actions.forAll(a | (a != process) implies ( a.type != type) ) 
+    ) &&
+    process.contentForm.processes.referredProcess().select(p | ! p.collectionContext).forAll(p | p.type != type  ) ;
+  
+boolean hasDouble(ProcessCall pcall, ProcessType ptype) :
+    let process = pcall.referredProcess() :
+    ( 
+        (
+            (! process.collectionContext) implies
+                  ((ContentForm)(pcall.owningDialogue)).actions.forAll(a | a.type != ptype)  
+        ) &&
+       pcall.owningDialogue.processes.referredProcess().remove(process).
+            forAll(p | ( p.type == ptype) implies (p.collectionContext != process.collectionContext) ) 
+     )
+     ;
+
+  
+context CollectionDialogue ERROR this.name + " must havce exactly one dialogue of type content form" :
     (this.dialogues.size == 1) 
     &&
     (this.dialogues.first().referredContentForm() != null)
@@ -22,183 +41,76 @@ context CollectionDialogue ERROR this.name + " must havce exactly one dialogue o
     (this.dialogues.first().referredContentForm().contextRef == this.contextRef) 
     ;
 
-//context Process ERROR "Process [" + name + "] is a start process, it cannot have a navigation" :
-//    this.root implies (this.processElements.first().getNavigationExpression() == null)
-//    ;
-    /*
-context SimpleProcess ERROR "A new action can only be attached to a form for a list" :
-    (this.type == ProcessType::NEW) implies (this.contentForm.isCollection) ;
-    
-context SimpleProcess ERROR "A new action must have a form attached to it" :
-    (this.type == ProcessType::NEW) implies (this.dialogueProcess != null) ;
-    
-context SimpleProcess ERROR "An edit action must have a form attached to it" :
-    (this.type == ProcessType::EDIT) implies (this.dialogueProcess != null) ;
-    
-context SimpleProcess ERROR "A save cannot have a form attached to it" :
-    (this.type == ProcessType::SAVE) implies (this.dialogueProcess == null) ;
-    
-context SimpleProcess ERROR "A delete action cannot have a form attached to it" :
-    (this.type == ProcessType::REMOVE) implies (this.dialogueProcess == null) ;
- */   
-context ContentForm ERROR "A Content Form may have at most one 'edit' action" :
-    this.actions.select(e|e.type==ProcessType::EDIT).size <= 1;
+context Process if this.type == ProcessType::ADDTO
+ERROR "An addto process must have exactly one form" :
+    (this.processElements.size == 1) &&
+    (this.processElements.typeSelect(DialogueCall).size == 1);
 
-context ContentForm ERROR "A Content Form may have at most one 'new' action" :
-    this.actions.select(e|e.type==ProcessType::NEW).size <= 1;
+context Process if this.type == ProcessType::LINK
+    ERROR "A link process must have exactly one form" :
+    (this.processElements.size == 1) &&
+    (this.processElements.typeSelect(DialogueCall).size == 1);
 
-context ContentForm ERROR "A Content Form may have at most one 'save' action" :
-    this.actions.select(e|e.type==ProcessType::SAVE).size <= 1;
+context Process ERROR "A save action / process cannot have a form attached to it" :
+    (this.type == ProcessType::SAVE) implies (this.processElements.typeSelect(DialogueCall).isEmpty) ;
+    
+context Process ERROR "A delete action / process cannot have a form attached to it" :
+    (this.type == ProcessType::DELETE) implies (this.processElements.typeSelect(DialogueCall).isEmpty) ;
 
-context ContentForm ERROR "A Content Form may have at most one 'cancel' action" :
-    this.actions.select(e|e.type==ProcessType::CANCEL).size <= 1;
+context Process ERROR "A removefrom action / process cannot have a form attached to it" :
+    (this.type == ProcessType::REMOVEFROM) implies (this.processElements.typeSelect(DialogueCall).isEmpty) ;
+   
+context Process if (this.type != ProcessType::CUSTOM) && (this.contentForm != null) 
+    ERROR "11 A Content Form may have at most one '" + this.type + "' action or process" :
+    hasDouble(this, this.type);
+    
+context Process if this.type == ProcessType::SAVE 
+    ERROR "A 'save' process cannot have a 'list'  context ":
+    ! this.collectionContext;
 
-context ContentForm ERROR "A Content Form may have at most one 'remove' action" :
-    this.actions.select(e|e.type==ProcessType::DELETE).size <= 1;
+context Process if this.type == ProcessType::EDIT 
+    ERROR "An 'edit' process cannot have a 'list'  context ":
+    ! this.collectionContext;
+
+//context Process if (this.type == ProcessType::EDIT) && (this.contentForm != null) 
+//    ERROR "A Content Form may have at most one 'edit' action or process" :
+//    this.contentForm.actions.forAll(p | (p != this) implies ( p.type != ProcessType::EDIT) ) &&
+//    this.contentForm.processes.referredProcess().forAll(p | p.type != ProcessType::EDIT) ;
+
+context ProcessCall if (this.referredProcess().type != ProcessType::CUSTOM) && (this.owningDialogue != null) 
+    ERROR "12 A Content Form may have at most one " + this.referredProcess().type + "' action or process" :
+    hasDouble(this, this.referredProcess().type);
 /*
-context Process ERROR " service error " + this.getProperty("ERROR") :
-    ( (this.name != null) && (this.name.length > 0)       
-    )implies
-    this.services.forAll(svc | 
-            let result = serviceCallResultType(this.contextRef.name, svc) :
-              
-              (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
-            ) 
-            ;
+context ContentForm ERROR "A Content Form may have at most one 'delete list' action" :
+    this.actions.union( this.processes.referredProcess() ).select(e| (e.type==ProcessType::DELETE) && e.collectionContext).size <= 1;
 
-context SimpleProcess ERROR " service error " + this.getProperty("ERROR") :
-    ( (this.process != null) )       
-    implies
-    this.process.services.forAll(svc | 
-            let result = serviceCallResultType(this.contentForm.contextRef.name, svc) :
-              
-              (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
-            )
-            ;
+context ContentForm ERROR "A Content Form may have at most one 'delete single object' action" :
+    this.actions.union( this.processes.referredProcess() ).select(e| (e.type==ProcessType::DELETE) && (!e.collectionContext) ).size <= 1;
+
+context ContentForm ERROR "A Content Form may have at most one 'remove from list' action" :
+    this.actions.union( this.processes.referredProcess() ).select(e| (e.type==ProcessType::REMOVEFROM) && e.collectionContext).size <= 1;
+
+context ContentForm ERROR "A Content Form may have at most one 'remove from single object' action" :
+    this.actions.union( this.processes.referredProcess() ).select(e| (e.type==ProcessType::REMOVEFROM) && (!e.collectionContext) ).size <= 1;
 */
-context DialogueCall ERROR "referredForm [" + this.name + "] not found" :
+context DialogueCall ERROR  "Referred form [" + this.name + "] not found" :
 	this.referredContentForm() != null
     ;
 
-context ProcessCall ERROR "referredProcess [" + this.name + "] not found" :
+context ProcessCall ERROR "Referred process [" + this.name + "] not found" :
 	this.referredProcess() != null
     ;
 
 context Process ERROR "Process error " + this.getProperty("ERROR") :
     let result = checkProcess(this) :       
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
-      ;
+     ;
 
 context ProcessCall ERROR "ProcessCall error " + this.getProperty("ERROR") :
     let result = checkProcessCall(this) :       
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
       ;
-    
 
-// context of referred forms must be the same as the process, except when teh dialogue call has a contextExp
-/*
-context Process ERROR this.getProperty("ERROR") :
-let con = (this.contextRef != null ? this.contextRef
-           : ((SimpleProcess)this.eContainer).contentForm.contextRef) :
-    (this.processElements != null) implies (
-        this.processElements.typeSelect(DialogueCall).select(d|d.contextExp == null)
-        .referredContentForm().forAll(form |
-           ( (
-                  (( form != null) ) && ( form.contextRef.name != con.name) )
-                    ? (setProperty("ERROR", "form context [" + form.contextRef.name + "] should be the same as process context [" +
-                                                        con.name + "]")->false)
-                                               : true
-          ))
-    );
-    
-context Process ERROR this.getProperty("ERROR") :
-let con = (this.contextRef != null ? this.contextRef
-           : ((SimpleProcess)this.eContainer).contentForm.contextRef) :
-    this.processElements != null implies (
-        this.processElements.typeSelect(DialogueCall).select(d|d.contextExp != null)
-        .forAll( dd  |
-            let form = dd.referredContentForm() :(
-			let navigationExpression = getNavigationExpression(dd): (
-		    navigationExpression != null implies (
-			        let resultType =  getResultType(con.modelName, con.name, navigationExpression) : (
-                   
-                      (  ( form != null) ) && ( form.contextRef.name != resultType) )
-                       ? (setProperty("ERROR", "form context [" + form.contextRef.name + 
-                                      "] should be the same as navigation context [" +
-										resultType + "]")->false
-                         )
-                        : (true)
-                   )
-            )))
-        
-     );
-*/
-/*
-context SimpleProcess ERROR "The form [" + this.dialogue.name + "] must have the same context as the from to which the action belongs [" + this.contentForm.name + "]" :
-    ((this.dialogue != null) && (this.dialogue.referredContentForm() != null) )
-    implies this.dialogue.referredContentForm().contextRef.name.equalsIgnoreCase(this.contentForm.contextRef.name);
- */
-/*
- context SimpleProcess ERROR "Reference not ok" :
-    let link = this.dialogueProcess.getNavigationExpression() :
-	(link != null )implies (
-    	refOk(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, link)
-    )
-    ; 
-    */   
-/*
- context SimpleProcess ERROR this.getProperty("ERROR") :
- //"Navigation type is[" + getResultType(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, this.dialogue.getLinkNavigation())
- //                               + "] should match dialogue context [" + this.dialogue.referredContentForm().contextRef.name + "]" : 
-    let link = this.dialogue.getLinkNavigation() :
-    let navigationResultType =(link  == null ? "" :  getResultType(this.contentForm.contextRef.modelName, this.contentForm.contextRef.name, link)) :
-	(link != null )implies (
-	    this.setProperty("ERROR", "Type [" + navigationResultType + "] is incorrect")->
-            navigationResultType.matches(this.dialogue.referredContentForm().contextRef.name)
-    )
-;
-*/
-/*context DataContractDsl::BusinessClassAssociationRoleReference ERROR this.getProperty("ERROR") :
-    let symbol = lookupSymbol(this.dto.base.modelname, this.dto.base.name, "BusinessClass") :
-    let props = (symbol == null ? {} : symbol.subSymbols.select(s|s.type.matches("Association") && (s.name == this.name)) ):
-    let prop = (props == null ? null : props.first() ):
-    let mult = (prop == null ? null : getPropertyValue(prop, "Multiplicity") ):
-    if (mult == null) || (this.dtoType == null) then
-        true
-    else (
-	    if (mult == "ONE") then 
-	    (    
-	        if this.dtoType.metaType == DataContractDsl::BusinessClassDto then
-	        (   
-	            let expected = getPropertyValue(prop, "BusinessClass") :
-	            let actual   = ((DataContractDsl::BusinessClassDto)this.dtoType).base.name :
-	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
-	            expected == actual
-	        ) else 
-	            (this.setProperty("ERROR", "[" + this.dtoType.name + "] should be a BusinesClassDto")-> 
-	            false)
-	    )
-	    else   // (mult == "MANY")  
-	    (
-	        if this.dtoType.metaType == DataContractDsl::ListDto then
-	        (
-	            let expected = getPropertyValue(prop, "BusinessClass") :
-	            let baseDto  =((DataContractDsl::ListDto)this.dtoType) .baseDto :
-	            if baseDto.metaType != DataContractDsl::BusinessClassDto then
-	            (
-	                this.setProperty("ERROR", "base type of  ListDto [" + this.dtoType.name + "] must be a BusinessClassDto")->
-	                false
-	            ) else (
-	                let actual = ((DataContractDsl::BusinessClassDto)baseDto).base.name :
-    	            this.setProperty("ERROR", "Base class of [" + this.dtoType.name + "] should be [" + expected + "]")->
-	                expected == actual
-	            )
-            )
-	        else (
-	            this.setProperty("ERROR", "Type of  [" + this.name + "] must be a ListDto")->
-	            false
-	        )
-        )
-	)
-    ;
-*/
+context ProcessCall if (this.owningDialogue != null) && (this.referredProcess() != null)
+ ERROR "The process [" + this.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
+    this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess().contextRef.name);

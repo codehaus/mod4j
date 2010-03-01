@@ -316,22 +316,6 @@ public class PresentationHelpers {
         return result;
     }
 
-    static public boolean refOk(String model, String dtoName, NavigationExpression nav){
-        String result= null;
-        
-        EList<AssociationRoleReference> x = nav.getReferences(); // extra line to avoid incporrect error message of java compiler in Eclipse
-        AssociationRoleReference ref = x.get(0);
-        System.err.println("MOD4J REFOK NAV [" + ref.getName() + "]" );
-        Symbol dto = CrossxBroker.lookupSymbol(model, dtoName, "Dto");
-        System.err.println("MOD4J REFOK DTO [" + dto.getName() + "]" );
-        Symbol reference = CrossxBroker.getSubSymbol(dto, ref.getName());
-        if( reference == null){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public static String checkProcessCall(ProcessCall call) {
         Process process = referredProcess(call);
         if( process == null ){

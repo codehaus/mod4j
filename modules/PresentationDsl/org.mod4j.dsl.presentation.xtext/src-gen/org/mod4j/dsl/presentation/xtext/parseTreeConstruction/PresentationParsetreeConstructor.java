@@ -68,14 +68,14 @@ protected class ThisRootNode extends RootToken {
  *
  * PresentationModel:
  *   description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
- *   * start=Application elements+=ModelElementWithContext*; 
+ *   * start=Application? elements+=ModelElementWithContext*; 
  * 
  * //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
  *
  **/
 
 // description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-// * start=Application elements+=ModelElementWithContext*
+// * start=Application? elements+=ModelElementWithContext*
 protected class PresentationModel_Group extends GroupToken {
 	
 	public PresentationModel_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -90,6 +90,8 @@ protected class PresentationModel_Group extends GroupToken {
 		switch(index) {
 			case 0: return new PresentationModel_ElementsAssignment_6(parent, this, 0, inst);
 			case 1: return new PresentationModel_StartAssignment_5(parent, this, 1, inst);
+			case 2: return new PresentationModel_ExternalReferencesAssignment_4(parent, this, 2, inst);
+			case 3: return new PresentationModel_SemicolonKeyword_3(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -244,7 +246,7 @@ protected class PresentationModel_ExternalReferencesAssignment_4 extends Assignm
 	}	
 }
 
-// start=Application
+// start=Application?
 protected class PresentationModel_StartAssignment_5 extends AssignmentToken  {
 	
 	public PresentationModel_StartAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -263,7 +265,7 @@ protected class PresentationModel_StartAssignment_5 extends AssignmentToken  {
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("start",true)) == null) return null;
+		if((value = current.getConsumable("start",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("start");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
@@ -325,6 +327,8 @@ protected class PresentationModel_ElementsAssignment_6 extends AssignmentToken  
 		switch(index) {
 			case 0: return new PresentationModel_ElementsAssignment_6(parent, next, actIndex, consumed);
 			case 1: return new PresentationModel_StartAssignment_5(parent, next, actIndex, consumed);
+			case 2: return new PresentationModel_ExternalReferencesAssignment_4(parent, next, actIndex, consumed);
+			case 3: return new PresentationModel_SemicolonKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -3994,15 +3998,15 @@ protected class MasterDetail_RightSquareBracketKeyword_12_3 extends KeywordToken
 /************ begin Rule Process ****************
  *
  * Process:
- *   description=STRING? "process" name=ID "context" collectionContext?="list"? contextRef
- *   =[ExternalReference] "[" (type=ProcessType|type=ProcessTypeLink link=
- *   AssociationRoleReference)? (processElements+=UICall ";")* "]";
+ *   description=STRING? "process" (type=ProcessType|type=ProcessTypeLink link=
+ *   AssociationRoleReference)? name=ID "context" collectionContext?="list"? contextRef=[
+ *   ExternalReference] (";"|"[" (processElements+=UICall ";")* "]");
  *
  **/
 
-// description=STRING? "process" name=ID "context" collectionContext?="list"? contextRef
-// =[ExternalReference] "[" (type=ProcessType|type=ProcessTypeLink link=
-// AssociationRoleReference)? (processElements+=UICall ";")* "]"
+// description=STRING? "process" (type=ProcessType|type=ProcessTypeLink link=
+// AssociationRoleReference)? name=ID "context" collectionContext?="list"? contextRef=[
+// ExternalReference] (";"|"[" (processElements+=UICall ";")* "]")
 protected class Process_Group extends GroupToken {
 	
 	public Process_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4015,7 +4019,7 @@ protected class Process_Group extends GroupToken {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Process_RightSquareBracketKeyword_9(parent, this, 0, inst);
+			case 0: return new Process_Alternatives_7(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4076,15 +4080,36 @@ protected class Process_ProcessKeyword_1 extends KeywordToken  {
 		
 }
 
-// name=ID
-protected class Process_NameAssignment_2 extends AssignmentToken  {
+// (type=ProcessType|type=ProcessTypeLink link=AssociationRoleReference)?
+protected class Process_Alternatives_2 extends AlternativesToken {
+
+	public Process_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public Process_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getProcessAccess().getAlternatives_2();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_TypeAssignment_2_0(parent, this, 0, inst);
+			case 1: return new Process_Group_2_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// type=ProcessType
+protected class Process_TypeAssignment_2_0 extends AssignmentToken  {
+	
+	public Process_TypeAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getNameAssignment_2();
+		return grammarAccess.getProcessAccess().getTypeAssignment_2_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -4095,169 +4120,11 @@ protected class Process_NameAssignment_2 extends AssignmentToken  {
 	}	
 		
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getProcessAccess().getNameIDTerminalRuleCall_2_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "context"
-protected class Process_ContextKeyword_3 extends KeywordToken  {
-	
-	public Process_ContextKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getProcessAccess().getContextKeyword_3();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Process_NameAssignment_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// collectionContext?="list"?
-protected class Process_CollectionContextAssignment_4 extends AssignmentToken  {
-	
-	public Process_CollectionContextAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getCollectionContextAssignment_4();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Process_ContextKeyword_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("collectionContext",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("collectionContext");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getProcessAccess().getCollectionContextListKeyword_4_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// contextRef=[ExternalReference]
-protected class Process_ContextRefAssignment_5 extends AssignmentToken  {
-	
-	public Process_ContextRefAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getContextRefAssignment_5();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Process_CollectionContextAssignment_4(parent, this, 0, inst);
-			case 1: return new Process_ContextKeyword_3(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("contextRef",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("contextRef");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getProcessAccess().getContextRefExternalReferenceCrossReference_5_0().getType().getClassifier())) {
-				type = AssignmentType.CR;
-				element = grammarAccess.getProcessAccess().getContextRefExternalReferenceCrossReference_5_0(); 
-				return obj;
-			}
-		}
-		return null;
-	}
-
-}
-
-// "["
-protected class Process_LeftSquareBracketKeyword_6 extends KeywordToken  {
-	
-	public Process_LeftSquareBracketKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getProcessAccess().getLeftSquareBracketKeyword_6();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Process_ContextRefAssignment_5(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// (type=ProcessType|type=ProcessTypeLink link=AssociationRoleReference)?
-protected class Process_Alternatives_7 extends AlternativesToken {
-
-	public Process_Alternatives_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getProcessAccess().getAlternatives_7();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Process_TypeAssignment_7_0(parent, this, 0, inst);
-			case 1: return new Process_Group_7_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// type=ProcessType
-protected class Process_TypeAssignment_7_0 extends AssignmentToken  {
-	
-	public Process_TypeAssignment_7_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getTypeAssignment_7_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Process_LeftSquareBracketKeyword_6(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("type",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("type");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.ERC;
-			element = grammarAccess.getProcessAccess().getTypeProcessTypeEnumRuleCall_7_0_0();
+			element = grammarAccess.getProcessAccess().getTypeProcessTypeEnumRuleCall_2_0_0();
 			return obj;
 		}
 		return null;
@@ -4266,19 +4133,19 @@ protected class Process_TypeAssignment_7_0 extends AssignmentToken  {
 }
 
 // type=ProcessTypeLink link=AssociationRoleReference
-protected class Process_Group_7_1 extends GroupToken {
+protected class Process_Group_2_1 extends GroupToken {
 	
-	public Process_Group_7_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Group getGrammarElement() {
-		return grammarAccess.getProcessAccess().getGroup_7_1();
+		return grammarAccess.getProcessAccess().getGroup_2_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Process_LinkAssignment_7_1_1(parent, this, 0, inst);
+			case 0: return new Process_LinkAssignment_2_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4286,19 +4153,19 @@ protected class Process_Group_7_1 extends GroupToken {
 }
 
 // type=ProcessTypeLink
-protected class Process_TypeAssignment_7_1_0 extends AssignmentToken  {
+protected class Process_TypeAssignment_2_1_0 extends AssignmentToken  {
 	
-	public Process_TypeAssignment_7_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_TypeAssignment_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getTypeAssignment_7_1_0();
+		return grammarAccess.getProcessAccess().getTypeAssignment_2_1_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Process_LeftSquareBracketKeyword_6(parent, this, 0, inst);
+			case 0: return new Process_ProcessKeyword_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4308,7 +4175,7 @@ protected class Process_TypeAssignment_7_1_0 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("type");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.ERC;
-			element = grammarAccess.getProcessAccess().getTypeProcessTypeLinkEnumRuleCall_7_1_0_0();
+			element = grammarAccess.getProcessAccess().getTypeProcessTypeLinkEnumRuleCall_2_1_0_0();
 			return obj;
 		}
 		return null;
@@ -4317,14 +4184,14 @@ protected class Process_TypeAssignment_7_1_0 extends AssignmentToken  {
 }
 
 // link=AssociationRoleReference
-protected class Process_LinkAssignment_7_1_1 extends AssignmentToken  {
+protected class Process_LinkAssignment_2_1_1 extends AssignmentToken  {
 	
-	public Process_LinkAssignment_7_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_LinkAssignment_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getLinkAssignment_7_1_1();
+		return grammarAccess.getProcessAccess().getLinkAssignment_2_1_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -4341,7 +4208,7 @@ protected class Process_LinkAssignment_7_1_1 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getAssociationRoleReferenceRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getProcessAccess().getLinkAssociationRoleReferenceParserRuleCall_7_1_1_0(); 
+				element = grammarAccess.getProcessAccess().getLinkAssociationRoleReferenceParserRuleCall_2_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -4352,7 +4219,7 @@ protected class Process_LinkAssignment_7_1_1 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Process_TypeAssignment_7_1_0(parent, next, actIndex, consumed);
+			case 0: return new Process_TypeAssignment_2_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -4360,20 +4227,219 @@ protected class Process_LinkAssignment_7_1_1 extends AssignmentToken  {
 
 
 
-// (processElements+=UICall ";")*
-protected class Process_Group_8 extends GroupToken {
+// name=ID
+protected class Process_NameAssignment_3 extends AssignmentToken  {
 	
-	public Process_Group_8(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
-	public Group getGrammarElement() {
-		return grammarAccess.getProcessAccess().getGroup_8();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getProcessAccess().getNameAssignment_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Process_SemicolonKeyword_8_1(parent, this, 0, inst);
+			case 0: return new Process_Alternatives_2(parent, this, 0, inst);
+			case 1: return new Process_ProcessKeyword_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getProcessAccess().getNameIDTerminalRuleCall_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "context"
+protected class Process_ContextKeyword_4 extends KeywordToken  {
+	
+	public Process_ContextKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getProcessAccess().getContextKeyword_4();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_NameAssignment_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// collectionContext?="list"?
+protected class Process_CollectionContextAssignment_5 extends AssignmentToken  {
+	
+	public Process_CollectionContextAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getProcessAccess().getCollectionContextAssignment_5();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_ContextKeyword_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("collectionContext",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("collectionContext");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getProcessAccess().getCollectionContextListKeyword_5_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// contextRef=[ExternalReference]
+protected class Process_ContextRefAssignment_6 extends AssignmentToken  {
+	
+	public Process_ContextRefAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getProcessAccess().getContextRefAssignment_6();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_CollectionContextAssignment_5(parent, this, 0, inst);
+			case 1: return new Process_ContextKeyword_4(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("contextRef",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("contextRef");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getProcessAccess().getContextRefExternalReferenceCrossReference_6_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getProcessAccess().getContextRefExternalReferenceCrossReference_6_0(); 
+				return obj;
+			}
+		}
+		return null;
+	}
+
+}
+
+// ";"|"[" (processElements+=UICall ";")* "]"
+protected class Process_Alternatives_7 extends AlternativesToken {
+
+	public Process_Alternatives_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getProcessAccess().getAlternatives_7();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_SemicolonKeyword_7_0(parent, this, 0, inst);
+			case 1: return new Process_Group_7_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ";"
+protected class Process_SemicolonKeyword_7_0 extends KeywordToken  {
+	
+	public Process_SemicolonKeyword_7_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getProcessAccess().getSemicolonKeyword_7_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_ContextRefAssignment_6(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "[" (processElements+=UICall ";")* "]"
+protected class Process_Group_7_1 extends GroupToken {
+	
+	public Process_Group_7_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getProcessAccess().getGroup_7_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_RightSquareBracketKeyword_7_1_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "["
+protected class Process_LeftSquareBracketKeyword_7_1_0 extends KeywordToken  {
+	
+	public Process_LeftSquareBracketKeyword_7_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getProcessAccess().getLeftSquareBracketKeyword_7_1_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_ContextRefAssignment_6(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// (processElements+=UICall ";")*
+protected class Process_Group_7_1_1 extends GroupToken {
+	
+	public Process_Group_7_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getProcessAccess().getGroup_7_1_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Process_SemicolonKeyword_7_1_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4381,14 +4447,14 @@ protected class Process_Group_8 extends GroupToken {
 }
 
 // processElements+=UICall
-protected class Process_ProcessElementsAssignment_8_0 extends AssignmentToken  {
+protected class Process_ProcessElementsAssignment_7_1_1_0 extends AssignmentToken  {
 	
-	public Process_ProcessElementsAssignment_8_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_ProcessElementsAssignment_7_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProcessAccess().getProcessElementsAssignment_8_0();
+		return grammarAccess.getProcessAccess().getProcessElementsAssignment_7_1_1_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -4405,7 +4471,7 @@ protected class Process_ProcessElementsAssignment_8_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getUICallRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getProcessAccess().getProcessElementsUICallParserRuleCall_8_0_0(); 
+				element = grammarAccess.getProcessAccess().getProcessElementsUICallParserRuleCall_7_1_1_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -4416,28 +4482,27 @@ protected class Process_ProcessElementsAssignment_8_0 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Process_Group_8(parent, next, actIndex, consumed);
-			case 1: return new Process_Alternatives_7(parent, next, actIndex, consumed);
-			case 2: return new Process_LeftSquareBracketKeyword_6(parent, next, actIndex, consumed);
+			case 0: return new Process_Group_7_1_1(parent, next, actIndex, consumed);
+			case 1: return new Process_LeftSquareBracketKeyword_7_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ";"
-protected class Process_SemicolonKeyword_8_1 extends KeywordToken  {
+protected class Process_SemicolonKeyword_7_1_1_1 extends KeywordToken  {
 	
-	public Process_SemicolonKeyword_8_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_SemicolonKeyword_7_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getProcessAccess().getSemicolonKeyword_8_1();
+		return grammarAccess.getProcessAccess().getSemicolonKeyword_7_1_1_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Process_ProcessElementsAssignment_8_0(parent, this, 0, inst);
+			case 0: return new Process_ProcessElementsAssignment_7_1_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4446,26 +4511,27 @@ protected class Process_SemicolonKeyword_8_1 extends KeywordToken  {
 
 
 // "]"
-protected class Process_RightSquareBracketKeyword_9 extends KeywordToken  {
+protected class Process_RightSquareBracketKeyword_7_1_2 extends KeywordToken  {
 	
-	public Process_RightSquareBracketKeyword_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Process_RightSquareBracketKeyword_7_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getProcessAccess().getRightSquareBracketKeyword_9();
+		return grammarAccess.getProcessAccess().getRightSquareBracketKeyword_7_1_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Process_Group_8(parent, this, 0, inst);
-			case 1: return new Process_Alternatives_7(parent, this, 1, inst);
-			case 2: return new Process_LeftSquareBracketKeyword_6(parent, this, 2, inst);
+			case 0: return new Process_Group_7_1_1(parent, this, 0, inst);
+			case 1: return new Process_LeftSquareBracketKeyword_7_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
 }
+
+
 
 
 /************ end Rule Process ****************/
@@ -4823,7 +4889,7 @@ protected class FormElement_SemicolonKeyword_5 extends KeywordToken  {
 /************ begin Rule ActionDialogueCall ****************
  *
  * ActionDialogueCall returns DialogueCall:
- *   contextExp=Expression? "dialogue" name=ID; 
+ *   contextExp=Expression? "form" name=ID; 
  * 	
  *     
  *                 
@@ -4831,7 +4897,7 @@ protected class FormElement_SemicolonKeyword_5 extends KeywordToken  {
  *
  **/
 
-// contextExp=Expression? "dialogue" name=ID 
+// contextExp=Expression? "form" name=ID 
 //                 
 // //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 protected class ActionDialogueCall_Group extends GroupToken {
@@ -4898,15 +4964,15 @@ protected class ActionDialogueCall_ContextExpAssignment_0 extends AssignmentToke
 	}	
 }
 
-// "dialogue"
-protected class ActionDialogueCall_DialogueKeyword_1 extends KeywordToken  {
+// "form"
+protected class ActionDialogueCall_FormKeyword_1 extends KeywordToken  {
 	
-	public ActionDialogueCall_DialogueKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ActionDialogueCall_FormKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getActionDialogueCallAccess().getDialogueKeyword_1();
+		return grammarAccess.getActionDialogueCallAccess().getFormKeyword_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -4932,7 +4998,7 @@ protected class ActionDialogueCall_NameAssignment_2 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ActionDialogueCall_DialogueKeyword_1(parent, this, 0, inst);
+			case 0: return new ActionDialogueCall_FormKeyword_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4958,7 +5024,7 @@ protected class ActionDialogueCall_NameAssignment_2 extends AssignmentToken  {
  *
  * DialogueCall:
  *   (label=STRING ":")? ("if" "(" condition=OperationExpression ")")? contextExp=
- *   Expression? "dialogue" name=ID; 
+ *   Expression? "form" name=ID; 
  * 
  *   
  *              
@@ -4970,7 +5036,7 @@ protected class ActionDialogueCall_NameAssignment_2 extends AssignmentToken  {
  **/
 
 // (label=STRING ":")? ("if" "(" condition=OperationExpression ")")? contextExp=
-// Expression? "dialogue" name=ID 
+// Expression? "form" name=ID 
 //              
 //                
 //                   
@@ -5236,15 +5302,15 @@ protected class DialogueCall_ContextExpAssignment_2 extends AssignmentToken  {
 	}	
 }
 
-// "dialogue"
-protected class DialogueCall_DialogueKeyword_3 extends KeywordToken  {
+// "form"
+protected class DialogueCall_FormKeyword_3 extends KeywordToken  {
 	
-	public DialogueCall_DialogueKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DialogueCall_FormKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDialogueCallAccess().getDialogueKeyword_3();
+		return grammarAccess.getDialogueCallAccess().getFormKeyword_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -5273,7 +5339,7 @@ protected class DialogueCall_NameAssignment_4 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DialogueCall_DialogueKeyword_3(parent, this, 0, inst);
+			case 0: return new DialogueCall_FormKeyword_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

@@ -128,6 +128,7 @@ public class «className» extends Panel
         «IF withProcesses»
 	        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
 	            «LET pp.referredProcess() AS process»
+/*
                     // New process 
 					Link «process.name»Link = new Link<Object>("«process.name»") {
 						@Override
@@ -144,12 +145,30 @@ public class «className» extends Panel
 	                if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
 	                    «process.name»Link.setEnabled(false);
 	                }
+*/
 				«ENDLET»
 			«ENDFOREACH»
 			
 	        «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
 	            «LET pp.referredProcess() AS process»
-	            «IF process.collectionContext »
+                «IF process.type==ProcessType::NEW »
+                    // New process 
+                    Link «process.name»Link = new Link<Object>("«process.name»") {
+                        @Override
+                        public void onClick() {
+                            «process.javaClass()» process = new «process.javaClass()»(model);
+                            process.setOwningPage((«getWicketMasterPageClass()»)this.getPage());
+                            Page next = process.nextPage(null);
+                            if (next != null) {
+                                setResponsePage(next);
+                            }
+                        }
+                    };
+                    add(«process.name»Link);
+                    if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
+                        «process.name»Link.setEnabled(false);
+                    }
+	            «ELSEIF process.collectionContext »
 	                «IF process.type == ProcessType::ADDTO»
 	                    «LET process.processElements.typeSelect(DialogueCall).first().referredDialogue() AS dialogue»
                         // AddTo process 

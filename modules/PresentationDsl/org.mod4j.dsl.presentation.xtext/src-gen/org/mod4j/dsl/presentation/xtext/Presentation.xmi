@@ -20,7 +20,7 @@
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="externalReferences" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="start" operator="=">
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="start" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
         </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="elements" operator="+=">
@@ -395,6 +395,19 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="process"/>
+        <tokens xsi:type="xtext:Alternatives" cardinality="?">
+          <groups xsi:type="xtext:Assignment" feature="type" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+            </tokens>
+            <tokens xsi:type="xtext:Assignment" feature="link" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+            </tokens>
+          </groups>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
@@ -410,27 +423,19 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </terminal>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="["/>
-        <tokens xsi:type="xtext:Alternatives" cardinality="?">
-          <groups xsi:type="xtext:Assignment" feature="type" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-          </groups>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value=";"/>
           <groups xsi:type="xtext:Group">
-            <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+            <tokens xsi:type="xtext:Keyword" value="["/>
+            <tokens xsi:type="xtext:Group" cardinality="*">
+              <tokens xsi:type="xtext:Assignment" feature="processElements" operator="+=">
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+              </tokens>
+              <tokens xsi:type="xtext:Keyword" value=";"/>
             </tokens>
-            <tokens xsi:type="xtext:Assignment" feature="link" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
-            </tokens>
+            <tokens xsi:type="xtext:Keyword" value="]"/>
           </groups>
         </tokens>
-        <tokens xsi:type="xtext:Group" cardinality="*">
-          <tokens xsi:type="xtext:Assignment" feature="processElements" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
-          </tokens>
-          <tokens xsi:type="xtext:Keyword" value=";"/>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="FormElement">
@@ -471,7 +476,7 @@
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="contextExp" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="dialogue"/>
+        <tokens xsi:type="xtext:Keyword" value="form"/>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
@@ -499,7 +504,7 @@
         <tokens xsi:type="xtext:Assignment" cardinality="?" feature="contextExp" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="dialogue"/>
+        <tokens xsi:type="xtext:Keyword" value="form"/>
         <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </tokens>
