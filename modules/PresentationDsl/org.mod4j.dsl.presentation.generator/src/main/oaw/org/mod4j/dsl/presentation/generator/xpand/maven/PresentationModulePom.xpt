@@ -32,7 +32,7 @@
     <version>«getApplicationVersion()»</version>
     <packaging>war</packaging>
     <properties>
-        <wicket.version>1.4.1</wicket.version>
+        <wicket.version>1.4.6</wicket.version>
         <jetty.version>6.1.4</jetty.version>
     </properties>
     <build>
