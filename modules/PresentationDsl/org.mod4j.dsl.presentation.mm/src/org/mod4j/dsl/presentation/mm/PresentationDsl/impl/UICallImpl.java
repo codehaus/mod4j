@@ -281,9 +281,11 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * @generated
      */
     public ProcessCall asProcessCall() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+        if( this instanceof ProcessCall ){
+            return (ProcessCall) this;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -292,9 +294,11 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * @generated
      */
     public DialogueCall asDialogueCall() {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+        if( this instanceof DialogueCall ){
+            return (DialogueCall) this;
+        } else {
+            return null;
+        }
     }
 
     /**
