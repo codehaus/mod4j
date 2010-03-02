@@ -19,7 +19,7 @@ completeModel(PresentationModel pmfModel) :
     -> contentForms.convertActions()
     -> pmfModel.elements.typeSelect(Process).fillLabel()
     -> pmfModel.elements.typeSelect(Dialogue).processes.fillLabel()
-    -> pmfModel.start.startProcesses.fillLabel()
+    -> ( (pmfModel.start != null)? pmfModel.start.startProcesses.fillLabel() : null)
 	
 	;
 

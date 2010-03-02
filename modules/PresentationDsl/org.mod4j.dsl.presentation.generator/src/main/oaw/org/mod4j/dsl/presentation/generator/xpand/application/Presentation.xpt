@@ -323,10 +323,12 @@ import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-«FOREACH processes.referredProcess() AS process-»
-import «getPresentationRootPackage()».processes.«process.javaClass()»;
-import «javaDtoClassPath(process.contextRef.name)»;
-«ENDFOREACH»
+«IF this.start!= null»
+    «FOREACH processes.referredProcess() AS process-»
+	import «getPresentationRootPackage()».processes.«process.javaClass()»;
+	import «javaDtoClassPath(process.contextRef.name)»;
+	«ENDFOREACH»
+«ENDIF»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
 import «getPresentationRootPackage()».«getWicketApplicationClass()»;
 
@@ -381,39 +383,24 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
         homeLink.setAutoEnable(true);
         homeLink.add(new Label("name", getLocalizer().getString("lbl.home", this)) );
         menuItems.add(homeLink);
-        
-	«FOREACH processes AS process-»
-	«LET process.name + process.referredProcess().processElements.referredContentForm().first().name AS pagename»
-		// TODO changed
-		Link «process.name»Link = new Link("link") {
-			public void onClick() {
-				«process.javaClass()» process = new «process.javaClass()»(null);
-				process.setOwningPage(myself);
-				setResponsePage(process.nextPage(null));
-			}
-		};
-		«process.name»Link.add( new Label( "name", "«process.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));
-		«process.name»Link.setAutoEnable(true);
-        menuItems.add(«process.name»Link);
-    «ENDLET»
-    «ENDFOREACH»         
-        
-	«FOREACH processes AS process-»
-	«LET process.name + process.referredProcess().processElements.referredContentForm().first().name AS pagename»
-/*
-        BookmarkablePageLink<«pagename»Page> «process.name»Link = new BookmarkablePageLink<«pagename»Page>("link", «pagename»Page.class);
-        «process.name»Link.setAutoEnable(true);
-//        «process.name»Link.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
-        «process.name»Link.add(new Label("name", "«process.label»"));
-        menuItems.add(«process.name»Link);
-*/
-    «ENDLET»
-    «ENDFOREACH»         
-//        BookmarkablePageLink<ComestiblesProcessPage> comestiblesLink = new BookmarkablePageLink<ComestiblesProcessPage>("link", ComestiblesProcessPage.class);
-//        comestiblesLink.setAutoEnable(true);
-//        comestiblesLink.add(new Label("name", getLocalizer().getString("lbl.comestibles", this)));
-//        menuItems.add(comestiblesLink);
-        
+
+    «IF this.start != null»        
+		«FOREACH processes AS process-»
+		«LET process.name + process.referredProcess().processElements.referredContentForm().first().name AS pagename»
+			// TODO changed
+			Link «process.name»Link = new Link("link") {
+				public void onClick() {
+					«process.javaClass()» process = new «process.javaClass()»(null);
+					process.setOwningPage(myself);
+					setResponsePage(process.nextPage(null));
+				}
+			};
+			«process.name»Link.add( new Label( "name", "«process.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));
+			«process.name»Link.setAutoEnable(true);
+	        menuItems.add(«process.name»Link);
+	    «ENDLET»
+	    «ENDFOREACH»         
+    «ENDIF»        
         add(new ListView<AbstractLink>("menu", new PropertyModel<List<AbstractLink>>(this, "menuItems")) {
             private static final long serialVersionUID = 1L;
 
