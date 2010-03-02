@@ -42,7 +42,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -176,13 +175,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * @generated
      */
     private EClass uiModelElementEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass uiModelElementCallEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -754,33 +746,6 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getUIModelElementCall() {
-        return uiModelElementCallEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getUIModelElementCall_ContextExp() {
-        return (EReference)uiModelElementCallEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EReference getUIModelElementCall_Arguments() {
-        return (EReference)uiModelElementCallEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getUICall() {
         return uiCallEClass;
     }
@@ -810,6 +775,24 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      */
     public EAttribute getUICall_Label() {
         return (EAttribute)uiCallEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getUICall_Arguments() {
+        return (EReference)uiCallEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getUICall_ContextExp() {
+        return (EReference)uiCallEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1033,14 +1016,12 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         uiModelElementEClass = createEClass(UI_MODEL_ELEMENT);
 
-        uiModelElementCallEClass = createEClass(UI_MODEL_ELEMENT_CALL);
-        createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__CONTEXT_EXP);
-        createEReference(uiModelElementCallEClass, UI_MODEL_ELEMENT_CALL__ARGUMENTS);
-
         uiCallEClass = createEClass(UI_CALL);
         createEReference(uiCallEClass, UI_CALL__PROCESS);
         createEReference(uiCallEClass, UI_CALL__CONDITION);
         createEAttribute(uiCallEClass, UI_CALL__LABEL);
+        createEReference(uiCallEClass, UI_CALL__ARGUMENTS);
+        createEReference(uiCallEClass, UI_CALL__CONTEXT_EXP);
 
         serviceExpressionEClass = createEClass(SERVICE_EXPRESSION);
         createEAttribute(serviceExpressionEClass, SERVICE_EXPRESSION__SERVICE_NAME);
@@ -1099,7 +1080,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         collectionDialogueEClass.getESuperTypes().add(this.getCompoundDialogue());
         dataPropertyEClass.getESuperTypes().add(this.getModelElement());
         dialogueEClass.getESuperTypes().add(this.getUIModelElement());
-        dialogueCallEClass.getESuperTypes().add(this.getUIModelElementCall());
+        dialogueCallEClass.getESuperTypes().add(this.getUICall());
         dtoPropertyReferenceEClass.getESuperTypes().add(this.getModelElement());
         externalReferenceEClass.getESuperTypes().add(this.getModelElement());
         formEClass.getESuperTypes().add(this.getDialogue());
@@ -1108,9 +1089,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         modelElementWithContextEClass.getESuperTypes().add(this.getModelElement());
         presentationModelEClass.getESuperTypes().add(this.getModelElement());
         processEClass.getESuperTypes().add(this.getUIModelElement());
-        processCallEClass.getESuperTypes().add(this.getUIModelElementCall());
+        processCallEClass.getESuperTypes().add(this.getUICall());
         uiModelElementEClass.getESuperTypes().add(this.getModelElementWithContext());
-        uiModelElementCallEClass.getESuperTypes().add(this.getUICall());
         uiCallEClass.getESuperTypes().add(this.getModelElement());
         serviceExpressionEClass.getESuperTypes().add(this.getExpression());
         navigationExpressionEClass.getESuperTypes().add(this.getExpression());
@@ -1189,14 +1169,12 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(uiModelElementEClass, UIModelElement.class, "UIModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(uiModelElementCallEClass, UIModelElementCall.class, "UIModelElementCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getUIModelElementCall_ContextExp(), this.getExpression(), null, "contextExp", null, 0, 1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getUIModelElementCall_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, UIModelElementCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
         initEClass(uiCallEClass, UICall.class, "UICall", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getUICall_Process(), this.getProcess(), this.getProcess_ProcessElements(), "process", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getUICall_Condition(), this.getExpression(), null, "condition", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getUICall_Label(), ecorePackage.getEString(), "label", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getUICall_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getUICall_ContextExp(), this.getExpression(), null, "contextExp", null, 0, 1, UICall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         addEOperation(uiCallEClass, this.getProcessCall(), "asProcessCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 

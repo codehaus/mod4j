@@ -39,7 +39,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,7 +99,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.PRESENTATION_MODEL: return createPresentationModel();
             case PresentationDslPackage.PROCESS: return createProcess();
             case PresentationDslPackage.PROCESS_CALL: return createProcessCall();
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: return createUIModelElementCall();
             case PresentationDslPackage.SERVICE_EXPRESSION: return createServiceExpression();
             case PresentationDslPackage.NAVIGATION_EXPRESSION: return createNavigationExpression();
             case PresentationDslPackage.EXPRESSION: return createExpression();
@@ -294,16 +292,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public ProcessCall createProcessCall() {
         ProcessCallImpl processCall = new ProcessCallImpl();
         return processCall;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public UIModelElementCall createUIModelElementCall() {
-        UIModelElementCallImpl uiModelElementCall = new UIModelElementCallImpl();
-        return uiModelElementCall;
     }
 
     /**

@@ -719,36 +719,9 @@ ruleUICall
     }
  :
 (
-{ before(grammarAccess.getUICallAccess().getUIModelElementCallParserRuleCall()); }
-	ruleUIModelElementCall
-{ after(grammarAccess.getUICallAccess().getUIModelElementCallParserRuleCall()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-// Entry rule entryRuleUIModelElementCall
-entryRuleUIModelElementCall :
-{ before(grammarAccess.getUIModelElementCallRule()); }
-	 ruleUIModelElementCall
-{ after(grammarAccess.getUIModelElementCallRule()); } 
-	 EOF 
-;
-
-// Rule UIModelElementCall
-ruleUIModelElementCall 
-    @init {
-		int stackSize = keepStackSize();
-    }
- :
-(
-{ before(grammarAccess.getUIModelElementCallAccess().getAlternatives()); }
-(rule__UIModelElementCall__Alternatives)
-{ after(grammarAccess.getUIModelElementCallAccess().getAlternatives()); }
+{ before(grammarAccess.getUICallAccess().getAlternatives()); }
+(rule__UICall__Alternatives)
+{ after(grammarAccess.getUICallAccess().getAlternatives()); }
 )
 
 ;
@@ -1089,21 +1062,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UIModelElementCall__Alternatives
+rule__UICall__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0()); }
+{ before(grammarAccess.getUICallAccess().getDialogueCallParserRuleCall_0()); }
 	ruleDialogueCall
-{ after(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0()); }
+{ after(grammarAccess.getUICallAccess().getDialogueCallParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1()); }
+{ before(grammarAccess.getUICallAccess().getProcessCallParserRuleCall_1()); }
 	ruleProcessCall
-{ after(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1()); }
+{ after(grammarAccess.getUICallAccess().getProcessCallParserRuleCall_1()); }
 )
 
 ;

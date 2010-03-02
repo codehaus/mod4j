@@ -87,14 +87,12 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/owningDialogue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//UIModelElementCall">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/contextExp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UIModelElementCall/arguments"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/process"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/condition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//UICall/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//UICall/contextExp"/>
       <genOperations ecoreOperation="PresentationDsl.ecore#//UICall/asProcessCall"/>
       <genOperations ecoreOperation="PresentationDsl.ecore#//UICall/asDialogueCall"/>
     </genClasses>

@@ -27,7 +27,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
         eType="#//ProcessCall" containment="true" eOpposite="#//ProcessCall/owningDialogue"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UIModelElementCall">
+  <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UICall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="compoundDialogue" eType="#//CompoundDialogue"
         eOpposite="#//CompoundDialogue/dialogues"/>
   </eClassifiers>
@@ -86,17 +86,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//AssociationRoleReference"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UIModelElementCall">
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessCall" eSuperTypes="#//UICall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningDialogue" eType="#//Dialogue"
         eOpposite="#//Dialogue/processes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIModelElement" abstract="true" eSuperTypes="#//ModelElementWithContext"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UIModelElementCall" eSuperTypes="#//UICall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contextExp" eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
-        eType="#//Expression" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UICall" abstract="true" eSuperTypes="#//ModelElement">
     <eOperations name="asProcessCall" eType="#//ProcessCall"/>
     <eOperations name="asDialogueCall" eType="#//DialogueCall"/>
@@ -105,6 +99,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextExp" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProcessType">
     <eLiterals name="NEW"/>

@@ -56,8 +56,7 @@ protected class ThisRootNode extends RootToken {
 			case 21: return new NavigationExpression_Group(this, this, 21, inst);
 			case 22: return new DtoPropertyReference_NameAssignment(this, this, 22, inst);
 			case 23: return new AssociationRoleReference_NameAssignment(this, this, 23, inst);
-			case 24: return new UICall_UIModelElementCallParserRuleCall(this, this, 24, inst);
-			case 25: return new UIModelElementCall_Alternatives(this, this, 25, inst);
+			case 24: return new UICall_Alternatives(this, this, 24, inst);
 			default: return null;
 		}	
 	}	
@@ -4459,7 +4458,7 @@ protected class Process_ProcessElementsAssignment_7_1_1_0 extends AssignmentToke
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UICall_UIModelElementCallParserRuleCall(this, this, 0, inst);
+			case 0: return new UICall_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6586,24 +6585,25 @@ protected class AssociationRoleReference_NameAssignment extends AssignmentToken 
 /************ begin Rule UICall ****************
  *
  * UICall:
- *   UIModelElementCall;
+ *   DialogueCall|ProcessCall;
  *
  **/
 
-// UIModelElementCall
-protected class UICall_UIModelElementCallParserRuleCall extends RuleCallToken {
-	
-	public UICall_UIModelElementCallParserRuleCall(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// DialogueCall|ProcessCall
+protected class UICall_Alternatives extends AlternativesToken {
+
+	public UICall_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getUICallAccess().getUIModelElementCallParserRuleCall();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getUICallAccess().getAlternatives();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UIModelElementCall_Alternatives(this, this, 0, inst);
+			case 0: return new UICall_DialogueCallParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new UICall_ProcessCallParserRuleCall_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -6612,63 +6612,17 @@ protected class UICall_UIModelElementCallParserRuleCall extends RuleCallToken {
 		if(!current.isInstanceOf(grammarAccess.getUICallRule().getType().getClassifier())) return null;
 		return tryConsumeVal();
 	}
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(UIModelElementCall_Alternatives.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getUIModelElementCallRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-/************ end Rule UICall ****************/
-
-
-/************ begin Rule UIModelElementCall ****************
- *
- * UIModelElementCall:
- *   DialogueCall|ProcessCall;
- *
- **/
-
-// DialogueCall|ProcessCall
-protected class UIModelElementCall_Alternatives extends AlternativesToken {
-
-	public UIModelElementCall_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getUIModelElementCallAccess().getAlternatives();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UIModelElementCall_DialogueCallParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new UIModelElementCall_ProcessCallParserRuleCall_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getUIModelElementCallRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
 }
 
 // DialogueCall
-protected class UIModelElementCall_DialogueCallParserRuleCall_0 extends RuleCallToken {
+protected class UICall_DialogueCallParserRuleCall_0 extends RuleCallToken {
 	
-	public UIModelElementCall_DialogueCallParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UICall_DialogueCallParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0();
+		return grammarAccess.getUICallAccess().getDialogueCallParserRuleCall_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -6692,14 +6646,14 @@ protected class UIModelElementCall_DialogueCallParserRuleCall_0 extends RuleCall
 }
 
 // ProcessCall
-protected class UIModelElementCall_ProcessCallParserRuleCall_1 extends RuleCallToken {
+protected class UICall_ProcessCallParserRuleCall_1 extends RuleCallToken {
 	
-	public UIModelElementCall_ProcessCallParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UICall_ProcessCallParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1();
+		return grammarAccess.getUICallAccess().getProcessCallParserRuleCall_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -6723,6 +6677,6 @@ protected class UIModelElementCall_ProcessCallParserRuleCall_1 extends RuleCallT
 }
 
 
-/************ end Rule UIModelElementCall ****************/
+/************ end Rule UICall ****************/
 
 }

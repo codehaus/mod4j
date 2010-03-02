@@ -780,7 +780,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUICall()
      * @generated
      */
-    int UI_CALL = 19;
+    int UI_CALL = 18;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -828,68 +828,13 @@ public interface PresentationDslPackage extends EPackage {
     int UI_CALL__LABEL = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
-     * The number of structural features of the '<em>UI Call</em>' class.
+     * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UI_CALL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-    /**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl <em>UI Model Element Call</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElementCall()
-     * @generated
-     */
-    int UI_MODEL_ELEMENT_CALL = 18;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UI_MODEL_ELEMENT_CALL__NAME = UI_CALL__NAME;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UI_MODEL_ELEMENT_CALL__DESCRIPTION = UI_CALL__DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Process</b></em>' container reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UI_MODEL_ELEMENT_CALL__PROCESS = UI_CALL__PROCESS;
-
-    /**
-     * The feature id for the '<em><b>Condition</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UI_MODEL_ELEMENT_CALL__CONDITION = UI_CALL__CONDITION;
-
-    /**
-     * The feature id for the '<em><b>Label</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UI_MODEL_ELEMENT_CALL__LABEL = UI_CALL__LABEL;
+    int UI_CALL__ARGUMENTS = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Context Exp</b></em>' containment reference.
@@ -898,25 +843,16 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int UI_MODEL_ELEMENT_CALL__CONTEXT_EXP = UI_CALL_FEATURE_COUNT + 0;
+    int UI_CALL__CONTEXT_EXP = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+     * The number of structural features of the '<em>UI Call</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UI_MODEL_ELEMENT_CALL__ARGUMENTS = UI_CALL_FEATURE_COUNT + 1;
-
-    /**
-     * The number of structural features of the '<em>UI Model Element Call</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int UI_MODEL_ELEMENT_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 2;
+    int UI_CALL_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueCallImpl <em>Dialogue Call</em>}' class.
@@ -935,7 +871,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__NAME = UI_MODEL_ELEMENT_CALL__NAME;
+    int DIALOGUE_CALL__NAME = UI_CALL__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -944,7 +880,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__DESCRIPTION = UI_MODEL_ELEMENT_CALL__DESCRIPTION;
+    int DIALOGUE_CALL__DESCRIPTION = UI_CALL__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Process</b></em>' container reference.
@@ -953,7 +889,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__PROCESS = UI_MODEL_ELEMENT_CALL__PROCESS;
+    int DIALOGUE_CALL__PROCESS = UI_CALL__PROCESS;
 
     /**
      * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -962,7 +898,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__CONDITION = UI_MODEL_ELEMENT_CALL__CONDITION;
+    int DIALOGUE_CALL__CONDITION = UI_CALL__CONDITION;
 
     /**
      * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -971,16 +907,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__LABEL = UI_MODEL_ELEMENT_CALL__LABEL;
-
-    /**
-     * The feature id for the '<em><b>Context Exp</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DIALOGUE_CALL__CONTEXT_EXP = UI_MODEL_ELEMENT_CALL__CONTEXT_EXP;
+    int DIALOGUE_CALL__LABEL = UI_CALL__LABEL;
 
     /**
      * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -989,7 +916,16 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__ARGUMENTS = UI_MODEL_ELEMENT_CALL__ARGUMENTS;
+    int DIALOGUE_CALL__ARGUMENTS = UI_CALL__ARGUMENTS;
+
+    /**
+     * The feature id for the '<em><b>Context Exp</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIALOGUE_CALL__CONTEXT_EXP = UI_CALL__CONTEXT_EXP;
 
     /**
      * The feature id for the '<em><b>Compound Dialogue</b></em>' container reference.
@@ -998,7 +934,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL__COMPOUND_DIALOGUE = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+    int DIALOGUE_CALL__COMPOUND_DIALOGUE = UI_CALL_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Dialogue Call</em>' class.
@@ -1007,7 +943,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIALOGUE_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
+    int DIALOGUE_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DtoPropertyReferenceImpl <em>Dto Property Reference</em>}' class.
@@ -1473,7 +1409,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__NAME = UI_MODEL_ELEMENT_CALL__NAME;
+    int PROCESS_CALL__NAME = UI_CALL__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1482,7 +1418,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__DESCRIPTION = UI_MODEL_ELEMENT_CALL__DESCRIPTION;
+    int PROCESS_CALL__DESCRIPTION = UI_CALL__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Process</b></em>' container reference.
@@ -1491,7 +1427,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__PROCESS = UI_MODEL_ELEMENT_CALL__PROCESS;
+    int PROCESS_CALL__PROCESS = UI_CALL__PROCESS;
 
     /**
      * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1500,7 +1436,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__CONDITION = UI_MODEL_ELEMENT_CALL__CONDITION;
+    int PROCESS_CALL__CONDITION = UI_CALL__CONDITION;
 
     /**
      * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1509,16 +1445,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__LABEL = UI_MODEL_ELEMENT_CALL__LABEL;
-
-    /**
-     * The feature id for the '<em><b>Context Exp</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESS_CALL__CONTEXT_EXP = UI_MODEL_ELEMENT_CALL__CONTEXT_EXP;
+    int PROCESS_CALL__LABEL = UI_CALL__LABEL;
 
     /**
      * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -1527,7 +1454,16 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__ARGUMENTS = UI_MODEL_ELEMENT_CALL__ARGUMENTS;
+    int PROCESS_CALL__ARGUMENTS = UI_CALL__ARGUMENTS;
+
+    /**
+     * The feature id for the '<em><b>Context Exp</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESS_CALL__CONTEXT_EXP = UI_CALL__CONTEXT_EXP;
 
     /**
      * The feature id for the '<em><b>Owning Dialogue</b></em>' container reference.
@@ -1536,7 +1472,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL__OWNING_DIALOGUE = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 0;
+    int PROCESS_CALL__OWNING_DIALOGUE = UI_CALL_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Process Call</em>' class.
@@ -1545,7 +1481,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESS_CALL_FEATURE_COUNT = UI_MODEL_ELEMENT_CALL_FEATURE_COUNT + 1;
+    int PROCESS_CALL_FEATURE_COUNT = UI_CALL_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1555,7 +1491,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExpression()
      * @generated
      */
-    int EXPRESSION = 22;
+    int EXPRESSION = 21;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1592,7 +1528,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getServiceExpression()
      * @generated
      */
-    int SERVICE_EXPRESSION = 20;
+    int SERVICE_EXPRESSION = 19;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1647,7 +1583,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getNavigationExpression()
      * @generated
      */
-    int NAVIGATION_EXPRESSION = 21;
+    int NAVIGATION_EXPRESSION = 20;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1702,7 +1638,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getStandardExpression()
      * @generated
      */
-    int STANDARD_EXPRESSION = 23;
+    int STANDARD_EXPRESSION = 22;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1748,7 +1684,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getOperationExpression()
      * @generated
      */
-    int OPERATION_EXPRESSION = 24;
+    int OPERATION_EXPRESSION = 23;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1785,7 +1721,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getApplication()
      * @generated
      */
-    int APPLICATION = 25;
+    int APPLICATION = 24;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1831,8 +1767,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getProcessType()
      * @generated
      */
-    int PROCESS_TYPE = 26;
-
+    int PROCESS_TYPE = 25;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType <em>Expression Type</em>}' enum.
@@ -1842,7 +1777,7 @@ public interface PresentationDslPackage extends EPackage {
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getExpressionType()
      * @generated
      */
-    int EXPRESSION_TYPE = 27;
+    int EXPRESSION_TYPE = 26;
 
 
     /**
@@ -2367,38 +2302,6 @@ public interface PresentationDslPackage extends EPackage {
     EClass getUIModelElement();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall <em>UI Model Element Call</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>UI Model Element Call</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall
-     * @generated
-     */
-    EClass getUIModelElementCall();
-
-    /**
-     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContextExp <em>Context Exp</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Context Exp</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getContextExp()
-     * @see #getUIModelElementCall()
-     * @generated
-     */
-    EReference getUIModelElementCall_ContextExp();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getArguments <em>Arguments</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Arguments</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall#getArguments()
-     * @see #getUIModelElementCall()
-     * @generated
-     */
-    EReference getUIModelElementCall_Arguments();
-
-    /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall <em>UI Call</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2440,6 +2343,28 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     EAttribute getUICall_Label();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getArguments <em>Arguments</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Arguments</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getArguments()
+     * @see #getUICall()
+     * @generated
+     */
+    EReference getUICall_Arguments();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getContextExp <em>Context Exp</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Context Exp</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getContextExp()
+     * @see #getUICall()
+     * @generated
+     */
+    EReference getUICall_ContextExp();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression <em>Service Expression</em>}'.
@@ -3038,32 +2963,6 @@ public interface PresentationDslPackage extends EPackage {
         EClass UI_MODEL_ELEMENT = eINSTANCE.getUIModelElement();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl <em>UI Model Element Call</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UIModelElementCallImpl
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getUIModelElementCall()
-         * @generated
-         */
-        EClass UI_MODEL_ELEMENT_CALL = eINSTANCE.getUIModelElementCall();
-
-        /**
-         * The meta object literal for the '<em><b>Context Exp</b></em>' containment reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference UI_MODEL_ELEMENT_CALL__CONTEXT_EXP = eINSTANCE.getUIModelElementCall_ContextExp();
-
-        /**
-         * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference UI_MODEL_ELEMENT_CALL__ARGUMENTS = eINSTANCE.getUIModelElementCall_Arguments();
-
-        /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl <em>UI Call</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3096,6 +2995,22 @@ public interface PresentationDslPackage extends EPackage {
          * @generated
          */
         EAttribute UI_CALL__LABEL = eINSTANCE.getUICall_Label();
+
+        /**
+         * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference UI_CALL__ARGUMENTS = eINSTANCE.getUICall_Arguments();
+
+        /**
+         * The meta object literal for the '<em><b>Context Exp</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference UI_CALL__CONTEXT_EXP = eINSTANCE.getUICall_ContextExp();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ServiceExpressionImpl <em>Service Expression</em>}' class.

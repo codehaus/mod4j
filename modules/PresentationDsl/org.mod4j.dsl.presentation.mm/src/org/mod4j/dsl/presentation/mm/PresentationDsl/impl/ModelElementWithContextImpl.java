@@ -56,6 +56,7 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * @ordered
      */
     protected static final boolean COLLECTION_CONTEXT_EDEFAULT = false;
+
     /**
      * The cached value of the '{@link #isCollectionContext() <em>Collection Context</em>}' attribute.
      * <!-- begin-user-doc -->

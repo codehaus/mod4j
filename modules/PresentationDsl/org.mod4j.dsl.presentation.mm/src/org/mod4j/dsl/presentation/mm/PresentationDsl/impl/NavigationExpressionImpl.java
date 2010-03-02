@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -58,6 +59,7 @@ public class NavigationExpressionImpl extends ExpressionImpl implements Navigati
      * @ordered
      */
     protected static final boolean COMPOSITION_EDEFAULT = false;
+
     /**
      * The cached value of the '{@link #isComposition() <em>Composition</em>}' attribute.
      * <!-- begin-user-doc -->

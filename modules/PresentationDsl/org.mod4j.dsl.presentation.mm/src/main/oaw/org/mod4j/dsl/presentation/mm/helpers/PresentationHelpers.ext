@@ -30,6 +30,9 @@ ServiceExpression getServiceExpression(UICall call) :
 NavigationExpression getNavigationExpression(UICall call) :
   JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getNavigationExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
   
+OperationExpression getOperationExpression(UICall call) :
+  JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getOperationExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
+  
 StandardExpression getStandardExpression(UICall call) :
   JAVA org.mod4j.dsl.presentation.mm.helpers.PresentationHelpers.getStandardExpression(org.mod4j.dsl.presentation.mm.PresentationDsl.UICall);
   

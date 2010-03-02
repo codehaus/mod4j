@@ -23,7 +23,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model
  * @generated
  */
-public interface ProcessCall extends UIModelElementCall {
+public interface ProcessCall extends UICall {
     /**
      * Returns the value of the '<em><b>Owning Dialogue</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue#getProcesses <em>Processes</em>}'.

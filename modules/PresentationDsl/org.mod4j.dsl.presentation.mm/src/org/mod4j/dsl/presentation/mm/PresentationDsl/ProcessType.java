@@ -60,7 +60,9 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    DELETE(3, "DELETE", "DELETE"), /**
+    DELETE(3, "DELETE", "DELETE"),
+
+    /**
      * The '<em><b>CUSTOM</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -78,7 +80,9 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    CANCEL(5, "CANCEL", "CANCEL"), /**
+    CANCEL(5, "CANCEL", "CANCEL"),
+
+    /**
      * The '<em><b>ADDTO</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -86,7 +90,9 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    ADDTO(6, "ADDTO", "ADDTO"), /**
+    ADDTO(6, "ADDTO", "ADDTO"),
+
+    /**
      * The '<em><b>REMOVEFROM</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -94,7 +100,9 @@ public enum ProcessType implements Enumerator {
      * @generated
      * @ordered
      */
-    REMOVEFROM(7, "REMOVEFROM", "REMOVEFROM"), /**
+    REMOVEFROM(7, "REMOVEFROM", "REMOVEFROM"),
+
+    /**
      * The '<em><b>LINK</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -38,7 +38,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -167,10 +166,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseUIModelElement(UIModelElement object) {
                 return createUIModelElementAdapter();
-            }
-            @Override
-            public Adapter caseUIModelElementCall(UIModelElementCall object) {
-                return createUIModelElementCallAdapter();
             }
             @Override
             public Adapter caseUICall(UICall object) {
@@ -469,20 +464,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createUIModelElementAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall <em>UI Model Element Call</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall
-     * @generated
-     */
-    public Adapter createUIModelElementCallAdapter() {
         return null;
     }
 

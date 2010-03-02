@@ -1594,23 +1594,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	public class UICallElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UICall");
-		private final RuleCall cUIModelElementCallParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//UICall:
-		//  UIModelElementCall;
-		public ParserRule getRule() { return rule; }
-
-		//UIModelElementCall
-		public RuleCall getUIModelElementCallParserRuleCall() { return cUIModelElementCallParserRuleCall; }
-	}
-
-	public class UIModelElementCallElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UIModelElementCall");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDialogueCallParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cProcessCallParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//UIModelElementCall:
+		//UICall:
 		//  DialogueCall|ProcessCall;
 		public ParserRule getRule() { return rule; }
 
@@ -1767,7 +1755,6 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	private DtoPropertyReferenceElements pDtoPropertyReference;
 	private AssociationRoleReferenceElements pAssociationRoleReference;
 	private UICallElements pUICall;
-	private UIModelElementCallElements pUIModelElementCall;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -2131,23 +2118,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//UICall:
-	//  UIModelElementCall;
+	//  DialogueCall|ProcessCall;
 	public UICallElements getUICallAccess() {
 		return (pUICall != null) ? pUICall : (pUICall = new UICallElements());
 	}
 	
 	public ParserRule getUICallRule() {
 		return getUICallAccess().getRule();
-	}
-
-	//UIModelElementCall:
-	//  DialogueCall|ProcessCall;
-	public UIModelElementCallElements getUIModelElementCallAccess() {
-		return (pUIModelElementCall != null) ? pUIModelElementCall : (pUIModelElementCall = new UIModelElementCallElements());
-	}
-	
-	public ParserRule getUIModelElementCallRule() {
-		return getUIModelElementCallAccess().getRule();
 	}
 
 	//terminal ID:

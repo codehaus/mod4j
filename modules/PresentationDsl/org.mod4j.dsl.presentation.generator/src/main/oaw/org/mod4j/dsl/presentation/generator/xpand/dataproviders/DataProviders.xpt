@@ -36,8 +36,9 @@
 	«REM»The page containing the Dialogue referred to in the process«ENDREM»
     «print("MOD4J INFO: Running Presentation generator process pages")»
 	«FOREACH this.elements.typeSelect(Process).select(e|e.isInteractive()) AS process»
-		«LET process.processElements.typeSelect(DialogueCall).first() AS uiCall»
-		«LET uiCall.referredContentForm() AS form »
+«REM»        «LET process.processElements.typeSelect(DialogueCall).first() AS uiCall»«ENDREM»
+        «FOREACH process.processElements.typeSelect(DialogueCall) AS uiCall»
+        «LET uiCall.referredContentForm() AS form »
 		«IF form != null»
 			«IF form.collectionContext »
 				«IF uiCall.getNavigationExpression() != null »
@@ -83,7 +84,7 @@
 		    «print("No dataprovider generated for process [" + process.name + "] form [" + form.name + "]")»
         «ENDIF»
 		«ENDLET»
-		«ENDLET»
+    «ENDFOREACH»
 	«ENDFOREACH»
     
 «ENDDEFINE»

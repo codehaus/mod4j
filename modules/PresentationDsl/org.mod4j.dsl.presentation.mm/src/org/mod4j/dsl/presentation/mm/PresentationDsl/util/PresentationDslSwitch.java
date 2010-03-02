@@ -36,7 +36,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -170,7 +169,6 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.DIALOGUE_CALL: {
                 DialogueCall dialogueCall = (DialogueCall)theEObject;
                 T result = caseDialogueCall(dialogueCall);
-                if (result == null) result = caseUIModelElementCall(dialogueCall);
                 if (result == null) result = caseUICall(dialogueCall);
                 if (result == null) result = caseModelElement(dialogueCall);
                 if (result == null) result = defaultCase(theEObject);
@@ -250,7 +248,6 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.PROCESS_CALL: {
                 ProcessCall processCall = (ProcessCall)theEObject;
                 T result = caseProcessCall(processCall);
-                if (result == null) result = caseUIModelElementCall(processCall);
                 if (result == null) result = caseUICall(processCall);
                 if (result == null) result = caseModelElement(processCall);
                 if (result == null) result = defaultCase(theEObject);
@@ -261,14 +258,6 @@ public class PresentationDslSwitch<T> {
                 T result = caseUIModelElement(uiModelElement);
                 if (result == null) result = caseModelElementWithContext(uiModelElement);
                 if (result == null) result = caseModelElement(uiModelElement);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case PresentationDslPackage.UI_MODEL_ELEMENT_CALL: {
-                UIModelElementCall uiModelElementCall = (UIModelElementCall)theEObject;
-                T result = caseUIModelElementCall(uiModelElementCall);
-                if (result == null) result = caseUICall(uiModelElementCall);
-                if (result == null) result = caseModelElement(uiModelElementCall);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -596,21 +585,6 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseUIModelElement(UIModelElement object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>UI Model Element Call</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>UI Model Element Call</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseUIModelElementCall(UIModelElementCall object) {
         return null;
     }
 

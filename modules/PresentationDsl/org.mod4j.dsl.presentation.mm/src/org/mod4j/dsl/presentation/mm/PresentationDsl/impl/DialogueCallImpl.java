@@ -33,7 +33,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *
  * @generated
  */
-public class DialogueCallImpl extends UIModelElementCallImpl implements DialogueCall {
+public class DialogueCallImpl extends UICallImpl implements DialogueCall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

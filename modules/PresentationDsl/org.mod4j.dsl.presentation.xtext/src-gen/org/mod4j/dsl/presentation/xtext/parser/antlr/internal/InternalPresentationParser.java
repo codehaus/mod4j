@@ -751,11 +751,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 {
                 int LA6_1 = input.LA(2);
 
-                if ( (LA6_1==18||LA6_1==27||(LA6_1>=29 && LA6_1<=30)) ) {
-                    alt6=1;
-                }
-                else if ( (LA6_1==33) ) {
+                if ( (LA6_1==33) ) {
                     alt6=2;
+                }
+                else if ( (LA6_1==18||LA6_1==27||(LA6_1>=29 && LA6_1<=30)) ) {
+                    alt6=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1807,11 +1807,6 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
-                case 27:
-                    {
-                    alt28=1;
-                    }
-                    break;
                 case 30:
                     {
                     alt28=3;
@@ -1820,6 +1815,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 case 29:
                     {
                     alt28=2;
+                    }
+                    break;
+                case 27:
+                    {
+                    alt28=1;
                     }
                     break;
                 default:
@@ -5411,87 +5411,8 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUICall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2550:1: ruleUICall returns [EObject current=null] : this_UIModelElementCall_0= ruleUIModelElementCall ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2550:1: ruleUICall returns [EObject current=null] : (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) ;
     public final EObject ruleUICall() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_UIModelElementCall_0 = null;
-
-
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-            
-        try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2555:6: (this_UIModelElementCall_0= ruleUIModelElementCall )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2557:5: this_UIModelElementCall_0= ruleUIModelElementCall
-            {
-             
-                    currentNode=createCompositeNode(grammarAccess.getUICallAccess().getUIModelElementCallParserRuleCall(), currentNode); 
-                
-            pushFollow(FOLLOW_ruleUIModelElementCall_in_ruleUICall5463);
-            this_UIModelElementCall_0=ruleUIModelElementCall();
-            _fsp--;
-
-             
-                    current = this_UIModelElementCall_0; 
-                    currentNode = currentNode.getParent();
-                
-
-            }
-
-             resetLookahead(); 
-                	lastConsumedNode = currentNode;
-                
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end ruleUICall
-
-
-    // $ANTLR start entryRuleUIModelElementCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2572:1: entryRuleUIModelElementCall returns [EObject current=null] : iv_ruleUIModelElementCall= ruleUIModelElementCall EOF ;
-    public final EObject entryRuleUIModelElementCall() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleUIModelElementCall = null;
-
-
-        try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2572:60: (iv_ruleUIModelElementCall= ruleUIModelElementCall EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2573:2: iv_ruleUIModelElementCall= ruleUIModelElementCall EOF
-            {
-             currentNode = createCompositeNode(grammarAccess.getUIModelElementCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleUIModelElementCall_in_entryRuleUIModelElementCall5494);
-            iv_ruleUIModelElementCall=ruleUIModelElementCall();
-            _fsp--;
-
-             current =iv_ruleUIModelElementCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUIModelElementCall5504); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end entryRuleUIModelElementCall
-
-
-    // $ANTLR start ruleUIModelElementCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2580:1: ruleUIModelElementCall returns [EObject current=null] : (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) ;
-    public final EObject ruleUIModelElementCall() throws RecognitionException {
         EObject current = null;
 
         EObject this_DialogueCall_0 = null;
@@ -5502,10 +5423,10 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2585:6: ( (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2555:6: ( (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
             int alt61=2;
             switch ( input.LA(1) ) {
             case RULE_STRING:
@@ -5550,28 +5471,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                                         }
                                                         else {
                                                             NoViableAltException nvae =
-                                                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
+                                                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
 
                                                             throw nvae;
                                                         }
                                                     }
                                                     else {
                                                         NoViableAltException nvae =
-                                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
+                                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
 
                                                         throw nvae;
                                                     }
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
+                                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
 
                                                 throw nvae;
                                             }
@@ -5587,29 +5508,29 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                                 if ( (LA61_5==RULE_ID) ) {
                                                     int LA61_14 = input.LA(11);
 
-                                                    if ( (LA61_14==33) ) {
-                                                        alt61=2;
-                                                    }
-                                                    else if ( (LA61_14==18) ) {
+                                                    if ( (LA61_14==18) ) {
                                                         alt61=1;
+                                                    }
+                                                    else if ( (LA61_14==33) ) {
+                                                        alt61=2;
                                                     }
                                                     else {
                                                         NoViableAltException nvae =
-                                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                                                         throw nvae;
                                                     }
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
 
                                                 throw nvae;
                                             }
@@ -5622,22 +5543,22 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             if ( (LA61_5==RULE_ID) ) {
                                                 int LA61_14 = input.LA(10);
 
-                                                if ( (LA61_14==33) ) {
-                                                    alt61=2;
-                                                }
-                                                else if ( (LA61_14==18) ) {
+                                                if ( (LA61_14==18) ) {
                                                     alt61=1;
+                                                }
+                                                else if ( (LA61_14==33) ) {
+                                                    alt61=2;
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                                                 throw nvae;
                                             }
@@ -5655,7 +5576,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
 
                                                 throw nvae;
                                             }
@@ -5665,15 +5586,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             {
                                             int LA61_7 = input.LA(9);
 
-                                            if ( (LA61_7==18) ) {
-                                                alt61=1;
-                                            }
-                                            else if ( (LA61_7==33) ) {
+                                            if ( (LA61_7==33) ) {
                                                 alt61=2;
+                                            }
+                                            else if ( (LA61_7==18) ) {
+                                                alt61=1;
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
 
                                                 throw nvae;
                                             }
@@ -5694,22 +5615,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
+                                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
 
                                                 throw nvae;
                                             }
-                                            }
-                                            break;
-                                        case 18:
-                                            {
-                                            alt61=1;
                                             }
                                             break;
                                         case 33:
@@ -5717,9 +5633,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             alt61=2;
                                             }
                                             break;
+                                        case 18:
+                                            {
+                                            alt61=1;
+                                            }
+                                            break;
                                         default:
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 20, input);
+                                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 20, input);
 
                                             throw nvae;
                                         }
@@ -5727,28 +5648,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 18, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 18, input);
 
                                         throw nvae;
                                     }
                                 }
                                 else {
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 16, input);
+                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 16, input);
 
                                     throw nvae;
                                 }
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 12, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 12, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 2, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 2, input);
 
                             throw nvae;
                         }
@@ -5775,28 +5696,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
 
                                         throw nvae;
                                     }
                                 }
                                 else {
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
+                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
 
                                     throw nvae;
                                 }
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
 
                             throw nvae;
                         }
@@ -5812,29 +5733,29 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             if ( (LA61_5==RULE_ID) ) {
                                 int LA61_14 = input.LA(6);
 
-                                if ( (LA61_14==33) ) {
-                                    alt61=2;
-                                }
-                                else if ( (LA61_14==18) ) {
+                                if ( (LA61_14==18) ) {
                                     alt61=1;
+                                }
+                                else if ( (LA61_14==33) ) {
+                                    alt61=2;
                                 }
                                 else {
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                                     throw nvae;
                                 }
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
 
                             throw nvae;
                         }
@@ -5847,22 +5768,22 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         if ( (LA61_5==RULE_ID) ) {
                             int LA61_14 = input.LA(5);
 
-                            if ( (LA61_14==33) ) {
-                                alt61=2;
-                            }
-                            else if ( (LA61_14==18) ) {
+                            if ( (LA61_14==18) ) {
                                 alt61=1;
+                            }
+                            else if ( (LA61_14==33) ) {
+                                alt61=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                             throw nvae;
                         }
@@ -5880,7 +5801,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
 
                             throw nvae;
                         }
@@ -5890,15 +5811,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         {
                         int LA61_7 = input.LA(4);
 
-                        if ( (LA61_7==18) ) {
-                            alt61=1;
-                        }
-                        else if ( (LA61_7==33) ) {
+                        if ( (LA61_7==33) ) {
                             alt61=2;
+                        }
+                        else if ( (LA61_7==18) ) {
+                            alt61=1;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
 
                             throw nvae;
                         }
@@ -5919,14 +5840,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
 
                             throw nvae;
                         }
@@ -5944,7 +5865,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 11, input);
+                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 11, input);
 
                         throw nvae;
                     }
@@ -5952,7 +5873,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 1, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 1, input);
 
                     throw nvae;
                 }
@@ -5994,28 +5915,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
+                                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
 
                                                 throw nvae;
                                             }
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
+                                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
 
                                         throw nvae;
                                     }
@@ -6031,29 +5952,29 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                         if ( (LA61_5==RULE_ID) ) {
                                             int LA61_14 = input.LA(9);
 
-                                            if ( (LA61_14==33) ) {
-                                                alt61=2;
-                                            }
-                                            else if ( (LA61_14==18) ) {
+                                            if ( (LA61_14==18) ) {
                                                 alt61=1;
+                                            }
+                                            else if ( (LA61_14==33) ) {
+                                                alt61=2;
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                                                 throw nvae;
                                             }
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
 
                                         throw nvae;
                                     }
@@ -6066,22 +5987,22 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     if ( (LA61_5==RULE_ID) ) {
                                         int LA61_14 = input.LA(8);
 
-                                        if ( (LA61_14==33) ) {
-                                            alt61=2;
-                                        }
-                                        else if ( (LA61_14==18) ) {
+                                        if ( (LA61_14==18) ) {
                                             alt61=1;
+                                        }
+                                        else if ( (LA61_14==33) ) {
+                                            alt61=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                                         throw nvae;
                                     }
@@ -6099,7 +6020,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
 
                                         throw nvae;
                                     }
@@ -6109,15 +6030,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     {
                                     int LA61_7 = input.LA(7);
 
-                                    if ( (LA61_7==18) ) {
-                                        alt61=1;
-                                    }
-                                    else if ( (LA61_7==33) ) {
+                                    if ( (LA61_7==33) ) {
                                         alt61=2;
+                                    }
+                                    else if ( (LA61_7==18) ) {
+                                        alt61=1;
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
 
                                         throw nvae;
                                     }
@@ -6138,22 +6059,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
+                                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
+                                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
 
                                         throw nvae;
                                     }
-                                    }
-                                    break;
-                                case 18:
-                                    {
-                                    alt61=1;
                                     }
                                     break;
                                 case 33:
@@ -6161,9 +6077,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     alt61=2;
                                     }
                                     break;
+                                case 18:
+                                    {
+                                    alt61=1;
+                                    }
+                                    break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 20, input);
+                                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 20, input);
 
                                     throw nvae;
                                 }
@@ -6171,28 +6092,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 18, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 18, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 16, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 16, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 12, input);
+                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 12, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 2, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 2, input);
 
                     throw nvae;
                 }
@@ -6219,28 +6140,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
+                                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 19, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 17, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
+                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 13, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 3, input);
 
                     throw nvae;
                 }
@@ -6256,29 +6177,29 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     if ( (LA61_5==RULE_ID) ) {
                         int LA61_14 = input.LA(4);
 
-                        if ( (LA61_14==33) ) {
-                            alt61=2;
-                        }
-                        else if ( (LA61_14==18) ) {
+                        if ( (LA61_14==18) ) {
                             alt61=1;
+                        }
+                        else if ( (LA61_14==33) ) {
+                            alt61=2;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                                new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 4, input);
 
                     throw nvae;
                 }
@@ -6291,22 +6212,22 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 if ( (LA61_5==RULE_ID) ) {
                     int LA61_14 = input.LA(3);
 
-                    if ( (LA61_14==33) ) {
-                        alt61=2;
-                    }
-                    else if ( (LA61_14==18) ) {
+                    if ( (LA61_14==18) ) {
                         alt61=1;
+                    }
+                    else if ( (LA61_14==33) ) {
+                        alt61=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
+                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 14, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 5, input);
 
                     throw nvae;
                 }
@@ -6324,7 +6245,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 6, input);
 
                     throw nvae;
                 }
@@ -6334,15 +6255,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 {
                 int LA61_7 = input.LA(2);
 
-                if ( (LA61_7==18) ) {
-                    alt61=1;
-                }
-                else if ( (LA61_7==33) ) {
+                if ( (LA61_7==33) ) {
                     alt61=2;
+                }
+                else if ( (LA61_7==18) ) {
+                    alt61=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 7, input);
 
                     throw nvae;
                 }
@@ -6363,14 +6284,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
+                            new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 15, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
+                        new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 8, input);
 
                     throw nvae;
                 }
@@ -6388,19 +6309,19 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("2586:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 0, input);
+                    new NoViableAltException("2556:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 61, 0, input);
 
                 throw nvae;
             }
 
             switch (alt61) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2587:5: this_DialogueCall_0= ruleDialogueCall
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2557:5: this_DialogueCall_0= ruleDialogueCall
                     {
                      
-                            currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0(), currentNode); 
+                            currentNode=createCompositeNode(grammarAccess.getUICallAccess().getDialogueCallParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDialogueCall_in_ruleUIModelElementCall5551);
+                    pushFollow(FOLLOW_ruleDialogueCall_in_ruleUICall5464);
                     this_DialogueCall_0=ruleDialogueCall();
                     _fsp--;
 
@@ -6412,12 +6333,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2597:5: this_ProcessCall_1= ruleProcessCall
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2567:5: this_ProcessCall_1= ruleProcessCall
                     {
                      
-                            currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1(), currentNode); 
+                            currentNode=createCompositeNode(grammarAccess.getUICallAccess().getProcessCallParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleProcessCall_in_ruleUIModelElementCall5578);
+                    pushFollow(FOLLOW_ruleProcessCall_in_ruleUICall5491);
                     this_ProcessCall_1=ruleProcessCall();
                     _fsp--;
 
@@ -6447,20 +6368,20 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end ruleUIModelElementCall
+    // $ANTLR end ruleUICall
 
 
     // $ANTLR start ruleProcessType
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2612:1: ruleProcessType returns [Enumerator current=null] : ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2582:1: ruleProcessType returns [Enumerator current=null] : ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) ;
     public final Enumerator ruleProcessType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2616:6: ( ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2586:6: ( ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2587:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2587:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
             int alt62=7;
             switch ( input.LA(1) ) {
             case 44:
@@ -6500,19 +6421,19 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("2617:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )", 62, 0, input);
+                    new NoViableAltException("2587:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )", 62, 0, input);
 
                 throw nvae;
             }
 
             switch (alt62) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:2: ( 'new' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2587:2: ( 'new' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:2: ( 'new' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:4: 'new'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2587:2: ( 'new' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2587:4: 'new'
                     {
-                    match(input,44,FOLLOW_44_in_ruleProcessType5624); 
+                    match(input,44,FOLLOW_44_in_ruleProcessType5537); 
 
                             current = grammarAccess.getProcessTypeAccess().getNEWEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getNEWEnumLiteralDeclaration_0(), null); 
@@ -6524,12 +6445,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:6: ( 'save' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2593:6: ( 'save' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:6: ( 'save' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:8: 'save'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2593:6: ( 'save' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2593:8: 'save'
                     {
-                    match(input,45,FOLLOW_45_in_ruleProcessType5639); 
+                    match(input,45,FOLLOW_45_in_ruleProcessType5552); 
 
                             current = grammarAccess.getProcessTypeAccess().getSAVEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getSAVEEnumLiteralDeclaration_1(), null); 
@@ -6541,12 +6462,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2629:6: ( 'edit' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2599:6: ( 'edit' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2629:6: ( 'edit' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2629:8: 'edit'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2599:6: ( 'edit' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2599:8: 'edit'
                     {
-                    match(input,46,FOLLOW_46_in_ruleProcessType5654); 
+                    match(input,46,FOLLOW_46_in_ruleProcessType5567); 
 
                             current = grammarAccess.getProcessTypeAccess().getEDITEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getEDITEnumLiteralDeclaration_2(), null); 
@@ -6558,12 +6479,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2635:6: ( 'delete' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2605:6: ( 'delete' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2635:6: ( 'delete' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2635:8: 'delete'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2605:6: ( 'delete' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2605:8: 'delete'
                     {
-                    match(input,47,FOLLOW_47_in_ruleProcessType5669); 
+                    match(input,47,FOLLOW_47_in_ruleProcessType5582); 
 
                             current = grammarAccess.getProcessTypeAccess().getDELETEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getDELETEEnumLiteralDeclaration_3(), null); 
@@ -6575,12 +6496,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2641:6: ( 'cancel' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2611:6: ( 'cancel' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2641:6: ( 'cancel' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2641:8: 'cancel'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2611:6: ( 'cancel' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2611:8: 'cancel'
                     {
-                    match(input,48,FOLLOW_48_in_ruleProcessType5684); 
+                    match(input,48,FOLLOW_48_in_ruleProcessType5597); 
 
                             current = grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4(), null); 
@@ -6592,12 +6513,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2647:6: ( 'removefrom' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:6: ( 'removefrom' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2647:6: ( 'removefrom' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2647:8: 'removefrom'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:6: ( 'removefrom' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2617:8: 'removefrom'
                     {
-                    match(input,49,FOLLOW_49_in_ruleProcessType5699); 
+                    match(input,49,FOLLOW_49_in_ruleProcessType5612); 
 
                             current = grammarAccess.getProcessTypeAccess().getREMOVEFROMEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getREMOVEFROMEnumLiteralDeclaration_5(), null); 
@@ -6609,12 +6530,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:6: ( 'addto' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:6: ( 'addto' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:6: ( 'addto' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:8: 'addto'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:6: ( 'addto' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:8: 'addto'
                     {
-                    match(input,50,FOLLOW_50_in_ruleProcessType5714); 
+                    match(input,50,FOLLOW_50_in_ruleProcessType5627); 
 
                             current = grammarAccess.getProcessTypeAccess().getADDTOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getADDTOEnumLiteralDeclaration_6(), null); 
@@ -6648,19 +6569,19 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleProcessTypeLink
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2663:1: ruleProcessTypeLink returns [Enumerator current=null] : ( 'link' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2633:1: ruleProcessTypeLink returns [Enumerator current=null] : ( 'link' ) ;
     public final Enumerator ruleProcessTypeLink() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2667:6: ( ( 'link' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2668:1: ( 'link' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2637:6: ( ( 'link' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2638:1: ( 'link' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2668:1: ( 'link' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2668:3: 'link'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2638:1: ( 'link' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2638:3: 'link'
             {
-            match(input,51,FOLLOW_51_in_ruleProcessTypeLink5756); 
+            match(input,51,FOLLOW_51_in_ruleProcessTypeLink5669); 
 
                     current = grammarAccess.getProcessTypeLinkAccess().getLINKEnumLiteralDeclaration().getEnumLiteral().getInstance();
                     createLeafNode(grammarAccess.getProcessTypeLinkAccess().getLINKEnumLiteralDeclaration(), null); 
@@ -6688,16 +6609,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpressionType
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2678:1: ruleExpressionType returns [Enumerator current=null] : ( ( 'all' ) | ( 'find' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2648:1: ruleExpressionType returns [Enumerator current=null] : ( ( 'all' ) | ( 'find' ) ) ;
     public final Enumerator ruleExpressionType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2682:6: ( ( ( 'all' ) | ( 'find' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2683:1: ( ( 'all' ) | ( 'find' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2652:6: ( ( ( 'all' ) | ( 'find' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:1: ( ( 'all' ) | ( 'find' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2683:1: ( ( 'all' ) | ( 'find' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:1: ( ( 'all' ) | ( 'find' ) )
             int alt63=2;
             int LA63_0 = input.LA(1);
 
@@ -6709,18 +6630,18 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("2683:1: ( ( 'all' ) | ( 'find' ) )", 63, 0, input);
+                    new NoViableAltException("2653:1: ( ( 'all' ) | ( 'find' ) )", 63, 0, input);
 
                 throw nvae;
             }
             switch (alt63) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2683:2: ( 'all' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:2: ( 'all' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2683:2: ( 'all' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2683:4: 'all'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:2: ( 'all' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:4: 'all'
                     {
-                    match(input,52,FOLLOW_52_in_ruleExpressionType5798); 
+                    match(input,52,FOLLOW_52_in_ruleExpressionType5711); 
 
                             current = grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0(), null); 
@@ -6732,12 +6653,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2689:6: ( 'find' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2659:6: ( 'find' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2689:6: ( 'find' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2689:8: 'find'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2659:6: ( 'find' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2659:8: 'find'
                     {
-                    match(input,53,FOLLOW_53_in_ruleExpressionType5813); 
+                    match(input,53,FOLLOW_53_in_ruleExpressionType5726); 
 
                             current = grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1(), null); 
@@ -7000,20 +6921,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleAssociationRoleReference5367 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUICall_in_entryRuleUICall5407 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUICall5417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUIModelElementCall_in_ruleUICall5463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUIModelElementCall_in_entryRuleUIModelElementCall5494 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUIModelElementCall5504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleUIModelElementCall5551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_ruleUIModelElementCall5578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleProcessType5624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleProcessType5639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleProcessType5654 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleProcessType5669 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleProcessType5684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleProcessType5699 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleProcessType5714 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleProcessTypeLink5756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleExpressionType5798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleExpressionType5813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleUICall5464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_ruleUICall5491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleProcessType5537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleProcessType5552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleProcessType5567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleProcessType5582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleProcessType5597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleProcessType5612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleProcessType5627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleProcessTypeLink5669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleExpressionType5711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleExpressionType5726 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -6,15 +6,21 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
@@ -32,6 +38,8 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getProcess <em>Process</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getArguments <em>Arguments</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.UICallImpl#getContextExp <em>Context Exp</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +65,7 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * @ordered
      */
     protected static final String LABEL_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -66,6 +75,26 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * @ordered
      */
     protected String label = LABEL_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getArguments()
+     * @generated
+     * @ordered
+     */
+    protected EList<Expression> arguments;
+
+    /**
+     * The cached value of the '{@link #getContextExp() <em>Context Exp</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getContextExp()
+     * @generated
+     * @ordered
+     */
+    protected Expression contextExp;
 
     /**
      * <!-- begin-user-doc -->
@@ -194,27 +223,78 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated NOT
+     * @generated
      */
-    public ProcessCall asProcessCall() {
-        if( this instanceof ProcessCall ){
-            return (ProcessCall) this;
-        } else {
-            return null;
+    public EList<Expression> getArguments() {
+        if (arguments == null) {
+            arguments = new EObjectContainmentEList<Expression>(Expression.class, this, PresentationDslPackage.UI_CALL__ARGUMENTS);
         }
+        return arguments;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated NOT
+     * @generated
+     */
+    public Expression getContextExp() {
+        return contextExp;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetContextExp(Expression newContextExp, NotificationChain msgs) {
+        Expression oldContextExp = contextExp;
+        contextExp = newContextExp;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_CALL__CONTEXT_EXP, oldContextExp, newContextExp);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setContextExp(Expression newContextExp) {
+        if (newContextExp != contextExp) {
+            NotificationChain msgs = null;
+            if (contextExp != null)
+                msgs = ((InternalEObject)contextExp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_CALL__CONTEXT_EXP, null, msgs);
+            if (newContextExp != null)
+                msgs = ((InternalEObject)newContextExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.UI_CALL__CONTEXT_EXP, null, msgs);
+            msgs = basicSetContextExp(newContextExp, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.UI_CALL__CONTEXT_EXP, newContextExp, newContextExp));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProcessCall asProcessCall() {
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
      */
     public DialogueCall asDialogueCall() {
-        if( this instanceof DialogueCall ){
-            return (DialogueCall) this;
-        } else {
-            return null;
-        }
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -245,6 +325,10 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return basicSetProcess(null, msgs);
             case PresentationDslPackage.UI_CALL__CONDITION:
                 return basicSetCondition(null, msgs);
+            case PresentationDslPackage.UI_CALL__ARGUMENTS:
+                return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
+            case PresentationDslPackage.UI_CALL__CONTEXT_EXP:
+                return basicSetContextExp(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -277,6 +361,10 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return getCondition();
             case PresentationDslPackage.UI_CALL__LABEL:
                 return getLabel();
+            case PresentationDslPackage.UI_CALL__ARGUMENTS:
+                return getArguments();
+            case PresentationDslPackage.UI_CALL__CONTEXT_EXP:
+                return getContextExp();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -286,6 +374,7 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
@@ -297,6 +386,13 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return;
             case PresentationDslPackage.UI_CALL__LABEL:
                 setLabel((String)newValue);
+                return;
+            case PresentationDslPackage.UI_CALL__ARGUMENTS:
+                getArguments().clear();
+                getArguments().addAll((Collection<? extends Expression>)newValue);
+                return;
+            case PresentationDslPackage.UI_CALL__CONTEXT_EXP:
+                setContextExp((Expression)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -319,6 +415,12 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
             case PresentationDslPackage.UI_CALL__LABEL:
                 setLabel(LABEL_EDEFAULT);
                 return;
+            case PresentationDslPackage.UI_CALL__ARGUMENTS:
+                getArguments().clear();
+                return;
+            case PresentationDslPackage.UI_CALL__CONTEXT_EXP:
+                setContextExp((Expression)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -337,6 +439,10 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
                 return condition != null;
             case PresentationDslPackage.UI_CALL__LABEL:
                 return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+            case PresentationDslPackage.UI_CALL__ARGUMENTS:
+                return arguments != null && !arguments.isEmpty();
+            case PresentationDslPackage.UI_CALL__CONTEXT_EXP:
+                return contextExp != null;
         }
         return super.eIsSet(featureID);
     }

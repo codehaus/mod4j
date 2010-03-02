@@ -23,7 +23,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * @model
  * @generated
  */
-public interface DialogueCall extends UIModelElementCall {
+public interface DialogueCall extends UICall {
     /**
      * Returns the value of the '<em><b>Compound Dialogue</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue#getDialogues <em>Dialogues</em>}'.

@@ -40,7 +40,9 @@ public enum ExpressionType implements Enumerator {
      * @generated
      * @ordered
      */
-    NONE(1, "NONE", "NONE"), /**
+    NONE(1, "NONE", "NONE"),
+
+    /**
      * The '<em><b>FIND</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -48,7 +50,9 @@ public enum ExpressionType implements Enumerator {
      * @generated
      * @ordered
      */
-    FIND(2, "FIND", "FIND"), /**
+    FIND(2, "FIND", "FIND"),
+
+    /**
      * The '<em><b>SELECTION</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

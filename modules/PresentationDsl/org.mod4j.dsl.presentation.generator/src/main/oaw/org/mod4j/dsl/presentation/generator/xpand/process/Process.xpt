@@ -105,6 +105,7 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
 
     public «this.javaBaseClass()»(IModel context){
         model = context;
+        setInteractive(true);
         
     «IF this.type == ProcessType::NEW»
         // New process, so create the new object and create the model for it
@@ -175,6 +176,12 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
                 if( operation.check(model.getObject()) ){
     «ENDIF»
                     PmfProcess process = (PmfProcess) step;
+                    process.setOwningPage(page);
+	                if( process.isInteractive() ){
+	                    getOwningPage().setResponsePage(process.nextPage(null) );
+	                } else {
+	                    process.run(o);
+	                }
                     process.run(null);
                 }
                 nextStep(o);
@@ -207,7 +214,11 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
                 if( operation.check(model.getObject()) ){
     «ENDIF»
                     PmfProcess process = (PmfProcess) step;
-                    process.run(null);
+	                if( process.isInteractive() ){
+	                    getOwningPage().setResponsePage(process.nextPage(null) );
+	                } else {
+	                    process.run(o);
+	                }
                 }
                 previousStep(o);
             }
@@ -368,6 +379,7 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
 
     public «this.javaBaseClass()»(IModel context){
         this.model = context;
+        setInteractive(false);
         prepareSteps();
     }
     
@@ -406,8 +418,11 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
             if( operation.check(model.getObject()) ){
     «ENDIF»
                 PmfProcess process = (PmfProcess) step;
-                process.setModel(model);
-                process.run(o);
+                if( process.isInteractive() ){
+                    getOwningPage().setResponsePage(process.nextPage(null) );
+                } else {
+                    process.run(o);
+                }
             }
             nextStep(o);
         }
@@ -632,7 +647,16 @@ abstract public class PmfProcess <T> implements Serializable {
     public void setModel(IModel model) {
         this.model = model;
     }
+    
+    protected boolean interactive = true;;
+    
+    public boolean isInteractive() {
+        return interactive;
+    }
 
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
 }
 «ENDDEFINE»
 
@@ -672,6 +696,8 @@ public ProcessType getProcessType() {
 «ENDDEFINE»
 
 «DEFINE createModel FOR UICall »
+// UICall : «this»
+// contextExp : «this.contextExp»
     «IF this.getNavigationExpression() != null»
         «this.name»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»
@@ -682,12 +708,20 @@ public ProcessType getProcessType() {
             «ENDLET»
         «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
             // TODO add Find providder IModel
+            «LET getWicketFinderDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
+	        «providerType» «this.name»provider = new «providerType»(context); 
+            «this.name»Model = new Model(«this.name»provider);
+            «ENDLET»
         «ENDIF»
     «ELSEIF this.getServiceExpression() != null»
         «getWicketServiceDataProviderClass(this.referredUIModelElement().contextRef.name)» p = new «getWicketServiceDataProviderClass(this.referredUIModelElement().contextRef.name)»(context.getObject());
         «this.name»Model = new Model(p);
-        // TODO add Service providder IModel
+        // TODO add Service provider IModel
+    «ELSEIF this.getOperationExpression() != null»
+        // TODO add Operation provider IModel
+        «this.name»Model = model;
     «ELSE»    
+        // TODO unknown provider IModel
         «this.name»Model = model;
     «ENDIF»
 «ENDDEFINE»

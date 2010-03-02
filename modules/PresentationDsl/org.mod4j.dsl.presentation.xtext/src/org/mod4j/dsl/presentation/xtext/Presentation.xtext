@@ -188,10 +188,6 @@ AssociationRoleReference :
 	;
 	
 UICall :
-	UIModelElementCall
-	;
-	
-UIModelElementCall :
 	DialogueCall |  ProcessCall
 	;
 	

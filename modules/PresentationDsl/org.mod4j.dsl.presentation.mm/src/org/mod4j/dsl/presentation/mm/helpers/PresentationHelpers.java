@@ -19,6 +19,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -26,7 +27,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 //import org.eclipse.xtend.util.stdlib.ElementPropertiesExtensions;
 
 public class PresentationHelpers {
@@ -234,24 +234,26 @@ public class PresentationHelpers {
         return null;
     }
     
-    static public NavigationExpression getNavigationExpression(UICall call){
-        if( call instanceof UIModelElementCall){
-            UIModelElementCall uiCall = (UIModelElementCall)call;
-            Expression link = uiCall.getContextExp();
-            if( link instanceof NavigationExpression ){
-                return (NavigationExpression) link;
-            }
+    static public NavigationExpression getNavigationExpression(UICall uiCall){
+        Expression link = uiCall.getContextExp();
+        if( link instanceof NavigationExpression ){
+            return (NavigationExpression) link;
         }
         return null;
     }
 
-    static public StandardExpression getStandardExpression(UICall call){
-        if( call instanceof UIModelElementCall){
-            UIModelElementCall uiCall = (UIModelElementCall)call;
-            Expression link = uiCall.getContextExp();
-            if( link instanceof StandardExpression ){
-                return (StandardExpression) link;
-            }
+    static public OperationExpression getOperationExpression(UICall uiCall){
+        Expression link = uiCall.getContextExp();
+        if( link instanceof OperationExpression ){
+            return (OperationExpression) link;
+        }
+        return null;
+    }
+
+    static public StandardExpression getStandardExpression(UICall uiCall){
+        Expression link = uiCall.getContextExp();
+        if( link instanceof StandardExpression ){
+            return (StandardExpression) link;
         }
         return null;
     }
@@ -261,13 +263,10 @@ public class PresentationHelpers {
      * @param call
      * @return
      */
-    static public ServiceExpression getServiceExpression(UICall call){
-        if( call instanceof UIModelElementCall){
-            UIModelElementCall linkedCall = (UIModelElementCall)call;
-            Expression link = linkedCall.getContextExp();
-            if( link instanceof ServiceExpression){
-                return (ServiceExpression) link;
-            }
+    static public ServiceExpression getServiceExpression(UICall uiCall){
+        Expression link = uiCall.getContextExp();
+        if( link instanceof ServiceExpression){
+            return (ServiceExpression) link;
         }
         return null;
     }

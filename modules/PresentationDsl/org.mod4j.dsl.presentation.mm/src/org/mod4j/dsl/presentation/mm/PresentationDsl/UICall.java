@@ -6,6 +6,7 @@
  */
 package org.mod4j.dsl.presentation.mm.PresentationDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,8 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getProcess <em>Process</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getArguments <em>Arguments</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getContextExp <em>Context Exp</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +108,48 @@ public interface UICall extends ModelElement {
      * @generated
      */
     void setLabel(String value);
+
+    /**
+     * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
+     * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.Expression}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Arguments</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Arguments</em>' containment reference list.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUICall_Arguments()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Expression> getArguments();
+
+    /**
+     * Returns the value of the '<em><b>Context Exp</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Context Exp</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Context Exp</em>' containment reference.
+     * @see #setContextExp(Expression)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getUICall_ContextExp()
+     * @model containment="true"
+     * @generated
+     */
+    Expression getContextExp();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.UICall#getContextExp <em>Context Exp</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Context Exp</em>' containment reference.
+     * @see #getContextExp()
+     * @generated
+     */
+    void setContextExp(Expression value);
 
     /**
      * <!-- begin-user-doc -->

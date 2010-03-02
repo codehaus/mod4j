@@ -20,7 +20,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Process;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElementCall;
 
 public class PresentationProposals {
 	

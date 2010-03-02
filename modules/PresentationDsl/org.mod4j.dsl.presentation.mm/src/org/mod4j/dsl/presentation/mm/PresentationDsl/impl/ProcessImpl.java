@@ -267,7 +267,7 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated  NOT
+     * @generated
      */
     public boolean isInteractive() {
         for (UICall call : this.getProcessElements()) {

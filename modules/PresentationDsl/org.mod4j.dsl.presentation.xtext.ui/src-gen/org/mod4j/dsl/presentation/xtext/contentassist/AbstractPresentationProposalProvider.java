@@ -784,11 +784,4 @@ public class AbstractPresentationProposalProvider extends TerminalsProposalProvi
 		}
 		// subclasses may override
 	}
-	public void complete_UIModelElementCall(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("complete_UIModelElementCall '" + ruleCall.getRule().getName() + "' cardinality '" + ruleCall.getCardinality()
-					+ "' for model '" + context.getCurrentModel() + "' and prefix '" + context.getPrefix() + "'");
-		}
-		// subclasses may override
-	}
 }

@@ -2553,39 +2553,9 @@ ruleUICall returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-
-    { 
-        currentNode=createCompositeNode(grammarAccess.getUICallAccess().getUIModelElementCallParserRuleCall(), currentNode); 
-    }
-    this_UIModelElementCall_0=ruleUIModelElementCall
-    { 
-        $current = $this_UIModelElementCall_0.current; 
-        currentNode = currentNode.getParent();
-    }
-;
-
-
-
-
-
-// Entry rule entryRuleUIModelElementCall
-entryRuleUIModelElementCall returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getUIModelElementCallRule(), currentNode); }
-	 iv_ruleUIModelElementCall=ruleUIModelElementCall 
-	 { $current=$iv_ruleUIModelElementCall.current; } 
-	 EOF 
-;
-
-// Rule UIModelElementCall
-ruleUIModelElementCall returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
 (
     { 
-        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getDialogueCallParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getUICallAccess().getDialogueCallParserRuleCall_0(), currentNode); 
     }
     this_DialogueCall_0=ruleDialogueCall
     { 
@@ -2595,7 +2565,7 @@ ruleUIModelElementCall returns [EObject current=null]
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getUIModelElementCallAccess().getProcessCallParserRuleCall_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getUICallAccess().getProcessCallParserRuleCall_1(), currentNode); 
     }
     this_ProcessCall_1=ruleProcessCall
     { 

@@ -654,12 +654,6 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//UICall"/>
       </type>
-      <alternatives xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="UIModelElementCall">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//UIModelElementCall"/>
-      </type>
       <alternatives xsi:type="xtext:Alternatives">
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>

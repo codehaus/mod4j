@@ -33,6 +33,9 @@ import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 «FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::ALL )) AS e»
 import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
 «ENDFOREACH»
+«FOREACH this.processElements.select(e|(e.getStandardExpression() != null) && (e.getStandardExpression().type== ExpressionType::FIND )) AS e»
+import «getPresentationRootPackage()».dataproviders.«getWicketFinderDataProviderClass(e.referredUIModelElement().contextRef.name)» ;
+«ENDFOREACH»
 
 «FOREACH this.processElements.select(e|e.getServiceExpression() != null ) AS e»
 import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProviderClass(e.referredUIModelElement().contextRef.name)» ;

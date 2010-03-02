@@ -161,15 +161,6 @@ public interface PresentationDslFactory extends EFactory {
     ProcessCall createProcessCall();
 
     /**
-     * Returns a new object of class '<em>UI Model Element Call</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>UI Model Element Call</em>'.
-     * @generated
-     */
-    UIModelElementCall createUIModelElementCall();
-
-    /**
      * Returns a new object of class '<em>Service Expression</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

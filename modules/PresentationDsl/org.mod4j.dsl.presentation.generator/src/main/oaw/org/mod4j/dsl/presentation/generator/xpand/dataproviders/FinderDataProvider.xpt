@@ -67,21 +67,19 @@ public class «getWicketFinderDataProviderClass(context)»
 
     «javaLocalServiceInterface(serviceType)» service;
 
-    «context» context;
+    IModel<«context»> context;
 	/**
 	 * Create a new FinderDataProvider 
 	 * @param service The service from which the list and count is retrieved.
 	 */
-	public «getWicketFinderDataProviderClass(context)»(«context» context) {
+	public «getWicketFinderDataProviderClass(context)»(IModel<«context»> context) {
 		this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(serviceType)»();
 		this.context = context;
 	}
 
 	@SuppressWarnings("unchecked")
 	synchronized public Iterator iterator(int first, int count) {
-		List<«context»> result = null;
-		
-		return service.«findService»(context).iterator();    // (first, count).iterator();
+        return service.«findService»(context.getObject()).subList(first, first + count).iterator(); 
 	}
 
 	public IModel<«context»> model(«context» object) {
@@ -89,8 +87,7 @@ public class «getWicketFinderDataProviderClass(context)»
 	}
 
 	synchronized public int size() {
-		Long result = service.count«businessClassName(form)»s();
-		return result.intValue();
+        return service.«findService»(context.getObject()).size(); 
 	}
 
 	public void detach() {
