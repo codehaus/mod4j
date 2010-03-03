@@ -1,10 +1,10 @@
 "Everything Customer related"
-presentation CustomerModel;
+presentation CustomerModel;  
 
-from RecordShopDataContract import FullCustomerDto ;      
-from RecordShopDataContract import SimpleCustomerDto;
-from RecordShopDataContract import ArtistDto;
-from CustomerServiceModel import CustomerServiceModel;  
+from RecordShopDataContract dto FullCustomerDto ;      
+from RecordShopDataContract dto SimpleCustomerDto;
+from RecordShopDataContract dto ArtistDto;
+from CustomerServiceModel service CustomerServiceModel;  
 
 form DefaultElements context FullCustomerDto [ ]
 
