@@ -37,8 +37,6 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getContentForm <em>Content Form</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl#getLink <em>Link</em>}</li>
  * </ul>
@@ -46,7 +44,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
  *
  * @generated
  */
-public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.presentation.mm.PresentationDsl.Process {
+public class ProcessImpl extends AbstractProcessImpl implements org.mod4j.dsl.presentation.mm.PresentationDsl.Process {
     /**
      * The cached value of the '{@link #getProcessElements() <em>Process Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -56,46 +54,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
      * @ordered
      */
     protected EList<UICall> processElements;
-
-    /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected static final ProcessType TYPE_EDEFAULT = ProcessType.CUSTOM;
-
-    /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected ProcessType type = TYPE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLabel()
-     * @generated
-     * @ordered
-     */
-    protected static final String LABEL_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLabel()
-     * @generated
-     * @ordered
-     */
-    protected String label = LABEL_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference.
@@ -136,48 +94,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
             processElements = new EObjectContainmentWithInverseEList<UICall>(UICall.class, this, PresentationDslPackage.PROCESS__PROCESS_ELEMENTS, PresentationDslPackage.UI_CALL__PROCESS);
         }
         return processElements;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ProcessType getType() {
-        return type;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setType(ProcessType newType) {
-        ProcessType oldType = type;
-        type = newType == null ? TYPE_EDEFAULT : newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__TYPE, oldType, type));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getLabel() {
-        return label;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLabel(String newLabel) {
-        String oldLabel = label;
-        label = newLabel;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS__LABEL, oldLabel, label));
     }
 
     /**
@@ -267,7 +183,7 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NO
      */
     public boolean isInteractive() {
         for (UICall call : this.getProcessElements()) {
@@ -339,10 +255,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return getProcessElements();
-            case PresentationDslPackage.PROCESS__TYPE:
-                return getType();
-            case PresentationDslPackage.PROCESS__LABEL:
-                return getLabel();
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 return getContentForm();
             case PresentationDslPackage.PROCESS__LINK:
@@ -363,12 +275,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 getProcessElements().clear();
                 getProcessElements().addAll((Collection<? extends UICall>)newValue);
-                return;
-            case PresentationDslPackage.PROCESS__TYPE:
-                setType((ProcessType)newValue);
-                return;
-            case PresentationDslPackage.PROCESS__LABEL:
-                setLabel((String)newValue);
                 return;
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 setContentForm((ContentForm)newValue);
@@ -391,12 +297,6 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 getProcessElements().clear();
                 return;
-            case PresentationDslPackage.PROCESS__TYPE:
-                setType(TYPE_EDEFAULT);
-                return;
-            case PresentationDslPackage.PROCESS__LABEL:
-                setLabel(LABEL_EDEFAULT);
-                return;
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 setContentForm((ContentForm)null);
                 return;
@@ -417,34 +317,12 @@ public class ProcessImpl extends UIModelElementImpl implements org.mod4j.dsl.pre
         switch (featureID) {
             case PresentationDslPackage.PROCESS__PROCESS_ELEMENTS:
                 return processElements != null && !processElements.isEmpty();
-            case PresentationDslPackage.PROCESS__TYPE:
-                return type != TYPE_EDEFAULT;
-            case PresentationDslPackage.PROCESS__LABEL:
-                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
             case PresentationDslPackage.PROCESS__CONTENT_FORM:
                 return getContentForm() != null;
             case PresentationDslPackage.PROCESS__LINK:
                 return link != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (type: ");
-        result.append(type);
-        result.append(", label: ");
-        result.append(label);
-        result.append(')');
-        return result.toString();
     }
 
 } //ProcessImpl

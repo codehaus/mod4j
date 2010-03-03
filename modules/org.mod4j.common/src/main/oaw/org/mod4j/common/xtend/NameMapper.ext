@@ -185,4 +185,9 @@ String getWicketPageNotFoundPageClass() : JAVA
 String getWicketExceptionPageClass() : JAVA
   org.mod4j.dslcommon.generator.helpers.NameMapper.getWicketExceptionPageClass();
   
+String getPresentationServiceFacadeClass() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getPresentationServiceFacadeClass();
+
+String getPresentationServiceFacadeClassPath() : JAVA
+  org.mod4j.dslcommon.generator.helpers.NameMapper.getPresentationServiceFacadeClassPath();
 

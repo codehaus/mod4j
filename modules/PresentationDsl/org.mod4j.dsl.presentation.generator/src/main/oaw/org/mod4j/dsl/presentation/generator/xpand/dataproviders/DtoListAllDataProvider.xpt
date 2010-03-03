@@ -45,6 +45,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
 import «getPresentationCommonPackage()».processes.ProcessType;
+import «getPresentationServiceFacadeClassPath()»;
 
 import «javaLocalServiceInterfacePath(serviceType)» ;
 import «javaDtoClassPath(context)»;
@@ -73,7 +74,7 @@ public class «getWicketListAllDataProviderClass(context)»
 	 * @param service The service from which the list and count is retrieved.
 	 */
 	public «getWicketListAllDataProviderClass(context)»() {
-		this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(serviceType)»();
+		this.service = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(serviceType)»();
 	}
 
 	@SuppressWarnings("unchecked")

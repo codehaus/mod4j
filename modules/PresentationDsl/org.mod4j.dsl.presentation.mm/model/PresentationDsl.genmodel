@@ -77,14 +77,12 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//Process/label"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/contentForm"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/link"/>
-      <genOperations ecoreOperation="PresentationDsl.ecore#//Process/isInteractive"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ProcessCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/owningDialogue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//ProcessCall/referredProcess"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UIModelElement"/>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//UICall">
@@ -111,6 +109,12 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//OperationExpression"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//Application">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Application/startProcesses"/>
+    </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ProcessReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//AbstractProcess">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//AbstractProcess/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//AbstractProcess/label"/>
+      <genOperations ecoreOperation="PresentationDsl.ecore#//AbstractProcess/isInteractive"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

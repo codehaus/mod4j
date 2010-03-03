@@ -17,12 +17,21 @@ completeModel(PresentationModel pmfModel) :
     ->pmfModel.elements.typeSelect(ContentForm).formElements.addDataProperty()
     ->pmfModel.elements.typeSelect(ContentForm).formElements.fillLabel()
     -> contentForms.convertActions()
-    -> pmfModel.elements.typeSelect(Process).fillLabel()
+    -> pmfModel.elements.typeSelect(AbstractProcess).fillLabel()
     -> pmfModel.elements.typeSelect(Dialogue).processes.fillLabel()
     -> ( (pmfModel.start != null)? pmfModel.start.startProcesses.fillLabel() : null)
+    -> pmfModel.externalReferences.typeSelect(ProcessReference).addContext(pmfModel)
 	
 	;
 
+addContext(ProcessReference pref, PresentationModel model) :
+   let dto = new ExternalReference :
+   let symbol = lookupSymbol(pref.modelName, pref.name, "Process") :
+   dto.setName (symbol.getPropertyValue("context") )->
+   model.externalReferences.add(dto)->
+   pref.setContextRef(dto)->
+   null;
+   
 /** add all the properties of the contextual Dto to the form is none are specified in the model.
  */
 addElements(ContentForm form):
@@ -57,7 +66,7 @@ fillLabel(FormElement element) :
 /** If the label is empty, fill it with the name of the property
  */
 fillLabel(ProcessCall pcall) :
-    (  ( (pcall.label == null) || (pcall.label == "")  ) ? pcall.setLabel(pcall.name) : null)
+    (  ( (pcall.label == null) || (pcall.label == "")  ) ? pcall.setLabel(pcall.referredProcess.name) : null)
 ;
 
 /**
@@ -75,7 +84,7 @@ PresentationDsl::DataProperty newDataProperty(Symbol symbol) :
     result.setIsEnumeration(ref != null)->
     result;
 
-fillLabel(Process p) :
+fillLabel(AbstractProcess p) :
     (   (p.label == null) || (p.label == "")
       ? (p.setLabel(p.name))
       : null
@@ -94,6 +103,7 @@ Boolean createProcess(Object actionObject, ContentForm form) :
     processCall.setName(name)->
     action.setLabel( ((action.label == null) || (action.label == "")) ? action.name : action.label )->
     processCall.setLabel(action.label)->
+    processCall.setReferredProcess(action)->
     action.setName(name)->
     action.setContextRef(form.contextRef)->
     action.setCollectionContext(false)->

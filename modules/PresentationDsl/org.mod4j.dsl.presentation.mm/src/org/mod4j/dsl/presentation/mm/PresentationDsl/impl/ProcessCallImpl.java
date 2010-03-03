@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
@@ -28,12 +29,23 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl#getOwningDialogue <em>Owning Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessCallImpl#getReferredProcess <em>Referred Process</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ProcessCallImpl extends UICallImpl implements ProcessCall {
+    /**
+     * The cached value of the '{@link #getReferredProcess() <em>Referred Process</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredProcess()
+     * @generated
+     * @ordered
+     */
+    protected AbstractProcess referredProcess;
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -99,6 +111,44 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
      * <!-- end-user-doc -->
      * @generated
      */
+    public AbstractProcess getReferredProcess() {
+        if (referredProcess != null && referredProcess.eIsProxy()) {
+            InternalEObject oldReferredProcess = (InternalEObject)referredProcess;
+            referredProcess = (AbstractProcess)eResolveProxy(oldReferredProcess);
+            if (referredProcess != oldReferredProcess) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS, oldReferredProcess, referredProcess));
+            }
+        }
+        return referredProcess;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AbstractProcess basicGetReferredProcess() {
+        return referredProcess;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReferredProcess(AbstractProcess newReferredProcess) {
+        AbstractProcess oldReferredProcess = referredProcess;
+        referredProcess = newReferredProcess;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS, oldReferredProcess, referredProcess));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -148,6 +198,9 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
         switch (featureID) {
             case PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE:
                 return getOwningDialogue();
+            case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
+                if (resolve) return getReferredProcess();
+                return basicGetReferredProcess();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -162,6 +215,9 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
         switch (featureID) {
             case PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE:
                 setOwningDialogue((Dialogue)newValue);
+                return;
+            case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
+                setReferredProcess((AbstractProcess)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -178,6 +234,9 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
             case PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE:
                 setOwningDialogue((Dialogue)null);
                 return;
+            case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
+                setReferredProcess((AbstractProcess)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -192,6 +251,8 @@ public class ProcessCallImpl extends UICallImpl implements ProcessCall {
         switch (featureID) {
             case PresentationDslPackage.PROCESS_CALL__OWNING_DIALOGUE:
                 return getOwningDialogue() != null;
+            case PresentationDslPackage.PROCESS_CALL__REFERRED_PROCESS:
+                return referredProcess != null;
         }
         return super.eIsSet(featureID);
     }

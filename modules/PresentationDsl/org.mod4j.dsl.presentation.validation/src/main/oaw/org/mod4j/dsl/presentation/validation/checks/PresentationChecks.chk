@@ -18,16 +18,16 @@ boolean hasDouble(Process process, ProcessType type ):
     (
        process.contentForm.actions.forAll(a | (a != process) implies ( a.type != type) ) 
     ) &&
-    process.contentForm.processes.referredProcess().select(p | ! p.collectionContext).forAll(p | p.type != type  ) ;
+    process.contentForm.processes.referredProcess.select(p | ! p.collectionContext).forAll(p | p.type != type  ) ;
   
 boolean hasDouble(ProcessCall pcall, ProcessType ptype) :
-    let process = pcall.referredProcess() :
+    let process = pcall.referredProcess :
     ( 
         (
             (! process.collectionContext) implies
                   ((ContentForm)(pcall.owningDialogue)).actions.forAll(a | a.type != ptype)  
         ) &&
-       pcall.owningDialogue.processes.referredProcess().remove(process).
+       pcall.owningDialogue.processes.referredProcess.remove(process).
             forAll(p | ( p.type == ptype) implies (p.collectionContext != process.collectionContext) ) 
      )
      ;
@@ -77,9 +77,9 @@ context Process if this.type == ProcessType::EDIT
 //    this.contentForm.actions.forAll(p | (p != this) implies ( p.type != ProcessType::EDIT) ) &&
 //    this.contentForm.processes.referredProcess().forAll(p | p.type != ProcessType::EDIT) ;
 
-context ProcessCall if (this.referredProcess().type != ProcessType::CUSTOM) && (this.owningDialogue != null) 
-    ERROR "12 A Content Form may have at most one " + this.referredProcess().type + "' action or process" :
-    hasDouble(this, this.referredProcess().type);
+context ProcessCall if (this.referredProcess.type != ProcessType::CUSTOM) && (this.owningDialogue != null) 
+    ERROR "12 A Content Form may have at most one " + this.referredProcess.type + "' action or process" :
+    hasDouble(this, this.referredProcess.type);
 /*
 context ContentForm ERROR "A Content Form may have at most one 'delete list' action" :
     this.actions.union( this.processes.referredProcess() ).select(e| (e.type==ProcessType::DELETE) && e.collectionContext).size <= 1;
@@ -97,9 +97,9 @@ context DialogueCall ERROR  "Referred form [" + this.name + "] not found" :
 	this.referredContentForm() != null
     ;
 
-context ProcessCall ERROR "Referred process [" + this.name + "] not found" :
-	this.referredProcess() != null
-    ;
+//context ProcessCall ERROR "Referred process [" + this.name + "] not found" :
+//	this.referredProcess() != null
+//    ;
 
 context Process ERROR "Process error " + this.getProperty("ERROR") :
     let result = checkProcess(this) :       
@@ -111,6 +111,6 @@ context ProcessCall ERROR "ProcessCall error " + this.getProperty("ERROR") :
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
       ;
 
-context ProcessCall if (this.owningDialogue != null) && (this.referredProcess() != null)
+context ProcessCall if (this.owningDialogue != null) && (this.referredProcess.metaType != ProcessReference)
  ERROR "The process [" + this.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
-    this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess().contextRef.name);
+    this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess.contextRef.name);

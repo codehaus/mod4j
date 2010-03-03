@@ -36,11 +36,11 @@ import «javaDtoClassPath(this.contextRef.name)»;
 «ENDFOREACH»
 
 import «getPresentationRootPackage()».processes.PmfProcess;
-«FOREACH this.processes.referredProcess() AS process»
+«FOREACH this.processes.referredProcess AS process»
 import «getPresentationRootPackage()».processes.«process.javaClass()»;
 «ENDFOREACH»
 import «getPresentationCommonPackage()».processes.ProcessType;
-«IF this.processes.referredProcess().exists(e|e.type == ProcessType::ADDTO)»
+«IF this.processes.referredProcess.exists(e|e.type == ProcessType::ADDTO)»
 import «getPresentationRootPackage()».dataproviders.«getWicketListAllDataProviderClass(this.contextRef.name)»;
 «ENDIF»
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
@@ -126,8 +126,8 @@ public class «className» extends Panel
 		container.add(collection);
 
         «IF withProcesses»
-	        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::NEW) AS pp»
-	            «LET pp.referredProcess() AS process»
+	        «FOREACH this.processes.select(pp| (pp.referredProcess != null) && pp.referredProcess.type==ProcessType::NEW) AS pp»
+	            «LET pp.referredProcess AS process»
 /*
                     // New process 
 					Link «process.name»Link = new Link<Object>("«process.name»") {
@@ -149,8 +149,8 @@ public class «className» extends Panel
 				«ENDLET»
 			«ENDFOREACH»
 			
-	        «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
-	            «LET pp.referredProcess() AS process»
+	        «FOREACH this.processes.select(pp| pp.referredProcess != null) AS pp»
+	            «LET pp.referredProcess AS process»
                 «IF process.type==ProcessType::NEW »
                     // New process 
                     Link «process.name»Link = new Link<Object>("«process.name»") {
@@ -170,7 +170,6 @@ public class «className» extends Panel
                     }
 	            «ELSEIF process.collectionContext »
 	                «IF process.type == ProcessType::ADDTO»
-	                    «LET process.processElements.typeSelect(DialogueCall).first().referredDialogue() AS dialogue»
                         // AddTo process 
                         Link «process.name»Link = new Link<Object>("«process.name»") {
                             @Override
@@ -198,40 +197,6 @@ public class «className» extends Panel
                         if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
                             «process.name»Link.setEnabled(false);
                         }
-/*
-	                    final ModalWindow «process.name»Modal = new ModalWindow("«process.name»Modal");
-				        «process.name»Modal.setTitle("«process.label»");
-				        «process.name»Modal.setCssClassName(ModalWindow.CSS_CLASS_GRAY);
-				        «process.name»Modal.setUseInitialHeight(true);
-				        «process.name»Modal.setInitialHeight(400);
-				        «process.name»Modal.setInitialWidth(600);
-				        Close close = new Close(this.page);
-                        «process.name»Modal.setWindowClosedCallback(close);
-				        
-				        «getWicketListAllDataProviderClass(this.contextRef.name)» all = new «getWicketListAllDataProviderClass(this.contextRef.name)»();
-				        IModel newModel = new Model(all);
-				        modalPanel = new «dialogue.name»CollectionDataViewPanelOnly("content", newModel, maxItemsPerPage, owner);
-				        «process.name»Modal.setContent(modalPanel );
-				        
-					    AjaxFallbackLink «process.name»Link = new AjaxFallbackLink<Object>("«process.name»") {
-					            @Override
-					            public boolean isEnabled() {
-					                return true;
-					            }
-					
-					            @Override
-					            public void onClick(AjaxRequestTarget target) {
-					                «process.name»Modal.show(target);
-					            }
-					       };
-	                        add(«process.name»Link);
-	                        if( ! dataProvider.supportedProcesses().contains(ProcessType.«process.type.toString()») ){
-                                «process.name»Link.setEnabled(false);
-                                «process.name»Link.setVisible(false);
-	                        }
-    					    add(«process.name»Modal);
-*/						        
-	                    «ENDLET»
                     «ELSEIF ((process.type == ProcessType::REMOVEFROM) || (process.type == ProcessType::DELETE)) »
                         // RemoveFrom or Delete process on single instance
                         Link «process.name»Link = new Link<Object>("«process.name»") {
@@ -295,8 +260,8 @@ public class «className» extends Panel
 	        «ENDFOREACH»
 	    «ELSE» «REM» not withProcesses «ENDREM»
 «REM»	    
-            «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::ADDTO) AS pp»
-                «LET pp.referredProcess() AS process»
+            «FOREACH this.processes.select(pp| (pp.referredProcess != null) && pp.referredProcess.type==ProcessType::ADDTO) AS pp»
+                «LET pp.referredProcess AS process»
 «ENDREM»
                     Link addLink = new Link<Object>("addLink") {
                         @Override
@@ -323,45 +288,22 @@ public class «className» extends Panel
 	}
 	
 	«IF withProcesses»
-	    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
-	        «LET pp.referredProcess() AS process»
+    «REM»
+	    «FOREACH this.processes.select(pp| pp.referredProcess != null) AS pp»
+	        «LET pp.referredProcess AS process»
 	        «IF process.collectionContext »
 	            «IF (process.type == ProcessType::ADDTO) || (process.type == ProcessType::LINK) »
 	                «LET process.processElements.typeSelect(DialogueCall).first().referredDialogue() AS dialogue»
 	                	«dialogue.name»CollectionDataViewPanelOnly modalPanel = null ;
-	                «EXPAND closeClass(process) FOR this»    
 	                «ENDLET»
 	            «ENDIF»
 	        «ENDIF»
 	        «ENDLET»
 	    «ENDFOREACH»
+    «ENDREM»
 	«ENDIF»
 }
 «ENDLET»
-«ENDDEFINE»
-
-«DEFINE closeClass(Process process) FOR ContentForm»
-/*
-class Close implements WindowClosedCallback  {
-
-    «getWicketMasterPageClass()» page ;
-    public Close(«getWicketMasterPageClass()» owner){
-        page = owner;
-    }
-    
-    public void onClose(AjaxRequestTarget target) {
-        List<«this.contextRef.name»> dtoList = new ArrayList<«this.contextRef.name»>();
-        for (IModel<«this.contextRef.name»> dtoModel : modalPanel.selectedElements) {
-            «this.contextRef.name» elem = dtoModel.getObject();
-            dtoList.add(elem);
-        }
-        «process.javaClass()» process = new «process.javaClass()»(model);
-        process.setOwningPage( page);
-        process.run(dtoList);
-        target.addComponent(container);
-    }
-}
-*/
 «ENDDEFINE»
 
 «DEFINE dataView(boolean withProcesses) FOR ContentForm»
@@ -412,8 +354,8 @@ class Close implements WindowClosedCallback  {
 	«ENDLET»
 
     «IF withProcesses»    
-	    «FOREACH this.processes.select(pp| pp.referredProcess() != null) AS pp»
-		   «LET pp.referredProcess() AS process»
+	    «FOREACH this.processes.select(pp| pp.referredProcess != null) AS pp»
+		   «LET pp.referredProcess AS process»
 		   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »
                 // Custom process on single instance
 				Link «process.name»Link = new Link("«process.name»") {
@@ -434,7 +376,7 @@ class Close implements WindowClosedCallback  {
 			«ENDIF»
 			«ENDLET»
 	    «ENDFOREACH»
-		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS process»
+		«FOREACH this.processes.referredProcess.select(e|e.type==ProcessType::EDIT) AS process»
             // Edit process 
 			Link «process.name»Link = new Link("«process.name»") {
 				public void onClick() {
@@ -460,7 +402,7 @@ class Close implements WindowClosedCallback  {
 	                «process.name»Link.setEnabled(false);
 	            }
 	    «ENDFOREACH»
-        «FOREACH this.processes.referredProcess().select(e|  (e.type==ProcessType::DELETE) && (! e.collectionContext)) AS process»
+        «FOREACH this.processes.referredProcess.select(e|  (e.type==ProcessType::DELETE) && (! e.collectionContext)) AS process»
             «IF ! process.collectionContext»
                 // Delete process on collection
                 Link «process.name»Link = new Link("«process.name»") {
@@ -477,7 +419,7 @@ class Close implements WindowClosedCallback  {
                 }
            «ENDIF»
         «ENDFOREACH»
-        «FOREACH this.processes.referredProcess().select(e|  (e.type==ProcessType::REMOVEFROM) && (! e.collectionContext)) AS process»
+        «FOREACH this.processes.referredProcess.select(e|  (e.type==ProcessType::REMOVEFROM) && (! e.collectionContext)) AS process»
             // Remove from process on collection
             Link «process.name»Link = new Link("«process.name»") {
                 public void onClick() {

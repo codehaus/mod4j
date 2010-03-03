@@ -68,6 +68,7 @@ package «getPresentationRootPackage()».processes;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «getPresentationServiceFacadeClassPath()»;
 import «getPresentationRootPackage()».pages.«this.name.toFirstUpper()»Page;
 // import «javaDtoClassPath(this.contextRef.name)»;
 «FOREACH this.processElements.referredUIModelElement().contextRef.name.add(this.contextRef.name).toSet() AS c»
@@ -139,9 +140,9 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
         «IF uiCall.metaType == DialogueCall -»
             steps.add(page);
         «ELSEIF uiCall.metaType == ProcessCall -»
-            IModel «uiCall.name»Model;
+            IModel «uiCall.asProcessCall().referredProcess.name»Model;
             «EXPAND createModel FOR uiCall.asProcessCall()»
-            steps.add(new «uiCall.asProcessCall().referredProcess().javaClass()»(«uiCall.name»Model));
+            steps.add(new «uiCall.asProcessCall().javaClass()»(«uiCall.asProcessCall().referredProcess.name»Model));
         «ENDIF-»
         «IF uiCall.condition != null-»
             checks.add(new Operation«uiCall.condition.name»() );
@@ -283,9 +284,9 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
         if (object instanceof AbstractDto) {
             AbstractDto root = (AbstractDto) innerModel.getObject();
             if (root.getId() == null) {
-//                root = «getWicketHomePageClass()».create(root);
+//                root = «getPresentationServiceFacadeClass()».create(root);
             } else {
-                root = «getWicketHomePageClass()».read(root);
+                root = «getPresentationServiceFacadeClass()».read(root);
                 innerModel.setObject(root);
             }
         }
@@ -349,6 +350,7 @@ package «getPresentationRootPackage()».processes;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
 import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «getPresentationServiceFacadeClassPath()»;
 import «javaDtoClassPath(this.contextRef.name)»;
 import «getPresentationCommonPackage()».ext.components.Helpers;
 import org.mod4j.runtime.dto.AbstractDto;
@@ -360,6 +362,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import «getPresentationCommonPackage()».processes.ProcessType;
@@ -393,7 +396,9 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
 	        «IF uiCall.metaType == DialogueCall -»
 	            steps.add(page);
 	        «ELSEIF uiCall.metaType == ProcessCall -»
-	            steps.add(new «uiCall.asProcessCall().referredProcess().javaClass()»(null));
+	            IModel «uiCall.asProcessCall().referredProcess.name»Model;
+	            «EXPAND createModel FOR uiCall.asProcessCall()»
+	            steps.add(new «uiCall.asProcessCall().javaClass()»(«uiCall.asProcessCall().referredProcess.name»Model));
 	        «ENDIF-»
 	        «IF uiCall.condition != null-»
 	            checks.add(new Operation«uiCall.condition.name»() );
@@ -494,9 +499,9 @@ public void run(«context» element) {
     if( object instanceof AbstractDto ){
         AbstractDto root = (AbstractDto)innerModel.getObject();
         if( root.getId() == null ){
-            root  = «getWicketHomePageClass()».create(root);
+            root  = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            root  = «getWicketHomePageClass()».update(root);
+            root  = «getPresentationServiceFacadeClass()».update(root);
         }
         innerModel.setObject(root);
     }
@@ -514,7 +519,7 @@ private void deleteAction(List<«this.contextRef.name»> elements) {
         if( dto.getId() == null ){
             System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
         } else {
-            «getWicketHomePageClass()».delete(dto);
+            «getPresentationServiceFacadeClass()».delete(dto);
         }
     }
     owningPage.modelChanged();
@@ -534,7 +539,7 @@ private void deleteAction(«this.contextRef.name» element) {
         if( root.getId() == null ){
             System.out.println("DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT DELETE NON EXISTING OBJECT ");
         } else {
-            «getWicketHomePageClass()».delete(root);
+            «getPresentationServiceFacadeClass()».delete(root);
         }
         innerModel.setObject(null);
     }
@@ -554,10 +559,10 @@ public void run(List<«this.contextRef.name»> elements) {
         AbstractDto root = (AbstractDto) innerModel.getObject();
         if (root.getId() == null) {
            System.out.println("CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE ");
-            root = «getWicketHomePageClass()».create(root);
+            root = «getPresentationServiceFacadeClass()».create(root);
         } else {
             System.out.println("UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE ");
-            root = «getWicketHomePageClass()».update(root);
+            root = «getPresentationServiceFacadeClass()».update(root);
         }
         innerModel.setObject(root);
     }
@@ -575,9 +580,9 @@ public void run(«context» element) {
     if (object instanceof AbstractDto) {
         AbstractDto root = (AbstractDto) innerModel.getObject();
         if (root.getId() == null) {
-            root = «getWicketHomePageClass()».create(root);
+            root = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            root = «getWicketHomePageClass()».update(root);
+            root = «getPresentationServiceFacadeClass()».update(root);
         }
         innerModel.setObject(root);
     }
@@ -678,9 +683,9 @@ public void add(Object o) {
     if (object instanceof AbstractDto) {
         AbstractDto root = (AbstractDto) innerModel.getObject();
         if (root.getId() == null) {
-            root = «getWicketHomePageClass()».create(root);
+            root = «getPresentationServiceFacadeClass()».create(root);
         } else {
-            root = «getWicketHomePageClass()».update(root);
+            root = «getPresentationServiceFacadeClass()».update(root);
         }
         innerModel.setObject(root);
     }
@@ -696,33 +701,33 @@ public ProcessType getProcessType() {
 «ENDDEFINE»
 
 «DEFINE createModel FOR UICall »
-// UICall : «this»
-// contextExp : «this.contextExp»
+    «LET (this.metaType == ProcessCall) ? this.asProcessCall().referredProcess.name : this.name AS modelName»
     «IF this.getNavigationExpression() != null»
-        «this.name»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
+        «modelName»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»
         «IF this.getStandardExpression().type == ExpressionType::ALL»
             «LET getWicketListAllDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
             «providerType» «this.name»provider = new «providerType»();
-            «this.name»Model = new Model(«this.name»provider);
+            «modelName»Model = new Model(«this.name»provider);
             «ENDLET»
         «ELSEIF this.getStandardExpression().type == ExpressionType::FIND»
             // TODO add Find providder IModel
             «LET getWicketFinderDataProviderClass(this.referredUIModelElement().contextRef.name) AS providerType»
 	        «providerType» «this.name»provider = new «providerType»(context); 
-            «this.name»Model = new Model(«this.name»provider);
+            «modelName»Model = new Model(«this.name»provider);
             «ENDLET»
         «ENDIF»
     «ELSEIF this.getServiceExpression() != null»
         «getWicketServiceDataProviderClass(this.referredUIModelElement().contextRef.name)» p = new «getWicketServiceDataProviderClass(this.referredUIModelElement().contextRef.name)»(context.getObject());
-        «this.name»Model = new Model(p);
+        «modelName»Model = new Model(p);
         // TODO add Service provider IModel
     «ELSEIF this.getOperationExpression() != null»
         // TODO add Operation provider IModel
-        «this.name»Model = model;
+        «modelName»Model = model;
     «ELSE»    
         // TODO unknown provider IModel
-        «this.name»Model = model;
+        «modelName»Model = model;
     «ENDIF»
+    «ENDLET»
 «ENDDEFINE»
 

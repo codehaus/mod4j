@@ -39,7 +39,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
-import «getPresentationRootPackage()».pages.«getWicketHomePageClass()»;
+import «getPresentationServiceFacadeClassPath()»;
 import «getPresentationCommonPackage()».processes.ProcessType;
 
 import «javaLocalServiceInterfacePath(this.serviceName)» ;
@@ -75,8 +75,8 @@ public class «classname»
 	 * @param service The service from which the list and count is retrieved.
 	 */
 	public «classname»(«inContext» context) {
-        this.service = «getWicketHomePageClass()».get«javaLocalServiceInterface(this.serviceName)»();
-        this.updateService = «getWicketHomePageClass()».get«javaLocalServiceInterface(updateServiceType)»();
+        this.service = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(this.serviceName)»();
+        this.updateService = «getPresentationServiceFacadeClass()».get«javaLocalServiceInterface(updateServiceType)»();
 		this.context = context;
 	}
 

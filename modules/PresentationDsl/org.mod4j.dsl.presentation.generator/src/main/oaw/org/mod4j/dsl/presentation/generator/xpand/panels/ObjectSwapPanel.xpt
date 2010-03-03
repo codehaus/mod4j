@@ -19,8 +19,8 @@
 «DEFINE GenerateObjectSwapPanel FOR ContentForm -»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectSwapPanel.xpt") FOR this»
 «LET this.name.toFirstUpper() + "SwapEditPanel" AS className»
-«LET this.processes.referredProcess().selectFirst(e|e.type==ProcessType::SAVE) AS saveProcess»
-«LET this.processes.referredProcess().selectFirst(e|e.type==ProcessType::DELETE) AS deleteProcess»
+«LET this.processes.referredProcess.selectFirst(e|e.type==ProcessType::SAVE) AS saveProcess»
+«LET this.processes.referredProcess.selectFirst(e|e.type==ProcessType::DELETE) AS deleteProcess»
 package «getPresentationRootPackage()».panels;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.CompoundPropertyModel;
 
-«FOREACH this.processes.referredProcess().select(e|e.type == ProcessType::CUSTOM) AS p»
+«FOREACH this.processes.referredProcess.select(e|e.type == ProcessType::CUSTOM) AS p»
 import «getPresentationRootPackage()».processes.«p.javaClass()»;
 «ENDFOREACH»
 «IF saveProcess != null»

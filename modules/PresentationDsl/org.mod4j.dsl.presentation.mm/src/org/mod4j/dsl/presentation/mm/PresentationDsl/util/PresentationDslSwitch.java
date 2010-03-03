@@ -11,6 +11,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
@@ -32,6 +33,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
@@ -239,6 +241,7 @@ public class PresentationDslSwitch<T> {
             case PresentationDslPackage.PROCESS: {
                 org.mod4j.dsl.presentation.mm.PresentationDsl.Process process = (org.mod4j.dsl.presentation.mm.PresentationDsl.Process)theEObject;
                 T result = caseProcess(process);
+                if (result == null) result = caseAbstractProcess(process);
                 if (result == null) result = caseUIModelElement(process);
                 if (result == null) result = caseModelElementWithContext(process);
                 if (result == null) result = caseModelElement(process);
@@ -311,6 +314,26 @@ public class PresentationDslSwitch<T> {
                 Application application = (Application)theEObject;
                 T result = caseApplication(application);
                 if (result == null) result = caseModelElement(application);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.PROCESS_REFERENCE: {
+                ProcessReference processReference = (ProcessReference)theEObject;
+                T result = caseProcessReference(processReference);
+                if (result == null) result = caseAbstractProcess(processReference);
+                if (result == null) result = caseExternalReference(processReference);
+                if (result == null) result = caseUIModelElement(processReference);
+                if (result == null) result = caseModelElementWithContext(processReference);
+                if (result == null) result = caseModelElement(processReference);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case PresentationDslPackage.ABSTRACT_PROCESS: {
+                AbstractProcess abstractProcess = (AbstractProcess)theEObject;
+                T result = caseAbstractProcess(abstractProcess);
+                if (result == null) result = caseUIModelElement(abstractProcess);
+                if (result == null) result = caseModelElementWithContext(abstractProcess);
+                if (result == null) result = caseModelElement(abstractProcess);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -690,6 +713,36 @@ public class PresentationDslSwitch<T> {
      * @generated
      */
     public T caseApplication(Application object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Process Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Process Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProcessReference(ProcessReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Process</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Process</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractProcess(AbstractProcess object) {
         return null;
     }
 

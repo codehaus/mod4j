@@ -147,120 +147,18 @@ public class «getWicketHomePageClass()»Dummy  extends «getWicketMasterPageCla
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
 package «getPresentationRootPackage()».pages;
 
-import org.mod4j.runtime.dto.AbstractDto;
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;
-«FOREACH this.externalReferences AS ext-»
-«LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
-	«IF service != null-»
-		import «javaLocalServiceInterfacePath(service.name)» ;
-	«ENDIF-»
-«ENDLET-»
-«ENDFOREACH-»
 
-«FOREACH this.externalReferences AS extDto»
-    «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-    «IF dto != null»
-import «javaDtoClassPath(dto.name)»;
-    «ENDIF»
-    «ENDLET»
-«ENDFOREACH»
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import «getPresentationServiceFacadeClassPath()»;
 
 public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()» {
-«FOREACH this.externalReferences AS ext-»
-«LET lookupSymbol(ext.modelName, ext.name, "Service") AS service-»
-	«IF service != null-»
-	    «LET javaLocalServiceInterface(service.name) AS serviceType»
-		@SpringBean(name = "«service.name.toFirstLower()»Service")
-	    protected static «serviceType» service«serviceType»;
-	    
-	    public static «serviceType» get«serviceType»() {
-	        return service«serviceType»;
-	    }
-	    «FOREACH this.externalReferences AS extDto»
-            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
-                «LET findSpecialMethodInService(dto.name, "UPDATE", service.name) AS updateService»
-                «IF updateService != null »
-                    public static «dto.name» update(«dto.name» dto){
-                        return service«serviceType».«updateService»(dto);
-                    }
-                «ENDIF»
-                «ENDLET»
-                «LET findSpecialMethodInService(dto.name, "Create", service.name) AS createService»
-                «IF createService != null »
-                    public static «dto.name» create(«dto.name» dto){
-                        return service«serviceType».«createService»(dto);
-                    }
-                «ENDIF»
-                «ENDLET»
-                «LET findSpecialMethodInService(dto.name, "DELETE", service.name) AS deleteService»
-                «IF deleteService != null »
-                    public static void delete(«dto.name» dto){
-                        service«serviceType».«deleteService»(dto);
-                    }
-                «ENDIF»
-                «ENDLET»
-                «LET findSpecialMethodInService(dto.name, "READ", service.name) AS readService»
-                «IF readService != null »
-                    public static «dto.name» read«dto.name»(long id){
-                        return service«serviceType».«readService»(id);
-                    }
-                «ENDIF»
-                «ENDLET»
-            «ENDIF»
-            «ENDLET»
-	    «ENDFOREACH»
-	    
-        public static AbstractDto create(AbstractDto dto) {
-        «FOREACH this.externalReferences AS extDto»
-            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
-               if( dto instanceof «dto.name» ){
-                   return «getWicketHomePageClass()».create( («dto.name»)dto );
-               }
-            «ENDIF»
-            «ENDLET»
-        «ENDFOREACH»
-            return null;
-        }
-
-        public static AbstractDto update(AbstractDto dto) {
-        «FOREACH this.externalReferences AS extDto»
-            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
-               if( dto instanceof «dto.name» ){
-                   return «getWicketHomePageClass()».update( («dto.name»)dto );
-               }
-            «ENDIF»
-            «ENDLET»
-        «ENDFOREACH»
-            return null;
-        }
-
-        public static AbstractDto read(AbstractDto dto) {
-        «FOREACH this.externalReferences AS extDto»
-            «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
-            «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
-               if( dto instanceof «dto.name» ){
-                   return «getWicketHomePageClass()».read«dto.name»( dto.getId() );
-               }
-            «ENDIF»
-            «ENDLET»
-        «ENDFOREACH»
-            return null;
-        }
-
-	    «ENDLET»
-	«ENDIF-»
-«ENDLET-»
-«ENDFOREACH-»
-
 
     public «getWicketHomePageClass()»() {
         this(new PageParameters());
+        new «getPresentationServiceFacadeClass()»();
     }
 
     public «getWicketHomePageClass()»(PageParameters parameters) {
@@ -324,9 +222,9 @@ import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
 «IF this.start!= null»
-    «FOREACH processes.referredProcess() AS process-»
+    «FOREACH processes AS process-»
 	import «getPresentationRootPackage()».processes.«process.javaClass()»;
-	import «javaDtoClassPath(process.contextRef.name)»;
+	import «javaDtoClassPath(process.referredProcess.contextRef.name)»;
 	«ENDFOREACH»
 «ENDIF»
 import «getPresentationRootPackage()».«getWicketSesssionClass()»;
@@ -385,20 +283,17 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
         menuItems.add(homeLink);
 
     «IF this.start != null»        
-		«FOREACH processes AS process-»
-		«LET process.name + process.referredProcess().processElements.referredContentForm().first().name AS pagename»
-			// TODO changed
-			Link «process.name»Link = new Link("link") {
+		«FOREACH processes AS processCall-»
+			Link «processCall.referredProcess.name»Link = new Link("link") {
 				public void onClick() {
-					«process.javaClass()» process = new «process.javaClass()»(null);
+					«processCall.javaClass()» process = new «processCall.javaClass()»(null);
 					process.setOwningPage(myself);
 					setResponsePage(process.nextPage(null));
 				}
 			};
-			«process.name»Link.add( new Label( "name", "«process.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));
-			«process.name»Link.setAutoEnable(true);
-	        menuItems.add(«process.name»Link);
-	    «ENDLET»
+			«processCall.referredProcess.name»Link.add( new Label( "name", "«processCall.label»"  )); //getLocalizer().getString("lbl.comestibles", this)));
+			«processCall.referredProcess.name»Link.setAutoEnable(true);
+	        menuItems.add(«processCall.referredProcess.name»Link);
 	    «ENDFOREACH»         
     «ENDIF»        
         add(new ListView<AbstractLink>("menu", new PropertyModel<List<AbstractLink>>(this, "menuItems")) {

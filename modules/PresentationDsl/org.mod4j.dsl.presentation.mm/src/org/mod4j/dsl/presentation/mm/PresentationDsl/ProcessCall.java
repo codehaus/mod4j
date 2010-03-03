@@ -16,6 +16,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getOwningDialogue <em>Owning Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getReferredProcess <em>Referred Process</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,31 @@ public interface ProcessCall extends UICall {
      * @generated
      */
     void setOwningDialogue(Dialogue value);
+
+    /**
+     * Returns the value of the '<em><b>Referred Process</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred Process</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred Process</em>' reference.
+     * @see #setReferredProcess(AbstractProcess)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getProcessCall_ReferredProcess()
+     * @model
+     * @generated
+     */
+    AbstractProcess getReferredProcess();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall#getReferredProcess <em>Referred Process</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Referred Process</em>' reference.
+     * @see #getReferredProcess()
+     * @generated
+     */
+    void setReferredProcess(AbstractProcess value);
 
 } // ProcessCall

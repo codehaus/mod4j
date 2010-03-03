@@ -106,12 +106,12 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
 //        }
 //    }
     
-    @Override public void completeProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-        List<String> names = PresentationProposals.getProcessCallProposals(model, new ArrayList<String>());        
-        for (String name : names) {
-            propose(name, context, acceptor);
-        }
-    }
+//    @Override public void completeProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+//        List<String> names = PresentationProposals.getProcessCallProposals(model, new ArrayList<String>());        
+//        for (String name : names) {
+//            propose(name, context, acceptor);
+//        }
+//    }
 
 //    @Override public void completeLinkedProcessCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 //        List<String> names = PresentationProposals.getLinkedProcessCallProposals(model, new ArrayList<String>());        

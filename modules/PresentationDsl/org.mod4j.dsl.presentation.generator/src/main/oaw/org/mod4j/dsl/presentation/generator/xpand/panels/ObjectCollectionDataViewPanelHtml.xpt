@@ -52,8 +52,8 @@
 	«ENDLET»
 	«ENDLET»
 	«IF withProcesses»
-	    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
-	        «LET pc.referredProcess() AS p»
+	    «FOREACH this.processes.select(pc | (pc.referredProcess != null) && (pc.referredProcess.type==ProcessType::CUSTOM)) AS pc»
+	        «LET pc.referredProcess AS p»
 	        «IF ! p.collectionContext»
 	    		<td class="butcol">
 	    		<input type="button" 
@@ -64,11 +64,11 @@
 	        «ENDIF»
 	        «ENDLET»
 		«ENDFOREACH»
-		«FOREACH this.processes.referredProcess().select(e|e.type==ProcessType::EDIT) AS p»
+		«FOREACH this.processes.referredProcess.select(e|e.type==ProcessType::EDIT) AS p»
 		    <!-- 1 -->
 			<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
 		«ENDFOREACH»
-		«FOREACH this.processes.referredProcess().select(e|(e.type==ProcessType::DELETE) || (e.type==ProcessType::REMOVEFROM) ) AS p»
+		«FOREACH this.processes.referredProcess.select(e|(e.type==ProcessType::DELETE) || (e.type==ProcessType::REMOVEFROM) ) AS p»
 	        «IF ! p.collectionContext»
             <!-- 2 -->
 	    		<td class="butcol"><input type="button" value="«p.label»" wicket:id="«p.name»" class="button" /></td>
@@ -79,12 +79,12 @@
 			</tbody>
 		</table>
     «IF withProcesses»
-        «FOREACH this.processes.select(p|p.referredProcess().type==ProcessType::NEW) AS pc»
+        «FOREACH this.processes.select(p|p.referredProcess.type==ProcessType::NEW) AS pc»
             <!-- 3 -->
-			<input type="button" value="«pc.label»" wicket:id="«pc.referredProcess().name»" class="button" />
+			<input type="button" value="«pc.label»" wicket:id="«pc.referredProcess.name»" class="button" />
 		«ENDFOREACH»
-	    «FOREACH this.processes.select(pc | pc.referredProcess() != null) AS pc»
-	        «LET pc.referredProcess() AS process»
+	    «FOREACH this.processes.select(pc | pc.referredProcess != null) AS pc»
+	        «LET pc.referredProcess AS process»
 	        «IF ((process.type==ProcessType::REMOVEFROM) || (process.type==ProcessType::ADDTO)
 	              || (process.type==ProcessType::CUSTOM) || (process.type==ProcessType::DELETE)) 
 	              && process.collectionContext»
@@ -105,8 +105,8 @@
 	«ENDIF»
 	«IF ! withProcesses»
 «REM»
-        «FOREACH this.processes.select(pp| (pp.referredProcess() != null) && pp.referredProcess().type==ProcessType::ADDTO) AS pc»
-            «LET pc.referredProcess() AS p»
+        «FOREACH this.processes.select(pp| (pp.referredProcess != null) && pp.referredProcess.type==ProcessType::ADDTO) AS pc»
+            «LET pc.referredProcess AS p»
 «ENDREM»
                 <td class="butcol">
                 <input type="button" 

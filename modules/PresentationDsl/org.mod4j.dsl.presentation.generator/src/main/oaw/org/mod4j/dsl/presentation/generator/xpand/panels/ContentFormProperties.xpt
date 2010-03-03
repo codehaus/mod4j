@@ -22,7 +22,7 @@ lbl.«e.dataProperty.name»=«e.label»
 «ENDFOREACH»
 
 «FOREACH this.processes AS p-»
-cmd.«p.name»=«p.label»
+cmd.«p.referredProcess.name»=«p.label»
 «ENDFOREACH»
 «ENDDEFINE»
 

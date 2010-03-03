@@ -278,7 +278,7 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NO
      */
     public ProcessCall asProcessCall() {
         if( this instanceof ProcessCall ){
@@ -291,7 +291,7 @@ public abstract class UICallImpl extends ModelElementImpl implements UICall {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NO
      */
     public DialogueCall asDialogueCall() {
         if( this instanceof DialogueCall ){

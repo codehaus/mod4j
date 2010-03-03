@@ -5,6 +5,22 @@ import "platform:/resource/org.mod4j.dsl.presentation.mm/model/PresentationDsl.e
 //IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
 PresentationModel :
+    ApplicationModel | FormsAndProcesses;
+   
+
+ApplicationModel returns PresentationModel :
+    (description=STRING )?
+    "application" name = ID ";"
+    
+    (externalReferences += ProcessReference)*
+    (start = Application)
+;
+
+ProcessReference : 
+    "from" modelName = ID "process" name = ID ";"
+    ;
+
+FormsAndProcesses returns PresentationModel :
 	(description=STRING )?
 	"presentation" name = ID ";"
 	
@@ -15,7 +31,8 @@ PresentationModel :
 
 Application :
     "application" "["
-    (startProcesses += SimpleProcessCall ";" )+
+    startProcesses  += SimpleProcessCall ";"
+    (startProcesses += SimpleProcessCall ";" )*
     "]"
 ;
 
@@ -144,7 +161,7 @@ ProcessCall :
     (label = STRING  ":" )?
     ("if" "("  condition = OperationExpression ")")?
     (contextExp = Expression)? 
-     "process" name = ID
+     "process" referredProcess = [AbstractProcess]
     ("label" label = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
@@ -153,16 +170,11 @@ OperationExpression :
     "call" name = ID;
     
 SimpleProcessCall returns ProcessCall :
-     name = ID
+    referredProcess = [AbstractProcess]
+//     name = ID
     ("label" label = STRING)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
-
-//ContextExpression returns StandardExpression :
-//    type = ContextType ;
-    
-//enum ContextType returns ExpressionType :
-//    SELECTION = "selection";
 
 StandardExpression :
     type = ExpressionType;

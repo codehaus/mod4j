@@ -19,16 +19,16 @@
 «DEFINE GenerateObjectEditPanel FOR ContentForm -»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: ObjectEditPanel.xpt") FOR this»
 «LET this.name.toFirstUpper() + "EditPanel" AS className»
-«LET this.processes.select(p | p.referredProcess().type == ProcessType::SAVE)   AS saveProcesses»
-«LET this.processes.select(p | p.referredProcess().type == ProcessType::DELETE) AS removeProcesses»
-«LET this.processes.select(p | p.referredProcess().type == ProcessType::CANCEL) AS cancelProcesses»
-«LET this.processes.select(p | p.referredProcess().type == ProcessType::EDIT) AS editProcesses»
+«LET this.processes.select(p | p.referredProcess.type == ProcessType::SAVE)   AS saveProcesses»
+«LET this.processes.select(p | p.referredProcess.type == ProcessType::DELETE) AS removeProcesses»
+«LET this.processes.select(p | p.referredProcess.type == ProcessType::CANCEL) AS cancelProcesses»
+«LET this.processes.select(p | p.referredProcess.type == ProcessType::EDIT) AS editProcesses»
 package «getPresentationRootPackage()».panels;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-«FOREACH this.processes.referredProcess() AS p»
+«FOREACH this.processes.referredProcess AS p»
 import «getPresentationRootPackage()».processes.«p.name.toFirstUpper()»Process;
 «ENDFOREACH»
 
@@ -113,9 +113,9 @@ public class «className» extends Panel {
         form.add(new AjaxIndicator("ajaxIndicator"));
  
  «IF (saveProcesses != null) && (!saveProcesses.isEmpty)»
-     «FOREACH saveProcesses AS p»
+     «FOREACH saveProcesses.referredProcess AS p»
         Button «p.name»save = new Button("«p.name»save", 
-                new Model<String>( getLocalizer().getString("cmd.«p.referredProcess().name»", «className».this) ) ){
+                new Model<String>( getLocalizer().getString("cmd.«p.name»", «className».this) ) ){
             @Override
             public void onSubmit() {
                 «p.javaClass()» process = new «p.javaClass()»(model);
@@ -130,9 +130,9 @@ public class «className» extends Panel {
     «ENDFOREACH»
 «ENDIF»
  «IF (removeProcesses != null) && (!removeProcesses.isEmpty)»
-     «FOREACH removeProcesses AS p»
+     «FOREACH removeProcesses.referredProcess AS p»
         Button «p.name»delete = new Button("«p.name»delete", 
-                new Model<String>( getLocalizer().getString("cmd.«p.referredProcess().name»", «className».this) ) ){
+                new Model<String>( getLocalizer().getString("cmd.«p.name»", «className».this) ) ){
             @Override
             public void onSubmit() {
                 «p.javaClass()» process = new «p.javaClass()»(model);
@@ -152,9 +152,9 @@ public class «className» extends Panel {
     «ENDFOREACH»
 «ENDIF» 
  «IF (cancelProcesses != null) && (! cancelProcesses.isEmpty)»
-     «FOREACH cancelProcesses AS p»
+     «FOREACH cancelProcesses.referredProcess AS p»
         Button cancel = new Button("«p.name»cancel", 
-                new Model<String>( getLocalizer().getString("cmd.«p.referredProcess().name»", «className».this) ) ){
+                new Model<String>( getLocalizer().getString("cmd.«p.name»", «className».this) ) ){
             @Override
             public void onSubmit() {
             	form.clearInput();
@@ -168,9 +168,9 @@ public class «className» extends Panel {
 «ENDIF» 
 
  «IF (editProcesses != null) && (!editProcesses.isEmpty)»
-     «FOREACH editProcesses AS p»
+     «FOREACH editProcesses.referredProcess AS p»
         Button «p.name»edit = new Button("«p.name»edit", 
-                new Model<String>( getLocalizer().getString("cmd.«p.referredProcess().name»", «className».this) ) ){
+                new Model<String>( getLocalizer().getString("cmd.«p.name»", «className».this) ) ){
             @Override
             public void onSubmit() {
                 localModel.setObject(null);
@@ -183,8 +183,8 @@ public class «className» extends Panel {
     «ENDFOREACH»
 «ENDIF» 
 
-    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::CUSTOM)) AS pc»
-        «LET pc.referredProcess() AS process»
+    «FOREACH this.processes.select(pc | (pc.referredProcess != null) && (pc.referredProcess.type==ProcessType::CUSTOM)) AS pc»
+        «LET pc.referredProcess AS process»
         Button «process.name»custom = new Button("«process.name»custom", 
                 new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ){
             @Override
@@ -201,8 +201,8 @@ public class «className» extends Panel {
         «ENDLET»
     «ENDFOREACH»
 
-    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::ADDTO)) AS pc»
-        «LET pc.referredProcess() AS process»
+    «FOREACH this.processes.select(pc | (pc.referredProcess != null) && (pc.referredProcess.type==ProcessType::ADDTO)) AS pc»
+        «LET pc.referredProcess AS process»
         Button «process.name» = new Button("«process.name»", 
                 new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ){
             @Override
@@ -219,8 +219,8 @@ public class «className» extends Panel {
         «ENDLET»
     «ENDFOREACH»
 
-    «FOREACH this.processes.select(pc | (pc.referredProcess() != null) && (pc.referredProcess().type==ProcessType::LINK)) AS pc»
-        «LET pc.referredProcess() AS process»
+    «FOREACH this.processes.select(pc | (pc.referredProcess != null) && (pc.referredProcess.type==ProcessType::LINK)) AS pc»
+        «LET pc.referredProcess AS process»
         Button «process.name» = new Button("«process.name»", 
                 new Model<String>( getLocalizer().getString("cmd.«process.name»", «className».this) ) ){
             @Override

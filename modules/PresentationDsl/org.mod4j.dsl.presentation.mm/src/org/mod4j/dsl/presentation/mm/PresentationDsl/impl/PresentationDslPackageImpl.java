@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
@@ -37,6 +38,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslFactory;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
@@ -224,6 +226,20 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * @generated
      */
     private EClass applicationEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass processReferenceEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractProcessEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -683,26 +699,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProcess_Type() {
-        return (EAttribute)processEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getProcess_Label() {
-        return (EAttribute)processEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getProcess_ContentForm() {
-        return (EReference)processEClass.getEStructuralFeatures().get(3);
+        return (EReference)processEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -711,7 +709,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * @generated
      */
     public EReference getProcess_Link() {
-        return (EReference)processEClass.getEStructuralFeatures().get(4);
+        return (EReference)processEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -730,6 +728,15 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      */
     public EReference getProcessCall_OwningDialogue() {
         return (EReference)processCallEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getProcessCall_ReferredProcess() {
+        return (EReference)processCallEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -908,6 +915,42 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getProcessReference() {
+        return processReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAbstractProcess() {
+        return abstractProcessEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractProcess_Type() {
+        return (EAttribute)abstractProcessEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractProcess_Label() {
+        return (EAttribute)abstractProcessEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getProcessType() {
         return processTypeEEnum;
     }
@@ -1006,13 +1049,12 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         processEClass = createEClass(PROCESS);
         createEReference(processEClass, PROCESS__PROCESS_ELEMENTS);
-        createEAttribute(processEClass, PROCESS__TYPE);
-        createEAttribute(processEClass, PROCESS__LABEL);
         createEReference(processEClass, PROCESS__CONTENT_FORM);
         createEReference(processEClass, PROCESS__LINK);
 
         processCallEClass = createEClass(PROCESS_CALL);
         createEReference(processCallEClass, PROCESS_CALL__OWNING_DIALOGUE);
+        createEReference(processCallEClass, PROCESS_CALL__REFERRED_PROCESS);
 
         uiModelElementEClass = createEClass(UI_MODEL_ELEMENT);
 
@@ -1040,6 +1082,12 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         applicationEClass = createEClass(APPLICATION);
         createEReference(applicationEClass, APPLICATION__START_PROCESSES);
+
+        processReferenceEClass = createEClass(PROCESS_REFERENCE);
+
+        abstractProcessEClass = createEClass(ABSTRACT_PROCESS);
+        createEAttribute(abstractProcessEClass, ABSTRACT_PROCESS__TYPE);
+        createEAttribute(abstractProcessEClass, ABSTRACT_PROCESS__LABEL);
 
         // Create enums
         processTypeEEnum = createEEnum(PROCESS_TYPE);
@@ -1088,7 +1136,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         masterDetailEClass.getESuperTypes().add(this.getCompoundDialogue());
         modelElementWithContextEClass.getESuperTypes().add(this.getModelElement());
         presentationModelEClass.getESuperTypes().add(this.getModelElement());
-        processEClass.getESuperTypes().add(this.getUIModelElement());
+        processEClass.getESuperTypes().add(this.getAbstractProcess());
         processCallEClass.getESuperTypes().add(this.getUICall());
         uiModelElementEClass.getESuperTypes().add(this.getModelElementWithContext());
         uiCallEClass.getESuperTypes().add(this.getModelElement());
@@ -1098,6 +1146,9 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         standardExpressionEClass.getESuperTypes().add(this.getExpression());
         operationExpressionEClass.getESuperTypes().add(this.getExpression());
         applicationEClass.getESuperTypes().add(this.getModelElement());
+        processReferenceEClass.getESuperTypes().add(this.getAbstractProcess());
+        processReferenceEClass.getESuperTypes().add(this.getExternalReference());
+        abstractProcessEClass.getESuperTypes().add(this.getUIModelElement());
 
         // Initialize classes and features; add operations and parameters
         initEClass(associationRoleReferenceEClass, AssociationRoleReference.class, "AssociationRoleReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1157,15 +1208,12 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(processEClass, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProcess_ProcessElements(), this.getUICall(), this.getUICall_Process(), "processElements", null, 0, -1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProcess_Label(), ecorePackage.getEString(), "label", null, 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getProcess_ContentForm(), this.getContentForm(), this.getContentForm_Actions(), "contentForm", null, 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getProcess_Link(), this.getAssociationRoleReference(), null, "link", null, 0, 1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        addEOperation(processEClass, ecorePackage.getEBoolean(), "isInteractive", 0, 1, IS_UNIQUE, IS_ORDERED);
-
         initEClass(processCallEClass, ProcessCall.class, "ProcessCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProcessCall_OwningDialogue(), this.getDialogue(), this.getDialogue_Processes(), "owningDialogue", null, 0, 1, ProcessCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getProcessCall_ReferredProcess(), this.getAbstractProcess(), null, "referredProcess", null, 0, 1, ProcessCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(uiModelElementEClass, UIModelElement.class, "UIModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1197,6 +1245,14 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getApplication_StartProcesses(), this.getProcessCall(), null, "startProcesses", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(processReferenceEClass, ProcessReference.class, "ProcessReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(abstractProcessEClass, AbstractProcess.class, "AbstractProcess", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getAbstractProcess_Type(), this.getProcessType(), "type", "CUSTOM", 0, 1, AbstractProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractProcess_Label(), ecorePackage.getEString(), "label", null, 0, 1, AbstractProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        addEOperation(abstractProcessEClass, ecorePackage.getEBoolean(), "isInteractive", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(processTypeEEnum, ProcessType.class, "ProcessType");

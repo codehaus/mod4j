@@ -19,6 +19,124 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	
 	public class PresentationModelElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PresentationModel");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cApplicationModelParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFormsAndProcessesParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PresentationModel:
+		//  ApplicationModel|FormsAndProcesses; 
+		//
+		////IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+		public ParserRule getRule() { return rule; }
+
+		//ApplicationModel|FormsAndProcesses 
+		//
+		////IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ApplicationModel
+		public RuleCall getApplicationModelParserRuleCall_0() { return cApplicationModelParserRuleCall_0; }
+
+		//FormsAndProcesses
+		public RuleCall getFormsAndProcessesParserRuleCall_1() { return cFormsAndProcessesParserRuleCall_1; }
+	}
+
+	public class ApplicationModelElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ApplicationModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Keyword cApplicationKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cExternalReferencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cExternalReferencesProcessReferenceParserRuleCall_4_0 = (RuleCall)cExternalReferencesAssignment_4.eContents().get(0);
+		private final Assignment cStartAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cStartApplicationParserRuleCall_5_0 = (RuleCall)cStartAssignment_5.eContents().get(0);
+		
+		//ApplicationModel returns PresentationModel:
+		//  description=STRING? "application" name=ID ";" externalReferences+=ProcessReference*
+		//  start=Application;
+		public ParserRule getRule() { return rule; }
+
+		//description=STRING? "application" name=ID ";" externalReferences+=ProcessReference*
+		//start=Application
+		public Group getGroup() { return cGroup; }
+
+		//description=STRING?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_0_0() { return cDescriptionSTRINGTerminalRuleCall_0_0; }
+
+		//"application"
+		public Keyword getApplicationKeyword_1() { return cApplicationKeyword_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+
+		//externalReferences+=ProcessReference*
+		public Assignment getExternalReferencesAssignment_4() { return cExternalReferencesAssignment_4; }
+
+		//ProcessReference
+		public RuleCall getExternalReferencesProcessReferenceParserRuleCall_4_0() { return cExternalReferencesProcessReferenceParserRuleCall_4_0; }
+
+		//start=Application
+		public Assignment getStartAssignment_5() { return cStartAssignment_5; }
+
+		//Application
+		public RuleCall getStartApplicationParserRuleCall_5_0() { return cStartApplicationParserRuleCall_5_0; }
+	}
+
+	public class ProcessReferenceElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ProcessReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFromKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cModelNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModelNameIDTerminalRuleCall_1_0 = (RuleCall)cModelNameAssignment_1.eContents().get(0);
+		private final Keyword cProcessKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//ProcessReference:
+		//  "from" modelName=ID "process" name=ID ";";
+		public ParserRule getRule() { return rule; }
+
+		//"from" modelName=ID "process" name=ID ";"
+		public Group getGroup() { return cGroup; }
+
+		//"from"
+		public Keyword getFromKeyword_0() { return cFromKeyword_0; }
+
+		//modelName=ID
+		public Assignment getModelNameAssignment_1() { return cModelNameAssignment_1; }
+
+		//ID
+		public RuleCall getModelNameIDTerminalRuleCall_1_0() { return cModelNameIDTerminalRuleCall_1_0; }
+
+		//"process"
+		public Keyword getProcessKeyword_2() { return cProcessKeyword_2; }
+
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+
+	public class FormsAndProcessesElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormsAndProcesses");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
@@ -33,11 +151,9 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Assignment cElementsAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cElementsModelElementWithContextParserRuleCall_6_0 = (RuleCall)cElementsAssignment_6.eContents().get(0);
 		
-		//PresentationModel:
+		//FormsAndProcesses returns PresentationModel:
 		//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-		//  * start=Application? elements+=ModelElementWithContext*; 
-		//
-		////IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
+		//  * start=Application? elements+=ModelElementWithContext*;
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
@@ -86,17 +202,22 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cStartProcessesAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cStartProcessesSimpleProcessCallParserRuleCall_2_0_0 = (RuleCall)cStartProcessesAssignment_2_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cStartProcessesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStartProcessesSimpleProcessCallParserRuleCall_2_0 = (RuleCall)cStartProcessesAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cStartProcessesAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cStartProcessesSimpleProcessCallParserRuleCall_4_0_0 = (RuleCall)cStartProcessesAssignment_4_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Application:
-		//  "application" "[" (startProcesses+=SimpleProcessCall ";")+ "]";
+		//  "application" "[" startProcesses+=SimpleProcessCall ";" (startProcesses+=
+		//  SimpleProcessCall ";")* "]";
 		public ParserRule getRule() { return rule; }
 
-		//"application" "[" (startProcesses+=SimpleProcessCall ";")+ "]"
+		//"application" "[" startProcesses+=SimpleProcessCall ";" (startProcesses+=
+		//SimpleProcessCall ";")* "]"
 		public Group getGroup() { return cGroup; }
 
 		//"application"
@@ -105,20 +226,29 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
 
-		//(startProcesses+=SimpleProcessCall ";")+
-		public Group getGroup_2() { return cGroup_2; }
-
 		//startProcesses+=SimpleProcessCall
-		public Assignment getStartProcessesAssignment_2_0() { return cStartProcessesAssignment_2_0; }
+		public Assignment getStartProcessesAssignment_2() { return cStartProcessesAssignment_2; }
 
 		//SimpleProcessCall
-		public RuleCall getStartProcessesSimpleProcessCallParserRuleCall_2_0_0() { return cStartProcessesSimpleProcessCallParserRuleCall_2_0_0; }
+		public RuleCall getStartProcessesSimpleProcessCallParserRuleCall_2_0() { return cStartProcessesSimpleProcessCallParserRuleCall_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_2_1() { return cSemicolonKeyword_2_1; }
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+
+		//(startProcesses+=SimpleProcessCall ";")*
+		public Group getGroup_4() { return cGroup_4; }
+
+		//startProcesses+=SimpleProcessCall
+		public Assignment getStartProcessesAssignment_4_0() { return cStartProcessesAssignment_4_0; }
+
+		//SimpleProcessCall
+		public RuleCall getStartProcessesSimpleProcessCallParserRuleCall_4_0_0() { return cStartProcessesSimpleProcessCallParserRuleCall_4_0_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4_1() { return cSemicolonKeyword_4_1; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
+		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
 	}
 
 	public class ExternalReferenceElements implements IParserRuleAccess {
@@ -1299,8 +1429,9 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Assignment cContextExpAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cContextExpExpressionParserRuleCall_2_0 = (RuleCall)cContextExpAssignment_2.eContents().get(0);
 		private final Keyword cProcessKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cReferredProcessAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cReferredProcessAbstractProcessCrossReference_4_0 = (CrossReference)cReferredProcessAssignment_4.eContents().get(0);
+		private final RuleCall cReferredProcessAbstractProcessIDTerminalRuleCall_4_0_1 = (RuleCall)cReferredProcessAbstractProcessCrossReference_4_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cLabelKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cLabelAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -1308,7 +1439,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		
 		//ProcessCall:
 		//  (label=STRING ":")? ("if" "(" condition=OperationExpression ")")? contextExp=
-		//  Expression? "process" name=ID ("label" label=ID)?; 
+		//  Expression? "process" referredProcess=[AbstractProcess] ("label" label=ID)?; 
 		//   	
 		//  
 		//             
@@ -1320,7 +1451,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		public ParserRule getRule() { return rule; }
 
 		//(label=STRING ":")? ("if" "(" condition=OperationExpression ")")? contextExp=
-		//Expression? "process" name=ID ("label" label=ID)? 
+		//Expression? "process" referredProcess=[AbstractProcess] ("label" label=ID)? 
 		//             
 		//               
 		//         
@@ -1368,11 +1499,14 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//"process"
 		public Keyword getProcessKeyword_3() { return cProcessKeyword_3; }
 
-		//name=ID
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//referredProcess=[AbstractProcess]
+		public Assignment getReferredProcessAssignment_4() { return cReferredProcessAssignment_4; }
+
+		//[AbstractProcess]
+		public CrossReference getReferredProcessAbstractProcessCrossReference_4_0() { return cReferredProcessAbstractProcessCrossReference_4_0; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
+		public RuleCall getReferredProcessAbstractProcessIDTerminalRuleCall_4_0_1() { return cReferredProcessAbstractProcessIDTerminalRuleCall_4_0_1; }
 
 		//("label" label=ID)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -1414,40 +1548,42 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	public class SimpleProcessCallElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleProcessCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cReferredProcessAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cReferredProcessAbstractProcessCrossReference_0_0 = (CrossReference)cReferredProcessAssignment_0.eContents().get(0);
+		private final RuleCall cReferredProcessAbstractProcessIDTerminalRuleCall_0_0_1 = (RuleCall)cReferredProcessAbstractProcessCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cLabelKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cLabelAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cLabelSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cLabelAssignment_1_1.eContents().get(0);
 		
 		//SimpleProcessCall returns ProcessCall:
-		//  name=ID ("label" label=STRING)?; 
+		//  referredProcess=[AbstractProcess] ("label" label=STRING)?; 
 		//    
 		//      
-		//         
-		//           
+		//        
+		////     name = ID
+		//            
 		////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
-		//     
-		//
-		////ContextExpression returns StandardExpression :
-		////    type = ContextType ;
-		//    
-		////enum ContextType returns ExpressionType :
-		////    SELECTION = "selection";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ("label" label=STRING)? 
-		//         
-		//           
+		//referredProcess=[AbstractProcess] ("label" label=STRING)? 
+		//        
+		////     name = ID
+		//            
 		////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
 		public Group getGroup() { return cGroup; }
 
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//referredProcess=[AbstractProcess] 
+		//        
+		////     name = ID
+		public Assignment getReferredProcessAssignment_0() { return cReferredProcessAssignment_0; }
+
+		//[AbstractProcess]   
+		////     name = ID
+		public CrossReference getReferredProcessAbstractProcessCrossReference_0_0() { return cReferredProcessAbstractProcessCrossReference_0_0; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getReferredProcessAbstractProcessIDTerminalRuleCall_0_0_1() { return cReferredProcessAbstractProcessIDTerminalRuleCall_0_0_1; }
 
 		//("label" label=STRING)?
 		public Group getGroup_1() { return cGroup_1; }
@@ -1468,13 +1604,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final RuleCall cTypeExpressionTypeEnumRuleCall_0 = (RuleCall)cTypeAssignment.eContents().get(0);
 		
 		//StandardExpression:
-		//  type=ExpressionType; 
-		//
-		////ContextExpression returns StandardExpression :
-		////    type = ContextType ;
-		//    
-		////enum ContextType returns ExpressionType :
-		////    SELECTION = "selection";
+		//  type=ExpressionType;
 		public ParserRule getRule() { return rule; }
 
 		//type=ExpressionType
@@ -1728,6 +1858,9 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 	
 	private PresentationModelElements pPresentationModel;
+	private ApplicationModelElements pApplicationModel;
+	private ProcessReferenceElements pProcessReference;
+	private FormsAndProcessesElements pFormsAndProcesses;
 	private ApplicationElements pApplication;
 	private ExternalReferenceElements pExternalReference;
 	private ModelElementWithContextElements pModelElementWithContext;
@@ -1778,8 +1911,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	
 	//PresentationModel:
-	//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-	//  * start=Application? elements+=ModelElementWithContext*; 
+	//  ApplicationModel|FormsAndProcesses; 
 	//
 	////IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 	public PresentationModelElements getPresentationModelAccess() {
@@ -1790,8 +1922,41 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		return getPresentationModelAccess().getRule();
 	}
 
+	//ApplicationModel returns PresentationModel:
+	//  description=STRING? "application" name=ID ";" externalReferences+=ProcessReference*
+	//  start=Application;
+	public ApplicationModelElements getApplicationModelAccess() {
+		return (pApplicationModel != null) ? pApplicationModel : (pApplicationModel = new ApplicationModelElements());
+	}
+	
+	public ParserRule getApplicationModelRule() {
+		return getApplicationModelAccess().getRule();
+	}
+
+	//ProcessReference:
+	//  "from" modelName=ID "process" name=ID ";";
+	public ProcessReferenceElements getProcessReferenceAccess() {
+		return (pProcessReference != null) ? pProcessReference : (pProcessReference = new ProcessReferenceElements());
+	}
+	
+	public ParserRule getProcessReferenceRule() {
+		return getProcessReferenceAccess().getRule();
+	}
+
+	//FormsAndProcesses returns PresentationModel:
+	//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
+	//  * start=Application? elements+=ModelElementWithContext*;
+	public FormsAndProcessesElements getFormsAndProcessesAccess() {
+		return (pFormsAndProcesses != null) ? pFormsAndProcesses : (pFormsAndProcesses = new FormsAndProcessesElements());
+	}
+	
+	public ParserRule getFormsAndProcessesRule() {
+		return getFormsAndProcessesAccess().getRule();
+	}
+
 	//Application:
-	//  "application" "[" (startProcesses+=SimpleProcessCall ";")+ "]";
+	//  "application" "[" startProcesses+=SimpleProcessCall ";" (startProcesses+=
+	//  SimpleProcessCall ";")* "]";
 	public ApplicationElements getApplicationAccess() {
 		return (pApplication != null) ? pApplication : (pApplication = new ApplicationElements());
 	}
@@ -1998,7 +2163,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	//ProcessCall:
 	//  (label=STRING ":")? ("if" "(" condition=OperationExpression ")")? contextExp=
-	//  Expression? "process" name=ID ("label" label=ID)?; 
+	//  Expression? "process" referredProcess=[AbstractProcess] ("label" label=ID)?; 
 	//   	
 	//  
 	//             
@@ -2026,19 +2191,13 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//SimpleProcessCall returns ProcessCall:
-	//  name=ID ("label" label=STRING)?; 
+	//  referredProcess=[AbstractProcess] ("label" label=STRING)?; 
 	//    
 	//      
-	//         
-	//           
+	//        
+	////     name = ID
+	//            
 	////    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
-	//     
-	//
-	////ContextExpression returns StandardExpression :
-	////    type = ContextType ;
-	//    
-	////enum ContextType returns ExpressionType :
-	////    SELECTION = "selection";
 	public SimpleProcessCallElements getSimpleProcessCallAccess() {
 		return (pSimpleProcessCall != null) ? pSimpleProcessCall : (pSimpleProcessCall = new SimpleProcessCallElements());
 	}
@@ -2048,13 +2207,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	}
 
 	//StandardExpression:
-	//  type=ExpressionType; 
-	//
-	////ContextExpression returns StandardExpression :
-	////    type = ContextType ;
-	//    
-	////enum ContextType returns ExpressionType :
-	////    SELECTION = "selection";
+	//  type=ExpressionType;
 	public StandardExpressionElements getStandardExpressionAccess() {
 		return (pStandardExpression != null) ? pStandardExpression : (pStandardExpression = new StandardExpressionElements());
 	}

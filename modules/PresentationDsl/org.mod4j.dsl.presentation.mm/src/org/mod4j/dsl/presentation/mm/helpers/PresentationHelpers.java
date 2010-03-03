@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
@@ -179,6 +180,10 @@ public class PresentationHelpers {
     static public UIModelElement referredUIModelElement(UICall call) {
         PresentationModel model = findModel(call);
 
+        if( call instanceof ProcessCall){
+            ProcessCall pcall = (ProcessCall)call;
+            return pcall.getReferredProcess();
+        }
         EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements) {
             if( element instanceof UIModelElement) {
@@ -220,19 +225,19 @@ public class PresentationHelpers {
         return null;
     }
 
-    static public Process referredProcess(ProcessCall call) {
-        PresentationModel model = findModel(call);
-        EList<ModelElementWithContext> elements = model.getElements();
-        for (ModelElementWithContext element : elements ){
-            if( element instanceof Process ) {
-                Process result = (Process )element;
-                if( result.getName().equals(call.getName())){
-                    return result;
-                }
-            }
-        }
-        return null;
-    }
+//    static public Process referredProcess(ProcessCall call) {
+//        PresentationModel model = findModel(call);
+//        EList<ModelElementWithContext> elements = model.getElements();
+//        for (ModelElementWithContext element : elements ){
+//            if( element instanceof Process ) {
+//                Process result = (Process )element;
+//                if( result.getName().equals(call.getName())){
+//                    return result;
+//                }
+//            }
+//        }
+//        return null;
+//    }
     
     static public NavigationExpression getNavigationExpression(UICall uiCall){
         Expression link = uiCall.getContextExp();
@@ -316,14 +321,11 @@ public class PresentationHelpers {
     }
 
     public static String checkProcessCall(ProcessCall call) {
-        Process process = referredProcess(call);
+        AbstractProcess process = call.getReferredProcess();
         if( process == null ){
             return "";  //  error handled elsewhere
         }
-        ExternalReference context = findContext(process);
-        
-        
-        
+//        ExternalReference context = findContext(process);
         return "";
     }
     /**

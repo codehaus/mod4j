@@ -42,13 +42,19 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + "." + getWicketRequestCycleClass() ))»
 	    «EXPAND Presentation::GenerateRequestCycle FOR this»
 	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketMasterPageClass()))»
-	    «EXPAND Presentation::GenerateMasterPage FOR this»
-	«ENDFILE»
-	«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + getWicketMasterPageClass() + ".html")»
-	    «EXPAND Presentation::GenerateMasterPageHtml FOR this»
-	«ENDFILE»
-
+	«IF this.start != null»
+		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketMasterPageClass()))»
+		    «EXPAND Presentation::GenerateMasterPage FOR this»
+		«ENDFILE»
+		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + getWicketMasterPageClass() + ".html")»
+		    «EXPAND Presentation::GenerateMasterPageHtml FOR this»
+		«ENDFILE»
+    «ELSE»
+        «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + "ServiceFacade"))»
+            «EXPAND ServiceFacade::ServiceFacade FOR this»
+        «ENDFILE»
+    «ENDIF»
+    
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketHomePageClass() ))»
 	    «EXPAND Presentation::GenerateHomePage FOR this»
 	«ENDFILE»

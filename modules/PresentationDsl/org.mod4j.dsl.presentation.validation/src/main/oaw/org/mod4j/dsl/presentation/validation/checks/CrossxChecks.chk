@@ -15,15 +15,19 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 extension org::mod4j::dslcommon::xtend::generatorutil;
 
+/*
 context ExternalReference ERROR "there is no model " + this.modelName  + " that contains " + this.name :
        ( !findAllFromModel(this.modelName, this.name, { "Dto", "Dialogue", "Process", "Link" } ).isEmpty )
        ||
        ( !findAllFromModel(this.modelName, this.name, { "Service" } ).isEmpty )
+       ||
+       ( !findAllFromModel(this.modelName, this.name, { "Process" } ).isEmpty )
+       ||
+       ( !findAllFromModel(this.modelName, this.name, { "Form" } ).isEmpty )
        ;
-
+*/
 context FormElement ERROR "02 Property [" + this.references.name + "] not defined in " + this.form.contextRef.name :
 	let dtoSymbol = lookupSymbol(this.form.contextRef.modelName, this.form.contextRef.name, "Dto") :
 	(dtoSymbol != null) && (getSubSymbol(dtoSymbol, this.references.name) != null ) ;
-	
 	        
 

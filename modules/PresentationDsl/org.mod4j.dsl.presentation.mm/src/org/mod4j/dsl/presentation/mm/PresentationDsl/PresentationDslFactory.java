@@ -215,6 +215,15 @@ public interface PresentationDslFactory extends EFactory {
     Application createApplication();
 
     /**
+     * Returns a new object of class '<em>Process Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Process Reference</em>'.
+     * @generated
+     */
+    ProcessReference createProcessReference();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

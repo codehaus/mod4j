@@ -269,6 +269,14 @@ public class NameMapper {
         return ProjectProperties.getPresentationRootPackage() ;
     }
 
+    public static String getPresentationServiceFacadeClass() {
+        return "ServiceFacade" ;
+    }
+
+    public static String getPresentationServiceFacadeClassPath() {
+        return ProjectProperties.getPresentationRootPackage() + ".pages." + getPresentationServiceFacadeClass() ;
+    }
+
     public static String getWicketPanelClass(String name) {
         return javaDomainClass(name) + "Panel";
     }

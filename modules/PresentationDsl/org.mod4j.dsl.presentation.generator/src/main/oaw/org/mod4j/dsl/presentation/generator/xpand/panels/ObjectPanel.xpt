@@ -18,7 +18,7 @@
 «DEFINE GenerateObjectPanel FOR ContentForm -»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Objectpanel.xpt") FOR this-»
 «LET this.name.toFirstUpper() + "Panel" AS className»
-«LET this.processes.referredProcess().select(p|p.type == ProcessType::CUSTOM) AS customProcesses-»
+«LET this.processes.referredProcess.select(p|p.type == ProcessType::CUSTOM) AS customProcesses-»
 package «getPresentationRootPackage()».panels;
 
 import «getPresentationRootPackage()».pages.«getWicketMasterPageClass()»;

@@ -5,17 +5,17 @@ extension org::mod4j::crossx::broker::xtend::Crossx;
 extension org::mod4j::dslcommon::xtend::ProjectProperties;
 extension org::mod4j::dsl::presentation::mm::helpers::PresentationHelpers;
 
-String javaClass(Process p) :
+String javaClass(AbstractProcess p) :
     p.name.toFirstUpper() + "Process";
 
 String javaClass(ProcessCall pc) :
-    pc.name.toFirstUpper() + "Process";
+    pc.referredProcess.name.toFirstUpper() + "Process";
 
-String javaBaseClass(Process p) :
+String javaBaseClass(AbstractProcess p) :
     p.name.toFirstUpper() + "ProcessImplBase";
     
 String javaBaseClass(ProcessCall pc) :
-    pc.name.toFirstUpper() + "ProcessImplBase";
+    pc.referredProcess.name.toFirstUpper() + "ProcessImplBase";
     
 String escapePropertyKey(String key) :
     key.replaceAll(" ",  "\\ ")
