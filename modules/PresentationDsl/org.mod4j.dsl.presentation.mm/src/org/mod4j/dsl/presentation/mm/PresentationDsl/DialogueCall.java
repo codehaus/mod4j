@@ -16,6 +16,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getCompoundDialogue <em>Compound Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getReferredDialogue <em>Referred Dialogue</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,31 @@ public interface DialogueCall extends UICall {
      * @generated
      */
     void setCompoundDialogue(CompoundDialogue value);
+
+    /**
+     * Returns the value of the '<em><b>Referred Dialogue</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Referred Dialogue</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Referred Dialogue</em>' reference.
+     * @see #setReferredDialogue(AbstractDialogue)
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getDialogueCall_ReferredDialogue()
+     * @model
+     * @generated
+     */
+    AbstractDialogue getReferredDialogue();
+
+    /**
+     * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall#getReferredDialogue <em>Referred Dialogue</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Referred Dialogue</em>' reference.
+     * @see #getReferredDialogue()
+     * @generated
+     */
+    void setReferredDialogue(AbstractDialogue value);
 
 } // DialogueCall

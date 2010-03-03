@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ContentForm extends Form {
+public interface ContentForm extends Dialogue {
     /**
      * Returns the value of the '<em><b>Form Elements</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement}.

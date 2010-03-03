@@ -37,9 +37,21 @@ Application :
 ;
 
 ExternalReference :
-    "from" modelName = ID "import" name = ID ";"
+    DtoReference | ProcessReference | DialogueReference | ServiceReference
 	;
-	
+
+DtoReference : 
+    "from" modelName = ID "dto" name = ID ";"
+    ;
+    
+ServiceReference : 
+    "from" modelName = ID "service" name = ID ";"
+    ;
+    
+DialogueReference : 
+    "from" modelName = ID "form" name = ID ";"
+    ;
+    
 ModelElementWithContext :
 	UIModelElement //| Link
 	;
@@ -56,7 +68,7 @@ ContentForm :
 	(description=STRING )?
     "form"
 	
-	 name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
+	 name = ID "context" (collectionContext ?= "list")? contextRef = [DtoReference]
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		(formElements += FormElement)*
@@ -84,7 +96,7 @@ enum ProcessTypeLink returns ProcessType :
 
 CompoundDialogue :
 	(description=STRING )?
-	"CompoundDialogue" name = ID "context" contextRef = [ExternalReference]
+	"CompoundDialogue" name = ID "context" contextRef = [DtoReference]
 	("readonly" ((readonly?="true") | "false") ";")?
 	
 		("dialogues" "[" (dialogues += DialogueCall ";")* "]" )?
@@ -96,7 +108,7 @@ CompoundDialogue :
 		
 CollectionDialogue :
 	(description=STRING )?
-	"CollectionDialogue" name = ID "context" contextRef = [ExternalReference]
+	"CollectionDialogue" name = ID "context" contextRef = [DtoReference]
 	"["
 		("readonly" ((readonly?="true") | "false") ";")?
 		("dialogues" "[" (dialogues += DialogueCall ";")* "]" )?
@@ -106,7 +118,7 @@ CollectionDialogue :
 	
 MasterDetail :
 	(description=STRING )?
-	"MasterDetail" name = ID "context" contextRef = [ExternalReference]
+	"MasterDetail" name = ID "context" contextRef = [DtoReference]
 	("readonly" ((readonly?="true") | "false") ";")?
 	"master" master = DialogueCall ";"
 	"detail" detail = DialogueCall ";"
@@ -119,7 +131,7 @@ Process :
     (   (type=ProcessType) | 
         (type=ProcessTypeLink link=AssociationRoleReference ) 
     )?	
-	name = ID "context" (collectionContext ?= "list")? contextRef = [ExternalReference]
+	name = ID "context" (collectionContext ?= "list")? contextRef = [DtoReference]
 	(
 	    ";"
 	    |
@@ -141,14 +153,16 @@ FormElement :
 	;
 	
 ActionDialogueCall returns DialogueCall:
-    (contextExp = Expression)? "form" name = ID
+    (contextExp = Expression)? "form" 
+    referredDialogue = [AbstractDialogue]
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;
 
 DialogueCall :
     (label = STRING  ":" )?
     ("if" "("  condition = OperationExpression ")")?
-    (contextExp = Expression )? "form" name = ID
+    (contextExp = Expression )? "form" 
+    referredDialogue = [AbstractDialogue]
 //    ("alias" alias = ID)? 
 //    ("(" (arguments += Expression) ("," arguments += Expression)*  ")")?
     ;

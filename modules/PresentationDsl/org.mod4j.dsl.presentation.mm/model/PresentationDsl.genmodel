@@ -44,12 +44,12 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//DialogueCall">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/compoundDialogue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//DialogueCall/referredDialogue"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//DtoPropertyReference"/>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//ExternalReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//ExternalReference/modelName"/>
     </genClasses>
-    <genClasses ecoreClass="PresentationDsl.ecore#//Form"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//FormElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//FormElement/references"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//FormElement/readonly"/>
@@ -116,5 +116,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//AbstractProcess/label"/>
       <genOperations ecoreOperation="PresentationDsl.ecore#//AbstractProcess/isInteractive"/>
     </genClasses>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DialogueReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//AbstractDialogue"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//DtoReference"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//ServiceReference"/>
   </genPackages>
 </genmodel:GenModel>

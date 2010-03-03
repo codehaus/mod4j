@@ -141,7 +141,7 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
             steps.add(page);
         «ELSEIF uiCall.metaType == ProcessCall -»
             IModel «uiCall.asProcessCall().referredProcess.name»Model;
-            «EXPAND createModel FOR uiCall.asProcessCall()»
+            «EXPAND createModel FOR uiCall»
             steps.add(new «uiCall.asProcessCall().javaClass()»(«uiCall.asProcessCall().referredProcess.name»Model));
         «ENDIF-»
         «IF uiCall.condition != null-»
@@ -397,7 +397,7 @@ public class «this.javaBaseClass()» extends PmfProcess<«context»>
 	            steps.add(page);
 	        «ELSEIF uiCall.metaType == ProcessCall -»
 	            IModel «uiCall.asProcessCall().referredProcess.name»Model;
-	            «EXPAND createModel FOR uiCall.asProcessCall()»
+	            «EXPAND createModel FOR uiCall»
 	            steps.add(new «uiCall.asProcessCall().javaClass()»(«uiCall.asProcessCall().referredProcess.name»Model));
 	        «ENDIF-»
 	        «IF uiCall.condition != null-»
@@ -701,7 +701,9 @@ public ProcessType getProcessType() {
 «ENDDEFINE»
 
 «DEFINE createModel FOR UICall »
-    «LET (this.metaType == ProcessCall) ? this.asProcessCall().referredProcess.name : this.name AS modelName»
+    «LET (this.metaType == ProcessCall) ? this.asProcessCall().referredProcess.name : 
+          ( (this.metaType == DialogueCall) ? this.asDialogueCall().referredDialogue.name : this.name)   
+          AS modelName»
     «IF this.getNavigationExpression() != null»
         «modelName»Model = new PropertyModel(model, "«this.getNavigationExpression().references.get(0).name»");
     «ELSEIF this.getStandardExpression() != null»

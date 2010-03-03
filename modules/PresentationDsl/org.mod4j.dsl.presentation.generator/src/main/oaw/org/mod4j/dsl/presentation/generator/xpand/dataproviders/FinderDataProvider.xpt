@@ -23,7 +23,7 @@
 «DEFINE FinderDataProvider FOR DialogueCall»
     «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: DtoServiveProvider.xpt") FOR this»
 «LET this.referredContentForm() AS form»
-«LET this.referredDialogue().contextRef.name AS context»
+«LET this.referredDialogue.contextRef.name AS context»
 «LET findServiceWithMethod(context, "LISTALL") AS serviceType»
 «LET findSpecialMethodInService(context, "UPDATE", serviceType) AS updateService»
 «LET findSpecialMethodInService(context, "FIND", serviceType) AS findService»

@@ -25,7 +25,7 @@ completeModel(PresentationModel pmfModel) :
 	;
 
 addContext(ProcessReference pref, PresentationModel model) :
-   let dto = new ExternalReference :
+   let dto = new DtoReference :
    let symbol = lookupSymbol(pref.modelName, pref.name, "Process") :
    dto.setName (symbol.getPropertyValue("context") )->
    model.externalReferences.add(dto)->

@@ -43,6 +43,7 @@ public class PresentationParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				{
 					put(grammarAccess.getPresentationModelAccess().getAlternatives(), "rule__PresentationModel__Alternatives");
+					put(grammarAccess.getExternalReferenceAccess().getAlternatives(), "rule__ExternalReference__Alternatives");
 					put(grammarAccess.getUIModelElementAccess().getAlternatives(), "rule__UIModelElement__Alternatives");
 					put(grammarAccess.getDialogueAccess().getAlternatives(), "rule__Dialogue__Alternatives");
 					put(grammarAccess.getContentFormAccess().getAlternatives_7_1(), "rule__ContentForm__Alternatives_7_1");
@@ -62,7 +63,9 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFormsAndProcessesAccess().getGroup(), "rule__FormsAndProcesses__Group__0");
 					put(grammarAccess.getApplicationAccess().getGroup(), "rule__Application__Group__0");
 					put(grammarAccess.getApplicationAccess().getGroup_4(), "rule__Application__Group_4__0");
-					put(grammarAccess.getExternalReferenceAccess().getGroup(), "rule__ExternalReference__Group__0");
+					put(grammarAccess.getDtoReferenceAccess().getGroup(), "rule__DtoReference__Group__0");
+					put(grammarAccess.getServiceReferenceAccess().getGroup(), "rule__ServiceReference__Group__0");
+					put(grammarAccess.getDialogueReferenceAccess().getGroup(), "rule__DialogueReference__Group__0");
 					put(grammarAccess.getContentFormAccess().getGroup(), "rule__ContentForm__Group__0");
 					put(grammarAccess.getContentFormAccess().getGroup_7(), "rule__ContentForm__Group_7__0");
 					put(grammarAccess.getContentFormAccess().getGroup_9(), "rule__ContentForm__Group_9__0");
@@ -120,8 +123,12 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFormsAndProcessesAccess().getElementsAssignment_6(), "rule__FormsAndProcesses__ElementsAssignment_6");
 					put(grammarAccess.getApplicationAccess().getStartProcessesAssignment_2(), "rule__Application__StartProcessesAssignment_2");
 					put(grammarAccess.getApplicationAccess().getStartProcessesAssignment_4_0(), "rule__Application__StartProcessesAssignment_4_0");
-					put(grammarAccess.getExternalReferenceAccess().getModelNameAssignment_1(), "rule__ExternalReference__ModelNameAssignment_1");
-					put(grammarAccess.getExternalReferenceAccess().getNameAssignment_3(), "rule__ExternalReference__NameAssignment_3");
+					put(grammarAccess.getDtoReferenceAccess().getModelNameAssignment_1(), "rule__DtoReference__ModelNameAssignment_1");
+					put(grammarAccess.getDtoReferenceAccess().getNameAssignment_3(), "rule__DtoReference__NameAssignment_3");
+					put(grammarAccess.getServiceReferenceAccess().getModelNameAssignment_1(), "rule__ServiceReference__ModelNameAssignment_1");
+					put(grammarAccess.getServiceReferenceAccess().getNameAssignment_3(), "rule__ServiceReference__NameAssignment_3");
+					put(grammarAccess.getDialogueReferenceAccess().getModelNameAssignment_1(), "rule__DialogueReference__ModelNameAssignment_1");
+					put(grammarAccess.getDialogueReferenceAccess().getNameAssignment_3(), "rule__DialogueReference__NameAssignment_3");
 					put(grammarAccess.getContentFormAccess().getDescriptionAssignment_0(), "rule__ContentForm__DescriptionAssignment_0");
 					put(grammarAccess.getContentFormAccess().getNameAssignment_2(), "rule__ContentForm__NameAssignment_2");
 					put(grammarAccess.getContentFormAccess().getCollectionContextAssignment_4(), "rule__ContentForm__CollectionContextAssignment_4");
@@ -167,11 +174,11 @@ public class PresentationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFormElementAccess().getLabelAssignment_3_1(), "rule__FormElement__LabelAssignment_3_1");
 					put(grammarAccess.getFormElementAccess().getReadonlyAssignment_4_1_0(), "rule__FormElement__ReadonlyAssignment_4_1_0");
 					put(grammarAccess.getActionDialogueCallAccess().getContextExpAssignment_0(), "rule__ActionDialogueCall__ContextExpAssignment_0");
-					put(grammarAccess.getActionDialogueCallAccess().getNameAssignment_2(), "rule__ActionDialogueCall__NameAssignment_2");
+					put(grammarAccess.getActionDialogueCallAccess().getReferredDialogueAssignment_2(), "rule__ActionDialogueCall__ReferredDialogueAssignment_2");
 					put(grammarAccess.getDialogueCallAccess().getLabelAssignment_0_0(), "rule__DialogueCall__LabelAssignment_0_0");
 					put(grammarAccess.getDialogueCallAccess().getConditionAssignment_1_2(), "rule__DialogueCall__ConditionAssignment_1_2");
 					put(grammarAccess.getDialogueCallAccess().getContextExpAssignment_2(), "rule__DialogueCall__ContextExpAssignment_2");
-					put(grammarAccess.getDialogueCallAccess().getNameAssignment_4(), "rule__DialogueCall__NameAssignment_4");
+					put(grammarAccess.getDialogueCallAccess().getReferredDialogueAssignment_4(), "rule__DialogueCall__ReferredDialogueAssignment_4");
 					put(grammarAccess.getProcessCallAccess().getLabelAssignment_0_0(), "rule__ProcessCall__LabelAssignment_0_0");
 					put(grammarAccess.getProcessCallAccess().getConditionAssignment_1_2(), "rule__ProcessCall__ConditionAssignment_1_2");
 					put(grammarAccess.getProcessCallAccess().getContextExpAssignment_2(), "rule__ProcessCall__ContextExpAssignment_2");

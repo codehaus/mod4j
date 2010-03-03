@@ -20,7 +20,7 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl;
  * </p>
  *
  * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getExternalReference()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface ExternalReference extends ModelElement {

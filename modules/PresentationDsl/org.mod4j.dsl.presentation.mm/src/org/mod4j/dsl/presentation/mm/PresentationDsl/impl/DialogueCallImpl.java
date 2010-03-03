@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -28,12 +29,23 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueCallImpl#getCompoundDialogue <em>Compound Dialogue</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.DialogueCallImpl#getReferredDialogue <em>Referred Dialogue</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class DialogueCallImpl extends UICallImpl implements DialogueCall {
+    /**
+     * The cached value of the '{@link #getReferredDialogue() <em>Referred Dialogue</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReferredDialogue()
+     * @generated
+     * @ordered
+     */
+    protected AbstractDialogue referredDialogue;
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -99,6 +111,44 @@ public class DialogueCallImpl extends UICallImpl implements DialogueCall {
      * <!-- end-user-doc -->
      * @generated
      */
+    public AbstractDialogue getReferredDialogue() {
+        if (referredDialogue != null && referredDialogue.eIsProxy()) {
+            InternalEObject oldReferredDialogue = (InternalEObject)referredDialogue;
+            referredDialogue = (AbstractDialogue)eResolveProxy(oldReferredDialogue);
+            if (referredDialogue != oldReferredDialogue) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PresentationDslPackage.DIALOGUE_CALL__REFERRED_DIALOGUE, oldReferredDialogue, referredDialogue));
+            }
+        }
+        return referredDialogue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AbstractDialogue basicGetReferredDialogue() {
+        return referredDialogue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReferredDialogue(AbstractDialogue newReferredDialogue) {
+        AbstractDialogue oldReferredDialogue = referredDialogue;
+        referredDialogue = newReferredDialogue;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.DIALOGUE_CALL__REFERRED_DIALOGUE, oldReferredDialogue, referredDialogue));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -148,6 +198,9 @@ public class DialogueCallImpl extends UICallImpl implements DialogueCall {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE_CALL__COMPOUND_DIALOGUE:
                 return getCompoundDialogue();
+            case PresentationDslPackage.DIALOGUE_CALL__REFERRED_DIALOGUE:
+                if (resolve) return getReferredDialogue();
+                return basicGetReferredDialogue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -162,6 +215,9 @@ public class DialogueCallImpl extends UICallImpl implements DialogueCall {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE_CALL__COMPOUND_DIALOGUE:
                 setCompoundDialogue((CompoundDialogue)newValue);
+                return;
+            case PresentationDslPackage.DIALOGUE_CALL__REFERRED_DIALOGUE:
+                setReferredDialogue((AbstractDialogue)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -178,6 +234,9 @@ public class DialogueCallImpl extends UICallImpl implements DialogueCall {
             case PresentationDslPackage.DIALOGUE_CALL__COMPOUND_DIALOGUE:
                 setCompoundDialogue((CompoundDialogue)null);
                 return;
+            case PresentationDslPackage.DIALOGUE_CALL__REFERRED_DIALOGUE:
+                setReferredDialogue((AbstractDialogue)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -192,6 +251,8 @@ public class DialogueCallImpl extends UICallImpl implements DialogueCall {
         switch (featureID) {
             case PresentationDslPackage.DIALOGUE_CALL__COMPOUND_DIALOGUE:
                 return getCompoundDialogue() != null;
+            case PresentationDslPackage.DIALOGUE_CALL__REFERRED_DIALOGUE:
+                return referredDialogue != null;
         }
         return super.eIsSet(featureID);
     }

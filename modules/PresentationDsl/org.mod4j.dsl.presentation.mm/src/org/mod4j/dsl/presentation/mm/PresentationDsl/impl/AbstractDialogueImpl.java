@@ -8,25 +8,25 @@ package org.mod4j.dsl.presentation.mm.PresentationDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Form</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Dialogue</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class FormImpl extends DialogueImpl implements Form {
+public class AbstractDialogueImpl extends UIModelElementImpl implements AbstractDialogue {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FormImpl() {
+    protected AbstractDialogueImpl() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class FormImpl extends DialogueImpl implements Form {
      */
     @Override
     protected EClass eStaticClass() {
-        return PresentationDslPackage.Literals.FORM;
+        return PresentationDslPackage.Literals.ABSTRACT_DIALOGUE;
     }
 
-} //FormImpl
+} //AbstractDialogueImpl

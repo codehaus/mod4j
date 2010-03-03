@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Dialogue extends UIModelElement {
+public interface Dialogue extends AbstractDialogue {
     /**
      * Returns the value of the '<em><b>Readonly</b></em>' attribute.
      * The default value is <code>"false"</code>.

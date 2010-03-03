@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
@@ -22,7 +23,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
@@ -37,6 +40,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UICall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.UIModelElement;
@@ -134,10 +138,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createExternalReferenceAdapter();
             }
             @Override
-            public Adapter caseForm(Form object) {
-                return createFormAdapter();
-            }
-            @Override
             public Adapter caseFormElement(FormElement object) {
                 return createFormElementAdapter();
             }
@@ -204,6 +204,22 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseAbstractProcess(AbstractProcess object) {
                 return createAbstractProcessAdapter();
+            }
+            @Override
+            public Adapter caseDialogueReference(DialogueReference object) {
+                return createDialogueReferenceAdapter();
+            }
+            @Override
+            public Adapter caseAbstractDialogue(AbstractDialogue object) {
+                return createAbstractDialogueAdapter();
+            }
+            @Override
+            public Adapter caseDtoReference(DtoReference object) {
+                return createDtoReferenceAdapter();
+            }
+            @Override
+            public Adapter caseServiceReference(ServiceReference object) {
+                return createServiceReferenceAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -348,20 +364,6 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createExternalReferenceAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Form <em>Form</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Form
-     * @generated
-     */
-    public Adapter createFormAdapter() {
         return null;
     }
 
@@ -600,6 +602,62 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createAbstractProcessAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference <em>Dialogue Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference
+     * @generated
+     */
+    public Adapter createDialogueReferenceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue <em>Abstract Dialogue</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue
+     * @generated
+     */
+    public Adapter createAbstractDialogueAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference <em>Dto Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference
+     * @generated
+     */
+    public Adapter createDtoReferenceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference <em>Service Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference
+     * @generated
+     */
+    public Adapter createServiceReferenceAdapter() {
         return null;
     }
 

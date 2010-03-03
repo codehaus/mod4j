@@ -52,7 +52,7 @@ public class «getPresentationServiceFacadeClass()»  extends WebPage {
         public static «serviceType» get«serviceType»() {
             return service«serviceType»;
         }
-        «FOREACH this.externalReferences AS extDto»
+        «FOREACH this.externalReferences.typeSelect(DtoReference) AS extDto»
             «LET lookupSymbol(extDto.modelName, extDto.name, "Dto") AS dto-»
             «IF (dto != null) && (getPropertyValue(dto, "dtoType") == "BusinessClassDto" )»
                 «LET findSpecialMethodInService(dto.name, "UPDATE", service.name) AS updateService»

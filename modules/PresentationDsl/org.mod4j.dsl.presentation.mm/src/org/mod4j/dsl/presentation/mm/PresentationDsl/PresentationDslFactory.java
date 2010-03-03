@@ -89,24 +89,6 @@ public interface PresentationDslFactory extends EFactory {
     DtoPropertyReference createDtoPropertyReference();
 
     /**
-     * Returns a new object of class '<em>External Reference</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>External Reference</em>'.
-     * @generated
-     */
-    ExternalReference createExternalReference();
-
-    /**
-     * Returns a new object of class '<em>Form</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Form</em>'.
-     * @generated
-     */
-    Form createForm();
-
-    /**
      * Returns a new object of class '<em>Form Element</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -222,6 +204,42 @@ public interface PresentationDslFactory extends EFactory {
      * @generated
      */
     ProcessReference createProcessReference();
+
+    /**
+     * Returns a new object of class '<em>Dialogue Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dialogue Reference</em>'.
+     * @generated
+     */
+    DialogueReference createDialogueReference();
+
+    /**
+     * Returns a new object of class '<em>Abstract Dialogue</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Abstract Dialogue</em>'.
+     * @generated
+     */
+    AbstractDialogue createAbstractDialogue();
+
+    /**
+     * Returns a new object of class '<em>Dto Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dto Reference</em>'.
+     * @generated
+     */
+    DtoReference createDtoReference();
+
+    /**
+     * Returns a new object of class '<em>Service Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Service Reference</em>'.
+     * @generated
+     */
+    ServiceReference createServiceReference();
 
     /**
      * Returns the package supported by this factory.

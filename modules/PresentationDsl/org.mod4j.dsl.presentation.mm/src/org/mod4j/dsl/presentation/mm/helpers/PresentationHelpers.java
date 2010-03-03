@@ -8,15 +8,16 @@ import org.eclipse.emf.common.util.EList;
 import org.mod4j.crossx.broker.CrossxBroker;
 import org.mod4j.crossx.mm.crossx.ReferenceSymbolProperty;
 import org.mod4j.crossx.mm.crossx.Symbol;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Dialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
@@ -165,6 +166,16 @@ public class PresentationHelpers {
     static public Dialogue referredDialogue(UICall call) {
         PresentationModel model = findModel(call);
 
+        if( call instanceof DialogueCall){
+            DialogueCall dcall = (DialogueCall)call;
+            AbstractDialogue dialogue = dcall.getReferredDialogue();
+            if( dialogue instanceof Dialogue){
+                return (Dialogue)dialogue;
+            } else {
+                return null;
+            }
+        }
+
         EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements) {
             if( element instanceof Dialogue) {
@@ -184,6 +195,14 @@ public class PresentationHelpers {
             ProcessCall pcall = (ProcessCall)call;
             return pcall.getReferredProcess();
         }
+        
+        if( call instanceof DialogueCall){
+            DialogueCall dcall = (DialogueCall)call;
+            AbstractDialogue dialogue = dcall.getReferredDialogue();
+            if( dialogue instanceof ContentForm){
+                return (ContentForm)dialogue;
+            }
+        }
         EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements) {
             if( element instanceof UIModelElement) {
@@ -198,6 +217,16 @@ public class PresentationHelpers {
 
     static public ContentForm referredContentForm(UICall call) {
         PresentationModel model = findModel(call);
+
+        if( call instanceof DialogueCall){
+            DialogueCall dcall = (DialogueCall)call;
+            AbstractDialogue dialogue = dcall.getReferredDialogue();
+            if( dialogue instanceof ContentForm){
+                return (ContentForm)dialogue;
+            } else {
+                return null;
+            }
+        }
 
         EList<ModelElementWithContext> elements = model.getElements();
         for (ModelElementWithContext element : elements) {
@@ -337,7 +366,7 @@ public class PresentationHelpers {
      */
     public static String checkProcess(Process p) {
         // check for 
-        ExternalReference context = findContext(p);
+        DtoReference context = findContext(p);
         if( p.getProcessElements() == null ) {
             return null;
         }
@@ -410,7 +439,7 @@ public class PresentationHelpers {
      * @param p
      * @return
      */
-    private static ExternalReference findContext(Process p) {
+    private static DtoReference findContext(Process p) {
         if( p.getContextRef()!= null ){
             return p.getContextRef() ;
         } else {

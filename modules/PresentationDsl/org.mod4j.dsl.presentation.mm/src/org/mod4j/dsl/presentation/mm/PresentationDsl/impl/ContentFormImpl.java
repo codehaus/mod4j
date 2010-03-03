@@ -36,7 +36,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
  *
  * @generated
  */
-public class ContentFormImpl extends FormImpl implements ContentForm {
+public class ContentFormImpl extends DialogueImpl implements ContentForm {
     /**
      * The cached value of the '{@link #getFormElements() <em>Form Elements</em>}' containment reference list.
      * <!-- begin-user-doc -->

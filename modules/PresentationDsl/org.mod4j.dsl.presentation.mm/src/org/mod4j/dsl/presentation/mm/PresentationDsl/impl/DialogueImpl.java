@@ -39,7 +39,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
  *
  * @generated
  */
-public abstract class DialogueImpl extends UIModelElementImpl implements Dialogue {
+public abstract class DialogueImpl extends AbstractDialogueImpl implements Dialogue {
     /**
      * The default value of the '{@link #isReadonly() <em>Readonly</em>}' attribute.
      * <!-- begin-user-doc -->

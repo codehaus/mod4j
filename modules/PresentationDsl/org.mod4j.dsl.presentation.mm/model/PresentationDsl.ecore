@@ -4,7 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PresentationDsl"
     nsURI="http://www.mod4j.org/pmfmod" nsPrefix="pmfmod">
   <eClassifiers xsi:type="ecore:EClass" name="AssociationRoleReference" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Form">
+  <eClassifiers xsi:type="ecore:EClass" name="ContentForm" eSuperTypes="#//Dialogue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="formElements" upperBound="-1"
         eType="#//FormElement" containment="true" eOpposite="#//FormElement/form"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="formElement" eType="#//FormElement"
         eOpposite="#//FormElement/dataProperty"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dialogue" abstract="true" eSuperTypes="#//UIModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Dialogue" abstract="true" eSuperTypes="#//AbstractDialogue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
@@ -30,12 +30,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="DialogueCall" eSuperTypes="#//UICall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="compoundDialogue" eType="#//CompoundDialogue"
         eOpposite="#//CompoundDialogue/dialogues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referredDialogue" eType="#//AbstractDialogue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DtoPropertyReference" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalReference" abstract="true" interface="true"
+      eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Dialogue"/>
   <eClassifiers xsi:type="ecore:EClass" name="FormElement" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" eType="#//DtoPropertyReference"
         containment="true"/>
@@ -56,7 +57,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElementWithContext" abstract="true"
       eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contextRef" eType="#//ExternalReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextRef" eType="#//DtoReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="presentationModel" eType="#//PresentationModel"
         eOpposite="#//PresentationModel/elements"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="collectionContext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -145,4 +146,8 @@
         defaultValueLiteral="CUSTOM"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogueReference" eSuperTypes="#//AbstractDialogue #//ExternalReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDialogue" eSuperTypes="#//UIModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DtoReference" eSuperTypes="#//ExternalReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceReference" eSuperTypes="#//ExternalReference"/>
 </ecore:EPackage>

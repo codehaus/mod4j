@@ -35,12 +35,12 @@ public interface ModelElementWithContext extends ModelElement {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Context Ref</em>' reference.
-     * @see #setContextRef(ExternalReference)
+     * @see #setContextRef(DtoReference)
      * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getModelElementWithContext_ContextRef()
      * @model
      * @generated
      */
-    ExternalReference getContextRef();
+    DtoReference getContextRef();
 
     /**
      * Sets the value of the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext#getContextRef <em>Context Ref</em>}' reference.
@@ -50,7 +50,7 @@ public interface ModelElementWithContext extends ModelElement {
      * @see #getContextRef()
      * @generated
      */
-    void setContextRef(ExternalReference value);
+    void setContextRef(DtoReference value);
 
     /**
      * Returns the value of the '<em><b>Presentation Model</b></em>' container reference.

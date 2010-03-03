@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
@@ -23,7 +24,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ContentForm;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DataProperty;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueCall;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DialogueReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
@@ -40,6 +43,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceExpression;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.ServiceReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.StandardExpression;
 
 /**
@@ -93,8 +97,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.DATA_PROPERTY: return createDataProperty();
             case PresentationDslPackage.DIALOGUE_CALL: return createDialogueCall();
             case PresentationDslPackage.DTO_PROPERTY_REFERENCE: return createDtoPropertyReference();
-            case PresentationDslPackage.EXTERNAL_REFERENCE: return createExternalReference();
-            case PresentationDslPackage.FORM: return createForm();
             case PresentationDslPackage.FORM_ELEMENT: return createFormElement();
             case PresentationDslPackage.MASTER_DETAIL: return createMasterDetail();
             case PresentationDslPackage.MODEL_ELEMENT: return createModelElement();
@@ -108,6 +110,10 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.OPERATION_EXPRESSION: return createOperationExpression();
             case PresentationDslPackage.APPLICATION: return createApplication();
             case PresentationDslPackage.PROCESS_REFERENCE: return createProcessReference();
+            case PresentationDslPackage.DIALOGUE_REFERENCE: return createDialogueReference();
+            case PresentationDslPackage.ABSTRACT_DIALOGUE: return createAbstractDialogue();
+            case PresentationDslPackage.DTO_REFERENCE: return createDtoReference();
+            case PresentationDslPackage.SERVICE_REFERENCE: return createServiceReference();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -215,26 +221,6 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public DtoPropertyReference createDtoPropertyReference() {
         DtoPropertyReferenceImpl dtoPropertyReference = new DtoPropertyReferenceImpl();
         return dtoPropertyReference;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ExternalReference createExternalReference() {
-        ExternalReferenceImpl externalReference = new ExternalReferenceImpl();
-        return externalReference;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Form createForm() {
-        FormImpl form = new FormImpl();
-        return form;
     }
 
     /**
@@ -365,6 +351,46 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
     public ProcessReference createProcessReference() {
         ProcessReferenceImpl processReference = new ProcessReferenceImpl();
         return processReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DialogueReference createDialogueReference() {
+        DialogueReferenceImpl dialogueReference = new DialogueReferenceImpl();
+        return dialogueReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AbstractDialogue createAbstractDialogue() {
+        AbstractDialogueImpl abstractDialogue = new AbstractDialogueImpl();
+        return abstractDialogue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DtoReference createDtoReference() {
+        DtoReferenceImpl dtoReference = new DtoReferenceImpl();
+        return dtoReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ServiceReference createServiceReference() {
+        ServiceReferenceImpl serviceReference = new ServiceReferenceImpl();
+        return serviceReference;
     }
 
     /**

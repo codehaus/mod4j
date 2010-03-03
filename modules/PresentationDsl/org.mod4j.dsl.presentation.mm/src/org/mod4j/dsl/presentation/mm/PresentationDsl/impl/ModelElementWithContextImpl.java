@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
@@ -45,7 +46,7 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * @generated
      * @ordered
      */
-    protected ExternalReference contextRef;
+    protected DtoReference contextRef;
 
     /**
      * The default value of the '{@link #isCollectionContext() <em>Collection Context</em>}' attribute.
@@ -91,10 +92,10 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public ExternalReference getContextRef() {
+    public DtoReference getContextRef() {
         if (contextRef != null && contextRef.eIsProxy()) {
             InternalEObject oldContextRef = (InternalEObject)contextRef;
-            contextRef = (ExternalReference)eResolveProxy(oldContextRef);
+            contextRef = (DtoReference)eResolveProxy(oldContextRef);
             if (contextRef != oldContextRef) {
                 if (eNotificationRequired())
                     eNotify(new ENotificationImpl(this, Notification.RESOLVE, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF, oldContextRef, contextRef));
@@ -108,7 +109,7 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public ExternalReference basicGetContextRef() {
+    public DtoReference basicGetContextRef() {
         return contextRef;
     }
 
@@ -117,8 +118,8 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setContextRef(ExternalReference newContextRef) {
-        ExternalReference oldContextRef = contextRef;
+    public void setContextRef(DtoReference newContextRef) {
+        DtoReference oldContextRef = contextRef;
         contextRef = newContextRef;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF, oldContextRef, contextRef));
@@ -258,7 +259,7 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF:
-                setContextRef((ExternalReference)newValue);
+                setContextRef((DtoReference)newValue);
                 return;
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
                 setPresentationModel((PresentationModel)newValue);
@@ -279,7 +280,7 @@ public abstract class ModelElementWithContextImpl extends ModelElementImpl imple
     public void eUnset(int featureID) {
         switch (featureID) {
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__CONTEXT_REF:
-                setContextRef((ExternalReference)null);
+                setContextRef((DtoReference)null);
                 return;
             case PresentationDslPackage.MODEL_ELEMENT_WITH_CONTEXT__PRESENTATION_MODEL:
                 setPresentationModel((PresentationModel)null);

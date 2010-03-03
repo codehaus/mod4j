@@ -49,27 +49,27 @@ public class PresentationProposalProvider extends AbstractPresentationProposalPr
         }
     }
 
-    @Override public void completeDialogueCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-        List<String> propoals = PresentationProposals.getDirectDialogueCallProposals(model, Collections.EMPTY_LIST);
-        for (String name : propoals) {
-            propose(name, context, acceptor);
-        }
-    }
+//    @Override public void completeDialogueCall_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+//        List<String> propoals = PresentationProposals.getDirectDialogueCallProposals(model, Collections.EMPTY_LIST);
+//        for (String name : propoals) {
+//            propose(name, context, acceptor);
+//        }
+//    }
     
-    @Override public void completeExternalReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-        List<ModelInfo> models = CrossxBroker.findAllModels( Arrays.asList("PresentationDsl", "DataContractDsl") );
-        for (ModelInfo foundModel : models) {
-            propose(foundModel.getModelname(), context, acceptor);
-        }
-    }
+//    @Override public void completeExternalReference_ModelName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+//        List<ModelInfo> models = CrossxBroker.findAllModels( Arrays.asList("PresentationDsl", "DataContractDsl") );
+//        for (ModelInfo foundModel : models) {
+//            propose(foundModel.getModelname(), context, acceptor);
+//        }
+//    }
 
-    @Override public void completeExternalReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-        ExternalReference externalReference = (ExternalReference)model;
-        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Dto", "Dialogue", "Process", "Link"));
-        for (Symbol symbol : symbols) {
-            propose(symbol.getName(), context, acceptor);
-        }
-    }
+//    @Override public void completeExternalReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+//        ExternalReference externalReference = (ExternalReference)model;
+//        List<Symbol> symbols = CrossxBroker.findAllFromModel(externalReference.getModelName(), Arrays.asList("Dto", "Dialogue", "Process", "Link"));
+//        for (Symbol symbol : symbols) {
+//            propose(symbol.getName(), context, acceptor);
+//        }
+//    }
     
 //    @Override public void completeAssociationRoleReference_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 //        List<String> names = PresentationProposals.getLinkStepReferencesProposals(model);

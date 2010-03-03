@@ -44,10 +44,10 @@ import «getPresentationRootPackage()».dataproviders.«getWicketServiceDataProv
 «FOREACH this.processElements AS uiCall»
     «IF uiCall.referredDialogue() != null»
         «IF uiCall.referredDialogue().collectionContext»
-            import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»CollectionDataViewPanel;
-            import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»CollectionDataViewPanelOnly;
+            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel;
+            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»CollectionDataViewPanelOnly;
         «ELSE »
-            import «getPresentationRootPackage()».panels.«uiCall.name.toFirstUpper()»SwapEditPanel;
+            import «getPresentationRootPackage()».panels.«uiCall.referredDialogue().name.toFirstUpper()»SwapEditPanel;
         «ENDIF»
     «ENDIF»
 «ENDFOREACH»
@@ -215,17 +215,17 @@ public class «this.name.toFirstUpper()»Page extends «getWicketMasterPageClass
     Generate the creation of the panel ConmtentForm
 «ENDREM»
 «DEFINE createPanel(Process process) FOR UICall»
-    IModel «this.name»Model = null;
+    IModel «this.referredDialogue().name»Model = null;
     «EXPAND Process::createModel FOR this»
     «IF this.referredDialogue().collectionContext»
         «IF (process.type == ProcessType::ADDTO) || (process.type == ProcessType::LINK) »
             «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanelOnly("panel", 
-                                                «this.name»Model, maxItemsPerPage, this, «(process.type == ProcessType::ADDTO) ? "true" : "false" »);
+                                                «this.referredDialogue().name»Model, maxItemsPerPage, this, «(process.type == ProcessType::ADDTO) ? "true" : "false" »);
         «ELSE»
-            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel("panel", «this.name»Model, maxItemsPerPage, this, true);
+            «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»CollectionDataViewPanel("panel", «this.referredDialogue().name»Model, maxItemsPerPage, this, true);
         «ENDIF»
     «ELSE»
-        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»SwapEditPanel("panel", «this.name»Model);
+        «this.referredDialogue().name.toFirstLower()»Panel = new «this.referredDialogue().name.toFirstUpper()»SwapEditPanel("panel", «this.referredDialogue().name»Model);
     «ENDIF»
     «this.referredDialogue().name.toFirstLower()»Panel .setOutputMarkupPlaceholderTag(true);
     panels.add(«this.referredDialogue().name.toFirstLower()»Panel );
