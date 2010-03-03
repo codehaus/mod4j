@@ -5,11 +5,6 @@ from RecordShopDataContract import FullCustomerDto ;
 from RecordShopDataContract import SimpleCustomerDto;
 from RecordShopDataContract import ArtistDto;
 from CustomerServiceModel import CustomerServiceModel;  
-         
-application [ 
-    allCustomers;
-    allArtists;
-]
 
 form DefaultElements context FullCustomerDto [ ]
 
@@ -75,3 +70,31 @@ process allCustomers context SimpleCustomerDto [
   
 process allArtists context ArtistDto
 [  all form ArtistList; ] 
+
+
+/////////////////////////////////////////////////////
+process start context list FullCustomerDto [] 
+
+"Customer ContentForm"  
+form CustomerDetail context  FullCustomerDto [
+	element lastName label "name";  
+	element emailAddress label "email";
+	element age	;
+]
+
+"Customer ContentReadonlyForm" 
+form CustomerReadOnlyDetail context FullCustomerDto [
+	readonly true; 
+	element lastName label "lastName";
+	element sexe label "male/female" readonly true;
+]
+
+CollectionDialogue CustomerCollection context FullCustomerDto [
+	  dialogues [ 
+	  	form CustomerReadOnlyDetail;
+	  ]
+]
+
+//MasterDetail CustomerMD context FullCustomerDto 
+//	master CustomerCollection ;
+//	detail CustomerDetail ;
