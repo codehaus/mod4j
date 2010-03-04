@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
@@ -28,9 +27,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
@@ -194,8 +193,8 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
                 return createOperationExpressionAdapter();
             }
             @Override
-            public Adapter caseApplication(Application object) {
-                return createApplicationAdapter();
+            public Adapter caseMenu(Menu object) {
+                return createMenuAdapter();
             }
             @Override
             public Adapter caseProcessReference(ProcessReference object) {
@@ -564,16 +563,16 @@ public class PresentationDslAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Application <em>Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Menu <em>Menu</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Application
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Menu
      * @generated
      */
-    public Adapter createApplicationAdapter() {
+    public Adapter createMenuAdapter() {
         return null;
     }
 

@@ -218,7 +218,13 @@ public class ProcessReferenceImpl extends AbstractProcessImpl implements Process
     @Override
     public boolean isCollectionContext() {
         Symbol sym = CrossxBroker.lookupSymbol(modelName, name, "Process");
+        if( sym == null){
+            System.out.println("ProcessReference::isCollectionConmtext symbol error " + this.toString());
+        }
         String value = CrossxBroker.getPropertyValue(sym, "isCollectionContext");
+        if( sym == null){
+            System.out.println("ProcessReference::isCollectionConmtext property error " + this.toString());
+        }
         return value.equals("true");
     }
 
@@ -230,7 +236,13 @@ public class ProcessReferenceImpl extends AbstractProcessImpl implements Process
     @Override
     public ProcessType getType() {
         Symbol sym = CrossxBroker.lookupSymbol(modelName, name, "Process");
+        if( sym == null){
+            System.out.println("ProcessReference::getType symbol error " + this.toString());
+        }
         String value = CrossxBroker.getPropertyValue(sym, "processType");
+        if( sym == null){
+            System.out.println("ProcessReference::getType Property  error " + this.toString());
+        }
         return ProcessType.get(value);
     }
 

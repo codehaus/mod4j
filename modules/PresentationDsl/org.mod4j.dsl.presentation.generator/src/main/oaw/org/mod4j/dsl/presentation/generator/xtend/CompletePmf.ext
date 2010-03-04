@@ -19,7 +19,7 @@ completeModel(PresentationModel pmfModel) :
     -> contentForms.convertActions()
     -> pmfModel.elements.typeSelect(AbstractProcess).fillLabel()
     -> pmfModel.elements.typeSelect(Dialogue).processes.fillLabel()
-    -> ( (pmfModel.start != null)? pmfModel.start.startProcesses.fillLabel() : null)
+    -> ( (pmfModel.mainMenu != null)? pmfModel.mainMenu.startProcesses.fillLabel() : null)
     -> pmfModel.externalReferences.typeSelect(ProcessReference).addContext(pmfModel)
 	
 	;

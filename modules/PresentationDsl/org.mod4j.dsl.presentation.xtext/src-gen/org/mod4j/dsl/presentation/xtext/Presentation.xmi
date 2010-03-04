@@ -29,7 +29,7 @@
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="externalReferences" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="start" operator="=">
+        <tokens xsi:type="xtext:Assignment" feature="mainMenu" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
         </tokens>
       </alternatives>
@@ -66,17 +66,14 @@
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="externalReferences" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="start" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
-        </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="elements" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </tokens>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="Application">
+    <rules xsi:type="xtext:ParserRule" name="Menu">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//Application"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.mod4j.org/pmfmod#//Menu"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" value="application"/>

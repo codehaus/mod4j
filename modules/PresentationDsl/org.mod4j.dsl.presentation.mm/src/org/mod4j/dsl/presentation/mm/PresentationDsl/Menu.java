@@ -10,21 +10,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Application</b></em>'.
+ * A representation of the model object '<em><b>Menu</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Application#getStartProcesses <em>Start Processes</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Menu#getStartProcesses <em>Start Processes</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getApplication()
+ * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getMenu()
  * @model
  * @generated
  */
-public interface Application extends ModelElement {
+public interface Menu extends ModelElement {
     /**
      * Returns the value of the '<em><b>Start Processes</b></em>' containment reference list.
      * The list contents are of type {@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall}.
@@ -35,10 +35,10 @@ public interface Application extends ModelElement {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Start Processes</em>' containment reference list.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getApplication_StartProcesses()
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage#getMenu_StartProcesses()
      * @model containment="true"
      * @generated
      */
     EList<ProcessCall> getStartProcesses();
 
-} // Application
+} // Menu

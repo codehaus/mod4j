@@ -52,16 +52,16 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cExternalReferencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cExternalReferencesProcessReferenceParserRuleCall_4_0 = (RuleCall)cExternalReferencesAssignment_4.eContents().get(0);
-		private final Assignment cStartAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStartApplicationParserRuleCall_5_0 = (RuleCall)cStartAssignment_5.eContents().get(0);
+		private final Assignment cMainMenuAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMainMenuMenuParserRuleCall_5_0 = (RuleCall)cMainMenuAssignment_5.eContents().get(0);
 		
 		//ApplicationModel returns PresentationModel:
 		//  description=STRING? "application" name=ID ";" externalReferences+=ProcessReference*
-		//  start=Application;
+		//  mainMenu=Menu;
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "application" name=ID ";" externalReferences+=ProcessReference*
-		//start=Application
+		//mainMenu=Menu
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -88,11 +88,11 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//ProcessReference
 		public RuleCall getExternalReferencesProcessReferenceParserRuleCall_4_0() { return cExternalReferencesProcessReferenceParserRuleCall_4_0; }
 
-		//start=Application
-		public Assignment getStartAssignment_5() { return cStartAssignment_5; }
+		//mainMenu=Menu
+		public Assignment getMainMenuAssignment_5() { return cMainMenuAssignment_5; }
 
-		//Application
-		public RuleCall getStartApplicationParserRuleCall_5_0() { return cStartApplicationParserRuleCall_5_0; }
+		//Menu
+		public RuleCall getMainMenuMenuParserRuleCall_5_0() { return cMainMenuMenuParserRuleCall_5_0; }
 	}
 
 	public class ProcessReferenceElements implements IParserRuleAccess {
@@ -146,18 +146,16 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cExternalReferencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cExternalReferencesExternalReferenceParserRuleCall_4_0 = (RuleCall)cExternalReferencesAssignment_4.eContents().get(0);
-		private final Assignment cStartAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStartApplicationParserRuleCall_5_0 = (RuleCall)cStartAssignment_5.eContents().get(0);
-		private final Assignment cElementsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cElementsModelElementWithContextParserRuleCall_6_0 = (RuleCall)cElementsAssignment_6.eContents().get(0);
+		private final Assignment cElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cElementsModelElementWithContextParserRuleCall_5_0 = (RuleCall)cElementsAssignment_5.eContents().get(0);
 		
 		//FormsAndProcesses returns PresentationModel:
 		//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-		//  * start=Application? elements+=ModelElementWithContext*;
+		//  * elements+=ModelElementWithContext*;
 		public ParserRule getRule() { return rule; }
 
 		//description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-		// * start=Application? elements+=ModelElementWithContext*
+		// * elements+=ModelElementWithContext*
 		public Group getGroup() { return cGroup; }
 
 		//description=STRING?
@@ -184,21 +182,15 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		//ExternalReference
 		public RuleCall getExternalReferencesExternalReferenceParserRuleCall_4_0() { return cExternalReferencesExternalReferenceParserRuleCall_4_0; }
 
-		//start=Application?
-		public Assignment getStartAssignment_5() { return cStartAssignment_5; }
-
-		//Application
-		public RuleCall getStartApplicationParserRuleCall_5_0() { return cStartApplicationParserRuleCall_5_0; }
-
 		//elements+=ModelElementWithContext*
-		public Assignment getElementsAssignment_6() { return cElementsAssignment_6; }
+		public Assignment getElementsAssignment_5() { return cElementsAssignment_5; }
 
 		//ModelElementWithContext
-		public RuleCall getElementsModelElementWithContextParserRuleCall_6_0() { return cElementsModelElementWithContextParserRuleCall_6_0; }
+		public RuleCall getElementsModelElementWithContextParserRuleCall_5_0() { return cElementsModelElementWithContextParserRuleCall_5_0; }
 	}
 
-	public class ApplicationElements implements IParserRuleAccess {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Application");
+	public class MenuElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Menu");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -211,7 +203,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//Application:
+		//Menu:
 		//  "application" "[" startProcesses+=SimpleProcessCall ";" (startProcesses+=
 		//  SimpleProcessCall ";")* "]";
 		public ParserRule getRule() { return rule; }
@@ -1980,7 +1972,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 	private ApplicationModelElements pApplicationModel;
 	private ProcessReferenceElements pProcessReference;
 	private FormsAndProcessesElements pFormsAndProcesses;
-	private ApplicationElements pApplication;
+	private MenuElements pMenu;
 	private ExternalReferenceElements pExternalReference;
 	private DtoReferenceElements pDtoReference;
 	private ServiceReferenceElements pServiceReference;
@@ -2046,7 +2038,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	//ApplicationModel returns PresentationModel:
 	//  description=STRING? "application" name=ID ";" externalReferences+=ProcessReference*
-	//  start=Application;
+	//  mainMenu=Menu;
 	public ApplicationModelElements getApplicationModelAccess() {
 		return (pApplicationModel != null) ? pApplicationModel : (pApplicationModel = new ApplicationModelElements());
 	}
@@ -2067,7 +2059,7 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 
 	//FormsAndProcesses returns PresentationModel:
 	//  description=STRING? "presentation" name=ID ";" externalReferences+=ExternalReference
-	//  * start=Application? elements+=ModelElementWithContext*;
+	//  * elements+=ModelElementWithContext*;
 	public FormsAndProcessesElements getFormsAndProcessesAccess() {
 		return (pFormsAndProcesses != null) ? pFormsAndProcesses : (pFormsAndProcesses = new FormsAndProcessesElements());
 	}
@@ -2076,15 +2068,15 @@ public class PresentationGrammarAccess implements IGrammarAccess {
 		return getFormsAndProcessesAccess().getRule();
 	}
 
-	//Application:
+	//Menu:
 	//  "application" "[" startProcesses+=SimpleProcessCall ";" (startProcesses+=
 	//  SimpleProcessCall ";")* "]";
-	public ApplicationElements getApplicationAccess() {
-		return (pApplication != null) ? pApplication : (pApplication = new ApplicationElements());
+	public MenuElements getMenuAccess() {
+		return (pMenu != null) ? pMenu : (pMenu = new MenuElements());
 	}
 	
-	public ParserRule getApplicationRule() {
-		return getApplicationAccess().getRule();
+	public ParserRule getMenuRule() {
+		return getMenuAccess().getRule();
 	}
 
 	//ExternalReference:

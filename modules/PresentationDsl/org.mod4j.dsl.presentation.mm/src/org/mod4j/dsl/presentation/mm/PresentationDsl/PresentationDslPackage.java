@@ -1257,13 +1257,13 @@ public interface PresentationDslPackage extends EPackage {
     int PRESENTATION_MODEL__EXTERNAL_REFERENCES = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Start</b></em>' containment reference.
+     * The feature id for the '<em><b>Main Menu</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRESENTATION_MODEL__START = MODEL_ELEMENT_FEATURE_COUNT + 2;
+    int PRESENTATION_MODEL__MAIN_MENU = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Presentation Model</em>' class.
@@ -1343,16 +1343,6 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      */
     int OPERATION_EXPRESSION = 22;
-
-    /**
-     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ApplicationImpl <em>Application</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ApplicationImpl
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getApplication()
-     * @generated
-     */
-    int APPLICATION = 23;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.AbstractProcessImpl <em>Abstract Process</em>}' class.
@@ -1806,13 +1796,23 @@ public interface PresentationDslPackage extends EPackage {
     int OPERATION_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MenuImpl <em>Menu</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MenuImpl
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getMenu()
+     * @generated
+     */
+    int MENU = 23;
+
+    /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICATION__NAME = MODEL_ELEMENT__NAME;
+    int MENU__NAME = MODEL_ELEMENT__NAME;
 
     /**
      * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1821,7 +1821,7 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int APPLICATION__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
+    int MENU__DESCRIPTION = MODEL_ELEMENT__DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Start Processes</b></em>' containment reference list.
@@ -1830,16 +1830,16 @@ public interface PresentationDslPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int APPLICATION__START_PROCESSES = MODEL_ELEMENT_FEATURE_COUNT + 0;
+    int MENU__START_PROCESSES = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Application</em>' class.
+     * The number of structural features of the '<em>Menu</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+    int MENU_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessReferenceImpl <em>Process Reference</em>}' class.
@@ -2534,15 +2534,15 @@ public interface PresentationDslPackage extends EPackage {
     EReference getPresentationModel_ExternalReferences();
 
     /**
-     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel#getStart <em>Start</em>}'.
+     * Returns the meta object for the containment reference '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel#getMainMenu <em>Main Menu</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Start</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel#getStart()
+     * @return the meta object for the containment reference '<em>Main Menu</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel#getMainMenu()
      * @see #getPresentationModel()
      * @generated
      */
-    EReference getPresentationModel_Start();
+    EReference getPresentationModel_MainMenu();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Process <em>Process</em>}'.
@@ -2800,25 +2800,25 @@ public interface PresentationDslPackage extends EPackage {
     EClass getOperationExpression();
 
     /**
-     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Application <em>Application</em>}'.
+     * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Menu <em>Menu</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Application</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Application
+     * @return the meta object for class '<em>Menu</em>'.
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Menu
      * @generated
      */
-    EClass getApplication();
+    EClass getMenu();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Application#getStartProcesses <em>Start Processes</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.Menu#getStartProcesses <em>Start Processes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Start Processes</em>'.
-     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Application#getStartProcesses()
-     * @see #getApplication()
+     * @see org.mod4j.dsl.presentation.mm.PresentationDsl.Menu#getStartProcesses()
+     * @see #getMenu()
      * @generated
      */
-    EReference getApplication_StartProcesses();
+    EReference getMenu_StartProcesses();
 
     /**
      * Returns the meta object for class '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessReference <em>Process Reference</em>}'.
@@ -3285,12 +3285,12 @@ public interface PresentationDslPackage extends EPackage {
         EReference PRESENTATION_MODEL__EXTERNAL_REFERENCES = eINSTANCE.getPresentationModel_ExternalReferences();
 
         /**
-         * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Main Menu</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference PRESENTATION_MODEL__START = eINSTANCE.getPresentationModel_Start();
+        EReference PRESENTATION_MODEL__MAIN_MENU = eINSTANCE.getPresentationModel_MainMenu();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessImpl <em>Process</em>}' class.
@@ -3503,14 +3503,14 @@ public interface PresentationDslPackage extends EPackage {
         EClass OPERATION_EXPRESSION = eINSTANCE.getOperationExpression();
 
         /**
-         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ApplicationImpl <em>Application</em>}' class.
+         * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MenuImpl <em>Menu</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ApplicationImpl
-         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getApplication()
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MenuImpl
+         * @see org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationDslPackageImpl#getMenu()
          * @generated
          */
-        EClass APPLICATION = eINSTANCE.getApplication();
+        EClass MENU = eINSTANCE.getMenu();
 
         /**
          * The meta object literal for the '<em><b>Start Processes</b></em>' containment reference list feature.
@@ -3518,7 +3518,7 @@ public interface PresentationDslPackage extends EPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference APPLICATION__START_PROCESSES = eINSTANCE.getApplication_StartProcesses();
+        EReference MENU__START_PROCESSES = eINSTANCE.getMenu_StartProcesses();
 
         /**
          * The meta object literal for the '{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ProcessReferenceImpl <em>Process Reference</em>}' class.

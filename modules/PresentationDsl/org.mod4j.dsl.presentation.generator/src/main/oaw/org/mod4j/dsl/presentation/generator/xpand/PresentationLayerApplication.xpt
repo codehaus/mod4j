@@ -42,8 +42,10 @@
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + "." + getWicketRequestCycleClass() ))»
 	    «EXPAND Presentation::GenerateRequestCycle FOR this»
 	«ENDFILE»
-	«IF this.start != null»
-		«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketMasterPageClass()))»
+    «LET javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketMasterPageClass() ) AS masterPageFilePath»
+    «LET getPresentationRootPackageAsPath() + "/pages/" + getWicketMasterPageClass() + ".html" AS masterPageHtmlFilePath»
+	«IF this.mainMenu != null»
+		«FILE generate(getPresentationModuleName(""), masterPageFilePath) »
 		    «EXPAND Presentation::GenerateMasterPage FOR this»
 		«ENDFILE»
 		«FILE generate(getPresentationModuleName(""), getPresentationRootPackageAsPath() + "/pages/" + getWicketMasterPageClass() + ".html")»
@@ -53,8 +55,22 @@
         «FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + "ServiceFacade"))»
             «EXPAND ServiceFacade::ServiceFacade FOR this»
         «ENDFILE»
+        «IF ! fileExist(  fullGeneratePath(getPresentationModuleName(""),  masterPageFilePath) ) -»
+        «print("NOT EXIST IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII : " + fullGeneratePath(getPresentationModuleName(""),  masterPageFilePath)  )»
+            «FILE generate( getPresentationModuleName(""), masterPageFilePath)-»
+                «EXPAND Presentation::GenerateMasterPage FOR this»
+            «ENDFILE»
+        «ENDIF» 
+        «IF ! fileExist(  fullGenerateResourcePath(getPresentationModuleName(""),  masterPageHtmlFilePath) ) -»
+        «print("NOT EXIST KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK : " + fullGenerateResourcePath(getPresentationModuleName(""),  masterPageHtmlFilePath)  )»
+            «FILE generate( getPresentationModuleName(""), masterPageHtmlFilePath)-»
+                «EXPAND Presentation::GenerateMasterPageHtml FOR this»
+            «ENDFILE»
+        «ENDIF» 
     «ENDIF»
-    
+    «ENDLET»
+    «ENDLET»
+        
 	«FILE generate(getPresentationModuleName(""), javaPathFileName(getPresentationRootPackage() + ".pages." + getWicketHomePageClass() ))»
 	    «EXPAND Presentation::GenerateHomePage FOR this»
 	«ENDFILE»

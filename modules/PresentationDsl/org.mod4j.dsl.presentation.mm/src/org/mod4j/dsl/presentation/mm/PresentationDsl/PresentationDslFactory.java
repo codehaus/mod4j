@@ -188,13 +188,13 @@ public interface PresentationDslFactory extends EFactory {
     OperationExpression createOperationExpression();
 
     /**
-     * Returns a new object of class '<em>Application</em>'.
+     * Returns a new object of class '<em>Menu</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Application</em>'.
+     * @return a new object of class '<em>Menu</em>'.
      * @generated
      */
-    Application createApplication();
+    Menu createMenu();
 
     /**
      * Returns a new object of class '<em>Process Reference</em>'.

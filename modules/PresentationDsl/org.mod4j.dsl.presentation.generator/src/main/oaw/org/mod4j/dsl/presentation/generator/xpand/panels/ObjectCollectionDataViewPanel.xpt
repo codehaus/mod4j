@@ -354,6 +354,9 @@ public class «className» extends Panel
 	«ENDLET»
 
     «IF withProcesses»    
+    // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+// «this.processes.referredProcess»
+    // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 	    «FOREACH this.processes.select(pp| pp.referredProcess != null) AS pp»
 		   «LET pp.referredProcess AS process»
 		   «IF ! process.collectionContext && (process.type==ProcessType::CUSTOM) »

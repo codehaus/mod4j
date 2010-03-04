@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
@@ -26,9 +25,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
@@ -308,10 +307,10 @@ public class PresentationDslSwitch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case PresentationDslPackage.APPLICATION: {
-                Application application = (Application)theEObject;
-                T result = caseApplication(application);
-                if (result == null) result = caseModelElement(application);
+            case PresentationDslPackage.MENU: {
+                Menu menu = (Menu)theEObject;
+                T result = caseMenu(menu);
+                if (result == null) result = caseModelElement(menu);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -721,17 +720,17 @@ public class PresentationDslSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Menu</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Menu</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseApplication(Application object) {
+    public T caseMenu(Menu object) {
         return null;
     }
 

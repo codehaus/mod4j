@@ -72,7 +72,7 @@
         eType="#//ModelElementWithContext" containment="true" eOpposite="#//ModelElementWithContext/presentationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="externalReferences" upperBound="-1"
         eType="#//ExternalReference" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Application"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainMenu" eType="#//Menu"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//AbstractProcess">
@@ -135,7 +135,7 @@
     <eLiterals name="SELECTION" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationExpression" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="startProcesses" upperBound="-1"
         eType="#//ProcessCall" containment="true"/>
   </eClassifiers>

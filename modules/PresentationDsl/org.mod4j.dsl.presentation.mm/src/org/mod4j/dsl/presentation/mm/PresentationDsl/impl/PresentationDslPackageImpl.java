@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
@@ -30,9 +29,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
@@ -222,7 +221,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass applicationEClass = null;
+    private EClass menuEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -697,7 +696,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getPresentationModel_Start() {
+    public EReference getPresentationModel_MainMenu() {
         return (EReference)presentationModelEClass.getEStructuralFeatures().get(2);
     }
 
@@ -922,8 +921,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getApplication() {
-        return applicationEClass;
+    public EClass getMenu() {
+        return menuEClass;
     }
 
     /**
@@ -931,8 +930,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getApplication_StartProcesses() {
-        return (EReference)applicationEClass.getEStructuralFeatures().get(0);
+    public EReference getMenu_StartProcesses() {
+        return (EReference)menuEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1105,7 +1104,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         presentationModelEClass = createEClass(PRESENTATION_MODEL);
         createEReference(presentationModelEClass, PRESENTATION_MODEL__ELEMENTS);
         createEReference(presentationModelEClass, PRESENTATION_MODEL__EXTERNAL_REFERENCES);
-        createEReference(presentationModelEClass, PRESENTATION_MODEL__START);
+        createEReference(presentationModelEClass, PRESENTATION_MODEL__MAIN_MENU);
 
         processEClass = createEClass(PROCESS);
         createEReference(processEClass, PROCESS__PROCESS_ELEMENTS);
@@ -1140,8 +1139,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         operationExpressionEClass = createEClass(OPERATION_EXPRESSION);
 
-        applicationEClass = createEClass(APPLICATION);
-        createEReference(applicationEClass, APPLICATION__START_PROCESSES);
+        menuEClass = createEClass(MENU);
+        createEReference(menuEClass, MENU__START_PROCESSES);
 
         processReferenceEClass = createEClass(PROCESS_REFERENCE);
 
@@ -1212,7 +1211,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         expressionEClass.getESuperTypes().add(this.getModelElement());
         standardExpressionEClass.getESuperTypes().add(this.getExpression());
         operationExpressionEClass.getESuperTypes().add(this.getExpression());
-        applicationEClass.getESuperTypes().add(this.getModelElement());
+        menuEClass.getESuperTypes().add(this.getModelElement());
         processReferenceEClass.getESuperTypes().add(this.getAbstractProcess());
         processReferenceEClass.getESuperTypes().add(this.getExternalReference());
         abstractProcessEClass.getESuperTypes().add(this.getUIModelElement());
@@ -1275,7 +1274,7 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
         initEClass(presentationModelEClass, PresentationModel.class, "PresentationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getPresentationModel_Elements(), this.getModelElementWithContext(), this.getModelElementWithContext_PresentationModel(), "elements", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPresentationModel_ExternalReferences(), this.getExternalReference(), null, "externalReferences", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getPresentationModel_Start(), this.getApplication(), null, "start", null, 0, 1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getPresentationModel_MainMenu(), this.getMenu(), null, "mainMenu", null, 0, 1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(processEClass, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getProcess_ProcessElements(), this.getUICall(), this.getUICall_Process(), "processElements", null, 0, -1, org.mod4j.dsl.presentation.mm.PresentationDsl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1314,8 +1313,8 @@ public class PresentationDslPackageImpl extends EPackageImpl implements Presenta
 
         initEClass(operationExpressionEClass, OperationExpression.class, "OperationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getApplication_StartProcesses(), this.getProcessCall(), null, "startProcesses", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getMenu_StartProcesses(), this.getProcessCall(), null, "startProcesses", null, 0, -1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(processReferenceEClass, ProcessReference.class, "ProcessReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

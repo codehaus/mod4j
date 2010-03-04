@@ -211,7 +211,7 @@ public class «getWicketHomePageClass()»  extends «getWicketMasterPageClass()�
 
 «DEFINE GenerateMasterPage FOR PresentationModel -»
 «EXPAND JavaComments::regenerationWarningHeader ("Mod4j PresentationDsl generator: Presentation.xpt") FOR this»
-«LET this.start.startProcesses AS processes»
+«LET this.mainMenu.startProcesses AS processes»
 package «getPresentationRootPackage()».pages;
 
 import java.util.ArrayList;
@@ -221,7 +221,7 @@ import «getPresentationRootPackage()».panels.«getWicketHtmlPanelClass()»;
 
 import «getPresentationRootPackage()».processes.PmfProcess;
 import «getPresentationRootPackage()».dataproviders.Mod4jDataProvider;
-«IF this.start!= null»
+«IF this.mainMenu != null»
     «FOREACH processes AS process-»
 	import «getPresentationRootPackage()».processes.«process.javaClass()»;
 	import «javaDtoClassPath(process.referredProcess.contextRef.name)»;
@@ -282,7 +282,7 @@ public abstract class «getWicketMasterPageClass()»<DtoType> extends WebPage {
         homeLink.add(new Label("name", getLocalizer().getString("lbl.home", this)) );
         menuItems.add(homeLink);
 
-    «IF this.start != null»        
+    «IF this.mainMenu != null»        
 		«FOREACH processes AS processCall-»
 			Link «processCall.referredProcess.name»Link = new Link("link") {
 				public void onClick() {

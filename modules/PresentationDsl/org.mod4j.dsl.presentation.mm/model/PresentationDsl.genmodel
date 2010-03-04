@@ -73,7 +73,7 @@
     <genClasses ecoreClass="PresentationDsl.ecore#//PresentationModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/externalReferences"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//PresentationModel/mainMenu"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PresentationDsl.ecore#//Process">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Process/processElements"/>
@@ -107,8 +107,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PresentationDsl.ecore#//StandardExpression/type"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//OperationExpression"/>
-    <genClasses ecoreClass="PresentationDsl.ecore#//Application">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Application/startProcesses"/>
+    <genClasses ecoreClass="PresentationDsl.ecore#//Menu">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PresentationDsl.ecore#//Menu/startProcesses"/>
     </genClasses>
     <genClasses ecoreClass="PresentationDsl.ecore#//ProcessReference"/>
     <genClasses ecoreClass="PresentationDsl.ecore#//AbstractProcess">

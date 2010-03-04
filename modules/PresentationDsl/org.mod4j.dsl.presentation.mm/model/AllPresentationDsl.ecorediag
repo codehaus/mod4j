@@ -485,7 +485,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_nZnPfCIIEd-Qrfr4VvAwDg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_nZnPciIIEd-Qrfr4VvAwDg" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="PresentationDsl.ecore#//Application"/>
+    <element xmi:type="ecore:EClass" href="PresentationDsl.ecore#//Menu"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZnPcyIIEd-Qrfr4VvAwDg" x="880" y="15" width="153" height="68"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_FgKRgCYVEd-f9K5Z0RH3mg" type="1001">
@@ -1023,7 +1023,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_wMIN8SIIEd-Qrfr4VvAwDg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_wMIN8iIIEd-Qrfr4VvAwDg" fontColor="4210752" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//Application/startProcesses"/>
+    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//Menu/startProcesses"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wMIN8yIIEd-Qrfr4VvAwDg" points="[15, 33, 66, -299]$[15, 348, 66, 16]$[-30, 348, 21, 16]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wMR-9CIIEd-Qrfr4VvAwDg" id="(0.7941176470588235,0.14285714285714285)"/>
   </edges>
@@ -1036,7 +1036,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_4E_AkSIIEd-Qrfr4VvAwDg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_4E_AkiIIEd-Qrfr4VvAwDg" fontColor="4210752" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//PresentationModel/start"/>
+    <element xmi:type="ecore:EReference" href="PresentationDsl.ecore#//PresentationModel/mainMenu"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4E_AkyIIEd-Qrfr4VvAwDg" points="[-39, -13, -829, -26]$[-39, -23, -829, -36]$[829, -23, 39, -36]$[829, -18, 39, -31]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4FIKgCIIEd-Qrfr4VvAwDg" id="(0.8253968253968254,0.3333333333333333)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4FIKgSIIEd-Qrfr4VvAwDg" id="(0.24836601307189543,0.47058823529411764)"/>

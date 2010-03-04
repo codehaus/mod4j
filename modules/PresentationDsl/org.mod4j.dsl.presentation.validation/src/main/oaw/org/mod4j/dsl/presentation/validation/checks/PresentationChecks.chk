@@ -77,9 +77,11 @@ context Process if this.type == ProcessType::EDIT
 //    this.contentForm.actions.forAll(p | (p != this) implies ( p.type != ProcessType::EDIT) ) &&
 //    this.contentForm.processes.referredProcess().forAll(p | p.type != ProcessType::EDIT) ;
 
+/* INCORRECT FOR EXTERNAL PROCESSCALL
 context ProcessCall if (this.referredProcess.type != ProcessType::CUSTOM) && (this.owningDialogue != null) 
     ERROR "12 A Content Form may have at most one " + this.referredProcess.type + "' action or process" :
     hasDouble(this, this.referredProcess.type);
+*/
 
 //context DialogueCall ERROR  "Referred form [" + this.name + "] not found" :
 //	this.referredContentForm() != null

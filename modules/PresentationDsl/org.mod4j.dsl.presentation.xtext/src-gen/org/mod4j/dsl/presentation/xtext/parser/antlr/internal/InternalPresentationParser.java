@@ -249,7 +249,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleApplicationModel
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:121:1: ruleApplicationModel returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_start_5= ruleApplication ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:121:1: ruleApplicationModel returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_mainMenu_5= ruleMenu ) ) ;
     public final EObject ruleApplicationModel() throws RecognitionException {
         EObject current = null;
 
@@ -257,17 +257,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
         Token lv_name_2=null;
         EObject lv_externalReferences_4 = null;
 
-        EObject lv_start_5 = null;
+        EObject lv_mainMenu_5 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:126:6: ( ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_start_5= ruleApplication ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:1: ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_start_5= ruleApplication ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:126:6: ( ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_mainMenu_5= ruleMenu ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:1: ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_mainMenu_5= ruleMenu ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:1: ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_start_5= ruleApplication ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:2: (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_start_5= ruleApplication )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:1: ( (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_mainMenu_5= ruleMenu ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:2: (lv_description_0= RULE_STRING )? 'application' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleProcessReference )* (lv_mainMenu_5= ruleMenu )
             {
             // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:127:2: (lv_description_0= RULE_STRING )?
             int alt2=2;
@@ -378,14 +378,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:196:3: (lv_start_5= ruleApplication )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:199:6: lv_start_5= ruleApplication
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:196:3: (lv_mainMenu_5= ruleMenu )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:199:6: lv_mainMenu_5= ruleMenu
             {
              
-            	        currentNode=createCompositeNode(grammarAccess.getApplicationModelAccess().getStartApplicationParserRuleCall_5_0(), currentNode); 
+            	        currentNode=createCompositeNode(grammarAccess.getApplicationModelAccess().getMainMenuMenuParserRuleCall_5_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleApplication_in_ruleApplicationModel376);
-            lv_start_5=ruleApplication();
+            pushFollow(FOLLOW_ruleMenu_in_ruleApplicationModel376);
+            lv_mainMenu_5=ruleMenu();
             _fsp--;
 
 
@@ -395,7 +395,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	        }
             	        
             	        try {
-            	       		set(current, "start", lv_start_5, "Application", currentNode);
+            	       		set(current, "mainMenu", lv_mainMenu_5, "Menu", currentNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
             	        }
@@ -594,7 +594,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFormsAndProcesses
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:305:1: ruleFormsAndProcesses returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_start_5= ruleApplication )? (lv_elements_6= ruleModelElementWithContext )* ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:305:1: ruleFormsAndProcesses returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_elements_5= ruleModelElementWithContext )* ) ;
     public final EObject ruleFormsAndProcesses() throws RecognitionException {
         EObject current = null;
 
@@ -602,19 +602,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
         Token lv_name_2=null;
         EObject lv_externalReferences_4 = null;
 
-        EObject lv_start_5 = null;
-
-        EObject lv_elements_6 = null;
+        EObject lv_elements_5 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:310:6: ( ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_start_5= ruleApplication )? (lv_elements_6= ruleModelElementWithContext )* ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:1: ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_start_5= ruleApplication )? (lv_elements_6= ruleModelElementWithContext )* )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:310:6: ( ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_elements_5= ruleModelElementWithContext )* ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:1: ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_elements_5= ruleModelElementWithContext )* )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:1: ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_start_5= ruleApplication )? (lv_elements_6= ruleModelElementWithContext )* )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:2: (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_start_5= ruleApplication )? (lv_elements_6= ruleModelElementWithContext )*
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:1: ( (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_elements_5= ruleModelElementWithContext )* )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:2: (lv_description_0= RULE_STRING )? 'presentation' (lv_name_2= RULE_ID ) ';' (lv_externalReferences_4= ruleExternalReference )* (lv_elements_5= ruleModelElementWithContext )*
             {
             // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:311:2: (lv_description_0= RULE_STRING )?
             int alt4=2;
@@ -725,63 +723,26 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:380:3: (lv_start_5= ruleApplication )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
-
-            if ( (LA6_0==11) ) {
-                alt6=1;
-            }
-            switch (alt6) {
-                case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:383:6: lv_start_5= ruleApplication
-                    {
-                     
-                    	        currentNode=createCompositeNode(grammarAccess.getFormsAndProcessesAccess().getStartApplicationParserRuleCall_5_0(), currentNode); 
-                    	    
-                    pushFollow(FOLLOW_ruleApplication_in_ruleFormsAndProcesses755);
-                    lv_start_5=ruleApplication();
-                    _fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getFormsAndProcessesRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode.getParent(), current);
-                    	        }
-                    	        
-                    	        try {
-                    	       		set(current, "start", lv_start_5, "Application", currentNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	        currentNode = currentNode.getParent();
-                    	    
-
-                    }
-                    break;
-
-            }
-
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:401:3: (lv_elements_6= ruleModelElementWithContext )*
-            loop7:
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:380:3: (lv_elements_5= ruleModelElementWithContext )*
+            loop6:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA7_0==RULE_STRING||LA7_0==14||LA7_0==20||LA7_0==29||(LA7_0>=31 && LA7_0<=32)) ) {
-                    alt7=1;
+                if ( (LA6_0==RULE_STRING||LA6_0==14||LA6_0==20||LA6_0==29||(LA6_0>=31 && LA6_0<=32)) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt6) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:404:6: lv_elements_6= ruleModelElementWithContext
+            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:383:6: lv_elements_5= ruleModelElementWithContext
             	    {
             	     
-            	    	        currentNode=createCompositeNode(grammarAccess.getFormsAndProcessesAccess().getElementsModelElementWithContextParserRuleCall_6_0(), currentNode); 
+            	    	        currentNode=createCompositeNode(grammarAccess.getFormsAndProcessesAccess().getElementsModelElementWithContextParserRuleCall_5_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleModelElementWithContext_in_ruleFormsAndProcesses794);
-            	    lv_elements_6=ruleModelElementWithContext();
+            	    pushFollow(FOLLOW_ruleModelElementWithContext_in_ruleFormsAndProcesses755);
+            	    lv_elements_5=ruleModelElementWithContext();
             	    _fsp--;
 
 
@@ -791,7 +752,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	    	        }
             	    	        
             	    	        try {
-            	    	       		add(current, "elements", lv_elements_6, "ModelElementWithContext", currentNode);
+            	    	       		add(current, "elements", lv_elements_5, "ModelElementWithContext", currentNode);
             	    	        } catch (ValueConverterException vce) {
             	    				handleValueConverterException(vce);
             	    	        }
@@ -802,7 +763,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop6;
                 }
             } while (true);
 
@@ -828,25 +789,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleFormsAndProcesses
 
 
-    // $ANTLR start entryRuleApplication
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:429:1: entryRuleApplication returns [EObject current=null] : iv_ruleApplication= ruleApplication EOF ;
-    public final EObject entryRuleApplication() throws RecognitionException {
+    // $ANTLR start entryRuleMenu
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:408:1: entryRuleMenu returns [EObject current=null] : iv_ruleMenu= ruleMenu EOF ;
+    public final EObject entryRuleMenu() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleApplication = null;
+        EObject iv_ruleMenu = null;
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:429:53: (iv_ruleApplication= ruleApplication EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:430:2: iv_ruleApplication= ruleApplication EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:408:46: (iv_ruleMenu= ruleMenu EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:409:2: iv_ruleMenu= ruleMenu EOF
             {
-             currentNode = createCompositeNode(grammarAccess.getApplicationRule(), currentNode); 
-            pushFollow(FOLLOW_ruleApplication_in_entryRuleApplication832);
-            iv_ruleApplication=ruleApplication();
+             currentNode = createCompositeNode(grammarAccess.getMenuRule(), currentNode); 
+            pushFollow(FOLLOW_ruleMenu_in_entryRuleMenu793);
+            iv_ruleMenu=ruleMenu();
             _fsp--;
 
-             current =iv_ruleApplication; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleApplication842); 
+             current =iv_ruleMenu; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMenu803); 
 
             }
 
@@ -860,12 +821,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end entryRuleApplication
+    // $ANTLR end entryRuleMenu
 
 
-    // $ANTLR start ruleApplication
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:437:1: ruleApplication returns [EObject current=null] : ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' ) ;
-    public final EObject ruleApplication() throws RecognitionException {
+    // $ANTLR start ruleMenu
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:416:1: ruleMenu returns [EObject current=null] : ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' ) ;
+    public final EObject ruleMenu() throws RecognitionException {
         EObject current = null;
 
         EObject lv_startProcesses_2 = null;
@@ -876,33 +837,33 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:442:6: ( ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:443:1: ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:421:6: ( ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:422:1: ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:443:1: ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:443:2: 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:422:1: ( 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:422:2: 'application' '[' (lv_startProcesses_2= ruleSimpleProcessCall ) ';' ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )* ']'
             {
-            match(input,11,FOLLOW_11_in_ruleApplication876); 
+            match(input,11,FOLLOW_11_in_ruleMenu837); 
 
-                    createLeafNode(grammarAccess.getApplicationAccess().getApplicationKeyword_0(), null); 
+                    createLeafNode(grammarAccess.getMenuAccess().getApplicationKeyword_0(), null); 
                 
-            match(input,16,FOLLOW_16_in_ruleApplication885); 
+            match(input,16,FOLLOW_16_in_ruleMenu846); 
 
-                    createLeafNode(grammarAccess.getApplicationAccess().getLeftSquareBracketKeyword_1(), null); 
+                    createLeafNode(grammarAccess.getMenuAccess().getLeftSquareBracketKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:451:1: (lv_startProcesses_2= ruleSimpleProcessCall )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:454:6: lv_startProcesses_2= ruleSimpleProcessCall
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:430:1: (lv_startProcesses_2= ruleSimpleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:433:6: lv_startProcesses_2= ruleSimpleProcessCall
             {
              
-            	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getStartProcessesSimpleProcessCallParserRuleCall_2_0(), currentNode); 
+            	        currentNode=createCompositeNode(grammarAccess.getMenuAccess().getStartProcessesSimpleProcessCallParserRuleCall_2_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleSimpleProcessCall_in_ruleApplication919);
+            pushFollow(FOLLOW_ruleSimpleProcessCall_in_ruleMenu880);
             lv_startProcesses_2=ruleSimpleProcessCall();
             _fsp--;
 
 
             	        if (current==null) {
-            	            current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
+            	            current = factory.create(grammarAccess.getMenuRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode.getParent(), current);
             	        }
             	        
@@ -916,38 +877,38 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleApplication932); 
+            match(input,12,FOLLOW_12_in_ruleMenu893); 
 
-                    createLeafNode(grammarAccess.getApplicationAccess().getSemicolonKeyword_3(), null); 
+                    createLeafNode(grammarAccess.getMenuAccess().getSemicolonKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:476:1: ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )*
-            loop8:
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:455:1: ( (lv_startProcesses_4= ruleSimpleProcessCall ) ';' )*
+            loop7:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA8_0==RULE_ID) ) {
-                    alt8=1;
+                if ( (LA7_0==RULE_ID) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt7) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:476:2: (lv_startProcesses_4= ruleSimpleProcessCall ) ';'
+            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:455:2: (lv_startProcesses_4= ruleSimpleProcessCall ) ';'
             	    {
-            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:476:2: (lv_startProcesses_4= ruleSimpleProcessCall )
-            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:479:6: lv_startProcesses_4= ruleSimpleProcessCall
+            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:455:2: (lv_startProcesses_4= ruleSimpleProcessCall )
+            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:458:6: lv_startProcesses_4= ruleSimpleProcessCall
             	    {
             	     
-            	    	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getStartProcessesSimpleProcessCallParserRuleCall_4_0_0(), currentNode); 
+            	    	        currentNode=createCompositeNode(grammarAccess.getMenuAccess().getStartProcessesSimpleProcessCallParserRuleCall_4_0_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSimpleProcessCall_in_ruleApplication967);
+            	    pushFollow(FOLLOW_ruleSimpleProcessCall_in_ruleMenu928);
             	    lv_startProcesses_4=ruleSimpleProcessCall();
             	    _fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
+            	    	            current = factory.create(grammarAccess.getMenuRule().getType().getClassifier());
             	    	            associateNodeWithAstElement(currentNode.getParent(), current);
             	    	        }
             	    	        
@@ -961,22 +922,22 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    match(input,12,FOLLOW_12_in_ruleApplication980); 
+            	    match(input,12,FOLLOW_12_in_ruleMenu941); 
 
-            	            createLeafNode(grammarAccess.getApplicationAccess().getSemicolonKeyword_4_1(), null); 
+            	            createLeafNode(grammarAccess.getMenuAccess().getSemicolonKeyword_4_1(), null); 
             	        
 
             	    }
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop7;
                 }
             } while (true);
 
-            match(input,17,FOLLOW_17_in_ruleApplication991); 
+            match(input,17,FOLLOW_17_in_ruleMenu952); 
 
-                    createLeafNode(grammarAccess.getApplicationAccess().getRightSquareBracketKeyword_5(), null); 
+                    createLeafNode(grammarAccess.getMenuAccess().getRightSquareBracketKeyword_5(), null); 
                 
 
             }
@@ -997,11 +958,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end ruleApplication
+    // $ANTLR end ruleMenu
 
 
     // $ANTLR start entryRuleExternalReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:512:1: entryRuleExternalReference returns [EObject current=null] : iv_ruleExternalReference= ruleExternalReference EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:491:1: entryRuleExternalReference returns [EObject current=null] : iv_ruleExternalReference= ruleExternalReference EOF ;
     public final EObject entryRuleExternalReference() throws RecognitionException {
         EObject current = null;
 
@@ -1009,16 +970,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:512:59: (iv_ruleExternalReference= ruleExternalReference EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:513:2: iv_ruleExternalReference= ruleExternalReference EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:491:59: (iv_ruleExternalReference= ruleExternalReference EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:492:2: iv_ruleExternalReference= ruleExternalReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getExternalReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleExternalReference_in_entryRuleExternalReference1024);
+            pushFollow(FOLLOW_ruleExternalReference_in_entryRuleExternalReference985);
             iv_ruleExternalReference=ruleExternalReference();
             _fsp--;
 
              current =iv_ruleExternalReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalReference1034); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalReference995); 
 
             }
 
@@ -1036,7 +997,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExternalReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:520:1: ruleExternalReference returns [EObject current=null] : (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:499:1: ruleExternalReference returns [EObject current=null] : (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference ) ;
     public final EObject ruleExternalReference() throws RecognitionException {
         EObject current = null;
 
@@ -1052,41 +1013,41 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:525:6: ( (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:526:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:504:6: ( (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:505:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:526:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )
-            int alt9=4;
-            int LA9_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:505:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )
+            int alt8=4;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA9_0==13) ) {
-                int LA9_1 = input.LA(2);
+            if ( (LA8_0==13) ) {
+                int LA8_1 = input.LA(2);
 
-                if ( (LA9_1==RULE_ID) ) {
+                if ( (LA8_1==RULE_ID) ) {
                     switch ( input.LA(3) ) {
-                    case 19:
-                        {
-                        alt9=4;
-                        }
-                        break;
-                    case 20:
-                        {
-                        alt9=3;
-                        }
-                        break;
                     case 14:
                         {
-                        alt9=2;
+                        alt8=2;
                         }
                         break;
                     case 18:
                         {
-                        alt9=1;
+                        alt8=1;
+                        }
+                        break;
+                    case 20:
+                        {
+                        alt8=3;
+                        }
+                        break;
+                    case 19:
+                        {
+                        alt8=4;
                         }
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("526:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )", 9, 2, input);
+                            new NoViableAltException("505:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )", 8, 2, input);
 
                         throw nvae;
                     }
@@ -1094,25 +1055,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("526:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )", 9, 1, input);
+                        new NoViableAltException("505:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )", 8, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("526:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )", 9, 0, input);
+                    new NoViableAltException("505:1: (this_DtoReference_0= ruleDtoReference | this_ProcessReference_1= ruleProcessReference | this_DialogueReference_2= ruleDialogueReference | this_ServiceReference_3= ruleServiceReference )", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:527:5: this_DtoReference_0= ruleDtoReference
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:506:5: this_DtoReference_0= ruleDtoReference
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExternalReferenceAccess().getDtoReferenceParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDtoReference_in_ruleExternalReference1081);
+                    pushFollow(FOLLOW_ruleDtoReference_in_ruleExternalReference1042);
                     this_DtoReference_0=ruleDtoReference();
                     _fsp--;
 
@@ -1124,12 +1085,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:537:5: this_ProcessReference_1= ruleProcessReference
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:516:5: this_ProcessReference_1= ruleProcessReference
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExternalReferenceAccess().getProcessReferenceParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleProcessReference_in_ruleExternalReference1108);
+                    pushFollow(FOLLOW_ruleProcessReference_in_ruleExternalReference1069);
                     this_ProcessReference_1=ruleProcessReference();
                     _fsp--;
 
@@ -1141,12 +1102,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:547:5: this_DialogueReference_2= ruleDialogueReference
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:526:5: this_DialogueReference_2= ruleDialogueReference
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExternalReferenceAccess().getDialogueReferenceParserRuleCall_2(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDialogueReference_in_ruleExternalReference1135);
+                    pushFollow(FOLLOW_ruleDialogueReference_in_ruleExternalReference1096);
                     this_DialogueReference_2=ruleDialogueReference();
                     _fsp--;
 
@@ -1158,12 +1119,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:557:5: this_ServiceReference_3= ruleServiceReference
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:536:5: this_ServiceReference_3= ruleServiceReference
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExternalReferenceAccess().getServiceReferenceParserRuleCall_3(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleServiceReference_in_ruleExternalReference1162);
+                    pushFollow(FOLLOW_ruleServiceReference_in_ruleExternalReference1123);
                     this_ServiceReference_3=ruleServiceReference();
                     _fsp--;
 
@@ -1197,7 +1158,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:572:1: entryRuleDtoReference returns [EObject current=null] : iv_ruleDtoReference= ruleDtoReference EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:551:1: entryRuleDtoReference returns [EObject current=null] : iv_ruleDtoReference= ruleDtoReference EOF ;
     public final EObject entryRuleDtoReference() throws RecognitionException {
         EObject current = null;
 
@@ -1205,16 +1166,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:572:54: (iv_ruleDtoReference= ruleDtoReference EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:573:2: iv_ruleDtoReference= ruleDtoReference EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:551:54: (iv_ruleDtoReference= ruleDtoReference EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:552:2: iv_ruleDtoReference= ruleDtoReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoReference_in_entryRuleDtoReference1194);
+            pushFollow(FOLLOW_ruleDtoReference_in_entryRuleDtoReference1155);
             iv_ruleDtoReference=ruleDtoReference();
             _fsp--;
 
              current =iv_ruleDtoReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoReference1204); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoReference1165); 
 
             }
 
@@ -1232,7 +1193,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:580:1: ruleDtoReference returns [EObject current=null] : ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:559:1: ruleDtoReference returns [EObject current=null] : ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' ) ;
     public final EObject ruleDtoReference() throws RecognitionException {
         EObject current = null;
 
@@ -1242,21 +1203,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:585:6: ( ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:586:1: ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:564:6: ( ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:565:1: ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:586:1: ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:586:2: 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:565:1: ( 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:565:2: 'from' (lv_modelName_1= RULE_ID ) 'dto' (lv_name_3= RULE_ID ) ';'
             {
-            match(input,13,FOLLOW_13_in_ruleDtoReference1238); 
+            match(input,13,FOLLOW_13_in_ruleDtoReference1199); 
 
                     createLeafNode(grammarAccess.getDtoReferenceAccess().getFromKeyword_0(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:590:1: (lv_modelName_1= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:592:6: lv_modelName_1= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:569:1: (lv_modelName_1= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:571:6: lv_modelName_1= RULE_ID
             {
             lv_modelName_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoReference1260); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoReference1221); 
 
             		createLeafNode(grammarAccess.getDtoReferenceAccess().getModelNameIDTerminalRuleCall_1_0(), "modelName"); 
             	
@@ -1275,15 +1236,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,18,FOLLOW_18_in_ruleDtoReference1277); 
+            match(input,18,FOLLOW_18_in_ruleDtoReference1238); 
 
                     createLeafNode(grammarAccess.getDtoReferenceAccess().getDtoKeyword_2(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:614:1: (lv_name_3= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:616:6: lv_name_3= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:593:1: (lv_name_3= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:595:6: lv_name_3= RULE_ID
             {
             lv_name_3=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoReference1299); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoReference1260); 
 
             		createLeafNode(grammarAccess.getDtoReferenceAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
             	
@@ -1302,7 +1263,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleDtoReference1316); 
+            match(input,12,FOLLOW_12_in_ruleDtoReference1277); 
 
                     createLeafNode(grammarAccess.getDtoReferenceAccess().getSemicolonKeyword_4(), null); 
                 
@@ -1329,7 +1290,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleServiceReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:645:1: entryRuleServiceReference returns [EObject current=null] : iv_ruleServiceReference= ruleServiceReference EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:624:1: entryRuleServiceReference returns [EObject current=null] : iv_ruleServiceReference= ruleServiceReference EOF ;
     public final EObject entryRuleServiceReference() throws RecognitionException {
         EObject current = null;
 
@@ -1337,16 +1298,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:645:58: (iv_ruleServiceReference= ruleServiceReference EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:646:2: iv_ruleServiceReference= ruleServiceReference EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:624:58: (iv_ruleServiceReference= ruleServiceReference EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:625:2: iv_ruleServiceReference= ruleServiceReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getServiceReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleServiceReference_in_entryRuleServiceReference1349);
+            pushFollow(FOLLOW_ruleServiceReference_in_entryRuleServiceReference1310);
             iv_ruleServiceReference=ruleServiceReference();
             _fsp--;
 
              current =iv_ruleServiceReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceReference1359); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceReference1320); 
 
             }
 
@@ -1364,7 +1325,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleServiceReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:653:1: ruleServiceReference returns [EObject current=null] : ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:632:1: ruleServiceReference returns [EObject current=null] : ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' ) ;
     public final EObject ruleServiceReference() throws RecognitionException {
         EObject current = null;
 
@@ -1374,21 +1335,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:658:6: ( ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:659:1: ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:637:6: ( ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:638:1: ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:659:1: ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:659:2: 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:638:1: ( 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:638:2: 'from' (lv_modelName_1= RULE_ID ) 'service' (lv_name_3= RULE_ID ) ';'
             {
-            match(input,13,FOLLOW_13_in_ruleServiceReference1393); 
+            match(input,13,FOLLOW_13_in_ruleServiceReference1354); 
 
                     createLeafNode(grammarAccess.getServiceReferenceAccess().getFromKeyword_0(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:663:1: (lv_modelName_1= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:665:6: lv_modelName_1= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:642:1: (lv_modelName_1= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:644:6: lv_modelName_1= RULE_ID
             {
             lv_modelName_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceReference1415); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceReference1376); 
 
             		createLeafNode(grammarAccess.getServiceReferenceAccess().getModelNameIDTerminalRuleCall_1_0(), "modelName"); 
             	
@@ -1407,15 +1368,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,19,FOLLOW_19_in_ruleServiceReference1432); 
+            match(input,19,FOLLOW_19_in_ruleServiceReference1393); 
 
                     createLeafNode(grammarAccess.getServiceReferenceAccess().getServiceKeyword_2(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:687:1: (lv_name_3= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:689:6: lv_name_3= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:666:1: (lv_name_3= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:668:6: lv_name_3= RULE_ID
             {
             lv_name_3=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceReference1454); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceReference1415); 
 
             		createLeafNode(grammarAccess.getServiceReferenceAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
             	
@@ -1434,7 +1395,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleServiceReference1471); 
+            match(input,12,FOLLOW_12_in_ruleServiceReference1432); 
 
                     createLeafNode(grammarAccess.getServiceReferenceAccess().getSemicolonKeyword_4(), null); 
                 
@@ -1461,7 +1422,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDialogueReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:718:1: entryRuleDialogueReference returns [EObject current=null] : iv_ruleDialogueReference= ruleDialogueReference EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:697:1: entryRuleDialogueReference returns [EObject current=null] : iv_ruleDialogueReference= ruleDialogueReference EOF ;
     public final EObject entryRuleDialogueReference() throws RecognitionException {
         EObject current = null;
 
@@ -1469,16 +1430,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:718:59: (iv_ruleDialogueReference= ruleDialogueReference EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:719:2: iv_ruleDialogueReference= ruleDialogueReference EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:697:59: (iv_ruleDialogueReference= ruleDialogueReference EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:698:2: iv_ruleDialogueReference= ruleDialogueReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDialogueReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDialogueReference_in_entryRuleDialogueReference1504);
+            pushFollow(FOLLOW_ruleDialogueReference_in_entryRuleDialogueReference1465);
             iv_ruleDialogueReference=ruleDialogueReference();
             _fsp--;
 
              current =iv_ruleDialogueReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDialogueReference1514); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDialogueReference1475); 
 
             }
 
@@ -1496,7 +1457,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDialogueReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:726:1: ruleDialogueReference returns [EObject current=null] : ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:705:1: ruleDialogueReference returns [EObject current=null] : ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' ) ;
     public final EObject ruleDialogueReference() throws RecognitionException {
         EObject current = null;
 
@@ -1506,21 +1467,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:731:6: ( ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:732:1: ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:710:6: ( ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:711:1: ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:732:1: ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:732:2: 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:711:1: ( 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:711:2: 'from' (lv_modelName_1= RULE_ID ) 'form' (lv_name_3= RULE_ID ) ';'
             {
-            match(input,13,FOLLOW_13_in_ruleDialogueReference1548); 
+            match(input,13,FOLLOW_13_in_ruleDialogueReference1509); 
 
                     createLeafNode(grammarAccess.getDialogueReferenceAccess().getFromKeyword_0(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:736:1: (lv_modelName_1= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:738:6: lv_modelName_1= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:715:1: (lv_modelName_1= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:717:6: lv_modelName_1= RULE_ID
             {
             lv_modelName_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDialogueReference1570); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDialogueReference1531); 
 
             		createLeafNode(grammarAccess.getDialogueReferenceAccess().getModelNameIDTerminalRuleCall_1_0(), "modelName"); 
             	
@@ -1539,15 +1500,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,20,FOLLOW_20_in_ruleDialogueReference1587); 
+            match(input,20,FOLLOW_20_in_ruleDialogueReference1548); 
 
                     createLeafNode(grammarAccess.getDialogueReferenceAccess().getFormKeyword_2(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:760:1: (lv_name_3= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:762:6: lv_name_3= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:739:1: (lv_name_3= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:741:6: lv_name_3= RULE_ID
             {
             lv_name_3=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDialogueReference1609); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDialogueReference1570); 
 
             		createLeafNode(grammarAccess.getDialogueReferenceAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
             	
@@ -1566,7 +1527,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleDialogueReference1626); 
+            match(input,12,FOLLOW_12_in_ruleDialogueReference1587); 
 
                     createLeafNode(grammarAccess.getDialogueReferenceAccess().getSemicolonKeyword_4(), null); 
                 
@@ -1593,7 +1554,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleModelElementWithContext
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:791:1: entryRuleModelElementWithContext returns [EObject current=null] : iv_ruleModelElementWithContext= ruleModelElementWithContext EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:770:1: entryRuleModelElementWithContext returns [EObject current=null] : iv_ruleModelElementWithContext= ruleModelElementWithContext EOF ;
     public final EObject entryRuleModelElementWithContext() throws RecognitionException {
         EObject current = null;
 
@@ -1601,16 +1562,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:791:65: (iv_ruleModelElementWithContext= ruleModelElementWithContext EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:792:2: iv_ruleModelElementWithContext= ruleModelElementWithContext EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:770:65: (iv_ruleModelElementWithContext= ruleModelElementWithContext EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:771:2: iv_ruleModelElementWithContext= ruleModelElementWithContext EOF
             {
              currentNode = createCompositeNode(grammarAccess.getModelElementWithContextRule(), currentNode); 
-            pushFollow(FOLLOW_ruleModelElementWithContext_in_entryRuleModelElementWithContext1659);
+            pushFollow(FOLLOW_ruleModelElementWithContext_in_entryRuleModelElementWithContext1620);
             iv_ruleModelElementWithContext=ruleModelElementWithContext();
             _fsp--;
 
              current =iv_ruleModelElementWithContext; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModelElementWithContext1669); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModelElementWithContext1630); 
 
             }
 
@@ -1628,7 +1589,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleModelElementWithContext
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:799:1: ruleModelElementWithContext returns [EObject current=null] : this_UIModelElement_0= ruleUIModelElement ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:778:1: ruleModelElementWithContext returns [EObject current=null] : this_UIModelElement_0= ruleUIModelElement ;
     public final EObject ruleModelElementWithContext() throws RecognitionException {
         EObject current = null;
 
@@ -1638,13 +1599,13 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:804:6: (this_UIModelElement_0= ruleUIModelElement )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:806:5: this_UIModelElement_0= ruleUIModelElement
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:783:6: (this_UIModelElement_0= ruleUIModelElement )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:785:5: this_UIModelElement_0= ruleUIModelElement
             {
              
                     currentNode=createCompositeNode(grammarAccess.getModelElementWithContextAccess().getUIModelElementParserRuleCall(), currentNode); 
                 
-            pushFollow(FOLLOW_ruleUIModelElement_in_ruleModelElementWithContext1715);
+            pushFollow(FOLLOW_ruleUIModelElement_in_ruleModelElementWithContext1676);
             this_UIModelElement_0=ruleUIModelElement();
             _fsp--;
 
@@ -1672,7 +1633,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUIModelElement
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:821:1: entryRuleUIModelElement returns [EObject current=null] : iv_ruleUIModelElement= ruleUIModelElement EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:800:1: entryRuleUIModelElement returns [EObject current=null] : iv_ruleUIModelElement= ruleUIModelElement EOF ;
     public final EObject entryRuleUIModelElement() throws RecognitionException {
         EObject current = null;
 
@@ -1680,16 +1641,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:821:56: (iv_ruleUIModelElement= ruleUIModelElement EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:822:2: iv_ruleUIModelElement= ruleUIModelElement EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:800:56: (iv_ruleUIModelElement= ruleUIModelElement EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:801:2: iv_ruleUIModelElement= ruleUIModelElement EOF
             {
              currentNode = createCompositeNode(grammarAccess.getUIModelElementRule(), currentNode); 
-            pushFollow(FOLLOW_ruleUIModelElement_in_entryRuleUIModelElement1746);
+            pushFollow(FOLLOW_ruleUIModelElement_in_entryRuleUIModelElement1707);
             iv_ruleUIModelElement=ruleUIModelElement();
             _fsp--;
 
              current =iv_ruleUIModelElement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUIModelElement1756); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUIModelElement1717); 
 
             }
 
@@ -1707,7 +1668,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUIModelElement
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:829:1: ruleUIModelElement returns [EObject current=null] : (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:808:1: ruleUIModelElement returns [EObject current=null] : (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess ) ;
     public final EObject ruleUIModelElement() throws RecognitionException {
         EObject current = null;
 
@@ -1719,25 +1680,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:834:6: ( (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:835:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:813:6: ( (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:814:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:835:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )
-            int alt10=2;
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:814:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )
+            int alt9=2;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                int LA10_1 = input.LA(2);
+                int LA9_1 = input.LA(2);
 
-                if ( (LA10_1==20||LA10_1==29||(LA10_1>=31 && LA10_1<=32)) ) {
-                    alt10=1;
+                if ( (LA9_1==20||LA9_1==29||(LA9_1>=31 && LA9_1<=32)) ) {
+                    alt9=1;
                 }
-                else if ( (LA10_1==14) ) {
-                    alt10=2;
+                else if ( (LA9_1==14) ) {
+                    alt9=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("835:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )", 10, 1, input);
+                        new NoViableAltException("814:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )", 9, 1, input);
 
                     throw nvae;
                 }
@@ -1748,29 +1709,29 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             case 31:
             case 32:
                 {
-                alt10=1;
+                alt9=1;
                 }
                 break;
             case 14:
                 {
-                alt10=2;
+                alt9=2;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("835:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )", 10, 0, input);
+                    new NoViableAltException("814:1: (this_Dialogue_0= ruleDialogue | this_Process_1= ruleProcess )", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt10) {
+            switch (alt9) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:836:5: this_Dialogue_0= ruleDialogue
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:815:5: this_Dialogue_0= ruleDialogue
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getUIModelElementAccess().getDialogueParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDialogue_in_ruleUIModelElement1803);
+                    pushFollow(FOLLOW_ruleDialogue_in_ruleUIModelElement1764);
                     this_Dialogue_0=ruleDialogue();
                     _fsp--;
 
@@ -1782,12 +1743,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:846:5: this_Process_1= ruleProcess
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:825:5: this_Process_1= ruleProcess
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getUIModelElementAccess().getProcessParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleProcess_in_ruleUIModelElement1830);
+                    pushFollow(FOLLOW_ruleProcess_in_ruleUIModelElement1791);
                     this_Process_1=ruleProcess();
                     _fsp--;
 
@@ -1821,7 +1782,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDialogue
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:861:1: entryRuleDialogue returns [EObject current=null] : iv_ruleDialogue= ruleDialogue EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:840:1: entryRuleDialogue returns [EObject current=null] : iv_ruleDialogue= ruleDialogue EOF ;
     public final EObject entryRuleDialogue() throws RecognitionException {
         EObject current = null;
 
@@ -1829,16 +1790,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:861:50: (iv_ruleDialogue= ruleDialogue EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:862:2: iv_ruleDialogue= ruleDialogue EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:840:50: (iv_ruleDialogue= ruleDialogue EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:841:2: iv_ruleDialogue= ruleDialogue EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDialogueRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDialogue_in_entryRuleDialogue1862);
+            pushFollow(FOLLOW_ruleDialogue_in_entryRuleDialogue1823);
             iv_ruleDialogue=ruleDialogue();
             _fsp--;
 
              current =iv_ruleDialogue; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDialogue1872); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDialogue1833); 
 
             }
 
@@ -1856,7 +1817,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDialogue
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:869:1: ruleDialogue returns [EObject current=null] : (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:848:1: ruleDialogue returns [EObject current=null] : (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue ) ;
     public final EObject ruleDialogue() throws RecognitionException {
         EObject current = null;
 
@@ -1868,25 +1829,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:874:6: ( (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:875:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:853:6: ( (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:854:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:875:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )
-            int alt11=2;
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:854:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )
+            int alt10=2;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                int LA11_1 = input.LA(2);
+                int LA10_1 = input.LA(2);
 
-                if ( (LA11_1==29||(LA11_1>=31 && LA11_1<=32)) ) {
-                    alt11=2;
+                if ( (LA10_1==29||(LA10_1>=31 && LA10_1<=32)) ) {
+                    alt10=2;
                 }
-                else if ( (LA11_1==20) ) {
-                    alt11=1;
+                else if ( (LA10_1==20) ) {
+                    alt10=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("875:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )", 11, 1, input);
+                        new NoViableAltException("854:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )", 10, 1, input);
 
                     throw nvae;
                 }
@@ -1894,31 +1855,31 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 20:
                 {
-                alt11=1;
+                alt10=1;
                 }
                 break;
             case 29:
             case 31:
             case 32:
                 {
-                alt11=2;
+                alt10=2;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("875:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )", 11, 0, input);
+                    new NoViableAltException("854:1: (this_ContentForm_0= ruleContentForm | this_CompoundDialogue_1= ruleCompoundDialogue )", 10, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:876:5: this_ContentForm_0= ruleContentForm
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:855:5: this_ContentForm_0= ruleContentForm
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDialogueAccess().getContentFormParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleContentForm_in_ruleDialogue1919);
+                    pushFollow(FOLLOW_ruleContentForm_in_ruleDialogue1880);
                     this_ContentForm_0=ruleContentForm();
                     _fsp--;
 
@@ -1930,12 +1891,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:886:5: this_CompoundDialogue_1= ruleCompoundDialogue
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:865:5: this_CompoundDialogue_1= ruleCompoundDialogue
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getDialogueAccess().getCompoundDialogueParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleCompoundDialogue_in_ruleDialogue1946);
+                    pushFollow(FOLLOW_ruleCompoundDialogue_in_ruleDialogue1907);
                     this_CompoundDialogue_1=ruleCompoundDialogue();
                     _fsp--;
 
@@ -1969,7 +1930,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleContentForm
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:901:1: entryRuleContentForm returns [EObject current=null] : iv_ruleContentForm= ruleContentForm EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:880:1: entryRuleContentForm returns [EObject current=null] : iv_ruleContentForm= ruleContentForm EOF ;
     public final EObject entryRuleContentForm() throws RecognitionException {
         EObject current = null;
 
@@ -1977,16 +1938,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:901:53: (iv_ruleContentForm= ruleContentForm EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:902:2: iv_ruleContentForm= ruleContentForm EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:880:53: (iv_ruleContentForm= ruleContentForm EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:881:2: iv_ruleContentForm= ruleContentForm EOF
             {
              currentNode = createCompositeNode(grammarAccess.getContentFormRule(), currentNode); 
-            pushFollow(FOLLOW_ruleContentForm_in_entryRuleContentForm1978);
+            pushFollow(FOLLOW_ruleContentForm_in_entryRuleContentForm1939);
             iv_ruleContentForm=ruleContentForm();
             _fsp--;
 
              current =iv_ruleContentForm; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleContentForm1988); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleContentForm1949); 
 
             }
 
@@ -2004,7 +1965,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleContentForm
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:909:1: ruleContentForm returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:888:1: ruleContentForm returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' ) ;
     public final EObject ruleContentForm() throws RecognitionException {
         EObject current = null;
 
@@ -2022,25 +1983,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:914:6: ( ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:915:1: ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:893:6: ( ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:894:1: ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:915:1: ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:915:2: (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:894:1: ( (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:894:2: (lv_description_0= RULE_STRING )? 'form' (lv_name_2= RULE_ID ) 'context' (lv_collectionContext_4= 'list' )? ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )? (lv_formElements_11= ruleFormElement )* ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )? ']'
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:915:2: (lv_description_0= RULE_STRING )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:894:2: (lv_description_0= RULE_STRING )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_STRING) ) {
-                alt12=1;
+            if ( (LA11_0==RULE_STRING) ) {
+                alt11=1;
             }
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:917:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:896:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleContentForm2035); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleContentForm1996); 
 
                     		createLeafNode(grammarAccess.getContentFormAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2062,15 +2023,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,20,FOLLOW_20_in_ruleContentForm2053); 
+            match(input,20,FOLLOW_20_in_ruleContentForm2014); 
 
                     createLeafNode(grammarAccess.getContentFormAccess().getFormKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:939:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:941:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:918:1: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:920:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleContentForm2075); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleContentForm2036); 
 
             		createLeafNode(grammarAccess.getContentFormAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2089,23 +2050,23 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleContentForm2092); 
+            match(input,21,FOLLOW_21_in_ruleContentForm2053); 
 
                     createLeafNode(grammarAccess.getContentFormAccess().getContextKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:963:1: (lv_collectionContext_4= 'list' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:942:1: (lv_collectionContext_4= 'list' )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==22) ) {
-                alt13=1;
+            if ( (LA12_0==22) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:965:6: lv_collectionContext_4= 'list'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:944:6: lv_collectionContext_4= 'list'
                     {
                     lv_collectionContext_4=(Token)input.LT(1);
-                    match(input,22,FOLLOW_22_in_ruleContentForm2113); 
+                    match(input,22,FOLLOW_22_in_ruleContentForm2074); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getCollectionContextListKeyword_4_0(), "collectionContext"); 
                         
@@ -2127,8 +2088,8 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:984:3: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:987:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:963:3: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:966:3: RULE_ID
             {
 
             			if (current==null) {
@@ -2136,57 +2097,57 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleContentForm2149); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleContentForm2110); 
 
             		createLeafNode(grammarAccess.getContentFormAccess().getContextRefDtoReferenceCrossReference_5_0(), "contextRef"); 
             	
 
             }
 
-            match(input,16,FOLLOW_16_in_ruleContentForm2161); 
+            match(input,16,FOLLOW_16_in_ruleContentForm2122); 
 
                     createLeafNode(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_6(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1004:1: ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:983:1: ( 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';' )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA15_0==23) ) {
-                alt15=1;
+            if ( (LA14_0==23) ) {
+                alt14=1;
             }
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1004:2: 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:983:2: 'readonly' ( (lv_readonly_8= 'true' ) | 'false' ) ';'
                     {
-                    match(input,23,FOLLOW_23_in_ruleContentForm2171); 
+                    match(input,23,FOLLOW_23_in_ruleContentForm2132); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getReadonlyKeyword_7_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1008:1: ( (lv_readonly_8= 'true' ) | 'false' )
-                    int alt14=2;
-                    int LA14_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:987:1: ( (lv_readonly_8= 'true' ) | 'false' )
+                    int alt13=2;
+                    int LA13_0 = input.LA(1);
 
-                    if ( (LA14_0==24) ) {
-                        alt14=1;
+                    if ( (LA13_0==24) ) {
+                        alt13=1;
                     }
-                    else if ( (LA14_0==25) ) {
-                        alt14=2;
+                    else if ( (LA13_0==25) ) {
+                        alt13=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("1008:1: ( (lv_readonly_8= 'true' ) | 'false' )", 14, 0, input);
+                            new NoViableAltException("987:1: ( (lv_readonly_8= 'true' ) | 'false' )", 13, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt14) {
+                    switch (alt13) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1008:2: (lv_readonly_8= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:987:2: (lv_readonly_8= 'true' )
                             {
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1008:2: (lv_readonly_8= 'true' )
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1010:6: lv_readonly_8= 'true'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:987:2: (lv_readonly_8= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:989:6: lv_readonly_8= 'true'
                             {
                             lv_readonly_8=(Token)input.LT(1);
-                            match(input,24,FOLLOW_24_in_ruleContentForm2193); 
+                            match(input,24,FOLLOW_24_in_ruleContentForm2154); 
 
                                     createLeafNode(grammarAccess.getContentFormAccess().getReadonlyTrueKeyword_7_1_0_0(), "readonly"); 
                                 
@@ -2209,9 +2170,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1030:6: 'false'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1009:6: 'false'
                             {
-                            match(input,25,FOLLOW_25_in_ruleContentForm2221); 
+                            match(input,25,FOLLOW_25_in_ruleContentForm2182); 
 
                                     createLeafNode(grammarAccess.getContentFormAccess().getFalseKeyword_7_1_1(), null); 
                                 
@@ -2221,7 +2182,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,12,FOLLOW_12_in_ruleContentForm2231); 
+                    match(input,12,FOLLOW_12_in_ruleContentForm2192); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getSemicolonKeyword_7_2(), null); 
                         
@@ -2231,25 +2192,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1038:3: (lv_formElements_11= ruleFormElement )*
-            loop16:
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1017:3: (lv_formElements_11= ruleFormElement )*
+            loop15:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_STRING||LA16_0==35) ) {
-                    alt16=1;
+                if ( (LA15_0==RULE_STRING||LA15_0==35) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt15) {
             	case 1 :
-            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1041:6: lv_formElements_11= ruleFormElement
+            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1020:6: lv_formElements_11= ruleFormElement
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getContentFormAccess().getFormElementsFormElementParserRuleCall_8_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleFormElement_in_ruleContentForm2267);
+            	    pushFollow(FOLLOW_ruleFormElement_in_ruleContentForm2228);
             	    lv_formElements_11=ruleFormElement();
             	    _fsp--;
 
@@ -2271,51 +2232,51 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop15;
                 }
             } while (true);
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1059:3: ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1038:3: ( 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']' )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA18_0==26) ) {
-                alt18=1;
+            if ( (LA17_0==26) ) {
+                alt17=1;
             }
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1059:4: 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1038:4: 'actions' '[' ( (lv_actions_14= ruleAction ) ';' )* ']'
                     {
-                    match(input,26,FOLLOW_26_in_ruleContentForm2282); 
+                    match(input,26,FOLLOW_26_in_ruleContentForm2243); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getActionsKeyword_9_0(), null); 
                         
-                    match(input,16,FOLLOW_16_in_ruleContentForm2291); 
+                    match(input,16,FOLLOW_16_in_ruleContentForm2252); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_9_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1067:1: ( (lv_actions_14= ruleAction ) ';' )*
-                    loop17:
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1046:1: ( (lv_actions_14= ruleAction ) ';' )*
+                    loop16:
                     do {
-                        int alt17=2;
-                        int LA17_0 = input.LA(1);
+                        int alt16=2;
+                        int LA16_0 = input.LA(1);
 
-                        if ( ((LA17_0>=RULE_STRING && LA17_0<=RULE_ID)||(LA17_0>=44 && LA17_0<=50)) ) {
-                            alt17=1;
+                        if ( ((LA16_0>=RULE_STRING && LA16_0<=RULE_ID)||(LA16_0>=44 && LA16_0<=50)) ) {
+                            alt16=1;
                         }
 
 
-                        switch (alt17) {
+                        switch (alt16) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1067:2: (lv_actions_14= ruleAction ) ';'
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1046:2: (lv_actions_14= ruleAction ) ';'
                     	    {
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1067:2: (lv_actions_14= ruleAction )
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1070:6: lv_actions_14= ruleAction
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1046:2: (lv_actions_14= ruleAction )
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1049:6: lv_actions_14= ruleAction
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getContentFormAccess().getActionsActionParserRuleCall_9_2_0_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleAction_in_ruleContentForm2326);
+                    	    pushFollow(FOLLOW_ruleAction_in_ruleContentForm2287);
                     	    lv_actions_14=ruleAction();
                     	    _fsp--;
 
@@ -2335,7 +2296,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    match(input,12,FOLLOW_12_in_ruleContentForm2339); 
+                    	    match(input,12,FOLLOW_12_in_ruleContentForm2300); 
 
                     	            createLeafNode(grammarAccess.getContentFormAccess().getSemicolonKeyword_9_2_1(), null); 
                     	        
@@ -2344,11 +2305,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop17;
+                    	    break loop16;
                         }
                     } while (true);
 
-                    match(input,17,FOLLOW_17_in_ruleContentForm2350); 
+                    match(input,17,FOLLOW_17_in_ruleContentForm2311); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_9_3(), null); 
                         
@@ -2358,47 +2319,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1096:3: ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1075:3: ( 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']' )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA20_0==27) ) {
-                alt20=1;
+            if ( (LA19_0==27) ) {
+                alt19=1;
             }
-            switch (alt20) {
+            switch (alt19) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1096:4: 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1075:4: 'processes' '[' ( (lv_processes_19= ruleSimpleProcessCall ) ';' )* ']'
                     {
-                    match(input,27,FOLLOW_27_in_ruleContentForm2362); 
+                    match(input,27,FOLLOW_27_in_ruleContentForm2323); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getProcessesKeyword_10_0(), null); 
                         
-                    match(input,16,FOLLOW_16_in_ruleContentForm2371); 
+                    match(input,16,FOLLOW_16_in_ruleContentForm2332); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getLeftSquareBracketKeyword_10_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1104:1: ( (lv_processes_19= ruleSimpleProcessCall ) ';' )*
-                    loop19:
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1083:1: ( (lv_processes_19= ruleSimpleProcessCall ) ';' )*
+                    loop18:
                     do {
-                        int alt19=2;
-                        int LA19_0 = input.LA(1);
+                        int alt18=2;
+                        int LA18_0 = input.LA(1);
 
-                        if ( (LA19_0==RULE_ID) ) {
-                            alt19=1;
+                        if ( (LA18_0==RULE_ID) ) {
+                            alt18=1;
                         }
 
 
-                        switch (alt19) {
+                        switch (alt18) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1104:2: (lv_processes_19= ruleSimpleProcessCall ) ';'
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1083:2: (lv_processes_19= ruleSimpleProcessCall ) ';'
                     	    {
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1104:2: (lv_processes_19= ruleSimpleProcessCall )
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1107:6: lv_processes_19= ruleSimpleProcessCall
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1083:2: (lv_processes_19= ruleSimpleProcessCall )
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1086:6: lv_processes_19= ruleSimpleProcessCall
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getContentFormAccess().getProcessesSimpleProcessCallParserRuleCall_10_2_0_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleSimpleProcessCall_in_ruleContentForm2406);
+                    	    pushFollow(FOLLOW_ruleSimpleProcessCall_in_ruleContentForm2367);
                     	    lv_processes_19=ruleSimpleProcessCall();
                     	    _fsp--;
 
@@ -2418,7 +2379,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    match(input,12,FOLLOW_12_in_ruleContentForm2419); 
+                    	    match(input,12,FOLLOW_12_in_ruleContentForm2380); 
 
                     	            createLeafNode(grammarAccess.getContentFormAccess().getSemicolonKeyword_10_2_1(), null); 
                     	        
@@ -2427,11 +2388,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop19;
+                    	    break loop18;
                         }
                     } while (true);
 
-                    match(input,17,FOLLOW_17_in_ruleContentForm2430); 
+                    match(input,17,FOLLOW_17_in_ruleContentForm2391); 
 
                             createLeafNode(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_10_3(), null); 
                         
@@ -2441,7 +2402,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,17,FOLLOW_17_in_ruleContentForm2441); 
+            match(input,17,FOLLOW_17_in_ruleContentForm2402); 
 
                     createLeafNode(grammarAccess.getContentFormAccess().getRightSquareBracketKeyword_11(), null); 
                 
@@ -2468,7 +2429,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAction
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1144:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1123:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -2476,16 +2437,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1144:48: (iv_ruleAction= ruleAction EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1145:2: iv_ruleAction= ruleAction EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1123:48: (iv_ruleAction= ruleAction EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1124:2: iv_ruleAction= ruleAction EOF
             {
              currentNode = createCompositeNode(grammarAccess.getActionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleAction_in_entryRuleAction2474);
+            pushFollow(FOLLOW_ruleAction_in_entryRuleAction2435);
             iv_ruleAction=ruleAction();
             _fsp--;
 
              current =iv_ruleAction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAction2484); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAction2445); 
 
             }
 
@@ -2503,7 +2464,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAction
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1152:1: ruleAction returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1131:1: ruleAction returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -2518,25 +2479,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1157:6: ( ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1158:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1136:6: ( ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1137:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1158:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1158:2: (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )?
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1137:1: ( (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1137:2: (lv_description_0= RULE_STRING )? (lv_type_1= ruleProcessType )? (lv_name_2= RULE_ID ) ( 'label' (lv_label_4= RULE_STRING ) )? (lv_processElements_5= ruleActionDialogueCall )?
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1158:2: (lv_description_0= RULE_STRING )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1137:2: (lv_description_0= RULE_STRING )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA21_0==RULE_STRING) ) {
-                alt21=1;
+            if ( (LA20_0==RULE_STRING) ) {
+                alt20=1;
             }
-            switch (alt21) {
+            switch (alt20) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1160:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1139:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAction2531); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAction2492); 
 
                     		createLeafNode(grammarAccess.getActionAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -2558,21 +2519,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1178:3: (lv_type_1= ruleProcessType )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1157:3: (lv_type_1= ruleProcessType )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( ((LA22_0>=44 && LA22_0<=50)) ) {
-                alt22=1;
+            if ( ((LA21_0>=44 && LA21_0<=50)) ) {
+                alt21=1;
             }
-            switch (alt22) {
+            switch (alt21) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1181:6: lv_type_1= ruleProcessType
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1160:6: lv_type_1= ruleProcessType
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getActionAccess().getTypeProcessTypeEnumRuleCall_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleProcessType_in_ruleAction2574);
+                    pushFollow(FOLLOW_ruleProcessType_in_ruleAction2535);
                     lv_type_1=ruleProcessType();
                     _fsp--;
 
@@ -2595,11 +2556,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1199:3: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1201:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1178:3: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1180:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAction2601); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAction2562); 
 
             		createLeafNode(grammarAccess.getActionAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -2618,26 +2579,26 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1219:2: ( 'label' (lv_label_4= RULE_STRING ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1198:2: ( 'label' (lv_label_4= RULE_STRING ) )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA23_0==28) ) {
-                alt23=1;
+            if ( (LA22_0==28) ) {
+                alt22=1;
             }
-            switch (alt23) {
+            switch (alt22) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1219:3: 'label' (lv_label_4= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1198:3: 'label' (lv_label_4= RULE_STRING )
                     {
-                    match(input,28,FOLLOW_28_in_ruleAction2619); 
+                    match(input,28,FOLLOW_28_in_ruleAction2580); 
 
                             createLeafNode(grammarAccess.getActionAccess().getLabelKeyword_3_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1223:1: (lv_label_4= RULE_STRING )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1225:6: lv_label_4= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1202:1: (lv_label_4= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1204:6: lv_label_4= RULE_STRING
                     {
                     lv_label_4=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAction2641); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAction2602); 
 
                     		createLeafNode(grammarAccess.getActionAccess().getLabelSTRINGTerminalRuleCall_3_1_0(), "label"); 
                     	
@@ -2662,21 +2623,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1243:4: (lv_processElements_5= ruleActionDialogueCall )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1222:4: (lv_processElements_5= ruleActionDialogueCall )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( ((LA24_0>=19 && LA24_0<=20)||LA24_0==40||(LA24_0>=42 && LA24_0<=43)||(LA24_0>=52 && LA24_0<=53)) ) {
-                alt24=1;
+            if ( ((LA23_0>=19 && LA23_0<=20)||LA23_0==40||(LA23_0>=42 && LA23_0<=43)||(LA23_0>=52 && LA23_0<=53)) ) {
+                alt23=1;
             }
-            switch (alt24) {
+            switch (alt23) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1246:6: lv_processElements_5= ruleActionDialogueCall
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1225:6: lv_processElements_5= ruleActionDialogueCall
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getActionAccess().getProcessElementsActionDialogueCallParserRuleCall_4_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleActionDialogueCall_in_ruleAction2685);
+                    pushFollow(FOLLOW_ruleActionDialogueCall_in_ruleAction2646);
                     lv_processElements_5=ruleActionDialogueCall();
                     _fsp--;
 
@@ -2722,7 +2683,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCompoundDialogue
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1271:1: entryRuleCompoundDialogue returns [EObject current=null] : iv_ruleCompoundDialogue= ruleCompoundDialogue EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1250:1: entryRuleCompoundDialogue returns [EObject current=null] : iv_ruleCompoundDialogue= ruleCompoundDialogue EOF ;
     public final EObject entryRuleCompoundDialogue() throws RecognitionException {
         EObject current = null;
 
@@ -2730,16 +2691,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1271:58: (iv_ruleCompoundDialogue= ruleCompoundDialogue EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1272:2: iv_ruleCompoundDialogue= ruleCompoundDialogue EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1250:58: (iv_ruleCompoundDialogue= ruleCompoundDialogue EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1251:2: iv_ruleCompoundDialogue= ruleCompoundDialogue EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCompoundDialogueRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCompoundDialogue_in_entryRuleCompoundDialogue2723);
+            pushFollow(FOLLOW_ruleCompoundDialogue_in_entryRuleCompoundDialogue2684);
             iv_ruleCompoundDialogue=ruleCompoundDialogue();
             _fsp--;
 
              current =iv_ruleCompoundDialogue; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompoundDialogue2733); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCompoundDialogue2694); 
 
             }
 
@@ -2757,7 +2718,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCompoundDialogue
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1279:1: ruleCompoundDialogue returns [EObject current=null] : ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1258:1: ruleCompoundDialogue returns [EObject current=null] : ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail ) ;
     public final EObject ruleCompoundDialogue() throws RecognitionException {
         EObject current = null;
 
@@ -2776,33 +2737,33 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1284:6: ( ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1285:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1263:6: ( ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1264:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1285:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )
-            int alt32=3;
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1264:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )
+            int alt31=3;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
-                case 29:
-                    {
-                    alt32=1;
-                    }
-                    break;
                 case 32:
                     {
-                    alt32=3;
+                    alt31=3;
                     }
                     break;
                 case 31:
                     {
-                    alt32=2;
+                    alt31=2;
+                    }
+                    break;
+                case 29:
+                    {
+                    alt31=1;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("1285:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )", 32, 1, input);
+                        new NoViableAltException("1264:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )", 31, 1, input);
 
                     throw nvae;
                 }
@@ -2811,46 +2772,46 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 29:
                 {
-                alt32=1;
+                alt31=1;
                 }
                 break;
             case 31:
                 {
-                alt32=2;
+                alt31=2;
                 }
                 break;
             case 32:
                 {
-                alt32=3;
+                alt31=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1285:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )", 32, 0, input);
+                    new NoViableAltException("1264:1: ( ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? ) | this_CollectionDialogue_19= ruleCollectionDialogue | this_MasterDetail_20= ruleMasterDetail )", 31, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt32) {
+            switch (alt31) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1285:2: ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1264:2: ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1285:2: ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1285:3: (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )?
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1264:2: ( (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )? )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1264:3: (lv_description_0= RULE_STRING )? 'CompoundDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )?
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1285:3: (lv_description_0= RULE_STRING )?
-                    int alt25=2;
-                    int LA25_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1264:3: (lv_description_0= RULE_STRING )?
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA25_0==RULE_STRING) ) {
-                        alt25=1;
+                    if ( (LA24_0==RULE_STRING) ) {
+                        alt24=1;
                     }
-                    switch (alt25) {
+                    switch (alt24) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1287:6: lv_description_0= RULE_STRING
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1266:6: lv_description_0= RULE_STRING
                             {
                             lv_description_0=(Token)input.LT(1);
-                            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCompoundDialogue2781); 
+                            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCompoundDialogue2742); 
 
                             		createLeafNode(grammarAccess.getCompoundDialogueAccess().getDescriptionSTRINGTerminalRuleCall_0_0_0(), "description"); 
                             	
@@ -2872,15 +2833,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,29,FOLLOW_29_in_ruleCompoundDialogue2799); 
+                    match(input,29,FOLLOW_29_in_ruleCompoundDialogue2760); 
 
                             createLeafNode(grammarAccess.getCompoundDialogueAccess().getCompoundDialogueKeyword_0_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1309:1: (lv_name_2= RULE_ID )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1311:6: lv_name_2= RULE_ID
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1288:1: (lv_name_2= RULE_ID )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1290:6: lv_name_2= RULE_ID
                     {
                     lv_name_2=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCompoundDialogue2821); 
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCompoundDialogue2782); 
 
                     		createLeafNode(grammarAccess.getCompoundDialogueAccess().getNameIDTerminalRuleCall_0_2_0(), "name"); 
                     	
@@ -2899,12 +2860,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,21,FOLLOW_21_in_ruleCompoundDialogue2838); 
+                    match(input,21,FOLLOW_21_in_ruleCompoundDialogue2799); 
 
                             createLeafNode(grammarAccess.getCompoundDialogueAccess().getContextKeyword_0_3(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1333:1: ( RULE_ID )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1336:3: RULE_ID
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1312:1: ( RULE_ID )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1315:3: RULE_ID
                     {
 
                     			if (current==null) {
@@ -2912,53 +2873,53 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	            associateNodeWithAstElement(currentNode, current);
                     	        }
                             
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCompoundDialogue2860); 
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCompoundDialogue2821); 
 
                     		createLeafNode(grammarAccess.getCompoundDialogueAccess().getContextRefDtoReferenceCrossReference_0_4_0(), "contextRef"); 
                     	
 
                     }
 
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1349:2: ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )?
-                    int alt27=2;
-                    int LA27_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1328:2: ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )?
+                    int alt26=2;
+                    int LA26_0 = input.LA(1);
 
-                    if ( (LA27_0==23) ) {
-                        alt27=1;
+                    if ( (LA26_0==23) ) {
+                        alt26=1;
                     }
-                    switch (alt27) {
+                    switch (alt26) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1349:3: 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1328:3: 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';'
                             {
-                            match(input,23,FOLLOW_23_in_ruleCompoundDialogue2873); 
+                            match(input,23,FOLLOW_23_in_ruleCompoundDialogue2834); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getReadonlyKeyword_0_5_0(), null); 
                                 
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1353:1: ( (lv_readonly_6= 'true' ) | 'false' )
-                            int alt26=2;
-                            int LA26_0 = input.LA(1);
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1332:1: ( (lv_readonly_6= 'true' ) | 'false' )
+                            int alt25=2;
+                            int LA25_0 = input.LA(1);
 
-                            if ( (LA26_0==24) ) {
-                                alt26=1;
+                            if ( (LA25_0==24) ) {
+                                alt25=1;
                             }
-                            else if ( (LA26_0==25) ) {
-                                alt26=2;
+                            else if ( (LA25_0==25) ) {
+                                alt25=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1353:1: ( (lv_readonly_6= 'true' ) | 'false' )", 26, 0, input);
+                                    new NoViableAltException("1332:1: ( (lv_readonly_6= 'true' ) | 'false' )", 25, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt26) {
+                            switch (alt25) {
                                 case 1 :
-                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1353:2: (lv_readonly_6= 'true' )
+                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1332:2: (lv_readonly_6= 'true' )
                                     {
-                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1353:2: (lv_readonly_6= 'true' )
-                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1355:6: lv_readonly_6= 'true'
+                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1332:2: (lv_readonly_6= 'true' )
+                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1334:6: lv_readonly_6= 'true'
                                     {
                                     lv_readonly_6=(Token)input.LT(1);
-                                    match(input,24,FOLLOW_24_in_ruleCompoundDialogue2895); 
+                                    match(input,24,FOLLOW_24_in_ruleCompoundDialogue2856); 
 
                                             createLeafNode(grammarAccess.getCompoundDialogueAccess().getReadonlyTrueKeyword_0_5_1_0_0(), "readonly"); 
                                         
@@ -2981,9 +2942,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 2 :
-                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1375:6: 'false'
+                                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1354:6: 'false'
                                     {
-                                    match(input,25,FOLLOW_25_in_ruleCompoundDialogue2923); 
+                                    match(input,25,FOLLOW_25_in_ruleCompoundDialogue2884); 
 
                                             createLeafNode(grammarAccess.getCompoundDialogueAccess().getFalseKeyword_0_5_1_1(), null); 
                                         
@@ -2993,7 +2954,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            match(input,12,FOLLOW_12_in_ruleCompoundDialogue2933); 
+                            match(input,12,FOLLOW_12_in_ruleCompoundDialogue2894); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getSemicolonKeyword_0_5_2(), null); 
                                 
@@ -3003,47 +2964,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1383:3: ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )?
-                    int alt29=2;
-                    int LA29_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1362:3: ( 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']' )?
+                    int alt28=2;
+                    int LA28_0 = input.LA(1);
 
-                    if ( (LA29_0==30) ) {
-                        alt29=1;
+                    if ( (LA28_0==30) ) {
+                        alt28=1;
                     }
-                    switch (alt29) {
+                    switch (alt28) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1383:4: 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1362:4: 'dialogues' '[' ( (lv_dialogues_11= ruleDialogueCall ) ';' )* ']'
                             {
-                            match(input,30,FOLLOW_30_in_ruleCompoundDialogue2945); 
+                            match(input,30,FOLLOW_30_in_ruleCompoundDialogue2906); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getDialoguesKeyword_0_6_0(), null); 
                                 
-                            match(input,16,FOLLOW_16_in_ruleCompoundDialogue2954); 
+                            match(input,16,FOLLOW_16_in_ruleCompoundDialogue2915); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getLeftSquareBracketKeyword_0_6_1(), null); 
                                 
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1391:1: ( (lv_dialogues_11= ruleDialogueCall ) ';' )*
-                            loop28:
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1370:1: ( (lv_dialogues_11= ruleDialogueCall ) ';' )*
+                            loop27:
                             do {
-                                int alt28=2;
-                                int LA28_0 = input.LA(1);
+                                int alt27=2;
+                                int LA27_0 = input.LA(1);
 
-                                if ( (LA28_0==RULE_STRING||(LA28_0>=19 && LA28_0<=20)||LA28_0==37||LA28_0==40||(LA28_0>=42 && LA28_0<=43)||(LA28_0>=52 && LA28_0<=53)) ) {
-                                    alt28=1;
+                                if ( (LA27_0==RULE_STRING||(LA27_0>=19 && LA27_0<=20)||LA27_0==37||LA27_0==40||(LA27_0>=42 && LA27_0<=43)||(LA27_0>=52 && LA27_0<=53)) ) {
+                                    alt27=1;
                                 }
 
 
-                                switch (alt28) {
+                                switch (alt27) {
                             	case 1 :
-                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1391:2: (lv_dialogues_11= ruleDialogueCall ) ';'
+                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1370:2: (lv_dialogues_11= ruleDialogueCall ) ';'
                             	    {
-                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1391:2: (lv_dialogues_11= ruleDialogueCall )
-                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1394:6: lv_dialogues_11= ruleDialogueCall
+                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1370:2: (lv_dialogues_11= ruleDialogueCall )
+                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1373:6: lv_dialogues_11= ruleDialogueCall
                             	    {
                             	     
                             	    	        currentNode=createCompositeNode(grammarAccess.getCompoundDialogueAccess().getDialoguesDialogueCallParserRuleCall_0_6_2_0_0(), currentNode); 
                             	    	    
-                            	    pushFollow(FOLLOW_ruleDialogueCall_in_ruleCompoundDialogue2989);
+                            	    pushFollow(FOLLOW_ruleDialogueCall_in_ruleCompoundDialogue2950);
                             	    lv_dialogues_11=ruleDialogueCall();
                             	    _fsp--;
 
@@ -3063,7 +3024,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                             	    }
 
-                            	    match(input,12,FOLLOW_12_in_ruleCompoundDialogue3002); 
+                            	    match(input,12,FOLLOW_12_in_ruleCompoundDialogue2963); 
 
                             	            createLeafNode(grammarAccess.getCompoundDialogueAccess().getSemicolonKeyword_0_6_2_1(), null); 
                             	        
@@ -3072,11 +3033,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    break loop28;
+                            	    break loop27;
                                 }
                             } while (true);
 
-                            match(input,17,FOLLOW_17_in_ruleCompoundDialogue3013); 
+                            match(input,17,FOLLOW_17_in_ruleCompoundDialogue2974); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getRightSquareBracketKeyword_0_6_3(), null); 
                                 
@@ -3086,47 +3047,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1420:3: ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )?
-                    int alt31=2;
-                    int LA31_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1399:3: ( 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']' )?
+                    int alt30=2;
+                    int LA30_0 = input.LA(1);
 
-                    if ( (LA31_0==27) ) {
-                        alt31=1;
+                    if ( (LA30_0==27) ) {
+                        alt30=1;
                     }
-                    switch (alt31) {
+                    switch (alt30) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1420:4: 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1399:4: 'processes' '[' ( (lv_processes_16= ruleProcessCall ) ';' )* ']'
                             {
-                            match(input,27,FOLLOW_27_in_ruleCompoundDialogue3025); 
+                            match(input,27,FOLLOW_27_in_ruleCompoundDialogue2986); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getProcessesKeyword_0_7_0(), null); 
                                 
-                            match(input,16,FOLLOW_16_in_ruleCompoundDialogue3034); 
+                            match(input,16,FOLLOW_16_in_ruleCompoundDialogue2995); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getLeftSquareBracketKeyword_0_7_1(), null); 
                                 
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1428:1: ( (lv_processes_16= ruleProcessCall ) ';' )*
-                            loop30:
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1407:1: ( (lv_processes_16= ruleProcessCall ) ';' )*
+                            loop29:
                             do {
-                                int alt30=2;
-                                int LA30_0 = input.LA(1);
+                                int alt29=2;
+                                int LA29_0 = input.LA(1);
 
-                                if ( (LA30_0==RULE_STRING||LA30_0==14||LA30_0==19||LA30_0==37||LA30_0==40||(LA30_0>=42 && LA30_0<=43)||(LA30_0>=52 && LA30_0<=53)) ) {
-                                    alt30=1;
+                                if ( (LA29_0==RULE_STRING||LA29_0==14||LA29_0==19||LA29_0==37||LA29_0==40||(LA29_0>=42 && LA29_0<=43)||(LA29_0>=52 && LA29_0<=53)) ) {
+                                    alt29=1;
                                 }
 
 
-                                switch (alt30) {
+                                switch (alt29) {
                             	case 1 :
-                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1428:2: (lv_processes_16= ruleProcessCall ) ';'
+                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1407:2: (lv_processes_16= ruleProcessCall ) ';'
                             	    {
-                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1428:2: (lv_processes_16= ruleProcessCall )
-                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1431:6: lv_processes_16= ruleProcessCall
+                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1407:2: (lv_processes_16= ruleProcessCall )
+                            	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1410:6: lv_processes_16= ruleProcessCall
                             	    {
                             	     
                             	    	        currentNode=createCompositeNode(grammarAccess.getCompoundDialogueAccess().getProcessesProcessCallParserRuleCall_0_7_2_0_0(), currentNode); 
                             	    	    
-                            	    pushFollow(FOLLOW_ruleProcessCall_in_ruleCompoundDialogue3069);
+                            	    pushFollow(FOLLOW_ruleProcessCall_in_ruleCompoundDialogue3030);
                             	    lv_processes_16=ruleProcessCall();
                             	    _fsp--;
 
@@ -3146,7 +3107,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                             	    }
 
-                            	    match(input,12,FOLLOW_12_in_ruleCompoundDialogue3082); 
+                            	    match(input,12,FOLLOW_12_in_ruleCompoundDialogue3043); 
 
                             	            createLeafNode(grammarAccess.getCompoundDialogueAccess().getSemicolonKeyword_0_7_2_1(), null); 
                             	        
@@ -3155,11 +3116,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    break loop30;
+                            	    break loop29;
                                 }
                             } while (true);
 
-                            match(input,17,FOLLOW_17_in_ruleCompoundDialogue3093); 
+                            match(input,17,FOLLOW_17_in_ruleCompoundDialogue3054); 
 
                                     createLeafNode(grammarAccess.getCompoundDialogueAccess().getRightSquareBracketKeyword_0_7_3(), null); 
                                 
@@ -3176,12 +3137,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1459:5: this_CollectionDialogue_19= ruleCollectionDialogue
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1438:5: this_CollectionDialogue_19= ruleCollectionDialogue
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getCompoundDialogueAccess().getCollectionDialogueParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleCollectionDialogue_in_ruleCompoundDialogue3124);
+                    pushFollow(FOLLOW_ruleCollectionDialogue_in_ruleCompoundDialogue3085);
                     this_CollectionDialogue_19=ruleCollectionDialogue();
                     _fsp--;
 
@@ -3193,12 +3154,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1469:5: this_MasterDetail_20= ruleMasterDetail
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1448:5: this_MasterDetail_20= ruleMasterDetail
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getCompoundDialogueAccess().getMasterDetailParserRuleCall_2(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleMasterDetail_in_ruleCompoundDialogue3151);
+                    pushFollow(FOLLOW_ruleMasterDetail_in_ruleCompoundDialogue3112);
                     this_MasterDetail_20=ruleMasterDetail();
                     _fsp--;
 
@@ -3232,7 +3193,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCollectionDialogue
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1484:1: entryRuleCollectionDialogue returns [EObject current=null] : iv_ruleCollectionDialogue= ruleCollectionDialogue EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1463:1: entryRuleCollectionDialogue returns [EObject current=null] : iv_ruleCollectionDialogue= ruleCollectionDialogue EOF ;
     public final EObject entryRuleCollectionDialogue() throws RecognitionException {
         EObject current = null;
 
@@ -3240,16 +3201,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1484:60: (iv_ruleCollectionDialogue= ruleCollectionDialogue EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1485:2: iv_ruleCollectionDialogue= ruleCollectionDialogue EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1463:60: (iv_ruleCollectionDialogue= ruleCollectionDialogue EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1464:2: iv_ruleCollectionDialogue= ruleCollectionDialogue EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCollectionDialogueRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCollectionDialogue_in_entryRuleCollectionDialogue3183);
+            pushFollow(FOLLOW_ruleCollectionDialogue_in_entryRuleCollectionDialogue3144);
             iv_ruleCollectionDialogue=ruleCollectionDialogue();
             _fsp--;
 
              current =iv_ruleCollectionDialogue; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionDialogue3193); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionDialogue3154); 
 
             }
 
@@ -3267,7 +3228,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCollectionDialogue
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1492:1: ruleCollectionDialogue returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1471:1: ruleCollectionDialogue returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' ) ;
     public final EObject ruleCollectionDialogue() throws RecognitionException {
         EObject current = null;
 
@@ -3282,25 +3243,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1497:6: ( ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1498:1: ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1476:6: ( ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1477:1: ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1498:1: ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1498:2: (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1477:1: ( (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1477:2: (lv_description_0= RULE_STRING )? 'CollectionDialogue' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) '[' ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )? ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )? ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ']'
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1498:2: (lv_description_0= RULE_STRING )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1477:2: (lv_description_0= RULE_STRING )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA33_0==RULE_STRING) ) {
-                alt33=1;
+            if ( (LA32_0==RULE_STRING) ) {
+                alt32=1;
             }
-            switch (alt33) {
+            switch (alt32) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1500:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1479:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCollectionDialogue3240); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCollectionDialogue3201); 
 
                     		createLeafNode(grammarAccess.getCollectionDialogueAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -3322,15 +3283,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,31,FOLLOW_31_in_ruleCollectionDialogue3258); 
+            match(input,31,FOLLOW_31_in_ruleCollectionDialogue3219); 
 
                     createLeafNode(grammarAccess.getCollectionDialogueAccess().getCollectionDialogueKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1522:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1524:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1501:1: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1503:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCollectionDialogue3280); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCollectionDialogue3241); 
 
             		createLeafNode(grammarAccess.getCollectionDialogueAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -3349,12 +3310,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleCollectionDialogue3297); 
+            match(input,21,FOLLOW_21_in_ruleCollectionDialogue3258); 
 
                     createLeafNode(grammarAccess.getCollectionDialogueAccess().getContextKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1546:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1549:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1525:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1528:3: RULE_ID
             {
 
             			if (current==null) {
@@ -3362,57 +3323,57 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCollectionDialogue3319); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCollectionDialogue3280); 
 
             		createLeafNode(grammarAccess.getCollectionDialogueAccess().getContextRefDtoReferenceCrossReference_4_0(), "contextRef"); 
             	
 
             }
 
-            match(input,16,FOLLOW_16_in_ruleCollectionDialogue3331); 
+            match(input,16,FOLLOW_16_in_ruleCollectionDialogue3292); 
 
                     createLeafNode(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_5(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1566:1: ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1545:1: ( 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';' )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA35_0==23) ) {
-                alt35=1;
+            if ( (LA34_0==23) ) {
+                alt34=1;
             }
-            switch (alt35) {
+            switch (alt34) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1566:2: 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1545:2: 'readonly' ( (lv_readonly_7= 'true' ) | 'false' ) ';'
                     {
-                    match(input,23,FOLLOW_23_in_ruleCollectionDialogue3341); 
+                    match(input,23,FOLLOW_23_in_ruleCollectionDialogue3302); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getReadonlyKeyword_6_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1570:1: ( (lv_readonly_7= 'true' ) | 'false' )
-                    int alt34=2;
-                    int LA34_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1549:1: ( (lv_readonly_7= 'true' ) | 'false' )
+                    int alt33=2;
+                    int LA33_0 = input.LA(1);
 
-                    if ( (LA34_0==24) ) {
-                        alt34=1;
+                    if ( (LA33_0==24) ) {
+                        alt33=1;
                     }
-                    else if ( (LA34_0==25) ) {
-                        alt34=2;
+                    else if ( (LA33_0==25) ) {
+                        alt33=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("1570:1: ( (lv_readonly_7= 'true' ) | 'false' )", 34, 0, input);
+                            new NoViableAltException("1549:1: ( (lv_readonly_7= 'true' ) | 'false' )", 33, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt34) {
+                    switch (alt33) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1570:2: (lv_readonly_7= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1549:2: (lv_readonly_7= 'true' )
                             {
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1570:2: (lv_readonly_7= 'true' )
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1572:6: lv_readonly_7= 'true'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1549:2: (lv_readonly_7= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1551:6: lv_readonly_7= 'true'
                             {
                             lv_readonly_7=(Token)input.LT(1);
-                            match(input,24,FOLLOW_24_in_ruleCollectionDialogue3363); 
+                            match(input,24,FOLLOW_24_in_ruleCollectionDialogue3324); 
 
                                     createLeafNode(grammarAccess.getCollectionDialogueAccess().getReadonlyTrueKeyword_6_1_0_0(), "readonly"); 
                                 
@@ -3435,9 +3396,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1592:6: 'false'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1571:6: 'false'
                             {
-                            match(input,25,FOLLOW_25_in_ruleCollectionDialogue3391); 
+                            match(input,25,FOLLOW_25_in_ruleCollectionDialogue3352); 
 
                                     createLeafNode(grammarAccess.getCollectionDialogueAccess().getFalseKeyword_6_1_1(), null); 
                                 
@@ -3447,7 +3408,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,12,FOLLOW_12_in_ruleCollectionDialogue3401); 
+                    match(input,12,FOLLOW_12_in_ruleCollectionDialogue3362); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_6_2(), null); 
                         
@@ -3457,47 +3418,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1600:3: ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1579:3: ( 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']' )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA37_0==30) ) {
-                alt37=1;
+            if ( (LA36_0==30) ) {
+                alt36=1;
             }
-            switch (alt37) {
+            switch (alt36) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1600:4: 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1579:4: 'dialogues' '[' ( (lv_dialogues_12= ruleDialogueCall ) ';' )* ']'
                     {
-                    match(input,30,FOLLOW_30_in_ruleCollectionDialogue3413); 
+                    match(input,30,FOLLOW_30_in_ruleCollectionDialogue3374); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getDialoguesKeyword_7_0(), null); 
                         
-                    match(input,16,FOLLOW_16_in_ruleCollectionDialogue3422); 
+                    match(input,16,FOLLOW_16_in_ruleCollectionDialogue3383); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_7_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1608:1: ( (lv_dialogues_12= ruleDialogueCall ) ';' )*
-                    loop36:
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1587:1: ( (lv_dialogues_12= ruleDialogueCall ) ';' )*
+                    loop35:
                     do {
-                        int alt36=2;
-                        int LA36_0 = input.LA(1);
+                        int alt35=2;
+                        int LA35_0 = input.LA(1);
 
-                        if ( (LA36_0==RULE_STRING||(LA36_0>=19 && LA36_0<=20)||LA36_0==37||LA36_0==40||(LA36_0>=42 && LA36_0<=43)||(LA36_0>=52 && LA36_0<=53)) ) {
-                            alt36=1;
+                        if ( (LA35_0==RULE_STRING||(LA35_0>=19 && LA35_0<=20)||LA35_0==37||LA35_0==40||(LA35_0>=42 && LA35_0<=43)||(LA35_0>=52 && LA35_0<=53)) ) {
+                            alt35=1;
                         }
 
 
-                        switch (alt36) {
+                        switch (alt35) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1608:2: (lv_dialogues_12= ruleDialogueCall ) ';'
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1587:2: (lv_dialogues_12= ruleDialogueCall ) ';'
                     	    {
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1608:2: (lv_dialogues_12= ruleDialogueCall )
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1611:6: lv_dialogues_12= ruleDialogueCall
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1587:2: (lv_dialogues_12= ruleDialogueCall )
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1590:6: lv_dialogues_12= ruleDialogueCall
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getCollectionDialogueAccess().getDialoguesDialogueCallParserRuleCall_7_2_0_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleDialogueCall_in_ruleCollectionDialogue3457);
+                    	    pushFollow(FOLLOW_ruleDialogueCall_in_ruleCollectionDialogue3418);
                     	    lv_dialogues_12=ruleDialogueCall();
                     	    _fsp--;
 
@@ -3517,7 +3478,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    match(input,12,FOLLOW_12_in_ruleCollectionDialogue3470); 
+                    	    match(input,12,FOLLOW_12_in_ruleCollectionDialogue3431); 
 
                     	            createLeafNode(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_7_2_1(), null); 
                     	        
@@ -3526,11 +3487,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop36;
+                    	    break loop35;
                         }
                     } while (true);
 
-                    match(input,17,FOLLOW_17_in_ruleCollectionDialogue3481); 
+                    match(input,17,FOLLOW_17_in_ruleCollectionDialogue3442); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_7_3(), null); 
                         
@@ -3540,47 +3501,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1637:3: ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )?
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1616:3: ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA39_0==27) ) {
-                alt39=1;
+            if ( (LA38_0==27) ) {
+                alt38=1;
             }
-            switch (alt39) {
+            switch (alt38) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1637:4: 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1616:4: 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']'
                     {
-                    match(input,27,FOLLOW_27_in_ruleCollectionDialogue3493); 
+                    match(input,27,FOLLOW_27_in_ruleCollectionDialogue3454); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getProcessesKeyword_8_0(), null); 
                         
-                    match(input,16,FOLLOW_16_in_ruleCollectionDialogue3502); 
+                    match(input,16,FOLLOW_16_in_ruleCollectionDialogue3463); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getLeftSquareBracketKeyword_8_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1645:1: ( (lv_processes_17= ruleProcessCall ) ';' )*
-                    loop38:
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1624:1: ( (lv_processes_17= ruleProcessCall ) ';' )*
+                    loop37:
                     do {
-                        int alt38=2;
-                        int LA38_0 = input.LA(1);
+                        int alt37=2;
+                        int LA37_0 = input.LA(1);
 
-                        if ( (LA38_0==RULE_STRING||LA38_0==14||LA38_0==19||LA38_0==37||LA38_0==40||(LA38_0>=42 && LA38_0<=43)||(LA38_0>=52 && LA38_0<=53)) ) {
-                            alt38=1;
+                        if ( (LA37_0==RULE_STRING||LA37_0==14||LA37_0==19||LA37_0==37||LA37_0==40||(LA37_0>=42 && LA37_0<=43)||(LA37_0>=52 && LA37_0<=53)) ) {
+                            alt37=1;
                         }
 
 
-                        switch (alt38) {
+                        switch (alt37) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1645:2: (lv_processes_17= ruleProcessCall ) ';'
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1624:2: (lv_processes_17= ruleProcessCall ) ';'
                     	    {
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1645:2: (lv_processes_17= ruleProcessCall )
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1648:6: lv_processes_17= ruleProcessCall
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1624:2: (lv_processes_17= ruleProcessCall )
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1627:6: lv_processes_17= ruleProcessCall
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getCollectionDialogueAccess().getProcessesProcessCallParserRuleCall_8_2_0_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleProcessCall_in_ruleCollectionDialogue3537);
+                    	    pushFollow(FOLLOW_ruleProcessCall_in_ruleCollectionDialogue3498);
                     	    lv_processes_17=ruleProcessCall();
                     	    _fsp--;
 
@@ -3600,7 +3561,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    match(input,12,FOLLOW_12_in_ruleCollectionDialogue3550); 
+                    	    match(input,12,FOLLOW_12_in_ruleCollectionDialogue3511); 
 
                     	            createLeafNode(grammarAccess.getCollectionDialogueAccess().getSemicolonKeyword_8_2_1(), null); 
                     	        
@@ -3609,11 +3570,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop38;
+                    	    break loop37;
                         }
                     } while (true);
 
-                    match(input,17,FOLLOW_17_in_ruleCollectionDialogue3561); 
+                    match(input,17,FOLLOW_17_in_ruleCollectionDialogue3522); 
 
                             createLeafNode(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_8_3(), null); 
                         
@@ -3623,7 +3584,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,17,FOLLOW_17_in_ruleCollectionDialogue3572); 
+            match(input,17,FOLLOW_17_in_ruleCollectionDialogue3533); 
 
                     createLeafNode(grammarAccess.getCollectionDialogueAccess().getRightSquareBracketKeyword_9(), null); 
                 
@@ -3650,7 +3611,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleMasterDetail
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1685:1: entryRuleMasterDetail returns [EObject current=null] : iv_ruleMasterDetail= ruleMasterDetail EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1664:1: entryRuleMasterDetail returns [EObject current=null] : iv_ruleMasterDetail= ruleMasterDetail EOF ;
     public final EObject entryRuleMasterDetail() throws RecognitionException {
         EObject current = null;
 
@@ -3658,16 +3619,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1685:54: (iv_ruleMasterDetail= ruleMasterDetail EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1686:2: iv_ruleMasterDetail= ruleMasterDetail EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1664:54: (iv_ruleMasterDetail= ruleMasterDetail EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1665:2: iv_ruleMasterDetail= ruleMasterDetail EOF
             {
              currentNode = createCompositeNode(grammarAccess.getMasterDetailRule(), currentNode); 
-            pushFollow(FOLLOW_ruleMasterDetail_in_entryRuleMasterDetail3605);
+            pushFollow(FOLLOW_ruleMasterDetail_in_entryRuleMasterDetail3566);
             iv_ruleMasterDetail=ruleMasterDetail();
             _fsp--;
 
              current =iv_ruleMasterDetail; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMasterDetail3615); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMasterDetail3576); 
 
             }
 
@@ -3685,7 +3646,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMasterDetail
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1693:1: ruleMasterDetail returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1672:1: ruleMasterDetail returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ) ;
     public final EObject ruleMasterDetail() throws RecognitionException {
         EObject current = null;
 
@@ -3702,25 +3663,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1698:6: ( ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1699:1: ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1677:6: ( ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1678:1: ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1699:1: ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1699:2: (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )?
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1678:1: ( (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1678:2: (lv_description_0= RULE_STRING )? 'MasterDetail' (lv_name_2= RULE_ID ) 'context' ( RULE_ID ) ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )? 'master' (lv_master_10= ruleDialogueCall ) ';' 'detail' (lv_detail_13= ruleDialogueCall ) ';' ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )?
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1699:2: (lv_description_0= RULE_STRING )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1678:2: (lv_description_0= RULE_STRING )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA40_0==RULE_STRING) ) {
-                alt40=1;
+            if ( (LA39_0==RULE_STRING) ) {
+                alt39=1;
             }
-            switch (alt40) {
+            switch (alt39) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1701:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1680:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleMasterDetail3662); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleMasterDetail3623); 
 
                     		createLeafNode(grammarAccess.getMasterDetailAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -3742,15 +3703,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,32,FOLLOW_32_in_ruleMasterDetail3680); 
+            match(input,32,FOLLOW_32_in_ruleMasterDetail3641); 
 
                     createLeafNode(grammarAccess.getMasterDetailAccess().getMasterDetailKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1723:1: (lv_name_2= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1725:6: lv_name_2= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1702:1: (lv_name_2= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1704:6: lv_name_2= RULE_ID
             {
             lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMasterDetail3702); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMasterDetail3663); 
 
             		createLeafNode(grammarAccess.getMasterDetailAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             	
@@ -3769,12 +3730,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleMasterDetail3719); 
+            match(input,21,FOLLOW_21_in_ruleMasterDetail3680); 
 
                     createLeafNode(grammarAccess.getMasterDetailAccess().getContextKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1747:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1750:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1726:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1729:3: RULE_ID
             {
 
             			if (current==null) {
@@ -3782,53 +3743,53 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMasterDetail3741); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMasterDetail3702); 
 
             		createLeafNode(grammarAccess.getMasterDetailAccess().getContextRefDtoReferenceCrossReference_4_0(), "contextRef"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1763:2: ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1742:2: ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';' )?
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA42_0==23) ) {
-                alt42=1;
+            if ( (LA41_0==23) ) {
+                alt41=1;
             }
-            switch (alt42) {
+            switch (alt41) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1763:3: 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1742:3: 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) ';'
                     {
-                    match(input,23,FOLLOW_23_in_ruleMasterDetail3754); 
+                    match(input,23,FOLLOW_23_in_ruleMasterDetail3715); 
 
                             createLeafNode(grammarAccess.getMasterDetailAccess().getReadonlyKeyword_5_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1767:1: ( (lv_readonly_6= 'true' ) | 'false' )
-                    int alt41=2;
-                    int LA41_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1746:1: ( (lv_readonly_6= 'true' ) | 'false' )
+                    int alt40=2;
+                    int LA40_0 = input.LA(1);
 
-                    if ( (LA41_0==24) ) {
-                        alt41=1;
+                    if ( (LA40_0==24) ) {
+                        alt40=1;
                     }
-                    else if ( (LA41_0==25) ) {
-                        alt41=2;
+                    else if ( (LA40_0==25) ) {
+                        alt40=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("1767:1: ( (lv_readonly_6= 'true' ) | 'false' )", 41, 0, input);
+                            new NoViableAltException("1746:1: ( (lv_readonly_6= 'true' ) | 'false' )", 40, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt41) {
+                    switch (alt40) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1767:2: (lv_readonly_6= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1746:2: (lv_readonly_6= 'true' )
                             {
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1767:2: (lv_readonly_6= 'true' )
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1769:6: lv_readonly_6= 'true'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1746:2: (lv_readonly_6= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1748:6: lv_readonly_6= 'true'
                             {
                             lv_readonly_6=(Token)input.LT(1);
-                            match(input,24,FOLLOW_24_in_ruleMasterDetail3776); 
+                            match(input,24,FOLLOW_24_in_ruleMasterDetail3737); 
 
                                     createLeafNode(grammarAccess.getMasterDetailAccess().getReadonlyTrueKeyword_5_1_0_0(), "readonly"); 
                                 
@@ -3851,9 +3812,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1789:6: 'false'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1768:6: 'false'
                             {
-                            match(input,25,FOLLOW_25_in_ruleMasterDetail3804); 
+                            match(input,25,FOLLOW_25_in_ruleMasterDetail3765); 
 
                                     createLeafNode(grammarAccess.getMasterDetailAccess().getFalseKeyword_5_1_1(), null); 
                                 
@@ -3863,7 +3824,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,12,FOLLOW_12_in_ruleMasterDetail3814); 
+                    match(input,12,FOLLOW_12_in_ruleMasterDetail3775); 
 
                             createLeafNode(grammarAccess.getMasterDetailAccess().getSemicolonKeyword_5_2(), null); 
                         
@@ -3873,17 +3834,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,33,FOLLOW_33_in_ruleMasterDetail3825); 
+            match(input,33,FOLLOW_33_in_ruleMasterDetail3786); 
 
                     createLeafNode(grammarAccess.getMasterDetailAccess().getMasterKeyword_6(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1801:1: (lv_master_10= ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1804:6: lv_master_10= ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1780:1: (lv_master_10= ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1783:6: lv_master_10= ruleDialogueCall
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getMasterDetailAccess().getMasterDialogueCallParserRuleCall_7_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleDialogueCall_in_ruleMasterDetail3859);
+            pushFollow(FOLLOW_ruleDialogueCall_in_ruleMasterDetail3820);
             lv_master_10=ruleDialogueCall();
             _fsp--;
 
@@ -3903,21 +3864,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleMasterDetail3872); 
+            match(input,12,FOLLOW_12_in_ruleMasterDetail3833); 
 
                     createLeafNode(grammarAccess.getMasterDetailAccess().getSemicolonKeyword_8(), null); 
                 
-            match(input,34,FOLLOW_34_in_ruleMasterDetail3881); 
+            match(input,34,FOLLOW_34_in_ruleMasterDetail3842); 
 
                     createLeafNode(grammarAccess.getMasterDetailAccess().getDetailKeyword_9(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1830:1: (lv_detail_13= ruleDialogueCall )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1833:6: lv_detail_13= ruleDialogueCall
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1809:1: (lv_detail_13= ruleDialogueCall )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1812:6: lv_detail_13= ruleDialogueCall
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getMasterDetailAccess().getDetailDialogueCallParserRuleCall_10_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleDialogueCall_in_ruleMasterDetail3915);
+            pushFollow(FOLLOW_ruleDialogueCall_in_ruleMasterDetail3876);
             lv_detail_13=ruleDialogueCall();
             _fsp--;
 
@@ -3937,51 +3898,51 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleMasterDetail3928); 
+            match(input,12,FOLLOW_12_in_ruleMasterDetail3889); 
 
                     createLeafNode(grammarAccess.getMasterDetailAccess().getSemicolonKeyword_11(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1855:1: ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1834:1: ( 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']' )?
+            int alt43=2;
+            int LA43_0 = input.LA(1);
 
-            if ( (LA44_0==27) ) {
-                alt44=1;
+            if ( (LA43_0==27) ) {
+                alt43=1;
             }
-            switch (alt44) {
+            switch (alt43) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1855:2: 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1834:2: 'processes' '[' ( (lv_processes_17= ruleProcessCall ) ';' )* ']'
                     {
-                    match(input,27,FOLLOW_27_in_ruleMasterDetail3938); 
+                    match(input,27,FOLLOW_27_in_ruleMasterDetail3899); 
 
                             createLeafNode(grammarAccess.getMasterDetailAccess().getProcessesKeyword_12_0(), null); 
                         
-                    match(input,16,FOLLOW_16_in_ruleMasterDetail3947); 
+                    match(input,16,FOLLOW_16_in_ruleMasterDetail3908); 
 
                             createLeafNode(grammarAccess.getMasterDetailAccess().getLeftSquareBracketKeyword_12_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1863:1: ( (lv_processes_17= ruleProcessCall ) ';' )*
-                    loop43:
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1842:1: ( (lv_processes_17= ruleProcessCall ) ';' )*
+                    loop42:
                     do {
-                        int alt43=2;
-                        int LA43_0 = input.LA(1);
+                        int alt42=2;
+                        int LA42_0 = input.LA(1);
 
-                        if ( (LA43_0==RULE_STRING||LA43_0==14||LA43_0==19||LA43_0==37||LA43_0==40||(LA43_0>=42 && LA43_0<=43)||(LA43_0>=52 && LA43_0<=53)) ) {
-                            alt43=1;
+                        if ( (LA42_0==RULE_STRING||LA42_0==14||LA42_0==19||LA42_0==37||LA42_0==40||(LA42_0>=42 && LA42_0<=43)||(LA42_0>=52 && LA42_0<=53)) ) {
+                            alt42=1;
                         }
 
 
-                        switch (alt43) {
+                        switch (alt42) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1863:2: (lv_processes_17= ruleProcessCall ) ';'
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1842:2: (lv_processes_17= ruleProcessCall ) ';'
                     	    {
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1863:2: (lv_processes_17= ruleProcessCall )
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1866:6: lv_processes_17= ruleProcessCall
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1842:2: (lv_processes_17= ruleProcessCall )
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1845:6: lv_processes_17= ruleProcessCall
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getMasterDetailAccess().getProcessesProcessCallParserRuleCall_12_2_0_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleProcessCall_in_ruleMasterDetail3982);
+                    	    pushFollow(FOLLOW_ruleProcessCall_in_ruleMasterDetail3943);
                     	    lv_processes_17=ruleProcessCall();
                     	    _fsp--;
 
@@ -4001,7 +3962,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    match(input,12,FOLLOW_12_in_ruleMasterDetail3995); 
+                    	    match(input,12,FOLLOW_12_in_ruleMasterDetail3956); 
 
                     	            createLeafNode(grammarAccess.getMasterDetailAccess().getSemicolonKeyword_12_2_1(), null); 
                     	        
@@ -4010,11 +3971,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop43;
+                    	    break loop42;
                         }
                     } while (true);
 
-                    match(input,17,FOLLOW_17_in_ruleMasterDetail4006); 
+                    match(input,17,FOLLOW_17_in_ruleMasterDetail3967); 
 
                             createLeafNode(grammarAccess.getMasterDetailAccess().getRightSquareBracketKeyword_12_3(), null); 
                         
@@ -4047,7 +4008,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleProcess
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1899:1: entryRuleProcess returns [EObject current=null] : iv_ruleProcess= ruleProcess EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1878:1: entryRuleProcess returns [EObject current=null] : iv_ruleProcess= ruleProcess EOF ;
     public final EObject entryRuleProcess() throws RecognitionException {
         EObject current = null;
 
@@ -4055,16 +4016,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1899:49: (iv_ruleProcess= ruleProcess EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1900:2: iv_ruleProcess= ruleProcess EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1878:49: (iv_ruleProcess= ruleProcess EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1879:2: iv_ruleProcess= ruleProcess EOF
             {
              currentNode = createCompositeNode(grammarAccess.getProcessRule(), currentNode); 
-            pushFollow(FOLLOW_ruleProcess_in_entryRuleProcess4041);
+            pushFollow(FOLLOW_ruleProcess_in_entryRuleProcess4002);
             iv_ruleProcess=ruleProcess();
             _fsp--;
 
              current =iv_ruleProcess; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProcess4051); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProcess4012); 
 
             }
 
@@ -4082,7 +4043,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleProcess
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1907:1: ruleProcess returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1886:1: ruleProcess returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) ) ;
     public final EObject ruleProcess() throws RecognitionException {
         EObject current = null;
 
@@ -4101,25 +4062,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1912:6: ( ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1913:1: ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1891:6: ( ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1892:1: ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1913:1: ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1913:2: (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1892:1: ( (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1892:2: (lv_description_0= RULE_STRING )? 'process' ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )? (lv_name_5= RULE_ID ) 'context' (lv_collectionContext_7= 'list' )? ( RULE_ID ) ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1913:2: (lv_description_0= RULE_STRING )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1892:2: (lv_description_0= RULE_STRING )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
 
-            if ( (LA45_0==RULE_STRING) ) {
-                alt45=1;
+            if ( (LA44_0==RULE_STRING) ) {
+                alt44=1;
             }
-            switch (alt45) {
+            switch (alt44) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1915:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1894:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleProcess4098); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleProcess4059); 
 
                     		createLeafNode(grammarAccess.getProcessAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -4141,31 +4102,31 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleProcess4116); 
+            match(input,14,FOLLOW_14_in_ruleProcess4077); 
 
                     createLeafNode(grammarAccess.getProcessAccess().getProcessKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1937:1: ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )?
-            int alt46=3;
-            int LA46_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1916:1: ( (lv_type_2= ruleProcessType ) | ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) ) )?
+            int alt45=3;
+            int LA45_0 = input.LA(1);
 
-            if ( ((LA46_0>=44 && LA46_0<=50)) ) {
-                alt46=1;
+            if ( ((LA45_0>=44 && LA45_0<=50)) ) {
+                alt45=1;
             }
-            else if ( (LA46_0==51) ) {
-                alt46=2;
+            else if ( (LA45_0==51) ) {
+                alt45=2;
             }
-            switch (alt46) {
+            switch (alt45) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1937:2: (lv_type_2= ruleProcessType )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1916:2: (lv_type_2= ruleProcessType )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1937:2: (lv_type_2= ruleProcessType )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1940:6: lv_type_2= ruleProcessType
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1916:2: (lv_type_2= ruleProcessType )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1919:6: lv_type_2= ruleProcessType
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getTypeProcessTypeEnumRuleCall_2_0_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleProcessType_in_ruleProcess4151);
+                    pushFollow(FOLLOW_ruleProcessType_in_ruleProcess4112);
                     lv_type_2=ruleProcessType();
                     _fsp--;
 
@@ -4189,18 +4150,18 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1959:6: ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1938:6: ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1959:6: ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1959:7: (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1938:6: ( (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference ) )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1938:7: (lv_type_3= ruleProcessTypeLink ) (lv_link_4= ruleAssociationRoleReference )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1959:7: (lv_type_3= ruleProcessTypeLink )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1962:6: lv_type_3= ruleProcessTypeLink
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1938:7: (lv_type_3= ruleProcessTypeLink )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1941:6: lv_type_3= ruleProcessTypeLink
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getTypeProcessTypeLinkEnumRuleCall_2_1_0_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleProcessTypeLink_in_ruleProcess4196);
+                    pushFollow(FOLLOW_ruleProcessTypeLink_in_ruleProcess4157);
                     lv_type_3=ruleProcessTypeLink();
                     _fsp--;
 
@@ -4220,13 +4181,13 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1980:2: (lv_link_4= ruleAssociationRoleReference )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1983:6: lv_link_4= ruleAssociationRoleReference
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1959:2: (lv_link_4= ruleAssociationRoleReference )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1962:6: lv_link_4= ruleAssociationRoleReference
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getLinkAssociationRoleReferenceParserRuleCall_2_1_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleAssociationRoleReference_in_ruleProcess4234);
+                    pushFollow(FOLLOW_ruleAssociationRoleReference_in_ruleProcess4195);
                     lv_link_4=ruleAssociationRoleReference();
                     _fsp--;
 
@@ -4255,11 +4216,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2001:5: (lv_name_5= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2003:6: lv_name_5= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1980:5: (lv_name_5= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:1982:6: lv_name_5= RULE_ID
             {
             lv_name_5=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcess4263); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcess4224); 
 
             		createLeafNode(grammarAccess.getProcessAccess().getNameIDTerminalRuleCall_3_0(), "name"); 
             	
@@ -4278,23 +4239,23 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleProcess4280); 
+            match(input,21,FOLLOW_21_in_ruleProcess4241); 
 
                     createLeafNode(grammarAccess.getProcessAccess().getContextKeyword_4(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2025:1: (lv_collectionContext_7= 'list' )?
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2004:1: (lv_collectionContext_7= 'list' )?
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA47_0==22) ) {
-                alt47=1;
+            if ( (LA46_0==22) ) {
+                alt46=1;
             }
-            switch (alt47) {
+            switch (alt46) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2027:6: lv_collectionContext_7= 'list'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2006:6: lv_collectionContext_7= 'list'
                     {
                     lv_collectionContext_7=(Token)input.LT(1);
-                    match(input,22,FOLLOW_22_in_ruleProcess4301); 
+                    match(input,22,FOLLOW_22_in_ruleProcess4262); 
 
                             createLeafNode(grammarAccess.getProcessAccess().getCollectionContextListKeyword_5_0(), "collectionContext"); 
                         
@@ -4316,8 +4277,8 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2046:3: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2049:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2025:3: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2028:3: RULE_ID
             {
 
             			if (current==null) {
@@ -4325,34 +4286,34 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcess4337); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcess4298); 
 
             		createLeafNode(grammarAccess.getProcessAccess().getContextRefDtoReferenceCrossReference_6_0(), "contextRef"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2062:2: ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) )
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2041:2: ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) )
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA49_0==12) ) {
-                alt49=1;
+            if ( (LA48_0==12) ) {
+                alt48=1;
             }
-            else if ( (LA49_0==16) ) {
-                alt49=2;
+            else if ( (LA48_0==16) ) {
+                alt48=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("2062:2: ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) )", 49, 0, input);
+                    new NoViableAltException("2041:2: ( ';' | ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' ) )", 48, 0, input);
 
                 throw nvae;
             }
-            switch (alt49) {
+            switch (alt48) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2062:3: ';'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2041:3: ';'
                     {
-                    match(input,12,FOLLOW_12_in_ruleProcess4350); 
+                    match(input,12,FOLLOW_12_in_ruleProcess4311); 
 
                             createLeafNode(grammarAccess.getProcessAccess().getSemicolonKeyword_7_0(), null); 
                         
@@ -4360,37 +4321,37 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2067:6: ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2046:6: ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2067:6: ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2067:7: '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2046:6: ( '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2046:7: '[' ( (lv_processElements_11= ruleUICall ) ';' )* ']'
                     {
-                    match(input,16,FOLLOW_16_in_ruleProcess4366); 
+                    match(input,16,FOLLOW_16_in_ruleProcess4327); 
 
                             createLeafNode(grammarAccess.getProcessAccess().getLeftSquareBracketKeyword_7_1_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2071:1: ( (lv_processElements_11= ruleUICall ) ';' )*
-                    loop48:
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2050:1: ( (lv_processElements_11= ruleUICall ) ';' )*
+                    loop47:
                     do {
-                        int alt48=2;
-                        int LA48_0 = input.LA(1);
+                        int alt47=2;
+                        int LA47_0 = input.LA(1);
 
-                        if ( (LA48_0==RULE_STRING||LA48_0==14||(LA48_0>=19 && LA48_0<=20)||LA48_0==37||LA48_0==40||(LA48_0>=42 && LA48_0<=43)||(LA48_0>=52 && LA48_0<=53)) ) {
-                            alt48=1;
+                        if ( (LA47_0==RULE_STRING||LA47_0==14||(LA47_0>=19 && LA47_0<=20)||LA47_0==37||LA47_0==40||(LA47_0>=42 && LA47_0<=43)||(LA47_0>=52 && LA47_0<=53)) ) {
+                            alt47=1;
                         }
 
 
-                        switch (alt48) {
+                        switch (alt47) {
                     	case 1 :
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2071:2: (lv_processElements_11= ruleUICall ) ';'
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2050:2: (lv_processElements_11= ruleUICall ) ';'
                     	    {
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2071:2: (lv_processElements_11= ruleUICall )
-                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2074:6: lv_processElements_11= ruleUICall
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2050:2: (lv_processElements_11= ruleUICall )
+                    	    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2053:6: lv_processElements_11= ruleUICall
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getProcessAccess().getProcessElementsUICallParserRuleCall_7_1_1_0_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleUICall_in_ruleProcess4401);
+                    	    pushFollow(FOLLOW_ruleUICall_in_ruleProcess4362);
                     	    lv_processElements_11=ruleUICall();
                     	    _fsp--;
 
@@ -4410,7 +4371,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    match(input,12,FOLLOW_12_in_ruleProcess4414); 
+                    	    match(input,12,FOLLOW_12_in_ruleProcess4375); 
 
                     	            createLeafNode(grammarAccess.getProcessAccess().getSemicolonKeyword_7_1_1_1(), null); 
                     	        
@@ -4419,11 +4380,11 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop48;
+                    	    break loop47;
                         }
                     } while (true);
 
-                    match(input,17,FOLLOW_17_in_ruleProcess4425); 
+                    match(input,17,FOLLOW_17_in_ruleProcess4386); 
 
                             createLeafNode(grammarAccess.getProcessAccess().getRightSquareBracketKeyword_7_1_2(), null); 
                         
@@ -4459,7 +4420,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFormElement
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2107:1: entryRuleFormElement returns [EObject current=null] : iv_ruleFormElement= ruleFormElement EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2086:1: entryRuleFormElement returns [EObject current=null] : iv_ruleFormElement= ruleFormElement EOF ;
     public final EObject entryRuleFormElement() throws RecognitionException {
         EObject current = null;
 
@@ -4467,16 +4428,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2107:53: (iv_ruleFormElement= ruleFormElement EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2108:2: iv_ruleFormElement= ruleFormElement EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2086:53: (iv_ruleFormElement= ruleFormElement EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2087:2: iv_ruleFormElement= ruleFormElement EOF
             {
              currentNode = createCompositeNode(grammarAccess.getFormElementRule(), currentNode); 
-            pushFollow(FOLLOW_ruleFormElement_in_entryRuleFormElement4460);
+            pushFollow(FOLLOW_ruleFormElement_in_entryRuleFormElement4421);
             iv_ruleFormElement=ruleFormElement();
             _fsp--;
 
              current =iv_ruleFormElement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormElement4470); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFormElement4431); 
 
             }
 
@@ -4494,7 +4455,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFormElement
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2115:1: ruleFormElement returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2094:1: ruleFormElement returns [EObject current=null] : ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' ) ;
     public final EObject ruleFormElement() throws RecognitionException {
         EObject current = null;
 
@@ -4507,25 +4468,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2120:6: ( ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2121:1: ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2099:6: ( ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2100:1: ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2121:1: ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2121:2: (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2100:1: ( (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2100:2: (lv_description_0= RULE_STRING )? 'element' (lv_references_2= ruleDtoPropertyReference ) ( 'label' (lv_label_4= RULE_STRING ) )? ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )? ';'
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2121:2: (lv_description_0= RULE_STRING )?
-            int alt50=2;
-            int LA50_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2100:2: (lv_description_0= RULE_STRING )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( (LA50_0==RULE_STRING) ) {
-                alt50=1;
+            if ( (LA49_0==RULE_STRING) ) {
+                alt49=1;
             }
-            switch (alt50) {
+            switch (alt49) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2123:6: lv_description_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2102:6: lv_description_0= RULE_STRING
                     {
                     lv_description_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleFormElement4517); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleFormElement4478); 
 
                     		createLeafNode(grammarAccess.getFormElementAccess().getDescriptionSTRINGTerminalRuleCall_0_0(), "description"); 
                     	
@@ -4547,17 +4508,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,35,FOLLOW_35_in_ruleFormElement4535); 
+            match(input,35,FOLLOW_35_in_ruleFormElement4496); 
 
                     createLeafNode(grammarAccess.getFormElementAccess().getElementKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2145:1: (lv_references_2= ruleDtoPropertyReference )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2148:6: lv_references_2= ruleDtoPropertyReference
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2124:1: (lv_references_2= ruleDtoPropertyReference )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2127:6: lv_references_2= ruleDtoPropertyReference
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getFormElementAccess().getReferencesDtoPropertyReferenceParserRuleCall_2_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleDtoPropertyReference_in_ruleFormElement4569);
+            pushFollow(FOLLOW_ruleDtoPropertyReference_in_ruleFormElement4530);
             lv_references_2=ruleDtoPropertyReference();
             _fsp--;
 
@@ -4577,26 +4538,26 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2166:2: ( 'label' (lv_label_4= RULE_STRING ) )?
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2145:2: ( 'label' (lv_label_4= RULE_STRING ) )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA51_0==28) ) {
-                alt51=1;
+            if ( (LA50_0==28) ) {
+                alt50=1;
             }
-            switch (alt51) {
+            switch (alt50) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2166:3: 'label' (lv_label_4= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2145:3: 'label' (lv_label_4= RULE_STRING )
                     {
-                    match(input,28,FOLLOW_28_in_ruleFormElement4583); 
+                    match(input,28,FOLLOW_28_in_ruleFormElement4544); 
 
                             createLeafNode(grammarAccess.getFormElementAccess().getLabelKeyword_3_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2170:1: (lv_label_4= RULE_STRING )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2172:6: lv_label_4= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2149:1: (lv_label_4= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2151:6: lv_label_4= RULE_STRING
                     {
                     lv_label_4=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleFormElement4605); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleFormElement4566); 
 
                     		createLeafNode(grammarAccess.getFormElementAccess().getLabelSTRINGTerminalRuleCall_3_1_0(), "label"); 
                     	
@@ -4621,46 +4582,46 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2190:4: ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2169:4: ( 'readonly' ( (lv_readonly_6= 'true' ) | 'false' ) )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA53_0==23) ) {
-                alt53=1;
+            if ( (LA52_0==23) ) {
+                alt52=1;
             }
-            switch (alt53) {
+            switch (alt52) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2190:5: 'readonly' ( (lv_readonly_6= 'true' ) | 'false' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2169:5: 'readonly' ( (lv_readonly_6= 'true' ) | 'false' )
                     {
-                    match(input,23,FOLLOW_23_in_ruleFormElement4625); 
+                    match(input,23,FOLLOW_23_in_ruleFormElement4586); 
 
                             createLeafNode(grammarAccess.getFormElementAccess().getReadonlyKeyword_4_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2194:1: ( (lv_readonly_6= 'true' ) | 'false' )
-                    int alt52=2;
-                    int LA52_0 = input.LA(1);
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2173:1: ( (lv_readonly_6= 'true' ) | 'false' )
+                    int alt51=2;
+                    int LA51_0 = input.LA(1);
 
-                    if ( (LA52_0==24) ) {
-                        alt52=1;
+                    if ( (LA51_0==24) ) {
+                        alt51=1;
                     }
-                    else if ( (LA52_0==25) ) {
-                        alt52=2;
+                    else if ( (LA51_0==25) ) {
+                        alt51=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2194:1: ( (lv_readonly_6= 'true' ) | 'false' )", 52, 0, input);
+                            new NoViableAltException("2173:1: ( (lv_readonly_6= 'true' ) | 'false' )", 51, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt52) {
+                    switch (alt51) {
                         case 1 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2194:2: (lv_readonly_6= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2173:2: (lv_readonly_6= 'true' )
                             {
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2194:2: (lv_readonly_6= 'true' )
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2196:6: lv_readonly_6= 'true'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2173:2: (lv_readonly_6= 'true' )
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2175:6: lv_readonly_6= 'true'
                             {
                             lv_readonly_6=(Token)input.LT(1);
-                            match(input,24,FOLLOW_24_in_ruleFormElement4647); 
+                            match(input,24,FOLLOW_24_in_ruleFormElement4608); 
 
                                     createLeafNode(grammarAccess.getFormElementAccess().getReadonlyTrueKeyword_4_1_0_0(), "readonly"); 
                                 
@@ -4683,9 +4644,9 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2216:6: 'false'
+                            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2195:6: 'false'
                             {
-                            match(input,25,FOLLOW_25_in_ruleFormElement4675); 
+                            match(input,25,FOLLOW_25_in_ruleFormElement4636); 
 
                                     createLeafNode(grammarAccess.getFormElementAccess().getFalseKeyword_4_1_1(), null); 
                                 
@@ -4701,7 +4662,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleFormElement4687); 
+            match(input,12,FOLLOW_12_in_ruleFormElement4648); 
 
                     createLeafNode(grammarAccess.getFormElementAccess().getSemicolonKeyword_5(), null); 
                 
@@ -4728,7 +4689,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleActionDialogueCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2231:1: entryRuleActionDialogueCall returns [EObject current=null] : iv_ruleActionDialogueCall= ruleActionDialogueCall EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2210:1: entryRuleActionDialogueCall returns [EObject current=null] : iv_ruleActionDialogueCall= ruleActionDialogueCall EOF ;
     public final EObject entryRuleActionDialogueCall() throws RecognitionException {
         EObject current = null;
 
@@ -4736,16 +4697,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2231:60: (iv_ruleActionDialogueCall= ruleActionDialogueCall EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2232:2: iv_ruleActionDialogueCall= ruleActionDialogueCall EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2210:60: (iv_ruleActionDialogueCall= ruleActionDialogueCall EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2211:2: iv_ruleActionDialogueCall= ruleActionDialogueCall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getActionDialogueCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleActionDialogueCall_in_entryRuleActionDialogueCall4720);
+            pushFollow(FOLLOW_ruleActionDialogueCall_in_entryRuleActionDialogueCall4681);
             iv_ruleActionDialogueCall=ruleActionDialogueCall();
             _fsp--;
 
              current =iv_ruleActionDialogueCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleActionDialogueCall4730); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleActionDialogueCall4691); 
 
             }
 
@@ -4763,7 +4724,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleActionDialogueCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2239:1: ruleActionDialogueCall returns [EObject current=null] : ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2218:1: ruleActionDialogueCall returns [EObject current=null] : ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) ) ;
     public final EObject ruleActionDialogueCall() throws RecognitionException {
         EObject current = null;
 
@@ -4773,27 +4734,27 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2244:6: ( ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2245:1: ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2223:6: ( ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2224:1: ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2245:1: ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2245:2: (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2224:1: ( (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2224:2: (lv_contextExp_0= ruleExpression )? 'form' ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2245:2: (lv_contextExp_0= ruleExpression )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2224:2: (lv_contextExp_0= ruleExpression )?
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA54_0==19||LA54_0==40||(LA54_0>=42 && LA54_0<=43)||(LA54_0>=52 && LA54_0<=53)) ) {
-                alt54=1;
+            if ( (LA53_0==19||LA53_0==40||(LA53_0>=42 && LA53_0<=43)||(LA53_0>=52 && LA53_0<=53)) ) {
+                alt53=1;
             }
-            switch (alt54) {
+            switch (alt53) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2248:6: lv_contextExp_0= ruleExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2227:6: lv_contextExp_0= ruleExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getActionDialogueCallAccess().getContextExpExpressionParserRuleCall_0_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleExpression_in_ruleActionDialogueCall4789);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleActionDialogueCall4750);
                     lv_contextExp_0=ruleExpression();
                     _fsp--;
 
@@ -4816,12 +4777,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,20,FOLLOW_20_in_ruleActionDialogueCall4803); 
+            match(input,20,FOLLOW_20_in_ruleActionDialogueCall4764); 
 
                     createLeafNode(grammarAccess.getActionDialogueCallAccess().getFormKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2270:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2273:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2249:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2252:3: RULE_ID
             {
 
             			if (current==null) {
@@ -4829,7 +4790,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleActionDialogueCall4825); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleActionDialogueCall4786); 
 
             		createLeafNode(grammarAccess.getActionDialogueCallAccess().getReferredDialogueAbstractDialogueCrossReference_2_0(), "referredDialogue"); 
             	
@@ -4859,7 +4820,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDialogueCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2293:1: entryRuleDialogueCall returns [EObject current=null] : iv_ruleDialogueCall= ruleDialogueCall EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2272:1: entryRuleDialogueCall returns [EObject current=null] : iv_ruleDialogueCall= ruleDialogueCall EOF ;
     public final EObject entryRuleDialogueCall() throws RecognitionException {
         EObject current = null;
 
@@ -4867,16 +4828,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2293:54: (iv_ruleDialogueCall= ruleDialogueCall EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2294:2: iv_ruleDialogueCall= ruleDialogueCall EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2272:54: (iv_ruleDialogueCall= ruleDialogueCall EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2273:2: iv_ruleDialogueCall= ruleDialogueCall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDialogueCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDialogueCall_in_entryRuleDialogueCall4861);
+            pushFollow(FOLLOW_ruleDialogueCall_in_entryRuleDialogueCall4822);
             iv_ruleDialogueCall=ruleDialogueCall();
             _fsp--;
 
              current =iv_ruleDialogueCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDialogueCall4871); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDialogueCall4832); 
 
             }
 
@@ -4894,7 +4855,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDialogueCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2301:1: ruleDialogueCall returns [EObject current=null] : ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2280:1: ruleDialogueCall returns [EObject current=null] : ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) ) ;
     public final EObject ruleDialogueCall() throws RecognitionException {
         EObject current = null;
 
@@ -4907,28 +4868,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2306:6: ( ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2307:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2285:6: ( ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2286:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2307:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2307:2: ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2286:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2286:2: ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'form' ( RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2307:2: ( (lv_label_0= RULE_STRING ) ':' )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2286:2: ( (lv_label_0= RULE_STRING ) ':' )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( (LA55_0==RULE_STRING) ) {
-                alt55=1;
+            if ( (LA54_0==RULE_STRING) ) {
+                alt54=1;
             }
-            switch (alt55) {
+            switch (alt54) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2307:3: (lv_label_0= RULE_STRING ) ':'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2286:3: (lv_label_0= RULE_STRING ) ':'
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2307:3: (lv_label_0= RULE_STRING )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2309:6: lv_label_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2286:3: (lv_label_0= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2288:6: lv_label_0= RULE_STRING
                     {
                     lv_label_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDialogueCall4919); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDialogueCall4880); 
 
                     		createLeafNode(grammarAccess.getDialogueCallAccess().getLabelSTRINGTerminalRuleCall_0_0_0(), "label"); 
                     	
@@ -4947,7 +4908,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,36,FOLLOW_36_in_ruleDialogueCall4936); 
+                    match(input,36,FOLLOW_36_in_ruleDialogueCall4897); 
 
                             createLeafNode(grammarAccess.getDialogueCallAccess().getColonKeyword_0_1(), null); 
                         
@@ -4957,32 +4918,32 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2331:3: ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2310:3: ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )?
+            int alt55=2;
+            int LA55_0 = input.LA(1);
 
-            if ( (LA56_0==37) ) {
-                alt56=1;
+            if ( (LA55_0==37) ) {
+                alt55=1;
             }
-            switch (alt56) {
+            switch (alt55) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2331:4: 'if' '(' (lv_condition_4= ruleOperationExpression ) ')'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2310:4: 'if' '(' (lv_condition_4= ruleOperationExpression ) ')'
                     {
-                    match(input,37,FOLLOW_37_in_ruleDialogueCall4948); 
+                    match(input,37,FOLLOW_37_in_ruleDialogueCall4909); 
 
                             createLeafNode(grammarAccess.getDialogueCallAccess().getIfKeyword_1_0(), null); 
                         
-                    match(input,38,FOLLOW_38_in_ruleDialogueCall4957); 
+                    match(input,38,FOLLOW_38_in_ruleDialogueCall4918); 
 
                             createLeafNode(grammarAccess.getDialogueCallAccess().getLeftParenthesisKeyword_1_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2339:1: (lv_condition_4= ruleOperationExpression )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2342:6: lv_condition_4= ruleOperationExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2318:1: (lv_condition_4= ruleOperationExpression )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2321:6: lv_condition_4= ruleOperationExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getConditionOperationExpressionParserRuleCall_1_2_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleOperationExpression_in_ruleDialogueCall4991);
+                    pushFollow(FOLLOW_ruleOperationExpression_in_ruleDialogueCall4952);
                     lv_condition_4=ruleOperationExpression();
                     _fsp--;
 
@@ -5002,7 +4963,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,39,FOLLOW_39_in_ruleDialogueCall5004); 
+                    match(input,39,FOLLOW_39_in_ruleDialogueCall4965); 
 
                             createLeafNode(grammarAccess.getDialogueCallAccess().getRightParenthesisKeyword_1_3(), null); 
                         
@@ -5012,21 +4973,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2364:3: (lv_contextExp_6= ruleExpression )?
-            int alt57=2;
-            int LA57_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2343:3: (lv_contextExp_6= ruleExpression )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA57_0==19||LA57_0==40||(LA57_0>=42 && LA57_0<=43)||(LA57_0>=52 && LA57_0<=53)) ) {
-                alt57=1;
+            if ( (LA56_0==19||LA56_0==40||(LA56_0>=42 && LA56_0<=43)||(LA56_0>=52 && LA56_0<=53)) ) {
+                alt56=1;
             }
-            switch (alt57) {
+            switch (alt56) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2367:6: lv_contextExp_6= ruleExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2346:6: lv_contextExp_6= ruleExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getDialogueCallAccess().getContextExpExpressionParserRuleCall_2_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleExpression_in_ruleDialogueCall5040);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleDialogueCall5001);
                     lv_contextExp_6=ruleExpression();
                     _fsp--;
 
@@ -5049,12 +5010,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,20,FOLLOW_20_in_ruleDialogueCall5054); 
+            match(input,20,FOLLOW_20_in_ruleDialogueCall5015); 
 
                     createLeafNode(grammarAccess.getDialogueCallAccess().getFormKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2389:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2392:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2368:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2371:3: RULE_ID
             {
 
             			if (current==null) {
@@ -5062,7 +5023,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDialogueCall5076); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDialogueCall5037); 
 
             		createLeafNode(grammarAccess.getDialogueCallAccess().getReferredDialogueAbstractDialogueCrossReference_4_0(), "referredDialogue"); 
             	
@@ -5092,7 +5053,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2412:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2391:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5100,16 +5061,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2412:52: (iv_ruleExpression= ruleExpression EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2413:2: iv_ruleExpression= ruleExpression EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2391:52: (iv_ruleExpression= ruleExpression EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2392:2: iv_ruleExpression= ruleExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression5112);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression5073);
             iv_ruleExpression=ruleExpression();
             _fsp--;
 
              current =iv_ruleExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression5122); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression5083); 
 
             }
 
@@ -5127,7 +5088,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2420:1: ruleExpression returns [EObject current=null] : (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2399:1: ruleExpression returns [EObject current=null] : (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression ) ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5143,49 +5104,49 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2425:6: ( (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2426:1: (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2404:6: ( (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2405:1: (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2426:1: (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression )
-            int alt58=4;
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2405:1: (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression )
+            int alt57=4;
             switch ( input.LA(1) ) {
             case 19:
                 {
-                alt58=1;
+                alt57=1;
                 }
                 break;
             case 42:
             case 43:
                 {
-                alt58=2;
+                alt57=2;
                 }
                 break;
             case 52:
             case 53:
                 {
-                alt58=3;
+                alt57=3;
                 }
                 break;
             case 40:
                 {
-                alt58=4;
+                alt57=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("2426:1: (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression )", 58, 0, input);
+                    new NoViableAltException("2405:1: (this_ServiceExpression_0= ruleServiceExpression | this_NavigationExpression_1= ruleNavigationExpression | this_StandardExpression_2= ruleStandardExpression | this_OperationExpression_3= ruleOperationExpression )", 57, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt58) {
+            switch (alt57) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2427:5: this_ServiceExpression_0= ruleServiceExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2406:5: this_ServiceExpression_0= ruleServiceExpression
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getServiceExpressionParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleServiceExpression_in_ruleExpression5169);
+                    pushFollow(FOLLOW_ruleServiceExpression_in_ruleExpression5130);
                     this_ServiceExpression_0=ruleServiceExpression();
                     _fsp--;
 
@@ -5197,12 +5158,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2437:5: this_NavigationExpression_1= ruleNavigationExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2416:5: this_NavigationExpression_1= ruleNavigationExpression
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getNavigationExpressionParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleNavigationExpression_in_ruleExpression5196);
+                    pushFollow(FOLLOW_ruleNavigationExpression_in_ruleExpression5157);
                     this_NavigationExpression_1=ruleNavigationExpression();
                     _fsp--;
 
@@ -5214,12 +5175,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2447:5: this_StandardExpression_2= ruleStandardExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2426:5: this_StandardExpression_2= ruleStandardExpression
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getStandardExpressionParserRuleCall_2(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleStandardExpression_in_ruleExpression5223);
+                    pushFollow(FOLLOW_ruleStandardExpression_in_ruleExpression5184);
                     this_StandardExpression_2=ruleStandardExpression();
                     _fsp--;
 
@@ -5231,12 +5192,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2457:5: this_OperationExpression_3= ruleOperationExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2436:5: this_OperationExpression_3= ruleOperationExpression
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getOperationExpressionParserRuleCall_3(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleOperationExpression_in_ruleExpression5250);
+                    pushFollow(FOLLOW_ruleOperationExpression_in_ruleExpression5211);
                     this_OperationExpression_3=ruleOperationExpression();
                     _fsp--;
 
@@ -5270,7 +5231,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleProcessCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2472:1: entryRuleProcessCall returns [EObject current=null] : iv_ruleProcessCall= ruleProcessCall EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2451:1: entryRuleProcessCall returns [EObject current=null] : iv_ruleProcessCall= ruleProcessCall EOF ;
     public final EObject entryRuleProcessCall() throws RecognitionException {
         EObject current = null;
 
@@ -5278,16 +5239,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2472:53: (iv_ruleProcessCall= ruleProcessCall EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2473:2: iv_ruleProcessCall= ruleProcessCall EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2451:53: (iv_ruleProcessCall= ruleProcessCall EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2452:2: iv_ruleProcessCall= ruleProcessCall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getProcessCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleProcessCall_in_entryRuleProcessCall5282);
+            pushFollow(FOLLOW_ruleProcessCall_in_entryRuleProcessCall5243);
             iv_ruleProcessCall=ruleProcessCall();
             _fsp--;
 
              current =iv_ruleProcessCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProcessCall5292); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProcessCall5253); 
 
             }
 
@@ -5305,7 +5266,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleProcessCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2480:1: ruleProcessCall returns [EObject current=null] : ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2459:1: ruleProcessCall returns [EObject current=null] : ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? ) ;
     public final EObject ruleProcessCall() throws RecognitionException {
         EObject current = null;
 
@@ -5319,28 +5280,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2485:6: ( ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2486:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2464:6: ( ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2465:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2486:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2486:2: ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )?
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2465:1: ( ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2465:2: ( (lv_label_0= RULE_STRING ) ':' )? ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )? (lv_contextExp_6= ruleExpression )? 'process' ( RULE_ID ) ( 'label' (lv_label_10= RULE_ID ) )?
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2486:2: ( (lv_label_0= RULE_STRING ) ':' )?
-            int alt59=2;
-            int LA59_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2465:2: ( (lv_label_0= RULE_STRING ) ':' )?
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-            if ( (LA59_0==RULE_STRING) ) {
-                alt59=1;
+            if ( (LA58_0==RULE_STRING) ) {
+                alt58=1;
             }
-            switch (alt59) {
+            switch (alt58) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2486:3: (lv_label_0= RULE_STRING ) ':'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2465:3: (lv_label_0= RULE_STRING ) ':'
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2486:3: (lv_label_0= RULE_STRING )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2488:6: lv_label_0= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2465:3: (lv_label_0= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2467:6: lv_label_0= RULE_STRING
                     {
                     lv_label_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleProcessCall5340); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleProcessCall5301); 
 
                     		createLeafNode(grammarAccess.getProcessCallAccess().getLabelSTRINGTerminalRuleCall_0_0_0(), "label"); 
                     	
@@ -5359,7 +5320,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,36,FOLLOW_36_in_ruleProcessCall5357); 
+                    match(input,36,FOLLOW_36_in_ruleProcessCall5318); 
 
                             createLeafNode(grammarAccess.getProcessCallAccess().getColonKeyword_0_1(), null); 
                         
@@ -5369,32 +5330,32 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2510:3: ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )?
-            int alt60=2;
-            int LA60_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2489:3: ( 'if' '(' (lv_condition_4= ruleOperationExpression ) ')' )?
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            if ( (LA60_0==37) ) {
-                alt60=1;
+            if ( (LA59_0==37) ) {
+                alt59=1;
             }
-            switch (alt60) {
+            switch (alt59) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2510:4: 'if' '(' (lv_condition_4= ruleOperationExpression ) ')'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2489:4: 'if' '(' (lv_condition_4= ruleOperationExpression ) ')'
                     {
-                    match(input,37,FOLLOW_37_in_ruleProcessCall5369); 
+                    match(input,37,FOLLOW_37_in_ruleProcessCall5330); 
 
                             createLeafNode(grammarAccess.getProcessCallAccess().getIfKeyword_1_0(), null); 
                         
-                    match(input,38,FOLLOW_38_in_ruleProcessCall5378); 
+                    match(input,38,FOLLOW_38_in_ruleProcessCall5339); 
 
                             createLeafNode(grammarAccess.getProcessCallAccess().getLeftParenthesisKeyword_1_1(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2518:1: (lv_condition_4= ruleOperationExpression )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2521:6: lv_condition_4= ruleOperationExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2497:1: (lv_condition_4= ruleOperationExpression )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2500:6: lv_condition_4= ruleOperationExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getProcessCallAccess().getConditionOperationExpressionParserRuleCall_1_2_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleOperationExpression_in_ruleProcessCall5412);
+                    pushFollow(FOLLOW_ruleOperationExpression_in_ruleProcessCall5373);
                     lv_condition_4=ruleOperationExpression();
                     _fsp--;
 
@@ -5414,7 +5375,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,39,FOLLOW_39_in_ruleProcessCall5425); 
+                    match(input,39,FOLLOW_39_in_ruleProcessCall5386); 
 
                             createLeafNode(grammarAccess.getProcessCallAccess().getRightParenthesisKeyword_1_3(), null); 
                         
@@ -5424,21 +5385,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2543:3: (lv_contextExp_6= ruleExpression )?
-            int alt61=2;
-            int LA61_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2522:3: (lv_contextExp_6= ruleExpression )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
 
-            if ( (LA61_0==19||LA61_0==40||(LA61_0>=42 && LA61_0<=43)||(LA61_0>=52 && LA61_0<=53)) ) {
-                alt61=1;
+            if ( (LA60_0==19||LA60_0==40||(LA60_0>=42 && LA60_0<=43)||(LA60_0>=52 && LA60_0<=53)) ) {
+                alt60=1;
             }
-            switch (alt61) {
+            switch (alt60) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2546:6: lv_contextExp_6= ruleExpression
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2525:6: lv_contextExp_6= ruleExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getProcessCallAccess().getContextExpExpressionParserRuleCall_2_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleExpression_in_ruleProcessCall5461);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleProcessCall5422);
                     lv_contextExp_6=ruleExpression();
                     _fsp--;
 
@@ -5461,12 +5422,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleProcessCall5475); 
+            match(input,14,FOLLOW_14_in_ruleProcessCall5436); 
 
                     createLeafNode(grammarAccess.getProcessCallAccess().getProcessKeyword_3(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2568:1: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2571:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2547:1: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2550:3: RULE_ID
             {
 
             			if (current==null) {
@@ -5474,33 +5435,33 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcessCall5497); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcessCall5458); 
 
             		createLeafNode(grammarAccess.getProcessCallAccess().getReferredProcessAbstractProcessCrossReference_4_0(), "referredProcess"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2584:2: ( 'label' (lv_label_10= RULE_ID ) )?
-            int alt62=2;
-            int LA62_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2563:2: ( 'label' (lv_label_10= RULE_ID ) )?
+            int alt61=2;
+            int LA61_0 = input.LA(1);
 
-            if ( (LA62_0==28) ) {
-                alt62=1;
+            if ( (LA61_0==28) ) {
+                alt61=1;
             }
-            switch (alt62) {
+            switch (alt61) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2584:3: 'label' (lv_label_10= RULE_ID )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2563:3: 'label' (lv_label_10= RULE_ID )
                     {
-                    match(input,28,FOLLOW_28_in_ruleProcessCall5510); 
+                    match(input,28,FOLLOW_28_in_ruleProcessCall5471); 
 
                             createLeafNode(grammarAccess.getProcessCallAccess().getLabelKeyword_5_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2588:1: (lv_label_10= RULE_ID )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2590:6: lv_label_10= RULE_ID
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2567:1: (lv_label_10= RULE_ID )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2569:6: lv_label_10= RULE_ID
                     {
                     lv_label_10=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcessCall5532); 
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcessCall5493); 
 
                     		createLeafNode(grammarAccess.getProcessCallAccess().getLabelIDTerminalRuleCall_5_1_0(), "label"); 
                     	
@@ -5548,7 +5509,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOperationExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2615:1: entryRuleOperationExpression returns [EObject current=null] : iv_ruleOperationExpression= ruleOperationExpression EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2594:1: entryRuleOperationExpression returns [EObject current=null] : iv_ruleOperationExpression= ruleOperationExpression EOF ;
     public final EObject entryRuleOperationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5556,16 +5517,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2615:61: (iv_ruleOperationExpression= ruleOperationExpression EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2616:2: iv_ruleOperationExpression= ruleOperationExpression EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2594:61: (iv_ruleOperationExpression= ruleOperationExpression EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2595:2: iv_ruleOperationExpression= ruleOperationExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getOperationExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleOperationExpression_in_entryRuleOperationExpression5575);
+            pushFollow(FOLLOW_ruleOperationExpression_in_entryRuleOperationExpression5536);
             iv_ruleOperationExpression=ruleOperationExpression();
             _fsp--;
 
              current =iv_ruleOperationExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOperationExpression5585); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOperationExpression5546); 
 
             }
 
@@ -5583,7 +5544,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOperationExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2623:1: ruleOperationExpression returns [EObject current=null] : ( 'call' (lv_name_1= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2602:1: ruleOperationExpression returns [EObject current=null] : ( 'call' (lv_name_1= RULE_ID ) ) ;
     public final EObject ruleOperationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5592,21 +5553,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2628:6: ( ( 'call' (lv_name_1= RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2629:1: ( 'call' (lv_name_1= RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2607:6: ( ( 'call' (lv_name_1= RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2608:1: ( 'call' (lv_name_1= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2629:1: ( 'call' (lv_name_1= RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2629:2: 'call' (lv_name_1= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2608:1: ( 'call' (lv_name_1= RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2608:2: 'call' (lv_name_1= RULE_ID )
             {
-            match(input,40,FOLLOW_40_in_ruleOperationExpression5619); 
+            match(input,40,FOLLOW_40_in_ruleOperationExpression5580); 
 
                     createLeafNode(grammarAccess.getOperationExpressionAccess().getCallKeyword_0(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2633:1: (lv_name_1= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2635:6: lv_name_1= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2612:1: (lv_name_1= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2614:6: lv_name_1= RULE_ID
             {
             lv_name_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleOperationExpression5641); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleOperationExpression5602); 
 
             		createLeafNode(grammarAccess.getOperationExpressionAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
             	
@@ -5648,7 +5609,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSimpleProcessCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2660:1: entryRuleSimpleProcessCall returns [EObject current=null] : iv_ruleSimpleProcessCall= ruleSimpleProcessCall EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2639:1: entryRuleSimpleProcessCall returns [EObject current=null] : iv_ruleSimpleProcessCall= ruleSimpleProcessCall EOF ;
     public final EObject entryRuleSimpleProcessCall() throws RecognitionException {
         EObject current = null;
 
@@ -5656,16 +5617,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2660:59: (iv_ruleSimpleProcessCall= ruleSimpleProcessCall EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2661:2: iv_ruleSimpleProcessCall= ruleSimpleProcessCall EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2639:59: (iv_ruleSimpleProcessCall= ruleSimpleProcessCall EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2640:2: iv_ruleSimpleProcessCall= ruleSimpleProcessCall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getSimpleProcessCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleSimpleProcessCall_in_entryRuleSimpleProcessCall5682);
+            pushFollow(FOLLOW_ruleSimpleProcessCall_in_entryRuleSimpleProcessCall5643);
             iv_ruleSimpleProcessCall=ruleSimpleProcessCall();
             _fsp--;
 
              current =iv_ruleSimpleProcessCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleProcessCall5692); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleProcessCall5653); 
 
             }
 
@@ -5683,7 +5644,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSimpleProcessCall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2668:1: ruleSimpleProcessCall returns [EObject current=null] : ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2647:1: ruleSimpleProcessCall returns [EObject current=null] : ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? ) ;
     public final EObject ruleSimpleProcessCall() throws RecognitionException {
         EObject current = null;
 
@@ -5692,14 +5653,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2673:6: ( ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2674:1: ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2652:6: ( ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:1: ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2674:1: ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2674:2: ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )?
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:1: ( ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )? )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:2: ( RULE_ID ) ( 'label' (lv_label_2= RULE_STRING ) )?
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2674:2: ( RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2677:3: RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2653:2: ( RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2656:3: RULE_ID
             {
 
             			if (current==null) {
@@ -5707,33 +5668,33 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSimpleProcessCall5739); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSimpleProcessCall5700); 
 
             		createLeafNode(grammarAccess.getSimpleProcessCallAccess().getReferredProcessAbstractProcessCrossReference_0_0(), "referredProcess"); 
             	
 
             }
 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2690:2: ( 'label' (lv_label_2= RULE_STRING ) )?
-            int alt63=2;
-            int LA63_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2669:2: ( 'label' (lv_label_2= RULE_STRING ) )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
 
-            if ( (LA63_0==28) ) {
-                alt63=1;
+            if ( (LA62_0==28) ) {
+                alt62=1;
             }
-            switch (alt63) {
+            switch (alt62) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2690:3: 'label' (lv_label_2= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2669:3: 'label' (lv_label_2= RULE_STRING )
                     {
-                    match(input,28,FOLLOW_28_in_ruleSimpleProcessCall5752); 
+                    match(input,28,FOLLOW_28_in_ruleSimpleProcessCall5713); 
 
                             createLeafNode(grammarAccess.getSimpleProcessCallAccess().getLabelKeyword_1_0(), null); 
                         
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2694:1: (lv_label_2= RULE_STRING )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2696:6: lv_label_2= RULE_STRING
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2673:1: (lv_label_2= RULE_STRING )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2675:6: lv_label_2= RULE_STRING
                     {
                     lv_label_2=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSimpleProcessCall5774); 
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSimpleProcessCall5735); 
 
                     		createLeafNode(grammarAccess.getSimpleProcessCallAccess().getLabelSTRINGTerminalRuleCall_1_1_0(), "label"); 
                     	
@@ -5781,7 +5742,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStandardExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2721:1: entryRuleStandardExpression returns [EObject current=null] : iv_ruleStandardExpression= ruleStandardExpression EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2700:1: entryRuleStandardExpression returns [EObject current=null] : iv_ruleStandardExpression= ruleStandardExpression EOF ;
     public final EObject entryRuleStandardExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5789,16 +5750,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2721:60: (iv_ruleStandardExpression= ruleStandardExpression EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2722:2: iv_ruleStandardExpression= ruleStandardExpression EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2700:60: (iv_ruleStandardExpression= ruleStandardExpression EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2701:2: iv_ruleStandardExpression= ruleStandardExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getStandardExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleStandardExpression_in_entryRuleStandardExpression5817);
+            pushFollow(FOLLOW_ruleStandardExpression_in_entryRuleStandardExpression5778);
             iv_ruleStandardExpression=ruleStandardExpression();
             _fsp--;
 
              current =iv_ruleStandardExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStandardExpression5827); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStandardExpression5788); 
 
             }
 
@@ -5816,7 +5777,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStandardExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2729:1: ruleStandardExpression returns [EObject current=null] : (lv_type_0= ruleExpressionType ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2708:1: ruleStandardExpression returns [EObject current=null] : (lv_type_0= ruleExpressionType ) ;
     public final EObject ruleStandardExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5826,16 +5787,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2734:6: ( (lv_type_0= ruleExpressionType ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2735:1: (lv_type_0= ruleExpressionType )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2713:6: ( (lv_type_0= ruleExpressionType ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2714:1: (lv_type_0= ruleExpressionType )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2735:1: (lv_type_0= ruleExpressionType )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2738:6: lv_type_0= ruleExpressionType
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2714:1: (lv_type_0= ruleExpressionType )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2717:6: lv_type_0= ruleExpressionType
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getStandardExpressionAccess().getTypeExpressionTypeEnumRuleCall_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleExpressionType_in_ruleStandardExpression5885);
+            pushFollow(FOLLOW_ruleExpressionType_in_ruleStandardExpression5846);
             lv_type_0=ruleExpressionType();
             _fsp--;
 
@@ -5875,7 +5836,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleServiceExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2763:1: entryRuleServiceExpression returns [EObject current=null] : iv_ruleServiceExpression= ruleServiceExpression EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2742:1: entryRuleServiceExpression returns [EObject current=null] : iv_ruleServiceExpression= ruleServiceExpression EOF ;
     public final EObject entryRuleServiceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5883,16 +5844,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2763:59: (iv_ruleServiceExpression= ruleServiceExpression EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2764:2: iv_ruleServiceExpression= ruleServiceExpression EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2742:59: (iv_ruleServiceExpression= ruleServiceExpression EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2743:2: iv_ruleServiceExpression= ruleServiceExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getServiceExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleServiceExpression_in_entryRuleServiceExpression5921);
+            pushFollow(FOLLOW_ruleServiceExpression_in_entryRuleServiceExpression5882);
             iv_ruleServiceExpression=ruleServiceExpression();
             _fsp--;
 
              current =iv_ruleServiceExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceExpression5931); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceExpression5892); 
 
             }
 
@@ -5910,7 +5871,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleServiceExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2771:1: ruleServiceExpression returns [EObject current=null] : ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2750:1: ruleServiceExpression returns [EObject current=null] : ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) ) ;
     public final EObject ruleServiceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5920,21 +5881,21 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2776:6: ( ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2777:1: ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2755:6: ( ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2756:1: ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2777:1: ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2777:2: 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2756:1: ( 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2756:2: 'service' (lv_serviceName_1= RULE_ID ) '.' (lv_serviceMethod_3= RULE_ID )
             {
-            match(input,19,FOLLOW_19_in_ruleServiceExpression5965); 
+            match(input,19,FOLLOW_19_in_ruleServiceExpression5926); 
 
                     createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceKeyword_0(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2781:1: (lv_serviceName_1= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2783:6: lv_serviceName_1= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2760:1: (lv_serviceName_1= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2762:6: lv_serviceName_1= RULE_ID
             {
             lv_serviceName_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceExpression5987); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceExpression5948); 
 
             		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceNameIDTerminalRuleCall_1_0(), "serviceName"); 
             	
@@ -5953,15 +5914,15 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,41,FOLLOW_41_in_ruleServiceExpression6004); 
+            match(input,41,FOLLOW_41_in_ruleServiceExpression5965); 
 
                     createLeafNode(grammarAccess.getServiceExpressionAccess().getFullStopKeyword_2(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2805:1: (lv_serviceMethod_3= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2807:6: lv_serviceMethod_3= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2784:1: (lv_serviceMethod_3= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2786:6: lv_serviceMethod_3= RULE_ID
             {
             lv_serviceMethod_3=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceExpression6026); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceExpression5987); 
 
             		createLeafNode(grammarAccess.getServiceExpressionAccess().getServiceMethodIDTerminalRuleCall_3_0(), "serviceMethod"); 
             	
@@ -6003,7 +5964,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleNavigationExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2832:1: entryRuleNavigationExpression returns [EObject current=null] : iv_ruleNavigationExpression= ruleNavigationExpression EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2811:1: entryRuleNavigationExpression returns [EObject current=null] : iv_ruleNavigationExpression= ruleNavigationExpression EOF ;
     public final EObject entryRuleNavigationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6011,16 +5972,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2832:62: (iv_ruleNavigationExpression= ruleNavigationExpression EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2833:2: iv_ruleNavigationExpression= ruleNavigationExpression EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2811:62: (iv_ruleNavigationExpression= ruleNavigationExpression EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2812:2: iv_ruleNavigationExpression= ruleNavigationExpression EOF
             {
              currentNode = createCompositeNode(grammarAccess.getNavigationExpressionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleNavigationExpression_in_entryRuleNavigationExpression6067);
+            pushFollow(FOLLOW_ruleNavigationExpression_in_entryRuleNavigationExpression6028);
             iv_ruleNavigationExpression=ruleNavigationExpression();
             _fsp--;
 
              current =iv_ruleNavigationExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNavigationExpression6077); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNavigationExpression6038); 
 
             }
 
@@ -6038,7 +5999,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleNavigationExpression
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2840:1: ruleNavigationExpression returns [EObject current=null] : ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2819:1: ruleNavigationExpression returns [EObject current=null] : ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) ) ;
     public final EObject ruleNavigationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6049,25 +6010,25 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2845:6: ( ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2846:1: ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2824:6: ( ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2825:1: ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2846:1: ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2846:2: (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2825:1: ( (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2825:2: (lv_composition_0= 'composite' )? 'navigate' (lv_references_2= ruleAssociationRoleReference )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2846:2: (lv_composition_0= 'composite' )?
-            int alt64=2;
-            int LA64_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2825:2: (lv_composition_0= 'composite' )?
+            int alt63=2;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA64_0==42) ) {
-                alt64=1;
+            if ( (LA63_0==42) ) {
+                alt63=1;
             }
-            switch (alt64) {
+            switch (alt63) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2848:6: lv_composition_0= 'composite'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2827:6: lv_composition_0= 'composite'
                     {
                     lv_composition_0=(Token)input.LT(1);
-                    match(input,42,FOLLOW_42_in_ruleNavigationExpression6123); 
+                    match(input,42,FOLLOW_42_in_ruleNavigationExpression6084); 
 
                             createLeafNode(grammarAccess.getNavigationExpressionAccess().getCompositionCompositeKeyword_0_0(), "composition"); 
                         
@@ -6089,17 +6050,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,43,FOLLOW_43_in_ruleNavigationExpression6146); 
+            match(input,43,FOLLOW_43_in_ruleNavigationExpression6107); 
 
                     createLeafNode(grammarAccess.getNavigationExpressionAccess().getNavigateKeyword_1(), null); 
                 
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2871:1: (lv_references_2= ruleAssociationRoleReference )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2874:6: lv_references_2= ruleAssociationRoleReference
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2850:1: (lv_references_2= ruleAssociationRoleReference )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2853:6: lv_references_2= ruleAssociationRoleReference
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getNavigationExpressionAccess().getReferencesAssociationRoleReferenceParserRuleCall_2_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleAssociationRoleReference_in_ruleNavigationExpression6180);
+            pushFollow(FOLLOW_ruleAssociationRoleReference_in_ruleNavigationExpression6141);
             lv_references_2=ruleAssociationRoleReference();
             _fsp--;
 
@@ -6142,7 +6103,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDtoPropertyReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2899:1: entryRuleDtoPropertyReference returns [EObject current=null] : iv_ruleDtoPropertyReference= ruleDtoPropertyReference EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2878:1: entryRuleDtoPropertyReference returns [EObject current=null] : iv_ruleDtoPropertyReference= ruleDtoPropertyReference EOF ;
     public final EObject entryRuleDtoPropertyReference() throws RecognitionException {
         EObject current = null;
 
@@ -6150,16 +6111,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2899:62: (iv_ruleDtoPropertyReference= ruleDtoPropertyReference EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2900:2: iv_ruleDtoPropertyReference= ruleDtoPropertyReference EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2878:62: (iv_ruleDtoPropertyReference= ruleDtoPropertyReference EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2879:2: iv_ruleDtoPropertyReference= ruleDtoPropertyReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDtoPropertyReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDtoPropertyReference_in_entryRuleDtoPropertyReference6217);
+            pushFollow(FOLLOW_ruleDtoPropertyReference_in_entryRuleDtoPropertyReference6178);
             iv_ruleDtoPropertyReference=ruleDtoPropertyReference();
             _fsp--;
 
              current =iv_ruleDtoPropertyReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoPropertyReference6227); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDtoPropertyReference6188); 
 
             }
 
@@ -6177,7 +6138,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDtoPropertyReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2907:1: ruleDtoPropertyReference returns [EObject current=null] : (lv_name_0= RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2886:1: ruleDtoPropertyReference returns [EObject current=null] : (lv_name_0= RULE_ID ) ;
     public final EObject ruleDtoPropertyReference() throws RecognitionException {
         EObject current = null;
 
@@ -6186,14 +6147,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2912:6: ( (lv_name_0= RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2913:1: (lv_name_0= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2891:6: ( (lv_name_0= RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2892:1: (lv_name_0= RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2913:1: (lv_name_0= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2915:6: lv_name_0= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2892:1: (lv_name_0= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2894:6: lv_name_0= RULE_ID
             {
             lv_name_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoPropertyReference6273); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDtoPropertyReference6234); 
 
             		createLeafNode(grammarAccess.getDtoPropertyReferenceAccess().getNameIDTerminalRuleCall_0(), "name"); 
             	
@@ -6232,7 +6193,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAssociationRoleReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2940:1: entryRuleAssociationRoleReference returns [EObject current=null] : iv_ruleAssociationRoleReference= ruleAssociationRoleReference EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2919:1: entryRuleAssociationRoleReference returns [EObject current=null] : iv_ruleAssociationRoleReference= ruleAssociationRoleReference EOF ;
     public final EObject entryRuleAssociationRoleReference() throws RecognitionException {
         EObject current = null;
 
@@ -6240,16 +6201,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2940:66: (iv_ruleAssociationRoleReference= ruleAssociationRoleReference EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2941:2: iv_ruleAssociationRoleReference= ruleAssociationRoleReference EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2919:66: (iv_ruleAssociationRoleReference= ruleAssociationRoleReference EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2920:2: iv_ruleAssociationRoleReference= ruleAssociationRoleReference EOF
             {
              currentNode = createCompositeNode(grammarAccess.getAssociationRoleReferenceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleAssociationRoleReference_in_entryRuleAssociationRoleReference6313);
+            pushFollow(FOLLOW_ruleAssociationRoleReference_in_entryRuleAssociationRoleReference6274);
             iv_ruleAssociationRoleReference=ruleAssociationRoleReference();
             _fsp--;
 
              current =iv_ruleAssociationRoleReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAssociationRoleReference6323); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAssociationRoleReference6284); 
 
             }
 
@@ -6267,7 +6228,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAssociationRoleReference
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2948:1: ruleAssociationRoleReference returns [EObject current=null] : (lv_name_0= RULE_ID ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2927:1: ruleAssociationRoleReference returns [EObject current=null] : (lv_name_0= RULE_ID ) ;
     public final EObject ruleAssociationRoleReference() throws RecognitionException {
         EObject current = null;
 
@@ -6276,14 +6237,14 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2953:6: ( (lv_name_0= RULE_ID ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2954:1: (lv_name_0= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2932:6: ( (lv_name_0= RULE_ID ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2933:1: (lv_name_0= RULE_ID )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2954:1: (lv_name_0= RULE_ID )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2956:6: lv_name_0= RULE_ID
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2933:1: (lv_name_0= RULE_ID )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2935:6: lv_name_0= RULE_ID
             {
             lv_name_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAssociationRoleReference6369); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAssociationRoleReference6330); 
 
             		createLeafNode(grammarAccess.getAssociationRoleReferenceAccess().getNameIDTerminalRuleCall_0(), "name"); 
             	
@@ -6322,7 +6283,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUICall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2981:1: entryRuleUICall returns [EObject current=null] : iv_ruleUICall= ruleUICall EOF ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2960:1: entryRuleUICall returns [EObject current=null] : iv_ruleUICall= ruleUICall EOF ;
     public final EObject entryRuleUICall() throws RecognitionException {
         EObject current = null;
 
@@ -6330,16 +6291,16 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2981:48: (iv_ruleUICall= ruleUICall EOF )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2982:2: iv_ruleUICall= ruleUICall EOF
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2960:48: (iv_ruleUICall= ruleUICall EOF )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2961:2: iv_ruleUICall= ruleUICall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getUICallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleUICall_in_entryRuleUICall6409);
+            pushFollow(FOLLOW_ruleUICall_in_entryRuleUICall6370);
             iv_ruleUICall=ruleUICall();
             _fsp--;
 
              current =iv_ruleUICall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUICall6419); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUICall6380); 
 
             }
 
@@ -6357,7 +6318,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUICall
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2989:1: ruleUICall returns [EObject current=null] : (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2968:1: ruleUICall returns [EObject current=null] : (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) ;
     public final EObject ruleUICall() throws RecognitionException {
         EObject current = null;
 
@@ -6369,76 +6330,76 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2994:6: ( (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2973:6: ( (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
-            int alt65=2;
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )
+            int alt64=2;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                int LA65_1 = input.LA(2);
+                int LA64_1 = input.LA(2);
 
-                if ( (LA65_1==36) ) {
+                if ( (LA64_1==36) ) {
                     switch ( input.LA(3) ) {
                     case 37:
                         {
-                        int LA65_2 = input.LA(4);
+                        int LA64_2 = input.LA(4);
 
-                        if ( (LA65_2==38) ) {
-                            int LA65_12 = input.LA(5);
+                        if ( (LA64_2==38) ) {
+                            int LA64_12 = input.LA(5);
 
-                            if ( (LA65_12==40) ) {
-                                int LA65_16 = input.LA(6);
+                            if ( (LA64_12==40) ) {
+                                int LA64_16 = input.LA(6);
 
-                                if ( (LA65_16==RULE_ID) ) {
-                                    int LA65_18 = input.LA(7);
+                                if ( (LA64_16==RULE_ID) ) {
+                                    int LA64_18 = input.LA(7);
 
-                                    if ( (LA65_18==39) ) {
+                                    if ( (LA64_18==39) ) {
                                         switch ( input.LA(8) ) {
                                         case 19:
                                             {
-                                            int LA65_3 = input.LA(9);
+                                            int LA64_3 = input.LA(9);
 
-                                            if ( (LA65_3==RULE_ID) ) {
-                                                int LA65_13 = input.LA(10);
+                                            if ( (LA64_3==RULE_ID) ) {
+                                                int LA64_13 = input.LA(10);
 
-                                                if ( (LA65_13==41) ) {
-                                                    int LA65_17 = input.LA(11);
+                                                if ( (LA64_13==41) ) {
+                                                    int LA64_17 = input.LA(11);
 
-                                                    if ( (LA65_17==RULE_ID) ) {
-                                                        int LA65_19 = input.LA(12);
+                                                    if ( (LA64_17==RULE_ID) ) {
+                                                        int LA64_19 = input.LA(12);
 
-                                                        if ( (LA65_19==20) ) {
-                                                            alt65=1;
+                                                        if ( (LA64_19==20) ) {
+                                                            alt64=1;
                                                         }
-                                                        else if ( (LA65_19==14) ) {
-                                                            alt65=2;
+                                                        else if ( (LA64_19==14) ) {
+                                                            alt64=2;
                                                         }
                                                         else {
                                                             NoViableAltException nvae =
-                                                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 19, input);
+                                                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 19, input);
 
                                                             throw nvae;
                                                         }
                                                     }
                                                     else {
                                                         NoViableAltException nvae =
-                                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 17, input);
+                                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 17, input);
 
                                                         throw nvae;
                                                     }
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 13, input);
+                                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 13, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 3, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 3, input);
 
                                                 throw nvae;
                                             }
@@ -6446,37 +6407,37 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             break;
                                         case 42:
                                             {
-                                            int LA65_4 = input.LA(9);
+                                            int LA64_4 = input.LA(9);
 
-                                            if ( (LA65_4==43) ) {
-                                                int LA65_5 = input.LA(10);
+                                            if ( (LA64_4==43) ) {
+                                                int LA64_5 = input.LA(10);
 
-                                                if ( (LA65_5==RULE_ID) ) {
-                                                    int LA65_14 = input.LA(11);
+                                                if ( (LA64_5==RULE_ID) ) {
+                                                    int LA64_14 = input.LA(11);
 
-                                                    if ( (LA65_14==14) ) {
-                                                        alt65=2;
+                                                    if ( (LA64_14==20) ) {
+                                                        alt64=1;
                                                     }
-                                                    else if ( (LA65_14==20) ) {
-                                                        alt65=1;
+                                                    else if ( (LA64_14==14) ) {
+                                                        alt64=2;
                                                     }
                                                     else {
                                                         NoViableAltException nvae =
-                                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                                                         throw nvae;
                                                     }
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 4, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 4, input);
 
                                                 throw nvae;
                                             }
@@ -6484,27 +6445,27 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             break;
                                         case 43:
                                             {
-                                            int LA65_5 = input.LA(9);
+                                            int LA64_5 = input.LA(9);
 
-                                            if ( (LA65_5==RULE_ID) ) {
-                                                int LA65_14 = input.LA(10);
+                                            if ( (LA64_5==RULE_ID) ) {
+                                                int LA64_14 = input.LA(10);
 
-                                                if ( (LA65_14==14) ) {
-                                                    alt65=2;
+                                                if ( (LA64_14==20) ) {
+                                                    alt64=1;
                                                 }
-                                                else if ( (LA65_14==20) ) {
-                                                    alt65=1;
+                                                else if ( (LA64_14==14) ) {
+                                                    alt64=2;
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                                                 throw nvae;
                                             }
@@ -6512,17 +6473,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             break;
                                         case 52:
                                             {
-                                            int LA65_6 = input.LA(9);
+                                            int LA64_6 = input.LA(9);
 
-                                            if ( (LA65_6==20) ) {
-                                                alt65=1;
+                                            if ( (LA64_6==20) ) {
+                                                alt64=1;
                                             }
-                                            else if ( (LA65_6==14) ) {
-                                                alt65=2;
+                                            else if ( (LA64_6==14) ) {
+                                                alt64=2;
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 6, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 6, input);
 
                                                 throw nvae;
                                             }
@@ -6530,17 +6491,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             break;
                                         case 53:
                                             {
-                                            int LA65_7 = input.LA(9);
+                                            int LA64_7 = input.LA(9);
 
-                                            if ( (LA65_7==14) ) {
-                                                alt65=2;
+                                            if ( (LA64_7==14) ) {
+                                                alt64=2;
                                             }
-                                            else if ( (LA65_7==20) ) {
-                                                alt65=1;
+                                            else if ( (LA64_7==20) ) {
+                                                alt64=1;
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 7, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 7, input);
 
                                                 throw nvae;
                                             }
@@ -6548,45 +6509,45 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                             break;
                                         case 40:
                                             {
-                                            int LA65_8 = input.LA(9);
+                                            int LA64_8 = input.LA(9);
 
-                                            if ( (LA65_8==RULE_ID) ) {
-                                                int LA65_15 = input.LA(10);
+                                            if ( (LA64_8==RULE_ID) ) {
+                                                int LA64_15 = input.LA(10);
 
-                                                if ( (LA65_15==14) ) {
-                                                    alt65=2;
+                                                if ( (LA64_15==20) ) {
+                                                    alt64=1;
                                                 }
-                                                else if ( (LA65_15==20) ) {
-                                                    alt65=1;
+                                                else if ( (LA64_15==14) ) {
+                                                    alt64=2;
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 15, input);
+                                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 15, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 8, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 8, input);
 
                                                 throw nvae;
                                             }
                                             }
                                             break;
-                                        case 20:
-                                            {
-                                            alt65=1;
-                                            }
-                                            break;
                                         case 14:
                                             {
-                                            alt65=2;
+                                            alt64=2;
+                                            }
+                                            break;
+                                        case 20:
+                                            {
+                                            alt64=1;
                                             }
                                             break;
                                         default:
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 20, input);
+                                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 20, input);
 
                                             throw nvae;
                                         }
@@ -6594,28 +6555,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 18, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 18, input);
 
                                         throw nvae;
                                     }
                                 }
                                 else {
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 16, input);
+                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 16, input);
 
                                     throw nvae;
                                 }
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 12, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 12, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 2, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 2, input);
 
                             throw nvae;
                         }
@@ -6623,47 +6584,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     case 19:
                         {
-                        int LA65_3 = input.LA(4);
+                        int LA64_3 = input.LA(4);
 
-                        if ( (LA65_3==RULE_ID) ) {
-                            int LA65_13 = input.LA(5);
+                        if ( (LA64_3==RULE_ID) ) {
+                            int LA64_13 = input.LA(5);
 
-                            if ( (LA65_13==41) ) {
-                                int LA65_17 = input.LA(6);
+                            if ( (LA64_13==41) ) {
+                                int LA64_17 = input.LA(6);
 
-                                if ( (LA65_17==RULE_ID) ) {
-                                    int LA65_19 = input.LA(7);
+                                if ( (LA64_17==RULE_ID) ) {
+                                    int LA64_19 = input.LA(7);
 
-                                    if ( (LA65_19==20) ) {
-                                        alt65=1;
+                                    if ( (LA64_19==20) ) {
+                                        alt64=1;
                                     }
-                                    else if ( (LA65_19==14) ) {
-                                        alt65=2;
+                                    else if ( (LA64_19==14) ) {
+                                        alt64=2;
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 19, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 19, input);
 
                                         throw nvae;
                                     }
                                 }
                                 else {
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 17, input);
+                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 17, input);
 
                                     throw nvae;
                                 }
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 13, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 13, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 3, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 3, input);
 
                             throw nvae;
                         }
@@ -6671,37 +6632,37 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     case 42:
                         {
-                        int LA65_4 = input.LA(4);
+                        int LA64_4 = input.LA(4);
 
-                        if ( (LA65_4==43) ) {
-                            int LA65_5 = input.LA(5);
+                        if ( (LA64_4==43) ) {
+                            int LA64_5 = input.LA(5);
 
-                            if ( (LA65_5==RULE_ID) ) {
-                                int LA65_14 = input.LA(6);
+                            if ( (LA64_5==RULE_ID) ) {
+                                int LA64_14 = input.LA(6);
 
-                                if ( (LA65_14==14) ) {
-                                    alt65=2;
+                                if ( (LA64_14==20) ) {
+                                    alt64=1;
                                 }
-                                else if ( (LA65_14==20) ) {
-                                    alt65=1;
+                                else if ( (LA64_14==14) ) {
+                                    alt64=2;
                                 }
                                 else {
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                                     throw nvae;
                                 }
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 4, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 4, input);
 
                             throw nvae;
                         }
@@ -6709,27 +6670,27 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     case 43:
                         {
-                        int LA65_5 = input.LA(4);
+                        int LA64_5 = input.LA(4);
 
-                        if ( (LA65_5==RULE_ID) ) {
-                            int LA65_14 = input.LA(5);
+                        if ( (LA64_5==RULE_ID) ) {
+                            int LA64_14 = input.LA(5);
 
-                            if ( (LA65_14==14) ) {
-                                alt65=2;
+                            if ( (LA64_14==20) ) {
+                                alt64=1;
                             }
-                            else if ( (LA65_14==20) ) {
-                                alt65=1;
+                            else if ( (LA64_14==14) ) {
+                                alt64=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                             throw nvae;
                         }
@@ -6737,17 +6698,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     case 52:
                         {
-                        int LA65_6 = input.LA(4);
+                        int LA64_6 = input.LA(4);
 
-                        if ( (LA65_6==20) ) {
-                            alt65=1;
+                        if ( (LA64_6==20) ) {
+                            alt64=1;
                         }
-                        else if ( (LA65_6==14) ) {
-                            alt65=2;
+                        else if ( (LA64_6==14) ) {
+                            alt64=2;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 6, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 6, input);
 
                             throw nvae;
                         }
@@ -6755,17 +6716,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     case 53:
                         {
-                        int LA65_7 = input.LA(4);
+                        int LA64_7 = input.LA(4);
 
-                        if ( (LA65_7==14) ) {
-                            alt65=2;
+                        if ( (LA64_7==14) ) {
+                            alt64=2;
                         }
-                        else if ( (LA65_7==20) ) {
-                            alt65=1;
+                        else if ( (LA64_7==20) ) {
+                            alt64=1;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 7, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 7, input);
 
                             throw nvae;
                         }
@@ -6773,45 +6734,45 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                         break;
                     case 40:
                         {
-                        int LA65_8 = input.LA(4);
+                        int LA64_8 = input.LA(4);
 
-                        if ( (LA65_8==RULE_ID) ) {
-                            int LA65_15 = input.LA(5);
+                        if ( (LA64_8==RULE_ID) ) {
+                            int LA64_15 = input.LA(5);
 
-                            if ( (LA65_15==14) ) {
-                                alt65=2;
+                            if ( (LA64_15==20) ) {
+                                alt64=1;
                             }
-                            else if ( (LA65_15==20) ) {
-                                alt65=1;
+                            else if ( (LA64_15==14) ) {
+                                alt64=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 15, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 15, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 8, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 8, input);
 
                             throw nvae;
                         }
                         }
                         break;
-                    case 14:
-                        {
-                        alt65=2;
-                        }
-                        break;
                     case 20:
                         {
-                        alt65=1;
+                        alt64=1;
+                        }
+                        break;
+                    case 14:
+                        {
+                        alt64=2;
                         }
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 11, input);
+                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 11, input);
 
                         throw nvae;
                     }
@@ -6819,7 +6780,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 1, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 1, input);
 
                     throw nvae;
                 }
@@ -6827,62 +6788,62 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 37:
                 {
-                int LA65_2 = input.LA(2);
+                int LA64_2 = input.LA(2);
 
-                if ( (LA65_2==38) ) {
-                    int LA65_12 = input.LA(3);
+                if ( (LA64_2==38) ) {
+                    int LA64_12 = input.LA(3);
 
-                    if ( (LA65_12==40) ) {
-                        int LA65_16 = input.LA(4);
+                    if ( (LA64_12==40) ) {
+                        int LA64_16 = input.LA(4);
 
-                        if ( (LA65_16==RULE_ID) ) {
-                            int LA65_18 = input.LA(5);
+                        if ( (LA64_16==RULE_ID) ) {
+                            int LA64_18 = input.LA(5);
 
-                            if ( (LA65_18==39) ) {
+                            if ( (LA64_18==39) ) {
                                 switch ( input.LA(6) ) {
                                 case 19:
                                     {
-                                    int LA65_3 = input.LA(7);
+                                    int LA64_3 = input.LA(7);
 
-                                    if ( (LA65_3==RULE_ID) ) {
-                                        int LA65_13 = input.LA(8);
+                                    if ( (LA64_3==RULE_ID) ) {
+                                        int LA64_13 = input.LA(8);
 
-                                        if ( (LA65_13==41) ) {
-                                            int LA65_17 = input.LA(9);
+                                        if ( (LA64_13==41) ) {
+                                            int LA64_17 = input.LA(9);
 
-                                            if ( (LA65_17==RULE_ID) ) {
-                                                int LA65_19 = input.LA(10);
+                                            if ( (LA64_17==RULE_ID) ) {
+                                                int LA64_19 = input.LA(10);
 
-                                                if ( (LA65_19==20) ) {
-                                                    alt65=1;
+                                                if ( (LA64_19==20) ) {
+                                                    alt64=1;
                                                 }
-                                                else if ( (LA65_19==14) ) {
-                                                    alt65=2;
+                                                else if ( (LA64_19==14) ) {
+                                                    alt64=2;
                                                 }
                                                 else {
                                                     NoViableAltException nvae =
-                                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 19, input);
+                                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 19, input);
 
                                                     throw nvae;
                                                 }
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 17, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 17, input);
 
                                                 throw nvae;
                                             }
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 13, input);
+                                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 13, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 3, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 3, input);
 
                                         throw nvae;
                                     }
@@ -6890,37 +6851,37 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     break;
                                 case 42:
                                     {
-                                    int LA65_4 = input.LA(7);
+                                    int LA64_4 = input.LA(7);
 
-                                    if ( (LA65_4==43) ) {
-                                        int LA65_5 = input.LA(8);
+                                    if ( (LA64_4==43) ) {
+                                        int LA64_5 = input.LA(8);
 
-                                        if ( (LA65_5==RULE_ID) ) {
-                                            int LA65_14 = input.LA(9);
+                                        if ( (LA64_5==RULE_ID) ) {
+                                            int LA64_14 = input.LA(9);
 
-                                            if ( (LA65_14==14) ) {
-                                                alt65=2;
+                                            if ( (LA64_14==20) ) {
+                                                alt64=1;
                                             }
-                                            else if ( (LA65_14==20) ) {
-                                                alt65=1;
+                                            else if ( (LA64_14==14) ) {
+                                                alt64=2;
                                             }
                                             else {
                                                 NoViableAltException nvae =
-                                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                                                 throw nvae;
                                             }
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 4, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 4, input);
 
                                         throw nvae;
                                     }
@@ -6928,27 +6889,27 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     break;
                                 case 43:
                                     {
-                                    int LA65_5 = input.LA(7);
+                                    int LA64_5 = input.LA(7);
 
-                                    if ( (LA65_5==RULE_ID) ) {
-                                        int LA65_14 = input.LA(8);
+                                    if ( (LA64_5==RULE_ID) ) {
+                                        int LA64_14 = input.LA(8);
 
-                                        if ( (LA65_14==14) ) {
-                                            alt65=2;
+                                        if ( (LA64_14==20) ) {
+                                            alt64=1;
                                         }
-                                        else if ( (LA65_14==20) ) {
-                                            alt65=1;
+                                        else if ( (LA64_14==14) ) {
+                                            alt64=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                                         throw nvae;
                                     }
@@ -6956,17 +6917,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     break;
                                 case 52:
                                     {
-                                    int LA65_6 = input.LA(7);
+                                    int LA64_6 = input.LA(7);
 
-                                    if ( (LA65_6==20) ) {
-                                        alt65=1;
+                                    if ( (LA64_6==20) ) {
+                                        alt64=1;
                                     }
-                                    else if ( (LA65_6==14) ) {
-                                        alt65=2;
+                                    else if ( (LA64_6==14) ) {
+                                        alt64=2;
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 6, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 6, input);
 
                                         throw nvae;
                                     }
@@ -6974,17 +6935,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     break;
                                 case 53:
                                     {
-                                    int LA65_7 = input.LA(7);
+                                    int LA64_7 = input.LA(7);
 
-                                    if ( (LA65_7==14) ) {
-                                        alt65=2;
+                                    if ( (LA64_7==14) ) {
+                                        alt64=2;
                                     }
-                                    else if ( (LA65_7==20) ) {
-                                        alt65=1;
+                                    else if ( (LA64_7==20) ) {
+                                        alt64=1;
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 7, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 7, input);
 
                                         throw nvae;
                                     }
@@ -6992,45 +6953,45 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                                     break;
                                 case 40:
                                     {
-                                    int LA65_8 = input.LA(7);
+                                    int LA64_8 = input.LA(7);
 
-                                    if ( (LA65_8==RULE_ID) ) {
-                                        int LA65_15 = input.LA(8);
+                                    if ( (LA64_8==RULE_ID) ) {
+                                        int LA64_15 = input.LA(8);
 
-                                        if ( (LA65_15==14) ) {
-                                            alt65=2;
+                                        if ( (LA64_15==20) ) {
+                                            alt64=1;
                                         }
-                                        else if ( (LA65_15==20) ) {
-                                            alt65=1;
+                                        else if ( (LA64_15==14) ) {
+                                            alt64=2;
                                         }
                                         else {
                                             NoViableAltException nvae =
-                                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 15, input);
+                                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 15, input);
 
                                             throw nvae;
                                         }
                                     }
                                     else {
                                         NoViableAltException nvae =
-                                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 8, input);
+                                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 8, input);
 
                                         throw nvae;
                                     }
                                     }
                                     break;
-                                case 20:
-                                    {
-                                    alt65=1;
-                                    }
-                                    break;
                                 case 14:
                                     {
-                                    alt65=2;
+                                    alt64=2;
+                                    }
+                                    break;
+                                case 20:
+                                    {
+                                    alt64=1;
                                     }
                                     break;
                                 default:
                                     NoViableAltException nvae =
-                                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 20, input);
+                                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 20, input);
 
                                     throw nvae;
                                 }
@@ -7038,28 +6999,28 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 18, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 18, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 16, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 16, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 12, input);
+                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 12, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 2, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 2, input);
 
                     throw nvae;
                 }
@@ -7067,47 +7028,47 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 19:
                 {
-                int LA65_3 = input.LA(2);
+                int LA64_3 = input.LA(2);
 
-                if ( (LA65_3==RULE_ID) ) {
-                    int LA65_13 = input.LA(3);
+                if ( (LA64_3==RULE_ID) ) {
+                    int LA64_13 = input.LA(3);
 
-                    if ( (LA65_13==41) ) {
-                        int LA65_17 = input.LA(4);
+                    if ( (LA64_13==41) ) {
+                        int LA64_17 = input.LA(4);
 
-                        if ( (LA65_17==RULE_ID) ) {
-                            int LA65_19 = input.LA(5);
+                        if ( (LA64_17==RULE_ID) ) {
+                            int LA64_19 = input.LA(5);
 
-                            if ( (LA65_19==20) ) {
-                                alt65=1;
+                            if ( (LA64_19==20) ) {
+                                alt64=1;
                             }
-                            else if ( (LA65_19==14) ) {
-                                alt65=2;
+                            else if ( (LA64_19==14) ) {
+                                alt64=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 19, input);
+                                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 19, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 17, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 17, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 13, input);
+                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 13, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 3, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 3, input);
 
                     throw nvae;
                 }
@@ -7115,37 +7076,37 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 42:
                 {
-                int LA65_4 = input.LA(2);
+                int LA64_4 = input.LA(2);
 
-                if ( (LA65_4==43) ) {
-                    int LA65_5 = input.LA(3);
+                if ( (LA64_4==43) ) {
+                    int LA64_5 = input.LA(3);
 
-                    if ( (LA65_5==RULE_ID) ) {
-                        int LA65_14 = input.LA(4);
+                    if ( (LA64_5==RULE_ID) ) {
+                        int LA64_14 = input.LA(4);
 
-                        if ( (LA65_14==14) ) {
-                            alt65=2;
+                        if ( (LA64_14==20) ) {
+                            alt64=1;
                         }
-                        else if ( (LA65_14==20) ) {
-                            alt65=1;
+                        else if ( (LA64_14==14) ) {
+                            alt64=2;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                                new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 4, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 4, input);
 
                     throw nvae;
                 }
@@ -7153,27 +7114,27 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 43:
                 {
-                int LA65_5 = input.LA(2);
+                int LA64_5 = input.LA(2);
 
-                if ( (LA65_5==RULE_ID) ) {
-                    int LA65_14 = input.LA(3);
+                if ( (LA64_5==RULE_ID) ) {
+                    int LA64_14 = input.LA(3);
 
-                    if ( (LA65_14==14) ) {
-                        alt65=2;
+                    if ( (LA64_14==20) ) {
+                        alt64=1;
                     }
-                    else if ( (LA65_14==20) ) {
-                        alt65=1;
+                    else if ( (LA64_14==14) ) {
+                        alt64=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 14, input);
+                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 14, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 5, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 5, input);
 
                     throw nvae;
                 }
@@ -7181,17 +7142,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 52:
                 {
-                int LA65_6 = input.LA(2);
+                int LA64_6 = input.LA(2);
 
-                if ( (LA65_6==20) ) {
-                    alt65=1;
+                if ( (LA64_6==20) ) {
+                    alt64=1;
                 }
-                else if ( (LA65_6==14) ) {
-                    alt65=2;
+                else if ( (LA64_6==14) ) {
+                    alt64=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 6, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 6, input);
 
                     throw nvae;
                 }
@@ -7199,17 +7160,17 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 53:
                 {
-                int LA65_7 = input.LA(2);
+                int LA64_7 = input.LA(2);
 
-                if ( (LA65_7==14) ) {
-                    alt65=2;
+                if ( (LA64_7==14) ) {
+                    alt64=2;
                 }
-                else if ( (LA65_7==20) ) {
-                    alt65=1;
+                else if ( (LA64_7==20) ) {
+                    alt64=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 7, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 7, input);
 
                     throw nvae;
                 }
@@ -7217,27 +7178,27 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 40:
                 {
-                int LA65_8 = input.LA(2);
+                int LA64_8 = input.LA(2);
 
-                if ( (LA65_8==RULE_ID) ) {
-                    int LA65_15 = input.LA(3);
+                if ( (LA64_8==RULE_ID) ) {
+                    int LA64_15 = input.LA(3);
 
-                    if ( (LA65_15==14) ) {
-                        alt65=2;
+                    if ( (LA64_15==20) ) {
+                        alt64=1;
                     }
-                    else if ( (LA65_15==20) ) {
-                        alt65=1;
+                    else if ( (LA64_15==14) ) {
+                        alt64=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 15, input);
+                            new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 15, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 8, input);
+                        new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 8, input);
 
                     throw nvae;
                 }
@@ -7245,29 +7206,29 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                 break;
             case 20:
                 {
-                alt65=1;
+                alt64=1;
                 }
                 break;
             case 14:
                 {
-                alt65=2;
+                alt64=2;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("2995:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 65, 0, input);
+                    new NoViableAltException("2974:1: (this_DialogueCall_0= ruleDialogueCall | this_ProcessCall_1= ruleProcessCall )", 64, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt65) {
+            switch (alt64) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2996:5: this_DialogueCall_0= ruleDialogueCall
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2975:5: this_DialogueCall_0= ruleDialogueCall
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getUICallAccess().getDialogueCallParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDialogueCall_in_ruleUICall6466);
+                    pushFollow(FOLLOW_ruleDialogueCall_in_ruleUICall6427);
                     this_DialogueCall_0=ruleDialogueCall();
                     _fsp--;
 
@@ -7279,12 +7240,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3006:5: this_ProcessCall_1= ruleProcessCall
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:2985:5: this_ProcessCall_1= ruleProcessCall
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getUICallAccess().getProcessCallParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleProcessCall_in_ruleUICall6493);
+                    pushFollow(FOLLOW_ruleProcessCall_in_ruleUICall6454);
                     this_ProcessCall_1=ruleProcessCall();
                     _fsp--;
 
@@ -7318,68 +7279,68 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleProcessType
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3021:1: ruleProcessType returns [Enumerator current=null] : ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3000:1: ruleProcessType returns [Enumerator current=null] : ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) ;
     public final Enumerator ruleProcessType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3025:6: ( ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3026:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3004:6: ( ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3005:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3026:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
-            int alt66=7;
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3005:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )
+            int alt65=7;
             switch ( input.LA(1) ) {
             case 44:
                 {
-                alt66=1;
+                alt65=1;
                 }
                 break;
             case 45:
                 {
-                alt66=2;
+                alt65=2;
                 }
                 break;
             case 46:
                 {
-                alt66=3;
+                alt65=3;
                 }
                 break;
             case 47:
                 {
-                alt66=4;
+                alt65=4;
                 }
                 break;
             case 48:
                 {
-                alt66=5;
+                alt65=5;
                 }
                 break;
             case 49:
                 {
-                alt66=6;
+                alt65=6;
                 }
                 break;
             case 50:
                 {
-                alt66=7;
+                alt65=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("3026:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )", 66, 0, input);
+                    new NoViableAltException("3005:1: ( ( 'new' ) | ( 'save' ) | ( 'edit' ) | ( 'delete' ) | ( 'cancel' ) | ( 'removefrom' ) | ( 'addto' ) )", 65, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt66) {
+            switch (alt65) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3026:2: ( 'new' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3005:2: ( 'new' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3026:2: ( 'new' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3026:4: 'new'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3005:2: ( 'new' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3005:4: 'new'
                     {
-                    match(input,44,FOLLOW_44_in_ruleProcessType6539); 
+                    match(input,44,FOLLOW_44_in_ruleProcessType6500); 
 
                             current = grammarAccess.getProcessTypeAccess().getNEWEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getNEWEnumLiteralDeclaration_0(), null); 
@@ -7391,12 +7352,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3032:6: ( 'save' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3011:6: ( 'save' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3032:6: ( 'save' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3032:8: 'save'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3011:6: ( 'save' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3011:8: 'save'
                     {
-                    match(input,45,FOLLOW_45_in_ruleProcessType6554); 
+                    match(input,45,FOLLOW_45_in_ruleProcessType6515); 
 
                             current = grammarAccess.getProcessTypeAccess().getSAVEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getSAVEEnumLiteralDeclaration_1(), null); 
@@ -7408,12 +7369,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3038:6: ( 'edit' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3017:6: ( 'edit' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3038:6: ( 'edit' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3038:8: 'edit'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3017:6: ( 'edit' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3017:8: 'edit'
                     {
-                    match(input,46,FOLLOW_46_in_ruleProcessType6569); 
+                    match(input,46,FOLLOW_46_in_ruleProcessType6530); 
 
                             current = grammarAccess.getProcessTypeAccess().getEDITEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getEDITEnumLiteralDeclaration_2(), null); 
@@ -7425,12 +7386,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3044:6: ( 'delete' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3023:6: ( 'delete' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3044:6: ( 'delete' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3044:8: 'delete'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3023:6: ( 'delete' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3023:8: 'delete'
                     {
-                    match(input,47,FOLLOW_47_in_ruleProcessType6584); 
+                    match(input,47,FOLLOW_47_in_ruleProcessType6545); 
 
                             current = grammarAccess.getProcessTypeAccess().getDELETEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getDELETEEnumLiteralDeclaration_3(), null); 
@@ -7442,12 +7403,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3050:6: ( 'cancel' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3029:6: ( 'cancel' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3050:6: ( 'cancel' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3050:8: 'cancel'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3029:6: ( 'cancel' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3029:8: 'cancel'
                     {
-                    match(input,48,FOLLOW_48_in_ruleProcessType6599); 
+                    match(input,48,FOLLOW_48_in_ruleProcessType6560); 
 
                             current = grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getCANCELEnumLiteralDeclaration_4(), null); 
@@ -7459,12 +7420,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3056:6: ( 'removefrom' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3035:6: ( 'removefrom' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3056:6: ( 'removefrom' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3056:8: 'removefrom'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3035:6: ( 'removefrom' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3035:8: 'removefrom'
                     {
-                    match(input,49,FOLLOW_49_in_ruleProcessType6614); 
+                    match(input,49,FOLLOW_49_in_ruleProcessType6575); 
 
                             current = grammarAccess.getProcessTypeAccess().getREMOVEFROMEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getREMOVEFROMEnumLiteralDeclaration_5(), null); 
@@ -7476,12 +7437,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3062:6: ( 'addto' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3041:6: ( 'addto' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3062:6: ( 'addto' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3062:8: 'addto'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3041:6: ( 'addto' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3041:8: 'addto'
                     {
-                    match(input,50,FOLLOW_50_in_ruleProcessType6629); 
+                    match(input,50,FOLLOW_50_in_ruleProcessType6590); 
 
                             current = grammarAccess.getProcessTypeAccess().getADDTOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getProcessTypeAccess().getADDTOEnumLiteralDeclaration_6(), null); 
@@ -7515,19 +7476,19 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleProcessTypeLink
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3072:1: ruleProcessTypeLink returns [Enumerator current=null] : ( 'link' ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3051:1: ruleProcessTypeLink returns [Enumerator current=null] : ( 'link' ) ;
     public final Enumerator ruleProcessTypeLink() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3076:6: ( ( 'link' ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3077:1: ( 'link' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3055:6: ( ( 'link' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3056:1: ( 'link' )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3077:1: ( 'link' )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3077:3: 'link'
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3056:1: ( 'link' )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3056:3: 'link'
             {
-            match(input,51,FOLLOW_51_in_ruleProcessTypeLink6671); 
+            match(input,51,FOLLOW_51_in_ruleProcessTypeLink6632); 
 
                     current = grammarAccess.getProcessTypeLinkAccess().getLINKEnumLiteralDeclaration().getEnumLiteral().getInstance();
                     createLeafNode(grammarAccess.getProcessTypeLinkAccess().getLINKEnumLiteralDeclaration(), null); 
@@ -7555,39 +7516,39 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExpressionType
-    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3087:1: ruleExpressionType returns [Enumerator current=null] : ( ( 'all' ) | ( 'find' ) ) ;
+    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3066:1: ruleExpressionType returns [Enumerator current=null] : ( ( 'all' ) | ( 'find' ) ) ;
     public final Enumerator ruleExpressionType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3091:6: ( ( ( 'all' ) | ( 'find' ) ) )
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3092:1: ( ( 'all' ) | ( 'find' ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3070:6: ( ( ( 'all' ) | ( 'find' ) ) )
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3071:1: ( ( 'all' ) | ( 'find' ) )
             {
-            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3092:1: ( ( 'all' ) | ( 'find' ) )
-            int alt67=2;
-            int LA67_0 = input.LA(1);
+            // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3071:1: ( ( 'all' ) | ( 'find' ) )
+            int alt66=2;
+            int LA66_0 = input.LA(1);
 
-            if ( (LA67_0==52) ) {
-                alt67=1;
+            if ( (LA66_0==52) ) {
+                alt66=1;
             }
-            else if ( (LA67_0==53) ) {
-                alt67=2;
+            else if ( (LA66_0==53) ) {
+                alt66=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("3092:1: ( ( 'all' ) | ( 'find' ) )", 67, 0, input);
+                    new NoViableAltException("3071:1: ( ( 'all' ) | ( 'find' ) )", 66, 0, input);
 
                 throw nvae;
             }
-            switch (alt67) {
+            switch (alt66) {
                 case 1 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3092:2: ( 'all' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3071:2: ( 'all' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3092:2: ( 'all' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3092:4: 'all'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3071:2: ( 'all' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3071:4: 'all'
                     {
-                    match(input,52,FOLLOW_52_in_ruleExpressionType6713); 
+                    match(input,52,FOLLOW_52_in_ruleExpressionType6674); 
 
                             current = grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getExpressionTypeAccess().getALLEnumLiteralDeclaration_0(), null); 
@@ -7599,12 +7560,12 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3098:6: ( 'find' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3077:6: ( 'find' )
                     {
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3098:6: ( 'find' )
-                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3098:8: 'find'
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3077:6: ( 'find' )
+                    // ../org.mod4j.dsl.presentation.xtext/src-gen/org/mod4j/dsl/presentation/xtext/parser/antlr/internal/InternalPresentation.g:3077:8: 'find'
                     {
-                    match(input,53,FOLLOW_53_in_ruleExpressionType6728); 
+                    match(input,53,FOLLOW_53_in_ruleExpressionType6689); 
 
                             current = grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getExpressionTypeAccess().getFINDEnumLiteralDeclaration_1(), null); 
@@ -7650,7 +7611,7 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleApplicationModel286 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleApplicationModel303 = new BitSet(new long[]{0x0000000000002800L});
     public static final BitSet FOLLOW_ruleProcessReference_in_ruleApplicationModel337 = new BitSet(new long[]{0x0000000000002800L});
-    public static final BitSet FOLLOW_ruleApplication_in_ruleApplicationModel376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMenu_in_ruleApplicationModel376 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProcessReference_in_entryRuleProcessReference413 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProcessReference423 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_13_in_ruleProcessReference457 = new BitSet(new long[]{0x0000000000000020L});
@@ -7663,262 +7624,261 @@ public class InternalPresentationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleFormsAndProcesses625 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleFormsAndProcesses643 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleFormsAndProcesses665 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleFormsAndProcesses682 = new BitSet(new long[]{0x00000001A0106812L});
-    public static final BitSet FOLLOW_ruleExternalReference_in_ruleFormsAndProcesses716 = new BitSet(new long[]{0x00000001A0106812L});
-    public static final BitSet FOLLOW_ruleApplication_in_ruleFormsAndProcesses755 = new BitSet(new long[]{0x00000001A0104012L});
-    public static final BitSet FOLLOW_ruleModelElementWithContext_in_ruleFormsAndProcesses794 = new BitSet(new long[]{0x00000001A0104012L});
-    public static final BitSet FOLLOW_ruleApplication_in_entryRuleApplication832 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleApplication842 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_ruleApplication876 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleApplication885 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_ruleApplication919 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleApplication932 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_ruleApplication967 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleApplication980 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_17_in_ruleApplication991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalReference_in_entryRuleExternalReference1024 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExternalReference1034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoReference_in_ruleExternalReference1081 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessReference_in_ruleExternalReference1108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueReference_in_ruleExternalReference1135 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceReference_in_ruleExternalReference1162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoReference_in_entryRuleDtoReference1194 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoReference1204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleDtoReference1238 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoReference1260 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleDtoReference1277 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoReference1299 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDtoReference1316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceReference_in_entryRuleServiceReference1349 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceReference1359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleServiceReference1393 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceReference1415 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleServiceReference1432 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceReference1454 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleServiceReference1471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueReference_in_entryRuleDialogueReference1504 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDialogueReference1514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleDialogueReference1548 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueReference1570 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleDialogueReference1587 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueReference1609 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleDialogueReference1626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModelElementWithContext_in_entryRuleModelElementWithContext1659 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModelElementWithContext1669 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUIModelElement_in_ruleModelElementWithContext1715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUIModelElement_in_entryRuleUIModelElement1746 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUIModelElement1756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogue_in_ruleUIModelElement1803 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcess_in_ruleUIModelElement1830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogue_in_entryRuleDialogue1862 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDialogue1872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleContentForm_in_ruleDialogue1919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompoundDialogue_in_ruleDialogue1946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleContentForm_in_entryRuleContentForm1978 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleContentForm1988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleContentForm2035 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleContentForm2053 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleContentForm2075 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleContentForm2092 = new BitSet(new long[]{0x0000000000400020L});
-    public static final BitSet FOLLOW_22_in_ruleContentForm2113 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleContentForm2149 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleContentForm2161 = new BitSet(new long[]{0x000000080C820010L});
-    public static final BitSet FOLLOW_23_in_ruleContentForm2171 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_24_in_ruleContentForm2193 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_25_in_ruleContentForm2221 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleContentForm2231 = new BitSet(new long[]{0x000000080C020010L});
-    public static final BitSet FOLLOW_ruleFormElement_in_ruleContentForm2267 = new BitSet(new long[]{0x000000080C020010L});
-    public static final BitSet FOLLOW_26_in_ruleContentForm2282 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleContentForm2291 = new BitSet(new long[]{0x0007F00000020030L});
-    public static final BitSet FOLLOW_ruleAction_in_ruleContentForm2326 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleContentForm2339 = new BitSet(new long[]{0x0007F00000020030L});
-    public static final BitSet FOLLOW_17_in_ruleContentForm2350 = new BitSet(new long[]{0x0000000008020000L});
-    public static final BitSet FOLLOW_27_in_ruleContentForm2362 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleContentForm2371 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_ruleContentForm2406 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleContentForm2419 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_17_in_ruleContentForm2430 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleContentForm2441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAction_in_entryRuleAction2474 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAction2484 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleAction2531 = new BitSet(new long[]{0x0007F00000000020L});
-    public static final BitSet FOLLOW_ruleProcessType_in_ruleAction2574 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAction2601 = new BitSet(new long[]{0x00300D0010180002L});
-    public static final BitSet FOLLOW_28_in_ruleAction2619 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleAction2641 = new BitSet(new long[]{0x00300D0000180002L});
-    public static final BitSet FOLLOW_ruleActionDialogueCall_in_ruleAction2685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompoundDialogue_in_entryRuleCompoundDialogue2723 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompoundDialogue2733 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCompoundDialogue2781 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleCompoundDialogue2799 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCompoundDialogue2821 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleCompoundDialogue2838 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCompoundDialogue2860 = new BitSet(new long[]{0x0000000048800002L});
-    public static final BitSet FOLLOW_23_in_ruleCompoundDialogue2873 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_24_in_ruleCompoundDialogue2895 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_25_in_ruleCompoundDialogue2923 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue2933 = new BitSet(new long[]{0x0000000048000002L});
-    public static final BitSet FOLLOW_30_in_ruleCompoundDialogue2945 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleCompoundDialogue2954 = new BitSet(new long[]{0x00300D20001A0010L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleCompoundDialogue2989 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue3002 = new BitSet(new long[]{0x00300D20001A0010L});
-    public static final BitSet FOLLOW_17_in_ruleCompoundDialogue3013 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_27_in_ruleCompoundDialogue3025 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleCompoundDialogue3034 = new BitSet(new long[]{0x00300D20000A4010L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_ruleCompoundDialogue3069 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue3082 = new BitSet(new long[]{0x00300D20000A4010L});
-    public static final BitSet FOLLOW_17_in_ruleCompoundDialogue3093 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCollectionDialogue_in_ruleCompoundDialogue3124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMasterDetail_in_ruleCompoundDialogue3151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCollectionDialogue_in_entryRuleCollectionDialogue3183 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCollectionDialogue3193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCollectionDialogue3240 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleCollectionDialogue3258 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCollectionDialogue3280 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleCollectionDialogue3297 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCollectionDialogue3319 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleCollectionDialogue3331 = new BitSet(new long[]{0x0000000048820000L});
-    public static final BitSet FOLLOW_23_in_ruleCollectionDialogue3341 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_24_in_ruleCollectionDialogue3363 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_25_in_ruleCollectionDialogue3391 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue3401 = new BitSet(new long[]{0x0000000048020000L});
-    public static final BitSet FOLLOW_30_in_ruleCollectionDialogue3413 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleCollectionDialogue3422 = new BitSet(new long[]{0x00300D20001A0010L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleCollectionDialogue3457 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue3470 = new BitSet(new long[]{0x00300D20001A0010L});
-    public static final BitSet FOLLOW_17_in_ruleCollectionDialogue3481 = new BitSet(new long[]{0x0000000008020000L});
-    public static final BitSet FOLLOW_27_in_ruleCollectionDialogue3493 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleCollectionDialogue3502 = new BitSet(new long[]{0x00300D20000A4010L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_ruleCollectionDialogue3537 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue3550 = new BitSet(new long[]{0x00300D20000A4010L});
-    public static final BitSet FOLLOW_17_in_ruleCollectionDialogue3561 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleCollectionDialogue3572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMasterDetail_in_entryRuleMasterDetail3605 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMasterDetail3615 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleMasterDetail3662 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleMasterDetail3680 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMasterDetail3702 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleMasterDetail3719 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMasterDetail3741 = new BitSet(new long[]{0x0000000200800000L});
-    public static final BitSet FOLLOW_23_in_ruleMasterDetail3754 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_24_in_ruleMasterDetail3776 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_25_in_ruleMasterDetail3804 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleMasterDetail3814 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleMasterDetail3825 = new BitSet(new long[]{0x00300D2000180010L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleMasterDetail3859 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleMasterDetail3872 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleMasterDetail3881 = new BitSet(new long[]{0x00300D2000180010L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleMasterDetail3915 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleMasterDetail3928 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_27_in_ruleMasterDetail3938 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleMasterDetail3947 = new BitSet(new long[]{0x00300D20000A4010L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_ruleMasterDetail3982 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleMasterDetail3995 = new BitSet(new long[]{0x00300D20000A4010L});
-    public static final BitSet FOLLOW_17_in_ruleMasterDetail4006 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcess_in_entryRuleProcess4041 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProcess4051 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleProcess4098 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleProcess4116 = new BitSet(new long[]{0x000FF00000000020L});
-    public static final BitSet FOLLOW_ruleProcessType_in_ruleProcess4151 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleProcessTypeLink_in_ruleProcess4196 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_ruleProcess4234 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProcess4263 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleProcess4280 = new BitSet(new long[]{0x0000000000400020L});
-    public static final BitSet FOLLOW_22_in_ruleProcess4301 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProcess4337 = new BitSet(new long[]{0x0000000000011000L});
-    public static final BitSet FOLLOW_12_in_ruleProcess4350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleProcess4366 = new BitSet(new long[]{0x00300D20001A4010L});
-    public static final BitSet FOLLOW_ruleUICall_in_ruleProcess4401 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleProcess4414 = new BitSet(new long[]{0x00300D20001A4010L});
-    public static final BitSet FOLLOW_17_in_ruleProcess4425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormElement_in_entryRuleFormElement4460 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormElement4470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleFormElement4517 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleFormElement4535 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleDtoPropertyReference_in_ruleFormElement4569 = new BitSet(new long[]{0x0000000010801000L});
-    public static final BitSet FOLLOW_28_in_ruleFormElement4583 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleFormElement4605 = new BitSet(new long[]{0x0000000000801000L});
-    public static final BitSet FOLLOW_23_in_ruleFormElement4625 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_24_in_ruleFormElement4647 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_25_in_ruleFormElement4675 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleFormElement4687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleActionDialogueCall_in_entryRuleActionDialogueCall4720 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleActionDialogueCall4730 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleActionDialogueCall4789 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleActionDialogueCall4803 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleActionDialogueCall4825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_entryRuleDialogueCall4861 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDialogueCall4871 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDialogueCall4919 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleDialogueCall4936 = new BitSet(new long[]{0x00300D2000180000L});
-    public static final BitSet FOLLOW_37_in_ruleDialogueCall4948 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleDialogueCall4957 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_ruleOperationExpression_in_ruleDialogueCall4991 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleDialogueCall5004 = new BitSet(new long[]{0x00300D0000180000L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleDialogueCall5040 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleDialogueCall5054 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueCall5076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression5112 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression5122 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceExpression_in_ruleExpression5169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNavigationExpression_in_ruleExpression5196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStandardExpression_in_ruleExpression5223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOperationExpression_in_ruleExpression5250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_entryRuleProcessCall5282 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProcessCall5292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleProcessCall5340 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleProcessCall5357 = new BitSet(new long[]{0x00300D2000084000L});
-    public static final BitSet FOLLOW_37_in_ruleProcessCall5369 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleProcessCall5378 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_ruleOperationExpression_in_ruleProcessCall5412 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleProcessCall5425 = new BitSet(new long[]{0x00300D0000084000L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleProcessCall5461 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleProcessCall5475 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProcessCall5497 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_28_in_ruleProcessCall5510 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProcessCall5532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOperationExpression_in_entryRuleOperationExpression5575 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOperationExpression5585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleOperationExpression5619 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleOperationExpression5641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_entryRuleSimpleProcessCall5682 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleProcessCall5692 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSimpleProcessCall5739 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_28_in_ruleSimpleProcessCall5752 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleProcessCall5774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStandardExpression_in_entryRuleStandardExpression5817 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStandardExpression5827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpressionType_in_ruleStandardExpression5885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceExpression_in_entryRuleServiceExpression5921 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceExpression5931 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleServiceExpression5965 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceExpression5987 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleServiceExpression6004 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceExpression6026 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNavigationExpression_in_entryRuleNavigationExpression6067 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNavigationExpression6077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleNavigationExpression6123 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_ruleNavigationExpression6146 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_ruleNavigationExpression6180 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDtoPropertyReference_in_entryRuleDtoPropertyReference6217 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDtoPropertyReference6227 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoPropertyReference6273 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_entryRuleAssociationRoleReference6313 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAssociationRoleReference6323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAssociationRoleReference6369 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUICall_in_entryRuleUICall6409 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUICall6419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleUICall6466 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessCall_in_ruleUICall6493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleProcessType6539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleProcessType6554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleProcessType6569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleProcessType6584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleProcessType6599 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleProcessType6614 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleProcessType6629 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleProcessTypeLink6671 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleExpressionType6713 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleExpressionType6728 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleFormsAndProcesses682 = new BitSet(new long[]{0x00000001A0106012L});
+    public static final BitSet FOLLOW_ruleExternalReference_in_ruleFormsAndProcesses716 = new BitSet(new long[]{0x00000001A0106012L});
+    public static final BitSet FOLLOW_ruleModelElementWithContext_in_ruleFormsAndProcesses755 = new BitSet(new long[]{0x00000001A0104012L});
+    public static final BitSet FOLLOW_ruleMenu_in_entryRuleMenu793 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMenu803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_ruleMenu837 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleMenu846 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_ruleMenu880 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleMenu893 = new BitSet(new long[]{0x0000000000020020L});
+    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_ruleMenu928 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleMenu941 = new BitSet(new long[]{0x0000000000020020L});
+    public static final BitSet FOLLOW_17_in_ruleMenu952 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalReference_in_entryRuleExternalReference985 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExternalReference995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoReference_in_ruleExternalReference1042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessReference_in_ruleExternalReference1069 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueReference_in_ruleExternalReference1096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceReference_in_ruleExternalReference1123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoReference_in_entryRuleDtoReference1155 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoReference1165 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_ruleDtoReference1199 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoReference1221 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleDtoReference1238 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoReference1260 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleDtoReference1277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceReference_in_entryRuleServiceReference1310 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceReference1320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_ruleServiceReference1354 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceReference1376 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleServiceReference1393 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceReference1415 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleServiceReference1432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueReference_in_entryRuleDialogueReference1465 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDialogueReference1475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_ruleDialogueReference1509 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueReference1531 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleDialogueReference1548 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueReference1570 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleDialogueReference1587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModelElementWithContext_in_entryRuleModelElementWithContext1620 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModelElementWithContext1630 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUIModelElement_in_ruleModelElementWithContext1676 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUIModelElement_in_entryRuleUIModelElement1707 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUIModelElement1717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogue_in_ruleUIModelElement1764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcess_in_ruleUIModelElement1791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogue_in_entryRuleDialogue1823 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDialogue1833 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleContentForm_in_ruleDialogue1880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompoundDialogue_in_ruleDialogue1907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleContentForm_in_entryRuleContentForm1939 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleContentForm1949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleContentForm1996 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleContentForm2014 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleContentForm2036 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleContentForm2053 = new BitSet(new long[]{0x0000000000400020L});
+    public static final BitSet FOLLOW_22_in_ruleContentForm2074 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleContentForm2110 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleContentForm2122 = new BitSet(new long[]{0x000000080C820010L});
+    public static final BitSet FOLLOW_23_in_ruleContentForm2132 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_24_in_ruleContentForm2154 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_25_in_ruleContentForm2182 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleContentForm2192 = new BitSet(new long[]{0x000000080C020010L});
+    public static final BitSet FOLLOW_ruleFormElement_in_ruleContentForm2228 = new BitSet(new long[]{0x000000080C020010L});
+    public static final BitSet FOLLOW_26_in_ruleContentForm2243 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleContentForm2252 = new BitSet(new long[]{0x0007F00000020030L});
+    public static final BitSet FOLLOW_ruleAction_in_ruleContentForm2287 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleContentForm2300 = new BitSet(new long[]{0x0007F00000020030L});
+    public static final BitSet FOLLOW_17_in_ruleContentForm2311 = new BitSet(new long[]{0x0000000008020000L});
+    public static final BitSet FOLLOW_27_in_ruleContentForm2323 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleContentForm2332 = new BitSet(new long[]{0x0000000000020020L});
+    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_ruleContentForm2367 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleContentForm2380 = new BitSet(new long[]{0x0000000000020020L});
+    public static final BitSet FOLLOW_17_in_ruleContentForm2391 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleContentForm2402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAction_in_entryRuleAction2435 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAction2445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleAction2492 = new BitSet(new long[]{0x0007F00000000020L});
+    public static final BitSet FOLLOW_ruleProcessType_in_ruleAction2535 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAction2562 = new BitSet(new long[]{0x00300D0010180002L});
+    public static final BitSet FOLLOW_28_in_ruleAction2580 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleAction2602 = new BitSet(new long[]{0x00300D0000180002L});
+    public static final BitSet FOLLOW_ruleActionDialogueCall_in_ruleAction2646 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompoundDialogue_in_entryRuleCompoundDialogue2684 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCompoundDialogue2694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCompoundDialogue2742 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_ruleCompoundDialogue2760 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCompoundDialogue2782 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleCompoundDialogue2799 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCompoundDialogue2821 = new BitSet(new long[]{0x0000000048800002L});
+    public static final BitSet FOLLOW_23_in_ruleCompoundDialogue2834 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_24_in_ruleCompoundDialogue2856 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_25_in_ruleCompoundDialogue2884 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue2894 = new BitSet(new long[]{0x0000000048000002L});
+    public static final BitSet FOLLOW_30_in_ruleCompoundDialogue2906 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleCompoundDialogue2915 = new BitSet(new long[]{0x00300D20001A0010L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleCompoundDialogue2950 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue2963 = new BitSet(new long[]{0x00300D20001A0010L});
+    public static final BitSet FOLLOW_17_in_ruleCompoundDialogue2974 = new BitSet(new long[]{0x0000000008000002L});
+    public static final BitSet FOLLOW_27_in_ruleCompoundDialogue2986 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleCompoundDialogue2995 = new BitSet(new long[]{0x00300D20000A4010L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_ruleCompoundDialogue3030 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCompoundDialogue3043 = new BitSet(new long[]{0x00300D20000A4010L});
+    public static final BitSet FOLLOW_17_in_ruleCompoundDialogue3054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCollectionDialogue_in_ruleCompoundDialogue3085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMasterDetail_in_ruleCompoundDialogue3112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCollectionDialogue_in_entryRuleCollectionDialogue3144 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCollectionDialogue3154 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCollectionDialogue3201 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleCollectionDialogue3219 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCollectionDialogue3241 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleCollectionDialogue3258 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCollectionDialogue3280 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleCollectionDialogue3292 = new BitSet(new long[]{0x0000000048820000L});
+    public static final BitSet FOLLOW_23_in_ruleCollectionDialogue3302 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_24_in_ruleCollectionDialogue3324 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_25_in_ruleCollectionDialogue3352 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue3362 = new BitSet(new long[]{0x0000000048020000L});
+    public static final BitSet FOLLOW_30_in_ruleCollectionDialogue3374 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleCollectionDialogue3383 = new BitSet(new long[]{0x00300D20001A0010L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleCollectionDialogue3418 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue3431 = new BitSet(new long[]{0x00300D20001A0010L});
+    public static final BitSet FOLLOW_17_in_ruleCollectionDialogue3442 = new BitSet(new long[]{0x0000000008020000L});
+    public static final BitSet FOLLOW_27_in_ruleCollectionDialogue3454 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleCollectionDialogue3463 = new BitSet(new long[]{0x00300D20000A4010L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_ruleCollectionDialogue3498 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleCollectionDialogue3511 = new BitSet(new long[]{0x00300D20000A4010L});
+    public static final BitSet FOLLOW_17_in_ruleCollectionDialogue3522 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleCollectionDialogue3533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMasterDetail_in_entryRuleMasterDetail3566 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMasterDetail3576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleMasterDetail3623 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleMasterDetail3641 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleMasterDetail3663 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleMasterDetail3680 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleMasterDetail3702 = new BitSet(new long[]{0x0000000200800000L});
+    public static final BitSet FOLLOW_23_in_ruleMasterDetail3715 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_24_in_ruleMasterDetail3737 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_25_in_ruleMasterDetail3765 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleMasterDetail3775 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleMasterDetail3786 = new BitSet(new long[]{0x00300D2000180010L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleMasterDetail3820 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleMasterDetail3833 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleMasterDetail3842 = new BitSet(new long[]{0x00300D2000180010L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleMasterDetail3876 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleMasterDetail3889 = new BitSet(new long[]{0x0000000008000002L});
+    public static final BitSet FOLLOW_27_in_ruleMasterDetail3899 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleMasterDetail3908 = new BitSet(new long[]{0x00300D20000A4010L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_ruleMasterDetail3943 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleMasterDetail3956 = new BitSet(new long[]{0x00300D20000A4010L});
+    public static final BitSet FOLLOW_17_in_ruleMasterDetail3967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcess_in_entryRuleProcess4002 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProcess4012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleProcess4059 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleProcess4077 = new BitSet(new long[]{0x000FF00000000020L});
+    public static final BitSet FOLLOW_ruleProcessType_in_ruleProcess4112 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleProcessTypeLink_in_ruleProcess4157 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_ruleProcess4195 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProcess4224 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleProcess4241 = new BitSet(new long[]{0x0000000000400020L});
+    public static final BitSet FOLLOW_22_in_ruleProcess4262 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProcess4298 = new BitSet(new long[]{0x0000000000011000L});
+    public static final BitSet FOLLOW_12_in_ruleProcess4311 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_ruleProcess4327 = new BitSet(new long[]{0x00300D20001A4010L});
+    public static final BitSet FOLLOW_ruleUICall_in_ruleProcess4362 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleProcess4375 = new BitSet(new long[]{0x00300D20001A4010L});
+    public static final BitSet FOLLOW_17_in_ruleProcess4386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormElement_in_entryRuleFormElement4421 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFormElement4431 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleFormElement4478 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_ruleFormElement4496 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleDtoPropertyReference_in_ruleFormElement4530 = new BitSet(new long[]{0x0000000010801000L});
+    public static final BitSet FOLLOW_28_in_ruleFormElement4544 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleFormElement4566 = new BitSet(new long[]{0x0000000000801000L});
+    public static final BitSet FOLLOW_23_in_ruleFormElement4586 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_24_in_ruleFormElement4608 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_25_in_ruleFormElement4636 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleFormElement4648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleActionDialogueCall_in_entryRuleActionDialogueCall4681 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleActionDialogueCall4691 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleActionDialogueCall4750 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleActionDialogueCall4764 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleActionDialogueCall4786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_entryRuleDialogueCall4822 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDialogueCall4832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDialogueCall4880 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleDialogueCall4897 = new BitSet(new long[]{0x00300D2000180000L});
+    public static final BitSet FOLLOW_37_in_ruleDialogueCall4909 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_ruleDialogueCall4918 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_ruleOperationExpression_in_ruleDialogueCall4952 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_ruleDialogueCall4965 = new BitSet(new long[]{0x00300D0000180000L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleDialogueCall5001 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleDialogueCall5015 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDialogueCall5037 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression5073 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression5083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceExpression_in_ruleExpression5130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNavigationExpression_in_ruleExpression5157 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStandardExpression_in_ruleExpression5184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOperationExpression_in_ruleExpression5211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_entryRuleProcessCall5243 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProcessCall5253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleProcessCall5301 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleProcessCall5318 = new BitSet(new long[]{0x00300D2000084000L});
+    public static final BitSet FOLLOW_37_in_ruleProcessCall5330 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_ruleProcessCall5339 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_ruleOperationExpression_in_ruleProcessCall5373 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_ruleProcessCall5386 = new BitSet(new long[]{0x00300D0000084000L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleProcessCall5422 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleProcessCall5436 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProcessCall5458 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_28_in_ruleProcessCall5471 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProcessCall5493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOperationExpression_in_entryRuleOperationExpression5536 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOperationExpression5546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleOperationExpression5580 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleOperationExpression5602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleProcessCall_in_entryRuleSimpleProcessCall5643 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleProcessCall5653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSimpleProcessCall5700 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_28_in_ruleSimpleProcessCall5713 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleProcessCall5735 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStandardExpression_in_entryRuleStandardExpression5778 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStandardExpression5788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionType_in_ruleStandardExpression5846 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceExpression_in_entryRuleServiceExpression5882 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceExpression5892 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleServiceExpression5926 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceExpression5948 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleServiceExpression5965 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceExpression5987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNavigationExpression_in_entryRuleNavigationExpression6028 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNavigationExpression6038 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleNavigationExpression6084 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_ruleNavigationExpression6107 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_ruleNavigationExpression6141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDtoPropertyReference_in_entryRuleDtoPropertyReference6178 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDtoPropertyReference6188 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDtoPropertyReference6234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssociationRoleReference_in_entryRuleAssociationRoleReference6274 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAssociationRoleReference6284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAssociationRoleReference6330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUICall_in_entryRuleUICall6370 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUICall6380 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDialogueCall_in_ruleUICall6427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessCall_in_ruleUICall6454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleProcessType6500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleProcessType6515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleProcessType6530 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleProcessType6545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleProcessType6560 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleProcessType6575 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleProcessType6590 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleProcessTypeLink6632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleExpressionType6674 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleExpressionType6689 = new BitSet(new long[]{0x0000000000000002L});
 
 }

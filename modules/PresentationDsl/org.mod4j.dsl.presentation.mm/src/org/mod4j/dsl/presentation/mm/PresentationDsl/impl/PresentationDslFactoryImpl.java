@@ -16,8 +16,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractDialogue;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.AbstractProcess;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.AssociationRoleReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CollectionDialogue;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.CompoundDialogue;
@@ -29,10 +27,9 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoPropertyReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.DtoReference;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.Expression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExpressionType;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Form;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.FormElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.MasterDetail;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElement;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.NavigationExpression;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.OperationExpression;
@@ -108,7 +105,7 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
             case PresentationDslPackage.EXPRESSION: return createExpression();
             case PresentationDslPackage.STANDARD_EXPRESSION: return createStandardExpression();
             case PresentationDslPackage.OPERATION_EXPRESSION: return createOperationExpression();
-            case PresentationDslPackage.APPLICATION: return createApplication();
+            case PresentationDslPackage.MENU: return createMenu();
             case PresentationDslPackage.PROCESS_REFERENCE: return createProcessReference();
             case PresentationDslPackage.DIALOGUE_REFERENCE: return createDialogueReference();
             case PresentationDslPackage.ABSTRACT_DIALOGUE: return createAbstractDialogue();
@@ -338,9 +335,9 @@ public class PresentationDslFactoryImpl extends EFactoryImpl implements Presenta
      * <!-- end-user-doc -->
      * @generated
      */
-    public Application createApplication() {
-        ApplicationImpl application = new ApplicationImpl();
-        return application;
+    public Menu createMenu() {
+        MenuImpl menu = new MenuImpl();
+        return menu;
     }
 
     /**

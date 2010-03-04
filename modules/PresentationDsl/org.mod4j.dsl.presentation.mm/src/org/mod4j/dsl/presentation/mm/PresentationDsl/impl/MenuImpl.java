@@ -18,24 +18,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ProcessCall;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Application</b></em>'.
+ * An implementation of the model object '<em><b>Menu</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.ApplicationImpl#getStartProcesses <em>Start Processes</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.MenuImpl#getStartProcesses <em>Start Processes</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ApplicationImpl extends ModelElementImpl implements Application {
+public class MenuImpl extends ModelElementImpl implements Menu {
     /**
      * The cached value of the '{@link #getStartProcesses() <em>Start Processes</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -51,7 +51,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ApplicationImpl() {
+    protected MenuImpl() {
         super();
     }
 
@@ -62,7 +62,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
      */
     @Override
     protected EClass eStaticClass() {
-        return PresentationDslPackage.Literals.APPLICATION;
+        return PresentationDslPackage.Literals.MENU;
     }
 
     /**
@@ -72,7 +72,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
      */
     public EList<ProcessCall> getStartProcesses() {
         if (startProcesses == null) {
-            startProcesses = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.APPLICATION__START_PROCESSES);
+            startProcesses = new EObjectContainmentEList<ProcessCall>(ProcessCall.class, this, PresentationDslPackage.MENU__START_PROCESSES);
         }
         return startProcesses;
     }
@@ -85,7 +85,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case PresentationDslPackage.APPLICATION__START_PROCESSES:
+            case PresentationDslPackage.MENU__START_PROCESSES:
                 return ((InternalEList<?>)getStartProcesses()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -99,7 +99,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case PresentationDslPackage.APPLICATION__START_PROCESSES:
+            case PresentationDslPackage.MENU__START_PROCESSES:
                 return getStartProcesses();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -114,7 +114,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case PresentationDslPackage.APPLICATION__START_PROCESSES:
+            case PresentationDslPackage.MENU__START_PROCESSES:
                 getStartProcesses().clear();
                 getStartProcesses().addAll((Collection<? extends ProcessCall>)newValue);
                 return;
@@ -130,7 +130,7 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.APPLICATION__START_PROCESSES:
+            case PresentationDslPackage.MENU__START_PROCESSES:
                 getStartProcesses().clear();
                 return;
         }
@@ -145,10 +145,10 @@ public class ApplicationImpl extends ModelElementImpl implements Application {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case PresentationDslPackage.APPLICATION__START_PROCESSES:
+            case PresentationDslPackage.MENU__START_PROCESSES:
                 return startProcesses != null && !startProcesses.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
-} //ApplicationImpl
+} //MenuImpl

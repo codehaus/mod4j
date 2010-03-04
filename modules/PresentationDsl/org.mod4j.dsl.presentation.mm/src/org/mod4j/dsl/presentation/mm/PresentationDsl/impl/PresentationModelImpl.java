@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.mod4j.dsl.presentation.mm.PresentationDsl.Application;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ExternalReference;
+import org.mod4j.dsl.presentation.mm.PresentationDsl.Menu;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.ModelElementWithContext;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationDslPackage;
 import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
@@ -37,7 +37,7 @@ import org.mod4j.dsl.presentation.mm.PresentationDsl.PresentationModel;
  * <ul>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getExternalReferences <em>External References</em>}</li>
- *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getStart <em>Start</em>}</li>
+ *   <li>{@link org.mod4j.dsl.presentation.mm.PresentationDsl.impl.PresentationModelImpl#getMainMenu <em>Main Menu</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,14 +65,14 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
     protected EList<ExternalReference> externalReferences;
 
     /**
-     * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
+     * The cached value of the '{@link #getMainMenu() <em>Main Menu</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getStart()
+     * @see #getMainMenu()
      * @generated
      * @ordered
      */
-    protected Application start;
+    protected Menu mainMenu;
 
     /**
      * <!-- begin-user-doc -->
@@ -122,8 +122,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
      * <!-- end-user-doc -->
      * @generated
      */
-    public Application getStart() {
-        return start;
+    public Menu getMainMenu() {
+        return mainMenu;
     }
 
     /**
@@ -131,11 +131,11 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetStart(Application newStart, NotificationChain msgs) {
-        Application oldStart = start;
-        start = newStart;
+    public NotificationChain basicSetMainMenu(Menu newMainMenu, NotificationChain msgs) {
+        Menu oldMainMenu = mainMenu;
+        mainMenu = newMainMenu;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__START, oldStart, newStart);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU, oldMainMenu, newMainMenu);
             if (msgs == null) msgs = notification; else msgs.add(notification);
         }
         return msgs;
@@ -146,18 +146,18 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setStart(Application newStart) {
-        if (newStart != start) {
+    public void setMainMenu(Menu newMainMenu) {
+        if (newMainMenu != mainMenu) {
             NotificationChain msgs = null;
-            if (start != null)
-                msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PRESENTATION_MODEL__START, null, msgs);
-            if (newStart != null)
-                msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PRESENTATION_MODEL__START, null, msgs);
-            msgs = basicSetStart(newStart, msgs);
+            if (mainMenu != null)
+                msgs = ((InternalEObject)mainMenu).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU, null, msgs);
+            if (newMainMenu != null)
+                msgs = ((InternalEObject)newMainMenu).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU, null, msgs);
+            msgs = basicSetMainMenu(newMainMenu, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__START, newStart, newStart));
+            eNotify(new ENotificationImpl(this, Notification.SET, PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU, newMainMenu, newMainMenu));
     }
 
     /**
@@ -187,8 +187,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 return ((InternalEList<?>)getExternalReferences()).basicRemove(otherEnd, msgs);
-            case PresentationDslPackage.PRESENTATION_MODEL__START:
-                return basicSetStart(null, msgs);
+            case PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU:
+                return basicSetMainMenu(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -205,8 +205,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 return getElements();
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 return getExternalReferences();
-            case PresentationDslPackage.PRESENTATION_MODEL__START:
-                return getStart();
+            case PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU:
+                return getMainMenu();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -228,8 +228,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 getExternalReferences().clear();
                 getExternalReferences().addAll((Collection<? extends ExternalReference>)newValue);
                 return;
-            case PresentationDslPackage.PRESENTATION_MODEL__START:
-                setStart((Application)newValue);
+            case PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU:
+                setMainMenu((Menu)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -249,8 +249,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 getExternalReferences().clear();
                 return;
-            case PresentationDslPackage.PRESENTATION_MODEL__START:
-                setStart((Application)null);
+            case PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU:
+                setMainMenu((Menu)null);
                 return;
         }
         super.eUnset(featureID);
@@ -268,8 +268,8 @@ public class PresentationModelImpl extends ModelElementImpl implements Presentat
                 return elements != null && !elements.isEmpty();
             case PresentationDslPackage.PRESENTATION_MODEL__EXTERNAL_REFERENCES:
                 return externalReferences != null && !externalReferences.isEmpty();
-            case PresentationDslPackage.PRESENTATION_MODEL__START:
-                return start != null;
+            case PresentationDslPackage.PRESENTATION_MODEL__MAIN_MENU:
+                return mainMenu != null;
         }
         return super.eIsSet(featureID);
     }

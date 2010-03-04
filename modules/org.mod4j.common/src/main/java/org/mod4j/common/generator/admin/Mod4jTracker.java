@@ -289,6 +289,18 @@ public class Mod4jTracker {
     }
 
     /**
+     * Static, because this is used in Xpand templates.
+     * 
+     * @param moduleName
+     * @param filename
+     * @return
+     */
+    static public String fullGenerateResourcePath(String moduleName, String filename) {
+        String result = moduleName + "/" + ProjectProperties.getResourceGenPath() + "/" + filename;
+        return ProjectProperties.getApplicationPath() + "/" + result;
+    }
+
+    /**
      * Determine the default file-path for manual maintained sources or resources, based on the given fileName and moduleName.
      * E.g. <br>
      * <code>MyApp-domain/src/main/resources/filenname.xml</code>. Or <br>

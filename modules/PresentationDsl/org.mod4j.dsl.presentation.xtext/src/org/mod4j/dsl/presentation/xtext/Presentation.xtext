@@ -13,7 +13,7 @@ ApplicationModel returns PresentationModel :
     "application" name = ID ";"
     
     (externalReferences += ProcessReference)*
-    (start = Application)
+    (mainMenu = Menu)
 ;
 
 ProcessReference : 
@@ -25,11 +25,10 @@ FormsAndProcesses returns PresentationModel :
 	"presentation" name = ID ";"
 	
 	(externalReferences += ExternalReference)*
-    (start = Application)?
 	(elements += ModelElementWithContext)*
 	;
 
-Application :
+Menu :
     "application" "["
     startProcesses  += SimpleProcessCall ";"
     (startProcesses += SimpleProcessCall ";" )*
