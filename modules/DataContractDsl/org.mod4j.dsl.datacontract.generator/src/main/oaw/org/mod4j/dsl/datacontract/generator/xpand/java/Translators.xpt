@@ -82,16 +82,13 @@
               «IF this.creatable»
               * Translates a «javaClassName(name)» dto object into a «javaClassName(base.name)» domain object.
               * A new domain object will be created passed to the {@link #fromDto(FullCustomerDto, Customer)}.
-              «ELSE»
-              * A TranslatorException is thrown, since this DTO does not contain all the mandatory properties of the referenced {@link «javaClassName(base.name)»}. 
-              * Therefore, the DTO must always be based on an existing {@link «javaClassName(base.name)»}.
               «ENDIF».
               *
               * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
               * @return {@link «javaClassName(base.name)»}, the resulting domain object.
-              * @throws TranslatorException
+              * @throws IllegalArgumentException
               */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws TranslatorException {
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source) throws IllegalArgumentException {
                   «REM»A DTO is NOT creatable if it does not contain all mandatory properties of the domain object. See CompleteDtc.ext. «ENDREM»
                   «IF this.creatable -»
                       if (getTranslated().containsKey((source))) {
@@ -99,16 +96,12 @@
                       }              
 
                       if (source == null ) {
-                          throw new TranslatorException("Argument source is null! Translation of a domain object can not be based on a null object.");
+                          throw new IllegalArgumentException("Argument [source] may not be null");
                       }
               
                       if (source.getId() != null) {
-                          throw new TranslatorException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
+                          throw new IllegalArgumentException("Can not translate a dto with existing id to a new domain object. Dto: " + source.toString());
                       }
-
-                      «FOREACH properties.select(e|e.mandatoryForCreation) AS nonNullableProp-»
-                          if (source.«getterPrefix(nonNullableProp)»«javaClassName(nonNullableProp.name)»() == null) throw new TranslatorException("Can not translate dto to «javaClassName(base.name)» when non-nullable attribute «nonNullableProp.name» is null.");
-                      «ENDFOREACH»
                    
                       «javaClassName(base.name) -» target = new «javaClassName(base.name) -»(«EXPAND Constructors::addConstructorArgumentsList -»);
                                     
@@ -125,31 +118,27 @@
               * @param source The {@link «javaClassName(name)»} object to translate, may not be {@code null}.
               * @param target The {@link «javaClassName(base.name)»} object translated from source, may not be {@code null}.
               * @return {@link «javaClassName(base.name)»}, the resulting domain object.
-              * @throws TranslatorException
+              * @throws IllegalArgumentException
               */
-              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target) throws TranslatorException {
+              public «javaClassName(base.name)» fromDto(final «javaClassName(name)» source, final «javaClassName(base.name)» target) throws IllegalArgumentException {
 
                   if (getTranslated().containsKey((source))) {
                       return («javaClassName(base.name)») getTranslated().get(source);
                   }
                  
                   if (source == null ) {
-                      throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
+                      throw new IllegalArgumentException("Argument source is null! Translation of a dto can not be based on a null dto.");
                   }
 
                   if (target == null) {
-                      throw new TranslatorException("Argument target is null! Translation of a dto can not be based on a null domain object.");
+                      throw new IllegalArgumentException("Argument target is null! Translation of a dto can not be based on a null domain object.");
                   }
-                  
-                  «FOREACH properties.select(e|e.mandatoryForCreation) AS nonNullableProp-»
-                      if (source.«getterPrefix(nonNullableProp)»«javaClassName(nonNullableProp.name)»() == null) throw new TranslatorException("Can not translate dto to «javaClassName(base.name)» when non-nullable attribute «nonNullableProp.name» is null.");
-                  «ENDFOREACH»
 
                   final boolean equals = (source.getId() == null) ? target.getId() == null
                                                                   : source.getId().equals(target.getId());
 
                   if (!equals) {
-                      throw new TranslatorException("Can not translate a dto to a domain object when the id of the dto differs from the id of the domain object.");
+                      throw new IllegalArgumentException("Can not translate a dto to a domain object when the id of the dto differs from the id of the domain object.");
                   }
                   
                   validateVersion(source, target);
@@ -253,7 +242,7 @@
                   }
                  
                   if (source == null ) {
-                      throw new TranslatorException("Argument source is null! Translation of a domain object can not be based on a null object.");
+                      throw new IllegalArgumentException("Argument source is null! Translation of a domain object can not be based on a null object.");
                   }
                   
                   «javaClassName(name)» result = new «javaClassName(name)»(source.getId(), source.getVersion());
@@ -335,11 +324,11 @@
   *
   * @return {@link «ExampleClass»}, the resulting businessclass object.
   */
-  public «ExampleClass» exampleFromDto(final «javaClassName(name)» source) throws TranslatorException {
+  public «ExampleClass» exampleFromDto(final «javaClassName(name)» source) throws IllegalArgumentException {
         «ExampleClass» result = new «ExampleClass»();
      
       if (source == null ) {
-          throw new TranslatorException("Argument source is null! Translation of a dto can not be based on a null dto.");
+          throw new IllegalArgumentException("Argument source is null! Translation of a dto can not be based on a null dto.");
       }
 
       «FOREACH properties.typeSelect(DtoDataProperty).select(e|e.writable) AS dataProperty -»

@@ -29,7 +29,7 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(12345);
-        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		customerServiceModelService.createCustomer(customer);
 		SimpleCustomerDto createdCustomer = customerServiceModelService
@@ -47,11 +47,11 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 
 	/**
 	 * Test whether the same object can be created twice. Should result in an
-	 * TranslatorException.
+	 * BusinessRuleException.
 	 */
 	@Test
 	@Rollback(true)
-	@ExpectedException(TranslatorException.class)
+	@ExpectedException(BusinessRuleException.class)
 	public final void testCreateCustomerTwice() {
 
 		SimpleCustomerDto customer = new SimpleCustomerDto();
@@ -78,28 +78,26 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 	 */
 	@Test
 	@ExpectedException(BusinessRuleException.class)
-	public final void testBusinessRuleException() {
+	public final void testMinLengthValidation() {
 
 		SimpleCustomerDto customer = new SimpleCustomerDto();
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(-1);
 		customer.setUsername("a"); // violates minlength = 3 constraint
-        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		customerServiceModelService.createCustomer(customer);
 	}
 
 	/**
 	 * Test whether an object can be created from a null DTO. Should result in a
-	 * TranslatorException.
+	 * BusinessRuleException.
 	 */
 	@Test
-	@ExpectedException(TranslatorException.class)
-	public final void testTranslatorException() {
-
+	@ExpectedException(IllegalArgumentException.class)
+	public final void testNotNullValidation() {
 		customerServiceModelService.createCustomer((SimpleCustomerDto) null);
-		fail();
 	}
 
 	@Test
@@ -109,7 +107,7 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 		customer.setFirstName("Alfred");
 		customer.setLastName("Sloan");
 		customer.setCustomerNr(12345);
-        customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		customer.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 		customer = customerServiceModelService.createCustomer(customer);
 		customer = customerServiceModelService.readCustomer(customer.getId());
 		assertEquals("Alfred", customer.getFirstName());
@@ -125,7 +123,7 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 		custDto.setLastName("Vogelzang");
 		custDto.setCustomerNr(54321);
 		custDto.setDiscountPercentage(0);
-        custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		FullCustomerDto result = customerServiceModelService
 				.createCustomer(custDto);
@@ -153,7 +151,7 @@ public class CustomerServiceTest extends AbstractServiceTestCase {
 		custDto.setFirstName("Nasty");
 		custDto.setLastName("Customer");
 		custDto.setCustomerNr(666);
-        custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
+		custDto.setBirthDate(new DateTime(2008, 1, 1, 1, 1, 0, 0));
 
 		FullCustomerDto result = customerServiceModelService
 				.createCustomer(custDto);

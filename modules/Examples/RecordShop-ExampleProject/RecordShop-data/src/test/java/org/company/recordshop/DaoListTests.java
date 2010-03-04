@@ -96,8 +96,8 @@ public class DaoListTests extends AbstractDaoTestCase {
     public void testIntSortedDescendingPagedList(){
         List<Customer> customers = customerDao.listPage(1, 2, "customerNr", false);
         assertEquals(2, customers.size());
-        assertEquals(3, customers.get(0).getCustomerNr());
-        assertEquals(2, customers.get(1).getCustomerNr());
+        assertEquals(3, customers.get(0).getCustomerNr().intValue());
+        assertEquals(2, customers.get(1).getCustomerNr().intValue());
     }
     
     /**

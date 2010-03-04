@@ -33,7 +33,7 @@ public class Person extends PersonImplBase {
 	}
 
 	@Override
-	public int getAge() {
+	public Integer getAge() {
 		
         return Years.yearsBetween(birthDate, new DateTime()).getYears();
 	}

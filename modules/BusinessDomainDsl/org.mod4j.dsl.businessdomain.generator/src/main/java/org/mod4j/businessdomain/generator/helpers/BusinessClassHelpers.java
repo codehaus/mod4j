@@ -133,7 +133,7 @@ public class BusinessClassHelpers {
     }
 
 	public static String javaType(BoolProperty p) {
-		return p.isNullable() ? "Boolean" : "boolean";
+		return javaNullableType(p);
 	}
 
     public static String javaNullableType(BoolProperty p) {
@@ -186,7 +186,7 @@ public class BusinessClassHelpers {
     }
 
 	public static String javaType(IntegerProperty p) {
-		return p.isNullable() ? "Integer" : "int";
+		return javaNullableType(p);
 	}
 
 	public static String javaNullableType(IntegerProperty p) {
@@ -198,7 +198,7 @@ public class BusinessClassHelpers {
     }
 
 	public static String javaType(DecimalProperty p) {
-		return p.isNullable() ? "Float" : "float";
+		return javaNullableType(p);
 	}
 
     public static String javaNullableType(DecimalProperty p) {
@@ -206,7 +206,7 @@ public class BusinessClassHelpers {
     }
 
     public static String javaDefaultValue(DecimalProperty p) {
-        return p.isNullable() ? "null" : "0";
+        return p.isNullable() ? "null" : "0F";
     }
 
 	public static List<Property> getAllProperties(BusinessClass cls) {

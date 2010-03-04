@@ -99,7 +99,7 @@ public class AssociationTest extends AbstractDaoTestCase {
         return result;
     }
 
-    protected Product createProduct(String prodNr, int price) {
+    protected Product createProduct(String prodNr, float price) {
         Product result = new Product(prodNr, price, false);
         allProducts.add(result);
         productDao.add(result);

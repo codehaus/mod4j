@@ -69,6 +69,16 @@
     public «javaType(this)» is«name.toFirstUpper()» () {
         return this.«name»;
     }
+    
+    /**
+     * Extra getter for Boolean properties, because the "is<property>()" syntax does not
+     * always work.
+     *
+     * @return «name» («javaType(this)») «description»
+     */
+    public «javaType(this)» get«name.toFirstUpper()» () {
+        return is«name.toFirstUpper()»();
+    }
 «ENDDEFINE»
 
 «DEFINE addAbstractGetter FOR BoolProperty»

@@ -31,8 +31,8 @@ public class OneEarDiscountBusinessRuleValidationTest {
         Customer vincent = new Customer("Vincent", "Van Gogh", date(), 1);
         vincent.setDiscountPercentage(50);
         vincent.setNumberOfEars(1);
-        assertEquals(0, johannes.getDiscountPercentage());
-        assertEquals(50, vincent.getDiscountPercentage());
+        assertEquals(0, johannes.getDiscountPercentage().intValue());
+        assertEquals(50, vincent.getDiscountPercentage().intValue());
     }
     
     @Test

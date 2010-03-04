@@ -66,9 +66,9 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertNotNull(saved);
         assertEquals("Vincent", saved.getFirstName());
         assertEquals("Van Gogh", saved.getLastName());
-        assertEquals(1, saved.getCustomerNr());
+        assertEquals(1, saved.getCustomerNr().intValue());
         assertEquals(false, saved.isBlackListed());
-        assertEquals(1, saved.getNumberOfEars());
+        assertEquals(1, saved.getNumberOfEars().intValue());
         assertEquals(0, saved.getOrders().size());
     }
 
@@ -99,8 +99,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertNotNull(saved = customerDao.retrieve(customer.getId()));
         assertEquals("Vincent", saved.getFirstName());
         assertEquals("van Gogh", saved.getLastName());
-        assertEquals(2, saved.getNumberOfEars());
-        assertEquals(1, saved.getCustomerNr());
+        assertEquals(2, saved.getNumberOfEars().intValue());
+        assertEquals(1, saved.getCustomerNr().intValue());
         assertEquals(false, saved.isBlackListed());
         assertEquals(0, saved.getOrders().size());
 
@@ -117,8 +117,8 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         assertEquals("Thea", updated.getFirstName());
         assertEquals("Engelhard", updated.getLastName());
         assertEquals(SexeEnum.FEMALE, updated.getSexe());
-        assertEquals(2, updated.getNumberOfEars());
-        assertEquals(2, updated.getCustomerNr());
+        assertEquals(2, updated.getNumberOfEars().intValue());
+        assertEquals(2, updated.getCustomerNr().intValue());
         assertEquals(true, updated.isBlackListed());
         assertEquals(0, updated.getOrders().size());
     }
@@ -248,34 +248,34 @@ public class CustomerDaoTest extends AbstractDaoTestCase {
         example = new CustomerExample();
         example.setFirstName("Rembrandt");
         Customer customer = customerDao.findByExample(example).get(0);
-        assertEquals(3, customer.getCustomerNr());
+        assertEquals(3, customer.getCustomerNr().intValue());
 
         example = new CustomerExample();
         example.setFirstName("rEMBRANDT");
         customer = customerDao.findByExample(example).get(0);
-        assertEquals(3, customer.getCustomerNr());
+        assertEquals(3, customer.getCustomerNr().intValue());
 
         example = new CustomerExample();
         example.setFirstName("Rem");
         customer = customerDao.findByExample(example).get(0);
-        assertEquals(3, customer.getCustomerNr());
+        assertEquals(3, customer.getCustomerNr().intValue());
 
         example = new CustomerExample();
         example.setFirstName(null);
         example.setLastName("Rij");
         customer = customerDao.findByExample(example).get(0);
-        assertEquals(3, customer.getCustomerNr());
+        assertEquals(3, customer.getCustomerNr().intValue());
         customer = customerDao.findByExample(example).get(1);
-        assertEquals(4, customer.getCustomerNr());
+        assertEquals(4, customer.getCustomerNr().intValue());
 
         example.setFirstName("mbr");
         customer = customerDao.findByExample(example).get(0);
-        assertEquals(3, customer.getCustomerNr());
+        assertEquals(3, customer.getCustomerNr().intValue());
 
         example = new CustomerExample();
         example.setBlackListed(null);
         example.setCustomerNr(5);
         customer = customerDao.findByExample(example).get(0);
-        assertEquals(5, customer.getCustomerNr());
+        assertEquals(5, customer.getCustomerNr().intValue());
     }
 }

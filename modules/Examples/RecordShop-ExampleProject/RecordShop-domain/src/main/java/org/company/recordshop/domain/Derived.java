@@ -12,81 +12,81 @@ import org.joda.time.DateTime;
  */
 public class Derived extends DerivedImplBase {
 
-    /**
-     * Minimal constructor for Derived
-     */
-    public Derived() {
-        super();
-    }
+	/**
+	 * Minimal constructor for Derived
+	 */
+	public Derived() {
+		super();
+	}
 
-    /**
-     * @return first (String)
-     */
-    public String getFirst() {
-        return "first";
-    }
+	/**
+	 * @return first (String)
+	 */
+	public String getFirst() {
+		return "first";
+	}
 
-    /**
-     * 
-     * @return secondo (boolean)
-     */
-    public boolean isSecondo() {
-        return true;
-    }
+	/**
+	 * 
+	 * @return secondo (boolean)
+	 */
+	public Boolean isSecondo() {
+		return true;
+	}
 
-    /**
-     * @return third (DateTime)
-     */
-    public DateTime getThird() {
-        return new DateTime(3);
-    }
+	/**
+	 * @return third (DateTime)
+	 */
+	public DateTime getThird() {
+		return new DateTime(3);
+	}
 
-    /**
-     * @return fourth (int)
-     */
-    public Integer getFourth() {
-        return 4;
-    }
+	/**
+	 * @return fourth (int)
+	 */
+	public Integer getFourth() {
+		return 4;
+	}
 
-    /**
-     * @return fifth (float)
-     */
-    public float getFifth() {
-        return 5.0F;
-    }
+	/**
+	 * @return fifth (float)
+	 */
+	public Float getFifth() {
+		return 5.0F;
+	}
 
-    /**
-     * @param first
-     *            (String)
-     */
-    public void setFirst(final String first) {
-    }
+	/**
+	 * @param first
+	 *            (String)
+	 */
+	public void setFirst(final String first) {
+	}
 
-    /**
-     * @param secondo
-     *            (boolean)
-     */
-    public void setSecondo(final boolean secondo) {
-    }
+	/**
+	 * @param secondo
+	 *            (boolean)
+	 */
+	public void setSecondo(final Boolean secondo) {
+	}
 
-    /**
-     * @param third
-     *            (DateTime)
-     */
-    public void setThird(final DateTime third) {
-    }
+	/**
+	 * @param third
+	 *            (DateTime)
+	 */
+	public void setThird(final DateTime third) {
+	}
 
-    /**
-     * @param fifth
-     *            (float)
-     */
-    public void setFifth(final float fifth) {
-    }
+	/**
+	 * @param fifth
+	 *            (float)
+	 */
+	public void setFifth(final Float fifth) {
+	}
 
-    @Override
-    public void setFourth(Integer fourth) {
-        // TODO Auto-generated method stub
-        
-    }
+	@Override
+	public void setFourth(Integer fourth) {
+		// TODO Auto-generated method stub
+
+	}
 
 }
