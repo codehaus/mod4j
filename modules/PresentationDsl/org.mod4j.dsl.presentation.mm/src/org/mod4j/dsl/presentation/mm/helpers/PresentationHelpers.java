@@ -350,11 +350,6 @@ public class PresentationHelpers {
     }
 
     public static String checkProcessCall(ProcessCall call) {
-        AbstractProcess process = call.getReferredProcess();
-        if( process == null ){
-            return "";  //  error handled elsewhere
-        }
-//        ExternalReference context = findContext(process);
         return "";
     }
     /**
@@ -365,10 +360,14 @@ public class PresentationHelpers {
      * @return
      */
     public static String checkProcess(Process p) {
+        try{
         // check for 
         DtoReference context = findContext(p);
+        if( (context == null) || (context.getName() == null) ) {
+            return "";
+        }
         if( p.getProcessElements() == null ) {
-            return null;
+            return "";
         }
         for (UICall uicall : p.getProcessElements()) {
             if( uicall instanceof DialogueCall ) {
@@ -377,6 +376,10 @@ public class PresentationHelpers {
                 if( form == null ){
                     // referred form cannot be found, but that is checked elsewhere
                     return "ERROR: 1 referred form [" + dialogueCall.getName() + "] not found";
+                }
+                if( form.getContextRef().getName() == null ){
+                    // referred form has incorrect context, stop checking 
+                    return "";
                 }
                 Mod4jType expectedType = new Mod4jType(form.getContextRef().getName(), (form.isCollectionContext() ? "LIST" : "SINGLE"));
                 if( dialogueCall.getContextExp() == null ){
@@ -416,7 +419,7 @@ public class PresentationHelpers {
                     StandardExpression stdExp = getStandardExpression(dialogueCall);
                     if( stdExp != null ){
 //                        String resultType = findContext(p).getName();
-                        String resultType = standardExpressionResultType(findContext(p).getName(),
+                        String resultType = standardExpressionResultType(context.getName(),
                                              form.getContextRef().getName(), stdExp);
                         if( resultType.startsWith("ERROR:")){
                             return resultType;
@@ -431,7 +434,11 @@ public class PresentationHelpers {
                 }
             }
         }
-        return null;
+        return "";
+        } catch(Exception e){
+            System.out.println("checkProcess Exception for Process [" + p.getName() + "]");
+        }
+        return "";
     }
 
     /** Find the context for a process
@@ -440,10 +447,12 @@ public class PresentationHelpers {
      * @return
      */
     private static DtoReference findContext(Process p) {
-        if( p.getContextRef()!= null ){
+        if( p.getContextRef() != null ){
             return p.getContextRef() ;
-        } else {
+        } else if( p.getContentForm() != null ){
             return p.getContentForm().getContextRef() ;
+        } else {
+            return null;
         }
     }
 }

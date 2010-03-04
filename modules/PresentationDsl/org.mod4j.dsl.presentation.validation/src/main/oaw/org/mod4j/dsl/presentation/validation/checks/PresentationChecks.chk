@@ -91,7 +91,8 @@ context ProcessCall if (this.referredProcess.type != ProcessType::CUSTOM) && (th
 //	this.referredProcess() != null
 //    ;
 
-context Process ERROR "Process error " + this.getProperty("ERROR") :
+context Process 
+    ERROR "Process error " + this.getProperty("ERROR") :
     let result = checkProcess(this) :       
     (result.startsWith("ERROR:") ? ( this.setProperty("ERROR", result)->false ): true )
      ;
@@ -103,5 +104,6 @@ context ProcessCall if referredProcess != null
       ;
 
 context ProcessCall if (this.owningDialogue != null) && (referredProcess != null) && (this.referredProcess.metaType != ProcessReference)
+                       && (this.owningDialogue.contextRef.name != null)
     ERROR "The process [" + this.name + "] must have the same context as the from to which it belongs [" + this.owningDialogue.name + "]" :
     this.owningDialogue.contextRef.name.equalsIgnoreCase(this.referredProcess.contextRef.name);
